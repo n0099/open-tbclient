@@ -49,7 +49,7 @@ public class a extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
                 return false;
             }
@@ -68,11 +68,11 @@ public class a extends a0 {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str2 = "handleSubAction: " + unitedSchemeEntity.toString();
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str3 = "handleSubAction params: " + unitedSchemeEntity.getParam("params");
             }
             JSONObject jSONObject = null;

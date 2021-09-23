@@ -17,34 +17,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6583a;
+    public String f6591a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6584b;
+    public String f6592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6585c;
+    public String f6593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6586d;
+    public int f6594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6587e;
+    public boolean f6595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f6588f;
+    public boolean f6596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6589g;
+    public boolean f6597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6590h;
+    public int f6598h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f6591i;
+    public float f6599i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f6592j;
+    public String f6600j;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class b {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public b() {
@@ -75,15 +75,15 @@ public class b {
                 return;
             }
         }
-        this.f6583a = "";
-        this.f6584b = "";
-        this.f6585c = "";
-        this.f6586d = 0;
-        this.f6587e = false;
-        this.f6588f = false;
-        this.f6589g = true;
-        this.f6590h = 0;
-        this.f6591i = 1.0f;
+        this.f6591a = "";
+        this.f6592b = "";
+        this.f6593c = "";
+        this.f6594d = 0;
+        this.f6595e = false;
+        this.f6596f = false;
+        this.f6597g = true;
+        this.f6598h = 0;
+        this.f6599i = 1.0f;
     }
 
     public static b a(JSONObject jSONObject, b bVar) {
@@ -92,16 +92,16 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, bVar)) == null) {
             b bVar2 = new b();
             if (jSONObject != null) {
-                bVar2.f6583a = jSONObject.optString("audioId", bVar.f6583a);
-                bVar2.f6584b = jSONObject.optString("slaveId", bVar.f6584b);
-                bVar2.f6587e = jSONObject.optBoolean("autoplay", bVar.f6587e);
-                bVar2.f6588f = jSONObject.optBoolean("loop", bVar.f6588f);
-                bVar2.f6585c = jSONObject.optString("src", bVar.f6585c);
-                bVar2.f6586d = jSONObject.optInt("startTime", bVar.f6586d);
-                bVar2.f6589g = jSONObject.optBoolean("obeyMuteSwitch", bVar.f6589g);
-                bVar2.f6590h = jSONObject.optInt("position", bVar.f6590h);
-                bVar2.f6591i = (float) jSONObject.optDouble("volume", bVar.f6591i);
-                bVar2.f6592j = jSONObject.optString("cb", bVar.f6592j);
+                bVar2.f6591a = jSONObject.optString("audioId", bVar.f6591a);
+                bVar2.f6592b = jSONObject.optString("slaveId", bVar.f6592b);
+                bVar2.f6595e = jSONObject.optBoolean("autoplay", bVar.f6595e);
+                bVar2.f6596f = jSONObject.optBoolean("loop", bVar.f6596f);
+                bVar2.f6593c = jSONObject.optString("src", bVar.f6593c);
+                bVar2.f6594d = jSONObject.optInt("startTime", bVar.f6594d);
+                bVar2.f6597g = jSONObject.optBoolean("obeyMuteSwitch", bVar.f6597g);
+                bVar2.f6598h = jSONObject.optInt("position", bVar.f6598h);
+                bVar2.f6599i = (float) jSONObject.optDouble("volume", bVar.f6599i);
+                bVar2.f6600j = jSONObject.optString("cb", bVar.f6600j);
             }
             return bVar2;
         }
@@ -111,14 +111,14 @@ public class b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f6583a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f6591a) : invokeV.booleanValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "playerId : " + this.f6583a + "; slaveId : " + this.f6584b + "; url : " + this.f6585c + "; AutoPlay : " + this.f6587e + "; Loop : " + this.f6588f + "; startTime : " + this.f6586d + "; ObeyMute : " + this.f6589g + "; pos : " + this.f6590h;
+            return "playerId : " + this.f6591a + "; slaveId : " + this.f6592b + "; url : " + this.f6593c + "; AutoPlay : " + this.f6595e + "; Loop : " + this.f6596f + "; startTime : " + this.f6594d + "; ObeyMute : " + this.f6597g + "; pos : " + this.f6598h;
         }
         return (String) invokeV.objValue;
     }

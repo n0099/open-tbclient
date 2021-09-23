@@ -20,7 +20,7 @@ public interface Request {
         public static final Method POST;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ Method[] f75410a;
+        public static final /* synthetic */ Method[] f75729a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -39,7 +39,7 @@ public interface Request {
             GET = new Method("GET", 0);
             Method method = new Method("POST", 1);
             POST = method;
-            f75410a = new Method[]{GET, method};
+            f75729a = new Method[]{GET, method};
         }
 
         public Method(String str, int i2) {
@@ -70,7 +70,7 @@ public interface Request {
         public static Method[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Method[]) f75410a.clone() : (Method[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Method[]) f75729a.clone() : (Method[]) invokeV.objValue;
         }
     }
 

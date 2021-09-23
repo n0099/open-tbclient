@@ -61,7 +61,7 @@ public class GodSquareHotGodAdapter extends c.a.e.l.e.a<h, ViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GodSquareHotGodAdapter f51979b;
+        public final /* synthetic */ GodSquareHotGodAdapter f52093b;
 
         public a(GodSquareHotGodAdapter godSquareHotGodAdapter) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class GodSquareHotGodAdapter extends c.a.e.l.e.a<h, ViewHolder> {
                     return;
                 }
             }
-            this.f51979b = godSquareHotGodAdapter;
+            this.f52093b = godSquareHotGodAdapter;
         }
 
         @Override // c.a.r0.a0.b0
@@ -86,23 +86,23 @@ public class GodSquareHotGodAdapter extends c.a.e.l.e.a<h, ViewHolder> {
             h hVar;
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f51979b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f15579e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f52093b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f15588e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
-            if (view.getId() != this.f51979b.n.m.getId()) {
-                if (view.getId() == this.f51979b.n.j().getId() || view.getId() == this.f51979b.n.o.getId()) {
-                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f15579e.getUserId()));
+            if (view.getId() != this.f52093b.n.m.getId()) {
+                if (view.getId() == this.f52093b.n.j().getId() || view.getId() == this.f52093b.n.o.getId()) {
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f15588e.getUserId()));
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f15579e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f15588e.getUserId()));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GodSquareHotGodAdapter(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.f15577h);
+        super(tbPageContext.getPageActivity(), h.f15586h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

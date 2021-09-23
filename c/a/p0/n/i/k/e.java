@@ -17,11 +17,11 @@ public class e extends c.a.p0.n.i.d<c.a.p0.n.i.l.e> {
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public g f11953h;
+    public g f11961h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public g f11954i;
+    public g f11962i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(g gVar, c.a.p0.n.i.m.g gVar2, @Nullable g gVar3, @Nullable g gVar4) {
@@ -42,8 +42,8 @@ public class e extends c.a.p0.n.i.d<c.a.p0.n.i.l.e> {
                 return;
             }
         }
-        this.f11953h = gVar3;
-        this.f11954i = gVar4;
+        this.f11961h = gVar3;
+        this.f11962i = gVar4;
     }
 
     @Override // c.a.p0.n.i.d
@@ -69,13 +69,13 @@ public class e extends c.a.p0.n.i.d<c.a.p0.n.i.l.e> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eVar)) == null) {
-            this.f11902e.D();
-            c.a.p0.n.n.a.e(this.f11903f.a(), eVar.f11970a);
-            g gVar = this.f11902e;
-            if (gVar == this.f11953h || gVar == this.f11954i) {
+            this.f11910e.D();
+            c.a.p0.n.n.a.e(this.f11911f.a(), eVar.f11978a);
+            g gVar = this.f11910e;
+            if (gVar == this.f11961h || gVar == this.f11962i) {
                 gVar = null;
             }
-            f.c(eVar.f11971b, gVar, this.f11953h, this.f11954i);
+            f.c(eVar.f11979b, gVar, this.f11961h, this.f11962i);
             return null;
         }
         return (c.a.p0.n.h.a) invokeL.objValue;

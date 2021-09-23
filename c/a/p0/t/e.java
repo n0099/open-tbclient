@@ -18,7 +18,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f12383a;
+    public static final List<String> f12391a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class e {
                 return;
             }
         }
-        f12383a = Arrays.asList("TAH-AN00", "TET-AN00");
+        f12391a = Arrays.asList("TAH-AN00", "TET-AN00");
     }
 
     public static int a(Activity activity) {
@@ -77,7 +77,7 @@ public class e {
             String str = Build.MANUFACTURER;
             String str2 = Build.MODEL;
             if (TextUtils.equals("HUAWEI", str) && !TextUtils.isEmpty(str2)) {
-                for (String str3 : f12383a) {
+                for (String str3 : f12391a) {
                     if (str2.contains(str3)) {
                         return true;
                     }

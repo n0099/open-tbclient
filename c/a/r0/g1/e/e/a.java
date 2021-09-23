@@ -27,10 +27,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, d2Var)) == null) {
-            if (d2Var == null || d2Var.y1) {
+            if (d2Var == null || d2Var.z1) {
                 return false;
             }
-            int i2 = d2Var.c0;
+            int i2 = d2Var.i0;
             return i2 == 0 || i2 == 11 || i2 == 40 || d2Var.D2();
         }
         return invokeL.booleanValue;
@@ -71,7 +71,7 @@ public class a {
         if (y != null) {
             if (bVar.getThreadData() != null) {
                 d2 threadData = bVar.getThreadData();
-                if (threadData.v1() == null || (threadData.v1().K() == null && threadData.v1().V() == null)) {
+                if (threadData.v1() == null || (threadData.v1().K() == null && threadData.v1().W() == null)) {
                     i3 = 0;
                 }
                 y.param("obj_name", i3);
@@ -87,7 +87,7 @@ public class a {
     public static void d(b bVar, int i2) {
         StatisticItem y;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65539, null, bVar, i2) == null) || bVar == null || bVar.getThreadData() == null || !c.a.r0.a0.d0.l.T(bVar.f15562e) || (y = bVar.y("c13494", true)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, bVar, i2) == null) || bVar == null || bVar.getThreadData() == null || !c.a.r0.a0.d0.l.T(bVar.f15571e) || (y = bVar.y("c13494", true)) == null) {
             return;
         }
         y.param("obj_type", i2);
@@ -97,7 +97,7 @@ public class a {
     public static void e(b bVar, int i2) {
         StatisticItem y;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar, i2) == null) || bVar == null || !c.a.r0.a0.d0.l.T(bVar.f15562e) || (y = bVar.y("c13495", true)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar, i2) == null) || bVar == null || !c.a.r0.a0.d0.l.T(bVar.f15571e) || (y = bVar.y("c13495", true)) == null) {
             return;
         }
         y.param("obj_type", i2);

@@ -13,10 +13,10 @@ public class b implements c.a.q0.s.w.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28478a;
+    public String f28498a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28479b;
+    public String f28499b;
 
     public b(VipBannerItem vipBannerItem) {
         Interceptable interceptable = $ic;
@@ -36,21 +36,21 @@ public class b implements c.a.q0.s.w.b.a {
         if (vipBannerItem == null) {
             return;
         }
-        this.f28478a = vipBannerItem.img_url;
-        this.f28479b = vipBannerItem.link;
+        this.f28498a = vipBannerItem.img_url;
+        this.f28499b = vipBannerItem.link;
     }
 
     @Override // c.a.q0.s.w.b.a
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28478a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28498a : (String) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.w.b.a
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28479b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28499b : (String) invokeV.objValue;
     }
 }

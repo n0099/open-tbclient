@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.j;
 import c.a.q0.s.s.a;
-import c.a.r0.j3.z;
+import c.a.r0.j3.a0;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
@@ -26,20 +26,20 @@ public class a {
 
     /* renamed from: c.a.q0.t.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0705a implements a.e {
+    public static class C0703a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f14896e;
+        public final /* synthetic */ int f14898e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f14897f;
+        public final /* synthetic */ Context f14899f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnCancelListener f14898g;
+        public final /* synthetic */ DialogInterface.OnCancelListener f14900g;
 
-        public C0705a(int i2, Context context, DialogInterface.OnCancelListener onCancelListener) {
+        public C0703a(int i2, Context context, DialogInterface.OnCancelListener onCancelListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,18 +54,18 @@ public class a {
                     return;
                 }
             }
-            this.f14896e = i2;
-            this.f14897f = context;
-            this.f14898g = onCancelListener;
+            this.f14898e = i2;
+            this.f14899f = context;
+            this.f14900g = onCancelListener;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                a.d(this.f14896e, this.f14897f);
+                a.d(this.f14898e, this.f14899f);
                 aVar.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.f14898g;
+                DialogInterface.OnCancelListener onCancelListener = this.f14900g;
                 if (onCancelListener != null) {
                     onCancelListener.onCancel(aVar.getDialog());
                 }
@@ -79,7 +79,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnCancelListener f14899e;
+        public final /* synthetic */ DialogInterface.OnCancelListener f14901e;
 
         public b(DialogInterface.OnCancelListener onCancelListener) {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class a {
                     return;
                 }
             }
-            this.f14899e = onCancelListener;
+            this.f14901e = onCancelListener;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -104,7 +104,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.f14899e;
+                DialogInterface.OnCancelListener onCancelListener = this.f14901e;
                 if (onCancelListener != null) {
                     onCancelListener.onCancel(aVar.getDialog());
                 }
@@ -117,13 +117,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i2)) == null) {
             if (i2 == 3 || i2 == 2) {
-                return z.b(context, "com.tencent.mm");
+                return a0.b(context, "com.tencent.mm");
             }
             if (i2 == 8 || i2 == 4) {
-                return z.b(context, "com.tencent.mobileqq");
+                return a0.b(context, "com.tencent.mobileqq");
             }
             if (i2 == 6) {
-                return z.b(context, "com.sina.weibo");
+                return a0.b(context, "com.sina.weibo");
             }
             return true;
         }
@@ -202,7 +202,7 @@ public class a {
         aVar.setAutoNight(false);
         aVar.setCancelable(true);
         aVar.setTitleShowCenter(true);
-        aVar.setPositiveButton(c(i2, context), new C0705a(i2, context, onCancelListener));
+        aVar.setPositiveButton(c(i2, context), new C0703a(i2, context, onCancelListener));
         aVar.setNegativeButton(R.string.cancel, new b(onCancelListener)).create(j.a(activity));
         if (onCancelListener != null) {
             aVar.setOnCalcelListener(onCancelListener);

@@ -16,19 +16,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<c.a.e.l.e.a> f27579a;
+    public final List<c.a.e.l.e.a> f27599a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f27580b;
+    public BdTypeRecyclerView f27600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f27581c;
+    public d f27601c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f27582d;
+    public c f27602d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f27583e;
+    public b f27603e;
 
     public a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
@@ -45,21 +45,21 @@ public class a {
                 return;
             }
         }
-        this.f27579a = new ArrayList();
+        this.f27599a = new ArrayList();
         a(forumRulesShowActivity, bdTypeRecyclerView);
     }
 
     public final void a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, forumRulesShowActivity, bdTypeRecyclerView) == null) {
-            this.f27580b = bdTypeRecyclerView;
-            this.f27581c = new d(forumRulesShowActivity, c.a.r0.w0.q1.c.b.q);
-            this.f27582d = new c(forumRulesShowActivity, c.a.r0.w0.q1.c.c.f27600h);
-            this.f27583e = new b(forumRulesShowActivity, c.a.r0.w0.q1.c.a.f27588j);
-            this.f27579a.add(this.f27581c);
-            this.f27579a.add(this.f27582d);
-            this.f27579a.add(this.f27583e);
-            bdTypeRecyclerView.addAdapters(this.f27579a);
+            this.f27600b = bdTypeRecyclerView;
+            this.f27601c = new d(forumRulesShowActivity, c.a.r0.w0.q1.c.b.q);
+            this.f27602d = new c(forumRulesShowActivity, c.a.r0.w0.q1.c.c.f27620h);
+            this.f27603e = new b(forumRulesShowActivity, c.a.r0.w0.q1.c.a.f27608j);
+            this.f27599a.add(this.f27601c);
+            this.f27599a.add(this.f27602d);
+            this.f27599a.add(this.f27603e);
+            bdTypeRecyclerView.addAdapters(this.f27599a);
         }
     }
 
@@ -72,11 +72,11 @@ public class a {
     public void c(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.f27580b;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f27600b;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.setData(list);
             }
-            c cVar = this.f27582d;
+            c cVar = this.f27602d;
             if (cVar != null) {
                 cVar.l0(list);
             }
@@ -86,11 +86,11 @@ public class a {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            d dVar = this.f27581c;
+            d dVar = this.f27601c;
             if (dVar != null) {
                 dVar.setFrom(str);
             }
-            b bVar = this.f27583e;
+            b bVar = this.f27603e;
             if (bVar != null) {
                 bVar.setFrom(str);
             }

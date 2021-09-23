@@ -21,7 +21,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9197a;
+    public static final boolean f9205a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -30,7 +30,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9198e;
+        public final /* synthetic */ String f9206e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class d {
                     return;
                 }
             }
-            this.f9198e = str;
+            this.f9206e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h.a().putString("swan_guide_toast", this.f9198e);
+                h.a().putString("swan_guide_toast", this.f9206e);
             }
         }
     }
@@ -72,7 +72,7 @@ public class d {
                 return;
             }
         }
-        f9197a = k.f7077a;
+        f9205a = k.f7085a;
     }
 
     public static void a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -98,7 +98,7 @@ public class d {
             jSONObject.put("bbaspg_guide_shown_count", jSONObject2.optString("bbaspg_guide_shown_count", "0"));
             jSONObject.put("bbaspg_guide_last_time", jSONObject2.optString("bbaspg_guide_last_time", "0"));
         } catch (JSONException e2) {
-            if (f9197a) {
+            if (f9205a) {
                 e2.printStackTrace();
             }
         }
@@ -135,7 +135,7 @@ public class d {
                                 optJSONObject.put("image_index", jSONObject2.optString("image_index", "0"));
                             }
                         } catch (JSONException e2) {
-                            if (f9197a) {
+                            if (f9205a) {
                                 e2.printStackTrace();
                             }
                         }
@@ -164,7 +164,7 @@ public class d {
             try {
                 return new JSONObject(string);
             } catch (JSONException e2) {
-                if (f9197a) {
+                if (f9205a) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -178,7 +178,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             String string = h.a().getString("guide_toast_version", "0");
-            if (f9197a) {
+            if (f9205a) {
                 String str = "version = " + string;
             }
             return string;
@@ -189,7 +189,7 @@ public class d {
     public static void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject) == null) {
-            if (f9197a) {
+            if (f9205a) {
                 String str = "processGuide guideObject = " + jSONObject;
             }
             if (jSONObject == null) {

@@ -40,13 +40,13 @@ public class u extends p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cursor)) == null) {
-            this.f31391e = cursor.getLong(0);
-            this.f31392f = cursor.getLong(1);
-            this.f31393g = cursor.getString(2);
+            this.f31412e = cursor.getLong(0);
+            this.f31413f = cursor.getLong(1);
+            this.f31414g = cursor.getString(2);
             this.n = cursor.getString(3);
             this.m = cursor.getInt(4);
-            this.f31395i = cursor.getString(5);
-            this.f31396j = cursor.getString(6);
+            this.f31416i = cursor.getString(5);
+            this.f31417j = cursor.getString(6);
             return this;
         }
         return (p) invokeL.objValue;
@@ -56,13 +56,13 @@ public class u extends p {
     public void e(@NonNull ContentValues contentValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentValues) == null) {
-            contentValues.put("local_time_ms", Long.valueOf(this.f31391e));
-            contentValues.put("tea_event_index", Long.valueOf(this.f31392f));
-            contentValues.put("session_id", this.f31393g);
+            contentValues.put("local_time_ms", Long.valueOf(this.f31412e));
+            contentValues.put("tea_event_index", Long.valueOf(this.f31413f));
+            contentValues.put("session_id", this.f31414g);
             contentValues.put("ver_name", this.n);
             contentValues.put("ver_code", Integer.valueOf(this.m));
-            contentValues.put("ab_version", this.f31395i);
-            contentValues.put("ab_sdk_version", this.f31396j);
+            contentValues.put("ab_version", this.f31416i);
+            contentValues.put("ab_sdk_version", this.f31417j);
         }
     }
 
@@ -70,11 +70,11 @@ public class u extends p {
     public void f(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            jSONObject.put("local_time_ms", this.f31391e);
-            jSONObject.put("tea_event_index", this.f31392f);
-            jSONObject.put("session_id", this.f31393g);
-            jSONObject.put("ab_version", this.f31395i);
-            jSONObject.put("ab_sdk_version", this.f31396j);
+            jSONObject.put("local_time_ms", this.f31412e);
+            jSONObject.put("tea_event_index", this.f31413f);
+            jSONObject.put("session_id", this.f31414g);
+            jSONObject.put("ab_version", this.f31416i);
+            jSONObject.put("ab_sdk_version", this.f31417j);
         }
     }
 
@@ -90,11 +90,11 @@ public class u extends p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            this.f31391e = jSONObject.optLong("local_time_ms", 0L);
-            this.f31392f = jSONObject.optLong("tea_event_index", 0L);
-            this.f31393g = jSONObject.optString("session_id", null);
-            this.f31395i = jSONObject.optString("ab_version", null);
-            this.f31396j = jSONObject.optString("ab_sdk_version", null);
+            this.f31412e = jSONObject.optLong("local_time_ms", 0L);
+            this.f31413f = jSONObject.optLong("tea_event_index", 0L);
+            this.f31414g = jSONObject.optString("session_id", null);
+            this.f31416i = jSONObject.optString("ab_version", null);
+            this.f31417j = jSONObject.optString("ab_sdk_version", null);
             return this;
         }
         return (p) invokeL.objValue;
@@ -106,19 +106,19 @@ public class u extends p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("local_time_ms", this.f31391e);
-            jSONObject.put("tea_event_index", this.f31392f);
-            jSONObject.put("session_id", this.f31393g);
+            jSONObject.put("local_time_ms", this.f31412e);
+            jSONObject.put("tea_event_index", this.f31413f);
+            jSONObject.put("session_id", this.f31414g);
             boolean z = this.o;
             if (z) {
                 jSONObject.put("is_background", z);
             }
             jSONObject.put("datetime", this.k);
-            if (!TextUtils.isEmpty(this.f31395i)) {
-                jSONObject.put("ab_version", this.f31395i);
+            if (!TextUtils.isEmpty(this.f31416i)) {
+                jSONObject.put("ab_version", this.f31416i);
             }
-            if (!TextUtils.isEmpty(this.f31396j)) {
-                jSONObject.put("ab_sdk_version", this.f31396j);
+            if (!TextUtils.isEmpty(this.f31417j)) {
+                jSONObject.put("ab_sdk_version", this.f31417j);
             }
             return jSONObject;
         }

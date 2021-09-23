@@ -58,12 +58,12 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
             b1 b1Var = new b1();
             this.pageInfo = b1Var;
-            b1Var.f26461g = optJSONObject.optInt("has_more") == 1;
-            this.pageInfo.f28027c = optJSONObject.optInt("pn");
+            b1Var.f26484g = optJSONObject.optInt("has_more") == 1;
+            this.pageInfo.f28047c = optJSONObject.optInt("pn");
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
-                this.pageInfo.f28025a = frsPageAlaTabRequestMessage.getForumName();
-                this.pageInfo.f28026b = frsPageAlaTabRequestMessage.getForumId();
+                this.pageInfo.f28045a = frsPageAlaTabRequestMessage.getForumName();
+                this.pageInfo.f28046b = frsPageAlaTabRequestMessage.getForumId();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray.length() > 0) {
@@ -71,7 +71,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
                     d2 d2Var = new d2();
-                    d2Var.L3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                    d2Var.K3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
                     d2Var.X2(jSONObject2);
                     this.mThreadList.add(d2Var);
                 }
@@ -82,7 +82,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
                     JSONObject jSONObject3 = optJSONArray2.getJSONObject(i4);
                     d2 d2Var2 = new d2();
-                    d2Var2.L3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                    d2Var2.K3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
                     d2Var2.X2(jSONObject3);
                     this.mAltList.add(d2Var2);
                 }

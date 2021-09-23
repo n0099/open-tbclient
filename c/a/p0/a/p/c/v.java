@@ -20,7 +20,7 @@ public class v implements c.a.p0.k.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<String> f7869a;
+    public SparseArray<String> f7877a;
 
     public v() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class v implements c.a.p0.k.b {
             }
         }
         SparseArray<String> sparseArray = new SparseArray<>();
-        this.f7869a = sparseArray;
+        this.f7877a = sparseArray;
         sparseArray.put(38, DI.BD.FAVOR);
     }
 
@@ -100,7 +100,7 @@ public class v implements c.a.p0.k.b {
         }
         ArrayList arrayList = new ArrayList();
         for (c.a.p0.k.o oVar : list) {
-            if (this.f7869a.get(oVar.c()) != null) {
+            if (this.f7877a.get(oVar.c()) != null) {
                 arrayList.add(oVar);
             }
         }

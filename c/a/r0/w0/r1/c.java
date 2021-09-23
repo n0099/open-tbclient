@@ -58,8 +58,8 @@ public class c extends k<l, FrsFeedItemViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f2957e).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
-            this.x = new a(this.o, inflate, 2, this.y, this.f2961i);
+            View inflate = LayoutInflater.from(this.f2958e).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
+            this.x = new a(this.o, inflate, 2, this.y, this.f2962i);
             return new FrsFeedItemViewHolder(inflate);
         }
         return (FrsFeedItemViewHolder) invokeL.objValue;

@@ -13,10 +13,10 @@ public class a implements c.a.q0.s.w.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24036a;
+    public String f24052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24037b;
+    public String f24053b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class a implements c.a.q0.s.w.b.a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24036a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24052a : (String) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.w.b.a
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24037b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24053b : (String) invokeV.objValue;
     }
 
     public void c(ThemeCarousel themeCarousel) {
@@ -51,7 +51,7 @@ public class a implements c.a.q0.s.w.b.a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeCarousel) == null) || themeCarousel == null) {
             return;
         }
-        this.f24036a = themeCarousel.pic_url;
-        this.f24037b = themeCarousel.active_url;
+        this.f24052a = themeCarousel.pic_url;
+        this.f24053b = themeCarousel.active_url;
     }
 }

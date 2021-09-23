@@ -21,10 +21,10 @@ public class b implements c.a.p0.f.i.l.g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f10627a;
+    public boolean f10635a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f10628b;
+    public Context f10636b;
 
     /* loaded from: classes.dex */
     public class a extends ResponseCallback<String> {
@@ -94,7 +94,7 @@ public class b implements c.a.p0.f.i.l.g {
                 return;
             }
         }
-        this.f10628b = context;
+        this.f10636b = context;
     }
 
     @Override // c.a.p0.f.i.l.g
@@ -102,7 +102,7 @@ public class b implements c.a.p0.f.i.l.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, responseCallback) == null) {
             boolean startsWith = str.startsWith("https://");
-            this.f10627a = startsWith;
+            this.f10635a = startsWith;
             if (startsWith) {
                 ((PostBodyRequest.PostBodyRequestBuilder) c.a.p0.m.e.a.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jSONObject.toString())).build().executeAsync(responseCallback);
             } else {
@@ -116,7 +116,7 @@ public class b implements c.a.p0.f.i.l.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, responseCallback) == null) {
             boolean startsWith = str.startsWith("https://");
-            this.f10627a = startsWith;
+            this.f10635a = startsWith;
             if (startsWith) {
                 c.a.p0.m.e.a.g().getRequest().url(str).build().executeAsync(responseCallback);
             } else {
@@ -132,9 +132,9 @@ public class b implements c.a.p0.f.i.l.g {
             return;
         }
         c.a.p0.m.d.a aVar = new c.a.p0.m.d.a();
-        aVar.f11841b = "POST";
-        aVar.f11840a = "https://pimlog.baidu.com/mapp/advlog";
-        aVar.f11843d = RequestBody.create(MediaType.get("application/json; charset=utf-8"), str);
+        aVar.f11849b = "POST";
+        aVar.f11848a = "https://pimlog.baidu.com/mapp/advlog";
+        aVar.f11851d = RequestBody.create(MediaType.get("application/json; charset=utf-8"), str);
         c.a.p0.m.e.a.g().e(aVar);
     }
 
@@ -144,7 +144,7 @@ public class b implements c.a.p0.f.i.l.g {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             a aVar = new a(this);
             boolean startsWith = str.startsWith("https://");
-            this.f10627a = startsWith;
+            this.f10635a = startsWith;
             if (startsWith) {
                 c.a.p0.m.e.a.g().getRequest().url(str).build().executeAsync(aVar);
             } else {
@@ -158,7 +158,7 @@ public class b implements c.a.p0.f.i.l.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, responseCallback) == null) {
             boolean startsWith = str.startsWith("https://");
-            this.f10627a = startsWith;
+            this.f10635a = startsWith;
             if (startsWith) {
                 c.a.p0.m.e.a.g().getRequest().url(str).build().executeAsync(responseCallback);
             } else {

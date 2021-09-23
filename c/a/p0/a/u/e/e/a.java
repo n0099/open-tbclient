@@ -35,10 +35,10 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f8824a;
+        public final /* synthetic */ String f8832a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f8825b;
+        public final /* synthetic */ a f8833b;
 
         public C0390a(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public class a extends d {
                     return;
                 }
             }
-            this.f8825b = aVar;
-            this.f8824a = str;
+            this.f8833b = aVar;
+            this.f8832a = str;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
@@ -64,10 +64,10 @@ public class a extends d {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i2, intent)) == null) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     String str = "resultCode:" + i2;
                 }
-                this.f8825b.d(this.f8824a, new b(0));
+                this.f8833b.d(this.f8832a, new b(0));
                 return true;
             }
             return invokeLIL.booleanValue;
@@ -113,7 +113,7 @@ public class a extends d {
         Uri fromFile;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (d.f8727c) {
+            if (d.f8735c) {
                 String str2 = "handle: " + str;
             }
             if (l()) {
@@ -123,7 +123,7 @@ public class a extends d {
             Pair<b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-Base", str);
             b bVar = (b) b2.first;
             if (!bVar.isSuccess()) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-Base", "parse fail");
                 }
                 return bVar;

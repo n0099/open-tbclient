@@ -39,7 +39,7 @@ public class d extends c.a.e.l.e.a<d2, ThreadCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f18418b;
+        public final /* synthetic */ d f18427b;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class d extends c.a.e.l.e.a<d2, ThreadCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f18418b = dVar;
+            this.f18427b = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class d extends c.a.e.l.e.a<d2, ThreadCardViewHolder<d2>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var) == null) {
                 t.b().d(true);
-                c.a.r0.g1.j.c.e(view, d2Var, this.f18418b.n);
+                c.a.r0.g1.j.c.e(view, d2Var, this.f18427b.n);
             }
         }
     }
@@ -77,7 +77,7 @@ public class d extends c.a.e.l.e.a<d2, ThreadCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f18419e;
+        public final /* synthetic */ d f18428e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -94,14 +94,14 @@ public class d extends c.a.e.l.e.a<d2, ThreadCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f18419e = dVar;
+            this.f18428e = dVar;
         }
 
         @Override // c.a.e.l.e.w
         public void b(View view, c.a.e.l.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f18419e.j0(view, nVar);
+                this.f18428e.j0(view, nVar);
             }
         }
     }
@@ -184,7 +184,7 @@ public class d extends c.a.e.l.e.a<d2, ThreadCardViewHolder<d2>> {
             if (d2Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null) {
                 return null;
             }
-            d2Var.S1 = D(i2) + 1;
+            d2Var.T1 = D(i2) + 1;
             threadCardViewHolder.getCardView().q(i2);
             threadCardViewHolder.onBindDataToView(d2Var);
             threadCardViewHolder.getCardView().p(this.q);

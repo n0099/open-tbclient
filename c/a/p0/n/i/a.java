@@ -22,13 +22,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11889a;
+    public static final boolean f11897a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CookieManager f11890b;
+    public static CookieManager f11898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f11891c;
+    public static String f11899c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.n.i.a$a  reason: collision with other inner class name */
@@ -38,10 +38,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Map f11892a;
+        public final /* synthetic */ Map f11900a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f11893b;
+        public final /* synthetic */ e f11901b;
 
         public C0621a(Map map, e eVar) {
             Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class a {
                     return;
                 }
             }
-            this.f11892a = map;
-            this.f11893b = eVar;
+            this.f11900a = map;
+            this.f11901b = eVar;
         }
 
         @Override // c.a.p0.n.i.a.c
@@ -67,15 +67,15 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
                 PostByteRequest.PostByteRequestBuilder postByteRequest = c.a.p0.m.e.a.g().postByteRequest();
-                c.a.p0.n.d.a(postByteRequest, this.f11892a);
-                postByteRequest.url(f.i(str, this.f11892a)).content(bArr).mediaType(MediaType.parse("application/json; charset=utf-8")).requestFrom(6).requestSubFrom(10);
+                c.a.p0.n.d.a(postByteRequest, this.f11900a);
+                postByteRequest.url(f.i(str, this.f11900a)).content(bArr).mediaType(MediaType.parse("application/json; charset=utf-8")).requestFrom(6).requestSubFrom(10);
                 if (map != null) {
                     postByteRequest.addHeaders(map);
                 }
-                if (!TextUtils.isEmpty(a.f11891c)) {
-                    postByteRequest.userAgent(a.f11891c);
+                if (!TextUtils.isEmpty(a.f11899c)) {
+                    postByteRequest.userAgent(a.f11899c);
                 }
-                postByteRequest.cookieManager(a.f11890b).enableStat(true).build().executeStat(this.f11893b);
+                postByteRequest.cookieManager(a.f11898b).enableStat(true).build().executeStat(this.f11901b);
             }
         }
     }
@@ -86,10 +86,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Map f11894a;
+        public final /* synthetic */ Map f11902a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f11895b;
+        public final /* synthetic */ e f11903b;
 
         public b(Map map, e eVar) {
             Interceptable interceptable = $ic;
@@ -106,22 +106,22 @@ public class a {
                     return;
                 }
             }
-            this.f11894a = map;
-            this.f11895b = eVar;
+            this.f11902a = map;
+            this.f11903b = eVar;
         }
 
         @Override // c.a.p0.n.i.a.c
         public void a(Map<String, String> map, byte[] bArr, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
-                GetRequest.GetRequestBuilder requestSubFrom = c.a.p0.m.e.a.g().getRequest().url(f.i(str, this.f11894a)).requestSubFrom(10);
-                if (!TextUtils.isEmpty(a.f11891c)) {
-                    requestSubFrom.userAgent(a.f11891c);
+                GetRequest.GetRequestBuilder requestSubFrom = c.a.p0.m.e.a.g().getRequest().url(f.i(str, this.f11902a)).requestSubFrom(10);
+                if (!TextUtils.isEmpty(a.f11899c)) {
+                    requestSubFrom.userAgent(a.f11899c);
                 }
                 if (map != null) {
                     requestSubFrom.addHeaders(map);
                 }
-                requestSubFrom.cookieManager(a.f11890b).enableStat(true).build().executeStat(this.f11895b);
+                requestSubFrom.cookieManager(a.f11898b).enableStat(true).build().executeStat(this.f11903b);
             }
         }
     }
@@ -144,13 +144,13 @@ public class a {
                 return;
             }
         }
-        f11889a = c.a.p0.n.c.f11856a;
-        f11890b = c.a.p0.n.c.b().g();
+        f11897a = c.a.p0.n.c.f11864a;
+        f11898b = c.a.p0.n.c.b().g();
         c.a.p0.m.a b2 = c.a.p0.m.b.b();
         if (b2 == null || !c.a.p0.m.e.a.g().c()) {
             return;
         }
-        f11891c = b2.a();
+        f11899c = b2.a();
     }
 
     @Deprecated
@@ -158,7 +158,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, str, map, map2, eVar) == null) {
             if (TextUtils.isEmpty(str)) {
-                if (f11889a) {
+                if (f11897a) {
                     throw new InvalidParameterException("PMS request URL is empty");
                 }
                 return;
@@ -172,13 +172,13 @@ public class a {
                 return;
             }
             GetRequest.GetRequestBuilder requestSubFrom = c.a.p0.m.e.a.g().getRequest().url(f.i(str, map)).requestSubFrom(10);
-            if (!TextUtils.isEmpty(f11891c)) {
-                requestSubFrom.userAgent(f11891c);
+            if (!TextUtils.isEmpty(f11899c)) {
+                requestSubFrom.userAgent(f11899c);
             }
             if (map2 != null) {
                 requestSubFrom.addHeaders(map2);
             }
-            requestSubFrom.cookieManager(f11890b).enableStat(true).build().executeStat(eVar);
+            requestSubFrom.cookieManager(f11898b).enableStat(true).build().executeStat(eVar);
         }
     }
 
@@ -187,7 +187,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, map, map2, jSONObject, eVar) == null) {
             if (TextUtils.isEmpty(str)) {
-                if (f11889a) {
+                if (f11897a) {
                     throw new InvalidParameterException("PMS request URL is empty");
                 }
                 return;
@@ -206,10 +206,10 @@ public class a {
             if (map2 != null) {
                 postStringRequest.addHeaders(map2);
             }
-            if (!TextUtils.isEmpty(f11891c)) {
-                postStringRequest.userAgent(f11891c);
+            if (!TextUtils.isEmpty(f11899c)) {
+                postStringRequest.userAgent(f11899c);
             }
-            postStringRequest.cookieManager(f11890b).enableStat(true).build().executeStat(eVar);
+            postStringRequest.cookieManager(f11898b).enableStat(true).build().executeStat(eVar);
         }
     }
 }

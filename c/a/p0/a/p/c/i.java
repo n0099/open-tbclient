@@ -18,7 +18,7 @@ public class i implements c.a.p0.a.p.d.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Boolean f7853a;
+    public Boolean f7861a;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class i implements c.a.p0.a.p.d.n {
     public void b(Activity activity, Bundle bundle, c.a.p0.a.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, aVar) == null) {
-            c.a.p0.a.s.a.f.f8492d.i(aVar);
+            c.a.p0.a.s.a.f.f8500d.i(aVar);
         }
     }
 
@@ -57,14 +57,14 @@ public class i implements c.a.p0.a.p.d.n {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || cVar == null) {
             return;
         }
-        c.a.p0.a.s.a.f.f8492d.m(cVar);
+        c.a.p0.a.s.a.f.f8500d.m(cVar);
     }
 
     @Override // c.a.p0.a.p.d.n
     public String d(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? c.a.p0.a.s.a.d.f8487a.a() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? c.a.p0.a.s.a.d.f8495a.a() : (String) invokeL.objValue;
     }
 
     @Override // c.a.p0.a.p.d.n
@@ -72,8 +72,8 @@ public class i implements c.a.p0.a.p.d.n {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            boolean g2 = c.a.p0.a.s.a.f.f8492d.g();
-            this.f7853a = Boolean.TRUE;
+            boolean g2 = c.a.p0.a.s.a.f.f8500d.g();
+            this.f7861a = Boolean.TRUE;
             return g2;
         }
         return invokeL.booleanValue;
@@ -99,7 +99,7 @@ public class i implements c.a.p0.a.p.d.n {
     public String h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? c.a.p0.a.s.a.h.f8503b.a() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? c.a.p0.a.s.a.h.f8511b.a() : (String) invokeL.objValue;
     }
 
     @Override // c.a.p0.a.p.d.n
@@ -120,10 +120,10 @@ public class i implements c.a.p0.a.p.d.n {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
-            if (this.f7853a == null) {
+            if (this.f7861a == null) {
                 e(context);
             }
-            Boolean bool = this.f7853a;
+            Boolean bool = this.f7861a;
             if (bool == null) {
                 return false;
             }

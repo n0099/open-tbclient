@@ -36,7 +36,7 @@ public class l extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f27207e;
+        public final /* synthetic */ l f27227e;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class l extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
                     return;
                 }
             }
-            this.f27207e = lVar;
+            this.f27227e = lVar;
         }
 
         @Override // c.a.e.l.e.w
         public void b(View view, c.a.e.l.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                BdToast.i(this.f27207e.f2957e, this.f27207e.f2957e.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
+                BdToast.i(this.f27227e.f2958e, this.f27227e.f2958e.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
             }
         }
     }
@@ -149,7 +149,7 @@ public class l extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             }
             bVar.n(iVar);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.q));
-            threadCardViewHolder.setPageId(this.f2961i);
+            threadCardViewHolder.setPageId(this.f2962i);
             d0(new a(this));
             threadCardViewHolder.showMultiDelDecorItem(false);
             return threadCardViewHolder;
@@ -178,11 +178,11 @@ public class l extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             threadCardViewHolder.getCardView().q(i2);
             FrsViewData frsViewData = this.n;
             if (frsViewData != null && frsViewData.getForum() != null && !StringUtils.isNull(this.n.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.n.getForum().getTopic_special_icon_right())) {
-                c2Var.w.w4(this.n.getForum().getTopic_special_icon(), this.n.getForum().getTopic_special_icon_right());
+                c2Var.w.v4(this.n.getForum().getTopic_special_icon(), this.n.getForum().getTopic_special_icon_right());
             }
             threadCardViewHolder.onBindDataToView(c2Var.w);
             threadCardViewHolder.getCardView().onChangeSkinType(this.x, TbadkCoreApplication.getInst().getSkinType());
-            c2Var.w.N4();
+            c2Var.w.M4();
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

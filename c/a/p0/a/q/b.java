@@ -29,19 +29,19 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8027e;
+        public final /* synthetic */ CallbackHandler f8035e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f8028f;
+        public final /* synthetic */ UnitedSchemeEntity f8036f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8029g;
+        public final /* synthetic */ String f8037g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g f8030h;
+        public final /* synthetic */ g f8038h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f8031i;
+        public final /* synthetic */ b f8039i;
 
         public a(b bVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, g gVar) {
             Interceptable interceptable = $ic;
@@ -58,11 +58,11 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f8031i = bVar;
-            this.f8027e = callbackHandler;
-            this.f8028f = unitedSchemeEntity;
-            this.f8029g = str;
-            this.f8030h = gVar;
+            this.f8039i = bVar;
+            this.f8035e = callbackHandler;
+            this.f8036f = unitedSchemeEntity;
+            this.f8037g = str;
+            this.f8038h = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,13 +72,13 @@ public class b extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
-                    c.a.p0.a.e2.c.d.o(iVar, this.f8027e, this.f8028f);
+                    c.a.p0.a.e2.c.d.o(iVar, this.f8035e, this.f8036f);
                     return;
                 }
-                String str = this.f8029g;
-                this.f8031i.k(c.a.p0.a.l1.b.g(str, str), this.f8030h);
+                String str = this.f8037g;
+                this.f8039i.k(c.a.p0.a.l1.b.g(str, str), this.f8038h);
                 c.a.p0.a.e0.d.g("AdLanding", "open adLanding page success");
-                UnitedSchemeUtility.callCallback(this.f8027e, this.f8028f, 0);
+                UnitedSchemeUtility.callCallback(this.f8035e, this.f8036f, 0);
             }
         }
     }
@@ -109,7 +109,7 @@ public class b extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             String o = c.a.p0.a.c2.f.p0.a.o(unitedSchemeEntity, "params");
@@ -132,9 +132,9 @@ public class b extends a0 {
     public final void k(c.a.p0.a.l1.b bVar, g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, gVar) == null) {
-            c.a.p0.a.e0.d.g("AdLanding", "openAdLanding: page url=" + bVar.f7238g);
+            c.a.p0.a.e0.d.g("AdLanding", "openAdLanding: page url=" + bVar.f7246g);
             g.b i2 = gVar.i("adLanding");
-            i2.n(g.f5928g, g.f5930i);
+            i2.n(g.f5936g, g.f5938i);
             i2.k("adLanding", bVar).b();
         }
     }

@@ -18,10 +18,10 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7169a;
+    public static final boolean f7177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, e> f7170b;
+    public static final Map<String, e> f7178b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,8 +37,8 @@ public class f {
                 return;
             }
         }
-        f7169a = k.f7077a;
-        f7170b = new ArrayMap();
+        f7177a = k.f7085a;
+        f7178b = new ArrayMap();
     }
 
     @Nullable
@@ -48,8 +48,8 @@ public class f {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i2)) == null) {
             try {
                 if (ProcessUtils.isMainProcess()) {
-                    synchronized (f7170b) {
-                        e eVar = f7170b.get(str);
+                    synchronized (f7178b) {
+                        e eVar = f7178b.get(str);
                         if (eVar != null && eVar.a() != null) {
                             return eVar.a();
                         }
@@ -64,7 +64,7 @@ public class f {
                 }
                 return a.a(str, i2);
             } catch (Throwable th) {
-                if (f7169a) {
+                if (f7177a) {
                     th.printStackTrace();
                     return null;
                 }
@@ -81,7 +81,7 @@ public class f {
                 if (ProcessUtils.isMainProcess()) {
                     return;
                 }
-                e eVar = f7170b.get(ashmemFileDescriptor.getName());
+                e eVar = f7178b.get(ashmemFileDescriptor.getName());
                 if (eVar != null && eVar.a() != null && eVar.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
                     SwanKV b2 = eVar.b();
                     eVar.c(new SwanKV(ashmemFileDescriptor));

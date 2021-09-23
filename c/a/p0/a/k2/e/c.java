@@ -63,7 +63,7 @@ public class c extends a0 {
                 } else {
                     L = c.a.p0.a.k2.b.s(optString) == PathType.RELATIVE ? c.a.p0.a.k2.b.L(optString, eVar, eVar.Z()) : "";
                 }
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str = "——> handle: fileUrl " + optString;
                     String str2 = "——> handle: filePath " + L;
                 }
@@ -77,7 +77,7 @@ public class c extends a0 {
                 if (TextUtils.isEmpty(b2)) {
                     c.a.p0.a.e0.d.b("fileInfo", "hash is null");
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, c.a.p0.a.c2.b.a(2001)));
-                    boolean z = a0.f4766b;
+                    boolean z = a0.f4774b;
                     return false;
                 }
                 JSONObject jSONObject = new JSONObject();
@@ -89,7 +89,7 @@ public class c extends a0 {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, c.a.p0.a.c2.b.a(2003)));
-                    boolean z2 = a0.f4766b;
+                    boolean z2 = a0.f4774b;
                     return false;
                 }
             }

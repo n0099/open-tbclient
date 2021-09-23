@@ -25,27 +25,27 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f33980a;
+    public static final int[] f34003a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f33981b;
+    public static final int[] f34004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f33982c;
+    public static final int[] f34005c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f33983d;
+    public static final int[] f34006d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int[] f33984e;
+    public static final int[] f34007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int[] f33985f;
+    public static final int[] f34008f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.i.b.a.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1500a {
+    public static /* synthetic */ class C1499a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -56,21 +56,21 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f33986a;
+        public final String f34009a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f33987b;
+        public final int f34010b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f33988c;
+        public final int f34011c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f33989d;
+        public final int f34012d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f33990e;
+        public final int f34013e;
 
-        public /* synthetic */ b(String str, int i2, int i3, int i4, int i5, int i6, C1500a c1500a) {
+        public /* synthetic */ b(String str, int i2, int i3, int i4, int i5, int i6, C1499a c1499a) {
             this(str, i2, i3, i4, i5, i6);
         }
 
@@ -89,11 +89,11 @@ public final class a {
                     return;
                 }
             }
-            this.f33986a = str;
-            this.f33988c = i3;
-            this.f33987b = i4;
-            this.f33989d = i5;
-            this.f33990e = i6;
+            this.f34009a = str;
+            this.f34011c = i3;
+            this.f34010b = i4;
+            this.f34012d = i5;
+            this.f34013e = i6;
         }
     }
 
@@ -110,12 +110,12 @@ public final class a {
                 return;
             }
         }
-        f33980a = new int[]{1, 2, 3, 6};
-        f33981b = new int[]{MediaEncodeParams.AUDIO_SAMPLE_RATE, 44100, 32000};
-        f33982c = new int[]{24000, 22050, 16000};
-        f33983d = new int[]{2, 1, 2, 3, 3, 4, 4, 5};
-        f33984e = new int[]{32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 384, FileUtils.S_IRWXU, 512, 576, 640};
-        f33985f = new int[]{69, 87, 104, 121, 139, 174, 208, LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK, 278, 348, HttpStatus.SC_EXPECTATION_FAILED, 487, 557, 696, SDKLogTypeConstants.TYPE_OAID_STATUS, 975, 1114, 1253, 1393};
+        f34003a = new int[]{1, 2, 3, 6};
+        f34004b = new int[]{MediaEncodeParams.AUDIO_SAMPLE_RATE, 44100, 32000};
+        f34005c = new int[]{24000, 22050, 16000};
+        f34006d = new int[]{2, 1, 2, 3, 3, 4, 4, 5};
+        f34007e = new int[]{32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 384, FileUtils.S_IRWXU, 512, 576, 640};
+        f34008f = new int[]{69, 87, 104, 121, 139, 174, 208, LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK, 278, 348, HttpStatus.SC_EXPECTATION_FAILED, 487, 557, 696, SDKLogTypeConstants.TYPE_OAID_STATUS, 975, 1114, 1253, 1393};
     }
 
     public static int a() {
@@ -130,11 +130,11 @@ public final class a {
         if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
             int i4 = i3 / 2;
             if (i2 >= 0) {
-                int[] iArr = f33981b;
+                int[] iArr = f34004b;
                 if (i2 >= iArr.length || i3 < 0) {
                     return -1;
                 }
-                int[] iArr2 = f33985f;
+                int[] iArr2 = f34008f;
                 if (i4 >= iArr2.length) {
                     return -1;
                 }
@@ -142,7 +142,7 @@ public final class a {
                 if (i5 == 44100) {
                     return (iArr2[i4] + (i3 % 2)) * 2;
                 }
-                int i6 = f33984e[i4];
+                int i6 = f34007e[i4];
                 return i5 == 32000 ? i6 * 6 : i6 * 4;
             }
             return -1;
@@ -154,9 +154,9 @@ public final class a {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, lVar, str, str2, drmInitData)) == null) {
-            int i2 = f33981b[(lVar.x() & 192) >> 6];
+            int i2 = f34004b[(lVar.x() & 192) >> 6];
             int x = lVar.x();
-            int i3 = f33983d[(x & 56) >> 3];
+            int i3 = f34006d[(x & 56) >> 3];
             if ((x & 4) != 0) {
                 i3++;
             }
@@ -188,10 +188,10 @@ public final class a {
                 int g3 = (kVar.g(11) + 1) * 2;
                 int g4 = kVar.g(2);
                 if (g4 == 3) {
-                    i7 = f33982c[kVar.g(2)];
+                    i7 = f34005c[kVar.g(2)];
                 } else {
-                    i8 = f33980a[kVar.g(2)];
-                    i7 = f33981b[g4];
+                    i8 = f34003a[kVar.g(2)];
+                    i7 = f34004b[g4];
                 }
                 i4 = kVar.g(3);
                 i5 = g2;
@@ -214,14 +214,14 @@ public final class a {
                 if (g6 == 2) {
                     kVar.n(2);
                 }
-                i2 = f33981b[g5];
+                i2 = f34004b[g5];
                 i3 = b2;
                 i4 = g6;
                 str = "audio/ac3";
                 i5 = -1;
                 i6 = PureJavaCrc32C.T8_6_start;
             }
-            return new b(str, i5, f33983d[i4] + (kVar.f() ? 1 : 0), i2, i3, i6, null);
+            return new b(str, i5, f34006d[i4] + (kVar.f() ? 1 : 0), i2, i3, i6, null);
         }
         return (b) invokeL.objValue;
     }
@@ -243,9 +243,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, lVar, str, str2, drmInitData)) == null) {
             lVar.K(2);
-            int i2 = f33981b[(lVar.x() & 192) >> 6];
+            int i2 = f34004b[(lVar.x() & 192) >> 6];
             int x = lVar.x();
-            int i3 = f33983d[(x & 14) >> 1];
+            int i3 = f34006d[(x & 14) >> 1];
             if ((x & 1) != 0) {
                 i3++;
             }
@@ -261,7 +261,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
-            return (((byteBuffer.get(byteBuffer.position() + 4) & 192) >> 6) != 3 ? f33980a[(byteBuffer.get(byteBuffer.position() + 4) & 48) >> 4] : 6) * 256;
+            return (((byteBuffer.get(byteBuffer.position() + 4) & 192) >> 6) != 3 ? f34003a[(byteBuffer.get(byteBuffer.position() + 4) & 48) >> 4] : 6) * 256;
         }
         return invokeL.intValue;
     }

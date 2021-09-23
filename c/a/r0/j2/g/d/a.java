@@ -29,27 +29,27 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.r0.j2.l.b.d> f19539e;
+    public List<c.a.r0.j2.l.b.d> f19554e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f19540f;
+    public Context f19555f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19541g;
+    public int f19556g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19542h;
+    public int f19557h;
 
     /* renamed from: c.a.r0.j2.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0943a {
+    public static class C0941a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f19543a;
+        public TbImageView f19558a;
 
-        public C0943a() {
+        public C0941a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,34 +79,34 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f19541g = 0;
-        this.f19542h = 0;
-        this.f19540f = context;
-        this.f19539e = new ArrayList();
-        this.f19541g = l.k(context) - (((int) context.getResources().getDimension(R.dimen.ds30)) * 2);
-        this.f19542h = context.getResources().getDimensionPixelSize(R.dimen.ds32);
+        this.f19556g = 0;
+        this.f19557h = 0;
+        this.f19555f = context;
+        this.f19554e = new ArrayList();
+        this.f19556g = l.k(context) - (((int) context.getResources().getDimension(R.dimen.ds30)) * 2);
+        this.f19557h = context.getResources().getDimensionPixelSize(R.dimen.ds32);
     }
 
     public final View a(int i2, View view) {
         InterceptResult invokeIL;
-        C0943a c0943a;
+        C0941a c0941a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, view)) == null) {
-            if (view != null && (view.getTag() instanceof C0943a)) {
-                c0943a = (C0943a) view.getTag();
+            if (view != null && (view.getTag() instanceof C0941a)) {
+                c0941a = (C0941a) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f19540f).inflate(R.layout.chosen_pb_image_item, (ViewGroup) null);
-                c0943a = new C0943a();
-                c0943a.f19543a = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
-                view.setTag(c0943a);
+                view = LayoutInflater.from(this.f19555f).inflate(R.layout.chosen_pb_image_item, (ViewGroup) null);
+                c0941a = new C0941a();
+                c0941a.f19558a = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
+                view.setTag(c0941a);
             }
             c.a.r0.j2.l.b.d item = getItem(i2);
             if (item instanceof c.a.r0.j2.l.b.e) {
                 c.a.r0.j2.l.b.e eVar = (c.a.r0.j2.l.b.e) item;
-                if (!StringUtils.isNull(eVar.f20484i) && !"1".equals(eVar.f20484i)) {
-                    c0943a.f19543a.setVisibility(0);
-                    ViewGroup.LayoutParams layoutParams = c0943a.f19543a.getLayoutParams();
-                    int i3 = this.f19541g;
+                if (!StringUtils.isNull(eVar.f20499i) && !"1".equals(eVar.f20499i)) {
+                    c0941a.f19558a.setVisibility(0);
+                    ViewGroup.LayoutParams layoutParams = c0941a.f19558a.getLayoutParams();
+                    int i3 = this.f19556g;
                     int c2 = eVar.c(i3);
                     if (layoutParams == null) {
                         layoutParams = new AbsListView.LayoutParams(i3, c2);
@@ -114,10 +114,10 @@ public class a extends BaseAdapter {
                         layoutParams.height = c2;
                         layoutParams.width = i3;
                     }
-                    c0943a.f19543a.setLayoutParams(layoutParams);
-                    c0943a.f19543a.startLoad(eVar.d(), 17, false);
+                    c0941a.f19558a.setLayoutParams(layoutParams);
+                    c0941a.f19558a.startLoad(eVar.d(), 17, false);
                 } else {
-                    c0943a.f19543a.setVisibility(8);
+                    c0941a.f19558a.setVisibility(8);
                 }
             }
             return view;
@@ -132,11 +132,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            List<c.a.r0.j2.l.b.d> list = this.f19539e;
+            List<c.a.r0.j2.l.b.d> list = this.f19554e;
             if (list != null && list.size() > 0) {
-                int size = this.f19539e.size();
+                int size = this.f19554e.size();
                 if (i2 >= 0 && i2 < size) {
-                    return this.f19539e.get(i2);
+                    return this.f19554e.get(i2);
                 }
             }
             return null;
@@ -152,11 +152,11 @@ public class a extends BaseAdapter {
             if (view instanceof TextView) {
                 textView = (TextView) view;
             } else {
-                textView = new TextView(this.f19540f);
-                textView.setTextSize(0, this.f19540f.getResources().getDimensionPixelSize(R.dimen.fontsize32));
+                textView = new TextView(this.f19555f);
+                textView.setTextSize(0, this.f19555f.getResources().getDimensionPixelSize(R.dimen.fontsize32));
                 textView.setLineSpacing(0.0f, 1.2f);
                 textView.setMovementMethod(LinkMovementMethod.getInstance());
-                int i3 = this.f19542h;
+                int i3 = this.f19557h;
                 textView.setPadding(i3, 0, i3, 0);
             }
             c.a.r0.j2.l.b.d item = getItem(i2);
@@ -190,11 +190,11 @@ public class a extends BaseAdapter {
     public void d(List<c.a.r0.j2.l.b.d> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f19539e.clear();
+            this.f19554e.clear();
             if (list == null || list.size() <= 0) {
                 return;
             }
-            this.f19539e.addAll(list);
+            this.f19554e.addAll(list);
         }
     }
 
@@ -203,7 +203,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<c.a.r0.j2.l.b.d> list = this.f19539e;
+            List<c.a.r0.j2.l.b.d> list = this.f19554e;
             if (list == null) {
                 return 0;
             }
@@ -227,10 +227,10 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            List<c.a.r0.j2.l.b.d> list = this.f19539e;
+            List<c.a.r0.j2.l.b.d> list = this.f19554e;
             if (list != null && list.size() > 0) {
-                if (i2 >= 0 && i2 < this.f19539e.size()) {
-                    c.a.r0.j2.l.b.d dVar = this.f19539e.get(i2);
+                if (i2 >= 0 && i2 < this.f19554e.size()) {
+                    c.a.r0.j2.l.b.d dVar = this.f19554e.get(i2);
                     if (dVar == null) {
                         return super.getItemViewType(i2);
                     }

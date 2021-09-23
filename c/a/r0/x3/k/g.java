@@ -25,7 +25,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f29089a;
+    public static boolean f29109a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -34,16 +34,16 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f29090a;
+        public int f29110a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f29091b;
+        public int f29111b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f29092c;
+        public int f29112c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f29093d;
+        public int f29113d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -58,17 +58,17 @@ public class g {
                     return;
                 }
             }
-            this.f29090a = MediaEncodeParams.AUDIO_SAMPLE_RATE;
-            this.f29091b = 1;
-            this.f29092c = 16;
-            this.f29093d = 0;
+            this.f29110a = MediaEncodeParams.AUDIO_SAMPLE_RATE;
+            this.f29111b = 1;
+            this.f29112c = 16;
+            this.f29113d = 0;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.f29093d;
+                int i2 = this.f29113d;
                 return i2 == 5 || i2 == 6 || i2 == 8 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -78,7 +78,7 @@ public class g {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.f29093d;
+                int i2 = this.f29113d;
                 return i2 == 3 || i2 == 4 || i2 == 8 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -88,7 +88,7 @@ public class g {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i2 = this.f29093d;
+                int i2 = this.f29113d;
                 return i2 == 1 || i2 == 4 || i2 == 6 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -131,14 +131,14 @@ public class g {
                     byte[] bArr2 = new byte[i4];
                     for (int i5 = 0; i5 < i4; i5++) {
                         int i6 = i5 * 2;
-                        bArr2[i5] = (byte) (f(bArr[i6], bArr[i6 + 1], f29089a) / 256);
+                        bArr2[i5] = (byte) (f(bArr[i6], bArr[i6 + 1], f29109a) / 256);
                     }
                     return bArr2;
                 }
             } else if (i3 == 2) {
                 byte[] bArr3 = new byte[length * 2];
                 for (int i7 = 0; i7 < length; i7++) {
-                    byte[] e2 = e((short) (bArr[i7] * 256), f29089a);
+                    byte[] e2 = e((short) (bArr[i7] * 256), f29109a);
                     int i8 = i7 * 2;
                     bArr3[i8] = e2[0];
                     bArr3[i8 + 1] = e2[1];
@@ -174,7 +174,7 @@ public class g {
                         } else if (i4 == 2) {
                             for (int i8 = 0; i8 < i6; i8 += 2) {
                                 int i9 = i8 * 2;
-                                byte[] a2 = a(bArr[i9], bArr[i9 + 1], bArr[i9 + 2], bArr[i9 + 3], f29089a);
+                                byte[] a2 = a(bArr[i9], bArr[i9 + 1], bArr[i9 + 2], bArr[i9 + 3], f29109a);
                                 bArr2[i8] = a2[0];
                                 bArr2[i8 + 1] = a2[1];
                             }
@@ -239,9 +239,9 @@ public class g {
                     return null;
                 }
                 a aVar = new a();
-                aVar.f29090a = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : MediaEncodeParams.AUDIO_SAMPLE_RATE;
-                aVar.f29091b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-                aVar.f29092c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+                aVar.f29110a = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : MediaEncodeParams.AUDIO_SAMPLE_RATE;
+                aVar.f29111b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
+                aVar.f29112c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
                 mediaExtractor.release();
                 return aVar;
             } catch (IOException e2) {
@@ -282,9 +282,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-                f29089a = true;
+                f29109a = true;
             } else {
-                f29089a = false;
+                f29109a = false;
             }
         }
     }
@@ -299,16 +299,16 @@ public class g {
             }
             boolean z = true;
             for (int i2 = 1; i2 < aVarArr.length; i2++) {
-                if (aVar.f29090a != aVarArr[i2].f29090a) {
-                    aVarArr[i2].f29093d++;
+                if (aVar.f29110a != aVarArr[i2].f29110a) {
+                    aVarArr[i2].f29113d++;
                     z = false;
                 }
-                if (aVar.f29091b != aVarArr[i2].f29091b) {
-                    aVarArr[i2].f29093d += 3;
+                if (aVar.f29111b != aVarArr[i2].f29111b) {
+                    aVarArr[i2].f29113d += 3;
                     z = false;
                 }
-                if (aVar.f29092c != aVarArr[i2].f29092c) {
-                    aVarArr[i2].f29093d += 5;
+                if (aVar.f29112c != aVarArr[i2].f29112c) {
+                    aVarArr[i2].f29113d += 5;
                     z = false;
                 }
             }

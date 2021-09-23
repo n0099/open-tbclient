@@ -19,22 +19,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f27328b;
+    public static a f27348b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsLinkHashMap<String, Long> f27329a;
+    public FrsLinkHashMap<String, Long> f27349a;
 
     /* renamed from: c.a.r0.w0.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1282a extends BdAsyncTask<Void, Void, Void> {
+    public class C1280a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27330a;
+        public final /* synthetic */ a f27350a;
 
-        public C1282a(a aVar) {
+        public C1280a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public class a {
                     return;
                 }
             }
-            this.f27330a = aVar;
+            this.f27350a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,7 +64,7 @@ public class a {
                 if (h2 != null) {
                     String str = h2.get("hot_topic_key");
                     if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                        this.f27330a.f27329a = frsHotTopicListData.mSceneMap;
+                        this.f27350a.f27349a = frsHotTopicListData.mSceneMap;
                     }
                 }
                 return null;
@@ -79,7 +79,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27331a;
+        public final /* synthetic */ a f27351a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class a {
                     return;
                 }
             }
-            this.f27331a = aVar;
+            this.f27351a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +111,7 @@ public class a {
                     return null;
                 }
                 FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                frsHotTopicListData.mSceneMap = this.f27331a.f27329a;
+                frsHotTopicListData.mSceneMap = this.f27351a.f27349a;
                 String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
                 if (!StringUtils.isNull(jsonStrWithObject)) {
                     h2.g("hot_topic_key", jsonStrWithObject);
@@ -140,14 +140,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f27328b == null) {
+            if (f27348b == null) {
                 synchronized (a.class) {
-                    if (f27328b == null) {
-                        f27328b = new a();
+                    if (f27348b == null) {
+                        f27348b = new a();
                     }
                 }
             }
-            return f27328b;
+            return f27348b;
         }
         return (a) invokeV.objValue;
     }
@@ -157,14 +157,14 @@ public class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j2)) == null) {
-            if (this.f27329a == null) {
-                this.f27329a = new FrsLinkHashMap<>();
+            if (this.f27349a == null) {
+                this.f27349a = new FrsLinkHashMap<>();
                 e(str, j2);
             }
-            if (StringUtils.isNull(str) || this.f27329a.isEmpty()) {
+            if (StringUtils.isNull(str) || this.f27349a.isEmpty()) {
                 return false;
             }
-            Iterator<Map.Entry<String, Long>> it = this.f27329a.entrySet().iterator();
+            Iterator<Map.Entry<String, Long>> it = this.f27349a.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -176,10 +176,10 @@ public class a {
                     break;
                 }
             }
-            if (z && this.f27329a.get(str).longValue() == j2) {
+            if (z && this.f27349a.get(str).longValue() == j2) {
                 return false;
             }
-            this.f27329a.put(str, Long.valueOf(j2));
+            this.f27349a.put(str, Long.valueOf(j2));
             f();
             return true;
         }
@@ -189,9 +189,9 @@ public class a {
     public final void e(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
-            C1282a c1282a = new C1282a(this);
-            c1282a.setPriority(3);
-            c1282a.execute(new Void[0]);
+            C1280a c1280a = new C1280a(this);
+            c1280a.setPriority(3);
+            c1280a.execute(new Void[0]);
         }
     }
 

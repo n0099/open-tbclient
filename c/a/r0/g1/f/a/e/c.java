@@ -12,19 +12,19 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f18097a;
+    public long f18107a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18098b;
+    public String f18108b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18099c;
+    public int f18109c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18100d;
+    public int f18110d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18101e;
+    public boolean f18111e;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class c {
                 return;
             }
         }
-        this.f18101e = true;
+        this.f18111e = true;
     }
 
     public c(@NonNull RecomTopicList recomTopicList, int i2) {
@@ -57,9 +57,9 @@ public class c {
                 return;
             }
         }
-        this.f18097a = recomTopicList.topic_id.longValue();
-        this.f18098b = recomTopicList.topic_name;
-        this.f18099c = recomTopicList.tag.intValue();
-        this.f18100d = i2 + 1;
+        this.f18107a = recomTopicList.topic_id.longValue();
+        this.f18108b = recomTopicList.topic_name;
+        this.f18109c = recomTopicList.tag.intValue();
+        this.f18110d = i2 + 1;
     }
 }

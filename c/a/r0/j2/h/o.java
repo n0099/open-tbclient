@@ -18,22 +18,22 @@ public class o implements c.a.e.l.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19650e;
+    public String f19665e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f19651f;
+    public BdUniqueId f19666f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19652g;
+    public int f19667g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f19653h;
+    public boolean f19668h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19654i;
+    public boolean f19669i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f19655j;
+    public boolean f19670j;
     public List<PbSortType> k;
 
     static {
@@ -68,16 +68,16 @@ public class o implements c.a.e.l.e.n {
                 return;
             }
         }
-        this.f19651f = m;
-        this.f19652g = 0;
-        this.f19653h = false;
-        this.f19651f = bdUniqueId;
+        this.f19666f = m;
+        this.f19667g = 0;
+        this.f19668h = false;
+        this.f19666f = bdUniqueId;
     }
 
     @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19651f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19666f : (BdUniqueId) invokeV.objValue;
     }
 }

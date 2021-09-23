@@ -24,20 +24,20 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f26352e;
+    public static final Pattern f26375e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f26353a;
+    public final Context f26376a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f26354b;
+    public Point f26377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f26355c;
+    public Point f26378c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Point f26356d;
+    public Point f26379d;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public final class b {
                 return;
             }
         }
-        f26352e = Pattern.compile(",");
+        f26375e = Pattern.compile(",");
     }
 
     public b(Context context) {
@@ -70,7 +70,7 @@ public final class b {
                 return;
             }
         }
-        this.f26353a = context;
+        this.f26376a = context;
     }
 
     public static boolean a(Camera camera) {
@@ -84,7 +84,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, charSequence, i2)) == null) {
             int i3 = 0;
-            for (String str : f26352e.split(charSequence)) {
+            for (String str : f26375e.split(charSequence)) {
                 try {
                     double parseDouble = Double.parseDouble(str.trim());
                     int i4 = (int) (10.0d * parseDouble);
@@ -187,7 +187,7 @@ public final class b {
     public Point g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26355c : (Point) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26378c : (Point) invokeV.objValue;
     }
 
     public int h() {
@@ -197,7 +197,7 @@ public final class b {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
             int i2 = 0;
             Camera.getCameraInfo(0, cameraInfo);
-            int rotation = ((WindowManager) this.f26353a.getSystemService("window")).getDefaultDisplay().getRotation();
+            int rotation = ((WindowManager) this.f26376a.getSystemService("window")).getDefaultDisplay().getRotation();
             if (rotation != 0) {
                 if (rotation == 1) {
                     i2 = 90;
@@ -222,25 +222,25 @@ public final class b {
             if (a(camera)) {
                 parameters.setFocusMode(DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
             }
-            this.f26354b = a.d(this.f26353a);
+            this.f26377b = a.d(this.f26376a);
             Point point = new Point();
-            Point point2 = this.f26354b;
+            Point point2 = this.f26377b;
             point.x = point2.x;
             point.y = point2.y;
-            int c2 = a.c(this.f26353a);
+            int c2 = a.c(this.f26376a);
             if (c2 == 0) {
-                Point point3 = this.f26354b;
+                Point point3 = this.f26377b;
                 point.x = point3.y;
                 point.y = point3.x;
             }
             Point i2 = i(parameters, point);
-            this.f26356d = i2;
+            this.f26379d = i2;
             if (c2 == 0) {
-                Point point4 = this.f26356d;
-                this.f26355c = new Point(point4.y, point4.x);
+                Point point4 = this.f26379d;
+                this.f26378c = new Point(point4.y, point4.x);
                 return;
             }
-            this.f26355c = i2;
+            this.f26378c = i2;
         }
     }
 
@@ -255,7 +255,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, camera) == null) {
             Camera.Parameters parameters = camera.getParameters();
-            Point point = this.f26356d;
+            Point point = this.f26379d;
             parameters.setPreviewSize(point.x, point.y);
             m(parameters);
             camera.setDisplayOrientation(h());

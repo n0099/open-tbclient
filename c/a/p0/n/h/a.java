@@ -11,16 +11,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11875a;
+    public int f11883a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11876b;
+    public String f11884b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11877c;
+    public String f11885c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f11878d;
+    public int f11886d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(int i2, String str) {
@@ -47,7 +47,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ErrCode=" + this.f11875a + ",ErrMsg=" + this.f11876b + ",TipMsg=" + this.f11877c;
+            return "ErrCode=" + this.f11883a + ",ErrMsg=" + this.f11884b + ",TipMsg=" + this.f11885c;
         }
         return (String) invokeV.objValue;
     }
@@ -67,8 +67,8 @@ public class a {
                 return;
             }
         }
-        this.f11875a = i2;
-        this.f11876b = str;
-        this.f11877c = str2;
+        this.f11883a = i2;
+        this.f11884b = str;
+        this.f11885c = str2;
     }
 }

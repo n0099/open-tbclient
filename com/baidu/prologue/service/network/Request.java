@@ -28,34 +28,34 @@ public final class Request {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final URL f44424a;
+    public final URL f44486a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f44425b;
+    public final String f44487b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f44426c;
+    public final Map<String, String> f44488c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, String> f44427d;
+    public final Map<String, String> f44489d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f44428e;
+    public final Object f44490e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f44429f;
+    public final Context f44491f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final e f44430g;
+    public final e f44492g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Handler f44431h;
+    public final Handler f44493h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final RequestError f44432i;
+    public final RequestError f44494i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f44433j;
+    public boolean f44495j;
 
     /* loaded from: classes5.dex */
     public static class RequestError extends IOException {
@@ -130,10 +130,10 @@ public final class Request {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f44434e;
+        public final /* synthetic */ l f44496e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Request f44435f;
+        public final /* synthetic */ Request f44497f;
 
         public a(Request request, l lVar) {
             Interceptable interceptable = $ic;
@@ -150,15 +150,15 @@ public final class Request {
                     return;
                 }
             }
-            this.f44435f = request;
-            this.f44434e = lVar;
+            this.f44497f = request;
+            this.f44496e = lVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44434e.a(this.f44435f.f44432i);
+                this.f44496e.a(this.f44497f.f44494i);
             }
         }
     }
@@ -169,10 +169,10 @@ public final class Request {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f44436a;
+        public final /* synthetic */ l f44498a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Request f44437b;
+        public final /* synthetic */ Request f44499b;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
@@ -180,10 +180,10 @@ public final class Request {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f44438e;
+            public final /* synthetic */ String f44500e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f44439f;
+            public final /* synthetic */ b f44501f;
 
             public a(b bVar, String str) {
                 Interceptable interceptable = $ic;
@@ -200,32 +200,32 @@ public final class Request {
                         return;
                     }
                 }
-                this.f44439f = bVar;
-                this.f44438e = str;
+                this.f44501f = bVar;
+                this.f44500e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f44439f.f44436a.onResponse(this.f44438e);
+                    this.f44501f.f44498a.onResponse(this.f44500e);
                 }
             }
         }
 
         /* renamed from: com.baidu.prologue.service.network.Request$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC1692b implements Runnable {
+        public class RunnableC1694b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Throwable f44440e;
+            public final /* synthetic */ Throwable f44502e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f44441f;
+            public final /* synthetic */ b f44503f;
 
-            public RunnableC1692b(b bVar, Throwable th) {
+            public RunnableC1694b(b bVar, Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -240,15 +240,15 @@ public final class Request {
                         return;
                     }
                 }
-                this.f44441f = bVar;
-                this.f44440e = th;
+                this.f44503f = bVar;
+                this.f44502e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f44441f.f44436a.a(this.f44440e);
+                    this.f44503f.f44498a.a(this.f44502e);
                 }
             }
         }
@@ -268,15 +268,15 @@ public final class Request {
                     return;
                 }
             }
-            this.f44437b = request;
-            this.f44436a = lVar;
+            this.f44499b = request;
+            this.f44498a = lVar;
         }
 
         @Override // c.a.f0.d.a.k
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.f44437b.g(new RunnableC1692b(this, th));
+                this.f44499b.g(new RunnableC1694b(this, th));
             }
         }
 
@@ -284,7 +284,7 @@ public final class Request {
         public void b(long j2, InputStream inputStream) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, inputStream) == null) {
-                this.f44437b.g(new a(this, new String(Request.h(inputStream))));
+                this.f44499b.g(new a(this, new String(Request.h(inputStream))));
             }
         }
     }
@@ -295,34 +295,34 @@ public final class Request {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f44442a;
+        public final Context f44504a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f44443b;
+        public final String f44505b;
 
         /* renamed from: c  reason: collision with root package name */
-        public URL f44444c;
+        public URL f44506c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f44445d;
+        public String f44507d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Map<String, String> f44446e;
+        public Map<String, String> f44508e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Map<String, String> f44447f;
+        public Map<String, String> f44509f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f44448g;
+        public boolean f44510g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Object f44449h;
+        public Object f44511h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f44450i;
+        public boolean f44512i;
 
         /* renamed from: j  reason: collision with root package name */
-        public RequestError f44451j;
+        public RequestError f44513j;
 
         public c(Context context, String str) {
             Interceptable interceptable = $ic;
@@ -339,18 +339,18 @@ public final class Request {
                     return;
                 }
             }
-            this.f44442a = context.getApplicationContext();
-            this.f44443b = str;
+            this.f44504a = context.getApplicationContext();
+            this.f44505b = str;
         }
 
         public c j(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                if (this.f44447f == null) {
-                    this.f44447f = new HashMap();
+                if (this.f44509f == null) {
+                    this.f44509f = new HashMap();
                 }
-                this.f44447f.put(str, str2);
+                this.f44509f.put(str, str2);
                 return this;
             }
             return (c) invokeLL.objValue;
@@ -360,10 +360,10 @@ public final class Request {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                if (this.f44446e == null) {
-                    this.f44446e = new HashMap();
+                if (this.f44508e == null) {
+                    this.f44508e = new HashMap();
                 }
-                this.f44446e.put(str, str2.trim());
+                this.f44508e.put(str, str2.trim());
                 return this;
             }
             return (c) invokeLL.objValue;
@@ -373,16 +373,16 @@ public final class Request {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.f44445d == null) {
+                if (this.f44507d == null) {
                     m();
                 }
-                if ("GET".equals(this.f44445d)) {
+                if ("GET".equals(this.f44507d)) {
                     try {
-                        this.f44444c = new URL(c.a.f0.d.a.b.b(this.f44444c.toString(), this.f44447f));
+                        this.f44506c = new URL(c.a.f0.d.a.b.b(this.f44506c.toString(), this.f44509f));
                     } catch (MalformedURLException e2) {
-                        this.f44451j = new RequestError("Failed to create url", e2);
+                        this.f44513j = new RequestError("Failed to create url", e2);
                     } catch (URISyntaxException e3) {
-                        this.f44451j = new RequestError("Failed to add parameters to url", e3);
+                        this.f44513j = new RequestError("Failed to add parameters to url", e3);
                     }
                 }
                 return new Request(this, null);
@@ -394,15 +394,15 @@ public final class Request {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f44444c != null) {
-                    this.f44451j = new RequestError("Method called twice");
+                if (this.f44506c != null) {
+                    this.f44513j = new RequestError("Method called twice");
                 }
                 try {
-                    this.f44444c = new URL(this.f44443b);
+                    this.f44506c = new URL(this.f44505b);
                 } catch (MalformedURLException e2) {
-                    this.f44451j = new RequestError(e2);
+                    this.f44513j = new RequestError(e2);
                 }
-                this.f44445d = "GET";
+                this.f44507d = "GET";
                 return this;
             }
             return (c) invokeV.objValue;
@@ -412,15 +412,15 @@ public final class Request {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.f44444c != null) {
-                    this.f44451j = new RequestError("Method called twice");
+                if (this.f44506c != null) {
+                    this.f44513j = new RequestError("Method called twice");
                 }
                 try {
-                    this.f44444c = new URL(this.f44443b);
+                    this.f44506c = new URL(this.f44505b);
                 } catch (MalformedURLException e2) {
-                    this.f44451j = new RequestError(e2);
+                    this.f44513j = new RequestError(e2);
                 }
-                this.f44445d = "POST";
+                this.f44507d = "POST";
                 return this;
             }
             return (c) invokeV.objValue;
@@ -430,7 +430,7 @@ public final class Request {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f44450i = z;
+                this.f44512i = z;
                 return this;
             }
             return (c) invokeZ.objValue;
@@ -459,7 +459,7 @@ public final class Request {
                         }
                         byteArrayOutputStream.write(bArr, 0, read);
                     } catch (IOException e2) {
-                        g.f3351a.e(SingleRequest.TAG, "failed to read is", e2);
+                        g.f3352a.e(SingleRequest.TAG, "failed to read is", e2);
                     }
                 }
                 return byteArrayOutputStream.toByteArray();
@@ -473,17 +473,17 @@ public final class Request {
     public void d(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
-            this.f44430g.a(this, kVar);
+            this.f44492g.a(this, kVar);
         }
     }
 
     public void e(l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
-            if (this.f44432i != null) {
+            if (this.f44494i != null) {
                 g(new a(this, lVar));
             } else {
-                this.f44430g.a(this, new b(this, lVar));
+                this.f44492g.a(this, new b(this, lVar));
             }
         }
     }
@@ -492,7 +492,7 @@ public final class Request {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Map<String, String> map = this.f44427d;
+            Map<String, String> map = this.f44489d;
             return map != null && map.size() > 0;
         }
         return invokeV.booleanValue;
@@ -501,7 +501,7 @@ public final class Request {
     public final void g(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
-            this.f44431h.post(runnable);
+            this.f44493h.post(runnable);
         }
     }
 
@@ -520,16 +520,16 @@ public final class Request {
                 return;
             }
         }
-        this.f44432i = cVar.f44451j;
-        this.f44429f = cVar.f44442a;
-        this.f44431h = new Handler(this.f44429f.getMainLooper());
-        this.f44424a = cVar.f44444c;
-        this.f44425b = cVar.f44445d;
-        this.f44426c = cVar.f44446e;
-        this.f44427d = cVar.f44447f;
-        boolean unused = cVar.f44448g;
-        this.f44428e = cVar.f44449h != null ? cVar.f44449h : this;
-        this.f44430g = c.a.f0.d.a.c.c(this.f44429f);
-        this.f44433j = cVar.f44450i;
+        this.f44494i = cVar.f44513j;
+        this.f44491f = cVar.f44504a;
+        this.f44493h = new Handler(this.f44491f.getMainLooper());
+        this.f44486a = cVar.f44506c;
+        this.f44487b = cVar.f44507d;
+        this.f44488c = cVar.f44508e;
+        this.f44489d = cVar.f44509f;
+        boolean unused = cVar.f44510g;
+        this.f44490e = cVar.f44511h != null ? cVar.f44511h : this;
+        this.f44492g = c.a.f0.d.a.c.c(this.f44491f);
+        this.f44495j = cVar.f44512i;
     }
 }

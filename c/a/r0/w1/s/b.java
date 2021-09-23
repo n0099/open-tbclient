@@ -1,7 +1,7 @@
 package c.a.r0.w1.s;
 
 import c.a.e.e.p.l;
-import c.a.r0.j3.z;
+import c.a.r0.j3.a0;
 import c.a.r0.s1.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -29,7 +29,7 @@ public class b implements ShareChannelService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f28122a;
+        public final /* synthetic */ b f28142a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class b implements ShareChannelService {
                     return;
                 }
             }
-            this.f28122a = bVar;
+            this.f28142a = bVar;
         }
 
         @Override // com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel
@@ -54,13 +54,13 @@ public class b implements ShareChannelService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, shareEntity, i2, iShareCallback) == null) {
                 if (i2 == 1) {
-                    this.f28122a.c(6, shareEntity, iShareCallback);
+                    this.f28142a.c(6, shareEntity, iShareCallback);
                 } else if (i2 == 3) {
-                    this.f28122a.c(2, shareEntity, iShareCallback);
+                    this.f28142a.c(2, shareEntity, iShareCallback);
                 } else if (i2 == 2) {
-                    this.f28122a.c(3, shareEntity, iShareCallback);
+                    this.f28142a.c(3, shareEntity, iShareCallback);
                 } else if (i2 == 4) {
-                    this.f28122a.c(8, shareEntity, iShareCallback);
+                    this.f28142a.c(8, shareEntity, iShareCallback);
                 }
             }
         }
@@ -85,14 +85,14 @@ public class b implements ShareChannelService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 == 2 || i2 == 3) {
-                boolean b2 = z.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
+                boolean b2 = a0.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
                 if (b2) {
                     return b2;
                 }
                 l.M(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(g.share_weixin_not_installed_yet));
                 return b2;
             } else if (i2 == 6) {
-                boolean b3 = z.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
+                boolean b3 = a0.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
                 if (b3) {
                     return b3;
                 }
@@ -101,7 +101,7 @@ public class b implements ShareChannelService {
             } else if (i2 != 8) {
                 return false;
             } else {
-                boolean b4 = z.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
+                boolean b4 = a0.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
                 if (b4) {
                     return b4;
                 }

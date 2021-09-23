@@ -22,31 +22,31 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53818a;
+        public String f53933a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53819b;
+        public int f53934b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53820c;
+        public int f53935c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f53821d;
+        public String f53936d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f53822e;
+        public int f53937e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f53823f;
+        public int f53938f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f53824g;
+        public int f53939g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f53825h;
+        public boolean f53940h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f53826i;
+        public boolean f53941i;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -98,15 +98,15 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
             if (optInt > 0 && !TextUtils.isEmpty(optString)) {
                 a aVar = new a();
                 this.videoInfo = aVar;
-                aVar.f53818a = optString;
-                aVar.f53819b = optInt2;
-                aVar.f53820c = optInt3;
-                aVar.f53821d = optString2;
-                aVar.f53822e = optInt4;
-                aVar.f53823f = optInt5;
-                aVar.f53824g = optInt6;
-                aVar.f53825h = z;
-                aVar.f53826i = z2;
+                aVar.f53933a = optString;
+                aVar.f53934b = optInt2;
+                aVar.f53935c = optInt3;
+                aVar.f53936d = optString2;
+                aVar.f53937e = optInt4;
+                aVar.f53938f = optInt5;
+                aVar.f53939g = optInt6;
+                aVar.f53940h = z;
+                aVar.f53941i = z2;
                 return;
             }
             this.videoInfo = null;
@@ -122,8 +122,8 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             a aVar = this.videoInfo;
-            if (aVar != null && (i2 = aVar.f53819b) > 0) {
-                return aVar.f53820c / i2;
+            if (aVar != null && (i2 = aVar.f53934b) > 0) {
+                return aVar.f53935c / i2;
             }
             return super.getRatio();
         }

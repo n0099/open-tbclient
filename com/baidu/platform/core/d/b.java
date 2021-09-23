@@ -37,35 +37,35 @@ public class b extends com.baidu.platform.base.e {
     private void a(BikingRoutePlanOption bikingRoutePlanOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, bikingRoutePlanOption) == null) {
-            this.f44305a.a("mode", "riding");
+            this.f44367a.a("mode", "riding");
             LatLng location = bikingRoutePlanOption.mFrom.getLocation();
             if (location != null) {
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                     location = CoordTrans.gcjToBaidu(location);
                 }
-                com.baidu.platform.util.a aVar = this.f44305a;
+                com.baidu.platform.util.a aVar = this.f44367a;
                 aVar.a(FilterValue.DEFAULT_FILTER_VALUE, location.latitude + "," + location.longitude);
             } else {
-                this.f44305a.a(FilterValue.DEFAULT_FILTER_VALUE, bikingRoutePlanOption.mFrom.getName());
+                this.f44367a.a(FilterValue.DEFAULT_FILTER_VALUE, bikingRoutePlanOption.mFrom.getName());
             }
             LatLng location2 = bikingRoutePlanOption.mTo.getLocation();
             if (location2 != null) {
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                     location2 = CoordTrans.gcjToBaidu(location2);
                 }
-                com.baidu.platform.util.a aVar2 = this.f44305a;
+                com.baidu.platform.util.a aVar2 = this.f44367a;
                 aVar2.a("destination", location2.latitude + "," + location2.longitude);
             } else {
-                this.f44305a.a("destination", bikingRoutePlanOption.mTo.getName());
+                this.f44367a.a("destination", bikingRoutePlanOption.mTo.getName());
             }
-            this.f44305a.a("origin_region", bikingRoutePlanOption.mFrom.getCity());
-            this.f44305a.a("destination_region", bikingRoutePlanOption.mTo.getCity());
+            this.f44367a.a("origin_region", bikingRoutePlanOption.mFrom.getCity());
+            this.f44367a.a("destination_region", bikingRoutePlanOption.mTo.getCity());
             int i2 = bikingRoutePlanOption.mRidingType;
             if (i2 == 1) {
-                this.f44305a.a("riding_type", String.valueOf(i2));
+                this.f44367a.a("riding_type", String.valueOf(i2));
             }
-            this.f44305a.a("output", "json");
-            this.f44305a.a("from", "android_map_sdk");
+            this.f44367a.a("output", "json");
+            this.f44367a.a("from", "android_map_sdk");
         }
     }
 

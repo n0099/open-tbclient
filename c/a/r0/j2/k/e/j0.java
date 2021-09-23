@@ -28,7 +28,7 @@ public class j0 extends n<f1, PbRecommendNovelHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ j0 f20140a;
+        public final /* synthetic */ j0 f20155a;
 
         public a(j0 j0Var) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class j0 extends n<f1, PbRecommendNovelHolder> {
                     return;
                 }
             }
-            this.f20140a = j0Var;
+            this.f20155a = j0Var;
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
@@ -54,7 +54,7 @@ public class j0 extends n<f1, PbRecommendNovelHolder> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, f1Var) == null) || f1Var == null) {
                 return;
             }
-            c.a.r0.j2.m.a.a(this.f20140a.s, f1Var, f1Var.i0, 6);
+            c.a.r0.j2.m.a.a(this.f20155a.s, f1Var, f1Var.i0, 6);
         }
     }
 
@@ -92,7 +92,7 @@ public class j0 extends n<f1, PbRecommendNovelHolder> {
     public PbRecommendNovelHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbRecommendNovelHolder(this.n.getPageContext(), LayoutInflater.from(this.f2957e).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.t) : (PbRecommendNovelHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbRecommendNovelHolder(this.n.getPageContext(), LayoutInflater.from(this.f2958e).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.t) : (PbRecommendNovelHolder) invokeL.objValue;
     }
 
     public View l0(int i2, View view, ViewGroup viewGroup, f1 f1Var, PbRecommendNovelHolder pbRecommendNovelHolder) {

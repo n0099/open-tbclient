@@ -13,7 +13,7 @@ public final class BuildConfig {
     public static final boolean IS_BUSINESS_VERSION = false;
     public static final String LIBRARY_PACKAGE_NAME = "com.dxmpay.walletsdk.core";
     public static final int VERSION_CODE = -1;
-    public static final String VERSION_NAME = "9.3.0.124";
+    public static final String VERSION_NAME = "9.4.5.108";
     public static final boolean hasOcrDetect = false;
     public static final boolean hasSdkAsPlugin = false;
     public static final boolean isFaceSDKindependent = false;
@@ -21,7 +21,7 @@ public final class BuildConfig {
     public static final String sChannelId = "tieba";
     public static final boolean sDebugStatus = false;
     public static final boolean sMtjDbg = false;
-    public static final String sSdkVersion = "9.3.0.124";
+    public static final String sSdkVersion = "9.4.5.108";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {

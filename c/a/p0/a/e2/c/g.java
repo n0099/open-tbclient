@@ -60,34 +60,34 @@ public class g implements r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f5554a;
+    public Context f5562a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.a2.e f5555b;
+    public c.a.p0.a.a2.e f5563b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DialogInterface.OnClickListener f5556c;
+    public DialogInterface.OnClickListener f5564c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.a.e2.c.f f5557d;
+    public c.a.p0.a.e2.c.f f5565d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f5558e;
+    public JSONObject f5566e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SwanAppAlertDialog.a f5559f;
+    public SwanAppAlertDialog.a f5567f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f5560g;
+    public View f5568g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f5561h;
+    public TextView f5569h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f5562i;
+    public View f5570i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f5563j;
+    public TextView f5571j;
     public TextView k;
 
     /* loaded from: classes.dex */
@@ -168,16 +168,16 @@ public class g implements r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f5564e;
+        public final /* synthetic */ TextView f5572e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f5565f;
+        public final /* synthetic */ View f5573f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.e2.c.f f5566g;
+        public final /* synthetic */ c.a.p0.a.e2.c.f f5574g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g f5567h;
+        public final /* synthetic */ g f5575h;
 
         public c(g gVar, TextView textView, View view, c.a.p0.a.e2.c.f fVar) {
             Interceptable interceptable = $ic;
@@ -194,17 +194,17 @@ public class g implements r {
                     return;
                 }
             }
-            this.f5567h = gVar;
-            this.f5564e = textView;
-            this.f5565f = view;
-            this.f5566g = fVar;
+            this.f5575h = gVar;
+            this.f5572e = textView;
+            this.f5573f = view;
+            this.f5574g = fVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f5567h.v(!this.f5564e.isEnabled(), this.f5565f, this.f5564e, this.f5566g);
+                this.f5575h.v(!this.f5572e.isEnabled(), this.f5573f, this.f5572e, this.f5574g);
             }
         }
 
@@ -224,13 +224,13 @@ public class g implements r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f5568e;
+        public final /* synthetic */ View f5576e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f.a f5569f;
+        public final /* synthetic */ f.a f5577f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f5570g;
+        public final /* synthetic */ g f5578g;
 
         public d(g gVar, View view, f.a aVar) {
             Interceptable interceptable = $ic;
@@ -247,16 +247,16 @@ public class g implements r {
                     return;
                 }
             }
-            this.f5570g = gVar;
-            this.f5568e = view;
-            this.f5569f = aVar;
+            this.f5578g = gVar;
+            this.f5576e = view;
+            this.f5577f = aVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f5570g.C(this.f5568e.getContext(), this.f5569f.f5550c);
+                this.f5578g.C(this.f5576e.getContext(), this.f5577f.f5558c);
             }
         }
 
@@ -276,13 +276,13 @@ public class g implements r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5571e;
+        public final /* synthetic */ String f5579e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5572f;
+        public final /* synthetic */ String f5580f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f5573g;
+        public final /* synthetic */ g f5581g;
 
         public e(g gVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -299,16 +299,16 @@ public class g implements r {
                     return;
                 }
             }
-            this.f5573g = gVar;
-            this.f5571e = str;
-            this.f5572f = str2;
+            this.f5581g = gVar;
+            this.f5579e = str;
+            this.f5580f = str2;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f5573g.C(c.a.p0.a.a2.d.g().x(), this.f5572f);
+                this.f5581g.C(c.a.p0.a.a2.d.g().x(), this.f5580f);
             }
         }
 
@@ -319,7 +319,7 @@ public class g implements r {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
                 super.updateDrawState(textPaint);
                 textPaint.setUnderlineText(false);
-                textPaint.setColor(Color.parseColor(this.f5571e));
+                textPaint.setColor(Color.parseColor(this.f5579e));
             }
         }
     }
@@ -330,10 +330,10 @@ public class g implements r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f5574e;
+        public final /* synthetic */ TextView f5582e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g f5575f;
+        public final /* synthetic */ g f5583f;
 
         public f(g gVar, TextView textView) {
             Interceptable interceptable = $ic;
@@ -350,16 +350,16 @@ public class g implements r {
                     return;
                 }
             }
-            this.f5575f = gVar;
-            this.f5574e = textView;
+            this.f5583f = gVar;
+            this.f5582e = textView;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                g gVar = this.f5575f;
-                gVar.B(gVar.f5557d, this.f5575f.f5561h, this.f5575f.f5560g, this.f5574e, this.f5575f.f5558e, this.f5575f.f5562i);
+                g gVar = this.f5583f;
+                gVar.B(gVar.f5565d, this.f5583f.f5569h, this.f5583f.f5568g, this.f5582e, this.f5583f.f5566e, this.f5583f.f5570i);
             }
         }
 
@@ -380,10 +380,10 @@ public class g implements r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f5576a;
+        public final /* synthetic */ Context f5584a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanAppRoundedImageView f5577b;
+        public final /* synthetic */ SwanAppRoundedImageView f5585b;
 
         public C0173g(g gVar, Context context, SwanAppRoundedImageView swanAppRoundedImageView) {
             Interceptable interceptable = $ic;
@@ -400,8 +400,8 @@ public class g implements r {
                     return;
                 }
             }
-            this.f5576a = context;
-            this.f5577b = swanAppRoundedImageView;
+            this.f5584a = context;
+            this.f5585b = swanAppRoundedImageView;
         }
 
         @Override // c.a.p0.a.v2.t.b
@@ -409,12 +409,12 @@ public class g implements r {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
                 if (bitmap == null) {
-                    bitmap = BitmapFactory.decodeResource(this.f5576a.getResources(), c.a.p0.a.e.swan_app_user_portrait_pressed);
+                    bitmap = BitmapFactory.decodeResource(this.f5584a.getResources(), c.a.p0.a.e.swan_app_user_portrait_pressed);
                 }
-                SwanAppRoundedImageView swanAppRoundedImageView = this.f5577b;
+                SwanAppRoundedImageView swanAppRoundedImageView = this.f5585b;
                 if (swanAppRoundedImageView != null) {
                     swanAppRoundedImageView.setImageBitmap(bitmap);
-                    this.f5577b.setBorderColor(this.f5576a.getResources().getColor(c.a.p0.a.c.swan_app_auth_icon_border));
+                    this.f5585b.setBorderColor(this.f5584a.getResources().getColor(c.a.p0.a.c.swan_app_auth_icon_border));
                 }
             }
         }
@@ -465,16 +465,16 @@ public class g implements r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f5578e;
+        public final /* synthetic */ TextView f5586e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f5579f;
+        public final /* synthetic */ View f5587f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.e2.c.f f5580g;
+        public final /* synthetic */ c.a.p0.a.e2.c.f f5588g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g f5581h;
+        public final /* synthetic */ g f5589h;
 
         public i(g gVar, TextView textView, View view, c.a.p0.a.e2.c.f fVar) {
             Interceptable interceptable = $ic;
@@ -491,17 +491,17 @@ public class g implements r {
                     return;
                 }
             }
-            this.f5581h = gVar;
-            this.f5578e = textView;
-            this.f5579f = view;
-            this.f5580g = fVar;
+            this.f5589h = gVar;
+            this.f5586e = textView;
+            this.f5587f = view;
+            this.f5588g = fVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f5581h.y(!this.f5578e.isEnabled(), this.f5579f, this.f5578e, this.f5580g);
+                this.f5589h.y(!this.f5586e.isEnabled(), this.f5587f, this.f5586e, this.f5588g);
             }
         }
 
@@ -528,7 +528,7 @@ public class g implements r {
                 return;
             }
         }
-        l = k.f7077a;
+        l = k.f7085a;
         m = new int[]{c.a.p0.a.f.agreement_first, c.a.p0.a.f.agreement_second, c.a.p0.a.f.agreement_third, c.a.p0.a.f.agreement_forth};
         n = new int[]{c.a.p0.a.f.agreement_layout_first, c.a.p0.a.f.agreement_layout_second, c.a.p0.a.f.agreement_layout_third, c.a.p0.a.f.agreement_layout_forth};
     }
@@ -572,9 +572,9 @@ public class g implements r {
         if (str != null) {
             textView2.setText(Html.fromHtml(str));
         }
-        textView.setText(fVar.f5543f);
+        textView.setText(fVar.f5551f);
         ((LinearLayout) view.findViewById(c.a.p0.a.f.permission_detail_layout)).setVisibility(0);
-        if (((!TextUtils.equals(fVar.f5539b, "snsapi_userinfo") || jSONObject == null) && !TextUtils.equals(fVar.f5539b, "mobile")) || view2 == null) {
+        if (((!TextUtils.equals(fVar.f5547b, "snsapi_userinfo") || jSONObject == null) && !TextUtils.equals(fVar.f5547b, "mobile")) || view2 == null) {
             return;
         }
         view2.findViewById(c.a.p0.a.f.auth_divider1).setVisibility(8);
@@ -603,20 +603,20 @@ public class g implements r {
                 return null;
             }
             SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(context);
-            this.f5559f = aVar;
-            this.f5554a = context;
-            this.f5555b = eVar;
-            this.f5557d = fVar;
-            this.f5558e = jSONObject;
-            this.f5556c = onClickListener;
+            this.f5567f = aVar;
+            this.f5562a = context;
+            this.f5563b = eVar;
+            this.f5565d = fVar;
+            this.f5566e = jSONObject;
+            this.f5564c = onClickListener;
             aVar.f(true);
-            this.f5559f.W(n());
-            this.f5559f.n(new c.a.p0.a.w2.h.a());
-            this.f5559f.p(c.a.p0.a.e.aiapps_action_sheet_bg);
-            this.f5559f.k(false);
-            this.f5559f.j();
-            this.f5559f.t(false);
-            return this.f5559f;
+            this.f5567f.W(n());
+            this.f5567f.n(new c.a.p0.a.w2.h.a());
+            this.f5567f.p(c.a.p0.a.e.aiapps_action_sheet_bg);
+            this.f5567f.k(false);
+            this.f5567f.j();
+            this.f5567f.t(false);
+            return this.f5567f;
         }
         return (SwanAppAlertDialog.a) invokeLLLLL.objValue;
     }
@@ -624,38 +624,38 @@ public class g implements r {
     public final void k() {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (frameLayout = (FrameLayout) this.f5560g.findViewById(c.a.p0.a.f.auth_custom_layout)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (frameLayout = (FrameLayout) this.f5568g.findViewById(c.a.p0.a.f.auth_custom_layout)) == null) {
             return;
         }
-        this.f5560g.findViewById(c.a.p0.a.f.multi_auth_custom_layout).setVisibility(8);
-        this.f5560g.findViewById(c.a.p0.a.f.multi_auth_agreement_layout).setVisibility(8);
-        this.f5560g.findViewById(c.a.p0.a.f.auth_custom_layout).setVisibility(0);
-        this.f5562i = View.inflate(this.f5554a, c.a.p0.a.g.swan_app_auth_scope_detail, null);
-        this.f5557d.f();
-        v(false, this.f5562i, this.k, this.f5557d);
-        frameLayout.addView(this.f5562i);
+        this.f5568g.findViewById(c.a.p0.a.f.multi_auth_custom_layout).setVisibility(8);
+        this.f5568g.findViewById(c.a.p0.a.f.multi_auth_agreement_layout).setVisibility(8);
+        this.f5568g.findViewById(c.a.p0.a.f.auth_custom_layout).setVisibility(0);
+        this.f5570i = View.inflate(this.f5562a, c.a.p0.a.g.swan_app_auth_scope_detail, null);
+        this.f5565d.f();
+        v(false, this.f5570i, this.k, this.f5565d);
+        frameLayout.addView(this.f5570i);
     }
 
     public final void l() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ((FrameLayout) this.f5560g.findViewById(c.a.p0.a.f.multi_auth_custom_layout)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ((FrameLayout) this.f5568g.findViewById(c.a.p0.a.f.multi_auth_custom_layout)) == null) {
             return;
         }
-        this.f5560g.findViewById(c.a.p0.a.f.multi_auth_custom_layout).setVisibility(0);
-        this.f5560g.findViewById(c.a.p0.a.f.multi_auth_agreement_layout).setVisibility(0);
-        this.f5560g.findViewById(c.a.p0.a.f.auth_custom_layout).setVisibility(8);
-        this.f5557d.f();
-        y(true, this.f5560g.findViewById(c.a.p0.a.f.auth_scope_detail_layout), this.k, this.f5557d);
-        TextView textView = (TextView) this.f5560g.findViewById(c.a.p0.a.f.multi_auth_agreement_layout);
+        this.f5568g.findViewById(c.a.p0.a.f.multi_auth_custom_layout).setVisibility(0);
+        this.f5568g.findViewById(c.a.p0.a.f.multi_auth_agreement_layout).setVisibility(0);
+        this.f5568g.findViewById(c.a.p0.a.f.auth_custom_layout).setVisibility(8);
+        this.f5565d.f();
+        y(true, this.f5568g.findViewById(c.a.p0.a.f.auth_scope_detail_layout), this.k, this.f5565d);
+        TextView textView = (TextView) this.f5568g.findViewById(c.a.p0.a.f.multi_auth_agreement_layout);
         textView.setVisibility(0);
-        f.a aVar = this.f5557d.n;
-        String str = aVar.f5552e;
-        JSONArray jSONArray = aVar.f5553f;
+        f.a aVar = this.f5565d.n;
+        String str = aVar.f5560e;
+        JSONArray jSONArray = aVar.f5561f;
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f5554a.getString(c.a.p0.a.h.aiapps_check_action_text));
-        if (!TextUtils.isEmpty(aVar.f5551d)) {
-            sb.append(aVar.f5551d);
+        sb.append(this.f5562a.getString(c.a.p0.a.h.aiapps_check_action_text));
+        if (!TextUtils.isEmpty(aVar.f5559d)) {
+            sb.append(aVar.f5559d);
         }
         if (jSONArray != null && jSONArray.length() > 0) {
             int length = jSONArray.length();
@@ -669,8 +669,8 @@ public class g implements r {
             }
         }
         SpannableString spannableString = new SpannableString(sb.toString());
-        if (!TextUtils.isEmpty(aVar.f5551d)) {
-            z(spannableString, sb, aVar.f5551d, aVar.f5550c, str);
+        if (!TextUtils.isEmpty(aVar.f5559d)) {
+            z(spannableString, sb, aVar.f5559d, aVar.f5558c, str);
         }
         if (jSONArray != null && jSONArray.length() > 0) {
             int i4 = 0;
@@ -702,16 +702,16 @@ public class g implements r {
     public final void m() {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (frameLayout = (FrameLayout) this.f5560g.findViewById(c.a.p0.a.f.auth_custom_layout)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (frameLayout = (FrameLayout) this.f5568g.findViewById(c.a.p0.a.f.auth_custom_layout)) == null) {
             return;
         }
-        this.f5560g.findViewById(c.a.p0.a.f.multi_auth_custom_layout).setVisibility(8);
-        this.f5560g.findViewById(c.a.p0.a.f.multi_auth_agreement_layout).setVisibility(8);
+        this.f5568g.findViewById(c.a.p0.a.f.multi_auth_custom_layout).setVisibility(8);
+        this.f5568g.findViewById(c.a.p0.a.f.multi_auth_agreement_layout).setVisibility(8);
         char c2 = 0;
-        this.f5560g.findViewById(c.a.p0.a.f.auth_custom_layout).setVisibility(0);
-        ((TextView) this.f5560g.findViewById(c.a.p0.a.f.multi_auth_agreement_layout)).setVisibility(8);
-        this.f5562i = p(this.f5554a, this.f5557d, this.f5558e);
-        String str = this.f5557d.f5539b;
+        this.f5568g.findViewById(c.a.p0.a.f.auth_custom_layout).setVisibility(0);
+        ((TextView) this.f5568g.findViewById(c.a.p0.a.f.multi_auth_agreement_layout)).setVisibility(8);
+        this.f5570i = p(this.f5562a, this.f5565d, this.f5566e);
+        String str = this.f5565d.f5547b;
         int hashCode = str.hashCode();
         if (hashCode != -1068855134) {
             if (hashCode == -977063690) {
@@ -724,29 +724,29 @@ public class g implements r {
             c2 = 65535;
         }
         if (c2 == 0) {
-            JSONObject jSONObject = this.f5558e;
+            JSONObject jSONObject = this.f5566e;
             if (jSONObject != null) {
-                A(this.f5554a, this.f5562i, jSONObject);
+                A(this.f5562a, this.f5570i, jSONObject);
             } else {
-                x(this.f5562i, this.f5557d);
+                x(this.f5570i, this.f5565d);
             }
         } else if (c2 != 1) {
-            x(this.f5562i, this.f5557d);
+            x(this.f5570i, this.f5565d);
         } else {
-            w(this.f5562i, this.f5557d);
+            w(this.f5570i, this.f5565d);
         }
-        frameLayout.addView(this.f5562i);
+        frameLayout.addView(this.f5570i);
     }
 
     public View n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            this.f5560g = View.inflate(this.f5554a, c.a.p0.a.g.swan_app_auth_dialog_content_common, null);
+            this.f5568g = View.inflate(this.f5562a, c.a.p0.a.g.swan_app_auth_dialog_content_common, null);
             q();
             r();
             s();
-            return this.f5560g;
+            return this.f5568g;
         }
         return (View) invokeV.objValue;
     }
@@ -769,10 +769,10 @@ public class g implements r {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, context, fVar, jSONObject)) == null) {
-            if (context == null || fVar == null || TextUtils.isEmpty(fVar.f5539b)) {
+            if (context == null || fVar == null || TextUtils.isEmpty(fVar.f5547b)) {
                 return null;
             }
-            String str = fVar.f5539b;
+            String str = fVar.f5547b;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != -1068855134) {
@@ -803,53 +803,53 @@ public class g implements r {
         Bitmap i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            boolean z = (TextUtils.isEmpty(this.f5557d.p) || TextUtils.isEmpty(this.f5557d.q)) ? false : true;
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.f5560g.findViewById(c.a.p0.a.f.swan_app_icon);
+            boolean z = (TextUtils.isEmpty(this.f5565d.p) || TextUtils.isEmpty(this.f5565d.q)) ? false : true;
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.f5568g.findViewById(c.a.p0.a.f.swan_app_icon);
             if (swanAppRoundedImageView != null) {
                 if (z) {
-                    i2 = q0.j(this.f5557d.q, "SwanAppAuthDialog", false);
+                    i2 = q0.j(this.f5565d.q, "SwanAppAuthDialog", false);
                 } else {
-                    i2 = q0.i(this.f5555b.N(), "SwanAppAuthDialog", false);
+                    i2 = q0.i(this.f5563b.N(), "SwanAppAuthDialog", false);
                 }
-                swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(this.f5554a.getResources(), i2));
-                swanAppRoundedImageView.setBorderColor(this.f5554a.getResources().getColor(c.a.p0.a.c.swan_app_auth_icon_border));
+                swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(this.f5562a.getResources(), i2));
+                swanAppRoundedImageView.setBorderColor(this.f5562a.getResources().getColor(c.a.p0.a.c.swan_app_auth_icon_border));
             }
-            ((TextView) this.f5560g.findViewById(c.a.p0.a.f.swan_app_name)).setText(z ? this.f5557d.p : this.f5555b.O());
-            TextView textView = (TextView) this.f5560g.findViewById(c.a.p0.a.f.permission_name);
-            this.f5561h = textView;
+            ((TextView) this.f5568g.findViewById(c.a.p0.a.f.swan_app_name)).setText(z ? this.f5565d.p : this.f5563b.O());
+            TextView textView = (TextView) this.f5568g.findViewById(c.a.p0.a.f.permission_name);
+            this.f5569h = textView;
             if (textView != null) {
-                if (u(this.f5557d)) {
-                    View findViewById = this.f5560g.findViewById(c.a.p0.a.f.swan_app_action_text);
+                if (u(this.f5565d)) {
+                    View findViewById = this.f5568g.findViewById(c.a.p0.a.f.swan_app_action_text);
                     if (findViewById != null) {
                         findViewById.setVisibility(8);
                     }
-                    this.f5561h.setText(this.f5557d.r);
+                    this.f5569h.setText(this.f5565d.r);
                 } else {
-                    this.f5561h.setText(this.f5557d.f5543f);
+                    this.f5569h.setText(this.f5565d.f5551f);
                 }
             }
-            if (u(this.f5557d) && (list = this.f5557d.s) != null && list.size() > 0) {
+            if (u(this.f5565d) && (list = this.f5565d.s) != null && list.size() > 0) {
                 for (int i3 = 0; i3 < list.size() && i3 <= 3; i3++) {
                     c.a.p0.a.e2.c.f fVar = list.get(i3);
                     if (fVar != null) {
-                        this.f5560g.findViewById(n[i3]).setVisibility(0);
-                        ((TextView) this.f5560g.findViewById(m[i3])).setText(fVar.f5544g);
+                        this.f5568g.findViewById(n[i3]).setVisibility(0);
+                        ((TextView) this.f5568g.findViewById(m[i3])).setText(fVar.f5552g);
                     }
                 }
             }
-            this.f5563j = (TextView) this.f5560g.findViewById(c.a.p0.a.f.auth_negative_button);
-            this.k = (TextView) this.f5560g.findViewById(c.a.p0.a.f.auth_positive_button);
-            this.f5559f.l(this.f5563j, -2, this.f5556c);
-            this.f5559f.l(this.k, -1, this.f5556c);
+            this.f5571j = (TextView) this.f5568g.findViewById(c.a.p0.a.f.auth_negative_button);
+            this.k = (TextView) this.f5568g.findViewById(c.a.p0.a.f.auth_positive_button);
+            this.f5567f.l(this.f5571j, -2, this.f5564c);
+            this.f5567f.l(this.k, -1, this.f5564c);
         }
     }
 
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (u(this.f5557d)) {
+            if (u(this.f5565d)) {
                 l();
-            } else if (t(this.f5557d)) {
+            } else if (t(this.f5565d)) {
                 k();
             } else {
                 m();
@@ -860,25 +860,25 @@ public class g implements r {
     public void s() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || TextUtils.isEmpty(this.f5557d.l) || (textView = (TextView) this.f5560g.findViewById(c.a.p0.a.f.permission_detail)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || TextUtils.isEmpty(this.f5565d.l) || (textView = (TextView) this.f5568g.findViewById(c.a.p0.a.f.permission_detail)) == null) {
             return;
         }
-        c.a.p0.a.a2.e eVar = this.f5555b;
-        if (eVar != null && eVar.N() != null && TextUtils.equals(this.f5555b.N().T(), "11010020") && TextUtils.equals(this.f5557d.f5539b, "mobile")) {
-            B(this.f5557d, this.f5561h, this.f5560g, textView, this.f5558e, this.f5562i);
+        c.a.p0.a.a2.e eVar = this.f5563b;
+        if (eVar != null && eVar.N() != null && TextUtils.equals(this.f5563b.N().T(), "11010020") && TextUtils.equals(this.f5565d.f5547b, "mobile")) {
+            B(this.f5565d, this.f5569h, this.f5568g, textView, this.f5566e, this.f5570i);
             textView.setTextColor(-16777216);
             return;
         }
-        if (!u(this.f5557d)) {
-            c.a.p0.a.w2.b bVar = new c.a.p0.a.w2.b(this.f5554a, c.a.p0.a.e.swan_app_auth_question_mark_pressed);
+        if (!u(this.f5565d)) {
+            c.a.p0.a.w2.b bVar = new c.a.p0.a.w2.b(this.f5562a, c.a.p0.a.e.swan_app_auth_question_mark_pressed);
             SpannableString spannableString = new SpannableString(" # ");
             spannableString.setSpan(bVar, 1, 2, 33);
             spannableString.setSpan(new f(this, textView), 0, spannableString.length(), 33);
-            this.f5561h.append(spannableString);
+            this.f5569h.append(spannableString);
         }
-        this.f5561h.setHighlightColor(0);
-        this.f5561h.setMovementMethod(LinkMovementMethod.getInstance());
-        this.f5561h.setLongClickable(false);
+        this.f5569h.setHighlightColor(0);
+        this.f5569h.setMovementMethod(LinkMovementMethod.getInstance());
+        this.f5569h.setLongClickable(false);
     }
 
     public boolean t(c.a.p0.a.e2.c.f fVar) {
@@ -888,7 +888,7 @@ public class g implements r {
             if (fVar == null) {
                 return false;
             }
-            return TextUtils.equals(fVar.f5539b, "ppcert") || TextUtils.equals(fVar.f5539b, "mapp_i_face_verify");
+            return TextUtils.equals(fVar.f5547b, "ppcert") || TextUtils.equals(fVar.f5547b, "mapp_i_face_verify");
         }
         return invokeL.booleanValue;
     }
@@ -900,7 +900,7 @@ public class g implements r {
             if (fVar == null) {
                 return false;
             }
-            return TextUtils.equals(fVar.f5539b, "scope_multi_authorize");
+            return TextUtils.equals(fVar.f5547b, "scope_multi_authorize");
         }
         return invokeL.booleanValue;
     }
@@ -910,15 +910,15 @@ public class g implements r {
         TextView textView2;
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), view, textView, fVar}) == null) || view == null || fVar == null || (aVar = fVar.n) == null || (textView2 = (TextView) view.findViewById(c.a.p0.a.f.auth_scope_detail)) == null || TextUtils.isEmpty(aVar.f5548a)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), view, textView, fVar}) == null) || view == null || fVar == null || (aVar = fVar.n) == null || (textView2 = (TextView) view.findViewById(c.a.p0.a.f.auth_scope_detail)) == null || TextUtils.isEmpty(aVar.f5556a)) {
             return;
         }
-        if (!aVar.f5548a.startsWith("XXXX   ")) {
-            aVar.f5548a = "XXXX   " + aVar.f5548a;
+        if (!aVar.f5556a.startsWith("XXXX   ")) {
+            aVar.f5556a = "XXXX   " + aVar.f5556a;
         }
-        textView2.setText(aVar.f5548a);
+        textView2.setText(aVar.f5556a);
         try {
-            textView2.setTextColor(Color.parseColor(aVar.f5549b));
+            textView2.setTextColor(Color.parseColor(aVar.f5557b));
         } catch (RuntimeException e2) {
             if (l) {
                 throw e2;
@@ -934,11 +934,11 @@ public class g implements r {
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         spannableString.setSpan(new b(this, drawable), 0, 4, 33);
         spannableString.setSpan(new c(this, textView, view, fVar), 0, 7, 33);
-        int length = TextUtils.isEmpty(aVar.f5551d) ? 0 : aVar.f5551d.length();
-        int indexOf = aVar.f5548a.indexOf(aVar.f5551d);
+        int length = TextUtils.isEmpty(aVar.f5559d) ? 0 : aVar.f5559d.length();
+        int indexOf = aVar.f5556a.indexOf(aVar.f5559d);
         int i2 = length + indexOf;
         try {
-            spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(aVar.f5552e)), indexOf, i2, 33);
+            spannableString.setSpan(new ForegroundColorSpan(Color.parseColor(aVar.f5560e)), indexOf, i2, 33);
         } catch (RuntimeException e3) {
             if (l) {
                 throw e3;
@@ -957,7 +957,7 @@ public class g implements r {
         }
         TextView textView = (TextView) view.findViewById(c.a.p0.a.f.user_phone_number);
         StringBuilder sb = new StringBuilder();
-        for (String str : fVar.f5546i) {
+        for (String str : fVar.f5554i) {
             sb.append(str);
         }
         if (textView != null) {
@@ -974,7 +974,7 @@ public class g implements r {
         if (!(interceptable == null || interceptable.invokeLL(1048593, this, view, fVar) == null) || view == null || fVar == null || (textView = (TextView) view.findViewById(c.a.p0.a.f.permission_function)) == null) {
             return;
         }
-        if (TextUtils.equals(fVar.f5539b, "mapp_location") && (s = c.a.p0.a.g1.f.V().s()) != null && (eVar = s.o) != null && (map = eVar.f46571a.get("scope.userLocation")) != null) {
+        if (TextUtils.equals(fVar.f5547b, "mapp_location") && (s = c.a.p0.a.g1.f.V().s()) != null && (eVar = s.o) != null && (map = eVar.f46673a.get("scope.userLocation")) != null) {
             String str = map.get("desc");
             if (!TextUtils.isEmpty(str)) {
                 fVar.m = str;
@@ -990,7 +990,7 @@ public class g implements r {
         if (!(interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), view, textView, fVar}) == null) || view == null || fVar == null || fVar.n == null || (textView2 = (TextView) view.findViewById(c.a.p0.a.f.auth_scope_detail)) == null) {
             return;
         }
-        textView2.setText("XXXX   " + this.f5554a.getString(c.a.p0.a.h.swanapp_multi_auth_agreement_desc));
+        textView2.setText("XXXX   " + this.f5562a.getString(c.a.p0.a.h.swanapp_multi_auth_agreement_desc));
         textView.setEnabled(z);
         if (z) {
             drawable = view.getResources().getDrawable(c.a.p0.a.e.swanapp_scope_selected);

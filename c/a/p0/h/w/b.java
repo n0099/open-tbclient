@@ -1,5 +1,6 @@
 package c.a.p0.h.w;
 
+import com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +37,7 @@ public class b extends JSEvent {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(long j2) {
-        super("appAttach");
+        super(AppBeforeCreateSpeedStats.APP_ATTACH);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

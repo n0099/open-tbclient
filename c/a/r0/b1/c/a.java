@@ -14,7 +14,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l<byte[]> f15926a;
+    public l<byte[]> f15936a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
                 b();
-                bVar = this.f15926a.h(str);
+                bVar = this.f15936a.h(str);
             } else {
                 bVar = null;
             }
@@ -54,9 +54,9 @@ public class a {
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f15926a == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f15936a == null) {
             c.a.q0.s.r.a.f();
-            this.f15926a = c.a.q0.s.r.a.d("tb.god_square");
+            this.f15936a = c.a.q0.s.r.a.d("tb.god_square");
         }
     }
 
@@ -66,6 +66,6 @@ public class a {
             return;
         }
         b();
-        this.f15926a.e(str, bArr, 604800000L);
+        this.f15936a.e(str, bArr, 604800000L);
     }
 }

@@ -26,7 +26,7 @@ public class c implements Interceptor {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7622a = true;
+    public static boolean f7630a = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,7 +63,7 @@ public class c implements Interceptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             HashMap hashMap = new HashMap();
-            if (f7622a) {
+            if (f7630a) {
                 if (str == null) {
                     str = "";
                 }
@@ -84,7 +84,7 @@ public class c implements Interceptor {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, httpRequest, str, str2)) == null) {
-            if (f7622a && httpRequest != null) {
+            if (f7630a && httpRequest != null) {
                 if (str == null) {
                     str = "";
                 }
@@ -102,7 +102,7 @@ public class c implements Interceptor {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, request, str, str2)) == null) {
-            if (f7622a && request != null) {
+            if (f7630a && request != null) {
                 if (str == null) {
                     str = "";
                 }
@@ -157,7 +157,7 @@ public class c implements Interceptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, chain)) == null) {
             Request request = chain.request();
-            if (!f7622a) {
+            if (!f7630a) {
                 return chain.proceed(request);
             }
             if (!c(request)) {

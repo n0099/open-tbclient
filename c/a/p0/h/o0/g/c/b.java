@@ -19,13 +19,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f11469a;
+    public View f11477a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SimpleDraweeView f11470b;
+    public SimpleDraweeView f11478b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f11471c;
+    public TextView f11479c;
 
     @SuppressLint({"InflateParams"})
     public b(Context context) {
@@ -44,8 +44,8 @@ public class b {
             }
         }
         View inflate = LayoutInflater.from(context).inflate(f.swangame_recommend_button, (ViewGroup) null);
-        this.f11469a = inflate;
-        this.f11470b = (SimpleDraweeView) inflate.findViewById(e.swangame_recommend_button_icon);
-        this.f11471c = (TextView) this.f11469a.findViewById(e.swangame_recommend_button_name);
+        this.f11477a = inflate;
+        this.f11478b = (SimpleDraweeView) inflate.findViewById(e.swangame_recommend_button_icon);
+        this.f11479c = (TextView) this.f11477a.findViewById(e.swangame_recommend_button_name);
     }
 }

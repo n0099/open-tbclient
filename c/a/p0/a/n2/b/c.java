@@ -48,12 +48,12 @@ public class c extends a0 {
             if (eVar == null) {
                 c.a.p0.a.e0.d.b("stopMediaVolumeListen", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 return false;
             } else if (context == null) {
                 c.a.p0.a.e0.d.b("stopMediaVolumeListen", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                boolean z2 = a0.f4766b;
+                boolean z2 = a0.f4774b;
                 return false;
             } else {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);

@@ -12,7 +12,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.o0.d.b f8680a;
+    public c.a.p0.a.o0.d.b f8688a;
 
     public b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -33,12 +33,12 @@ public class b {
         treeMap.put("functionPagePath", str);
         treeMap.put("paymentArgs", str2);
         treeMap.put("slaveId", str3);
-        this.f8680a = new c.a.p0.a.o0.d.b("beforeRequestPayment", treeMap);
+        this.f8688a = new c.a.p0.a.o0.d.b("beforeRequestPayment", treeMap);
     }
 
     public c.a.p0.a.o0.d.b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8680a : (c.a.p0.a.o0.d.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8688a : (c.a.p0.a.o0.d.b) invokeV.objValue;
     }
 }

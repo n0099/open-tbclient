@@ -26,7 +26,7 @@ public class SelectLocationActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectLocationActivity f54044a;
+        public final /* synthetic */ SelectLocationActivity f54159a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SelectLocationActivity selectLocationActivity, int i2) {
@@ -46,7 +46,7 @@ public class SelectLocationActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f54044a = selectLocationActivity;
+            this.f54159a = selectLocationActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,7 +56,7 @@ public class SelectLocationActivity extends SuspendedActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f54044a.finish();
+            this.f54159a.finish();
         }
     }
 

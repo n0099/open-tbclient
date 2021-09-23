@@ -1,6 +1,5 @@
 package com.baidu.tieba.forumMember.member;
 
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,7 +16,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BaijiahaoInfo;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes7.dex */
 public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
@@ -93,17 +91,11 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public void fillMemberView(BawuRoleInfoPub bawuRoleInfoPub, int i2) {
-        String str;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, bawuRoleInfoPub, i2) == null) || bawuRoleInfoPub == null || i2 < 0 || i2 > 3) {
             return;
         }
-        BaijiahaoInfo baijiahaoInfo = bawuRoleInfoPub.baijiahao_info;
-        if (baijiahaoInfo != null && !TextUtils.isEmpty(baijiahaoInfo.avatar)) {
-            str = bawuRoleInfoPub.baijiahao_info.avatar;
-        } else {
-            str = bawuRoleInfoPub.portrait;
-        }
+        String str = bawuRoleInfoPub.portrait;
         if (i2 == 0) {
             this.headView1.startLoad(str, 12, false);
             this.headView1.setTag(bawuRoleInfoPub);

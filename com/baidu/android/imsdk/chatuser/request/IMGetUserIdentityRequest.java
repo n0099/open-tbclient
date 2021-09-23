@@ -147,7 +147,7 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
         iGetUserIdentityListener.onGetUserIdentityResult(i2, null);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0153  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0152  */
     /* JADX WARN: Removed duplicated region for block: B:81:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

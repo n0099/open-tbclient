@@ -1,14 +1,14 @@
 package com.baidu.tieba.ala.livecard.holder;
 
 import android.view.View;
-import c.a.r0.v.i.e.e;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import c.a.r0.v.k.e.e;
+import com.baidu.card.AutoLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class FrsPageAlaVideoHolder extends TypeAdapter.ViewHolder {
+public class FrsPageAlaVideoHolder extends AutoLiveViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e mView;
@@ -32,5 +32,6 @@ public class FrsPageAlaVideoHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.mView = eVar;
+        this.tbLiveContainer = eVar.T();
     }
 }

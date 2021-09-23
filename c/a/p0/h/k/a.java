@@ -22,17 +22,17 @@ public class a implements h {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f11282a;
+        public static String f11290a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public static String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                if (TextUtils.isEmpty(f11282a)) {
-                    f11282a = c.a.p0.a.s2.b.c();
+                if (TextUtils.isEmpty(f11290a)) {
+                    f11290a = c.a.p0.a.s2.b.c();
                 }
-                return f11282a;
+                return f11290a;
             }
             return (String) invokeV.objValue;
         }

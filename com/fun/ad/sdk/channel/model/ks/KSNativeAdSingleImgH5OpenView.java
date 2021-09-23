@@ -26,22 +26,22 @@ public class KSNativeAdSingleImgH5OpenView extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f69999a;
+    public TextView f70318a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f70000b;
+    public ImageView f70319b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f70001c;
+    public ImageView f70320c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f70002d;
+    public TextView f70321d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f70003e;
+    public Button f70322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f70004f;
+    public float f70323f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdSingleImgH5OpenView(Context context) {
@@ -104,7 +104,7 @@ public class KSNativeAdSingleImgH5OpenView extends c {
                 return;
             }
         }
-        this.f70004f = 1.78f;
+        this.f70323f = 1.78f;
     }
 
     @Override // a.a.a.a.s.b.d.c
@@ -113,22 +113,22 @@ public class KSNativeAdSingleImgH5OpenView extends c {
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, ksNativeAd, adInteractionListener) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this);
-            arrayList.add(this.f70003e);
+            arrayList.add(this.f70322e);
             ksNativeAd.registerViewForInteraction(this, arrayList, adInteractionListener);
             d.f("KSNativeAd Single getImageList: " + ksNativeAd.getImageList(), new Object[0]);
             if (ksNativeAd.getImageList() != null && !ksNativeAd.getImageList().isEmpty()) {
                 KsImage ksImage = ksNativeAd.getImageList().get(0);
                 d.f("KSNativeAd Single img: " + ksImage, new Object[0]);
                 if (ksImage != null && ksImage.isValid()) {
-                    this.f70004f = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
+                    this.f70323f = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
                     d.f("KSNativeAd Single img width: " + ksImage.getWidth() + ", height: " + ksImage.getHeight(), new Object[0]);
-                    c.a.f1485a.b(this, ksImage.getImageUrl(), this.f70000b);
+                    c.a.f1485a.b(this, ksImage.getImageUrl(), this.f70319b);
                 }
             }
-            this.f70001c.setImageBitmap(ksNativeAd.getSdkLogo());
-            this.f69999a.setText(ksNativeAd.getAdDescription());
-            this.f70002d.setText(ksNativeAd.getAdSource());
-            this.f70003e.setText(ksNativeAd.getActionDescription());
+            this.f70320c.setImageBitmap(ksNativeAd.getSdkLogo());
+            this.f70318a.setText(ksNativeAd.getAdDescription());
+            this.f70321d.setText(ksNativeAd.getAdSource());
+            this.f70322e.setText(ksNativeAd.getActionDescription());
         }
     }
 
@@ -137,11 +137,11 @@ public class KSNativeAdSingleImgH5OpenView extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f69999a = (TextView) findViewById(R.id.ad_description);
-            this.f70000b = (ImageView) findViewById(R.id.ad_img);
-            this.f70001c = (ImageView) findViewById(R.id.ad_logo);
-            this.f70002d = (TextView) findViewById(R.id.ad_h5_description);
-            this.f70003e = (Button) findViewById(R.id.ad_h5_open);
+            this.f70318a = (TextView) findViewById(R.id.ad_description);
+            this.f70319b = (ImageView) findViewById(R.id.ad_img);
+            this.f70320c = (ImageView) findViewById(R.id.ad_logo);
+            this.f70321d = (TextView) findViewById(R.id.ad_h5_description);
+            this.f70322e = (Button) findViewById(R.id.ad_h5_open);
         }
     }
 
@@ -151,12 +151,12 @@ public class KSNativeAdSingleImgH5OpenView extends c {
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
             d.f("KSNativeAd onSizeChanged w: " + i2 + ", h: " + i3 + ", oldw: " + i4 + ", oldh: " + i5, new Object[0]);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f70000b.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f70319b.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (((float) i6) / this.f70004f);
+            layoutParams.height = (int) (((float) i6) / this.f70323f);
             d.f("KSNativeAd onSizeChanged adView width: " + layoutParams.width + ", height: " + layoutParams.height, new Object[0]);
-            this.f70000b.setLayoutParams(layoutParams);
+            this.f70319b.setLayoutParams(layoutParams);
         }
     }
 }

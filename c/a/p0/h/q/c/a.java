@@ -14,7 +14,7 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.l0.a f11516a;
+    public c.a.p0.a.l0.a f11524a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,19 +34,19 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            c.a.p0.a.l0.a aVar = this.f11516a;
+            c.a.p0.a.l0.a aVar = this.f11524a;
             if (aVar == null) {
                 return false;
             }
             boolean f2 = b.f(aVar.o());
-            boolean f3 = b.f(this.f11516a.y());
+            boolean f3 = b.f(this.f11524a.y());
             JSEvent jSEvent = null;
             if (f2 || f3) {
                 jSEvent = b.j(motionEvent);
             }
-            boolean S = f2 ? this.f11516a.S(jSEvent) : false;
-            if (f3 && this.f11516a.u0()) {
-                this.f11516a.y().dispatchEvent(jSEvent);
+            boolean S = f2 ? this.f11524a.S(jSEvent) : false;
+            if (f3 && this.f11524a.u0()) {
+                this.f11524a.y().dispatchEvent(jSEvent);
             }
             b.g(true);
             return S;
@@ -64,7 +64,7 @@ public final class a {
     public void c(c.a.p0.a.l0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f11516a = aVar;
+            this.f11524a = aVar;
         }
     }
 

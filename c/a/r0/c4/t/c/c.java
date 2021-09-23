@@ -23,13 +23,13 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f16902c;
+    public View f16912c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HorizontalListView f16903d;
+    public HorizontalListView f16913d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f16904e;
+    public f f16914e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(c.a.e.a.f fVar) {
@@ -55,25 +55,25 @@ public class c extends a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f16895a.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
-            this.f16902c = inflate;
-            this.f16903d = (HorizontalListView) inflate.findViewById(R.id.horizontal_list);
+            View inflate = LayoutInflater.from(this.f16905a.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
+            this.f16912c = inflate;
+            this.f16913d = (HorizontalListView) inflate.findViewById(R.id.horizontal_list);
             f fVar = new f();
-            this.f16904e = fVar;
-            this.f16903d.setAdapter((ListAdapter) fVar);
+            this.f16914e = fVar;
+            this.f16913d.setAdapter((ListAdapter) fVar);
         }
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16902c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16912c : (View) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f16904e.notifyDataSetChanged();
+            this.f16914e.notifyDataSetChanged();
         }
     }
 
@@ -82,14 +82,14 @@ public class c extends a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f16904e.c(list);
-        this.f16904e.notifyDataSetChanged();
+        this.f16914e.c(list);
+        this.f16914e.notifyDataSetChanged();
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setBackgroundColor(this.f16902c, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f16912c, R.color.CAM_X0201);
             e();
         }
     }
@@ -97,7 +97,7 @@ public class c extends a {
     public void h(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
-            this.f16904e.d(eVar);
+            this.f16914e.d(eVar);
         }
     }
 }

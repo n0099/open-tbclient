@@ -19,25 +19,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DataRes f12498a;
+    public DataRes f12506a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12499b;
+    public boolean f12507b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12500c;
+    public String f12508c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ArrayList<c.a.q0.a.c> f12501d;
+    public final ArrayList<c.a.q0.a.c> f12509d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ArrayList<FloatStrategy> f12502e;
+    public final ArrayList<FloatStrategy> f12510e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewUserRedPackageData f12503f;
+    public NewUserRedPackageData f12511f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ActiveCenterData f12504g;
+    public ActiveCenterData f12512g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -52,37 +52,37 @@ public class b {
                 return;
             }
         }
-        this.f12499b = false;
-        this.f12500c = "";
-        this.f12501d = new ArrayList<>();
-        this.f12502e = new ArrayList<>();
+        this.f12507b = false;
+        this.f12508c = "";
+        this.f12509d = new ArrayList<>();
+        this.f12510e = new ArrayList<>();
     }
 
     public ArrayList<FloatStrategy> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12502e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12510e : (ArrayList) invokeV.objValue;
     }
 
     public ArrayList<c.a.q0.a.c> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12501d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12509d : (ArrayList) invokeV.objValue;
     }
 
     public void c(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) {
-            this.f12498a = dataRes;
-            this.f12501d.clear();
-            this.f12502e.clear();
+            this.f12506a = dataRes;
+            this.f12509d.clear();
+            this.f12510e.clear();
             if (dataRes == null) {
                 return;
             }
-            this.f12499b = dataRes.is_new_user.intValue() == 1;
-            this.f12500c = dataRes.active_url;
-            this.f12502e.addAll(dataRes.float_list);
-            for (MissionInfo missionInfo : this.f12498a.mission_list) {
+            this.f12507b = dataRes.is_new_user.intValue() == 1;
+            this.f12508c = dataRes.active_url;
+            this.f12510e.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.f12506a.mission_list) {
                 if (missionInfo != null) {
                     c.a.q0.a.c cVar = new c.a.q0.a.c(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
@@ -90,16 +90,16 @@ public class b {
                     } else if (missionInfo.tasktype.intValue() == 9) {
                         q.c().f(cVar);
                     } else if (cVar.K()) {
-                        this.f12501d.add(cVar);
+                        this.f12509d.add(cVar);
                     }
                 }
             }
             NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
-            this.f12503f = newUserRedPackageData;
+            this.f12511f = newUserRedPackageData;
             newUserRedPackageData.parseProto(dataRes);
             if (dataRes.active_center != null) {
                 ActiveCenterData activeCenterData = new ActiveCenterData();
-                this.f12504g = activeCenterData;
+                this.f12512g = activeCenterData;
                 activeCenterData.parseProto(dataRes);
             }
         }

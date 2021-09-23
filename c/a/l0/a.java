@@ -15,36 +15,36 @@ public class a {
     @Deprecated
 
     /* renamed from: a  reason: collision with root package name */
-    public int f3889a;
+    public int f3890a;
     @Deprecated
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3890b;
+    public int f3891b;
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3891c;
+    public int f3892c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3892d;
+    public String f3893d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3893e;
+    public String f3894e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Tri f3894f;
+    public Tri f3895f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Tri f3895g;
+    public Tri f3896g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Tri f3896h;
+    public Tri f3897h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Tri f3897i;
+    public Tri f3898i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f3898j;
+    public int f3899j;
     public int k;
     public int l;
     public int m;
@@ -56,7 +56,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final a f3899a;
+        public final a f3900a;
 
         public C0096a() {
             Interceptable interceptable = $ic;
@@ -71,20 +71,20 @@ public class a {
                     return;
                 }
             }
-            this.f3899a = new a();
+            this.f3900a = new a();
         }
 
         public a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3899a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3900a : (a) invokeV.objValue;
         }
 
         public C0096a b(Tri tri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tri)) == null) {
-                this.f3899a.f3895g = tri;
+                this.f3900a.f3896g = tri;
                 return this;
             }
             return (C0096a) invokeL.objValue;
@@ -94,7 +94,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tri)) == null) {
-                this.f3899a.f3894f = tri;
+                this.f3900a.f3895f = tri;
                 return this;
             }
             return (C0096a) invokeL.objValue;
@@ -105,8 +105,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i2, i3)) == null) {
                 if (i2 > 0 && i3 <= 100 && i3 >= i2) {
-                    this.f3899a.f3898j = i2;
-                    this.f3899a.k = i3;
+                    this.f3900a.f3899j = i2;
+                    this.f3900a.k = i3;
                     return this;
                 }
                 throw new IllegalArgumentException("argument out of valid range!");
@@ -119,8 +119,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) {
                 if (i2 >= 10 && i3 <= 100 && i3 >= i2 && i2 % 10 == 0 && i3 % 10 == 0) {
-                    this.f3899a.l = i2;
-                    this.f3899a.m = i3;
+                    this.f3900a.l = i2;
+                    this.f3900a.m = i3;
                     return this;
                 }
                 throw new IllegalArgumentException("argument out of valid range!");
@@ -142,63 +142,63 @@ public class a {
                 return;
             }
         }
-        this.f3889a = 0;
-        this.f3890b = 0;
-        this.f3891c = 32;
+        this.f3890a = 0;
+        this.f3891b = 0;
+        this.f3892c = 32;
         Tri tri = Tri.UNDEFINED;
-        this.f3894f = tri;
-        this.f3895g = tri;
-        this.f3896h = tri;
-        this.f3897i = tri;
+        this.f3895f = tri;
+        this.f3896g = tri;
+        this.f3897h = tri;
+        this.f3898i = tri;
     }
 
     public Tri g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3897i : (Tri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3898i : (Tri) invokeV.objValue;
     }
 
     public Tri h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3896h : (Tri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3897h : (Tri) invokeV.objValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3890b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3891b : invokeV.intValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3889a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3890a : invokeV.intValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3893e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3894e : (String) invokeV.objValue;
     }
 
     public Tri l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3894f : (Tri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3895f : (Tri) invokeV.objValue;
     }
 
     public Tri m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3895g : (Tri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3896g : (Tri) invokeV.objValue;
     }
 
     @Deprecated
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3891c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3892c : invokeV.intValue;
     }
 
     public int o() {
@@ -216,7 +216,7 @@ public class a {
     public int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f3898j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f3899j : invokeV.intValue;
     }
 
     public int r() {
@@ -228,6 +228,6 @@ public class a {
     public String s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f3892d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f3893d : (String) invokeV.objValue;
     }
 }

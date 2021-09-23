@@ -44,23 +44,23 @@ public class a extends a0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Set<String> f5260g;
+    public static Set<String> f5268g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Set<String> f5261h;
+    public static Set<String> f5269h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f5262c;
+    public c f5270c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f5263d;
+    public ExecutorService f5271d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f5264e;
+    public int f5272e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a f5265f;
+    public c.a f5273f;
 
     /* renamed from: c.a.p0.a.e0.f.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -69,16 +69,16 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5266a;
+        public final /* synthetic */ UnitedSchemeEntity f5274a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f5267b;
+        public final /* synthetic */ Context f5275b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5268c;
+        public final /* synthetic */ CallbackHandler f5276c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f5269d;
+        public final /* synthetic */ a f5277d;
 
         public C0153a(a aVar, UnitedSchemeEntity unitedSchemeEntity, Context context, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -95,10 +95,10 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f5269d = aVar;
-            this.f5266a = unitedSchemeEntity;
-            this.f5267b = context;
-            this.f5268c = callbackHandler;
+            this.f5277d = aVar;
+            this.f5274a = unitedSchemeEntity;
+            this.f5275b = context;
+            this.f5276c = callbackHandler;
         }
 
         @Override // c.a.p0.a.p.d.n.b
@@ -107,13 +107,13 @@ public class a extends a0 {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
                     c.a.p0.a.e0.d.b("DebuggerLaunchAction", "Authentication Success");
-                    a.f5261h.add(this.f5269d.o(this.f5267b));
-                    this.f5269d.p(this.f5267b, this.f5266a, this.f5268c);
+                    a.f5269h.add(this.f5277d.o(this.f5275b));
+                    this.f5277d.p(this.f5275b, this.f5274a, this.f5276c);
                     return;
                 }
                 c.a.p0.a.e0.d.b("DebuggerLaunchAction", "Authentication Fail : Not developer");
-                this.f5266a.result = UnitedSchemeUtility.wrapCallbackParams(401);
-                this.f5269d.v(this.f5267b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
+                this.f5274a.result = UnitedSchemeUtility.wrapCallbackParams(401);
+                this.f5277d.v(this.f5275b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
             }
         }
 
@@ -122,8 +122,8 @@ public class a extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
                 c.a.p0.a.e0.d.c("DebuggerLaunchAction", "onFail : Authentication exception :", exc);
-                this.f5266a.result = UnitedSchemeUtility.wrapCallbackParams(401);
-                this.f5269d.v(this.f5267b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
+                this.f5274a.result = UnitedSchemeUtility.wrapCallbackParams(401);
+                this.f5277d.v(this.f5275b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
             }
         }
     }
@@ -134,22 +134,22 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f5270e;
+        public final /* synthetic */ Context f5278e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5271f;
+        public final /* synthetic */ String f5279f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ File f5272g;
+        public final /* synthetic */ File f5280g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5273h;
+        public final /* synthetic */ UnitedSchemeEntity f5281h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5274i;
+        public final /* synthetic */ CallbackHandler f5282i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ a f5275j;
+        public final /* synthetic */ a f5283j;
 
         public b(a aVar, Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -166,19 +166,19 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f5275j = aVar;
-            this.f5270e = context;
-            this.f5271f = str;
-            this.f5272g = file;
-            this.f5273h = unitedSchemeEntity;
-            this.f5274i = callbackHandler;
+            this.f5283j = aVar;
+            this.f5278e = context;
+            this.f5279f = str;
+            this.f5280g = file;
+            this.f5281h = unitedSchemeEntity;
+            this.f5282i = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5275j.w(this.f5270e, this.f5271f, this.f5272g, this.f5273h, this.f5274i);
+                this.f5283j.w(this.f5278e, this.f5279f, this.f5280g, this.f5281h, this.f5282i);
             }
         }
     }
@@ -196,7 +196,7 @@ public class a extends a0 {
                 return;
             }
         }
-        f5261h = new HashSet();
+        f5269h = new HashSet();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -229,16 +229,16 @@ public class a extends a0 {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo != null && optParamsAsJo.length() > 0 && equals) {
                 c b2 = c.b(optParamsAsJo);
-                this.f5262c = b2;
+                this.f5270c = b2;
                 if (b2 == null) {
-                    boolean z = a0.f4766b;
+                    boolean z = a0.f4774b;
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
                 } else if (!u()) {
                     v(context, XAdRemoteSDKCountly.COUNTLY_TYPE_4_CRASH);
                     return false;
-                } else if (!f.f8492d.f() && !t().contains(c.a.p0.a.c1.a.a0().h(context)) && !f5261h.contains(o(context))) {
-                    c.a.p0.a.m.b.b(this.f5262c.f5277a, new C0153a(this, unitedSchemeEntity, context, callbackHandler));
+                } else if (!f.f8500d.f() && !t().contains(c.a.p0.a.c1.a.a0().h(context)) && !f5269h.contains(o(context))) {
+                    c.a.p0.a.m.b.b(this.f5270c.f5285a, new C0153a(this, unitedSchemeEntity, context, callbackHandler));
                     return true;
                 } else {
                     p(context, unitedSchemeEntity, callbackHandler);
@@ -256,7 +256,7 @@ public class a extends a0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return c.a.p0.a.c1.a.a0().h(context) + this.f5262c.f5277a;
+            return c.a.p0.a.c1.a.a0().h(context) + this.f5270c.f5285a;
         }
         return (String) invokeL.objValue;
     }
@@ -269,19 +269,19 @@ public class a extends a0 {
             if (b2.exists()) {
                 b2.delete();
             }
-            this.f5263d = Executors.newFixedThreadPool(4);
-            this.f5264e = 0;
-            for (int i2 = 0; i2 < this.f5262c.f5278b.length(); i2++) {
-                String a2 = this.f5262c.a(i2);
+            this.f5271d = Executors.newFixedThreadPool(4);
+            this.f5272e = 0;
+            for (int i2 = 0; i2 < this.f5270c.f5286b.length(); i2++) {
+                String a2 = this.f5270c.a(i2);
                 if (TextUtils.isEmpty(a2)) {
-                    int i3 = this.f5264e + 1;
-                    this.f5264e = i3;
-                    if (i3 >= this.f5262c.f5278b.length()) {
+                    int i3 = this.f5272e + 1;
+                    this.f5272e = i3;
+                    if (i3 >= this.f5270c.f5286b.length()) {
                         c.a.p0.a.e0.d.b("DebuggerLaunchAction", "IPs are invalid");
                         v(context, XAdRemoteSDKCountly.COUNTLY_TYPE_4_CRASH);
                     }
                 } else {
-                    this.f5263d.execute(new b(this, context, a2, b2, unitedSchemeEntity, callbackHandler));
+                    this.f5271d.execute(new b(this, context, a2, b2, unitedSchemeEntity, callbackHandler));
                 }
             }
         }
@@ -305,10 +305,10 @@ public class a extends a0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f5265f == null && this.f5262c != null) {
-                this.f5265f = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().u0(this.f5262c.f5277a)).z0(false)).Q0(this.f5262c.f5280d)).J0("baiduboxapp://swan/" + this.f5262c.f5277a)).O0("1");
+            if (this.f5273f == null && this.f5270c != null) {
+                this.f5273f = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().u0(this.f5270c.f5285a)).z0(false)).Q0(this.f5270c.f5288d)).J0("baiduboxapp://swan/" + this.f5270c.f5285a)).O0("1");
             }
-            return this.f5265f;
+            return this.f5273f;
         }
         return (c.a) invokeV.objValue;
     }
@@ -345,18 +345,18 @@ public class a extends a0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (f5260g == null) {
-                f5260g = new HashSet();
+            if (f5268g == null) {
+                f5268g = new HashSet();
                 try {
                     JSONArray jSONArray = new JSONArray(h.a().getString("authWlist", ""));
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        f5260g.add(jSONArray.optString(i2));
+                        f5268g.add(jSONArray.optString(i2));
                     }
                 } catch (JSONException unused) {
-                    boolean z = a0.f4766b;
+                    boolean z = a0.f4774b;
                 }
             }
-            return f5260g;
+            return f5268g;
         }
         return (Set) invokeV.objValue;
     }
@@ -365,8 +365,8 @@ public class a extends a0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            JSONArray jSONArray = this.f5262c.f5278b;
-            return (jSONArray == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.f5262c.f5279c)) ? false : true;
+            JSONArray jSONArray = this.f5270c.f5286b;
+            return (jSONArray == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.f5270c.f5287c)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -402,9 +402,9 @@ public class a extends a0 {
                     d1.putExtra("remoteDebugUrl", str);
                     context.startActivity(d1);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (this.f5263d != null) {
-                        this.f5263d.shutdownNow();
-                        this.f5263d = null;
+                    if (this.f5271d != null) {
+                        this.f5271d.shutdownNow();
+                        this.f5271d = null;
                     }
                     d.m(r);
                     d.g().h("downloadsuccess");
@@ -414,9 +414,9 @@ public class a extends a0 {
                 }
             } catch (IOException unused) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                int i2 = this.f5264e + 1;
-                this.f5264e = i2;
-                if (i2 >= this.f5262c.f5278b.length()) {
+                int i2 = this.f5272e + 1;
+                this.f5272e = i2;
+                if (i2 >= this.f5270c.f5286b.length()) {
                     c.a.p0.a.e0.d.b("DebuggerLaunchAction", "IPs are invalid");
                     v(context, XAdRemoteSDKCountly.COUNTLY_TYPE_4_CRASH);
                     d.g().h("downloadfail");

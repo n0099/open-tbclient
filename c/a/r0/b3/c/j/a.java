@@ -18,30 +18,30 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f16100a;
+    public b f16110a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f16101b;
+    public String f16111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f16102c;
+    public boolean f16112c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f16103d;
+    public Context f16113d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a f16104e;
+    public b.a f16114e;
 
     /* renamed from: c.a.r0.b3.c.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0767a implements b.a {
+    public class C0765a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f16105a;
+        public final /* synthetic */ a f16115a;
 
-        public C0767a(a aVar) {
+        public C0765a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,14 +56,14 @@ public class a {
                     return;
                 }
             }
-            this.f16105a = aVar;
+            this.f16115a = aVar;
         }
 
         @Override // c.a.r0.b3.c.j.b.a
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f16105a.f16102c) {
-                this.f16105a.f16102c = false;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f16115a.f16112c) {
+                this.f16115a.f16112c = false;
             }
         }
     }
@@ -83,27 +83,27 @@ public class a {
                 return;
             }
         }
-        this.f16101b = null;
-        this.f16102c = false;
-        this.f16104e = new C0767a(this);
-        this.f16103d = context;
+        this.f16111b = null;
+        this.f16112c = false;
+        this.f16114e = new C0765a(this);
+        this.f16113d = context;
     }
 
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.f16101b)) {
-                return this.f16101b;
+            if (!TextUtils.isEmpty(this.f16111b)) {
+                return this.f16111b;
             }
             String b2 = c.b();
-            this.f16101b = b2;
+            this.f16111b = b2;
             if (TextUtils.isEmpty(b2)) {
-                this.f16101b = c.c();
-            } else if (!this.f16101b.endsWith(File.separator)) {
-                this.f16101b += File.separator;
+                this.f16111b = c.c();
+            } else if (!this.f16111b.endsWith(File.separator)) {
+                this.f16111b += File.separator;
             }
-            return this.f16101b;
+            return this.f16111b;
         }
         return (String) invokeV.objValue;
     }
@@ -111,7 +111,7 @@ public class a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16102c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16112c : invokeV.booleanValue;
     }
 
     public final void e(String str) {
@@ -136,18 +136,18 @@ public class a {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, str, str2, z)) == null) {
-            if (this.f16100a == null) {
+            if (this.f16110a == null) {
                 e(str);
                 b bVar = new b(str, str2, z);
-                this.f16100a = bVar;
-                bVar.b(this.f16104e);
+                this.f16110a = bVar;
+                bVar.b(this.f16114e);
                 try {
-                    this.f16100a.start();
+                    this.f16110a.start();
                     return true;
                 } catch (IllegalThreadStateException unused) {
                     return true;
                 } catch (Exception e2) {
-                    this.f16100a = null;
+                    this.f16110a = null;
                     BdLog.e(e2);
                     return false;
                 }
@@ -166,7 +166,7 @@ public class a {
             }
             h();
             if (c.e(c2) && f(c2, TitanConstant.KEY_INSTANT_INIT_CLASS, true)) {
-                this.f16102c = true;
+                this.f16112c = true;
             }
         }
     }
@@ -177,7 +177,7 @@ public class a {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b bVar = this.f16100a;
+            b bVar = this.f16110a;
             if (bVar != null) {
                 try {
                     try {
@@ -186,11 +186,11 @@ public class a {
                         BdLog.e(e2);
                     }
                 } finally {
-                    this.f16100a.b(null);
-                    this.f16100a = null;
+                    this.f16110a.b(null);
+                    this.f16110a = null;
                 }
             }
-            this.f16102c = false;
+            this.f16112c = false;
         }
     }
 

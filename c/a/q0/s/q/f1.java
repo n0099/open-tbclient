@@ -58,13 +58,13 @@ public class f1 extends PostData {
         }
     }
 
-    public boolean C0() {
+    public boolean E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !StringUtils.isNull(this.G0) : invokeV.booleanValue;
     }
 
-    public void D0(RecommendBook recommendBook) {
+    public void F0(RecommendBook recommendBook) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendBook) == null) || recommendBook == null) {
             return;

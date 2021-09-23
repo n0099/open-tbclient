@@ -17,7 +17,7 @@ public class a extends BaseBean {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61996a;
+    public String f62121a;
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
@@ -33,7 +33,7 @@ public class a extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("cate[lbconfig]", this.f61996a));
+            arrayList.add(new RestNameValuePair("cate[lbconfig]", this.f62121a));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -51,7 +51,7 @@ public class a extends BaseBean {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return DomainConfig.getInstance().getAppHost() + "/odp/wireless/config/common";
+            return DomainConfig.getInstance().getAppHost(this.tag) + "/odp/wireless/config/common";
         }
         return (String) invokeV.objValue;
     }

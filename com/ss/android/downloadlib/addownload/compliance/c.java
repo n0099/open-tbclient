@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.i.h;
 /* loaded from: classes10.dex */
-public class c extends h<Long, c.C1524c> {
+public class c extends h<Long, c.C1523c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public class c extends h<Long, c.C1524c> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f75708a;
+        public static c f76027a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class c extends h<Long, c.C1524c> {
                     return;
                 }
             }
-            f75708a = new c(null);
+            f76027a = new c(null);
         }
     }
 
@@ -53,7 +53,7 @@ public class c extends h<Long, c.C1524c> {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f75708a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f76027a : (c) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,26 +75,26 @@ public class c extends h<Long, c.C1524c> {
         }
     }
 
-    public void a(c.C1524c c1524c) {
+    public void a(c.C1523c c1523c) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c1524c) == null) || c1524c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c1523c) == null) || c1523c == null) {
             return;
         }
-        put(Long.valueOf(c1524c.a()), c1524c);
+        put(Long.valueOf(c1523c.a()), c1523c);
     }
 
-    public c.C1524c a(long j2, long j3) {
+    public c.C1523c a(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             return get(get(Long.valueOf(j2)) != null ? Long.valueOf(j2) : Long.valueOf(j3));
         }
-        return (c.C1524c) invokeCommon.objValue;
+        return (c.C1523c) invokeCommon.objValue;
     }
 
-    public c.C1524c a(long j2) {
+    public c.C1523c a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? get(Long.valueOf(j2)) : (c.C1524c) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? get(Long.valueOf(j2)) : (c.C1523c) invokeJ.objValue;
     }
 }

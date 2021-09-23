@@ -24,7 +24,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f9931a;
+        public final /* synthetic */ String f9939a;
 
         public C0478a(String str) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class a {
                     return;
                 }
             }
-            this.f9931a = str;
+            this.f9939a = str;
         }
 
         @Override // android.hardware.Camera.AutoFocusCallback
@@ -51,7 +51,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, camera) == null) || camera == null || (parameters = camera.getParameters()) == null) {
                 return;
             }
-            parameters.setFocusMode(this.f9931a);
+            parameters.setFocusMode(this.f9939a);
             camera.setParameters(parameters);
         }
     }

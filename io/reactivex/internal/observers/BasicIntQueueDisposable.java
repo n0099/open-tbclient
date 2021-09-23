@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.internal.fuseable.QueueDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public abstract class BasicIntQueueDisposable<T> extends AtomicInteger implements QueueDisposable<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1001730202384742097L;

@@ -1,150 +1,97 @@
 package c.a.r0.j2.p;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.util.SparseIntArray;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import c.a.e.e.p.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class g extends c.a.e.l.e.b {
+public class g {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static SparseIntArray f20763a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: f  reason: collision with root package name */
-    public BaseFragment f20746f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public b f20747g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f20748h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f20749i;
-
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f20750e;
-
-        public a(g gVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-141267921, "Lc/a/r0/j2/p/g;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f20750e = gVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ViewHelper.skipToLoginActivity(this.f20750e.f20746f.getContext());
-                if (this.f20750e.f20747g != null) {
-                    this.f20750e.f20747g.resetLoadMoreFlag(true);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void resetLoadMoreFlag(boolean z);
-    }
-
-    public g(BaseFragment baseFragment, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-141267921, "Lc/a/r0/j2/p/g;");
                 return;
             }
         }
-        this.f20749i = new a(this);
-        this.f20746f = baseFragment;
-        this.f20747g = bVar;
+        f20763a = new SparseIntArray();
     }
 
-    @Override // c.a.e.l.e.b
-    public View a() {
-        InterceptResult invokeV;
+    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.f20746f.getContext()).inflate(R.layout.login_see_more_layout, (ViewGroup) null);
-            this.f2963e = inflate;
-            this.f20748h = (TBSpecificationBtn) inflate.findViewById(R.id.login_button);
-            c.a.q0.s.f0.n.a aVar = new c.a.q0.s.f0.n.a();
-            BaseFragment baseFragment = this.f20746f;
-            if (baseFragment != null && baseFragment.getContext() != null) {
-                this.f20748h.setText(this.f20746f.getContext().getResources().getString(R.string.login_see_more));
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || textView == null) {
+            return;
+        }
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
+        int b2 = b(R.dimen.ds32);
+        if (z2 && z3) {
+            layoutParams.setMargins(b2, b(R.dimen.ds8), b2, b(R.dimen.ds18));
+        } else if (z) {
+            layoutParams.setMargins(0, b(R.dimen.ds8), 0, 0);
+        } else if (!z2) {
+            layoutParams.setMargins(b(R.dimen.ds102), b(R.dimen.ds8), b(R.dimen.ds34), b(R.dimen.ds14));
+        } else {
+            layoutParams.setMargins(b2, b(R.dimen.ds8), b2, b(R.dimen.ds14));
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) "icon");
+        spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
+        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_pb_tail);
+        drawable.setBounds(0, 0, b2, b2);
+        c.a.q0.f1.d dVar = new c.a.q0.f1.d(drawable);
+        dVar.c(b(R.dimen.ds4));
+        spannableStringBuilder.setSpan(dVar, 0, 4, 33);
+        textView.setLayoutParams(layoutParams);
+        textView.setText(spannableStringBuilder);
+        textView.setTextColor(smallTailInfo.showColorId);
+        textView.setVisibility(0);
+    }
+
+    public static int b(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            int i3 = f20763a.get(i2, -1);
+            if (i3 == -1) {
+                int g2 = l.g(TbadkCoreApplication.getInst().getContext(), i2);
+                f20763a.put(i2, g2);
+                return g2;
             }
-            this.f20748h.setTextSize(R.dimen.tbds42);
-            this.f20748h.setConfig(aVar);
-            this.f20748h.setOnClickListener(this.f20749i);
-            f(TbadkCoreApplication.getInst().getSkinType());
-            return this.f2963e;
+            return i3;
         }
-        return (View) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    @Override // c.a.e.l.e.b
-    public void c() {
+    public static void c(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+        SpannableString spannableString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || (spannableString = smallTailInfo.tailSpannable) == null || spannableString.length() == 0 || textView == null) {
+            return;
         }
-    }
-
-    public void f(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            c.a.q0.w0.a.a(this.f20746f.getPageContext(), this.f2963e);
-            TBSpecificationBtn tBSpecificationBtn = this.f20748h;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.changeSkinType();
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f2963e.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        }
-    }
-
-    public void h(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f20748h.setOnClickListener(onClickListener);
-        }
+        smallTailInfo.updateShowInfo();
+        a(smallTailInfo, textView, z, z2, z3);
     }
 }

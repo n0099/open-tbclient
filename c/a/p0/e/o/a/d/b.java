@@ -38,11 +38,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f10426b;
+    public static b f10434b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public OkHttpClient f10427a;
+    public OkHttpClient f10435a;
 
     /* loaded from: classes.dex */
     public class a implements Interceptor {
@@ -56,7 +56,7 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ RequestBody f10428a;
+            public final /* synthetic */ RequestBody f10436a;
 
             public C0516a(a aVar, RequestBody requestBody) {
                 Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class b {
                         return;
                     }
                 }
-                this.f10428a = requestBody;
+                this.f10436a = requestBody;
             }
 
             @Override // okhttp3.RequestBody
@@ -90,7 +90,7 @@ public class b {
             public MediaType contentType() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10428a.contentType() : (MediaType) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10436a.contentType() : (MediaType) invokeV.objValue;
             }
 
             @Override // okhttp3.RequestBody
@@ -99,7 +99,7 @@ public class b {
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
                     BufferedSink buffer = Okio.buffer(new GzipSink(bufferedSink));
                     try {
-                        this.f10428a.writeTo(buffer);
+                        this.f10436a.writeTo(buffer);
                         buffer.close();
                     } catch (IOException unused) {
                     }
@@ -157,17 +157,17 @@ public class b {
                 return;
             }
         }
-        this.f10427a = c();
+        this.f10435a = c();
     }
 
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f10426b == null) {
-                f10426b = new b();
+            if (f10434b == null) {
+                f10434b = new b();
             }
-            return f10426b;
+            return f10434b;
         }
         return (b) invokeV.objValue;
     }
@@ -232,9 +232,9 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
             try {
                 Bimlog$LogResponse parseFrom = Bimlog$LogResponse.parseFrom(bArr);
-                if (this.f10427a.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
-                    this.f10427a.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
-                    this.f10427a = this.f10427a.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
+                if (this.f10435a.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
+                    this.f10435a.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
+                    this.f10435a = this.f10435a.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
                 }
                 return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
             } catch (InvalidProtocolBufferException unused) {
@@ -250,16 +250,16 @@ public class b {
             return;
         }
         Request e2 = e(map, bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 10000.0d)));
-        if (this.f10427a == null) {
-            this.f10427a = c();
+        if (this.f10435a == null) {
+            this.f10435a = c();
         }
         try {
-            Response execute = this.f10427a.newCall(e2).execute();
+            Response execute = this.f10435a.newCall(e2).execute();
             try {
                 if (execute.body() != null) {
                     String[] f2 = f(execute.body().bytes());
-                    cVar.f10429a = Integer.valueOf(f2[0]).intValue();
-                    cVar.f10430b = f2[1];
+                    cVar.f10437a = Integer.valueOf(f2[0]).intValue();
+                    cVar.f10438b = f2[1];
                 }
             } catch (IOException unused) {
             }
@@ -268,8 +268,8 @@ public class b {
             if (e3 instanceof SocketException) {
                 str2 = "Request SocketException :" + e3.toString();
             }
-            cVar.f10429a = -1;
-            cVar.f10430b = str2;
+            cVar.f10437a = -1;
+            cVar.f10438b = str2;
         }
     }
 

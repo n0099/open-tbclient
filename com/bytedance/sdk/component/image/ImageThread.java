@@ -15,7 +15,7 @@ public final class ImageThread {
     public static final ImageThread MAIN;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ ImageThread[] f65085a;
+    public static final /* synthetic */ ImageThread[] f65396a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class ImageThread {
         IO = new ImageThread("IO", 0);
         ImageThread imageThread = new ImageThread("MAIN", 1);
         MAIN = imageThread;
-        f65085a = new ImageThread[]{IO, imageThread};
+        f65396a = new ImageThread[]{IO, imageThread};
     }
 
     public ImageThread(String str, int i2) {
@@ -65,6 +65,6 @@ public final class ImageThread {
     public static ImageThread[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ImageThread[]) f65085a.clone() : (ImageThread[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ImageThread[]) f65396a.clone() : (ImageThread[]) invokeV.objValue;
     }
 }

@@ -11,21 +11,21 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3235a = null;
+    public static String f3236a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3236b = null;
+    public static String f3237b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f3237c = 0;
+    public static int f3238c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f3238d = true;
+    public static boolean f3239d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, str, th) == null) && f3238d) {
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, th) == null) && f3239d) {
             c(new Throwable().getStackTrace());
             d(str);
         }
@@ -33,7 +33,7 @@ public class d {
 
     public static void b(Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, objArr) == null) && f3238d) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, objArr) == null) && f3239d) {
             c(new Throwable().getStackTrace());
             d(objArr);
         }
@@ -42,9 +42,9 @@ public class d {
     public static void c(StackTraceElement[] stackTraceElementArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, stackTraceElementArr) == null) {
-            f3235a = stackTraceElementArr[1].getFileName();
-            f3236b = stackTraceElementArr[1].getMethodName();
-            f3237c = stackTraceElementArr[1].getLineNumber();
+            f3236a = stackTraceElementArr[1].getFileName();
+            f3237b = stackTraceElementArr[1].getMethodName();
+            f3238c = stackTraceElementArr[1].getLineNumber();
         }
     }
 
@@ -68,7 +68,7 @@ public class d {
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || !f3238d) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || !f3239d) {
         }
     }
 
@@ -76,7 +76,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
-            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + f3235a + ":" + f3236b + ":" + f3237c + PreferencesUtil.RIGHT_MOUNT + str;
+            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + f3236a + ":" + f3237b + ":" + f3238c + PreferencesUtil.RIGHT_MOUNT + str;
         }
         return (String) invokeL.objValue;
     }

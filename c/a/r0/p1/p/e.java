@@ -14,23 +14,23 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final HashMap<String, e> f23661f;
+    public static final HashMap<String, e> f23677f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f23662a;
+    public long f23678a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23663b;
+    public String f23679b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23664c;
+    public String f23680c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23665d;
+    public int f23681d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f23666e;
+    public String f23682e;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class e {
                 return;
             }
         }
-        f23661f = new HashMap<>();
+        f23677f = new HashMap<>();
     }
 
     public e() {
@@ -61,7 +61,7 @@ public class e {
                 return;
             }
         }
-        this.f23663b = "";
+        this.f23679b = "";
     }
 
     public static e a(long j2, String str) {
@@ -75,7 +75,7 @@ public class e {
                 str = "";
             }
             sb.append(str);
-            return f23661f.get(sb.toString());
+            return f23677f.get(sb.toString());
         }
         return (e) invokeJL.objValue;
     }
@@ -84,10 +84,10 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f23662a);
+            sb.append(this.f23678a);
             sb.append("_");
-            sb.append(TextUtils.isEmpty(this.f23663b) ? "" : this.f23663b);
-            f23661f.put(sb.toString(), this);
+            sb.append(TextUtils.isEmpty(this.f23679b) ? "" : this.f23679b);
+            f23677f.put(sb.toString(), this);
         }
     }
 }

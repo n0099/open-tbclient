@@ -12,7 +12,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.fuseable.SimplePlainQueue;
 import io.reactivex.internal.util.ObservableQueueDrain;
 import io.reactivex.internal.util.QueueDrainHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public abstract class QueueDrainObserver<T, U, V> extends QueueDrainSubscriberPad2 implements Observer<T>, ObservableQueueDrain<U, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

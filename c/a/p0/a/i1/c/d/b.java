@@ -37,10 +37,10 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.i1.c.b f6607e;
+        public final /* synthetic */ c.a.p0.a.i1.c.b f6615e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAudioPlayer f6608f;
+        public final /* synthetic */ SwanAppAudioPlayer f6616f;
 
         /* renamed from: c.a.p0.a.i1.c.d.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -49,10 +49,10 @@ public class b extends a0 {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f6609e;
+            public final /* synthetic */ String f6617e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f6610f;
+            public final /* synthetic */ a f6618f;
 
             public RunnableC0257a(a aVar, String str) {
                 Interceptable interceptable = $ic;
@@ -69,18 +69,18 @@ public class b extends a0 {
                         return;
                     }
                 }
-                this.f6610f = aVar;
-                this.f6609e = str;
+                this.f6618f = aVar;
+                this.f6617e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.f6610f;
-                    c.a.p0.a.i1.c.b bVar = aVar.f6607e;
-                    bVar.f6585c = this.f6609e;
-                    aVar.f6608f.J(bVar);
+                    a aVar = this.f6618f;
+                    c.a.p0.a.i1.c.b bVar = aVar.f6615e;
+                    bVar.f6593c = this.f6617e;
+                    aVar.f6616f.J(bVar);
                 }
             }
         }
@@ -100,8 +100,8 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f6607e = bVar2;
-            this.f6608f = swanAppAudioPlayer;
+            this.f6615e = bVar2;
+            this.f6616f = swanAppAudioPlayer;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,13 +122,13 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.i1.c.b f6611e;
+        public final /* synthetic */ c.a.p0.a.i1.c.b f6619e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAudioPlayer f6612f;
+        public final /* synthetic */ SwanAppAudioPlayer f6620f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6613g;
+        public final /* synthetic */ CallbackHandler f6621g;
 
         /* renamed from: c.a.p0.a.i1.c.d.b$b$a */
         /* loaded from: classes.dex */
@@ -137,10 +137,10 @@ public class b extends a0 {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f6614e;
+            public final /* synthetic */ String f6622e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ C0258b f6615f;
+            public final /* synthetic */ C0258b f6623f;
 
             public a(C0258b c0258b, String str) {
                 Interceptable interceptable = $ic;
@@ -157,18 +157,18 @@ public class b extends a0 {
                         return;
                     }
                 }
-                this.f6615f = c0258b;
-                this.f6614e = str;
+                this.f6623f = c0258b;
+                this.f6622e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    C0258b c0258b = this.f6615f;
-                    c.a.p0.a.i1.c.b bVar = c0258b.f6611e;
-                    bVar.f6585c = this.f6614e;
-                    c0258b.f6612f.w(bVar, c0258b.f6613g);
+                    C0258b c0258b = this.f6623f;
+                    c.a.p0.a.i1.c.b bVar = c0258b.f6619e;
+                    bVar.f6593c = this.f6622e;
+                    c0258b.f6620f.w(bVar, c0258b.f6621g);
                 }
             }
         }
@@ -188,9 +188,9 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f6611e = bVar2;
-            this.f6612f = swanAppAudioPlayer;
-            this.f6613g = callbackHandler;
+            this.f6619e = bVar2;
+            this.f6620f = swanAppAudioPlayer;
+            this.f6621g = callbackHandler;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -230,7 +230,7 @@ public class b extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
                 return false;
             }
@@ -254,11 +254,11 @@ public class b extends a0 {
         char c3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str2 = "handleSubAction subAction: " + str;
             }
             if (eVar.d0()) {
-                boolean z2 = a0.f4766b;
+                boolean z2 = a0.f4774b;
                 int hashCode = str.hashCode();
                 if (hashCode != 1726838360) {
                     if (hashCode == 1726864194 && str.equals("/swanAPI/audio/play")) {
@@ -313,7 +313,7 @@ public class b extends a0 {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str3 = "subAction is : " + str;
                 }
                 switch (str.hashCode()) {
@@ -372,37 +372,37 @@ public class b extends a0 {
                 }
                 switch (c2) {
                     case 0:
-                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "open, audio id:" + a2.f6583a);
+                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "open, audio id:" + a2.f6591a);
                         n(context, callbackHandler, k, a2);
                         z = true;
                         break;
                     case 1:
-                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "update, audio id:" + a2.f6583a);
+                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "update, audio id:" + a2.f6591a);
                         o(context, k, a2);
                         z = true;
                         break;
                     case 2:
-                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "play, audio id:" + a2.f6583a);
+                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "play, audio id:" + a2.f6591a);
                         k.z();
                         z = true;
                         break;
                     case 3:
-                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "pause, audio id:" + a2.f6583a);
+                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "pause, audio id:" + a2.f6591a);
                         k.x();
                         z = true;
                         break;
                     case 4:
-                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "seek, audio id:" + a2.f6583a);
-                        k.D(a2.f6590h);
+                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "seek, audio id:" + a2.f6591a);
+                        k.D(a2.f6598h);
                         z = true;
                         break;
                     case 5:
-                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "stop, audio id:" + a2.f6583a);
+                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "stop, audio id:" + a2.f6591a);
                         k.I();
                         z = true;
                         break;
                     case 6:
-                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "release, audio id:" + a2.f6583a);
+                        d.g(MediaStreamTrack.AUDIO_TRACK_KIND, "release, audio id:" + a2.f6591a);
                         k.B();
                         z = true;
                         break;
@@ -428,7 +428,7 @@ public class b extends a0 {
                 try {
                     return new JSONObject(str);
                 } catch (JSONException e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         Log.getStackTraceString(e2);
                     }
                 }
@@ -471,13 +471,13 @@ public class b extends a0 {
             jSONArray.put("voice_recognition");
             try {
                 jSONObject.put("audioSources", jSONArray.toString());
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str = "audioSource:" + jSONObject.toString();
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
                 return true;
             } catch (JSONException e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.printStackTrace();
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -499,7 +499,7 @@ public class b extends a0 {
             try {
                 boolean optBoolean = jSONObject.optBoolean("mixWithOther", false);
                 eVar.J().h("key_audio_is_mix_with_other", Boolean.valueOf(optBoolean));
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str = "Audio Mix Changed to " + optBoolean;
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -517,8 +517,8 @@ public class b extends a0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, context, callbackHandler, swanAppAudioPlayer, bVar) == null) {
             y k = c.a.p0.a.c1.a.k();
-            if (k != null && c.a.p0.a.k2.b.s(bVar.f6585c) == PathType.CLOUD) {
-                k.b(context, bVar.f6585c, new C0258b(this, bVar, swanAppAudioPlayer, callbackHandler));
+            if (k != null && c.a.p0.a.k2.b.s(bVar.f6593c) == PathType.CLOUD) {
+                k.b(context, bVar.f6593c, new C0258b(this, bVar, swanAppAudioPlayer, callbackHandler));
             } else {
                 swanAppAudioPlayer.w(bVar, callbackHandler);
             }
@@ -528,8 +528,8 @@ public class b extends a0 {
     public final void o(Context context, SwanAppAudioPlayer swanAppAudioPlayer, c.a.p0.a.i1.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, context, swanAppAudioPlayer, bVar) == null) {
-            if (TextUtils.isEmpty(bVar.f6585c) && c.a.p0.a.k2.b.s(bVar.f6585c) == PathType.CLOUD) {
-                c.a.p0.a.c1.a.k().b(context, bVar.f6585c, new a(this, bVar, swanAppAudioPlayer));
+            if (TextUtils.isEmpty(bVar.f6593c) && c.a.p0.a.k2.b.s(bVar.f6593c) == PathType.CLOUD) {
+                c.a.p0.a.c1.a.k().b(context, bVar.f6593c, new a(this, bVar, swanAppAudioPlayer));
             } else {
                 swanAppAudioPlayer.J(bVar);
             }

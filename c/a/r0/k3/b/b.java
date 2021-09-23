@@ -15,22 +15,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f21763a;
+    public int f21777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21764b;
+    public int f21778b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f21765c;
+    public long f21779c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f21766d;
+    public int f21780d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21767e;
+    public String f21781e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21768f;
+    public String f21782f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -45,14 +45,14 @@ public class b {
                 return;
             }
         }
-        this.f21765c = 3000L;
+        this.f21779c = 3000L;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f21766d;
+            int i2 = this.f21780d;
             return i2 == 2 || i2 == 4;
         }
         return invokeV.booleanValue;
@@ -61,14 +61,14 @@ public class b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21766d == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21780d == 1 : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.f21766d;
+            int i2 = this.f21780d;
             return i2 == 3 || i2 == 4;
         }
         return invokeV.booleanValue;
@@ -79,13 +79,13 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f21763a = jSONObject.optInt("id", 0);
+        this.f21777a = jSONObject.optInt("id", 0);
         jSONObject.optLong("update_time", 0L);
         jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, 0L);
         jSONObject.optLong("end_time", 0L);
-        this.f21766d = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE, 0);
-        this.f21764b = jSONObject.optInt("show_status", 0);
-        this.f21767e = jSONObject.optString("resource_url");
-        this.f21768f = jSONObject.optString("link_url");
+        this.f21780d = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE, 0);
+        this.f21778b = jSONObject.optInt("show_status", 0);
+        this.f21781e = jSONObject.optString("resource_url");
+        this.f21782f = jSONObject.optString("link_url");
     }
 }

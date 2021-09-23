@@ -36,7 +36,7 @@ public class d extends c.a.p0.n.j.a {
         if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, gVar, gVar2, gVar3) == null) || jSONObject == null) {
             return;
         }
-        if (c.a.p0.n.c.f11856a) {
+        if (c.a.p0.n.c.f11864a) {
             String str = WebGLImageLoader.DATA_URL + jSONObject;
         }
         f.b().e(jSONObject.optJSONObject("tipmsgs"));
@@ -46,7 +46,7 @@ public class d extends c.a.p0.n.j.a {
         e.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
         n.b().d(jSONObject.optJSONObject("tts"));
         o.e(jSONObject.optJSONObject("update_expire_time"));
-        if (l.f12029a) {
+        if (l.f12037a) {
             c(jSONObject);
         }
         g.a().c(jSONObject.optJSONObject("local_debug"));
@@ -64,7 +64,7 @@ public class d extends c.a.p0.n.j.a {
         }
         long optLong = optJSONObject.optLong("errno");
         if (optLong != 0) {
-            if (c.a.p0.n.c.f11856a) {
+            if (c.a.p0.n.c.f11864a) {
                 String str = "heartbeat error:" + optLong;
                 return;
             }
@@ -74,7 +74,7 @@ public class d extends c.a.p0.n.j.a {
         c.a.p0.t.b j2 = b2 != null ? b2.j() : null;
         String optString = optJSONObject.optString("version");
         if (!TextUtils.isEmpty(optString)) {
-            l.f12030b = optString;
+            l.f12038b = optString;
             if (j2 != null) {
                 j2.putString("key_h2_heart_beat_version", optString);
             }
@@ -93,10 +93,10 @@ public class d extends c.a.p0.n.j.a {
                     }
                 }
             } else {
-                l.f12029a = false;
+                l.f12037a = false;
             }
         }
-        if (c.a.p0.n.c.f11856a) {
+        if (c.a.p0.n.c.f11864a) {
             String str2 = "heartBeatVersion=" + optString + ", data=" + optJSONObject2;
         }
     }

@@ -15,25 +15,25 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8114a;
+    public long f8122a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8115b;
+    public long f8123b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f8116c;
+    public long f8124c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8117d;
+    public String f8125d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8118e;
+    public String f8126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final StringBuilder f8119f;
+    public final StringBuilder f8127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f8120g;
+    public boolean f8128g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,13 +48,13 @@ public final class a {
                 return;
             }
         }
-        this.f8114a = 0L;
-        this.f8115b = 0L;
-        this.f8116c = 2L;
-        this.f8117d = "";
-        this.f8118e = "";
-        this.f8119f = new StringBuilder();
-        this.f8120g = false;
+        this.f8122a = 0L;
+        this.f8123b = 0L;
+        this.f8124c = 2L;
+        this.f8125d = "";
+        this.f8126e = "";
+        this.f8127f = new StringBuilder();
+        this.f8128g = false;
     }
 
     public long a() {
@@ -83,7 +83,7 @@ public final class a {
             if (str == null) {
                 str = "";
             }
-            this.f8117d = str;
+            this.f8125d = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -92,14 +92,14 @@ public final class a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8117d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8125d : (String) invokeV.objValue;
     }
 
     public a e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            StringBuilder sb = this.f8119f;
+            StringBuilder sb = this.f8127f;
             sb.append(str);
             sb.append(StringUtils.LF);
             return this;
@@ -110,20 +110,20 @@ public final class a {
     public StringBuilder f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f8119f : (StringBuilder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f8127f : (StringBuilder) invokeV.objValue;
     }
 
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f8115b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f8123b : invokeV.longValue;
     }
 
     public a h(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-            this.f8115b = l(j2, 9999L, "error");
+            this.f8123b = l(j2, 9999L, "error");
             return this;
         }
         return (a) invokeJ.objValue;
@@ -132,14 +132,14 @@ public final class a {
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f8114a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f8122a : invokeV.longValue;
     }
 
     public a j(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
-            this.f8114a = l(j2, 999L, "feature");
+            this.f8122a = l(j2, 999L, "feature");
             return this;
         }
         return (a) invokeJ.objValue;
@@ -148,7 +148,7 @@ public final class a {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f8120g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f8128g : invokeV.booleanValue;
     }
 
     public final long l(long j2, long j3, String str) {
@@ -167,21 +167,21 @@ public final class a {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f8120g = true;
+            this.f8128g = true;
         }
     }
 
     public long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f8116c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f8124c : invokeV.longValue;
     }
 
     public a o(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j2)) == null) {
-            this.f8116c = l(j2, 9L, com.tencent.connect.common.Constants.PARAM_PLATFORM);
+            this.f8124c = l(j2, 9L, com.tencent.connect.common.Constants.PARAM_PLATFORM);
             return this;
         }
         return (a) invokeJ.objValue;
@@ -194,7 +194,7 @@ public final class a {
             if (str == null) {
                 str = "";
             }
-            this.f8118e = str;
+            this.f8126e = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -203,7 +203,7 @@ public final class a {
     public String q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f8118e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f8126e : (String) invokeV.objValue;
     }
 
     public String r(int i2) {

@@ -28,32 +28,32 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f3564g = null;
+    public static volatile a f3565g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f3565h = 30000000;
+    public static int f3566h = 30000000;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f3566i = 50000000;
+    public static int f3567i = 50000000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LruCache<String, c.a.j0.a.c.c<?>> f3567a;
+    public final LruCache<String, c.a.j0.a.c.c<?>> f3568a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.j0.a.c.d f3568b;
+    public final c.a.j0.a.c.d f3569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.j0.a.c.d f3569c;
+    public final c.a.j0.a.c.d f3570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, c.a.j0.a.c.d> f3570d;
+    public final Map<String, c.a.j0.a.c.d> f3571d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f3571e;
+    public final String f3572e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f3572f;
+    public final String f3573f;
 
     /* renamed from: c.a.j0.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -126,13 +126,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f3573a;
+        public final /* synthetic */ String f3574a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f3574b;
+        public final /* synthetic */ c f3575b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.j0.a.c.d f3575c;
+        public final /* synthetic */ c.a.j0.a.c.d f3576c;
 
         public b(a aVar, String str, c cVar, c.a.j0.a.c.d dVar) {
             Interceptable interceptable = $ic;
@@ -149,9 +149,9 @@ public class a {
                     return;
                 }
             }
-            this.f3573a = str;
-            this.f3574b = cVar;
-            this.f3575c = dVar;
+            this.f3574a = str;
+            this.f3575b = cVar;
+            this.f3576c = dVar;
         }
 
         @Override // c.a.j0.a.c.d.e
@@ -164,18 +164,18 @@ public class a {
         @Override // c.a.j0.a.c.d.e
         public void b(String str, c.a.j0.a.c.c<File> cVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) && this.f3573a.equals(str)) {
-                this.f3574b.onCacheFailed();
-                this.f3575c.q(this);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) && this.f3574a.equals(str)) {
+                this.f3575b.onCacheFailed();
+                this.f3576c.q(this);
             }
         }
 
         @Override // c.a.j0.a.c.d.e
         public void c(String str, c.a.j0.a.c.c<File> cVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) && this.f3573a.equals(str)) {
-                this.f3574b.onCacheComplete();
-                this.f3575c.q(this);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) && this.f3574a.equals(str)) {
+                this.f3575b.onCacheComplete();
+                this.f3576c.q(this);
             }
         }
     }
@@ -224,13 +224,13 @@ public class a {
                 return;
             }
         }
-        this.f3567a = new LruCache<>(6);
+        this.f3568a = new LruCache<>(6);
         String d2 = i.d(context);
-        this.f3571e = d2 + MaterialLoader.IMAGE_CACHE_PATH;
-        this.f3572f = d2 + MaterialLoader.VIDEO_CACHE_PATH;
-        this.f3568b = c.a.j0.a.c.d.o(this.f3571e, f3565h);
-        this.f3569c = c.a.j0.a.c.d.o(this.f3572f, f3566i);
-        this.f3570d = new ConcurrentHashMap();
+        this.f3572e = d2 + MaterialLoader.IMAGE_CACHE_PATH;
+        this.f3573f = d2 + MaterialLoader.VIDEO_CACHE_PATH;
+        this.f3569b = c.a.j0.a.c.d.o(this.f3572e, f3566h);
+        this.f3570c = c.a.j0.a.c.d.o(this.f3573f, f3567i);
+        this.f3571d = new ConcurrentHashMap();
     }
 
     public static String a(String str) {
@@ -243,14 +243,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f3564g == null) {
+            if (f3565g == null) {
                 synchronized (a.class) {
-                    if (f3564g == null && context != null) {
-                        f3564g = new a(context.getApplicationContext());
+                    if (f3565g == null && context != null) {
+                        f3565g = new a(context.getApplicationContext());
                     }
                 }
             }
-            return f3564g;
+            return f3565g;
         }
         return (a) invokeL.objValue;
     }
@@ -270,9 +270,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, materialCacheType)) == null) {
             if (materialCacheType == MaterialLoader.MaterialCacheType.VIDEO) {
-                return this.f3569c;
+                return this.f3570c;
             }
-            return this.f3568b;
+            return this.f3569b;
         }
         return (c.a.j0.a.c.d) invokeL.objValue;
     }
@@ -296,7 +296,7 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, materialCacheType)) == null) {
             boolean z = g(a(str), materialCacheType) != null;
             c.a.j0.a.c.d c2 = c(materialCacheType);
-            return (z || c2.f3582e) ? z : new File(b(str, c2)).exists();
+            return (z || c2.f3583e) ? z : new File(b(str, c2)).exists();
         }
         return invokeLL.booleanValue;
     }
@@ -317,7 +317,7 @@ public class a {
     public final c.a.j0.a.c.c<?> i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f3567a.get(str) : (c.a.j0.a.c.c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f3568a.get(str) : (c.a.j0.a.c.c) invokeL.objValue;
     }
 
     public Bitmap j(String str) {
@@ -340,7 +340,7 @@ public class a {
                 }
                 return dVar.rawGet(g2.a());
             }
-            if (!c(materialCacheType).f3582e) {
+            if (!c(materialCacheType).f3583e) {
                 File file = new File(b(str, c(materialCacheType)));
                 if (file.exists()) {
                     return dVar.parseFromBytes(new c.a.j0.a.c.c(file).b());
@@ -354,7 +354,7 @@ public class a {
     public void l(String str, Bitmap bitmap, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048585, this, str, bitmap, z) == null) {
-            m(str, new c.a.j0.a.c.c<>(bitmap), this.f3568b, z, null);
+            m(str, new c.a.j0.a.c.c<>(bitmap), this.f3569b, z, null);
         }
     }
 
@@ -364,7 +364,7 @@ public class a {
             try {
                 String a2 = a(str);
                 if (z) {
-                    this.f3567a.put(a2, cVar);
+                    this.f3568a.put(a2, cVar);
                 }
                 File file = new File(dVar.k() + a2);
                 if (cVar2 != null) {
@@ -381,9 +381,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, bArr, materialCacheType, Boolean.valueOf(z), cVar}) == null) {
             c.a.j0.a.c.c<?> cVar2 = new c.a.j0.a.c.c<>(bArr);
-            c.a.j0.a.c.d dVar = this.f3568b;
+            c.a.j0.a.c.d dVar = this.f3569b;
             if (materialCacheType == MaterialLoader.MaterialCacheType.VIDEO) {
-                dVar = this.f3569c;
+                dVar = this.f3570c;
             }
             m(str, cVar2, dVar, z, cVar);
         }
@@ -393,10 +393,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, bArr, str2, Integer.valueOf(i2), Boolean.valueOf(z), cVar}) == null) {
             c.a.j0.a.c.c<?> cVar2 = new c.a.j0.a.c.c<>(bArr);
-            c.a.j0.a.c.d dVar = this.f3570d.get(str2);
+            c.a.j0.a.c.d dVar = this.f3571d.get(str2);
             if (dVar == null) {
                 dVar = c.a.j0.a.c.d.o(str2, i2);
-                this.f3570d.put(str2, dVar);
+                this.f3571d.put(str2, dVar);
             } else if (dVar.l() != i2) {
                 dVar.trimToSize(i2);
             }

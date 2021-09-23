@@ -17,7 +17,7 @@ public class l implements c.a.p0.a.k2.f.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.k2.f.e f8314a;
+    public c.a.p0.a.k2.f.e f8322a;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -77,10 +77,10 @@ public class l implements c.a.p0.a.k2.f.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                if (this.f8314a == null) {
-                    this.f8314a = new m();
+                if (this.f8322a == null) {
+                    this.f8322a = new m();
                 }
-                eVar = this.f8314a;
+                eVar = this.f8322a;
             }
             return eVar;
         }

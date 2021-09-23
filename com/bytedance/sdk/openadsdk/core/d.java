@@ -25,36 +25,36 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f66275a = "AppEnvironment";
+    public static String f66586a = "AppEnvironment";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f66276b = null;
+    public static volatile d f66587b = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f66277d = "ad_style";
+    public static String f66588d = "ad_style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f66278e = "ad_id";
+    public static String f66589e = "ad_id";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f66279f = "rit";
+    public static String f66590f = "rit";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f66280g = "request_id";
+    public static String f66591g = "request_id";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f66281h = "ad_slot_type";
+    public static String f66592h = "ad_slot_type";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f66282i = "net_type";
+    public static String f66593i = "net_type";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f66283j = "low_memory";
+    public static String f66594j = "low_memory";
     public static String k = "total_max_memory_rate";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f66284c;
+    public Map<String, String> f66595c;
     public long l;
     public boolean m;
 
@@ -87,15 +87,15 @@ public class d {
             }
         }
         HashMap hashMap = new HashMap();
-        this.f66284c = hashMap;
-        hashMap.put(f66277d, "default");
-        this.f66284c.put(f66278e, "default");
-        this.f66284c.put(f66279f, "default");
-        this.f66284c.put(f66280g, "default");
-        this.f66284c.put(f66281h, "default");
-        this.f66284c.put(f66282i, "default");
-        this.f66284c.put(f66283j, "default");
-        this.f66284c.put(k, "default");
+        this.f66595c = hashMap;
+        hashMap.put(f66588d, "default");
+        this.f66595c.put(f66589e, "default");
+        this.f66595c.put(f66590f, "default");
+        this.f66595c.put(f66591g, "default");
+        this.f66595c.put(f66592h, "default");
+        this.f66595c.put(f66593i, "default");
+        this.f66595c.put(f66594j, "default");
+        this.f66595c.put(k, "default");
         this.l = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sp_app_env", "last_app_env_time", 0L);
         this.m = false;
     }
@@ -104,14 +104,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f66276b == null) {
+            if (f66587b == null) {
                 synchronized (d.class) {
-                    if (f66276b == null) {
-                        f66276b = new d();
+                    if (f66587b == null) {
+                        f66587b = new d();
                     }
                 }
             }
-            return f66276b;
+            return f66587b;
         }
         return (d) invokeV.objValue;
     }
@@ -124,22 +124,22 @@ public class d {
             float f2 = (float) ((runtime.totalMemory() * 1.0d) / 1048576.0d);
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
             ((ActivityManager) o.a().getSystemService("activity")).getMemoryInfo(memoryInfo);
-            String str = f66275a;
+            String str = f66586a;
             com.bytedance.sdk.component.utils.k.f(str, "系统是否处于低内存运行：" + memoryInfo.lowMemory);
-            String str2 = f66275a;
+            String str2 = f66586a;
             com.bytedance.sdk.component.utils.k.f(str2, "maxMemory: " + maxMemory);
-            String str3 = f66275a;
+            String str3 = f66586a;
             com.bytedance.sdk.component.utils.k.f(str3, "totalMemory: " + f2);
-            String str4 = f66275a;
+            String str4 = f66586a;
             com.bytedance.sdk.component.utils.k.f(str4, "freeMemory: " + ((float) ((runtime.freeMemory() * 1.0d) / 1048576.0d)));
-            String str5 = f66275a;
+            String str5 = f66586a;
             StringBuilder sb = new StringBuilder();
             sb.append("totalMaxRate: ");
             int i2 = (int) ((f2 / maxMemory) * 100.0f);
             sb.append(i2);
             com.bytedance.sdk.component.utils.k.f(str5, sb.toString());
-            this.f66284c.put(f66283j, String.valueOf(memoryInfo.lowMemory));
-            this.f66284c.put(k, String.valueOf(i2));
+            this.f66595c.put(f66594j, String.valueOf(memoryInfo.lowMemory));
+            this.f66595c.put(k, String.valueOf(i2));
         }
     }
 
@@ -215,17 +215,17 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, mVar) == null) || mVar == null) {
             return;
         }
-        this.f66284c.put(f66278e, mVar.ak());
-        Map<String, String> map = this.f66284c;
-        String str = f66279f;
+        this.f66595c.put(f66589e, mVar.ak());
+        Map<String, String> map = this.f66595c;
+        String str = f66590f;
         map.put(str, "" + com.bytedance.sdk.openadsdk.q.q.d(mVar.ao()));
-        this.f66284c.put(f66280g, com.bytedance.sdk.openadsdk.q.q.h(mVar.ao()));
-        Map<String, String> map2 = this.f66284c;
-        String str2 = f66281h;
+        this.f66595c.put(f66591g, com.bytedance.sdk.openadsdk.q.q.h(mVar.ao()));
+        Map<String, String> map2 = this.f66595c;
+        String str2 = f66592h;
         map2.put(str2, "" + com.bytedance.sdk.openadsdk.q.q.c(mVar.ao()));
-        this.f66284c.put(f66282i, com.bytedance.sdk.component.utils.n.g(o.a()));
+        this.f66595c.put(f66593i, com.bytedance.sdk.component.utils.n.g(o.a()));
         if (com.bytedance.sdk.openadsdk.core.e.o.a(mVar)) {
-            this.f66284c.put(f66277d, "is_playable");
+            this.f66595c.put(f66588d, "is_playable");
         }
         d();
     }
@@ -233,7 +233,7 @@ public class d {
     public Map<String, String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66284c : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66595c : (Map) invokeV.objValue;
     }
 
     public void c() {
@@ -247,7 +247,7 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f66285a;
+            public final /* synthetic */ d f66596a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -267,21 +267,21 @@ public class d {
                         return;
                     }
                 }
-                this.f66285a = this;
+                this.f66596a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    JSONObject e2 = this.f66285a.e();
+                    JSONObject e2 = this.f66596a.e();
                     if (e2 != null) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        this.f66285a.l = currentTimeMillis;
+                        this.f66596a.l = currentTimeMillis;
                         com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sp_app_env", "last_app_env_time", Long.valueOf(currentTimeMillis));
                         com.bytedance.sdk.openadsdk.j.a.a().a(e2);
                     }
-                    this.f66285a.m = false;
+                    this.f66596a.m = false;
                 }
             }
         }, 1);

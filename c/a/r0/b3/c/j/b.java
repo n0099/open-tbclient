@@ -24,22 +24,22 @@ public class b extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f16106e;
+    public boolean f16116e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f16107f;
+    public final String f16117f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Process f16108g;
+    public Process f16118g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BufferedReader f16109h;
+    public BufferedReader f16119h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FileOutputStream f16110i;
+    public FileOutputStream f16120i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f16111j;
+    public a f16121j;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -61,49 +61,49 @@ public class b extends Thread {
                 return;
             }
         }
-        this.f16106e = true;
-        this.f16109h = null;
-        this.f16110i = null;
+        this.f16116e = true;
+        this.f16119h = null;
+        this.f16120i = null;
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
-            this.f16110i = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
+            this.f16120i = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
         } catch (FileNotFoundException e2) {
             BdLog.e(Log.getStackTraceString(e2));
         }
         if (z) {
-            this.f16107f = "logcat -v threadtime *:v -d";
+            this.f16117f = "logcat -v threadtime *:v -d";
         } else {
-            this.f16107f = "logcat -v threadtime *:v";
+            this.f16117f = "logcat -v threadtime *:v";
         }
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Process process = this.f16108g;
+            Process process = this.f16118g;
             if (process != null) {
                 process.destroy();
-                this.f16108g = null;
+                this.f16118g = null;
             }
-            BufferedReader bufferedReader = this.f16109h;
+            BufferedReader bufferedReader = this.f16119h;
             if (bufferedReader != null) {
                 try {
                     bufferedReader.close();
-                    this.f16109h = null;
+                    this.f16119h = null;
                 } catch (IOException e2) {
                     BdLog.e(Log.getStackTraceString(e2));
                 }
             }
-            FileOutputStream fileOutputStream = this.f16110i;
+            FileOutputStream fileOutputStream = this.f16120i;
             if (fileOutputStream != null) {
                 try {
                     fileOutputStream.close();
                 } catch (IOException e3) {
                     BdLog.e(Log.getStackTraceString(e3));
                 }
-                this.f16110i = null;
+                this.f16120i = null;
             }
-            a aVar = this.f16111j;
+            a aVar = this.f16121j;
             if (aVar != null) {
                 aVar.a();
             }
@@ -113,14 +113,14 @@ public class b extends Thread {
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f16111j = aVar;
+            this.f16121j = aVar;
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f16106e = false;
+            this.f16116e = false;
             a();
             interrupt();
         }
@@ -133,11 +133,11 @@ public class b extends Thread {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
                 try {
-                    this.f16108g = Runtime.getRuntime().exec(this.f16107f);
-                    this.f16109h = new BufferedReader(new InputStreamReader(this.f16108g.getInputStream()), 1024);
-                    while (this.f16106e && (readLine = this.f16109h.readLine()) != null && this.f16106e) {
-                        if (readLine.length() != 0 && this.f16110i != null) {
-                            FileOutputStream fileOutputStream = this.f16110i;
+                    this.f16118g = Runtime.getRuntime().exec(this.f16117f);
+                    this.f16119h = new BufferedReader(new InputStreamReader(this.f16118g.getInputStream()), 1024);
+                    while (this.f16116e && (readLine = this.f16119h.readLine()) != null && this.f16116e) {
+                        if (readLine.length() != 0 && this.f16120i != null) {
+                            FileOutputStream fileOutputStream = this.f16120i;
                             fileOutputStream.write((readLine + StringUtils.LF).getBytes());
                         }
                     }

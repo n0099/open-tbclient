@@ -24,11 +24,11 @@ public class b implements a.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9250b;
+    public static final boolean f9258b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Deque<Message> f9251a;
+    public final Deque<Message> f9259a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class b implements a.c {
                 return;
             }
         }
-        f9250b = k.f7077a;
+        f9258b = k.f7085a;
     }
 
     public b() {
@@ -59,7 +59,7 @@ public class b implements a.c {
                 return;
             }
         }
-        this.f9251a = new ArrayDeque();
+        this.f9259a = new ArrayDeque();
     }
 
     @Override // c.a.p0.a.v1.c.a.c
@@ -67,10 +67,10 @@ public class b implements a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a E = a.E();
-            while (E.k() && !this.f9251a.isEmpty()) {
-                Message peek = this.f9251a.peek();
+            while (E.k() && !this.f9259a.isEmpty()) {
+                Message peek = this.f9259a.peek();
                 if (peek == null || e(peek)) {
-                    this.f9251a.poll();
+                    this.f9259a.poll();
                 }
             }
         }
@@ -94,7 +94,7 @@ public class b implements a.c {
             if (e(h2) || !cVar.n()) {
                 return;
             }
-            this.f9251a.offer(h2);
+            this.f9259a.offer(h2);
             a.E().Q();
         }
     }
@@ -126,7 +126,7 @@ public class b implements a.c {
                 return true;
             } catch (RemoteException e2) {
                 E.I();
-                if (f9250b) {
+                if (f9258b) {
                     e2.printStackTrace();
                     return false;
                 }

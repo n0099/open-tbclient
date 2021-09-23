@@ -31,14 +31,14 @@ public class a extends c.a.e.l.e.a<c.a.r0.u1.h.e.a, SearchSuggestCommonViewHolde
 
     /* renamed from: c.a.r0.u1.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1184a implements w {
+    public class C1182a implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f25336e;
+        public final /* synthetic */ Context f25357e;
 
-        public C1184a(a aVar, Context context) {
+        public C1182a(a aVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.u1.h.e.a, SearchSuggestCommonViewHolde
                     return;
                 }
             }
-            this.f25336e = context;
+            this.f25357e = context;
         }
 
         @Override // c.a.e.l.e.w
@@ -64,7 +64,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.u1.h.e.a, SearchSuggestCommonViewHolde
                 String b2 = aVar.b();
                 String c2 = aVar.c();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921595, c2));
-                TiebaStatic.eventStat(this.f25336e, "search_bar_result_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                TiebaStatic.eventStat(this.f25357e, "search_bar_result_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
                 TiebaStatic.log(new StatisticItem(PostSearchActivity.FORUM_SEARCH_CLICK).param("obj_name", b2).param("obj_source", "2").param("obj_type", "1").param("obj_locate", i2 + 1).param("obj_param1", c2));
             }
         }
@@ -90,8 +90,8 @@ public class a extends c.a.e.l.e.a<c.a.r0.u1.h.e.a, SearchSuggestCommonViewHolde
             }
         }
         this.m = context;
-        this.f2960h = bdUniqueId;
-        d0(new C1184a(this, context));
+        this.f2961h = bdUniqueId;
+        d0(new C1182a(this, context));
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */

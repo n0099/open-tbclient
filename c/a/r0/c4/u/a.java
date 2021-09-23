@@ -10,6 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tieba.R;
@@ -26,27 +27,27 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f16905e;
+    public final Context f16915e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtListActivity f16906f;
+    public AtListActivity f16916f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<MetaData> f16907g;
+    public ArrayList<MetaData> f16917g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbCheckBox.b f16908h;
+    public TbCheckBox.b f16918h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f16909i;
+    public c f16919i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ViewGroup f16910j;
+    public ViewGroup f16920j;
     public boolean k;
 
     /* renamed from: c.a.r0.c4.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0816a {
+    public static /* synthetic */ class C0814a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -57,16 +58,16 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f16911a;
+        public View f16921a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f16912b;
+        public HeadImageView f16922b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f16913c;
+        public TextView f16923c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TbCheckBox f16914d;
+        public TbCheckBox f16924d;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -84,7 +85,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, C0816a c0816a) {
+        public /* synthetic */ b(a aVar, C0814a c0814a) {
             this(aVar);
         }
     }
@@ -109,11 +110,11 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f16909i = null;
-        this.f16910j = null;
+        this.f16919i = null;
+        this.f16920j = null;
         this.k = true;
-        this.f16906f = atListActivity;
-        this.f16905e = atListActivity.getPageContext().getContext();
+        this.f16916f = atListActivity;
+        this.f16915e = atListActivity.getPageContext().getContext();
         this.k = z;
     }
 
@@ -124,54 +125,56 @@ public class a extends BaseAdapter {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, metaData)) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (obj == null) {
-                bVar = b();
+                bVar = b(metaData);
             } else {
                 bVar = (b) obj;
             }
-            c cVar = this.f16909i;
+            c cVar = this.f16919i;
             if (cVar != null) {
-                cVar.handlerItem(bVar.f16911a, metaData);
+                cVar.handlerItem(bVar.f16921a, metaData);
             }
             String avater = metaData.getAvater();
-            bVar.f16913c.setText(metaData.getName_show());
-            bVar.f16914d.setTagData(metaData);
-            bVar.f16912b.setTag(avater);
+            bVar.f16923c.setText(metaData.getName_show());
+            bVar.f16924d.setTagData(metaData);
+            bVar.f16922b.setTag(avater);
             if (this.k) {
-                bVar.f16914d.setVisibility(0);
+                bVar.f16924d.setVisibility(0);
             } else {
-                bVar.f16914d.setVisibility(8);
+                bVar.f16924d.setVisibility(8);
             }
-            bVar.f16912b.startLoad(avater, 12, false);
-            this.f16906f.getPageContext().getLayoutMode().k(skinType == 1);
-            this.f16906f.getPageContext().getLayoutMode().j(bVar.f16911a);
+            bVar.f16922b.startLoad(avater, 12, false);
+            UtilHelper.showHeadImageViewBigV(bVar.f16922b, metaData);
+            this.f16916f.getPageContext().getLayoutMode().k(skinType == 1);
+            this.f16916f.getPageContext().getLayoutMode().j(bVar.f16921a);
             return bVar;
         }
         return (b) invokeLL.objValue;
     }
 
-    public final b b() {
-        InterceptResult invokeV;
+    public final b b(MetaData metaData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData)) == null) {
             b bVar = new b(this, null);
-            View inflate = LayoutInflater.from(this.f16905e).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-            bVar.f16911a = inflate;
+            View inflate = LayoutInflater.from(this.f16915e).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
+            bVar.f16921a = inflate;
             HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.photo);
-            bVar.f16912b = headImageView;
-            headImageView.setIsRound(false);
-            bVar.f16913c = (TextView) bVar.f16911a.findViewById(R.id.txt_user_name);
-            TbCheckBox tbCheckBox = (TbCheckBox) bVar.f16911a.findViewById(R.id.ckb_select);
-            bVar.f16914d = tbCheckBox;
+            bVar.f16922b = headImageView;
+            headImageView.setIsRound(true);
+            UtilHelper.showHeadImageViewBigV(bVar.f16922b, metaData);
+            bVar.f16923c = (TextView) bVar.f16921a.findViewById(R.id.txt_user_name);
+            TbCheckBox tbCheckBox = (TbCheckBox) bVar.f16921a.findViewById(R.id.ckb_select);
+            bVar.f16924d = tbCheckBox;
             tbCheckBox.setBackgroundDrawableIdIsWebP(true);
-            bVar.f16914d.setBackgroundDrawableId(R.drawable.icon_pure_strok324_select, R.drawable.icon_pure_strok324);
-            TbCheckBox.b bVar2 = this.f16908h;
+            bVar.f16924d.setBackgroundDrawableId(R.drawable.icon_pure_strok324_select, R.drawable.icon_pure_strok324);
+            TbCheckBox.b bVar2 = this.f16918h;
             if (bVar2 != null) {
-                bVar.f16914d.setStatedChangedListener(bVar2);
+                bVar.f16924d.setStatedChangedListener(bVar2);
             }
-            bVar.f16911a.setTag(bVar);
+            bVar.f16921a.setTag(bVar);
             return bVar;
         }
-        return (b) invokeV.objValue;
+        return (b) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -181,9 +184,9 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            ArrayList<MetaData> arrayList = this.f16907g;
+            ArrayList<MetaData> arrayList = this.f16917g;
             if (arrayList != null && i2 < arrayList.size()) {
-                return this.f16907g.get(i2);
+                return this.f16917g.get(i2);
             }
             return null;
         }
@@ -193,21 +196,21 @@ public class a extends BaseAdapter {
     public void d(TbCheckBox.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f16908h = bVar;
+            this.f16918h = bVar;
         }
     }
 
     public void e(ArrayList<MetaData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f16907g = arrayList;
+            this.f16917g = arrayList;
         }
     }
 
     public void f(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f16909i = cVar;
+            this.f16919i = cVar;
         }
     }
 
@@ -216,7 +219,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList<MetaData> arrayList = this.f16907g;
+            ArrayList<MetaData> arrayList = this.f16917g;
             if (arrayList == null) {
                 return 0;
             }
@@ -241,8 +244,8 @@ public class a extends BaseAdapter {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i2, view, viewGroup)) == null) {
-            if (this.f16910j == null) {
-                this.f16910j = viewGroup;
+            if (this.f16920j == null) {
+                this.f16920j = viewGroup;
             }
             MetaData item = getItem(i2);
             if (item != null) {
@@ -251,7 +254,7 @@ public class a extends BaseAdapter {
                 bVar = null;
             }
             if (bVar != null) {
-                return bVar.f16911a;
+                return bVar.f16921a;
             }
             return null;
         }

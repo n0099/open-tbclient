@@ -21,9 +21,9 @@ public class e {
                 if (l != 1) {
                     return null;
                 }
-                return c.a.p0.a.c1.b.i().o(swanAppActivity, eVar.f4558f);
+                return c.a.p0.a.c1.b.i().o(swanAppActivity, eVar.f4566f);
             }
-            return new c.a.p0.a.t0.f.a(swanAppActivity, eVar.f4558f);
+            return new c.a.p0.a.t0.f.a(swanAppActivity, eVar.f4566f);
         }
         return (c) invokeLL.objValue;
     }

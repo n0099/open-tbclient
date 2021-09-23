@@ -17,10 +17,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f75578a = "a";
+    public static final String f75897a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f75579b;
+    public static final boolean f75898b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        f75579b = f.f75550b;
+        f75898b = f.f75869b;
     }
 
     public a() {
@@ -64,8 +64,8 @@ public class a {
             try {
                 properties.load(SDKManager.getContext().getAssets().open(str));
             } catch (IOException unused) {
-                String str3 = f75578a;
-                c.b(str3, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(f75579b));
+                String str3 = f75897a;
+                c.b(str3, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(f75898b));
             }
             return properties.getProperty(str2);
         }

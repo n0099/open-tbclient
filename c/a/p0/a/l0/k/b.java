@@ -14,10 +14,10 @@ public class b implements V8Engine.V8EngineConsole {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.l0.a f7192a;
+    public c.a.p0.a.l0.a f7200a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7193b;
+    public boolean f7201b;
 
     public b(c.a.p0.a.l0.a aVar) {
         Interceptable interceptable = $ic;
@@ -34,16 +34,16 @@ public class b implements V8Engine.V8EngineConsole {
                 return;
             }
         }
-        this.f7193b = true;
-        this.f7192a = aVar;
+        this.f7201b = true;
+        this.f7200a = aVar;
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
     public void onDebugConsole(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.f7193b) {
-                String str2 = this.f7192a.m0() + str;
+            if (this.f7201b) {
+                String str2 = this.f7200a.m0() + str;
             }
             c.a.p0.a.c1.b.h().e(2, str);
         }
@@ -54,8 +54,8 @@ public class b implements V8Engine.V8EngineConsole {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             c.a.p0.a.c1.b.h().e(4, str);
-            String str2 = this.f7192a.m0() + str;
-            c.a.p0.a.c1.a.g0().e("V8Console", this.f7192a.m0() + str);
+            String str2 = this.f7200a.m0() + str;
+            c.a.p0.a.c1.a.g0().e("V8Console", this.f7200a.m0() + str);
         }
     }
 
@@ -63,8 +63,8 @@ public class b implements V8Engine.V8EngineConsole {
     public void onInfoConsole(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (this.f7193b) {
-                String str2 = this.f7192a.m0() + str;
+            if (this.f7201b) {
+                String str2 = this.f7200a.m0() + str;
             }
             c.a.p0.a.c1.b.h().e(3, str);
         }
@@ -74,8 +74,8 @@ public class b implements V8Engine.V8EngineConsole {
     public void onLogConsole(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (this.f7193b) {
-                String str2 = this.f7192a.m0() + str;
+            if (this.f7201b) {
+                String str2 = this.f7200a.m0() + str;
             }
             c.a.p0.a.c1.b.h().e(1, str);
         }
@@ -85,8 +85,8 @@ public class b implements V8Engine.V8EngineConsole {
     public void onTraceConsole(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.f7193b) {
-                String str2 = this.f7192a.m0() + str;
+            if (this.f7201b) {
+                String str2 = this.f7200a.m0() + str;
             }
             c.a.p0.a.c1.b.h().e(6, str);
         }
@@ -97,8 +97,8 @@ public class b implements V8Engine.V8EngineConsole {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             c.a.p0.a.c1.b.h().e(5, str);
-            String str2 = this.f7192a.m0() + str;
-            c.a.p0.a.c1.a.g0().w("V8Console", this.f7192a.m0() + str);
+            String str2 = this.f7200a.m0() + str;
+            c.a.p0.a.c1.a.g0().w("V8Console", this.f7200a.m0() + str);
         }
     }
 }

@@ -14,7 +14,7 @@ public final class BuildConfig {
     public static final String FLAVOR = "";
     public static final String LIBRARY_PACKAGE_NAME = "com.baidu.sapi2.openbduss";
     public static final int VERSION_CODE = 1;
-    public static final String VERSION_NAME = "9.3.7.1";
+    public static final String VERSION_NAME = "9.4.1";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {

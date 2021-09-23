@@ -25,10 +25,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10407a;
+    public static final boolean f10415a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10408b;
+    public static final String f10416b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.e.l.a$a  reason: collision with other inner class name */
@@ -38,10 +38,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Response f10409a;
+        public Response f10417a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10410b;
+        public final /* synthetic */ String f10418b;
 
         public C0512a(String str) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class a {
                     return;
                 }
             }
-            this.f10410b = str;
+            this.f10418b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,24 +67,24 @@ public class a {
         public void onSuccess(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                if (a.f10407a) {
+                if (a.f10415a) {
                     String str2 = "startLaunchAction onSuccess result: " + str;
                     String str3 = "startLaunchAction onSuccess status: " + i2;
                 }
                 if (i2 != 200) {
-                    String f2 = a.f(this.f10409a);
+                    String f2 = a.f(this.f10417a);
                     if (!TextUtils.isEmpty(f2)) {
                         b.a(f2);
                         return;
                     }
-                    a.d("get launch scheme fail: request fail with code " + i2, this.f10410b, str, true);
+                    a.d("get launch scheme fail: request fail with code " + i2, this.f10418b, str, true);
                     return;
                 }
                 try {
                     b.a(new JSONObject(str).optString("data"));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
-                    a.d("get launch scheme fail: " + e2.getMessage(), this.f10410b, str, false);
+                    a.d("get launch scheme fail: " + e2.getMessage(), this.f10418b, str, false);
                 }
             }
         }
@@ -93,7 +93,7 @@ public class a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                a.d("get launch scheme fail: network err with exception: " + exc.getMessage(), this.f10410b, "", true);
+                a.d("get launch scheme fail: network err with exception: " + exc.getMessage(), this.f10418b, "", true);
             }
         }
 
@@ -103,7 +103,7 @@ public class a {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i2)) == null) {
-                this.f10409a = response;
+                this.f10417a = response;
                 return super.parseResponse(response, i2);
             }
             return (String) invokeLI.objValue;
@@ -123,8 +123,8 @@ public class a {
                 return;
             }
         }
-        f10407a = k.f7077a;
-        f10408b = SchemeConfig.getSchemeHead() + "://";
+        f10415a = k.f7085a;
+        f10416b = SchemeConfig.getSchemeHead() + "://";
     }
 
     public static void d(String str, String str2, String str3, boolean z) {
@@ -138,7 +138,7 @@ public class a {
             aVar.h(12L);
             aVar.e(str);
             c.a.p0.a.q2.e.a().f(aVar);
-            if (f10407a) {
+            if (f10415a) {
                 String str4 = "open aiapp fail, url : " + str2;
             }
         }
@@ -160,7 +160,7 @@ public class a {
             }
             String header = response.header("Location");
             if (!TextUtils.isEmpty(header) && header.startsWith("baiduboxapp://")) {
-                return header.replace("baiduboxapp://", f10408b);
+                return header.replace("baiduboxapp://", f10416b);
             }
             return null;
         }

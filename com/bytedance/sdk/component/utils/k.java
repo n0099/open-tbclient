@@ -12,10 +12,10 @@ public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f65245a = false;
+    public static boolean f65556a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f65246b = 4;
+    public static int f65557b = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,14 +36,14 @@ public class k {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f65246b = i2;
+            f65557b = i2;
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            f65245a = true;
+            f65556a = true;
             a(3);
         }
     }
@@ -51,13 +51,13 @@ public class k {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? f65245a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? f65556a : invokeV.booleanValue;
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65554, null, str, str2) == null) && f65245a && str2 != null) {
-            int i2 = f65246b;
+        if ((interceptable == null || interceptable.invokeLL(65554, null, str, str2) == null) && f65556a && str2 != null) {
+            int i2 = f65557b;
         }
     }
 
@@ -69,55 +69,55 @@ public class k {
 
     public static void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) && f65245a && str2 != null) {
-            int i2 = f65246b;
+        if ((interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) && f65556a && str2 != null) {
+            int i2 = f65557b;
         }
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f65246b <= 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f65557b <= 3 : invokeV.booleanValue;
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) && f65245a && str2 != null) {
-            int i2 = f65246b;
+        if ((interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) && f65556a && str2 != null) {
+            int i2 = f65557b;
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f65245a && str2 != null) {
-            int i2 = f65246b;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f65556a && str2 != null) {
+            int i2 = f65557b;
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f65245a && str2 != null) {
-            int i2 = f65246b;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f65556a && str2 != null) {
+            int i2 = f65557b;
         }
     }
 
     public static void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && f65245a) {
+        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && f65556a) {
             f("Logger", str);
         }
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && f65245a) {
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && f65556a) {
             b("Logger", str);
         }
     }
 
     public static void b(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65548, null, str, objArr) == null) || !f65245a || objArr == null || f65246b > 4) {
+        if (!(interceptable == null || interceptable.invokeLL(65548, null, str, objArr) == null) || !f65556a || objArr == null || f65557b > 4) {
             return;
         }
         a(objArr);
@@ -125,34 +125,34 @@ public class k {
 
     public static void c(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65551, null, str, str2, th) == null) && f65245a) {
+        if ((interceptable == null || interceptable.invokeLLL(65551, null, str, str2, th) == null) && f65556a) {
             if (str2 == null && th == null) {
                 return;
             }
-            int i2 = f65246b;
+            int i2 = f65557b;
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) && f65245a) {
+        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) && f65556a) {
             if (str2 == null && th == null) {
                 return;
             }
-            int i2 = f65246b;
+            int i2 = f65557b;
         }
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && f65245a) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && f65556a) {
             d("Logger", str);
         }
     }
 
     public static void c(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65552, null, str, objArr) == null) || !f65245a || objArr == null || f65246b > 6) {
+        if (!(interceptable == null || interceptable.invokeLL(65552, null, str, objArr) == null) || !f65556a || objArr == null || f65557b > 6) {
             return;
         }
         a(objArr);
@@ -160,7 +160,7 @@ public class k {
 
     public static void a(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) || !f65245a || objArr == null || f65246b > 3) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) || !f65556a || objArr == null || f65557b > 3) {
             return;
         }
         a(objArr);
@@ -168,11 +168,11 @@ public class k {
 
     public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65547, null, str, str2, th) == null) && f65245a) {
+        if ((interceptable == null || interceptable.invokeLLL(65547, null, str, str2, th) == null) && f65556a) {
             if (str2 == null && th == null) {
                 return;
             }
-            int i2 = f65246b;
+            int i2 = f65557b;
         }
     }
 

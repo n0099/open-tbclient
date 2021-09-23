@@ -19,13 +19,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j2)}) == null) {
             b bVar = new b();
-            bVar.f7064b = str;
-            bVar.f7067e = str2;
+            bVar.f7072b = str;
+            bVar.f7075e = str2;
             if (e.i() != null && e.i().N() != null) {
                 b.a N = e.i().N();
-                bVar.f7063a = k.m(N.G());
-                bVar.f7068f = N.H();
-                bVar.f7065c = N.T();
+                bVar.f7071a = k.m(N.G());
+                bVar.f7076f = N.H();
+                bVar.f7073c = N.T();
                 bVar.a("play_time", Long.valueOf(j2));
             }
             k.v("916", "68", bVar);
@@ -48,11 +48,11 @@ public class c {
                 return;
             }
             b bVar = new b();
-            bVar.f7064b = str;
-            bVar.f7067e = str2;
-            bVar.f7063a = str3;
-            bVar.f7068f = aVar.H();
-            bVar.f7065c = aVar.T();
+            bVar.f7072b = str;
+            bVar.f7075e = str2;
+            bVar.f7071a = str3;
+            bVar.f7076f = aVar.H();
+            bVar.f7073c = aVar.T();
             k.v("916", "68", bVar);
         }
     }
@@ -61,13 +61,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
             b bVar = new b();
-            bVar.f7064b = str;
-            bVar.f7067e = str2;
+            bVar.f7072b = str;
+            bVar.f7075e = str2;
             if (e.i() != null && e.i().N() != null) {
                 b.a N = e.i().N();
-                bVar.f7063a = k.m(N.G());
-                bVar.f7068f = N.H();
-                bVar.f7065c = N.T();
+                bVar.f7071a = k.m(N.G());
+                bVar.f7076f = N.H();
+                bVar.f7073c = N.T();
             }
             bVar.k = str3;
             k.v("916", "68", bVar);
@@ -78,13 +78,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             b bVar = new b();
-            bVar.f7064b = str;
-            bVar.f7067e = "show";
+            bVar.f7072b = str;
+            bVar.f7075e = "show";
             if (e.i() != null && e.i().N() != null) {
                 b.a N = e.i().N();
-                bVar.f7063a = k.m(N.G());
-                bVar.f7068f = N.H();
-                bVar.f7065c = N.T();
+                bVar.f7071a = k.m(N.G());
+                bVar.f7076f = N.H();
+                bVar.f7073c = N.T();
             }
             bVar.a("early", e() ? "0" : "1");
             k.v("916", "68", bVar);

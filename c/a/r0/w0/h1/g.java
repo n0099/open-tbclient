@@ -47,22 +47,22 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
     public AgreeData J;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26803e;
+    public String f26823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26804f;
+    public String f26824f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26805g;
+    public String f26825g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26806h;
+    public String f26826h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f26807i;
+    public String f26827i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f26808j;
+    public long f26828j;
     public long k;
     public long l;
     public long m;
@@ -86,22 +86,22 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f26809a;
+        public long f26829a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f26810b;
+        public long f26830b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f26811c;
+        public String f26831c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f26812d;
+        public String f26832d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f26813e;
+        public String f26833e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f26814f;
+        public String f26834f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (StringUtils.isNull(this.f26813e) || StringUtils.isNull(this.f26812d)) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (StringUtils.isNull(this.f26833e) || StringUtils.isNull(this.f26832d)) ? false : true : invokeV.booleanValue;
         }
 
         public String toString() {
@@ -128,11 +128,11 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 StringBuilder sb = new StringBuilder();
-                sb.append("startTime = " + this.f26809a);
-                sb.append(",   ad_end_time = " + this.f26810b);
-                sb.append(",   pic_url = " + this.f26811c);
-                sb.append(",   card_title = " + this.f26813e);
-                sb.append(",   button_title = " + this.f26814f);
+                sb.append("startTime = " + this.f26829a);
+                sb.append(",   ad_end_time = " + this.f26830b);
+                sb.append(",   pic_url = " + this.f26831c);
+                sb.append(",   card_title = " + this.f26833e);
+                sb.append(",   button_title = " + this.f26834f);
                 return sb.toString();
             }
             return (String) invokeV.objValue;
@@ -145,28 +145,28 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f26815a;
+        public String f26835a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f26816b;
+        public String f26836b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f26817c;
+        public String f26837c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f26818d;
+        public String f26838d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f26819e;
+        public boolean f26839e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f26820f;
+        public boolean f26840f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f26821g;
+        public boolean f26841g;
 
         /* renamed from: h  reason: collision with root package name */
-        public a f26822h;
+        public a f26842h;
 
         /* loaded from: classes4.dex */
         public static class a {
@@ -174,22 +174,22 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public String f26823a;
+            public String f26843a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f26824b;
+            public String f26844b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f26825c;
+            public String f26845c;
 
             /* renamed from: d  reason: collision with root package name */
-            public String f26826d;
+            public String f26846d;
 
             /* renamed from: e  reason: collision with root package name */
-            public Integer f26827e;
+            public Integer f26847e;
 
             /* renamed from: f  reason: collision with root package name */
-            public String f26828f;
+            public String f26848f;
 
             public a() {
                 Interceptable interceptable = $ic;
@@ -227,34 +227,34 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f26829a;
+        public String f26849a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f26830b;
+        public String f26850b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f26831c;
+        public String f26851c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f26832d;
+        public String f26852d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f26833e;
+        public int f26853e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f26834f;
+        public String f26854f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f26835g;
+        public String f26855g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f26836h;
+        public long f26856h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f26837i;
+        public String f26857i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f26838j;
+        public String f26858j;
         public String k;
         public String l;
         public String m;
@@ -340,26 +340,26 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
                 return null;
             }
             d2 d2Var = new d2();
-            d2Var.O3(gVar.f26804f);
-            d2Var.D = gVar.f26804f;
-            d2Var.B4(gVar.x);
-            d2Var.q3(gVar.x);
+            d2Var.N3(gVar.f26824f);
+            d2Var.E = gVar.f26824f;
+            d2Var.A4(gVar.x);
+            d2Var.p3(gVar.x);
             try {
-                d2Var.n4((int) gVar.k);
+                d2Var.m4((int) gVar.k);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            d2Var.s4(gVar.l);
-            d2Var.z3(gVar.A);
+            d2Var.r4(gVar.l);
+            d2Var.y3(gVar.A);
             if (d2Var.B() != null && gVar.J != null) {
-                d2Var.B().threadId = gVar.f26804f;
+                d2Var.B().threadId = gVar.f26824f;
                 d2Var.B().agreeType = gVar.o;
                 d2Var.B().hasAgree = gVar.p;
                 d2Var.B().agreeNum = gVar.m;
                 d2Var.B().baijiahaoData = gVar.A;
             }
-            d2Var.E3(c.a.e.e.m.b.g(gVar.f26803e, 0L));
-            d2Var.z4(40);
+            d2Var.D3(c.a.e.e.m.b.g(gVar.f26823e, 0L));
+            d2Var.y4(40);
             return d2Var;
         }
         return (d2) invokeL.objValue;
@@ -379,7 +379,7 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             c cVar = this.z;
             if (cVar != null) {
-                return cVar.f26832d;
+                return cVar.f26852d;
             }
             return null;
         }
@@ -395,7 +395,7 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26804f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26824f : (String) invokeV.objValue;
     }
 
     public int o() {
@@ -424,8 +424,8 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
                 return false;
             }
             try {
-                int parseInt = Integer.parseInt(cVar.f26834f);
-                return parseInt > 0 && ((float) Integer.parseInt(this.z.f26835g)) / ((float) parseInt) > 1.0f;
+                int parseInt = Integer.parseInt(cVar.f26854f);
+                return parseInt > 0 && ((float) Integer.parseInt(this.z.f26855g)) / ((float) parseInt) > 1.0f;
             } catch (NumberFormatException unused) {
                 return false;
             }
@@ -440,12 +440,12 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f26803e = jSONObject.optString("forum_id");
-            this.f26804f = jSONObject.optString("thread_id");
-            this.f26805g = jSONObject.optString("nid");
+            this.f26823e = jSONObject.optString("forum_id");
+            this.f26824f = jSONObject.optString("thread_id");
+            this.f26825g = jSONObject.optString("nid");
             jSONObject.optString("first_post_id");
             jSONObject.optString("create_time");
-            this.f26808j = jSONObject.optLong("play_count");
+            this.f26828j = jSONObject.optLong("play_count");
             this.x = jSONObject.optString("title");
             this.k = jSONObject.optLong("post_num");
             this.l = jSONObject.optLong("share_num");
@@ -460,7 +460,7 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
             if (this.n < 0) {
                 this.n = 0L;
             }
-            this.J.threadId = this.f26804f;
+            this.J.threadId = this.f26824f;
             this.J.agreeType = this.o;
             this.J.hasAgree = this.p;
             this.J.agreeNum = this.m;
@@ -490,42 +490,42 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
             if (!TextUtils.isEmpty(optString3)) {
                 this.y = new b();
                 JSONObject jSONObject2 = new JSONObject(optString3);
-                this.y.f26815a = jSONObject2.optString("user_id");
-                this.y.f26816b = jSONObject2.optString("user_name");
-                this.y.f26817c = jSONObject2.optString("user_nickname");
-                this.y.f26818d = jSONObject2.optString("portrait");
-                this.y.f26819e = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
+                this.y.f26835a = jSONObject2.optString("user_id");
+                this.y.f26836b = jSONObject2.optString("user_name");
+                this.y.f26837c = jSONObject2.optString("user_nickname");
+                this.y.f26838d = jSONObject2.optString("portrait");
+                this.y.f26839e = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
                 b bVar = this.y;
                 if (jSONObject2.optInt("is_god") != 1) {
                     z = false;
                 }
-                bVar.f26820f = z;
+                bVar.f26840f = z;
                 String optString4 = jSONObject2.optString("baijiahao_info");
                 if (!TextUtils.isEmpty(optString4)) {
                     JSONObject jSONObject3 = new JSONObject(optString4);
-                    this.y.f26822h = new b.a();
-                    this.y.f26822h.f26823a = jSONObject3.optString("name");
-                    this.y.f26822h.f26826d = jSONObject3.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
-                    this.y.f26822h.f26824b = jSONObject3.optString("avatar");
-                    this.y.f26822h.f26825c = jSONObject3.optString("avatar_h");
-                    this.y.f26822h.f26827e = Integer.valueOf(jSONObject3.optInt("auth_id"));
-                    this.y.f26822h.f26828f = jSONObject3.optString("auth_desc");
+                    this.y.f26842h = new b.a();
+                    this.y.f26842h.f26843a = jSONObject3.optString("name");
+                    this.y.f26842h.f26846d = jSONObject3.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+                    this.y.f26842h.f26844b = jSONObject3.optString("avatar");
+                    this.y.f26842h.f26845c = jSONObject3.optString("avatar_h");
+                    this.y.f26842h.f26847e = Integer.valueOf(jSONObject3.optInt("auth_id"));
+                    this.y.f26842h.f26848f = jSONObject3.optString("auth_desc");
                 }
             }
             String optString5 = jSONObject.optString("video");
             if (!TextUtils.isEmpty(optString5)) {
                 this.z = new c();
                 JSONObject jSONObject4 = new JSONObject(optString5);
-                this.z.f26829a = jSONObject4.optString("thumbnail_width");
-                this.z.f26830b = jSONObject4.optString("thumbnail_height");
-                this.z.f26831c = jSONObject4.optString(VideoFinishResult.KEY_VIDEO_MD5);
-                this.z.f26832d = jSONObject4.optString("video_url");
-                this.z.f26833e = jSONObject4.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION);
-                this.z.f26834f = jSONObject4.optString("video_width");
-                this.z.f26835g = jSONObject4.optString("video_height");
-                this.z.f26836h = jSONObject4.optLong("video_size");
-                this.z.f26837i = jSONObject4.optString("video_type");
-                this.z.f26838j = jSONObject4.optString("thumbnail_url");
+                this.z.f26849a = jSONObject4.optString("thumbnail_width");
+                this.z.f26850b = jSONObject4.optString("thumbnail_height");
+                this.z.f26851c = jSONObject4.optString(VideoFinishResult.KEY_VIDEO_MD5);
+                this.z.f26852d = jSONObject4.optString("video_url");
+                this.z.f26853e = jSONObject4.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION);
+                this.z.f26854f = jSONObject4.optString("video_width");
+                this.z.f26855g = jSONObject4.optString("video_height");
+                this.z.f26856h = jSONObject4.optLong("video_size");
+                this.z.f26857i = jSONObject4.optString("video_type");
+                this.z.f26858j = jSONObject4.optString("thumbnail_url");
                 this.z.k = jSONObject4.optString("video_format");
                 this.z.l = jSONObject4.optString("thumbnail_picid");
                 this.z.m = jSONObject4.optString("origin_video_url");
@@ -546,12 +546,12 @@ public class g extends BaseCardInfo implements c.a.r0.p1.o.l.i, IVideoData {
                 JSONObject optJSONObject = jSONObject4.optJSONObject("mcn_ad_card");
                 if (optJSONObject != null) {
                     a aVar = new a();
-                    aVar.f26809a = optJSONObject.optLong("ad_start_time");
-                    aVar.f26810b = optJSONObject.optLong("ad_end_time");
-                    aVar.f26811c = optJSONObject.optString("pic_url");
-                    aVar.f26812d = optJSONObject.optString("jump_url");
-                    aVar.f26813e = optJSONObject.optString("card_title");
-                    aVar.f26814f = optJSONObject.optString("button_title");
+                    aVar.f26829a = optJSONObject.optLong("ad_start_time");
+                    aVar.f26830b = optJSONObject.optLong("ad_end_time");
+                    aVar.f26831c = optJSONObject.optString("pic_url");
+                    aVar.f26832d = optJSONObject.optString("jump_url");
+                    aVar.f26833e = optJSONObject.optString("card_title");
+                    aVar.f26834f = optJSONObject.optString("button_title");
                     optJSONObject.optLong("effect_time");
                     optJSONObject.optLong("expire_time");
                     this.z.o = aVar;

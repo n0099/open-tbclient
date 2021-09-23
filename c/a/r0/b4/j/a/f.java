@@ -16,10 +16,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Matrix f16265a;
+    public final Matrix f16275a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RectF f16266b;
+    public RectF f16276b;
 
     public f(CameraCharacteristics cameraCharacteristics, RectF rectF) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class f {
             Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
             Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
             int intValue = num == null ? 90 : num.intValue();
-            this.f16266b = new RectF(rect);
+            this.f16276b = new RectF(rect);
             Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
-            this.f16265a = b(num2 != null && num2.intValue() == 0, intValue, rectF);
+            this.f16275a = b(num2 != null && num2.intValue() == 0, intValue, rectF);
             return;
         }
         throw new IllegalArgumentException("previewRect");
@@ -63,7 +63,7 @@ public class f {
             matrix.postRotate(-i2);
             matrix.mapRect(rectF);
             Matrix matrix2 = new Matrix();
-            matrix2.setRectToRect(rectF, this.f16266b, Matrix.ScaleToFit.FILL);
+            matrix2.setRectToRect(rectF, this.f16276b, Matrix.ScaleToFit.FILL);
             matrix.setConcat(matrix2, matrix);
             return matrix;
         }
@@ -75,7 +75,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) {
             RectF rectF2 = new RectF();
-            this.f16265a.mapRect(rectF2, rectF);
+            this.f16275a.mapRect(rectF2, rectF);
             return rectF2;
         }
         return (RectF) invokeL.objValue;

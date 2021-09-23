@@ -26,19 +26,19 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditText f28853a;
+        public final /* synthetic */ EditText f28873a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SpannableStringBuilder f28854b;
+        public final /* synthetic */ SpannableStringBuilder f28874b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f28855c;
+        public final /* synthetic */ int f28875c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ EmotionGroupType f28856d;
+        public final /* synthetic */ EmotionGroupType f28876d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f28857e;
+        public final /* synthetic */ b f28877e;
 
         public a(b bVar, EditText editText, SpannableStringBuilder spannableStringBuilder, int i2, EmotionGroupType emotionGroupType) {
             Interceptable interceptable = $ic;
@@ -55,11 +55,11 @@ public class b {
                     return;
                 }
             }
-            this.f28857e = bVar;
-            this.f28853a = editText;
-            this.f28854b = spannableStringBuilder;
-            this.f28855c = i2;
-            this.f28856d = emotionGroupType;
+            this.f28877e = bVar;
+            this.f28873a = editText;
+            this.f28874b = spannableStringBuilder;
+            this.f28875c = i2;
+            this.f28876d = emotionGroupType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class b {
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
                 if (aVar != null) {
-                    this.f28857e.c(this.f28853a, this.f28854b, this.f28855c, aVar, this.f28856d);
+                    this.f28877e.c(this.f28873a, this.f28874b, this.f28875c, aVar, this.f28876d);
                 }
             }
         }

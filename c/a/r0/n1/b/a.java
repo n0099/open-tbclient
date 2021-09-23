@@ -11,13 +11,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f22918a;
+    public int f22934a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22919b;
+    public String f22935b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f22920c;
+    public boolean f22936c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, responseTagInfo) == null) || responseTagInfo == null) {
             return;
         }
-        this.f22918a = responseTagInfo.tag_id.intValue();
-        this.f22919b = responseTagInfo.tag_name;
-        this.f22920c = responseTagInfo.is_followed.intValue() == 1;
+        this.f22934a = responseTagInfo.tag_id.intValue();
+        this.f22935b = responseTagInfo.tag_name;
+        this.f22936c = responseTagInfo.is_followed.intValue() == 1;
     }
 }

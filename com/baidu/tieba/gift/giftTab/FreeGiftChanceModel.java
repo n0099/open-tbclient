@@ -17,13 +17,13 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51911e;
+    public int f52025e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f51912f;
+    public b f52026f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.e.c.g.a f51913g;
+    public c.a.e.c.g.a f52027g;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -31,7 +31,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FreeGiftChanceModel f51914a;
+        public final /* synthetic */ FreeGiftChanceModel f52028a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FreeGiftChanceModel freeGiftChanceModel, int i2, int i3) {
@@ -52,7 +52,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
             }
-            this.f51914a = freeGiftChanceModel;
+            this.f52028a = freeGiftChanceModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -64,12 +64,12 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             boolean z = responsedMessage instanceof FreeGiftChanceHttpResponseMessage;
             if (z || (responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
                 if (z) {
-                    this.f51914a.f51911e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
+                    this.f52028a.f52025e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
                 } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
-                    this.f51914a.f51911e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
+                    this.f52028a.f52025e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                 }
-                if (this.f51914a.f51912f != null) {
-                    this.f51914a.f51912f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f51914a.f51911e);
+                if (this.f52028a.f52026f != null) {
+                    this.f52028a.f52026f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f52028a.f52025e);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                 return;
             }
         }
-        this.f51913g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
+        this.f52027g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
         registerListener();
         registerTask();
     }
@@ -106,7 +106,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f51912f = bVar;
+            this.f52026f = bVar;
         }
     }
 
@@ -133,15 +133,15 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            registerListener(this.f51913g);
+            registerListener(this.f52027g);
         }
     }
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.r0.j3.d0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            c.a.r0.j3.d0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+            c.a.r0.j3.e0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            c.a.r0.j3.e0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 

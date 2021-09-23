@@ -8,13 +8,13 @@ import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
 import com.airbnb.lottie.model.content.ShapeStroke;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
-import com.baidu.fsg.base.statistics.h;
+import com.baidu.fsg.base.statistics.k;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes4.dex */
 public class ShapeStrokeParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "w", "o", h.f39524g, "lj", "ml", "hd", "d");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "w", "o", k.f39582h, "lj", "ml", "hd", "d");
     public static final JsonReader.Options DASH_PATTERN_NAMES = JsonReader.Options.of("n", "v");
 
     public static ShapeStroke parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {

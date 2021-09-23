@@ -42,7 +42,6 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Type inference failed for: r2v0, types: [int] */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
         public Integer doInBackground(String... strArr) {
             InterceptResult invokeL;
             HttpURLConnection httpURLConnection;

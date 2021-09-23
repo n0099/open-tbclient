@@ -13,7 +13,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static i f71474a;
+    public static i f71793a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static i a() {
@@ -21,25 +21,25 @@ public class d {
         i gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            i iVar = f71474a;
+            i iVar = f71793a;
             if (iVar != null) {
                 return iVar;
             }
             DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_CLOSE_AES");
             if (a2 != null && ((Boolean) a2.getValue()).booleanValue()) {
                 g gVar2 = new g();
-                f71474a = gVar2;
+                f71793a = gVar2;
                 return gVar2;
             }
-            if (com.kwad.sdk.d.f72723a == 1) {
+            if (com.kwad.sdk.d.f73042a == 1) {
                 com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.a.class);
                 gVar = (aVar == null || aVar.b() == null) ? new g() : aVar.b();
             } else {
                 com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.b.class);
                 gVar = (bVar == null || bVar.b() == null) ? new g() : bVar.b();
             }
-            f71474a = gVar;
-            return f71474a;
+            f71793a = gVar;
+            return f71793a;
         }
         return (i) invokeV.objValue;
     }

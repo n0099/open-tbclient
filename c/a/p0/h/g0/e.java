@@ -15,10 +15,10 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.l0.c f11252a;
+    public c.a.p0.a.l0.c f11260a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f11253b;
+    public c f11261b;
 
     public e(c.a.p0.a.l0.c cVar) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class e {
                 return;
             }
         }
-        this.f11252a = cVar;
-        this.f11253b = new c();
+        this.f11260a = cVar;
+        this.f11261b = new c();
     }
 
     @NonNull
@@ -44,8 +44,8 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f11253b.j();
-            c.a.p0.a.q2.d.f8131h.b();
+            this.f11261b.j();
+            c.a.p0.a.q2.d.f8139h.b();
             return c.a.p0.h.g0.f.d.i(null);
         }
         return (c.a.p0.h.g0.f.d) invokeV.objValue;
@@ -56,11 +56,11 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String[] n = this.f11253b.n();
+            String[] n = this.f11261b.n();
             c.a.p0.h.g0.f.c cVar = new c.a.p0.h.g0.f.c();
             cVar.keys = n;
-            cVar.currentSize = this.f11253b.m() / 1024;
-            cVar.limitSize = this.f11253b.s() / 1024;
+            cVar.currentSize = this.f11261b.m() / 1024;
+            cVar.limitSize = this.f11261b.s() / 1024;
             cVar.errMsg = c.a.p0.h.g0.f.a.b("getStorageInfoSync");
             return cVar;
         }
@@ -75,8 +75,8 @@ public class e {
             if (str == null) {
                 return c.a.p0.h.g0.f.d.b("parameter error: the key cannot be null.");
             }
-            String p = this.f11253b.p(str, null);
-            Object C = p != null ? this.f11252a.C(Base64.decode(p, 2), true) : null;
+            String p = this.f11261b.p(str, null);
+            Object C = p != null ? this.f11260a.C(Base64.decode(p, 2), true) : null;
             if (C == null) {
                 C = c.a.p0.h.g0.f.d.h();
             }
@@ -101,8 +101,8 @@ public class e {
             if (str == null) {
                 return c.a.p0.h.g0.f.d.b("parameter error: the key cannot be null.");
             }
-            this.f11253b.u(str);
-            c.a.p0.a.q2.d.f8131h.b();
+            this.f11261b.u(str);
+            c.a.p0.a.q2.d.f8139h.b();
             return c.a.p0.h.g0.f.d.i(null);
         }
         return (c.a.p0.h.g0.f.d) invokeL.objValue;
@@ -119,19 +119,19 @@ public class e {
             } else if (jsSerializeValue == null) {
                 return c.a.p0.h.g0.f.d.i(null);
             } else {
-                byte[] M = this.f11252a.M(jsSerializeValue, true);
+                byte[] M = this.f11260a.M(jsSerializeValue, true);
                 d(jsSerializeValue);
                 if (M == null) {
                     return c.a.p0.h.g0.f.d.b("parameter error: the data parse failed.");
                 }
                 String encodeToString = Base64.encodeToString(M, 2);
-                String p = this.f11253b.p(str, null);
+                String p = this.f11261b.p(str, null);
                 int length = str.getBytes().length;
-                if (this.f11253b.s() - this.f11253b.m() < (encodeToString.length() + length) - (p == null ? 0 : p.length() + length)) {
+                if (this.f11261b.s() - this.f11261b.m() < (encodeToString.length() + length) - (p == null ? 0 : p.length() + length)) {
                     return c.a.p0.h.g0.f.d.b("storage error: the storage space insufficient.");
                 }
-                boolean t = this.f11253b.t(str, encodeToString);
-                c.a.p0.a.q2.d.f8131h.b();
+                boolean t = this.f11261b.t(str, encodeToString);
+                c.a.p0.a.q2.d.f8139h.b();
                 return t ? c.a.p0.h.g0.f.d.i(null) : c.a.p0.h.g0.f.d.b("storage error: the storage is invalid.");
             }
         }

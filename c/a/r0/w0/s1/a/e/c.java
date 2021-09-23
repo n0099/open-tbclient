@@ -17,16 +17,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.e.a.f f27801a;
+    public c.a.e.a.f f27821a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f27802b;
+    public BdTypeListView f27822b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<c.a.e.l.e.a> f27803c;
+    public final List<c.a.e.l.e.a> f27823c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f27804d;
+    public b f27824d;
 
     public c(c.a.e.a.f fVar, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -43,33 +43,33 @@ public class c {
                 return;
             }
         }
-        this.f27803c = new ArrayList();
-        this.f27801a = fVar;
-        this.f27802b = bdTypeListView;
+        this.f27823c = new ArrayList();
+        this.f27821a = fVar;
+        this.f27822b = bdTypeListView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = new b((TbPageContext) this.f27801a, c.a.r0.w0.s1.a.a.b.f27761f);
-            this.f27804d = bVar;
-            this.f27803c.add(bVar);
-            this.f27802b.addAdapters(this.f27803c);
+            b bVar = new b((TbPageContext) this.f27821a, c.a.r0.w0.s1.a.a.b.f27781f);
+            this.f27824d = bVar;
+            this.f27823c.add(bVar);
+            this.f27822b.addAdapters(this.f27823c);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f27802b.getAdapter2() instanceof c.a.e.l.e.e)) {
-            this.f27802b.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f27822b.getAdapter2() instanceof c.a.e.l.e.e)) {
+            this.f27822b.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void c(w wVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wVar) == null) {
-            for (c.a.e.l.e.a aVar : this.f27803c) {
+            for (c.a.e.l.e.a aVar : this.f27823c) {
                 if (aVar != null) {
                     aVar.d0(wVar);
                 }
@@ -80,7 +80,7 @@ public class c {
     public void d(List<n> list) {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (bdTypeListView = this.f27802b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (bdTypeListView = this.f27822b) == null) {
             return;
         }
         bdTypeListView.setData(list);

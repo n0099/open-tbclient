@@ -15,23 +15,23 @@ public class a implements c.a.e.l.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final BdUniqueId f19251j;
+    public static final BdUniqueId f19266j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f19252e;
+    public long f19267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19253f;
+    public int f19268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f19254g;
+    public long f19269g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f19255h;
+    public long f19270h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f19256i;
+    public int f19271i;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class a implements c.a.e.l.e.n {
                 return;
             }
         }
-        f19251j = BdUniqueId.gen();
+        f19266j = BdUniqueId.gen();
     }
 
     public a() {
@@ -70,18 +70,18 @@ public class a implements c.a.e.l.e.n {
         }
         String str = commonInteraction.module_name;
         String str2 = commonInteraction.ques_desc;
-        this.f19252e = commonInteraction.total_num.longValue();
-        this.f19253f = commonInteraction.has_clicked.intValue();
+        this.f19267e = commonInteraction.total_num.longValue();
+        this.f19268f = commonInteraction.has_clicked.intValue();
         String str3 = commonInteraction.before_click_pic;
         String str4 = commonInteraction.after_click_pic;
-        this.f19254g = commonInteraction.pk_id.longValue();
-        this.f19255h = commonInteraction.user_pk_id.longValue();
+        this.f19269g = commonInteraction.pk_id.longValue();
+        this.f19270h = commonInteraction.user_pk_id.longValue();
     }
 
     @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19251j : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19266j : (BdUniqueId) invokeV.objValue;
     }
 }

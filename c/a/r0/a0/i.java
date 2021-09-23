@@ -56,7 +56,7 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f15606a;
+        public final /* synthetic */ i f15615a;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -73,20 +73,20 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
                     return;
                 }
             }
-            this.f15606a = iVar;
+            this.f15615a = iVar;
         }
 
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if ((obj instanceof c.a.r0.j3.w) && this.f15606a.C.getErrorCode() == 0) {
+                if ((obj instanceof c.a.r0.j3.x) && this.f15615a.C.getErrorCode() == 0) {
                     return;
                 }
-                if (AntiHelper.m(this.f15606a.C.getErrorCode(), this.f15606a.C.getErrorString())) {
-                    AntiHelper.u(this.f15606a.d(), this.f15606a.C.getErrorString());
+                if (AntiHelper.m(this.f15615a.C.getErrorCode(), this.f15615a.C.getErrorString())) {
+                    AntiHelper.u(this.f15615a.d(), this.f15615a.C.getErrorString());
                 } else {
-                    this.f15606a.i().showToast(this.f15606a.C.getErrorString());
+                    this.f15615a.i().showToast(this.f15615a.C.getErrorString());
                 }
             }
         }
@@ -98,7 +98,7 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f15607a;
+        public final /* synthetic */ i f15616a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(i iVar, int i2) {
@@ -118,7 +118,7 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
                     return;
                 }
             }
-            this.f15607a = iVar;
+            this.f15616a = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -126,7 +126,7 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
-                this.f15607a.P(((Long) customResponsedMessage.getData()).longValue(), false);
+                this.f15616a.P(((Long) customResponsedMessage.getData()).longValue(), false);
             }
         }
     }
@@ -137,7 +137,7 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f15608a;
+        public final /* synthetic */ i f15617a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(i iVar, int i2) {
@@ -157,7 +157,7 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
                     return;
                 }
             }
-            this.f15608a = iVar;
+            this.f15617a = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -165,7 +165,7 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
-                this.f15608a.P(((Long) customResponsedMessage.getData()).longValue(), true);
+                this.f15617a.P(((Long) customResponsedMessage.getData()).longValue(), true);
             }
         }
     }
@@ -176,7 +176,7 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f15609e;
+        public final /* synthetic */ i f15618e;
 
         public d(i iVar) {
             Interceptable interceptable = $ic;
@@ -193,7 +193,7 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
                     return;
                 }
             }
-            this.f15609e = iVar;
+            this.f15618e = iVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -203,12 +203,12 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
                 return;
             }
             if (view.getId() == R.id.forum_add_love) {
-                if (ViewHelper.checkUpIsLogin(this.f15609e.j().getContext())) {
+                if (ViewHelper.checkUpIsLogin(this.f15618e.j().getContext())) {
                     String str = (String) view.getTag(R.id.tag_forum_name);
                     String valueOf = String.valueOf(view.getTag(R.id.tag_forum_id));
                     if (c.a.e.e.p.k.isForumName(str)) {
-                        this.f15609e.C.L(str, valueOf);
-                        TiebaStatic.log(new StatisticItem(this.f15609e.E).param("fid", valueOf).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
+                        this.f15618e.C.L(str, valueOf);
+                        TiebaStatic.log(new StatisticItem(this.f15618e.E).param("fid", valueOf).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
                     }
                 }
             } else if (view.getTag(R.id.tag_forum_name) != null) {
@@ -216,14 +216,14 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
                 String valueOf2 = String.valueOf(view.getTag(R.id.tag_forum_id));
                 if (c.a.e.e.p.k.isForumName(str2)) {
                     if (view.getId() == R.id.m_forum_name_textview) {
-                        TiebaStatic.log(new StatisticItem(this.f15609e.G).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
+                        TiebaStatic.log(new StatisticItem(this.f15618e.G).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
                     } else {
-                        TiebaStatic.log(new StatisticItem(this.f15609e.F).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
+                        TiebaStatic.log(new StatisticItem(this.f15618e.F).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
                     }
-                    if (!StringUtils.isNull(this.f15609e.H) && !StringUtils.isNull(this.f15609e.I)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15609e.j().getContext()).createCfgForpersonalized(str2, this.f15609e.H, this.f15609e.I)));
+                    if (!StringUtils.isNull(this.f15618e.H) && !StringUtils.isNull(this.f15618e.I)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15618e.j().getContext()).createCfgForpersonalized(str2, this.f15618e.H, this.f15618e.I)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15609e.j().getContext()).createNormalCfg(str2, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15618e.j().getContext()).createNormalCfg(str2, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                     }
                 }
             }
@@ -289,7 +289,7 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
                 for (c.a.r0.h1.b.c cVar : this.D) {
                     if (cVar != null && (cVar instanceof c.a.r0.a0.d0.g)) {
                         c.a.r0.a0.d0.g gVar = (c.a.r0.a0.d0.g) cVar;
-                        if (String.valueOf(gVar.f15575d).equals(str)) {
+                        if (String.valueOf(gVar.f15584d).equals(str)) {
                             return gVar;
                         }
                     }
@@ -323,13 +323,13 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
                 if (cVar != null && (cVar instanceof c.a.r0.a0.d0.g) && cVar2 != null && (cVar2 instanceof c.a.r0.a0.d0.g)) {
                     c.a.r0.a0.d0.g gVar = (c.a.r0.a0.d0.g) cVar;
                     c.a.r0.a0.d0.g gVar2 = (c.a.r0.a0.d0.g) cVar2;
-                    if (gVar.f15575d != gVar2.f15575d) {
+                    if (gVar.f15584d != gVar2.f15584d) {
                         z = false;
                     }
-                    if (!gVar.f15573b.equals(gVar2.f15573b)) {
+                    if (!gVar.f15582b.equals(gVar2.f15582b)) {
                         z = false;
                     }
-                    i2 = gVar.f15574c.equals(gVar2.f15574c) ? i2 + 1 : 0;
+                    i2 = gVar.f15583c.equals(gVar2.f15583c) ? i2 + 1 : 0;
                 }
                 z = false;
             }
@@ -415,7 +415,7 @@ public class i extends c.a.r0.a0.c<c.a.r0.a0.d0.i> {
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
             c.a.r0.a0.d0.g D = D(String.valueOf(j2));
             if (D != null) {
-                D.f15576e = z;
+                D.f15585e = z;
             }
             c.a.r0.h1.b.b bVar = this.y;
             if (bVar != null) {

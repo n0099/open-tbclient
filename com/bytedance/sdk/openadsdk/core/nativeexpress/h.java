@@ -14,16 +14,16 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.e.q f66881a;
+    public com.bytedance.sdk.openadsdk.e.q f67192a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66882b;
+    public String f67193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.m f66883c;
+    public com.bytedance.sdk.openadsdk.core.e.m f67194c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f66884d;
+    public String f67195d;
 
     public h(@NonNull com.bytedance.sdk.openadsdk.e.q qVar, String str, com.bytedance.sdk.openadsdk.core.e.m mVar, String str2) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
                 return;
             }
         }
-        this.f66881a = qVar;
-        this.f66882b = str;
-        this.f66884d = str2;
-        this.f66883c = mVar;
+        this.f67192a = qVar;
+        this.f67193b = str;
+        this.f67195d = str2;
+        this.f67194c = mVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.a.d
@@ -51,7 +51,7 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "dynamic start render");
-            this.f66881a.d();
+            this.f67192a.d();
         }
     }
 
@@ -60,14 +60,14 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "dynamic success");
-            this.f66881a.e();
-            this.f66881a.a(true);
+            this.f67192a.e();
+            this.f67192a.a(true);
             com.bytedance.sdk.component.d.e.b(new com.bytedance.sdk.component.d.g(this, "dynamic_success") { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ h f66885a;
+                public final /* synthetic */ h f67196a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -87,14 +87,14 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
                             return;
                         }
                     }
-                    this.f66885a = this;
+                    this.f67196a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.bytedance.sdk.openadsdk.e.d.g(com.bytedance.sdk.openadsdk.core.o.a(), this.f66885a.f66883c, this.f66885a.f66882b, "dynamic_backup_native_render", null);
+                        com.bytedance.sdk.openadsdk.e.d.g(com.bytedance.sdk.openadsdk.core.o.a(), this.f67196a.f67194c, this.f67196a.f67193b, "dynamic_backup_native_render", null);
                     }
                 }
             });
@@ -106,8 +106,8 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "dynamic fail");
-            this.f66881a.a(true);
-            this.f66881a.f();
+            this.f67192a.a(true);
+            this.f67192a.f();
         }
     }
 
@@ -116,7 +116,7 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "native render start");
-            this.f66881a.c();
+            this.f67192a.c();
         }
     }
 
@@ -125,14 +125,14 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "native success");
-            this.f66881a.a(true);
-            this.f66881a.i();
+            this.f67192a.a(true);
+            this.f67192a.i();
             com.bytedance.sdk.component.d.e.b(new com.bytedance.sdk.component.d.g(this, "native_success") { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ h f66886a;
+                public final /* synthetic */ h f67197a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -152,15 +152,15 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
                             return;
                         }
                     }
-                    this.f66886a = this;
+                    this.f67197a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        g.a(this.f66886a.f66882b, this.f66886a.f66884d, this.f66886a.f66883c);
-                        com.bytedance.sdk.openadsdk.e.d.g(com.bytedance.sdk.openadsdk.core.o.a(), this.f66886a.f66883c, this.f66886a.f66882b, "dynamic_backup_render", null);
+                        g.a(this.f67197a.f67193b, this.f67197a.f67195d, this.f67197a.f67194c);
+                        com.bytedance.sdk.openadsdk.e.d.g(com.bytedance.sdk.openadsdk.core.o.a(), this.f67197a.f67194c, this.f67197a.f67193b, "dynamic_backup_render", null);
                     }
                 }
             });
@@ -172,7 +172,7 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "no native render");
-            this.f66881a.q();
+            this.f67192a.q();
         }
     }
 
@@ -181,7 +181,7 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "render fail");
-            this.f66881a.r();
+            this.f67192a.r();
         }
     }
 
@@ -190,15 +190,15 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "render success");
-            this.f66881a.b();
+            this.f67192a.b();
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f66881a.s();
-            this.f66881a.t();
+            this.f67192a.s();
+            this.f67192a.t();
         }
     }
 
@@ -206,7 +206,7 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f66881a.a();
+            this.f67192a.a();
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "start render ");
         }
     }
@@ -215,7 +215,7 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f66881a.g();
+            this.f67192a.g();
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "webview start request");
         }
     }
@@ -225,7 +225,7 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "webview render success");
-            this.f66881a.b();
+            this.f67192a.b();
         }
     }
 
@@ -233,8 +233,8 @@ public class h implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.d {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f66881a.a(i2);
-            g.a(i2, this.f66882b, this.f66884d, this.f66883c);
+            this.f67192a.a(i2);
+            g.a(i2, this.f67193b, this.f67195d, this.f67194c);
             com.bytedance.sdk.component.utils.k.b("ExpressRenderEvent", "WebView render fail");
         }
     }

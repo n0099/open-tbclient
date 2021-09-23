@@ -20,11 +20,11 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9163b;
+    public static final boolean f9171b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, c.a.p0.a.r1.k.a> f9164a;
+    public Map<String, c.a.p0.a.r1.k.a> f9172a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class b implements a {
                 return;
             }
         }
-        f9163b = k.f7077a;
+        f9171b = k.f7085a;
     }
 
     public b() {
@@ -55,20 +55,20 @@ public class b implements a {
                 return;
             }
         }
-        this.f9164a = new ConcurrentHashMap();
+        this.f9172a = new ConcurrentHashMap();
     }
 
     @Override // c.a.p0.a.u.g.a
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f9164a.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f9172a.containsKey(str)) {
             return;
         }
-        if (f9163b) {
+        if (f9171b) {
             String str2 = "markStart: " + str;
         }
         c.a.p0.a.r1.k.a aVar = new c.a.p0.a.r1.k.a();
-        this.f9164a.put(str, aVar);
+        this.f9172a.put(str, aVar);
         aVar.i(System.currentTimeMillis());
         aVar.f(str);
     }
@@ -77,19 +77,19 @@ public class b implements a {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            c.a.p0.a.r1.k.a aVar = this.f9164a.get(str);
+            c.a.p0.a.r1.k.a aVar = this.f9172a.get(str);
             if (aVar == null) {
-                if (f9163b) {
+                if (f9171b) {
                     throw new RuntimeException(str + " markEnd before markStart");
                 }
             } else if (aVar.d() > 0) {
             } else {
                 aVar.h(System.currentTimeMillis());
-                if (f9163b) {
+                if (f9171b) {
                     String str2 = str + " first called cost " + aVar.c();
                 }
                 if (TextUtils.equals(str, "request")) {
-                    if (f9163b) {
+                    if (f9171b) {
                         String str3 = "record first request api called " + aVar.toString();
                     }
                     HybridUbcFlow p = h.p("startup");

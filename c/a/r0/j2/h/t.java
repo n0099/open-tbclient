@@ -19,7 +19,7 @@ public class t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f19678a;
+    public TbPageContext f19693a;
 
     public t(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -36,11 +36,11 @@ public class t {
                 return;
             }
         }
-        this.f19678a = tbPageContext;
+        this.f19693a = tbPageContext;
         SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
         socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, c.a.r0.j3.d0.a.a(TbConfig.URL_THREAD_PUBLISH, 309644));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, c.a.r0.j3.e0.a.a(TbConfig.URL_THREAD_PUBLISH, 309644));
         tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
@@ -51,7 +51,7 @@ public class t {
             ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
             threadPublishReqMessage.tid = j2;
             threadPublishReqMessage.fid = j3;
-            threadPublishReqMessage.setTag(this.f19678a.getUniqueId());
+            threadPublishReqMessage.setTag(this.f19693a.getUniqueId());
             MessageManager.getInstance().sendMessage(threadPublishReqMessage);
         }
     }

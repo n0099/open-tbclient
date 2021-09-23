@@ -39,7 +39,7 @@ public class i extends d implements a.InterfaceC0483a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f5944e;
+        public final /* synthetic */ i f5952e;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class i extends d implements a.InterfaceC0483a {
                     return;
                 }
             }
-            this.f5944e = iVar;
+            this.f5952e = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class i extends d implements a.InterfaceC0483a {
         public void onCallback(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f5944e.E0 = str;
+                this.f5952e.E0 = str;
             }
         }
     }
@@ -76,7 +76,7 @@ public class i extends d implements a.InterfaceC0483a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f5945e;
+        public final /* synthetic */ i f5953e;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -93,14 +93,14 @@ public class i extends d implements a.InterfaceC0483a {
                     return;
                 }
             }
-            this.f5945e = iVar;
+            this.f5953e = iVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f5945e.L2();
+                this.f5953e.L2();
             }
         }
     }
@@ -111,13 +111,13 @@ public class i extends d implements a.InterfaceC0483a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f5946e;
+        public final /* synthetic */ StringBuilder f5954e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f5947f;
+        public final /* synthetic */ TextView f5955f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f5948g;
+        public final /* synthetic */ i f5956g;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -125,7 +125,7 @@ public class i extends d implements a.InterfaceC0483a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f5949e;
+            public final /* synthetic */ c f5957e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -142,15 +142,15 @@ public class i extends d implements a.InterfaceC0483a {
                         return;
                     }
                 }
-                this.f5949e = cVar;
+                this.f5957e = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c cVar = this.f5949e;
-                    cVar.f5947f.setText(cVar.f5946e.toString());
+                    c cVar = this.f5957e;
+                    cVar.f5955f.setText(cVar.f5954e.toString());
                 }
             }
         }
@@ -170,9 +170,9 @@ public class i extends d implements a.InterfaceC0483a {
                     return;
                 }
             }
-            this.f5948g = iVar;
-            this.f5946e = sb;
-            this.f5947f = textView;
+            this.f5956g = iVar;
+            this.f5954e = sb;
+            this.f5955f = textView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -181,8 +181,8 @@ public class i extends d implements a.InterfaceC0483a {
         public void onCallback(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f5948g.E0 = str;
-                this.f5946e.append(str);
+                this.f5956g.E0 = str;
+                this.f5954e.append(str);
                 q0.X(new a(this));
             }
         }
@@ -201,7 +201,7 @@ public class i extends d implements a.InterfaceC0483a {
                 return;
             }
         }
-        boolean z = c.a.p0.a.k.f7077a;
+        boolean z = c.a.p0.a.k.f7085a;
     }
 
     public i() {

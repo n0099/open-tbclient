@@ -24,19 +24,19 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f28189e;
+        public final /* synthetic */ View f28209e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f28190f;
+        public final /* synthetic */ int f28210f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f28191g;
+        public final /* synthetic */ int f28211g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f28192h;
+        public final /* synthetic */ int f28212h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f28193i;
+        public final /* synthetic */ int f28213i;
 
         public a(View view, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -53,11 +53,11 @@ public class g {
                     return;
                 }
             }
-            this.f28189e = view;
-            this.f28190f = i2;
-            this.f28191g = i3;
-            this.f28192h = i4;
-            this.f28193i = i5;
+            this.f28209e = view;
+            this.f28210f = i2;
+            this.f28211g = i3;
+            this.f28212h = i4;
+            this.f28213i = i5;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -65,12 +65,12 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                ViewGroup.LayoutParams layoutParams = this.f28189e.getLayoutParams();
-                int i2 = this.f28190f;
-                layoutParams.width = i2 - ((int) ((i2 - this.f28191g) * animatedFraction));
-                int i3 = this.f28192h;
-                layoutParams.height = i3 - ((int) ((i3 - this.f28193i) * animatedFraction));
-                this.f28189e.requestLayout();
+                ViewGroup.LayoutParams layoutParams = this.f28209e.getLayoutParams();
+                int i2 = this.f28210f;
+                layoutParams.width = i2 - ((int) ((i2 - this.f28211g) * animatedFraction));
+                int i3 = this.f28212h;
+                layoutParams.height = i3 - ((int) ((i3 - this.f28213i) * animatedFraction));
+                this.f28209e.requestLayout();
             }
         }
     }
@@ -81,19 +81,19 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f28194e;
+        public final /* synthetic */ View f28214e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f28195f;
+        public final /* synthetic */ int f28215f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f28196g;
+        public final /* synthetic */ int f28216g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f28197h;
+        public final /* synthetic */ int f28217h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f28198i;
+        public final /* synthetic */ int f28218i;
 
         public b(View view, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -110,11 +110,11 @@ public class g {
                     return;
                 }
             }
-            this.f28194e = view;
-            this.f28195f = i2;
-            this.f28196g = i3;
-            this.f28197h = i4;
-            this.f28198i = i5;
+            this.f28214e = view;
+            this.f28215f = i2;
+            this.f28216g = i3;
+            this.f28217h = i4;
+            this.f28218i = i5;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -122,12 +122,12 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                ViewGroup.LayoutParams layoutParams = this.f28194e.getLayoutParams();
-                int i2 = this.f28195f;
-                layoutParams.width = i2 - ((int) ((i2 - this.f28196g) * animatedFraction));
-                int i3 = this.f28197h;
-                layoutParams.height = i3 - ((int) ((i3 - this.f28198i) * animatedFraction));
-                this.f28194e.requestLayout();
+                ViewGroup.LayoutParams layoutParams = this.f28214e.getLayoutParams();
+                int i2 = this.f28215f;
+                layoutParams.width = i2 - ((int) ((i2 - this.f28216g) * animatedFraction));
+                int i3 = this.f28217h;
+                layoutParams.height = i3 - ((int) ((i3 - this.f28218i) * animatedFraction));
+                this.f28214e.requestLayout();
             }
         }
     }

@@ -15,13 +15,13 @@ public class d extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f65220a;
+    public byte[] f65531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f65221b;
+    public boolean f65532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.component.image.b.d f65222c;
+    public com.bytedance.sdk.component.image.b.d f65533c;
 
     public d(byte[] bArr, boolean z) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class d extends a {
                 return;
             }
         }
-        this.f65221b = false;
-        this.f65220a = bArr;
-        this.f65221b = z;
+        this.f65532b = false;
+        this.f65531a = bArr;
+        this.f65532b = z;
     }
 
     @Override // com.bytedance.sdk.component.image.d.h
@@ -57,11 +57,11 @@ public class d extends a {
             com.bytedance.sdk.component.image.c.b a2 = com.bytedance.sdk.component.image.c.b.a();
             com.bytedance.sdk.component.image.c.b.a a3 = a2.a(aVar);
             try {
-                String a4 = a(this.f65220a);
+                String a4 = a(this.f65531a);
                 if (!TextUtils.isEmpty(a4) && a4.startsWith("image")) {
-                    Bitmap a5 = a3.a(this.f65220a);
+                    Bitmap a5 = a3.a(this.f65531a);
                     if (a5 != null) {
-                        aVar.a(new l(a5, this.f65222c));
+                        aVar.a(new l(a5, this.f65533c));
                         a2.b().a(aVar.e(), a5);
                         return;
                     }
@@ -90,15 +90,15 @@ public class d extends a {
                 return;
             }
         }
-        this.f65221b = false;
-        this.f65220a = bArr;
-        this.f65222c = dVar;
+        this.f65532b = false;
+        this.f65531a = bArr;
+        this.f65533c = dVar;
     }
 
     private void a(int i2, String str, Throwable th, com.bytedance.sdk.component.image.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), str, th, aVar}) == null) {
-            if (this.f65221b) {
+            if (this.f65532b) {
                 aVar.a(new j());
             } else {
                 aVar.a(new g(i2, str, th));

@@ -19,7 +19,7 @@ public class d extends a<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f39373a;
+    public static final Charset f39432a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class d extends a<Object> {
                 return;
             }
         }
-        f39373a = Charset.forName("UTF-8");
+        f39432a = Charset.forName("UTF-8");
     }
 
     public d() {
@@ -55,13 +55,13 @@ public class d extends a<Object> {
     private Charset a(com.baidu.fsg.base.restnet.http.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(aVar.j())) ? f39373a : Charset.forName(aVar.j()) : (Charset) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(aVar.g())) ? f39432a : Charset.forName(aVar.g()) : (Charset) invokeL.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.a.a
     public Object b(Class<?> cls, e eVar) throws IOException, RestRuntimeException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, eVar)) == null) ? FileCopyUtils.copyToString(new InputStreamReader(eVar.c(), a(eVar.d()))) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, eVar)) == null) ? FileCopyUtils.copyToString(new InputStreamReader(eVar.d(), a(eVar.a()))) : invokeLL.objValue;
     }
 }

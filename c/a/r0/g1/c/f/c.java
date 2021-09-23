@@ -26,10 +26,10 @@ public class c extends c.a.q0.s.q.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17905e;
+    public boolean f17914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f17906f;
+    public List<n> f17915f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,20 +44,20 @@ public class c extends c.a.q0.s.q.a {
                 return;
             }
         }
-        this.f17905e = false;
+        this.f17914e = false;
     }
 
     public static boolean p(DiscoverHotForum discoverHotForum, int i2) {
         InterceptResult invokeLI;
         Integer num;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, discoverHotForum, i2)) == null) ? TbadkCoreApplication.isLogin() && c.a.q0.b.d.Z() && discoverHotForum != null && (num = discoverHotForum.floor) != null && (i2 < 0 || i2 == num.intValue() - 1) && !ListUtils.isEmpty(discoverHotForum.tab_list) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, discoverHotForum, i2)) == null) ? TbadkCoreApplication.isLogin() && c.a.q0.b.d.g0() && discoverHotForum != null && (num = discoverHotForum.floor) != null && (i2 < 0 || i2 == num.intValue() - 1) && !ListUtils.isEmpty(discoverHotForum.tab_list) : invokeLI.booleanValue;
     }
 
     public List<n> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17906f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17915f : (List) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.q.a
@@ -90,7 +90,7 @@ public class c extends c.a.q0.s.q.a {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17905e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17914e : invokeV.booleanValue;
     }
 
     public boolean k(List<DiscoverTabCard> list) {
@@ -107,14 +107,14 @@ public class c extends c.a.q0.s.q.a {
                 List<RecommendForumInfo> list2 = discoverTabCard.forum_list;
                 if (list2 != null && list2.size() >= 3) {
                     d dVar = new d();
-                    this.f17905e = StringUtils.isNull(discoverTabCard.name) || this.f17905e;
-                    dVar.f17907e = discoverTabCard.name;
+                    this.f17914e = StringUtils.isNull(discoverTabCard.name) || this.f17914e;
+                    dVar.f17916e = discoverTabCard.name;
                     Boolean bool = discoverTabCard.is_show_order_number;
-                    dVar.f17908f = bool == null ? false : bool.booleanValue();
-                    dVar.f17909g = discoverTabCard.jump_name;
+                    dVar.f17917f = bool == null ? false : bool.booleanValue();
+                    dVar.f17918g = discoverTabCard.jump_name;
                     for (int i3 = 0; i3 < discoverTabCard.forum_list.size() && i3 < 3; i3++) {
-                        dVar.f17910h[i3] = new d.a();
-                        d.a aVar = dVar.f17910h[i3];
+                        dVar.f17919h[i3] = new d.a();
+                        d.a aVar = dVar.f17919h[i3];
                         aVar.s(discoverTabCard.forum_list.get(i3).forum_name);
                         aVar.q(discoverTabCard.forum_list.get(i3).avatar);
                         aVar.v(discoverTabCard.forum_list.get(i3).hot_text);
@@ -139,7 +139,7 @@ public class c extends c.a.q0.s.q.a {
     public void o(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f17906f = list;
+            this.f17915f = list;
         }
     }
 }

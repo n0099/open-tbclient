@@ -34,22 +34,22 @@ public class z extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f5118e;
+        public final /* synthetic */ JSONObject f5126e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f5119f;
+        public final /* synthetic */ c.a.p0.a.a2.e f5127f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f5120g;
+        public final /* synthetic */ Context f5128g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f5121h;
+        public final /* synthetic */ String f5129h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5122i;
+        public final /* synthetic */ CallbackHandler f5130i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ z f5123j;
+        public final /* synthetic */ z f5131j;
 
         public a(z zVar, JSONObject jSONObject, c.a.p0.a.a2.e eVar, Context context, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -66,12 +66,12 @@ public class z extends a0 {
                     return;
                 }
             }
-            this.f5123j = zVar;
-            this.f5118e = jSONObject;
-            this.f5119f = eVar;
-            this.f5120g = context;
-            this.f5121h = str;
-            this.f5122i = callbackHandler;
+            this.f5131j = zVar;
+            this.f5126e = jSONObject;
+            this.f5127f = eVar;
+            this.f5128g = context;
+            this.f5129h = str;
+            this.f5130i = callbackHandler;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,11 +81,11 @@ public class z extends a0 {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                if (fVar == null || fVar.f5541d || fVar.f5547j != 1 || TextUtils.isEmpty(fVar.o.optString("web_url"))) {
+                if (fVar == null || fVar.f5549d || fVar.f5555j != 1 || TextUtils.isEmpty(fVar.o.optString("web_url"))) {
                     str = "";
                 } else {
                     String optString = fVar.o.optString("web_url");
-                    String optString2 = this.f5118e.optString("path");
+                    String optString2 = this.f5126e.optString("path");
                     if (!TextUtils.isEmpty(optString2)) {
                         if (!optString.endsWith("/")) {
                             optString = optString + "/";
@@ -98,13 +98,13 @@ public class z extends a0 {
                     str = o0.a(o0.a(optString, "_swebfr", "1"), "hostname", c.a.p0.a.c1.a.m().a());
                 }
                 if (!q0.G() && TextUtils.isEmpty(str)) {
-                    str = c.a.p0.d.g.c.e().g(this.f5119f.D(), this.f5119f.l(), this.f5118e.optString("path"));
+                    str = c.a.p0.d.g.c.e().g(this.f5127f.D(), this.f5127f.l(), this.f5126e.optString("path"));
                 }
                 String str2 = str;
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str3 = "final share url is " + str2;
                 }
-                this.f5123j.p(str2, this.f5120g, this.f5121h, this.f5122i, this.f5118e, this.f5119f);
+                this.f5131j.p(str2, this.f5128g, this.f5129h, this.f5130i, this.f5126e, this.f5127f);
             }
         }
     }
@@ -115,22 +115,22 @@ public class z extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f5124e;
+        public final /* synthetic */ Context f5132e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5125f;
+        public final /* synthetic */ CallbackHandler f5133f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5126g;
+        public final /* synthetic */ String f5134g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f5127h;
+        public final /* synthetic */ JSONObject f5135h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f5128i;
+        public final /* synthetic */ String f5136i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ z f5129j;
+        public final /* synthetic */ z f5137j;
 
         public b(z zVar, Context context, CallbackHandler callbackHandler, String str, JSONObject jSONObject, String str2) {
             Interceptable interceptable = $ic;
@@ -147,12 +147,12 @@ public class z extends a0 {
                     return;
                 }
             }
-            this.f5129j = zVar;
-            this.f5124e = context;
-            this.f5125f = callbackHandler;
-            this.f5126g = str;
-            this.f5127h = jSONObject;
-            this.f5128i = str2;
+            this.f5137j = zVar;
+            this.f5132e = context;
+            this.f5133f = callbackHandler;
+            this.f5134g = str;
+            this.f5135h = jSONObject;
+            this.f5136i = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -161,7 +161,7 @@ public class z extends a0 {
         public void onCallback(c.a.p0.a.e2.c.i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f5129j.n(this.f5124e, this.f5125f, this.f5126g, this.f5127h, c.a.p0.a.e2.c.d.h(iVar), this.f5128i);
+                this.f5137j.n(this.f5132e, this.f5133f, this.f5134g, this.f5135h, c.a.p0.a.e2.c.d.h(iVar), this.f5136i);
             }
         }
     }
@@ -172,13 +172,13 @@ public class z extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5130a;
+        public final /* synthetic */ CallbackHandler f5138a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f5131b;
+        public final /* synthetic */ String f5139b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ z f5132c;
+        public final /* synthetic */ z f5140c;
 
         public c(z zVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -195,16 +195,16 @@ public class z extends a0 {
                     return;
                 }
             }
-            this.f5132c = zVar;
-            this.f5130a = callbackHandler;
-            this.f5131b = str;
+            this.f5140c = zVar;
+            this.f5138a = callbackHandler;
+            this.f5139b = str;
         }
 
         @Override // c.a.p0.a.c1.d.i.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5132c.q(this.f5130a, this.f5131b, false);
+                this.f5140c.q(this.f5138a, this.f5139b, false);
             }
         }
 
@@ -212,7 +212,7 @@ public class z extends a0 {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f5132c.q(this.f5130a, this.f5131b, true);
+                this.f5140c.q(this.f5138a, this.f5139b, true);
             }
         }
     }
@@ -245,7 +245,7 @@ public class z extends a0 {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (context != null && eVar != null) {
                 if (eVar.d0()) {
-                    boolean z = a0.f4766b;
+                    boolean z = a0.f4774b;
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                     return false;
                 }
@@ -264,7 +264,7 @@ public class z extends a0 {
                 try {
                     a2.put("iconUrl", a2.optString("imageUrl", ""));
                 } catch (JSONException e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.toString();
                     }
                 }
@@ -287,7 +287,7 @@ public class z extends a0 {
             if (Q == null) {
                 return null;
             }
-            return c.a.p0.a.k2.b.M(str, Q.f4558f);
+            return c.a.p0.a.k2.b.M(str, Q.f4566f);
         }
         return (String) invokeL.objValue;
     }
@@ -309,7 +309,7 @@ public class z extends a0 {
                     jSONObject.put("pannel", optJSONArray);
                 }
             } catch (JSONException e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.toString();
                 }
             }
@@ -337,7 +337,7 @@ public class z extends a0 {
                 try {
                     jSONObject.putOpt("imageUrl", s0.a(c.a.p0.a.g1.f.V().getActivity(), new File(m2)).toString());
                 } catch (JSONException e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                 }
@@ -357,7 +357,7 @@ public class z extends a0 {
                     optJSONObject2.putOpt("info", optJSONObject);
                     jSONObject.putOpt("command", optJSONObject2);
                 } catch (JSONException e3) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e3.printStackTrace();
                     }
                 }
@@ -371,7 +371,7 @@ public class z extends a0 {
                 optJSONObject2.putOpt("info", optJSONObject);
                 jSONObject.putOpt("command", optJSONObject2);
             } catch (JSONException e4) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e4.printStackTrace();
                 }
             }
@@ -393,7 +393,7 @@ public class z extends a0 {
                             jSONObject.put("pannel", optJSONArray2);
                         }
                     } catch (JSONException e2) {
-                        if (a0.f4766b) {
+                        if (a0.f4774b) {
                             e2.toString();
                         }
                     }
@@ -424,7 +424,7 @@ public class z extends a0 {
         try {
             jSONObject.put("result", z);
         } catch (JSONException e2) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 e2.toString();
             }
         }

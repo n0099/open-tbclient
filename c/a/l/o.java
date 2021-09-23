@@ -33,7 +33,7 @@ public class o extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f3852e;
+        public final /* synthetic */ o f3853e;
 
         public a(o oVar) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class o extends h {
                     return;
                 }
             }
-            this.f3852e = oVar;
+            this.f3853e = oVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -58,7 +58,7 @@ public class o extends h {
             o oVar;
             a.InterfaceC0093a interfaceC0093a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (oVar = this.f3852e).f3785i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (oVar = this.f3853e).f3786i) == null) {
                 return;
             }
             interfaceC0093a.a(oVar.m);
@@ -71,7 +71,7 @@ public class o extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ o f3853a;
+        public final /* synthetic */ o f3854a;
 
         public b(o oVar) {
             Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class o extends h {
                     return;
                 }
             }
-            this.f3853a = oVar;
+            this.f3854a = oVar;
         }
 
         @Override // c.a.l.v0.a.b
@@ -96,10 +96,10 @@ public class o extends h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
-                if (this.f3853a.m != null && this.f3853a.m.getThreadData() != null && !this.f3853a.e().booleanValue()) {
-                    c.a.r0.a0.m.a(this.f3853a.m.getThreadData().f0());
-                    c.a.r0.a0.m.l(this.f3853a.l.mTitle, this.f3853a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.r0.a0.m.l(this.f3853a.l.mAbstract, this.f3853a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                if (this.f3854a.m != null && this.f3854a.m.getThreadData() != null && !this.f3854a.e().booleanValue()) {
+                    c.a.r0.a0.m.a(this.f3854a.m.getThreadData().f0());
+                    c.a.r0.a0.m.l(this.f3854a.l.mTitle, this.f3854a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.a0.m.l(this.f3854a.l.mAbstract, this.f3854a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -262,7 +262,7 @@ public class o extends h {
     public void z(a.InterfaceC0093a interfaceC0093a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, interfaceC0093a) == null) {
-            this.f3785i = interfaceC0093a;
+            this.f3786i = interfaceC0093a;
         }
     }
 }

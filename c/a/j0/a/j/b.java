@@ -17,7 +17,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3651a = 120;
+    public static int f3652a = 120;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -120,7 +120,7 @@ public class b {
             switch (c2) {
                 case 0:
                     if (!z) {
-                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_" + f3651a + "\"}";
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_" + f3652a + "\"}";
                         break;
                     } else {
                         str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_0\"}";
@@ -128,7 +128,7 @@ public class b {
                     }
                 case 1:
                     if (!z) {
-                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_" + f3651a + "\"}";
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_" + f3652a + "\"}";
                         break;
                     } else {
                         str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_0\"}";
@@ -142,7 +142,7 @@ public class b {
                     break;
                 case 4:
                     if (!z) {
-                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_" + (f3651a + 15) + "\"}";
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_" + (f3652a + 15) + "\"}";
                         break;
                     } else {
                         str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_15\"}";
@@ -153,7 +153,7 @@ public class b {
                     break;
                 case 6:
                     if (!z) {
-                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_" + f3651a + "\"}";
+                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_" + f3652a + "\"}";
                         break;
                     } else {
                         str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_65\"}";
@@ -161,7 +161,7 @@ public class b {
                     }
                 case 7:
                     if (!z) {
-                        str2 = "{\"is_equal_bottom_logo\":0,\"l_gravity\": 18,\"margin\": \"0_0_0_" + (f3651a + 39) + "\"}";
+                        str2 = "{\"is_equal_bottom_logo\":0,\"l_gravity\": 18,\"margin\": \"0_0_0_" + (f3652a + 39) + "\"}";
                         break;
                     } else {
                         str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_37\"}";

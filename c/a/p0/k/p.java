@@ -45,10 +45,10 @@ public class p extends PopupWindow implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f11831e;
+        public final /* synthetic */ View f11839e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ p f11832f;
+        public final /* synthetic */ p f11840f;
 
         public a(p pVar, View view) {
             Interceptable interceptable = $ic;
@@ -65,17 +65,17 @@ public class p extends PopupWindow implements View.OnClickListener {
                     return;
                 }
             }
-            this.f11832f = pVar;
-            this.f11831e = view;
+            this.f11840f = pVar;
+            this.f11839e = view;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11832f.Y.adjustBgHeight(this.f11831e.getHeight());
-                this.f11832f.g0();
-                this.f11831e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                this.f11840f.Y.adjustBgHeight(this.f11839e.getHeight());
+                this.f11840f.g0();
+                this.f11839e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         }
     }
@@ -86,7 +86,7 @@ public class p extends PopupWindow implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ p f11833e;
+        public final /* synthetic */ p f11841e;
 
         public b(p pVar) {
             Interceptable interceptable = $ic;
@@ -103,19 +103,19 @@ public class p extends PopupWindow implements View.OnClickListener {
                     return;
                 }
             }
-            this.f11833e = pVar;
+            this.f11841e = pVar;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                Context context = this.f11833e.W;
+                Context context = this.f11841e.W;
                 if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
                     return;
                 }
                 p.super.r();
-                p pVar = this.f11833e;
+                p pVar = this.f11841e;
                 BaseMenuView baseMenuView = pVar.V;
                 if (baseMenuView != pVar.Y) {
                     baseMenuView.setVisibility(8);

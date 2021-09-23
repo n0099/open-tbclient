@@ -29,17 +29,17 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile m f65247c;
+    public static volatile m f65558c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f65248a;
+    public Map<String, String> f65559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f65249b;
+    public volatile boolean f65560b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f65250d;
+    public Context f65561d;
 
     public m(Context context) {
         Interceptable interceptable = $ic;
@@ -56,12 +56,12 @@ public class m {
                 return;
             }
         }
-        this.f65249b = false;
-        if (context != null && this.f65250d == null) {
-            this.f65250d = context.getApplicationContext();
+        this.f65560b = false;
+        if (context != null && this.f65561d == null) {
+            this.f65561d = context.getApplicationContext();
             a();
         }
-        this.f65250d = context;
+        this.f65561d = context;
     }
 
     public static String b(String str) {
@@ -125,12 +125,12 @@ public class m {
                 return null;
             }
             a();
-            Map<String, String> map = this.f65248a;
+            Map<String, String> map = this.f65559a;
             if (map == null || map.isEmpty()) {
                 return null;
             }
             do {
-                str2 = this.f65248a.get(e2);
+                str2 = this.f65559a.get(e2);
                 if (str2 == null) {
                     e2 = e(e2);
                 }
@@ -214,14 +214,14 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f65247c == null) {
+            if (f65558c == null) {
                 synchronized (m.class) {
-                    if (f65247c == null) {
-                        f65247c = new m(context);
+                    if (f65558c == null) {
+                        f65558c = new m(context);
                     }
                 }
             }
-            return f65247c;
+            return f65558c;
         }
         return (m) invokeL.objValue;
     }
@@ -250,17 +250,17 @@ public class m {
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f65250d == null || this.f65249b) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f65561d == null || this.f65560b) {
             return;
         }
         synchronized (this) {
-            if (!this.f65249b) {
+            if (!this.f65560b) {
                 List list = (List) AccessController.doPrivileged(new PrivilegedAction<List<String>>(this) { // from class: com.bytedance.sdk.component.utils.m.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ m f65251a;
+                    public final /* synthetic */ m f65562a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -277,7 +277,7 @@ public class m {
                                 return;
                             }
                         }
-                        this.f65251a = this;
+                        this.f65562a = this;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -293,7 +293,7 @@ public class m {
                         InputStream inputStream = null;
                         try {
                             ArrayList arrayList = new ArrayList();
-                            InputStream open = this.f65251a.f65250d.getAssets().open("tt_mime_type.pro");
+                            InputStream open = this.f65562a.f65561d.getAssets().open("tt_mime_type.pro");
                             try {
                                 bufferedReader = new BufferedReader(new InputStreamReader(open));
                                 while (true) {
@@ -350,7 +350,7 @@ public class m {
                         }
                     }
                 });
-                this.f65248a = new HashMap(list.size());
+                this.f65559a = new HashMap(list.size());
                 String str = "";
                 Iterator it = list.iterator();
                 while (it.hasNext()) {
@@ -365,16 +365,16 @@ public class m {
                 if (!str.isEmpty()) {
                     f(str);
                 }
-                this.f65249b = true;
+                this.f65560b = true;
             }
         }
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2) == null) || str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f65248a.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2) == null) || str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f65559a.containsKey(str)) {
             return;
         }
-        this.f65248a.put(str, str2);
+        this.f65559a.put(str, str2);
     }
 }

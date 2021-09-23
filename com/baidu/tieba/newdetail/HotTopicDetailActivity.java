@@ -63,7 +63,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailActivity f54497a;
+        public final /* synthetic */ HotTopicDetailActivity f54612a;
 
         public a(HotTopicDetailActivity hotTopicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                     return;
                 }
             }
-            this.f54497a = hotTopicDetailActivity;
+            this.f54612a = hotTopicDetailActivity;
         }
 
         @Override // c.a.q0.a.g.b
@@ -91,7 +91,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f54497a.topicIdLong = c.a.e.e.m.b.g(str, -1L);
+                this.f54612a.topicIdLong = c.a.e.e.m.b.g(str, -1L);
             }
         }
     }
@@ -193,16 +193,16 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), dVar, Boolean.valueOf(z)}) == null) {
             int curFeedType = this.mView.curFeedType();
             if (dVar != null) {
-                curFeedType = dVar.Z3;
+                curFeedType = dVar.a4;
             }
             this.mView.hideFeedLoading(curFeedType);
-            if (i2 == 0 && dVar != null && !ListUtils.isEmpty(dVar.a4)) {
+            if (i2 == 0 && dVar != null && !ListUtils.isEmpty(dVar.b4)) {
                 c.a.r0.d2.b bVar = this.mView;
-                if (!z && bVar.curFeedData(curFeedType).X3 != null) {
+                if (!z && bVar.curFeedData(curFeedType).Y3 != null) {
                     r1 = false;
                 }
                 bVar.showFeedView(dVar, r1, curFeedType);
-            } else if (this.mView.curFeedData(curFeedType).X3 == null) {
+            } else if (this.mView.curFeedData(curFeedType).Y3 == null) {
                 this.mView.showFeedEmpty(i2 != 0, curFeedType);
             }
         }
@@ -271,11 +271,11 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             d curFeedData = this.mView.curFeedData(i2);
-            b1 b1Var = curFeedData.X3;
+            b1 b1Var = curFeedData.Y3;
             if (b1Var == null) {
                 refreshFeedData(i2);
             } else if (b1Var.b() != 0) {
-                this.mModel.y(i2, curFeedData.X3, curFeedData.Y3);
+                this.mModel.y(i2, curFeedData.Y3, curFeedData.Z3);
             }
         }
     }
@@ -292,7 +292,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             this.mView.stopPullRefresh();
             if (i2 == 0 && eVar != null) {
                 if (eVar.h() != null) {
-                    resetTopicId(eVar.h().f19279e, eVar.h().f19280f);
+                    resetTopicId(eVar.h().f19294e, eVar.h().f19295f);
                 }
                 if (eVar.h() != null && eVar.h().s) {
                     this.mView.showHasDeleteEmpty(true);
@@ -356,7 +356,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             boolean z = true;
             if (initParamsByTopicDetail(getIntent())) {
                 this.topicId = "" + this.topicIdLong;
-                if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().i("MainTabActivity")) {
+                if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().h("MainTabActivity")) {
                     this.mIsFromSchema = true;
                 }
             } else {
@@ -427,7 +427,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
             boolean x = this.mModel.x(i2);
-            if (this.mView.curFeedData(i2).X3 == null) {
+            if (this.mView.curFeedData(i2).Y3 == null) {
                 if (x) {
                     this.mView.showFeedLoading(i2);
                     this.mView.hideFeedEmpty(i2);
@@ -482,6 +482,6 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (!TextUtils.isEmpty(this.topicName)) {
             str = str + "&topic_name=" + URLEncoder.encode(this.topicName);
         }
-        this.hotTopicShareModel.e(h2.f19279e, h2.f19280f, str, h2.k, h2.f19284j, true);
+        this.hotTopicShareModel.e(h2.f19294e, h2.f19295f, str, h2.k, h2.f19299j, true);
     }
 }

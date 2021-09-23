@@ -31,28 +31,28 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f28199a;
+    public Context f28219a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VlogEditManager f28200b;
+    public VlogEditManager f28220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28201c;
+    public int f28221c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28202d;
+    public int f28222d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextWordsEntity.TextStyleEntity f28203e;
+    public TextWordsEntity.TextStyleEntity f28223e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextWordsEntity.TextFontEntity f28204f;
+    public TextWordsEntity.TextFontEntity f28224f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28205g;
+    public int f28225g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f28206h;
+    public String f28226h;
 
     public h(Context context, VlogEditManager vlogEditManager) {
         Interceptable interceptable = $ic;
@@ -69,10 +69,10 @@ public class h {
                 return;
             }
         }
-        this.f28205g = -1;
-        this.f28206h = "";
-        this.f28199a = context;
-        this.f28200b = vlogEditManager;
+        this.f28225g = -1;
+        this.f28226h = "";
+        this.f28219a = context;
+        this.f28220b = vlogEditManager;
     }
 
     public void a(int i2, String str, MultiMediaData multiMediaData, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
@@ -85,7 +85,7 @@ public class h {
         if (108 == i2 && TextUtils.isEmpty(str)) {
             multiMediaData.setExt("text", t.l(R.string.ugc_capture_text_words_hint));
         }
-        if (this.f28205g != -1 && !TextUtils.isEmpty(str)) {
+        if (this.f28225g != -1 && !TextUtils.isEmpty(str)) {
             multiMediaData.setExt("text", str);
         }
         if (textStyleEntity != null) {
@@ -96,7 +96,7 @@ public class h {
                 if (!TextUtils.isEmpty(ext)) {
                     textStyleEntity2 = TextWordsEntity.TextStyleEntity.parse(new JSONObject(ext));
                 } else {
-                    textStyleEntity2 = this.f28203e;
+                    textStyleEntity2 = this.f28223e;
                 }
                 textStyleEntity = textStyleEntity2;
             } catch (JSONException e2) {
@@ -111,7 +111,7 @@ public class h {
                 if (!TextUtils.isEmpty(ext2)) {
                     textFontEntity2 = TextWordsEntity.TextFontEntity.parse(new JSONObject(ext2));
                 } else {
-                    textFontEntity2 = this.f28204f;
+                    textFontEntity2 = this.f28224f;
                 }
                 textFontEntity = textFontEntity2;
             } catch (JSONException e3) {
@@ -121,7 +121,7 @@ public class h {
         String ext3 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_TEMP_PATH);
         String videoTmpDir = FileHelper.getVideoTmpDir();
         String str2 = System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
-        Bitmap h2 = e.d().h(this.f28199a, multiMediaData.getExt("text"), textStyleEntity, textFontEntity);
+        Bitmap h2 = e.d().h(this.f28219a, multiMediaData.getExt("text"), textStyleEntity, textFontEntity);
         if (!TextUtils.isEmpty(multiMediaData.path) && !multiMediaData.path.equals(ext3)) {
             FileUtils.delete(new File(multiMediaData.path));
         }
@@ -132,27 +132,27 @@ public class h {
         multiMediaData.width = h2.getWidth();
         int height = h2.getHeight();
         multiMediaData.height = height;
-        if (this.f28205g == -1) {
+        if (this.f28225g == -1) {
             multiMediaData.scaleType = "adaptive";
             multiMediaData.type = 0;
-            multiMediaData.start = this.f28200b.getCurrentPlayTime();
-            multiMediaData.end = this.f28200b.getCurrentPlayTime() + 3000;
-            multiMediaData.x = (this.f28201c - multiMediaData.width) / 2.0f;
-            multiMediaData.y = (this.f28202d - multiMediaData.height) / 2.0f;
-            if (TextUtils.equals(this.f28206h, "cover_sticker")) {
-                this.f28200b.addCoverStickerData(multiMediaData);
+            multiMediaData.start = this.f28220b.getCurrentPlayTime();
+            multiMediaData.end = this.f28220b.getCurrentPlayTime() + 3000;
+            multiMediaData.x = (this.f28221c - multiMediaData.width) / 2.0f;
+            multiMediaData.y = (this.f28222d - multiMediaData.height) / 2.0f;
+            if (TextUtils.equals(this.f28226h, "cover_sticker")) {
+                this.f28220b.addCoverStickerData(multiMediaData);
             } else {
-                this.f28200b.addStickerData(multiMediaData, this.f28206h);
+                this.f28220b.addStickerData(multiMediaData, this.f28226h);
             }
         } else {
             float f2 = multiMediaData.x + (i3 / 2.0f);
             float f3 = multiMediaData.y + (i4 / 2.0f);
             multiMediaData.x = f2 - (multiMediaData.width / 2.0f);
             multiMediaData.y = f3 - (height / 2.0f);
-            if (TextUtils.equals(this.f28206h, "cover_sticker")) {
-                this.f28200b.replaceCoverStickerData(multiMediaData);
+            if (TextUtils.equals(this.f28226h, "cover_sticker")) {
+                this.f28220b.replaceCoverStickerData(multiMediaData);
             } else {
-                this.f28200b.replaceStickerData(this.f28205g, multiMediaData, this.f28206h);
+                this.f28220b.replaceStickerData(this.f28225g, multiMediaData, this.f28226h);
             }
         }
         h2.recycle();
@@ -169,8 +169,8 @@ public class h {
     public void c(@NonNull List<MultiMediaData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f28200b.setUpEditLayer("cover_sticker");
-            this.f28200b.addCoverStickerDataList(list);
+            this.f28220b.setUpEditLayer("cover_sticker");
+            this.f28220b.addCoverStickerDataList(list);
             for (MultiMediaData multiMediaData : list) {
                 e(0);
                 a(116, null, multiMediaData, null, null);
@@ -197,36 +197,36 @@ public class h {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f28205g = i2;
+            this.f28225g = i2;
         }
     }
 
     public void f(TextWordsEntity.TextFontEntity textFontEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, textFontEntity) == null) {
-            this.f28204f = textFontEntity;
+            this.f28224f = textFontEntity;
         }
     }
 
     public void g(TextWordsEntity.TextStyleEntity textStyleEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, textStyleEntity) == null) {
-            this.f28203e = textStyleEntity;
+            this.f28223e = textStyleEntity;
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f28206h = str;
+            this.f28226h = str;
         }
     }
 
     public void i(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            this.f28201c = i2;
-            this.f28202d = i3;
+            this.f28221c = i2;
+            this.f28222d = i3;
         }
     }
 }

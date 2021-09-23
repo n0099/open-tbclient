@@ -18,7 +18,7 @@ import androidx.fragment.app.FragmentActivity;
 import c.a.e.a.i;
 import c.a.e.e.p.l;
 import c.a.e.l.e.q;
-import c.a.q0.d1.m;
+import c.a.q0.d1.p;
 import c.a.q0.g0.g;
 import c.a.q0.g0.h;
 import c.a.q0.m0.c;
@@ -87,7 +87,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseFragment f47365e;
+        public final /* synthetic */ BaseFragment f47467e;
 
         public a(BaseFragment baseFragment) {
             Interceptable interceptable = $ic;
@@ -104,14 +104,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
                     return;
                 }
             }
-            this.f47365e = baseFragment;
+            this.f47467e = baseFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BaseFragment baseFragment = this.f47365e;
+                BaseFragment baseFragment = this.f47467e;
                 baseFragment.onPreLoad(baseFragment.onGetPreLoadListView());
             }
         }
@@ -123,7 +123,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseFragment f47366e;
+        public final /* synthetic */ BaseFragment f47468e;
 
         public b(BaseFragment baseFragment) {
             Interceptable interceptable = $ic;
@@ -140,14 +140,14 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
                     return;
                 }
             }
-            this.f47366e = baseFragment;
+            this.f47468e = baseFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47366e.onNetRefreshButtonClicked();
+                this.f47468e.onNetRefreshButtonClicked();
             }
         }
 
@@ -475,7 +475,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     public void normalLoad() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && getUserVisibleHint() && this.isPrepared && !m.a()) {
+        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && getUserVisibleHint() && this.isPrepared && !p.a()) {
             onLoad();
         }
     }

@@ -15,10 +15,10 @@ public final class k extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final d f33176i;
+    public final d f33199i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile int f33177j;
+    public volatile int f33200j;
     public volatile boolean k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -40,28 +40,28 @@ public final class k extends c {
                 return;
             }
         }
-        this.f33176i = dVar;
+        this.f33199i = dVar;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public void a() throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.i.b.a.h0.g b2 = this.f33143a.b(this.f33177j);
+            c.i.b.a.h0.g b2 = this.f33166a.b(this.f33200j);
             try {
-                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f33150h, b2.f33704c, this.f33150h.a(b2));
-                if (this.f33177j == 0) {
-                    this.f33176i.d(null);
+                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f33173h, b2.f33727c, this.f33173h.a(b2));
+                if (this.f33200j == 0) {
+                    this.f33199i.d(null);
                 }
-                c.i.b.a.a0.e eVar = this.f33176i.f33151e;
+                c.i.b.a.a0.e eVar = this.f33199i.f33174e;
                 int i2 = 0;
                 while (i2 == 0 && !this.k) {
                     i2 = eVar.e(bVar, null);
                 }
                 c.i.b.a.i0.a.f(i2 != 1);
-                this.f33177j = (int) (bVar.getPosition() - this.f33143a.f33704c);
+                this.f33200j = (int) (bVar.getPosition() - this.f33166a.f33727c);
             } finally {
-                v.h(this.f33150h);
+                v.h(this.f33173h);
             }
         }
     }
@@ -77,7 +77,7 @@ public final class k extends c {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33177j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33200j : invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c

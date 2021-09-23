@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.spanGroup.TbLinkForegroundColorSpan;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class c {
@@ -28,10 +27,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f16918a;
+    public ArrayList<String> f16928a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f16919b;
+    public String f16929b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -47,28 +46,18 @@ public class c {
         }
     }
 
-    public final void a(Spannable spannable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, spannable) == null) {
-            Matcher matcher = Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable);
-            while (matcher.find()) {
-                spannable.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), matcher.start(), matcher.end(), 33);
-            }
-        }
-    }
-
-    public boolean b(EditText editText) {
+    public boolean a(EditText editText) {
         InterceptResult invokeL;
         Editable text;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, editText)) == null) {
             if (editText == null || (text = editText.getText()) == null) {
                 return false;
             }
-            int e2 = e(text);
-            if (e2 > 0) {
+            int d2 = d(text);
+            if (d2 > 0) {
                 editText.requestFocus();
-                editText.setSelection(e2);
+                editText.setSelection(d2);
                 return true;
             }
             editText.setSelection(editText.getSelectionEnd());
@@ -77,28 +66,28 @@ public class c {
         return invokeL.booleanValue;
     }
 
-    public boolean c(EditText editText, EditText editText2) {
+    public boolean b(EditText editText, EditText editText2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, editText, editText2)) == null) {
-            if (ListUtils.isEmpty(d())) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText, editText2)) == null) {
+            if (ListUtils.isEmpty(c())) {
                 return false;
             }
-            return b(editText) || b(editText2);
+            return a(editText) || a(editText2);
         }
         return invokeLL.booleanValue;
     }
 
-    public ArrayList<String> d() {
+    public ArrayList<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16918a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16928a : (ArrayList) invokeV.objValue;
     }
 
-    public int e(Spanned spanned) {
+    public int d(Spanned spanned) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, spanned)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, spanned)) == null) {
             if (spanned == null) {
                 return 0;
             }
@@ -109,72 +98,69 @@ public class c {
         return invokeL.intValue;
     }
 
-    public String f() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16919b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16929b : (String) invokeV.objValue;
     }
 
-    public boolean g(Spannable spannable) {
+    public boolean f(Spannable spannable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, spannable)) == null) ? Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable).find() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, spannable)) == null) ? Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable).find() : invokeL.booleanValue;
     }
 
-    public void h(EditText editText, boolean z) {
+    public void g(EditText editText, boolean z) {
         Editable text;
         Object[] spans;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, editText, z) == null) || editText == null || (text = editText.getText()) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, editText, z) == null) || editText == null || (text = editText.getText()) == null) {
             return;
         }
         for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-            if (((obj instanceof ForegroundColorSpan) && !(obj instanceof TbLinkForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
+            if (((obj instanceof ForegroundColorSpan) && !(obj instanceof SpanGroupForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
                 text.removeSpan(obj);
             }
         }
         c.a.q0.t0.b.k(text);
-        if (!z) {
-            a(text);
-        }
-        k(text);
+        j(text);
     }
 
-    public void i(EditText editText, EditText editText2) {
+    public void h(EditText editText, EditText editText2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editText, editText2) == null) {
-            j(editText, true);
-            j(editText2, false);
-            c(editText, editText2);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, editText, editText2) == null) {
+            i(editText, true);
+            i(editText2, false);
+            b(editText, editText2);
         }
     }
 
-    public void j(EditText editText, boolean z) {
+    public void i(EditText editText, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048585, this, editText, z) == null) || editText == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, editText, z) == null) || editText == null) {
             return;
         }
-        h(editText, z);
+        g(editText, z);
     }
 
-    public final void k(Spannable spannable) {
+    public final void j(Spannable spannable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, spannable) == null) || spannable == null || ListUtils.isEmpty(this.f16918a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, spannable) == null) || spannable == null || ListUtils.isEmpty(this.f16928a)) {
             return;
         }
         String obj = spannable.toString();
         if (TextUtils.isEmpty(obj)) {
             return;
         }
-        Iterator<String> it = this.f16918a.iterator();
+        Iterator<String> it = this.f16928a.iterator();
         while (it.hasNext()) {
-            l(spannable, obj, it.next());
+            k(spannable, obj, it.next());
         }
     }
 
-    public final void l(Spannable spannable, String str, String str2) {
+    public final void k(Spannable spannable, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048587, this, spannable, str, str2) == null) || spannable == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048586, this, spannable, str, str2) == null) || spannable == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         int indexOf = str.indexOf(str2);
@@ -191,24 +177,24 @@ public class c {
         }
     }
 
-    public void m(EditText editText, EditText editText2) {
+    public void l(EditText editText, EditText editText2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, editText, editText2) == null) {
-            i(editText, editText2);
+        if (interceptable == null || interceptable.invokeLL(1048587, this, editText, editText2) == null) {
+            h(editText, editText2);
         }
     }
 
-    public void n(ArrayList<String> arrayList) {
+    public void m(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, arrayList) == null) {
-            this.f16918a = arrayList;
+        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
+            this.f16928a = arrayList;
         }
     }
 
-    public void o(String str) {
+    public void n(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f16919b = str;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.f16929b = str;
         }
     }
 }

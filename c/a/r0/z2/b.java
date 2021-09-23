@@ -11,7 +11,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<a> f29751a;
+    public SparseArray<a> f29771a;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -19,10 +19,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f29752a;
+        public boolean f29772a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f29753b;
+        public int f29773b;
 
         public a(boolean z, int i2) {
             Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class b {
                     return;
                 }
             }
-            this.f29752a = z;
-            this.f29753b = i2;
+            this.f29772a = z;
+            this.f29773b = i2;
         }
     }
 
@@ -59,6 +59,6 @@ public class b {
                 return;
             }
         }
-        this.f29751a = sparseArray;
+        this.f29771a = sparseArray;
     }
 }

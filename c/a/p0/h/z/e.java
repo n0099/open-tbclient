@@ -19,11 +19,11 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11677b;
+    public static final boolean f11685b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.l0.c f11678a;
+    public c.a.p0.a.l0.c f11686a;
     @V8JavascriptField
     public JsObject canvas;
 
@@ -40,7 +40,7 @@ public class e {
                 return;
             }
         }
-        f11677b = k.f7077a;
+        f11685b = k.f7085a;
     }
 
     public e(c.a.p0.a.l0.c cVar) {
@@ -59,7 +59,7 @@ public class e {
             }
         }
         this.canvas = null;
-        this.f11678a = cVar;
+        this.f11686a = cVar;
         a();
         b();
     }
@@ -67,7 +67,7 @@ public class e {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c(this.f11678a.getInitBasePath(), "swan-game-open-data.js") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c(this.f11686a.getInitBasePath(), "swan-game-open-data.js") : invokeV.booleanValue;
     }
 
     public final boolean b() {
@@ -76,7 +76,7 @@ public class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String A = c.a.p0.a.g1.f.V().A();
             String b2 = f.a().b();
-            if (f11677b) {
+            if (f11685b) {
                 String str = "baseFilePath: " + A;
                 String str2 = "openDataJSFile: " + b2;
             }
@@ -92,7 +92,7 @@ public class e {
             if (!f.a().c() || TextUtils.isEmpty(str)) {
                 return false;
             }
-            this.f11678a.d0().b(str, str2);
+            this.f11686a.d0().b(str, str2);
             return true;
         }
         return invokeLL.booleanValue;
@@ -102,7 +102,7 @@ public class e {
     public void destroyOpenDataContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f11678a.d0().a();
+            this.f11686a.d0().a();
         }
     }
 
@@ -110,7 +110,7 @@ public class e {
     public void postMessage(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
-            this.f11678a.y().dispatchEvent(new JSEvent("postmessage", jsObject));
+            this.f11686a.y().dispatchEvent(new JSEvent("postmessage", jsObject));
         }
     }
 }

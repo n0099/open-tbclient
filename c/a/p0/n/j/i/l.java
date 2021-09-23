@@ -10,13 +10,13 @@ public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f12029a = false;
+    public static boolean f12037a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f12030b = "0";
+    public static String f12038b = "0";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f12031c;
+    public static long f12039c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class l {
         }
         c.a.p0.n.a b2 = c.a.p0.n.c.b();
         if (b2 != null) {
-            f12030b = b2.j().getString("key_h2_heart_beat_version", "0");
+            f12038b = b2.j().getString("key_h2_heart_beat_version", "0");
         }
     }
 

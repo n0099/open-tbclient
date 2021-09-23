@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,13 +26,13 @@ public abstract class d<T> implements g.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.n.f.g f11902e;
+    public c.a.p0.n.f.g f11910e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.p0.n.i.m.g f11903f;
+    public c.a.p0.n.i.m.g f11911f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11904g;
+    public String f11912g;
 
     public d(c.a.p0.n.f.g gVar, c.a.p0.n.i.m.g gVar2) {
         Interceptable interceptable = $ic;
@@ -48,19 +49,19 @@ public abstract class d<T> implements g.a {
                 return;
             }
         }
-        this.f11902e = gVar;
-        this.f11903f = gVar2;
+        this.f11910e = gVar;
+        this.f11911f = gVar2;
     }
 
     @Override // c.a.p0.n.i.g.a
     public void a(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-            c.a.p0.n.f.g gVar = this.f11902e;
+            c.a.p0.n.f.g gVar = this.f11910e;
             if (gVar != null) {
                 gVar.H(str, str2, jSONObject);
             }
-            this.f11904g = str;
+            this.f11912g = str;
         }
     }
 
@@ -68,31 +69,31 @@ public abstract class d<T> implements g.a {
     public void b(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
-            c.a.p0.n.f.g gVar = this.f11902e;
+            c.a.p0.n.f.g gVar = this.f11910e;
             if (gVar != null) {
                 gVar.G(str, i2);
             }
             if (i2 != 200) {
                 c.a.p0.n.h.a aVar = new c.a.p0.n.h.a(2104, ErrorConstant.ErrorMsg.META_ERROR_CONNECTION + i2);
-                aVar.f11878d = i2;
-                this.f11902e.B(aVar);
-                c(aVar, str, String.valueOf(i2), String.valueOf(this.f11903f.b()));
+                aVar.f11886d = i2;
+                this.f11910e.B(aVar);
+                c(aVar, str, String.valueOf(i2), String.valueOf(this.f11911f.b()));
                 return;
             }
             c a2 = c.a(str);
             if (a2 == null) {
                 JSONObject m = c.a.p0.n.o.e.m(str);
                 c.a.p0.n.h.a aVar2 = new c.a.p0.n.h.a(2103, "metadata : parse response error - ,errmsg:" + m.toString());
-                this.f11902e.B(aVar2);
-                c(aVar2, str, String.valueOf(i2), String.valueOf(this.f11903f.b()));
+                this.f11910e.B(aVar2);
+                c(aVar2, str, String.valueOf(i2), String.valueOf(this.f11911f.b()));
                 return;
             }
             int d2 = a2.d();
             if (d2 != 0) {
                 c.a.p0.n.h.a aVar3 = new c.a.p0.n.h.a(d2, PMSConstants.a.a(d2, "response errorCode with errmsg:" + a2.e()), a2.g());
-                this.f11902e.B(aVar3);
+                this.f11910e.B(aVar3);
                 if (a2.d() != 1010) {
-                    d(aVar3, str, String.valueOf(i2), String.valueOf(this.f11903f.b()), a2);
+                    d(aVar3, str, String.valueOf(i2), String.valueOf(this.f11911f.b()), a2);
                     return;
                 }
                 return;
@@ -100,12 +101,12 @@ public abstract class d<T> implements g.a {
             T n = n(a2.c());
             if (n == null) {
                 c.a.p0.n.h.a aVar4 = new c.a.p0.n.h.a(2102, "response data empty");
-                this.f11902e.B(aVar4);
-                d(aVar4, str, String.valueOf(i2), String.valueOf(this.f11903f.b()), a2);
+                this.f11910e.B(aVar4);
+                d(aVar4, str, String.valueOf(i2), String.valueOf(this.f11911f.b()), a2);
             } else if (!e(n)) {
                 c.a.p0.n.h.a aVar5 = new c.a.p0.n.h.a(2103, str);
-                this.f11902e.B(aVar5);
-                d(aVar5, str, String.valueOf(i2), String.valueOf(this.f11903f.b()), a2);
+                this.f11910e.B(aVar5);
+                d(aVar5, str, String.valueOf(i2), String.valueOf(this.f11911f.b()), a2);
             } else {
                 m(n);
             }
@@ -126,29 +127,29 @@ public abstract class d<T> implements g.a {
             int i2 = 0;
             if (aVar != null) {
                 try {
-                    if (aVar.f11875a != 0) {
-                        i2 = aVar.f11875a;
+                    if (aVar.f11883a != 0) {
+                        i2 = aVar.f11883a;
                         jSONObject.put("response", str);
                         if (!TextUtils.isEmpty(str2)) {
-                            jSONObject.put("statusCode", str2);
+                            jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, str2);
                         }
                         if (!TextUtils.isEmpty(str3)) {
                             jSONObject.put("downloadType", str3);
                         }
-                        if (!TextUtils.isEmpty(this.f11904g) && aVar.f11875a != 2000) {
-                            jSONObject.put("request_url", this.f11904g);
+                        if (!TextUtils.isEmpty(this.f11912g) && aVar.f11883a != 2000) {
+                            jSONObject.put("request_url", this.f11912g);
                         }
                         jSONObject.put("hostName", c.a.p0.n.c.b().c());
                         jSONObject.put("network", c.a.p0.t.a.e());
                     }
                 } catch (JSONException e2) {
-                    if (c.a.p0.n.c.f11856a) {
+                    if (c.a.p0.n.c.f11864a) {
                         e2.printStackTrace();
                     }
                 }
             }
-            if (this.f11903f instanceof c.a.p0.n.i.m.c) {
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, ((c.a.p0.n.i.m.c) this.f11903f).g());
+            if (this.f11911f instanceof c.a.p0.n.i.m.c) {
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, ((c.a.p0.n.i.m.c) this.f11911f).g());
             }
             if (cVar != null && cVar.f() != 0) {
                 jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, cVar.f());
@@ -157,7 +158,7 @@ public abstract class d<T> implements g.a {
             if (b2 != null && b2.t() != null) {
                 jSONObject.put("launchid", b2.t());
             }
-            c.a.p0.n.m.a.a(this.f11903f.a(), "cs_protocol", f(), i2, jSONObject);
+            c.a.p0.n.m.a.a(this.f11911f.a(), "cs_protocol", f(), i2, jSONObject);
         }
     }
 
@@ -210,7 +211,7 @@ public abstract class d<T> implements g.a {
     public void l(PMSAppInfo pMSAppInfo) {
         c.a.p0.n.f.f p;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, pMSAppInfo) == null) || pMSAppInfo == null || (p = this.f11902e.p()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, pMSAppInfo) == null) || pMSAppInfo == null || (p = this.f11910e.p()) == null) {
             return;
         }
         p.a(pMSAppInfo);
@@ -225,8 +226,8 @@ public abstract class d<T> implements g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, exc) == null) {
             c.a.p0.n.h.a aVar = new c.a.p0.n.h.a(2101, Log.getStackTraceString(exc));
-            this.f11902e.B(aVar);
-            c(aVar, exc.getMessage(), null, String.valueOf(this.f11903f.b()));
+            this.f11910e.B(aVar);
+            c(aVar, exc.getMessage(), null, String.valueOf(this.f11911f.b()));
         }
     }
 
@@ -234,7 +235,7 @@ public abstract class d<T> implements g.a {
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            c(new c.a.p0.n.h.a(2000, "send request"), null, null, String.valueOf(this.f11903f.b()));
+            c(new c.a.p0.n.h.a(2000, "send request"), null, null, String.valueOf(this.f11911f.b()));
         }
     }
 }

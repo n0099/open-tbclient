@@ -20,7 +20,7 @@ import com.baidu.wallet.base.statistics.PayStatServiceEvent;
 import com.baidu.wallet.paysdk.PayCallBackManager;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-import com.baidu.wallet.paysdk.beans.u;
+import com.baidu.wallet.paysdk.beans.w;
 import com.baidu.wallet.paysdk.contract.PwdPayContract;
 import com.baidu.wallet.paysdk.datamodel.AuthorizeInfo;
 import com.baidu.wallet.paysdk.datamodel.BalancePayResponse;
@@ -311,17 +311,17 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
                 if (!this.checkPass) {
                     this.mActivity.showLoading(-1);
                 }
-                com.baidu.wallet.paysdk.beans.h hVar = (com.baidu.wallet.paysdk.beans.h) PayBeanFactory.getInstance().getBean((Context) this.mActivity, PayBeanFactory.BEAN_ID_CREDIT_PAY, this.TAG);
-                hVar.setResponseCallback(this);
-                hVar.execBean();
+                com.baidu.wallet.paysdk.beans.i iVar = (com.baidu.wallet.paysdk.beans.i) PayBeanFactory.getInstance().getBean((Context) this.mActivity, PayBeanFactory.BEAN_ID_CREDIT_PAY, this.TAG);
+                iVar.setResponseCallback(this);
+                iVar.execBean();
             } else if (payType == PayRequest.PayPrice.PayType.BANKCARD) {
                 if (!this.checkPass) {
                     this.mActivity.showLoading(-1);
                 }
-                u uVar = (u) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 13, this.TAG);
-                uVar.a(true);
-                uVar.setResponseCallback(this);
-                uVar.execBean();
+                w wVar = (w) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 13, this.TAG);
+                wVar.a(true);
+                wVar.setResponseCallback(this);
+                wVar.execBean();
             } else {
                 PwdPayActivity pwdPayActivity2 = this.mActivity;
                 PayCallBackManager.callBackClientCancel(pwdPayActivity2, this.TAG + "doPay().2");
@@ -336,15 +336,15 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (errorContentResponse = this.mActivity.mErrorContent) == null || errorContentResponse.mkt_solution == null) {
             return;
         }
-        u uVar = (u) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 13, this.TAG);
+        w wVar = (w) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 13, this.TAG);
         if (this.mPayRequest == null) {
             this.mPayRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
         }
         this.mPayRequest.setMktSolution(this.mActivity.mErrorContent.mkt_solution);
         this.mActivity.showLoading(-1);
-        uVar.a(true);
-        uVar.setResponseCallback(this);
-        uVar.execBean();
+        wVar.a(true);
+        wVar.setResponseCallback(this);
+        wVar.execBean();
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PwdPayContract.Presenter, com.baidu.wallet.paysdk.presenter.NetWorkPresenter

@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.utility.x;
+import com.baidu.sofire.utility.z;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,18 +83,18 @@ public class MyActivity extends Activity {
                 if ("a".equals(intent.getStringExtra("t"))) {
                     WeakReference weakReference = new WeakReference(this);
                     Context applicationContext = getApplicationContext();
-                    x.a(applicationContext).a(new Runnable(intent, weakReference, applicationContext) { // from class: com.baidu.sofire.MyActivity.1
+                    z.a(applicationContext).a(new Runnable(intent, weakReference, applicationContext) { // from class: com.baidu.sofire.MyActivity.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Intent f45165a;
+                        public final /* synthetic */ Intent f45227a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ WeakReference f45166b;
+                        public final /* synthetic */ WeakReference f45228b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ Context f45167c;
+                        public final /* synthetic */ Context f45229c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -111,9 +111,9 @@ public class MyActivity extends Activity {
                                     return;
                                 }
                             }
-                            this.f45165a = intent;
-                            this.f45166b = weakReference;
-                            this.f45167c = applicationContext;
+                            this.f45227a = intent;
+                            this.f45228b = weakReference;
+                            this.f45229c = applicationContext;
                         }
 
                         @Override // java.lang.Runnable
@@ -121,16 +121,16 @@ public class MyActivity extends Activity {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
-                                    String stringExtra = this.f45165a.getStringExtra("c");
+                                    String stringExtra = this.f45227a.getStringExtra("c");
                                     Intent intent3 = new Intent();
                                     intent3.putExtra("t", "a");
                                     intent3.putExtra("c", stringExtra);
-                                    String a2 = MyActivity.a((Activity) this.f45166b.get());
+                                    String a2 = MyActivity.a((Activity) this.f45228b.get());
                                     if (a2 == null) {
                                         a2 = "";
                                     }
                                     intent3.putExtra("source", a2);
-                                    a.a(this.f45167c.getApplicationContext(), intent3);
+                                    a.a(this.f45229c.getApplicationContext(), intent3);
                                 } catch (Throwable unused) {
                                     com.baidu.sofire.utility.c.a();
                                 }

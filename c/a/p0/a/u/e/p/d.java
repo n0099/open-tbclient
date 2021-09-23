@@ -18,7 +18,7 @@ public class d extends c.a.p0.a.u.c.d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f9128d;
+    public static final boolean f9136d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class d extends c.a.p0.a.u.c.d {
                 return;
             }
         }
-        f9128d = k.f7077a;
+        f9136d = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -86,7 +86,7 @@ public class d extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (f9128d) {
+            if (f9136d) {
                 String str2 = "start logToFile action, params = " + str;
                 r(str);
             }

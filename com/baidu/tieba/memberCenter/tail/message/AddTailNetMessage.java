@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.tail.message;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +49,7 @@ public class AddTailNetMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             AddTailReqIdl.Builder builder = new AddTailReqIdl.Builder();
             if (z) {
-                x.a(this.data, true);
+                a0.a(this.data, true);
             }
             builder.data = this.data.build(false);
             return builder.build(false);

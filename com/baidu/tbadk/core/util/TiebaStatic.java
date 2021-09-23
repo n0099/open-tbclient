@@ -15,8 +15,9 @@ import c.a.e.e.n.d;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
 import c.a.e.e.p.q;
-import c.a.q0.d1.a;
-import c.a.q0.d1.g;
+import c.a.e.h.h.a;
+import c.a.q0.d1.c;
+import c.a.q0.d1.j;
 import c.a.q0.m0.e;
 import c.a.q0.q0.i;
 import c.a.q0.s.d0.b;
@@ -488,7 +489,7 @@ public class TiebaStatic {
         if (!StringUtils.isNull(sampleId)) {
             statisticItem.param(Params.SAMPLE_ID, sampleId);
         }
-        String c2 = a.d().c();
+        String c2 = c.d().c();
         if (!StringUtils.isNull(c2)) {
             statisticItem.param(Params.ABTEST_RESULT, c2);
         }
@@ -667,13 +668,13 @@ public class TiebaStatic {
                     TbadkCoreApplication.getInst().getCuidGid();
                     dVar.f2432i = TbadkCoreApplication.getInst().getImei();
                     dVar.f2433j = TbConfig.getSubappType();
-                    dVar.r = g.d().g(context) + "_" + g.d().f(context);
+                    dVar.r = j.d().g(context) + "_" + j.d().f(context);
                     dVar.v = TbadkCoreApplication.getInst().getAndroidId();
                     dVar.s = getCua(context);
                     dVar.t = PermissionUtil.getLastCachedOid(context);
                     dVar.u = PermissionUtil.getLocalMacAddress(context);
-                    dVar.w = g.d().b();
-                    dVar.x = g.d().h() + "_" + g.d().i();
+                    dVar.w = j.d().b();
+                    dVar.x = j.d().h() + "_" + j.d().i();
                     dVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
                     dVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
                     dVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
@@ -917,7 +918,7 @@ public class TiebaStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65575, null) == null) {
             try {
-                c.a.e.h.h.a.b().v();
+                a.b().v();
                 c.a.e.e.l.a.g();
                 i.d();
                 BdStatisticsManager.getInstance().save();

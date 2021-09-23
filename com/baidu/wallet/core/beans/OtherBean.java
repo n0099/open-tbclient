@@ -27,7 +27,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f60944a = "OtherBaseBean";
+    public static final String f61061a = "OtherBaseBean";
     public transient /* synthetic */ FieldHolder $fh;
     public int mRetCode;
     public String mRetMsg;
@@ -124,7 +124,7 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
             this.mRestTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "pay bean http request");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new EbpayHttpRequestInterceptor());
-            arrayList.add(new a());
+            arrayList.add(new a(this.tag[0].booleanValue()));
             this.mRestTemplate.setRequestInterceptor(arrayList);
             this.mRestTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.b());
         }

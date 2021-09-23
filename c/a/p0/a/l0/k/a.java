@@ -12,7 +12,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public V8Engine f7191a;
+    public V8Engine f7199a;
 
     public a(V8Engine v8Engine) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class a {
                 return;
             }
         }
-        this.f7191a = v8Engine;
+        this.f7199a = v8Engine;
     }
 
     public void a(String str) {
@@ -49,7 +49,7 @@ public class a {
     public final void c(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-            this.f7191a.onConsoleCallBack(i2, str);
+            this.f7199a.onConsoleCallBack(i2, str);
         }
     }
 }

@@ -23,10 +23,10 @@ public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f19850a;
+    public static final int f19865a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f19851b;
+    public static final int f19866b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -35,10 +35,10 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeListView f19852e;
+        public final /* synthetic */ BdTypeListView f19867e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f19853f;
+        public final /* synthetic */ String f19868f;
 
         public a(BdTypeListView bdTypeListView, String str) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public class k {
                     return;
                 }
             }
-            this.f19852e = bdTypeListView;
-            this.f19853f = str;
+            this.f19867e = bdTypeListView;
+            this.f19868f = str;
         }
 
         @Override // java.lang.Runnable
@@ -64,18 +64,18 @@ public class k {
             int a2;
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a2 = k.a(this.f19852e, this.f19853f)) < 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a2 = k.a(this.f19867e, this.f19868f)) < 0) {
                 return;
             }
-            int height = this.f19852e.getHeight();
-            int width = this.f19852e.getWidth();
+            int height = this.f19867e.getHeight();
+            int width = this.f19867e.getWidth();
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(width, 1073741824);
-            BdTypeListView bdTypeListView = this.f19852e;
+            BdTypeListView bdTypeListView = this.f19867e;
             View childAt = bdTypeListView.getChildAt(a2 - bdTypeListView.getFirstVisiblePosition());
-            if ((childAt == null || childAt.getBottom() > height - k.f19851b) && (view = this.f19852e.getAdapter2().getView(a2, null, this.f19852e)) != null) {
+            if ((childAt == null || childAt.getBottom() > height - k.f19866b) && (view = this.f19867e.getAdapter2().getView(a2, null, this.f19867e)) != null) {
                 view.measure(makeMeasureSpec2, makeMeasureSpec);
-                this.f19852e.setSelectionFromTop(a2, (height - view.getMeasuredHeight()) - k.f19851b);
+                this.f19867e.setSelectionFromTop(a2, (height - view.getMeasuredHeight()) - k.f19866b);
             }
         }
     }
@@ -93,8 +93,8 @@ public class k {
                 return;
             }
         }
-        f19850a = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds240);
-        f19851b = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds150);
+        f19865a = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds240);
+        f19866b = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds150);
     }
 
     public static int a(BdTypeListView bdTypeListView, String str) {
@@ -177,7 +177,7 @@ public class k {
                 int size = data.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     n nVar = data.get(i2);
-                    if ((nVar instanceof o) && ((o) nVar).f19651f == o.m) {
+                    if ((nVar instanceof o) && ((o) nVar).f19666f == o.m) {
                         return i2 + headerViewsCount;
                     }
                 }
@@ -197,7 +197,7 @@ public class k {
             d2 = b(bdTypeListView);
         }
         if (d2 >= 0) {
-            bdTypeListView.setSelectionFromTop(d2, f19850a);
+            bdTypeListView.setSelectionFromTop(d2, f19865a);
         }
     }
 

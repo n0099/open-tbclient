@@ -20,7 +20,7 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9340a;
+    public static final boolean f9348a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class f {
                 return;
             }
         }
-        f9340a = c.a.p0.a.k.f7077a;
+        f9348a = c.a.p0.a.k.f7085a;
     }
 
     public static void a(Activity activity) {
@@ -47,7 +47,7 @@ public final class f {
         Window window = activity.getWindow();
         window.clearFlags(1024);
         int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
-        if (c.a.p0.a.z1.b.a.f9990b) {
+        if (c.a.p0.a.z1.b.a.f9998b) {
             systemUiVisibility |= 5120;
         }
         window.getDecorView().setSystemUiVisibility(systemUiVisibility);
@@ -125,7 +125,7 @@ public final class f {
                 if (z2) {
                     Toast.makeText(context, c.a.p0.a.h.swan_app_activity_not_found, 0).show();
                 }
-                if (f9340a) {
+                if (f9348a) {
                     String str = "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.";
                     return false;
                 }
@@ -138,7 +138,7 @@ public final class f {
     public static void j(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
-            if (f9340a) {
+            if (f9348a) {
                 String str = "tryFinishAndRemoveTask: " + activity;
             }
             if (activity == null || activity.isDestroyed()) {

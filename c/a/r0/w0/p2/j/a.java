@@ -15,16 +15,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27546a;
+    public int f27566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f27547b;
+    public Set<String> f27567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27548c;
+    public int f27568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f27549d;
+    public long f27569d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -39,34 +39,34 @@ public class a {
                 return;
             }
         }
-        this.f27548c = -1;
-        this.f27549d = -1L;
-        this.f27546a = b.j().k("nani_key_download_show_position", 3);
+        this.f27568c = -1;
+        this.f27569d = -1L;
+        this.f27566a = b.j().k("nani_key_download_show_position", 3);
         new HashSet();
-        this.f27547b = new HashSet();
+        this.f27567b = new HashSet();
     }
 
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            this.f27547b.add(str);
-            if (this.f27548c >= 0 || this.f27546a != this.f27547b.size()) {
+            this.f27567b.add(str);
+            if (this.f27568c >= 0 || this.f27566a != this.f27567b.size()) {
                 return;
             }
-            this.f27548c = i2;
+            this.f27568c = i2;
         }
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27548c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27568c : invokeV.intValue;
     }
 
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f27549d = j2;
+            this.f27569d = j2;
         }
     }
 
@@ -74,10 +74,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int k = b.j().k("nani_key_download_show_rate", 2);
-            if (this.f27549d <= 0 || k == 1) {
+            if (this.f27569d <= 0 || k == 1) {
                 return;
             }
-            b.j().w("key_horizontal_shown_time", this.f27549d);
+            b.j().w("key_horizontal_shown_time", this.f27569d);
         }
     }
 }

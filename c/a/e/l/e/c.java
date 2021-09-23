@@ -18,22 +18,22 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f2964e;
+    public Context f2965e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f2965f;
+    public View f2966f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f2966g;
+    public boolean f2967g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2967h;
+    public int f2968h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f2968i;
+    public a f2969i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f2969j;
+    public boolean f2970j;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -55,13 +55,13 @@ public abstract class c implements BdSwipeRefreshLayout.i {
                 return;
             }
         }
-        this.f2964e = null;
-        this.f2965f = null;
-        this.f2966g = true;
-        this.f2967h = 0;
-        this.f2969j = false;
+        this.f2965e = null;
+        this.f2966f = null;
+        this.f2967g = true;
+        this.f2968h = 0;
+        this.f2970j = false;
         if (context != null) {
-            this.f2964e = context;
+            this.f2965e = context;
             return;
         }
         throw new InvalidParameterException("BdIListPullView context is null");
@@ -82,18 +82,18 @@ public abstract class c implements BdSwipeRefreshLayout.i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f2965f == null) {
+            if (this.f2966f == null) {
                 View i2 = i();
-                this.f2965f = i2;
+                this.f2966f = i2;
                 if (i2 != null) {
                     o(i2);
-                    this.f2967h = this.f2965f.getMeasuredHeight();
-                    this.f2965f.getMeasuredWidth();
+                    this.f2968h = this.f2966f.getMeasuredHeight();
+                    this.f2966f.getMeasuredWidth();
                 } else {
                     throw new IllegalStateException("BdIListPullView getView is null");
                 }
             }
-            return this.f2965f;
+            return this.f2966f;
         }
         return (View) invokeV.objValue;
     }
@@ -105,25 +105,25 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     public Context k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2964e : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2965e : (Context) invokeV.objValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2967h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2968h : invokeV.intValue;
     }
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2966g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2967g : invokeV.booleanValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2969j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2970j : invokeV.booleanValue;
     }
 
     public final void o(View view) {
@@ -148,7 +148,7 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void onCompleteRefresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f2969j) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f2970j) {
             return;
         }
         p();
@@ -157,7 +157,7 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void onFinish() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f2969j) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f2970j) {
             return;
         }
         j(true);
@@ -173,7 +173,7 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void onPullToRefresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f2969j) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f2970j) {
             return;
         }
         s(false);
@@ -182,7 +182,7 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void onRefreshing() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f2969j) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f2970j) {
             return;
         }
         t();
@@ -192,7 +192,7 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void onReleaseToRefresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.f2969j) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.f2970j) {
             return;
         }
         u();
@@ -205,7 +205,7 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f2969j = true;
+            this.f2970j = true;
         }
     }
 
@@ -218,32 +218,32 @@ public abstract class c implements BdSwipeRefreshLayout.i {
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f2969j = false;
+            this.f2970j = false;
         }
     }
 
     public void w(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.f2966g = z;
+            this.f2967g = z;
         }
     }
 
     public void x(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, aVar) == null) {
-            this.f2968i = aVar;
+            this.f2969i = aVar;
         }
     }
 
     public void y(int i2, int i3, int i4, int i5) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048600, this, i2, i3, i4, i5) == null) || (view = this.f2965f) == null || this.f2969j) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048600, this, i2, i3, i4, i5) == null) || (view = this.f2966f) == null || this.f2970j) {
             return;
         }
         view.setPadding(i2, i3, i4, i5);
-        a aVar = this.f2968i;
+        a aVar = this.f2969i;
         if (aVar != null) {
             aVar.a(this, i2, i4, i3 + l(), i5);
         }

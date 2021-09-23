@@ -21,7 +21,7 @@ public class a extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsGameRecommendFragment f27838a;
+    public FrsGameRecommendFragment f27858a;
 
     public a(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class a extends b {
                 return;
             }
         }
-        this.f27838a = FrsGameRecommendFragment.newInstance(str, str2);
-        getFragmentTabStructure().f13467a = this.f27838a;
+        this.f27858a = FrsGameRecommendFragment.newInstance(str, str2);
+        getFragmentTabStructure().f13463a = this.f27858a;
     }
 
     @Override // c.a.q0.h0.b
@@ -48,9 +48,9 @@ public class a extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f13471e = 11;
-            cVar.f13468b = R.string.frs_game_recommend_tab_title;
-            cVar.f13475i = c.k;
+            cVar.f13467e = 11;
+            cVar.f13464b = R.string.frs_game_recommend_tab_title;
+            cVar.f13471i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;

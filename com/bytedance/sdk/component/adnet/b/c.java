@@ -20,20 +20,20 @@ public abstract class c<T> extends Request<T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f64227c;
+    public static final String f64538c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f64228d;
+    public final Object f64539d;
     @Nullable
     @GuardedBy("mLock")
 
     /* renamed from: e  reason: collision with root package name */
-    public m.a<T> f64229e;
+    public m.a<T> f64540e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f64230f;
+    public final String f64541f;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public abstract class c<T> extends Request<T> {
                 return;
             }
         }
-        f64227c = String.format("application/json; charset=%s", "utf-8");
+        f64538c = String.format("application/json; charset=%s", "utf-8");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,9 +70,9 @@ public abstract class c<T> extends Request<T> {
                 return;
             }
         }
-        this.f64228d = new Object();
-        this.f64229e = aVar;
-        this.f64230f = str2;
+        this.f64539d = new Object();
+        this.f64540e = aVar;
+        this.f64541f = str2;
     }
 
     @Override // com.bytedance.sdk.component.adnet.core.Request
@@ -83,8 +83,8 @@ public abstract class c<T> extends Request<T> {
         m.a<T> aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
-            synchronized (this.f64228d) {
-                aVar = this.f64229e;
+            synchronized (this.f64539d) {
+                aVar = this.f64540e;
             }
             if (aVar != null) {
                 aVar.a(mVar);
@@ -97,8 +97,8 @@ public abstract class c<T> extends Request<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.cancel();
-            synchronized (this.f64228d) {
-                this.f64229e = null;
+            synchronized (this.f64539d) {
+                this.f64540e = null;
             }
         }
     }
@@ -109,12 +109,12 @@ public abstract class c<T> extends Request<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                if (this.f64230f == null) {
+                if (this.f64541f == null) {
                     return null;
                 }
-                return this.f64230f.getBytes("utf-8");
+                return this.f64541f.getBytes("utf-8");
             } catch (UnsupportedEncodingException unused) {
-                o.d("Unsupported Encoding while trying to get the bytes of %s using %s", this.f64230f, "utf-8");
+                o.d("Unsupported Encoding while trying to get the bytes of %s using %s", this.f64541f, "utf-8");
                 return null;
             }
         }
@@ -125,7 +125,7 @@ public abstract class c<T> extends Request<T> {
     public String getBodyContentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f64227c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f64538c : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.core.Request

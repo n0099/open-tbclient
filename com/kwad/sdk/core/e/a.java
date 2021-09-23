@@ -37,7 +37,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f73248a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f73567a) {
             aVar.a();
         }
     }
@@ -48,7 +48,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f73248a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f73567a) {
             aVar.d();
         }
     }
@@ -59,7 +59,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f73248a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f73567a) {
             aVar.c();
         }
     }
@@ -70,7 +70,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f73248a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f73567a) {
             aVar.b();
         }
     }

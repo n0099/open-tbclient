@@ -27,14 +27,14 @@ public class a {
 
     /* renamed from: c.a.q0.s.v.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0700a implements FeedRecModel.b {
+    public class C0698a implements FeedRecModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ a f14510a;
 
-        public C0700a(a aVar) {
+        public C0698a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,7 +82,7 @@ public class a {
                 return;
             }
         }
-        this.f14509c = new C0700a(this);
+        this.f14509c = new C0698a(this);
         FeedRecModel feedRecModel = new FeedRecModel();
         this.f14507a = feedRecModel;
         feedRecModel.z(this.f14509c);

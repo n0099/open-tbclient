@@ -632,12 +632,12 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j2, z);
                 newAckMessage.addTriples(list2);
-                if (a.f29902e) {
+                if (a.f29923e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
-                    bLCPRequest.f40643a = 2L;
-                    bLCPRequest.f40644b = 95L;
-                    bLCPRequest.f40645c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f40646d = System.nanoTime();
+                    bLCPRequest.f40705a = 2L;
+                    bLCPRequest.f40706b = 95L;
+                    bLCPRequest.f40707c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f40708d = System.nanoTime();
                     c.a.u.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;

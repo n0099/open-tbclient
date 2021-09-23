@@ -27,10 +27,10 @@ public class d implements ShareService {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ShareService.IOnSocialListener f28123a;
+    public ShareService.IOnSocialListener f28143a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f28124b;
+    public CustomMessageListener f28144b;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -38,7 +38,7 @@ public class d implements ShareService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f28125a;
+        public final /* synthetic */ d f28145a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -58,7 +58,7 @@ public class d implements ShareService {
                     return;
                 }
             }
-            this.f28125a = dVar;
+            this.f28145a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,17 +69,17 @@ public class d implements ShareService {
                 return;
             }
             Integer num = (Integer) customResponsedMessage.getData();
-            if (this.f28125a.f28123a != null) {
+            if (this.f28145a.f28143a != null) {
                 if (num.intValue() == 1) {
-                    this.f28125a.f28123a.onComplete("");
+                    this.f28145a.f28143a.onComplete("");
                 } else if (num.intValue() == 2) {
-                    this.f28125a.f28123a.onError("");
+                    this.f28145a.f28143a.onError("");
                 } else if (num.intValue() == 3) {
-                    this.f28125a.f28123a.onCancel("");
+                    this.f28145a.f28143a.onCancel("");
                 }
-                this.f28125a.f28123a = null;
+                this.f28145a.f28143a = null;
             }
-            MessageManager.getInstance().unRegisterListener(this.f28125a.f28124b);
+            MessageManager.getInstance().unRegisterListener(this.f28145a.f28144b);
         }
     }
 
@@ -111,8 +111,8 @@ public class d implements ShareService {
                 return;
             }
         }
-        this.f28123a = null;
-        this.f28124b = new a(this, 2921550);
+        this.f28143a = null;
+        this.f28144b = new a(this, 2921550);
     }
 
     public final void a(Context context, View view, String str, String str2, String str3, String str4, String str5, ShareService.IOnSocialListener iOnSocialListener) {
@@ -139,8 +139,8 @@ public class d implements ShareService {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            this.f28123a = iOnSocialListener;
-            MessageManager.getInstance().registerListener(this.f28124b);
+            this.f28143a = iOnSocialListener;
+            MessageManager.getInstance().registerListener(this.f28144b);
             if (context == null) {
                 context = TbadkCoreApplication.getInst();
             }

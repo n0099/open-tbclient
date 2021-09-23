@@ -25,7 +25,7 @@ public final class a extends a0 implements b.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public CallbackHandler f4944c;
+    public CallbackHandler f4952c;
 
     /* renamed from: c.a.p0.a.c2.f.k0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -34,16 +34,16 @@ public final class a extends a0 implements b.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4945e;
+        public final /* synthetic */ CallbackHandler f4953e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a.c f4946f;
+        public final /* synthetic */ a.c f4954f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f4947g;
+        public final /* synthetic */ e f4955g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f4948h;
+        public final /* synthetic */ a f4956h;
 
         public C0139a(a aVar, CallbackHandler callbackHandler, a.c cVar, e eVar) {
             Interceptable interceptable = $ic;
@@ -60,10 +60,10 @@ public final class a extends a0 implements b.c {
                     return;
                 }
             }
-            this.f4948h = aVar;
-            this.f4945e = callbackHandler;
-            this.f4946f = cVar;
-            this.f4947g = eVar;
+            this.f4956h = aVar;
+            this.f4953e = callbackHandler;
+            this.f4954f = cVar;
+            this.f4955g = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,7 +72,7 @@ public final class a extends a0 implements b.c {
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f4948h.k(iVar, this.f4945e, this.f4946f, this.f4947g.d0());
+                this.f4956h.k(iVar, this.f4953e, this.f4954f, this.f4955g.d0());
             }
         }
     }
@@ -101,11 +101,11 @@ public final class a extends a0 implements b.c {
     @Override // c.a.p0.a.u.e.i.b.c
     public void b(a.c cVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, cVar, i2) == null) || this.f4944c == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, cVar, i2) == null) || this.f4952c == null) {
             return;
         }
         d.b("GetLocationAction", "request location error code : " + i2);
-        this.f4944c.handleSchemeDispatchCallback(cVar.f8946c, UnitedSchemeUtility.wrapCallbackParams(i2).toString());
+        this.f4952c.handleSchemeDispatchCallback(cVar.f8954c, UnitedSchemeUtility.wrapCallbackParams(i2).toString());
     }
 
     @Override // c.a.p0.a.c2.f.a0
@@ -113,10 +113,10 @@ public final class a extends a0 implements b.c {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
-            this.f4944c = callbackHandler;
+            this.f4952c = callbackHandler;
             if (eVar == null) {
                 d.b("location", "swan app is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -124,7 +124,7 @@ public final class a extends a0 implements b.c {
             }
             a.c b2 = a.c.b(unitedSchemeEntity.getParam("params"));
             if (b2 != null && b2.a()) {
-                if (TextUtils.isEmpty(b2.f8946c)) {
+                if (TextUtils.isEmpty(b2.f8954c)) {
                     d.b("location", "empty cb");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                     return false;
@@ -144,24 +144,24 @@ public final class a extends a0 implements b.c {
     public void f(a.c cVar, String str) {
         CallbackHandler callbackHandler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, str) == null) || (callbackHandler = this.f4944c) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, str) == null) || (callbackHandler = this.f4952c) == null) {
             return;
         }
-        callbackHandler.handleSchemeDispatchCallback(cVar.f8946c, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
+        callbackHandler.handleSchemeDispatchCallback(cVar.f8954c, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
     }
 
     @Override // c.a.p0.a.u.e.i.b.c
     public void g(a.c cVar, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, bVar) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "convert info : " + bVar.a();
             }
-            CallbackHandler callbackHandler = this.f4944c;
+            CallbackHandler callbackHandler = this.f4952c;
             if (callbackHandler == null) {
                 return;
             }
-            callbackHandler.handleSchemeDispatchCallback(cVar.f8946c, UnitedSchemeUtility.wrapCallbackParams(bVar.a(), 0).toString());
+            callbackHandler.handleSchemeDispatchCallback(cVar.f8954c, UnitedSchemeUtility.wrapCallbackParams(bVar.a(), 0).toString());
         }
     }
 
@@ -174,7 +174,7 @@ public final class a extends a0 implements b.c {
                 return;
             }
             int b2 = iVar.b();
-            callbackHandler.handleSchemeDispatchCallback(cVar.f8946c, UnitedSchemeUtility.wrapCallbackParams(b2, c.a.p0.a.e2.c.d.f(b2)).toString());
+            callbackHandler.handleSchemeDispatchCallback(cVar.f8954c, UnitedSchemeUtility.wrapCallbackParams(b2, c.a.p0.a.e2.c.d.f(b2)).toString());
         }
     }
 }

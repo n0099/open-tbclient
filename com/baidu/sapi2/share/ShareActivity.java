@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -91,7 +92,7 @@ public class ShareActivity extends Activity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
-                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.3.7.1");
+                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.1");
                         bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, this.this$0.getPackageName());
                         bundle.putString(ShareLoginModel.INVALIDATE_BDUSS, str);
                         intent.putExtras(bundle);
@@ -109,7 +110,7 @@ public class ShareActivity extends Activity {
                         if (sapiAccount != null) {
                             bundle.putParcelable(ShareLoginModel.SHARE_ACCOUNT_INFO, sapiAccount);
                         }
-                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.3.7.1");
+                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.1");
                         bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, this.this$0.getPackageName());
                         if (SapiContext.getInstance().shareLivingunameEnable()) {
                             intent.putExtra(ShareLoginModel.FACE_LOGIN_UIDS, SapiContext.getInstance().getV2FaceLivingUnames());
@@ -133,6 +134,14 @@ public class ShareActivity extends Activity {
             return hashMap;
         }
         return (HashMap) invokeV.objValue;
+    }
+
+    private void handleInvalid() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            setResult(-1, new Intent());
+            finish();
+        }
     }
 
     @Override // android.app.Activity
@@ -164,6 +173,7 @@ public class ShareActivity extends Activity {
             if (!PassSdkModel.getInstance().checkPassSdkInit()) {
                 String str = TAG;
                 Log.e(str, getPackageName() + " pass sdk没有初始化");
+                handleInvalid();
                 return;
             }
             StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_APP_INVOKED, getCommonStatParams());
@@ -176,6 +186,7 @@ public class ShareActivity extends Activity {
                 StatService.onEventAutoStat(ShareStatKey.SHARE_APP_PERM_ERROR_WARN, hashMap);
                 String str2 = TAG;
                 Log.d(str2, callingPackage + "不是已经授权的百度系app");
+                handleInvalid();
                 return;
             }
             checkAuthAccountValid();

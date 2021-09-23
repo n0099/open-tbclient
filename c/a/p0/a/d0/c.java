@@ -28,10 +28,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5140a;
+    public static final String f5148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f5141b;
+    public static final String[] f5149b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,8 +47,8 @@ public class c {
                 return;
             }
         }
-        f5140a = a.b();
-        f5141b = new String[]{a.c(), a.d(), "https://ossapi.baidu.com", "https://ext.baidu.com"};
+        f5148a = a.b();
+        f5149b = new String[]{a.c(), a.d(), "https://ossapi.baidu.com", "https://ext.baidu.com"};
     }
 
     public static String a(String str, String str2, String str3) {
@@ -330,7 +330,7 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            for (String str2 : f5141b) {
+            for (String str2 : f5149b) {
                 if (str.startsWith(str2)) {
                     return true;
                 }
@@ -350,7 +350,7 @@ public class c {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65559, null, str, z)) == null) {
-            String a2 = a(a(a(a(a(a(a(a(a(a(str, "uid", l()), "ua", k()), "ut", m()), "osbranch", e()), "pkgname", p()), "network", o()), "appname", d()), "hostname", d()), "swan_sdk_version", r()), "mnpunion", String.valueOf(f.f8492d.f() ? 2 : 0));
+            String a2 = a(a(a(a(a(a(a(a(a(a(str, "uid", l()), "ua", k()), "ut", m()), "osbranch", e()), "pkgname", p()), "network", o()), "appname", d()), "hostname", d()), "swan_sdk_version", r()), "mnpunion", String.valueOf(f.f8500d.f() ? 2 : 0));
             return z ? b(a2) : a2;
         }
         return (String) invokeLZ.objValue;

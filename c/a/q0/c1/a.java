@@ -21,10 +21,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f12804a;
+    public b f12818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f12805b;
+    public HttpMessageListener f12819b;
 
     /* renamed from: c.a.q0.c1.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -33,7 +33,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f12806a;
+        public final /* synthetic */ a f12820a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C0647a(a aVar, int i2) {
@@ -53,7 +53,7 @@ public class a {
                     return;
                 }
             }
-            this.f12806a = aVar;
+            this.f12820a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,8 +62,8 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof TrackConfigResponseMessage)) {
                 TrackConfigResponseMessage trackConfigResponseMessage = (TrackConfigResponseMessage) httpResponsedMessage;
-                if (this.f12806a.f12804a != null) {
-                    this.f12806a.f12804a.a(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
+                if (this.f12820a.f12818a != null) {
+                    this.f12820a.f12818a.a(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
                 }
             }
         }
@@ -87,8 +87,8 @@ public class a {
                 return;
             }
         }
-        this.f12805b = new C0647a(this, CmdConfigHttp.CMD_TRACK_CONFIG);
-        MessageManager.getInstance().registerListener(this.f12805b);
+        this.f12819b = new C0647a(this, CmdConfigHttp.CMD_TRACK_CONFIG);
+        MessageManager.getInstance().registerListener(this.f12819b);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
         tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -98,7 +98,7 @@ public class a {
     public void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f12804a = bVar;
+            this.f12818a = bVar;
         }
     }
 

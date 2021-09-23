@@ -43,20 +43,20 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f7623d;
+    public static final boolean f7631d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f7624e;
+    public static volatile a f7632e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<c.a.p0.a.n1.q.c.b> f7625a;
+    public List<c.a.p0.a.n1.q.c.b> f7633a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f7626b;
+    public AtomicInteger f7634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CopyOnWriteArrayList<c.a.p0.a.n1.q.b.a> f7627c;
+    public CopyOnWriteArrayList<c.a.p0.a.n1.q.b.a> f7635c;
 
     /* renamed from: c.a.p0.a.n1.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -65,19 +65,19 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f7628a;
+        public final /* synthetic */ String f7636a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f7629b;
+        public final /* synthetic */ List f7637b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ArrayMap f7630c;
+        public final /* synthetic */ ArrayMap f7638c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f7631d;
+        public final /* synthetic */ String f7639d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f7632e;
+        public final /* synthetic */ a f7640e;
 
         public C0317a(a aVar, String str, List list, ArrayMap arrayMap, String str2) {
             Interceptable interceptable = $ic;
@@ -94,21 +94,21 @@ public final class a {
                     return;
                 }
             }
-            this.f7632e = aVar;
-            this.f7628a = str;
-            this.f7629b = list;
-            this.f7630c = arrayMap;
-            this.f7631d = str2;
+            this.f7640e = aVar;
+            this.f7636a = str;
+            this.f7637b = list;
+            this.f7638c = arrayMap;
+            this.f7639d = str2;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f7632e.d(this.f7629b);
+                this.f7640e.d(this.f7637b);
                 d.i("SwanAppUpdateManager", "update request failure: ", exc);
-                k.w(this.f7631d, -1, exc.toString());
-                c.a.p0.a.j2.q.a.b(SwanInterfaceType.UPDATE, 2101, this.f7631d, null, exc.getMessage());
+                k.w(this.f7639d, -1, exc.toString());
+                c.a.p0.a.j2.q.a.b(SwanInterfaceType.UPDATE, 2101, this.f7639d, null, exc.getMessage());
             }
         }
 
@@ -125,17 +125,17 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
                 String appId = c.a.p0.a.a2.d.g().getAppId();
-                if (TextUtils.equals(this.f7628a, appId)) {
-                    this.f7632e.s(this.f7628a, response, this.f7629b, this.f7630c);
+                if (TextUtils.equals(this.f7636a, appId)) {
+                    this.f7640e.s(this.f7636a, response, this.f7637b, this.f7638c);
                     d.h("SwanAppUpdateManager", "response code = " + response.code());
                     if (!response.isSuccessful()) {
-                        k.w(this.f7631d, response.code(), response.message());
+                        k.w(this.f7639d, response.code(), response.message());
                     }
                     return response;
                 }
-                d.h("SwanAppUpdateManager", "invalid response requestAppId:" + this.f7628a + ";currentAppId:" + appId);
-                this.f7632e.d(this.f7629b);
-                a.x(this.f7628a);
+                d.h("SwanAppUpdateManager", "invalid response requestAppId:" + this.f7636a + ";currentAppId:" + appId);
+                this.f7640e.d(this.f7637b);
+                a.x(this.f7636a);
                 return response;
             }
             return invokeLI.objValue;
@@ -148,7 +148,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.n1.q.b.a f7633e;
+        public final /* synthetic */ c.a.p0.a.n1.q.b.a f7641e;
 
         public b(a aVar, c.a.p0.a.n1.q.b.a aVar2) {
             Interceptable interceptable = $ic;
@@ -165,14 +165,14 @@ public final class a {
                     return;
                 }
             }
-            this.f7633e = aVar2;
+            this.f7641e = aVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7633e.a();
+                this.f7641e.a();
             }
         }
     }
@@ -190,7 +190,7 @@ public final class a {
                 return;
             }
         }
-        f7623d = c.a.p0.a.k.f7077a;
+        f7631d = c.a.p0.a.k.f7085a;
     }
 
     public a() {
@@ -213,14 +213,14 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f7624e == null) {
+            if (f7632e == null) {
                 synchronized (a.class) {
-                    if (f7624e == null) {
-                        f7624e = new a();
+                    if (f7632e == null) {
+                        f7632e = new a();
                     }
                 }
             }
-            return f7624e;
+            return f7632e;
         }
         return (a) invokeV.objValue;
     }
@@ -254,9 +254,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (aVar != null) {
-                this.f7627c.add(aVar);
+                this.f7635c.add(aVar);
             }
-            f(this.f7625a);
+            f(this.f7633a);
         }
     }
 
@@ -272,7 +272,7 @@ public final class a {
             try {
                 jSONObject = new JSONObject(q);
             } catch (JSONException e2) {
-                if (f7623d) {
+                if (f7631d) {
                     e2.printStackTrace();
                 }
             }
@@ -283,12 +283,12 @@ public final class a {
                 str = "";
             }
             try {
-                if (f7623d) {
+                if (f7631d) {
                     String str2 = "updateNodeVersions: update node => " + bVar.a() + " , version => " + str;
                 }
                 jSONObject.put(bVar.a(), str);
             } catch (JSONException e3) {
-                if (f7623d) {
+                if (f7631d) {
                     e3.printStackTrace();
                 }
             }
@@ -317,7 +317,7 @@ public final class a {
                 jSONObject.put("ma_id", D);
                 jSONObject.put("source", T);
             } catch (JSONException e2) {
-                if (f7623d) {
+                if (f7631d) {
                     e2.printStackTrace();
                 }
             }
@@ -325,13 +325,13 @@ public final class a {
                 try {
                     JSONObject jSONObject2 = new JSONObject();
                     String str = arrayMap.containsKey(bVar.a()) ? arrayMap.get(bVar.a()) : "";
-                    if (f7623d) {
+                    if (f7631d) {
                         String str2 = "buildRequestParams: node => " + bVar.a() + " , version => " + str;
                     }
                     jSONObject2.put("version", str);
                     jSONObject.put(bVar.a(), jSONObject2);
                 } catch (JSONException e3) {
-                    if (f7623d) {
+                    if (f7631d) {
                         e3.printStackTrace();
                     }
                 }
@@ -344,7 +344,7 @@ public final class a {
     public final void d(@NonNull List<c.a.p0.a.n1.q.c.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            boolean z = f7623d;
+            boolean z = f7631d;
             n(list);
             o(false);
         }
@@ -353,7 +353,7 @@ public final class a {
     public final void e(String str, @NonNull JSONObject jSONObject, @NonNull List<c.a.p0.a.n1.q.c.b> list, @NonNull ArrayMap<String, String> arrayMap, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048581, this, str, jSONObject, list, arrayMap, str2) == null) {
-            boolean z = f7623d;
+            boolean z = f7631d;
             t();
             boolean z2 = false;
             for (c.a.p0.a.n1.q.c.b bVar : list) {
@@ -367,13 +367,13 @@ public final class a {
                     if (optJSONObject2 == null) {
                         bVar.c();
                     } else {
-                        if (f7623d) {
+                        if (f7631d) {
                             String str3 = "doRequestSuccess: node => " + bVar.a() + " update";
                         }
                         bVar.d(str, optJSONObject2, str2);
                         String optString = optJSONObject.optString("version", "");
                         if (!TextUtils.isEmpty(optString)) {
-                            if (f7623d) {
+                            if (f7631d) {
                                 String str4 = "doRequestSuccess: " + bVar.a() + " update , version " + optString;
                             }
                             arrayMap.put(bVar.a(), optString);
@@ -397,21 +397,21 @@ public final class a {
                 p();
                 return;
             }
-            if (f7623d) {
+            if (f7631d) {
                 r0 = "doUpdate: start => nodes size " + list.size();
             }
-            if (this.f7626b.incrementAndGet() > 1) {
+            if (this.f7634b.incrementAndGet() > 1) {
                 d.h("SwanAppUpdateManager", "doUpdate: pending => wait previous request");
                 return;
             }
-            ArrayMap<String, String> i2 = i(this.f7625a);
+            ArrayMap<String, String> i2 = i(this.f7633a);
             JSONObject c2 = c(list, i2);
             if (c2 == null) {
                 d.h("SwanAppUpdateManager", "doUpdate: finish => build params is null");
                 p();
                 return;
             }
-            boolean z = f7623d;
+            boolean z = f7631d;
             FormBody build = new FormBody.Builder().add("data", c2.toString()).build();
             String b2 = c.a.p0.a.c1.a.n().b();
             d.h("SwanAppUpdateManager", "appId =" + c.a.p0.a.a2.d.g().getAppId() + ", update url = " + b2 + ",body=" + c2);
@@ -457,7 +457,7 @@ public final class a {
                     arrayMap.put(bVar2.a(), jSONObject.optString(bVar2.a(), ""));
                 }
             } catch (JSONException e2) {
-                if (f7623d) {
+                if (f7631d) {
                     e2.printStackTrace();
                 }
             }
@@ -470,9 +470,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048585, this, str, str2, requestBody, list, arrayMap) == null) {
             c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(str2, requestBody, new C0317a(this, str, list, arrayMap, str2));
-            aVar.f11845f = true;
-            aVar.f11846g = true;
-            aVar.f11847h = false;
+            aVar.f11853f = true;
+            aVar.f11854g = true;
+            aVar.f11855h = false;
             aVar.k = 20;
             c.a.p0.m.e.a.g().e(aVar);
             c.a.p0.a.j2.q.a.a(SwanInterfaceType.UPDATE);
@@ -483,8 +483,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             l();
-            this.f7626b = new AtomicInteger(0);
-            this.f7627c = new CopyOnWriteArrayList<>();
+            this.f7634b = new AtomicInteger(0);
+            this.f7635c = new CopyOnWriteArrayList<>();
         }
     }
 
@@ -492,9 +492,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             ArrayList arrayList = new ArrayList();
-            this.f7625a = arrayList;
+            this.f7633a = arrayList;
             arrayList.add(new c.a.p0.a.n1.q.c.a());
-            this.f7625a.add(new c());
+            this.f7633a.add(new c());
         }
     }
 
@@ -523,10 +523,10 @@ public final class a {
     public final void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            boolean z2 = f7623d;
-            if (this.f7626b.decrementAndGet() > 0) {
-                boolean z3 = f7623d;
-                this.f7626b.set(0);
+            boolean z2 = f7631d;
+            if (this.f7634b.decrementAndGet() > 0) {
+                boolean z3 = f7631d;
+                this.f7634b.set(0);
                 if (!z) {
                     A();
                     return;
@@ -542,13 +542,13 @@ public final class a {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            boolean z = f7623d;
-            this.f7626b.set(0);
-            Iterator<c.a.p0.a.n1.q.b.a> it = this.f7627c.iterator();
+            boolean z = f7631d;
+            this.f7634b.set(0);
+            Iterator<c.a.p0.a.n1.q.b.a> it = this.f7635c.iterator();
             while (it.hasNext()) {
                 c.a.p0.a.e2.c.d.k(new b(this, it.next()));
             }
-            this.f7627c.clear();
+            this.f7635c.clear();
         }
     }
 
@@ -558,7 +558,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, bVar, jSONObject) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            boolean z = f7623d;
+            boolean z = f7631d;
             String string = bVar.getString("node_data_accredit_list", "");
             d.h("SwanAppUpdateManager", "prefName: " + bVar.i() + ",cacheData is Empty = " + TextUtils.isEmpty(string) + ":accreditNodeObj=" + jSONObject);
             if (TextUtils.isEmpty(string)) {
@@ -567,7 +567,7 @@ public final class a {
                 String jSONObject4 = jSONObject3.toString();
                 bVar.putString("node_data_accredit_list", jSONObject4);
                 bVar.putString("cur_request_id", "pkgInfo:" + System.currentTimeMillis());
-                if (f7623d) {
+                if (f7631d) {
                     r0 = "local has no cache data, write directly. pending data = " + jSONObject4;
                 }
             } else {
@@ -602,7 +602,7 @@ public final class a {
                     return;
                 }
             }
-            if (f7623d) {
+            if (f7631d) {
                 String str = "parse increment accredit node end, cost = " + (System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -629,7 +629,7 @@ public final class a {
     public final void s(String str, Response response, @NonNull List<c.a.p0.a.n1.q.c.b> list, @NonNull ArrayMap<String, String> arrayMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048594, this, str, response, list, arrayMap) == null) {
-            boolean z = f7623d;
+            boolean z = f7631d;
             String str2 = null;
             if (!response.isSuccessful()) {
                 d(list);
@@ -645,7 +645,7 @@ public final class a {
             try {
                 str2 = body.string();
             } catch (IOException e2) {
-                if (f7623d) {
+                if (f7631d) {
                     e2.printStackTrace();
                 }
             }
@@ -671,7 +671,7 @@ public final class a {
                     e(str, optJSONObject, list, arrayMap, optString);
                 }
             } catch (JSONException e3) {
-                if (f7623d) {
+                if (f7631d) {
                     e3.printStackTrace();
                 }
                 d(list);
@@ -690,12 +690,12 @@ public final class a {
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            boolean z = f7623d;
-            if (f7624e == null) {
+            boolean z = f7631d;
+            if (f7632e == null) {
                 return;
             }
-            this.f7627c.clear();
-            f7624e = null;
+            this.f7635c.clear();
+            f7632e = null;
         }
     }
 
@@ -713,10 +713,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, bVar) == null) {
             if (bVar == null) {
-                boolean z = f7623d;
+                boolean z = f7631d;
                 return;
             }
-            if (f7623d) {
+            if (f7631d) {
                 String str = "resetNodeVersion: " + bVar.a();
             }
             ArrayList arrayList = new ArrayList();
@@ -743,11 +743,11 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, aVar) == null) {
             if (m()) {
-                boolean z = f7623d;
+                boolean z = f7631d;
                 B(aVar);
                 return;
             }
-            boolean z2 = f7623d;
+            boolean z2 = f7631d;
             if (aVar != null) {
                 aVar.a();
             }

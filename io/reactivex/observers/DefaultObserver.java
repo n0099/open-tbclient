@@ -10,7 +10,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.EndConsumerHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public abstract class DefaultObserver<T> implements Observer<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

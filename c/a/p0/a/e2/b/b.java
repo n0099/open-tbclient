@@ -25,10 +25,10 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5433e;
+        public final /* synthetic */ CallbackHandler f5441e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5434f;
+        public final /* synthetic */ String f5442f;
 
         public a(b bVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f5433e = callbackHandler;
-            this.f5434f = str;
+            this.f5441e = callbackHandler;
+            this.f5442f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,8 +56,8 @@ public class b extends a0 {
             JSONObject wrapCallbackParams;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                if (iVar.c() && c.a.p0.a.u.e.a.b.s(iVar.f5582a)) {
-                    JSONObject optJSONObject = iVar.f5582a.optJSONObject("data");
+                if (iVar.c() && c.a.p0.a.u.e.a.b.s(iVar.f5590a)) {
+                    JSONObject optJSONObject = iVar.f5590a.optJSONObject("data");
                     if (optJSONObject.optBoolean("result")) {
                         wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
                     } else {
@@ -65,9 +65,9 @@ public class b extends a0 {
                     }
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(iVar.b());
-                    c.a.p0.a.c1.b.j().g(this.f5433e, wrapCallbackParams.toString());
+                    c.a.p0.a.c1.b.j().g(this.f5441e, wrapCallbackParams.toString());
                 }
-                this.f5433e.handleSchemeDispatchCallback(this.f5434f, wrapCallbackParams.toString());
+                this.f5441e.handleSchemeDispatchCallback(this.f5442f, wrapCallbackParams.toString());
             }
         }
     }

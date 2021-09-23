@@ -33,7 +33,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        FileHelper.deleteFileOrDir(new File(f.f29715e + f.f29711a + str));
+        FileHelper.deleteFileOrDir(new File(f.f29735e + f.f29731a + str));
     }
 
     public static void c(String str, JSONArray jSONArray) {

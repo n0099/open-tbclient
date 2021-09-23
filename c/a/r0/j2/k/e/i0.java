@@ -28,7 +28,7 @@ public class i0 extends n<g0, PbPageNewsInfoHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i0 f20136a;
+        public final /* synthetic */ i0 f20151a;
 
         public a(i0 i0Var) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class i0 extends n<g0, PbPageNewsInfoHolder> {
                     return;
                 }
             }
-            this.f20136a = i0Var;
+            this.f20151a = i0Var;
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder.b
@@ -54,7 +54,7 @@ public class i0 extends n<g0, PbPageNewsInfoHolder> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, g0Var) == null) || g0Var == null) {
                 return;
             }
-            c.a.r0.j2.m.a.a(this.f20136a.s, g0Var, g0Var.i0, 5);
+            c.a.r0.j2.m.a.a(this.f20151a.s, g0Var, g0Var.i0, 5);
         }
     }
 
@@ -92,7 +92,7 @@ public class i0 extends n<g0, PbPageNewsInfoHolder> {
     public PbPageNewsInfoHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPageNewsInfoHolder(this.n.getPageContext(), LayoutInflater.from(this.f2957e).inflate(R.layout.pb_page_news, viewGroup, false), this.t) : (PbPageNewsInfoHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPageNewsInfoHolder(this.n.getPageContext(), LayoutInflater.from(this.f2958e).inflate(R.layout.pb_page_news, viewGroup, false), this.t) : (PbPageNewsInfoHolder) invokeL.objValue;
     }
 
     public View l0(int i2, View view, ViewGroup viewGroup, g0 g0Var, PbPageNewsInfoHolder pbPageNewsInfoHolder) {

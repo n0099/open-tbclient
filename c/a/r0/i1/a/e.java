@@ -54,9 +54,9 @@ public class e extends c.a.e.l.e.a<c.a.r0.i1.c.g, HotTopicIntervalItemHolder> {
     public final void h0(HotTopicIntervalItemHolder hotTopicIntervalItemHolder, c.a.r0.i1.c.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hotTopicIntervalItemHolder, gVar) == null) {
-            if (hotTopicIntervalItemHolder != null && gVar != null && !StringUtils.isNull(gVar.f19286e)) {
+            if (hotTopicIntervalItemHolder != null && gVar != null && !StringUtils.isNull(gVar.f19301e)) {
                 hotTopicIntervalItemHolder.moduleTheme.setVisibility(0);
-                hotTopicIntervalItemHolder.moduleTheme.setText(gVar.f19286e);
+                hotTopicIntervalItemHolder.moduleTheme.setText(gVar.f19301e);
             } else if (hotTopicIntervalItemHolder != null) {
                 hotTopicIntervalItemHolder.moduleTheme.setVisibility(8);
             }
@@ -84,7 +84,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.i1.c.g, HotTopicIntervalItemHolder> {
     public HotTopicIntervalItemHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotTopicIntervalItemHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.hot_topic_interval, viewGroup, false)) : (HotTopicIntervalItemHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotTopicIntervalItemHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.hot_topic_interval, viewGroup, false)) : (HotTopicIntervalItemHolder) invokeL.objValue;
     }
 
     public View k0(int i2, View view, ViewGroup viewGroup, c.a.r0.i1.c.g gVar, HotTopicIntervalItemHolder hotTopicIntervalItemHolder) {

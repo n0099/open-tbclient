@@ -11,7 +11,7 @@ public abstract class d<DispatcherT extends UnitedSchemeAbsDispatcher> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f4768a;
+    public final String f4776a;
 
     public d(DispatcherT dispatchert, String str) {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public abstract class d<DispatcherT extends UnitedSchemeAbsDispatcher> {
                 return;
             }
         }
-        this.f4768a = str;
+        this.f4776a = str;
     }
 }

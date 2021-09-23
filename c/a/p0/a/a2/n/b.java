@@ -19,11 +19,11 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f4591b;
+    public static final boolean f4599b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, g> f4592a;
+    public Map<String, g> f4600a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public final class b {
                 return;
             }
         }
-        f4591b = k.f7077a;
+        f4599b = k.f7085a;
     }
 
     public b() {
@@ -54,7 +54,7 @@ public final class b {
                 return;
             }
         }
-        this.f4592a = null;
+        this.f4600a = null;
     }
 
     public static String c(String str, String str2) {
@@ -68,7 +68,7 @@ public final class b {
                 str3 = str + File.separator + str2 + ".json";
             }
             File file = new File(str3);
-            if (f4591b) {
+            if (f4599b) {
                 String str4 = "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + file.exists();
             }
             if (file.exists()) {
@@ -87,7 +87,7 @@ public final class b {
                 return gVar;
             }
             g d2 = d(str, str2, gVar);
-            this.f4592a.put(str2, d2);
+            this.f4600a.put(str2, d2);
             return d2;
         }
         return (g) invokeLLL.objValue;
@@ -100,15 +100,15 @@ public final class b {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return gVar;
             }
-            if (this.f4592a == null) {
-                this.f4592a = new TreeMap();
+            if (this.f4600a == null) {
+                this.f4600a = new TreeMap();
             }
-            g gVar2 = this.f4592a.get(str2);
+            g gVar2 = this.f4600a.get(str2);
             if (gVar2 != null) {
                 return gVar2;
             }
             g d2 = d(str, str2, gVar);
-            this.f4592a.put(str2, d2);
+            this.f4600a.put(str2, d2);
             return d2;
         }
         return (g) invokeLLL.objValue;

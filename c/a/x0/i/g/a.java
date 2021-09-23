@@ -22,14 +22,14 @@ public class a extends c implements c.a.x0.l.d.j.b {
 
     /* renamed from: c.a.x0.i.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1423a extends c.a.x0.l.d.j.c.a {
+    public class C1421a extends c.a.x0.l.d.j.c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f30814e;
+        public final /* synthetic */ a f30835e;
 
-        public C1423a(a aVar) {
+        public C1421a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,27 +44,27 @@ public class a extends c implements c.a.x0.l.d.j.b {
                     return;
                 }
             }
-            this.f30814e = aVar;
+            this.f30835e = aVar;
         }
 
         @Override // c.a.x0.l.d.j.c.a, c.a.x0.l.d.j.b
         public void onExceptionThrown(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f30814e.D == null || this.f30814e.p) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f30835e.D == null || this.f30835e.p) {
                 return;
             }
-            this.f30814e.D.onExceptionThrown(str);
+            this.f30835e.D.onExceptionThrown(str);
         }
 
         @Override // c.a.x0.l.d.j.c.a
         public void onFinishedWriting(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.f30814e.o = true;
-                if (this.f30814e.D == null || this.f30814e.p) {
+                this.f30835e.o = true;
+                if (this.f30835e.D == null || this.f30835e.p) {
                     return;
                 }
-                this.f30814e.D.onFinishedWriting(z);
+                this.f30835e.D.onFinishedWriting(z);
             }
         }
     }
@@ -102,12 +102,12 @@ public class a extends c implements c.a.x0.l.d.j.b {
                 j3 = 0;
             }
             this.I = j3;
-            if (this.f30802i != null) {
-                if (j3 > this.f30802i.getDuration()) {
-                    j3 = this.f30802i.getDuration();
+            if (this.f30823i != null) {
+                if (j3 > this.f30823i.getDuration()) {
+                    j3 = this.f30823i.getDuration();
                 }
-                synchronized (this.f30800g) {
-                    this.f30802i.seek(j3);
+                synchronized (this.f30821g) {
+                    this.f30823i.seek(j3);
                 }
             }
         }
@@ -119,11 +119,11 @@ public class a extends c implements c.a.x0.l.d.j.b {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.o) {
             return;
         }
-        long currentPosition = this.f30802i.getCurrentPosition();
+        long currentPosition = this.f30823i.getCurrentPosition();
         long j2 = this.I;
         long j3 = currentPosition - j2;
         long j4 = this.J;
-        long duration = j4 > 0 ? j4 - j2 : this.f30802i.getDuration();
+        long duration = j4 > 0 ? j4 - j2 : this.f30823i.getDuration();
         double d2 = duration == 0 ? 0.0d : j3 / duration;
         double d3 = d2 >= 0.0d ? d2 : 0.0d;
         onProgressChanged(this.r, d3 > 1.0d ? 1.0d : d3, j3);
@@ -149,12 +149,12 @@ public class a extends c implements c.a.x0.l.d.j.b {
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             long j3 = j2 * 1000;
             this.J = j3;
-            if (this.f30802i != null) {
-                if (j3 > this.f30802i.getDuration()) {
-                    j3 = this.f30802i.getDuration();
+            if (this.f30823i != null) {
+                if (j3 > this.f30823i.getDuration()) {
+                    j3 = this.f30823i.getDuration();
                 }
-                synchronized (this.f30800g) {
-                    this.f30802i.h(j3);
+                synchronized (this.f30821g) {
+                    this.f30823i.h(j3);
                 }
             }
         }
@@ -164,7 +164,7 @@ public class a extends c implements c.a.x0.l.d.j.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.D = aVar;
-            this.F.d(new C1423a(this));
+            this.F.d(new C1421a(this));
         }
     }
 

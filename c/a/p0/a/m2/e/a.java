@@ -29,13 +29,13 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7384a;
+    public static final boolean f7392a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static C0298a f7385b;
+    public static C0298a f7393b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static C0298a f7386c;
+    public static C0298a f7394c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.m2.e.a$a  reason: collision with other inner class name */
@@ -45,10 +45,10 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f7387a;
+        public String f7395a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f7388b;
+        public long f7396b;
 
         public C0298a() {
             Interceptable interceptable = $ic;
@@ -82,8 +82,8 @@ public final class a {
             if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, i2)) == null) {
                 C0298a c0298a = new C0298a();
                 if (jSONObject != null) {
-                    c0298a.f7387a = jSONObject.optString(c(i2));
-                    c0298a.f7388b = jSONObject.optLong(b(i2));
+                    c0298a.f7395a = jSONObject.optString(c(i2));
+                    c0298a.f7396b = jSONObject.optLong(b(i2));
                 }
                 return c0298a;
             }
@@ -93,13 +93,13 @@ public final class a {
         public long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7388b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7396b : invokeV.longValue;
         }
 
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f7387a) ? "0" : this.f7387a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f7395a) ? "0" : this.f7395a : (String) invokeV.objValue;
         }
     }
 
@@ -116,7 +116,7 @@ public final class a {
                 return;
             }
         }
-        f7384a = k.f7077a;
+        f7392a = k.f7085a;
     }
 
     public static boolean a(String str) {
@@ -173,7 +173,7 @@ public final class a {
                 SwanJSVersionUpdateEvent.sendEvent(c0298a.d());
             }
             v(false, i2);
-            if (f7384a) {
+            if (f7392a) {
                 String b2 = f.b(new File(h(i2)), false);
                 if (TextUtils.isEmpty(b2)) {
                     return null;
@@ -190,10 +190,10 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f7385b == null) {
-                f7385b = C0298a.f(u(0), 0);
+            if (f7393b == null) {
+                f7393b = C0298a.f(u(0), 0);
             }
-            return f7385b;
+            return f7393b;
         }
         return (C0298a) invokeV.objValue;
     }
@@ -226,10 +226,10 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f7386c == null) {
-                f7386c = C0298a.f(u(1), 1);
+            if (f7394c == null) {
+                f7394c = C0298a.f(u(1), 1);
             }
-            return f7386c;
+            return f7394c;
         }
         return (C0298a) invokeV.objValue;
     }
@@ -294,7 +294,7 @@ public final class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i2)) == null) {
-            if (k(i2).f7388b > 0) {
+            if (k(i2).f7396b > 0) {
                 return h.a().getBoolean(n(i2), false) || !m(i2).isAvailable();
             }
             return false;
@@ -319,7 +319,7 @@ public final class a {
                 String h2 = h(i2);
                 String path = l(k.d(), i2).getPath();
                 boolean y = c.a.p0.t.d.y(h2, path);
-                if (f7384a) {
+                if (f7392a) {
                     String str = "isZipAssetMatchUnzipResult:" + y + ",path:" + path;
                 }
                 if (!y) {
@@ -336,11 +336,11 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i2)) == null) {
             synchronized (a.class) {
-                boolean z = f7384a;
+                boolean z = f7392a;
                 if (q(i2)) {
                     C0298a k = k(i2);
                     long j2 = h.a().getLong(h(i2), 0L);
-                    if (f7384a) {
+                    if (f7392a) {
                         String str = "onPresetUpdate curVer: " + j2 + " newVer: " + k.e();
                     }
                     return c(k, i2);
@@ -355,19 +355,19 @@ public final class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i2)) == null) {
-            boolean z = f7384a;
+            boolean z = f7392a;
             String C = c.a.p0.t.d.C(AppRuntime.getAppContext(), e(i2));
             if (TextUtils.isEmpty(C)) {
                 return null;
             }
             try {
                 JSONObject jSONObject = new JSONObject(C);
-                if (f7384a) {
+                if (f7392a) {
                     String str = "readPresetConfig end. config: " + jSONObject.toString();
                 }
                 return jSONObject;
             } catch (JSONException e2) {
-                if (f7384a) {
+                if (f7392a) {
                     throw new RuntimeException(e2);
                 }
                 return null;

@@ -14,12 +14,12 @@ import java.io.File;
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static b f36043a;
+    /* renamed from: b  reason: collision with root package name */
+    public static b f36077b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Context f36044b;
+    /* renamed from: a  reason: collision with root package name */
+    public Context f36078a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -35,19 +35,19 @@ public class b {
         }
     }
 
-    public static b a() {
+    public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f36043a == null) {
-                f36043a = new b();
+            if (f36077b == null) {
+                f36077b = new b();
             }
-            return f36043a;
+            return f36077b;
         }
         return (b) invokeV.objValue;
     }
 
-    public static boolean d() {
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -62,24 +62,26 @@ public class b {
         return invokeV.booleanValue;
     }
 
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            com.alipay.sdk.data.b.b();
+            this.f36078a = context.getApplicationContext();
+        }
+    }
+
     public Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36044b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36078a : (Context) invokeV.objValue;
     }
 
-    public com.alipay.sdk.data.b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.alipay.sdk.data.b.b() : (com.alipay.sdk.data.b) invokeV.objValue;
-    }
-
-    public String e() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return UTDevice.getUtdid(this.f36044b);
+                return UTDevice.getUtdid(this.f36078a);
             } catch (Throwable th) {
                 c.a(th);
                 return "getUtdidEx";
@@ -88,11 +90,9 @@ public class b {
         return (String) invokeV.objValue;
     }
 
-    public void a(Context context) {
+    public com.alipay.sdk.data.b a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            com.alipay.sdk.data.b.b();
-            this.f36044b = context.getApplicationContext();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.alipay.sdk.data.b.b() : (com.alipay.sdk.data.b) invokeV.objValue;
     }
 }

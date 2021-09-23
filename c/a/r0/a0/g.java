@@ -77,7 +77,7 @@ public class g extends b<c.a.r0.g0.e> {
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             if (view == this.n || view == this.o || view == this.p || view == this.q) {
                 TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.t));
-                UrlManager.getInstance().dealOneLink((TbPageContext) c.a.e.a.j.a(this.f15549f.getPageActivity()), new String[]{(String) view.getTag()}, true);
+                UrlManager.getInstance().dealOneLink((TbPageContext) c.a.e.a.j.a(this.f15558f.getPageActivity()), new String[]{(String) view.getTag()}, true);
             }
         }
     }

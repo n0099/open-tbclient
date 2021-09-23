@@ -15,7 +15,7 @@ public class B0 implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ E0 f76764a;
+    public final /* synthetic */ E0 f77083a;
 
     public B0(E0 e0) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class B0 implements View.OnTouchListener {
                 return;
             }
         }
-        this.f76764a = e0;
+        this.f77083a = e0;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -43,37 +43,37 @@ public class B0 implements View.OnTouchListener {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f76764a.f76790j = true;
-                this.f76764a.k = System.currentTimeMillis();
-                this.f76764a.l = motionEvent.getX();
-                this.f76764a.m = motionEvent.getY();
-                this.f76764a.n = (int) motionEvent.getRawX();
-                this.f76764a.o = (int) motionEvent.getRawY();
-                this.f76764a.p = (int) motionEvent.getX();
-                this.f76764a.q = (int) motionEvent.getY();
-                this.f76764a.v = System.currentTimeMillis();
-                E0.a(this.f76764a, view);
+                this.f77083a.f77109j = true;
+                this.f77083a.k = System.currentTimeMillis();
+                this.f77083a.l = motionEvent.getX();
+                this.f77083a.m = motionEvent.getY();
+                this.f77083a.n = (int) motionEvent.getRawX();
+                this.f77083a.o = (int) motionEvent.getRawY();
+                this.f77083a.p = (int) motionEvent.getX();
+                this.f77083a.q = (int) motionEvent.getY();
+                this.f77083a.v = System.currentTimeMillis();
+                E0.a(this.f77083a, view);
             } else if (action == 1) {
-                this.f76764a.w = (int) motionEvent.getRawX();
-                this.f76764a.x = (int) motionEvent.getRawY();
-                this.f76764a.r = (int) motionEvent.getX();
-                this.f76764a.s = (int) motionEvent.getY();
-                this.f76764a.y = System.currentTimeMillis();
-                Math.abs(motionEvent.getX() - this.f76764a.l);
-                Math.abs(motionEvent.getY() - this.f76764a.m);
-                if (System.currentTimeMillis() - this.f76764a.k < 2000) {
-                    E0 e0 = this.f76764a;
-                    if (e0.f76790j && (info = e0.f76783c) != null && Q1.a(info, e0.f76788h)) {
-                        this.f76764a.f76788h = System.currentTimeMillis();
-                        E0 e02 = this.f76764a;
-                        Context context = e02.f76781a;
-                        String open = e02.f76783c.getOpen();
-                        E0 e03 = this.f76764a;
-                        Q1.a(context, open, e03.f76783c, e03.f76787g, e03.d().toString());
-                        Z0.a(this.f76764a.f76781a).a(new a1(this.f76764a.f76783c), (String) null).a("desc", this.f76764a.d().toString()).a();
-                        E0 e04 = this.f76764a;
-                        N.a(e04.f76783c, e04.d().toString());
-                        PBNativeListener pBNativeListener = this.f76764a.f76786f;
+                this.f77083a.w = (int) motionEvent.getRawX();
+                this.f77083a.x = (int) motionEvent.getRawY();
+                this.f77083a.r = (int) motionEvent.getX();
+                this.f77083a.s = (int) motionEvent.getY();
+                this.f77083a.y = System.currentTimeMillis();
+                Math.abs(motionEvent.getX() - this.f77083a.l);
+                Math.abs(motionEvent.getY() - this.f77083a.m);
+                if (System.currentTimeMillis() - this.f77083a.k < 2000) {
+                    E0 e0 = this.f77083a;
+                    if (e0.f77109j && (info = e0.f77102c) != null && Q1.a(info, e0.f77107h)) {
+                        this.f77083a.f77107h = System.currentTimeMillis();
+                        E0 e02 = this.f77083a;
+                        Context context = e02.f77100a;
+                        String open = e02.f77102c.getOpen();
+                        E0 e03 = this.f77083a;
+                        Q1.a(context, open, e03.f77102c, e03.f77106g, e03.d().toString());
+                        Z0.a(this.f77083a.f77100a).a(new a1(this.f77083a.f77102c), (String) null).a("desc", this.f77083a.d().toString()).a();
+                        E0 e04 = this.f77083a;
+                        N.a(e04.f77102c, e04.d().toString());
+                        PBNativeListener pBNativeListener = this.f77083a.f77105f;
                         if (pBNativeListener != null) {
                             pBNativeListener.onClicked();
                         }

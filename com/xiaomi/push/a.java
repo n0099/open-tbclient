@@ -13,7 +13,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f77330a;
+    public static final a f77649a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -35,7 +35,7 @@ public final class a {
                 return;
             }
         }
-        f77330a = new a(new byte[0]);
+        f77649a = new a(new byte[0]);
     }
 
     public a(byte[] bArr) {

@@ -12,10 +12,10 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f8331a;
+    public int f8339a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8332b;
+    public int f8340b;
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
@@ -34,16 +34,16 @@ public class g {
                 return;
             }
         }
-        this.f8331a = 0;
-        this.f8331a = 0 + 1;
-        this.f8332b = 0;
+        this.f8339a = 0;
+        this.f8339a = 0 + 1;
+        this.f8340b = 0;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SaveFileCallBack" + this.f8332b;
+            return "SaveFileCallBack" + this.f8340b;
         }
         return (String) invokeV.objValue;
     }

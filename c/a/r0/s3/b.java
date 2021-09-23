@@ -25,7 +25,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f24817a;
+    public static b f24833a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -34,7 +34,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f24818a;
+        public final /* synthetic */ b f24834a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class b {
                     return;
                 }
             }
-            this.f24818a = bVar;
+            this.f24834a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,7 +64,7 @@ public class b {
                 int size = h2.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     c.a.r0.s3.a aVar = (c.a.r0.s3.a) h2.get(i2);
-                    this.f24818a.j(aVar.f24815a, aVar.f24816b);
+                    this.f24834a.j(aVar.f24831a, aVar.f24832b);
                 }
                 return null;
             }
@@ -74,14 +74,14 @@ public class b {
 
     /* renamed from: c.a.r0.s3.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1148b extends BdAsyncTask<c.a.r0.s3.a, Void, Void> {
+    public class C1146b extends BdAsyncTask<c.a.r0.s3.a, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f24819a;
+        public final /* synthetic */ b f24835a;
 
-        public C1148b(b bVar) {
+        public C1146b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public class b {
                     return;
                 }
             }
-            this.f24819a = bVar;
+            this.f24835a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -107,7 +107,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVarArr)) == null) {
                 if (aVarArr != null && aVarArr.length == 1 && aVarArr[0] != null) {
-                    this.f24819a.c(aVarArr[0]);
+                    this.f24835a.c(aVarArr[0]);
                 }
                 return null;
             }
@@ -128,7 +128,7 @@ public class b {
                 return;
             }
         }
-        f24817a = new b();
+        f24833a = new b();
     }
 
     public b() {
@@ -148,7 +148,7 @@ public class b {
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f24817a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f24833a : (b) invokeV.objValue;
     }
 
     public static JSONObject e(String str) {
@@ -194,7 +194,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            File file = new File(f.f29715e);
+            File file = new File(f.f29735e);
             if (file.exists()) {
                 return file.listFiles();
             }
@@ -214,11 +214,11 @@ public class b {
             }
             for (File file : g2) {
                 String name = file.getName();
-                JSONObject f2 = f(file.getAbsolutePath() + f.f29711a + "kpi");
+                JSONObject f2 = f(file.getAbsolutePath() + f.f29731a + "kpi");
                 if (f2 == null) {
                     c.a.r0.z1.d.b(name);
                 } else {
-                    JSONObject e2 = e(file.getAbsolutePath() + f.f29711a + "debug");
+                    JSONObject e2 = e(file.getAbsolutePath() + f.f29731a + "debug");
                     if (e2 == null) {
                         c.a.r0.z1.d.b(name);
                     } else {
@@ -290,9 +290,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             try {
-                byte[] b2 = c.b(aVar.f24816b);
+                byte[] b2 = c.b(aVar.f24832b);
                 c.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-                c.a.r0.z1.d.b(aVar.f24815a);
+                c.a.r0.z1.d.b(aVar.f24831a);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -302,7 +302,7 @@ public class b {
     public void j(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            new C1148b(this).execute(new c.a.r0.s3.a(str, jSONObject));
+            new C1146b(this).execute(new c.a.r0.s3.a(str, jSONObject));
         }
     }
 

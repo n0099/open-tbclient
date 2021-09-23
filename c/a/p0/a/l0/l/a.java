@@ -15,7 +15,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public V8Engine f7200a;
+    public V8Engine f7208a;
 
     public a(V8Engine v8Engine) {
         Interceptable interceptable = $ic;
@@ -32,34 +32,34 @@ public class a {
                 return;
             }
         }
-        this.f7200a = v8Engine;
+        this.f7208a = v8Engine;
     }
 
     public void a(@NonNull Object obj, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, obj, str) == null) {
-            this.f7200a.addJavascriptInterface(obj, str);
+            this.f7208a.addJavascriptInterface(obj, str);
         }
     }
 
     public void b(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            this.f7200a.evaluateJavascript(str, valueCallback, "mainContextEvaluate");
+            this.f7208a.evaluateJavascript(str, valueCallback, "mainContextEvaluate");
         }
     }
 
     public void c(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            this.f7200a.requireJSFile(str, str2);
+            this.f7208a.requireJSFile(str, str2);
         }
     }
 
     public void d(JSExceptionType jSExceptionType, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, jSExceptionType, str) == null) {
-            this.f7200a.throwJSException(jSExceptionType, str);
+            this.f7208a.throwJSException(jSExceptionType, str);
         }
     }
 }

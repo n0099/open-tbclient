@@ -31,35 +31,35 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f9807i;
+    public static final boolean f9815i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final ViewGroup.LayoutParams f9808j;
+    public static final ViewGroup.LayoutParams f9816j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f9809a;
+    public Context f9817a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f9810b;
+    public View f9818b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f9811c;
+    public FrameLayout f9819c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9812d;
+    public int f9820d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f9813e;
+    public int f9821e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9814f;
+    public String f9822f;
 
     /* renamed from: g  reason: collision with root package name */
-    public InterfaceC0469b f9815g;
+    public InterfaceC0469b f9823g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f9816h;
+    public c f9824h;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -67,7 +67,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f9817e;
+        public final /* synthetic */ b f9825e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -84,16 +84,16 @@ public class b {
                     return;
                 }
             }
-            this.f9817e = bVar;
+            this.f9825e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9817e.f9810b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9825e.f9818b == null) {
                 return;
             }
-            this.f9817e.f9810b.requestFocus();
+            this.f9825e.f9818b.requestFocus();
         }
     }
 
@@ -109,10 +109,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Activity f9818a;
+        public Activity f9826a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9819b;
+        public String f9827b;
 
         public c(Activity activity, String str) {
             Interceptable interceptable = $ic;
@@ -129,16 +129,16 @@ public class b {
                     return;
                 }
             }
-            this.f9818a = activity;
-            this.f9819b = str;
+            this.f9826a = activity;
+            this.f9827b = str;
         }
 
         @Override // c.a.p0.a.g1.h
         public void a(d dVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) && TextUtils.equals(dVar.c(), this.f9819b)) {
-                b.f(this.f9818a, true);
-                ((ViewGroup) this.f9818a.getWindow().getDecorView()).setSystemUiVisibility(4098);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) && TextUtils.equals(dVar.c(), this.f9827b)) {
+                b.f(this.f9826a, true);
+                ((ViewGroup) this.f9826a.getWindow().getDecorView()).setSystemUiVisibility(4098);
             }
         }
 
@@ -177,8 +177,8 @@ public class b {
                 return;
             }
         }
-        f9807i = k.f7077a;
-        f9808j = new FrameLayout.LayoutParams(-1, -1);
+        f9815i = k.f7085a;
+        f9816j = new FrameLayout.LayoutParams(-1, -1);
     }
 
     public b(Context context, String str) {
@@ -196,8 +196,8 @@ public class b {
                 return;
             }
         }
-        this.f9809a = context;
-        this.f9814f = str;
+        this.f9817a = context;
+        this.f9822f = str;
     }
 
     public static void f(Activity activity, boolean z) {
@@ -212,15 +212,15 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             synchronized (this) {
-                if (f9807i) {
+                if (f9815i) {
                     String str2 = "addComponentToFullScreen: " + str;
                 }
-                c.a.p0.a.c0.b.a b2 = c.a.p0.a.c0.d.a.b(this.f9814f, str);
+                c.a.p0.a.c0.b.a b2 = c.a.p0.a.c0.d.a.b(this.f9822f, str);
                 if (b2 == null) {
                     return;
                 }
-                if ("coverView".equals(b2.n().f4656e) || "coverImage".equals(b2.n().f4656e)) {
-                    if (this.f9811c == null) {
+                if ("coverView".equals(b2.n().f4664e) || "coverImage".equals(b2.n().f4664e)) {
+                    if (this.f9819c == null) {
                         return;
                     }
                     SwanAppComponentContainerView m = b2.m();
@@ -230,7 +230,7 @@ public class b {
                     ViewParent parent = m.getParent();
                     if (parent instanceof ViewGroup) {
                         ((ViewGroup) parent).removeView(m);
-                        this.f9811c.addView(m);
+                        this.f9819c.addView(m);
                     }
                 }
             }
@@ -239,26 +239,26 @@ public class b {
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f9810b == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f9818b == null) {
             return;
         }
-        boolean z = f9807i;
-        Context context = this.f9809a;
+        boolean z = f9815i;
+        Context context = this.f9817a;
         Activity activity = context instanceof Activity ? (Activity) context : null;
         if (activity != null) {
-            i.f(this.f9816h);
-            this.f9816h = null;
+            i.f(this.f9824h);
+            this.f9824h = null;
             f(activity, false);
             ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
-            viewGroup.removeView(this.f9811c);
-            this.f9811c = null;
-            this.f9810b = null;
-            InterfaceC0469b interfaceC0469b = this.f9815g;
+            viewGroup.removeView(this.f9819c);
+            this.f9819c = null;
+            this.f9818b = null;
+            InterfaceC0469b interfaceC0469b = this.f9823g;
             if (interfaceC0469b != null) {
                 interfaceC0469b.onCustomViewHidden();
             }
-            activity.setRequestedOrientation(this.f9812d);
-            viewGroup.setSystemUiVisibility(this.f9813e);
+            activity.setRequestedOrientation(this.f9820d);
+            viewGroup.setSystemUiVisibility(this.f9821e);
         }
     }
 
@@ -267,14 +267,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             synchronized (this) {
-                if (f9807i) {
+                if (f9815i) {
                     String str2 = "removeComponentFromFullScreen: " + str;
                 }
-                c.a.p0.a.c0.b.a b2 = c.a.p0.a.c0.d.a.b(this.f9814f, str);
+                c.a.p0.a.c0.b.a b2 = c.a.p0.a.c0.d.a.b(this.f9822f, str);
                 if (b2 == null) {
                     return;
                 }
-                if ("coverView".equals(b2.n().f4656e) || "coverImage".equals(b2.n().f4656e)) {
+                if ("coverView".equals(b2.n().f4664e) || "coverImage".equals(b2.n().f4664e)) {
                     SwanAppComponentContainerView m = b2.m();
                     if (m == null) {
                         return;
@@ -292,36 +292,36 @@ public class b {
     public void g(View view, int i2, @Nullable InterfaceC0469b interfaceC0469b) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048579, this, view, i2, interfaceC0469b) == null) {
-            boolean z = f9807i;
-            Context context = this.f9809a;
+            boolean z = f9815i;
+            Context context = this.f9817a;
             Activity activity = context instanceof Activity ? (Activity) context : null;
             if (activity != null) {
-                if (this.f9810b != null) {
+                if (this.f9818b != null) {
                     if (interfaceC0469b != null) {
                         interfaceC0469b.onCustomViewHidden();
-                        this.f9815g = interfaceC0469b;
+                        this.f9823g = interfaceC0469b;
                         return;
                     }
                     return;
                 }
-                this.f9812d = activity.getRequestedOrientation();
+                this.f9820d = activity.getRequestedOrientation();
                 ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
                 SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
-                this.f9811c = swanAppInlineFullScreenContainer;
-                swanAppInlineFullScreenContainer.addView(view, f9808j);
-                viewGroup.addView(this.f9811c, f9808j);
-                this.f9810b = view;
+                this.f9819c = swanAppInlineFullScreenContainer;
+                swanAppInlineFullScreenContainer.addView(view, f9816j);
+                viewGroup.addView(this.f9819c, f9816j);
+                this.f9818b = view;
                 f(activity, true);
                 activity.setRequestedOrientation(i2);
                 if (c.a.p0.a.c1.a.H().a() && (activity instanceof SwanAppActivity)) {
                     ((SwanAppActivity) activity).onNightModeCoverChanged(true, false);
                 }
-                this.f9813e = viewGroup.getSystemUiVisibility();
+                this.f9821e = viewGroup.getSystemUiVisibility();
                 viewGroup.setSystemUiVisibility(4098);
-                if (this.f9816h == null) {
-                    this.f9816h = new c(activity, this.f9814f);
+                if (this.f9824h == null) {
+                    this.f9824h = new c(activity, this.f9822f);
                 }
-                i.e(this.f9816h);
+                i.e(this.f9824h);
                 q0.X(new a(this));
             }
         }

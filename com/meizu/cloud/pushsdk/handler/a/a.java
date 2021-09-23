@@ -17,44 +17,44 @@ import org.json.JSONObject;
 public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.handler.a f74884a;
+    public com.meizu.cloud.pushsdk.handler.a f75203a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f74885b;
+    public Context f75204b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Integer, String> f74886c;
+    public Map<Integer, String> f75205c;
 
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         if (context == null) {
             throw new IllegalArgumentException("Context must not be null.");
         }
-        this.f74885b = context.getApplicationContext();
-        this.f74884a = aVar;
+        this.f75204b = context.getApplicationContext();
+        this.f75203a = aVar;
         HashMap hashMap = new HashMap();
-        this.f74886c = hashMap;
+        this.f75205c = hashMap;
         hashMap.put(2, "MESSAGE_TYPE_PUSH_SERVICE_V2");
-        this.f74886c.put(4, "MESSAGE_TYPE_PUSH_SERVICE_V3");
-        this.f74886c.put(16, "MESSAGE_TYPE_REGISTER");
-        this.f74886c.put(32, "MESSAGE_TYPE_UNREGISTER");
-        this.f74886c.put(8, "MESSAGE_TYPE_THROUGH");
-        this.f74886c.put(64, "MESSAGE_TYPE_NOTIFICATION_CLICK");
-        this.f74886c.put(128, "MESSAGE_TYPE_NOTIFICATION_DELETE");
-        this.f74886c.put(256, "MESSAGE_TYPE_PUSH_SWITCH_STATUS");
-        this.f74886c.put(512, "MESSAGE_TYPE_PUSH_REGISTER_STATUS");
-        this.f74886c.put(2048, "MESSAGE_TYPE_PUSH_SUBTAGS_STATUS");
-        this.f74886c.put(1024, "MESSAGE_TYPE_PUSH_UNREGISTER_STATUS");
-        this.f74886c.put(4096, "MESSAGE_TYPE_PUSH_SUBALIAS_STATUS");
-        this.f74886c.put(8192, "MESSAGE_TYPE_SCHEDULE_NOTIFICATION");
-        this.f74886c.put(16384, "MESSAGE_TYPE_RECEIVE_NOTIFY_MESSAGE");
-        this.f74886c.put(32768, "MESSAGE_TYPE_NOTIFICATION_STATE");
-        this.f74886c.put(65536, "MESSAGE_TYPE_UPLOAD_FILE_LOG");
-        this.f74886c.put(131072, "MESSAGE_TYPE_NOTIFICATION_ARRIVED");
-        this.f74886c.put(262144, "MESSAGE_TYPE_NOTIFICATION_WITHDRAW");
+        this.f75205c.put(4, "MESSAGE_TYPE_PUSH_SERVICE_V3");
+        this.f75205c.put(16, "MESSAGE_TYPE_REGISTER");
+        this.f75205c.put(32, "MESSAGE_TYPE_UNREGISTER");
+        this.f75205c.put(8, "MESSAGE_TYPE_THROUGH");
+        this.f75205c.put(64, "MESSAGE_TYPE_NOTIFICATION_CLICK");
+        this.f75205c.put(128, "MESSAGE_TYPE_NOTIFICATION_DELETE");
+        this.f75205c.put(256, "MESSAGE_TYPE_PUSH_SWITCH_STATUS");
+        this.f75205c.put(512, "MESSAGE_TYPE_PUSH_REGISTER_STATUS");
+        this.f75205c.put(2048, "MESSAGE_TYPE_PUSH_SUBTAGS_STATUS");
+        this.f75205c.put(1024, "MESSAGE_TYPE_PUSH_UNREGISTER_STATUS");
+        this.f75205c.put(4096, "MESSAGE_TYPE_PUSH_SUBALIAS_STATUS");
+        this.f75205c.put(8192, "MESSAGE_TYPE_SCHEDULE_NOTIFICATION");
+        this.f75205c.put(16384, "MESSAGE_TYPE_RECEIVE_NOTIFY_MESSAGE");
+        this.f75205c.put(32768, "MESSAGE_TYPE_NOTIFICATION_STATE");
+        this.f75205c.put(65536, "MESSAGE_TYPE_UPLOAD_FILE_LOG");
+        this.f75205c.put(131072, "MESSAGE_TYPE_NOTIFICATION_ARRIVED");
+        this.f75205c.put(262144, "MESSAGE_TYPE_NOTIFICATION_WITHDRAW");
     }
 
     private String a(int i2) {
-        return this.f74886c.get(Integer.valueOf(i2));
+        return this.f75205c.get(Integer.valueOf(i2));
     }
 
     public com.meizu.cloud.pushsdk.notification.c a(T t) {
@@ -119,7 +119,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     }
 
     public com.meizu.cloud.pushsdk.handler.a b() {
-        return this.f74884a;
+        return this.f75203a;
     }
 
     public String b(String str) {
@@ -197,7 +197,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     }
 
     public Context c() {
-        return this.f74885b;
+        return this.f75204b;
     }
 
     public abstract T c(Intent intent);

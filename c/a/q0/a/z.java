@@ -14,10 +14,10 @@ public class z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f12690a;
+    public long f12698a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12691b;
+    public long f12699b;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -36,20 +36,20 @@ public class z {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12691b + UtilHelper.getTimesMorning() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12699b + UtilHelper.getTimesMorning() : invokeV.longValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12690a + UtilHelper.getTimesMorning() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12698a + UtilHelper.getTimesMorning() : invokeV.longValue;
     }
 
     public void c(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) && jSONArray != null && jSONArray.length() == 2) {
-            this.f12690a = jSONArray.optLong(0, 0L) * 1000;
-            this.f12691b = jSONArray.optLong(1, 0L) * 1000;
+            this.f12698a = jSONArray.optLong(0, 0L) * 1000;
+            this.f12699b = jSONArray.optLong(1, 0L) * 1000;
         }
     }
 }

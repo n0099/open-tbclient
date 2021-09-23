@@ -32,7 +32,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BubbleListActivity f57464a;
+        public final /* synthetic */ BubbleListActivity f57581a;
 
         public a(BubbleListActivity bubbleListActivity) {
             Interceptable interceptable = $ic;
@@ -49,22 +49,22 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     return;
                 }
             }
-            this.f57464a = bubbleListActivity;
+            this.f57581a = bubbleListActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.c
         public void a(int i2, String str, e eVar, List<DressItemData> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                this.f57464a.mView.j();
-                BubbleListActivity bubbleListActivity = this.f57464a;
+                this.f57581a.mView.j();
+                BubbleListActivity bubbleListActivity = this.f57581a;
                 bubbleListActivity.hideLoadingView(bubbleListActivity.mView.c());
                 if (i2 == 0) {
-                    this.f57464a.mView.i(eVar, list, this.f57464a.mModel.L());
+                    this.f57581a.mView.i(eVar, list, this.f57581a.mModel.L());
                     return;
                 }
-                this.f57464a.showToast(str);
-                this.f57464a.mView.h();
+                this.f57581a.showToast(str);
+                this.f57581a.mView.h();
             }
         }
     }
@@ -75,7 +75,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BubbleListActivity f57465e;
+        public final /* synthetic */ BubbleListActivity f57582e;
 
         public b(BubbleListActivity bubbleListActivity) {
             Interceptable interceptable = $ic;
@@ -92,16 +92,16 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     return;
                 }
             }
-            this.f57465e = bubbleListActivity;
+            this.f57582e = bubbleListActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f57465e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f57582e.mModel == null) {
                 return;
             }
-            this.f57465e.mModel.w();
+            this.f57582e.mModel.w();
         }
     }
 
@@ -111,7 +111,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BubbleListActivity f57466e;
+        public final /* synthetic */ BubbleListActivity f57583e;
 
         public c(BubbleListActivity bubbleListActivity) {
             Interceptable interceptable = $ic;
@@ -128,16 +128,16 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     return;
                 }
             }
-            this.f57466e = bubbleListActivity;
+            this.f57583e = bubbleListActivity;
         }
 
         @Override // c.a.q0.s.f0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f57466e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f57583e.mModel == null) {
                 return;
             }
-            this.f57466e.mModel.LoadData();
+            this.f57583e.mModel.LoadData();
         }
     }
 
@@ -173,7 +173,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f13628a = true;
+                pageStayDurationItem.f13624a = true;
             }
             return pageStayDurationItem;
         }

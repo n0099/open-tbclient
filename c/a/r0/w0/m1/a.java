@@ -29,20 +29,20 @@ public class a implements b, h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Wire f27047i;
+    public static final Wire f27067i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<n> f27048e;
+    public ArrayList<n> f27068e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, MetaData> f27049f;
+    public HashMap<String, MetaData> f27069f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27050g;
+    public boolean f27070g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27051h;
+    public int f27071h;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +57,7 @@ public class a implements b, h {
                 return;
             }
         }
-        f27047i = new Wire(new Class[0]);
+        f27067i = new Wire(new Class[0]);
     }
 
     public a() {
@@ -73,8 +73,8 @@ public class a implements b, h {
                 return;
             }
         }
-        this.f27048e = new ArrayList<>();
-        this.f27049f = new HashMap<>();
+        this.f27068e = new ArrayList<>();
+        this.f27069f = new HashMap<>();
     }
 
     public StarTrendsResIdl a(byte[] bArr) {
@@ -85,7 +85,7 @@ public class a implements b, h {
                 return null;
             }
             try {
-                StarTrendsResIdl starTrendsResIdl = (StarTrendsResIdl) f27047i.parseFrom(bArr, StarTrendsResIdl.class);
+                StarTrendsResIdl starTrendsResIdl = (StarTrendsResIdl) f27067i.parseFrom(bArr, StarTrendsResIdl.class);
                 if (starTrendsResIdl != null && starTrendsResIdl.data != null) {
                     b(starTrendsResIdl.data);
                 }
@@ -110,7 +110,7 @@ public class a implements b, h {
                     metaData.parserProtobuf(user);
                     String userId = metaData.getUserId();
                     if (userId != null && !"0".equals(userId)) {
-                        this.f27049f.put(userId, metaData);
+                        this.f27069f.put(userId, metaData);
                     }
                 }
             }
@@ -119,18 +119,18 @@ public class a implements b, h {
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 if (threadInfo != null) {
                     d2 d2Var = new d2();
-                    d2Var.E4(this.f27049f);
+                    d2Var.D4(this.f27069f);
                     d2Var.Y2(threadInfo);
                     d2Var.c3();
                     d2Var.G1();
-                    if (d2Var.getType() == d2.Z2 || d2Var.getType() == d2.v3 || d2Var.getType() == d2.B3 || d2Var.getType() == d2.w3 || d2Var.getType() == d2.F3 || d2Var.getType() == d2.G3) {
-                        this.f27048e.add(d2Var);
+                    if (d2Var.getType() == d2.a3 || d2Var.getType() == d2.w3 || d2Var.getType() == d2.C3 || d2Var.getType() == d2.x3 || d2Var.getType() == d2.G3 || d2Var.getType() == d2.H3) {
+                        this.f27068e.add(d2Var);
                     }
                 }
             }
         }
-        c.a.q0.b.f.a.d(this.f27048e);
-        this.f27050g = dataRes.has_more.intValue() == 1;
+        c.a.q0.b.f.a.d(this.f27068e);
+        this.f27070g = dataRes.has_more.intValue() == 1;
     }
 
     @Override // c.a.q0.k0.b.c

@@ -33,10 +33,10 @@ public class SelectClassView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59223e;
+    public boolean f59354e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoCategoryClassData f59224f;
+    public VideoCategoryClassData f59355f;
     public View mBottomLine;
     public TextView mCenterContent;
     public TextView mCenterContentTips;
@@ -50,7 +50,7 @@ public class SelectClassView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectClassView f59225e;
+        public final /* synthetic */ SelectClassView f59356e;
 
         public a(SelectClassView selectClassView) {
             Interceptable interceptable = $ic;
@@ -67,19 +67,19 @@ public class SelectClassView extends LinearLayout {
                     return;
                 }
             }
-            this.f59225e = selectClassView;
+            this.f59356e = selectClassView;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                SelectClassDialogActivityConfig selectClassDialogActivityConfig = new SelectClassDialogActivityConfig(this.f59225e.getContext());
-                VideoCategoryClassData mVideoCategoryClassData = this.f59225e.getMVideoCategoryClassData();
+                SelectClassDialogActivityConfig selectClassDialogActivityConfig = new SelectClassDialogActivityConfig(this.f59356e.getContext());
+                VideoCategoryClassData mVideoCategoryClassData = this.f59356e.getMVideoCategoryClassData();
                 selectClassDialogActivityConfig.setFirstOption(mVideoCategoryClassData != null ? mVideoCategoryClassData.getFirstClass() : null);
-                VideoCategoryClassData mVideoCategoryClassData2 = this.f59225e.getMVideoCategoryClassData();
+                VideoCategoryClassData mVideoCategoryClassData2 = this.f59356e.getMVideoCategoryClassData();
                 selectClassDialogActivityConfig.setSecondOption(mVideoCategoryClassData2 != null ? mVideoCategoryClassData2.getSecondClass() : null);
-                selectClassDialogActivityConfig.setIsSelectedTags(this.f59225e.getMIsSelectedTags());
+                selectClassDialogActivityConfig.setIsSelectedTags(this.f59356e.getMIsSelectedTags());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectClassDialogActivityConfig));
             }
         }
@@ -109,7 +109,7 @@ public class SelectClassView extends LinearLayout {
     public final void bindData(VideoCategoryClassData videoCategoryClassData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoCategoryClassData) == null) {
-            this.f59224f = videoCategoryClassData;
+            this.f59355f = videoCategoryClassData;
             if (videoCategoryClassData != null) {
                 String firstClass = videoCategoryClassData.getFirstClass();
                 boolean z = true;
@@ -206,7 +206,7 @@ public class SelectClassView extends LinearLayout {
     public final boolean getMIsSelectedTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59223e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59354e : invokeV.booleanValue;
     }
 
     public final TextView getMLeftTitle() {
@@ -238,7 +238,7 @@ public class SelectClassView extends LinearLayout {
     public final VideoCategoryClassData getMVideoCategoryClassData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59224f : (VideoCategoryClassData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59355f : (VideoCategoryClassData) invokeV.objValue;
     }
 
     public final void init() {
@@ -334,7 +334,7 @@ public class SelectClassView extends LinearLayout {
     public final void setMIsSelectedTags(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f59223e = z;
+            this.f59354e = z;
         }
     }
 
@@ -355,7 +355,7 @@ public class SelectClassView extends LinearLayout {
     public final void setMVideoCategoryClassData(VideoCategoryClassData videoCategoryClassData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, videoCategoryClassData) == null) {
-            this.f59224f = videoCategoryClassData;
+            this.f59355f = videoCategoryClassData;
         }
     }
 

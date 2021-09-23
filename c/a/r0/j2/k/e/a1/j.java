@@ -31,16 +31,16 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeRecyclerView f19845a;
+    public BdTypeRecyclerView f19860a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.j2.k.c.b f19846b;
+    public c.a.r0.j2.k.c.b f19861b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.j0.a f19847c;
+    public c.a.r0.j0.a f19862c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnTouchListener f19848d;
+    public View.OnTouchListener f19863d;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnTouchListener {
@@ -48,7 +48,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f19849e;
+        public final /* synthetic */ j f19864e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class j {
                     return;
                 }
             }
-            this.f19849e = jVar;
+            this.f19864e = jVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -73,8 +73,8 @@ public class j {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (this.f19849e.f19847c != null) {
-                    this.f19849e.f19847c.c(motionEvent);
+                if (this.f19864e.f19862c != null) {
+                    this.f19864e.f19862c.c(motionEvent);
                     return false;
                 }
                 return false;
@@ -144,11 +144,11 @@ public class j {
             }
         }
         a aVar = new a(this);
-        this.f19848d = aVar;
-        this.f19845a = bdTypeRecyclerView;
-        this.f19846b = bVar;
+        this.f19863d = aVar;
+        this.f19860a = bdTypeRecyclerView;
+        this.f19861b = bVar;
         bdTypeRecyclerView.setOnTouchListener(aVar);
-        this.f19847c = new c.a.r0.j0.a();
+        this.f19862c = new c.a.r0.j0.a();
     }
 
     public final void b(List<ThreadInfo> list, List<n> list2, String str) {
@@ -160,14 +160,14 @@ public class j {
                 ThreadInfo threadInfo = list.get(i3);
                 if (threadInfo != null) {
                     d2 d2Var2 = new d2();
-                    d2Var2.I2 = i3 + 1;
+                    d2Var2.J2 = i3 + 1;
                     d2Var2.Y2(threadInfo);
                     if (d2Var2.Y() != null) {
                         d2Var2.Y().f14382j = str;
                     }
-                    if ((c.a.r0.a0.d0.k.Y(d2Var2) || c.a.r0.a0.d0.l.T(d2Var2)) && d2Var2.getType() != d2.B3) {
+                    if ((c.a.r0.a0.d0.k.Y(d2Var2) || c.a.r0.a0.d0.l.T(d2Var2)) && d2Var2.getType() != d2.C3) {
                         c.a.r0.a0.d0.k d2 = d(d2Var2);
-                        if (d2 != null && (d2Var = d2.f15562e) != null && d2Var.Y() != null && !StringUtils.isNull(d2Var.Y().f14374b)) {
+                        if (d2 != null && (d2Var = d2.f15571e) != null && d2Var.Y() != null && !StringUtils.isNull(d2Var.Y().f14374b)) {
                             d2.l = d2Var2.s1();
                             d2.position = i2;
                             f(d2);
@@ -193,12 +193,12 @@ public class j {
                             }
                         }
                         if (c2 != null && c2.isValid()) {
-                            c2.f15562e.G1();
+                            c2.f15571e.G1();
                             if (!d2Var2.D2() && d2Var2.J() != null) {
                                 String format = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), d2Var2.J().getName_show());
                                 SpannableString spannableString = new SpannableString(format);
                                 spannableString.setSpan(new b(this, 16, d2Var2.J().getUserId(), c2), 0, format.length() - 1, 33);
-                                c2.f15562e.H1(spannableString);
+                                c2.f15571e.H1(spannableString);
                             }
                             list2.add(c2);
                         }
@@ -232,7 +232,7 @@ public class j {
                 if (!d2Var.e2() && !d2Var.w2()) {
                     d2Var.Z1();
                 }
-                kVar.f15562e = d2Var;
+                kVar.f15571e = d2Var;
                 return kVar;
             } else if (c.a.r0.a0.d0.l.T(d2Var)) {
                 return new c.a.r0.a0.d0.l(d2Var);
@@ -248,7 +248,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var)) == null) {
             c.a.r0.a0.d0.k kVar = new c.a.r0.a0.d0.k();
-            kVar.f15562e = d2Var;
+            kVar.f15571e = d2Var;
             d2Var.e2();
             if (!d2Var.e2()) {
                 d2Var.Z1();
@@ -321,6 +321,6 @@ public class j {
         List<ThreadInfo> I = eVar.I();
         LinkedList linkedList = new LinkedList();
         b(I, linkedList, first_class);
-        this.f19846b.h(linkedList);
+        this.f19861b.h(linkedList);
     }
 }

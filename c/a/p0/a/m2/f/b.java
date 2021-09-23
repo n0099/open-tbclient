@@ -26,17 +26,17 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f7402a;
+        public boolean f7410a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f7403b;
+        public boolean f7411b;
         @Nullable
 
         /* renamed from: c  reason: collision with root package name */
-        public c f7404c;
+        public c f7412c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f7405d;
+        public String f7413d;
 
         public C0301b() {
             Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class b {
                     return;
                 }
             }
-            this.f7402a = false;
-            this.f7403b = false;
-            this.f7404c = null;
-            this.f7405d = "";
+            this.f7410a = false;
+            this.f7411b = false;
+            this.f7412c = null;
+            this.f7413d = "";
         }
 
         public static C0301b b() {
@@ -73,7 +73,7 @@ public class b {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.f7402a = z;
+                this.f7410a = z;
                 return this;
             }
             return (C0301b) invokeZ.objValue;
@@ -83,7 +83,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f7405d = str;
+                this.f7413d = str;
                 return this;
             }
             return (C0301b) invokeL.objValue;

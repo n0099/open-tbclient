@@ -17,7 +17,7 @@ public class b extends c.a.r0.a0.d0.i implements p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public CardForum f18337i;
+    public CardForum f18346i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class b extends c.a.r0.a0.d0.i implements p {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CardForum cardForum = this.f18337i;
+            CardForum cardForum = this.f18346i;
             if (cardForum != null) {
                 return cardForum.position.intValue();
             }
@@ -90,7 +90,7 @@ public class b extends c.a.r0.a0.d0.i implements p {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, cardForum) == null) || cardForum == null) {
             return;
         }
-        this.f18337i = cardForum;
+        this.f18346i = cardForum;
         this.mGroupTitle = cardForum.card_title;
         if (cardForum.position != null) {
             p(k() + cardForum.position.intValue());
@@ -101,10 +101,10 @@ public class b extends c.a.r0.a0.d0.i implements p {
             for (PersonalForum personalForum : cardForum.forum_list) {
                 if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
                     c.a.r0.a0.d0.g gVar = new c.a.r0.a0.d0.g();
-                    gVar.f15573b = personalForum.avatar;
-                    gVar.f15574c = personalForum.forum_name;
-                    gVar.f15575d = c.a.e.e.m.b.e("" + personalForum.forum_id, -1);
-                    gVar.f15576e = personalForum.is_like.intValue() == 1;
+                    gVar.f15582b = personalForum.avatar;
+                    gVar.f15583c = personalForum.forum_name;
+                    gVar.f15584d = c.a.e.e.m.b.e("" + personalForum.forum_id, -1);
+                    gVar.f15585e = personalForum.is_like.intValue() == 1;
                     g(gVar);
                 }
             }

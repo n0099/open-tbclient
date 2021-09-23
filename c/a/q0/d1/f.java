@@ -1,120 +1,426 @@
 package c.a.q0.d1;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import rx.schedulers.Schedulers;
 /* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static JSONObject f12932a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static ArrayList<Long> f12933b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> f12934c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static boolean f12935d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a {
+    public static class a implements i.n.b<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public String f12924a;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f12936e;
 
-        /* renamed from: b  reason: collision with root package name */
-        public int f12925b;
-
-        public a() {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.f12936e = str;
         }
 
-        public static a a(String str) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // i.n.b
+        /* renamed from: a */
+        public void call(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                if (StringUtils.isNull(str)) {
-                    return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                String p = c.a.q0.s.d0.b.j().p("old_sniff_url", "");
+                if (TextUtils.isEmpty(this.f12936e) || this.f12936e.equals(p)) {
+                    f.q(false);
+                    return;
                 }
-                a aVar = new a();
-                if (str.contains("#")) {
-                    String[] split = str.split("#");
-                    if (split.length == 1) {
-                        aVar.f12924a = split[0];
-                    } else if (split.length == 2) {
-                        aVar.f12924a = split[0];
-                        aVar.f12925b = c.a.e.e.m.b.e(split[1], -1);
-                    }
-                } else {
-                    aVar.f12924a = str;
+                File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+                if (!file.exists()) {
+                    file.mkdir();
                 }
-                return aVar;
+                if (d.c().a(new File(file, "sniff.json"), this.f12936e) > 0) {
+                    c.a.q0.s.d0.b.j().x("old_sniff_url", "");
+                }
+                f.q(true);
             }
-            return (a) invokeL.objValue;
         }
+    }
 
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (StringUtils.isNull(this.f12924a)) {
-                    return null;
-                }
-                return this.f12924a + "#" + this.f12925b;
-            }
-            return (String) invokeV.objValue;
-        }
+    /* loaded from: classes3.dex */
+    public static class b implements i.n.b<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        public a(String str, int i2) {
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ boolean f12937e;
+
+        public b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f12924a = str;
-            this.f12925b = i2;
+            this.f12937e = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // i.n.b
+        /* renamed from: a */
+        public void call(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (f.f12932a == null || this.f12937e) {
+                    f.h();
+                }
+                f.p();
+            }
         }
     }
 
-    public static String[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String p = c.a.q0.s.d0.b.j().p("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
-            if (StringUtils.isNull(p)) {
-                return new String[0];
-            }
-            String[] split = p.split("\\^");
-            if (split == null || split.length <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (String str : split) {
-                a a2 = a.a(str);
-                if (a2 != null && !StringUtils.isNull(a2.f12924a)) {
-                    arrayList.add(a2.f12924a);
+    /* loaded from: classes3.dex */
+    public static class c<X, Y> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final X f12938a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final Y f12939b;
+
+        public c(X x, Y y) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x, y};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return (String[]) arrayList.toArray(new String[arrayList.size()]);
+            this.f12938a = x;
+            this.f12939b = y;
         }
-        return (String[]) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(39178957, "Lc/a/q0/d1/f;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(39178957, "Lc/a/q0/d1/f;");
+                return;
+            }
+        }
+        f12933b = new ArrayList<>();
+        f12934c = new Hashtable<>();
+        f12935d = true;
+    }
+
+    public f() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            if (f12933b.size() > 0) {
+                return j();
+            }
+            return g();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void f(PackageManager packageManager, String str, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65543, null, packageManager, str, i2, i3) == null) {
+            try {
+                packageManager.getApplicationInfo(str, 0);
+                k(i2, i3);
+            } catch (PackageManager.NameNotFoundException unused) {
+                l(i2, i3);
+            }
+        }
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String p = c.a.q0.s.d0.b.j().p("AD_SNIFF_RESULT_KEY", "");
+            if (!TextUtils.isEmpty(p)) {
+                ArrayList<Long> arrayList = new ArrayList<>();
+                for (String str : p.split(",")) {
+                    arrayList.add(Long.valueOf(str));
+                }
+                f12933b = arrayList;
+            } else {
+                q(false);
+            }
+            return p;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+            if (file.exists()) {
+                File file2 = new File(file, "sniff.json");
+                if (file2.exists()) {
+                    String readFileData = FileUtils.readFileData(file2);
+                    if (TextUtils.isEmpty(readFileData)) {
+                        return;
+                    }
+                    synchronized (f.class) {
+                        try {
+                            f12932a = new JSONObject(readFileData);
+                        } catch (JSONException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            i.d.i("").o(Schedulers.io()).B(new a(str));
+        }
+    }
+
+    public static String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            ArrayList<Long> arrayList = f12933b;
+            if (arrayList == null || arrayList.size() == 0) {
+                return "";
+            }
+            ArrayList arrayList2 = new ArrayList();
+            Iterator<Long> it = arrayList.iterator();
+            while (it.hasNext()) {
+                arrayList2.add(String.valueOf(it.next()));
+            }
+            return TextUtils.join(",", arrayList2);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void k(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65548, null, i2, i3) == null) {
+            ArrayList<Long> arrayList = f12933b;
+            if (i2 < arrayList.size()) {
+                arrayList.set(i2, Long.valueOf(arrayList.get(i2).longValue() | (1 << i3)));
+            }
+        }
+    }
+
+    public static void l(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65549, null, i2, i3) == null) {
+            ArrayList<Long> arrayList = f12933b;
+            if (i2 < arrayList.size()) {
+                arrayList.set(i2, Long.valueOf(arrayList.get(i2).longValue() & (~(1 << i3))));
+            }
+        }
+    }
+
+    public static void m(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65550, null, i2) == null) {
+            l(i2, 0);
+        }
+    }
+
+    public static void n(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65551, null, i2) == null) {
+            k(i2, 0);
+        }
+    }
+
+    public static void o(int i2, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(65552, null, i2, jSONArray) == null) || i2 >= f12933b.size()) {
+            return;
+        }
+        PackageManager packageManager = BdBaseApplication.getInst().getApp().getApplicationContext().getPackageManager();
+        m(i2);
+        int i3 = 0;
+        while (i3 < jSONArray.length()) {
+            String optString = jSONArray.optString(i3);
+            i3++;
+            c<Integer, Integer> cVar = new c<>(Integer.valueOf(i2), Integer.valueOf(i3));
+            ArrayList<c<Integer, Integer>> arrayList = f12934c.get(optString);
+            if (arrayList == null) {
+                arrayList = new ArrayList<>();
+            }
+            arrayList.add(cVar);
+            f12934c.put(optString, arrayList);
+            f(packageManager, optString, i2, i3);
+        }
+        n(i2);
+        c.a.q0.s.d0.b.j().x("AD_SNIFF_RESULT_KEY", j());
+    }
+
+    public static void p() {
+        JSONObject jSONObject;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65553, null) == null) || (jSONObject = f12932a) == null || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
+            return;
+        }
+        int length = optJSONArray.length();
+        int size = f12933b.size();
+        ArrayList<Long> arrayList = new ArrayList<>();
+        for (int i2 = 0; i2 < length; i2++) {
+            if (i2 < size) {
+                arrayList.add(f12933b.get(i2));
+            } else {
+                arrayList.add(0L);
+            }
+        }
+        f12933b = arrayList;
+        for (int i3 = 0; i3 < length; i3++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
+            if (optJSONObject == null) {
+                return;
+            }
+            r(i3, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), f12935d);
+        }
+        if (f12935d) {
+            f12935d = false;
+        }
+    }
+
+    public static void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+            i.d.i("").o(Schedulers.io()).B(new b(z));
+        }
+    }
+
+    public static void r(int i2, String str, int i3, JSONArray jSONArray, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), jSONArray, Boolean.valueOf(z)}) == null) || i2 < 0 || TextUtils.isEmpty(str) || i3 < 0 || jSONArray == null || jSONArray.length() == 0) {
+            return;
+        }
+        long time = new Date().getTime();
+        String str2 = "AD_SNIFF_RESULT_KEY_" + str + "_TS";
+        long l = c.a.q0.s.d0.b.j().l(str2, 0L);
+        long millis = TimeUnit.MINUTES.toMillis(i3);
+        boolean z2 = true;
+        int i4 = (l > 0L ? 1 : (l == 0L ? 0 : -1));
+        boolean z3 = i4 == 0;
+        z2 = (i4 <= 0 || time - l <= millis) ? false : false;
+        if (z || z3 || z2) {
+            c.a.q0.s.d0.b.j().w(str2, time);
+            o(i2, jSONArray);
+        }
+    }
+
+    public static void s(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65556, null, intent) == null) || TextUtils.isEmpty(intent.getDataString())) {
+            return;
+        }
+        String substring = intent.getDataString().length() > 8 ? intent.getDataString().substring(8) : "";
+        String action = intent.getAction();
+        ArrayList<c<Integer, Integer>> arrayList = f12934c.get(substring);
+        if (arrayList == null || arrayList.size() == 0) {
+            return;
+        }
+        Iterator<c<Integer, Integer>> it = arrayList.iterator();
+        while (it.hasNext()) {
+            c<Integer, Integer> next = it.next();
+            if (next != null) {
+                int intValue = next.f12938a.intValue();
+                int intValue2 = next.f12939b.intValue();
+                if (PackageChangedReceiver.ACTION_INSTALL.equals(action)) {
+                    k(intValue, intValue2);
+                } else {
+                    l(intValue, intValue2);
+                }
+            }
+        }
     }
 }

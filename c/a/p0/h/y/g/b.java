@@ -38,13 +38,13 @@ public class b extends c.a.p0.h.y.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f11624a;
+        public final /* synthetic */ String f11632a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.h.y.b f11625b;
+        public final /* synthetic */ c.a.p0.h.y.b f11633b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f11626c;
+        public final /* synthetic */ b f11634c;
 
         public a(b bVar, String str, c.a.p0.h.y.b bVar2) {
             Interceptable interceptable = $ic;
@@ -61,17 +61,17 @@ public class b extends c.a.p0.h.y.a {
                     return;
                 }
             }
-            this.f11626c = bVar;
-            this.f11624a = str;
-            this.f11625b = bVar2;
+            this.f11634c = bVar;
+            this.f11632a = str;
+            this.f11633b = bVar2;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                this.f11625b.cancelTag(this.f11626c.f11590g);
-                this.f11626c.W(this.f11624a, 0, iOException.getMessage());
+                this.f11633b.cancelTag(this.f11634c.f11598g);
+                this.f11634c.W(this.f11632a, 0, iOException.getMessage());
             }
         }
 
@@ -86,34 +86,34 @@ public class b extends c.a.p0.h.y.a {
                 try {
                     try {
                         JSEvent jSEvent = new JSEvent("headersReceived");
-                        jSEvent.data = new e(this.f11626c.I(response.headers()));
-                        this.f11626c.dispatchEvent(jSEvent);
+                        jSEvent.data = new e(this.f11634c.I(response.headers()));
+                        this.f11634c.dispatchEvent(jSEvent);
                     } catch (JSONException e2) {
                         try {
-                            if (c.a.p0.h.y.a.f11586i) {
+                            if (c.a.p0.h.y.a.f11594i) {
                                 e2.printStackTrace();
                             }
                         } catch (JSONException e3) {
                             e = e3;
-                            if (c.a.p0.h.y.a.f11586i) {
+                            if (c.a.p0.h.y.a.f11594i) {
                             }
-                            this.f11626c.C(this.f11624a, -1, e.getMessage());
+                            this.f11634c.C(this.f11632a, -1, e.getMessage());
                         }
                     }
                     c.a.p0.h.y.g.a aVar = new c.a.p0.h.y.g.a();
                     aVar.statusCode = response.code();
-                    aVar.header = this.f11626c.I(response.headers());
-                    aVar.data = this.f11626c.X(response.body());
-                    if (c.a.p0.h.y.a.f11586i) {
+                    aVar.header = this.f11634c.I(response.headers());
+                    aVar.data = this.f11634c.X(response.body());
+                    if (c.a.p0.h.y.a.f11594i) {
                         String str = "onResponse = " + aVar.data;
                     }
-                    this.f11626c.D(aVar);
+                    this.f11634c.D(aVar);
                 } catch (IOException e4) {
                     e = e4;
-                    if (c.a.p0.h.y.a.f11586i) {
+                    if (c.a.p0.h.y.a.f11594i) {
                         Log.getStackTraceString(e);
                     }
-                    this.f11626c.C(this.f11624a, -1, e.getMessage());
+                    this.f11634c.C(this.f11632a, -1, e.getMessage());
                 }
             }
         }
@@ -126,13 +126,13 @@ public class b extends c.a.p0.h.y.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f11627a;
+        public final /* synthetic */ long f11635a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f11628b;
+        public final /* synthetic */ String f11636b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f11629c;
+        public final /* synthetic */ b f11637c;
 
         public C0604b(b bVar, long j2, String str) {
             Interceptable interceptable = $ic;
@@ -149,16 +149,16 @@ public class b extends c.a.p0.h.y.a {
                     return;
                 }
             }
-            this.f11629c = bVar;
-            this.f11627a = j2;
-            this.f11628b = str;
+            this.f11637c = bVar;
+            this.f11635a = j2;
+            this.f11636b = str;
         }
 
         @Override // c.a.p0.a.n1.p.a
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.f11629c.V(this.f11627a, j2, this.f11628b);
+                this.f11637c.V(this.f11635a, j2, this.f11636b);
             }
         }
     }
@@ -183,7 +183,7 @@ public class b extends c.a.p0.h.y.a {
             }
         }
         this.l = 0L;
-        this.f11588e = 3;
+        this.f11596e = 3;
     }
 
     public static void Y(MultipartBody.Builder builder, c.a.p0.a.y.b.a aVar) {
@@ -216,28 +216,28 @@ public class b extends c.a.p0.h.y.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String z = z();
             if (!TextUtils.isEmpty(z)) {
-                String C = this.f11589f.C("filePath");
+                String C = this.f11597f.C("filePath");
                 if (TextUtils.isEmpty(C)) {
                     C(z, -1, "uploadFile:filePath is empty or invalid");
                     return null;
                 } else if (d.w(C)) {
                     C(z, -1, "uploadFile:filePath is empty or invalid");
                     return null;
-                } else if (this.f11589f.b("header") && this.f11589f.i("header") != 9) {
+                } else if (this.f11597f.b("header") && this.f11597f.i("header") != 9) {
                     C(z, -1, "uploadFile:header is invalid");
                     return null;
                 } else {
                     File U = U(z, C);
                     if (U != null) {
-                        c.a.p0.a.y.b.a x = this.f11589f.x("formData");
+                        c.a.p0.a.y.b.a x = this.f11597f.x("formData");
                         Request.Builder builder = new Request.Builder();
                         c.a.p0.a.n1.c cVar = new c.a.p0.a.n1.c(U, IMAudioTransRequest.CONTENT_TYPE, new C0604b(this, U.length(), z));
                         MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
                         Y(type, x);
-                        type.addFormDataPart(this.f11589f.C("name"), U.getName(), cVar);
+                        type.addFormDataPart(this.f11597f.C("name"), U.getName(), cVar);
                         MultipartBody build = type.build();
-                        G(builder, this.f11589f.x("header"), new HashMap(), false);
-                        return builder.url(z).tag(this.f11590g).post(build).build();
+                        G(builder, this.f11597f.x("header"), new HashMap(), false);
+                        return builder.url(z).tag(this.f11598g).post(build).build();
                     }
                 }
             }
@@ -257,10 +257,10 @@ public class b extends c.a.p0.h.y.a {
                     if (file.length() > 26214400) {
                         C(str, -1, "request:file size > 25 MB");
                         return null;
-                    } else if (TextUtils.isEmpty(this.f11589f.C("name"))) {
+                    } else if (TextUtils.isEmpty(this.f11597f.C("name"))) {
                         C(str, -1, "uploadFile:name is invalid");
                         return null;
-                    } else if (!this.f11589f.b("formData") || this.f11589f.i("formData") == 9) {
+                    } else if (!this.f11597f.b("formData") || this.f11597f.i("formData") == 9) {
                         return file;
                     } else {
                         C(str, -1, "uploadFile:formData is invalid");
@@ -293,7 +293,7 @@ public class b extends c.a.p0.h.y.a {
     public final void W(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i2, str2) == null) {
-            if (c.a.p0.h.y.a.f11586i) {
+            if (c.a.p0.h.y.a.f11594i) {
                 String str3 = "onFailure: " + str2;
             }
             C(str, i2, ("Socket is closed".equalsIgnoreCase(str2) || ResponseException.CANCELED.equalsIgnoreCase(str2)) ? "uploadFile:fail abort" : "uploadFile:fail abort");
@@ -323,7 +323,7 @@ public class b extends c.a.p0.h.y.a {
     public void start() {
         Request T;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f11589f == null || (T = T()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f11597f == null || (T = T()) == null) {
             return;
         }
         if (c.a.p0.a.a2.e.i() == null) {

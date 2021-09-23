@@ -14,16 +14,16 @@ public class c implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f3271a;
+    public final int f3272a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f3272b;
+    public final int f3273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3273c;
+    public int f3274c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap f3274d;
+    public HashMap f3275d;
 
     public c(int i2, int i3, int i4, String str, String str2, int i5) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class c implements h {
                 return;
             }
         }
-        this.f3271a = i2;
-        this.f3272b = i3;
-        this.f3273c = i5;
+        this.f3272a = i2;
+        this.f3273b = i3;
+        this.f3274c = i5;
     }
 
     public static h f(int i2, int i3, int i4, String str, String str2, int i5) {
@@ -55,11 +55,11 @@ public class c implements h {
     public void a(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.f3274d = hashMap;
+            this.f3275d = hashMap;
             if (hashMap.containsKey("iadex")) {
                 return;
             }
-            hashMap.put("iadex", c.a.q0.d1.d.e());
+            hashMap.put("iadex", c.a.q0.d1.f.e());
         }
     }
 
@@ -67,27 +67,27 @@ public class c implements h {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3273c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3274c : invokeV.intValue;
     }
 
     @Override // c.a.f.h
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3271a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3272a : invokeV.intValue;
     }
 
     @Override // c.a.f.h
     public Map<String, String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3274d : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3275d : (Map) invokeV.objValue;
     }
 
     @Override // c.a.f.h
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3272b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3273b : invokeV.intValue;
     }
 }

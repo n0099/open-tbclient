@@ -16,35 +16,35 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f7339j;
+    public static final boolean f7347j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7340a;
+    public String f7348a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7341b;
+    public String f7349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7342c;
+    public boolean f7350c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7343d;
+    public int f7351d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f7344e;
+    public long f7352e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f7345f;
+    public long f7353f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7346g;
+    public int f7354g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Rect f7347h;
+    public Rect f7355h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f7348i;
+    public boolean f7356i;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class d {
                 return;
             }
         }
-        f7339j = c.a.p0.a.a2.e.y;
+        f7347j = c.a.p0.a.a2.e.y;
     }
 
     public d(String str, String str2, long j2, boolean z) {
@@ -77,19 +77,19 @@ public class d {
                 return;
             }
         }
-        this.f7346g = 0;
-        this.f7340a = str;
-        this.f7341b = str2;
-        this.f7344e = System.currentTimeMillis();
-        this.f7345f = j2;
-        this.f7343d = 0;
-        this.f7348i = z;
+        this.f7354g = 0;
+        this.f7348a = str;
+        this.f7349b = str2;
+        this.f7352e = System.currentTimeMillis();
+        this.f7353f = j2;
+        this.f7351d = 0;
+        this.f7356i = z;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f7343d = 2;
+            this.f7351d = 2;
         }
     }
 
@@ -97,11 +97,11 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.f7345f;
+            long j2 = this.f7353f;
             if (j2 > 0) {
-                this.f7345f = j2 - (System.currentTimeMillis() - this.f7344e);
+                this.f7353f = j2 - (System.currentTimeMillis() - this.f7352e);
             }
-            return this.f7345f;
+            return this.f7353f;
         }
         return invokeV.longValue;
     }
@@ -109,17 +109,17 @@ public class d {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7343d == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7351d == 2 : invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long j2 = this.f7345f;
+            long j2 = this.f7353f;
             if (j2 > 0) {
-                this.f7345f = j2 - (System.currentTimeMillis() - this.f7344e);
-                if (f7339j) {
-                    String str = "pause, left " + this.f7345f + "ms";
+                this.f7353f = j2 - (System.currentTimeMillis() - this.f7352e);
+                if (f7347j) {
+                    String str = "pause, left " + this.f7353f + "ms";
                 }
             }
         }
@@ -128,7 +128,7 @@ public class d {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f7344e = System.currentTimeMillis();
+            this.f7352e = System.currentTimeMillis();
         }
     }
 
@@ -142,7 +142,7 @@ public class d {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f7343d = 1;
+            this.f7351d = 1;
         }
     }
 }

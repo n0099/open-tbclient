@@ -8,7 +8,7 @@ import c.a.r0.a0.b0;
 import c.a.r0.a0.z;
 import c.a.r0.o.e;
 import c.a.r0.o.f;
-import c.a.r0.v.i.e.c;
+import c.a.r0.v.k.e.c;
 import c.a.r0.w0.j;
 import c.a.r0.w0.k;
 import com.baidu.adp.BdUniqueId;
@@ -66,7 +66,7 @@ public class FrsSplitAlaShareItemAdapter extends k<c2, FrsPageAlaShareHolder> im
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FrsSplitAlaShareItemAdapter f49694b;
+        public final /* synthetic */ FrsSplitAlaShareItemAdapter f49805b;
 
         public a(FrsSplitAlaShareItemAdapter frsSplitAlaShareItemAdapter) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class FrsSplitAlaShareItemAdapter extends k<c2, FrsPageAlaShareHolder> im
                     return;
                 }
             }
-            this.f49694b = frsSplitAlaShareItemAdapter;
+            this.f49805b = frsSplitAlaShareItemAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,11 +100,11 @@ public class FrsSplitAlaShareItemAdapter extends k<c2, FrsPageAlaShareHolder> im
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
-                if (customMessage == null || this.f49694b.o == null) {
+                if (customMessage == null || this.f49805b.o == null) {
                     return;
                 }
                 customMessage.setData(d2Var);
-                this.f49694b.o.sendMessage(customMessage);
+                this.f49805b.o.sendMessage(customMessage);
             }
         }
     }
@@ -165,9 +165,9 @@ public class FrsSplitAlaShareItemAdapter extends k<c2, FrsPageAlaShareHolder> im
             if (tbPageContext == null) {
                 return null;
             }
-            c cVar = new c(tbPageContext, this.f2961i);
+            c cVar = new c(tbPageContext, this.f2962i);
             this.y = cVar;
-            cVar.V(this.f2961i);
+            cVar.X(this.f2962i);
             this.y.a(this.x);
             this.y.m(this.A);
             return new FrsPageAlaShareHolder(this.y);
@@ -186,7 +186,7 @@ public class FrsSplitAlaShareItemAdapter extends k<c2, FrsPageAlaShareHolder> im
             FrsViewData frsViewData = this.n;
             int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
             d2 d2Var = c2Var.w;
-            d2Var.S1 = (c2Var.position + 1) - topThreadSize;
+            d2Var.T1 = (c2Var.position + 1) - topThreadSize;
             customMessage.setData(d2Var);
             this.o.sendMessage(customMessage);
             if (c2Var != null) {
@@ -195,10 +195,10 @@ public class FrsSplitAlaShareItemAdapter extends k<c2, FrsPageAlaShareHolder> im
                     cVar.setPage(this.z);
                 }
                 frsPageAlaShareHolder.mView.a(this.x);
-                j.j(frsPageAlaShareHolder.mView.O(), this.n);
                 j.j(frsPageAlaShareHolder.mView.Q(), this.n);
+                j.j(frsPageAlaShareHolder.mView.S(), this.n);
                 frsPageAlaShareHolder.mView.k(c2Var.w);
-                c2Var.w.N4();
+                c2Var.w.M4();
             }
             return frsPageAlaShareHolder.getView();
         }

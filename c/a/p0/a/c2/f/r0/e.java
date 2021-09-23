@@ -26,13 +26,13 @@ public abstract class e extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f5089a;
+        public final /* synthetic */ d f5097a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5090b;
+        public final /* synthetic */ CallbackHandler f5098b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f5091c;
+        public final /* synthetic */ e f5099c;
 
         public a(e eVar, d dVar, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public abstract class e extends a0 {
                     return;
                 }
             }
-            this.f5091c = eVar;
-            this.f5089a = dVar;
-            this.f5090b = callbackHandler;
+            this.f5099c = eVar;
+            this.f5097a = dVar;
+            this.f5098b = callbackHandler;
         }
 
         @Override // c.a.p0.a.h0.j.d
@@ -73,8 +73,8 @@ public abstract class e extends a0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                if (this.f5091c.l(str, this.f5089a.r)) {
-                    this.f5091c.k(str, this.f5090b, this.f5089a.f4660i);
+                if (this.f5099c.l(str, this.f5097a.r)) {
+                    this.f5099c.k(str, this.f5098b, this.f5097a.f4668i);
                     return true;
                 }
                 return false;
@@ -133,7 +133,7 @@ public abstract class e extends a0 {
             try {
                 jSONObject.put("url", str);
             } catch (JSONException e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.printStackTrace();
                 }
             }

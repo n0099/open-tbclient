@@ -28,10 +28,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8963a;
+    public static final boolean f8971a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8964b;
+    public static int f8972b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -40,13 +40,13 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ V8Engine f8965a;
+        public final /* synthetic */ V8Engine f8973a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NetRequest f8966b;
+        public final /* synthetic */ NetRequest f8974b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f8967c;
+        public final /* synthetic */ boolean f8975c;
 
         public a(V8Engine v8Engine, NetRequest netRequest, boolean z) {
             Interceptable interceptable = $ic;
@@ -63,9 +63,9 @@ public class d {
                     return;
                 }
             }
-            this.f8965a = v8Engine;
-            this.f8966b = netRequest;
-            this.f8967c = z;
+            this.f8973a = v8Engine;
+            this.f8974b = netRequest;
+            this.f8975c = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,15 +74,15 @@ public class d {
         public void onReceiveValue(Long l) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                boolean netRequest = this.f8965a.setNetRequest(this.f8966b);
+                boolean netRequest = this.f8973a.setNetRequest(this.f8974b);
                 if (netRequest) {
-                    int unused = d.f8964b = 1;
+                    int unused = d.f8972b = 1;
                 } else {
-                    if (this.f8967c) {
+                    if (this.f8975c) {
                         d.d();
                         c.a.p0.a.e0.d.h("ChromeNetManager", "[ERROR] swan chromeNet config fail!!!");
                     }
-                    int unused2 = d.f8964b = 0;
+                    int unused2 = d.f8972b = 0;
                 }
                 d.f(netRequest);
             }
@@ -133,18 +133,18 @@ public class d {
                 return;
             }
         }
-        f8963a = k.f7077a;
-        f8964b = -1;
+        f8971a = k.f7085a;
+        f8972b = -1;
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f8964b == -1) {
-                f8964b = j.a() ? 1 : 0;
+            if (f8972b == -1) {
+                f8972b = j.a() ? 1 : 0;
             }
-            return f8964b == 1;
+            return f8972b == 1;
         }
         return invokeV.booleanValue;
     }
@@ -166,7 +166,7 @@ public class d {
             netRequest.addObserver(new e());
             netRequest.setNetRequestSettings(netRequestSettings);
             boolean e2 = e();
-            f8964b = e2 ? 1 : 0;
+            f8972b = e2 ? 1 : 0;
             V8NetFunctionTable.addOnCronetThreadInitializedListener(new a(v8Engine, netRequest, e2));
         }
     }
@@ -198,11 +198,11 @@ public class d {
         NetRequest n0;
         NetRequestSettings netRequestSettings;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, swanAppConfigData) == null) || !b() || swanAppConfigData == null || (aVar = swanAppConfigData.f46560h) == null || (i2 = aVar.f4597b) <= 0 || (P = c.a.p0.a.h0.u.g.N().P()) == null || !(P.g() instanceof c.a.p0.a.l0.a) || (n0 = ((c.a.p0.a.l0.a) P.g()).n0()) == null || (netRequestSettings = n0.getNetRequestSettings()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, swanAppConfigData) == null) || !b() || swanAppConfigData == null || (aVar = swanAppConfigData.f46662h) == null || (i2 = aVar.f4605b) <= 0 || (P = c.a.p0.a.h0.u.g.N().P()) == null || !(P.g() instanceof c.a.p0.a.l0.a) || (n0 = ((c.a.p0.a.l0.a) P.g()).n0()) == null || (netRequestSettings = n0.getNetRequestSettings()) == null) {
             return;
         }
         netRequestSettings.mTimeout = i2;
-        if (f8963a) {
+        if (f8971a) {
             String str = "settings.mTimeout=" + i2;
         }
     }

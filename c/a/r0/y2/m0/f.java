@@ -17,13 +17,13 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29633a;
+    public int f29653a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f29634b;
+    public final Context f29654b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ViewGroup f29635c;
+    public final ViewGroup f29655c;
 
     public f(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class f {
                 return;
             }
         }
-        this.f29633a = 0;
-        this.f29634b = context;
-        this.f29635c = viewGroup;
+        this.f29653a = 0;
+        this.f29654b = context;
+        this.f29655c = viewGroup;
     }
 
     public final boolean a(String str, String str2) {
@@ -65,29 +65,29 @@ public class f {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, gVar2)) == null) {
-            if (gVar == null || (str = gVar.f29508a) == null) {
+            if (gVar == null || (str = gVar.f29528a) == null) {
                 return gVar2;
             }
-            if (gVar2 == null || !a(str, gVar2.f29636a)) {
-                ViewGroup viewGroup = this.f29635c;
+            if (gVar2 == null || !a(str, gVar2.f29656a)) {
+                ViewGroup viewGroup = this.f29655c;
                 if (viewGroup == null) {
                     return null;
                 }
                 viewGroup.removeAllViews();
-                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(gVar.f29508a)) {
-                    int i2 = this.f29633a;
+                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(gVar.f29528a)) {
+                    int i2 = this.f29653a;
                     if (i2 == 1) {
-                        return new e(LayoutInflater.from(this.f29634b).inflate(R.layout.videolist_tail_frame_ad_jump, this.f29635c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                        return new e(LayoutInflater.from(this.f29654b).inflate(R.layout.videolist_tail_frame_ad_jump, this.f29655c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                     }
                     if (i2 == 2) {
-                        return new d(LayoutInflater.from(this.f29634b).inflate(R.layout.video_flow_tail_frame_jump, this.f29635c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                        return new d(LayoutInflater.from(this.f29654b).inflate(R.layout.video_flow_tail_frame_jump, this.f29655c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                     }
-                    return new b(LayoutInflater.from(this.f29634b).inflate(R.layout.tail_frame_ad_jump, this.f29635c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                } else if ("apk_download".equals(gVar.f29508a)) {
-                    if (this.f29633a == 2) {
-                        return new c(LayoutInflater.from(this.f29634b).inflate(R.layout.video_flow_tail_frame_download, this.f29635c, true), "apk_download");
+                    return new b(LayoutInflater.from(this.f29654b).inflate(R.layout.tail_frame_ad_jump, this.f29655c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                } else if ("apk_download".equals(gVar.f29528a)) {
+                    if (this.f29653a == 2) {
+                        return new c(LayoutInflater.from(this.f29654b).inflate(R.layout.video_flow_tail_frame_download, this.f29655c, true), "apk_download");
                     }
-                    return new a(LayoutInflater.from(this.f29634b).inflate(R.layout.tail_frame_ad_download, this.f29635c, true), "apk_download");
+                    return new a(LayoutInflater.from(this.f29654b).inflate(R.layout.tail_frame_ad_download, this.f29655c, true), "apk_download");
                 } else {
                     return null;
                 }

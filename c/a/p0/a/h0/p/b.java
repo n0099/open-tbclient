@@ -31,11 +31,11 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6371b;
+    public static final boolean f6379b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f6372a;
+    public boolean f6380a;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -49,7 +49,7 @@ public final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f6373a;
+        public static final b f6381a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -65,7 +65,7 @@ public final class b {
                     return;
                 }
             }
-            f6373a = new b(null);
+            f6381a = new b(null);
         }
     }
 
@@ -82,7 +82,7 @@ public final class b {
                 return;
             }
         }
-        f6371b = k.f7077a;
+        f6379b = k.f7085a;
     }
 
     public /* synthetic */ b(a aVar) {
@@ -92,13 +92,13 @@ public final class b {
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0247b.f6373a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0247b.f6381a : (b) invokeV.objValue;
     }
 
     public final void a(@NonNull SwanAppConfigData swanAppConfigData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, swanAppConfigData) == null) {
-            boolean z = f6371b;
+            boolean z = f6379b;
             d.g(swanAppConfigData);
             c.a.p0.a.h0.q.b.g().p(c.a.p0.a.a2.d.g().getAppId(), false);
             c.a.p0.a.l2.b.l().t();
@@ -128,8 +128,8 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, bVar, bVar2, swanAppConfigData, gVar, Boolean.valueOf(z)}) == null) {
             synchronized (this) {
-                boolean z3 = f6371b;
-                if (this.f6372a) {
+                boolean z3 = f6379b;
+                if (this.f6380a) {
                     if (z) {
                         c.a.p0.a.h0.u.b.c(14);
                     }
@@ -141,21 +141,21 @@ public final class b {
                 String c2 = c.c(f.V(), bVar2, swanAppConfigData);
                 String g2 = swanAppConfigData.g(c2);
                 c.a.p0.a.h0.u.a aVar2 = new c.a.p0.a.h0.u.a();
-                aVar2.f6458a = swanAppConfigData.m;
-                if (gVar != null && !TextUtils.isEmpty(gVar.f4498a)) {
-                    aVar2.f6459b = gVar.f4498a;
+                aVar2.f6466a = swanAppConfigData.m;
+                if (gVar != null && !TextUtils.isEmpty(gVar.f4506a)) {
+                    aVar2.f6467b = gVar.f4506a;
                 } else {
-                    aVar2.f6459b = e.C0114e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
+                    aVar2.f6467b = e.C0114e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
                 }
-                aVar2.f6460c = bVar.c();
-                aVar2.f6461d = c2;
-                aVar2.f6463f = String.valueOf(c.a.p0.a.e0.a.a());
-                aVar2.f6464g = c.a.p0.a.h0.u.a.c(c.a.p0.a.a2.e.i(), c2);
-                aVar2.f6466i = g2;
-                if (!f6371b && !f.V().O()) {
+                aVar2.f6468c = bVar.c();
+                aVar2.f6469d = c2;
+                aVar2.f6471f = String.valueOf(c.a.p0.a.e0.a.a());
+                aVar2.f6472g = c.a.p0.a.h0.u.a.c(c.a.p0.a.a2.e.i(), c2);
+                aVar2.f6474i = g2;
+                if (!f6379b && !f.V().O()) {
                     z2 = false;
-                    aVar2.f6465h = z2;
-                    aVar2.f6467j = bVar.K();
+                    aVar2.f6473h = z2;
+                    aVar2.f6475j = bVar.K();
                     aVar2.l = c.a.p0.a.h0.u.e.b();
                     G = c.a.p0.a.u1.a.a.G();
                     if (G) {
@@ -165,17 +165,17 @@ public final class b {
                     if (P != null) {
                         String string = P.getString(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
                         if (!TextUtils.isEmpty(string)) {
-                            aVar2.f6462e = string;
+                            aVar2.f6470e = string;
                         }
                     }
-                    if (f6371b) {
+                    if (f6379b) {
                         aVar2.toString();
                     }
                     h.o().C(new UbcFlowEvent("master_dispatch_start"));
                     c.a.p0.a.i2.a.d().i("master_dispatch_start");
                     aVar.E(aVar2);
                     g.N().H0(c.a.p0.a.h0.u.a.b(aVar2));
-                    g.N().S0(aVar2.f6467j);
+                    g.N().S0(aVar2.f6475j);
                     E = c.a.p0.a.u1.a.a.E(bVar2.g0());
                     boolean o0 = bVar2.o0();
                     if (!E) {
@@ -186,28 +186,28 @@ public final class b {
                     }
                     c.a.p0.a.a2.n.g e2 = f.V().e(j.b(o0.f(c2)));
                     dVar = new c.a.p0.a.h0.u.d();
-                    if (gVar == null && !TextUtils.isEmpty(gVar.f4498a)) {
-                        dVar.f6470a = gVar.f4498a;
+                    if (gVar == null && !TextUtils.isEmpty(gVar.f4506a)) {
+                        dVar.f6478a = gVar.f4506a;
                     } else {
-                        dVar.f6470a = e.C0114e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
+                        dVar.f6478a = e.C0114e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
                     }
-                    dVar.f6471b = c2;
-                    dVar.f6473d = e2.f4609g;
-                    dVar.f6472c = g2;
-                    dVar.k = aVar2.f6464g;
-                    dVar.f6474e = String.valueOf(bVar2.l0());
-                    dVar.f6476g = z2;
-                    dVar.f6478i = bVar.K();
+                    dVar.f6479b = c2;
+                    dVar.f6481d = e2.f4617g;
+                    dVar.f6480c = g2;
+                    dVar.k = aVar2.f6472g;
+                    dVar.f6482e = String.valueOf(bVar2.l0());
+                    dVar.f6484g = z2;
+                    dVar.f6486i = bVar.K();
                     dVar.m = true;
                     if (G) {
-                        dVar.f6479j = c.a.p0.a.e0.f.b.d();
+                        dVar.f6487j = c.a.p0.a.e0.f.b.d();
                     }
                     if (!E) {
                         c.a.p0.a.e0.f.e.d.g().h("pageready");
                     } else if (o0) {
                         c.a.p0.a.e0.f.d.d.e().f("pageready");
                     }
-                    if (f6371b) {
+                    if (f6379b) {
                         dVar.toString();
                     }
                     h.o().C(new UbcFlowEvent("slave_dispatch_start"));
@@ -217,22 +217,22 @@ public final class b {
                     bVar.t().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, c2);
                     bVar.R(c2);
                     g.N().I0(bVar.c(), c.a.p0.a.h0.u.d.a(dVar));
-                    c.a.p0.a.j2.e.F(bVar.c(), dVar.f6471b);
-                    if (f6371b) {
-                        String str = "app path: " + aVar2.f6459b;
+                    c.a.p0.a.j2.e.F(bVar.c(), dVar.f6479b);
+                    if (f6379b) {
+                        String str = "app path: " + aVar2.f6467b;
                         String str2 = "webviewId: " + bVar.c();
                         String str3 = "pageUrl: " + c2;
-                        String str4 = "pagePath: " + dVar.f6471b;
-                        String str5 = "onReachBottomDistance: " + dVar.f6473d;
-                        String str6 = "sConsole:" + dVar.f6474e;
+                        String str4 = "pagePath: " + dVar.f6479b;
+                        String str5 = "onReachBottomDistance: " + dVar.f6481d;
+                        String str6 = "sConsole:" + dVar.f6482e;
                     }
                     a(swanAppConfigData);
-                    this.f6372a = true;
+                    this.f6380a = true;
                     e();
                 }
                 z2 = true;
-                aVar2.f6465h = z2;
-                aVar2.f6467j = bVar.K();
+                aVar2.f6473h = z2;
+                aVar2.f6475j = bVar.K();
                 aVar2.l = c.a.p0.a.h0.u.e.b();
                 G = c.a.p0.a.u1.a.a.G();
                 if (G) {
@@ -240,13 +240,13 @@ public final class b {
                 P = bVar2.P();
                 if (P != null) {
                 }
-                if (f6371b) {
+                if (f6379b) {
                 }
                 h.o().C(new UbcFlowEvent("master_dispatch_start"));
                 c.a.p0.a.i2.a.d().i("master_dispatch_start");
                 aVar.E(aVar2);
                 g.N().H0(c.a.p0.a.h0.u.a.b(aVar2));
-                g.N().S0(aVar2.f6467j);
+                g.N().S0(aVar2.f6475j);
                 E = c.a.p0.a.u1.a.a.E(bVar2.g0());
                 boolean o02 = bVar2.o0();
                 if (!E) {
@@ -255,20 +255,20 @@ public final class b {
                 dVar = new c.a.p0.a.h0.u.d();
                 if (gVar == null) {
                 }
-                dVar.f6470a = e.C0114e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
-                dVar.f6471b = c2;
-                dVar.f6473d = e22.f4609g;
-                dVar.f6472c = g2;
-                dVar.k = aVar2.f6464g;
-                dVar.f6474e = String.valueOf(bVar2.l0());
-                dVar.f6476g = z2;
-                dVar.f6478i = bVar.K();
+                dVar.f6478a = e.C0114e.i(bVar2.H(), bVar2.u1()).getPath() + File.separator;
+                dVar.f6479b = c2;
+                dVar.f6481d = e22.f4617g;
+                dVar.f6480c = g2;
+                dVar.k = aVar2.f6472g;
+                dVar.f6482e = String.valueOf(bVar2.l0());
+                dVar.f6484g = z2;
+                dVar.f6486i = bVar.K();
                 dVar.m = true;
                 if (G) {
                 }
                 if (!E) {
                 }
-                if (f6371b) {
+                if (f6379b) {
                 }
                 h.o().C(new UbcFlowEvent("slave_dispatch_start"));
                 c.a.p0.a.i2.a.d().i("slave_dispatch_start");
@@ -277,11 +277,11 @@ public final class b {
                 bVar.t().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, c2);
                 bVar.R(c2);
                 g.N().I0(bVar.c(), c.a.p0.a.h0.u.d.a(dVar));
-                c.a.p0.a.j2.e.F(bVar.c(), dVar.f6471b);
-                if (f6371b) {
+                c.a.p0.a.j2.e.F(bVar.c(), dVar.f6479b);
+                if (f6379b) {
                 }
                 a(swanAppConfigData);
-                this.f6372a = true;
+                this.f6380a = true;
                 e();
             }
         }
@@ -291,7 +291,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f6372a = false;
+                this.f6380a = false;
             }
         }
     }
@@ -325,6 +325,6 @@ public final class b {
                 return;
             }
         }
-        this.f6372a = false;
+        this.f6380a = false;
     }
 }

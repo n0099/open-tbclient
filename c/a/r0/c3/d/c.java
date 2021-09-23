@@ -31,7 +31,7 @@ public class c extends b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f16533a;
+        public final /* synthetic */ c f16543a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class c extends b {
                     return;
                 }
             }
-            this.f16533a = cVar;
+            this.f16543a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,9 +59,9 @@ public class c extends b {
             if (interceptable == null || interceptable.invokeLLI(1048576, this, emotionShare, str, i2) == null) {
                 super.onLoaded(emotionShare, str, i2);
                 if (emotionShare == null || emotionShare.image == null || TextUtils.isEmpty(emotionShare.path)) {
-                    this.f16533a.w(2, 4);
+                    this.f16543a.w(2, 4);
                 }
-                this.f16533a.I(emotionShare.path);
+                this.f16543a.I(emotionShare.path);
             }
         }
 
@@ -70,7 +70,7 @@ public class c extends b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 super.onCancelled(str);
-                this.f16533a.w(3, 4);
+                this.f16543a.w(3, 4);
             }
         }
     }
@@ -94,7 +94,7 @@ public class c extends b {
             }
         }
         this.o = new a(this);
-        this.f16526i = 4;
+        this.f16536i = 4;
     }
 
     public final void G(ShareEntity shareEntity, IUiListener iUiListener) {
@@ -102,13 +102,13 @@ public class c extends b {
         if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, iUiListener) == null) {
             Bundle bundle = new Bundle();
             bundle.putInt("req_type", 7);
-            bundle.putString("title", c.a.r0.c3.f.a.a(this.f16522b));
+            bundle.putString("title", c.a.r0.c3.f.a.a(this.f16532b));
             if (!StringUtils.isNull(shareEntity.getTitle())) {
                 bundle.putString("summary", shareEntity.getTitle());
             } else if (!StringUtils.isNull(shareEntity.getContent())) {
                 bundle.putString("summary", shareEntity.getContent());
             } else {
-                bundle.putString("summary", this.f16522b.getString(R.string.share_qq_default_content));
+                bundle.putString("summary", this.f16532b.getString(R.string.share_qq_default_content));
             }
             bundle.putString("targetUrl", shareEntity.getLinkUrl());
             ArrayList<String> arrayList = new ArrayList<>();
@@ -122,7 +122,7 @@ public class c extends b {
             bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_TYPE, "3");
             bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH, "pages/pb/pb?tid=" + shareEntity.getTid());
             if (iUiListener != null) {
-                this.f16525h.shareToQzone((Activity) this.f16522b, bundle, iUiListener);
+                this.f16535h.shareToQzone((Activity) this.f16532b, bundle, iUiListener);
             }
         }
     }
@@ -142,7 +142,7 @@ public class c extends b {
             bundle.putStringArrayList("imageUrl", arrayList);
             IUiListener iUiListener = this.n;
             if (iUiListener != null) {
-                this.f16525h.shareToQzone((Activity) this.f16522b, bundle, iUiListener);
+                this.f16535h.shareToQzone((Activity) this.f16532b, bundle, iUiListener);
             }
         }
     }
@@ -156,7 +156,7 @@ public class c extends b {
             bundle.putInt("cflag", 1);
             IUiListener iUiListener = this.n;
             if (iUiListener != null) {
-                this.f16525h.shareToQQ((Activity) this.f16522b, bundle, iUiListener);
+                this.f16535h.shareToQQ((Activity) this.f16532b, bundle, iUiListener);
             }
         }
     }
@@ -178,8 +178,8 @@ public class c extends b {
     public void a(ShareEntity shareEntity, c.a.r0.c3.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, shareEntity, bVar) == null) {
-            if (shareEntity != null && this.f16525h != null) {
-                Context context = this.f16522b;
+            if (shareEntity != null && this.f16535h != null) {
+                Context context = this.f16532b;
                 if (context != null && (context instanceof Activity)) {
                     this.n = new b.c(this, bVar);
                     if (!QqShareH5Switch.isOn() && !StringUtils.isNull(shareEntity.getTid()) && !"0".equals(shareEntity.getTid())) {

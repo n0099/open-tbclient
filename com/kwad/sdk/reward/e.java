@@ -29,11 +29,11 @@ public class e extends BaseSystemDialogFragment {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f73591a;
+    public static e f73910a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f73592b;
+    public a f73911b;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -68,7 +68,7 @@ public class e extends BaseSystemDialogFragment {
     public static void a(Activity activity, String str, a aVar, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, activity, str, aVar, str2, str3) == null) {
-            f73591a = new e();
+            f73910a = new e();
             Bundle bundle = new Bundle();
             bundle.putString("key_title", str);
             if (!TextUtils.isEmpty(str2)) {
@@ -77,16 +77,16 @@ public class e extends BaseSystemDialogFragment {
             if (!TextUtils.isEmpty(str3)) {
                 bundle.putString("key_continueBtnText", str3);
             }
-            f73591a.setArguments(bundle);
-            f73591a.a(aVar);
-            f73591a.show(activity.getFragmentManager(), "videoCloseDialog");
+            f73910a.setArguments(bundle);
+            f73910a.a(aVar);
+            f73910a.show(activity.getFragmentManager(), "videoCloseDialog");
         }
     }
 
     private void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar) == null) {
-            this.f73592b = aVar;
+            this.f73911b = aVar;
         }
     }
 
@@ -94,7 +94,7 @@ public class e extends BaseSystemDialogFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            e eVar = f73591a;
+            e eVar = f73910a;
             return eVar != null && eVar.b();
         }
         return invokeV.booleanValue;
@@ -125,7 +125,7 @@ public class e extends BaseSystemDialogFragment {
             getDialog().setCanceledOnTouchOutside(false);
             window.setLayout(-1, -1);
             getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
-            a aVar = this.f73592b;
+            a aVar = this.f73911b;
             if (aVar != null) {
                 aVar.a();
             }
@@ -155,7 +155,7 @@ public class e extends BaseSystemDialogFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f73593a;
+                public final /* synthetic */ e f73912a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -172,16 +172,16 @@ public class e extends BaseSystemDialogFragment {
                             return;
                         }
                     }
-                    this.f73593a = this;
+                    this.f73912a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f73593a.dismiss();
-                        if (this.f73593a.f73592b != null) {
-                            this.f73593a.f73592b.b();
+                        this.f73912a.dismiss();
+                        if (this.f73912a.f73911b != null) {
+                            this.f73912a.f73911b.b();
                         }
                     }
                 }
@@ -191,7 +191,7 @@ public class e extends BaseSystemDialogFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f73594a;
+                public final /* synthetic */ e f73913a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -208,16 +208,16 @@ public class e extends BaseSystemDialogFragment {
                             return;
                         }
                     }
-                    this.f73594a = this;
+                    this.f73913a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f73594a.dismiss();
-                        if (this.f73594a.f73592b != null) {
-                            this.f73594a.f73592b.c();
+                        this.f73913a.dismiss();
+                        if (this.f73913a.f73911b != null) {
+                            this.f73913a.f73911b.c();
                         }
                     }
                 }
@@ -227,7 +227,7 @@ public class e extends BaseSystemDialogFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f73595a;
+                public final /* synthetic */ e f73914a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -244,7 +244,7 @@ public class e extends BaseSystemDialogFragment {
                             return;
                         }
                     }
-                    this.f73595a = this;
+                    this.f73914a = this;
                 }
 
                 @Override // android.content.DialogInterface.OnKeyListener

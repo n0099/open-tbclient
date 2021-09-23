@@ -25,17 +25,17 @@ public interface l extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.l$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static class C2066a implements l {
+        public static class C2070a implements l {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static l f75877a;
+            public static l f76196a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f75878b;
+            public IBinder f76197b;
 
-            public C2066a(IBinder iBinder) {
+            public C2070a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +50,7 @@ public interface l extends IInterface {
                         return;
                     }
                 }
-                this.f75878b = iBinder;
+                this.f76197b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -67,7 +67,7 @@ public interface l extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75878b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f76197b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             a.a().a(downloadInfo);
                         } else {
                             obtain2.readException();
@@ -83,7 +83,7 @@ public interface l extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75878b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76197b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -101,7 +101,7 @@ public interface l extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75878b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f76197b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().b(downloadInfo);
                         }
                         obtain2.readException();
@@ -142,7 +142,7 @@ public interface l extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof l)) {
                     return (l) queryLocalInterface;
                 }
-                return new C2066a(iBinder);
+                return new C2070a(iBinder);
             }
             return (l) invokeL.objValue;
         }
@@ -184,7 +184,7 @@ public interface l extends IInterface {
         public static l a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2066a.f75877a : (l) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2070a.f76196a : (l) invokeV.objValue;
         }
     }
 }

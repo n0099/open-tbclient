@@ -12,6 +12,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.SpeedRuntime;
 import com.baidu.tbadk.BaseActivity;
@@ -51,35 +52,35 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f12574h;
+    public static final Pattern f12582h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Pattern f12575i;
+    public static final Pattern f12583i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Pattern f12576j;
+    public static final Pattern f12584j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f12577a;
+    public boolean f12585a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12578b;
+    public long f12586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public u f12579c;
+    public u f12587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.q0.a.f f12580d;
+    public c.a.q0.a.f f12588d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f12581e;
+    public AtomicBoolean f12589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f12582f;
+    public AtomicBoolean f12590f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f.b f12583g;
+    public f.b f12591g;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<String, Integer, l> {
@@ -87,7 +88,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12584a;
+        public final /* synthetic */ e f12592a;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -104,7 +105,7 @@ public class e {
                     return;
                 }
             }
-            this.f12584a = eVar;
+            this.f12592a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -119,7 +120,7 @@ public class e {
                     return null;
                 }
                 String str = strArr[0];
-                if (!c.a.e.e.p.k.isEmpty(str) && (matcher = e.f12575i.matcher(str)) != null && matcher.find() && matcher.groupCount() >= 2) {
+                if (!c.a.e.e.p.k.isEmpty(str) && (matcher = e.f12583i.matcher(str)) != null && matcher.find() && matcher.groupCount() >= 2) {
                     String group = matcher.group(1);
                     String group2 = matcher.group(2);
                     if (TextUtils.isEmpty(group2)) {
@@ -147,10 +148,10 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
                 super.onPostExecute(lVar);
-                if (lVar == null || this.f12584a.f12582f.get()) {
+                if (lVar == null || this.f12592a.f12590f.get()) {
                     return;
                 }
-                this.f12584a.f12582f.compareAndSet(false, true);
+                this.f12592a.f12590f.compareAndSet(false, true);
                 TiebaUidCheckReqMsg tiebaUidCheckReqMsg = new TiebaUidCheckReqMsg();
                 tiebaUidCheckReqMsg.setTiebaUid(lVar);
                 MessageManager.getInstance().sendMessage(tiebaUidCheckReqMsg);
@@ -164,7 +165,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12585a;
+        public final /* synthetic */ e f12593a;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -181,16 +182,16 @@ public class e {
                     return;
                 }
             }
-            this.f12585a = eVar;
+            this.f12593a = eVar;
         }
 
         @Override // c.a.q0.a.f.b
         public void a(boolean z, a0 a0Var) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZL(1048576, this, z, a0Var) == null) && z && a0Var != null) {
-                this.f12585a.p();
-                this.f12585a.q(a0Var.a(), a0Var.c());
-                this.f12585a.s(a0Var);
+                this.f12593a.p();
+                this.f12593a.q(a0Var.a(), a0Var.c());
+                this.f12593a.s(a0Var);
             }
         }
     }
@@ -201,7 +202,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f12586e;
+        public final /* synthetic */ e f12594e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -218,14 +219,14 @@ public class e {
                     return;
                 }
             }
-            this.f12586e = eVar;
+            this.f12594e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.y().m(this.f12586e.w());
+                e.y().m(this.f12594e.w());
             }
         }
     }
@@ -236,7 +237,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f12587e;
+        public final /* synthetic */ e f12595e;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -253,14 +254,14 @@ public class e {
                     return;
                 }
             }
-            this.f12587e = eVar;
+            this.f12595e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.y().m(this.f12587e.w());
+                e.y().m(this.f12595e.w());
             }
         }
     }
@@ -272,7 +273,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12588a;
+        public final /* synthetic */ e f12596a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C0643e(e eVar, int i2, int i3) {
@@ -293,7 +294,7 @@ public class e {
                     return;
                 }
             }
-            this.f12588a = eVar;
+            this.f12596a = eVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -301,7 +302,7 @@ public class e {
             c.a.q0.a.h decryptData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f12588a.f12581e.compareAndSet(true, false);
+                this.f12596a.f12589e.compareAndSet(true, false);
                 if (responsedMessage instanceof DecryptCodeHttpRespMsg) {
                     decryptData = ((DecryptCodeHttpRespMsg) responsedMessage).getDecryptData();
                 } else if (!(responsedMessage instanceof DecryptCodeSocketRespMsg)) {
@@ -316,13 +317,13 @@ public class e {
                 UtilHelper.clearClipBoard();
                 int g2 = decryptData.g();
                 if (g2 == 1 || g2 == 0) {
-                    if (MessageManager.getInstance().findTask(2921361) == null || decryptData.f12618g.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
+                    if (MessageManager.getInstance().findTask(2921361) == null || decryptData.f12626g.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
                         return;
                     }
                     TbadkCoreApplication.getInst().setCurAiAppid(null);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921377, decryptData));
                 } else if (g2 == 2) {
-                    this.f12588a.q(decryptData.e(), decryptData.f());
+                    this.f12596a.q(decryptData.e(), decryptData.f());
                 } else if (g2 == 4 || g2 != 3 || StringUtils.isNull(decryptData.f())) {
                 } else {
                     Uri parse = Uri.parse(decryptData.f());
@@ -332,11 +333,11 @@ public class e {
                     String queryParameter4 = parse != null ? parse.getQueryParameter("fname") : "";
                     String queryParameter5 = parse != null ? parse.getQueryParameter("eqid") : "";
                     if (TextUtils.isEmpty(queryParameter) || TextUtils.isEmpty(queryParameter2) || !queryParameter2.startsWith("tbcm")) {
-                        this.f12588a.r(decryptData.f());
+                        this.f12596a.r(decryptData.f());
                         TiebaStatic.log(new StatisticItem("c13390").param("obj_type", queryParameter2).param("obj_source", queryParameter).param("tid", queryParameter3).param("fname", queryParameter4).param("query", queryParameter5));
                         return;
                     }
-                    this.f12588a.r(decryptData.f());
+                    this.f12596a.r(decryptData.f());
                     TiebaStatic.log(new StatisticItem("c13390").param("obj_type", queryParameter2).param("obj_source", queryParameter).param("tid", queryParameter3).param("fname", queryParameter4));
                 }
             }
@@ -349,7 +350,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12589a;
+        public final /* synthetic */ e f12597a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(e eVar, int i2, int i3) {
@@ -370,7 +371,7 @@ public class e {
                     return;
                 }
             }
-            this.f12589a = eVar;
+            this.f12597a = eVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -379,7 +380,7 @@ public class e {
             TiebaUidCheckReqMsg tiebaUidCheckReqMsg;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f12589a.f12582f.compareAndSet(true, false);
+                this.f12597a.f12590f.compareAndSet(true, false);
                 if (responsedMessage instanceof TiebaUidCheckSocketResMsg) {
                     userData = ((TiebaUidCheckSocketResMsg) responsedMessage).getUserData();
                 } else if (!(responsedMessage instanceof TiebaUidCheckHttpResMsg)) {
@@ -405,7 +406,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12590a;
+        public final /* synthetic */ e f12598a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(e eVar, int i2) {
@@ -425,7 +426,7 @@ public class e {
                     return;
                 }
             }
-            this.f12590a = eVar;
+            this.f12598a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -435,7 +436,7 @@ public class e {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage instanceof BackgroundSwitchMessage) || ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 return;
             }
-            this.f12590a.m(this.f12590a.w());
+            this.f12598a.m(this.f12598a.w());
         }
     }
 
@@ -445,7 +446,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12591a;
+        public final /* synthetic */ e f12599a;
 
         public h(e eVar) {
             Interceptable interceptable = $ic;
@@ -462,7 +463,7 @@ public class e {
                     return;
                 }
             }
-            this.f12591a = eVar;
+            this.f12599a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -477,7 +478,7 @@ public class e {
                     if (c.a.e.e.p.k.isEmpty(str)) {
                         return null;
                     }
-                    String z = this.f12591a.z();
+                    String z = this.f12599a.z();
                     if (!c.a.e.e.p.k.isEmpty(z) && (matcher = Pattern.compile(z).matcher(str)) != null && matcher.find()) {
                         return str;
                     }
@@ -494,13 +495,13 @@ public class e {
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((h) str);
                 if (str == null) {
-                    if (this.f12591a.f12579c == null || !this.f12591a.C()) {
+                    if (this.f12599a.f12587c == null || !this.f12599a.C()) {
                         return;
                     }
-                    this.f12591a.f12579c.b();
+                    this.f12599a.f12587c.b();
                     return;
                 }
-                this.f12591a.n(str);
+                this.f12599a.n(str);
             }
         }
     }
@@ -511,7 +512,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12592a;
+        public final /* synthetic */ e f12600a;
 
         public i(e eVar) {
             Interceptable interceptable = $ic;
@@ -528,7 +529,7 @@ public class e {
                     return;
                 }
             }
-            this.f12592a = eVar;
+            this.f12600a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -540,7 +541,7 @@ public class e {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 if (strArr != null && strArr.length >= 1) {
                     String str = strArr[0];
-                    if (!c.a.e.e.p.k.isEmpty(str) && (matcher = e.f12576j.matcher(str)) != null && matcher.find()) {
+                    if (!c.a.e.e.p.k.isEmpty(str) && (matcher = e.f12584j.matcher(str)) != null && matcher.find()) {
                         return str;
                     }
                 }
@@ -556,7 +557,7 @@ public class e {
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((i) str);
                 if (str != null) {
-                    this.f12592a.r(str.substring(1, str.length() - 1));
+                    this.f12600a.r(str.substring(1, str.length() - 1));
                 }
             }
         }
@@ -568,7 +569,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f12593a;
+        public final /* synthetic */ e f12601a;
 
         public j(e eVar) {
             Interceptable interceptable = $ic;
@@ -585,7 +586,7 @@ public class e {
                     return;
                 }
             }
-            this.f12593a = eVar;
+            this.f12601a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -597,7 +598,7 @@ public class e {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 if (strArr != null && strArr.length >= 1) {
                     String str = strArr[0];
-                    if (!c.a.e.e.p.k.isEmpty(str) && (matcher = e.f12574h.matcher(str)) != null && matcher.find()) {
+                    if (!c.a.e.e.p.k.isEmpty(str) && (matcher = e.f12582h.matcher(str)) != null && matcher.find()) {
                         return str;
                     }
                 }
@@ -612,10 +613,10 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((j) str);
-                if (str == null || this.f12593a.f12581e.get()) {
+                if (str == null || this.f12601a.f12589e.get()) {
                     return;
                 }
-                this.f12593a.f12581e.compareAndSet(false, true);
+                this.f12601a.f12589e.compareAndSet(false, true);
                 DecryptCodeReqMsg decryptCodeReqMsg = new DecryptCodeReqMsg();
                 decryptCodeReqMsg.setCode(str);
                 MessageManager.getInstance().sendMessage(decryptCodeReqMsg);
@@ -628,7 +629,7 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f12594a;
+        public static final e f12602a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -644,7 +645,7 @@ public class e {
                     return;
                 }
             }
-            f12594a = new e();
+            f12602a = new e();
         }
     }
 
@@ -654,10 +655,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12595a;
+        public String f12603a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12596b;
+        public String f12604b;
 
         public l() {
             Interceptable interceptable = $ic;
@@ -676,26 +677,26 @@ public class e {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12595a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12603a : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12596b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12604b : (String) invokeV.objValue;
         }
 
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f12595a = str;
+                this.f12603a = str;
             }
         }
 
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f12596b = str;
+                this.f12604b = str;
             }
         }
     }
@@ -713,9 +714,9 @@ public class e {
                 return;
             }
         }
-        f12574h = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
-        f12575i = Pattern.compile("^@(.*)@给你分享了贴吧号#(\\d+)#\\s?整段复制后打开贴吧即可找到Ta$", 2);
-        f12576j = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
+        f12582h = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
+        f12583i = Pattern.compile("^@(.*)@给你分享了贴吧号#(\\d+)#\\s?整段复制后打开贴吧即可找到Ta$", 2);
+        f12584j = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
     }
 
     public e() {
@@ -731,15 +732,15 @@ public class e {
                 return;
             }
         }
-        this.f12581e = new AtomicBoolean(false);
-        this.f12582f = new AtomicBoolean(false);
-        this.f12583g = new b(this);
+        this.f12589e = new AtomicBoolean(false);
+        this.f12590f = new AtomicBoolean(false);
+        this.f12591g = new b(this);
     }
 
     public static final e y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? k.f12594a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? k.f12602a : (e) invokeV.objValue;
     }
 
     public boolean A() {
@@ -750,32 +751,32 @@ public class e {
             if (c.a.e.e.p.k.isEmpty(clipBoardContent)) {
                 return false;
             }
-            return D(z(), clipBoardContent) || clipBoardContent.contains("^sZqulxTVsT$") || E(f12574h, clipBoardContent) || E(f12576j, clipBoardContent) || E(f12575i, clipBoardContent);
+            return D(z(), clipBoardContent) || clipBoardContent.contains("^sZqulxTVsT$") || E(f12582h, clipBoardContent) || E(f12584j, clipBoardContent) || E(f12583i, clipBoardContent);
         }
         return invokeV.booleanValue;
     }
 
     public void B(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || this.f12577a) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || this.f12585a) {
             return;
         }
         F();
         H();
         G();
         c.a.q0.a.f fVar = new c.a.q0.a.f();
-        this.f12580d = fVar;
-        fVar.g(this.f12583g);
-        this.f12579c = new u();
+        this.f12588d = fVar;
+        fVar.g(this.f12591g);
+        this.f12587c = new u();
         String w = w();
         if (!c.a.e.e.p.k.isEmpty(w)) {
             y().m(w);
         } else if (UtilHelper.isActivityStartFromScheme(activity)) {
-            c.a.e.e.m.e.a().postDelayed(new c(this), 4000L);
+            c.a.e.e.m.e.a().postDelayed(new c(this), PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
         } else if (RomTypeUtil.isEmui() || RomTypeUtil.isOnePlus() || RomTypeUtil.check("MIUI")) {
             c.a.e.e.m.e.a().postDelayed(new d(this), 2000L);
         }
-        this.f12577a = true;
+        this.f12585a = true;
     }
 
     public final boolean C() {
@@ -810,8 +811,8 @@ public class e {
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.r0.j3.d0.a.h(309626, DecryptCodeSocketRespMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, c.a.r0.j3.d0.a.a(TbConfig.DECRYPT_CODE_URL, 309626));
+            c.a.r0.j3.e0.a.h(309626, DecryptCodeSocketRespMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, c.a.r0.j3.e0.a.a(TbConfig.DECRYPT_CODE_URL, 309626));
             tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -830,8 +831,8 @@ public class e {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            c.a.r0.j3.d0.a.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, c.a.r0.j3.d0.a.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
+            c.a.r0.j3.e0.a.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, c.a.r0.j3.e0.a.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
             tbHttpMessageTask.setResponsedClass(TiebaUidCheckHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -860,7 +861,7 @@ public class e {
     public final void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f12580d.c(str);
+            this.f12588d.c(str);
         }
     }
 
@@ -894,7 +895,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || c.a.e.e.p.k.isEmpty(str) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (parse = Uri.parse(str)) == null) {
             return;
         }
-        if (str.startsWith(c.a.q0.a.g.f12601a)) {
+        if (str.startsWith(c.a.q0.a.g.f12609a)) {
             Uri.Builder buildUpon = Uri.parse(str).buildUpon();
             buildUpon.appendQueryParameter(c.a.q0.a.g.x, c.a.q0.a.g.W);
             parse = buildUpon.build();
@@ -904,10 +905,10 @@ public class e {
 
     public final void s(a0 a0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, a0Var) == null) || a0Var == null || a0Var.b() == null || c.a.e.e.p.k.isEmpty(a0Var.b().f12497a) || !C()) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, a0Var) == null) || a0Var == null || a0Var.b() == null || c.a.e.e.p.k.isEmpty(a0Var.b().f12505a) || !C()) {
             return;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, a0Var.b().f12497a));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, a0Var.b().f12505a));
     }
 
     public void t(String str) {
@@ -938,10 +939,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (System.currentTimeMillis() - this.f12578b < 2000) {
+            if (System.currentTimeMillis() - this.f12586b < 2000) {
                 return null;
             }
-            this.f12578b = System.currentTimeMillis();
+            this.f12586b = System.currentTimeMillis();
             return UtilHelper.getClipBoardContent();
         }
         return (String) invokeV.objValue;

@@ -35,25 +35,25 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l f26640a;
+    public l f26663a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d2 f26641b;
+    public d2 f26664b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f26642c;
+    public CustomMessageListener f26665c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f26643d;
+    public CustomMessageListener f26666d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f26644e;
+    public CustomMessageListener f26667e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f26645f;
+    public CustomMessageListener f26668f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f26646g;
+    public CustomMessageListener f26669g;
 
     /* loaded from: classes4.dex */
     public class a implements Animation.AnimationListener {
@@ -61,13 +61,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ View f26647a;
+        public final /* synthetic */ View f26670a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f26648b;
+        public final /* synthetic */ String f26671b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f26649c;
+        public final /* synthetic */ e f26672c;
 
         public a(e eVar, View view, String str) {
             Interceptable interceptable = $ic;
@@ -84,20 +84,20 @@ public class e {
                     return;
                 }
             }
-            this.f26649c = eVar;
-            this.f26647a = view;
-            this.f26648b = str;
+            this.f26672c = eVar;
+            this.f26670a = view;
+            this.f26671b = str;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f26649c.f26640a == null || this.f26649c.f26640a.getFrsView() == null || this.f26649c.f26640a.getFrsView().b0() == null || this.f26649c.f26640a.getFrsView().W() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f26672c.f26663a == null || this.f26672c.f26663a.getFrsView() == null || this.f26672c.f26663a.getFrsView().b0() == null || this.f26672c.f26663a.getFrsView().W() == null) {
                 return;
             }
-            this.f26649c.f26640a.getFrsView().b0().removeView(this.f26647a);
-            this.f26649c.j(this.f26648b);
-            this.f26649c.f26640a.getFrsView().W().notifyDataSetChanged();
+            this.f26672c.f26663a.getFrsView().b0().removeView(this.f26670a);
+            this.f26672c.j(this.f26671b);
+            this.f26672c.f26663a.getFrsView().W().notifyDataSetChanged();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -121,16 +121,16 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f26650a;
+        public final /* synthetic */ String f26673a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f26651b;
+        public final /* synthetic */ String f26674b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ View f26652c;
+        public final /* synthetic */ View f26675c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e f26653d;
+        public final /* synthetic */ e f26676d;
 
         public b(e eVar, String str, String str2, View view) {
             Interceptable interceptable = $ic;
@@ -147,22 +147,22 @@ public class e {
                     return;
                 }
             }
-            this.f26653d = eVar;
-            this.f26650a = str;
-            this.f26651b = str2;
-            this.f26652c = view;
+            this.f26676d = eVar;
+            this.f26673a = str;
+            this.f26674b = str2;
+            this.f26675c = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f26653d.k(this.f26650a, this.f26651b);
-                this.f26652c.setVisibility(8);
-                if (this.f26653d.f26640a.getFrsView() == null || this.f26653d.f26640a.getFrsView().W() == null) {
+                this.f26676d.k(this.f26673a, this.f26674b);
+                this.f26675c.setVisibility(8);
+                if (this.f26676d.f26663a.getFrsView() == null || this.f26676d.f26663a.getFrsView().W() == null) {
                     return;
                 }
-                this.f26653d.f26640a.getFrsView().W().notifyDataSetChanged();
+                this.f26676d.f26663a.getFrsView().W().notifyDataSetChanged();
             }
         }
 
@@ -187,22 +187,22 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f26654a;
+        public String f26677a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f26655b;
+        public String f26678b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f26656c;
+        public String f26679c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f26657d;
+        public String f26680d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f26658e;
+        public String f26681e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f26659f;
+        public final /* synthetic */ e f26682f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(e eVar, int i2) {
@@ -222,12 +222,12 @@ public class e {
                     return;
                 }
             }
-            this.f26659f = eVar;
-            this.f26654a = "";
-            this.f26655b = "";
-            this.f26656c = "";
-            this.f26657d = "";
-            this.f26658e = "";
+            this.f26682f = eVar;
+            this.f26677a = "";
+            this.f26678b = "";
+            this.f26679c = "";
+            this.f26680d = "";
+            this.f26681e = "";
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -237,20 +237,20 @@ public class e {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof JSONObject)) {
                 JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
                 if (TextUtils.equals(jSONObject.optString("roomInfo"), "roomInfo")) {
-                    this.f26654a = jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID, "");
-                    this.f26655b = jSONObject.optString("tid", "");
-                    this.f26656c = jSONObject.optString("fid", "");
-                    this.f26657d = jSONObject.optString("liveId", "");
-                    this.f26658e = jSONObject.optString("sid", "");
-                } else if ((this.f26654a == null || !TextUtils.equals(jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID), this.f26654a)) && ((this.f26657d == null || !TextUtils.equals(jSONObject.optString("liveId"), this.f26657d)) && (this.f26658e == null || !TextUtils.equals(jSONObject.optString("sid"), this.f26658e)))) {
+                    this.f26677a = jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID, "");
+                    this.f26678b = jSONObject.optString("tid", "");
+                    this.f26679c = jSONObject.optString("fid", "");
+                    this.f26680d = jSONObject.optString("liveId", "");
+                    this.f26681e = jSONObject.optString("sid", "");
+                } else if ((this.f26677a == null || !TextUtils.equals(jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID), this.f26677a)) && ((this.f26680d == null || !TextUtils.equals(jSONObject.optString("liveId"), this.f26680d)) && (this.f26681e == null || !TextUtils.equals(jSONObject.optString("sid"), this.f26681e)))) {
                 } else {
                     try {
-                        jSONObject.put("tid", this.f26655b);
-                        jSONObject.put("fid", this.f26656c);
+                        jSONObject.put("tid", this.f26678b);
+                        jSONObject.put("fid", this.f26679c);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
-                    this.f26659f.t(customResponsedMessage, false);
+                    this.f26682f.t(customResponsedMessage, false);
                 }
             }
         }
@@ -262,7 +262,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f26660a;
+        public final /* synthetic */ e f26683a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(e eVar, int i2) {
@@ -282,7 +282,7 @@ public class e {
                     return;
                 }
             }
-            this.f26660a = eVar;
+            this.f26683a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -290,22 +290,22 @@ public class e {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f26660a.n(customResponsedMessage);
+                this.f26683a.n(customResponsedMessage);
             }
         }
     }
 
     /* renamed from: c.a.r0.w0.f2.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1254e extends CustomMessageListener {
+    public class C1252e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f26661a;
+        public final /* synthetic */ e f26684a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1254e(e eVar, int i2) {
+        public C1252e(e eVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -322,7 +322,7 @@ public class e {
                     return;
                 }
             }
-            this.f26661a = eVar;
+            this.f26684a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -330,7 +330,7 @@ public class e {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f26661a.t(customResponsedMessage, true);
+                this.f26684a.t(customResponsedMessage, true);
             }
         }
     }
@@ -341,7 +341,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f26662a;
+        public final /* synthetic */ e f26685a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(e eVar, int i2) {
@@ -361,7 +361,7 @@ public class e {
                     return;
                 }
             }
-            this.f26662a = eVar;
+            this.f26685a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -369,8 +369,8 @@ public class e {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f26662a.j(this.f26662a.u(customResponsedMessage));
-                this.f26662a.f26640a.getFrsView().W().notifyDataSetChanged();
+                this.f26685a.j(this.f26685a.u(customResponsedMessage));
+                this.f26685a.f26663a.getFrsView().W().notifyDataSetChanged();
             }
         }
     }
@@ -381,10 +381,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f26663e;
+        public final /* synthetic */ int f26686e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f26664f;
+        public final /* synthetic */ View f26687f;
 
         public g(e eVar, int i2, View view) {
             Interceptable interceptable = $ic;
@@ -401,17 +401,17 @@ public class e {
                     return;
                 }
             }
-            this.f26663e = i2;
-            this.f26664f = view;
+            this.f26686e = i2;
+            this.f26687f = view;
         }
 
         @Override // android.view.animation.Animation
         public void applyTransformation(float f2, Transformation transformation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                int i2 = this.f26663e;
-                this.f26664f.getLayoutParams().height = i2 - ((int) (i2 * f2));
-                this.f26664f.requestLayout();
+                int i2 = this.f26686e;
+                this.f26687f.getLayoutParams().height = i2 - ((int) (i2 * f2));
+                this.f26687f.requestLayout();
             }
         }
 
@@ -432,7 +432,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f26665a;
+        public final /* synthetic */ e f26688a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(e eVar, int i2) {
@@ -452,27 +452,27 @@ public class e {
                     return;
                 }
             }
-            this.f26665a = eVar;
+            this.f26688a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f26665a.f26640a == null || this.f26665a.f26640a.getModelController() == null || this.f26665a.f26640a.getModelController().d0() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f26688a.f26663a == null || this.f26688a.f26663a.getModelController() == null || this.f26688a.f26663a.getModelController().d0() == null) {
                 return;
             }
             String str = (String) customResponsedMessage.getData();
-            this.f26665a.m(str, this.f26665a.f26640a.getModelController().d0().getForum().getBannerListData().getAllAdvertList());
-            e eVar = this.f26665a;
-            eVar.l(str, eVar.f26640a.getFrsView().b0().getData());
-            e eVar2 = this.f26665a;
-            eVar2.l(str, eVar2.f26640a.getFrsLoadMoreModelController().f().z());
-            this.f26665a.f26640a.getModelController().I(str);
-            if (this.f26665a.f26640a.getFrsView() == null || this.f26665a.f26640a.getFrsView().W() == null) {
+            this.f26688a.m(str, this.f26688a.f26663a.getModelController().d0().getForum().getBannerListData().getAllAdvertList());
+            e eVar = this.f26688a;
+            eVar.l(str, eVar.f26663a.getFrsView().b0().getData());
+            e eVar2 = this.f26688a;
+            eVar2.l(str, eVar2.f26663a.getFrsLoadMoreModelController().f().z());
+            this.f26688a.f26663a.getModelController().I(str);
+            if (this.f26688a.f26663a.getFrsView() == null || this.f26688a.f26663a.getFrsView().W() == null) {
                 return;
             }
-            this.f26665a.f26640a.getFrsView().W().notifyDataSetChanged();
+            this.f26688a.f26663a.getFrsView().W().notifyDataSetChanged();
         }
     }
 
@@ -491,34 +491,34 @@ public class e {
                 return;
             }
         }
-        this.f26642c = new c(this, 2921547);
-        this.f26643d = new d(this, 2921324);
-        this.f26644e = new C1254e(this, 2016488);
-        this.f26645f = new f(this, 2016553);
-        this.f26646g = new h(this, 2016331);
-        this.f26640a = lVar;
-        this.f26644e.setTag(bdUniqueId);
-        this.f26646g.setTag(bdUniqueId);
-        this.f26643d.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f26643d);
-        MessageManager.getInstance().registerListener(this.f26644e);
-        MessageManager.getInstance().registerListener(this.f26646g);
-        this.f26645f.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f26645f);
-        this.f26642c.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f26642c);
+        this.f26665c = new c(this, 2921547);
+        this.f26666d = new d(this, 2921324);
+        this.f26667e = new C1252e(this, 2016488);
+        this.f26668f = new f(this, 2016553);
+        this.f26669g = new h(this, 2016331);
+        this.f26663a = lVar;
+        this.f26667e.setTag(bdUniqueId);
+        this.f26669g.setTag(bdUniqueId);
+        this.f26666d.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f26666d);
+        MessageManager.getInstance().registerListener(this.f26667e);
+        MessageManager.getInstance().registerListener(this.f26669g);
+        this.f26668f.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f26668f);
+        this.f26665c.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f26665c);
     }
 
     public final void i() {
         d2 d2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (d2Var = this.f26641b) != null && d2Var.V1) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (d2Var = this.f26664b) != null && d2Var.W1) {
             TbPageTag tbPageTag = null;
-            l lVar = this.f26640a;
+            l lVar = this.f26663a;
             if (lVar != null && lVar.getFrsView() != null) {
-                tbPageTag = c.a.q0.n0.c.k(this.f26640a.getFrsView().V());
+                tbPageTag = c.a.q0.n0.c.k(this.f26663a.getFrsView().V());
             }
-            c.a.r0.w0.k2.a.k(this.f26641b, tbPageTag);
+            c.a.r0.w0.k2.a.k(this.f26664b, tbPageTag);
         }
     }
 
@@ -527,32 +527,32 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        ArrayList<c.a.e.l.e.n> threadList = this.f26640a.getModelController().d0().getThreadList();
+        ArrayList<c.a.e.l.e.n> threadList = this.f26663a.getModelController().d0().getThreadList();
         p(str, threadList);
-        p(str, this.f26640a.getFrsView().b0().getData());
-        p(str, this.f26640a.getFrsLoadMoreModelController().e());
-        this.f26640a.getModelController().K(str);
+        p(str, this.f26663a.getFrsView().b0().getData());
+        p(str, this.f26663a.getFrsLoadMoreModelController().e());
+        this.f26663a.getModelController().K(str);
         if (threadList == null || threadList.size() >= 5) {
             return;
         }
-        this.f26640a.loadMore();
+        this.f26663a.loadMore();
     }
 
     public final void k(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            ArrayList<c.a.e.l.e.n> threadList = this.f26640a.getModelController().d0().getThreadList();
+            ArrayList<c.a.e.l.e.n> threadList = this.f26663a.getModelController().d0().getThreadList();
             q(str, str2, threadList);
-            q(str, str2, this.f26640a.getFrsView().b0().getData());
+            q(str, str2, this.f26663a.getFrsView().b0().getData());
             if (str.equals("ala_frs_stage_live_feed_back_type")) {
-                this.f26640a.getModelController().J(str2);
+                this.f26663a.getModelController().J(str2);
             } else if (str.equals("ala_frs_demo_hell_live_feed_back_type")) {
-                this.f26640a.getModelController().K(str2);
+                this.f26663a.getModelController().K(str2);
             }
             if (threadList == null || threadList.size() >= 5) {
                 return;
             }
-            this.f26640a.loadMore();
+            this.f26663a.loadMore();
         }
     }
 
@@ -566,7 +566,7 @@ public class e {
             c.a.e.l.e.n next = it.next();
             if (next instanceof c.a.r0.f.c) {
                 Object b2 = ((c.a.r0.f.c) next).b();
-                if ((b2 instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) b2).W3)) {
+                if ((b2 instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) b2).X3)) {
                     it.remove();
                 }
             }
@@ -581,7 +581,7 @@ public class e {
         Iterator<AdvertAppInfo> it = list.iterator();
         while (it.hasNext()) {
             AdvertAppInfo next = it.next();
-            if (next != null && str.equals(next.W3)) {
+            if (next != null && str.equals(next.X3)) {
                 it.remove();
             }
         }
@@ -590,7 +590,7 @@ public class e {
     public final void n(CustomResponsedMessage<?> customResponsedMessage) {
         l lVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (lVar = this.f26640a) == null || lVar.getModelController() == null || this.f26640a.getModelController().d0() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (lVar = this.f26663a) == null || lVar.getModelController() == null || this.f26663a.getModelController().d0() == null) {
             return;
         }
         JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
@@ -599,16 +599,16 @@ public class e {
             return;
         }
         String optString2 = jSONObject.optString("tid");
-        if (this.f26640a.getFrsView() == null || this.f26640a.getFrsView().W() == null) {
+        if (this.f26663a.getFrsView() == null || this.f26663a.getFrsView().W() == null) {
             return;
         }
-        View childAt = this.f26640a.getFrsView().b0().getChildAt(s(optString, optString2, this.f26640a.getFrsView().b0()));
+        View childAt = this.f26663a.getFrsView().b0().getChildAt(s(optString, optString2, this.f26663a.getFrsView().b0()));
         if (childAt != null) {
             o(childAt, new b(this, optString, optString2, childAt));
             return;
         }
         k(optString, optString2);
-        this.f26640a.getFrsView().W().notifyDataSetChanged();
+        this.f26663a.getFrsView().W().notifyDataSetChanged();
     }
 
     public final void o(View view, Animation.AnimationListener animationListener) {
@@ -679,7 +679,7 @@ public class e {
                 if (item instanceof c2) {
                     d2 d2Var = ((c2) item).w;
                     if (d2Var.s1() != null && d2Var.s1().equals(str)) {
-                        this.f26641b = d2Var;
+                        this.f26664b = d2Var;
                         i2 = i3;
                     }
                 }
@@ -730,19 +730,19 @@ public class e {
     public final void t(CustomResponsedMessage<?> customResponsedMessage, boolean z) {
         l lVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048587, this, customResponsedMessage, z) == null) || (lVar = this.f26640a) == null || lVar.getModelController() == null || this.f26640a.getModelController().d0() == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048587, this, customResponsedMessage, z) == null) || (lVar = this.f26663a) == null || lVar.getModelController() == null || this.f26663a.getModelController().d0() == null) {
             return;
         }
         String u = u(customResponsedMessage);
-        if (StringUtils.isNull(u) || this.f26640a.getFrsView() == null || this.f26640a.getFrsView().W() == null) {
+        if (StringUtils.isNull(u) || this.f26663a.getFrsView() == null || this.f26663a.getFrsView().W() == null) {
             return;
         }
-        View childAt = this.f26640a.getFrsView().b0().getChildAt(r(u, this.f26640a.getFrsView().b0()));
+        View childAt = this.f26663a.getFrsView().b0().getChildAt(r(u, this.f26663a.getFrsView().b0()));
         if (childAt != null) {
             o(childAt, new a(this, childAt, u));
         } else {
             j(u);
-            this.f26640a.getFrsView().W().notifyDataSetChanged();
+            this.f26663a.getFrsView().W().notifyDataSetChanged();
         }
         if (z) {
             i();

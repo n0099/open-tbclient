@@ -33,22 +33,22 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49879e;
+    public Context f49990e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BazhuHeadView f49880f;
+    public BazhuHeadView f49991f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f49881g;
+    public LinearLayout f49992g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49882h;
+    public TextView f49993h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49883i;
+    public TextView f49994i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f49884j;
+    public ImageView f49995j;
     public TextView k;
     public View.OnClickListener l;
 
@@ -58,7 +58,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CandidateInfoLayout f49885e;
+        public final /* synthetic */ CandidateInfoLayout f49996e;
 
         public a(CandidateInfoLayout candidateInfoLayout) {
             Interceptable interceptable = $ic;
@@ -75,22 +75,22 @@ public class CandidateInfoLayout extends CardBasicLayout {
                     return;
                 }
             }
-            this.f49885e = candidateInfoLayout;
+            this.f49996e = candidateInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (dVar = this.f49885e.mElectionData) == null || dVar.l() == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (dVar = this.f49996e.mElectionData) == null || dVar.l() == 0) {
                 return;
             }
             long g2 = b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
-            long l = this.f49885e.mElectionData.l();
-            if (!(this.f49885e.getContext() instanceof Activity) || this.f49885e.mElectionData.f() == 2) {
+            long l = this.f49996e.mElectionData.l();
+            if (!(this.f49996e.getContext() instanceof Activity) || this.f49996e.mElectionData.f() == 2) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f49885e.getContext()).createNormalConfig(l, l == g2, false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f49996e.getContext()).createNormalConfig(l, l == g2, false)));
         }
     }
 
@@ -119,22 +119,22 @@ public class CandidateInfoLayout extends CardBasicLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
-            this.f49880f = bazhuHeadView;
+            this.f49991f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
-                this.f49880f.getHeadView().setIsRound(true);
+                this.f49991f.getHeadView().setIsRound(true);
             }
-            this.f49881g = (LinearLayout) findViewById(R.id.user_name_and_active_status);
-            this.f49882h = (TextView) findViewById(R.id.user_name);
-            this.f49883i = (TextView) findViewById(R.id.vote_id);
+            this.f49992g = (LinearLayout) findViewById(R.id.user_name_and_active_status);
+            this.f49993h = (TextView) findViewById(R.id.user_name);
+            this.f49994i = (TextView) findViewById(R.id.vote_id);
             this.k = (TextView) findViewById(R.id.agree_post_reply_num);
-            this.f49884j = (ImageView) findViewById(R.id.grade);
+            this.f49995j = (ImageView) findViewById(R.id.grade);
         }
     }
 
     public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f49879e = getContext();
+            this.f49990e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(0);
@@ -149,8 +149,8 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f49882h, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.f49883i, R.color.CAM_X0109, 1, i2);
+            SkinManager.setViewTextColor(this.f49993h, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f49994i, R.color.CAM_X0109, 1, i2);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1, i2);
             d dVar = this.mElectionData;
             if (dVar != null) {
@@ -167,42 +167,42 @@ public class CandidateInfoLayout extends CardBasicLayout {
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, fVar) == null) {
             super.setData(i2, fVar);
             if (this.mData != null && this.mElectionData != null && (i3 = this.status) >= 0) {
-                if (i3 == c.a.r0.x.e.a.f28296c) {
-                    int g2 = l.g(this.f49879e, R.dimen.tbds191);
-                    int g3 = l.g(this.f49879e, R.dimen.tbds157);
-                    int g4 = l.g(this.f49879e, R.dimen.tbds6);
-                    int g5 = l.g(this.f49879e, R.dimen.tbds24);
-                    int g6 = l.g(this.f49879e, R.dimen.tbds30);
+                if (i3 == c.a.r0.x.e.a.f28316c) {
+                    int g2 = l.g(this.f49990e, R.dimen.tbds191);
+                    int g3 = l.g(this.f49990e, R.dimen.tbds157);
+                    int g4 = l.g(this.f49990e, R.dimen.tbds6);
+                    int g5 = l.g(this.f49990e, R.dimen.tbds24);
+                    int g6 = l.g(this.f49990e, R.dimen.tbds30);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g3, g2);
                     layoutParams.setMargins(layoutParams.leftMargin - g4, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-                    this.f49880f.setLayoutParams(layoutParams);
-                    this.f49880f.resizeView(true);
-                    this.f49880f.setBawuLogoView(R.drawable.pic_election_bazhu);
-                    this.f49880f.setPendantView(R.drawable.icon_crown);
-                    this.f49882h.setTextSize(0, l.g(this.f49879e, R.dimen.tbfontsize46));
+                    this.f49991f.setLayoutParams(layoutParams);
+                    this.f49991f.resizeView(true);
+                    this.f49991f.setBawuLogoView(R.drawable.pic_election_bazhu);
+                    this.f49991f.setPendantView(R.drawable.icon_crown);
+                    this.f49993h.setTextSize(0, l.g(this.f49990e, R.dimen.tbfontsize46));
                     setGravity(16);
                     LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams2.setMargins(g6, g5, layoutParams2.rightMargin, g4);
-                    this.f49880f.setLayoutParams(layoutParams);
-                    this.f49881g.setLayoutParams(layoutParams2);
+                    this.f49991f.setLayoutParams(layoutParams);
+                    this.f49992g.setLayoutParams(layoutParams2);
                 } else {
-                    this.f49880f.resizeView(false);
+                    this.f49991f.resizeView(false);
                 }
-                this.f49880f.startLoadOnlyHeadUrl(this.mElectionData.g());
-                this.f49880f.setOnClickListener(this.l);
-                this.f49882h.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.mElectionData.e(), 14, "..."));
+                this.f49991f.startLoadOnlyHeadUrl(this.mElectionData.g());
+                this.f49991f.setOnClickListener(this.l);
+                this.f49993h.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.mElectionData.e(), 14, "..."));
                 setGrade(this.mElectionData.d());
                 if (this.mElectionData.f() == 2) {
-                    this.f49883i.setVisibility(8);
+                    this.f49994i.setVisibility(8);
                 } else {
-                    this.f49883i.setVisibility(0);
+                    this.f49994i.setVisibility(0);
                     if (this.mElectionData.c() < 1000) {
                         String str2 = "0000" + this.mElectionData.c();
                         str = str2.substring(str2.length() - 4, str2.length());
                     } else {
                         str = "" + this.mElectionData.c();
                     }
-                    this.f49883i.setText("NO." + str);
+                    this.f49994i.setText("NO." + str);
                 }
                 this.k.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), StringHelper.numFormatOverWanWithNegative(this.mElectionData.a()), StringHelper.numFormatOverWanWithNegative(this.mElectionData.j()), StringHelper.numFormatOverWanWithNegative(this.mElectionData.h())));
                 return;
@@ -214,7 +214,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public void setGrade(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            SkinManager.setImageResource(this.f49884j, BitmapHelper.getGradeResourceIdInEnterForum(i2));
+            SkinManager.setImageResource(this.f49995j, BitmapHelper.getGradeResourceIdInEnterForum(i2));
         }
     }
 

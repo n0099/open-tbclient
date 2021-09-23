@@ -19,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,11 +37,11 @@ public class f extends c.a.p0.a.n1.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static AtomicLong f4784f;
+    public static AtomicLong f4792f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4785e;
+    public int f4793e;
 
     /* loaded from: classes.dex */
     public class a implements a.b {
@@ -48,22 +49,22 @@ public class f extends c.a.p0.a.n1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4786a;
+        public final /* synthetic */ CallbackHandler f4794a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f4787b;
+        public final /* synthetic */ String f4795b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f4788c;
+        public final /* synthetic */ String f4796c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f4789d;
+        public final /* synthetic */ String f4797d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f4790e;
+        public final /* synthetic */ String f4798e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f4791f;
+        public final /* synthetic */ f f4799f;
 
         public a(f fVar, CallbackHandler callbackHandler, String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -80,28 +81,28 @@ public class f extends c.a.p0.a.n1.a {
                     return;
                 }
             }
-            this.f4791f = fVar;
-            this.f4786a = callbackHandler;
-            this.f4787b = str;
-            this.f4788c = str2;
-            this.f4789d = str3;
-            this.f4790e = str4;
+            this.f4799f = fVar;
+            this.f4794a = callbackHandler;
+            this.f4795b = str;
+            this.f4796c = str2;
+            this.f4797d = str3;
+            this.f4798e = str4;
         }
 
         @Override // c.a.p0.a.n1.o.a.b
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.f4786a.handleSchemeDispatchCallback(this.f4787b, UnitedSchemeUtility.wrapCallbackParams(1001, "download file failed because file size exceeds limit").toString());
-                SwanAppNetworkUtils.a(c.a.p0.m.e.a.g().getOkHttpClient(), this.f4788c);
-                this.f4791f.q(this.f4789d);
+                this.f4794a.handleSchemeDispatchCallback(this.f4795b, UnitedSchemeUtility.wrapCallbackParams(1001, "download file failed because file size exceeds limit").toString());
+                SwanAppNetworkUtils.a(c.a.p0.m.e.a.g().getOkHttpClient(), this.f4796c);
+                this.f4799f.q(this.f4797d);
             }
         }
 
         @Override // c.a.p0.a.n1.o.a.b
         public void b(int i2, long j2, long j3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || System.currentTimeMillis() - this.f4791f.p(this.f4789d) <= 500) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || System.currentTimeMillis() - this.f4799f.p(this.f4797d) <= 500) {
                 return;
             }
             if (i2 <= 100) {
@@ -110,23 +111,23 @@ public class f extends c.a.p0.a.n1.a {
                     jSONObject.put("progress", i2);
                     jSONObject.put("totalBytesWritten", j2);
                     jSONObject.put("totalBytesExpectedToWrite", j3);
-                    this.f4786a.handleSchemeDispatchCallback(this.f4790e, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+                    this.f4794a.handleSchemeDispatchCallback(this.f4798e, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
                 } catch (Exception e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                 }
             }
-            this.f4791f.f7574c.put(this.f4789d, Long.valueOf(System.currentTimeMillis()));
+            this.f4799f.f7582c.put(this.f4797d, Long.valueOf(System.currentTimeMillis()));
         }
 
         @Override // c.a.p0.a.n1.o.a.b
         public void c(long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                this.f4786a.handleSchemeDispatchCallback(this.f4787b, UnitedSchemeUtility.wrapCallbackParams(1001, "progress callback fail()").toString());
-                SwanAppNetworkUtils.a(c.a.p0.m.e.a.g().getOkHttpClient(), this.f4788c);
-                this.f4791f.q(this.f4789d);
+                this.f4794a.handleSchemeDispatchCallback(this.f4795b, UnitedSchemeUtility.wrapCallbackParams(1001, "progress callback fail()").toString());
+                SwanAppNetworkUtils.a(c.a.p0.m.e.a.g().getOkHttpClient(), this.f4796c);
+                this.f4799f.q(this.f4797d);
             }
         }
     }
@@ -137,34 +138,34 @@ public class f extends c.a.p0.a.n1.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4792a;
+        public final /* synthetic */ CallbackHandler f4800a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f4793b;
+        public final /* synthetic */ String f4801b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f4794c;
+        public final /* synthetic */ String f4802c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f4795d;
+        public final /* synthetic */ String f4803d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f4796e;
+        public final /* synthetic */ String f4804e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4797f;
+        public final /* synthetic */ String f4805f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f4798g;
+        public final /* synthetic */ String f4806g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f4799h;
+        public final /* synthetic */ String f4807h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f4800i;
+        public final /* synthetic */ String f4808i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ f f4801j;
+        public final /* synthetic */ f f4809j;
 
         public b(f fVar, CallbackHandler callbackHandler, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
             Interceptable interceptable = $ic;
@@ -181,16 +182,16 @@ public class f extends c.a.p0.a.n1.a {
                     return;
                 }
             }
-            this.f4801j = fVar;
-            this.f4792a = callbackHandler;
-            this.f4793b = str;
-            this.f4794c = str2;
-            this.f4795d = str3;
-            this.f4796e = str4;
-            this.f4797f = str5;
-            this.f4798g = str6;
-            this.f4799h = str7;
-            this.f4800i = str8;
+            this.f4809j = fVar;
+            this.f4800a = callbackHandler;
+            this.f4801b = str;
+            this.f4802c = str2;
+            this.f4803d = str3;
+            this.f4804e = str4;
+            this.f4805f = str5;
+            this.f4806g = str6;
+            this.f4807h = str7;
+            this.f4808i = str8;
         }
 
         @Override // okhttp3.Callback
@@ -198,10 +199,10 @@ public class f extends c.a.p0.a.n1.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
                 c.a.p0.a.g1.f.V().S();
-                this.f4792a.handleSchemeDispatchCallback(this.f4793b, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
-                this.f4801j.q(this.f4794c);
+                this.f4800a.handleSchemeDispatchCallback(this.f4801b, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
+                this.f4809j.q(this.f4802c);
                 if (SwanAppNetworkUtils.i(null)) {
-                    c.a.p0.a.j2.k.s(0, this.f4795d, 0, iOException.getMessage(), this.f4796e, this.f4797f);
+                    c.a.p0.a.j2.k.s(0, this.f4803d, 0, iOException.getMessage(), this.f4804e, this.f4805f);
                 }
             }
         }
@@ -212,26 +213,26 @@ public class f extends c.a.p0.a.n1.a {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                if (!TextUtils.isEmpty(this.f4798g)) {
-                    y = this.f4801j.y(this.f4798g);
+                if (!TextUtils.isEmpty(this.f4806g)) {
+                    y = this.f4809j.y(this.f4806g);
                 } else {
-                    y = f.A(response, this.f4799h);
+                    y = f.A(response, this.f4807h);
                 }
                 if (TextUtils.isEmpty(y)) {
-                    this.f4792a.handleSchemeDispatchCallback(this.f4793b, UnitedSchemeUtility.wrapCallbackParams(1001, "realFilePath create fail").toString());
+                    this.f4800a.handleSchemeDispatchCallback(this.f4801b, UnitedSchemeUtility.wrapCallbackParams(1001, "realFilePath create fail").toString());
                     return;
                 }
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str2 = "the real file path is " + y;
                 }
-                this.f4801j.r(this.f4800i, response.headers());
-                if (TextUtils.isEmpty(this.f4798g)) {
+                this.f4809j.r(this.f4808i, response.headers());
+                if (TextUtils.isEmpty(this.f4806g)) {
                     str = c.a.p0.a.g1.f.V().I().h(y);
                 } else {
-                    str = this.f4798g;
+                    str = this.f4806g;
                 }
                 if (TextUtils.isEmpty(str)) {
-                    this.f4792a.handleSchemeDispatchCallback(this.f4793b, UnitedSchemeUtility.wrapCallbackParams(1001, "parse tmpFilePath from realFilePath fail").toString());
+                    this.f4800a.handleSchemeDispatchCallback(this.f4801b, UnitedSchemeUtility.wrapCallbackParams(1001, "parse tmpFilePath from realFilePath fail").toString());
                     return;
                 }
                 int code = response.code();
@@ -239,8 +240,8 @@ public class f extends c.a.p0.a.n1.a {
                 try {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("statusCode", code);
-                        jSONObject.put(TextUtils.isEmpty(this.f4798g) ? "tempFilePath" : "filePath", str);
+                        jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, code);
+                        jSONObject.put(TextUtils.isEmpty(this.f4806g) ? "tempFilePath" : "filePath", str);
                         InputStream byteStream = response.body().byteStream();
                         File file = new File(y);
                         if (file.exists()) {
@@ -248,24 +249,24 @@ public class f extends c.a.p0.a.n1.a {
                             file.createNewFile();
                         }
                         if (c.a.p0.t.g.a(byteStream, file)) {
-                            this.f4792a.handleSchemeDispatchCallback(this.f4793b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+                            this.f4800a.handleSchemeDispatchCallback(this.f4801b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
                         } else {
-                            this.f4792a.handleSchemeDispatchCallback(this.f4793b, UnitedSchemeUtility.wrapCallbackParams(1001, "streamToFile fail").toString());
+                            this.f4800a.handleSchemeDispatchCallback(this.f4801b, UnitedSchemeUtility.wrapCallbackParams(1001, "streamToFile fail").toString());
                         }
                     } catch (Exception e2) {
-                        if (a0.f4766b) {
+                        if (a0.f4774b) {
                             e2.printStackTrace();
                         }
-                        this.f4792a.handleSchemeDispatchCallback(this.f4793b, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
+                        this.f4800a.handleSchemeDispatchCallback(this.f4801b, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
                     }
-                    this.f4801j.q(this.f4794c);
+                    this.f4809j.q(this.f4802c);
                     c.a.p0.a.g1.f.V().S();
-                    if (a0.f4766b) {
-                        String str3 = "onResponse: respCode: " + code + ", url=" + this.f4795d + ", msg=" + message;
+                    if (a0.f4774b) {
+                        String str3 = "onResponse: respCode: " + code + ", url=" + this.f4803d + ", msg=" + message;
                     }
-                    c.a.p0.a.j2.k.s(code, this.f4795d, 0, message, this.f4796e, this.f4797f);
+                    c.a.p0.a.j2.k.s(code, this.f4803d, 0, message, this.f4804e, this.f4805f);
                 } catch (Throwable th) {
-                    this.f4801j.q(this.f4794c);
+                    this.f4809j.q(this.f4802c);
                     c.a.p0.a.g1.f.V().S();
                     throw th;
                 }
@@ -286,7 +287,7 @@ public class f extends c.a.p0.a.n1.a {
                 return;
             }
         }
-        f4784f = new AtomicLong(System.currentTimeMillis());
+        f4792f = new AtomicLong(System.currentTimeMillis());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -308,7 +309,7 @@ public class f extends c.a.p0.a.n1.a {
                 return;
             }
         }
-        this.f4785e = 0;
+        this.f4793e = 0;
     }
 
     @Nullable
@@ -343,7 +344,7 @@ public class f extends c.a.p0.a.n1.a {
                     }
                 }
             }
-            long andIncrement = f4784f.getAndIncrement();
+            long andIncrement = f4792f.getAndIncrement();
             StringBuilder sb = new StringBuilder();
             sb.append(andIncrement);
             if (TextUtils.isEmpty(str)) {
@@ -391,7 +392,7 @@ public class f extends c.a.p0.a.n1.a {
             String a3 = c.a.p0.a.u.e.j.h.a(V);
             Request x = x(a2, a3);
             if (x == null) {
-                unitedSchemeEntity.result = t(this.f4785e);
+                unitedSchemeEntity.result = t(this.f4793e);
                 return false;
             }
             String httpUrl = x.url().toString();
@@ -410,7 +411,7 @@ public class f extends c.a.p0.a.n1.a {
             bVar.a(m);
             c.a.p0.a.g1.f.V().b0();
             String valueOf = String.valueOf(System.currentTimeMillis());
-            this.f7574c.put(valueOf, 0L);
+            this.f7582c.put(valueOf, 0L);
             c.a.p0.a.n1.o.a aVar = new c.a.p0.a.n1.o.a();
             aVar.b(new a(this, callbackHandler, optString3, a3, valueOf, optString));
             String l = c.a.p0.a.j2.k.l();
@@ -442,7 +443,7 @@ public class f extends c.a.p0.a.n1.a {
                 return null;
             }
             int c2 = c.a.p0.a.b2.a.b.c("downloadFile", httpUrl, jSONObject.optString("__plugin__"));
-            this.f4785e = c2;
+            this.f4793e = c2;
             if (c2 != 0) {
                 return null;
             }

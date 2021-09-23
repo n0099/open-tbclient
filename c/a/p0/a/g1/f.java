@@ -32,17 +32,17 @@ public final class f implements e.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5774b;
+    public static final boolean f5782b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static AtomicLong f5775c;
+    public static AtomicLong f5783c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile f f5776d;
+    public static volatile f f5784d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f5777a;
+    public d f5785a;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -83,7 +83,7 @@ public final class f implements e.b {
         public boolean j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5748h : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5756h : invokeV.booleanValue;
         }
 
         public /* synthetic */ b(f fVar, a aVar) {
@@ -104,8 +104,8 @@ public final class f implements e.b {
                 return;
             }
         }
-        f5774b = k.f7077a;
-        f5775c = new AtomicLong(0L);
+        f5782b = k.f7085a;
+        f5783c = new AtomicLong(0L);
     }
 
     public f() {
@@ -121,21 +121,21 @@ public final class f implements e.b {
                 return;
             }
         }
-        this.f5777a = new b(this, null);
+        this.f5785a = new b(this, null);
     }
 
     public static f V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f5776d == null) {
+            if (f5784d == null) {
                 synchronized (f.class) {
-                    if (f5776d == null) {
-                        f5776d = new f();
+                    if (f5784d == null) {
+                        f5784d = new f();
                     }
                 }
             }
-            return f5776d;
+            return f5784d;
         }
         return (f) invokeV.objValue;
     }
@@ -144,13 +144,13 @@ public final class f implements e.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             synchronized (f.class) {
-                if (f5776d == null) {
+                if (f5784d == null) {
                     return;
                 }
-                if (f5776d.f5777a != null) {
-                    f5776d.f5777a.P();
+                if (f5784d.f5785a != null) {
+                    f5784d.f5785a.P();
                 }
-                f5776d = null;
+                f5784d = null;
             }
         }
     }
@@ -158,31 +158,31 @@ public final class f implements e.b {
     public String A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5777a.A() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5785a.A() : (String) invokeV.objValue;
     }
 
     public c.a.p0.a.p.e.d B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f5777a.B(str) : (c.a.p0.a.p.e.d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f5785a.B(str) : (c.a.p0.a.p.e.d) invokeL.objValue;
     }
 
     public AbsoluteLayout C(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f5777a.C(str) : (AbsoluteLayout) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f5785a.C(str) : (AbsoluteLayout) invokeL.objValue;
     }
 
     public String D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5777a.D() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5785a.D() : (String) invokeV.objValue;
     }
 
     public void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.f5777a.E(context);
+            this.f5785a.E(context);
         }
     }
 
@@ -190,50 +190,50 @@ public final class f implements e.b {
     public c.a.p0.a.a2.e F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5777a.F() : (c.a.p0.a.a2.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5785a.F() : (c.a.p0.a.a2.e) invokeV.objValue;
     }
 
     public void G(c.a.p0.a.f1.e.b bVar, c.a.p0.a.a1.b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, bVar, bVar2) == null) {
-            this.f5777a.G(bVar, bVar2);
+            this.f5785a.G(bVar, bVar2);
         }
     }
 
     public c.a.p0.a.p.b.a.k H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f5777a.H() : (c.a.p0.a.p.b.a.k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f5785a.H() : (c.a.p0.a.p.b.a.k) invokeV.objValue;
     }
 
     public c.a.p0.a.k2.f.d I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f5777a.I() : (c.a.p0.a.k2.f.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f5785a.I() : (c.a.p0.a.k2.f.d) invokeV.objValue;
     }
 
     public c.a.p0.a.h0.g.f J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f5777a.J() : (c.a.p0.a.h0.g.f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f5785a.J() : (c.a.p0.a.h0.g.f) invokeV.objValue;
     }
 
     public SwanAppPropertyWindow L(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, activity)) == null) ? this.f5777a.L(activity) : (SwanAppPropertyWindow) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, activity)) == null) ? this.f5785a.L(activity) : (SwanAppPropertyWindow) invokeL.objValue;
     }
 
     public SwanCoreVersion N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f5777a.N() : (SwanCoreVersion) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f5785a.N() : (SwanCoreVersion) invokeV.objValue;
     }
 
     public boolean O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f5777a.O() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f5785a.O() : invokeV.booleanValue;
     }
 
     public void R(int i2) {
@@ -242,22 +242,22 @@ public final class f implements e.b {
             return;
         }
         if (i2 == 0) {
-            this.f5777a = new c();
+            this.f5785a = new c();
         } else if (i2 != 1) {
         } else {
-            this.f5777a = c.a.p0.a.c1.b.a();
+            this.f5785a = c.a.p0.a.c1.b.a();
         }
     }
 
     public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            long decrementAndGet = f5775c.decrementAndGet();
+            long decrementAndGet = f5783c.decrementAndGet();
             SwanAppActivity x = c.a.p0.a.a2.d.g().x();
             if (decrementAndGet <= 0 && x != null && x.isBackground()) {
-                this.f5777a.K();
+                this.f5785a.K();
             }
-            if (f5774b) {
+            if (f5782b) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("decrementBgThreadAliveCount: count = ");
                 sb.append(decrementAndGet);
@@ -271,7 +271,7 @@ public final class f implements e.b {
     public long T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? f5775c.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? f5783c.get() : invokeV.longValue;
     }
 
     public String U() {
@@ -297,32 +297,32 @@ public final class f implements e.b {
     public n X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f5777a.Q() : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f5785a.Q() : (n) invokeV.objValue;
     }
 
     public n Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f5777a.M() : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f5785a.M() : (n) invokeV.objValue;
     }
 
     public boolean Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? a0() && this.f5777a.getActivity() != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? a0() && this.f5785a.getActivity() != null : invokeV.booleanValue;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f5777a.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f5785a.a() : (String) invokeV.objValue;
     }
 
     public boolean a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            d dVar = this.f5777a;
+            d dVar = this.f5785a;
             return (dVar == null || (dVar instanceof b)) ? false : true;
         }
         return invokeV.booleanValue;
@@ -331,15 +331,15 @@ public final class f implements e.b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f5777a.b();
+            this.f5785a.b();
         }
     }
 
     public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            long incrementAndGet = f5775c.incrementAndGet();
-            if (f5774b) {
+            long incrementAndGet = f5783c.incrementAndGet();
+            if (f5782b) {
                 String str = "incrementBgThreadAliveCount: " + incrementAndGet;
             }
         }
@@ -348,7 +348,7 @@ public final class f implements e.b {
     public void c(c.a.p0.a.f1.e.b bVar, c.a.p0.a.a1.b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, bVar, bVar2) == null) {
-            this.f5777a.c(bVar, bVar2);
+            this.f5785a.c(bVar, bVar2);
         }
     }
 
@@ -356,59 +356,59 @@ public final class f implements e.b {
     public c.a.p0.a.a2.n.g d(String str, SwanAppConfigData swanAppConfigData, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048602, this, str, swanAppConfigData, str2)) == null) ? this.f5777a.d(str, swanAppConfigData, str2) : (c.a.p0.a.a2.n.g) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048602, this, str, swanAppConfigData, str2)) == null) ? this.f5785a.d(str, swanAppConfigData, str2) : (c.a.p0.a.a2.n.g) invokeLLL.objValue;
     }
 
     @NonNull
     public c.a.p0.a.a2.n.g e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) ? this.f5777a.e(str) : (c.a.p0.a.a2.n.g) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) ? this.f5785a.e(str) : (c.a.p0.a.a2.n.g) invokeL.objValue;
     }
 
     public void exit() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            this.f5777a.exit();
+            this.f5785a.exit();
         }
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f5777a.f() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f5785a.f() : (String) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.g1.e.b
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.f5777a.g(i2);
+            this.f5785a.g(i2);
         }
     }
 
     public SwanAppActivity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f5777a.getActivity() : (SwanAppActivity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f5785a.getActivity() : (SwanAppActivity) invokeV.objValue;
     }
 
     public c.a.p0.a.p.e.c h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f5777a.h() : (c.a.p0.a.p.e.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f5785a.h() : (c.a.p0.a.p.e.c) invokeV.objValue;
     }
 
     public c.a.p0.a.a2.n.g i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) ? this.f5777a.i(str) : (c.a.p0.a.a2.n.g) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) ? this.f5785a.i(str) : (c.a.p0.a.a2.n.g) invokeL.objValue;
     }
 
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, context) == null) {
-            this.f5777a.k(context);
+            this.f5785a.k(context);
         }
     }
 
@@ -419,7 +419,7 @@ public final class f implements e.b {
                 R(swanAppActivity.getFrameType());
             }
             if (a0()) {
-                this.f5777a.l(swanAppActivity);
+                this.f5785a.l(swanAppActivity);
             }
         }
     }
@@ -427,27 +427,27 @@ public final class f implements e.b {
     public void m(String str, c.a.p0.a.o0.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048612, this, str, aVar) == null) {
-            this.f5777a.m(str, aVar);
+            this.f5785a.m(str, aVar);
         }
     }
 
     public FullScreenFloatView n(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, activity)) == null) ? this.f5777a.n(activity) : (FullScreenFloatView) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, activity)) == null) ? this.f5785a.n(activity) : (FullScreenFloatView) invokeL.objValue;
     }
 
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            this.f5777a.o();
+            this.f5785a.o();
         }
     }
 
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            this.f5777a.p();
+            this.f5785a.p();
         }
     }
 
@@ -455,54 +455,54 @@ public final class f implements e.b {
     public c.a.p0.a.p.e.a q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f5777a.q() : (c.a.p0.a.p.e.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f5785a.q() : (c.a.p0.a.p.e.a) invokeV.objValue;
     }
 
     @NonNull
     public Pair<Integer, Integer> r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f5777a.r() : (Pair) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f5785a.r() : (Pair) invokeV.objValue;
     }
 
     public SwanAppConfigData s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f5777a.s() : (SwanAppConfigData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f5785a.s() : (SwanAppConfigData) invokeV.objValue;
     }
 
     public void t(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, intent) == null) {
-            this.f5777a.t(intent);
+            this.f5785a.t(intent);
         }
     }
 
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            this.f5777a.u();
+            this.f5785a.u();
         }
     }
 
     public void v(c.a.p0.a.o0.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, aVar) == null) {
-            this.f5777a.v(aVar);
+            this.f5785a.v(aVar);
         }
     }
 
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            this.f5777a.w();
+            this.f5785a.w();
         }
     }
 
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            this.f5777a.x();
+            this.f5785a.x();
         }
     }
 
@@ -510,13 +510,13 @@ public final class f implements e.b {
     public Pair<Integer, Integer> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f5777a.y() : (Pair) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f5785a.y() : (Pair) invokeV.objValue;
     }
 
     public void z(c.a.p0.a.o0.d.d dVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048625, this, dVar, z) == null) {
-            this.f5777a.z(dVar, z);
+            this.f5785a.z(dVar, z);
         }
     }
 }

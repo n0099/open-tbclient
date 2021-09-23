@@ -23,19 +23,19 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final long[] f32597a;
+        public final long[] f32620a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int[] f32598b;
+        public final int[] f32621b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f32599c;
+        public final int f32622c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long[] f32600d;
+        public final long[] f32623d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int[] f32601e;
+        public final int[] f32624e;
 
         public /* synthetic */ b(long[] jArr, int[] iArr, int i2, long[] jArr2, int[] iArr2, a aVar) {
             this(jArr, iArr, i2, jArr2, iArr2);
@@ -56,11 +56,11 @@ public final class d {
                     return;
                 }
             }
-            this.f32597a = jArr;
-            this.f32598b = iArr;
-            this.f32599c = i2;
-            this.f32600d = jArr2;
-            this.f32601e = iArr2;
+            this.f32620a = jArr;
+            this.f32621b = iArr;
+            this.f32622c = i2;
+            this.f32623d = jArr2;
+            this.f32624e = iArr2;
         }
     }
 

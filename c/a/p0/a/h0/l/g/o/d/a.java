@@ -40,7 +40,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (d.f8727c) {
+            if (d.f8735c) {
                 String str2 = "start get preloadStatus - " + str;
             }
             if (e.Q() == null) {
@@ -49,7 +49,7 @@ public class a extends d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-preloadStatus", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                boolean z = d.f8727c;
+                boolean z = d.f8735c;
                 return bVar;
             }
             c.a.p0.a.h0.l.g.o.a.c().j((JSONObject) b2.second);

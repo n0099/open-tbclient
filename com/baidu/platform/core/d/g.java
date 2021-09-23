@@ -35,18 +35,18 @@ public class g extends com.baidu.platform.base.e {
     private void a(IndoorRoutePlanOption indoorRoutePlanOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, indoorRoutePlanOption) == null) {
-            this.f44305a.a("qt", "indoornavi");
-            this.f44305a.a("rp_format", "json");
-            this.f44305a.a("version", "1");
+            this.f44367a.a("qt", "indoornavi");
+            this.f44367a.a("rp_format", "json");
+            this.f44367a.a("version", "1");
             GeoPoint ll2mc = CoordUtil.ll2mc(indoorRoutePlanOption.mFrom.getLocation());
             if (ll2mc != null) {
                 String format = String.format("%f,%f", Double.valueOf(ll2mc.getLongitudeE6()), Double.valueOf(ll2mc.getLatitudeE6()));
-                this.f44305a.a(IAdRequestParam.SN, (format + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
+                this.f44367a.a(IAdRequestParam.SN, (format + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
             }
             GeoPoint ll2mc2 = CoordUtil.ll2mc(indoorRoutePlanOption.mTo.getLocation());
             if (ll2mc2 != null) {
                 String format2 = String.format("%f,%f", Double.valueOf(ll2mc2.getLongitudeE6()), Double.valueOf(ll2mc2.getLatitudeE6()));
-                this.f44305a.a(com.baidu.fsg.base.statistics.f.f39499a, (format2 + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
+                this.f44367a.a(com.baidu.fsg.base.statistics.h.f39556a, (format2 + "|" + indoorRoutePlanOption.mTo.getFloor()).replaceAll(" ", ""));
             }
         }
     }

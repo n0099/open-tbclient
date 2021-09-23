@@ -27,10 +27,10 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f7902e;
+        public final /* synthetic */ Context f7910e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7903f;
+        public final /* synthetic */ String f7911f;
 
         public RunnableC0344a(a aVar, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -47,15 +47,15 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f7902e = context;
-            this.f7903f = str;
+            this.f7910e = context;
+            this.f7911f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Toast.makeText(this.f7902e, this.f7903f, 1).show();
+                Toast.makeText(this.f7910e, this.f7911f, 1).show();
             }
         }
     }
@@ -86,7 +86,7 @@ public class a extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            boolean z = a0.f4766b;
+            boolean z = a0.f4774b;
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
             if (a2 == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");

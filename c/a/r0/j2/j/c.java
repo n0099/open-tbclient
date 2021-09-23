@@ -21,7 +21,7 @@ public class c {
             if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
                 return null;
             }
-            StatisticItem statisticItem = new StatisticItem(b.a.f19490a);
+            StatisticItem statisticItem = new StatisticItem(b.a.f19505a);
             int i2 = 0;
             int from = iBaseDialogData.getFrom();
             if (from == 0) {

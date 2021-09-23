@@ -12,28 +12,28 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<MediaModel> f6746a;
+    public static ArrayList<MediaModel> f6754a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a() {
         ArrayList<MediaModel> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (arrayList = f6746a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (arrayList = f6754a) == null) {
             return;
         }
         arrayList.clear();
-        f6746a = null;
+        f6754a = null;
     }
 
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ArrayList<MediaModel> arrayList = f6746a;
-            if (arrayList == null || arrayList.size() == 0 || f6746a.get(0) == null) {
+            ArrayList<MediaModel> arrayList = f6754a;
+            if (arrayList == null || arrayList.size() == 0 || f6754a.get(0) == null) {
                 return null;
             }
-            return f6746a.get(0).getType();
+            return f6754a.get(0).getType();
         }
         return (String) invokeV.objValue;
     }
@@ -43,12 +43,12 @@ public class e {
         ArrayList<MediaModel> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaModel)) == null) {
-            if (mediaModel == null || (arrayList = f6746a) == null) {
+            if (mediaModel == null || (arrayList = f6754a) == null) {
                 return -1;
             }
             int size = arrayList.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (mediaModel.equals(f6746a.get(i2))) {
+                if (mediaModel.equals(f6754a.get(i2))) {
                     return i2;
                 }
             }
@@ -61,7 +61,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ArrayList<MediaModel> arrayList = f6746a;
+            ArrayList<MediaModel> arrayList = f6754a;
             if (arrayList == null) {
                 return 0;
             }
@@ -73,14 +73,14 @@ public class e {
     public static ArrayList<MediaModel> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f6746a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f6754a : (ArrayList) invokeV.objValue;
     }
 
     public static boolean f(MediaModel mediaModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, mediaModel)) == null) {
-            ArrayList<MediaModel> arrayList = f6746a;
+            ArrayList<MediaModel> arrayList = f6754a;
             if (arrayList == null) {
                 return false;
             }
@@ -93,11 +93,11 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, mediaModel)) == null) {
-            ArrayList<MediaModel> arrayList = f6746a;
+            ArrayList<MediaModel> arrayList = f6754a;
             if (arrayList == null || arrayList.size() == 0) {
                 return false;
             }
-            return f6746a.contains(mediaModel);
+            return f6754a.contains(mediaModel);
         }
         return invokeL.booleanValue;
     }
@@ -105,7 +105,7 @@ public class e {
     public static void h(MediaModel mediaModel) {
         ArrayList<MediaModel> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) || (arrayList = f6746a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) || (arrayList = f6754a) == null) {
             return;
         }
         arrayList.remove(mediaModel);
@@ -116,9 +116,9 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65544, null, mediaModel) == null) || mediaModel == null) {
             return;
         }
-        if (f6746a == null) {
-            f6746a = new ArrayList<>();
+        if (f6754a == null) {
+            f6754a = new ArrayList<>();
         }
-        f6746a.add(mediaModel);
+        f6754a.add(mediaModel);
     }
 }

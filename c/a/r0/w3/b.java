@@ -10,7 +10,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f28178a;
+    public static long f28198a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,11 +32,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (System.currentTimeMillis() - f28178a < 1000) {
-                f28178a = System.currentTimeMillis();
+            if (System.currentTimeMillis() - f28198a < 1000) {
+                f28198a = System.currentTimeMillis();
                 return true;
             }
-            f28178a = System.currentTimeMillis();
+            f28198a = System.currentTimeMillis();
             return false;
         }
         return invokeV.booleanValue;

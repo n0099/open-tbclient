@@ -16,34 +16,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11840a;
+    public String f11848a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11841b;
+    public String f11849b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f11842c;
+    public Map<String, String> f11850c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RequestBody f11843d;
+    public RequestBody f11851d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ResponseCallback f11844e;
+    public ResponseCallback f11852e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f11845f;
+    public boolean f11853f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11846g;
+    public boolean f11854g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11847h;
+    public boolean f11855h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Object f11848i;
+    public Object f11856i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f11849j;
+    public int f11857j;
     public int k;
     public C0618a l;
 
@@ -54,13 +54,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f11850a;
+        public int f11858a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f11851b;
+        public int f11859b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f11852c;
+        public int f11860c;
     }
 
     public a() {
@@ -76,11 +76,11 @@ public class a {
                 return;
             }
         }
-        this.f11841b = "GET";
-        this.f11845f = false;
-        this.f11846g = false;
-        this.f11847h = false;
-        this.f11849j = 6;
+        this.f11849b = "GET";
+        this.f11853f = false;
+        this.f11854g = false;
+        this.f11855h = false;
+        this.f11857j = 6;
         this.k = 0;
     }
 
@@ -89,7 +89,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaType, str)) == null) {
             if (mediaType != null && str != null) {
-                this.f11843d = RequestBody.create(mediaType, str);
+                this.f11851d = RequestBody.create(mediaType, str);
             }
             return this;
         }
@@ -117,14 +117,14 @@ public class a {
                 return;
             }
         }
-        this.f11841b = "GET";
-        this.f11845f = false;
-        this.f11846g = false;
-        this.f11847h = false;
-        this.f11849j = 6;
+        this.f11849b = "GET";
+        this.f11853f = false;
+        this.f11854g = false;
+        this.f11855h = false;
+        this.f11857j = 6;
         this.k = 0;
-        this.f11840a = str;
-        this.f11844e = responseCallback;
+        this.f11848a = str;
+        this.f11852e = responseCallback;
     }
 
     public a(String str, RequestBody requestBody, ResponseCallback responseCallback) {
@@ -142,14 +142,14 @@ public class a {
                 return;
             }
         }
-        this.f11841b = "GET";
-        this.f11845f = false;
-        this.f11846g = false;
-        this.f11847h = false;
-        this.f11849j = 6;
+        this.f11849b = "GET";
+        this.f11853f = false;
+        this.f11854g = false;
+        this.f11855h = false;
+        this.f11857j = 6;
         this.k = 0;
-        this.f11840a = str;
-        this.f11843d = requestBody;
-        this.f11844e = responseCallback;
+        this.f11848a = str;
+        this.f11851d = requestBody;
+        this.f11852e = responseCallback;
     }
 }

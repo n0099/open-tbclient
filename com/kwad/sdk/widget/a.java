@@ -19,31 +19,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final View f74051a;
+    public final View f74370a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c f74052b;
+    public final c f74371b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final au f74053c;
+    public final au f74372c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f74054d;
+    public final int f74373d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f74055e;
+    public float f74374e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f74056f;
+    public boolean f74375f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f74057g;
+    public boolean f74376g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f74058h;
+    public boolean f74377h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f74059i;
+    public ViewTreeObserver.OnScrollChangedListener f74378i;
 
     public a(View view, c cVar) {
         Interceptable interceptable = $ic;
@@ -60,17 +60,17 @@ public class a {
                 return;
             }
         }
-        this.f74055e = 0.1f;
-        this.f74058h = true;
-        this.f74051a = view;
-        this.f74052b = cVar;
-        this.f74053c = new au(view);
-        this.f74054d = ap.l(view.getContext());
+        this.f74374e = 0.1f;
+        this.f74377h = true;
+        this.f74370a = view;
+        this.f74371b = cVar;
+        this.f74372c = new au(view);
+        this.f74373d = ap.l(view.getContext());
     }
 
     private void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f74058h) {
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f74377h) {
             e();
         }
     }
@@ -92,9 +92,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             i();
-            c cVar = this.f74052b;
+            c cVar = this.f74371b;
             if (cVar != null) {
-                cVar.a(this.f74051a);
+                cVar.a(this.f74370a);
             }
         }
     }
@@ -104,24 +104,24 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            if (!this.f74053c.a() || Math.abs(this.f74053c.f73923a.height() - this.f74051a.getHeight()) > this.f74051a.getHeight() * (1.0f - this.f74055e) || this.f74051a.getHeight() <= 0 || this.f74051a.getWidth() <= 0) {
+            if (!this.f74372c.a() || Math.abs(this.f74372c.f74242a.height() - this.f74370a.getHeight()) > this.f74370a.getHeight() * (1.0f - this.f74374e) || this.f74370a.getHeight() <= 0 || this.f74370a.getWidth() <= 0) {
                 return false;
             }
-            Rect rect = this.f74053c.f73923a;
-            return rect.bottom > 0 && rect.top < this.f74054d;
+            Rect rect = this.f74372c.f74242a;
+            return rect.bottom > 0 && rect.top < this.f74373d;
         }
         return invokeV.booleanValue;
     }
 
     private void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f74059i == null) {
-            this.f74059i = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.kwad.sdk.widget.a.1
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.f74378i == null) {
+            this.f74378i = new ViewTreeObserver.OnScrollChangedListener(this) { // from class: com.kwad.sdk.widget.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f74060a;
+                public final /* synthetic */ a f74379a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -138,35 +138,35 @@ public class a {
                             return;
                         }
                     }
-                    this.f74060a = this;
+                    this.f74379a = this;
                 }
 
                 @Override // android.view.ViewTreeObserver.OnScrollChangedListener
                 public void onScrollChanged() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f74060a.g()) {
-                        this.f74060a.f();
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f74379a.g()) {
+                        this.f74379a.f();
                     }
                 }
             };
-            ViewTreeObserver viewTreeObserver = this.f74051a.getViewTreeObserver();
+            ViewTreeObserver viewTreeObserver = this.f74370a.getViewTreeObserver();
             if (viewTreeObserver != null) {
-                viewTreeObserver.addOnScrollChangedListener(this.f74059i);
+                viewTreeObserver.addOnScrollChangedListener(this.f74378i);
             }
         }
     }
 
     private void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.f74059i == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.f74378i == null) {
             return;
         }
         try {
-            ViewTreeObserver viewTreeObserver = this.f74051a.getViewTreeObserver();
+            ViewTreeObserver viewTreeObserver = this.f74370a.getViewTreeObserver();
             if (viewTreeObserver != null) {
-                viewTreeObserver.removeOnScrollChangedListener(this.f74059i);
+                viewTreeObserver.removeOnScrollChangedListener(this.f74378i);
             }
-            this.f74059i = null;
+            this.f74378i = null;
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
@@ -175,32 +175,32 @@ public class a {
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74055e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74374e : invokeV.floatValue;
     }
 
     public void a(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f74055e = f2;
+            this.f74374e = f2;
         }
     }
 
     public void a(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
-            this.f74057g = false;
-            if (this.f74056f || (i4 | i5) != 0 || (i2 | i3) == 0) {
+            this.f74376g = false;
+            if (this.f74375f || (i4 | i5) != 0 || (i2 | i3) == 0) {
                 return;
             }
-            this.f74057g = true;
-            this.f74056f = true;
+            this.f74376g = true;
+            this.f74375f = true;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f74058h = z;
+            this.f74377h = z;
         }
     }
 
@@ -213,7 +213,7 @@ public class a {
 
     public void b(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) && this.f74057g) {
+        if ((interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) && this.f74376g) {
             d();
         }
     }
@@ -222,7 +222,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             i();
-            this.f74056f = false;
+            this.f74375f = false;
         }
     }
 }

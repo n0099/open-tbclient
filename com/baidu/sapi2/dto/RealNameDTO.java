@@ -11,6 +11,7 @@ public class RealNameDTO extends SapiWebDTO {
     public String bduss;
     public String customRealNameUrl;
     public boolean needCbKey;
+    public int realNameLevel;
     public String scene;
 
     public RealNameDTO() {

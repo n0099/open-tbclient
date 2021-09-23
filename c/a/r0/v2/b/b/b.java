@@ -20,7 +20,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<EncodeHintType, Object> f26362a;
+    public static final Map<EncodeHintType, Object> f26385a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,10 +37,10 @@ public class b {
             }
         }
         EnumMap enumMap = new EnumMap(EncodeHintType.class);
-        f26362a = enumMap;
+        f26385a = enumMap;
         enumMap.put((EnumMap) EncodeHintType.CHARACTER_SET, (EncodeHintType) "utf-8");
-        f26362a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-        f26362a.put(EncodeHintType.MARGIN, 0);
+        f26385a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        f26385a.put(EncodeHintType.MARGIN, 0);
     }
 
     public static Bitmap a(Bitmap bitmap, Bitmap bitmap2) {
@@ -82,7 +82,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitmap})) == null) {
             try {
-                BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i2, i2, f26362a);
+                BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i2, i2, f26385a);
                 int[] iArr = new int[i2 * i2];
                 for (int i5 = 0; i5 < i2; i5++) {
                     for (int i6 = 0; i6 < i2; i6++) {

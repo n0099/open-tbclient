@@ -24,34 +24,34 @@ public class c implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f23644a;
+    public final e f23660a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<ICardInfo> f23645b;
+    public List<ICardInfo> f23661b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23646c;
+    public String f23662c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f23647d;
+    public String f23663d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f23648e;
+    public String f23664e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d> f23649f;
+    public List<d> f23665f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23650g;
+    public boolean f23666g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23651h;
+    public int f23667h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f23652i;
+    public String f23668i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f23653j;
+    public int f23669j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -71,26 +71,26 @@ public class c implements a {
                 return;
             }
         }
-        this.f23645b = new ArrayList();
-        this.f23651h = 1;
+        this.f23661b = new ArrayList();
+        this.f23667h = 1;
         this.k = false;
         this.l = false;
         this.m = false;
-        this.f23644a = eVar;
+        this.f23660a = eVar;
     }
 
     @Override // c.a.r0.p1.p.a
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23650g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23666g : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.p1.p.a
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23651h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23667h : invokeV.intValue;
     }
 
     @Override // c.a.r0.p1.p.a
@@ -106,22 +106,22 @@ public class c implements a {
             if (dataRes == null) {
                 return;
             }
-            this.f23650g = dataRes.has_more.intValue() == 1;
+            this.f23666g = dataRes.has_more.intValue() == 1;
             if (!TextUtils.isEmpty(dataRes.page_info)) {
                 try {
                     JSONObject jSONObject = new JSONObject(dataRes.page_info);
                     JSONObject optJSONObject = jSONObject.optJSONObject("title");
                     if (optJSONObject != null) {
-                        this.f23646c = optJSONObject.optString("name");
-                        this.f23647d = optJSONObject.optString("url");
-                        this.f23648e = optJSONObject.optString("urlNight");
+                        this.f23662c = optJSONObject.optString("name");
+                        this.f23663d = optJSONObject.optString("url");
+                        this.f23664e = optJSONObject.optString("urlNight");
                     }
                     JSONArray optJSONArray = jSONObject.optJSONArray("buttons");
                     if (optJSONArray != null) {
-                        if (this.f23649f == null) {
-                            this.f23649f = new ArrayList();
+                        if (this.f23665f == null) {
+                            this.f23665f = new ArrayList();
                         } else {
-                            this.f23649f.clear();
+                            this.f23665f.clear();
                         }
                         for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                             JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
@@ -129,7 +129,7 @@ public class c implements a {
                                 d dVar = new d();
                                 dVar.b(optJSONObject2);
                                 if (dVar.a()) {
-                                    this.f23649f.add(dVar);
+                                    this.f23665f.add(dVar);
                                 }
                             }
                         }
@@ -151,12 +151,12 @@ public class c implements a {
                 }
             }
             if (z2) {
-                this.f23645b.addAll(arrayList);
-                this.f23651h = i2;
+                this.f23661b.addAll(arrayList);
+                this.f23667h = i2;
                 return;
             }
-            this.f23651h = 1;
-            this.f23645b = arrayList;
+            this.f23667h = 1;
+            this.f23661b = arrayList;
         }
     }
 
@@ -165,7 +165,7 @@ public class c implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ICardInfo> list = this.f23645b;
+            List<ICardInfo> list = this.f23661b;
             return list != null && list.size() > 0;
         }
         return invokeV.booleanValue;
@@ -175,49 +175,49 @@ public class c implements a {
     public List<ICardInfo> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23645b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23661b : (List) invokeV.objValue;
     }
 
     public List<d> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23649f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23665f : (List) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23652i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23668i : (String) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f23653j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f23669j : invokeV.intValue;
     }
 
     public e i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23644a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23660a : (e) invokeV.objValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f23646c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f23662c : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f23647d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f23663d : (String) invokeV.objValue;
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f23648e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f23664e : (String) invokeV.objValue;
     }
 
     public boolean m() {
@@ -241,14 +241,14 @@ public class c implements a {
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f23652i = str;
+            this.f23668i = str;
         }
     }
 
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f23653j = i2;
+            this.f23669j = i2;
         }
     }
 
@@ -263,16 +263,16 @@ public class c implements a {
                     JSONObject jSONObject2 = new JSONObject(optString);
                     JSONObject optJSONObject = jSONObject2.optJSONObject("title");
                     if (optJSONObject != null) {
-                        this.f23646c = optJSONObject.optString("name");
-                        this.f23647d = optJSONObject.optString("url");
-                        this.f23648e = optJSONObject.optString("urlNight");
+                        this.f23662c = optJSONObject.optString("name");
+                        this.f23663d = optJSONObject.optString("url");
+                        this.f23664e = optJSONObject.optString("urlNight");
                     }
                     JSONArray optJSONArray = jSONObject2.optJSONArray("buttons");
                     if (optJSONArray != null) {
-                        if (this.f23649f == null) {
-                            this.f23649f = new ArrayList();
+                        if (this.f23665f == null) {
+                            this.f23665f = new ArrayList();
                         } else {
-                            this.f23649f.clear();
+                            this.f23665f.clear();
                         }
                         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                             JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
@@ -280,7 +280,7 @@ public class c implements a {
                                 d dVar = new d();
                                 dVar.b(optJSONObject2);
                                 if (dVar.a()) {
-                                    this.f23649f.add(dVar);
+                                    this.f23665f.add(dVar);
                                 }
                             }
                         }
@@ -299,7 +299,7 @@ public class c implements a {
                         }
                     }
                 }
-                this.f23645b = arrayList;
+                this.f23661b = arrayList;
                 if (d()) {
                     this.m = true;
                 } else {

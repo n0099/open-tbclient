@@ -22,7 +22,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static a.C1882a a(i iVar) {
+    public static a.C1886a a(i iVar) {
         InterceptResult invokeL;
         boolean z;
         long j2;
@@ -33,7 +33,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iVar)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            Map<String, String> map = iVar.f64336c;
+            Map<String, String> map = iVar.f64647c;
             String str = map.get("Date");
             long a2 = str != null ? a(str) : 0L;
             String str2 = map.get("Cache-Control");
@@ -90,19 +90,19 @@ public class b {
                     j4 = j5;
                 }
             }
-            a.C1882a c1882a = new a.C1882a();
-            c1882a.f64383a = iVar.f64334a;
-            c1882a.f64384b = iVar.f64335b;
-            c1882a.f64385c = str5;
-            c1882a.f64389g = j5;
-            c1882a.f64388f = j4;
-            c1882a.f64386d = a2;
-            c1882a.f64387e = a4;
-            c1882a.f64390h = map;
-            c1882a.f64391i = iVar.f64337d;
-            return c1882a;
+            a.C1886a c1886a = new a.C1886a();
+            c1886a.f64694a = iVar.f64645a;
+            c1886a.f64695b = iVar.f64646b;
+            c1886a.f64696c = str5;
+            c1886a.f64700g = j5;
+            c1886a.f64699f = j4;
+            c1886a.f64697d = a2;
+            c1886a.f64698e = a4;
+            c1886a.f64701h = map;
+            c1886a.f64702i = iVar.f64648d;
+            return c1886a;
         }
-        return (a.C1882a) invokeL.objValue;
+        return (a.C1886a) invokeL.objValue;
     }
 
     public static long a(String str) {

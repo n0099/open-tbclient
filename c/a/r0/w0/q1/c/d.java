@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BaijiahaoInfo;
 import tbclient.BawuRoleInfoPub;
 import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes4.dex */
@@ -18,7 +17,7 @@ public class d implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdUniqueId f27604e;
+    public static BdUniqueId f27624e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +33,7 @@ public class d implements n {
                 return;
             }
         }
-        f27604e = BdUniqueId.gen();
+        f27624e = BdUniqueId.gen();
     }
 
     public d() {
@@ -59,11 +58,7 @@ public class d implements n {
             String str2 = bawuRoleInfoPub.portrait;
             dataRes.is_manager.intValue();
             dataRes.bazhu.user_level.intValue();
-            BaijiahaoInfo baijiahaoInfo = dataRes.bazhu.baijiahao_info;
-            if (baijiahaoInfo != null) {
-                String str3 = baijiahaoInfo.auth_desc;
-            }
-            String str4 = dataRes.publish_time;
+            String str3 = dataRes.publish_time;
             dataRes.audit_status.intValue();
         }
     }
@@ -72,6 +67,6 @@ public class d implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f27604e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f27624e : (BdUniqueId) invokeV.objValue;
     }
 }

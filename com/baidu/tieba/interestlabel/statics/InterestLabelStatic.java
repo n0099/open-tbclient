@@ -1,6 +1,6 @@
 package com.baidu.tieba.interestlabel.statics;
 
-import c.a.r0.j3.d0.a;
+import c.a.r0.j3.e0.a;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LabelRecommendActivityConfig;

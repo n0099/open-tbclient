@@ -21,25 +21,25 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f27092a;
+    public Context f27112a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f27093b;
+    public ViewGroup f27113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f27094c;
+    public g f27114c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.w0.m2.b f27095d;
+    public c.a.r0.w0.m2.b f27115d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.q0.o.a f27096e;
+    public c.a.q0.q0.o.a f27116e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a f27097f;
+    public b.a f27117f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f27098g;
+    public Runnable f27118g;
 
     /* loaded from: classes4.dex */
     public class a implements b.a {
@@ -47,7 +47,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f27099a;
+        public final /* synthetic */ f f27119a;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class f {
                     return;
                 }
             }
-            this.f27099a = fVar;
+            this.f27119a = fVar;
         }
 
         @Override // c.a.r0.w0.m2.b.a
@@ -75,20 +75,20 @@ public class f {
                     if (!TbSingleton.getInstance().isEnableBenchmark() || TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
                         return;
                     }
-                    if (this.f27099a.f27096e == null) {
-                        this.f27099a.f27096e = new c.a.q0.q0.o.a("anim_switch_trans_frs");
+                    if (this.f27119a.f27116e == null) {
+                        this.f27119a.f27116e = new c.a.q0.q0.o.a("anim_switch_trans_frs");
                     }
-                    this.f27099a.f27096e.b();
+                    this.f27119a.f27116e.b();
                 } else if (i2 != 2) {
                     if (i2 == 0) {
-                        this.f27099a.j();
+                        this.f27119a.j();
                     }
                 } else {
-                    this.f27099a.k();
-                    if (this.f27099a.f27096e == null || !TbSingleton.getInstance().isEnableBenchmark() || TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                    this.f27119a.k();
+                    if (this.f27119a.f27116e == null || !TbSingleton.getInstance().isEnableBenchmark() || TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
                         return;
                     }
-                    this.f27099a.f27096e.c();
+                    this.f27119a.f27116e.c();
                 }
             }
         }
@@ -100,7 +100,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f27100e;
+        public final /* synthetic */ f f27120e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -117,14 +117,14 @@ public class f {
                     return;
                 }
             }
-            this.f27100e = fVar;
+            this.f27120e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27100e.f();
+                this.f27120e.f();
             }
         }
     }
@@ -144,15 +144,15 @@ public class f {
                 return;
             }
         }
-        this.f27097f = new a(this);
-        this.f27098g = new b(this);
-        this.f27092a = context;
-        this.f27093b = viewGroup;
+        this.f27117f = new a(this);
+        this.f27118g = new b(this);
+        this.f27112a = context;
+        this.f27113b = viewGroup;
         g gVar = new g(context);
-        this.f27094c = gVar;
+        this.f27114c = gVar;
         c.a.r0.w0.m2.b a2 = c.a(gVar, intent);
-        this.f27095d = a2;
-        a2.b(this.f27097f);
+        this.f27115d = a2;
+        a2.b(this.f27117f);
     }
 
     public static boolean i(Intent intent) {
@@ -164,13 +164,13 @@ public class f {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.e.e.m.e.a().removeCallbacks(this.f27098g);
-            if (this.f27095d.a() == 1) {
-                c.a.e.e.m.e.a().postDelayed(this.f27098g, 10L);
+            c.a.e.e.m.e.a().removeCallbacks(this.f27118g);
+            if (this.f27115d.a() == 1) {
+                c.a.e.e.m.e.a().postDelayed(this.f27118g, 10L);
                 return;
             }
             k();
-            this.f27095d.c();
+            this.f27115d.c();
         }
     }
 
@@ -178,11 +178,11 @@ public class f {
         View findViewById;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ViewGroup viewGroup = this.f27093b;
+            ViewGroup viewGroup = this.f27113b;
             if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
-                this.f27093b.getChildAt(0).setVisibility(8);
+                this.f27113b.getChildAt(0).setVisibility(8);
             }
-            ViewGroup viewGroup2 = this.f27093b;
+            ViewGroup viewGroup2 = this.f27113b;
             if (viewGroup2 == null || (findViewById = viewGroup2.findViewById(16908290)) == null) {
                 return;
             }
@@ -192,7 +192,7 @@ public class f {
 
     public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f27093b == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f27113b == null) {
             return;
         }
         f();
@@ -201,37 +201,37 @@ public class f {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ViewParent parent = this.f27094c.f27101a.getParent();
+            ViewParent parent = this.f27114c.f27121a.getParent();
             if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(this.f27094c.f27101a);
+                ((ViewGroup) parent).removeView(this.f27114c.f27121a);
             }
-            c.a.e.e.m.e.a().removeCallbacks(this.f27098g);
+            c.a.e.e.m.e.a().removeCallbacks(this.f27118g);
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ViewGroup viewGroup = this.f27093b;
+            ViewGroup viewGroup = this.f27113b;
             if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
-                this.f27093b.getChildAt(0).setVisibility(0);
+                this.f27113b.getChildAt(0).setVisibility(0);
             }
-            ViewGroup viewGroup2 = this.f27093b;
+            ViewGroup viewGroup2 = this.f27113b;
             if (viewGroup2 == null || viewGroup2.findViewById(16908290) == null) {
                 return;
             }
-            this.f27093b.findViewById(16908290).setVisibility(0);
+            this.f27113b.findViewById(16908290).setVisibility(0);
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f27093b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f27113b == null) {
             return;
         }
         j();
-        this.f27093b.addView(this.f27094c.f27101a);
+        this.f27113b.addView(this.f27114c.f27121a);
         g();
-        this.f27095d.d();
+        this.f27115d.d();
     }
 }

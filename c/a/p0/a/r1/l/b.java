@@ -15,34 +15,34 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8426a;
+    public static final boolean f8434a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f8427b;
+    public static boolean f8435b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f8428c;
+    public static final int f8436c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f8429d;
+    public static boolean f8437d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f8430e;
+    public static final boolean f8438e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f8431f;
+    public static final boolean f8439f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f8432g;
+    public static final int f8440g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f8433h;
+    public static final int f8441h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f8434i;
+    public static final int f8442i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f8435j;
+    public static final int f8443j;
     public static final boolean k;
     public static final int l;
     public static int m;
@@ -65,29 +65,29 @@ public class b {
                 return;
             }
         }
-        f8426a = k.f7077a;
+        f8434a = k.f7085a;
         m = -1;
         n = -1;
-        f8427b = p("swan_get_swan_id_cache");
+        f8435b = p("swan_get_swan_id_cache");
         p("swan_pms_use_outback");
         p("swan_package_download_use_outback");
         p("swan_outback_use_independent_pool");
         p("swan_outback_support_quic");
         c.a.p0.a.c1.a.Z().getSwitch("swan_preload_game_strategy", 0);
-        f8428c = 0;
+        f8436c = 0;
         boolean p2 = p("swan_mbd_request_use_http2");
-        f8429d = p2;
-        l.f12029a = p2;
-        f8430e = p("swan_memorywarning_alert_switch");
-        f8431f = p("swan_memorywarning_not_show_dialog");
+        f8437d = p2;
+        l.f12037a = p2;
+        f8438e = p("swan_memorywarning_alert_switch");
+        f8439f = p("swan_memorywarning_not_show_dialog");
         c.a.p0.a.c1.a.Z().getSwitch("swan_memorywarning_memory_ratio", 80);
-        f8432g = 80;
+        f8440g = 80;
         c.a.p0.a.c1.a.Z().getSwitch("swan_memorywarning_interval", 30);
-        f8433h = 30;
+        f8441h = 30;
         c.a.p0.a.c1.a.Z().getSwitch("swan_memorywarning_alert_interval", 300);
-        f8434i = 300;
+        f8442i = 300;
         c.a.p0.a.c1.a.Z().getSwitch("swan_memorywarning_release_interval", 5);
-        f8435j = 5;
+        f8443j = 5;
         k = p("swan_watchdog_switch");
         c.a.p0.a.c1.a.Z().getSwitch("swan_watchdog_interval", 5);
         l = 5;
@@ -97,7 +97,7 @@ public class b {
         p = 0;
         o = p("swan_670_append_request_info");
         c.a.p0.a.c1.a.Z().getSwitch("swan_description_online_control", 0);
-        m.f12032a = 0;
+        m.f12040a = 0;
     }
 
     public static int a() {
@@ -134,37 +134,37 @@ public class b {
     public static int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f8434i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f8442i : invokeV.intValue;
     }
 
     public static int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f8433h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f8441h : invokeV.intValue;
     }
 
     public static int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f8432g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f8440g : invokeV.intValue;
     }
 
     public static int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f8428c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f8436c : invokeV.intValue;
     }
 
     public static int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f8435j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f8443j : invokeV.intValue;
     }
 
     public static boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f8427b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f8435b : invokeV.booleanValue;
     }
 
     public static boolean k() {
@@ -189,19 +189,19 @@ public class b {
     public static boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f8429d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f8437d : invokeV.booleanValue;
     }
 
     public static boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f8431f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f8439f : invokeV.booleanValue;
     }
 
     public static boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? f8430e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? f8438e : invokeV.booleanValue;
     }
 
     public static boolean p(String str) {
@@ -209,7 +209,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             c.a.p0.a.c1.a.Z().getSwitch(str, 0);
-            if (f8426a) {
+            if (f8434a) {
                 String str2 = str + " value : 0";
             }
             return false;

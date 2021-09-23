@@ -17,10 +17,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Boolean> f5147a;
+    public static final Map<String, Boolean> f5155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, Boolean> f5148b;
+    public static final Map<String, Boolean> f5156b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.d2.a$a  reason: collision with other inner class name */
@@ -30,10 +30,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5149e;
+        public final /* synthetic */ String f5157e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f5150f;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f5158f;
 
         public C0146a(String str, c.a.p0.a.v2.e1.b bVar) {
             Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public class a {
                     return;
                 }
             }
-            this.f5149e = str;
-            this.f5150f = bVar;
+            this.f5157e = str;
+            this.f5158f = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,9 +61,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
                 boolean z = true;
-                z = (fVar == null || fVar.f5541d || fVar.f5547j != 1) ? false : false;
-                a.f5147a.put(this.f5149e, Boolean.valueOf(z));
-                this.f5150f.onCallback(Boolean.valueOf(z));
+                z = (fVar == null || fVar.f5549d || fVar.f5555j != 1) ? false : false;
+                a.f5155a.put(this.f5157e, Boolean.valueOf(z));
+                this.f5158f.onCallback(Boolean.valueOf(z));
             }
         }
     }
@@ -81,15 +81,15 @@ public class a {
                 return;
             }
         }
-        f5147a = new ConcurrentHashMap();
-        f5148b = new ConcurrentHashMap();
+        f5155a = new ConcurrentHashMap();
+        f5156b = new ConcurrentHashMap();
     }
 
     public static void b(c.a.p0.a.v2.e1.b<Boolean> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
             String appId = c.a.p0.a.a2.d.g().getAppId();
-            Boolean bool = f5147a.get(appId);
+            Boolean bool = f5155a.get(appId);
             if (bool != null) {
                 bVar.onCallback(bool);
             } else {
@@ -102,7 +102,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Boolean bool = f5148b.get(c.a.p0.a.a2.d.g().getAppId());
+            Boolean bool = f5156b.get(c.a.p0.a.a2.d.g().getAppId());
             if (bool != null) {
                 return bool.booleanValue();
             }
@@ -114,15 +114,15 @@ public class a {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            f5148b.clear();
-            f5147a.clear();
+            f5156b.clear();
+            f5155a.clear();
         }
     }
 
     public static void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
-            f5148b.put(c.a.p0.a.a2.d.g().getAppId(), Boolean.valueOf(z));
+            f5156b.put(c.a.p0.a.a2.d.g().getAppId(), Boolean.valueOf(z));
         }
     }
 }

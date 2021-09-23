@@ -18,10 +18,10 @@ public class BankCardErrorMsgView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f63216a;
+    public TextView f63515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f63217b;
+    public TextView f63516b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BankCardErrorMsgView(Context context) {
@@ -48,20 +48,20 @@ public class BankCardErrorMsgView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(ResUtils.layout(context, "wallet_cashdesk_bindcard_errormsg_view"), this);
-            this.f63216a = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_name"));
-            this.f63217b = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_value"));
+            this.f63515a = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_name"));
+            this.f63516b = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_value"));
         }
     }
 
     public void showErrorLayout(CharSequence charSequence, CharSequence charSequence2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, charSequence, charSequence2) == null) {
-            TextView textView = this.f63216a;
+            TextView textView = this.f63515a;
             TextUtils.isEmpty(charSequence);
             textView.setVisibility(8);
-            this.f63216a.setText(charSequence);
-            this.f63217b.setVisibility(TextUtils.isEmpty(charSequence2) ? 4 : 0);
-            this.f63217b.setText(charSequence2);
+            this.f63515a.setText(charSequence);
+            this.f63516b.setVisibility(TextUtils.isEmpty(charSequence2) ? 4 : 0);
+            this.f63516b.setText(charSequence2);
         }
     }
 

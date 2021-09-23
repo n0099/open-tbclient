@@ -4,8 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.sofire.utility.c;
-import com.baidu.sofire.utility.g;
-import com.baidu.sofire.utility.s;
+import com.baidu.sofire.utility.h;
+import com.baidu.sofire.utility.u;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,21 +23,21 @@ public final class a {
         String str = "";
         try {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-            if (!TextUtils.isEmpty(a2.f45341c.getString("rpiiem", ""))) {
-                a2.f45342d.putString("rpiiem", "");
-                a2.f45342d.commit();
+            if (!TextUtils.isEmpty(a2.f45430c.getString("rpiiem", ""))) {
+                a2.f45431d.putString("rpiiem", "");
+                a2.f45431d.commit();
             }
             String n = a2.n();
             try {
                 if (TextUtils.isEmpty(n)) {
-                    n = s.h(context);
+                    n = u.h(context);
                     if (!TextUtils.isEmpty(n)) {
                         if (TextUtils.isEmpty(n)) {
-                            a2.f45342d.putString("rpiiemn", "");
-                            a2.f45342d.commit();
+                            a2.f45431d.putString("rpiiemn", "");
+                            a2.f45431d.commit();
                         } else {
-                            a2.f45342d.putString("rpiiemn", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), n.getBytes("UTF-8"), true), 10), "UTF-8"));
-                            a2.f45342d.commit();
+                            a2.f45431d.putString("rpiiemn", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), n.getBytes("UTF-8"), true), 10), "UTF-8"));
+                            a2.f45431d.commit();
                         }
                     }
                 }
@@ -58,12 +58,12 @@ public final class a {
             String str = "";
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                str = a2.f45341c.getString("rpandid", "");
+                str = a2.f45430c.getString("rpandid", "");
                 if (TextUtils.isEmpty(str)) {
-                    str = s.i(context);
+                    str = u.i(context);
                     if (!TextUtils.isEmpty(str)) {
-                        a2.f45342d.putString("rpandid", str);
-                        a2.f45342d.commit();
+                        a2.f45431d.putString("rpandid", str);
+                        a2.f45431d.commit();
                     }
                 }
             } catch (Throwable unused) {

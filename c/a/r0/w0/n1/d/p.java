@@ -50,7 +50,7 @@ public class p extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ p f27215b;
+        public final /* synthetic */ p f27235b;
 
         public a(p pVar) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class p extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
                     return;
                 }
             }
-            this.f27215b = pVar;
+            this.f27235b = pVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,37 +80,37 @@ public class p extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             }
             if (view.getId() != R.id.user_name && view.getId() != R.id.user_avatar) {
                 if (view.getId() == R.id.thread_info_commont_container) {
-                    c.a.r0.w0.k2.a.e(d2Var, 5, this.f27215b.f2961i, this.f27215b.B, this.f27215b.i0());
-                    c.a.r0.w0.n2.l.g(d2Var, this.f27215b.n, 1);
+                    c.a.r0.w0.k2.a.e(d2Var, 5, this.f27235b.f2962i, this.f27235b.B, this.f27235b.i0());
+                    c.a.r0.w0.n2.l.g(d2Var, this.f27235b.n, 1);
                 } else if (view.getId() == R.id.share_num_container) {
-                    c.a.r0.w0.k2.a.e(d2Var, 14, this.f27215b.f2961i, this.f27215b.B, this.f27215b.i0());
+                    c.a.r0.w0.k2.a.e(d2Var, 14, this.f27235b.f2962i, this.f27235b.B, this.f27235b.i0());
                 } else if (view.getId() == R.id.img_agree) {
-                    c.a.r0.w0.k2.a.e(d2Var, 12, this.f27215b.f2961i, this.f27215b.B, this.f27215b.i0());
+                    c.a.r0.w0.k2.a.e(d2Var, 12, this.f27235b.f2962i, this.f27235b.B, this.f27235b.i0());
                 } else if (view.getId() == R.id.img_disagree) {
-                    c.a.r0.w0.k2.a.e(d2Var, 13, this.f27215b.f2961i, this.f27215b.B, this.f27215b.i0());
+                    c.a.r0.w0.k2.a.e(d2Var, 13, this.f27235b.f2962i, this.f27235b.B, this.f27235b.i0());
                 } else if (view instanceof TbImageView) {
-                    if (this.f27215b.C.f15554a instanceof Boolean) {
-                        if (((Boolean) this.f27215b.C.f15554a).booleanValue()) {
-                            c.a.r0.w0.k2.a.e(d2Var, 1, this.f27215b.f2961i, this.f27215b.B, this.f27215b.i0());
+                    if (this.f27235b.C.f15563a instanceof Boolean) {
+                        if (((Boolean) this.f27235b.C.f15563a).booleanValue()) {
+                            c.a.r0.w0.k2.a.e(d2Var, 1, this.f27235b.f2962i, this.f27235b.B, this.f27235b.i0());
                         } else {
-                            c.a.r0.w0.k2.a.e(d2Var, 3, this.f27215b.f2961i, this.f27215b.B, this.f27215b.i0());
+                            c.a.r0.w0.k2.a.e(d2Var, 3, this.f27235b.f2962i, this.f27235b.B, this.f27235b.i0());
                         }
                     }
-                    c.a.r0.w0.n2.l.g(d2Var, this.f27215b.n, 2);
+                    c.a.r0.w0.n2.l.g(d2Var, this.f27235b.n, 2);
                 } else if (view instanceof ThreadGodReplyLayout) {
-                    c.a.r0.w0.k2.a.e(d2Var, 15, this.f27215b.f2961i, this.f27215b.B, this.f27215b.i0());
-                    c.a.r0.w0.n2.l.g(d2Var, this.f27215b.n, 1);
+                    c.a.r0.w0.k2.a.e(d2Var, 15, this.f27235b.f2962i, this.f27235b.B, this.f27235b.i0());
+                    c.a.r0.w0.n2.l.g(d2Var, this.f27235b.n, 1);
                 } else {
-                    c.a.r0.w0.k2.a.e(d2Var, 1, this.f27215b.f2961i, this.f27215b.B, this.f27215b.i0());
-                    c.a.r0.w0.n2.l.g(d2Var, this.f27215b.n, 1);
+                    c.a.r0.w0.k2.a.e(d2Var, 1, this.f27235b.f2962i, this.f27235b.B, this.f27235b.i0());
+                    c.a.r0.w0.n2.l.g(d2Var, this.f27235b.n, 1);
                 }
             } else {
-                c.a.r0.w0.k2.a.e(d2Var, 2, this.f27215b.f2961i, this.f27215b.B, this.f27215b.i0());
+                c.a.r0.w0.k2.a.e(d2Var, 2, this.f27235b.f2962i, this.f27235b.B, this.f27235b.i0());
             }
             if (view.getId() == R.id.user_name || view.getId() == R.id.user_avatar) {
-                c.a.r0.w0.k2.c.j().g(this.f27215b.B, d2Var, 2);
+                c.a.r0.w0.k2.c.j().g(this.f27235b.B, d2Var, 2);
             } else if (view.getId() != R.id.card_home_page_normal_thread_user_icon) {
-                c.a.r0.w0.k2.c.j().g(this.f27215b.B, d2Var, 7);
+                c.a.r0.w0.k2.c.j().g(this.f27235b.B, d2Var, 7);
             } else {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
@@ -213,7 +213,7 @@ public class p extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ p f27216e;
+        public final /* synthetic */ p f27236e;
 
         public d(p pVar) {
             Interceptable interceptable = $ic;
@@ -230,7 +230,7 @@ public class p extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
                     return;
                 }
             }
-            this.f27216e = pVar;
+            this.f27236e = pVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -240,10 +240,10 @@ public class p extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 d2 d2Var = ((c2) nVar).w;
                 d2Var.objType = 1;
-                if (this.f27216e.C != null) {
-                    this.f27216e.C.a(threadCardViewHolder.getView(), d2Var);
+                if (this.f27236e.C != null) {
+                    this.f27236e.C.a(threadCardViewHolder.getView(), d2Var);
                 }
-                ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var, view.getContext(), this.f27216e.A, false);
+                ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var, view.getContext(), this.f27236e.A, false);
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
             }
         }
@@ -274,7 +274,7 @@ public class p extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         this.C = new a(this);
         this.D = new b(this);
         this.x = tbPageContext;
-        this.f2961i = bdUniqueId2;
+        this.f2962i = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -286,7 +286,7 @@ public class p extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             l0.b bVar = new l0.b(this.x.getPageActivity());
             c.a.l.d dVar = new c.a.l.d(this.x.getPageActivity());
-            dVar.s(this.f2961i);
+            dVar.s(this.f2962i);
             dVar.a(4272);
             dVar.r(new c(this));
             bVar.o(dVar);
@@ -297,14 +297,19 @@ public class p extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             bVar.h(nVar);
             n0 n0Var = new n0(this.x.getPageActivity());
             c.a.q0.s.q.f fVar = new c.a.q0.s.q.f();
-            fVar.f14167b = 2;
+            if (100 == i0().tabType) {
+                fVar.f14167b = 25;
+                n0Var.v(19);
+            } else {
+                fVar.f14167b = 2;
+                n0Var.v(2);
+            }
             fVar.f14173h = 2;
             FrsViewData frsViewData = this.n;
             if (frsViewData != null && frsViewData.getForum() != null && !c.a.e.e.p.k.isEmpty(this.n.getForum().getId())) {
                 fVar.f14175j = this.n.getForum().getId();
             }
             n0Var.u(fVar);
-            n0Var.v(2);
             n0Var.z(this.A);
             n0Var.w(this.A);
             n0Var.a(48);
@@ -312,7 +317,7 @@ public class p extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             l0 j2 = bVar.j(BaseCardInfo.SupportType.FULL, viewGroup);
             j2.r(this.A);
             ThreadCardViewHolder<d2> threadCardViewHolder = new ThreadCardViewHolder<>(j2);
-            threadCardViewHolder.setPageId(this.f2961i);
+            threadCardViewHolder.setPageId(this.f2962i);
             d0(new d(this));
             threadCardViewHolder.showMultiDelDecorItem();
             return threadCardViewHolder;
@@ -347,16 +352,16 @@ public class p extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             threadCardViewHolder.getCardView().onChangeSkinType(this.x, TbadkCoreApplication.getInst().getSkinType());
             if (this.B != null) {
                 FrsViewData frsViewData = this.n;
-                c2Var.w.S1 = (c2Var.position + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
+                c2Var.w.T1 = (c2Var.position + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
             }
             c.a.r0.w0.k2.c.j().c(this.B, c2Var.w);
-            c.a.r0.w0.k2.a.m(c2Var.w, this.f2961i, this.B, i0());
+            c.a.r0.w0.k2.a.m(c2Var.w, this.f2962i, this.B, i0());
             FrsViewData frsViewData2 = this.n;
             if (frsViewData2 != null && frsViewData2.getForum() != null) {
                 c.a.r0.w0.k2.a.l(c2Var.w, this.n.getForum().getId());
             }
             if (c2Var != null) {
-                c2Var.w.N4();
+                c2Var.w.M4();
             }
             return threadCardViewHolder.getView();
         }

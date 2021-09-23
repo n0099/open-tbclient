@@ -20,13 +20,13 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PraiseListActivity f21721e;
+    public PraiseListActivity f21735e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<a> f21722f;
+    public List<a> f21736f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f21723g;
+    public volatile boolean f21737g;
 
     public c(PraiseListActivity praiseListActivity) {
         Interceptable interceptable = $ic;
@@ -43,19 +43,19 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
                 return;
             }
         }
-        this.f21721e = null;
-        this.f21722f = null;
-        this.f21721e = praiseListActivity;
+        this.f21735e = null;
+        this.f21736f = null;
+        this.f21735e = praiseListActivity;
     }
 
     public final View a(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
-            b b2 = b.b(this.f21721e.getPageContext().getPageActivity(), view);
+            b b2 = b.b(this.f21735e.getPageContext().getPageActivity(), view);
             a item = getItem(i2);
-            b2.c(StringUtils.isNull(item.b()) ? item.d() : item.b(), item.a(), item.e(), this.f21723g);
-            this.f21721e.changSkinType(b2.a());
+            b2.c(StringUtils.isNull(item.b()) ? item.d() : item.b(), item.a(), item.e(), this.f21737g);
+            this.f21735e.changSkinType(b2.a());
             return b2.a();
         }
         return (View) invokeILL.objValue;
@@ -68,7 +68,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            List<a> list = this.f21722f;
+            List<a> list = this.f21736f;
             if (list != null) {
                 return list.get(i2);
             }
@@ -80,7 +80,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     public void c(List<a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f21722f = list;
+            this.f21736f = list;
         }
     }
 
@@ -89,7 +89,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<a> list = this.f21722f;
+            List<a> list = this.f21736f;
             if (list == null) {
                 return 0;
             }
@@ -124,11 +124,11 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, absListView, i2) == null) {
             if (i2 == 0) {
-                this.f21723g = false;
+                this.f21737g = false;
                 notifyDataSetChanged();
                 return;
             }
-            this.f21723g = true;
+            this.f21737g = true;
         }
     }
 }

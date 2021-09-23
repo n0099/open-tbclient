@@ -13,7 +13,7 @@ public final class e implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public /* synthetic */ b f35558e;
+    public /* synthetic */ b f35581e;
 
     public e(b bVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class e implements Runnable {
                 return;
             }
         }
-        this.f35558e = bVar;
+        this.f35581e = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -43,20 +43,20 @@ public final class e implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                context = this.f35558e.f35529a;
+                context = this.f35581e.f35552a;
                 if (context == null) {
-                    dVar2 = this.f35558e.f35534f;
+                    dVar2 = this.f35581e.f35557f;
                     dVar2.a(-3, "parameter error");
                     return;
                 }
-                b bVar = this.f35558e;
-                context2 = this.f35558e.f35529a;
-                bVar.f35530b = context2.getPackageName();
+                b bVar = this.f35581e;
+                context2 = this.f35581e.f35552a;
+                bVar.f35553b = context2.getPackageName();
                 a a2 = a.a();
-                str = this.f35558e.f35530b;
+                str = this.f35581e.f35553b;
                 a2.d(str);
-                b bVar2 = this.f35558e;
-                dVar = this.f35558e.f35534f;
+                b bVar2 = this.f35581e;
+                dVar = this.f35581e.f35557f;
                 bVar2.i(dVar);
             } catch (Throwable th) {
                 c.c(th);

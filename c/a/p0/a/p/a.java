@@ -18,7 +18,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public q f7844a;
+    public q f7852a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f7844a == null) {
-                this.f7844a = b();
+            if (this.f7852a == null) {
+                this.f7852a = b();
             }
-            return this.f7844a;
+            return this.f7852a;
         }
         return (q) invokeV.objValue;
     }

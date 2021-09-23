@@ -13,19 +13,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13150a;
+    public int f13167a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13151b;
+    public String f13168b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13152c;
+    public String f13169c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f13153d;
+    public long f13170d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13154e;
+    public boolean f13171e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class a {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return aVar.f13153d == this.f13153d && aVar.f13152c.equals(this.f13152c) && aVar.f13151b.equals(this.f13151b) && aVar.f13154e == this.f13154e && aVar.f13150a == this.f13150a;
+                return aVar.f13170d == this.f13170d && aVar.f13169c.equals(this.f13169c) && aVar.f13168b.equals(this.f13168b) && aVar.f13171e == this.f13171e && aVar.f13167a == this.f13167a;
             }
             return false;
         }
@@ -61,7 +61,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "[HotForumInfoData:rank=" + this.f13150a + ",forumAvatar=" + this.f13151b + ",forumName=" + this.f13152c + ",forumId=" + this.f13153d + ",isLiked=" + this.f13154e + "," + PreferencesUtil.RIGHT_MOUNT;
+            return "[HotForumInfoData:rank=" + this.f13167a + ",forumAvatar=" + this.f13168b + ",forumName=" + this.f13169c + ",forumId=" + this.f13170d + ",isLiked=" + this.f13171e + "," + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

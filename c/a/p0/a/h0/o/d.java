@@ -20,14 +20,14 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6290c;
+    public static final boolean f6298c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.h0.o.a f6291a;
+    public c.a.p0.a.h0.o.a f6299a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.h0.o.b f6292b;
+    public c.a.p0.a.h0.o.b f6300b;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -35,10 +35,10 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PrefetchEvent f6293e;
+        public final /* synthetic */ PrefetchEvent f6301e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f6294f;
+        public final /* synthetic */ d f6302f;
 
         public a(d dVar, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
@@ -55,15 +55,15 @@ public final class d {
                     return;
                 }
             }
-            this.f6294f = dVar;
-            this.f6293e = prefetchEvent;
+            this.f6302f = dVar;
+            this.f6301e = prefetchEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6294f.c(this.f6293e);
+                this.f6302f.c(this.f6301e);
             }
         }
     }
@@ -74,10 +74,10 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PrefetchEvent f6295a;
+        public final /* synthetic */ PrefetchEvent f6303a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f6296b;
+        public final /* synthetic */ d f6304b;
 
         public b(d dVar, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
@@ -94,15 +94,15 @@ public final class d {
                     return;
                 }
             }
-            this.f6296b = dVar;
-            this.f6295a = prefetchEvent;
+            this.f6304b = dVar;
+            this.f6303a = prefetchEvent;
         }
 
         @Override // c.a.p0.a.h0.o.a.e
         public void a(c.a.p0.a.v1.c.f.c cVar, PMSAppInfo pMSAppInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, pMSAppInfo) == null) {
-                this.f6296b.f6292b.b(this.f6295a, cVar, pMSAppInfo);
+                this.f6304b.f6300b.b(this.f6303a, cVar, pMSAppInfo);
             }
         }
     }
@@ -112,7 +112,7 @@ public final class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f6297a;
+        public static final d f6305a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -128,7 +128,7 @@ public final class d {
                     return;
                 }
             }
-            f6297a = new d(null);
+            f6305a = new d(null);
         }
     }
 
@@ -145,7 +145,7 @@ public final class d {
                 return;
             }
         }
-        f6290c = k.f7077a;
+        f6298c = k.f7085a;
     }
 
     public /* synthetic */ d(a aVar) {
@@ -155,26 +155,26 @@ public final class d {
     public static d e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? c.f6297a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? c.f6305a : (d) invokeV.objValue;
     }
 
     public final void c(PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, prefetchEvent) == null) {
-            this.f6291a.g(prefetchEvent, new b(this, prefetchEvent));
+            this.f6299a.g(prefetchEvent, new b(this, prefetchEvent));
         }
     }
 
     public void d(PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent) == null) {
-            if (f6290c) {
+            if (f6298c) {
                 String str = "fire preloadEvent abSwitch: " + c.a.p0.a.h0.o.e.a.f();
             }
             if (f(prefetchEvent)) {
                 return;
             }
-            if (f6290c) {
+            if (f6298c) {
                 String str2 = "firePrefetchEvent event: " + prefetchEvent;
             }
             ExecutorUtilsExt.postOnSerial(new a(this, prefetchEvent), "prefetch-event-thread");
@@ -200,7 +200,7 @@ public final class d {
                 return;
             }
         }
-        this.f6291a = new c.a.p0.a.h0.o.a();
-        this.f6292b = new c.a.p0.a.h0.o.b();
+        this.f6299a = new c.a.p0.a.h0.o.a();
+        this.f6300b = new c.a.p0.a.h0.o.b();
     }
 }

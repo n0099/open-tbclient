@@ -15,34 +15,34 @@ public class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11821a;
+    public int f11829a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11822b;
+    public int f11830b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11823c;
+    public int f11831c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11824d;
+    public String f11832d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f11825e;
+    public Drawable f11833e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f11826f;
+    public boolean f11834f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11827g;
+    public boolean f11835g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11828h;
+    public int f11836h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11829i;
+    public int f11837i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f11830j;
+    public long f11838j;
     public e k;
     public c.a.p0.k.r.b l;
 
@@ -61,17 +61,17 @@ public class o {
                 return;
             }
         }
-        this.f11822b = -1;
-        this.f11823c = -1;
-        this.f11826f = true;
-        this.f11827g = true;
-        this.f11828h = 0;
-        this.f11829i = 0;
-        this.f11830j = 0L;
-        this.f11821a = i2;
-        this.f11822b = i3;
-        this.f11823c = i4;
-        this.f11827g = z;
+        this.f11830b = -1;
+        this.f11831c = -1;
+        this.f11834f = true;
+        this.f11835g = true;
+        this.f11836h = 0;
+        this.f11837i = 0;
+        this.f11838j = 0L;
+        this.f11829a = i2;
+        this.f11830b = i3;
+        this.f11831c = i4;
+        this.f11835g = z;
     }
 
     public static o k(o oVar) {
@@ -81,7 +81,7 @@ public class o {
             if (oVar == null) {
                 return null;
             }
-            return new o(oVar.f11821a, oVar.f11822b, oVar.f11823c, oVar.f11827g);
+            return new o(oVar.f11829a, oVar.f11830b, oVar.f11831c, oVar.f11835g);
         }
         return (o) invokeL.objValue;
     }
@@ -93,7 +93,7 @@ public class o {
             if (oVar == null) {
                 return null;
             }
-            return new o(oVar.f11821a, oVar.f11822b, oVar.f11823c, z);
+            return new o(oVar.f11829a, oVar.f11830b, oVar.f11831c, z);
         }
         return (o) invokeLZ.objValue;
     }
@@ -102,14 +102,14 @@ public class o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            Drawable drawable = this.f11825e;
+            Drawable drawable = this.f11833e;
             if (drawable != null) {
                 return drawable;
             }
-            if (this.f11823c <= 0) {
+            if (this.f11831c <= 0) {
                 return null;
             }
-            return context.getResources().getDrawable(this.f11823c);
+            return context.getResources().getDrawable(this.f11831c);
         }
         return (Drawable) invokeL.objValue;
     }
@@ -117,13 +117,13 @@ public class o {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11828h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11836h : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11821a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11829a : invokeV.intValue;
     }
 
     public c.a.p0.k.r.b d() {
@@ -135,13 +135,13 @@ public class o {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11830j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11838j : invokeV.longValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11829i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11837i : invokeV.intValue;
     }
 
     public e g() {
@@ -154,14 +154,14 @@ public class o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            String str = this.f11824d;
+            String str = this.f11832d;
             if (str != null) {
                 return str;
             }
-            if (this.f11822b <= 0) {
+            if (this.f11830b <= 0) {
                 return null;
             }
-            return context.getResources().getString(this.f11822b);
+            return context.getResources().getString(this.f11830b);
         }
         return (String) invokeL.objValue;
     }
@@ -169,33 +169,33 @@ public class o {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11827g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11835g : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11826f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11834f : invokeV.booleanValue;
     }
 
     public void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f11823c = i2;
+            this.f11831c = i2;
         }
     }
 
     public void n(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.f11830j = j2;
+            this.f11838j = j2;
         }
     }
 
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f11829i = i2;
+            this.f11837i = i2;
         }
     }
 
@@ -209,7 +209,7 @@ public class o {
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f11822b = i2;
+            this.f11830b = i2;
         }
     }
 }

@@ -52,16 +52,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4516a;
+    public static final boolean f4524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f4517b;
+    public static final boolean f4525b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final AtomicInteger f4518c;
+    public static final AtomicInteger f4526c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static CharSequence f4519d;
+    public static CharSequence f4527d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.a1.h.a$a  reason: collision with other inner class name */
@@ -71,10 +71,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f4520a;
+        public boolean f4528a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f4521b;
+        public String f4529b;
 
         public C0115a(boolean z) {
             Interceptable interceptable = $ic;
@@ -91,8 +91,8 @@ public class a {
                     return;
                 }
             }
-            this.f4520a = z;
-            this.f4521b = "";
+            this.f4528a = z;
+            this.f4529b = "";
         }
     }
 
@@ -102,10 +102,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public BufferedInputStream f4522a;
+        public BufferedInputStream f4530a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4523b;
+        public int f4531b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class a {
                     return;
                 }
             }
-            this.f4523b = -1;
+            this.f4531b = -1;
         }
     }
 
@@ -137,11 +137,11 @@ public class a {
                 return;
             }
         }
-        f4516a = k.f7077a;
+        f4524a = k.f7085a;
         c.a.p0.a.c1.a.Z().getSwitch("swan_pkg_download_finish_unzip_safely", false);
-        f4517b = false;
-        f4518c = new AtomicInteger(0);
-        f4519d = "._";
+        f4525b = false;
+        f4526c = new AtomicInteger(0);
+        f4527d = "._";
     }
 
     public static boolean a(int i2, @NonNull File file, int i3, @NonNull C0115a c0115a) {
@@ -150,7 +150,7 @@ public class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), file, Integer.valueOf(i3), c0115a})) == null) {
             if (i2 > 0) {
                 String str = i2 + " files write error";
-                c0115a.f4521b = str;
+                c0115a.f4529b = str;
                 d.h("BundleDecrypt", str);
                 c.a.p0.a.j2.p.d dVar = new c.a.p0.a.j2.p.d();
                 c.a.p0.a.q2.a aVar = new c.a.p0.a.q2.a();
@@ -176,7 +176,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             File file = new File(c.a.p0.a.c1.a.b().getFilesDir(), "swan_tmp_unzip");
             c.a.p0.t.d.k(file);
-            File file2 = new File(file, System.nanoTime() + "_" + f4518c.incrementAndGet());
+            File file2 = new File(file, System.nanoTime() + "_" + f4526c.incrementAndGet());
             boolean k = c.a.p0.t.d.k(file2);
             d.h("BundleDecrypt", "#createTmpUnzipDir tmpUnzipDir=" + file2 + " dirExist=" + k);
             return new Pair<>(Boolean.valueOf(k), file2);
@@ -208,16 +208,16 @@ public class a {
                 return (C0115a) invokeLLI.objValue;
             }
         }
-        if (f4517b) {
+        if (f4525b) {
             d.h("BundleDecrypt", "命中开关，#decryptSafely dstFolder=" + file + " type=" + i2);
             return f(bufferedInputStream, file, i2);
         }
-        long nanoTime = f4516a ? System.nanoTime() : 0L;
+        long nanoTime = f4524a ? System.nanoTime() : 0L;
         C0115a c0115a = new C0115a(false);
         if (file == null || bufferedInputStream == null || i2 == 0) {
             return c0115a;
         }
-        if (f4516a) {
+        if (f4524a) {
             String str = "type :" + i2;
         }
         c.a.p0.a.a1.h.b bVar = new c.a.p0.a.a1.h.b();
@@ -235,21 +235,21 @@ public class a {
         try {
             try {
                 k(dataInputStream);
-                bVar.f4524a = k(dataInputStream);
-                bVar.f4525b = k(dataInputStream);
+                bVar.f4532a = k(dataInputStream);
+                bVar.f4533b = k(dataInputStream);
                 k(dataInputStream);
                 l(dataInputStream);
-                dataInputStream.readFully(bVar.f4526c);
-                e2 = e(bVar.f4526c);
+                dataInputStream.readFully(bVar.f4534c);
+                e2 = e(bVar.f4534c);
                 try {
                 } catch (Exception e4) {
                     e = e4;
                     dataInputStream4 = dataInputStream;
                     j2 = r17;
-                    c0115a.f4521b = e.getLocalizedMessage();
-                    boolean z = f4516a;
+                    c0115a.f4529b = e.getLocalizedMessage();
+                    boolean z = f4524a;
                     c.a.p0.t.d.d(dataInputStream4);
-                    if (f4516a) {
+                    if (f4524a) {
                     }
                     return c0115a;
                 }
@@ -258,7 +258,7 @@ public class a {
                 r17 = nanoTime;
             }
             if (e2 != null && e2.length > 0) {
-                byte[] bArr = new byte[bVar.f4525b];
+                byte[] bArr = new byte[bVar.f4533b];
                 dataInputStream.readFully(bArr);
                 byte[] bArr2 = new byte[16];
                 byte[] bArr3 = new byte[16];
@@ -267,7 +267,7 @@ public class a {
                 byte[] d2 = d(bArr, bArr2, bArr3);
                 if (d2 != null && d2.length > 0) {
                     if (i2 == 2) {
-                        boolean z2 = f4516a;
+                        boolean z2 = f4524a;
                         dataInputStream2 = new DataInputStream(c.a.p0.a.c1.a.i().a(new ByteArrayInputStream(d2)));
                         dataInputStream3 = new DataInputStream(c.a.p0.a.c1.a.i().a(dataInputStream));
                     } else {
@@ -275,8 +275,8 @@ public class a {
                         dataInputStream3 = new DataInputStream(new GZIPInputStream(dataInputStream));
                     }
                     if (!file.exists() && !file.mkdirs()) {
-                        boolean z3 = f4516a;
-                        c0115a.f4521b = "create destination directory failed";
+                        boolean z3 = f4524a;
+                        c0115a.f4529b = "create destination directory failed";
                         c.a.p0.t.d.d(dataInputStream);
                         return c0115a;
                     }
@@ -292,27 +292,27 @@ public class a {
                     }
                     ArrayList arrayList = new ArrayList();
                     int i5 = 0;
-                    while (i5 < bVar.f4524a) {
+                    while (i5 < bVar.f4532a) {
                         b.a aVar = new b.a();
                         k(dataInputStream2);
                         c.a.p0.a.a1.h.b bVar2 = bVar;
-                        aVar.f4527a = k(dataInputStream2);
+                        aVar.f4535a = k(dataInputStream2);
                         int k = k(dataInputStream2);
-                        aVar.f4528b = k;
+                        aVar.f4536b = k;
                         byte[] bArr4 = new byte[k];
                         dataInputStream2.readFully(bArr4);
                         long j3 = nanoTime;
                         String str2 = new String(bArr4, "utf-8");
-                        aVar.f4529c = str2;
-                        if (str2.contains(f4519d)) {
-                            dataInputStream3.skipBytes(aVar.f4527a);
+                        aVar.f4537c = str2;
+                        if (str2.contains(f4527d)) {
+                            dataInputStream3.skipBytes(aVar.f4535a);
                         } else {
-                            byte[] bArr5 = new byte[aVar.f4527a];
+                            byte[] bArr5 = new byte[aVar.f4535a];
                             dataInputStream3.readFully(bArr5);
                             Message obtain = Message.obtain();
                             c.C0116c c0116c = new c.C0116c();
-                            c0116c.f4537b = bArr5;
-                            c0116c.f4536a = aVar.f4529c;
+                            c0116c.f4545b = bArr5;
+                            c0116c.f4544a = aVar.f4537c;
                             obtain.what = 100;
                             obtain.obj = c0116c;
                             handlerArr[i5 % 4].sendMessage(obtain);
@@ -334,23 +334,23 @@ public class a {
                         return c0115a;
                     } else if (!m(arrayList, file, i2)) {
                         d.h("BundleDecrypt", "decrypt：unpack file check fail");
-                        c0115a.f4521b = "decrypt：unpack file check fail";
+                        c0115a.f4529b = "decrypt：unpack file check fail";
                         c.a.p0.t.d.d(dataInputStream);
                         return c0115a;
                     } else {
-                        c0115a.f4520a = true;
+                        c0115a.f4528a = true;
                         c.a.p0.t.d.d(dataInputStream);
-                        if (f4516a) {
+                        if (f4524a) {
                             String str3 = "#decrypt dstFolder=" + file.getAbsolutePath() + " 耗时(ms): " + ((System.nanoTime() - j2) / 1000000.0d);
                         }
                         return c0115a;
                     }
                 }
-                c0115a.f4521b = "index array length <= 0";
+                c0115a.f4529b = "index array length <= 0";
                 c.a.p0.t.d.d(dataInputStream);
                 return c0115a;
             }
-            c0115a.f4521b = "cipher is null";
+            c0115a.f4529b = "cipher is null";
             c.a.p0.t.d.d(dataInputStream);
             return c0115a;
         } catch (Throwable th2) {
@@ -370,7 +370,7 @@ public class a {
                 cipher.init(2, new SecretKeySpec(bArr2, "AES"), new IvParameterSpec(bArr3));
                 return cipher.doFinal(bArr);
             } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException unused) {
-                boolean z = f4516a;
+                boolean z = f4524a;
                 return null;
             }
         }
@@ -386,7 +386,7 @@ public class a {
                 cipher.init(2, n());
                 return cipher.doFinal(bArr);
             } catch (InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException unused) {
-                boolean z = f4516a;
+                boolean z = f4524a;
                 return null;
             }
         }
@@ -420,7 +420,7 @@ public class a {
             String str5 = " 耗时(ms): ";
             String str6 = "#decryptSafely 删除临时目录: ";
             String str7 = "BundleDecrypt";
-            long nanoTime = f4516a ? System.nanoTime() : 0L;
+            long nanoTime = f4524a ? System.nanoTime() : 0L;
             C0115a c0115a = new C0115a(false);
             if (file == null || bufferedInputStream == null || i2 == 0) {
                 return c0115a;
@@ -431,24 +431,24 @@ public class a {
                 try {
                     try {
                         k(dataInputStream2);
-                        bVar.f4524a = k(dataInputStream2);
-                        bVar.f4525b = k(dataInputStream2);
+                        bVar.f4532a = k(dataInputStream2);
+                        bVar.f4533b = k(dataInputStream2);
                         k(dataInputStream2);
                         l(dataInputStream2);
-                        dataInputStream2.readFully(bVar.f4526c);
-                        e2 = e(bVar.f4526c);
+                        dataInputStream2.readFully(bVar.f4534c);
+                        e2 = e(bVar.f4534c);
                         try {
                         } catch (Exception e3) {
                             e = e3;
                             dataInputStream = dataInputStream2;
                             file2 = null;
                             try {
-                                c0115a.f4521b = e.getLocalizedMessage();
+                                c0115a.f4529b = e.getLocalizedMessage();
                                 d.i(str7, "#decryptSafely ex=", e);
                                 c.a.p0.t.d.d(dataInputStream);
                                 if (file2 != null) {
                                 }
-                                if (f4516a) {
+                                if (f4524a) {
                                 }
                                 return c0115a;
                             } catch (Throwable th) {
@@ -483,7 +483,7 @@ public class a {
                 dataInputStream = null;
             }
             if (e2 != null && e2.length > 0) {
-                byte[] bArr = new byte[bVar.f4525b];
+                byte[] bArr = new byte[bVar.f4533b];
                 dataInputStream2.readFully(bArr);
                 byte[] bArr2 = new byte[16];
                 byte[] bArr3 = new byte[16];
@@ -500,12 +500,12 @@ public class a {
                             dataInputStream = dataInputStream2;
                             j2 = nanoTime;
                             file2 = null;
-                            c0115a.f4521b = e.getLocalizedMessage();
+                            c0115a.f4529b = e.getLocalizedMessage();
                             d.i(str7, "#decryptSafely ex=", e);
                             c.a.p0.t.d.d(dataInputStream);
                             if (file2 != null) {
                             }
-                            if (f4516a) {
+                            if (f4524a) {
                             }
                             return c0115a;
                         }
@@ -517,14 +517,14 @@ public class a {
                     DataInputStream dataInputStream6 = dataInputStream4;
                     if (!c.a.p0.t.d.k(file)) {
                         d.h("BundleDecrypt", "#decryptSafely 解压目录创建失败 path=" + file.getAbsolutePath());
-                        c0115a.f4521b = "create destination directory failed";
+                        c0115a.f4529b = "create destination directory failed";
                         c.a.p0.t.d.d(dataInputStream2);
                         return c0115a;
                     }
                     Pair<Boolean, File> b2 = b();
                     if (!((Boolean) b2.first).booleanValue()) {
                         d.h("BundleDecrypt", "#decryptSafely 临时解压目录创建失败 path=" + ((File) b2.second).getAbsolutePath());
-                        c0115a.f4521b = "create temp unzip directory failed";
+                        c0115a.f4529b = "create temp unzip directory failed";
                         c.a.p0.t.d.d(dataInputStream2);
                         return c0115a;
                     }
@@ -550,14 +550,14 @@ public class a {
                                         dataInputStream = dataInputStream2;
                                         file2 = file3;
                                         str5 = str8;
-                                        c0115a.f4521b = e.getLocalizedMessage();
+                                        c0115a.f4529b = e.getLocalizedMessage();
                                         d.i(str7, "#decryptSafely ex=", e);
                                         c.a.p0.t.d.d(dataInputStream);
                                         if (file2 != null) {
                                             d.h(str7, str6 + file2.getAbsolutePath());
                                             c.a.p0.t.d.K(file2);
                                         }
-                                        if (f4516a) {
+                                        if (f4524a) {
                                         }
                                         return c0115a;
                                     }
@@ -566,24 +566,24 @@ public class a {
                                 try {
                                     arrayList = new ArrayList();
                                     int i5 = 0;
-                                    while (i5 < bVar.f4524a) {
+                                    while (i5 < bVar.f4532a) {
                                         try {
                                             b.a q = q(dataInputStream5);
                                             c.a.p0.a.a1.h.b bVar2 = bVar;
                                             String str9 = str7;
                                             try {
-                                                if (q.f4529c.contains(f4519d)) {
-                                                    dataInputStream6.skipBytes(q.f4527a);
+                                                if (q.f4537c.contains(f4527d)) {
+                                                    dataInputStream6.skipBytes(q.f4535a);
                                                     str4 = str6;
                                                 } else {
-                                                    byte[] bArr4 = new byte[q.f4527a];
+                                                    byte[] bArr4 = new byte[q.f4535a];
                                                     dataInputStream6.readFully(bArr4);
                                                     Message obtain = Message.obtain();
                                                     str4 = str6;
                                                     try {
                                                         c.C0116c c0116c = new c.C0116c();
-                                                        c0116c.f4537b = bArr4;
-                                                        c0116c.f4536a = q.f4529c;
+                                                        c0116c.f4545b = bArr4;
+                                                        c0116c.f4544a = q.f4537c;
                                                         obtain.what = 100;
                                                         obtain.obj = c0116c;
                                                         handlerArr[i5 % 4].sendMessage(obtain);
@@ -624,12 +624,12 @@ public class a {
                                             str5 = str;
                                             str7 = str3;
                                             str6 = str2;
-                                            c0115a.f4521b = e.getLocalizedMessage();
+                                            c0115a.f4529b = e.getLocalizedMessage();
                                             d.i(str7, "#decryptSafely ex=", e);
                                             c.a.p0.t.d.d(dataInputStream);
                                             if (file2 != null) {
                                             }
-                                            if (f4516a) {
+                                            if (f4524a) {
                                             }
                                             return c0115a;
                                         } catch (Throwable th7) {
@@ -669,12 +669,12 @@ public class a {
                         str6 = str2;
                         dataInputStream = dataInputStream2;
                         file2 = file3;
-                        c0115a.f4521b = e.getLocalizedMessage();
+                        c0115a.f4529b = e.getLocalizedMessage();
                         d.i(str7, "#decryptSafely ex=", e);
                         c.a.p0.t.d.d(dataInputStream);
                         if (file2 != null) {
                         }
-                        if (f4516a) {
+                        if (f4524a) {
                         }
                         return c0115a;
                     } catch (Throwable th9) {
@@ -700,7 +700,7 @@ public class a {
                     str6 = str2;
                     if (!m(arrayList, file3, i2)) {
                         d.h(str7, "decrypt：unpack file check fail");
-                        c0115a.f4521b = "decrypt：unpack file check fail";
+                        c0115a.f4529b = "decrypt：unpack file check fail";
                         c.a.p0.t.d.d(dataInputStream2);
                         if (file3 != null) {
                             d.h(str7, str6 + file3.getAbsolutePath());
@@ -708,9 +708,9 @@ public class a {
                         }
                         return c0115a;
                     }
-                    long nanoTime2 = f4516a ? System.nanoTime() : 0L;
+                    long nanoTime2 = f4524a ? System.nanoTime() : 0L;
                     boolean p = p(file3, file, arrayList);
-                    if (f4516a) {
+                    if (f4524a) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("#moveToDestDir dstFolder=");
                         sb.append(file.getAbsolutePath());
@@ -726,7 +726,7 @@ public class a {
                         str5 = str;
                     }
                     if (!p) {
-                        c0115a.f4521b = "decrypt: from temp unzip dir, move to dest dir fail";
+                        c0115a.f4529b = "decrypt: from temp unzip dir, move to dest dir fail";
                         c.a.p0.t.d.d(dataInputStream2);
                         if (file3 != null) {
                             d.h(str7, str6 + file3.getAbsolutePath());
@@ -734,22 +734,22 @@ public class a {
                         }
                         return c0115a;
                     }
-                    c0115a.f4520a = true;
+                    c0115a.f4528a = true;
                     c.a.p0.t.d.d(dataInputStream2);
                     if (file3 != null) {
                         d.h(str7, str6 + file3.getAbsolutePath());
                         c.a.p0.t.d.K(file3);
                     }
-                    if (f4516a) {
+                    if (f4524a) {
                         String str10 = "#decryptSafely dstFolder=" + file.getAbsolutePath() + str5 + ((System.nanoTime() - j2) / 1000000.0d);
                     }
                     return c0115a;
                 }
-                c0115a.f4521b = "index array length <= 0";
+                c0115a.f4529b = "index array length <= 0";
                 c.a.p0.t.d.d(dataInputStream2);
                 return c0115a;
             }
-            c0115a.f4521b = "cipher is null";
+            c0115a.f4529b = "cipher is null";
             c.a.p0.t.d.d(dataInputStream2);
             return c0115a;
         }
@@ -779,13 +779,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bufferedInputStream)) == null) {
             b bVar = new b();
-            bVar.f4522a = bufferedInputStream;
+            bVar.f4530a = bufferedInputStream;
             bufferedInputStream.mark(8);
             int read = (bufferedInputStream.read() << 8) | bufferedInputStream.read() | (bufferedInputStream.read() << 16) | (bufferedInputStream.read() << 24);
             if (read == -1122498812) {
-                bVar.f4523b = 1;
+                bVar.f4531b = 1;
             } else if (read == -1122434039) {
-                bVar.f4523b = 2;
+                bVar.f4531b = 2;
             } else {
                 bufferedInputStream.reset();
             }
@@ -811,19 +811,19 @@ public class a {
                     read = bufferedInputStream.read() | (bufferedInputStream.read() << 8) | (bufferedInputStream.read() << 16) | (bufferedInputStream.read() << 24);
                 } catch (IOException unused2) {
                     bufferedInputStream2 = bufferedInputStream;
-                    boolean z = f4516a;
+                    boolean z = f4524a;
                     bufferedInputStream = bufferedInputStream2;
                     c.a.p0.t.d.d(bufferedInputStream);
                     return bVar;
                 }
                 if (read == -1122498812) {
-                    bVar.f4522a = bufferedInputStream;
-                    bVar.f4523b = 1;
+                    bVar.f4530a = bufferedInputStream;
+                    bVar.f4531b = 1;
                     return bVar;
                 }
                 if (read == -1122434039) {
-                    bVar.f4522a = bufferedInputStream;
-                    bVar.f4523b = 2;
+                    bVar.f4530a = bufferedInputStream;
+                    bVar.f4531b = 2;
                     return bVar;
                 }
                 c.a.p0.t.d.d(bufferedInputStream);
@@ -836,7 +836,7 @@ public class a {
     public static String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9358a, "/decryptLog.csv").getAbsolutePath() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9366a, "/decryptLog.csv").getAbsolutePath() : (String) invokeV.objValue;
     }
 
     public static int k(DataInputStream dataInputStream) throws IOException {
@@ -865,11 +865,11 @@ public class a {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65549, null, list, file, i2)) == null) {
-            long currentTimeMillis = f4516a ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = f4524a ? System.currentTimeMillis() : 0L;
             for (b.a aVar : list) {
-                File file2 = new File(file, aVar.f4529c);
-                if (!file2.exists() || (file2.isFile() && file2.length() != aVar.f4527a)) {
-                    d.h("BundleDecrypt", "decrypt：unpack file " + aVar.f4529c + " fail");
+                File file2 = new File(file, aVar.f4537c);
+                if (!file2.exists() || (file2.isFile() && file2.length() != aVar.f4535a)) {
+                    d.h("BundleDecrypt", "decrypt：unpack file " + aVar.f4537c + " fail");
                     c.a.p0.a.j2.p.d dVar = new c.a.p0.a.j2.p.d();
                     c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
                     aVar2.j(4L);
@@ -883,7 +883,7 @@ public class a {
                     return false;
                 }
             }
-            if (f4516a) {
+            if (f4524a) {
                 String str = "check all files valid cost - " + (System.currentTimeMillis() - currentTimeMillis) + "ms";
                 return true;
             }
@@ -899,7 +899,7 @@ public class a {
             try {
                 return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode("MEwwDQYJKoZIhvcNAQEBBQADOwAwOAIxAMrOpIWOfuGDG1bjUXV5aPU5UQr0vmOqJif4uJC+7/2B9Nm27SEGINei70QIW4x/vwIDAQAB".getBytes("utf-8"), 0)));
             } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e2) {
-                if (f4516a) {
+                if (f4524a) {
                     e2.getMessage();
                     return null;
                 }
@@ -930,7 +930,7 @@ public class a {
                 return false;
             }
             for (b.a aVar : list) {
-                String str = aVar.f4529c;
+                String str = aVar.f4537c;
                 File file3 = new File(file, str);
                 File file4 = new File(file2, str);
                 if (!o(file3, file4)) {
@@ -949,12 +949,12 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, dataInputStream)) == null) {
             b.a aVar = new b.a();
             k(dataInputStream);
-            aVar.f4527a = k(dataInputStream);
+            aVar.f4535a = k(dataInputStream);
             int k = k(dataInputStream);
-            aVar.f4528b = k;
+            aVar.f4536b = k;
             byte[] bArr = new byte[k];
             dataInputStream.readFully(bArr);
-            aVar.f4529c = new String(bArr, "utf-8");
+            aVar.f4537c = new String(bArr, "utf-8");
             return aVar;
         }
         return (b.a) invokeL.objValue;

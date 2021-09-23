@@ -22,7 +22,7 @@ public class t extends a<c.a.q0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f3861j;
+    public View f3862j;
     public ThreadLinkView k;
     public TextView l;
     public c.a.q0.s.q.a m;
@@ -46,19 +46,19 @@ public class t extends a<c.a.q0.s.q.a> {
             }
         }
         if (TbadkCoreApplication.getInst().getPersonalizeViewData().p != null && TbadkCoreApplication.getInst().getPersonalizeViewData().p.getParent() == null) {
-            this.f3861j = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
+            this.f3862j = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
         } else {
-            this.f3861j = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
+            this.f3862j = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
         }
-        this.k = (ThreadLinkView) this.f3861j.findViewById(R.id.link_thread_root);
-        this.l = (TextView) this.f3861j.findViewById(R.id.link_seg_title);
+        this.k = (ThreadLinkView) this.f3862j.findViewById(R.id.link_thread_root);
+        this.l = (TextView) this.f3862j.findViewById(R.id.link_seg_title);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3861j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3862j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

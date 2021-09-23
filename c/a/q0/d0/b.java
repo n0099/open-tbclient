@@ -19,10 +19,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Queue<C0649b> f12833a;
+    public Queue<C0649b> f12847a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile c f12834b;
+    public volatile c f12848b;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -37,19 +37,19 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageFileInfo f12835a;
+        public ImageFileInfo f12849a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.q0.c0.b f12836b;
+        public c.a.q0.c0.b f12850b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f12837c;
+        public boolean f12851c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.a.e.l.d.a f12838d;
+        public c.a.e.l.d.a f12852d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f12839e;
+        public boolean f12853e;
 
         public C0649b(b bVar) {
             Interceptable interceptable = $ic;
@@ -78,10 +78,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Queue<C0649b> f12840a;
+        public final Queue<C0649b> f12854a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f12841b;
+        public final /* synthetic */ b f12855b;
 
         public c(b bVar, Queue<C0649b> queue) {
             Interceptable interceptable = $ic;
@@ -98,8 +98,8 @@ public class b {
                     return;
                 }
             }
-            this.f12841b = bVar;
-            this.f12840a = queue;
+            this.f12855b = bVar;
+            this.f12854a = queue;
             super.setPriority(2);
         }
 
@@ -114,24 +114,24 @@ public class b {
                 return (C0649b) invokeL.objValue;
             }
             while (true) {
-                C0649b poll = this.f12840a.poll();
+                C0649b poll = this.f12854a.poll();
                 Bitmap bitmap = null;
                 if (poll == null) {
                     return null;
                 }
                 if (isCancelled()) {
-                    this.f12840a.add(poll);
+                    this.f12854a.add(poll);
                     return null;
                 }
-                c.a.e.l.d.a m = c.a.q0.c0.c.k().m(poll.f12835a.toCachedKey(poll.f12837c));
+                c.a.e.l.d.a m = c.a.q0.c0.c.k().m(poll.f12849a.toCachedKey(poll.f12851c));
                 if (m != null) {
-                    poll.f12838d = m;
-                    poll.f12839e = true;
+                    poll.f12852d = m;
+                    poll.f12853e = true;
                 } else {
-                    Bitmap f2 = this.f12841b.f(poll.f12835a, poll.f12837c);
+                    Bitmap f2 = this.f12855b.f(poll.f12849a, poll.f12851c);
                     if (f2 != null) {
                         try {
-                            i2 = BitmapHelper.readPictureDegree(poll.f12835a.getFilePath());
+                            i2 = BitmapHelper.readPictureDegree(poll.f12849a.getFilePath());
                             if (i2 != 0) {
                                 try {
                                     Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(f2, i2);
@@ -150,9 +150,9 @@ public class b {
                             i2 = 0;
                         }
                         if (i2 != 0 && bitmap != null) {
-                            poll.f12838d = new c.a.e.l.d.a(bitmap, poll.f12835a.isGif(), poll.f12835a.getFilePath());
+                            poll.f12852d = new c.a.e.l.d.a(bitmap, poll.f12849a.isGif(), poll.f12849a.getFilePath());
                         } else {
-                            poll.f12838d = new c.a.e.l.d.a(f2, poll.f12835a.isGif(), poll.f12835a.getFilePath());
+                            poll.f12852d = new c.a.e.l.d.a(f2, poll.f12849a.isGif(), poll.f12849a.getFilePath());
                         }
                     }
                 }
@@ -167,8 +167,8 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0649b) == null) {
                 super.onPostExecute(c0649b);
-                this.f12841b.f12834b = null;
-                this.f12841b.g();
+                this.f12855b.f12848b = null;
+                this.f12855b.g();
             }
         }
 
@@ -181,13 +181,13 @@ public class b {
                 return;
             }
             for (C0649b c0649b : c0649bArr) {
-                c.a.e.l.d.a aVar = c0649b.f12838d;
-                if (aVar != null && !c0649b.f12839e) {
-                    c.a.q0.c0.c.k().d(c0649b.f12835a.toCachedKey(c0649b.f12837c), aVar);
+                c.a.e.l.d.a aVar = c0649b.f12852d;
+                if (aVar != null && !c0649b.f12853e) {
+                    c.a.q0.c0.c.k().d(c0649b.f12849a.toCachedKey(c0649b.f12851c), aVar);
                 }
-                c.a.q0.c0.b bVar = c0649b.f12836b;
+                c.a.q0.c0.b bVar = c0649b.f12850b;
                 if (bVar != null) {
-                    bVar.imageLoaded(aVar, c0649b.f12835a.toCachedKey(c0649b.f12837c), c0649b.f12839e);
+                    bVar.imageLoaded(aVar, c0649b.f12849a.toCachedKey(c0649b.f12851c), c0649b.f12853e);
                 }
             }
         }
@@ -199,15 +199,15 @@ public class b {
                 return;
             }
             super.onCancelled();
-            this.f12841b.f12834b = null;
+            this.f12855b.f12848b = null;
             while (true) {
-                C0649b poll = this.f12840a.poll();
+                C0649b poll = this.f12854a.poll();
                 if (poll == null) {
                     return;
                 }
-                c.a.q0.c0.b bVar = poll.f12836b;
+                c.a.q0.c0.b bVar = poll.f12850b;
                 if (bVar != null) {
-                    bVar.imageLoaded(null, poll.f12835a.toCachedKey(poll.f12837c), false);
+                    bVar.imageLoaded(null, poll.f12849a.toCachedKey(poll.f12851c), false);
                 }
             }
         }
@@ -226,16 +226,16 @@ public class b {
                 return;
             }
         }
-        this.f12833a = new ConcurrentLinkedQueue();
+        this.f12847a = new ConcurrentLinkedQueue();
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12833a = new ConcurrentLinkedQueue();
-            if (this.f12834b != null) {
-                this.f12834b.cancel(true);
-                this.f12834b = null;
+            this.f12847a = new ConcurrentLinkedQueue();
+            if (this.f12848b != null) {
+                this.f12848b.cancel(true);
+                this.f12848b = null;
             }
         }
     }
@@ -270,10 +270,10 @@ public class b {
                 return null;
             }
             C0649b c0649b = new C0649b(this, null);
-            c0649b.f12836b = bVar;
-            c0649b.f12835a = imageFileInfo;
-            c0649b.f12837c = z;
-            this.f12833a.add(c0649b);
+            c0649b.f12850b = bVar;
+            c0649b.f12849a = imageFileInfo;
+            c0649b.f12851c = z;
+            this.f12847a.add(c0649b);
             g();
             return null;
         }
@@ -317,9 +317,9 @@ public class b {
 
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f12834b == null && !this.f12833a.isEmpty()) {
-            this.f12834b = new c(this, this.f12833a);
-            this.f12834b.execute(new Void[0]);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f12848b == null && !this.f12847a.isEmpty()) {
+            this.f12848b = new c(this, this.f12847a);
+            this.f12848b.execute(new Void[0]);
         }
     }
 }

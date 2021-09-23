@@ -16,23 +16,23 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f11063f;
+    public static final boolean f11071f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, c> f11064a;
+    public HashMap<String, c> f11072a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, ArrayList<a>> f11065b;
+    public HashMap<String, ArrayList<a>> f11073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11066c;
+    public String f11074c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.h.y.b f11067d;
+    public c.a.p0.h.y.b f11075d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f11068e;
+    public final Object f11076e;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class b implements a {
                 return;
             }
         }
-        f11063f = k.f7077a;
+        f11071f = k.f7085a;
     }
 
     public b(String str) {
@@ -65,10 +65,10 @@ public class b implements a {
                 return;
             }
         }
-        this.f11064a = new HashMap<>();
-        this.f11065b = new HashMap<>();
-        this.f11068e = new Object();
-        this.f11066c = str;
+        this.f11072a = new HashMap<>();
+        this.f11073b = new HashMap<>();
+        this.f11076e = new Object();
+        this.f11074c = str;
     }
 
     @Override // c.a.p0.h.c.i.a
@@ -76,16 +76,16 @@ public class b implements a {
         ArrayList<a> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.f11068e) {
-                if (d(str) && (arrayList = this.f11065b.get(str)) != null) {
+            synchronized (this.f11076e) {
+                if (d(str) && (arrayList = this.f11073b.get(str)) != null) {
                     int size = arrayList.size();
                     for (int i2 = 0; i2 < size; i2++) {
                         arrayList.get(i2).a(str, str2);
-                        if (f11063f) {
+                        if (f11071f) {
                             String str3 = i2 + " load success url = " + str + " path = " + str2;
                         }
                     }
-                    this.f11064a.remove(str);
+                    this.f11072a.remove(str);
                 }
             }
         }
@@ -94,27 +94,27 @@ public class b implements a {
     public final void b(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
-            if (this.f11065b.containsKey(str)) {
-                this.f11065b.get(str).add(aVar);
+            if (this.f11073b.containsKey(str)) {
+                this.f11073b.get(str).add(aVar);
                 return;
             }
             ArrayList<a> arrayList = new ArrayList<>();
             arrayList.add(aVar);
-            this.f11065b.put(str, arrayList);
+            this.f11073b.put(str, arrayList);
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f11063f) {
+            if (f11071f) {
                 String str2 = "AudioDownloader SwanGamePreloadManager url:" + str;
             }
-            if (this.f11067d == null) {
-                this.f11067d = c.a.p0.h.y.b.d();
+            if (this.f11075d == null) {
+                this.f11075d = c.a.p0.h.y.b.d();
             }
-            c cVar = new c(this.f11067d, this.f11066c, str, this);
-            this.f11064a.put(str, cVar);
+            c cVar = new c(this.f11075d, this.f11074c, str, this);
+            this.f11072a.put(str, cVar);
             cVar.e();
         }
     }
@@ -122,19 +122,19 @@ public class b implements a {
     public final boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f11064a.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f11072a.containsKey(str) : invokeL.booleanValue;
     }
 
     public void e(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, aVar) == null) {
-            synchronized (this.f11068e) {
+            synchronized (this.f11076e) {
                 if (!d(str)) {
-                    if (f11063f) {
+                    if (f11071f) {
                         String str2 = "start load url = " + str;
                     }
                     c(str);
-                } else if (f11063f) {
+                } else if (f11071f) {
                     String str3 = "re load url = " + str;
                 }
                 b(str, aVar);
@@ -147,13 +147,13 @@ public class b implements a {
         ArrayList<a> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
-            synchronized (this.f11068e) {
-                if (d(str) && (arrayList = this.f11065b.get(str)) != null) {
+            synchronized (this.f11076e) {
+                if (d(str) && (arrayList = this.f11073b.get(str)) != null) {
                     int size = arrayList.size();
                     for (int i3 = 0; i3 < size; i3++) {
                         arrayList.get(i3).fail(i2, str);
                     }
-                    this.f11064a.remove(str);
+                    this.f11072a.remove(str);
                 }
             }
         }

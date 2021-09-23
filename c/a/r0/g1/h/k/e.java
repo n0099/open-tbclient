@@ -22,7 +22,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f18374a;
+    public BdUniqueId f18383a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -37,13 +37,13 @@ public class e {
                 return;
             }
         }
-        this.f18374a = null;
+        this.f18383a = null;
     }
 
     public void a(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            this.f18374a = bdUniqueId;
+            this.f18383a = bdUniqueId;
             b();
             c();
         }
@@ -52,7 +52,7 @@ public class e {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, c.a.r0.j3.d0.a.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, c.a.r0.j3.e0.a.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -75,7 +75,7 @@ public class e {
             return;
         }
         if (netMessage.getTag() == null) {
-            netMessage.setTag(this.f18374a);
+            netMessage.setTag(this.f18383a);
         }
         MessageManager.getInstance().sendMessage(netMessage);
     }

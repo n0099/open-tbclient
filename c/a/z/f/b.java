@@ -9,7 +9,7 @@ public interface b {
 
     /* renamed from: c.a.z.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1443b {
+    public interface InterfaceC1441b {
         boolean d(b bVar, int i2, int i3);
     }
 

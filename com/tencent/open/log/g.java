@@ -15,7 +15,7 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f76410a;
+    public static final g f76729a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public final class g {
                 return;
             }
         }
-        f76410a = new g();
+        f76729a = new g();
     }
 
     public g() {

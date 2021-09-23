@@ -16,14 +16,14 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f27084c;
+    public static d f27104c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LruCache<String, String> f27085a;
+    public LruCache<String, String> f27105a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l<String> f27086b;
+    public l<String> f27106b;
 
     /* loaded from: classes4.dex */
     public class a extends c.a.q0.n.g {
@@ -31,7 +31,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f27087e;
+        public final /* synthetic */ d f27107e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class d {
                     return;
                 }
             }
-            this.f27087e = dVar;
+            this.f27107e = dVar;
         }
 
         @Override // c.a.q0.n.g, android.app.Application.ActivityLifecycleCallbacks
@@ -56,7 +56,7 @@ public class d {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null && activity.getClass().getName().equals("FrsActivity")) {
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry entry : this.f27087e.f27085a.snapshot().entrySet()) {
+                for (Map.Entry entry : this.f27107e.f27105a.snapshot().entrySet()) {
                     sb.append((String) entry.getKey());
                     sb.append("=");
                     sb.append((String) entry.getValue());
@@ -66,7 +66,7 @@ public class d {
                     return;
                 }
                 sb.deleteCharAt(sb.length() - 1);
-                this.f27087e.f27086b.a("transition_cache_key", sb.toString());
+                this.f27107e.f27106b.a("transition_cache_key", sb.toString());
             }
         }
     }
@@ -77,7 +77,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f27088a;
+        public final /* synthetic */ d f27108a;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class d {
                     return;
                 }
             }
-            this.f27088a = dVar;
+            this.f27108a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -108,7 +108,7 @@ public class d {
             for (String str3 : str2.split(",")) {
                 String[] split = str3.split("=");
                 if (split != null && split.length == 2) {
-                    this.f27088a.f27085a.put(split[0], split[1]);
+                    this.f27108a.f27105a.put(split[0], split[1]);
                 }
             }
         }
@@ -127,25 +127,25 @@ public class d {
                 return;
             }
         }
-        this.f27085a = new LruCache<>(10);
+        this.f27105a = new LruCache<>(10);
         c.a.q0.s.r.a.f();
-        this.f27086b = c.a.q0.s.r.a.g("tb.recently_vistited_forum_animation");
+        this.f27106b = c.a.q0.s.r.a.g("tb.recently_vistited_forum_animation");
         TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new a(this));
-        this.f27086b.f("transition_cache_key", new b(this));
+        this.f27106b.f("transition_cache_key", new b(this));
     }
 
     public static d d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f27084c == null) {
+            if (f27104c == null) {
                 synchronized (d.class) {
-                    if (f27084c == null) {
-                        f27084c = new d();
+                    if (f27104c == null) {
+                        f27104c = new d();
                     }
                 }
             }
-            return f27084c;
+            return f27104c;
         }
         return (d) invokeV.objValue;
     }
@@ -157,7 +157,7 @@ public class d {
             if (str == null) {
                 return new e(null);
             }
-            return new e(this.f27085a.get(str));
+            return new e(this.f27105a.get(str));
         }
         return (e) invokeL.objValue;
     }
@@ -165,7 +165,7 @@ public class d {
     public void e(String str, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, eVar) == null) {
-            this.f27085a.put(str, eVar.toString());
+            this.f27105a.put(str, eVar.toString());
         }
     }
 }

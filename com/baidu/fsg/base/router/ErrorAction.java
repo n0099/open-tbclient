@@ -11,7 +11,7 @@ public class ErrorAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39447a = "Action not implement";
+    public static final String f39504a = "Action not implement";
     public transient /* synthetic */ FieldHolder $fh;
 
     public ErrorAction() {
@@ -35,7 +35,7 @@ public class ErrorAction implements RouterAction {
             return;
         }
         HashMap hashMap2 = new HashMap();
-        hashMap2.put("result", f39447a);
+        hashMap2.put("result", f39504a);
         routerCallback.onResult(RouterCallback.CODE_NOT_IMPLEMENT, hashMap2);
     }
 }

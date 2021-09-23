@@ -23,13 +23,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f9552e;
+        public final /* synthetic */ View f9560e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f9553f;
+        public final /* synthetic */ View f9561f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f9554g;
+        public final /* synthetic */ c f9562g;
 
         public a(View view, View view2, c cVar) {
             Interceptable interceptable = $ic;
@@ -46,17 +46,17 @@ public class b {
                     return;
                 }
             }
-            this.f9552e = view;
-            this.f9553f = view2;
-            this.f9554g = cVar;
+            this.f9560e = view;
+            this.f9561f = view2;
+            this.f9562g = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && c.a.p0.a.w1.h.b.c().e()) {
-                boolean c2 = b.c(this.f9552e, this.f9553f);
-                c cVar = this.f9554g;
+                boolean c2 = b.c(this.f9560e, this.f9561f);
+                c cVar = this.f9562g;
                 if (cVar != null) {
                     cVar.onClickSwitch(view, c2);
                 }
@@ -71,7 +71,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f9555e;
+        public final /* synthetic */ View f9563e;
 
         public View$OnTouchListenerC0446b(View view) {
             Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class b {
                     return;
                 }
             }
-            this.f9555e = view;
+            this.f9563e = view;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -97,7 +97,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.f9555e.setVisibility(4);
+                    this.f9563e.setVisibility(4);
                     return false;
                 }
                 return false;

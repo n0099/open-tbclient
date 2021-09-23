@@ -16,21 +16,21 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<C0850a> f17456a;
+    public List<C0848a> f17466a;
 
     /* renamed from: c.a.r0.e4.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0850a {
+    public static class C0848a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f17457a;
+        public int f17467a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17458b;
+        public String f17468b;
 
-        public C0850a() {
+        public C0848a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,13 +58,13 @@ public class a {
                 return;
             }
         }
-        this.f17456a = new ArrayList();
+        this.f17466a = new ArrayList();
     }
 
-    public List<C0850a> a() {
+    public List<C0848a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17456a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17466a : (List) invokeV.objValue;
     }
 
     public final void b(JSONArray jSONArray) {
@@ -74,17 +74,17 @@ public class a {
         }
         try {
             if (jSONArray.length() > 0) {
-                if (this.f17456a == null) {
-                    this.f17456a = new ArrayList();
+                if (this.f17466a == null) {
+                    this.f17466a = new ArrayList();
                 }
                 int length = jSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
-                    C0850a c0850a = new C0850a();
+                    C0848a c0848a = new C0848a();
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                    c0850a.f17457a = optJSONObject.optInt("tab_id");
-                    c0850a.f17458b = optJSONObject.optString("tab_name");
+                    c0848a.f17467a = optJSONObject.optInt("tab_id");
+                    c0848a.f17468b = optJSONObject.optString("tab_name");
                     optJSONObject.optInt("obj_type");
-                    this.f17456a.add(c0850a);
+                    this.f17466a.add(c0848a);
                 }
             }
         } catch (Exception e2) {

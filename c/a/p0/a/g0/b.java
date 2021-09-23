@@ -22,11 +22,11 @@ public class b extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5737b;
+    public static final boolean f5745b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CookieManager f5738a;
+    public CookieManager f5746a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class b extends h {
                 return;
             }
         }
-        f5737b = k.f7077a;
+        f5745b = k.f7085a;
     }
 
     public b() {
@@ -57,8 +57,8 @@ public class b extends h {
                 return;
             }
         }
-        this.f5738a = null;
-        this.f5738a = new c();
+        this.f5746a = null;
+        this.f5746a = new c();
     }
 
     public final Bundle a(String str, String str2, int i2) {
@@ -80,12 +80,12 @@ public class b extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                return this.f5738a.getCookie(str);
+                return this.f5746a.getCookie(str);
             }
             f b2 = d.b(a.class, a(str, "", 4));
             if (b2.a()) {
-                String string = b2.f9229a.getString("result");
-                if (f5737b) {
+                String string = b2.f9237a.getString("result");
+                if (f5745b) {
                     String str2 = "getCookie cookie : " + string;
                 }
                 return string;
@@ -101,11 +101,11 @@ public class b extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                return this.f5738a.shouldAcceptCookie(str, str2);
+                return this.f5746a.shouldAcceptCookie(str, str2);
             }
             f b2 = d.b(a.class, a(str, str2, 1));
             if (b2.a()) {
-                return b2.f9229a.getBoolean("result");
+                return b2.f9237a.getBoolean("result");
             }
             return false;
         }
@@ -118,11 +118,11 @@ public class b extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                return this.f5738a.shouldSendCookie(str, str2);
+                return this.f5746a.shouldSendCookie(str, str2);
             }
             f b2 = d.b(a.class, a(str, str2, 2));
             if (b2.a()) {
-                return b2.f9229a.getBoolean("result");
+                return b2.f9237a.getBoolean("result");
             }
             return false;
         }
@@ -134,7 +134,7 @@ public class b extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
             if (ProcessUtils.isMainProcess()) {
-                this.f5738a.storeCookie(str, list);
+                this.f5746a.storeCookie(str, list);
                 return;
             }
             Bundle bundle = new Bundle();
@@ -142,7 +142,7 @@ public class b extends h {
             bundle.putString("param1", str);
             bundle.putStringArrayList("param2", (ArrayList) list);
             d.b(a.class, bundle);
-            if (f5737b) {
+            if (f5745b) {
                 String str2 = "set cookies for " + str;
             }
         }

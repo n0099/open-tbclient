@@ -30,16 +30,16 @@ public class H5OpenActivity extends Activity implements v2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdvancedWebView f76959a;
+    public AdvancedWebView f77278a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f76960b;
+    public ProgressBar f77279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f76961c;
+    public Info f77280c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f76962d;
+    public boolean f77281d;
 
     public H5OpenActivity() {
         Interceptable interceptable = $ic;
@@ -54,15 +54,15 @@ public class H5OpenActivity extends Activity implements v2 {
                 return;
             }
         }
-        this.f76962d = false;
+        this.f77281d = false;
     }
 
     @Override // com.win.opensdk.v2
     public void a(int i2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) && this.f76962d) {
-            Z0.a(this).a(new a1(this.f76961c), i2, str2).a();
-            this.f76962d = false;
+        if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) && this.f77281d) {
+            Z0.a(this).a(new a1(this.f77280c), i2, str2).a();
+            this.f77281d = false;
             Toast.makeText(this, getString(R.string.win_loadp_error), 0).show();
         }
     }
@@ -71,10 +71,10 @@ public class H5OpenActivity extends Activity implements v2 {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f76959a.setVisibility(0);
-            if (this.f76962d) {
-                Z0.a(this).a(new a1(this.f76961c), 200, str).a();
-                this.f76962d = false;
+            this.f77278a.setVisibility(0);
+            if (this.f77281d) {
+                Z0.a(this).a(new a1(this.f77280c), 200, str).a();
+                this.f77281d = false;
             }
         }
     }
@@ -83,7 +83,7 @@ public class H5OpenActivity extends Activity implements v2 {
     public void a(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
-            this.f76959a.setVisibility(4);
+            this.f77278a.setVisibility(4);
         }
     }
 
@@ -106,7 +106,7 @@ public class H5OpenActivity extends Activity implements v2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            AdvancedWebView advancedWebView = this.f76959a;
+            AdvancedWebView advancedWebView = this.f77278a;
             if (advancedWebView != null) {
                 advancedWebView.a(i2, i3, intent);
             }
@@ -117,7 +117,7 @@ public class H5OpenActivity extends Activity implements v2 {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            AdvancedWebView advancedWebView = this.f76959a;
+            AdvancedWebView advancedWebView = this.f77278a;
             if (advancedWebView == null || advancedWebView.b()) {
                 super.onBackPressed();
             }
@@ -133,41 +133,41 @@ public class H5OpenActivity extends Activity implements v2 {
             super.onCreate(bundle);
             setContentView(R.layout.win_layout_h5_open_activity);
             try {
-                this.f76961c = (Info) getIntent().getSerializableExtra("Key_H5OpenActData");
+                this.f77280c = (Info) getIntent().getSerializableExtra("Key_H5OpenActData");
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (this.f76961c == null) {
+            if (this.f77280c == null) {
                 return;
             }
-            this.f76962d = true;
+            this.f77281d = true;
             Y0 a2 = Z0.a(this);
             try {
-                a2.f76935b = Z0.a("wbas", new a1(this.f76961c));
+                a2.f77254b = Z0.a("wbas", new a1(this.f77280c));
             } catch (JSONException unused) {
             }
             a2.a();
-            this.f76960b = (ProgressBar) findViewById(R.id.win_h5_open_webview_process);
+            this.f77279b = (ProgressBar) findViewById(R.id.win_h5_open_webview_process);
             AdvancedWebView advancedWebView2 = (AdvancedWebView) findViewById(R.id.win_h5_open_webview);
-            this.f76959a = advancedWebView2;
+            this.f77278a = advancedWebView2;
             advancedWebView2.a(this, this);
-            this.f76959a.setGeolocationEnabled(false);
-            this.f76959a.setMixedContentAllowed(false);
-            this.f76959a.setCookiesEnabled(true);
-            this.f76959a.setThirdPartyCookiesEnabled(true);
-            this.f76959a.setWebViewClient(new I(this));
-            this.f76959a.setWebChromeClient(new J(this));
-            Info info = this.f76961c;
+            this.f77278a.setGeolocationEnabled(false);
+            this.f77278a.setMixedContentAllowed(false);
+            this.f77278a.setCookiesEnabled(true);
+            this.f77278a.setThirdPartyCookiesEnabled(true);
+            this.f77278a.setWebViewClient(new I(this));
+            this.f77278a.setWebChromeClient(new J(this));
+            Info info = this.f77280c;
             if (info == null || TextUtils.isEmpty(info.getOph5Url())) {
-                Info info2 = this.f76961c;
-                if (info2 == null || TextUtils.isEmpty(info2.getOpen()) || StringUtil.NULL_STRING.equals(this.f76961c.getOpen())) {
+                Info info2 = this.f77280c;
+                if (info2 == null || TextUtils.isEmpty(info2.getOpen()) || StringUtil.NULL_STRING.equals(this.f77280c.getOpen())) {
                     return;
                 }
-                advancedWebView = this.f76959a;
-                open = this.f76961c.getOpen();
+                advancedWebView = this.f77278a;
+                open = this.f77280c.getOpen();
             } else {
-                advancedWebView = this.f76959a;
-                open = this.f76961c.getOph5Url();
+                advancedWebView = this.f77278a;
+                open = this.f77280c.getOph5Url();
             }
             advancedWebView.loadUrl(open);
         }
@@ -177,15 +177,15 @@ public class H5OpenActivity extends Activity implements v2 {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AdvancedWebView advancedWebView = this.f76959a;
+            AdvancedWebView advancedWebView = this.f77278a;
             if (advancedWebView != null) {
                 advancedWebView.c();
             }
             super.onDestroy();
-            this.f76962d = false;
+            this.f77281d = false;
             Y0 a2 = Z0.a(this);
             try {
-                a2.f76935b = Z0.a("wbao", new a1(this.f76961c));
+                a2.f77254b = Z0.a("wbao", new a1(this.f77280c));
             } catch (JSONException unused) {
             }
             a2.a();

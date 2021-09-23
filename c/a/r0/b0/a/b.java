@@ -36,34 +36,34 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ChosenPostActivity f15880a;
+    public ChosenPostActivity f15890a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f15881b;
+    public View f15891b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f15882c;
+    public NavigationBar f15892c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdListView f15883d;
+    public BdListView f15893d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.b0.a.a f15884e;
+    public c.a.r0.b0.a.a f15894e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.q0.k0.g.a f15885f;
+    public c.a.q0.k0.g.a f15895f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f15886g;
+    public boolean f15896g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f15887h;
+    public g f15897h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoNetworkView f15888i;
+    public NoNetworkView f15898i;
 
     /* renamed from: j  reason: collision with root package name */
-    public h f15889j;
+    public h f15899j;
     public int k;
     public int l;
     public c.a.q0.s.f0.g m;
@@ -74,7 +74,7 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15890e;
+        public final /* synthetic */ b f15900e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -91,28 +91,28 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
                     return;
                 }
             }
-            this.f15890e = bVar;
+            this.f15900e = bVar;
         }
 
         @Override // c.a.q0.s.f0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f15890e.f15880a.getModelController().F(z);
+                this.f15900e.f15890a.getModelController().F(z);
             }
         }
     }
 
     /* renamed from: c.a.r0.b0.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0759b implements AdapterView.OnItemClickListener {
+    public class C0757b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15891e;
+        public final /* synthetic */ b f15901e;
 
-        public C0759b(b bVar) {
+        public C0757b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,18 +127,18 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
                     return;
                 }
             }
-            this.f15891e = bVar;
+            this.f15901e = bVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             tinfo item;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (item = this.f15891e.f15884e.getItem(i2)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (item = this.f15901e.f15894e.getItem(i2)) == null) {
                 return;
             }
-            TiebaStatic.eventStat(this.f15891e.getActivity(), "kantie_5", null, 1, "threadId", item.thread_id);
-            this.f15891e.getPageContext().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f15891e.getActivity()).createNormalCfg(String.valueOf(item.thread_id), null, null)));
+            TiebaStatic.eventStat(this.f15901e.getActivity(), "kantie_5", null, 1, "threadId", item.thread_id);
+            this.f15901e.getPageContext().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f15901e.getActivity()).createNormalCfg(String.valueOf(item.thread_id), null, null)));
         }
     }
 
@@ -148,7 +148,7 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15892e;
+        public final /* synthetic */ b f15902e;
 
         /* loaded from: classes3.dex */
         public class a implements a.e {
@@ -156,7 +156,7 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.q0.s.s.a f15893e;
+            public final /* synthetic */ c.a.q0.s.s.a f15903e;
 
             public a(c cVar, c.a.q0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
@@ -173,34 +173,34 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
                         return;
                     }
                 }
-                this.f15893e = aVar;
+                this.f15903e = aVar;
             }
 
             @Override // c.a.q0.s.s.a.e
             public void onClick(c.a.q0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                    this.f15893e.dismiss();
+                    this.f15903e.dismiss();
                 }
             }
         }
 
         /* renamed from: c.a.r0.b0.a.b$c$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0760b implements a.e {
+        public class C0758b implements a.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.q0.s.s.a f15894e;
+            public final /* synthetic */ c.a.q0.s.s.a f15904e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f15895f;
+            public final /* synthetic */ int f15905f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ c f15896g;
+            public final /* synthetic */ c f15906g;
 
-            public C0760b(c cVar, c.a.q0.s.s.a aVar, int i2) {
+            public C0758b(c cVar, c.a.q0.s.s.a aVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -215,20 +215,20 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
                         return;
                     }
                 }
-                this.f15896g = cVar;
-                this.f15894e = aVar;
-                this.f15895f = i2;
+                this.f15906g = cVar;
+                this.f15904e = aVar;
+                this.f15905f = i2;
             }
 
             @Override // c.a.q0.s.s.a.e
             public void onClick(c.a.q0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                    this.f15894e.dismiss();
+                    this.f15904e.dismiss();
                     c.a.q0.k0.c.b bVar = new c.a.q0.k0.c.b(4101, null, null, null);
-                    bVar.g(this.f15896g.f15892e.f15884e.getItem(this.f15895f));
-                    bVar.i(this.f15896g.f15892e.f15880a.getUniqueId());
-                    this.f15896g.f15892e.f15880a.getEventCenter().dispatchMvcEvent(bVar);
+                    bVar.g(this.f15906g.f15902e.f15894e.getItem(this.f15905f));
+                    bVar.i(this.f15906g.f15902e.f15890a.getUniqueId());
+                    this.f15906g.f15902e.f15890a.getEventCenter().dispatchMvcEvent(bVar);
                 }
             }
         }
@@ -248,7 +248,7 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
                     return;
                 }
             }
-            this.f15892e = bVar;
+            this.f15902e = bVar;
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -256,11 +256,11 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f15892e.getActivity());
-                aVar.setMessage(this.f15892e.getActivity().getString(R.string.chosen_post_dialog_text));
+                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f15902e.getActivity());
+                aVar.setMessage(this.f15902e.getActivity().getString(R.string.chosen_post_dialog_text));
                 aVar.setNegativeButton(R.string.cancel, new a(this, aVar));
-                aVar.setPositiveButton(R.string.confirm, new C0760b(this, aVar, i2));
-                aVar.create(this.f15892e.f15880a.getPageContext());
+                aVar.setPositiveButton(R.string.confirm, new C0758b(this, aVar, i2));
+                aVar.create(this.f15902e.f15890a.getPageContext());
                 aVar.show();
                 return true;
             }
@@ -274,7 +274,7 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15897e;
+        public final /* synthetic */ b f15907e;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -291,7 +291,7 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
                     return;
                 }
             }
-            this.f15897e = bVar;
+            this.f15907e = bVar;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.q
@@ -299,10 +299,10 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdListView) == null) {
                 if (l.D()) {
-                    this.f15897e.f15880a.getModelController().C();
-                } else if (this.f15897e.f15885f != null) {
-                    this.f15897e.f15885f.d();
-                    this.f15897e.f15885f.g(R.string.no_more_msg);
+                    this.f15907e.f15890a.getModelController().C();
+                } else if (this.f15907e.f15895f != null) {
+                    this.f15907e.f15895f.d();
+                    this.f15907e.f15895f.g(R.string.no_more_msg);
                 }
             }
         }
@@ -314,7 +314,7 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f15898e;
+        public final /* synthetic */ b f15908e;
 
         public e(b bVar) {
             Interceptable interceptable = $ic;
@@ -331,17 +331,17 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
                     return;
                 }
             }
-            this.f15898e = bVar;
+            this.f15908e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b bVar = this.f15898e;
+                b bVar = this.f15908e;
                 bVar.m(bVar.k());
-                this.f15898e.f15887h.attachView(this.f15898e.k(), true);
-                this.f15898e.t();
+                this.f15908e.f15897h.attachView(this.f15908e.k(), true);
+                this.f15908e.t();
             }
         }
 
@@ -368,20 +368,20 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
                 return;
             }
         }
-        this.f15886g = false;
-        this.f15880a = chosenPostActivity;
+        this.f15896g = false;
+        this.f15890a = chosenPostActivity;
     }
 
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15880a.getPageContext().getPageActivity() : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15890a.getPageContext().getPageActivity() : (Activity) invokeV.objValue;
     }
 
     public BdListView i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15883d : (BdListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15893d : (BdListView) invokeV.objValue;
     }
 
     public c.a.q0.s.f0.g j() {
@@ -389,7 +389,7 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.m == null) {
-                this.m = new c.a.q0.s.f0.g(this.f15880a.getPageContext());
+                this.m = new c.a.q0.s.f0.g(this.f15890a.getPageContext());
             }
             return this.m;
         }
@@ -399,7 +399,7 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15881b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15891b : (View) invokeV.objValue;
     }
 
     public final void l(c.a.q0.k0.c.b bVar) {
@@ -407,8 +407,8 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             Object c2 = bVar.c();
             if (c2 instanceof Long) {
-                this.f15884e.p(((Long) c2).longValue());
-                if (this.f15884e.getCount() <= 5) {
+                this.f15894e.p(((Long) c2).longValue());
+                if (this.f15894e.getCount() <= 5) {
                     t();
                 }
             }
@@ -418,7 +418,7 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
     public final void m(View view) {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (hVar = this.f15889j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (hVar = this.f15899j) == null) {
             return;
         }
         hVar.dettachView(view);
@@ -427,19 +427,19 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
     public void n(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i2) == null) {
-            NavigationBar navigationBar = this.f15882c;
+            NavigationBar navigationBar = this.f15892c;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(tbPageContext, i2);
             }
-            c.a.r0.b0.a.a aVar = this.f15884e;
+            c.a.r0.b0.a.a aVar = this.f15894e;
             if (aVar != null) {
                 aVar.onChangeSkinType(tbPageContext, i2);
             }
-            c.a.q0.k0.g.a aVar2 = this.f15885f;
+            c.a.q0.k0.g.a aVar2 = this.f15895f;
             if (aVar2 != null) {
                 aVar2.onChangeSkinType(tbPageContext, i2);
             }
-            NoNetworkView noNetworkView = this.f15888i;
+            NoNetworkView noNetworkView = this.f15898i;
             if (noNetworkView != null) {
                 noNetworkView.onChangeSkinType(tbPageContext, i2);
             }
@@ -454,8 +454,8 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            View inflate = this.f15880a.getLayoutInflater().inflate(R.layout.chosen_post_activity, (ViewGroup) null);
-            this.f15881b = inflate;
+            View inflate = this.f15890a.getLayoutInflater().inflate(R.layout.chosen_post_activity, (ViewGroup) null);
+            this.f15891b = inflate;
             return inflate;
         }
         return (View) invokeV.objValue;
@@ -464,15 +464,15 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
     public void onServerError(ErrorData errorData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, errorData) == null) {
-            g gVar = this.f15887h;
+            g gVar = this.f15897h;
             if (gVar != null) {
                 gVar.dettachView(k());
             }
-            if (errorData != null && this.f15884e.c() <= 0) {
+            if (errorData != null && this.f15894e.c() <= 0) {
                 u(k(), getPageContext().getResources().getString(R.string.net_error_text, errorData.getError_msg(), Integer.valueOf(errorData.getError_code())), true);
             }
-            this.f15883d.completePullRefreshPostDelayed(0L);
-            c.a.q0.k0.g.a aVar = this.f15885f;
+            this.f15893d.completePullRefreshPostDelayed(0L);
+            c.a.q0.k0.g.a aVar = this.f15895f;
             if (aVar != null) {
                 aVar.g(R.string.no_more_msg);
             }
@@ -487,10 +487,10 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
             if (b2 != 4102) {
                 switch (b2) {
                     case 4097:
-                        this.f15886g = false;
+                        this.f15896g = false;
                         break;
                     case 4098:
-                        this.f15886g = true;
+                        this.f15896g = true;
                         break;
                     case 4099:
                         r(bVar.a());
@@ -507,33 +507,33 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.k = this.f15880a.getResources().getDimensionPixelSize(R.dimen.ds108);
-            this.l = this.f15880a.getResources().getDimensionPixelSize(R.dimen.ds150);
+            this.k = this.f15890a.getResources().getDimensionPixelSize(R.dimen.ds108);
+            this.l = this.f15890a.getResources().getDimensionPixelSize(R.dimen.ds150);
             NavigationBar navigationBar = (NavigationBar) k().findViewById(R.id.chosen_post_navigation_bar);
-            this.f15882c = navigationBar;
+            this.f15892c = navigationBar;
             navigationBar.setTitleText(R.string.recommend_frs_hot_thread_title);
-            this.f15882c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f15883d = (BdListView) k().findViewById(R.id.chosen_post_list);
-            this.f15888i = (NoNetworkView) k().findViewById(R.id.view_no_network);
-            c.a.r0.b0.a.a aVar = new c.a.r0.b0.a.a(this.f15880a.getPageContext(), new Class[]{c.a.r0.b0.a.c.c.class, c.a.r0.b0.a.c.b.class, c.a.r0.b0.a.c.a.class}, new int[]{R.layout.chosen_picture_layout, R.layout.chosen_no_picture_layout, R.layout.chosen_image_text_layout}, this.f15880a.getEventCenter());
-            this.f15884e = aVar;
-            this.f15883d.setAdapter((ListAdapter) aVar);
+            this.f15892c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f15893d = (BdListView) k().findViewById(R.id.chosen_post_list);
+            this.f15898i = (NoNetworkView) k().findViewById(R.id.view_no_network);
+            c.a.r0.b0.a.a aVar = new c.a.r0.b0.a.a(this.f15890a.getPageContext(), new Class[]{c.a.r0.b0.a.c.c.class, c.a.r0.b0.a.c.b.class, c.a.r0.b0.a.c.a.class}, new int[]{R.layout.chosen_picture_layout, R.layout.chosen_no_picture_layout, R.layout.chosen_image_text_layout}, this.f15890a.getEventCenter());
+            this.f15894e = aVar;
+            this.f15893d.setAdapter((ListAdapter) aVar);
             c.a.q0.s.f0.g j2 = j();
             this.m = j2;
-            this.f15883d.setPullRefresh(j2);
+            this.f15893d.setPullRefresh(j2);
             this.m.a(new a(this));
-            this.f15883d.setOnItemClickListener(new C0759b(this));
-            this.f15883d.setOnItemLongClickListener(new c(this));
-            this.f15883d.setExOnSrollToBottomListener(new d(this));
-            c.a.q0.k0.g.a aVar2 = new c.a.q0.k0.g.a(this.f15880a);
-            this.f15885f = aVar2;
+            this.f15893d.setOnItemClickListener(new C0757b(this));
+            this.f15893d.setOnItemLongClickListener(new c(this));
+            this.f15893d.setExOnSrollToBottomListener(new d(this));
+            c.a.q0.k0.g.a aVar2 = new c.a.q0.k0.g.a(this.f15890a);
+            this.f15895f = aVar2;
             aVar2.a();
-            i().setNextPage(this.f15885f);
+            i().setNextPage(this.f15895f);
             g gVar = new g(getActivity());
-            this.f15887h = gVar;
+            this.f15897h = gVar;
             gVar.onChangeSkinType();
-            this.f15887h.attachView(k(), true);
-            this.f15880a.getModelController().A();
+            this.f15897h.attachView(k(), true);
+            this.f15890a.getModelController().A();
         }
     }
 
@@ -542,17 +542,17 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
         if ((interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) && (aVar instanceof c.a.r0.b0.a.d.b)) {
             List<tinfo> a2 = ((c.a.r0.b0.a.d.b) aVar).a();
             if (a2 != null && a2.size() > 0) {
-                this.f15883d.setVisibility(0);
+                this.f15893d.setVisibility(0);
             }
-            g gVar = this.f15887h;
+            g gVar = this.f15897h;
             if (gVar != null) {
                 gVar.dettachView(k());
             }
-            if (this.f15886g) {
-                this.f15884e.i(a2);
+            if (this.f15896g) {
+                this.f15894e.i(a2);
                 return;
             }
-            this.f15884e.k(a2);
+            this.f15894e.k(a2);
             if (a2 == null) {
                 return;
             }
@@ -570,19 +570,19 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
         if ((interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) && (bVar instanceof c.a.q0.k0.d.a)) {
             c.a.q0.k0.d.a aVar = (c.a.q0.k0.d.a) bVar;
             if (aVar.d()) {
-                this.f15885f.d();
+                this.f15895f.d();
                 if (aVar.b()) {
-                    this.f15885f.f(R.string.loading);
+                    this.f15895f.f(R.string.loading);
                 } else if (!aVar.a()) {
-                    this.f15885f.g(R.string.no_more_msg);
+                    this.f15895f.g(R.string.no_more_msg);
                 }
             } else {
-                this.f15885f.e();
+                this.f15895f.e();
             }
             if (aVar.c()) {
                 return;
             }
-            this.f15883d.completePullRefreshPostDelayed(0L);
+            this.f15893d.completePullRefreshPostDelayed(0L);
         }
     }
 
@@ -590,20 +590,20 @@ public class b extends c.a.e.a.d<ChosenPostActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             c.a.q0.k0.c.b bVar = new c.a.q0.k0.c.b(4100, null, null, null);
-            bVar.i(this.f15880a.getUniqueId());
-            this.f15880a.getEventCenter().dispatchMvcEvent(bVar);
+            bVar.i(this.f15890a.getUniqueId());
+            this.f15890a.getEventCenter().dispatchMvcEvent(bVar);
         }
     }
 
     public final void u(View view, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048590, this, view, str, z) == null) {
-            if (this.f15889j == null) {
-                this.f15889j = new h(getPageContext().getPageActivity(), new e(this, null));
+            if (this.f15899j == null) {
+                this.f15899j = new h(getPageContext().getPageActivity(), new e(this, null));
             }
-            this.f15889j.l(str);
-            this.f15889j.attachView(view, z);
-            this.f15889j.o();
+            this.f15899j.l(str);
+            this.f15899j.attachView(view, z);
+            this.f15899j.o();
         }
     }
 }

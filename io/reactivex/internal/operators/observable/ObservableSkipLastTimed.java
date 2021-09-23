@@ -14,7 +14,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
     public final long time;
     public final TimeUnit unit;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class SkipLastTimedObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5677354903406201275L;

@@ -15,7 +15,7 @@ public final class c implements FileFilter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f36169a;
+    public final /* synthetic */ b f36212a;
 
     public c(b bVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class c implements FileFilter {
                 return;
             }
         }
-        this.f36169a = bVar;
+        this.f36212a = bVar;
     }
 
     @Override // java.io.FileFilter

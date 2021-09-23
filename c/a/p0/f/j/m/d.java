@@ -34,7 +34,7 @@ public class d implements c.a.p0.h.t.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameCloseGuidePopView.e f10732a;
+        public final /* synthetic */ GameCloseGuidePopView.e f10740a;
 
         public a(d dVar, GameCloseGuidePopView.e eVar) {
             Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class d implements c.a.p0.h.t.c.d {
                     return;
                 }
             }
-            this.f10732a = eVar;
+            this.f10740a = eVar;
         }
 
         @Override // com.baidu.swan.game.guide.dialog.GamenowRecommendPopView.e
         public void a() {
             GameCloseGuidePopView.e eVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f10732a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f10740a) == null) {
                 return;
             }
             eVar.a();
@@ -78,7 +78,7 @@ public class d implements c.a.p0.h.t.c.d {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public d() {
@@ -107,7 +107,7 @@ public class d implements c.a.p0.h.t.c.d {
                 return null;
             }
             String I = bVar.I();
-            if ((!TextUtils.equals(I, c.f10731a) && q0.F(context, I)) || (z = c.a.p0.f.j.b.o.z()) == null || (closeInfo = z.closeInfo) == null) {
+            if ((!TextUtils.equals(I, c.f10739a) && q0.F(context, I)) || (z = c.a.p0.f.j.b.o.z()) == null || (closeInfo = z.closeInfo) == null) {
                 return null;
             }
             int i2 = closeInfo.type;

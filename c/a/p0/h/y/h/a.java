@@ -14,10 +14,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.l0.c f11630a;
+    public c.a.p0.a.l0.c f11638a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f11631b;
+    public b f11639b;
 
     public a(c.a.p0.a.l0.c cVar) {
         Interceptable interceptable = $ic;
@@ -34,14 +34,14 @@ public class a {
                 return;
             }
         }
-        this.f11630a = cVar;
+        this.f11638a = cVar;
     }
 
     public c a(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
-            c cVar = new c(b(), this.f11630a);
+            c cVar = new c(b(), this.f11638a);
             cVar.B(jsObject);
             return cVar;
         }
@@ -53,10 +53,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f11631b == null) {
-                this.f11631b = new b();
+            if (this.f11639b == null) {
+                this.f11639b = new b();
             }
-            return this.f11631b;
+            return this.f11639b;
         }
         return (b) invokeV.objValue;
     }

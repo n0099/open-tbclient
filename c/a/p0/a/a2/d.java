@@ -30,22 +30,22 @@ public abstract class d extends c.a.p0.a.a2.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.a.p.a f4544e;
+    public c.a.p0.a.p.a f4552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<c.a.p0.a.v2.e1.b<i.a>> f4545f;
+    public final Set<c.a.p0.a.v2.e1.b<i.a>> f4553f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile int f4546g;
+    public volatile int f4554g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Queue<Runnable> f4547h;
+    public final Queue<Runnable> f4555h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f4548i;
+    public Runnable f4556i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.p0.n.i.g f4549j;
+    public c.a.p0.n.i.g f4557j;
     public c.a.p0.a.c2.f.g0.a k;
     public boolean l;
 
@@ -55,10 +55,10 @@ public abstract class d extends c.a.p0.a.a2.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.a f4550e;
+        public final /* synthetic */ i.a f4558e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f4551f;
+        public final /* synthetic */ d f4559f;
 
         /* renamed from: c.a.p0.a.a2.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -67,10 +67,10 @@ public abstract class d extends c.a.p0.a.a2.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.p0.a.v2.e1.b f4552e;
+            public final /* synthetic */ c.a.p0.a.v2.e1.b f4560e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f4553f;
+            public final /* synthetic */ a f4561f;
 
             public RunnableC0118a(a aVar, c.a.p0.a.v2.e1.b bVar) {
                 Interceptable interceptable = $ic;
@@ -87,15 +87,15 @@ public abstract class d extends c.a.p0.a.a2.a {
                         return;
                     }
                 }
-                this.f4553f = aVar;
-                this.f4552e = bVar;
+                this.f4561f = aVar;
+                this.f4560e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f4552e.onCallback(this.f4553f.f4550e);
+                    this.f4560e.onCallback(this.f4561f.f4558e);
                 }
             }
         }
@@ -115,8 +115,8 @@ public abstract class d extends c.a.p0.a.a2.a {
                     return;
                 }
             }
-            this.f4551f = dVar;
-            this.f4550e = aVar;
+            this.f4559f = dVar;
+            this.f4558e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -124,9 +124,9 @@ public abstract class d extends c.a.p0.a.a2.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean z = Looper.getMainLooper() == Looper.myLooper();
-                for (c.a.p0.a.v2.e1.b bVar : this.f4551f.f4545f) {
-                    if (z && !this.f4550e.e("event_flag_force_post", false)) {
-                        bVar.onCallback(this.f4550e);
+                for (c.a.p0.a.v2.e1.b bVar : this.f4559f.f4553f) {
+                    if (z && !this.f4558e.e("event_flag_force_post", false)) {
+                        bVar.onCallback(this.f4558e);
                     } else {
                         d.i().post(new RunnableC0118a(this, bVar));
                     }
@@ -141,10 +141,10 @@ public abstract class d extends c.a.p0.a.a2.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f4554e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f4562e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f4555f;
+        public final /* synthetic */ d f4563f;
 
         public b(d dVar, c.a.p0.a.v2.e1.b bVar) {
             Interceptable interceptable = $ic;
@@ -161,15 +161,15 @@ public abstract class d extends c.a.p0.a.a2.a {
                     return;
                 }
             }
-            this.f4555f = dVar;
-            this.f4554e = bVar;
+            this.f4563f = dVar;
+            this.f4562e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4555f.f4545f.add(this.f4554e);
+                this.f4563f.f4553f.add(this.f4562e);
             }
         }
     }
@@ -180,10 +180,10 @@ public abstract class d extends c.a.p0.a.a2.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f4556e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f4564e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f4557f;
+        public final /* synthetic */ d f4565f;
 
         public c(d dVar, c.a.p0.a.v2.e1.b bVar) {
             Interceptable interceptable = $ic;
@@ -200,15 +200,15 @@ public abstract class d extends c.a.p0.a.a2.a {
                     return;
                 }
             }
-            this.f4557f = dVar;
-            this.f4556e = bVar;
+            this.f4565f = dVar;
+            this.f4564e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4557f.f4545f.remove(this.f4556e);
+                this.f4565f.f4553f.remove(this.f4564e);
             }
         }
     }
@@ -226,7 +226,7 @@ public abstract class d extends c.a.p0.a.a2.a {
                 return;
             }
         }
-        m = c.a.p0.a.k.f7077a;
+        m = c.a.p0.a.k.f7085a;
     }
 
     public d() {
@@ -243,10 +243,10 @@ public abstract class d extends c.a.p0.a.a2.a {
             }
         }
         new c.a();
-        this.f4545f = new HashSet();
-        this.f4546g = 0;
-        this.f4547h = new ArrayDeque();
-        this.f4548i = null;
+        this.f4553f = new HashSet();
+        this.f4554g = 0;
+        this.f4555h = new ArrayDeque();
+        this.f4556i = null;
         this.l = false;
     }
 
@@ -311,7 +311,7 @@ public abstract class d extends c.a.p0.a.a2.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             if (m) {
-                String str = "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.f4545f.size();
+                String str = "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.f4553f.size();
             }
             if (aVar != null) {
                 E(new a(this, aVar));
@@ -345,15 +345,15 @@ public abstract class d extends c.a.p0.a.a2.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
             synchronized (this) {
-                this.f4547h.offer(runnable);
-                if (this.f4548i == null) {
-                    while (!this.f4547h.isEmpty()) {
-                        Runnable poll = this.f4547h.poll();
-                        this.f4548i = poll;
+                this.f4555h.offer(runnable);
+                if (this.f4556i == null) {
+                    while (!this.f4555h.isEmpty()) {
+                        Runnable poll = this.f4555h.poll();
+                        this.f4556i = poll;
                         if (poll != null) {
                             poll.run();
                         }
-                        this.f4548i = null;
+                        this.f4556i = null;
                     }
                 }
             }
@@ -368,10 +368,10 @@ public abstract class d extends c.a.p0.a.a2.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f4549j == null) {
-                this.f4549j = e();
+            if (this.f4557j == null) {
+                this.f4557j = e();
             }
-            return this.f4549j;
+            return this.f4557j;
         }
         return (c.a.p0.n.i.g) invokeV.objValue;
     }
@@ -426,10 +426,10 @@ public abstract class d extends c.a.p0.a.a2.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f4544e == null) {
-                this.f4544e = new c.a.p0.a.p.a();
+            if (this.f4552e == null) {
+                this.f4552e = new c.a.p0.a.p.a();
             }
-            return this.f4544e;
+            return this.f4552e;
         }
         return (c.a.p0.a.p.a) invokeV.objValue;
     }

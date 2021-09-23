@@ -17,14 +17,14 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f29597c;
+    public static e f29617c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f29598a;
+    public f f29618a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f29599b;
+    public CustomMessageListener f29619b;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -32,7 +32,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f29600a;
+        public final /* synthetic */ e f29620a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(e eVar, int i2) {
@@ -52,15 +52,15 @@ public class e {
                     return;
                 }
             }
-            this.f29600a = eVar;
+            this.f29620a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.z() && this.f29600a.f29598a != null) {
-                this.f29600a.f29598a.c();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.z() && this.f29620a.f29618a != null) {
+                this.f29620a.f29618a.c();
             }
         }
     }
@@ -78,23 +78,23 @@ public class e {
                 return;
             }
         }
-        this.f29599b = new a(this, 2000994);
-        this.f29598a = new h();
-        MessageManager.getInstance().registerListener(this.f29599b);
+        this.f29619b = new a(this, 2000994);
+        this.f29618a = new h();
+        MessageManager.getInstance().registerListener(this.f29619b);
     }
 
     public static e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f29597c == null) {
+            if (f29617c == null) {
                 synchronized (e.class) {
-                    if (f29597c == null) {
-                        f29597c = new e();
+                    if (f29617c == null) {
+                        f29617c = new e();
                     }
                 }
             }
-            return f29597c;
+            return f29617c;
         }
         return (e) invokeV.objValue;
     }
@@ -107,11 +107,11 @@ public class e {
 
     public void d(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) && c() && this.f29598a != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) && c() && this.f29618a != null) {
             if (j.z()) {
-                this.f29598a.a(cVar);
+                this.f29618a.a(cVar);
             } else {
-                this.f29598a.b(cVar);
+                this.f29618a.b(cVar);
             }
         }
     }

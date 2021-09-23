@@ -17,22 +17,22 @@ public class p implements c.a.e.l.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19321e;
+    public String f19336e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19322f;
+    public String f19337f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19323g;
+    public String f19338g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f19324h;
+    public String f19339h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f19325i;
+    public String f19340i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f19326j;
+    public String f19341j;
 
     static {
         InterceptResult invokeClinit;
@@ -69,12 +69,12 @@ public class p implements c.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, tabList) == null) || tabList == null) {
             return;
         }
-        this.f19321e = tabList.tab_name;
-        this.f19322f = tabList.tab_type;
-        this.f19323g = tabList.share_pic;
-        this.f19324h = tabList.share_title;
-        this.f19325i = tabList.share_desc;
-        this.f19326j = tabList.share_url;
+        this.f19336e = tabList.tab_name;
+        this.f19337f = tabList.tab_type;
+        this.f19338g = tabList.share_pic;
+        this.f19339h = tabList.share_title;
+        this.f19340i = tabList.share_desc;
+        this.f19341j = tabList.share_url;
     }
 
     @Override // c.a.e.l.e.n

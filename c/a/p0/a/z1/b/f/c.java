@@ -24,34 +24,34 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f10045a;
+    public boolean f10053a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f10046b;
+    public Context f10054b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WindowManager f10047c;
+    public WindowManager f10055c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile int f10048d;
+    public volatile int f10056d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f10049e;
+    public View f10057e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f10050f;
+    public View f10058f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WindowManager.LayoutParams f10051g;
+    public WindowManager.LayoutParams f10059g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f10052h;
+    public Handler f10060h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f10053i;
+    public Runnable f10061i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Runnable f10054j;
+    public Runnable f10062j;
     public e.b k;
     public boolean l;
     public View m;
@@ -63,7 +63,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f10055e;
+        public final /* synthetic */ c f10063e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -80,28 +80,28 @@ public class c {
                     return;
                 }
             }
-            this.f10055e = cVar;
+            this.f10063e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f10055e.f10049e != null) {
-                    if (this.f10055e.f10049e.getParent() != null) {
-                        this.f10055e.f10047c.removeView(this.f10055e.f10049e);
-                        if (this.f10055e.k != null) {
-                            this.f10055e.k.onDismiss();
-                            this.f10055e.k = null;
+                if (this.f10063e.f10057e != null) {
+                    if (this.f10063e.f10057e.getParent() != null) {
+                        this.f10063e.f10055c.removeView(this.f10063e.f10057e);
+                        if (this.f10063e.k != null) {
+                            this.f10063e.k.onDismiss();
+                            this.f10063e.k = null;
                         }
                     }
-                    this.f10055e.f10049e = null;
+                    this.f10063e.f10057e = null;
                 }
-                if (this.f10055e.m != null) {
-                    if (this.f10055e.m.getParent() != null) {
-                        this.f10055e.f10047c.removeView(this.f10055e.m);
+                if (this.f10063e.m != null) {
+                    if (this.f10063e.m.getParent() != null) {
+                        this.f10063e.f10055c.removeView(this.f10063e.m);
                     }
-                    this.f10055e.m = null;
+                    this.f10063e.m = null;
                 }
             }
         }
@@ -113,7 +113,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f10056e;
+        public final /* synthetic */ c f10064e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class c {
                     return;
                 }
             }
-            this.f10056e = cVar;
+            this.f10064e = cVar;
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE]}, finally: {[IGET, INVOKE, RETURN, IF] complete} */
@@ -142,23 +142,23 @@ public class c {
                 return;
             }
             try {
-                if (this.f10056e.l) {
-                    if (this.f10056e.m != null && (this.f10056e.m.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) this.f10056e.m.getParent()).removeView(this.f10056e.m);
+                if (this.f10064e.l) {
+                    if (this.f10064e.m != null && (this.f10064e.m.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) this.f10064e.m.getParent()).removeView(this.f10064e.m);
                     }
-                    WindowManager.LayoutParams t = this.f10056e.t();
-                    this.f10056e.n = new FrameLayout(this.f10056e.f10046b);
-                    this.f10056e.n.setClickable(true);
-                    this.f10056e.f10047c.addView(this.f10056e.n, t);
-                    this.f10056e.m = this.f10056e.n;
+                    WindowManager.LayoutParams t = this.f10064e.t();
+                    this.f10064e.n = new FrameLayout(this.f10064e.f10054b);
+                    this.f10064e.n.setClickable(true);
+                    this.f10064e.f10055c.addView(this.f10064e.n, t);
+                    this.f10064e.m = this.f10064e.n;
                 }
-                if (this.f10056e.f10050f != null && (this.f10056e.f10050f.getParent() instanceof ViewGroup)) {
-                    ((ViewGroup) this.f10056e.f10050f.getParent()).removeView(this.f10056e.f10050f);
+                if (this.f10064e.f10058f != null && (this.f10064e.f10058f.getParent() instanceof ViewGroup)) {
+                    ((ViewGroup) this.f10064e.f10058f.getParent()).removeView(this.f10064e.f10058f);
                 }
-                this.f10056e.f10047c.addView(this.f10056e.f10050f, this.f10056e.f10051g);
-                this.f10056e.f10049e = this.f10056e.f10050f;
-                this.f10056e.f10052h.postDelayed(this.f10056e.f10054j, this.f10056e.f10048d * 1000);
-                boolean unused = this.f10056e.f10045a;
+                this.f10064e.f10055c.addView(this.f10064e.f10058f, this.f10064e.f10059g);
+                this.f10064e.f10057e = this.f10064e.f10058f;
+                this.f10064e.f10060h.postDelayed(this.f10064e.f10062j, this.f10064e.f10056d * 1000);
+                boolean unused = this.f10064e.f10053a;
             } finally {
                 if (!z) {
                 }
@@ -173,7 +173,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f10057e;
+        public final /* synthetic */ c f10065e;
 
         public RunnableC0486c(c cVar) {
             Interceptable interceptable = $ic;
@@ -190,7 +190,7 @@ public class c {
                     return;
                 }
             }
-            this.f10057e = cVar;
+            this.f10065e = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -201,23 +201,23 @@ public class c {
                 return;
             }
             try {
-                if (this.f10057e.f10049e != null) {
-                    if (this.f10057e.f10049e.getParent() != null) {
-                        this.f10057e.f10047c.removeViewImmediate(this.f10057e.f10049e);
+                if (this.f10065e.f10057e != null) {
+                    if (this.f10065e.f10057e.getParent() != null) {
+                        this.f10065e.f10055c.removeViewImmediate(this.f10065e.f10057e);
                     }
-                    if (this.f10057e.k != null) {
-                        this.f10057e.k.onDismiss();
-                        this.f10057e.k = null;
+                    if (this.f10065e.k != null) {
+                        this.f10065e.k.onDismiss();
+                        this.f10065e.k = null;
                     }
-                    boolean unused = this.f10057e.f10045a;
-                    this.f10057e.f10049e = null;
+                    boolean unused = this.f10065e.f10053a;
+                    this.f10065e.f10057e = null;
                 }
-                if (this.f10057e.m != null) {
-                    if (this.f10057e.m.getParent() != null) {
-                        this.f10057e.f10047c.removeViewImmediate(this.f10057e.m);
+                if (this.f10065e.m != null) {
+                    if (this.f10065e.m.getParent() != null) {
+                        this.f10065e.f10055c.removeViewImmediate(this.f10065e.m);
                     }
-                    boolean unused2 = this.f10057e.f10045a;
-                    this.f10057e.m = null;
+                    boolean unused2 = this.f10065e.f10053a;
+                    this.f10065e.m = null;
                 }
             } finally {
                 if (!z) {
@@ -241,30 +241,30 @@ public class c {
                 return;
             }
         }
-        this.f10046b = context;
-        this.f10047c = (WindowManager) context.getSystemService("window");
-        this.f10052h = new Handler(Looper.getMainLooper());
-        this.f10054j = new a(this);
+        this.f10054b = context;
+        this.f10055c = (WindowManager) context.getSystemService("window");
+        this.f10060h = new Handler(Looper.getMainLooper());
+        this.f10062j = new a(this);
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        this.f10051g = layoutParams;
+        this.f10059g = layoutParams;
         layoutParams.height = -2;
         layoutParams.width = -2;
         layoutParams.format = -3;
         layoutParams.windowAnimations = i.toast_animation;
         layoutParams.type = 2005;
         layoutParams.setTitle("Toast");
-        WindowManager.LayoutParams layoutParams2 = this.f10051g;
+        WindowManager.LayoutParams layoutParams2 = this.f10059g;
         layoutParams2.flags = 168;
         layoutParams2.gravity = 81;
         layoutParams2.y = -30;
-        this.f10048d = 2;
-        this.f10045a = false;
+        this.f10056d = 2;
+        this.f10053a = false;
     }
 
     public void A(@StyleRes int i2) {
         WindowManager.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (layoutParams = this.f10051g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (layoutParams = this.f10059g) == null) {
             return;
         }
         layoutParams.windowAnimations = i2;
@@ -273,25 +273,25 @@ public class c {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Runnable runnable = this.f10053i;
+            Runnable runnable = this.f10061i;
             if (runnable != null) {
-                this.f10052h.removeCallbacks(runnable);
+                this.f10060h.removeCallbacks(runnable);
             }
             b bVar = new b(this);
-            this.f10053i = bVar;
-            this.f10052h.post(bVar);
+            this.f10061i = bVar;
+            this.f10060h.post(bVar);
         }
     }
 
     public void s() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (handler = this.f10052h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (handler = this.f10060h) == null) {
             return;
         }
         handler.post(new RunnableC0486c(this));
-        this.f10052h.removeCallbacks(this.f10054j);
-        boolean z = this.f10045a;
+        this.f10060h.removeCallbacks(this.f10062j);
+        boolean z = this.f10053a;
     }
 
     public final WindowManager.LayoutParams t() {
@@ -301,7 +301,7 @@ public class c {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
             layoutParams.width = -1;
             layoutParams.height = -1;
-            layoutParams.verticalMargin = e.c(this.f10046b);
+            layoutParams.verticalMargin = e.c(this.f10054b);
             layoutParams.flags = 2176;
             layoutParams.type = 2005;
             return layoutParams;
@@ -313,7 +313,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            View view = this.f10049e;
+            View view = this.f10057e;
             return (view == null || view.getParent() == null) ? false : true;
         }
         return invokeV.booleanValue;
@@ -325,14 +325,14 @@ public class c {
             if (i2 <= 0) {
                 i2 = 2;
             }
-            this.f10048d = i2;
+            this.f10056d = i2;
         }
     }
 
     public void w(int i2, int i3, int i4) {
         WindowManager.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048582, this, i2, i3, i4) == null) || (layoutParams = this.f10051g) == null) {
+        if (!(interceptable == null || interceptable.invokeIII(1048582, this, i2, i3, i4) == null) || (layoutParams = this.f10059g) == null) {
             return;
         }
         layoutParams.gravity = i2;
@@ -357,7 +357,7 @@ public class c {
     public void z(@NonNull View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            this.f10050f = view;
+            this.f10058f = view;
             view.setClickable(true);
         }
     }

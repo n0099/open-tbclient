@@ -105,7 +105,7 @@ public class e extends b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null) {
             return;
         }
-        this.q.setText(cVar.f18973a);
+        this.q.setText(cVar.f18982a);
         f(cVar.a());
     }
 

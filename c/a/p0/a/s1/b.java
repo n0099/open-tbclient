@@ -23,22 +23,22 @@ public final class b implements g.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8580a;
+    public boolean f8588a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8581b;
+    public boolean f8589b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f8582c;
+    public boolean f8590c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f8583d;
+    public final int f8591d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f8584e;
+    public final f f8592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f8585f;
+    public final Context f8593f;
 
     /* loaded from: classes.dex */
     public class a implements DialogInterface.OnClickListener {
@@ -46,10 +46,10 @@ public final class b implements g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8586e;
+        public final /* synthetic */ String f8594e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f8587f;
+        public final /* synthetic */ b f8595f;
 
         public a(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -66,16 +66,16 @@ public final class b implements g.a {
                     return;
                 }
             }
-            this.f8587f = bVar;
-            this.f8586e = str;
+            this.f8595f = bVar;
+            this.f8594e = str;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) && this.f8587f.f8580a) {
-                if (!this.f8587f.f8581b) {
-                    this.f8587f.h(this.f8586e, i2, dialogInterface);
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) && this.f8595f.f8588a) {
+                if (!this.f8595f.f8589b) {
+                    this.f8595f.h(this.f8594e, i2, dialogInterface);
                 } else {
                     dialogInterface.dismiss();
                 }
@@ -90,10 +90,10 @@ public final class b implements g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8588e;
+        public final /* synthetic */ String f8596e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f8589f;
+        public final /* synthetic */ b f8597f;
 
         public DialogInterface$OnClickListenerC0371b(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -110,15 +110,15 @@ public final class b implements g.a {
                     return;
                 }
             }
-            this.f8589f = bVar;
-            this.f8588e = str;
+            this.f8597f = bVar;
+            this.f8596e = str;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                this.f8589f.i(this.f8588e, i2, dialogInterface);
+                this.f8597f.i(this.f8596e, i2, dialogInterface);
             }
         }
     }
@@ -129,10 +129,10 @@ public final class b implements g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8590e;
+        public final /* synthetic */ String f8598e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f8591f;
+        public final /* synthetic */ b f8599f;
 
         public c(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -149,15 +149,15 @@ public final class b implements g.a {
                     return;
                 }
             }
-            this.f8591f = bVar;
-            this.f8590e = str;
+            this.f8599f = bVar;
+            this.f8598e = str;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                this.f8591f.h(this.f8590e, i2, dialogInterface);
+                this.f8599f.h(this.f8598e, i2, dialogInterface);
             }
         }
     }
@@ -168,7 +168,7 @@ public final class b implements g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f8592a;
+        public final /* synthetic */ b f8600a;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -185,15 +185,15 @@ public final class b implements g.a {
                     return;
                 }
             }
-            this.f8592a = bVar;
+            this.f8600a = bVar;
         }
 
         @Override // android.content.DialogInterface.OnShowListener
         public void onShow(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f8592a.f8580a = true;
-                this.f8592a.j("show");
+                this.f8600a.f8588a = true;
+                this.f8600a.j("show");
             }
         }
     }
@@ -204,13 +204,13 @@ public final class b implements g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8593e;
+        public final /* synthetic */ String f8601e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f8594f;
+        public final /* synthetic */ f f8602f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f8595g;
+        public final /* synthetic */ b f8603g;
 
         public e(b bVar, String str, f fVar) {
             Interceptable interceptable = $ic;
@@ -227,17 +227,17 @@ public final class b implements g.a {
                     return;
                 }
             }
-            this.f8595g = bVar;
-            this.f8593e = str;
-            this.f8594f = fVar;
+            this.f8603g = bVar;
+            this.f8601e = str;
+            this.f8602f = fVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f8595g.p(this.f8593e, this.f8594f);
-                this.f8595g.f8580a = false;
+                this.f8603g.p(this.f8601e, this.f8602f);
+                this.f8603g.f8588a = false;
             }
         }
     }
@@ -257,12 +257,12 @@ public final class b implements g.a {
                 return;
             }
         }
-        this.f8580a = false;
-        this.f8581b = false;
-        this.f8582c = false;
-        this.f8585f = context;
-        this.f8583d = i2;
-        this.f8584e = fVar;
+        this.f8588a = false;
+        this.f8589b = false;
+        this.f8590c = false;
+        this.f8593f = context;
+        this.f8591d = i2;
+        this.f8592e = fVar;
     }
 
     public final void h(String str, int i2, DialogInterface dialogInterface) {
@@ -289,9 +289,9 @@ public final class b implements g.a {
             } else {
                 j(FreeSpaceBox.TYPE);
             }
-            this.f8581b = true;
+            this.f8589b = true;
             dialogInterface.dismiss();
-            a0.g(this.f8585f);
+            a0.g(this.f8593f);
         }
     }
 
@@ -301,12 +301,12 @@ public final class b implements g.a {
             c.a.p0.a.a2.d g2 = c.a.p0.a.a2.d.g();
             String appId = g2.getAppId();
             c.a.p0.a.j2.p.e eVar = new c.a.p0.a.j2.p.e();
-            eVar.f7068f = appId;
-            eVar.f7063a = "swan";
-            eVar.f7065c = c.a.p0.a.s1.c.a(this.f8583d);
-            eVar.f7069g = "minipnl";
-            eVar.f7064b = str;
-            eVar.f7067e = c.a.p0.a.s1.c.b(this.f8582c);
+            eVar.f7076f = appId;
+            eVar.f7071a = "swan";
+            eVar.f7073c = c.a.p0.a.s1.c.a(this.f8591d);
+            eVar.f7077g = "minipnl";
+            eVar.f7072b = str;
+            eVar.f7075e = c.a.p0.a.s1.c.b(this.f8590c);
             eVar.a("appid", appId);
             eVar.a("appname", g2.r().O());
             eVar.a("host", c.a.p0.a.c1.a.m().a());
@@ -367,28 +367,28 @@ public final class b implements g.a {
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, strArr, iArr) == null) {
-            if (i2 != this.f8583d) {
-                this.f8584e.b(2, "request permission fail");
+            if (i2 != this.f8591d) {
+                this.f8592e.b(2, "request permission fail");
             } else if (strArr.length == 0 && iArr.length == 0) {
-                this.f8584e.a("permission granted successful");
+                this.f8592e.a("permission granted successful");
             } else if (strArr.length != iArr.length) {
-                this.f8584e.b(2, "request permission fail");
-            } else if (!(this.f8585f instanceof SwanAppBaseActivity)) {
-                this.f8584e.b(2, "request permission fail");
+                this.f8592e.b(2, "request permission fail");
+            } else if (!(this.f8593f instanceof SwanAppBaseActivity)) {
+                this.f8592e.b(2, "request permission fail");
             } else {
                 for (int i3 = 0; i3 < iArr.length; i3++) {
                     String str = strArr[i3];
                     if (iArr[i3] == -1) {
-                        if (!c.a.p0.o.a.a.a.k((SwanAppBaseActivity) this.f8585f, str)) {
-                            q(str, this.f8584e);
+                        if (!c.a.p0.o.a.a.a.k((SwanAppBaseActivity) this.f8593f, str)) {
+                            q(str, this.f8592e);
                             return;
                         } else {
-                            this.f8584e.b(1, "user denied");
+                            this.f8592e.b(1, "user denied");
                             return;
                         }
                     }
                 }
-                this.f8584e.a("permission granted successful");
+                this.f8592e.a("permission granted successful");
             }
         }
     }
@@ -396,9 +396,9 @@ public final class b implements g.a {
     public final void p(String str, f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, fVar) == null) {
-            Context context = this.f8585f;
+            Context context = this.f8593f;
             boolean z = context != null && c.a.p0.u.d.c.a(context, str);
-            this.f8582c = z;
+            this.f8590c = z;
             if (z) {
                 fVar.a("permission granted successful");
             } else {
@@ -410,21 +410,21 @@ public final class b implements g.a {
     public final void q(String str, f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, fVar) == null) {
-            if (!(this.f8585f instanceof SwanAppBaseActivity)) {
-                this.f8584e.b(2, "request permission fail");
+            if (!(this.f8593f instanceof SwanAppBaseActivity)) {
+                this.f8592e.b(2, "request permission fail");
                 return;
             }
             String l = l(str);
             if (k(l)) {
-                this.f8584e.b(2, "request permission fail");
+                this.f8592e.b(2, "request permission fail");
                 return;
             }
             String n = a0.n(str);
             if (n != null && n.trim().length() != 0) {
-                o(this.f8585f, n(n), m(n), l, str, fVar).show();
+                o(this.f8593f, n(n), m(n), l, str, fVar).show();
                 return;
             }
-            this.f8584e.b(2, "request permission fail");
+            this.f8592e.b(2, "request permission fail");
         }
     }
 
@@ -439,6 +439,6 @@ public final class b implements g.a {
     public g.a s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new c.a.p0.a.s1.a(this.f8583d, this.f8584e) : (g.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new c.a.p0.a.s1.a(this.f8591d, this.f8592e) : (g.a) invokeV.objValue;
     }
 }

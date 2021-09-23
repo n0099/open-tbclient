@@ -11,7 +11,7 @@ public final class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f35766a;
+    public static Boolean f35789a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,13 +33,13 @@ public final class s {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Boolean bool = f35766a;
+            Boolean bool = f35789a;
             if (bool != null) {
                 return bool.booleanValue();
             }
             try {
                 Boolean valueOf = Boolean.valueOf((context.getPackageManager().getApplicationInfo(context.getPackageName(), 0).flags & 2) != 0);
-                f35766a = valueOf;
+                f35789a = valueOf;
                 return valueOf.booleanValue();
             } catch (Exception unused) {
                 return false;

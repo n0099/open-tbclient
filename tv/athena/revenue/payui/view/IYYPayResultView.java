@@ -85,10 +85,10 @@ public interface IYYPayResultView extends j.a.a.e.o.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Result f79937a;
+        public Result f80254a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CurrencyChargeMessage f79938b;
+        public CurrencyChargeMessage f80255b;
 
         public b(Result result, CurrencyChargeMessage currencyChargeMessage) {
             Interceptable interceptable = $ic;
@@ -105,8 +105,8 @@ public interface IYYPayResultView extends j.a.a.e.o.a {
                     return;
                 }
             }
-            this.f79937a = result;
-            this.f79938b = currencyChargeMessage;
+            this.f80254a = result;
+            this.f80255b = currencyChargeMessage;
         }
     }
 
@@ -116,10 +116,10 @@ public interface IYYPayResultView extends j.a.a.e.o.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public b f79939a;
+        public b f80256a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AbsViewEventHandler f79940b;
+        public AbsViewEventHandler f80257b;
 
         public c() {
             Interceptable interceptable = $ic;

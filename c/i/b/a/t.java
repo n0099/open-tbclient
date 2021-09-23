@@ -13,11 +13,11 @@ public final class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final t f33946b;
+    public static final t f33969b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f33947a;
+    public final int f33970a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public final class t {
                 return;
             }
         }
-        f33946b = new t(0);
+        f33969b = new t(0);
     }
 
     public t(int i2) {
@@ -50,7 +50,7 @@ public final class t {
                 return;
             }
         }
-        this.f33947a = i2;
+        this.f33970a = i2;
     }
 
     public boolean equals(Object obj) {
@@ -60,7 +60,7 @@ public final class t {
             if (this == obj) {
                 return true;
             }
-            return obj != null && t.class == obj.getClass() && this.f33947a == ((t) obj).f33947a;
+            return obj != null && t.class == obj.getClass() && this.f33970a == ((t) obj).f33970a;
         }
         return invokeL.booleanValue;
     }
@@ -68,6 +68,6 @@ public final class t {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33947a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33970a : invokeV.intValue;
     }
 }

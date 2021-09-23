@@ -29,7 +29,7 @@ public class a {
             statisticItem.param("obj_type", 3);
         } else if (threadData.O1()) {
             statisticItem.param("obj_type", 4);
-        } else if (threadData.c0 == 0) {
+        } else if (threadData.i0 == 0) {
             statisticItem.param("obj_type", 5);
         } else if (threadData.E2()) {
             statisticItem.param("obj_type", 6);
@@ -59,7 +59,7 @@ public class a {
                 statisticItem.param("obj_type", 3);
             } else if (threadData.O1()) {
                 statisticItem.param("obj_type", 4);
-            } else if (threadData.c0 == 0) {
+            } else if (threadData.i0 == 0) {
                 statisticItem.param("obj_type", 5);
             } else if (threadData.E2()) {
                 statisticItem.param("obj_type", 6);

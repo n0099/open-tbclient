@@ -20,7 +20,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, e> f20924a;
+    public static HashMap<String, e> f20936a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -72,14 +72,14 @@ public class c {
             }
         }
         MessageManager.getInstance().registerListener(new a(2001011));
-        f20924a = new HashMap<>();
+        f20936a = new HashMap<>();
     }
 
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, null, i2) == null) {
-            for (String str : f20924a.keySet()) {
-                b(f20924a.get(str), i2);
+            for (String str : f20936a.keySet()) {
+                b(f20936a.get(str), i2);
             }
         }
     }
@@ -87,24 +87,24 @@ public class c {
     public static void b(e eVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, null, eVar, i2) == null) {
-            d dVar = eVar.f20932d;
-            d dVar2 = eVar.f20933e;
-            d dVar3 = eVar.f20934f;
-            if (dVar.f20926b + dVar2.f20926b + dVar3.f20926b >= i2) {
+            d dVar = eVar.f20944d;
+            d dVar2 = eVar.f20945e;
+            d dVar3 = eVar.f20946f;
+            if (dVar.f20938b + dVar2.f20938b + dVar3.f20938b >= i2) {
                 c.a.e.e.n.a aVar = new c.a.e.e.n.a("dbg");
-                aVar.b("act", eVar.f20931c);
-                aVar.b("httpTimeCost", String.valueOf(dVar.f20925a));
-                aVar.b("httpNum", String.valueOf(dVar.f20926b));
-                aVar.b("httpFailnum", String.valueOf(dVar.f20927c));
-                aVar.b("httpSize", String.valueOf(dVar.f20928d));
-                aVar.b("socketTimeCost", String.valueOf(dVar2.f20925a));
-                aVar.b("socketNum", String.valueOf(dVar2.f20926b));
-                aVar.b("socketFailnum", String.valueOf(dVar2.f20927c));
-                aVar.b("socketSize", String.valueOf(dVar2.f20928d));
-                aVar.b("abortTimeCost", String.valueOf(dVar3.f20925a));
-                aVar.b("abortNum", String.valueOf(dVar3.f20926b));
-                aVar.b("netType", eVar.f20930b);
-                aVar.b("isJson", eVar.f20929a ? "1" : "0");
+                aVar.b("act", eVar.f20943c);
+                aVar.b("httpTimeCost", String.valueOf(dVar.f20937a));
+                aVar.b("httpNum", String.valueOf(dVar.f20938b));
+                aVar.b("httpFailnum", String.valueOf(dVar.f20939c));
+                aVar.b("httpSize", String.valueOf(dVar.f20940d));
+                aVar.b("socketTimeCost", String.valueOf(dVar2.f20937a));
+                aVar.b("socketNum", String.valueOf(dVar2.f20938b));
+                aVar.b("socketFailnum", String.valueOf(dVar2.f20939c));
+                aVar.b("socketSize", String.valueOf(dVar2.f20940d));
+                aVar.b("abortTimeCost", String.valueOf(dVar3.f20937a));
+                aVar.b("abortNum", String.valueOf(dVar3.f20938b));
+                aVar.b("netType", eVar.f20942b);
+                aVar.b("isJson", eVar.f20941a ? "1" : "0");
                 BdStatisticsManager.getInstance().debug("frs", aVar);
                 dVar.a();
                 dVar2.a();
@@ -120,10 +120,10 @@ public class c {
                 str2 = "";
             }
             String str3 = str + str2;
-            if (f20924a.containsKey(str3)) {
+            if (f20936a.containsKey(str3)) {
                 return;
             }
-            f20924a.put(str3, new e(str, str2, z));
+            f20936a.put(str3, new e(str, str2, z));
         }
     }
 
@@ -141,10 +141,10 @@ public class c {
                 str2 = "";
             }
             String str3 = str + str2;
-            if (!f20924a.containsKey(str3)) {
-                f20924a.put(str3, new e(str, str2, z));
+            if (!f20936a.containsKey(str3)) {
+                f20936a.put(str3, new e(str, str2, z));
             }
-            return f20924a.get(str3);
+            return f20936a.get(str3);
         }
         return (e) invokeLLZ.objValue;
     }

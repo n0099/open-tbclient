@@ -22,7 +22,7 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30635a;
+        public static final /* synthetic */ int[] f30656a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -39,21 +39,21 @@ public class b {
                 }
             }
             int[] iArr = new int[ScaleType.values().length];
-            f30635a = iArr;
+            f30656a = iArr;
             try {
                 iArr[ScaleType.FIT_XY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30635a[ScaleType.FIT_CENTER.ordinal()] = 2;
+                f30656a[ScaleType.FIT_CENTER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f30635a[ScaleType.CENTER_CROP.ordinal()] = 3;
+                f30656a[ScaleType.CENTER_CROP.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f30635a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
+                f30656a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -125,7 +125,7 @@ public class b {
         }
         float h2 = (dVar.h() * 1.0f) / dVar.e();
         float f4 = (cVar.f() * 1.0f) / cVar.e();
-        int i2 = a.f30635a[scaleType.ordinal()];
+        int i2 = a.f30656a[scaleType.ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 if (i2 != 3) {

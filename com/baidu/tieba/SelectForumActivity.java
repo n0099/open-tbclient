@@ -28,7 +28,7 @@ public class SelectForumActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectForumActivity f49072a;
+        public final /* synthetic */ SelectForumActivity f49181a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SelectForumActivity selectForumActivity, int i2) {
@@ -48,7 +48,7 @@ public class SelectForumActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f49072a = selectForumActivity;
+            this.f49181a = selectForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class SelectForumActivity extends SuspendedActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f49072a.finish();
+            this.f49181a.finish();
         }
     }
 
@@ -68,7 +68,7 @@ public class SelectForumActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectForumActivity f49073a;
+        public final /* synthetic */ SelectForumActivity f49182a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SelectForumActivity selectForumActivity, int i2) {
@@ -88,7 +88,7 @@ public class SelectForumActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f49073a = selectForumActivity;
+            this.f49182a = selectForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,9 +98,9 @@ public class SelectForumActivity extends SuspendedActivity {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (TextUtils.isEmpty(str)) {
-                    str = this.f49073a.getString(R.string.activity_select_forum_error);
+                    str = this.f49182a.getString(R.string.activity_select_forum_error);
                 }
-                c.a.e.e.p.l.M(this.f49073a, str);
+                c.a.e.e.p.l.M(this.f49182a, str);
             }
         }
     }

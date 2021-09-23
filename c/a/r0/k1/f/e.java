@@ -35,31 +35,31 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.e.e.h.a f21198b;
+    public c.a.e.e.h.a f21212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.e.e.h.b f21199c;
+    public c.a.e.e.h.b f21213c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f21200d;
+    public long f21214d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Calendar f21201e;
+    public Calendar f21215e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21202f;
+    public int f21216f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f21203g;
+    public long f21217g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21204h;
+    public TextView f21218h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbRichTextView f21205i;
+    public TbRichTextView f21219i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ChatVoiceView f21206j;
+    public ChatVoiceView f21220j;
     public GifView k;
     public Invite2GroupView l;
     public ShareFromPBView m;
@@ -76,546 +76,9 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21207e;
-
-        public a(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21207e = eVar;
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f21207e;
-                eVar.f21199c.onItemViewLongClick(view, 10, eVar.f21202f, 0L);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21208e;
-
-        public b(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21208e = eVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f21208e;
-                eVar.f21198b.onItemViewClick(view, 15, eVar.f21202f, 0L);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21209e;
-
-        public c(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21209e = eVar;
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f21209e;
-                eVar.f21199c.onItemViewLongClick(view, 15, eVar.f21202f, 0L);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21210e;
-
-        public d(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21210e = eVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f21210e;
-                eVar.f21198b.onItemViewClick(view, 11, eVar.f21202f, 0L);
-            }
-        }
-    }
-
-    /* renamed from: c.a.r0.k1.f.e$e  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0992e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21211e;
-
-        public View$OnClickListenerC0992e(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21211e = eVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f21211e;
-                eVar.f21198b.onItemViewClick(view, 12, eVar.f21202f, 0L);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21212e;
-
-        public f(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21212e = eVar;
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f21212e;
-                eVar.f21199c.onItemViewLongClick(view, 11, eVar.f21202f, 0L);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class g implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21213e;
-
-        public g(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21213e = eVar;
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f21213e;
-                eVar.f21199c.onItemViewLongClick(view, 17, eVar.f21202f, 0L);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class h implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21214e;
-
-        public h(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21214e = eVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            TbRichTextView tbRichTextView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbRichTextView = this.f21214e.f21205i) == null || tbRichTextView.getTextView() == null) {
-                return;
-            }
-            CharSequence text = this.f21214e.f21205i.getTextView().getText();
-            if (TextUtils.isEmpty(text)) {
-                return;
-            }
-            if (text.toString().contains("删贴") || text.toString().contains("删除")) {
-                if (text.toString().contains("http://") || text.toString().contains("https://")) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) c.a.e.a.j.a(view.getContext()), new String[]{"http://tieba.baidu.com/mo/q/wise-bawu-core/recycle-station#/recycle-post?noshare=1"});
-                    c.a.q0.s.d0.b.j().t(c.a.q0.s.d0.b.n("key_person_post_recycle_bin_red_tip_show"), false);
-                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SITE_SERVICE).param("uid", TbadkCoreApplication.getCurrentAccount()));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class i implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21215e;
-
-        public i(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21215e = eVar;
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f21215e;
-                eVar.f21199c.onItemViewLongClick(view, 5, eVar.f21202f, 0L);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class j implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21216e;
-
-        public j(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21216e = eVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f21216e;
-                eVar.f21198b.onItemViewClick(view, 4, eVar.f21202f, 0L);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class k implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21217e;
-
-        public k(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21217e = eVar;
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f21217e;
-                eVar.f21199c.onItemViewLongClick(view, 4, eVar.f21202f, 0L);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class l implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21218e;
-
-        public l(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21218e = eVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f21218e;
-                eVar.f21198b.onItemViewClick(view, 13, eVar.f21202f, 0L);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class m implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21219e;
-
-        public m(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21219e = eVar;
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                e eVar = this.f21219e;
-                eVar.f21199c.onItemViewLongClick(view, 3, eVar.f21202f, 0L);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class n implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21220e;
-
-        public n(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f21220e = eVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                e eVar = this.f21220e;
-                eVar.f21198b.onItemViewClick(view, 7, eVar.f21202f, 0L);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class o implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ e f21221e;
 
-        public o(e eVar) {
+        public a(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -639,7 +102,7 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
                 e eVar = this.f21221e;
-                eVar.f21199c.onItemViewLongClick(view, 7, eVar.f21202f, 0L);
+                eVar.f21213c.onItemViewLongClick(view, 10, eVar.f21216f, 0L);
                 return true;
             }
             return invokeL.booleanValue;
@@ -647,14 +110,14 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
     }
 
     /* loaded from: classes3.dex */
-    public class p implements View.OnClickListener {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ e f21222e;
 
-        public p(e eVar) {
+        public b(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -677,7 +140,544 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 e eVar = this.f21222e;
-                eVar.f21198b.onItemViewClick(view, 10, eVar.f21202f, 0L);
+                eVar.f21212b.onItemViewClick(view, 15, eVar.f21216f, 0L);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21223e;
+
+        public c(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21223e = eVar;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
+                e eVar = this.f21223e;
+                eVar.f21213c.onItemViewLongClick(view, 15, eVar.f21216f, 0L);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21224e;
+
+        public d(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21224e = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                e eVar = this.f21224e;
+                eVar.f21212b.onItemViewClick(view, 11, eVar.f21216f, 0L);
+            }
+        }
+    }
+
+    /* renamed from: c.a.r0.k1.f.e$e  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class View$OnClickListenerC0990e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21225e;
+
+        public View$OnClickListenerC0990e(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21225e = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                e eVar = this.f21225e;
+                eVar.f21212b.onItemViewClick(view, 12, eVar.f21216f, 0L);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class f implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21226e;
+
+        public f(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21226e = eVar;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
+                e eVar = this.f21226e;
+                eVar.f21213c.onItemViewLongClick(view, 11, eVar.f21216f, 0L);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class g implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21227e;
+
+        public g(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21227e = eVar;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
+                e eVar = this.f21227e;
+                eVar.f21213c.onItemViewLongClick(view, 17, eVar.f21216f, 0L);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class h implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21228e;
+
+        public h(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21228e = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            TbRichTextView tbRichTextView;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbRichTextView = this.f21228e.f21219i) == null || tbRichTextView.getTextView() == null) {
+                return;
+            }
+            CharSequence text = this.f21228e.f21219i.getTextView().getText();
+            if (TextUtils.isEmpty(text)) {
+                return;
+            }
+            if (text.toString().contains("删贴") || text.toString().contains("删除")) {
+                if (text.toString().contains("http://") || text.toString().contains("https://")) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) c.a.e.a.j.a(view.getContext()), new String[]{"http://tieba.baidu.com/mo/q/wise-bawu-core/recycle-station#/recycle-post?noshare=1"});
+                    c.a.q0.s.d0.b.j().t(c.a.q0.s.d0.b.n("key_person_post_recycle_bin_red_tip_show"), false);
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SITE_SERVICE).param("uid", TbadkCoreApplication.getCurrentAccount()));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class i implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21229e;
+
+        public i(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21229e = eVar;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
+                e eVar = this.f21229e;
+                eVar.f21213c.onItemViewLongClick(view, 5, eVar.f21216f, 0L);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class j implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21230e;
+
+        public j(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21230e = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                e eVar = this.f21230e;
+                eVar.f21212b.onItemViewClick(view, 4, eVar.f21216f, 0L);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class k implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21231e;
+
+        public k(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21231e = eVar;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
+                e eVar = this.f21231e;
+                eVar.f21213c.onItemViewLongClick(view, 4, eVar.f21216f, 0L);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class l implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21232e;
+
+        public l(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21232e = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                e eVar = this.f21232e;
+                eVar.f21212b.onItemViewClick(view, 13, eVar.f21216f, 0L);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class m implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21233e;
+
+        public m(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21233e = eVar;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
+                e eVar = this.f21233e;
+                eVar.f21213c.onItemViewLongClick(view, 3, eVar.f21216f, 0L);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class n implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21234e;
+
+        public n(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21234e = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                e eVar = this.f21234e;
+                eVar.f21212b.onItemViewClick(view, 7, eVar.f21216f, 0L);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class o implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21235e;
+
+        public o(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21235e = eVar;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
+                e eVar = this.f21235e;
+                eVar.f21213c.onItemViewLongClick(view, 7, eVar.f21216f, 0L);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class p implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f21236e;
+
+        public p(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f21236e = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                e eVar = this.f21236e;
+                eVar.f21212b.onItemViewClick(view, 10, eVar.f21216f, 0L);
             }
         }
     }
@@ -701,14 +701,14 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
                 return;
             }
         }
-        this.f21198b = null;
-        this.f21199c = null;
-        this.f21202f = 0;
-        this.f21203g = 0L;
+        this.f21212b = null;
+        this.f21213c = null;
+        this.f21216f = 0;
+        this.f21217g = 0L;
         this.q = true;
         this.r = false;
-        this.f21200d = 0L;
-        this.f21201e = null;
+        this.f21214d = 0L;
+        this.f21215e = null;
         this.mContext = tbPageContext;
     }
 
@@ -721,8 +721,8 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
             }
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(j2 * 1000);
-            Calendar calendar2 = this.f21201e;
-            if (calendar2 != null && calendar2.get(1) == calendar.get(1) && this.f21201e.get(6) == calendar.get(6)) {
+            Calendar calendar2 = this.f21215e;
+            if (calendar2 != null && calendar2.get(1) == calendar.get(1) && this.f21215e.get(6) == calendar.get(6)) {
                 return c.a.e.e.p.k.getDateStringHm(calendar.getTime());
             }
             return c.a.e.e.p.k.getDateStringMdHm(calendar.getTime());
@@ -733,9 +733,9 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f21204h = (TextView) c(R.id.tex_msgitem_time);
+            this.f21218h = (TextView) c(R.id.tex_msgitem_time);
             TbRichTextView tbRichTextView = (TbRichTextView) c(R.id.tex_msgitem_text);
-            this.f21205i = tbRichTextView;
+            this.f21219i = tbRichTextView;
             tbRichTextView.setLinkTextColor(-14845754);
             this.p = (ChatImageWithTailView) c(R.id.img_msgitem_image);
             this.l = (Invite2GroupView) c(R.id.lay_msgitem_invite_view);
@@ -743,21 +743,21 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
             this.n = (ShareFromFrsView) c(R.id.lay_msgitem_share_frs);
             this.o = (ShareFromGameCenter) c(R.id.lay_msgitem_share_game);
             ChatVoiceView chatVoiceView = (ChatVoiceView) c(R.id.lay_msgitem_voice);
-            this.f21206j = chatVoiceView;
+            this.f21220j = chatVoiceView;
             chatVoiceView.setClickable(true);
-            ChatVoiceView chatVoiceView2 = this.f21206j;
+            ChatVoiceView chatVoiceView2 = this.f21220j;
             chatVoiceView2.setOnClickListener(chatVoiceView2);
-            this.f21205i.setOnClickListener(new h(this));
-            this.f21206j.setLongClickable(true);
-            this.f21206j.setOnLongClickListener(new i(this));
+            this.f21219i.setOnClickListener(new h(this));
+            this.f21220j.setLongClickable(true);
+            this.f21220j.setOnLongClickListener(new i(this));
             this.p.getImage().setClickable(true);
             this.p.getImage().setOnClickListener(new j(this));
             this.p.getImage().setLongClickable(true);
             this.p.getImage().setOnLongClickListener(new k(this));
             this.p.getTail().setClickable(true);
             this.p.getTail().setOnClickListener(new l(this));
-            this.f21205i.setLongClickable(true);
-            this.f21205i.setOnLongClickListener(new m(this));
+            this.f21219i.setLongClickable(true);
+            this.f21219i.setOnLongClickListener(new m(this));
             GifView gifView = (GifView) c(R.id.emotion_msgitem_image);
             this.k = gifView;
             gifView.setSupportNoImage(false);
@@ -775,7 +775,7 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
             this.o.getContentBody().setClickable(true);
             this.o.getContentBody().setOnClickListener(new d(this));
             this.o.getTail().setClickable(true);
-            this.o.getTail().setOnClickListener(new View$OnClickListenerC0992e(this));
+            this.o.getTail().setOnClickListener(new View$OnClickListenerC0990e(this));
             this.o.getContentBody().setLongClickable(true);
             this.o.getContentBody().setOnLongClickListener(new f(this));
             Invite2GroupView invite2GroupView = this.l;
@@ -792,7 +792,7 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
             if (j2 < 1000) {
                 return false;
             }
-            long j3 = this.f21200d;
+            long j3 = this.f21214d;
             return j3 == 0 || j2 - j3 >= 180;
         }
         return invokeJ.booleanValue;
@@ -802,7 +802,7 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             Calendar calendar = Calendar.getInstance();
-            this.f21201e = calendar;
+            this.f21215e = calendar;
             calendar.setTimeInMillis(j2 * 1000);
         }
     }
@@ -832,7 +832,7 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
     public void l(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f21200d = j2;
+            this.f21214d = j2;
         }
     }
 
@@ -846,21 +846,21 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
     public void n(c.a.e.e.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f21198b = aVar;
+            this.f21212b = aVar;
         }
     }
 
     public void o(c.a.e.e.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f21199c = bVar;
+            this.f21213c = bVar;
         }
     }
 
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f21202f = i2;
+            this.f21216f = i2;
         }
     }
 
@@ -897,10 +897,10 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
             boolean z = chatMessage.getCacheData() != null && chatMessage.getCacheData().getIs_show_time() == 1;
             boolean g2 = g(chatMessage.getTime());
             if (!z && !g2) {
-                this.f21204h.setVisibility(8);
+                this.f21218h.setVisibility(8);
             } else {
-                this.f21204h.setVisibility(0);
-                this.f21204h.setText(e(chatMessage.getTime()));
+                this.f21218h.setVisibility(0);
+                this.f21218h.setText(e(chatMessage.getTime()));
             }
             if (z || !g2) {
                 return;
@@ -927,14 +927,14 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
     public void w(View view, ChatMessage chatMessage, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048594, this, view, chatMessage, str) == null) {
-            c.a.r0.k1.f.h.d(this.mContext.getContext(), view, this.p, chatMessage, this.f21203g, str);
+            c.a.r0.k1.f.h.d(this.mContext.getContext(), view, this.p, chatMessage, this.f21217g, str);
         }
     }
 
     public void x(ChatMessage chatMessage, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, chatMessage, str) == null) {
-            c.a.r0.k1.f.h.e(this.mContext.getContext(), this.f21205i, chatMessage, str, this.s);
+            c.a.r0.k1.f.h.e(this.mContext.getContext(), this.f21219i, chatMessage, str, this.s);
             if (chatMessage == null || chatMessage.getContent() == null) {
                 return;
             }
@@ -943,15 +943,15 @@ public class e extends c.a.e.a.c<MsglistActivity<?>> {
             for (String str2 : split) {
                 stringBuffer.append(str2);
             }
-            this.f21205i.setContentDescription(stringBuffer.toString());
-            this.f21205i.getTextView().setContentDescription(stringBuffer.toString());
+            this.f21219i.setContentDescription(stringBuffer.toString());
+            this.f21219i.getTextView().setContentDescription(stringBuffer.toString());
         }
     }
 
     public void y(ChatMessage chatMessage, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, chatMessage, str) == null) {
-            c.a.r0.k1.f.h.f(this.mContext.getContext(), this.f21206j, chatMessage, str);
+            c.a.r0.k1.f.h.f(this.mContext.getContext(), this.f21220j, chatMessage, str);
         }
     }
 }

@@ -18,22 +18,22 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48645e;
+    public int f48753e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48646f;
+    public int f48754f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f48647g;
+    public float f48755g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f48648h;
+    public float f48756h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ValueAnimator f48649i;
+    public ValueAnimator f48757i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f48650j;
+    public float f48758j;
     public int k;
 
     /* loaded from: classes6.dex */
@@ -42,7 +42,7 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FlexibleHorizontalScrollView f48651e;
+        public final /* synthetic */ FlexibleHorizontalScrollView f48759e;
 
         public a(FlexibleHorizontalScrollView flexibleHorizontalScrollView) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
                     return;
                 }
             }
-            this.f48651e = flexibleHorizontalScrollView;
+            this.f48759e = flexibleHorizontalScrollView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f48651e.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f48759e.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -89,25 +89,25 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
                 return;
             }
         }
-        this.f48645e = 150;
-        this.f48648h = 0.0f;
+        this.f48753e = 150;
+        this.f48756h = 0.0f;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f48649i == null) {
+            if (this.f48757i == null) {
                 ValueAnimator valueAnimator = new ValueAnimator();
-                this.f48649i = valueAnimator;
+                this.f48757i = valueAnimator;
                 valueAnimator.setDuration(200L);
-                this.f48649i.setInterpolator(new DecelerateInterpolator());
-                this.f48649i.addUpdateListener(new a(this));
+                this.f48757i.setInterpolator(new DecelerateInterpolator());
+                this.f48757i.addUpdateListener(new a(this));
             }
             if (this.k == 0) {
                 setOverScrollMode(2);
                 int a2 = e.a(getContext());
                 this.k = a2;
-                this.f48650j = (this.f48645e * 1.0f) / a2;
+                this.f48758j = (this.f48753e * 1.0f) / a2;
             }
         }
     }
@@ -125,62 +125,62 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int scrollX = getScrollX();
             float x = getX();
-            if (scrollX > 0 && scrollX < this.f48646f && x == 0.0f) {
+            if (scrollX > 0 && scrollX < this.f48754f && x == 0.0f) {
                 return super.onTouchEvent(motionEvent);
             }
             int action = motionEvent.getAction() & 255;
-            int i2 = this.f48645e;
+            int i2 = this.f48753e;
             a();
             if (action != 0) {
                 int i3 = 0;
                 if (action != 1) {
                     if (action == 2) {
-                        float rawX = motionEvent.getRawX() - this.f48647g;
+                        float rawX = motionEvent.getRawX() - this.f48755g;
                         if (Math.abs(rawX) > 50.0f && x == 0.0f) {
-                            this.f48647g = motionEvent.getRawX();
+                            this.f48755g = motionEvent.getRawX();
                             return true;
                         }
-                        float f2 = this.f48648h;
+                        float f2 = this.f48756h;
                         if (f2 * rawX < 0.0f) {
-                            this.f48648h = f2 + rawX;
+                            this.f48756h = f2 + rawX;
                         } else {
-                            this.f48648h = f2 + (rawX * this.f48650j);
+                            this.f48756h = f2 + (rawX * this.f48758j);
                         }
-                        this.f48647g = motionEvent.getRawX();
+                        this.f48755g = motionEvent.getRawX();
                         if (scrollX == 0) {
                             i3 = 1;
-                        } else if (scrollX == this.f48646f) {
+                        } else if (scrollX == this.f48754f) {
                             i3 = -1;
                         }
                         if (i3 != 0) {
                             float f3 = i3;
-                            float f4 = this.f48648h;
+                            float f4 = this.f48756h;
                             if (f3 * f4 > i2) {
-                                this.f48648h = i3 * i2;
-                                this.f48647g = motionEvent.getRawX();
+                                this.f48756h = i3 * i2;
+                                this.f48755g = motionEvent.getRawX();
                             } else if (f3 * f4 < 0.0f) {
-                                this.f48648h = 0.0f;
-                                this.f48647g = motionEvent.getRawX();
+                                this.f48756h = 0.0f;
+                                this.f48755g = motionEvent.getRawX();
                                 setX(0.0f);
                                 return super.onTouchEvent(motionEvent);
                             }
-                            setX(this.f48648h);
+                            setX(this.f48756h);
                             return true;
                         }
                     }
                 }
                 if (x != 0.0f) {
-                    this.f48648h = 0.0f;
-                    this.f48647g = 0.0f;
-                    this.f48649i.setFloatValues(x, 0.0f);
-                    this.f48649i.start();
+                    this.f48756h = 0.0f;
+                    this.f48755g = 0.0f;
+                    this.f48757i.setFloatValues(x, 0.0f);
+                    this.f48757i.start();
                     return true;
                 }
             } else {
-                if (this.f48649i.isRunning()) {
-                    this.f48649i.cancel();
+                if (this.f48757i.isRunning()) {
+                    this.f48757i.cancel();
                 }
-                this.f48647g = motionEvent.getRawX();
+                this.f48755g = motionEvent.getRawX();
             }
             return super.onTouchEvent(motionEvent);
         }
@@ -192,7 +192,7 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Boolean.valueOf(z)})) == null) {
-            this.f48646f = i6;
+            this.f48754f = i6;
             return super.overScrollBy(i2, i3, i4, i5, i6, i7, i8, i9, z);
         }
         return invokeCommon.booleanValue;
@@ -203,8 +203,8 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f48645e = i2;
-        this.f48650j = (i2 * 1.0f) / this.k;
+        this.f48753e = i2;
+        this.f48758j = (i2 * 1.0f) / this.k;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -226,7 +226,7 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
                 return;
             }
         }
-        this.f48645e = 150;
-        this.f48648h = 0.0f;
+        this.f48753e = 150;
+        this.f48756h = 0.0f;
     }
 }

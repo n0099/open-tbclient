@@ -61,7 +61,7 @@ public class c extends c.a.p0.a.c0.b.b {
                 return;
             }
         }
-        N = k.f7077a;
+        N = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -184,7 +184,7 @@ public class c extends c.a.p0.a.c0.b.b {
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f4661j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f4669j : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.a.c0.b.b

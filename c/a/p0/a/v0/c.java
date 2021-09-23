@@ -25,11 +25,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9194b;
+    public static final boolean f9202b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f9195a;
+    public g f9203a;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -48,7 +48,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f9196a;
+        public static final c f9204a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -64,7 +64,7 @@ public class c {
                     return;
                 }
             }
-            f9196a = new c(null);
+            f9204a = new c(null);
         }
     }
 
@@ -81,7 +81,7 @@ public class c {
                 return;
             }
         }
-        f9194b = k.f7077a;
+        f9202b = k.f7085a;
     }
 
     public /* synthetic */ c(a aVar) {
@@ -91,7 +91,7 @@ public class c {
     public static c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0427c.f9196a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0427c.f9204a : (c) invokeV.objValue;
     }
 
     public boolean a(@NonNull WeakReference<Activity> weakReference) {
@@ -127,25 +127,25 @@ public class c {
     public final int d(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) ? this.f9195a.getInt("up_first_in", b(activity)) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) ? this.f9203a.getInt("up_first_in", b(activity)) : invokeL.intValue;
     }
 
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9195a.getBoolean("new_first_in", true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f9203a.getBoolean("new_first_in", true) : invokeV.booleanValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f9195a.getString("url", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f9203a.getString("url", "") : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9195a.getString(SetImageWatermarkTypeReqMsg.SWITCH, "1") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9203a.getString(SetImageWatermarkTypeReqMsg.SWITCH, "1") : (String) invokeV.objValue;
     }
 
     public boolean h() {
@@ -166,7 +166,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
             boolean e2 = e();
-            if (f9194b) {
+            if (f9202b) {
                 String str = "is first in " + e2;
             }
             if (e2) {
@@ -174,7 +174,7 @@ public class c {
             }
             int d2 = d(activity);
             int b2 = b(activity);
-            if (f9194b) {
+            if (f9202b) {
                 String str2 = "version =" + d2 + " curVerCode" + b2;
             }
             return b2 > d2;
@@ -203,7 +203,7 @@ public class c {
             }
         }
         g gVar = new g("aiapps_guide_dialog_sp");
-        this.f9195a = gVar;
+        this.f9203a = gVar;
         gVar.edit();
     }
 }

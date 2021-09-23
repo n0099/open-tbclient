@@ -17,14 +17,14 @@ public class g extends BaseCardInfo implements c.a.e.l.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static BdUniqueId f22352g;
+    public static BdUniqueId f22368g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<a> f22353e;
+    public List<a> f22369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public UserData f22354f;
+    public UserData f22370f;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -32,13 +32,13 @@ public class g extends BaseCardInfo implements c.a.e.l.e.n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f22355a;
+        public int f22371a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f22356b;
+        public int f22372b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f22357c;
+        public String f22373c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class g extends BaseCardInfo implements c.a.e.l.e.n {
                 return;
             }
         }
-        f22352g = BdUniqueId.gen();
+        f22368g = BdUniqueId.gen();
     }
 
     public g() {
@@ -88,7 +88,7 @@ public class g extends BaseCardInfo implements c.a.e.l.e.n {
     public void g(List<a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f22353e = list;
+            this.f22369e = list;
         }
     }
 
@@ -96,6 +96,6 @@ public class g extends BaseCardInfo implements c.a.e.l.e.n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f22352g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f22368g : (BdUniqueId) invokeV.objValue;
     }
 }

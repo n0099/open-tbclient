@@ -23,10 +23,10 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10001a;
+    public static final boolean f10009a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final WeakHashMap<ViewGroup, b> f10002b;
+    public static final WeakHashMap<ViewGroup, b> f10010b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,20 +42,20 @@ public final class a {
                 return;
             }
         }
-        f10001a = k.f7077a & true;
-        f10002b = new WeakHashMap<>();
+        f10009a = k.f7085a & true;
+        f10010b = new WeakHashMap<>();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            for (ViewGroup viewGroup : f10002b.keySet()) {
-                b bVar = f10002b.get(viewGroup);
+            for (ViewGroup viewGroup : f10010b.keySet()) {
+                b bVar = f10010b.get(viewGroup);
                 if (bVar != null && bVar.getLoadingView() != null) {
                     viewGroup.removeView(bVar.getLoadingView());
                 }
             }
-            f10002b.clear();
+            f10010b.clear();
         }
     }
 
@@ -68,7 +68,7 @@ public final class a {
             if (viewGroup == null) {
                 return false;
             }
-            b bVar2 = f10002b.get(viewGroup);
+            b bVar2 = f10010b.get(viewGroup);
             if (bVar2 != null && bVar2.getLoadingView() != null) {
                 bVar2.getLoadingView().setVisibility(8);
                 return true;
@@ -76,10 +76,10 @@ public final class a {
             for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                 if ((viewGroup.getChildAt(i2) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i2)).getLoadingView()) != null) {
                     loadingView.setVisibility(8);
-                    f10002b.put(viewGroup, bVar);
-                    if (f10001a) {
-                        String str = "The count of cached loading views is : " + f10002b.size();
-                        String str2 = "The content of cached views is : " + f10002b.toString();
+                    f10010b.put(viewGroup, bVar);
+                    if (f10009a) {
+                        String str = "The count of cached loading views is : " + f10010b.size();
+                        String str2 = "The content of cached views is : " + f10010b.toString();
                     }
                     return true;
                 }
@@ -98,7 +98,7 @@ public final class a {
             if (viewGroup == null) {
                 return false;
             }
-            b bVar2 = f10002b.get(viewGroup);
+            b bVar2 = f10010b.get(viewGroup);
             if (bVar2 != null) {
                 View loadingView2 = bVar2.getLoadingView();
                 if (loadingView2 != null) {
@@ -107,10 +107,10 @@ public final class a {
                     }
                     loadingView2.setVisibility(8);
                     viewGroup.removeView(loadingView2);
-                    f10002b.remove(viewGroup);
-                    if (f10001a) {
-                        String str = "The count of cached loading views is : " + f10002b.size();
-                        String str2 = "The content of cached views is : " + f10002b.toString();
+                    f10010b.remove(viewGroup);
+                    if (f10009a) {
+                        String str = "The count of cached loading views is : " + f10010b.size();
+                        String str2 = "The content of cached views is : " + f10010b.toString();
                     }
                 }
                 return true;
@@ -119,10 +119,10 @@ public final class a {
                 if ((viewGroup.getChildAt(i2) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i2)).getLoadingView()) != null) {
                     loadingView.setVisibility(8);
                     viewGroup.removeView((View) bVar);
-                    f10002b.remove(viewGroup);
-                    if (f10001a) {
-                        String str3 = "The count of cached loading views is : " + f10002b.size();
-                        String str4 = "The content of cached views is : " + f10002b.toString();
+                    f10010b.remove(viewGroup);
+                    if (f10009a) {
+                        String str3 = "The count of cached loading views is : " + f10010b.size();
+                        String str4 = "The content of cached views is : " + f10010b.toString();
                     }
                     return true;
                 }
@@ -141,7 +141,7 @@ public final class a {
             if (viewGroup == null) {
                 return false;
             }
-            b bVar2 = f10002b.get(viewGroup);
+            b bVar2 = f10010b.get(viewGroup);
             if (bVar2 != null && bVar2.getLoadingView() != null) {
                 bVar2.getLoadingView().setVisibility(0);
                 return true;
@@ -149,10 +149,10 @@ public final class a {
             for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                 if ((viewGroup.getChildAt(i2) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i2)).getLoadingView()) != null) {
                     loadingView.setVisibility(0);
-                    f10002b.put(viewGroup, bVar);
-                    if (f10001a) {
-                        String str = "The count of cached loading views is : " + f10002b.size();
-                        String str2 = "The content of cached views is : " + f10002b.toString();
+                    f10010b.put(viewGroup, bVar);
+                    if (f10009a) {
+                        String str = "The count of cached loading views is : " + f10010b.size();
+                        String str2 = "The content of cached views is : " + f10010b.toString();
                     }
                     return true;
                 }
@@ -201,11 +201,11 @@ public final class a {
                     layoutParams3.gravity = 17;
                     viewGroup.addView(loadingView2, layoutParams3);
                 }
-                f10002b.put(viewGroup, loadingView);
+                f10010b.put(viewGroup, loadingView);
                 loadingView2.setVisibility(0);
-                if (f10001a) {
-                    String str2 = "The count of cached loading views is : " + f10002b.size();
-                    String str3 = "The content of cached views is : " + f10002b.toString();
+                if (f10009a) {
+                    String str2 = "The count of cached loading views is : " + f10010b.size();
+                    String str3 = "The content of cached views is : " + f10010b.toString();
                 }
                 return true;
             }

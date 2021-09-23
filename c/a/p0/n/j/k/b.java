@@ -22,10 +22,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f12053a;
+    public static final boolean f12061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f12054b;
+    public static volatile b f12062b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class b {
                 return;
             }
         }
-        f12053a = c.a.p0.n.c.f11856a;
+        f12061a = c.a.p0.n.c.f11864a;
     }
 
     public b() {
@@ -62,14 +62,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f12054b == null) {
+            if (f12062b == null) {
                 synchronized (b.class) {
-                    if (f12054b == null) {
-                        f12054b = new b();
+                    if (f12062b == null) {
+                        f12062b = new b();
                     }
                 }
             }
-            return f12054b;
+            return f12062b;
         }
         return (b) invokeV.objValue;
     }
@@ -86,7 +86,7 @@ public class b {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, gVar, gVar2, gVar3) == null) {
-            if (f12053a) {
+            if (f12061a) {
                 String str = "updateConfig: soCallback=" + gVar3;
             }
             if (jSONArray == null || jSONArray.length() == 0) {
@@ -99,7 +99,7 @@ public class b {
             f fVar2 = new f();
             f fVar3 = new f();
             c v = gVar3 != null ? gVar3.v("so") : null;
-            if (f12053a) {
+            if (f12061a) {
                 String str2 = "updateConfig: soNodeHandler=" + v;
             }
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -160,50 +160,50 @@ public class b {
                                 c.a.p0.n.h.d dVar = (c.a.p0.n.h.d) c.a.p0.n.o.e.i(jSONObject2, new c.a.p0.n.h.d());
                                 if (dVar != null) {
                                     b(dVar, fVar);
-                                    aVar.f12049b = dVar;
+                                    aVar.f12057b = dVar;
                                 }
                             } else if (c2 == 1) {
                                 c.a.p0.n.h.d dVar2 = (c.a.p0.n.h.d) c.a.p0.n.o.e.i(jSONObject2, new c.a.p0.n.h.d());
                                 if (dVar2 != null) {
                                     b(dVar2, fVar2);
-                                    aVar2.f12048a = dVar2;
+                                    aVar2.f12056a = dVar2;
                                 }
                             } else if (c2 == 2) {
                                 c.a.p0.n.h.b bVar = (c.a.p0.n.h.b) c.a.p0.n.o.e.i(jSONObject2, new c.a.p0.n.h.b());
                                 if (bVar != null) {
                                     b(bVar, fVar);
-                                    aVar.f12050c = bVar;
+                                    aVar.f12058c = bVar;
                                 }
                             } else if (c2 == 3) {
                                 c.a.p0.n.h.b bVar2 = (c.a.p0.n.h.b) c.a.p0.n.o.e.i(jSONObject2, new c.a.p0.n.h.b());
                                 if (bVar2 != null) {
                                     b(bVar2, fVar2);
-                                    aVar2.f12050c = bVar2;
+                                    aVar2.f12058c = bVar2;
                                 }
                             } else if (c2 == 4) {
-                                if (f12053a) {
+                                if (f12061a) {
                                     String str3 = "updateConfig: case so= " + jSONObject2 + " soNodeHandler=" + v;
                                 }
                                 if (v != null) {
                                     v.l(jSONObject2);
                                 }
                             } else if (c2 == 5) {
-                                if (aVar3.f12052e == null) {
-                                    aVar3.f12052e = new ArrayList();
+                                if (aVar3.f12060e == null) {
+                                    aVar3.f12060e = new ArrayList();
                                 }
                                 h hVar = (h) c.a.p0.n.o.e.i(jSONObject2, new h());
                                 b(hVar, fVar3);
-                                aVar3.f12052e.add(hVar);
+                                aVar3.f12060e.add(hVar);
                             }
                         }
                     }
                 } catch (JSONException e2) {
-                    if (f12053a) {
+                    if (f12061a) {
                         String str4 = "updateConfig: end parse by catch=" + e2;
                     }
                 }
             }
-            if (f12053a) {
+            if (f12061a) {
                 String str5 = "updateConfig: end parse soNodeHandler=" + v;
             }
             if (gVar != null) {
@@ -214,7 +214,7 @@ public class b {
                     c.a.p0.n.i.i.a.e(aVar, gVar);
                 }
             }
-            boolean z = f12053a;
+            boolean z = f12061a;
             if (gVar2 != null) {
                 if (fVar2.l() == 0) {
                     gVar2.E();
@@ -223,15 +223,15 @@ public class b {
                     c.a.p0.n.i.i.a.e(aVar2, gVar2);
                 }
             }
-            boolean z2 = f12053a;
+            boolean z2 = f12061a;
             if (v != null) {
                 v.handle();
             }
-            boolean z3 = f12053a;
+            boolean z3 = f12061a;
             if (fVar3.l() > 0 && c.a.p0.n.c.b() != null) {
                 c.a.p0.n.c.b().s(aVar3, fVar3);
             }
-            boolean z4 = f12053a;
+            boolean z4 = f12061a;
         }
     }
 }

@@ -12,31 +12,31 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f28880a;
+    public static final String f28900a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f28881b;
+    public static final String f28901b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f28882c;
+    public static final String f28902c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f28883d;
+    public static final String f28903d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f28884e;
+    public static final String f28904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f28885f;
+    public static final String f28905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f28886g;
+    public static final String f28906g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f28887h;
+    public static final String f28907h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f28888i;
+    public static final String f28908i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,23 +52,23 @@ public class c {
                 return;
             }
         }
-        f28880a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
+        f28900a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
         StringBuilder sb = new StringBuilder();
         sb.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
         sb.append("/");
         sb.append("tieba");
         sb.append("/videoCover.jpg");
-        f28881b = sb.toString();
-        f28882c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        f28883d = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        f28884e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/temp/";
-        f28885f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
+        f28901b = sb.toString();
+        f28902c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/" + SevenZipUtils.FILE_NAME_TEMP;
+        f28903d = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/" + SevenZipUtils.FILE_NAME_TEMP;
+        f28904e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/temp/";
+        f28905f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
         StringBuilder sb2 = new StringBuilder();
         sb2.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
         sb2.append("/");
         sb2.append("DCIM/tieba/");
-        f28886g = sb2.toString();
-        f28887h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
-        f28888i = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
+        f28906g = sb2.toString();
+        f28907h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
+        f28908i = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
     }
 }

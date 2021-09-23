@@ -50,17 +50,17 @@ public class a extends c.a.q0.x.z.a {
 
     /* renamed from: c.a.r0.x1.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1335a implements a.InterfaceC0720a {
+    public class C1333a implements a.InterfaceC0718a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f28339a;
+        public final /* synthetic */ Context f28359a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f28340b;
+        public final /* synthetic */ a f28360b;
 
-        public C1335a(a aVar, Context context) {
+        public C1333a(a aVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,11 +75,11 @@ public class a extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f28340b = aVar;
-            this.f28339a = context;
+            this.f28360b = aVar;
+            this.f28359a = context;
         }
 
-        @Override // c.a.q0.x.z.a.InterfaceC0720a
+        @Override // c.a.q0.x.z.a.InterfaceC0718a
         public View getView(int i2, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             BubbleView bubbleView;
@@ -87,21 +87,21 @@ public class a extends c.a.q0.x.z.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
                 if (view == null) {
-                    bubbleView2 = new BubbleView(this.f28339a);
+                    bubbleView2 = new BubbleView(this.f28359a);
                     bubbleView = bubbleView2;
                 } else {
                     bubbleView = view;
                     bubbleView2 = (BubbleView) view;
                 }
-                BubbleListData.BubbleData M = this.f28340b.M(i2);
+                BubbleListData.BubbleData M = this.f28360b.M(i2);
                 if (M != null) {
-                    bubbleView2.setData(M, BubbleListModel.y(this.f28340b.r.getB_info()));
+                    bubbleView2.setData(M, BubbleListModel.y(this.f28360b.r.getB_info()));
                     bubbleView2.setGravity(17);
                     bubbleView2.setTag(Integer.valueOf(i2));
-                    bubbleView2.setOnClickListener(this.f28340b.y);
+                    bubbleView2.setOnClickListener(this.f28360b.y);
                 }
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                TbPageContext tbPageContext = (TbPageContext) j.a(this.f28340b.s);
+                TbPageContext tbPageContext = (TbPageContext) j.a(this.f28360b.s);
                 tbPageContext.getLayoutMode().k(skinType == 1);
                 tbPageContext.getLayoutMode().j(bubbleView);
                 return bubbleView;
@@ -116,7 +116,7 @@ public class a extends c.a.q0.x.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28341a;
+        public final /* synthetic */ a f28361a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -133,25 +133,25 @@ public class a extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f28341a = aVar;
+            this.f28361a = aVar;
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.c
         public void a(BubbleListData bubbleListData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bubbleListData) == null) {
-                this.f28341a.r = null;
+                this.f28361a.r = null;
                 if (bubbleListData == null) {
-                    UtilHelper.showToast(this.f28341a.s, R.string.neterror);
+                    UtilHelper.showToast(this.f28361a.s, R.string.neterror);
                 } else if (bubbleListData.getError_code().equals("0")) {
-                    UtilHelper.showToast(this.f28341a.s, R.string.neterror);
+                    UtilHelper.showToast(this.f28361a.s, R.string.neterror);
                 } else if (!TextUtils.isEmpty(bubbleListData.getError_msg())) {
-                    UtilHelper.showToast(this.f28341a.s, bubbleListData.getError_msg());
+                    UtilHelper.showToast(this.f28361a.s, bubbleListData.getError_msg());
                 } else {
-                    UtilHelper.showToast(this.f28341a.s, R.string.neterror);
+                    UtilHelper.showToast(this.f28361a.s, R.string.neterror);
                 }
-                if (this.f28341a.h() != null) {
-                    this.f28341a.h().onLoadFail();
+                if (this.f28361a.h() != null) {
+                    this.f28361a.h().onLoadFail();
                 }
             }
         }
@@ -161,28 +161,28 @@ public class a extends c.a.q0.x.z.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bubbleListData) == null) {
                 if (bubbleListData == null) {
-                    this.f28341a.h().onLoadFail();
+                    this.f28361a.h().onLoadFail();
                     return;
                 }
-                this.f28341a.r = bubbleListData.m38clone();
-                if (this.f28341a.q.A() > 0) {
+                this.f28361a.r = bubbleListData.m38clone();
+                if (this.f28361a.q.A() > 0) {
                     List<BubbleListData.BubbleData> b_info = bubbleListData.getB_info();
                     if (b_info == null || b_info.size() == 0) {
                         return;
                     }
                     for (BubbleListData.BubbleData bubbleData : b_info) {
-                        if (bubbleData != null && bubbleData.getBcode() == this.f28341a.q.A()) {
+                        if (bubbleData != null && bubbleData.getBcode() == this.f28361a.q.A()) {
                             if (!bubbleData.canUse() && !bubbleData.isFree()) {
                                 break;
                             }
-                            this.f28341a.q.G(this.f28341a.q.A());
-                            this.f28341a.q.F(this.f28341a.q.A(), l.k(this.f28341a.s), l.i(this.f28341a.s));
+                            this.f28361a.q.G(this.f28361a.q.A());
+                            this.f28361a.q.F(this.f28361a.q.A(), l.k(this.f28361a.s), l.i(this.f28361a.s));
                         }
                     }
-                    this.f28341a.q.H(-1);
+                    this.f28361a.q.H(-1);
                 }
-                this.f28341a.N();
-                this.f28341a.h().b(this.f28341a);
+                this.f28361a.N();
+                this.f28361a.h().b(this.f28361a);
             }
         }
     }
@@ -193,7 +193,7 @@ public class a extends c.a.q0.x.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28342a;
+        public final /* synthetic */ a f28362a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -210,7 +210,7 @@ public class a extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f28342a = aVar;
+            this.f28362a = aVar;
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.d
@@ -218,12 +218,12 @@ public class a extends c.a.q0.x.z.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, setBubbleResultData) == null) {
                 if (setBubbleResultData != null && setBubbleResultData.getB_info() != null) {
-                    this.f28342a.u = setBubbleResultData.getB_info().getB_url();
-                    TbadkCoreApplication.getInst().setDefaultBubble(this.f28342a.u);
-                    int z = this.f28342a.q.z();
+                    this.f28362a.u = setBubbleResultData.getB_info().getB_url();
+                    TbadkCoreApplication.getInst().setDefaultBubble(this.f28362a.u);
+                    int z = this.f28362a.q.z();
                     if (z == 0) {
                         TbadkCoreApplication.getInst().setDefaultBubble("");
-                        for (BubbleListData.BubbleData bubbleData : this.f28342a.r.getB_info()) {
+                        for (BubbleListData.BubbleData bubbleData : this.f28362a.r.getB_info()) {
                             if (bubbleData.getBcode() != 0) {
                                 if (bubbleData.isDef()) {
                                     bubbleData.setIs_def(0);
@@ -233,7 +233,7 @@ public class a extends c.a.q0.x.z.a {
                             }
                         }
                     } else if (setBubbleResultData.getB_info().canUser()) {
-                        for (BubbleListData.BubbleData bubbleData2 : this.f28342a.r.getB_info()) {
+                        for (BubbleListData.BubbleData bubbleData2 : this.f28362a.r.getB_info()) {
                             if (bubbleData2.getBcode() == z) {
                                 bubbleData2.setIs_def(1);
                             } else if (bubbleData2.isDef()) {
@@ -244,35 +244,35 @@ public class a extends c.a.q0.x.z.a {
                             }
                         }
                     } else {
-                        UtilHelper.showToast(this.f28342a.s, R.string.setdefualt_error);
-                        if (this.f28342a.r != null && this.f28342a.r.getB_info() != null && this.f28342a.r.getB_info().size() > 0) {
-                            if (this.f28342a.r.getB_info().get(0).getBcode() == 0) {
-                                this.f28342a.t = 0;
+                        UtilHelper.showToast(this.f28362a.s, R.string.setdefualt_error);
+                        if (this.f28362a.r != null && this.f28362a.r.getB_info() != null && this.f28362a.r.getB_info().size() > 0) {
+                            if (this.f28362a.r.getB_info().get(0).getBcode() == 0) {
+                                this.f28362a.t = 0;
                                 int i2 = 0;
                                 while (true) {
-                                    if (i2 >= this.f28342a.r.getB_info().size()) {
+                                    if (i2 >= this.f28362a.r.getB_info().size()) {
                                         break;
-                                    } else if (this.f28342a.r.getB_info().get(i2).isDef()) {
-                                        this.f28342a.t = i2;
+                                    } else if (this.f28362a.r.getB_info().get(i2).isDef()) {
+                                        this.f28362a.t = i2;
                                         break;
                                     } else {
                                         i2++;
                                     }
                                 }
-                                this.f28342a.r.getB_info().get(this.f28342a.t).setIs_def(0);
-                                this.f28342a.r.getB_info().get(0).setIs_def(1);
+                                this.f28362a.r.getB_info().get(this.f28362a.t).setIs_def(0);
+                                this.f28362a.r.getB_info().get(0).setIs_def(1);
                             } else {
                                 BubbleListData.BubbleData bubbleData3 = new BubbleListData.BubbleData();
                                 bubbleData3.setBcode(0);
-                                this.f28342a.r.getB_info().add(0, bubbleData3);
+                                this.f28362a.r.getB_info().add(0, bubbleData3);
                             }
                         }
                     }
-                    this.f28342a.N();
-                    this.f28342a.h().b(this.f28342a);
+                    this.f28362a.N();
+                    this.f28362a.h().b(this.f28362a);
                     return;
                 }
-                this.f28342a.h().onLoadFail();
+                this.f28362a.h().onLoadFail();
             }
         }
 
@@ -282,17 +282,17 @@ public class a extends c.a.q0.x.z.a {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, setBubbleResultData) == null) {
                 if (setBubbleResultData != null) {
                     if (setBubbleResultData.getError_code().equals("0")) {
-                        UtilHelper.showToast(this.f28342a.s, R.string.neterror);
+                        UtilHelper.showToast(this.f28362a.s, R.string.neterror);
                     } else if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
-                        UtilHelper.showToast(this.f28342a.s, setBubbleResultData.getError_msg());
+                        UtilHelper.showToast(this.f28362a.s, setBubbleResultData.getError_msg());
                     } else {
-                        UtilHelper.showToast(this.f28342a.s, R.string.neterror);
+                        UtilHelper.showToast(this.f28362a.s, R.string.neterror);
                     }
                 } else {
-                    UtilHelper.showToast(this.f28342a.s, R.string.neterror);
+                    UtilHelper.showToast(this.f28362a.s, R.string.neterror);
                 }
-                if (this.f28342a.h() != null) {
-                    this.f28342a.h().onLoadFail();
+                if (this.f28362a.h() != null) {
+                    this.f28362a.h().onLoadFail();
                 }
             }
         }
@@ -304,7 +304,7 @@ public class a extends c.a.q0.x.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28343a;
+        public final /* synthetic */ a f28363a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(a aVar, int i2) {
@@ -324,7 +324,7 @@ public class a extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f28343a = aVar;
+            this.f28363a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -332,7 +332,7 @@ public class a extends c.a.q0.x.z.a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f28343a.q.E(0, 50, 0, 0);
+                this.f28363a.q.E(0, 50, 0, 0);
             }
         }
     }
@@ -343,7 +343,7 @@ public class a extends c.a.q0.x.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f28344e;
+        public final /* synthetic */ a f28364e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -360,27 +360,27 @@ public class a extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f28344e = aVar;
+            this.f28364e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f28344e.r != null && (view instanceof BubbleView)) {
-                BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) ListUtils.getItem(this.f28344e.r.getB_info(), ((Integer) view.getTag()).intValue());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f28364e.r != null && (view instanceof BubbleView)) {
+                BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) ListUtils.getItem(this.f28364e.r.getB_info(), ((Integer) view.getTag()).intValue());
                 TbadkSettings inst = TbadkSettings.getInst();
                 boolean loadBoolean = inst.loadBoolean(TbadkCoreApplication.isMem + TbadkCoreApplication.getCurrentAccount(), false);
                 if (bubbleData == null || bubbleData.isDef()) {
                     return;
                 }
                 if (bubbleData.getBcode() == 0 || bubbleData.canUse() || loadBoolean) {
-                    this.f28344e.O(bubbleData.getBcode());
+                    this.f28364e.O(bubbleData.getBcode());
                 } else if (bubbleData.isFree()) {
-                    if (this.f28344e.s instanceof TbPageContextSupport) {
-                        c.a.r0.x1.a.c.a(((TbPageContextSupport) this.f28344e.s).getPageContext(), bubbleData, this.f28344e.z);
+                    if (this.f28364e.s instanceof TbPageContextSupport) {
+                        c.a.r0.x1.a.c.a(((TbPageContextSupport) this.f28364e.s).getPageContext(), bubbleData, this.f28364e.z);
                     }
-                } else if (this.f28344e.s instanceof TbPageContextSupport) {
-                    c.a.r0.x1.a.c.b(((TbPageContextSupport) this.f28344e.s).getPageContext(), bubbleData, this.f28344e.A);
+                } else if (this.f28364e.s instanceof TbPageContextSupport) {
+                    c.a.r0.x1.a.c.b(((TbPageContextSupport) this.f28364e.s).getPageContext(), bubbleData, this.f28364e.A);
                 }
             }
         }
@@ -392,7 +392,7 @@ public class a extends c.a.q0.x.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28345a;
+        public final /* synthetic */ a f28365a;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -409,14 +409,14 @@ public class a extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f28345a = aVar;
+            this.f28365a = aVar;
         }
 
         @Override // c.a.r0.x1.a.c.e
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f28345a.O(i2);
+                this.f28365a.O(i2);
             }
         }
 
@@ -434,7 +434,7 @@ public class a extends c.a.q0.x.z.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28346a;
+        public final /* synthetic */ a f28366a;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -451,15 +451,15 @@ public class a extends c.a.q0.x.z.a {
                     return;
                 }
             }
-            this.f28346a = aVar;
+            this.f28366a = aVar;
         }
 
         @Override // c.a.r0.x1.a.c.e
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f28346a.q.H(i2);
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f28346a.s, true, 23004, "pop_unable");
+                this.f28366a.q.H(i2);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f28366a.s, true, 23004, "pop_unable");
                 memberPayActivityConfig.setSceneId("4002001000");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -589,14 +589,14 @@ public class a extends c.a.q0.x.z.a {
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             this.s = context;
             a.b bVar = new a.b();
-            bVar.f15180a = R.drawable.icon_bubble;
-            bVar.f15181b = 0;
+            bVar.f15189a = R.drawable.icon_bubble;
+            bVar.f15190b = 0;
             w(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds26));
             q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30));
             r(bVar);
             o(2);
             v(2);
-            x(new C1335a(this, context));
+            x(new C1333a(this, context));
             this.u = TbadkCoreApplication.getInst().getDefaultBubble();
             if (this.q == null) {
                 Context context2 = this.s;

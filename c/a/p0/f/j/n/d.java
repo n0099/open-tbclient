@@ -16,7 +16,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile HashMap<String, List<c.a.p0.f.j.p.a>> f10763a;
+    public volatile HashMap<String, List<c.a.p0.f.j.p.a>> f10771a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class d {
                 return;
             }
         }
-        this.f10763a = new HashMap<>();
+        this.f10771a = new HashMap<>();
     }
 
     public synchronized void a(String str, c.a.p0.f.j.p.a aVar) {
@@ -45,8 +45,8 @@ public class d {
                 if (!c2.contains(aVar)) {
                     c2.add(aVar);
                 }
-                if (!this.f10763a.containsKey(str)) {
-                    this.f10763a.put(str, c2);
+                if (!this.f10771a.containsKey(str)) {
+                    this.f10771a.put(str, c2);
                 }
             }
         }
@@ -72,7 +72,7 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return new ArrayList();
             }
-            List<c.a.p0.f.j.p.a> list = this.f10763a.get(str);
+            List<c.a.p0.f.j.p.a> list = this.f10771a.get(str);
             return list == null ? new ArrayList() : list;
         }
         return (List) invokeL.objValue;
@@ -87,7 +87,7 @@ public class d {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                List<c.a.p0.f.j.p.a> list = this.f10763a.get(str);
+                List<c.a.p0.f.j.p.a> list = this.f10771a.get(str);
                 if (list != null) {
                     if (!list.isEmpty()) {
                         z = true;
@@ -122,14 +122,14 @@ public class d {
                     return;
                 }
                 if (aVar == null) {
-                    this.f10763a.remove(str);
+                    this.f10771a.remove(str);
                     return;
                 }
                 List<c.a.p0.f.j.p.a> c2 = c(str);
                 if (c2.contains(aVar)) {
                     c2.remove(aVar);
                     if (c2.isEmpty()) {
-                        this.f10763a.remove(str);
+                        this.f10771a.remove(str);
                     }
                 }
             }

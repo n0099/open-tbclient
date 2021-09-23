@@ -18,19 +18,19 @@ public class b implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26767e;
+    public boolean f26787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26768f;
+    public int f26788f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26769g;
+    public String f26789g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26770h;
+    public int f26790h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f26771i;
+    public String f26791i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -60,16 +60,16 @@ public class b implements h {
             ZoneRightResIdl zoneRightResIdl = (ZoneRightResIdl) message;
             Error error = zoneRightResIdl.error;
             if (error != null) {
-                this.f26768f = error.errorno.intValue();
-                this.f26769g = zoneRightResIdl.error.usermsg;
+                this.f26788f = error.errorno.intValue();
+                this.f26789g = zoneRightResIdl.error.usermsg;
             }
             DataRes dataRes = zoneRightResIdl.data;
             if (dataRes != null) {
-                this.f26767e = dataRes.has_right.intValue() == 1;
+                this.f26787e = dataRes.has_right.intValue() == 1;
                 Toast toast = zoneRightResIdl.data.toast;
                 if (toast != null) {
-                    this.f26770h = toast.type.intValue();
-                    this.f26771i = zoneRightResIdl.data.toast.content;
+                    this.f26790h = toast.type.intValue();
+                    this.f26791i = zoneRightResIdl.data.toast.content;
                 }
             }
         }

@@ -30,14 +30,14 @@ public class i implements IHttpContext {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f17446b;
+    public static boolean f17456b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f17447c;
+    public static final String f17457c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f17448a;
+    public Context f17458a;
 
     static {
         InterceptResult invokeClinit;
@@ -53,9 +53,9 @@ public class i implements IHttpContext {
             }
         }
         boolean isDebug = AppConfig.isDebug();
-        f17446b = isDebug;
-        f17446b = isDebug;
-        f17447c = i.class.getSimpleName();
+        f17456b = isDebug;
+        f17456b = isDebug;
+        f17457c = i.class.getSimpleName();
     }
 
     @DebugTrace
@@ -72,7 +72,7 @@ public class i implements IHttpContext {
                 return;
             }
         }
-        this.f17448a = AppRuntime.getAppContext();
+        this.f17458a = AppRuntime.getAppContext();
     }
 
     @Override // com.baidu.searchbox.http.IHttpContext
@@ -120,7 +120,7 @@ public class i implements IHttpContext {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, httpRequest)) == null) {
-            if (f17446b) {
+            if (f17456b) {
                 String str = "baidunetwork HttpContext getNewCloneHttpDns httpRequest:" + httpRequest;
                 return null;
             }
@@ -134,7 +134,7 @@ public class i implements IHttpContext {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            boolean z = f17446b;
+            boolean z = f17456b;
             return null;
         }
         return (IHttpDns) invokeV.objValue;
@@ -154,7 +154,7 @@ public class i implements IHttpContext {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            boolean z = f17446b;
+            boolean z = f17456b;
         }
     }
 

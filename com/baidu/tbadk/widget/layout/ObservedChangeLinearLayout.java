@@ -16,7 +16,7 @@ public class ObservedChangeLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f48747e;
+    public e f48855e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservedChangeLinearLayout(Context context) {
@@ -41,7 +41,7 @@ public class ObservedChangeLinearLayout extends LinearLayout {
     public e getOnSizeChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48747e : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48855e : (e) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -49,7 +49,7 @@ public class ObservedChangeLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            e eVar = this.f48747e;
+            e eVar = this.f48855e;
             if (eVar != null) {
                 eVar.a(this, i2, i3, i4, i5);
             }
@@ -59,7 +59,7 @@ public class ObservedChangeLinearLayout extends LinearLayout {
     public void setOnSizeChangeListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f48747e = eVar;
+            this.f48855e = eVar;
         }
     }
 

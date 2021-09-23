@@ -28,32 +28,32 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f6415h;
+    public static final boolean f6423h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile b f6416i;
+    public static volatile b f6424i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f6417a;
+    public Context f6425a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f6418b;
+    public volatile boolean f6426b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f6419c;
+    public boolean f6427c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f6420d;
+    public boolean f6428d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f6421e;
+    public final Object f6429e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f6422f;
+    public final Object f6430f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<c> f6423g;
+    public ArrayList<c> f6431g;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -61,10 +61,10 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f6424e;
+        public final /* synthetic */ boolean f6432e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f6425f;
+        public final /* synthetic */ b f6433f;
 
         public a(b bVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -81,8 +81,8 @@ public final class b {
                     return;
                 }
             }
-            this.f6425f = bVar;
-            this.f6424e = z;
+            this.f6433f = bVar;
+            this.f6432e = z;
         }
 
         @Override // java.lang.Runnable
@@ -90,12 +90,12 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Process.setThreadPriority(10);
-                this.f6425f.f(this.f6424e);
-                this.f6425f.f6418b = true;
-                synchronized (this.f6425f.f6422f) {
-                    this.f6425f.f6420d = true;
-                    this.f6425f.f6422f.notifyAll();
-                    this.f6425f.l();
+                this.f6433f.f(this.f6432e);
+                this.f6433f.f6426b = true;
+                synchronized (this.f6433f.f6430f) {
+                    this.f6433f.f6428d = true;
+                    this.f6433f.f6430f.notifyAll();
+                    this.f6433f.l();
                 }
             }
         }
@@ -151,7 +151,7 @@ public final class b {
                 return;
             }
         }
-        f6415h = k.f7077a;
+        f6423h = k.f7085a;
     }
 
     public b(Context context) {
@@ -169,13 +169,13 @@ public final class b {
                 return;
             }
         }
-        this.f6418b = false;
-        this.f6419c = false;
-        this.f6420d = false;
-        this.f6421e = new Object();
-        this.f6422f = new Object();
-        this.f6423g = new ArrayList<>();
-        this.f6417a = context.getApplicationContext();
+        this.f6426b = false;
+        this.f6427c = false;
+        this.f6428d = false;
+        this.f6429e = new Object();
+        this.f6430f = new Object();
+        this.f6431g = new ArrayList<>();
+        this.f6425a = context.getApplicationContext();
     }
 
     public static synchronized b g(Context context) {
@@ -184,10 +184,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             synchronized (b.class) {
-                if (f6416i == null) {
-                    f6416i = new b(context);
+                if (f6424i == null) {
+                    f6424i = new b(context);
                 }
-                bVar = f6416i;
+                bVar = f6424i;
             }
             return bVar;
         }
@@ -197,12 +197,12 @@ public final class b {
     public void e(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            synchronized (this.f6422f) {
-                boolean z = f6415h;
-                if (!this.f6423g.contains(cVar)) {
-                    this.f6423g.add(cVar);
+            synchronized (this.f6430f) {
+                boolean z = f6423h;
+                if (!this.f6431g.contains(cVar)) {
+                    this.f6431g.add(cVar);
                 }
-                if (this.f6420d) {
+                if (this.f6428d) {
                     l();
                 }
             }
@@ -215,20 +215,20 @@ public final class b {
             WebKitFactory.setNeedDownloadCloudResource(false);
             WebKitFactory.setProcessType("1");
             com.baidu.webkit.sdk.WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
-            BdSailor.getInstance().init(this.f6417a, null, null);
-            if (f6415h) {
+            BdSailor.getInstance().init(this.f6425a, null, null);
+            if (f6423h) {
                 q0.X(new RunnableC0250b(this));
             }
-            BdSailor.getInstance().setWebkitEnable(!(f6415h && c.a.p0.a.u1.a.a.F().booleanValue()));
+            BdSailor.getInstance().setWebkitEnable(!(f6423h && c.a.p0.a.u1.a.a.F().booleanValue()));
             BdSailor.getInstance().initWebkit("swan", false);
             BdSailor.getInstance().getSailorSettings().setJavaScriptEnabledOnFileScheme(true);
             if (BdZeusUtil.isWebkitLoaded()) {
-                boolean z2 = f6415h;
+                boolean z2 = f6423h;
             } else {
-                boolean z3 = f6415h;
+                boolean z3 = f6423h;
             }
-            CookieSyncManager.createInstance(this.f6417a);
-            BdSailor.initCookieSyncManager(this.f6417a);
+            CookieSyncManager.createInstance(this.f6425a);
+            BdSailor.initCookieSyncManager(this.f6425a);
         }
     }
 
@@ -241,20 +241,20 @@ public final class b {
 
     public final void i(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f6418b) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f6426b) {
             return;
         }
-        synchronized (this.f6421e) {
-            if (!this.f6419c) {
+        synchronized (this.f6429e) {
+            if (!this.f6427c) {
                 Executors.newSingleThreadExecutor().execute(new a(this, z2));
-                this.f6419c = true;
+                this.f6427c = true;
             }
         }
         if (z) {
-            synchronized (this.f6422f) {
-                while (!this.f6420d) {
+            synchronized (this.f6430f) {
+                while (!this.f6428d) {
                     try {
-                        this.f6422f.wait(1000L);
+                        this.f6430f.wait(1000L);
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
                     }
@@ -273,19 +273,19 @@ public final class b {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6418b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6426b : invokeV.booleanValue;
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this.f6422f) {
-                boolean z = f6415h;
-                Iterator<c> it = this.f6423g.iterator();
+            synchronized (this.f6430f) {
+                boolean z = f6423h;
+                Iterator<c> it = this.f6431g.iterator();
                 while (it.hasNext()) {
                     it.next().a();
                 }
-                this.f6423g.clear();
+                this.f6431g.clear();
             }
         }
     }

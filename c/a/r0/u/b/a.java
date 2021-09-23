@@ -37,17 +37,17 @@ public final class a {
 
     /* renamed from: c.a.r0.u.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class View$OnClickListenerC1167a implements View.OnClickListener {
+    public static class View$OnClickListenerC1165a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f25085e;
+        public final /* synthetic */ h f25106e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PopupWindow f25086f;
+        public final /* synthetic */ PopupWindow f25107f;
 
-        public View$OnClickListenerC1167a(h hVar, PopupWindow popupWindow) {
+        public View$OnClickListenerC1165a(h hVar, PopupWindow popupWindow) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,8 +62,8 @@ public final class a {
                     return;
                 }
             }
-            this.f25085e = hVar;
-            this.f25086f = popupWindow;
+            this.f25106e = hVar;
+            this.f25107f = popupWindow;
         }
 
         @Override // android.view.View.OnClickListener
@@ -71,26 +71,26 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.go_to_aiapps_go) {
-                    if (c.a.e.a.b.f().b() != null && !StringUtils.isNull(this.f25085e.f())) {
-                        Uri parse = Uri.parse(this.f25085e.f());
+                    if (c.a.e.a.b.f().b() != null && !StringUtils.isNull(this.f25106e.f())) {
+                        Uri parse = Uri.parse(this.f25106e.f());
                         if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
                             TiebaStatic.log(new StatisticItem("c13391").param("obj_type", parse.getQueryParameter("obj_type")).param("obj_source", parse.getQueryParameter("obj_source")));
                         }
-                        if (this.f25085e.f().startsWith(g.f12601a)) {
-                            Uri.Builder buildUpon = Uri.parse(this.f25085e.f()).buildUpon();
+                        if (this.f25106e.f().startsWith(g.f12609a)) {
+                            Uri.Builder buildUpon = Uri.parse(this.f25106e.f()).buildUpon();
                             buildUpon.appendQueryParameter(g.x, g.W);
                             parse = buildUpon.build();
                         }
                         UtilHelper.dealOneScheme(c.a.e.a.b.f().b(), parse.toString());
                     }
                     try {
-                        this.f25086f.dismiss();
+                        this.f25107f.dismiss();
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
                 } else if (view.getId() == R.id.go_to_aiapps_cancel) {
                     try {
-                        this.f25086f.dismiss();
+                        this.f25107f.dismiss();
                     } catch (Throwable th2) {
                         BdLog.e(th2);
                     }
@@ -105,13 +105,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f25087e;
+        public final /* synthetic */ String f25108e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f25088f;
+        public final /* synthetic */ h f25109f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ PopupWindow f25089g;
+        public final /* synthetic */ PopupWindow f25110g;
 
         public b(String str, h hVar, PopupWindow popupWindow) {
             Interceptable interceptable = $ic;
@@ -128,9 +128,9 @@ public final class a {
                     return;
                 }
             }
-            this.f25087e = str;
-            this.f25088f = hVar;
-            this.f25089g = popupWindow;
+            this.f25108e = str;
+            this.f25109f = hVar;
+            this.f25110g = popupWindow;
         }
 
         @Override // android.view.View.OnClickListener
@@ -138,16 +138,16 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.go_to_aiapps_go) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, this.f25087e));
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.f25088f.f12621j).param("obj_source", "tb_password").param("obj_name", this.f25088f.f12619h).param("obj_param1", this.f25088f.k.intValue()));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, this.f25108e));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.f25109f.f12629j).param("obj_source", "tb_password").param("obj_name", this.f25109f.f12627h).param("obj_param1", this.f25109f.k.intValue()));
                     try {
-                        this.f25089g.dismiss();
+                        this.f25110g.dismiss();
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
                 } else if (view.getId() == R.id.go_to_aiapps_cancel) {
                     try {
-                        this.f25089g.dismiss();
+                        this.f25110g.dismiss();
                     } catch (Throwable th2) {
                         BdLog.e(th2);
                     }
@@ -158,7 +158,7 @@ public final class a {
 
     public static PopupWindow a(h hVar) {
         InterceptResult invokeL;
-        View.OnClickListener view$OnClickListenerC1167a;
+        View.OnClickListener view$OnClickListenerC1165a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hVar)) == null) {
             Activity b2 = c.a.e.a.b.f().b();
@@ -179,7 +179,7 @@ public final class a {
             tbImageView.setAutoChangeStyle(false);
             PopupWindow popupWindow = new PopupWindow(b2);
             if (hVar.g() != 3) {
-                view$OnClickListenerC1167a = new b(f2, hVar, popupWindow);
+                view$OnClickListenerC1165a = new b(f2, hVar, popupWindow);
                 if (!StringUtils.isNull(hVar.c())) {
                     tbImageView.startLoad(hVar.c(), 10, false);
                 } else {
@@ -187,10 +187,10 @@ public final class a {
                 }
             } else {
                 tbImageView.setImageResource(R.drawable.toastpic_scheme);
-                view$OnClickListenerC1167a = new View$OnClickListenerC1167a(hVar, popupWindow);
+                view$OnClickListenerC1165a = new View$OnClickListenerC1165a(hVar, popupWindow);
             }
-            textView.setOnClickListener(view$OnClickListenerC1167a);
-            textView2.setOnClickListener(view$OnClickListenerC1167a);
+            textView.setOnClickListener(view$OnClickListenerC1165a);
+            textView2.setOnClickListener(view$OnClickListenerC1165a);
             textView.setText(hVar.b());
             textView2.setText(hVar.a());
             textView3.setText(hVar.e());

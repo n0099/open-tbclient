@@ -16,17 +16,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ReentrantLock f11308c;
+    public static final ReentrantLock f11316c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile a f11309d;
+    public static volatile a f11317d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<c> f11310a;
+    public List<c> f11318a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f11311b;
+    public d f11319b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class a {
                 return;
             }
         }
-        f11308c = new ReentrantLock();
+        f11316c = new ReentrantLock();
     }
 
     public a() {
@@ -57,21 +57,21 @@ public class a {
                 return;
             }
         }
-        this.f11310a = new ArrayList(3);
+        this.f11318a = new ArrayList(3);
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f11309d == null) {
+            if (f11317d == null) {
                 synchronized (a.class) {
-                    if (f11309d == null) {
-                        f11309d = new a();
+                    if (f11317d == null) {
+                        f11317d = new a();
                     }
                 }
             }
-            return f11309d;
+            return f11317d;
         }
         return (a) invokeV.objValue;
     }
@@ -79,23 +79,23 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f11311b = null;
-            this.f11310a.clear();
+            this.f11319b = null;
+            this.f11318a.clear();
         }
     }
 
     public final void c(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            f11308c.lock();
+            f11316c.lock();
             try {
-                if (this.f11311b != null) {
-                    this.f11311b.a(cVar);
+                if (this.f11319b != null) {
+                    this.f11319b.a(cVar);
                 } else {
-                    this.f11310a.add(cVar);
+                    this.f11318a.add(cVar);
                 }
             } finally {
-                f11308c.unlock();
+                f11316c.unlock();
             }
         }
     }
@@ -112,24 +112,24 @@ public class a {
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f11310a.isEmpty() || this.f11311b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f11318a.isEmpty() || this.f11319b == null) {
             return;
         }
-        f11308c.lock();
+        f11316c.lock();
         try {
-            for (c cVar : this.f11310a) {
-                this.f11311b.a(cVar);
+            for (c cVar : this.f11318a) {
+                this.f11319b.a(cVar);
             }
-            this.f11310a.clear();
+            this.f11318a.clear();
         } finally {
-            f11308c.unlock();
+            f11316c.unlock();
         }
     }
 
     public void f(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f11311b = dVar;
+            this.f11319b = dVar;
             e();
         }
     }

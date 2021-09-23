@@ -34,32 +34,32 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30940a;
+    public static boolean f30961a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements a.InterfaceC1438a {
+    public static class a implements a.InterfaceC1436a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC1438a f30941a;
+        public final /* synthetic */ a.InterfaceC1436a f30962a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.x0.s.a f30942b;
+        public final /* synthetic */ c.a.x0.s.a f30963b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f30943c;
+        public final /* synthetic */ String f30964c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f30944d;
+        public final /* synthetic */ String f30965d;
 
-        public a(a.InterfaceC1438a interfaceC1438a, c.a.x0.s.a aVar, String str, String str2) {
+        public a(a.InterfaceC1436a interfaceC1436a, c.a.x0.s.a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC1438a, aVar, str, str2};
+                Object[] objArr = {interfaceC1436a, aVar, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -69,27 +69,27 @@ public class f {
                     return;
                 }
             }
-            this.f30941a = interfaceC1438a;
-            this.f30942b = aVar;
-            this.f30943c = str;
-            this.f30944d = str2;
+            this.f30962a = interfaceC1436a;
+            this.f30963b = aVar;
+            this.f30964c = str;
+            this.f30965d = str2;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.x0.t.c.e("FFmpegCmdExecutor-modifyAudioProperty", "onCompletion:src:" + this.f30943c + ",:dest:" + this.f30944d);
-                a.InterfaceC1438a interfaceC1438a = this.f30941a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onCompletion();
+                c.a.x0.t.c.e("FFmpegCmdExecutor-modifyAudioProperty", "onCompletion:src:" + this.f30964c + ",:dest:" + this.f30965d);
+                a.InterfaceC1436a interfaceC1436a = this.f30962a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onCompletion();
                 }
                 c.a.x0.t.c.e("FFmpegCmdExecutor-modifyAudioProperty", "release");
-                this.f30942b.release();
+                this.f30963b.release();
             }
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -102,18 +102,18 @@ public class f {
                 sb.append(" o ");
                 sb.append(obj != null ? obj.toString() : " null ");
                 c.a.x0.t.c.e("FFmpegCmdExecutor-modifyAudioProperty", sb.toString());
-                a.InterfaceC1438a interfaceC1438a = this.f30941a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onError(i2, i3, obj);
+                a.InterfaceC1436a interfaceC1436a = this.f30962a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onError(i2, i3, obj);
                 }
                 c.a.x0.t.c.e("FFmpegCmdExecutor-modifyAudioProperty", "release");
-                this.f30942b.release();
+                this.f30963b.release();
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -126,9 +126,9 @@ public class f {
                 sb.append(" o ");
                 sb.append(obj != null ? obj.toString() : " null ");
                 c.a.x0.t.c.j("FFmpegCmdExecutor-modifyAudioProperty", sb.toString());
-                a.InterfaceC1438a interfaceC1438a = this.f30941a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onInfo(i2, i3, obj);
+                a.InterfaceC1436a interfaceC1436a = this.f30962a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onInfo(i2, i3, obj);
                     return false;
                 }
                 return false;
@@ -138,31 +138,31 @@ public class f {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements a.InterfaceC1438a {
+    public static class b implements a.InterfaceC1436a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC1438a f30945a;
+        public final /* synthetic */ a.InterfaceC1436a f30966a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.x0.s.a f30946b;
+        public final /* synthetic */ c.a.x0.s.a f30967b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f30947c;
+        public final /* synthetic */ String f30968c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f30948d;
+        public final /* synthetic */ String f30969d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f30949e;
+        public final /* synthetic */ String f30970e;
 
-        public b(a.InterfaceC1438a interfaceC1438a, c.a.x0.s.a aVar, String str, String str2, String str3) {
+        public b(a.InterfaceC1436a interfaceC1436a, c.a.x0.s.a aVar, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC1438a, aVar, str, str2, str3};
+                Object[] objArr = {interfaceC1436a, aVar, str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -172,28 +172,28 @@ public class f {
                     return;
                 }
             }
-            this.f30945a = interfaceC1438a;
-            this.f30946b = aVar;
-            this.f30947c = str;
-            this.f30948d = str2;
-            this.f30949e = str3;
+            this.f30966a = interfaceC1436a;
+            this.f30967b = aVar;
+            this.f30968c = str;
+            this.f30969d = str2;
+            this.f30970e = str3;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.x0.t.c.e("FFmpegCmdExecutor-mixAudio", "onCompletion:src:" + this.f30947c + "," + this.f30948d + ",:dest:" + this.f30949e);
-                a.InterfaceC1438a interfaceC1438a = this.f30945a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onCompletion();
+                c.a.x0.t.c.e("FFmpegCmdExecutor-mixAudio", "onCompletion:src:" + this.f30968c + "," + this.f30969d + ",:dest:" + this.f30970e);
+                a.InterfaceC1436a interfaceC1436a = this.f30966a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onCompletion();
                 }
                 c.a.x0.t.c.e("FFmpegCmdExecutor-mixAudio", "release");
-                this.f30946b.release();
+                this.f30967b.release();
             }
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -206,18 +206,18 @@ public class f {
                 sb.append(" o ");
                 sb.append(obj != null ? obj.toString() : " null ");
                 c.a.x0.t.c.e("FFmpegCmdExecutor-mixAudio", sb.toString());
-                a.InterfaceC1438a interfaceC1438a = this.f30945a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onError(i2, i3, obj);
+                a.InterfaceC1436a interfaceC1436a = this.f30966a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onError(i2, i3, obj);
                 }
                 c.a.x0.t.c.e("FFmpegCmdExecutor-mixAudio", "release");
-                this.f30946b.release();
+                this.f30967b.release();
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -230,9 +230,9 @@ public class f {
                 sb.append(" o ");
                 sb.append(obj != null ? obj.toString() : " null ");
                 c.a.x0.t.c.e("FFmpegCmdExecutor-mixAudio", sb.toString());
-                a.InterfaceC1438a interfaceC1438a = this.f30945a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onInfo(i2, i3, obj);
+                a.InterfaceC1436a interfaceC1436a = this.f30966a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onInfo(i2, i3, obj);
                     return false;
                 }
                 return false;
@@ -242,22 +242,22 @@ public class f {
     }
 
     /* loaded from: classes4.dex */
-    public static class c implements a.InterfaceC1438a {
+    public static class c implements a.InterfaceC1436a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC1438a f30950a;
+        public final /* synthetic */ a.InterfaceC1436a f30971a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.x0.s.a f30951b;
+        public final /* synthetic */ c.a.x0.s.a f30972b;
 
-        public c(a.InterfaceC1438a interfaceC1438a, c.a.x0.s.a aVar) {
+        public c(a.InterfaceC1436a interfaceC1436a, c.a.x0.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC1438a, aVar};
+                Object[] objArr = {interfaceC1436a, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -267,23 +267,23 @@ public class f {
                     return;
                 }
             }
-            this.f30950a = interfaceC1438a;
-            this.f30951b = aVar;
+            this.f30971a = interfaceC1436a;
+            this.f30972b = aVar;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.InterfaceC1438a interfaceC1438a = this.f30950a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onCompletion();
+                a.InterfaceC1436a interfaceC1436a = this.f30971a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onCompletion();
                 }
-                this.f30951b.release();
+                this.f30972b.release();
             }
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -296,17 +296,17 @@ public class f {
                 sb.append(" o ");
                 sb.append(obj != null ? obj.toString() : " null ");
                 c.a.x0.t.c.e("FFmpegCmdExecutor-mixAudio", sb.toString());
-                a.InterfaceC1438a interfaceC1438a = this.f30950a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onError(i2, i3, obj);
+                a.InterfaceC1436a interfaceC1436a = this.f30971a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onError(i2, i3, obj);
                 }
-                this.f30951b.release();
+                this.f30972b.release();
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -319,9 +319,9 @@ public class f {
                 sb.append(" o ");
                 sb.append(obj != null ? obj.toString() : " null ");
                 c.a.x0.t.c.j("FFmpegCmdExecutor-mixAudio", sb.toString());
-                a.InterfaceC1438a interfaceC1438a = this.f30950a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onInfo(i2, i3, obj);
+                a.InterfaceC1436a interfaceC1436a = this.f30971a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onInfo(i2, i3, obj);
                     return false;
                 }
                 return false;
@@ -331,28 +331,28 @@ public class f {
     }
 
     /* loaded from: classes4.dex */
-    public static class d implements a.InterfaceC1438a {
+    public static class d implements a.InterfaceC1436a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC1438a f30952a;
+        public final /* synthetic */ a.InterfaceC1436a f30973a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.x0.s.a f30953b;
+        public final /* synthetic */ c.a.x0.s.a f30974b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f30954c;
+        public final /* synthetic */ List f30975c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f30955d;
+        public final /* synthetic */ String f30976d;
 
-        public d(a.InterfaceC1438a interfaceC1438a, c.a.x0.s.a aVar, List list, String str) {
+        public d(a.InterfaceC1436a interfaceC1436a, c.a.x0.s.a aVar, List list, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC1438a, aVar, list, str};
+                Object[] objArr = {interfaceC1436a, aVar, list, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -362,26 +362,26 @@ public class f {
                     return;
                 }
             }
-            this.f30952a = interfaceC1438a;
-            this.f30953b = aVar;
-            this.f30954c = list;
-            this.f30955d = str;
+            this.f30973a = interfaceC1436a;
+            this.f30974b = aVar;
+            this.f30975c = list;
+            this.f30976d = str;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.x0.t.c.j("FFmpegCmdExecutor-concat", "onCompletion:inputsize:" + this.f30954c.size() + ",dest:" + this.f30955d);
-                a.InterfaceC1438a interfaceC1438a = this.f30952a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onCompletion();
+                c.a.x0.t.c.j("FFmpegCmdExecutor-concat", "onCompletion:inputsize:" + this.f30975c.size() + ",dest:" + this.f30976d);
+                a.InterfaceC1436a interfaceC1436a = this.f30973a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onCompletion();
                 }
-                this.f30953b.release();
+                this.f30974b.release();
             }
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -394,17 +394,17 @@ public class f {
                 sb.append(" o ");
                 sb.append(obj != null ? obj.toString() : " null ");
                 c.a.x0.t.c.j("FFmpegCmdExecutor-concat", sb.toString());
-                a.InterfaceC1438a interfaceC1438a = this.f30952a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onError(i2, i3, obj);
+                a.InterfaceC1436a interfaceC1436a = this.f30973a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onError(i2, i3, obj);
                 }
-                this.f30953b.release();
+                this.f30974b.release();
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -417,9 +417,9 @@ public class f {
                 sb.append(" o ");
                 sb.append(obj != null ? obj.toString() : " null ");
                 c.a.x0.t.c.j("FFmpegCmdExecutor-concat", sb.toString());
-                a.InterfaceC1438a interfaceC1438a = this.f30952a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onInfo(i2, i3, obj);
+                a.InterfaceC1436a interfaceC1436a = this.f30973a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onInfo(i2, i3, obj);
                     return false;
                 }
                 return false;
@@ -429,31 +429,31 @@ public class f {
     }
 
     /* loaded from: classes4.dex */
-    public static class e implements a.InterfaceC1438a {
+    public static class e implements a.InterfaceC1436a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC1438a f30956a;
+        public final /* synthetic */ a.InterfaceC1436a f30977a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.x0.s.a f30957b;
+        public final /* synthetic */ c.a.x0.s.a f30978b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f30958c;
+        public final /* synthetic */ String f30979c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f30959d;
+        public final /* synthetic */ String f30980d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f30960e;
+        public final /* synthetic */ String f30981e;
 
-        public e(a.InterfaceC1438a interfaceC1438a, c.a.x0.s.a aVar, String str, String str2, String str3) {
+        public e(a.InterfaceC1436a interfaceC1436a, c.a.x0.s.a aVar, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC1438a, aVar, str, str2, str3};
+                Object[] objArr = {interfaceC1436a, aVar, str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -463,28 +463,28 @@ public class f {
                     return;
                 }
             }
-            this.f30956a = interfaceC1438a;
-            this.f30957b = aVar;
-            this.f30958c = str;
-            this.f30959d = str2;
-            this.f30960e = str3;
+            this.f30977a = interfaceC1436a;
+            this.f30978b = aVar;
+            this.f30979c = str;
+            this.f30980d = str2;
+            this.f30981e = str3;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.x0.t.c.e("FFmpegCmdExecutor-muxAudioVideo", "onCompletion:video:" + this.f30958c + ",audio" + this.f30959d + ",:dest:" + this.f30960e);
-                a.InterfaceC1438a interfaceC1438a = this.f30956a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onCompletion();
+                c.a.x0.t.c.e("FFmpegCmdExecutor-muxAudioVideo", "onCompletion:video:" + this.f30979c + ",audio" + this.f30980d + ",:dest:" + this.f30981e);
+                a.InterfaceC1436a interfaceC1436a = this.f30977a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onCompletion();
                 }
                 c.a.x0.t.c.e("FFmpegCmdExecutor-muxAudioVideo", "release");
-                this.f30957b.release();
+                this.f30978b.release();
             }
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -497,18 +497,18 @@ public class f {
                 sb.append(" o ");
                 sb.append(obj != null ? obj.toString() : " null ");
                 c.a.x0.t.c.e("FFmpegCmdExecutor-muxAudioVideo", sb.toString());
-                a.InterfaceC1438a interfaceC1438a = this.f30956a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onError(i2, i3, obj);
+                a.InterfaceC1436a interfaceC1436a = this.f30977a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onError(i2, i3, obj);
                 }
                 c.a.x0.t.c.e("FFmpegCmdExecutor-muxAudioVideo", "release");
-                this.f30957b.release();
+                this.f30978b.release();
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -521,9 +521,9 @@ public class f {
                 sb.append(" o ");
                 sb.append(obj != null ? obj.toString() : " null ");
                 c.a.x0.t.c.e("FFmpegCmdExecutor-muxAudioVideo", sb.toString());
-                a.InterfaceC1438a interfaceC1438a = this.f30956a;
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onInfo(i2, i3, obj);
+                a.InterfaceC1436a interfaceC1436a = this.f30977a;
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onInfo(i2, i3, obj);
                     return false;
                 }
                 return false;
@@ -534,26 +534,26 @@ public class f {
 
     /* renamed from: c.a.x0.l.d.f$f  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1427f {
+    public static class C1425f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f30961a;
+        public int f30982a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30962b;
+        public int f30983b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f30963c;
+        public int f30984c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f30964d;
+        public String f30985d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f30965e;
+        public int f30986e;
 
-        public C1427f() {
+        public C1425f() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -566,17 +566,17 @@ public class f {
                     return;
                 }
             }
-            this.f30961a = MediaEncodeParams.AUDIO_SAMPLE_RATE;
-            this.f30962b = 1;
-            this.f30963c = 16;
-            this.f30965e = 0;
+            this.f30982a = MediaEncodeParams.AUDIO_SAMPLE_RATE;
+            this.f30983b = 1;
+            this.f30984c = 16;
+            this.f30986e = 0;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.f30965e;
+                int i2 = this.f30986e;
                 return i2 == 5 || i2 == 6 || i2 == 8 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -586,7 +586,7 @@ public class f {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.f30965e;
+                int i2 = this.f30986e;
                 return i2 == 3 || i2 == 4 || i2 == 8 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -596,7 +596,7 @@ public class f {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i2 = this.f30965e;
+                int i2 = this.f30986e;
                 return i2 == 1 || i2 == 4 || i2 == 6 || i2 == 9;
             }
             return invokeV.booleanValue;
@@ -617,9 +617,9 @@ public class f {
             }
         }
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-            f30940a = true;
+            f30961a = true;
         } else {
-            f30940a = false;
+            f30961a = false;
         }
     }
 
@@ -629,21 +629,21 @@ public class f {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Byte.valueOf(b5), Boolean.valueOf(z)})) == null) ? f((short) ((h(b2, b3, z) / 2) + (h(b4, b5, z) / 2)), z) : (byte[]) invokeCommon.objValue;
     }
 
-    public static void b(List<String> list, String str, String str2, a.InterfaceC1438a interfaceC1438a, boolean z, boolean z2) {
+    public static void b(List<String> list, String str, String str2, a.InterfaceC1436a interfaceC1436a, boolean z, boolean z2) {
         File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{list, str, str2, interfaceC1438a, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{list, str, str2, interfaceC1436a, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             c.a.x0.s.a aVar = (c.a.x0.s.a) s.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
             if (c.a.x0.t.h.e(list)) {
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onError(-1, -1, "input list null");
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onError(-1, -1, "input list null");
                 }
             } else if (aVar == null) {
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onError(-1, -1, "can not find MFFmpegCmdExecutor");
                 }
             } else {
-                aVar.setListener(new d(interfaceC1438a, aVar, list, str));
+                aVar.setListener(new d(interfaceC1436a, aVar, list, str));
                 if (TextUtils.isEmpty(str2)) {
                     file = new File(FileUtils.removeExtention(str) + System.currentTimeMillis() + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
                 } else {
@@ -697,14 +697,14 @@ public class f {
                     byte[] bArr2 = new byte[i4];
                     for (int i5 = 0; i5 < i4; i5++) {
                         int i6 = i5 * 2;
-                        bArr2[i5] = (byte) (h(bArr[i6], bArr[i6 + 1], f30940a) / 256);
+                        bArr2[i5] = (byte) (h(bArr[i6], bArr[i6 + 1], f30961a) / 256);
                     }
                     return bArr2;
                 }
             } else if (i3 == 2) {
                 byte[] bArr3 = new byte[length * 2];
                 for (int i7 = 0; i7 < length; i7++) {
-                    byte[] f2 = f((short) (bArr[i7] * 256), f30940a);
+                    byte[] f2 = f((short) (bArr[i7] * 256), f30961a);
                     int i8 = i7 * 2;
                     bArr3[i8] = f2[0];
                     bArr3[i8 + 1] = f2[1];
@@ -740,7 +740,7 @@ public class f {
                         } else if (i4 == 2) {
                             for (int i8 = 0; i8 < i6; i8 += 2) {
                                 int i9 = i8 * 2;
-                                byte[] a2 = a(bArr[i9], bArr[i9 + 1], bArr[i9 + 2], bArr[i9 + 3], f30940a);
+                                byte[] a2 = a(bArr[i9], bArr[i9 + 1], bArr[i9 + 2], bArr[i9 + 3], f30961a);
                                 bArr2[i8] = a2[0];
                                 bArr2[i8 + 1] = a2[1];
                             }
@@ -779,7 +779,7 @@ public class f {
     }
 
     @TargetApi(16)
-    public static C1427f e(String str) {
+    public static C1425f e(String str) {
         InterceptResult invokeL;
         MediaFormat mediaFormat;
         Interceptable interceptable = $ic;
@@ -804,19 +804,19 @@ public class f {
                     mediaExtractor.release();
                     return null;
                 }
-                C1427f c1427f = new C1427f();
-                c1427f.f30964d = mediaFormat.getString("mime");
-                c1427f.f30961a = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : MediaEncodeParams.AUDIO_SAMPLE_RATE;
-                c1427f.f30962b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-                c1427f.f30963c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+                C1425f c1425f = new C1425f();
+                c1425f.f30985d = mediaFormat.getString("mime");
+                c1425f.f30982a = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : MediaEncodeParams.AUDIO_SAMPLE_RATE;
+                c1425f.f30983b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
+                c1425f.f30984c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
                 mediaExtractor.release();
-                return c1427f;
+                return c1425f;
             } catch (IOException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (C1427f) invokeL.objValue;
+        return (C1425f) invokeL.objValue;
     }
 
     public static byte[] f(short s, boolean z) {
@@ -858,26 +858,26 @@ public class f {
         return invokeCommon.shortValue;
     }
 
-    public static boolean i(C1427f... c1427fArr) {
+    public static boolean i(C1425f... c1425fArr) {
         InterceptResult invokeL;
-        C1427f c1427f;
+        C1425f c1425f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, c1427fArr)) == null) {
-            if (c1427fArr == null || c1427fArr.length < 2 || (c1427f = c1427fArr[0]) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, c1425fArr)) == null) {
+            if (c1425fArr == null || c1425fArr.length < 2 || (c1425f = c1425fArr[0]) == null) {
                 return false;
             }
             boolean z = true;
-            for (int i2 = 1; i2 < c1427fArr.length; i2++) {
-                if (c1427f.f30961a != c1427fArr[i2].f30961a) {
-                    c1427fArr[i2].f30965e++;
+            for (int i2 = 1; i2 < c1425fArr.length; i2++) {
+                if (c1425f.f30982a != c1425fArr[i2].f30982a) {
+                    c1425fArr[i2].f30986e++;
                     z = false;
                 }
-                if (c1427f.f30962b != c1427fArr[i2].f30962b) {
-                    c1427fArr[i2].f30965e += 3;
+                if (c1425f.f30983b != c1425fArr[i2].f30983b) {
+                    c1425fArr[i2].f30986e += 3;
                     z = false;
                 }
-                if (c1427f.f30963c != c1427fArr[i2].f30963c) {
-                    c1427fArr[i2].f30965e += 5;
+                if (c1425f.f30984c != c1425fArr[i2].f30984c) {
+                    c1425fArr[i2].f30986e += 5;
                     z = false;
                 }
             }
@@ -886,19 +886,19 @@ public class f {
         return invokeL.booleanValue;
     }
 
-    public static void j(String str, String str2, String str3, int i2, a.InterfaceC1438a interfaceC1438a) {
+    public static void j(String str, String str2, String str3, int i2, a.InterfaceC1436a interfaceC1436a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, str3, Integer.valueOf(i2), interfaceC1438a}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, str3, Integer.valueOf(i2), interfaceC1436a}) == null) {
             c.a.x0.s.a aVar = (c.a.x0.s.a) s.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
             if (aVar == null) {
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onError(-1, -1, "can not find MFFmpegCmdExecutor");
                     return;
                 }
                 return;
             }
             c.a.x0.t.c.e("FFmpegCmdExecutor-mixAudio", "new mixAudio");
-            aVar.setListener(new b(interfaceC1438a, aVar, str, str2, str3));
+            aVar.setListener(new b(interfaceC1436a, aVar, str, str2, str3));
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add("-i");
             arrayList.add(str);
@@ -918,22 +918,22 @@ public class f {
         }
     }
 
-    public static void k(List<String> list, String str, int i2, a.InterfaceC1438a interfaceC1438a) {
+    public static void k(List<String> list, String str, int i2, a.InterfaceC1436a interfaceC1436a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65547, null, list, str, i2, interfaceC1438a) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65547, null, list, str, i2, interfaceC1436a) == null) {
             if (c.a.x0.t.h.b(list) == 2) {
-                j(list.get(0), list.get(1), str, i2, interfaceC1438a);
+                j(list.get(0), list.get(1), str, i2, interfaceC1436a);
                 return;
             }
             c.a.x0.s.a aVar = (c.a.x0.s.a) s.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
             if (aVar == null) {
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onError(-1, -1, "can not find MFFmpegCmdExecutor");
                     return;
                 }
                 return;
             }
-            aVar.setListener(new c(interfaceC1438a, aVar));
+            aVar.setListener(new c(interfaceC1436a, aVar));
             ArrayList<String> arrayList = new ArrayList<>();
             StringBuilder sb = new StringBuilder();
             StringBuilder sb2 = new StringBuilder();
@@ -968,9 +968,9 @@ public class f {
         }
     }
 
-    public static void l(String str, String str2, int i2, int i3, float f2, int i4, float f3, float f4, boolean z, a.InterfaceC1438a interfaceC1438a) {
+    public static void l(String str, String str2, int i2, int i3, float f2, int i4, float f3, float f4, boolean z, a.InterfaceC1436a interfaceC1436a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), interfaceC1438a}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), interfaceC1436a}) == null) {
             float f5 = f3 * 1000.0f;
             if (r9 < (f4 * 1000.0f) + f5 || f4 <= 0.0f) {
                 f4 = (r9 - f5) / 1000.0f;
@@ -979,13 +979,13 @@ public class f {
             c.a.x0.s.a aVar = (c.a.x0.s.a) s.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
             c.a.x0.t.c.e("FFmpegCmdExecutor-modifyAudioProperty", "MFFmpegCmdExecutor modifyAudioProperty new");
             if (aVar == null) {
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onError(-1, -1, "can not find MFFmpegCmdExecutor");
                     return;
                 }
                 return;
             }
-            aVar.setListener(new a(interfaceC1438a, aVar, str, str2));
+            aVar.setListener(new a(interfaceC1436a, aVar, str, str2));
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add("-i");
             arrayList.add(str);
@@ -1016,18 +1016,18 @@ public class f {
         }
     }
 
-    public static void m(String str, String str2, String str3, a.InterfaceC1438a interfaceC1438a) {
+    public static void m(String str, String str2, String str3, a.InterfaceC1436a interfaceC1436a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65549, null, str, str2, str3, interfaceC1438a) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65549, null, str, str2, str3, interfaceC1436a) == null) {
             c.a.x0.s.a aVar = (c.a.x0.s.a) s.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
             if (aVar == null) {
-                if (interfaceC1438a != null) {
-                    interfaceC1438a.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                if (interfaceC1436a != null) {
+                    interfaceC1436a.onError(-1, -1, "can not find MFFmpegCmdExecutor");
                     return;
                 }
                 return;
             }
-            aVar.setListener(new e(interfaceC1438a, aVar, str, str2, str3));
+            aVar.setListener(new e(interfaceC1436a, aVar, str, str2, str3));
             long b2 = x.b(str2);
             long f2 = x.f(str);
             c.a.x0.t.c.j("VideoMuxer", "muxAudioVideo,audioduration:" + b2 + ",videoDuration:" + f2);

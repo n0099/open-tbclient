@@ -31,10 +31,10 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f54920a;
+        public int f55035a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f54921b;
+        public TextView f55036b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -54,14 +54,14 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
                     return;
                 }
             }
-            this.f54920a = 3;
+            this.f55035a = 3;
             initView(view);
         }
 
         public void bindDataToView(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                this.f54921b.setText(eVar.f15605e);
+                this.f55036b.setText(eVar.f15614e);
             }
         }
 
@@ -69,7 +69,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
                 TextView textView = (TextView) view.findViewById(R.id.tv_title);
-                this.f54921b = textView;
+                this.f55036b = textView;
                 c.d(textView).B(R.string.F_X02);
             }
         }
@@ -77,12 +77,12 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         public void onChangeSkin() {
             int skinType;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f54920a == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f55035a == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
                 return;
             }
             SkinManager.setBackgroundColor(getView(), R.color.CAM_X0202);
-            SkinManager.setViewTextColor(this.f54921b, R.color.CAM_X0105);
-            this.f54920a = skinType;
+            SkinManager.setViewTextColor(this.f55036b, R.color.CAM_X0105);
+            this.f55035a = skinType;
         }
     }
 
@@ -126,7 +126,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.pb_reclist_title, viewGroup, false));
+            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.pb_reclist_title, viewGroup, false));
             this.s = viewHolder;
             return viewHolder;
         }

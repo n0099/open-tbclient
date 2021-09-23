@@ -34,31 +34,31 @@ public class k extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f5061a;
+        public final /* synthetic */ String f5069a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.g1.f f5062b;
+        public final /* synthetic */ c.a.p0.a.g1.f f5070b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.g.g f5063c;
+        public final /* synthetic */ c.a.p0.a.h0.g.g f5071c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.l1.b f5064d;
+        public final /* synthetic */ c.a.p0.a.l1.b f5072d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5065e;
+        public final /* synthetic */ CallbackHandler f5073e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5066f;
+        public final /* synthetic */ UnitedSchemeEntity f5074f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f5067g;
+        public final /* synthetic */ Context f5075g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f5068h;
+        public final /* synthetic */ String f5076h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ k f5069i;
+        public final /* synthetic */ k f5077i;
 
         /* renamed from: c.a.p0.a.c2.f.p0.k$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -67,13 +67,13 @@ public class k extends a0 {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a.d f5070a;
+            public final /* synthetic */ a.d f5078a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f5071b;
+            public final /* synthetic */ JSONObject f5079b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ a f5072c;
+            public final /* synthetic */ a f5080c;
 
             public C0141a(a aVar, a.d dVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
@@ -90,24 +90,24 @@ public class k extends a0 {
                         return;
                     }
                 }
-                this.f5072c = aVar;
-                this.f5070a = dVar;
-                this.f5071b = jSONObject;
+                this.f5080c = aVar;
+                this.f5078a = dVar;
+                this.f5079b = jSONObject;
             }
 
             @Override // c.a.p0.a.h0.t.a.e
             public void onReady() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.a.r1.i.e(this.f5070a, this.f5072c.f5061a);
-                    c.a.p0.a.p.e.b bVar = this.f5070a.f6437a;
-                    a aVar = this.f5072c;
-                    c.a.p0.a.c2.f.p0.a.e(bVar, aVar.f5064d, aVar.f5061a);
-                    c.a.p0.a.r1.i.c(5, this.f5072c.f5061a);
-                    a aVar2 = this.f5072c;
-                    aVar2.f5069i.l(aVar2.f5063c, aVar2.f5064d, aVar2.f5061a);
-                    a aVar3 = this.f5072c;
-                    UnitedSchemeUtility.callCallback(aVar3.f5065e, aVar3.f5066f, UnitedSchemeUtility.wrapCallbackParams(this.f5071b, 0));
+                    c.a.p0.a.r1.i.e(this.f5078a, this.f5080c.f5069a);
+                    c.a.p0.a.p.e.b bVar = this.f5078a.f6445a;
+                    a aVar = this.f5080c;
+                    c.a.p0.a.c2.f.p0.a.e(bVar, aVar.f5072d, aVar.f5069a);
+                    c.a.p0.a.r1.i.c(5, this.f5080c.f5069a);
+                    a aVar2 = this.f5080c;
+                    aVar2.f5077i.l(aVar2.f5071c, aVar2.f5072d, aVar2.f5069a);
+                    a aVar3 = this.f5080c;
+                    UnitedSchemeUtility.callCallback(aVar3.f5073e, aVar3.f5074f, UnitedSchemeUtility.wrapCallbackParams(this.f5079b, 0));
                 }
             }
         }
@@ -127,36 +127,36 @@ public class k extends a0 {
                     return;
                 }
             }
-            this.f5069i = kVar;
-            this.f5061a = str;
-            this.f5062b = fVar;
-            this.f5063c = gVar;
-            this.f5064d = bVar;
-            this.f5065e = callbackHandler;
-            this.f5066f = unitedSchemeEntity;
-            this.f5067g = context;
-            this.f5068h = str2;
+            this.f5077i = kVar;
+            this.f5069a = str;
+            this.f5070b = fVar;
+            this.f5071c = gVar;
+            this.f5072d = bVar;
+            this.f5073e = callbackHandler;
+            this.f5074f = unitedSchemeEntity;
+            this.f5075g = context;
+            this.f5076h = str2;
         }
 
         @Override // c.a.p0.a.c2.f.p0.g.d
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                c.a.p0.a.r1.i.d(this.f5061a);
-                this.f5062b.o();
-                c.a.p0.a.h0.g.f l = this.f5063c.l();
-                if (l != null && !TextUtils.isEmpty(l.h3(this.f5064d.f7239h))) {
-                    JSONObject c2 = c.a.p0.a.c2.f.p0.a.c(l.h3(this.f5064d.f7239h));
-                    c.a.p0.a.r1.i.c(4, this.f5061a);
-                    this.f5069i.l(this.f5063c, this.f5064d, this.f5061a);
-                    UnitedSchemeUtility.callCallback(this.f5065e, this.f5066f, UnitedSchemeUtility.wrapCallbackParams(c2, 0));
+                c.a.p0.a.r1.i.d(this.f5069a);
+                this.f5070b.o();
+                c.a.p0.a.h0.g.f l = this.f5071c.l();
+                if (l != null && !TextUtils.isEmpty(l.h3(this.f5072d.f7247h))) {
+                    JSONObject c2 = c.a.p0.a.c2.f.p0.a.c(l.h3(this.f5072d.f7247h));
+                    c.a.p0.a.r1.i.c(4, this.f5069a);
+                    this.f5077i.l(this.f5071c, this.f5072d, this.f5069a);
+                    UnitedSchemeUtility.callCallback(this.f5073e, this.f5074f, UnitedSchemeUtility.wrapCallbackParams(c2, 0));
                     return;
                 }
-                a.d f2 = c.a.p0.a.h0.t.a.f(this.f5062b.getActivity());
-                JSONObject c3 = c.a.p0.a.c2.f.p0.a.c(f2.f6437a.c());
-                HybridUbcFlow q = c.a.p0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, this.f5061a);
+                a.d f2 = c.a.p0.a.h0.t.a.f(this.f5070b.getActivity());
+                JSONObject c3 = c.a.p0.a.c2.f.p0.a.c(f2.f6445a.c());
+                HybridUbcFlow q = c.a.p0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, this.f5069a);
                 q.C(new UbcFlowEvent("na_pre_load_slave_check"));
-                q.A("preload", f2.f6438b ? "1" : "0");
+                q.A("preload", f2.f6446b ? "1" : "0");
                 c.a.p0.a.h0.t.a.n(f2, new C0141a(this, f2, c3));
             }
         }
@@ -165,15 +165,15 @@ public class k extends a0 {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f5062b.o();
-                if (a0.f4766b) {
-                    Context context = this.f5067g;
-                    c.a.p0.a.z1.b.f.e.g(context, this.f5067g.getString(c.a.p0.a.h.aiapps_open_pages_failed) + i2).F();
+                this.f5070b.o();
+                if (a0.f4774b) {
+                    Context context = this.f5075g;
+                    c.a.p0.a.z1.b.f.e.g(context, this.f5075g.getString(c.a.p0.a.h.aiapps_open_pages_failed) + i2).F();
                 }
-                if (TextUtils.isEmpty(this.f5068h)) {
+                if (TextUtils.isEmpty(this.f5076h)) {
                     return;
                 }
-                c.a.p0.a.c2.f.p0.a.j(this.f5066f, this.f5065e, this.f5068h);
+                c.a.p0.a.c2.f.p0.a.j(this.f5074f, this.f5073e, this.f5076h);
             }
         }
     }
@@ -204,7 +204,7 @@ public class k extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             String uuid = UUID.randomUUID().toString();
@@ -224,7 +224,7 @@ public class k extends a0 {
                 return false;
             }
             c.a.p0.a.l1.b g2 = c.a.p0.a.l1.b.g(o, V.A());
-            c.a.p0.a.j2.h.f(g2.f7236e, "4");
+            c.a.p0.a.j2.h.f(g2.f7244e, "4");
             if (!q0.c(V.s(), g2)) {
                 c.a.p0.a.e0.d.b("switchTab", "tab params error");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);

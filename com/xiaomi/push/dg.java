@@ -14,7 +14,7 @@ public class dg implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ df f77481a;
+    public final /* synthetic */ df f77800a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f239a;
@@ -37,7 +37,7 @@ public class dg implements Runnable {
                 return;
             }
         }
-        this.f77481a = dfVar;
+        this.f77800a = dfVar;
         this.f239a = str;
         this.f240a = th;
     }
@@ -60,7 +60,7 @@ public class dg implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             list = df.f236a;
             simpleDateFormat = df.f235a;
-            str = this.f77481a.f77479b;
+            str = this.f77800a.f77798b;
             list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f239a), this.f240a));
             list2 = df.f236a;
             if (list2.size() > 20000) {
@@ -78,17 +78,17 @@ public class dg implements Runnable {
                 }
                 list4 = df.f236a;
                 simpleDateFormat2 = df.f235a;
-                str2 = this.f77481a.f77479b;
+                str2 = this.f77800a.f77798b;
                 list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str2, "flush " + size + " lines logs."), null));
             }
             try {
                 if (aa.d()) {
-                    this.f77481a.m247a();
+                    this.f77800a.m247a();
                 } else {
-                    unused = this.f77481a.f77479b;
+                    unused = this.f77800a.f77798b;
                 }
             } catch (Exception unused4) {
-                unused2 = this.f77481a.f77479b;
+                unused2 = this.f77800a.f77798b;
             }
         }
     }

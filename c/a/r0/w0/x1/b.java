@@ -21,25 +21,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f27979a;
+    public Context f27999a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f27980b;
+    public BdUniqueId f28000b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27981c;
+    public boolean f28001c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.j0.b f27982d;
+    public c.a.r0.j0.b f28002d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f27983e;
+    public boolean f28003e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VelocityTracker f27984f;
+    public VelocityTracker f28004f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a.b f27985g;
+    public a.b f28005g;
 
     /* loaded from: classes4.dex */
     public class a implements a.b {
@@ -47,7 +47,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f27986a;
+        public final /* synthetic */ b f28006a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public class b {
                     return;
                 }
             }
-            this.f27986a = bVar;
+            this.f28006a = bVar;
         }
 
         @Override // c.a.r0.j0.a.b
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) && e(i3)) {
-                this.f27986a.e(true);
+                this.f28006a.e(true);
             }
         }
 
@@ -79,7 +79,7 @@ public class b {
         public void b(int i2, int i3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) && e(i3)) {
-                this.f27986a.e(false);
+                this.f28006a.e(false);
             }
         }
 
@@ -119,15 +119,15 @@ public class b {
                 return;
             }
         }
-        this.f27981c = false;
-        this.f27985g = new a(this);
-        this.f27979a = context;
-        this.f27980b = bdUniqueId;
-        this.f27983e = z;
+        this.f28001c = false;
+        this.f28005g = new a(this);
+        this.f27999a = context;
+        this.f28000b = bdUniqueId;
+        this.f28003e = z;
         if (z) {
             c.a.r0.j0.b bVar = new c.a.r0.j0.b(context);
-            this.f27982d = bVar;
-            bVar.d(this.f27985g);
+            this.f28002d = bVar;
+            bVar.d(this.f28005g);
         }
     }
 
@@ -141,27 +141,27 @@ public class b {
         c.a.r0.j0.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, motionEvent) == null) {
-            if (this.f27984f == null) {
-                this.f27984f = VelocityTracker.obtain();
+            if (this.f28004f == null) {
+                this.f28004f = VelocityTracker.obtain();
             }
-            this.f27984f.addMovement(motionEvent);
+            this.f28004f.addMovement(motionEvent);
             int action = motionEvent.getAction();
             if (action != 1) {
                 if (action == 2) {
-                    this.f27984f.computeCurrentVelocity(1000);
-                    if (Math.abs(this.f27984f.getXVelocity()) > Math.abs(this.f27984f.getYVelocity())) {
-                        this.f27983e = false;
+                    this.f28004f.computeCurrentVelocity(1000);
+                    if (Math.abs(this.f28004f.getXVelocity()) > Math.abs(this.f28004f.getYVelocity())) {
+                        this.f28003e = false;
                     } else {
-                        this.f27983e = true;
+                        this.f28003e = true;
                     }
                 }
-                if (this.f27983e || (bVar = this.f27982d) == null) {
+                if (this.f28003e || (bVar = this.f28002d) == null) {
                 }
                 bVar.c(motionEvent);
                 return;
             }
             c();
-            if (this.f27983e) {
+            if (this.f28003e) {
             }
         }
     }
@@ -169,12 +169,12 @@ public class b {
     public final void c() {
         VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f27984f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f28004f) == null) {
             return;
         }
         velocityTracker.clear();
-        this.f27984f.recycle();
-        this.f27984f = null;
+        this.f28004f.recycle();
+        this.f28004f = null;
     }
 
     public final void d(boolean z, boolean z2) {
@@ -182,14 +182,14 @@ public class b {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
                 CustomMessage customMessage = new CustomMessage(2001617);
-                customMessage.setTag(this.f27980b);
+                customMessage.setTag(this.f28000b);
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001617, Boolean.valueOf(z2));
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 return;
             }
             CustomMessage customMessage2 = new CustomMessage(2001618);
-            customMessage2.setTag(this.f27980b);
+            customMessage2.setTag(this.f28000b);
             CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001618, Boolean.valueOf(z2));
             customResponsedMessage2.setOrginalMessage(customMessage2);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
@@ -199,8 +199,8 @@ public class b {
     public final void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f27981c = z;
-            if (this.f27983e) {
+            this.f28001c = z;
+            if (this.f28003e) {
                 d(!z, true);
             }
         }

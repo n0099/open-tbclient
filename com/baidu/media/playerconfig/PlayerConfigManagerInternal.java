@@ -27,17 +27,17 @@ public class PlayerConfigManagerInternal {
     public static final int UNKNOWN = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final PlayerConfigManagerInternal f42643d;
+    public static final PlayerConfigManagerInternal f42705d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f42644a;
+    public c f42706a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HandlerThread f42645b;
+    public HandlerThread f42707b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f42646c;
+    public Handler f42708c;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -45,10 +45,10 @@ public class PlayerConfigManagerInternal {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f42647e;
+        public final /* synthetic */ String f42709e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PlayerConfigManagerInternal f42648f;
+        public final /* synthetic */ PlayerConfigManagerInternal f42710f;
 
         public a(PlayerConfigManagerInternal playerConfigManagerInternal, String str) {
             Interceptable interceptable = $ic;
@@ -65,8 +65,8 @@ public class PlayerConfigManagerInternal {
                     return;
                 }
             }
-            this.f42648f = playerConfigManagerInternal;
-            this.f42647e = str;
+            this.f42710f = playerConfigManagerInternal;
+            this.f42709e = str;
         }
 
         @Override // java.lang.Runnable
@@ -74,7 +74,7 @@ public class PlayerConfigManagerInternal {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (PlayerConfigManagerInternal.class) {
-                    this.f42648f.f42644a = this.f42648f.d(this.f42647e);
+                    this.f42710f.f42706a = this.f42710f.d(this.f42709e);
                 }
             }
         }
@@ -86,10 +86,10 @@ public class PlayerConfigManagerInternal {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f42649a;
+        public int f42711a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42650b;
+        public String f42712b;
 
         public b(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -106,8 +106,8 @@ public class PlayerConfigManagerInternal {
                     return;
                 }
             }
-            this.f42649a = i2;
-            this.f42650b = str;
+            this.f42711a = i2;
+            this.f42712b = str;
         }
     }
 
@@ -117,19 +117,19 @@ public class PlayerConfigManagerInternal {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f42651a;
+        public long f42713a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f42652b;
+        public long f42714b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f42653c;
+        public int f42715c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.a.z.d.a f42654d;
+        public c.a.z.d.a f42716d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.z.d.a f42655e;
+        public c.a.z.d.a f42717e;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -144,11 +144,11 @@ public class PlayerConfigManagerInternal {
                     return;
                 }
             }
-            this.f42651a = 300L;
-            this.f42652b = 0L;
-            this.f42653c = 0;
-            this.f42654d = null;
-            this.f42655e = null;
+            this.f42713a = 300L;
+            this.f42714b = 0L;
+            this.f42715c = 0;
+            this.f42716d = null;
+            this.f42717e = null;
         }
 
         public c.a.z.d.a a(int i2) {
@@ -159,9 +159,9 @@ public class PlayerConfigManagerInternal {
                     if (i2 != 1) {
                         return null;
                     }
-                    return this.f42654d;
+                    return this.f42716d;
                 }
-                return this.f42655e;
+                return this.f42717e;
             }
             return (c.a.z.d.a) invokeI.objValue;
         }
@@ -180,7 +180,7 @@ public class PlayerConfigManagerInternal {
                 return;
             }
         }
-        f42643d = new PlayerConfigManagerInternal();
+        f42705d = new PlayerConfigManagerInternal();
     }
 
     public PlayerConfigManagerInternal() {
@@ -196,21 +196,21 @@ public class PlayerConfigManagerInternal {
                 return;
             }
         }
-        this.f42644a = null;
-        this.f42645b = null;
-        this.f42646c = null;
+        this.f42706a = null;
+        this.f42707b = null;
+        this.f42708c = null;
         HandlerThread handlerThread = new HandlerThread("player_config_thread");
-        this.f42645b = handlerThread;
+        this.f42707b = handlerThread;
         if (handlerThread != null) {
             handlerThread.start();
-            this.f42646c = new Handler(this.f42645b.getLooper());
+            this.f42708c = new Handler(this.f42707b.getLooper());
         }
     }
 
     public static PlayerConfigManagerInternal getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f42643d : (PlayerConfigManagerInternal) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f42705d : (PlayerConfigManagerInternal) invokeV.objValue;
     }
 
     public int a(Uri uri) {
@@ -262,19 +262,19 @@ public class PlayerConfigManagerInternal {
                     c cVar = new c();
                     JSONObject jSONObject = new JSONObject(str).getJSONObject("bandwidth_config");
                     try {
-                        cVar.f42652b = jSONObject.getLong("now_time");
-                        cVar.f42651a = jSONObject.getLong("update_interval");
+                        cVar.f42714b = jSONObject.getLong("now_time");
+                        cVar.f42713a = jSONObject.getLong("update_interval");
                         if (jSONObject.has("level")) {
-                            cVar.f42653c = jSONObject.getInt("level");
+                            cVar.f42715c = jSONObject.getInt("level");
                         }
                     } catch (Exception e2) {
                         CyberLog.e("PlayerServer-PlyrCnfgMngr", "get now time fail!", e2);
                     }
-                    CyberLog.i("PlayerServer-PlyrCnfgMngr", "configContainer level:" + cVar.f42653c);
-                    cVar.f42654d = e(jSONObject.getJSONObject("default"), "Short Video");
-                    CyberLog.i("PlayerServer-PlyrCnfgMngr", "" + cVar.f42654d);
-                    cVar.f42655e = e(jSONObject.getJSONObject("mini_video"), "Mini Video");
-                    CyberLog.i("PlayerServer-PlyrCnfgMngr", "" + cVar.f42655e);
+                    CyberLog.i("PlayerServer-PlyrCnfgMngr", "configContainer level:" + cVar.f42715c);
+                    cVar.f42716d = e(jSONObject.getJSONObject("default"), "Short Video");
+                    CyberLog.i("PlayerServer-PlyrCnfgMngr", "" + cVar.f42716d);
+                    cVar.f42717e = e(jSONObject.getJSONObject("mini_video"), "Mini Video");
+                    CyberLog.i("PlayerServer-PlyrCnfgMngr", "" + cVar.f42717e);
                     return cVar;
                 } catch (Exception e3) {
                     CyberLog.e("PlayerServer-PlyrCnfgMngr", "update config fail : ", e3);
@@ -296,47 +296,47 @@ public class PlayerConfigManagerInternal {
                 if (string != null) {
                     if (!string.isEmpty()) {
                         aVar = new c.a.z.d.a(str);
-                        aVar.f31269e = string.split(";");
-                        aVar.f31270f = jSONObject.getString("cntl_id");
+                        aVar.f31290e = string.split(";");
+                        aVar.f31291f = jSONObject.getString("cntl_id");
                         try {
                             boolean z = true;
                             if (jSONObject.getJSONObject("pcdn_config").getInt(SetImageWatermarkTypeReqMsg.SWITCH) != 1) {
                                 z = false;
                             }
-                            aVar.f31271g = z;
+                            aVar.f31292g = z;
                         } catch (Exception e2) {
                             CyberLog.e("PlayerServer-PlyrCnfgMngr", "update pcdn_config fail", e2);
                         }
                         try {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("cdn_config");
                             JSONObject jSONObject3 = jSONObject2.getJSONObject("limit_rate");
-                            aVar.f31273i.f31275e = jSONObject3.getInt("sle");
-                            aVar.f31273i.f31276f = (float) jSONObject3.getDouble("sl_rate");
-                            aVar.f31273i.f31277g = (float) jSONObject3.getDouble("split_rate");
+                            aVar.f31294i.f31296e = jSONObject3.getInt("sle");
+                            aVar.f31294i.f31297f = (float) jSONObject3.getDouble("sl_rate");
+                            aVar.f31294i.f31298g = (float) jSONObject3.getDouble("split_rate");
                             if (jSONObject2.has("level")) {
-                                aVar.f31273i.f31278h = jSONObject2.getInt("level");
+                                aVar.f31294i.f31299h = jSONObject2.getInt("level");
                             }
                             if (jSONObject2.has("key")) {
-                                aVar.f31273i.f31279i = jSONObject2.getString("key");
+                                aVar.f31294i.f31300i = jSONObject2.getString("key");
                             }
                         } catch (Exception e3) {
                             CyberLog.e("PlayerServer-PlyrCnfgMngr", "update cdn config fail", e3);
                         }
                         try {
                             JSONObject jSONObject4 = jSONObject.getJSONObject("prefetch_config");
-                            aVar.f31274j.f31280e = jSONObject4.getInt("duration");
-                            aVar.f31274j.f31281f = jSONObject4.getInt("pcdn_enable");
-                            aVar.f31274j.f31282g = jSONObject4.getInt("p2p_enable");
+                            aVar.f31295j.f31301e = jSONObject4.getInt("duration");
+                            aVar.f31295j.f31302f = jSONObject4.getInt("pcdn_enable");
+                            aVar.f31295j.f31303g = jSONObject4.getInt("p2p_enable");
                             if (jSONObject4.has("level")) {
-                                aVar.f31274j.k = jSONObject4.getInt("level");
+                                aVar.f31295j.k = jSONObject4.getInt("level");
                             }
                             if (jSONObject4.has("key")) {
-                                aVar.f31274j.l = jSONObject4.getString("key");
+                                aVar.f31295j.l = jSONObject4.getString("key");
                             }
                             JSONObject jSONObject5 = jSONObject4.getJSONObject("limit_rate");
-                            aVar.f31274j.f31283h = jSONObject5.getInt("sle");
-                            aVar.f31274j.f31284i = (float) jSONObject5.getDouble("sl_rate");
-                            aVar.f31274j.f31285j = (float) jSONObject5.getDouble("split_rate");
+                            aVar.f31295j.f31304h = jSONObject5.getInt("sle");
+                            aVar.f31295j.f31305i = (float) jSONObject5.getDouble("sl_rate");
+                            aVar.f31295j.f31306j = (float) jSONObject5.getDouble("split_rate");
                         } catch (Exception e4) {
                             CyberLog.e("PlayerServer-PlyrCnfgMngr", "update prefetch config fail", e4);
                         }
@@ -373,7 +373,7 @@ public class PlayerConfigManagerInternal {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (PlayerConfigManagerInternal.class) {
-                cVar = this.f42644a;
+                cVar = this.f42706a;
             }
             return cVar;
         }
@@ -393,7 +393,7 @@ public class PlayerConfigManagerInternal {
             if (d2 == null && (d2 = getPlayerConfig()) == null) {
                 CyberLog.d("PlayerServer-PlyrCnfgMngr", "rebuildUrl get container null!");
                 return uri;
-            } else if ((System.currentTimeMillis() / 1000) - d2.f42652b > d2.f42651a * 4) {
+            } else if ((System.currentTimeMillis() / 1000) - d2.f42714b > d2.f42713a * 4) {
                 CyberLog.d("PlayerServer-PlyrCnfgMngr", "This config is time out!");
                 return uri;
             } else {
@@ -406,7 +406,7 @@ public class PlayerConfigManagerInternal {
                 if (!a3.e()) {
                     CyberLog.i("PlayerServer-PlyrCnfgMngr", "The player server config is invalidate, use old uri continue!");
                     return uri;
-                } else if (!f(uri.getHost(), a3.f31269e)) {
+                } else if (!f(uri.getHost(), a3.f31290e)) {
                     CyberLog.i("PlayerServer-PlyrCnfgMngr", "host : " + uri.getHost() + " not match");
                     return uri;
                 } else {
@@ -421,12 +421,12 @@ public class PlayerConfigManagerInternal {
                     boolean z2 = false;
                     for (int i5 = 0; i5 < split.length; i5++) {
                         if (split[i5].indexOf("sle") != -1) {
-                            split[i5] = "sle=" + a3.f31273i.f31275e;
+                            split[i5] = "sle=" + a3.f31294i.f31296e;
                             z2 = true;
                         } else if (split[i5].indexOf("sl") != -1) {
-                            split[i5] = "sl=" + ((int) ((a3.f31273i.f31276f * i2) / 8.0f));
+                            split[i5] = "sl=" + ((int) ((a3.f31294i.f31297f * i2) / 8.0f));
                         } else if (split[i5].indexOf("split") != -1) {
-                            split[i5] = "split=" + ((int) ((((a3.f31273i.f31277g * i2) * 1024.0f) / 8.0f) + i3));
+                            split[i5] = "split=" + ((int) ((((a3.f31294i.f31298g * i2) * 1024.0f) / 8.0f) + i3));
                         } else {
                             if (split[i5].indexOf("vt") != -1) {
                                 i4 = Integer.parseInt(split[i5].substring(3));
@@ -450,19 +450,19 @@ public class PlayerConfigManagerInternal {
                             split = split;
                         }
                         if (!z2) {
-                            buildUpon.appendQueryParameter("sle", "" + a3.f31273i.f31275e);
+                            buildUpon.appendQueryParameter("sle", "" + a3.f31294i.f31296e);
                             StringBuilder sb = new StringBuilder();
                             sb.append("");
                             float f2 = (float) i2;
-                            sb.append((int) ((a3.f31273i.f31276f * f2) / 8.0f));
+                            sb.append((int) ((a3.f31294i.f31297f * f2) / 8.0f));
                             buildUpon.appendQueryParameter("sl", sb.toString());
-                            buildUpon.appendQueryParameter("split", "" + ((int) ((((a3.f31273i.f31277g * f2) * 1024.0f) / 8.0f) + i3)));
+                            buildUpon.appendQueryParameter("split", "" + ((int) ((((a3.f31294i.f31298g * f2) * 1024.0f) / 8.0f) + i3)));
                         }
-                        if (a3.f31270f != null && a3.f31270f.length() > 0) {
-                            buildUpon.appendQueryParameter("ctid", a3.f31270f);
+                        if (a3.f31291f != null && a3.f31291f.length() > 0) {
+                            buildUpon.appendQueryParameter("ctid", a3.f31291f);
                         }
-                        if (a3.f31273i.f31279i != null) {
-                            buildUpon.appendQueryParameter("ctl_lv", "" + d2.f42653c + "_" + a3.f31273i.f31279i + "." + a3.f31273i.f31278h);
+                        if (a3.f31294i.f31300i != null) {
+                            buildUpon.appendQueryParameter("ctl_lv", "" + d2.f42715c + "_" + a3.f31294i.f31300i + "." + a3.f31294i.f31299h);
                         }
                         return buildUpon.build();
                     } catch (Exception unused) {
@@ -502,7 +502,7 @@ public class PlayerConfigManagerInternal {
                 if (d2 == null && (d2 = getPlayerConfig()) == null) {
                     CyberLog.d("PlayerServer-PlyrCnfgMngr", "rebuildUrl get container null!");
                     return null;
-                } else if ((System.currentTimeMillis() / 1000) - d2.f42652b > d2.f42651a * 4) {
+                } else if ((System.currentTimeMillis() / 1000) - d2.f42714b > d2.f42713a * 4) {
                     CyberLog.d("PlayerServer-PlyrCnfgMngr", "This config is time out!");
                     return null;
                 } else {
@@ -515,7 +515,7 @@ public class PlayerConfigManagerInternal {
                     if (!a3.e()) {
                         CyberLog.i("PlayerServer-PlyrCnfgMngr", "The player server config is invalidate, use old uri continue!");
                         return null;
-                    } else if (!f(uri.getHost(), a3.f31269e)) {
+                    } else if (!f(uri.getHost(), a3.f31290e)) {
                         CyberLog.i("PlayerServer-PlyrCnfgMngr", "host : " + uri.getHost() + " not match");
                         return null;
                     } else {
@@ -530,12 +530,12 @@ public class PlayerConfigManagerInternal {
                             boolean z2 = false;
                             for (int i5 = 0; i5 < split.length; i5++) {
                                 if (split[i5].indexOf("sle") != -1) {
-                                    split[i5] = "sle=" + a3.f31274j.f31283h;
+                                    split[i5] = "sle=" + a3.f31295j.f31304h;
                                     z2 = true;
                                 } else if (split[i5].indexOf("sl") != -1) {
-                                    split[i5] = "sl=" + ((int) ((a3.f31274j.f31284i * i2) / 8.0f));
+                                    split[i5] = "sl=" + ((int) ((a3.f31295j.f31305i * i2) / 8.0f));
                                 } else if (split[i5].indexOf("split") != -1) {
-                                    split[i5] = "split=" + ((int) ((((a3.f31274j.f31285j * i2) * 1024.0f) / 8.0f) + i3));
+                                    split[i5] = "split=" + ((int) ((((a3.f31295j.f31306j * i2) * 1024.0f) / 8.0f) + i3));
                                 } else {
                                     if (split[i5].indexOf("vt") != -1) {
                                         i4 = Integer.parseInt(split[i5].substring(3));
@@ -556,20 +556,20 @@ public class PlayerConfigManagerInternal {
                                         split = split;
                                     }
                                     if (!z2) {
-                                        buildUpon.appendQueryParameter("sle", "" + a3.f31274j.f31283h);
+                                        buildUpon.appendQueryParameter("sle", "" + a3.f31295j.f31304h);
                                         StringBuilder sb = new StringBuilder();
                                         sb.append("");
-                                        sb.append((int) ((a3.f31274j.f31284i * ((float) i2)) / 8.0f));
+                                        sb.append((int) ((a3.f31295j.f31305i * ((float) i2)) / 8.0f));
                                         buildUpon.appendQueryParameter("sl", sb.toString());
-                                        buildUpon.appendQueryParameter("split", "" + ((int) ((((a3.f31274j.f31285j * f2) * 1024.0f) / 8.0f) + i3)));
+                                        buildUpon.appendQueryParameter("split", "" + ((int) ((((a3.f31295j.f31306j * f2) * 1024.0f) / 8.0f) + i3)));
                                     }
-                                    if (a3.f31270f != null && a3.f31270f.length() > 0) {
-                                        buildUpon.appendQueryParameter("ctid", a3.f31270f);
+                                    if (a3.f31291f != null && a3.f31291f.length() > 0) {
+                                        buildUpon.appendQueryParameter("ctid", a3.f31291f);
                                     }
-                                    if (a3.f31274j.l != null) {
-                                        buildUpon.appendQueryParameter("ctl_lv", "" + d2.f42653c + "_" + a3.f31274j.l + "." + a3.f31274j.k);
+                                    if (a3.f31295j.l != null) {
+                                        buildUpon.appendQueryParameter("ctl_lv", "" + d2.f42715c + "_" + a3.f31295j.l + "." + a3.f31295j.k);
                                     }
-                                    return new b(buildUpon.build().toString(), (((i2 * 1024) / 8) * a3.f31274j.f31280e) + i3);
+                                    return new b(buildUpon.build().toString(), (((i2 * 1024) / 8) * a3.f31295j.f31301e) + i3);
                                 } catch (Exception unused) {
                                     return null;
                                 }
@@ -603,13 +603,13 @@ public class PlayerConfigManagerInternal {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || str == null || str.isEmpty()) {
             return;
         }
-        Handler handler = this.f42646c;
+        Handler handler = this.f42708c;
         if (handler != null) {
             handler.post(new a(this, str));
             return;
         }
         synchronized (PlayerConfigManagerInternal.class) {
-            this.f42644a = d(str);
+            this.f42706a = d(str);
         }
     }
 }

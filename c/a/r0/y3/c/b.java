@@ -19,7 +19,7 @@ public class b implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public VideoEasterEggData f29680a;
+    public VideoEasterEggData f29700a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.f29680a;
+            VideoEasterEggData videoEasterEggData = this.f29700a;
             if (videoEasterEggData == null) {
                 return null;
             }
@@ -57,7 +57,7 @@ public class b implements a {
         }
         intent.getStringExtra("from");
         if (intent.hasExtra(IntentConfig.VIDEO_EASTER_EGG_DATA)) {
-            this.f29680a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
+            this.f29700a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
         }
     }
 
@@ -66,7 +66,7 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.f29680a;
+            VideoEasterEggData videoEasterEggData = this.f29700a;
             if (videoEasterEggData == null) {
                 return null;
             }
@@ -80,7 +80,7 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.f29680a;
+            VideoEasterEggData videoEasterEggData = this.f29700a;
             if (videoEasterEggData == null) {
                 return null;
             }
@@ -103,7 +103,7 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.f29680a;
+            VideoEasterEggData videoEasterEggData = this.f29700a;
             if (videoEasterEggData == null) {
                 return null;
             }
@@ -117,7 +117,7 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.f29680a;
+            VideoEasterEggData videoEasterEggData = this.f29700a;
             if (videoEasterEggData == null) {
                 return null;
             }
@@ -131,7 +131,7 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.f29680a;
+            VideoEasterEggData videoEasterEggData = this.f29700a;
             if (videoEasterEggData == null) {
                 return null;
             }
@@ -145,7 +145,7 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.f29680a;
+            VideoEasterEggData videoEasterEggData = this.f29700a;
             if (videoEasterEggData == null) {
                 return null;
             }
@@ -159,7 +159,7 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.f29680a;
+            VideoEasterEggData videoEasterEggData = this.f29700a;
             if (videoEasterEggData == null) {
                 return null;
             }

@@ -13,7 +13,7 @@ public class h implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBDrawVideo f77035a;
+    public final /* synthetic */ PBDrawVideo f77354a;
 
     public h(PBDrawVideo pBDrawVideo) {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class h implements f {
                 return;
             }
         }
-        this.f77035a = pBDrawVideo;
+        this.f77354a = pBDrawVideo;
     }
 
     @Override // com.win.opensdk.f
     public void a(boolean z) {
         VideoView videoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (videoView = this.f77035a.f76842h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (videoView = this.f77354a.f77161h) == null) {
             return;
         }
         if (!z) {
@@ -45,14 +45,14 @@ public class h implements f {
             return;
         }
         videoView.start();
-        this.f77035a.a();
+        this.f77354a.a();
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
         PBDrawVideoListener pBDrawVideoListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBDrawVideoListener = this.f77035a.f76837c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBDrawVideoListener = this.f77354a.f77156c) == null) {
             return;
         }
         pBDrawVideoListener.onClicked();
@@ -61,15 +61,15 @@ public class h implements f {
     @Override // com.win.opensdk.f
     public void onDisplayed() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f77035a.f76837c == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f77354a.f77156c == null) {
             return;
         }
-        VideoView videoView = this.f77035a.f76842h;
+        VideoView videoView = this.f77354a.f77161h;
         if (videoView != null) {
             videoView.start();
-            this.f77035a.a();
+            this.f77354a.a();
         }
-        this.f77035a.f76837c.onDisplayed();
+        this.f77354a.f77156c.onDisplayed();
     }
 
     @Override // com.win.opensdk.PBListener
@@ -77,16 +77,16 @@ public class h implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
             if (pBError == PBError.PID_INVALID) {
-                PBDrawVideoListener pBDrawVideoListener = this.f77035a.f76837c;
+                PBDrawVideoListener pBDrawVideoListener = this.f77354a.f77156c;
                 if (pBDrawVideoListener != null) {
                     pBDrawVideoListener.onFail(PBError.NO_FILL);
                     return;
                 }
                 return;
             }
-            PBDrawVideo pBDrawVideo = this.f77035a;
-            PBDrawVideoListener pBDrawVideoListener2 = pBDrawVideo.f76837c;
-            if (pBDrawVideoListener2 == null || pBDrawVideo.f76839e) {
+            PBDrawVideo pBDrawVideo = this.f77354a;
+            PBDrawVideoListener pBDrawVideoListener2 = pBDrawVideo.f77156c;
+            if (pBDrawVideoListener2 == null || pBDrawVideo.f77158e) {
                 return;
             }
             pBDrawVideoListener2.onFail(PBError.NO_FILL);
@@ -97,23 +97,23 @@ public class h implements f {
     public void onLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d0 d0Var = this.f77035a.f76836b.f77014a;
+            d0 d0Var = this.f77354a.f77155b.f77333a;
             if (d0Var != null && d0Var.b()) {
-                PBDrawVideo pBDrawVideo = this.f77035a;
-                Context context = pBDrawVideo.f76835a;
-                d0 d0Var2 = pBDrawVideo.f76836b.f77014a;
-                U1.b(context, (d0Var2 == null || !d0Var2.b()) ? 0L : d0Var2.f77000c.getLo_timeout());
-                d0 d0Var3 = this.f77035a.f76836b.f77014a;
+                PBDrawVideo pBDrawVideo = this.f77354a;
+                Context context = pBDrawVideo.f77154a;
+                d0 d0Var2 = pBDrawVideo.f77155b.f77333a;
+                U1.b(context, (d0Var2 == null || !d0Var2.b()) ? 0L : d0Var2.f77319c.getLo_timeout());
+                d0 d0Var3 = this.f77354a.f77155b.f77333a;
                 String str = "";
-                if (((d0Var3 == null || !d0Var3.b()) ? "" : d0Var3.f77000c.getLoad_type()).equals("video")) {
-                    d0 d0Var4 = this.f77035a.f76836b.f77014a;
+                if (((d0Var3 == null || !d0Var3.b()) ? "" : d0Var3.f77319c.getLoad_type()).equals("video")) {
+                    d0 d0Var4 = this.f77354a.f77155b.f77333a;
                     if (d0Var4 != null && d0Var4.b()) {
-                        str = d0Var4.f77000c.getLoad();
+                        str = d0Var4.f77319c.getLoad();
                     }
-                    this.f77035a.a(str);
+                    this.f77354a.a(str);
                     return;
                 }
-                PBDrawVideoListener pBDrawVideoListener = this.f77035a.f76837c;
+                PBDrawVideoListener pBDrawVideoListener = this.f77354a.f77156c;
                 if (pBDrawVideoListener != null) {
                     pBDrawVideoListener.onFail(PBError.LOAD_TYPE_ERROR);
                 }

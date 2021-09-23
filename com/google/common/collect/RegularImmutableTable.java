@@ -14,12 +14,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class CellSet extends IndexedImmutableSet<k1.a<R, C, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class Values extends ImmutableList<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,16 +141,16 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Comparator<k1.a<R, C, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Comparator f70704e;
+        public final /* synthetic */ Comparator f71023e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Comparator f70705f;
+        public final /* synthetic */ Comparator f71024f;
 
         public a(Comparator comparator, Comparator comparator2) {
             Interceptable interceptable = $ic;
@@ -167,8 +167,8 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
                     return;
                 }
             }
-            this.f70704e = comparator;
-            this.f70705f = comparator2;
+            this.f71023e = comparator;
+            this.f71024f = comparator2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,12 +178,12 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) {
-                Comparator comparator = this.f70704e;
+                Comparator comparator = this.f71023e;
                 int compare = comparator == null ? 0 : comparator.compare(aVar.getRowKey(), aVar2.getRowKey());
                 if (compare != 0) {
                     return compare;
                 }
-                Comparator comparator2 = this.f70705f;
+                Comparator comparator2 = this.f71024f;
                 if (comparator2 == null) {
                     return 0;
                 }

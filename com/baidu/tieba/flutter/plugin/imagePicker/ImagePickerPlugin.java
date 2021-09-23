@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import c.a.q0.d1.r;
+import c.a.q0.d1.u;
 import c.a.r0.s0.a.d.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -232,7 +232,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
         if (!(interceptable == null || interceptable.invokeL(65545, this, str) == null) || currentActivity == null || str == null) {
             return;
         }
-        r rVar = new r(currentActivity, str, new r.a(this) { // from class: com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin.1
+        u uVar = new u(currentActivity, str, new u.a(this) { // from class: com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImagePickerPlugin this$0;
@@ -255,7 +255,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 this.this$0 = this;
             }
 
-            @Override // c.a.q0.d1.r.a
+            @Override // c.a.q0.d1.u.a
             public void onError(int i2, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
@@ -263,7 +263,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 }
             }
 
-            @Override // c.a.q0.d1.r.a
+            @Override // c.a.q0.d1.u.a
             public void onSuccess(String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
@@ -271,9 +271,9 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 }
             }
         });
-        rVar.o(false);
-        rVar.q(true);
-        rVar.execute(new String[0]);
+        uVar.o(false);
+        uVar.q(true);
+        uVar.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

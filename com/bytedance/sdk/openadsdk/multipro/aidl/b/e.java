@@ -18,10 +18,10 @@ public class e extends ITTAppDownloadListener.Stub {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile TTAppDownloadListener f68086a;
+    public volatile TTAppDownloadListener f68397a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f68087b;
+    public Handler f68398b;
 
     public e(TTAppDownloadListener tTAppDownloadListener) {
         Interceptable interceptable = $ic;
@@ -38,21 +38,21 @@ public class e extends ITTAppDownloadListener.Stub {
                 return;
             }
         }
-        this.f68087b = new Handler(Looper.getMainLooper());
-        this.f68086a = tTAppDownloadListener;
+        this.f68398b = new Handler(Looper.getMainLooper());
+        this.f68397a = tTAppDownloadListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.f68086a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.f68397a != null : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onDownloadActive(long j2, long j3, String str, String str2) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) || this.f68086a == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) || this.f68397a == null) {
             return;
         }
         b().post(new Runnable(this, j2, j3, str, str2) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.2
@@ -60,19 +60,19 @@ public class e extends ITTAppDownloadListener.Stub {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f68089a;
+            public final /* synthetic */ long f68400a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f68090b;
+            public final /* synthetic */ long f68401b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f68091c;
+            public final /* synthetic */ String f68402c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ String f68092d;
+            public final /* synthetic */ String f68403d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f68093e;
+            public final /* synthetic */ e f68404e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -89,18 +89,18 @@ public class e extends ITTAppDownloadListener.Stub {
                         return;
                     }
                 }
-                this.f68093e = this;
-                this.f68089a = j2;
-                this.f68090b = j3;
-                this.f68091c = str;
-                this.f68092d = str2;
+                this.f68404e = this;
+                this.f68400a = j2;
+                this.f68401b = j3;
+                this.f68402c = str;
+                this.f68403d = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68093e.c()) {
-                    this.f68093e.f68086a.onDownloadActive(this.f68089a, this.f68090b, this.f68091c, this.f68092d);
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68404e.c()) {
+                    this.f68404e.f68397a.onDownloadActive(this.f68400a, this.f68401b, this.f68402c, this.f68403d);
                 }
             }
         });
@@ -109,7 +109,7 @@ public class e extends ITTAppDownloadListener.Stub {
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onDownloadFailed(long j2, long j3, String str, String str2) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) || this.f68086a == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) || this.f68397a == null) {
             return;
         }
         b().post(new Runnable(this, j2, j3, str, str2) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.4
@@ -117,19 +117,19 @@ public class e extends ITTAppDownloadListener.Stub {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f68099a;
+            public final /* synthetic */ long f68410a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f68100b;
+            public final /* synthetic */ long f68411b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f68101c;
+            public final /* synthetic */ String f68412c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ String f68102d;
+            public final /* synthetic */ String f68413d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f68103e;
+            public final /* synthetic */ e f68414e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -146,18 +146,18 @@ public class e extends ITTAppDownloadListener.Stub {
                         return;
                     }
                 }
-                this.f68103e = this;
-                this.f68099a = j2;
-                this.f68100b = j3;
-                this.f68101c = str;
-                this.f68102d = str2;
+                this.f68414e = this;
+                this.f68410a = j2;
+                this.f68411b = j3;
+                this.f68412c = str;
+                this.f68413d = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68103e.c()) {
-                    this.f68103e.f68086a.onDownloadFailed(this.f68099a, this.f68100b, this.f68101c, this.f68102d);
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68414e.c()) {
+                    this.f68414e.f68397a.onDownloadFailed(this.f68410a, this.f68411b, this.f68412c, this.f68413d);
                 }
             }
         });
@@ -166,7 +166,7 @@ public class e extends ITTAppDownloadListener.Stub {
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onDownloadFinished(long j2, String str, String str2) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), str, str2}) == null) || this.f68086a == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), str, str2}) == null) || this.f68397a == null) {
             return;
         }
         b().post(new Runnable(this, j2, str, str2) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.5
@@ -174,16 +174,16 @@ public class e extends ITTAppDownloadListener.Stub {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f68104a;
+            public final /* synthetic */ long f68415a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f68105b;
+            public final /* synthetic */ String f68416b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f68106c;
+            public final /* synthetic */ String f68417c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ e f68107d;
+            public final /* synthetic */ e f68418d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -200,17 +200,17 @@ public class e extends ITTAppDownloadListener.Stub {
                         return;
                     }
                 }
-                this.f68107d = this;
-                this.f68104a = j2;
-                this.f68105b = str;
-                this.f68106c = str2;
+                this.f68418d = this;
+                this.f68415a = j2;
+                this.f68416b = str;
+                this.f68417c = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68107d.c()) {
-                    this.f68107d.f68086a.onDownloadFinished(this.f68104a, this.f68105b, this.f68106c);
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68418d.c()) {
+                    this.f68418d.f68397a.onDownloadFinished(this.f68415a, this.f68416b, this.f68417c);
                 }
             }
         });
@@ -219,7 +219,7 @@ public class e extends ITTAppDownloadListener.Stub {
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onDownloadPaused(long j2, long j3, String str, String str2) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) || this.f68086a == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) || this.f68397a == null) {
             return;
         }
         b().post(new Runnable(this, j2, j3, str, str2) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.3
@@ -227,19 +227,19 @@ public class e extends ITTAppDownloadListener.Stub {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f68094a;
+            public final /* synthetic */ long f68405a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f68095b;
+            public final /* synthetic */ long f68406b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f68096c;
+            public final /* synthetic */ String f68407c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ String f68097d;
+            public final /* synthetic */ String f68408d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f68098e;
+            public final /* synthetic */ e f68409e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -256,18 +256,18 @@ public class e extends ITTAppDownloadListener.Stub {
                         return;
                     }
                 }
-                this.f68098e = this;
-                this.f68094a = j2;
-                this.f68095b = j3;
-                this.f68096c = str;
-                this.f68097d = str2;
+                this.f68409e = this;
+                this.f68405a = j2;
+                this.f68406b = j3;
+                this.f68407c = str;
+                this.f68408d = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68098e.c()) {
-                    this.f68098e.f68086a.onDownloadPaused(this.f68094a, this.f68095b, this.f68096c, this.f68097d);
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68409e.c()) {
+                    this.f68409e.f68397a.onDownloadPaused(this.f68405a, this.f68406b, this.f68407c, this.f68408d);
                 }
             }
         });
@@ -276,7 +276,7 @@ public class e extends ITTAppDownloadListener.Stub {
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onIdle() throws RemoteException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f68086a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f68397a == null) {
             return;
         }
         b().post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.1
@@ -284,7 +284,7 @@ public class e extends ITTAppDownloadListener.Stub {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e f68088a;
+            public final /* synthetic */ e f68399a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -301,14 +301,14 @@ public class e extends ITTAppDownloadListener.Stub {
                         return;
                     }
                 }
-                this.f68088a = this;
+                this.f68399a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68088a.c()) {
-                    this.f68088a.f68086a.onIdle();
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68399a.c()) {
+                    this.f68399a.f68397a.onIdle();
                 }
             }
         });
@@ -317,7 +317,7 @@ public class e extends ITTAppDownloadListener.Stub {
     @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
     public void onInstalled(String str, String str2) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || this.f68086a == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || this.f68397a == null) {
             return;
         }
         b().post(new Runnable(this, str, str2) { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.e.6
@@ -325,13 +325,13 @@ public class e extends ITTAppDownloadListener.Stub {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f68108a;
+            public final /* synthetic */ String f68419a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f68109b;
+            public final /* synthetic */ String f68420b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ e f68110c;
+            public final /* synthetic */ e f68421c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -348,21 +348,21 @@ public class e extends ITTAppDownloadListener.Stub {
                         return;
                     }
                 }
-                this.f68110c = this;
-                this.f68108a = str;
-                this.f68109b = str2;
+                this.f68421c = this;
+                this.f68419a = str;
+                this.f68420b = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68110c.c()) {
-                    TTAppDownloadListener tTAppDownloadListener = this.f68110c.f68086a;
-                    String str3 = this.f68108a;
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f68421c.c()) {
+                    TTAppDownloadListener tTAppDownloadListener = this.f68421c.f68397a;
+                    String str3 = this.f68419a;
                     if (str3 == null) {
                         str3 = "";
                     }
-                    String str4 = this.f68109b;
+                    String str4 = this.f68420b;
                     tTAppDownloadListener.onInstalled(str3, str4 != null ? str4 : "");
                 }
             }
@@ -373,10 +373,10 @@ public class e extends ITTAppDownloadListener.Stub {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            Handler handler = this.f68087b;
+            Handler handler = this.f68398b;
             if (handler == null) {
                 Handler handler2 = new Handler(Looper.getMainLooper());
-                this.f68087b = handler2;
+                this.f68398b = handler2;
                 return handler2;
             }
             return handler;
@@ -387,8 +387,8 @@ public class e extends ITTAppDownloadListener.Stub {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f68086a = null;
-            this.f68087b = null;
+            this.f68397a = null;
+            this.f68398b = null;
         }
     }
 }

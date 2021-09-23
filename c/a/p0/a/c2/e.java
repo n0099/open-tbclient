@@ -44,7 +44,7 @@ public class e extends UnitedSchemeBaseDispatcher {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a0> f4765a;
+    public final Map<String, a0> f4773a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class e extends UnitedSchemeBaseDispatcher {
                 return;
             }
         }
-        this.f4765a = new HashMap();
+        this.f4773a = new HashMap();
         a();
     }
 
@@ -67,7 +67,7 @@ public class e extends UnitedSchemeBaseDispatcher {
         List<a0> c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f4765a.clear();
+            this.f4773a.clear();
             b(new u(this));
             b(new i(this));
             b(new d0(this));
@@ -146,7 +146,7 @@ public class e extends UnitedSchemeBaseDispatcher {
     public void b(a0 a0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a0Var) == null) {
-            this.f4765a.put(a0Var.f4768a, a0Var);
+            this.f4773a.put(a0Var.f4776a, a0Var);
         }
     }
 
@@ -188,7 +188,7 @@ public class e extends UnitedSchemeBaseDispatcher {
                             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str + " @ " + str2);
                             return false;
                         }
-                        a0 a0Var = this.f4765a.get(str);
+                        a0 a0Var = this.f4773a.get(str);
                         if (a0Var != null) {
                             if (unitedSchemeEntity.isOnlyVerify()) {
                                 return true;

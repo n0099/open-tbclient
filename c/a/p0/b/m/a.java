@@ -26,7 +26,7 @@ public class a extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f10129e;
+        public final /* synthetic */ a f10137e;
 
         public C0490a(a aVar) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10129e = aVar;
+            this.f10137e = aVar;
         }
 
         @Override // c.a.p0.a.m.a
@@ -51,11 +51,11 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f10129e.j();
+                    this.f10137e.j();
                     return;
                 }
-                this.f10129e.mResult.putString("errorMsg", "login failed");
-                this.f10129e.finish();
+                this.f10137e.mResult.putString("errorMsg", "login failed");
+                this.f10137e.finish();
             }
         }
     }
@@ -66,7 +66,7 @@ public class a extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f10130a;
+        public final /* synthetic */ a f10138a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10130a = aVar;
+            this.f10138a = aVar;
         }
 
         @Override // c.a.p0.b.m.a.d
@@ -91,10 +91,10 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if (TextUtils.isEmpty(str)) {
-                    this.f10130a.mResult.putString("errorMsg", "addressId == null");
-                    this.f10130a.finish();
+                    this.f10138a.mResult.putString("errorMsg", "addressId == null");
+                    this.f10138a.finish();
                 }
-                this.f10130a.k(str);
+                this.f10138a.k(str);
             }
         }
 
@@ -102,8 +102,8 @@ public class a extends ActivityDelegation {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f10130a.mResult.putString("errorMsg", "choose addressId failed");
-                this.f10130a.finish();
+                this.f10138a.mResult.putString("errorMsg", "choose addressId failed");
+                this.f10138a.finish();
             }
         }
     }
@@ -114,7 +114,7 @@ public class a extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f10131a;
+        public final /* synthetic */ a f10139a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10131a = aVar;
+            this.f10139a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -142,12 +142,12 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
                 if (jSONObject != null && jSONObject.optInt("errno", -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                    this.f10131a.mResult.putString("address_info", optJSONObject.toString());
-                    this.f10131a.finish();
+                    this.f10139a.mResult.putString("address_info", optJSONObject.toString());
+                    this.f10139a.finish();
                     return;
                 }
-                this.f10131a.mResult.putString("errorMsg", "GetAddressInfoResponse == null");
-                this.f10131a.finish();
+                this.f10139a.mResult.putString("errorMsg", "GetAddressInfoResponse == null");
+                this.f10139a.finish();
             }
         }
 
@@ -170,8 +170,8 @@ public class a extends ActivityDelegation {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                this.f10131a.mResult.putString("errorMsg", exc.getMessage());
-                this.f10131a.finish();
+                this.f10139a.mResult.putString("errorMsg", exc.getMessage());
+                this.f10139a.finish();
             }
         }
     }

@@ -17,22 +17,22 @@ public class a implements c.a.r0.p1.o.h.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3309e;
+    public int f3310e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3310f;
+    public String f3311f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3311g;
+    public String f3312g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3312h;
+    public String f3313h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f3313i;
+    public String f3314i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f3314j;
+    public int f3315j;
     public String k;
     public String l;
     public String m;
@@ -60,7 +60,7 @@ public class a implements c.a.r0.p1.o.h.b {
                 return;
             }
         }
-        this.f3309e = 3;
+        this.f3310e = 3;
         this.u = new ArrayList<>();
         this.v = new ArrayList<>();
     }
@@ -68,7 +68,7 @@ public class a implements c.a.r0.p1.o.h.b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3309e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3310e : invokeV.intValue;
     }
 
     public String b() {
@@ -86,7 +86,7 @@ public class a implements c.a.r0.p1.o.h.b {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3309e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3310e == 2 : invokeV.booleanValue;
     }
 
     public boolean d() {
@@ -106,7 +106,7 @@ public class a implements c.a.r0.p1.o.h.b {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f3309e = i2;
+            this.f3310e = i2;
         }
     }
 
@@ -118,8 +118,8 @@ public class a implements c.a.r0.p1.o.h.b {
             if (this.w == null) {
                 b.a aVar = new b.a();
                 this.w = aVar;
-                aVar.f23544c = this.u;
-                aVar.f23545d = this.v;
+                aVar.f23560c = this.u;
+                aVar.f23561d = this.v;
             }
             return this.w;
         }

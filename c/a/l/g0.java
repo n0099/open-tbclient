@@ -32,7 +32,7 @@ public class g0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g0 f3803e;
+        public final /* synthetic */ g0 f3804e;
 
         public a(g0 g0Var) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class g0 extends h {
                     return;
                 }
             }
-            this.f3803e = g0Var;
+            this.f3804e = g0Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -57,7 +57,7 @@ public class g0 extends h {
             g0 g0Var;
             a.InterfaceC0093a interfaceC0093a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (g0Var = this.f3803e).f3785i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (g0Var = this.f3804e).f3786i) == null) {
                 return;
             }
             interfaceC0093a.a(g0Var.m);
@@ -70,7 +70,7 @@ public class g0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g0 f3804a;
+        public final /* synthetic */ g0 f3805a;
 
         public b(g0 g0Var) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class g0 extends h {
                     return;
                 }
             }
-            this.f3804a = g0Var;
+            this.f3805a = g0Var;
         }
 
         @Override // c.a.l.v0.a.b
@@ -95,11 +95,11 @@ public class g0 extends h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
-                if (this.f3804a.m != null && this.f3804a.m.getThreadData() != null && !this.f3804a.e().booleanValue()) {
-                    d2 threadData = this.f3804a.m.getThreadData();
+                if (this.f3805a.m != null && this.f3805a.m.getThreadData() != null && !this.f3805a.e().booleanValue()) {
+                    d2 threadData = this.f3805a.m.getThreadData();
                     c.a.r0.a0.m.a(threadData.f0());
-                    c.a.r0.a0.m.l(this.f3804a.l.mTitle, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.r0.a0.m.l(this.f3804a.l.mAbstract, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.a0.m.l(this.f3805a.l.mTitle, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.r0.a0.m.l(this.f3805a.l.mAbstract, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -180,7 +180,7 @@ public class g0 extends h {
     public void v(a.InterfaceC0093a interfaceC0093a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0093a) == null) {
-            this.f3785i = interfaceC0093a;
+            this.f3786i = interfaceC0093a;
         }
     }
 

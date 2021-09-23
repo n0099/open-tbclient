@@ -13,11 +13,11 @@ public class c0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c0 f26529b;
+    public static c0 f26552b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<d0> f26530a;
+    public SparseArray<d0> f26553a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class c0 {
                 return;
             }
         }
-        f26529b = new c0();
+        f26552b = new c0();
     }
 
     public c0() {
@@ -48,18 +48,18 @@ public class c0 {
                 return;
             }
         }
-        this.f26530a = new SparseArray<>();
+        this.f26553a = new SparseArray<>();
     }
 
     public static c0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26529b : (c0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26552b : (c0) invokeV.objValue;
     }
 
     public d0 b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f26530a.get(i2) : (d0) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f26553a.get(i2) : (d0) invokeI.objValue;
     }
 }

@@ -13,16 +13,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11231a;
+    public int f11239a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.h.f0.i.d f11232b;
+    public c.a.p0.h.f0.i.d f11240b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11233c;
+    public int f11241c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f11234d;
+    public long f11242d;
 
     public a(int i2, c.a.p0.h.f0.i.d dVar) {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class a {
                 return;
             }
         }
-        this.f11231a = i2;
-        this.f11232b = dVar;
-        this.f11233c = h.d() ? 20 : 10;
-        this.f11234d = System.currentTimeMillis();
+        this.f11239a = i2;
+        this.f11240b = dVar;
+        this.f11241c = h.d() ? 20 : 10;
+        this.f11242d = System.currentTimeMillis();
     }
 
     public JSONObject a() {
@@ -51,11 +51,11 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("type", this.f11231a);
-                jSONObject.put("stage", this.f11233c);
-                jSONObject.put("ts", this.f11234d);
-                if (this.f11232b != null) {
-                    jSONObject.put("msg", this.f11232b.a());
+                jSONObject.put("type", this.f11239a);
+                jSONObject.put("stage", this.f11241c);
+                jSONObject.put("ts", this.f11242d);
+                if (this.f11240b != null) {
+                    jSONObject.put("msg", this.f11240b.a());
                 }
             } catch (JSONException unused) {
             }

@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -52,7 +53,7 @@ public class f extends c {
         if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) && (header = response.header("Content-Type", "")) != null && header.contains("application/json")) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("statusCode", response.code());
+                jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, response.code());
                 jSONObject.put("header", c.a.p0.a.n1.a.s(response.headers()));
                 jSONObject.put("body", response.body().string());
                 JSONObject jSONObject2 = new JSONObject(jSONObject.optString("body"));

@@ -33,27 +33,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionView.c {
+public class c implements QueryMatchEmotionModel.b, b.InterfaceC0949b, EmotionView.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f19878e;
+    public f f19893e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f19879f;
+    public List<String> f19894f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HListView f19880g;
+    public HListView f19895g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.j2.k.e.b1.b f19881h;
+    public c.a.r0.j2.k.e.b1.b f19896h;
 
     /* renamed from: i  reason: collision with root package name */
-    public QueryMatchEmotionModel f19882i;
+    public QueryMatchEmotionModel f19897i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f19883j;
+    public String f19898j;
     public Handler k;
     public ViewGroup l;
     public ViewGroup.LayoutParams m;
@@ -67,7 +67,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f19884e;
+        public final /* synthetic */ c f19899e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -84,15 +84,15 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
                     return;
                 }
             }
-            this.f19884e = cVar;
+            this.f19899e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f19884e.f19883j = "";
-                this.f19884e.f19880g.setVisibility(8);
+                this.f19899e.f19898j = "";
+                this.f19899e.f19895g.setVisibility(8);
             }
         }
     }
@@ -103,7 +103,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f19885a;
+        public final /* synthetic */ c f19900a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
                     return;
                 }
             }
-            this.f19885a = cVar;
+            this.f19900a = cVar;
         }
 
         @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.i
@@ -135,11 +135,11 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absHListView, i2) == null) {
                 if (i2 == 0) {
-                    this.f19885a.k.removeCallbacks(this.f19885a.p);
-                    this.f19885a.k.postDelayed(this.f19885a.p, 5000L);
+                    this.f19900a.k.removeCallbacks(this.f19900a.p);
+                    this.f19900a.k.postDelayed(this.f19900a.p, 5000L);
                 } else if (i2 != 1) {
                 } else {
-                    this.f19885a.k.removeCallbacks(this.f19885a.p);
+                    this.f19900a.k.removeCallbacks(this.f19900a.p);
                 }
             }
         }
@@ -147,17 +147,17 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
 
     /* renamed from: c.a.r0.j2.k.e.b1.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0952c implements GetEmotionPidModel.b {
+    public class C0950c implements GetEmotionPidModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionImageData f19886a;
+        public final /* synthetic */ EmotionImageData f19901a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f19887b;
+        public final /* synthetic */ c f19902b;
 
-        public C0952c(c cVar, EmotionImageData emotionImageData) {
+        public C0950c(c cVar, EmotionImageData emotionImageData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -172,18 +172,18 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
                     return;
                 }
             }
-            this.f19887b = cVar;
-            this.f19886a = emotionImageData;
+            this.f19902b = cVar;
+            this.f19901a = emotionImageData;
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
         public void a(c.a.q0.d0.c cVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || TextUtils.isEmpty(cVar.f12842a)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || TextUtils.isEmpty(cVar.f12856a)) {
                 return;
             }
-            this.f19886a.setPicId(cVar.f12842a);
-            this.f19887b.j(this.f19886a);
+            this.f19901a.setPicId(cVar.f12856a);
+            this.f19902b.j(this.f19901a);
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
@@ -210,7 +210,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
             }
         }
         this.p = new a(this);
-        this.f19878e = fVar;
+        this.f19893e = fVar;
         this.l = viewGroup;
         this.m = layoutParams;
         this.k = new Handler();
@@ -219,47 +219,47 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
     @Override // com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.b
     public void a(String str, List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && !TextUtils.isEmpty(str) && str.equals(this.f19883j)) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && !TextUtils.isEmpty(str) && str.equals(this.f19898j)) {
             if (ListUtils.isEmpty(list)) {
-                this.f19883j = "";
+                this.f19898j = "";
             } else if (this.l == null || this.m == null) {
             } else {
                 if (list.size() > 10) {
                     list = list.subList(0, 10);
                 }
                 TiebaStatic.log("c12488");
-                HListView hListView = this.f19880g;
+                HListView hListView = this.f19895g;
                 if (hListView == null || hListView.getParent() == null) {
-                    HListView hListView2 = new HListView(this.f19878e.getContext());
-                    this.f19880g = hListView2;
+                    HListView hListView2 = new HListView(this.f19893e.getContext());
+                    this.f19895g = hListView2;
                     SkinManager.setBackgroundColor(hListView2, R.color.CAM_X0201);
-                    this.f19880g.setDividerWidth(l.g(this.f19878e.getPageActivity(), R.dimen.ds7));
-                    this.f19880g.setClipToPadding(false);
-                    int g2 = l.g(this.f19878e.getPageActivity(), R.dimen.ds10);
-                    this.f19880g.setPadding(g2, g2, g2, g2);
-                    this.f19880g.setSelector(R.drawable.list_selector_transparent);
-                    this.m.height = l.g(this.f19878e.getPageActivity(), R.dimen.ds136);
-                    this.l.addView(this.f19880g, this.m);
-                    if (this.f19881h == null) {
+                    this.f19895g.setDividerWidth(l.g(this.f19893e.getPageActivity(), R.dimen.ds7));
+                    this.f19895g.setClipToPadding(false);
+                    int g2 = l.g(this.f19893e.getPageActivity(), R.dimen.ds10);
+                    this.f19895g.setPadding(g2, g2, g2, g2);
+                    this.f19895g.setSelector(R.drawable.list_selector_transparent);
+                    this.m.height = l.g(this.f19893e.getPageActivity(), R.dimen.ds136);
+                    this.l.addView(this.f19895g, this.m);
+                    if (this.f19896h == null) {
                         c.a.r0.j2.k.e.b1.b bVar = new c.a.r0.j2.k.e.b1.b();
-                        this.f19881h = bVar;
+                        this.f19896h = bVar;
                         bVar.d(this);
-                        this.f19881h.c(this);
-                        this.f19880g.setAdapter((ListAdapter) this.f19881h);
-                        this.f19880g.setOnScrollListener(new b(this));
+                        this.f19896h.c(this);
+                        this.f19895g.setAdapter((ListAdapter) this.f19896h);
+                        this.f19895g.setOnScrollListener(new b(this));
                     }
                 }
-                this.f19880g.setVisibility(0);
-                this.f19881h.b(list);
-                this.f19881h.notifyDataSetChanged();
-                this.f19880g.setSelection(0);
+                this.f19895g.setVisibility(0);
+                this.f19896h.b(list);
+                this.f19896h.notifyDataSetChanged();
+                this.f19895g.setSelection(0);
                 this.k.removeCallbacks(this.p);
                 this.k.postDelayed(this.p, 5000L);
             }
         }
     }
 
-    @Override // c.a.r0.j2.k.e.b1.b.InterfaceC0951b
+    @Override // c.a.r0.j2.k.e.b1.b.InterfaceC0949b
     public void b(EmotionImageData emotionImageData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionImageData) == null) {
@@ -275,7 +275,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
             if (this.o == null) {
                 this.o = new GetEmotionPidModel();
             }
-            this.o.x(emotionImageData.getPicUrl(), new C0952c(this, emotionImageData));
+            this.o.x(emotionImageData.getPicUrl(), new C0950c(this, emotionImageData));
         }
     }
 
@@ -302,7 +302,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
     public void h() {
         QueryMatchEmotionModel queryMatchEmotionModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (queryMatchEmotionModel = this.f19882i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (queryMatchEmotionModel = this.f19897i) == null) {
             return;
         }
         queryMatchEmotionModel.cancelLoadData();
@@ -311,12 +311,12 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            HListView hListView = this.f19880g;
+            HListView hListView = this.f19895g;
             if (hListView != null) {
                 hListView.setVisibility(8);
             }
             this.k.removeCallbacks(this.p);
-            this.f19883j = "";
+            this.f19898j = "";
         }
     }
 
@@ -344,19 +344,19 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
 
     public final void k(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || TextUtils.isEmpty(str) || str.equals(this.f19883j)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || TextUtils.isEmpty(str) || str.equals(this.f19898j)) {
             return;
         }
-        this.f19883j = str;
-        if (this.f19882i == null) {
-            this.f19882i = new QueryMatchEmotionModel(this.f19878e);
+        this.f19898j = str;
+        if (this.f19897i == null) {
+            this.f19897i = new QueryMatchEmotionModel(this.f19893e);
         }
-        this.f19882i.z(str, this);
+        this.f19897i.z(str, this);
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || TextUtils.isEmpty(str) || ListUtils.isEmpty(this.f19879f) || !this.f19879f.contains(str)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || TextUtils.isEmpty(str) || ListUtils.isEmpty(this.f19894f) || !this.f19894f.contains(str)) {
             return;
         }
         k(str);
@@ -365,7 +365,7 @@ public class c implements QueryMatchEmotionModel.b, b.InterfaceC0951b, EmotionVi
     public void m(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.f19879f = list;
+            this.f19894f = list;
         }
     }
 

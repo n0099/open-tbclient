@@ -14,13 +14,13 @@ public class PBVideo implements g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76863a;
+    public String f77182a;
 
     /* renamed from: b  reason: collision with root package name */
-    public k2 f76864b;
+    public k2 f77183b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PBVideoListener f76865c;
+    public PBVideoListener f77184c;
 
     public PBVideo(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -38,20 +38,20 @@ public class PBVideo implements g {
             }
         }
         Context applicationContext = context.getApplicationContext();
-        this.f76863a = str;
+        this.f77182a = str;
         k2 k2Var = new k2(applicationContext, str);
-        this.f76864b = k2Var;
-        k2Var.f77090h = new C(this);
+        this.f77183b = k2Var;
+        k2Var.f77409h = new C(this);
     }
 
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            k2 k2Var = this.f76864b;
-            k2Var.f77087e = false;
-            k2Var.f77085c = false;
-            k2Var.f77086d = false;
-            m1 m1Var = k2Var.f77091i;
+            k2 k2Var = this.f77183b;
+            k2Var.f77406e = false;
+            k2Var.f77404c = false;
+            k2Var.f77405d = false;
+            m1 m1Var = k2Var.f77410i;
             if (m1Var != null) {
                 m1Var.a();
             }
@@ -61,16 +61,16 @@ public class PBVideo implements g {
     public String getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76863a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77182a : (String) invokeV.objValue;
     }
 
     public boolean isReady() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            k2 k2Var = this.f76864b;
+            k2 k2Var = this.f77183b;
             if (!k2Var.a()) {
-                if (!(k2Var.f77086d && !k2Var.f77087e && k2Var.b() && !k2Var.f77088f.isShown() && k2Var.f77088f.isEffective())) {
+                if (!(k2Var.f77405d && !k2Var.f77406e && k2Var.b() && !k2Var.f77407f.isShown() && k2Var.f77407f.isEffective())) {
                     return false;
                 }
             }
@@ -82,42 +82,42 @@ public class PBVideo implements g {
     public void load() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            k2 k2Var = this.f76864b;
-            if (k2Var.b() && k2Var.f77088f.isEffective() && !k2Var.f77088f.isShown()) {
-                k2Var.a(k2Var.f77088f);
+            k2 k2Var = this.f77183b;
+            if (k2Var.b() && k2Var.f77407f.isEffective() && !k2Var.f77407f.isShown()) {
+                k2Var.a(k2Var.f77407f);
                 return;
             }
-            if (k2Var.f77091i == null) {
-                k2Var.f77091i = new m1(k2Var.f77084b, k2Var.f77083a, M.f76816d);
+            if (k2Var.f77410i == null) {
+                k2Var.f77410i = new m1(k2Var.f77403b, k2Var.f77402a, M.f77135d);
             }
-            k2Var.f77091i.f77103g = new i2(k2Var);
-            k2Var.f77091i.b();
+            k2Var.f77410i.f77422g = new i2(k2Var);
+            k2Var.f77410i.b();
         }
     }
 
     public void setVideoListener(PBVideoListener pBVideoListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pBVideoListener) == null) {
-            this.f76865c = pBVideoListener;
+            this.f77184c = pBVideoListener;
         }
     }
 
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            k2 k2Var = this.f76864b;
-            if (!N.e(k2Var.f77084b)) {
-                PBVideoListener pBVideoListener = k2Var.f77090h;
+            k2 k2Var = this.f77183b;
+            if (!N.e(k2Var.f77403b)) {
+                PBVideoListener pBVideoListener = k2Var.f77409h;
                 if (pBVideoListener != null) {
                     pBVideoListener.onRewardedShowFail(PBError.NO_NETWORK.getMsg());
                 }
             } else if (k2Var.c() && k2Var.a() && k2Var.b()) {
-                k2Var.f77085c = false;
-                y2.a().a(y2.a(k2Var.f77088f.getTraceid(), k2Var.f77088f.getId(), k2Var.f77088f.getPid()), k2Var.f77089g);
-                k2Var.f77088f.setShown(true);
-                L.a().a(y2.a(k2Var.f77088f.getTraceid(), k2Var.f77088f.getId(), k2Var.f77083a), k2Var.f77088f);
-                H5Activity.a(k2Var.f77084b, k2Var.f77088f, k2Var.f77083a);
-                H1.a(k2Var.f77088f.getId() + k2Var.f77083a, k2Var);
+                k2Var.f77404c = false;
+                y2.a().a(y2.a(k2Var.f77407f.getTraceid(), k2Var.f77407f.getId(), k2Var.f77407f.getPid()), k2Var.f77408g);
+                k2Var.f77407f.setShown(true);
+                L.a().a(y2.a(k2Var.f77407f.getTraceid(), k2Var.f77407f.getId(), k2Var.f77402a), k2Var.f77407f);
+                H5Activity.a(k2Var.f77403b, k2Var.f77407f, k2Var.f77402a);
+                H1.a(k2Var.f77407f.getId() + k2Var.f77402a, k2Var);
             }
         }
     }

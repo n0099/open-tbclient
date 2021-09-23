@@ -26,15 +26,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static InterfaceC1446a f31474a;
+    public static InterfaceC1444a f31495a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f31475b;
+    public static boolean f31496b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.b.c.a.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1446a {
+    public interface InterfaceC1444a {
         boolean a();
 
         boolean b();
@@ -112,7 +112,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, list)) == null) {
-            if (TextUtils.isEmpty(str) || f31474a == null || f31475b) {
+            if (TextUtils.isEmpty(str) || f31495a == null || f31496b) {
                 return str;
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -136,12 +136,12 @@ public class a {
                 }
                 String encodeToString = Base64.encodeToString(a2, 2);
                 LinkedList linkedList2 = new LinkedList();
-                if (f31474a.a()) {
+                if (f31495a.a()) {
                     LinkedList linkedList3 = new LinkedList();
                     linkedList3.add(encodeToString);
                     linkedList2.add(new Pair("ss_queries", linkedList3));
                 }
-                if (f31474a.b() && list != null) {
+                if (f31495a.b() && list != null) {
                     list.add(new Pair<>("X-SS-QUERIES", b(encodeToString, "UTF-8")));
                 }
                 if (!linkedHashMap.isEmpty()) {
@@ -239,7 +239,7 @@ public class a {
                 return false;
             }
             list.add(new Pair<>(str, map.get(str)));
-            if (f31474a.c()) {
+            if (f31495a.c()) {
                 return true;
             }
             map.remove(str);

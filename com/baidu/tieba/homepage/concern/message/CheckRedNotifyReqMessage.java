@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.concern.message;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ public class CheckRedNotifyReqMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 if (z) {
-                    x.a(builder, true);
+                    a0.a(builder, true);
                 }
                 RedNotifyReqIdl.Builder builder2 = new RedNotifyReqIdl.Builder();
                 builder2.data = builder.build(false);

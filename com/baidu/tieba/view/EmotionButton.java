@@ -34,22 +34,22 @@ public class EmotionButton extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58178e;
+    public int f58308e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58179f;
+    public int f58309f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58180g;
+    public int f58310g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58181h;
+    public int f58311h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f58182i;
+    public int f58312i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f58183j;
+    public int f58313j;
     public Paint k;
     public TextPaint l;
     public RectF m;
@@ -66,7 +66,7 @@ public class EmotionButton extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionButton f58184e;
+        public final /* synthetic */ EmotionButton f58314e;
 
         public a(EmotionButton emotionButton) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class EmotionButton extends View {
                     return;
                 }
             }
-            this.f58184e = emotionButton;
+            this.f58314e = emotionButton;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -93,7 +93,7 @@ public class EmotionButton extends View {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 1) {
                     int unused = EmotionButton.u = motionEvent.getAction();
-                    this.f58184e.invalidate();
+                    this.f58314e.invalidate();
                     return false;
                 }
                 return false;
@@ -144,7 +144,7 @@ public class EmotionButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             this.k.setShader(this.p);
-            this.k.setShadowLayer(t, 2.0f, 2.0f, this.f58178e);
+            this.k.setShadowLayer(t, 2.0f, 2.0f, this.f58308e);
             if (this.m == null) {
                 this.m = new RectF();
             }
@@ -166,7 +166,7 @@ public class EmotionButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             this.k.setShader(this.q);
-            this.k.setShadowLayer(t, 2.0f, 2.0f, this.f58181h);
+            this.k.setShadowLayer(t, 2.0f, 2.0f, this.f58311h);
             if (this.m == null) {
                 this.m = new RectF();
             }
@@ -187,12 +187,12 @@ public class EmotionButton extends View {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f58178e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.f58179f = SkinManager.getColor(R.color.CAM_X0302);
-            this.f58180g = SkinManager.getColor(R.color.CAM_X0303);
-            this.f58181h = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.f58182i = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.f58183j = SkinManager.getColor(R.color.cp_link_tip_b_alpha50);
+            this.f58308e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+            this.f58309f = SkinManager.getColor(R.color.CAM_X0302);
+            this.f58310g = SkinManager.getColor(R.color.CAM_X0303);
+            this.f58311h = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+            this.f58312i = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+            this.f58313j = SkinManager.getColor(R.color.cp_link_tip_b_alpha50);
             Paint paint = new Paint();
             this.k = paint;
             paint.setStyle(Paint.Style.FILL);
@@ -244,8 +244,8 @@ public class EmotionButton extends View {
             super.onSizeChanged(i2, i3, i4, i5);
             this.n = i2;
             this.o = i3;
-            this.p = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f58180g, this.f58179f, Shader.TileMode.MIRROR);
-            this.q = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f58183j, this.f58182i, Shader.TileMode.MIRROR);
+            this.p = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f58310g, this.f58309f, Shader.TileMode.MIRROR);
+            this.q = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f58313j, this.f58312i, Shader.TileMode.MIRROR);
         }
     }
 

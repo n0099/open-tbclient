@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
 import c.a.e.l.e.n;
 import c.a.q0.s.q.d2;
-import c.a.r0.v.e.b.c;
+import c.a.r0.v.g.b.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -32,22 +32,22 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f49637e;
+    public String f49748e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49638f;
+    public int f49749f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49639g;
+    public int f49750g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49640h;
+    public String f49751h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49641i;
+    public int f49752i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f49642j;
+    public int f49753j;
     public boolean k;
     public int l;
     public List<n> m;
@@ -61,7 +61,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaFrsLiveModel f49643a;
+        public final /* synthetic */ AlaFrsLiveModel f49754a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AlaFrsLiveModel alaFrsLiveModel, int i2, boolean z) {
@@ -82,7 +82,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f49643a = alaFrsLiveModel;
+            this.f49754a = alaFrsLiveModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -94,43 +94,43 @@ public class AlaFrsLiveModel extends BdBaseModel {
                 if (httpResponsedMessage.getOrginalMessage() instanceof AlaGameFrsLiveThreadsRequestMessage) {
                     AlaGameFrsLiveThreadsRequestMessage alaGameFrsLiveThreadsRequestMessage = (AlaGameFrsLiveThreadsRequestMessage) httpResponsedMessage.getOrginalMessage();
                     if (httpResponsedMessage.hasError()) {
-                        if (this.f49643a.o != null) {
-                            this.f49643a.o.onLoadError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (this.f49754a.o != null) {
+                            this.f49754a.o.onLoadError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                             return;
                         }
                         return;
                     }
                     List<n> liveList = alaGameFrsLiveThreadsRespMessage.getLiveList();
-                    if (this.f49643a.m == null) {
-                        this.f49643a.m = new ArrayList();
+                    if (this.f49754a.m == null) {
+                        this.f49754a.m = new ArrayList();
                     }
-                    if (this.f49643a.f49638f != 1 || ListUtils.getCount(liveList) != 0 || this.f49643a.f49642j != 2) {
-                        this.f49643a.n = false;
-                        this.f49643a.k = alaGameFrsLiveThreadsRespMessage.hasMore();
-                        this.f49643a.f49638f = alaGameFrsLiveThreadsRequestMessage.getPn();
-                        this.f49643a.l = alaGameFrsLiveThreadsRespMessage.getLiveCount();
-                        if (this.f49643a.f49638f == 1 || ListUtils.getCount(this.f49643a.m) == 0) {
+                    if (this.f49754a.f49749f != 1 || ListUtils.getCount(liveList) != 0 || this.f49754a.f49753j != 2) {
+                        this.f49754a.n = false;
+                        this.f49754a.k = alaGameFrsLiveThreadsRespMessage.hasMore();
+                        this.f49754a.f49749f = alaGameFrsLiveThreadsRequestMessage.getPn();
+                        this.f49754a.l = alaGameFrsLiveThreadsRespMessage.getLiveCount();
+                        if (this.f49754a.f49749f == 1 || ListUtils.getCount(this.f49754a.m) == 0) {
                             if (liveList != null) {
-                                this.f49643a.m.clear();
-                                this.f49643a.m.addAll(liveList);
+                                this.f49754a.m.clear();
+                                this.f49754a.m.addAll(liveList);
                             }
                         } else if (ListUtils.getCount(liveList) > 0) {
-                            AlaFrsLiveModel alaFrsLiveModel = this.f49643a;
+                            AlaFrsLiveModel alaFrsLiveModel = this.f49754a;
                             alaFrsLiveModel.m = alaFrsLiveModel.L(alaFrsLiveModel.m, liveList);
                         }
                     } else {
                         List<n> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
-                        this.f49643a.k = false;
-                        this.f49643a.f49638f = alaGameFrsLiveThreadsRequestMessage.getPn();
-                        this.f49643a.l = 0;
+                        this.f49754a.k = false;
+                        this.f49754a.f49749f = alaGameFrsLiveThreadsRequestMessage.getPn();
+                        this.f49754a.l = 0;
                         if (recommandList != null) {
-                            this.f49643a.m.clear();
-                            this.f49643a.m.addAll(recommandList);
+                            this.f49754a.m.clear();
+                            this.f49754a.m.addAll(recommandList);
                         }
-                        this.f49643a.n = true;
+                        this.f49754a.n = true;
                     }
-                    if (this.f49643a.o != null) {
-                        this.f49643a.o.a(this.f49643a.k);
+                    if (this.f49754a.o != null) {
+                        this.f49754a.o.a(this.f49754a.k);
                     }
                 }
             }
@@ -162,10 +162,10 @@ public class AlaFrsLiveModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49638f = 1;
-        this.f49639g = 30;
-        this.f49641i = 1;
-        this.f49642j = 1;
+        this.f49749f = 1;
+        this.f49750g = 30;
+        this.f49752i = 1;
+        this.f49753j = 1;
         this.n = false;
         a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_FRS_GAME, true);
         this.p = aVar;
@@ -181,7 +181,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public int I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49641i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49752i : invokeV.intValue;
     }
 
     public boolean J() {
@@ -205,7 +205,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
             for (n nVar : list2) {
-                if (nVar != null && (nVar instanceof c) && (d2Var = ((c) nVar).f25949e) != null && (d2Var.o1() == 49 || d2Var.o1() == 69)) {
+                if (nVar != null && (nVar instanceof c) && (d2Var = ((c) nVar).f25972e) != null && (d2Var.o1() == 49 || d2Var.o1() == 69)) {
                     String s1 = d2Var.s1();
                     if (!TextUtils.isEmpty(s1)) {
                         boolean z = false;
@@ -215,7 +215,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                                 break;
                             }
                             n next = it.next();
-                            if (next != null && (next instanceof c) && (d2Var2 = ((c) next).f25949e) != null && s1.equals(d2Var2.s1())) {
+                            if (next != null && (next instanceof c) && (d2Var2 = ((c) next).f25972e) != null && s1.equals(d2Var2.s1())) {
                                 z = true;
                                 break;
                             }
@@ -247,11 +247,11 @@ public class AlaFrsLiveModel extends BdBaseModel {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.k) {
                 AlaGameFrsLiveThreadsRequestMessage alaGameFrsLiveThreadsRequestMessage = new AlaGameFrsLiveThreadsRequestMessage();
-                alaGameFrsLiveThreadsRequestMessage.setForumId(this.f49637e);
-                alaGameFrsLiveThreadsRequestMessage.setPn(this.f49638f + 1);
-                alaGameFrsLiveThreadsRequestMessage.setPs(this.f49639g);
-                alaGameFrsLiveThreadsRequestMessage.setForumGameLabel(this.f49640h);
-                alaGameFrsLiveThreadsRequestMessage.setSortType(this.f49641i);
+                alaGameFrsLiveThreadsRequestMessage.setForumId(this.f49748e);
+                alaGameFrsLiveThreadsRequestMessage.setPn(this.f49749f + 1);
+                alaGameFrsLiveThreadsRequestMessage.setPs(this.f49750g);
+                alaGameFrsLiveThreadsRequestMessage.setForumGameLabel(this.f49751h);
+                alaGameFrsLiveThreadsRequestMessage.setSortType(this.f49752i);
                 alaGameFrsLiveThreadsRequestMessage.setHttpParams();
                 sendMessage(alaGameFrsLiveThreadsRequestMessage);
                 return true;
@@ -265,11 +265,11 @@ public class AlaFrsLiveModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             AlaGameFrsLiveThreadsRequestMessage alaGameFrsLiveThreadsRequestMessage = new AlaGameFrsLiveThreadsRequestMessage();
-            alaGameFrsLiveThreadsRequestMessage.setForumId(this.f49637e);
+            alaGameFrsLiveThreadsRequestMessage.setForumId(this.f49748e);
             alaGameFrsLiveThreadsRequestMessage.setPn(1);
-            alaGameFrsLiveThreadsRequestMessage.setPs(this.f49639g);
-            alaGameFrsLiveThreadsRequestMessage.setForumGameLabel(this.f49640h);
-            alaGameFrsLiveThreadsRequestMessage.setSortType(this.f49641i);
+            alaGameFrsLiveThreadsRequestMessage.setPs(this.f49750g);
+            alaGameFrsLiveThreadsRequestMessage.setForumGameLabel(this.f49751h);
+            alaGameFrsLiveThreadsRequestMessage.setSortType(this.f49752i);
             alaGameFrsLiveThreadsRequestMessage.setHttpParams();
             sendMessage(alaGameFrsLiveThreadsRequestMessage);
         }
@@ -278,7 +278,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public void O(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f49642j = i2;
+            this.f49753j = i2;
         }
     }
 
@@ -317,21 +317,21 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public void setForumGameLabel(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f49640h = str;
+            this.f49751h = str;
         }
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f49637e = str;
+            this.f49748e = str;
         }
     }
 
     public void setSortType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f49641i = i2;
+            this.f49752i = i2;
         }
     }
 }

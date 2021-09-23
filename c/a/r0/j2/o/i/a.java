@@ -26,22 +26,22 @@ public class a extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f20690e;
+    public String f20705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f20691f;
+    public String f20706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20692g;
+    public String f20707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f20693h;
+    public String f20708h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f20694i;
+    public String f20709i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Long f20695j;
+    public Long f20710j;
     public boolean k;
     public boolean l;
     public String m;
@@ -86,13 +86,13 @@ public class a extends BaseCardInfo {
     public Long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20695j : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20710j : (Long) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20690e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20705e : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
@@ -105,25 +105,25 @@ public class a extends BaseCardInfo {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20692g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20707g : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20693h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20708h : (String) invokeV.objValue;
     }
 
     public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20694i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20709i : (String) invokeV.objValue;
     }
 
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20691f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20706f : (String) invokeV.objValue;
     }
 
     public boolean q() {
@@ -135,12 +135,12 @@ public class a extends BaseCardInfo {
     public void t(@NonNull AlaLiveInfo alaLiveInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, alaLiveInfo) == null) {
-            this.f20690e = alaLiveInfo.first_headline;
-            this.f20691f = alaLiveInfo.second_headline;
+            this.f20705e = alaLiveInfo.first_headline;
+            this.f20706f = alaLiveInfo.second_headline;
             String str = alaLiveInfo.cover_wide;
-            this.f20692g = str;
+            this.f20707g = str;
             if (str == null || TextUtils.isEmpty(str)) {
-                this.f20692g = alaLiveInfo.cover;
+                this.f20707g = alaLiveInfo.cover;
             }
             alaLiveInfo.live_id.longValue();
             YyExtData yyExtData = new YyExtData();
@@ -152,9 +152,9 @@ public class a extends BaseCardInfo {
             this.m = alaLiveInfo.third_live_type;
             this.n = alaLiveInfo.third_room_id;
             String str2 = alaLiveInfo.router_type;
-            this.f20693h = "";
-            this.f20694i = TbadkCoreApplication.getInst().getString(R.string.pb_ala_enter);
-            this.f20695j = 1L;
+            this.f20708h = "";
+            this.f20709i = TbadkCoreApplication.getInst().getString(R.string.pb_ala_enter);
+            this.f20710j = 1L;
             this.k = true;
             this.p = false;
         }
@@ -163,12 +163,12 @@ public class a extends BaseCardInfo {
     public void w(Promotion promotion) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, promotion) == null) {
-            this.f20690e = promotion.title;
-            this.f20691f = promotion.sub_title;
-            this.f20692g = promotion.image;
-            this.f20693h = promotion.link;
-            this.f20694i = promotion.link_text;
-            this.f20695j = promotion.appear_time;
+            this.f20705e = promotion.title;
+            this.f20706f = promotion.sub_title;
+            this.f20707g = promotion.image;
+            this.f20708h = promotion.link;
+            this.f20709i = promotion.link_text;
+            this.f20710j = promotion.appear_time;
             this.k = false;
             this.p = false;
         }

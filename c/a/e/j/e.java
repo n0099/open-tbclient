@@ -1,73 +1,105 @@
 package c.a.e.j;
 
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
 import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.util.List;
 /* loaded from: classes.dex */
-public class e extends DefaultDownloadCallback {
+public class e extends BdAsyncTask<List<PackageInfo>, Integer, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public DefaultDownloadCallback f2896a;
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    public e(DefaultDownloadCallback defaultDownloadCallback) {
+    /* loaded from: classes.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final e f2896a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1354499469, "Lc/a/e/j/e$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1354499469, "Lc/a/e/j/e$b;");
+                    return;
+                }
+            }
+            f2896a = new e(null);
+        }
+    }
+
+    public /* synthetic */ e(a aVar) {
+        this();
+    }
+
+    public static e c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f2896a : (e) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    @SafeVarargs
+    /* renamed from: b */
+    public final Boolean doInBackground(List<PackageInfo>... listArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listArr)) == null) {
+            if (listArr != null && listArr.length != 0) {
+                List<PackageInfo> list = listArr[0];
+                if (list != null && !list.isEmpty()) {
+                    boolean z = true;
+                    for (PackageInfo packageInfo : list) {
+                        if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
+                            BdBaseApplication.getInst().getResHashMap().remove(packageInfo.name);
+                            File file = new File(h.b(packageInfo.name));
+                            if (file.exists() && !file.delete()) {
+                                z = false;
+                            }
+                        }
+                    }
+                    return Boolean.valueOf(z);
+                }
+                return Boolean.TRUE;
+            }
+            return Boolean.TRUE;
+        }
+        return (Boolean) invokeL.objValue;
+    }
+
+    public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.f2896a = defaultDownloadCallback;
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) || errorInfo == null) {
-            return;
-        }
-        BdLog.e(errorInfo.errorMsg);
-        DefaultDownloadCallback defaultDownloadCallback = this.f2896a;
-        if (defaultDownloadCallback != null) {
-            defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
-        DefaultDownloadCallback defaultDownloadCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) || packageInfo == null || StringUtils.isNull(packageInfo.filePath) || StringUtils.isNull(packageInfo.name)) {
-            return;
-        }
-        File file = new File(packageInfo.filePath);
-        if (file.exists() && file.isFile()) {
-            File file2 = new File(BdBaseApplication.getInst().getFilesDir() + File.separator + "so_cache" + File.separator + packageInfo.name);
-            if (file2.exists()) {
-                file2.delete();
-            }
-            if (!file.renameTo(file2) || (defaultDownloadCallback = this.f2896a) == null) {
-                return;
-            }
-            defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);
         }
     }
 }

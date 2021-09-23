@@ -24,13 +24,13 @@ public class b extends c.a.r0.j3.p0.d.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile d f21030g;
+    public volatile d f21043g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f21031h;
+    public volatile boolean f21044h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f21032i;
+    public int f21045i;
 
     /* loaded from: classes3.dex */
     public class a implements ThreadFactory {
@@ -38,7 +38,7 @@ public class b extends c.a.r0.j3.p0.d.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f21033e;
+        public int f21046e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class b extends c.a.r0.j3.p0.d.f.a {
                     return;
                 }
             }
-            this.f21033e = 0;
+            this.f21046e = 0;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -64,8 +64,8 @@ public class b extends c.a.r0.j3.p0.d.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
                 Thread thread = new Thread(runnable);
-                thread.setName("VideoUploadThread@" + this.f21033e);
-                this.f21033e = this.f21033e + 1;
+                thread.setName("VideoUploadThread@" + this.f21046e);
+                this.f21046e = this.f21046e + 1;
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -74,31 +74,31 @@ public class b extends c.a.r0.j3.p0.d.f.a {
 
     /* renamed from: c.a.r0.j3.p0.d.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0989b implements Runnable {
+    public class RunnableC0987b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RandomAccessFile f21034e;
+        public final /* synthetic */ RandomAccessFile f21047e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f21035f;
+        public final /* synthetic */ ArrayList f21048f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f21036g;
+        public final /* synthetic */ int f21049g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f21037h;
+        public final /* synthetic */ int f21050h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f21038i;
+        public final /* synthetic */ String f21051i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ int f21039j;
+        public final /* synthetic */ int f21052j;
         public final /* synthetic */ CountDownLatch k;
         public final /* synthetic */ b l;
 
-        public RunnableC0989b(b bVar, RandomAccessFile randomAccessFile, ArrayList arrayList, int i2, int i3, String str, int i4, CountDownLatch countDownLatch) {
+        public RunnableC0987b(b bVar, RandomAccessFile randomAccessFile, ArrayList arrayList, int i2, int i3, String str, int i4, CountDownLatch countDownLatch) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,12 +114,12 @@ public class b extends c.a.r0.j3.p0.d.f.a {
                 }
             }
             this.l = bVar;
-            this.f21034e = randomAccessFile;
-            this.f21035f = arrayList;
-            this.f21036g = i2;
-            this.f21037h = i3;
-            this.f21038i = str;
-            this.f21039j = i4;
+            this.f21047e = randomAccessFile;
+            this.f21048f = arrayList;
+            this.f21049g = i2;
+            this.f21050h = i3;
+            this.f21051i = str;
+            this.f21052j = i4;
             this.k = countDownLatch;
         }
 
@@ -127,18 +127,18 @@ public class b extends c.a.r0.j3.p0.d.f.a {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d h2 = this.l.h(this.f21034e, ((Integer) this.f21035f.get(this.f21036g)).intValue(), this.f21037h, this.f21038i);
+                d h2 = this.l.h(this.f21047e, ((Integer) this.f21048f.get(this.f21049g)).intValue(), this.f21050h, this.f21051i);
                 if (h2 != null) {
-                    if (h2.f21042b != 0) {
-                        this.l.f21030g.f21042b = h2.f21042b;
-                        this.l.f21030g.f21043c = h2.f21043c;
+                    if (h2.f21055b != 0) {
+                        this.l.f21043g.f21055b = h2.f21055b;
+                        this.l.f21043g.f21056c = h2.f21056c;
                     }
-                    if (!StringUtils.isNull(h2.f21041a)) {
-                        this.l.f21030g.f21041a = h2.f21041a;
+                    if (!StringUtils.isNull(h2.f21054a)) {
+                        this.l.f21043g.f21054a = h2.f21054a;
                     }
                     synchronized (this.l) {
                         b.k(this.l);
-                        this.l.d((int) (((this.l.f21032i * 50.0f) / this.f21039j) + 30.0f));
+                        this.l.d((int) (((this.l.f21045i * 50.0f) / this.f21052j) + 30.0f));
                     }
                 }
                 this.k.countDown();
@@ -165,12 +165,12 @@ public class b extends c.a.r0.j3.p0.d.f.a {
                 return;
             }
         }
-        this.f21030g = new d();
+        this.f21043g = new d();
     }
 
     public static /* synthetic */ int k(b bVar) {
-        int i2 = bVar.f21032i;
-        bVar.f21032i = i2 + 1;
+        int i2 = bVar.f21045i;
+        bVar.f21045i = i2 + 1;
         return i2;
     }
 
@@ -178,7 +178,7 @@ public class b extends c.a.r0.j3.p0.d.f.a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21031h = true;
+            this.f21044h = true;
         }
     }
 
@@ -186,7 +186,7 @@ public class b extends c.a.r0.j3.p0.d.f.a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (!this.f21031h && this.f21030g.f21042b == 0 && StringUtils.isNull(this.f21030g.f21041a)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (!this.f21044h && this.f21043g.f21055b == 0 && StringUtils.isNull(this.f21043g.f21054a)) ? false : true : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.j3.p0.d.f.a
@@ -198,9 +198,9 @@ public class b extends c.a.r0.j3.p0.d.f.a {
             CountDownLatch countDownLatch = new CountDownLatch(size);
             ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
             try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.f21025b), r.f42280a);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.f21038b), r.f42342a);
                 for (int i3 = 0; i3 < size; i3++) {
-                    threadPoolExecutor.execute(new RunnableC0989b(this, randomAccessFile, arrayList, i3, i2, str, size, countDownLatch));
+                    threadPoolExecutor.execute(new RunnableC0987b(this, randomAccessFile, arrayList, i3, i2, str, size, countDownLatch));
                 }
                 try {
                     countDownLatch.await();
@@ -213,9 +213,9 @@ public class b extends c.a.r0.j3.p0.d.f.a {
                 } catch (IOException e3) {
                     e3.printStackTrace();
                 }
-                return this.f21030g;
+                return this.f21043g;
             } catch (FileNotFoundException unused) {
-                return this.f21030g;
+                return this.f21043g;
             }
         }
         return (d) invokeLLI.objValue;

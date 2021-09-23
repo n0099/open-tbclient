@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.tabfeed.message;
 
 import c.a.e.e.p.l;
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -59,7 +59,7 @@ public class TabFeedListRequestMessage extends NetMessage {
                 builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
                 builder.scr_d = Integer.valueOf((int) l.h(TbadkCoreApplication.getInst()));
                 if (z) {
-                    x.a(builder, true);
+                    a0.a(builder, true);
                 }
                 TabfeedlistReqIdl.Builder builder2 = new TabfeedlistReqIdl.Builder();
                 builder2.data = builder.build(false);

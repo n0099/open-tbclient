@@ -16,7 +16,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<a> f6572a;
+    public static ArrayList<a> f6580a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,29 +32,29 @@ public final class b {
                 return;
             }
         }
-        f6572a = new ArrayList<>();
+        f6580a = new ArrayList<>();
     }
 
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, aVar) == null) || aVar == null || f6572a.contains(aVar)) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, aVar) == null) || aVar == null || f6580a.contains(aVar)) {
             return;
         }
-        f6572a.add(aVar);
+        f6580a.add(aVar);
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f6572a.clear();
+            f6580a.clear();
         }
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            for (int size = f6572a.size() - 1; size >= 0; size--) {
-                a aVar = f6572a.get(size);
+            for (int size = f6580a.size() - 1; size >= 0; size--) {
+                a aVar = f6580a.get(size);
                 if (aVar != null) {
                     aVar.onDestroy();
                 }
@@ -67,8 +67,8 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        for (int size = f6572a.size() - 1; size >= 0; size--) {
-            a aVar = f6572a.get(size);
+        for (int size = f6580a.size() - 1; size >= 0; size--) {
+            a aVar = f6580a.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.b())) {
                 aVar.onDestroy();
             }
@@ -82,8 +82,8 @@ public final class b {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            for (int size = f6572a.size() - 1; size >= 0; size--) {
-                a aVar = f6572a.get(size);
+            for (int size = f6580a.size() - 1; size >= 0; size--) {
+                a aVar = f6580a.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.c())) {
                     return aVar;
                 }
@@ -100,8 +100,8 @@ public final class b {
             if (TextUtils.isEmpty(str3)) {
                 return null;
             }
-            for (int size = f6572a.size() - 1; size >= 0; size--) {
-                a aVar = f6572a.get(size);
+            for (int size = f6580a.size() - 1; size >= 0; size--) {
+                a aVar = f6580a.get(size);
                 if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.f())) || TextUtils.equals(str3, aVar.c())))) {
                     return aVar;
                 }
@@ -118,8 +118,8 @@ public final class b {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            for (int size = f6572a.size() - 1; size >= 0; size--) {
-                a aVar = f6572a.get(size);
+            for (int size = f6580a.size() - 1; size >= 0; size--) {
+                a aVar = f6580a.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.b()) && aVar.onBackPressed()) {
                     return true;
                 }
@@ -132,8 +132,8 @@ public final class b {
     public static void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            for (int size = f6572a.size() - 1; size >= 0; size--) {
-                a aVar = f6572a.get(size);
+            for (int size = f6580a.size() - 1; size >= 0; size--) {
+                a aVar = f6580a.get(size);
                 if (aVar != null) {
                     aVar.j(z);
                 }
@@ -144,8 +144,8 @@ public final class b {
     public static void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            for (int size = f6572a.size() - 1; size >= 0; size--) {
-                a aVar = f6572a.get(size);
+            for (int size = f6580a.size() - 1; size >= 0; size--) {
+                a aVar = f6580a.get(size);
                 if (aVar != null) {
                     aVar.k(z);
                 }
@@ -158,6 +158,6 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(65546, null, aVar) == null) || aVar == null) {
             return;
         }
-        f6572a.remove(aVar);
+        f6580a.remove(aVar);
     }
 }

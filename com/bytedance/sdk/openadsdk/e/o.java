@@ -54,7 +54,7 @@ public class o extends g<c.a> {
             try {
                 JSONArray jSONArray = new JSONArray();
                 for (c.a aVar : list) {
-                    jSONArray.put(aVar.f67960b);
+                    jSONArray.put(aVar.f68271b);
                 }
                 jSONObject.put("stats_list", jSONArray);
             } catch (Exception unused) {

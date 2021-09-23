@@ -74,10 +74,10 @@ public class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f27326a;
+        public final /* synthetic */ TbPageContext f27346a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FrsViewData f27327b;
+        public final /* synthetic */ FrsViewData f27347b;
 
         public b(TbPageContext tbPageContext, FrsViewData frsViewData) {
             Interceptable interceptable = $ic;
@@ -94,8 +94,8 @@ public class n {
                     return;
                 }
             }
-            this.f27326a = tbPageContext;
-            this.f27327b = frsViewData;
+            this.f27346a = tbPageContext;
+            this.f27347b = frsViewData;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
@@ -104,7 +104,7 @@ public class n {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
                 c.a.e.e.i.a.l().h(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f27326a.getPageActivity(), this.f27327b.getForum().getName(), this.f27327b.getForum().getId(), this.f27327b.getUserData().getUserId(), this.f27327b.getForum().getSpecialForumType())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f27346a.getPageActivity(), this.f27347b.getForum().getName(), this.f27347b.getForum().getId(), this.f27347b.getUserData().getUserId(), this.f27347b.getForum().getSpecialForumType())));
             }
         }
     }

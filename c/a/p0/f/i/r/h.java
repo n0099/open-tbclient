@@ -22,7 +22,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static DisplayMetrics f10688a;
+    public static DisplayMetrics f10696a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a(float f2) {
@@ -70,7 +70,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = f10688a;
+            DisplayMetrics displayMetrics = f10696a;
             if (displayMetrics != null) {
                 return displayMetrics.density;
             }
@@ -114,7 +114,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = f10688a;
+            DisplayMetrics displayMetrics = f10696a;
             if (displayMetrics != null) {
                 return displayMetrics.heightPixels;
             }
@@ -128,7 +128,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = f10688a;
+            DisplayMetrics displayMetrics = f10696a;
             if (displayMetrics != null) {
                 return displayMetrics.widthPixels;
             }
@@ -172,7 +172,7 @@ public class h {
 
     public static void n(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && f10688a == null) {
+        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && f10696a == null) {
             Context appContext = AppRuntime.getAppContext();
             if (appContext != null) {
                 context = appContext;
@@ -180,7 +180,7 @@ public class h {
             if (context == null) {
                 return;
             }
-            f10688a = context.getResources().getDisplayMetrics();
+            f10696a = context.getResources().getDisplayMetrics();
         }
     }
 

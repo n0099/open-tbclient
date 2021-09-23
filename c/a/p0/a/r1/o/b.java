@@ -22,10 +22,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8457a;
+    public boolean f8465a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8458b;
+    public boolean f8466b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f8457a = true;
+            this.f8465a = true;
         }
     }
 
@@ -61,7 +61,7 @@ public class b {
                 return viewGroup2;
             }
             ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(e.Q().x()).inflate(g.swan_app_startup_window, viewGroup);
-            this.f8458b = true;
+            this.f8466b = true;
             return viewGroup3;
         }
         return (ViewGroup) invokeV.objValue;
@@ -69,7 +69,7 @@ public class b {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f8458b) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f8466b) {
             d();
         }
     }
@@ -84,13 +84,13 @@ public class b {
         if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
             ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
         }
-        this.f8458b = false;
+        this.f8466b = false;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f8457a = false;
+            this.f8465a = false;
             c();
             k();
         }
@@ -127,7 +127,7 @@ public class b {
     public final void j(int i2, long j2, String str, String str2) {
         ViewGroup b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, str2}) == null) || this.f8457a || (b2 = b()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, str2}) == null) || this.f8465a || (b2 = b()) == null) {
             return;
         }
         TextView textView = (TextView) b2.findViewById(i2);
@@ -137,7 +137,7 @@ public class b {
 
     public void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f8458b) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f8466b) {
             return;
         }
         b();
@@ -146,7 +146,7 @@ public class b {
     public void l(long j2, long j3) {
         ViewGroup b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.f8457a || (b2 = b()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.f8465a || (b2 = b()) == null) {
             return;
         }
         ((TextView) b2.findViewById(f.sum)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j2)), Long.valueOf(j3)));

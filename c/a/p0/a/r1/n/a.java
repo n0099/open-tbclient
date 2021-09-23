@@ -24,7 +24,7 @@ public class a implements c.a.p0.a.f1.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> f8455b;
+    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> f8463b;
 
     /* renamed from: c.a.p0.a.r1.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -38,7 +38,7 @@ public class a implements c.a.p0.a.f1.f.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f8456a;
+        public static final a f8464a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +54,7 @@ public class a implements c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            f8456a = new a(null);
+            f8464a = new a(null);
         }
     }
 
@@ -65,7 +65,7 @@ public class a implements c.a.p0.a.f1.f.a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f8456a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f8464a : (a) invokeV.objValue;
     }
 
     @Nullable
@@ -90,7 +90,7 @@ public class a implements c.a.p0.a.f1.f.a {
                 long currentTimeMillis = System.currentTimeMillis();
                 View inflate = LayoutInflater.from(c.a.p0.a.c1.a.b()).inflate(i2, viewGroup, z);
                 long currentTimeMillis2 = System.currentTimeMillis();
-                if (c.a.p0.a.f1.f.a.f5702a) {
+                if (c.a.p0.a.f1.f.a.f5710a) {
                     String str = "getView resId = " + i2 + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms";
                 }
                 return inflate;
@@ -112,19 +112,19 @@ public class a implements c.a.p0.a.f1.f.a {
             LayoutInflater from = LayoutInflater.from(c.a.p0.a.c1.a.b());
             for (int i2 : iArr) {
                 View inflate = from.inflate(i2, (ViewGroup) null);
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f8455b.get(Integer.valueOf(i2));
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f8463b.get(Integer.valueOf(i2));
                 if (copyOnWriteArrayList == null) {
                     copyOnWriteArrayList = new CopyOnWriteArrayList<>();
                 }
                 copyOnWriteArrayList.add(inflate);
-                this.f8455b.put(Integer.valueOf(i2), copyOnWriteArrayList);
+                this.f8463b.put(Integer.valueOf(i2), copyOnWriteArrayList);
             }
-            if (c.a.p0.a.f1.f.a.f5702a) {
+            if (c.a.p0.a.f1.f.a.f5710a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms";
             }
         } catch (Exception e2) {
-            if (c.a.p0.a.f1.f.a.f5702a) {
+            if (c.a.p0.a.f1.f.a.f5710a) {
                 Log.getStackTraceString(e2);
             }
         }
@@ -138,16 +138,16 @@ public class a implements c.a.p0.a.f1.f.a {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             View view = null;
             try {
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f8455b.get(Integer.valueOf(i2));
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.f8463b.get(Integer.valueOf(i2));
                 if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
                     view = copyOnWriteArrayList.remove(0);
                 }
             } catch (Exception e2) {
-                if (c.a.p0.a.f1.f.a.f5702a) {
+                if (c.a.p0.a.f1.f.a.f5710a) {
                     Log.getStackTraceString(e2);
                 }
             }
-            if (c.a.p0.a.f1.f.a.f5702a) {
+            if (c.a.p0.a.f1.f.a.f5710a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("tryObtainLayoutByResId resId = ");
                 sb.append(i2);
@@ -172,6 +172,6 @@ public class a implements c.a.p0.a.f1.f.a {
                 return;
             }
         }
-        this.f8455b = new ConcurrentHashMap<>();
+        this.f8463b = new ConcurrentHashMap<>();
     }
 }

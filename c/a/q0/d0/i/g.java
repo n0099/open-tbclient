@@ -17,7 +17,7 @@ public class g extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12886a;
+    public String f12900a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class g extends b {
                 return;
             }
         }
-        this.f12886a = "";
+        this.f12900a = "";
     }
 
     @Override // c.a.q0.d0.i.b
@@ -51,7 +51,7 @@ public class g extends b {
                 return null;
             }
             c.a.q0.c0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.loadResizedBitmap(this.f12886a, l.k(TbadkCoreApplication.getInst()), l.i(TbadkCoreApplication.getInst()));
+            return BitmapHelper.loadResizedBitmap(this.f12900a, l.k(TbadkCoreApplication.getInst()), l.i(TbadkCoreApplication.getInst()));
         }
         return (Bitmap) invokeLZ.objValue;
     }
@@ -73,7 +73,7 @@ public class g extends b {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f12886a = str;
+            this.f12900a = str;
         }
     }
 }

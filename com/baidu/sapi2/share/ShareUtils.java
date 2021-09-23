@@ -32,6 +32,7 @@ import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
+import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -608,9 +609,11 @@ public final class ShareUtils {
         if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
             String[] deletedShareModels = getDeletedShareModels();
             StringBuilder sb = new StringBuilder();
-            for (int length = deletedShareModels.length + 1 > 10 ? (deletedShareModels.length + 1) - 10 : 0; length < deletedShareModels.length; length++) {
-                sb.append(deletedShareModels[length]);
-                sb.append(",");
+            if (deletedShareModels != null) {
+                for (int length = deletedShareModels.length + 1 > 10 ? (deletedShareModels.length + 1) - 10 : 0; length < deletedShareModels.length; length++) {
+                    sb.append(deletedShareModels[length]);
+                    sb.append(",");
+                }
             }
             sb.append(str);
             SapiContext.getInstance().put(SapiContext.KEY_SHARE_DELETE_LIST, sb.toString());
@@ -663,7 +666,7 @@ public final class ShareUtils {
                                 new FaceLoginService().syncFaceLoginUidList(context, arrayList);
                             }
                         }
-                        sapiContext.put(SapiContext.KEY_PRE_LOGIN_TYPE, ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
+                        SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.CHOICE_SHARE_V2.getName());
                         shareLoginCallBack.onSuccess();
                         str8 = "";
                         c2 = 0;

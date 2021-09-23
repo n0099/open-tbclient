@@ -17,11 +17,11 @@ public class b extends BaseCardInfo implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f27761f;
+    public static final BdUniqueId f27781f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d2 f27762e;
+    public d2 f27782e;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class b extends BaseCardInfo implements n {
                 return;
             }
         }
-        f27761f = BdUniqueId.gen();
+        f27781f = BdUniqueId.gen();
     }
 
     public b() {
@@ -56,20 +56,20 @@ public class b extends BaseCardInfo implements n {
     public void g(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, d2Var) == null) {
-            this.f27762e = d2Var;
+            this.f27782e = d2Var;
         }
     }
 
     public d2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27762e : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27782e : (d2) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f27761f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f27781f : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -71,7 +71,7 @@ public class l extends b implements IVideoData {
         this.U = false;
         this.V = true;
         this.W = 0;
-        this.f15562e = d2Var;
+        this.f15571e = d2Var;
     }
 
     public static boolean T(d2 d2Var) {
@@ -89,7 +89,7 @@ public class l extends b implements IVideoData {
             StatisticItem y = y(a0, true);
             if (y != null && getThreadData() != null) {
                 d2 threadData = getThreadData();
-                y.param("obj_name", (threadData.v1() == null || (threadData.v1().K() == null && threadData.v1().V() == null)) ? 0 : 1);
+                y.param("obj_name", (threadData.v1() == null || (threadData.v1().K() == null && threadData.v1().W() == null)) ? 0 : 1);
                 if (threadData.J() != null) {
                     y.param(TiebaStatic.Params.AB_TYPE, threadData.J().hadConcerned() ? 1 : 0);
                 }
@@ -247,11 +247,11 @@ public class l extends b implements IVideoData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            d2 d2Var = this.f15562e;
+            d2 d2Var = this.f15571e;
             if (d2Var == null) {
                 return null;
             }
-            return d2Var.a1;
+            return d2Var.b1;
         }
         return (String) invokeV.objValue;
     }
@@ -261,14 +261,14 @@ public class l extends b implements IVideoData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            d2 d2Var = this.f15562e;
+            d2 d2Var = this.f15571e;
             if (d2Var == null) {
                 return null;
             }
             if (d2Var.V0() != 5) {
-                this.f15562e.o4(1);
+                this.f15571e.n4(1);
             }
-            return this.f15562e;
+            return this.f15571e;
         }
         return (d2) invokeV.objValue;
     }
@@ -278,13 +278,13 @@ public class l extends b implements IVideoData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            d2 d2Var = this.f15562e;
+            d2 d2Var = this.f15571e;
             if (d2Var == null) {
                 return k.s0;
             }
             if (this.F) {
                 if (this.s) {
-                    return d2.a3;
+                    return d2.b3;
                 }
                 return d2Var.getType();
             } else if (this.r) {
@@ -328,11 +328,11 @@ public class l extends b implements IVideoData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            d2 d2Var = this.f15562e;
-            if (d2Var == null || d2Var.q1() == null || this.f15562e.q1().video_url == null) {
+            d2 d2Var = this.f15571e;
+            if (d2Var == null || d2Var.q1() == null || this.f15571e.q1().video_url == null) {
                 return null;
             }
-            return this.f15562e.q1().video_url;
+            return this.f15571e.q1().video_url;
         }
         return (String) invokeV.objValue;
     }
@@ -343,20 +343,20 @@ public class l extends b implements IVideoData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             StatisticItem statisticItem = new StatisticItem(str);
-            d2 d2Var = this.f15562e;
+            d2 d2Var = this.f15571e;
             if (d2Var != null) {
                 statisticItem.param("fid", d2Var.T());
-                statisticItem.param("tid", this.f15562e.s1());
-                if (this.f15562e.P1()) {
+                statisticItem.param("tid", this.f15571e.s1());
+                if (this.f15571e.P1()) {
                     statisticItem.param("obj_type", 8);
-                } else if (this.f15562e.O1()) {
+                } else if (this.f15571e.O1()) {
                     statisticItem.param("obj_type", 9);
-                } else if (this.f15562e.E2()) {
+                } else if (this.f15571e.E2()) {
                     statisticItem.param("obj_type", 2);
                 }
                 statisticItem.param("obj_param1", F() ? 2 : 1);
-                if (this.f15562e.J() != null) {
-                    statisticItem.param("obj_id", this.f15562e.J().getUserId());
+                if (this.f15571e.J() != null) {
+                    statisticItem.param("obj_id", this.f15571e.J().getUserId());
                 }
             }
             return statisticItem;

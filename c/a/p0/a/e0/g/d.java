@@ -20,17 +20,17 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityManager f5338b;
+    public static ActivityManager f5346b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f5339c;
+    public static int f5347c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f5340d;
+    public static int f5348d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DecimalFormat f5341a;
+    public DecimalFormat f5349a;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -43,7 +43,7 @@ public class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f5342a;
+        public static final d f5350a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -59,7 +59,7 @@ public class d {
                     return;
                 }
             }
-            f5342a = new d(null);
+            f5350a = new d(null);
         }
     }
 
@@ -76,10 +76,10 @@ public class d {
                 return;
             }
         }
-        f5338b = (ActivityManager) c.a.p0.a.c1.a.b().getSystemService("activity");
+        f5346b = (ActivityManager) c.a.p0.a.c1.a.b().getSystemService("activity");
         c.a.p0.a.c1.a.Z().getSwitch("swan_memory_sample", 0);
-        f5339c = 0;
-        f5340d = new Random().nextInt(100);
+        f5347c = 0;
+        f5348d = new Random().nextInt(100);
     }
 
     public /* synthetic */ d(a aVar) {
@@ -89,13 +89,13 @@ public class d {
     public static d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f5342a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f5350a : (d) invokeV.objValue;
     }
 
     public final String a(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? this.f5341a.format(f2) : (String) invokeF.objValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? this.f5349a.format(f2) : (String) invokeF.objValue;
     }
 
     public String c(int i2) {
@@ -106,7 +106,7 @@ public class d {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     c.a.p0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo mainPid: " + i2);
-                    Debug.MemoryInfo[] processMemoryInfo = f5338b.getProcessMemoryInfo(new int[]{Process.myPid(), i2});
+                    Debug.MemoryInfo[] processMemoryInfo = f5346b.getProcessMemoryInfo(new int[]{Process.myPid(), i2});
                     if (processMemoryInfo != null && processMemoryInfo.length == 2) {
                         Debug.MemoryInfo memoryInfo = processMemoryInfo[0];
                         if (memoryInfo != null) {
@@ -123,7 +123,7 @@ public class d {
                         }
                     }
                     ActivityManager.MemoryInfo memoryInfo3 = new ActivityManager.MemoryInfo();
-                    f5338b.getMemoryInfo(memoryInfo3);
+                    f5346b.getMemoryInfo(memoryInfo3);
                     jSONObject.put("sys_free_mem", a(((float) memoryInfo3.availMem) / 1048576.0f));
                     jSONObject.put("sys_low_mem", memoryInfo3.lowMemory ? "1" : "0");
                     jSONObject.put("native_heap", a(((float) Debug.getNativeHeapSize()) / 1048576.0f));
@@ -149,7 +149,7 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (e()) {
                 ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                f5338b.getMemoryInfo(memoryInfo);
+                f5346b.getMemoryInfo(memoryInfo);
                 String a2 = a(((float) memoryInfo.totalMem) / 1048576.0f);
                 c.a.p0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo sysTotalMemory=" + a2);
                 return a2;
@@ -163,12 +163,12 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.p0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo mMemSample =" + f5339c + "; mRandomNum =" + f5340d);
-            int i2 = f5339c;
+            c.a.p0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo mMemSample =" + f5347c + "; mRandomNum =" + f5348d);
+            int i2 = f5347c;
             if (i2 <= 0) {
                 return false;
             }
-            return i2 >= 100 || f5340d <= i2;
+            return i2 >= 100 || f5348d <= i2;
         }
         return invokeV.booleanValue;
     }
@@ -186,6 +186,6 @@ public class d {
                 return;
             }
         }
-        this.f5341a = new DecimalFormat("#.###");
+        this.f5349a = new DecimalFormat("#.###");
     }
 }

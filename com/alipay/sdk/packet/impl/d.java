@@ -44,9 +44,9 @@ public class d extends com.alipay.sdk.packet.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put(com.alipay.sdk.packet.e.f36009a, String.valueOf(z));
+            hashMap.put(com.alipay.sdk.packet.e.f36043c, String.valueOf(z));
             hashMap.put("content-type", "application/octet-stream");
-            hashMap.put(com.alipay.sdk.packet.e.f36015g, "CBC");
+            hashMap.put(com.alipay.sdk.packet.e.f36049i, "CBC");
             return hashMap;
         }
         return (Map) invokeZL.objValue;
@@ -63,13 +63,13 @@ public class d extends com.alipay.sdk.packet.e {
     }
 
     @Override // com.alipay.sdk.packet.e
-    public String c() throws JSONException {
+    public String b() throws JSONException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put(com.alipay.sdk.packet.e.f36017i, "/sdk/log");
-            hashMap.put(com.alipay.sdk.packet.e.f36018j, "1.0.0");
+            hashMap.put(com.alipay.sdk.packet.e.k, "/sdk/log");
+            hashMap.put(com.alipay.sdk.packet.e.l, "1.0.0");
             HashMap<String, String> hashMap2 = new HashMap<>();
             hashMap2.put(t, "1.0");
             return a(hashMap, hashMap2);
@@ -81,6 +81,6 @@ public class d extends com.alipay.sdk.packet.e {
     public com.alipay.sdk.packet.b a(com.alipay.sdk.sys.a aVar, Context context, String str) throws Throwable {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, aVar, context, str)) == null) ? a(aVar, context, str, com.alipay.sdk.cons.a.f35925c, true) : (com.alipay.sdk.packet.b) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, aVar, context, str)) == null) ? a(aVar, context, str, com.alipay.sdk.cons.a.f35959c, true) : (com.alipay.sdk.packet.b) invokeLLL.objValue;
     }
 }

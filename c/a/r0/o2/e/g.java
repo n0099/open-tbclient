@@ -23,22 +23,22 @@ public class g extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f23208e;
+    public boolean f23224e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f23209f;
+    public boolean f23225f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f23210g;
+    public String f23226g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f23211h;
+    public String f23227h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f23212i;
+    public String f23228i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f23213j;
+    public int f23229j;
     public List<c.a.e.l.e.n> k;
 
     static {
@@ -76,20 +76,20 @@ public class g extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, user) == null) || user == null || ListUtils.isEmpty(user.gift_list)) {
             return;
         }
-        this.f23210g = String.valueOf(user.id);
-        this.f23211h = user.name;
-        this.f23212i = user.name_show;
-        this.f23213j = user.sex.intValue();
-        String str = this.f23210g;
+        this.f23226g = String.valueOf(user.id);
+        this.f23227h = user.name;
+        this.f23228i = user.name_show;
+        this.f23229j = user.sex.intValue();
+        String str = this.f23226g;
         if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            this.f23208e = true;
+            this.f23224e = true;
         } else {
-            this.f23208e = false;
+            this.f23224e = false;
         }
         if (user.sex.intValue() == 2) {
-            this.f23209f = false;
+            this.f23225f = false;
         } else {
-            this.f23209f = true;
+            this.f23225f = true;
         }
         Integer num = user.gift_num;
         if (num != null) {

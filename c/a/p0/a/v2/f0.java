@@ -31,16 +31,16 @@ public class f0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9341a;
+    public static final boolean f9349a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f9342b;
+    public static boolean f9350b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f9343c;
+    public static String f9351c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f9344d;
+    public static String f9352d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,60 +56,60 @@ public class f0 {
                 return;
             }
         }
-        f9341a = c.a.p0.a.k.f7077a;
-        f9342b = false;
+        f9349a = c.a.p0.a.k.f7085a;
+        f9350b = false;
     }
 
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = f9343c;
+            String str2 = f9351c;
             if (str2 != null) {
                 return str2.equals(str);
             }
             String g2 = g("ro.miui.ui.version.name");
-            f9344d = g2;
+            f9352d = g2;
             if (!TextUtils.isEmpty(g2)) {
-                f9343c = "MIUI";
+                f9351c = "MIUI";
             } else {
                 String g3 = g("ro.build.version.emui");
-                f9344d = g3;
+                f9352d = g3;
                 if (!TextUtils.isEmpty(g3)) {
-                    f9343c = "EMUI";
+                    f9351c = "EMUI";
                 } else {
                     String g4 = g("ro.build.version.opporom");
-                    f9344d = g4;
+                    f9352d = g4;
                     if (!TextUtils.isEmpty(g4)) {
-                        f9343c = "OPPO";
+                        f9351c = "OPPO";
                     } else {
                         String g5 = g("ro.vivo.os.version");
-                        f9344d = g5;
+                        f9352d = g5;
                         if (!TextUtils.isEmpty(g5)) {
-                            f9343c = "VIVO";
+                            f9351c = "VIVO";
                         } else {
                             String g6 = g("ro.smartisan.version");
-                            f9344d = g6;
+                            f9352d = g6;
                             if (!TextUtils.isEmpty(g6)) {
-                                f9343c = "SMARTISAN";
+                                f9351c = "SMARTISAN";
                             } else {
                                 String g7 = g(RomUtils.KEY_VERSION_GIONEE);
-                                f9344d = g7;
+                                f9352d = g7;
                                 if (!TextUtils.isEmpty(g7)) {
-                                    f9343c = "SMARTISAN";
+                                    f9351c = "SMARTISAN";
                                 } else {
                                     String g8 = g(RomUtils.KEY_VERSION_NUBIA);
-                                    f9344d = g8;
+                                    f9352d = g8;
                                     if (!TextUtils.isEmpty(g8)) {
-                                        f9343c = RomUtils.ROM_NUBIA;
+                                        f9351c = RomUtils.ROM_NUBIA;
                                     } else {
                                         String str3 = Build.DISPLAY;
-                                        f9344d = str3;
+                                        f9352d = str3;
                                         if (str3.toUpperCase().contains("FLYME")) {
-                                            f9343c = "FLYME";
+                                            f9351c = "FLYME";
                                         } else {
-                                            f9344d = "unknown";
-                                            f9343c = Build.MANUFACTURER.toUpperCase();
+                                            f9352d = "unknown";
+                                            f9351c = Build.MANUFACTURER.toUpperCase();
                                         }
                                     }
                                 }
@@ -118,7 +118,7 @@ public class f0 {
                     }
                 }
             }
-            return f9343c.equals(str);
+            return f9351c.equals(str);
         }
         return invokeL.booleanValue;
     }
@@ -154,7 +154,7 @@ public class f0 {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f9342b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f9350b : invokeV.booleanValue;
     }
 
     public static int e(Context context) {
@@ -215,11 +215,11 @@ public class f0 {
                         return 0;
                     }
                     i2 = displayCutout.getSafeInsetTop();
-                    if (f9341a) {
+                    if (f9349a) {
                         String str = "刘海屏高度:" + i2;
                     }
                 } catch (Exception unused) {
-                    boolean z = f9341a;
+                    boolean z = f9349a;
                 }
             }
             return i2;
@@ -243,7 +243,7 @@ public class f0 {
                     c.a.p0.t.d.d(bufferedReader);
                     return readLine;
                 } catch (IOException unused) {
-                    if (f9341a) {
+                    if (f9349a) {
                         String str2 = "Unable to read prop " + str;
                     }
                     c.a.p0.t.d.d(bufferedReader);
@@ -297,7 +297,7 @@ public class f0 {
                 Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
                 return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
             } catch (Exception e2) {
-                if (f9341a) {
+                if (f9349a) {
                     e2.printStackTrace();
                     return false;
                 }
@@ -316,7 +316,7 @@ public class f0 {
                 Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
                 return ((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() == 1;
             } catch (Exception e2) {
-                if (f9341a) {
+                if (f9349a) {
                     e2.printStackTrace();
                     return false;
                 }
@@ -341,7 +341,7 @@ public class f0 {
                 Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
                 return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
             } catch (Exception e2) {
-                if (f9341a) {
+                if (f9349a) {
                     e2.printStackTrace();
                     return false;
                 }
@@ -395,13 +395,13 @@ public class f0 {
                 int i8 = iArr[1];
                 int i9 = iArr[1] + height;
                 if (((i9 <= i5 && i9 > i4) || (i8 < i5 && i8 >= i4)) && ((i7 > i2 && i7 <= i3) || ((i6 >= i2 && i7 <= i3) || ((i6 >= i2 && i6 < i3) || (i6 < i2 && i7 > i3))))) {
-                    f9342b = true;
+                    f9350b = true;
                     return true;
                 } else if (((i6 >= i2 && i6 < i3) || (i7 > i2 && i7 <= i3)) && ((i9 > i4 && i9 <= i5) || ((i8 >= i4 && i9 <= i5) || ((i8 >= i4 && i8 < i5) || (i8 < i4 && i9 > i5))))) {
-                    f9342b = true;
+                    f9350b = true;
                     return true;
                 } else if (i6 <= i2 && i7 >= i3 && i8 <= i4 && i9 >= i5) {
-                    f9342b = true;
+                    f9350b = true;
                     return true;
                 }
             }

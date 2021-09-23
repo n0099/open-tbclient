@@ -26,36 +26,36 @@ public class a extends PopupWindow implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f24414e;
+    public TextView f24430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f24415f;
+    public TextView f24431f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f24416g;
+    public TextView f24432g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f24417h;
+    public View f24433h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f24418i;
+    public View f24434i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f24419j;
+    public View f24435j;
     public LinearLayout k;
     public c l;
     public Context m;
 
     /* renamed from: c.a.r0.r0.x.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnTouchListenerC1132a implements View.OnTouchListener {
+    public class View$OnTouchListenerC1130a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24420e;
+        public final /* synthetic */ a f24436e;
 
-        public View$OnTouchListenerC1132a(a aVar) {
+        public View$OnTouchListenerC1130a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,7 +70,7 @@ public class a extends PopupWindow implements View.OnClickListener {
                     return;
                 }
             }
-            this.f24420e = aVar;
+            this.f24436e = aVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -78,10 +78,10 @@ public class a extends PopupWindow implements View.OnClickListener {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                int top = this.f24420e.f24417h.findViewById(R.id.id_pop_layout).getTop();
+                int top = this.f24436e.f24433h.findViewById(R.id.id_pop_layout).getTop();
                 int y = (int) motionEvent.getY();
                 if (motionEvent.getAction() == 1 && y < top) {
-                    this.f24420e.dismiss();
+                    this.f24436e.dismiss();
                 }
                 return true;
             }
@@ -111,26 +111,26 @@ public class a extends PopupWindow implements View.OnClickListener {
         this.m = context;
         e();
         c(TbadkCoreApplication.getInst().getSkinType());
-        this.f24414e.setOnClickListener(this);
-        this.f24415f.setOnClickListener(this);
-        this.f24416g.setOnClickListener(this);
+        this.f24430e.setOnClickListener(this);
+        this.f24431f.setOnClickListener(this);
+        this.f24432g.setOnClickListener(this);
     }
 
     public final void b(Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.emotion_add_popupwindow, (ViewGroup) null);
-            this.f24417h = inflate;
-            this.f24414e = (TextView) inflate.findViewById(R.id.tv_single_bar);
-            this.f24415f = (TextView) this.f24417h.findViewById(R.id.tv_my_emotion);
-            this.f24416g = (TextView) this.f24417h.findViewById(R.id.tv_cancel);
-            this.k = (LinearLayout) this.f24417h.findViewById(R.id.id_pop_layout);
-            this.f24418i = this.f24417h.findViewById(R.id.line1);
-            this.f24419j = this.f24417h.findViewById(R.id.line2);
+            this.f24433h = inflate;
+            this.f24430e = (TextView) inflate.findViewById(R.id.tv_single_bar);
+            this.f24431f = (TextView) this.f24433h.findViewById(R.id.tv_my_emotion);
+            this.f24432g = (TextView) this.f24433h.findViewById(R.id.tv_cancel);
+            this.k = (LinearLayout) this.f24433h.findViewById(R.id.id_pop_layout);
+            this.f24434i = this.f24433h.findViewById(R.id.line1);
+            this.f24435j = this.f24433h.findViewById(R.id.line2);
             if (i2 == 1) {
-                SkinManager.setViewTextColor(this.f24414e, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f24430e, R.color.CAM_X0105);
             } else {
-                SkinManager.setViewTextColor(this.f24414e, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(this.f24430e, R.color.CAM_X0204);
             }
         }
     }
@@ -139,10 +139,10 @@ public class a extends PopupWindow implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             SkinManager.setBackgroundResource(this.k, R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.f24418i, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.f24419j, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.f24415f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f24416g, R.color.CAM_X0107);
+            SkinManager.setBackgroundResource(this.f24434i, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.f24435j, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.f24431f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f24432g, R.color.CAM_X0107);
         }
     }
 
@@ -159,12 +159,12 @@ public class a extends PopupWindow implements View.OnClickListener {
             if (Build.VERSION.SDK_INT >= 22) {
                 setAttachedInDecor(false);
             }
-            setContentView(this.f24417h);
+            setContentView(this.f24433h);
             setWidth(-1);
             setHeight(l.i(this.m));
             setFocusable(true);
             setBackgroundDrawable(new ColorDrawable(getContentView().getResources().getColor(R.color.black_alpha50)));
-            this.f24417h.setOnTouchListener(new View$OnTouchListenerC1132a(this));
+            this.f24433h.setOnTouchListener(new View$OnTouchListenerC1130a(this));
         }
     }
 
@@ -177,9 +177,9 @@ public class a extends PopupWindow implements View.OnClickListener {
             if (cVar == null) {
                 return;
             }
-            if (view == this.f24414e) {
+            if (view == this.f24430e) {
                 cVar.b();
-            } else if (view == this.f24415f) {
+            } else if (view == this.f24431f) {
                 cVar.a();
             }
         }

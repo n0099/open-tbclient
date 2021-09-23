@@ -12,19 +12,19 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f12279a;
+    public final String f12287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f12280b;
+    public final int f12288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f12281c;
+    public final int f12289c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f12282d;
+    public long f12290d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12283e;
+    public int f12291e;
 
     public h(String str, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -41,35 +41,35 @@ public class h {
                 return;
             }
         }
-        this.f12279a = str;
-        this.f12280b = i2;
-        this.f12281c = i3;
+        this.f12287a = str;
+        this.f12288b = i2;
+        this.f12289c = i3;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12279a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12287a : (String) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f12280b != 0 && this.f12281c != 0) {
+            if (this.f12288b != 0 && this.f12289c != 0) {
                 long currentTimeMillis = System.currentTimeMillis();
-                long j2 = this.f12282d;
-                if (j2 != 0 && (currentTimeMillis - j2) / 1000 <= this.f12280b && this.f12283e >= this.f12281c) {
+                long j2 = this.f12290d;
+                if (j2 != 0 && (currentTimeMillis - j2) / 1000 <= this.f12288b && this.f12291e >= this.f12289c) {
                     return true;
                 }
-                long j3 = this.f12282d;
+                long j3 = this.f12290d;
                 if (j3 == 0) {
-                    this.f12282d = currentTimeMillis;
-                } else if ((currentTimeMillis - j3) / 1000 > this.f12280b) {
-                    this.f12282d = currentTimeMillis;
-                    this.f12283e = 0;
+                    this.f12290d = currentTimeMillis;
+                } else if ((currentTimeMillis - j3) / 1000 > this.f12288b) {
+                    this.f12290d = currentTimeMillis;
+                    this.f12291e = 0;
                 }
-                this.f12283e++;
+                this.f12291e++;
             }
             return false;
         }
@@ -80,8 +80,8 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.f12283e;
-            return i2 != 0 && i2 == this.f12281c;
+            int i2 = this.f12291e;
+            return i2 != 0 && i2 == this.f12289c;
         }
         return invokeV.booleanValue;
     }

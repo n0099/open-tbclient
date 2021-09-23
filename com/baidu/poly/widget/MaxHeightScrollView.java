@@ -20,10 +20,10 @@ public class MaxHeightScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f44347e;
+    public float f44409e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f44348f;
+    public float f44410f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaxHeightScrollView(Context context) {
@@ -60,8 +60,8 @@ public class MaxHeightScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j.MaxHeightScrollView);
-            this.f44347e = obtainStyledAttributes.getFloat(j.MaxHeightScrollView_maxHeightRatio, -1.0f);
-            this.f44348f = obtainStyledAttributes.getFloat(j.MaxHeightScrollView_minHeightRatio, -1.0f);
+            this.f44409e = obtainStyledAttributes.getFloat(j.MaxHeightScrollView_maxHeightRatio, -1.0f);
+            this.f44410f = obtainStyledAttributes.getFloat(j.MaxHeightScrollView_minHeightRatio, -1.0f);
             obtainStyledAttributes.recycle();
         }
     }
@@ -70,13 +70,13 @@ public class MaxHeightScrollView extends ScrollView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            if (this.f44347e > 0.0f || this.f44348f > 0.0f) {
+            if (this.f44409e > 0.0f || this.f44410f > 0.0f) {
                 int size = View.MeasureSpec.getSize(i3);
-                float f2 = this.f44347e;
+                float f2 = this.f44409e;
                 if (f2 > 0.0f) {
                     size = (int) Math.min(a(f2), size);
                 }
-                float f3 = this.f44348f;
+                float f3 = this.f44410f;
                 if (f3 > 0.0f) {
                     size = (int) Math.max(a(f3), size);
                 }

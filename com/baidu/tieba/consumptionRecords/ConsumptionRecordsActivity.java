@@ -49,14 +49,14 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        bVar.f47569c = cVar.f13467a;
-        fragmentTabIndicator.setText(cVar.f13468b);
+        bVar.f47671c = cVar.f13463a;
+        fragmentTabIndicator.setText(cVar.f13464b);
         if (!TextUtils.isEmpty(str)) {
             fragmentTabIndicator.setText(str);
         }
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.ds32));
         fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
-        bVar.f47568b = fragmentTabIndicator;
+        bVar.f47670b = fragmentTabIndicator;
         this.mTabHost.addTabSpec(bVar);
     }
 
@@ -92,22 +92,22 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             this.expenditureFragment = sigleRecordsFragment;
             sigleRecordsFragment.setType(1);
             c cVar = new c();
-            cVar.f13467a = this.expenditureFragment;
-            cVar.f13468b = R.string.expenditure_records;
+            cVar.f13463a = this.expenditureFragment;
+            cVar.f13464b = R.string.expenditure_records;
             createAndAddTabSpec(cVar, getTabIndicator(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
             this.incomeFragment = sigleRecordsFragment2;
             sigleRecordsFragment2.setType(2);
             c cVar2 = new c();
-            cVar2.f13467a = this.incomeFragment;
-            cVar2.f13468b = R.string.income_records;
+            cVar2.f13463a = this.incomeFragment;
+            cVar2.f13464b = R.string.income_records;
             createAndAddTabSpec(cVar2, getTabIndicator(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
             this.rechargeFragment = sigleRecordsFragment3;
             sigleRecordsFragment3.setType(3);
             c cVar3 = new c();
-            cVar3.f13467a = this.rechargeFragment;
-            cVar3.f13468b = R.string.recharge_records;
+            cVar3.f13463a = this.rechargeFragment;
+            cVar3.f13464b = R.string.recharge_records;
             createAndAddTabSpec(cVar3, getTabIndicator(getPageContext().getPageActivity()), null);
             this.mTabHost.initViewPager(3);
             this.mTabHost.setCurrentTab(getIndexByType(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));

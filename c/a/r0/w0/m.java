@@ -30,7 +30,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f27040e;
+        public final /* synthetic */ c.a.q0.s.s.a f27060e;
 
         public a(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class m {
                     return;
                 }
             }
-            this.f27040e = aVar;
+            this.f27060e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f27040e.dismiss();
+                this.f27060e.dismiss();
             }
         }
     }
@@ -65,19 +65,19 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f27041e;
+        public final /* synthetic */ c.a.q0.s.s.a f27061e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f27042f;
+        public final /* synthetic */ int f27062f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f27043g;
+        public final /* synthetic */ String f27063g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f27044h;
+        public final /* synthetic */ String f27064h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f27045i;
+        public final /* synthetic */ TbPageContext f27065i;
 
         public b(c.a.q0.s.s.a aVar, int i2, String str, String str2, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -94,20 +94,20 @@ public class m {
                     return;
                 }
             }
-            this.f27041e = aVar;
-            this.f27042f = i2;
-            this.f27043g = str;
-            this.f27044h = str2;
-            this.f27045i = tbPageContext;
+            this.f27061e = aVar;
+            this.f27062f = i2;
+            this.f27063g = str;
+            this.f27064h = str2;
+            this.f27065i = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f27041e.dismiss();
-                if (this.f27042f == 1) {
-                    UrlManager.getInstance().dealOneLink(this.f27045i, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", this.f27043g, this.f27044h)});
+                this.f27061e.dismiss();
+                if (this.f27062f == 1) {
+                    UrlManager.getInstance().dealOneLink(this.f27065i, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", this.f27063g, this.f27064h)});
                 }
             }
         }
@@ -119,7 +119,7 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f27046e;
+        public final /* synthetic */ c.a.q0.s.s.a f27066e;
 
         public c(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -136,14 +136,14 @@ public class m {
                     return;
                 }
             }
-            this.f27046e = aVar;
+            this.f27066e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f27046e.dismiss();
+                this.f27066e.dismiss();
             }
         }
     }

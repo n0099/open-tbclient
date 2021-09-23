@@ -16,7 +16,7 @@ public class b extends SwanAppAlertDialog.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f9997f;
+    public Context f10005f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -36,7 +36,7 @@ public class b extends SwanAppAlertDialog.a {
                 return;
             }
         }
-        this.f9997f = context;
+        this.f10005f = context;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.SwanAppAlertDialog.a
@@ -44,17 +44,17 @@ public class b extends SwanAppAlertDialog.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f46501e = this.f9997f.getResources().getDimensionPixelSize(d.aiapps_action_sheet_list_item);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f46501e);
+            this.f46603e = this.f10005f.getResources().getDimensionPixelSize(d.aiapps_action_sheet_list_item);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f46603e);
             layoutParams.addRule(12);
-            this.f46497a.t.setLayoutParams(layoutParams);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.f9997f.getResources().getDimensionPixelSize(d.aiapps_action_sheet_bottom_divider));
-            layoutParams2.addRule(2, this.f46497a.t.getId());
-            this.f46497a.f46518h.setLayoutParams(layoutParams2);
+            this.f46599a.t.setLayoutParams(layoutParams);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.f10005f.getResources().getDimensionPixelSize(d.aiapps_action_sheet_bottom_divider));
+            layoutParams2.addRule(2, this.f46599a.t.getId());
+            this.f46599a.f46620h.setLayoutParams(layoutParams2);
             o(c.aiapps_action_sheet_split_color);
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams3.addRule(2, this.f46497a.f46518h.getId());
-            this.f46497a.u.setLayoutParams(layoutParams3);
+            layoutParams3.addRule(2, this.f46599a.f46620h.getId());
+            this.f46599a.u.setLayoutParams(layoutParams3);
             return super.c();
         }
         return (SwanAppAlertDialog) invokeV.objValue;

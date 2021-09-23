@@ -23,25 +23,25 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PbFragment f19804a;
+    public PbFragment f19819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f19805b;
+    public View.OnClickListener f19820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f19806c;
+    public RelativeLayout f19821c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HeadImageView f19807d;
+    public HeadImageView f19822d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f19808e;
+    public TextView f19823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19809f;
+    public TextView f19824f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f19810g;
+    public ImageView f19825g;
 
     public e(PbFragment pbFragment, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
@@ -58,16 +58,16 @@ public class e {
                 return;
             }
         }
-        this.f19805b = null;
-        this.f19804a = pbFragment;
-        this.f19805b = onClickListener;
+        this.f19820b = null;
+        this.f19819a = pbFragment;
+        this.f19820b = onClickListener;
         b();
     }
 
     public void a(BdTypeListView bdTypeListView, int i2) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, bdTypeListView, i2) == null) || bdTypeListView == null || (relativeLayout = this.f19806c) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, bdTypeListView, i2) == null) || bdTypeListView == null || (relativeLayout = this.f19821c) == null) {
             return;
         }
         bdTypeListView.addHeaderView(relativeLayout, i2);
@@ -75,40 +75,40 @@ public class e {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f19806c == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f19804a.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
-            this.f19806c = relativeLayout;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f19821c == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.f19819a.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
+            this.f19821c = relativeLayout;
             HeadImageView headImageView = (HeadImageView) relativeLayout.findViewById(R.id.iv_pb_video_smart_app_head);
-            this.f19807d = headImageView;
+            this.f19822d = headImageView;
             headImageView.setIsRound(true);
-            this.f19807d.setPlaceHolder(1);
-            this.f19808e = (TextView) this.f19806c.findViewById(R.id.tv_pb_video_smart_app_title);
-            this.f19809f = (TextView) this.f19806c.findViewById(R.id.tv_pb_video_smart_app_abstract);
-            this.f19810g = (ImageView) this.f19806c.findViewById(R.id.iv_pb_video_smart_app_arrow);
-            this.f19806c.setOnClickListener(this.f19805b);
+            this.f19822d.setPlaceHolder(1);
+            this.f19823e = (TextView) this.f19821c.findViewById(R.id.tv_pb_video_smart_app_title);
+            this.f19824f = (TextView) this.f19821c.findViewById(R.id.tv_pb_video_smart_app_abstract);
+            this.f19825g = (ImageView) this.f19821c.findViewById(R.id.iv_pb_video_smart_app_arrow);
+            this.f19821c.setOnClickListener(this.f19820b);
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            RelativeLayout relativeLayout = this.f19806c;
+            RelativeLayout relativeLayout = this.f19821c;
             if (relativeLayout != null) {
                 SkinManager.setBackgroundColor(relativeLayout, R.color.CAM_X0204);
             }
-            HeadImageView headImageView = this.f19807d;
+            HeadImageView headImageView = this.f19822d;
             if (headImageView != null) {
                 headImageView.setSkinType(i2);
             }
-            TextView textView = this.f19808e;
+            TextView textView = this.f19823e;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
             }
-            TextView textView2 = this.f19809f;
+            TextView textView2 = this.f19824f;
             if (textView2 != null) {
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0107);
             }
-            ImageView imageView = this.f19810g;
+            ImageView imageView = this.f19825g;
             if (imageView != null) {
                 SkinManager.setBackgroundResource(imageView, R.drawable.icon_common_arrow16_right_n);
             }
@@ -118,7 +118,7 @@ public class e {
     public void d(BdTypeListView bdTypeListView) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) || bdTypeListView == null || (relativeLayout = this.f19806c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) || bdTypeListView == null || (relativeLayout = this.f19821c) == null) {
             return;
         }
         bdTypeListView.removeHeaderView(relativeLayout);
@@ -132,27 +132,27 @@ public class e {
         }
         if (eVar.O().E2() && eVar.O().e1() != null) {
             SmartApp e1 = eVar.O().e1();
-            this.f19806c.setVisibility(0);
+            this.f19821c.setVisibility(0);
             d(bdTypeListView);
             a(bdTypeListView, 1);
             if (!c.a.e.e.p.k.isEmpty(e1.avatar)) {
-                this.f19807d.startLoad(e1.avatar, 10, false, false);
+                this.f19822d.startLoad(e1.avatar, 10, false, false);
             }
             if (!c.a.e.e.p.k.isEmpty(e1.name)) {
-                charSequence = e1.name + " " + ((Object) this.f19804a.getText(R.string.smart_app_suffix));
+                charSequence = e1.name + " " + ((Object) this.f19819a.getText(R.string.smart_app_suffix));
             } else {
-                charSequence = this.f19804a.getText(R.string.intelligent_smart_app).toString();
+                charSequence = this.f19819a.getText(R.string.intelligent_smart_app).toString();
             }
-            this.f19808e.setText(charSequence);
+            this.f19823e.setText(charSequence);
             if (!c.a.e.e.p.k.isEmpty(e1._abstract)) {
-                this.f19809f.setText(e1._abstract);
+                this.f19824f.setText(e1._abstract);
             } else {
-                this.f19809f.setText(this.f19804a.getText(R.string.smart_app_default_abstract));
+                this.f19824f.setText(this.f19819a.getText(R.string.smart_app_default_abstract));
             }
-            this.f19806c.setTag(e1);
+            this.f19821c.setTag(e1);
             return;
         }
-        this.f19806c.setVisibility(8);
+        this.f19821c.setVisibility(8);
         d(bdTypeListView);
     }
 }

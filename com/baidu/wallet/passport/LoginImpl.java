@@ -81,10 +81,10 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ILoginBackListener f62238a;
+                public final /* synthetic */ ILoginBackListener f62503a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LoginImpl f62239b;
+                public final /* synthetic */ LoginImpl f62504b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -101,8 +101,8 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                             return;
                         }
                     }
-                    this.f62239b = this;
-                    this.f62238a = iLoginBackListener;
+                    this.f62504b = this;
+                    this.f62503a = iLoginBackListener;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +111,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     ILoginBackListener iLoginBackListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener2 = this.f62238a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener2 = this.f62503a) == null) {
                         return;
                     }
                     iLoginBackListener2.onSuccess(0, "");
@@ -123,7 +123,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public void onFailure(WebAuthResult webAuthResult) {
                     ILoginBackListener iLoginBackListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener2 = this.f62238a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener2 = this.f62503a) == null) {
                         return;
                     }
                     iLoginBackListener2.onFail(webAuthResult.getResultCode(), webAuthResult.getResultMsg());
@@ -154,10 +154,14 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
     }
 
     @Override // com.baidu.wallet.api.IWalletLoginListener
+    @Deprecated
     public String getLoginToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PassLoginUtil.getInstance().getLoginToken() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletLoginListener

@@ -271,7 +271,7 @@ public final class m {
         InputStream inputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            Bitmap bitmap = com.baidu.ufosdk.b.f59554g;
+            Bitmap bitmap = com.baidu.ufosdk.b.f59685g;
             if (bitmap != null) {
                 return bitmap;
             }

@@ -15,26 +15,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableMap;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>, B> implements Object<B>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableClassToInstanceMap<Object> EMPTY;
     public transient /* synthetic */ FieldHolder $fh;
     public final ImmutableMap<Class<? extends B>, B> delegate;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class b<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ImmutableMap.b<Class<? extends B>, B> f70485a;
+        public final ImmutableMap.b<Class<? extends B>, B> f70804a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
                     return;
                 }
             }
-            this.f70485a = ImmutableMap.builder();
+            this.f70804a = ImmutableMap.builder();
         }
 
         public static <B, T extends B> T b(Class<T> cls, B b2) {
@@ -62,7 +62,7 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ImmutableMap<Class<? extends B>, B> a2 = this.f70485a.a();
+                ImmutableMap<Class<? extends B>, B> a2 = this.f70804a.a();
                 if (a2.isEmpty()) {
                     return ImmutableClassToInstanceMap.of();
                 }
@@ -79,7 +79,7 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
                 for (Map.Entry<? extends Class<? extends T>, ? extends T> entry : map.entrySet()) {
                     Class<? extends T> key = entry.getKey();
-                    this.f70485a.c(key, b(key, entry.getValue()));
+                    this.f70804a.c(key, b(key, entry.getValue()));
                 }
                 return this;
             }

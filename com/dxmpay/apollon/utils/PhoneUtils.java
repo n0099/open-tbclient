@@ -65,27 +65,26 @@ import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String CPU_API_ARMEABI = "armeabi";
     public static final String CPU_API_ARM_V7A = "armeabi-v7a";
     public static final String CPU_API_ARM_V8A = "arm64-v8a";
 
     /* renamed from: a  reason: collision with root package name */
-    public static CPUInfo f69446a;
+    public static CPUInfo f69757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<String> f69447b;
+    public static ArrayList<String> f69758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f69448c;
+    public static final Pattern f69759c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f69449d;
+    public static final Pattern f69760d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f69450e;
+    public static final Pattern f69761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f69451f;
+    public static final Pattern f69762f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -166,16 +165,16 @@ public final class PhoneUtils {
                 return;
             }
         }
-        f69447b = new ArrayList<>();
-        f69448c = Pattern.compile("((\\d|[A-F]){32}).*");
-        f69449d = Pattern.compile("((\\d|[a-f]){32}).*");
-        f69450e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f69451f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
-        f69447b.add("card_no");
-        f69447b.add("valid_date");
-        f69447b.add("cvv2");
-        f69447b.add("identity_code");
-        f69447b.add("phone_number");
+        f69758b = new ArrayList<>();
+        f69759c = Pattern.compile("((\\d|[A-F]){32}).*");
+        f69760d = Pattern.compile("((\\d|[a-f]){32}).*");
+        f69761e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f69762f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f69758b.add("card_no");
+        f69758b.add("valid_date");
+        f69758b.add("cvv2");
+        f69758b.add("identity_code");
+        f69758b.add("phone_number");
     }
 
     public PhoneUtils() {
@@ -210,10 +209,10 @@ public final class PhoneUtils {
             if (deviceID == null) {
                 return null;
             }
-            Matcher matcher = f69448c.matcher(deviceID);
+            Matcher matcher = f69759c.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f69449d.matcher(deviceID);
+                Matcher matcher2 = f69760d.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;
@@ -234,7 +233,7 @@ public final class PhoneUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f69447b.contains(str)) {
+            if (f69758b.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -343,11 +342,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f69450e.matcher(cuid).matches()) {
+            if (f69761e.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f69451f.matcher(cuid).matches()) {
+                if (f69762f.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -390,21 +389,7 @@ public final class PhoneUtils {
     public static String getCpuAbi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23) {
-                return Process.is64Bit() ? "arm64-v8a" : "armeabi-v7a";
-            } else if (i2 >= 21) {
-                String[] strArr = Build.SUPPORTED_ABIS;
-                if (strArr != null && strArr.length > 0) {
-                    return strArr[0];
-                }
-                return Build.CPU_ABI;
-            } else {
-                return Build.CPU_ABI;
-            }
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? (Build.VERSION.SDK_INT < 23 || !Process.is64Bit()) ? "armeabi-v7a" : "arm64-v8a" : (String) invokeV.objValue;
     }
 
     public static String getGPSLocation(Context context) {
@@ -628,7 +613,7 @@ public final class PhoneUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            CPUInfo cPUInfo = f69446a;
+            CPUInfo cPUInfo = f69757a;
             if (cPUInfo != null) {
                 return cPUInfo;
             }
@@ -657,7 +642,7 @@ public final class PhoneUtils {
             } catch (IOException e3) {
                 e3.printStackTrace();
             }
-            f69446a = cPUInfo2;
+            f69757a = cPUInfo2;
             return cPUInfo2;
         }
         return (CPUInfo) invokeV.objValue;
@@ -702,6 +687,7 @@ public final class PhoneUtils {
                 jSONObject.put("wime", "");
                 jSONObject.put("cuid_1", encrypt("phone_number", getCUID(context)));
                 jSONObject.put("cuid_2", encrypt("phone_number", getCUID2(context)));
+                LogUtil.d("NetworkType", "NetworkType:" + NetworkUtils.getNetworkType(context));
                 jSONObject.put("nettype", NetworkUtils.getNetworkType(context));
                 jSONObject.put("wloc", encrypt("phone_number", getGPSLocation(context)));
                 return new String(Base64Utils.encode(jSONObject.toString().getBytes()));

@@ -11,11 +11,11 @@ public interface a {
 
     /* renamed from: c.a.r0.c0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0787a {
+    public static class C0785a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0787a() {
+        public C0785a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,7 +44,7 @@ public interface a {
         }
     }
 
-    void a(int i2, C0787a c0787a);
+    void a(int i2, C0785a c0785a);
 
-    void b(int i2, String str, C0787a c0787a);
+    void b(int i2, String str, C0785a c0785a);
 }

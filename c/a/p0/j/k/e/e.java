@@ -30,16 +30,16 @@ public class e extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f11708a;
+        public final /* synthetic */ Context f11716a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.j.n.c f11709b;
+        public final /* synthetic */ c.a.p0.j.n.c f11717b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.j.b f11710c;
+        public final /* synthetic */ c.a.p0.j.b f11718c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ e f11711d;
+        public final /* synthetic */ e f11719d;
 
         public a(e eVar, Context context, c.a.p0.j.n.c cVar, c.a.p0.j.b bVar) {
             Interceptable interceptable = $ic;
@@ -56,10 +56,10 @@ public class e extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
                     return;
                 }
             }
-            this.f11711d = eVar;
-            this.f11708a = context;
-            this.f11709b = cVar;
-            this.f11710c = bVar;
+            this.f11719d = eVar;
+            this.f11716a = context;
+            this.f11717b = cVar;
+            this.f11718c = bVar;
         }
 
         @Override // c.a.p0.j.k.f.d.c
@@ -75,7 +75,7 @@ public class e extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 c.a.p0.a.e0.d.l("map", "location permission success");
-                this.f11711d.e(this.f11708a, this.f11709b, this.f11710c);
+                this.f11719d.e(this.f11716a, this.f11717b, this.f11718c);
             }
         }
     }
@@ -86,10 +86,10 @@ public class e extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.j.n.c f11712a;
+        public final /* synthetic */ c.a.p0.j.n.c f11720a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.j.b f11713b;
+        public final /* synthetic */ c.a.p0.j.b f11721b;
 
         public b(e eVar, c.a.p0.j.n.c cVar, c.a.p0.j.b bVar) {
             Interceptable interceptable = $ic;
@@ -106,8 +106,8 @@ public class e extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
                     return;
                 }
             }
-            this.f11712a = cVar;
-            this.f11713b = bVar;
+            this.f11720a = cVar;
+            this.f11721b = bVar;
         }
 
         @Override // c.a.p0.a.c1.d.d.a
@@ -115,12 +115,12 @@ public class e extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 c.a.p0.a.e0.d.g("map", "get location " + bVar.a().toString());
-                BaiduMap map = this.f11712a.l.getMap();
-                map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bVar.f4951c, bVar.f4950b)));
+                BaiduMap map = this.f11720a.l.getMap();
+                map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bVar.f4959c, bVar.f4958b)));
                 map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
                 map.setMyLocationEnabled(true);
-                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) bVar.f4953e).latitude(bVar.f4951c).longitude(bVar.f4950b).build());
-                this.f11713b.q(true);
+                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) bVar.f4961e).latitude(bVar.f4959c).longitude(bVar.f4958b).build());
+                this.f11721b.q(true);
             }
         }
 
@@ -146,7 +146,7 @@ public class e extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public e() {
@@ -188,15 +188,15 @@ public class e extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, cVar, bVar, eVar)) == null) {
             c.a.p0.a.e0.d.g("map", "MoveToLocationAction start");
-            c.a.p0.a.p.e.d B = c.a.p0.a.g1.f.V().B(cVar.f4658g);
+            c.a.p0.a.p.e.d B = c.a.p0.a.g1.f.V().B(cVar.f4666g);
             if (!(B instanceof c.a.p0.a.p.e.b)) {
                 c.a.p0.a.e0.d.b("map", "WebViewManager is null");
                 return false;
             }
             c.a.p0.j.b c2 = c.a.p0.j.c.b().c((c.a.p0.a.p.e.b) B);
-            c.a.p0.j.n.c d2 = c2.d(cVar.f4657f);
+            c.a.p0.j.n.c d2 = c2.d(cVar.f4665f);
             if (d2 == null) {
-                c.a.p0.a.e0.d.b("map", "can not find map by id " + cVar.f4657f);
+                c.a.p0.a.e0.d.b("map", "can not find map by id " + cVar.f4665f);
                 return false;
             } else if (!d2.k) {
                 c.a.p0.a.e0.d.l("map", "can not move to location because showLocation is not set");

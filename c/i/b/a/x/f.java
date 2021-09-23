@@ -19,13 +19,13 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f34028a;
+    public static final int[] f34051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f34029b;
+    public static final int[] f34052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f34030c;
+    public static final int[] f34053c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,9 +41,9 @@ public final class f {
                 return;
             }
         }
-        f34028a = new int[]{1, 2, 2, 2, 2, 3, 3, 4, 4, 5, 6, 6, 6, 7, 8, 8};
-        f34029b = new int[]{-1, 8000, 16000, 32000, -1, -1, 11025, 22050, 44100, -1, -1, 12000, 24000, MediaEncodeParams.AUDIO_SAMPLE_RATE, -1, -1};
-        f34030c = new int[]{64, 112, 128, 192, 224, 256, 384, FileUtils.S_IRWXU, 512, 640, 768, 896, 1024, MP3TrackImpl.SAMPLES_PER_FRAME, 1280, PureJavaCrc32C.T8_6_start, 1920, 2048, 2304, QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, 2688, 2816, 2823, 2944, 3072, 3840, 4096, 6144, 7680};
+        f34051a = new int[]{1, 2, 2, 2, 2, 3, 3, 4, 4, 5, 6, 6, 6, 7, 8, 8};
+        f34052b = new int[]{-1, 8000, 16000, 32000, -1, -1, 11025, 22050, 44100, -1, -1, 12000, 24000, MediaEncodeParams.AUDIO_SAMPLE_RATE, -1, -1};
+        f34053c = new int[]{64, 112, 128, 192, 224, 256, 384, FileUtils.S_IRWXU, 512, 640, 768, 896, 1024, MP3TrackImpl.SAMPLES_PER_FRAME, 1280, PureJavaCrc32C.T8_6_start, 1920, 2048, 2304, QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, 2688, 2816, 2823, 2944, 3072, 3840, 4096, 6144, 7680};
     }
 
     public static int a(byte[] bArr) {
@@ -74,10 +74,10 @@ public final class f {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str, str2, drmInitData)) == null) {
             c.i.b.a.i0.k kVar = new c.i.b.a.i0.k(bArr);
             kVar.n(60);
-            int i2 = f34028a[kVar.g(6)];
-            int i3 = f34029b[kVar.g(4)];
+            int i2 = f34051a[kVar.g(6)];
+            int i3 = f34052b[kVar.g(4)];
             int g2 = kVar.g(5);
-            int[] iArr = f34030c;
+            int[] iArr = f34053c;
             int i4 = g2 >= iArr.length ? -1 : (iArr[g2] * 1000) / 2;
             kVar.n(10);
             return Format.createAudioSampleFormat(str, "audio/vnd.dts", null, i4, -1, i2 + (kVar.g(2) > 0 ? 1 : 0), i3, null, drmInitData, 0, str2);

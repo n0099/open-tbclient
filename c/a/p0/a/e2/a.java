@@ -35,26 +35,26 @@ public class a extends c.a.p0.a.a2.f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f5400g;
+    public static final boolean f5408g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.k2.g.g f5401a;
+    public c.a.p0.a.k2.g.g f5409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f5402b;
+    public final String f5410b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f5403c;
+    public final String f5411c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<j> f5404d;
+    public final Set<j> f5412d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, c.a.p0.a.e2.c.j.b> f5405e;
+    public final Map<String, c.a.p0.a.e2.c.j.b> f5413e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.p0.a.v2.d1.c f5406f;
+    public final c.a.p0.a.v2.d1.c f5414f;
 
     /* renamed from: c.a.p0.a.e2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -63,19 +63,19 @@ public class a extends c.a.p0.a.a2.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f5407e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f5415e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5408f;
+        public final /* synthetic */ String f5416f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f5409g;
+        public final /* synthetic */ boolean f5417g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f5410h;
+        public final /* synthetic */ Context f5418h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f5411i;
+        public final /* synthetic */ a f5419i;
 
         /* renamed from: c.a.p0.a.e2.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -84,7 +84,7 @@ public class a extends c.a.p0.a.a2.f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0163a f5412e;
+            public final /* synthetic */ C0163a f5420e;
 
             public C0164a(C0163a c0163a) {
                 Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class a extends c.a.p0.a.a2.f {
                         return;
                     }
                 }
-                this.f5412e = c0163a;
+                this.f5420e = c0163a;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -110,8 +110,8 @@ public class a extends c.a.p0.a.a2.f {
             public void onCallback(c.a.p0.a.e2.c.i<b.e> iVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                    C0163a c0163a = this.f5412e;
-                    c0163a.f5411i.u(c0163a.f5407e, iVar);
+                    C0163a c0163a = this.f5420e;
+                    c0163a.f5419i.u(c0163a.f5415e, iVar);
                 }
             }
         }
@@ -131,11 +131,11 @@ public class a extends c.a.p0.a.a2.f {
                     return;
                 }
             }
-            this.f5411i = aVar;
-            this.f5407e = bVar;
-            this.f5408f = str;
-            this.f5409g = z;
-            this.f5410h = context;
+            this.f5419i = aVar;
+            this.f5415e = bVar;
+            this.f5416f = str;
+            this.f5417g = z;
+            this.f5418h = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -147,34 +147,34 @@ public class a extends c.a.p0.a.a2.f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
                 c.a.p0.a.e2.c.i iVar = new c.a.p0.a.e2.c.i();
-                if (a.f5400g && c.a.p0.a.u1.a.a.m()) {
+                if (a.f5408g && c.a.p0.a.u1.a.a.m()) {
                     iVar.e();
-                    iVar.f5582a = new b.e(true, null);
-                    this.f5411i.u(this.f5407e, iVar);
+                    iVar.f5590a = new b.e(true, null);
+                    this.f5419i.u(this.f5415e, iVar);
                     return;
                 }
                 boolean z = false;
                 boolean z2 = fVar == null;
-                c.a.p0.a.e0.d.h("SwanAppSetting", "isResultNull = " + z2 + "; scope = " + this.f5408f);
-                if (!z2 && !fVar.f5541d) {
-                    if (!this.f5409g ? fVar.f5547j == 0 : fVar.f5547j <= 0) {
+                c.a.p0.a.e0.d.h("SwanAppSetting", "isResultNull = " + z2 + "; scope = " + this.f5416f);
+                if (!z2 && !fVar.f5549d) {
+                    if (!this.f5417g ? fVar.f5555j == 0 : fVar.f5555j <= 0) {
                         z = true;
                     }
                     if (z) {
-                        this.f5411i.c(this.f5410h, this.f5408f, this.f5409g, new C0164a(this));
+                        this.f5419i.c(this.f5418h, this.f5416f, this.f5417g, new C0164a(this));
                         return;
                     }
-                    if (fVar.f5547j > 0) {
+                    if (fVar.f5555j > 0) {
                         iVar.e();
-                        iVar.f5582a = new b.e(true, null);
+                        iVar.f5590a = new b.e(true, null);
                     } else {
                         iVar.d(new OAuthException(10003));
                     }
-                    this.f5411i.u(this.f5407e, iVar);
+                    this.f5419i.u(this.f5415e, iVar);
                     return;
                 }
                 iVar.d(new OAuthException(10005));
-                this.f5411i.u(this.f5407e, iVar);
+                this.f5419i.u(this.f5415e, iVar);
                 c.a.p0.a.e0.d.i("SwanAppSetting", "checkOrAuthorize", new Exception("authorize fail"));
                 k.p(10005, fVar);
             }
@@ -187,10 +187,10 @@ public class a extends c.a.p0.a.a2.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f5413e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f5421e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f5414f;
+        public final /* synthetic */ a f5422f;
 
         public b(a aVar, c.a.p0.a.v2.e1.b bVar) {
             Interceptable interceptable = $ic;
@@ -207,8 +207,8 @@ public class a extends c.a.p0.a.a2.f {
                     return;
                 }
             }
-            this.f5414f = aVar;
-            this.f5413e = bVar;
+            this.f5422f = aVar;
+            this.f5421e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -217,7 +217,7 @@ public class a extends c.a.p0.a.a2.f {
         public void onCallback(c.a.p0.a.e2.c.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                this.f5414f.u(this.f5413e, fVar);
+                this.f5422f.u(this.f5421e, fVar);
             }
         }
     }
@@ -228,10 +228,10 @@ public class a extends c.a.p0.a.a2.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5415e;
+        public final /* synthetic */ String f5423e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f5416f;
+        public final /* synthetic */ a f5424f;
 
         public c(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -248,8 +248,8 @@ public class a extends c.a.p0.a.a2.f {
                     return;
                 }
             }
-            this.f5416f = aVar;
-            this.f5415e = str;
+            this.f5424f = aVar;
+            this.f5423e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -258,7 +258,7 @@ public class a extends c.a.p0.a.a2.f {
         public void onCallback(c.a.p0.a.e2.c.i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f5416f.f5405e.remove(this.f5415e);
+                this.f5424f.f5413e.remove(this.f5423e);
             }
         }
     }
@@ -269,10 +269,10 @@ public class a extends c.a.p0.a.a2.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.e2.c.j.b f5417f;
+        public final /* synthetic */ c.a.p0.a.e2.c.j.b f5425f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5418g;
+        public final /* synthetic */ String f5426g;
 
         /* renamed from: c.a.p0.a.e2.a$d$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -281,7 +281,7 @@ public class a extends c.a.p0.a.a2.f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f5419e;
+            public final /* synthetic */ d f5427e;
 
             public C0165a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -298,7 +298,7 @@ public class a extends c.a.p0.a.a2.f {
                         return;
                     }
                 }
-                this.f5419e = dVar;
+                this.f5427e = dVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -307,7 +307,7 @@ public class a extends c.a.p0.a.a2.f {
             public void onCallback(c.a.p0.a.e2.c.i<b.e> iVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                    this.f5419e.a();
+                    this.f5427e.a();
                 }
             }
         }
@@ -327,18 +327,18 @@ public class a extends c.a.p0.a.a2.f {
                     return;
                 }
             }
-            this.f5417f = bVar;
-            this.f5418g = str;
+            this.f5425f = bVar;
+            this.f5426g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.e2.c.j.b bVar = this.f5417f;
-                bVar.r(c.a.p0.a.j2.f.a(this.f5418g));
+                c.a.p0.a.e2.c.j.b bVar = this.f5425f;
+                bVar.r(c.a.p0.a.j2.f.a(this.f5426g));
                 bVar.p(new C0165a(this));
-                this.f5417f.a();
+                this.f5425f.a();
             }
         }
     }
@@ -349,7 +349,7 @@ public class a extends c.a.p0.a.a2.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Object f5420a;
+        public final /* synthetic */ Object f5428a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(a aVar, Object obj) {
@@ -370,7 +370,7 @@ public class a extends c.a.p0.a.a2.f {
                     return;
                 }
             }
-            this.f5420a = obj;
+            this.f5428a = obj;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -379,7 +379,7 @@ public class a extends c.a.p0.a.a2.f {
         public void a(c.a.p0.a.v2.e1.b<ResulT> bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                bVar.onCallback(this.f5420a);
+                bVar.onCallback(this.f5428a);
             }
         }
     }
@@ -390,10 +390,10 @@ public class a extends c.a.p0.a.a2.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f5421e;
+        public final /* synthetic */ i f5429e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f5422f;
+        public final /* synthetic */ Object f5430f;
 
         public f(a aVar, i iVar, Object obj) {
             Interceptable interceptable = $ic;
@@ -410,15 +410,15 @@ public class a extends c.a.p0.a.a2.f {
                     return;
                 }
             }
-            this.f5421e = iVar;
-            this.f5422f = obj;
+            this.f5429e = iVar;
+            this.f5430f = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5421e.a(this.f5422f);
+                this.f5429e.a(this.f5430f);
             }
         }
     }
@@ -466,19 +466,19 @@ public class a extends c.a.p0.a.a2.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f5423f;
+        public final /* synthetic */ Activity f5431f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.C0384c f5424g;
+        public final /* synthetic */ c.C0384c f5432g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Bundle f5425h;
+        public final /* synthetic */ Bundle f5433h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f5426i;
+        public final /* synthetic */ String f5434i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f5427j;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f5435j;
 
         /* renamed from: c.a.p0.a.e2.a$h$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -487,7 +487,7 @@ public class a extends c.a.p0.a.a2.f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h f5428e;
+            public final /* synthetic */ h f5436e;
 
             public C0166a(h hVar) {
                 Interceptable interceptable = $ic;
@@ -504,7 +504,7 @@ public class a extends c.a.p0.a.a2.f {
                         return;
                     }
                 }
-                this.f5428e = hVar;
+                this.f5436e = hVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -513,7 +513,7 @@ public class a extends c.a.p0.a.a2.f {
             public void onCallback(c.a.p0.a.e2.c.i<f.d> iVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                    this.f5428e.a();
+                    this.f5436e.a();
                 }
             }
         }
@@ -533,20 +533,20 @@ public class a extends c.a.p0.a.a2.f {
                     return;
                 }
             }
-            this.f5423f = activity;
-            this.f5424g = c0384c;
-            this.f5425h = bundle;
-            this.f5426i = str;
-            this.f5427j = bVar;
+            this.f5431f = activity;
+            this.f5432g = c0384c;
+            this.f5433h = bundle;
+            this.f5434i = str;
+            this.f5435j = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.e2.c.j.f b2 = c.a.p0.a.a2.d.g().y().a().b().b(this.f5423f, this.f5424g, this.f5425h);
-                b2.r(this.f5426i);
-                b2.p(this.f5427j);
+                c.a.p0.a.e2.c.j.f b2 = c.a.p0.a.a2.d.g().y().a().b().b(this.f5431f, this.f5432g, this.f5433h);
+                b2.r(this.f5434i);
+                b2.p(this.f5435j);
                 b2.p(new C0166a(this));
                 b2.a();
             }
@@ -599,7 +599,7 @@ public class a extends c.a.p0.a.a2.f {
                 return;
             }
         }
-        f5400g = c.a.p0.a.k.f7077a;
+        f5408g = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -620,11 +620,11 @@ public class a extends c.a.p0.a.a2.f {
                 return;
             }
         }
-        this.f5404d = new HashSet();
-        this.f5405e = new HashMap();
-        this.f5406f = new c.a.p0.a.v2.d1.c();
-        this.f5402b = c.a.p0.a.k2.b.t(eVar);
-        this.f5403c = "aiapp_setting_" + this.f5402b;
+        this.f5412d = new HashSet();
+        this.f5413e = new HashMap();
+        this.f5414f = new c.a.p0.a.v2.d1.c();
+        this.f5410b = c.a.p0.a.k2.b.t(eVar);
+        this.f5411c = "aiapp_setting_" + this.f5410b;
     }
 
     public static void x(Runnable runnable) {
@@ -656,7 +656,7 @@ public class a extends c.a.p0.a.a2.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) {
             synchronized (this) {
-                this.f5404d.add(jVar);
+                this.f5412d.add(jVar);
             }
         }
     }
@@ -664,7 +664,7 @@ public class a extends c.a.p0.a.a2.f {
     public void D(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f5401a.remove(str);
+            this.f5409a.remove(str);
         }
     }
 
@@ -678,7 +678,7 @@ public class a extends c.a.p0.a.a2.f {
                 return false;
             }
             g.b i2 = W.i("navigateTo");
-            i2.n(c.a.p0.a.h0.g.g.f5928g, c.a.p0.a.h0.g.g.f5930i);
+            i2.n(c.a.p0.a.h0.g.g.f5936g, c.a.p0.a.h0.g.g.f5938i);
             i2.k("authority", null).a();
             return true;
         }
@@ -689,7 +689,7 @@ public class a extends c.a.p0.a.a2.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jVar) == null) {
             synchronized (this) {
-                this.f5404d.remove(jVar);
+                this.f5412d.remove(jVar);
             }
         }
     }
@@ -723,11 +723,11 @@ public class a extends c.a.p0.a.a2.f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (f5400g && c.a.p0.a.u1.a.a.m()) {
+            if (f5408g && c.a.p0.a.u1.a.a.m()) {
                 return true;
             }
             c.a.p0.a.e2.c.f k = c.a.p0.a.n1.q.c.a.k(str);
-            return (k == null || k.f5541d || !k.a()) ? false : true;
+            return (k == null || k.f5549d || !k.a()) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -757,8 +757,8 @@ public class a extends c.a.p0.a.a2.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             synchronized (this) {
-                this.f5405e.clear();
-                this.f5406f.c();
+                this.f5413e.clear();
+                this.f5414f.c();
                 k();
             }
         }
@@ -768,7 +768,7 @@ public class a extends c.a.p0.a.a2.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             synchronized (this) {
-                this.f5404d.clear();
+                this.f5412d.clear();
             }
         }
     }
@@ -797,10 +797,10 @@ public class a extends c.a.p0.a.a2.f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.f5401a == null) {
-                this.f5401a = new c.a.p0.a.k2.g.g(this.f5403c, false);
+            if (this.f5409a == null) {
+                this.f5409a = new c.a.p0.a.k2.g.g(this.f5411c, false);
             }
-            return this.f5401a;
+            return this.f5409a;
         }
         return (c.a.p0.a.k2.g.g) invokeV.objValue;
     }
@@ -808,7 +808,7 @@ public class a extends c.a.p0.a.a2.f {
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f5403c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f5411c : (String) invokeV.objValue;
     }
 
     public String q(String str, String str2) {
@@ -820,7 +820,7 @@ public class a extends c.a.p0.a.a2.f {
     public void r(Activity activity, c.C0384c c0384c, Bundle bundle, c.a.p0.a.v2.e1.b<c.a.p0.a.e2.c.i<f.d>> bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048597, this, activity, c0384c, bundle, bVar, str) == null) {
-            this.f5406f.d(new h(this, activity, c0384c, bundle, str, bVar));
+            this.f5414f.d(new h(this, activity, c0384c, bundle, str, bVar));
         }
     }
 
@@ -854,7 +854,7 @@ public class a extends c.a.p0.a.a2.f {
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            t(this.f5404d, new g(this));
+            t(this.f5412d, new g(this));
         }
     }
 
@@ -868,17 +868,17 @@ public class a extends c.a.p0.a.a2.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), bVar}) == null) {
             String str2 = TextUtils.isEmpty(str) ? "" : str;
-            c.a.p0.a.e2.c.j.b bVar2 = this.f5405e.get(str2);
+            c.a.p0.a.e2.c.j.b bVar2 = this.f5413e.get(str2);
             if (bVar2 != null && TaskState.FINISHED != bVar2.f()) {
                 bVar2.p(bVar);
                 return;
             }
             c.a.p0.a.e2.c.j.b d2 = c.a.p0.a.a2.d.g().y().a().b().d(context, z, z2, new String[]{str2}, null, z3);
-            this.f5405e.put(str2, d2);
+            this.f5413e.put(str2, d2);
             d2.p(bVar);
             d2.p(new c(this, str2));
             k.N(c.a.p0.a.j2.f.a(str), "requestModifyScope");
-            this.f5406f.d(new d(this, d2, str));
+            this.f5414f.d(new d(this, d2, str));
         }
     }
 

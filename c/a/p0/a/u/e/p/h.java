@@ -40,10 +40,10 @@ public class h extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f9137e;
+        public final /* synthetic */ JSONObject f9145e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f9138f;
+        public final /* synthetic */ c.a.p0.a.a2.e f9146f;
 
         public a(JSONObject jSONObject, c.a.p0.a.a2.e eVar) {
             Interceptable interceptable = $ic;
@@ -60,16 +60,16 @@ public class h extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9137e = jSONObject;
-            this.f9138f = eVar;
+            this.f9145e = jSONObject;
+            this.f9146f = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean z = c.a.p0.a.u.c.d.f8727c;
-                h.s(this.f9137e, this.f9138f);
+                boolean z = c.a.p0.a.u.c.d.f8735c;
+                h.s(this.f9145e, this.f9146f);
             }
         }
     }
@@ -80,13 +80,13 @@ public class h extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9139e;
+        public final /* synthetic */ String f9147e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f9140f;
+        public final /* synthetic */ HybridUbcFlow f9148f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.p.e.b f9141g;
+        public final /* synthetic */ c.a.p0.a.p.e.b f9149g;
 
         public b(String str, HybridUbcFlow hybridUbcFlow, c.a.p0.a.p.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -103,19 +103,19 @@ public class h extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9139e = str;
-            this.f9140f = hybridUbcFlow;
-            this.f9141g = bVar;
+            this.f9147e = str;
+            this.f9148f = hybridUbcFlow;
+            this.f9149g = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (TextUtils.equals(this.f9139e, "1")) {
-                    this.f9140f.P();
+                if (TextUtils.equals(this.f9147e, "1")) {
+                    this.f9148f.P();
                 } else {
-                    this.f9140f.z(this.f9141g);
+                    this.f9148f.z(this.f9149g);
                 }
             }
         }
@@ -166,7 +166,7 @@ public class h extends c.a.p0.a.u.c.d {
             c.a.p0.a.h0.l.a P = c.a.p0.a.h0.u.g.N().P();
             if (P instanceof c.a.p0.a.h0.l.e) {
                 i2 = ((c.a.p0.a.h0.l.e) P).k();
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     String str2 = "ID_PERFORMANCED_FLOW CodeCache status: " + i2;
                 }
             } else {
@@ -272,12 +272,12 @@ public class h extends c.a.p0.a.u.c.d {
     public static void v(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             if (optJSONArray != null && optJSONArray.length() >= 1) {
                 j.e().c(optJSONArray.optJSONObject(0));
             } else {
-                boolean z2 = c.a.p0.a.u.c.d.f8727c;
+                boolean z2 = c.a.p0.a.u.c.d.f8735c;
             }
         }
     }
@@ -324,7 +324,7 @@ public class h extends c.a.p0.a.u.c.d {
                         c.a.p0.a.i2.a.d().k(jSONObject);
                     }
                 } catch (JSONException e2) {
-                    if (c.a.p0.a.u.c.d.f8727c) {
+                    if (c.a.p0.a.u.c.d.f8735c) {
                         String str = "FlowJarAction-671: " + Log.getStackTraceString(e2);
                     }
                 }
@@ -378,7 +378,7 @@ public class h extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             c.a.p0.a.a2.e i2 = c.a.p0.a.a2.e.i();
             if (i2 == null) {
                 return new c.a.p0.a.u.h.b(1001, "swan app is null");
@@ -386,7 +386,7 @@ public class h extends c.a.p0.a.u.c.d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-UbcFlowJar", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-UbcFlowJar", "parse fail");
                 }
                 return bVar;

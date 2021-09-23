@@ -30,19 +30,19 @@ public class AppPrivacyPolicyActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f75689a;
+    public ImageView f76008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f75690b;
+    public WebView f76009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f75691c;
+    public long f76010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f75692d;
+    public long f76011d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f75693e;
+    public String f76012e;
 
     /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
@@ -50,7 +50,7 @@ public class AppPrivacyPolicyActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AppPrivacyPolicyActivity f75694e;
+        public final /* synthetic */ AppPrivacyPolicyActivity f76013e;
 
         public a(AppPrivacyPolicyActivity appPrivacyPolicyActivity) {
             Interceptable interceptable = $ic;
@@ -67,15 +67,15 @@ public class AppPrivacyPolicyActivity extends Activity {
                     return;
                 }
             }
-            this.f75694e = appPrivacyPolicyActivity;
+            this.f76013e = appPrivacyPolicyActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.p.a.d.b.e.b.c("lp_app_privacy_click_close", this.f75694e.f75692d);
-                this.f75694e.finish();
+                c.p.a.d.b.e.b.c("lp_app_privacy_click_close", this.f76013e.f76011d);
+                this.f76013e.finish();
             }
         }
     }
@@ -86,7 +86,7 @@ public class AppPrivacyPolicyActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AppPrivacyPolicyActivity f75695a;
+        public final /* synthetic */ AppPrivacyPolicyActivity f76014a;
 
         public b(AppPrivacyPolicyActivity appPrivacyPolicyActivity) {
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class AppPrivacyPolicyActivity extends Activity {
                     return;
                 }
             }
-            this.f75695a = appPrivacyPolicyActivity;
+            this.f76014a = appPrivacyPolicyActivity;
         }
 
         public final boolean a(Uri uri) {
@@ -149,10 +149,10 @@ public class AppPrivacyPolicyActivity extends Activity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            this.f75689a = (ImageView) findViewById(R.id.iv_privacy_back);
-            this.f75690b = (WebView) findViewById(R.id.privacy_webview);
-            this.f75689a.setOnClickListener(new a(this));
-            WebSettings settings = this.f75690b.getSettings();
+            this.f76008a = (ImageView) findViewById(R.id.iv_privacy_back);
+            this.f76009b = (WebView) findViewById(R.id.privacy_webview);
+            this.f76008a.setOnClickListener(new a(this));
+            WebSettings settings = this.f76009b.getSettings();
             settings.setDefaultFontSize(16);
             settings.setCacheMode(-1);
             settings.setJavaScriptEnabled(true);
@@ -167,10 +167,10 @@ public class AppPrivacyPolicyActivity extends Activity {
             settings.setDisplayZoomControls(false);
             settings.setSavePassword(false);
             settings.setAllowFileAccess(false);
-            this.f75690b.setWebViewClient(new b(this));
-            a(this.f75690b);
-            this.f75690b.setScrollBarStyle(0);
-            this.f75690b.loadUrl(this.f75693e);
+            this.f76009b.setWebViewClient(new b(this));
+            a(this.f76009b);
+            this.f76009b.setScrollBarStyle(0);
+            this.f76009b.loadUrl(this.f76012e);
         }
     }
 
@@ -178,7 +178,7 @@ public class AppPrivacyPolicyActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.p.a.d.b.e.b.c("lp_app_privacy_click_close", this.f75692d);
+            c.p.a.d.b.e.b.c("lp_app_privacy_click_close", this.f76011d);
             super.onBackPressed();
         }
     }
@@ -210,16 +210,16 @@ public class AppPrivacyPolicyActivity extends Activity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            this.f75691c = getIntent().getLongExtra("app_info_id", 0L);
-            c.C1524c a2 = c.a().a(this.f75691c);
+            this.f76010c = getIntent().getLongExtra("app_info_id", 0L);
+            c.C1523c a2 = c.a().a(this.f76010c);
             if (a2 == null) {
                 return false;
             }
-            this.f75692d = a2.f34600b;
-            String str = a2.f34606h;
-            this.f75693e = str;
+            this.f76011d = a2.f34623b;
+            String str = a2.f34629h;
+            this.f76012e = str;
             if (TextUtils.isEmpty(str)) {
-                this.f75693e = l.v().optString("ad_privacy_backup_url", "https://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html");
+                this.f76012e = l.v().optString("ad_privacy_backup_url", "https://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html");
                 return true;
             }
             return true;

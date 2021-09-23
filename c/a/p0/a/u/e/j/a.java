@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import okhttp3.Response;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
@@ -28,13 +29,13 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f8953a;
+        public final /* synthetic */ String f8961a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8954b;
+        public final /* synthetic */ String f8962b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f8955c;
+        public final /* synthetic */ a f8963c;
 
         public C0406a(a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -51,9 +52,9 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8955c = aVar;
-            this.f8953a = str;
-            this.f8954b = str2;
+            this.f8963c = aVar;
+            this.f8961a = str;
+            this.f8962b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,13 +65,13 @@ public class a extends c.a.p0.a.u.c.d {
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.put("statusCode", String.valueOf(i2));
+                    jSONObject2.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, String.valueOf(i2));
                     jSONObject2.put("data", jSONObject);
                 } catch (JSONException e2) {
                     c.a.p0.a.e0.d.a("CallServiceApi", Log.getStackTraceString(e2));
                 }
-                c.a.p0.a.e0.d.a("CallServiceApi", "Cloud capability '" + this.f8953a + "' request success: data:" + jSONObject2.toString());
-                this.f8955c.d(this.f8954b, new c.a.p0.a.u.h.b(0, jSONObject2));
+                c.a.p0.a.e0.d.a("CallServiceApi", "Cloud capability '" + this.f8961a + "' request success: data:" + jSONObject2.toString());
+                this.f8963c.d(this.f8962b, new c.a.p0.a.u.h.b(0, jSONObject2));
             }
         }
 
@@ -94,9 +95,9 @@ public class a extends c.a.p0.a.u.c.d {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                c.a.p0.a.e0.d.g("CallServiceApi", "Cloud capability request failed: " + this.f8953a + StringUtils.LF + Log.getStackTraceString(exc));
-                a aVar = this.f8955c;
-                String str2 = this.f8954b;
+                c.a.p0.a.e0.d.g("CallServiceApi", "Cloud capability request failed: " + this.f8961a + StringUtils.LF + Log.getStackTraceString(exc));
+                a aVar = this.f8963c;
+                String str2 = this.f8962b;
                 if (TextUtils.isEmpty(exc.getMessage())) {
                     str = "请求失败";
                 } else {

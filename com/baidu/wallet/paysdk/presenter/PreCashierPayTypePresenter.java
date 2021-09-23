@@ -162,7 +162,7 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PreCashierPayTypePresenter f62658a;
+                public final /* synthetic */ PreCashierPayTypePresenter f62956a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -179,16 +179,16 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
                             return;
                         }
                     }
-                    this.f62658a = this;
+                    this.f62956a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
                 public void onChangeFailed(String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.f62658a.mActivity == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.f62956a.mActivity == null) {
                         return;
                     }
-                    GlobalUtils.toast(this.f62658a.mActivity.getApplicationContext(), str2);
+                    GlobalUtils.toast(this.f62956a.mActivity.getApplicationContext(), str2);
                 }
 
                 @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
@@ -201,8 +201,8 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
                         card.account_no = str2;
                         precashierModifyPayTypeDefaultData.card = card;
                         PayController.getInstance().onPreModifiedPayType(precashierModifyPayTypeDefaultData);
-                        if (this.f62658a.mActivity != null) {
-                            this.f62658a.mActivity.finish();
+                        if (this.f62956a.mActivity != null) {
+                            this.f62956a.mActivity.finish();
                         }
                     }
                 }

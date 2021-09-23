@@ -24,7 +24,7 @@ public class r extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.p.e.c f5080e;
+        public final /* synthetic */ c.a.p0.a.p.e.c f5088e;
 
         public a(r rVar, c.a.p0.a.p.e.c cVar) {
             Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class r extends a0 {
                     return;
                 }
             }
-            this.f5080e = cVar;
+            this.f5088e = cVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f5080e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                this.f5088e.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         }
     }

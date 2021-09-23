@@ -16,10 +16,10 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f16941a;
+    public TbPageContext f16951a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.e0.e f16942b;
+    public c.a.r0.e0.e f16952b;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -27,7 +27,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f16943e;
+        public final /* synthetic */ g f16953e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class g {
                     return;
                 }
             }
-            this.f16943e = gVar;
+            this.f16953e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f16943e.f16942b.I();
+                this.f16953e.f16952b.I();
             }
         }
     }
@@ -71,13 +71,13 @@ public class g {
                 return;
             }
         }
-        this.f16941a = tbPageContext;
+        this.f16951a = tbPageContext;
     }
 
     public void b() {
         c.a.r0.e0.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f16942b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f16952b) == null) {
             return;
         }
         eVar.I();
@@ -87,24 +87,24 @@ public class g {
         EditorBar editorBar;
         View launcherForId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) || editorTools == null || (editorBar = editorTools.mEB) == null || this.f16941a == null || (launcherForId = editorBar.getLauncherForId(26)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) || editorTools == null || (editorBar = editorTools.mEB) == null || this.f16951a == null || (launcherForId = editorBar.getLauncherForId(26)) == null) {
             return;
         }
-        if (this.f16942b == null) {
-            c.a.r0.e0.e eVar = new c.a.r0.e0.e(this.f16941a, launcherForId);
-            this.f16942b = eVar;
+        if (this.f16952b == null) {
+            c.a.r0.e0.e eVar = new c.a.r0.e0.e(this.f16951a, launcherForId);
+            this.f16952b = eVar;
             eVar.g0(R.drawable.bg_tip_blue_down);
-            this.f16942b.O(32);
-            this.f16942b.L(2);
-            this.f16942b.M(new a(this));
-            int dimensionPixelSize = this.f16941a.getResources().getDimensionPixelSize(R.dimen.ds10);
-            int dimensionPixelSize2 = this.f16941a.getResources().getDimensionPixelSize(R.dimen.ds24);
-            int dimensionPixelSize3 = this.f16941a.getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f16942b.Z(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
-            this.f16942b.j0(0);
-            this.f16942b.k0(-dimensionPixelSize3);
-            this.f16942b.N(3000);
+            this.f16952b.O(32);
+            this.f16952b.L(2);
+            this.f16952b.M(new a(this));
+            int dimensionPixelSize = this.f16951a.getResources().getDimensionPixelSize(R.dimen.ds10);
+            int dimensionPixelSize2 = this.f16951a.getResources().getDimensionPixelSize(R.dimen.ds24);
+            int dimensionPixelSize3 = this.f16951a.getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f16952b.Z(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
+            this.f16952b.j0(0);
+            this.f16952b.k0(-dimensionPixelSize3);
+            this.f16952b.N(3000);
         }
-        this.f16942b.m0(this.f16941a.getResources().getString(R.string.hot_topic_tip), "key_show_hottopic_tip");
+        this.f16952b.m0(this.f16951a.getResources().getString(R.string.hot_topic_tip), "key_show_hottopic_tip");
     }
 }

@@ -32,34 +32,34 @@ public class a {
     public TbImageView.h I;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f13224a;
+    public float f13241a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f13225b;
+    public float f13242b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13226c;
+    public int f13243c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13227d;
+    public int f13244d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f13228e;
+    public float f13245e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13229f;
+    public boolean f13246f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13230g;
+    public int f13247g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13231h;
+    public int f13248h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13232i;
+    public int f13249i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f13233j;
+    public int f13250j;
     public int k;
     public int l;
     public int m;
@@ -106,16 +106,16 @@ public class a {
                 return;
             }
         }
-        this.f13224a = 0.0f;
-        this.f13225b = 0.0f;
-        this.f13226c = 0;
-        this.f13227d = 0;
-        this.f13228e = 15.0f;
-        this.f13229f = false;
-        this.f13230g = -1;
-        this.f13231h = -1;
-        this.f13232i = -16777216;
-        this.f13233j = 200;
+        this.f13241a = 0.0f;
+        this.f13242b = 0.0f;
+        this.f13243c = 0;
+        this.f13244d = 0;
+        this.f13245e = 15.0f;
+        this.f13246f = false;
+        this.f13247g = -1;
+        this.f13248h = -1;
+        this.f13249i = -16777216;
+        this.f13250j = 200;
         this.k = 200;
         this.l = 0;
         this.m = 0;
@@ -141,15 +141,15 @@ public class a {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f13224a = aVar.f13224a;
-            this.f13225b = aVar.f13225b;
-            this.f13226c = aVar.f13226c;
-            this.f13227d = aVar.f13227d;
-            this.f13228e = aVar.f13228e;
-            this.f13230g = aVar.f13230g;
-            this.f13231h = aVar.f13231h;
-            this.f13232i = aVar.f13232i;
-            this.f13233j = aVar.f13233j;
+            this.f13241a = aVar.f13241a;
+            this.f13242b = aVar.f13242b;
+            this.f13243c = aVar.f13243c;
+            this.f13244d = aVar.f13244d;
+            this.f13245e = aVar.f13245e;
+            this.f13247g = aVar.f13247g;
+            this.f13248h = aVar.f13248h;
+            this.f13249i = aVar.f13249i;
+            this.f13250j = aVar.f13250j;
             this.k = aVar.k;
             this.l = aVar.l;
             this.m = aVar.m;
@@ -163,7 +163,7 @@ public class a {
             this.z = aVar.z;
             this.A = aVar.A;
             this.B = aVar.B;
-            this.C = aVar.f13227d;
+            this.C = aVar.f13244d;
             this.D = aVar.D;
             this.w = aVar.w;
             this.x = aVar.x;
@@ -175,19 +175,19 @@ public class a {
     public void b(TypedArray typedArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typedArray) == null) {
-            this.f13227d = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_segmentMargin, 0);
-            this.f13226c = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textPadding, 0);
-            this.f13224a = typedArray.getFloat(R$styleable.TbRichTextView_tbLineSpacing, 1.12f);
-            this.f13228e = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textSize, (int) this.f13228e);
-            this.f13232i = typedArray.getColor(R$styleable.TbRichTextView_textColor, this.f13232i);
-            this.f13233j = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_maxImageWidth, this.f13233j);
+            this.f13244d = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_segmentMargin, 0);
+            this.f13243c = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textPadding, 0);
+            this.f13241a = typedArray.getFloat(R$styleable.TbRichTextView_tbLineSpacing, 1.12f);
+            this.f13245e = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_textSize, (int) this.f13245e);
+            this.f13249i = typedArray.getColor(R$styleable.TbRichTextView_textColor, this.f13249i);
+            this.f13250j = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_maxImageWidth, this.f13250j);
             this.k = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_maxImageHeight, this.k);
             this.l = typedArray.getResourceId(R$styleable.TbRichTextView_defaultImage, 0);
-            this.f13230g = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceWidth, this.f13230g);
-            this.f13231h = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceHeight, this.f13231h);
+            this.f13247g = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceWidth, this.f13247g);
+            this.f13248h = typedArray.getDimensionPixelSize(R$styleable.TbRichTextView_faceHeight, this.f13248h);
             this.m = typedArray.getResourceId(R$styleable.TbRichTextView_videoImage, 0);
             this.n = typedArray.getBoolean(R$styleable.TbRichTextView_singleLine, false);
-            this.C = this.f13227d;
+            this.C = this.f13244d;
         }
     }
 
@@ -258,8 +258,8 @@ public class a {
     public void i(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            this.f13230g = i2;
-            this.f13231h = i3;
+            this.f13247g = i2;
+            this.f13248h = i3;
         }
     }
 
@@ -294,15 +294,15 @@ public class a {
     public void n(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-            this.f13224a = f2;
+            this.f13241a = f2;
         }
     }
 
     public void o(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f13224a = f3;
-            this.f13225b = f2;
+            this.f13241a = f3;
+            this.f13242b = f2;
         }
     }
 
@@ -316,7 +316,7 @@ public class a {
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f13233j = i2;
+            this.f13250j = i2;
         }
     }
 
@@ -331,7 +331,7 @@ public class a {
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f13227d = i2;
+            this.f13244d = i2;
         }
     }
 
@@ -352,7 +352,7 @@ public class a {
     public void v(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.f13228e = i2;
+            this.f13245e = i2;
         }
     }
 
@@ -392,16 +392,16 @@ public class a {
                 return;
             }
         }
-        this.f13224a = 0.0f;
-        this.f13225b = 0.0f;
-        this.f13226c = 0;
-        this.f13227d = 0;
-        this.f13228e = 15.0f;
-        this.f13229f = false;
-        this.f13230g = -1;
-        this.f13231h = -1;
-        this.f13232i = -16777216;
-        this.f13233j = 200;
+        this.f13241a = 0.0f;
+        this.f13242b = 0.0f;
+        this.f13243c = 0;
+        this.f13244d = 0;
+        this.f13245e = 15.0f;
+        this.f13246f = false;
+        this.f13247g = -1;
+        this.f13248h = -1;
+        this.f13249i = -16777216;
+        this.f13250j = 200;
         this.k = 200;
         this.l = 0;
         this.m = 0;

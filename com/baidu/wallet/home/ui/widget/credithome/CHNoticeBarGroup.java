@@ -23,7 +23,7 @@ public class CHNoticeBarGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f61415a;
+    public List<BaseItemView> f61528a;
     public ViewFlipper flipper;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,14 +44,14 @@ public class CHNoticeBarGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f61415a = new ArrayList();
+        this.f61528a = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61415a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61528a : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -87,7 +87,7 @@ public class CHNoticeBarGroup extends BaseItemLayout {
                     CHNoticeItem cHNoticeItem = new CHNoticeItem(getContext());
                     cHNoticeItem.setData(dataItem, this.mWalletHomeInterface);
                     this.flipper.addView(cHNoticeItem);
-                    this.f61415a.add(cHNoticeItem);
+                    this.f61528a.add(cHNoticeItem);
                 }
             }
             if (this.mConfigData.list.length == 1) {
@@ -119,6 +119,6 @@ public class CHNoticeBarGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f61415a = new ArrayList();
+        this.f61528a = new ArrayList();
     }
 }

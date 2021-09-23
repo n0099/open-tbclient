@@ -91,7 +91,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public void setFromScence(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            getIntent().putExtra(FROM_SCENE, i2);
+            getIntent().putExtra("from_scene", i2);
         }
     }
 
@@ -166,7 +166,7 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("member_type", i2);
         getIntent().putExtra(IntentConfig.CLOSE, z);
         getIntent().putExtra("from", i3);
-        getIntent().putExtra(FROM_SCENE, i4);
+        getIntent().putExtra("from_scene", i4);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

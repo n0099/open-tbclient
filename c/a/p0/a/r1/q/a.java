@@ -26,10 +26,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8474a;
+    public static final boolean f8482a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<Pair<String, Pair<String, String>>> f8475b;
+    public static List<Pair<String, Pair<String, String>>> f8483b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,19 +45,19 @@ public class a {
                 return;
             }
         }
-        boolean z = k.f7077a;
-        f8474a = z;
+        boolean z = k.f7085a;
+        f8482a = z;
         if (z) {
             ArrayList arrayList = new ArrayList();
-            f8475b = arrayList;
+            f8483b = arrayList;
             arrayList.add(new Pair("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            f8475b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            f8475b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            f8475b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            f8475b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            f8475b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            f8475b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            f8475b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
+            f8483b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
+            f8483b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
+            f8483b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
+            f8483b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
+            f8483b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            f8483b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            f8483b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
     }
 
@@ -69,7 +69,7 @@ public class a {
         c.a.p0.a.j2.a c2 = c.a.p0.a.j2.k.c("770");
         for (UbcFlowEvent ubcFlowEvent : list) {
             if (ubcFlowEvent != null) {
-                b.e(c2, ubcFlowEvent.f46174a, ubcFlowEvent.j(), ubcFlowEvent.g());
+                b.e(c2, ubcFlowEvent.f46276a, ubcFlowEvent.j(), ubcFlowEvent.g());
             }
         }
         JSONObject jSONObject = new JSONObject();
@@ -90,13 +90,13 @@ public class a {
         }
         b.f(c2, jSONObject.toString());
         b.c(c2);
-        b(str, list, f8475b);
+        b(str, list, f8483b);
     }
 
     @SuppressLint({"SwanDebugLog", "LogConditional"})
     public static void b(String str, List<UbcFlowEvent> list, List<Pair<String, Pair<String, String>>> list2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, list, list2) == null) || !f8474a || list == null || list2 == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, list, list2) == null) || !f8482a || list == null || list2 == null) {
             return;
         }
         HashMap hashMap = new HashMap();
@@ -113,8 +113,8 @@ public class a {
                 sb.append(StringUtils.LF);
                 sb.append(ubcFlowEvent.g());
                 sb.append(ZeusCrashHandler.NAME_SEPERATOR);
-                sb.append(ubcFlowEvent.f46174a);
-                hashMap.put(ubcFlowEvent.f46174a, Long.valueOf(ubcFlowEvent.g()));
+                sb.append(ubcFlowEvent.f46276a);
+                hashMap.put(ubcFlowEvent.f46276a, Long.valueOf(ubcFlowEvent.g()));
             }
         }
         sb.append(StringUtils.LF);

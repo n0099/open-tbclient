@@ -21,7 +21,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BaijiahaoInfo;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -30,22 +29,22 @@ public class a implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinearLayout f24767e;
+    public final LinearLayout f24783e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final LinearLayout f24768f;
+    public final LinearLayout f24784f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final LinearLayout f24769g;
+    public final LinearLayout f24785g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ColumnLayout f24770h;
+    public final ColumnLayout f24786h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ColumnLayout f24771i;
+    public final ColumnLayout f24787i;
 
     /* renamed from: j  reason: collision with root package name */
-    public InterfaceC1147a f24772j;
+    public InterfaceC1145a f24788j;
     public int k;
     public LinearLayout l;
     public HeadImageView m;
@@ -58,7 +57,7 @@ public class a implements View.OnClickListener {
 
     /* renamed from: c.a.r0.s2.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1147a {
+    public interface InterfaceC1145a {
         void a(View view);
     }
 
@@ -84,14 +83,14 @@ public class a implements View.OnClickListener {
         this.o = (TextView) view.findViewById(R.id.reply_time);
         this.p = (TextView) view.findViewById(R.id.forum_name);
         this.q = (TextView) view.findViewById(R.id.reply_count);
-        this.f24769g = (LinearLayout) view.findViewById(R.id.item_content);
-        this.f24770h = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.f24771i = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.f24767e = (LinearLayout) view.findViewById(R.id.person_thread);
-        this.f24768f = (LinearLayout) view.findViewById(R.id.person_child);
+        this.f24785g = (LinearLayout) view.findViewById(R.id.item_content);
+        this.f24786h = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.f24787i = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.f24783e = (LinearLayout) view.findViewById(R.id.person_thread);
+        this.f24784f = (LinearLayout) view.findViewById(R.id.person_child);
         this.r = (ImageView) view.findViewById(R.id.comment_icon);
         this.k = c.a.e.e.p.l.e(view.getContext(), 42.0f);
-        LinearLayout linearLayout = this.f24769g;
+        LinearLayout linearLayout = this.f24785g;
         if (linearLayout != null) {
             linearLayout.setOnClickListener(this);
         }
@@ -99,8 +98,8 @@ public class a implements View.OnClickListener {
         this.n.setOnClickListener(this);
         this.p.setOnClickListener(this);
         this.q.setOnClickListener(this);
-        this.f24770h.setOnClickListener(this);
-        this.f24771i.setOnClickListener(this);
+        this.f24786h.setOnClickListener(this);
+        this.f24787i.setOnClickListener(this);
         this.q.setText(R.string.reply_me);
     }
 
@@ -110,8 +109,8 @@ public class a implements View.OnClickListener {
             SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundResource(this.f24767e, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.f24768f, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.f24783e, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.f24784f, R.color.CAM_X0201);
             TbadkCoreApplication.getInst().getSkinType();
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
             WebPManager.setPureDrawable(this.r, R.drawable.icon_pure_card_comment22, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
@@ -137,38 +136,37 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void c(InterfaceC1147a interfaceC1147a) {
+    public void c(InterfaceC1145a interfaceC1145a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1147a) == null) {
-            this.f24772j = interfaceC1147a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1145a) == null) {
+            this.f24788j = interfaceC1145a;
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x000d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x009f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x000d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x009c */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00a1 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00a2  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x009e A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x009f  */
     /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r13v0, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r13v1 */
-    /* JADX WARN: Type inference failed for: r13v10, types: [java.lang.CharSequence] */
-    /* JADX WARN: Type inference failed for: r13v11, types: [android.widget.TextView] */
-    /* JADX WARN: Type inference failed for: r13v12, types: [android.widget.TextView] */
-    /* JADX WARN: Type inference failed for: r13v13, types: [android.widget.TextView] */
-    /* JADX WARN: Type inference failed for: r13v2 */
-    /* JADX WARN: Type inference failed for: r13v25 */
-    /* JADX WARN: Type inference failed for: r13v33 */
-    /* JADX WARN: Type inference failed for: r13v34 */
-    /* JADX WARN: Type inference failed for: r13v9 */
-    /* JADX WARN: Type inference failed for: r1v5, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r11v10, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r11v7, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r11v8, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r11v9, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r12v0, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r12v1 */
+    /* JADX WARN: Type inference failed for: r12v12 */
+    /* JADX WARN: Type inference failed for: r12v2 */
+    /* JADX WARN: Type inference failed for: r12v20 */
+    /* JADX WARN: Type inference failed for: r12v21 */
+    /* JADX WARN: Type inference failed for: r12v5 */
+    /* JADX WARN: Type inference failed for: r12v6, types: [java.lang.CharSequence] */
     /* JADX WARN: Type inference failed for: r2v11 */
     /* JADX WARN: Type inference failed for: r2v13 */
     /* JADX WARN: Type inference failed for: r2v14 */
     /* JADX WARN: Type inference failed for: r2v15 */
     /* JADX WARN: Type inference failed for: r2v2 */
     /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v6 */
     /* JADX WARN: Type inference failed for: r2v8 */
     /* JADX WARN: Type inference failed for: r2v9, types: [java.lang.CharSequence] */
@@ -177,7 +175,6 @@ public class a implements View.OnClickListener {
     /* JADX WARN: Type inference failed for: r3v13 */
     /* JADX WARN: Type inference failed for: r3v14 */
     /* JADX WARN: Type inference failed for: r3v4 */
-    /* JADX WARN: Type inference failed for: r3v5 */
     /* JADX WARN: Type inference failed for: r3v6 */
     /* JADX WARN: Type inference failed for: r3v9, types: [java.lang.CharSequence, java.lang.Object] */
     /*
@@ -231,56 +228,54 @@ public class a implements View.OnClickListener {
                         }
                     } catch (Exception unused) {
                         charSequence2 = charSequence7;
+                        charSequence3 = charSequence2;
                         charSequence5 = charSequence6;
                         charSequence4 = z;
                         charSequence7 = charSequence4;
-                        charSequence3 = charSequence2;
                         charSequence6 = charSequence5;
-                        charSequence = charSequence2;
+                        charSequence = charSequence3;
+                        z = charSequence7;
                         z2 = false;
-                        CharSequence charSequence8 = charSequence7;
-                        charSequence7 = charSequence3;
-                        z = charSequence8;
+                        charSequence7 = charSequence2;
                         if (z2) {
                         }
                     }
                 } catch (Exception unused2) {
-                    charSequence3 = null;
-                    charSequence6 = 0;
-                    charSequence = 0;
+                    charSequence2 = null;
+                    charSequence6 = null;
+                    charSequence = null;
+                    z = charSequence7;
                     z2 = false;
-                    CharSequence charSequence82 = charSequence7;
-                    charSequence7 = charSequence3;
-                    z = charSequence82;
+                    charSequence7 = charSequence2;
                     if (z2) {
                     }
                 }
             } catch (Exception unused3) {
-                CharSequence charSequence9 = charSequence7;
-                charSequence7 = z;
-                charSequence3 = charSequence9;
-                charSequence6 = charSequence6;
-                charSequence = charSequence;
+                charSequence2 = charSequence7;
+                charSequence5 = charSequence6;
+                charSequence3 = charSequence;
+                charSequence4 = z;
+                charSequence7 = charSequence4;
+                charSequence6 = charSequence5;
+                charSequence = charSequence3;
+                z = charSequence7;
                 z2 = false;
-                CharSequence charSequence822 = charSequence7;
-                charSequence7 = charSequence3;
-                z = charSequence822;
+                charSequence7 = charSequence2;
                 if (z2) {
                 }
             }
         } catch (Exception unused4) {
-            CharSequence charSequence10 = charSequence7;
-            charSequence2 = charSequence10;
-            charSequence5 = charSequence10;
+            charSequence2 = charSequence7;
+            CharSequence charSequence8 = charSequence2;
+            charSequence3 = charSequence8;
+            charSequence5 = charSequence8;
             charSequence4 = z;
             charSequence7 = charSequence4;
-            charSequence3 = charSequence2;
             charSequence6 = charSequence5;
-            charSequence = charSequence2;
+            charSequence = charSequence3;
+            z = charSequence7;
             z2 = false;
-            CharSequence charSequence8222 = charSequence7;
-            charSequence7 = charSequence3;
-            z = charSequence8222;
+            charSequence7 = charSequence2;
             if (z2) {
             }
         }
@@ -292,18 +287,13 @@ public class a implements View.OnClickListener {
             this.q.setText(charSequence7);
             this.q.setTag(strArr);
             this.p.setOnClickListener(this);
-            BaijiahaoInfo baijiahaoInfo = postInfoList.mBaijiahaoInfo;
-            if (baijiahaoInfo != null && !StringUtils.isNull(baijiahaoInfo.avatar)) {
-                b(postInfoList.mBaijiahaoInfo.avatar);
-            } else {
-                b(str);
-            }
-            LinearLayout linearLayout = this.f24769g;
+            b(str);
+            LinearLayout linearLayout = this.f24785g;
             if (linearLayout != null) {
                 linearLayout.setTag(strArr);
             }
-            this.f24770h.setTag(strArr);
-            this.f24771i.setTag(strArr);
+            this.f24786h.setTag(strArr);
+            this.f24787i.setTag(strArr);
         }
     }
 
@@ -319,9 +309,9 @@ public class a implements View.OnClickListener {
                 }
                 return;
             }
-            InterfaceC1147a interfaceC1147a = this.f24772j;
-            if (interfaceC1147a != null) {
-                interfaceC1147a.a(view);
+            InterfaceC1145a interfaceC1145a = this.f24788j;
+            if (interfaceC1145a != null) {
+                interfaceC1145a.a(view);
             }
         }
     }

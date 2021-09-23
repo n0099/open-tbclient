@@ -24,7 +24,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7471a;
+    public static final boolean f7479a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class e {
                 return;
             }
         }
-        f7471a = k.f7077a;
+        f7479a = k.f7085a;
     }
 
     @Nullable
@@ -61,10 +61,10 @@ public class e {
                 if (cVar.H() && z && list.contains(appId)) {
                     c.a.p0.a.v1.c.a e2 = c.a.p0.a.v1.c.a.e();
                     c.a.p0.a.v1.c.c cVar2 = new c.a.p0.a.v1.c.c(i2);
-                    cVar2.b(cVar.f9264f);
+                    cVar2.b(cVar.f9272f);
                     e2.h(cVar2);
                     hashSet.add(appId);
-                    if (f7471a) {
+                    if (f7479a) {
                         String str = "sent msg(" + i2 + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX;
                     }
                 }
@@ -106,7 +106,7 @@ public class e {
                             if (z) {
                                 if (set.contains(substring)) {
                                 }
-                                if (f7471a) {
+                                if (f7479a) {
                                     String str3 = "clearByDeleteFiles : " + substring;
                                 }
                                 if (aVar == null) {
@@ -117,7 +117,7 @@ public class e {
                             } else {
                                 if (!set.contains(substring)) {
                                 }
-                                if (f7471a) {
+                                if (f7479a) {
                                 }
                                 if (aVar == null) {
                                 }
@@ -172,7 +172,7 @@ public class e {
                                     if (set.contains(substring)) {
                                     }
                                     I = c.a.p0.t.d.I(file2);
-                                    if (f7471a) {
+                                    if (f7479a) {
                                         String str3 = "originFile:" + file2.getAbsolutePath() + ", renameFile:" + I;
                                     }
                                     if (TextUtils.isEmpty(I)) {
@@ -182,7 +182,7 @@ public class e {
                                     if (!set.contains(substring)) {
                                     }
                                     I = c.a.p0.t.d.I(file2);
-                                    if (f7471a) {
+                                    if (f7479a) {
                                     }
                                     if (TextUtils.isEmpty(I)) {
                                     }

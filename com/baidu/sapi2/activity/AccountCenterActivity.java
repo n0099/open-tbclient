@@ -55,6 +55,7 @@ public class AccountCenterActivity extends SlideActiviy {
     public String E;
     public String F;
     public AccountCenterResult G;
+    public AccountCenterCallback mAccountCenterCallback;
     public boolean mIsAccountCenterTitleBar;
 
     static {
@@ -145,7 +146,7 @@ public class AccountCenterActivity extends SlideActiviy {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AccountCenterActivity f44574a;
+                    public final /* synthetic */ AccountCenterActivity f44637a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -162,7 +163,7 @@ public class AccountCenterActivity extends SlideActiviy {
                                 return;
                             }
                         }
-                        this.f44574a = this;
+                        this.f44637a = this;
                     }
 
                     @Override // com.baidu.sapi2.callback.SapiCallback
@@ -185,21 +186,21 @@ public class AccountCenterActivity extends SlideActiviy {
                         AccountCenterActivity accountCenterActivity;
                         SapiWebView sapiWebView;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, getTplStokenResult) == null) || (sapiWebView = (accountCenterActivity = this.f44574a).sapiWebView) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, getTplStokenResult) == null) || (sapiWebView = (accountCenterActivity = this.f44637a).sapiWebView) == null) {
                             return;
                         }
-                        sapiWebView.loadAccountCenter(accountCenterActivity.C, null, this.f44574a.E);
+                        sapiWebView.loadAccountCenter(accountCenterActivity.C, null, this.f44637a.E);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     public void onSuccess(GetTplStokenResult getTplStokenResult) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048580, this, getTplStokenResult) == null) || this.f44574a.sapiWebView == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048580, this, getTplStokenResult) == null) || this.f44637a.sapiWebView == null) {
                             return;
                         }
-                        AccountCenterActivity accountCenterActivity = this.f44574a;
-                        accountCenterActivity.sapiWebView.loadAccountCenter(accountCenterActivity.C, getTplStokenResult.tplStokenMap.get("pp"), this.f44574a.E);
+                        AccountCenterActivity accountCenterActivity = this.f44637a;
+                        accountCenterActivity.sapiWebView.loadAccountCenter(accountCenterActivity.C, getTplStokenResult.tplStokenMap.get("pp"), this.f44637a.E);
                     }
                 }, str, arrayList);
                 return;
@@ -273,6 +274,8 @@ public class AccountCenterActivity extends SlideActiviy {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
+                this.mAccountCenterCallback = CoreViewRouter.getInstance().getAccountCenterCallback();
+                CoreViewRouter.getInstance().releaseAccountCenterCallback();
                 setContentView(f.layout_sapi_sdk_webview_with_title_bar);
                 init();
                 setupViews();
@@ -376,13 +379,12 @@ public class AccountCenterActivity extends SlideActiviy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.setupViews();
-            AccountCenterCallback accountCenterCallback = CoreViewRouter.getInstance().getAccountCenterCallback();
             this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44571a;
+                public final /* synthetic */ AccountCenterActivity f44634a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -399,14 +401,14 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f44571a = this;
+                    this.f44634a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44571a.onClose();
+                        this.f44634a.onClose();
                     }
                 }
             });
@@ -415,7 +417,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44576a;
+                public final /* synthetic */ AccountCenterActivity f44639a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -432,7 +434,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f44576a = this;
+                    this.f44639a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.LeftBtnVisibleCallback
@@ -440,29 +442,26 @@ public class AccountCenterActivity extends SlideActiviy {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                         if (i2 == 0) {
-                            this.f44576a.setBtnVisibility(4, 4, 4);
+                            this.f44639a.setBtnVisibility(4, 4, 4);
                         } else {
-                            this.f44576a.setBtnVisibility(4, 0, 4);
+                            this.f44639a.setBtnVisibility(4, 0, 4);
                         }
                     }
                 }
             });
-            this.sapiWebView.setSwitchAccountCallback(new SapiWebView.SwitchAccountCallback(this, accountCenterCallback) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.3
+            this.sapiWebView.setSwitchAccountCallback(new SapiWebView.SwitchAccountCallback(this) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterCallback f44577a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44578b;
+                public final /* synthetic */ AccountCenterActivity f44640a;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, accountCenterCallback};
+                        Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -472,8 +471,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f44578b = this;
-                    this.f44577a = accountCenterCallback;
+                    this.f44640a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.SwitchAccountCallback
@@ -481,13 +479,13 @@ public class AccountCenterActivity extends SlideActiviy {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, result) == null) {
                         AccountCenterDTO accountCenterDTO = CoreViewRouter.getInstance().getAccountCenterDTO();
-                        if (accountCenterDTO != null && accountCenterDTO.handleLogin && this.f44577a != null) {
+                        if (accountCenterDTO != null && accountCenterDTO.handleLogin && this.f44640a.mAccountCenterCallback != null) {
                             AccountCenterResult accountCenterResult = new AccountCenterResult(this) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.3.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass3 f44579a;
+                                public final /* synthetic */ AnonymousClass3 f44641a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -504,7 +502,7 @@ public class AccountCenterActivity extends SlideActiviy {
                                             return;
                                         }
                                     }
-                                    this.f44579a = this;
+                                    this.f44641a = this;
                                 }
 
                                 @Override // com.baidu.sapi2.result.AccountCenterResult
@@ -512,10 +510,10 @@ public class AccountCenterActivity extends SlideActiviy {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         super.loginSuc();
-                                        this.f44579a.f44578b.D = SapiContext.getInstance().getCurrentAccount().bduss;
-                                        AccountCenterActivity accountCenterActivity = this.f44579a.f44578b;
+                                        this.f44641a.f44640a.D = SapiContext.getInstance().getCurrentAccount().bduss;
+                                        AccountCenterActivity accountCenterActivity = this.f44641a.f44640a;
                                         accountCenterActivity.loadAccountCenter(accountCenterActivity.D);
-                                        this.f44579a.f44578b.loginStatusChange = true;
+                                        this.f44641a.f44640a.loginStatusChange = true;
                                     }
                                 }
                             };
@@ -528,10 +526,10 @@ public class AccountCenterActivity extends SlideActiviy {
                             }
                             accountCenterResult.setResultCode(-10001);
                             accountCenterResult.setResultMsg("请登录");
-                            this.f44577a.onFinish(accountCenterResult);
+                            this.f44640a.mAccountCenterCallback.onFinish(accountCenterResult);
                             return;
                         }
-                        Intent intent = new Intent(this.f44578b, LoginActivity.class);
+                        Intent intent = new Intent(this.f44640a, LoginActivity.class);
                         intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
                         int i2 = result.switchAccountType;
                         if (i2 == 1) {
@@ -548,7 +546,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             }
                             intent.putExtra(LoginActivity.EXTRA_PARAM_ENCRYPTED_UID, result.encryptedUid);
                         }
-                        this.f44578b.startActivityForResult(intent, 1004);
+                        this.f44640a.startActivityForResult(intent, 1004);
                     }
                 }
             });
@@ -557,7 +555,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44580a;
+                public final /* synthetic */ AccountCenterActivity f44642a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -574,16 +572,16 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f44580a = this;
+                    this.f44642a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.CoverWebBdussCallback
                 public void onCoverBduss(String str, SapiWebView.CoverWebBdussResult coverWebBdussResult) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, str, coverWebBdussResult) == null) || TextUtils.isEmpty(str) || str.equals(this.f44580a.D)) {
+                    if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, str, coverWebBdussResult) == null) || TextUtils.isEmpty(str) || str.equals(this.f44642a.D)) {
                         return;
                     }
-                    coverWebBdussResult.setWebBduss(this.f44580a.D);
+                    coverWebBdussResult.setWebBduss(this.f44642a.D);
                 }
             });
             this.sapiWebView.setAccountDestoryCallback(new SapiWebView.AccountDestoryCallback(this) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.5
@@ -591,7 +589,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44581a;
+                public final /* synthetic */ AccountCenterActivity f44643a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -608,7 +606,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f44581a = this;
+                    this.f44643a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.AccountDestoryCallback
@@ -622,55 +620,16 @@ public class AccountCenterActivity extends SlideActiviy {
                         }
                         AccountCenterResult accountCenterResult = new AccountCenterResult();
                         accountCenterResult.isAccountDestory = true;
-                        this.f44581a.a(accountCenterResult);
+                        this.f44643a.a(accountCenterResult);
                     }
                 }
             });
-            this.sapiWebView.setAccountChangeCallback(new SapiWebView.AccountChangeCallback(this, accountCenterCallback) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.6
+            this.sapiWebView.setAccountChangeCallback(new SapiWebView.AccountChangeCallback(this) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterCallback f44582a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44583b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, accountCenterCallback};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f44583b = this;
-                    this.f44582a = accountCenterCallback;
-                }
-
-                @Override // com.baidu.sapi2.SapiWebView.AccountChangeCallback
-                public void onAccountChange() {
-                    AccountCenterCallback accountCenterCallback2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (accountCenterCallback2 = this.f44582a) == null) {
-                        return;
-                    }
-                    accountCenterCallback2.onBdussChange();
-                }
-            });
-            this.sapiWebView.setAccountFreezeCallback(new SapiWebView.AccountFreezeCallback(this) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44584a;
+                public final /* synthetic */ AccountCenterActivity f44644a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -687,7 +646,42 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f44584a = this;
+                    this.f44644a = this;
+                }
+
+                @Override // com.baidu.sapi2.SapiWebView.AccountChangeCallback
+                public void onAccountChange() {
+                    AccountCenterCallback accountCenterCallback;
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (accountCenterCallback = this.f44644a.mAccountCenterCallback) == null) {
+                        return;
+                    }
+                    accountCenterCallback.onBdussChange();
+                }
+            });
+            this.sapiWebView.setAccountFreezeCallback(new SapiWebView.AccountFreezeCallback(this) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ AccountCenterActivity f44645a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f44645a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.AccountFreezeCallback
@@ -701,7 +695,7 @@ public class AccountCenterActivity extends SlideActiviy {
                         }
                         AccountCenterResult accountCenterResult = new AccountCenterResult();
                         accountCenterResult.isAccountFreeze = true;
-                        this.f44584a.a(accountCenterResult);
+                        this.f44645a.a(accountCenterResult);
                     }
                 }
             });
@@ -710,7 +704,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44585a;
+                public final /* synthetic */ AccountCenterActivity f44646a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -727,14 +721,14 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f44585a = this;
+                    this.f44646a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.BdussChangeCallback
                 public void onBdussChange() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44585a.a();
+                        this.f44646a.a();
                     }
                 }
             });
@@ -743,7 +737,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44586a;
+                public final /* synthetic */ AccountCenterActivity f44647a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -760,7 +754,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f44586a = this;
+                    this.f44647a = this;
                 }
 
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -775,8 +769,8 @@ public class AccountCenterActivity extends SlideActiviy {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountType) == null) {
                         super.onSuccess(accountType);
-                        this.f44586a.G.setResultCode(-10002);
-                        AccountCenterActivity accountCenterActivity = this.f44586a;
+                        this.f44647a.G.setResultCode(-10002);
+                        AccountCenterActivity accountCenterActivity = this.f44647a;
                         accountCenterActivity.a(accountCenterActivity.G);
                         SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                     }
@@ -787,7 +781,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44572a;
+                public final /* synthetic */ AccountCenterActivity f44635a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -804,15 +798,15 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f44572a = this;
+                    this.f44635a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
                 public void onSuccess() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f44572a.G.setResultCode(-10002);
-                        AccountCenterActivity accountCenterActivity = this.f44572a;
+                        this.f44635a.G.setResultCode(-10002);
+                        AccountCenterActivity accountCenterActivity = this.f44635a;
                         accountCenterActivity.a(accountCenterActivity.G);
                     }
                 }
@@ -845,7 +839,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44573a;
+                public final /* synthetic */ AccountCenterActivity f44636a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -862,16 +856,16 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f44573a = this;
+                    this.f44636a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.JumpToUriCallBack
                 public void onJumpTo(String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || CoreViewRouter.getInstance().getAccountCenterCallback() == null || TextUtils.isEmpty(str)) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || this.f44636a.mAccountCenterCallback == null || TextUtils.isEmpty(str)) {
                         return;
                     }
-                    CoreViewRouter.getInstance().getAccountCenterCallback().onJumpTo(str);
+                    this.f44636a.mAccountCenterCallback.onJumpTo(str);
                 }
             });
         }
@@ -882,11 +876,11 @@ public class AccountCenterActivity extends SlideActiviy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, accountCenterResult) == null) {
             SocialLoginBase.setWXLoginCallback(null);
-            if (CoreViewRouter.getInstance().getAccountCenterCallback() != null) {
+            if (this.mAccountCenterCallback != null) {
                 if (accountCenterResult == null) {
                     accountCenterResult = new AccountCenterResult();
                 }
-                CoreViewRouter.getInstance().getAccountCenterCallback().onFinish(accountCenterResult);
+                this.mAccountCenterCallback.onFinish(accountCenterResult);
             }
             finish();
             CoreViewRouter.getInstance().release();
@@ -902,7 +896,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f44575a;
+                public final /* synthetic */ AccountCenterActivity f44638a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -919,7 +913,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f44575a = this;
+                    this.f44638a = this;
                 }
 
                 @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
@@ -963,11 +957,8 @@ public class AccountCenterActivity extends SlideActiviy {
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onSuccess(Web2NativeLoginResult web2NativeLoginResult) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, web2NativeLoginResult) == null) {
-                        AccountCenterCallback accountCenterCallback = CoreViewRouter.getInstance().getAccountCenterCallback();
-                        if (SapiUtils.isMethodOverWrited(accountCenterCallback, "onBdussChange", AccountCenterCallback.class, new Class[0])) {
-                            accountCenterCallback.onBdussChange();
-                        }
+                    if ((interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, web2NativeLoginResult) == null) && SapiUtils.isMethodOverWrited(this.f44638a.mAccountCenterCallback, "onBdussChange", AccountCenterCallback.class, new Class[0])) {
+                        this.f44638a.mAccountCenterCallback.onBdussChange();
                     }
                 }
             }, true);

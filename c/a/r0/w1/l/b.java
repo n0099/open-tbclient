@@ -22,10 +22,10 @@ public class b implements LiveLocationService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LocationCallback f28075a;
+        public final /* synthetic */ LocationCallback f28095a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f28076b;
+        public final /* synthetic */ b f28096b;
 
         public a(b bVar, LocationCallback locationCallback) {
             Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public class b implements LiveLocationService {
                     return;
                 }
             }
-            this.f28076b = bVar;
-            this.f28075a = locationCallback;
+            this.f28096b = bVar;
+            this.f28095a = locationCallback;
         }
 
         @Override // c.a.e.e.i.a.c
@@ -51,8 +51,8 @@ public class b implements LiveLocationService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, address) == null) {
                 try {
-                    if (this.f28075a != null) {
-                        this.f28075a.onReceiveLocation(this.f28076b.b(address));
+                    if (this.f28095a != null) {
+                        this.f28095a.onReceiveLocation(this.f28096b.b(address));
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();

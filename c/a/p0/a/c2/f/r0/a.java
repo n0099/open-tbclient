@@ -28,16 +28,16 @@ public class a extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5081e;
+        public final /* synthetic */ CallbackHandler f5089e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f5082f;
+        public final /* synthetic */ d f5090f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.p.e.b f5083g;
+        public final /* synthetic */ c.a.p0.a.p.e.b f5091g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f5084h;
+        public final /* synthetic */ a f5092h;
 
         public C0144a(a aVar, CallbackHandler callbackHandler, d dVar, c.a.p0.a.p.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class a extends e {
                     return;
                 }
             }
-            this.f5084h = aVar;
-            this.f5081e = callbackHandler;
-            this.f5082f = dVar;
-            this.f5083g = bVar;
+            this.f5092h = aVar;
+            this.f5089e = callbackHandler;
+            this.f5090f = dVar;
+            this.f5091g = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,19 +67,19 @@ public class a extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
-                    c.a.p0.a.e2.c.d.p(iVar, this.f5081e, this.f5082f.f4660i);
-                    this.f5082f.o = null;
+                    c.a.p0.a.e2.c.d.p(iVar, this.f5089e, this.f5090f.f4668i);
+                    this.f5090f.o = null;
                 } else {
-                    d dVar = this.f5082f;
+                    d dVar = this.f5090f;
                     dVar.q = false;
-                    this.f5084h.m(this.f5081e, (SwanAppSlaveManager) this.f5083g, dVar);
+                    this.f5092h.m(this.f5089e, (SwanAppSlaveManager) this.f5091g, dVar);
                 }
-                if (this.f5083g.x(this.f5082f)) {
-                    this.f5084h.o();
+                if (this.f5091g.x(this.f5090f)) {
+                    this.f5092h.o();
                     return;
                 }
                 c.a.p0.a.e0.d.b("insertWebView", "insert webview widget fail");
-                this.f5081e.handleSchemeDispatchCallback(this.f5082f.f4660i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                this.f5089e.handleSchemeDispatchCallback(this.f5090f.f4668i, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
     }
@@ -110,7 +110,7 @@ public class a extends e {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             d j2 = d.j(unitedSchemeEntity);
@@ -123,7 +123,7 @@ public class a extends e {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else {
-                c.a.p0.a.p.e.b bVar = (c.a.p0.a.p.e.b) c.a.p0.a.g1.f.V().B(j2.f4658g);
+                c.a.p0.a.p.e.b bVar = (c.a.p0.a.p.e.b) c.a.p0.a.g1.f.V().B(j2.f4666g);
                 if (bVar == null) {
                     c.a.p0.a.e0.d.b("insertWebView", "viewManager is null");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

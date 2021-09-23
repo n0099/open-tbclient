@@ -21,7 +21,7 @@ public class b extends c.a.p0.a.l0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f11283a;
+        public final /* synthetic */ b f11291a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class b extends c.a.p0.a.l0.a {
                     return;
                 }
             }
-            this.f11283a = bVar;
+            this.f11291a = bVar;
         }
 
         @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
@@ -46,7 +46,7 @@ public class b extends c.a.p0.a.l0.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c cVar = new c(this.f11283a.getInitBasePath());
+                c cVar = new c(this.f11291a.getInitBasePath());
                 cVar.H0();
                 cVar.v(new c.a.p0.a.l0.k.b(cVar));
                 cVar.G0(new c.a.p0.a.l0.k.c(cVar));
@@ -75,7 +75,7 @@ public class b extends c.a.p0.a.l0.a {
                 return;
             }
         }
-        V8Engine v8Engine = this.f7171e;
+        V8Engine v8Engine = this.f7179e;
         if (v8Engine == null) {
             return;
         }

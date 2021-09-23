@@ -37,7 +37,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7377a;
+    public static final boolean f7385a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -46,13 +46,13 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f7378e;
+        public final /* synthetic */ int f7386e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f7379f;
+        public final /* synthetic */ long f7387f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f7380g;
+        public final /* synthetic */ int f7388g;
 
         public a(int i2, long j2, int i3) {
             Interceptable interceptable = $ic;
@@ -69,9 +69,9 @@ public final class b {
                     return;
                 }
             }
-            this.f7378e = i2;
-            this.f7379f = j2;
-            this.f7380g = i3;
+            this.f7386e = i2;
+            this.f7387f = j2;
+            this.f7388g = i3;
         }
 
         @Override // java.lang.Runnable
@@ -79,9 +79,9 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.b bVar = new c.b(CyberPlayerManager.MEDIA_INFO_DNS_EXCEPTION);
-                bVar.k(String.valueOf(this.f7378e));
-                bVar.l(String.valueOf(this.f7379f));
-                bVar.j(String.valueOf(this.f7380g));
+                bVar.k(String.valueOf(this.f7386e));
+                bVar.l(String.valueOf(this.f7387f));
+                bVar.j(String.valueOf(this.f7388g));
                 bVar.m();
             }
         }
@@ -165,7 +165,7 @@ public final class b {
                 return;
             }
         }
-        f7377a = k.f7077a;
+        f7385a = k.f7085a;
     }
 
     public static void a() {
@@ -187,11 +187,11 @@ public final class b {
         d.h("SwanAppSwanCoreManager", "deleteOldSwanCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(list.toArray()));
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
-                if (f7377a) {
+                if (f7385a) {
                     String str = "deleteOldSwanCores versionFolder: " + file2;
                 }
                 if (!k(file2, list)) {
-                    if (f7377a) {
+                    if (f7385a) {
                         String str2 = "deleteOldSwanCores deleteFolder: " + file2;
                     }
                     c.a.p0.t.d.i(file2);
@@ -232,7 +232,7 @@ public final class b {
                 swanCoreVersion.swanCoreVersionCode = b2;
                 swanCoreVersion.swanCoreVersionName = l0.d(b2);
                 boolean isAvailable = swanCoreVersion.isAvailable();
-                if (f7377a) {
+                if (f7385a) {
                     String str = "DebugSwanCoreMode-debugCoreAvailable:" + isAvailable;
                 }
                 if (isAvailable) {
@@ -242,7 +242,7 @@ public final class b {
             }
             SwanCoreVersion m = c.a.p0.a.m2.e.a.m(i2);
             SwanCoreVersion d2 = c.a.p0.a.m2.f.a.d(i2);
-            if (f7377a) {
+            if (f7385a) {
                 String str2 = "getSwanCoreVersion presetVerName=" + m.swanCoreVersionName + ", presetVerCode=" + m.swanCoreVersionCode + ", remoteVerName=" + d2.swanCoreVersionName + ", remoteVerCode=" + d2.swanCoreVersionCode;
             }
             return (m.swanCoreVersionCode >= d2.swanCoreVersionCode || !d2.isAvailable()) ? m : d2;
@@ -272,10 +272,10 @@ public final class b {
                 return e(i2);
             }
             f b2 = c.a.p0.a.v1.b.d.b(C0297b.class, null);
-            if (f7377a) {
-                String str = "getSwanCoreVersionIPC:" + ProcessUtils.getCurProcessName() + " swan core: " + C0297b.b(b2.f9229a, i2);
+            if (f7385a) {
+                String str = "getSwanCoreVersionIPC:" + ProcessUtils.getCurProcessName() + " swan core: " + C0297b.b(b2.f9237a, i2);
             }
-            return C0297b.b(b2.f9229a, i2);
+            return C0297b.b(b2.f9237a, i2);
         }
         return (SwanCoreVersion) invokeI.objValue;
     }
@@ -297,7 +297,7 @@ public final class b {
                 return swanCoreVersion.swanCoreVersionName;
             }
             String e2 = c.a.p0.a.m2.e.a.k(i2).e();
-            if (f7377a) {
+            if (f7385a) {
                 String str = "getSwanCoreVersionName preset config: " + e2;
             }
             return TextUtils.isEmpty(e2) ? "0" : e2;
@@ -332,7 +332,7 @@ public final class b {
     public static void l(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65548, null, i2, i3) == null) {
-            if (f7377a) {
+            if (f7385a) {
                 String str = "onAppUpgrade oldVersion: " + i2 + " ,newVersion: " + i3;
             }
             if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i2 != i3) {

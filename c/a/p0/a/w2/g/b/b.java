@@ -26,22 +26,22 @@ public class b implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9654e;
+    public String f9662e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9655f;
+    public String f9663f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9656g;
+    public String f9664g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f9657h;
+    public boolean f9665h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int[] f9658i;
+    public int[] f9666i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c f9659j;
+    public c f9667j;
     public long k;
     public RunnableC0452b l;
 
@@ -58,13 +58,13 @@ public class b implements View.OnTouchListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public MotionEvent f9660e;
+        public MotionEvent f9668e;
 
         /* renamed from: f  reason: collision with root package name */
-        public g f9661f;
+        public g f9669f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f9662g;
+        public final /* synthetic */ b f9670g;
 
         public RunnableC0452b(b bVar) {
             Interceptable interceptable = $ic;
@@ -81,14 +81,14 @@ public class b implements View.OnTouchListener {
                     return;
                 }
             }
-            this.f9662g = bVar;
+            this.f9670g = bVar;
         }
 
         public final void b(MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
-                this.f9660e = motionEvent;
-                this.f9661f = this.f9662g.d(motionEvent, "longtap");
+                this.f9668e = motionEvent;
+                this.f9669f = this.f9670g.d(motionEvent, "longtap");
             }
         }
 
@@ -96,7 +96,7 @@ public class b implements View.OnTouchListener {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f9662g.g(this.f9661f);
+                this.f9670g.g(this.f9669f);
             }
         }
 
@@ -111,10 +111,10 @@ public class b implements View.OnTouchListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public double f9663a;
+        public double f9671a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f9664b;
+        public double f9672b;
 
         public c(b bVar, double d2, double d3) {
             Interceptable interceptable = $ic;
@@ -131,8 +131,8 @@ public class b implements View.OnTouchListener {
                     return;
                 }
             }
-            this.f9663a = d2;
-            this.f9664b = d3;
+            this.f9671a = d2;
+            this.f9672b = d3;
         }
 
         public double a(c cVar) {
@@ -142,7 +142,7 @@ public class b implements View.OnTouchListener {
                 if (cVar == null) {
                     return Double.MAX_VALUE;
                 }
-                double pow = Math.pow(cVar.f9663a - this.f9663a, 2.0d) + Math.pow(cVar.f9664b - this.f9664b, 2.0d);
+                double pow = Math.pow(cVar.f9671a - this.f9671a, 2.0d) + Math.pow(cVar.f9672b - this.f9672b, 2.0d);
                 if (pow <= 0.0d) {
                     return 0.0d;
                 }
@@ -165,7 +165,7 @@ public class b implements View.OnTouchListener {
                 return;
             }
         }
-        m = k.f7077a;
+        m = k.f7085a;
     }
 
     public b(String str, String str2, String str3) {
@@ -183,12 +183,12 @@ public class b implements View.OnTouchListener {
                 return;
             }
         }
-        this.f9657h = false;
-        this.f9658i = new int[2];
+        this.f9665h = false;
+        this.f9666i = new int[2];
         this.l = new RunnableC0452b(this, null);
-        this.f9654e = str;
-        this.f9655f = str2;
-        this.f9656g = str3;
+        this.f9662e = str;
+        this.f9663f = str2;
+        this.f9664g = str3;
         h();
         i();
     }
@@ -199,9 +199,9 @@ public class b implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             c.a.p0.a.w2.g.b.a aVar = new c.a.p0.a.w2.g.b.a(motionEvent);
-            aVar.i(this.f9658i);
+            aVar.i(this.f9666i);
             g gVar = new g();
-            gVar.f7814c = c.a.p0.a.w2.g.c.a.b(this.f9654e, this.f9655f, this.f9656g, aVar.e(), aVar.c());
+            gVar.f7822c = c.a.p0.a.w2.g.c.a.b(this.f9662e, this.f9663f, this.f9664g, aVar.e(), aVar.c());
             return gVar;
         }
         return (g) invokeL.objValue;
@@ -213,9 +213,9 @@ public class b implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, str)) == null) {
             c.a.p0.a.w2.g.b.a aVar = new c.a.p0.a.w2.g.b.a(motionEvent, str);
-            aVar.i(this.f9658i);
+            aVar.i(this.f9666i);
             g gVar = new g();
-            gVar.f7814c = c.a.p0.a.w2.g.c.a.b(this.f9654e, this.f9655f, this.f9656g, aVar.e(), aVar.c());
+            gVar.f7822c = c.a.p0.a.w2.g.c.a.b(this.f9662e, this.f9663f, this.f9664g, aVar.e(), aVar.c());
             return gVar;
         }
         return (g) invokeLL.objValue;
@@ -224,10 +224,10 @@ public class b implements View.OnTouchListener {
     public final void e(View view, MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent) == null) {
-            if (view != null && motionEvent != null && !TextUtils.isEmpty(this.f9654e) && !TextUtils.isEmpty(this.f9655f)) {
+            if (view != null && motionEvent != null && !TextUtils.isEmpty(this.f9662e) && !TextUtils.isEmpty(this.f9663f)) {
                 int actionMasked = motionEvent.getActionMasked();
                 if (actionMasked == 0 && motionEvent.getPointerCount() == 1) {
-                    this.f9659j = new c(this, motionEvent.getX(), motionEvent.getY());
+                    this.f9667j = new c(this, motionEvent.getX(), motionEvent.getY());
                     this.k = motionEvent.getEventTime();
                     this.l.b(motionEvent);
                     view.postDelayed(this.l, 350L);
@@ -242,7 +242,7 @@ public class b implements View.OnTouchListener {
                 }
                 return;
             }
-            d.b("SwanAppTouchListener", "params is null, slaveId = " + this.f9654e + " ; viewId = " + this.f9655f);
+            d.b("SwanAppTouchListener", "params is null, slaveId = " + this.f9662e + " ; viewId = " + this.f9663f);
         }
     }
 
@@ -250,7 +250,7 @@ public class b implements View.OnTouchListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
-            c cVar2 = this.f9659j;
+            c cVar2 = this.f9667j;
             return cVar2 != null && cVar2.a(cVar) <= ((double) n0.g(10.0f));
         }
         return invokeL.booleanValue;
@@ -260,10 +260,10 @@ public class b implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) {
             if (m) {
-                String str = "sendEventToWebView = " + gVar.f7814c;
+                String str = "sendEventToWebView = " + gVar.f7822c;
             }
-            if (!this.f9657h) {
-                f.V().m(this.f9654e, gVar);
+            if (!this.f9665h) {
+                f.V().m(this.f9662e, gVar);
             } else {
                 f.V().v(gVar);
             }
@@ -273,17 +273,17 @@ public class b implements View.OnTouchListener {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f9657h = l0.f("1.12.0") && TextUtils.equals("canvas", this.f9656g);
+            this.f9665h = l0.f("1.12.0") && TextUtils.equals("canvas", this.f9664g);
         }
     }
 
     public final void i() {
         AbsoluteLayout m2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (m2 = q0.m(this.f9654e)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (m2 = q0.m(this.f9662e)) == null) {
             return;
         }
-        m2.getLocationOnScreen(this.f9658i);
+        m2.getLocationOnScreen(this.f9666i);
     }
 
     @Override // android.view.View.OnTouchListener

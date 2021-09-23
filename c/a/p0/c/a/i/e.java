@@ -18,35 +18,35 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final a f10334j;
+    public static final a f10342j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f10335a;
+    public byte[] f10343a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f10336b;
+    public byte[] f10344b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte f10337c;
+    public byte f10345c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte f10338d;
+    public byte f10346d;
 
     /* renamed from: e  reason: collision with root package name */
-    public short f10339e;
+    public short f10347e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10340f;
+    public int f10348f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f10341g;
+    public long f10349g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f10342h;
+    public byte[] f10350h;
 
     /* renamed from: i  reason: collision with root package name */
-    public byte[] f10343i;
+    public byte[] f10351i;
 
     /* loaded from: classes.dex */
     public static final class a {
@@ -113,7 +113,7 @@ public final class e {
                 return;
             }
         }
-        f10334j = new a(null);
+        f10342j = new a(null);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -150,45 +150,45 @@ public final class e {
                 return;
             }
         }
-        this.f10335a = bArr;
-        this.f10336b = bArr2;
-        this.f10337c = b2;
-        this.f10338d = b3;
-        this.f10339e = s;
-        this.f10340f = i2;
-        this.f10341g = j2;
-        this.f10342h = bArr3;
-        this.f10343i = bArr4;
+        this.f10343a = bArr;
+        this.f10344b = bArr2;
+        this.f10345c = b2;
+        this.f10346d = b3;
+        this.f10347e = s;
+        this.f10348f = i2;
+        this.f10349g = j2;
+        this.f10350h = bArr3;
+        this.f10351i = bArr4;
     }
 
     public final byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10343i : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10351i : (byte[]) invokeV.objValue;
     }
 
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10340f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10348f : invokeV.intValue;
     }
 
     public final long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10341g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10349g : invokeV.longValue;
     }
 
     public final byte[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10336b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10344b : (byte[]) invokeV.objValue;
     }
 
     public final byte[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f10335a : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f10343a : (byte[]) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -198,7 +198,7 @@ public final class e {
             if (this != obj) {
                 if (obj instanceof e) {
                     e eVar = (e) obj;
-                    return Intrinsics.areEqual(this.f10335a, eVar.f10335a) && Intrinsics.areEqual(this.f10336b, eVar.f10336b) && this.f10337c == eVar.f10337c && this.f10338d == eVar.f10338d && this.f10339e == eVar.f10339e && this.f10340f == eVar.f10340f && this.f10341g == eVar.f10341g && Intrinsics.areEqual(this.f10342h, eVar.f10342h) && Intrinsics.areEqual(this.f10343i, eVar.f10343i);
+                    return Intrinsics.areEqual(this.f10343a, eVar.f10343a) && Intrinsics.areEqual(this.f10344b, eVar.f10344b) && this.f10345c == eVar.f10345c && this.f10346d == eVar.f10346d && this.f10347e == eVar.f10347e && this.f10348f == eVar.f10348f && this.f10349g == eVar.f10349g && Intrinsics.areEqual(this.f10350h, eVar.f10350h) && Intrinsics.areEqual(this.f10351i, eVar.f10351i);
                 }
                 return false;
             }
@@ -210,34 +210,34 @@ public final class e {
     public final byte[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10342h : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10350h : (byte[]) invokeV.objValue;
     }
 
     public final byte g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f10338d : invokeV.byteValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f10346d : invokeV.byteValue;
     }
 
     public final short h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f10339e : invokeV.shortValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f10347e : invokeV.shortValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            byte[] bArr = this.f10335a;
+            byte[] bArr = this.f10343a;
             int hashCode = (bArr != null ? Arrays.hashCode(bArr) : 0) * 31;
-            byte[] bArr2 = this.f10336b;
+            byte[] bArr2 = this.f10344b;
             int hashCode2 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-            long j2 = this.f10341g;
-            int i2 = (((((((((((hashCode + hashCode2) * 31) + this.f10337c) * 31) + this.f10338d) * 31) + this.f10339e) * 31) + this.f10340f) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31;
-            byte[] bArr3 = this.f10342h;
+            long j2 = this.f10349g;
+            int i2 = (((((((((((hashCode + hashCode2) * 31) + this.f10345c) * 31) + this.f10346d) * 31) + this.f10347e) * 31) + this.f10348f) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31;
+            byte[] bArr3 = this.f10350h;
             int hashCode3 = (i2 + (bArr3 != null ? Arrays.hashCode(bArr3) : 0)) * 31;
-            byte[] bArr4 = this.f10343i;
+            byte[] bArr4 = this.f10351i;
             return hashCode3 + (bArr4 != null ? Arrays.hashCode(bArr4) : 0);
         }
         return invokeV.intValue;
@@ -246,69 +246,69 @@ public final class e {
     public final byte i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f10337c : invokeV.byteValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f10345c : invokeV.byteValue;
     }
 
     public final void j(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bArr) == null) {
-            this.f10343i = bArr;
+            this.f10351i = bArr;
         }
     }
 
     public final void k(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f10340f = i2;
+            this.f10348f = i2;
         }
     }
 
     public final void l(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.f10341g = j2;
+            this.f10349g = j2;
         }
     }
 
     public final void m(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bArr) == null) {
-            this.f10336b = bArr;
+            this.f10344b = bArr;
         }
     }
 
     public final void n(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bArr) == null) {
-            this.f10335a = bArr;
+            this.f10343a = bArr;
         }
     }
 
     public final void o(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bArr) == null) {
-            this.f10342h = bArr;
+            this.f10350h = bArr;
         }
     }
 
     public final void p(byte b2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(1048593, this, b2) == null) {
-            this.f10338d = b2;
+            this.f10346d = b2;
         }
     }
 
     public final void q(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Short.valueOf(s)}) == null) {
-            this.f10339e = s;
+            this.f10347e = s;
         }
     }
 
     public final void r(byte b2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(1048595, this, b2) == null) {
-            this.f10337c = b2;
+            this.f10345c = b2;
         }
     }
 
@@ -316,7 +316,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return "RecordParams(protocolVersion=" + Arrays.toString(this.f10335a) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeType=" + ((int) this.f10337c) + ", schemeExtType=" + ((int) this.f10338d) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeLen=" + ((int) this.f10339e) + ", contentLen=" + this.f10340f + StringUtil.ARRAY_ELEMENT_SEPARATOR + "identity=" + this.f10341g + StringUtil.ARRAY_ELEMENT_SEPARATOR + "scheme=" + Arrays.toString(this.f10342h) + ')';
+            return "RecordParams(protocolVersion=" + Arrays.toString(this.f10343a) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeType=" + ((int) this.f10345c) + ", schemeExtType=" + ((int) this.f10346d) + StringUtil.ARRAY_ELEMENT_SEPARATOR + "schemeLen=" + ((int) this.f10347e) + ", contentLen=" + this.f10348f + StringUtil.ARRAY_ELEMENT_SEPARATOR + "identity=" + this.f10349g + StringUtil.ARRAY_ELEMENT_SEPARATOR + "scheme=" + Arrays.toString(this.f10350h) + ')';
         }
         return (String) invokeV.objValue;
     }

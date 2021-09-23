@@ -24,31 +24,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f18472a;
+    public long f18481a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18473b;
+    public String f18482b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18474c;
+    public String f18483c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18475d;
+    public String f18484d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18476e;
+    public b f18485e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f18477f;
+    public List<n> f18486f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18478g;
+    public boolean f18487g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18479h;
+    public boolean f18488h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f18480i;
+    public boolean f18489i;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -63,13 +63,13 @@ public class a {
                 return;
             }
         }
-        this.f18480i = false;
+        this.f18489i = false;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18480i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18489i : invokeV.booleanValue;
     }
 
     public void b(DataRes dataRes) {
@@ -77,41 +77,41 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f18479h = false;
+        this.f18488h = false;
         TopicDetail topicDetail = dataRes.topic_info;
         if (topicDetail != null) {
-            this.f18472a = topicDetail.topic_id.longValue();
+            this.f18481a = topicDetail.topic_id.longValue();
             TopicDetail topicDetail2 = dataRes.topic_info;
-            this.f18473b = topicDetail2.topic_name;
-            this.f18474c = topicDetail2.share_title;
-            this.f18475d = topicDetail2.share_pic;
+            this.f18482b = topicDetail2.topic_name;
+            this.f18483c = topicDetail2.share_title;
+            this.f18484d = topicDetail2.share_pic;
             b bVar = new b();
-            this.f18476e = bVar;
+            this.f18485e = bVar;
             bVar.a(dataRes.topic_info);
             if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
-                this.f18479h = true;
+                this.f18488h = true;
             }
         }
         if (dataRes.pk_module != null) {
-            this.f18480i = true;
-            this.f18479h = true;
-            if (this.f18476e == null) {
-                this.f18476e = new b();
+            this.f18489i = true;
+            this.f18488h = true;
+            if (this.f18485e == null) {
+                this.f18485e = new b();
             }
-            this.f18476e.b(dataRes.pk_module);
+            this.f18485e.b(dataRes.pk_module);
         } else {
-            this.f18480i = false;
+            this.f18489i = false;
         }
         if (dataRes.time_line != null) {
-            this.f18479h = true;
-            if (this.f18476e == null) {
-                this.f18476e = new b();
+            this.f18488h = true;
+            if (this.f18485e == null) {
+                this.f18485e = new b();
             }
-            this.f18476e.c(dataRes.time_line);
+            this.f18485e.c(dataRes.time_line);
         }
-        this.f18477f = new ArrayList();
+        this.f18486f = new ArrayList();
         if (!ListUtils.isEmpty(dataRes.special_topic)) {
-            this.f18479h = true;
+            this.f18488h = true;
             int i2 = 1;
             for (SpecialTopic specialTopic : dataRes.special_topic) {
                 if (specialTopic != null && !ListUtils.isEmpty(specialTopic.thread_list)) {
@@ -120,41 +120,41 @@ public class a {
                         if (threadInfo != null) {
                             d dVar = new d();
                             if (!z) {
-                                dVar.f18494e = true;
-                                dVar.f18497h = specialTopic.title;
+                                dVar.f18503e = true;
+                                dVar.f18506h = specialTopic.title;
                                 z = true;
                             }
-                            dVar.f18495f = i2;
-                            dVar.f18496g = this.f18472a;
+                            dVar.f18504f = i2;
+                            dVar.f18505g = this.f18481a;
                             dVar.g(threadInfo);
-                            this.f18477f.add(dVar);
+                            this.f18486f.add(dVar);
                             i2++;
                         }
                     }
                 }
             }
         }
-        if (this.f18479h) {
+        if (this.f18488h) {
             c.a.r0.g1.k.b.c.c cVar = new c.a.r0.g1.k.b.c.c();
-            cVar.f18547e = R.dimen.tbds78;
-            cVar.f18548f = R.color.CAM_X0201;
-            this.f18477f.add(cVar);
+            cVar.f18556e = R.dimen.tbds78;
+            cVar.f18557f = R.color.CAM_X0201;
+            this.f18486f.add(cVar);
         }
         RelateThread relateThread = dataRes.relate_thread;
         if (relateThread == null || ListUtils.isEmpty(relateThread.thread_list)) {
             return;
         }
         c.a.r0.g1.k.b.c.c cVar2 = new c.a.r0.g1.k.b.c.c();
-        cVar2.f18547e = R.dimen.tbds16;
-        this.f18477f.add(cVar2);
-        this.f18478g = dataRes.relate_thread.has_more.intValue() == 1;
+        cVar2.f18556e = R.dimen.tbds16;
+        this.f18486f.add(cVar2);
+        this.f18487g = dataRes.relate_thread.has_more.intValue() == 1;
         for (TopicThread topicThread : dataRes.relate_thread.thread_list) {
             if (topicThread != null) {
                 c cVar3 = new c();
                 cVar3.g(topicThread);
-                cVar3.f18489g = this.f18472a;
-                cVar3.f18492j = this.f18480i;
-                this.f18477f.add(cVar3);
+                cVar3.f18498g = this.f18481a;
+                cVar3.f18501j = this.f18489i;
+                this.f18486f.add(cVar3);
             }
         }
     }

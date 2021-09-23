@@ -29,7 +29,7 @@ public class o0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o0 f3854e;
+        public final /* synthetic */ o0 f3855e;
 
         public a(o0 o0Var) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class o0 extends h {
                     return;
                 }
             }
-            this.f3854e = o0Var;
+            this.f3855e = o0Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -54,7 +54,7 @@ public class o0 extends h {
             o0 o0Var;
             a.InterfaceC0093a interfaceC0093a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (o0Var = this.f3854e).f3785i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (o0Var = this.f3855e).f3786i) == null) {
                 return;
             }
             interfaceC0093a.a(o0Var.n);
@@ -88,7 +88,7 @@ public class o0 extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.l == null) {
-                LinearLayout linearLayout = new LinearLayout(this.f3782f);
+                LinearLayout linearLayout = new LinearLayout(this.f3783f);
                 this.l = linearLayout;
                 SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
                 this.l.setOrientation(1);
@@ -96,15 +96,15 @@ public class o0 extends h {
             }
             this.l.removeAllViews();
             if (this.m == null) {
-                BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.f3782f);
+                BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.f3783f);
                 this.m = bjhArticleLayout;
                 bjhArticleLayout.setJumpToPbListener(new a(this));
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = this.f3782f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-            layoutParams.leftMargin = this.f3782f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-            layoutParams.rightMargin = this.f3782f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-            layoutParams.bottomMargin = this.f3782f.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
+            layoutParams.topMargin = this.f3783f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = this.f3783f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.rightMargin = this.f3783f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.bottomMargin = this.f3783f.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
             this.l.addView(this.m, layoutParams);
             return this.l;
         }
@@ -154,7 +154,7 @@ public class o0 extends h {
     public void t(a.InterfaceC0093a interfaceC0093a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC0093a) == null) {
-            this.f3785i = interfaceC0093a;
+            this.f3786i = interfaceC0093a;
         }
     }
 }

@@ -15,11 +15,11 @@ public class d implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f22093f;
+    public static final BdUniqueId f22107f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22094e;
+    public String f22108e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class d implements n {
                 return;
             }
         }
-        f22093f = BdUniqueId.gen();
+        f22107f = BdUniqueId.gen();
     }
 
     public d(boolean z, a aVar) {
@@ -52,18 +52,18 @@ public class d implements n {
                 return;
             }
         }
-        String str = aVar.f22089e;
-        String str2 = aVar.f22088d;
-        this.f22094e = aVar.f22085a;
-        String str3 = aVar.f22090f;
-        List<b> list = aVar.f22087c;
-        int i4 = aVar.f22086b;
+        String str = aVar.f22103e;
+        String str2 = aVar.f22102d;
+        this.f22108e = aVar.f22099a;
+        String str3 = aVar.f22104f;
+        List<b> list = aVar.f22101c;
+        int i4 = aVar.f22100b;
     }
 
     @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f22093f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f22107f : (BdUniqueId) invokeV.objValue;
     }
 }

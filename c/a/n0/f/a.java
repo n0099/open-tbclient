@@ -13,10 +13,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f4220a;
+    public b f4227a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f4221b;
+    public Context f4228b;
 
     public a(Context context, Handler handler) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class a {
                 return;
             }
         }
-        this.f4220a = new b(context, handler);
-        this.f4221b = context;
+        this.f4227a = new b(context, handler);
+        this.f4228b = context;
     }
 
     public String a(String str, byte[] bArr) {
@@ -42,7 +42,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
             if (str != null) {
-                return this.f4220a.b(str, bArr, null);
+                return this.f4227a.b(str, bArr, null);
             }
             throw new IllegalArgumentException("postToServerForm request null");
         }

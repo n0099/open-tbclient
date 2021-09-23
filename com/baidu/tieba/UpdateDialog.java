@@ -22,6 +22,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
@@ -57,7 +59,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UpdateDialog f49089e;
+        public final /* synthetic */ UpdateDialog f49198e;
 
         public a(UpdateDialog updateDialog) {
             Interceptable interceptable = $ic;
@@ -74,15 +76,15 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     return;
                 }
             }
-            this.f49089e = updateDialog;
+            this.f49198e = updateDialog;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f49089e.mSupportDialog.dismiss();
-                this.f49089e.finish();
+                this.f49198e.mSupportDialog.dismiss();
+                this.f49198e.finish();
             }
         }
     }
@@ -93,7 +95,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UpdateDialog f49090e;
+        public final /* synthetic */ UpdateDialog f49199e;
 
         /* loaded from: classes6.dex */
         public class a implements Runnable {
@@ -101,7 +103,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f49091e;
+            public final /* synthetic */ b f49200e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -118,14 +120,14 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                         return;
                     }
                 }
-                this.f49091e = bVar;
+                this.f49200e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f49091e.f49090e.mData.forceUpdate()) {
-                    c.a.q0.s.a0.b.e(this.f49091e.f49090e.getPageContext().getPageActivity(), 200);
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f49200e.f49199e.mData.forceUpdate()) {
+                    c.a.q0.s.a0.b.e(this.f49200e.f49199e.getPageContext().getPageActivity(), 200);
                 }
             }
         }
@@ -145,15 +147,15 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     return;
                 }
             }
-            this.f49090e = updateDialog;
+            this.f49199e = updateDialog;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f49090e.mSupportDialog.dismiss();
-                this.f49090e.mHandler.postDelayed(new a(this), 100L);
+                this.f49199e.mSupportDialog.dismiss();
+                this.f49199e.mHandler.postDelayed(new a(this), 100L);
             }
         }
     }
@@ -164,7 +166,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UpdateDialog f49092e;
+        public final /* synthetic */ UpdateDialog f49201e;
 
         public c(UpdateDialog updateDialog) {
             Interceptable interceptable = $ic;
@@ -181,18 +183,18 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     return;
                 }
             }
-            this.f49092e = updateDialog;
+            this.f49201e = updateDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f49092e.mIsDownloading) {
-                    this.f49092e.stopUpdataService();
+                if (this.f49201e.mIsDownloading) {
+                    this.f49201e.stopUpdataService();
                 }
-                this.f49092e.mSupportDialog.dismiss();
-                this.f49092e.finish();
+                this.f49201e.mSupportDialog.dismiss();
+                this.f49201e.finish();
             }
         }
     }
@@ -203,7 +205,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UpdateDialog f49093e;
+        public final /* synthetic */ UpdateDialog f49202e;
 
         public d(UpdateDialog updateDialog) {
             Interceptable interceptable = $ic;
@@ -220,16 +222,16 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     return;
                 }
             }
-            this.f49093e = updateDialog;
+            this.f49202e = updateDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49093e.mSupportDialog.setDownDialogVisible();
-                UpdateDialog updateDialog = this.f49093e;
-                updateDialog.startUpdate(updateDialog.mDownloadTieba, this.f49093e.mDownloadAs, this.f49093e.mDownloadOther);
+                this.f49202e.mSupportDialog.setDownDialogVisible();
+                UpdateDialog updateDialog = this.f49202e;
+                updateDialog.startUpdate(updateDialog.mDownloadTieba, this.f49202e.mDownloadAs, this.f49202e.mDownloadOther);
             }
         }
     }
@@ -240,7 +242,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdateDialog f49094a;
+        public final /* synthetic */ UpdateDialog f49203a;
 
         public e(UpdateDialog updateDialog) {
             Interceptable interceptable = $ic;
@@ -257,23 +259,24 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     return;
                 }
             }
-            this.f49094a = updateDialog;
+            this.f49203a = updateDialog;
         }
 
         @Override // com.baidu.tieba.SupportOtherAppDownloadDialog.f
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f49094a.mIsDownloading = true;
-                UpdateDialog updateDialog = this.f49094a;
-                if (updateDialog.startUpdate(true, false, z && n.d(updateDialog.getPageContext().getPageActivity(), this.f49094a.mCombineDownload))) {
-                    this.f49094a.mSupportDialog.setUpdateButtonEnable(false);
-                    this.f49094a.showToast(R.string.download_begin_tip);
-                    if (this.f49094a.mIsForceUpdate) {
+                TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 1));
+                this.f49203a.mIsDownloading = true;
+                UpdateDialog updateDialog = this.f49203a;
+                if (updateDialog.startUpdate(true, false, z && n.d(updateDialog.getPageContext().getPageActivity(), this.f49203a.mCombineDownload))) {
+                    this.f49203a.mSupportDialog.setUpdateButtonEnable(false);
+                    this.f49203a.showToast(R.string.download_begin_tip);
+                    if (this.f49203a.mIsForceUpdate) {
                         return;
                     }
-                    this.f49094a.mSupportDialog.dismiss();
-                    this.f49094a.finish();
+                    this.f49203a.mSupportDialog.dismiss();
+                    this.f49203a.finish();
                 }
             }
         }
@@ -282,25 +285,25 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                if (this.f49094a.checkMainApkExist()) {
-                    this.f49094a.mSupportDialog.dismiss();
-                    this.f49094a.finish();
+                if (this.f49203a.checkMainApkExist()) {
+                    this.f49203a.mSupportDialog.dismiss();
+                    this.f49203a.finish();
                     return;
                 }
                 boolean z2 = true;
-                if (n.c(this.f49094a.getPageContext().getPageActivity().getPackageManager())) {
-                    n.b(this.f49094a.getPageContext().getPageActivity(), this.f49094a.mData);
-                    UpdateDialog updateDialog = this.f49094a;
-                    updateDialog.startUpdate(false, false, (z && n.d(updateDialog.getPageContext().getPageActivity(), this.f49094a.mCombineDownload)) ? false : false);
+                if (n.c(this.f49203a.getPageContext().getPageActivity().getPackageManager())) {
+                    n.b(this.f49203a.getPageContext().getPageActivity(), this.f49203a.mData);
+                    UpdateDialog updateDialog = this.f49203a;
+                    updateDialog.startUpdate(false, false, (z && n.d(updateDialog.getPageContext().getPageActivity(), this.f49203a.mCombineDownload)) ? false : false);
                 } else {
-                    UpdateDialog updateDialog2 = this.f49094a;
-                    updateDialog2.startUpdate(false, true, z && n.d(updateDialog2.getPageContext().getPageActivity(), this.f49094a.mCombineDownload));
+                    UpdateDialog updateDialog2 = this.f49203a;
+                    updateDialog2.startUpdate(false, true, z && n.d(updateDialog2.getPageContext().getPageActivity(), this.f49203a.mCombineDownload));
                 }
-                if (this.f49094a.mIsForceUpdate) {
+                if (this.f49203a.mIsForceUpdate) {
                     return;
                 }
-                this.f49094a.mSupportDialog.dismiss();
-                this.f49094a.finish();
+                this.f49203a.mSupportDialog.dismiss();
+                this.f49203a.finish();
             }
         }
 
@@ -308,7 +311,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f49094a.stopUpdataService();
+                this.f49203a.stopUpdataService();
             }
         }
 
@@ -316,7 +319,8 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f49094a.finish();
+                TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 2));
+                this.f49203a.finish();
             }
         }
 
@@ -324,8 +328,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f49094a.mSupportDialog.dismiss();
-                this.f49094a.finish();
+                TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 2));
+                this.f49203a.mSupportDialog.dismiss();
+                this.f49203a.finish();
             }
         }
 
@@ -607,6 +612,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             getWindow().setAttributes(attributes);
             initData(bundle);
             regBroadcast();
+            TiebaStatic.log(new StatisticItem("c14383").addParam("obj_locate", 1));
         }
     }
 

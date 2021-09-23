@@ -18,20 +18,20 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f10897e;
+    public static final boolean f10905e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Download f10898a;
+    public Download f10906a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f10899b;
+    public JSONObject f10907b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f10900c;
+    public d f10908c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.g.c.f.b f10901d;
+    public c.a.p0.g.c.f.b f10909d;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -45,10 +45,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f10902e;
+        public String f10910e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f10903f;
+        public String f10911f;
 
         public /* synthetic */ b(String str, String str2, a aVar) {
             this(str, str2);
@@ -58,8 +58,8 @@ public class c {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.g.c.a.n().t(this.f10903f);
-                c.a.p0.g.c.a.n().l(this.f10902e);
+                c.a.p0.g.c.a.n().t(this.f10911f);
+                c.a.p0.g.c.a.n().l(this.f10910e);
                 c.a.p0.g.c.a.n().k();
             }
         }
@@ -79,8 +79,8 @@ public class c {
                     return;
                 }
             }
-            this.f10902e = str;
-            this.f10903f = str2;
+            this.f10910e = str;
+            this.f10911f = str2;
         }
     }
 
@@ -91,13 +91,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Download f10904e;
+        public Download f10912e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONObject f10905f;
+        public JSONObject f10913f;
 
         /* renamed from: g  reason: collision with root package name */
-        public c.a.p0.g.c.f.a f10906g;
+        public c.a.p0.g.c.f.a f10914g;
 
         public /* synthetic */ RunnableC0546c(Download download, JSONObject jSONObject, c.a.p0.g.c.f.a aVar, a aVar2) {
             this(download, jSONObject, aVar);
@@ -107,9 +107,9 @@ public class c {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.g.c.a.n().G(this.f10905f);
-                c.a.p0.g.c.i.c.a(this.f10904e.getKeyByUser(), "installApp", null, null, new c.a.p0.g.c.i.a(this.f10905f));
-                c.a.p0.g.c.a.n().r(AppRuntime.getAppContext(), this.f10904e.getUrl(), this.f10904e.getKeyByUser(), this.f10906g);
+                c.a.p0.g.c.a.n().G(this.f10913f);
+                c.a.p0.g.c.i.c.a(this.f10912e.getKeyByUser(), "installApp", null, null, new c.a.p0.g.c.i.a(this.f10913f));
+                c.a.p0.g.c.a.n().r(AppRuntime.getAppContext(), this.f10912e.getUrl(), this.f10912e.getKeyByUser(), this.f10914g);
             }
         }
 
@@ -128,9 +128,9 @@ public class c {
                     return;
                 }
             }
-            this.f10904e = download;
-            this.f10905f = jSONObject;
-            this.f10906g = aVar;
+            this.f10912e = download;
+            this.f10913f = jSONObject;
+            this.f10914g = aVar;
         }
     }
 
@@ -140,13 +140,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10907a;
+        public String f10915a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10908b;
+        public String f10916b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f10909c;
+        public final /* synthetic */ c f10917c;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -163,14 +163,14 @@ public class c {
                     return;
                 }
             }
-            this.f10909c = cVar;
+            this.f10917c = cVar;
         }
 
         @Override // c.a.p0.g.c.f.a
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f10908b = str;
+                this.f10916b = str;
             }
         }
 
@@ -178,11 +178,11 @@ public class c {
         public void b(c.a.p0.g.c.g.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                if (c.f10897e) {
-                    String str = "onResult mPackageName:" + this.f10907a;
+                if (c.f10905e) {
+                    String str = "onResult mPackageName:" + this.f10915a;
                 }
-                this.f10909c.d(bVar);
-                c.a.p0.g.c.c.b.f10844d.execute(new b(this.f10908b, this.f10907a, null));
+                this.f10917c.d(bVar);
+                c.a.p0.g.c.c.b.f10852d.execute(new b(this.f10916b, this.f10915a, null));
             }
         }
 
@@ -190,7 +190,7 @@ public class c {
         public void setPackageName(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f10907a = str;
+                this.f10915a = str;
             }
         }
     }
@@ -208,7 +208,7 @@ public class c {
                 return;
             }
         }
-        f10897e = k.f7077a;
+        f10905e = k.f7085a;
     }
 
     public c(Download download, JSONObject jSONObject) {
@@ -226,32 +226,32 @@ public class c {
                 return;
             }
         }
-        this.f10898a = download;
-        this.f10899b = jSONObject;
-        this.f10900c = new d(this);
+        this.f10906a = download;
+        this.f10907b = jSONObject;
+        this.f10908c = new d(this);
     }
 
     public void c(c.a.p0.g.c.f.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f10901d = bVar;
-            c.a.p0.g.c.c.b.f10844d.execute(new RunnableC0546c(this.f10898a, this.f10899b, this.f10900c, null));
+            this.f10909d = bVar;
+            c.a.p0.g.c.c.b.f10852d.execute(new RunnableC0546c(this.f10906a, this.f10907b, this.f10908c, null));
         }
     }
 
     public final void d(c.a.p0.g.c.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            c.a.p0.g.c.f.b bVar2 = this.f10901d;
+            c.a.p0.g.c.f.b bVar2 = this.f10909d;
             if (bVar2 != null) {
                 bVar2.b(bVar);
             }
             if (bVar != null && !bVar.d()) {
-                c.a.p0.g.c.i.c.a(this.f10898a.getKeyByUser(), "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(bVar.c()), new c.a.p0.g.c.i.a(this.f10899b));
+                c.a.p0.g.c.i.c.a(this.f10906a.getKeyByUser(), "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(bVar.c()), new c.a.p0.g.c.i.a(this.f10907b));
             }
-            if (this.f10900c != null) {
-                c.a.p0.g.c.a.n().B(this.f10898a.getKeyByUser(), this.f10900c);
-                this.f10900c = null;
+            if (this.f10908c != null) {
+                c.a.p0.g.c.a.n().B(this.f10906a.getKeyByUser(), this.f10908c);
+                this.f10908c = null;
             }
         }
     }

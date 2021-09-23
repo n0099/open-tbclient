@@ -20,7 +20,7 @@ public class a implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f8335e;
+    public static final boolean f8343e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class a implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
                 return;
             }
         }
-        f8335e = k.f7077a;
+        f8343e = k.f7085a;
     }
 
     public a() {
@@ -58,20 +58,20 @@ public class a implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hybridUbcFlow)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (hybridUbcFlow != null && !hybridUbcFlow.f46164f.isEmpty()) {
+            if (hybridUbcFlow != null && !hybridUbcFlow.f46266f.isEmpty()) {
                 jSONObject.put("flowId", hybridUbcFlow.j());
                 JSONArray jSONArray = new JSONArray();
-                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f46164f) {
-                    if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.f46174a)) {
-                        if (f8335e) {
+                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f46266f) {
+                    if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.f46276a)) {
+                        if (f8343e) {
                             String str = "buildJoMsg: event=" + ubcFlowEvent;
                         }
-                        jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.f46174a).put("timestamp", ubcFlowEvent.g()));
+                        jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.f46276a).put("timestamp", ubcFlowEvent.g()));
                     }
                 }
                 jSONObject.put("data", jSONArray);
             }
-            if (f8335e) {
+            if (f8343e) {
                 String str2 = "buildJoMsg: joMsg=" + jSONObject;
             }
             return jSONObject;
@@ -85,15 +85,15 @@ public class a implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
     public void onCallback(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            if (f8335e) {
+            if (f8343e) {
                 String str = "report: flow=" + hybridUbcFlow;
             }
             if (c.a.p0.a.g1.f.V().Z()) {
-                if (f8335e || c.a.p0.a.g1.f.V().O()) {
+                if (f8343e || c.a.p0.a.g1.f.V().O()) {
                     try {
                         j.e().c(a(hybridUbcFlow));
                     } catch (JSONException e2) {
-                        if (f8335e) {
+                        if (f8343e) {
                             e2.printStackTrace();
                         }
                     }

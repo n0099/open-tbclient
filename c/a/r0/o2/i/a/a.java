@@ -22,42 +22,42 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f23275a;
+    public TbPageContext f23291a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.q0.s.s.a f23276b;
+    public c.a.q0.s.s.a f23292b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f23277c;
+    public boolean f23293c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f23278d;
+    public View f23294d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f23279e;
+    public TbImageView f23295e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f23280f;
+    public TextView f23296f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f23281g;
+    public TextView f23297g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f23282h;
+    public TextView f23298h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final View.OnClickListener f23283i;
+    public final View.OnClickListener f23299i;
 
     /* renamed from: c.a.r0.o2.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1082a implements View.OnClickListener {
+    public class View$OnClickListenerC1080a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23284e;
+        public final /* synthetic */ a f23300e;
 
-        public View$OnClickListenerC1082a(a aVar) {
+        public View$OnClickListenerC1080a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,16 +72,16 @@ public class a {
                     return;
                 }
             }
-            this.f23284e = aVar;
+            this.f23300e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23284e.f23276b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23300e.f23292b == null) {
                 return;
             }
-            this.f23284e.f23276b.dismiss();
+            this.f23300e.f23292b.dismiss();
         }
     }
 
@@ -100,28 +100,28 @@ public class a {
                 return;
             }
         }
-        this.f23283i = new View$OnClickListenerC1082a(this);
-        this.f23275a = tbPageContext;
-        this.f23277c = c.a.q0.s.d0.b.j().g("key_person_dynamic_tab_guide_has_shown", false);
+        this.f23299i = new View$OnClickListenerC1080a(this);
+        this.f23291a = tbPageContext;
+        this.f23293c = c.a.q0.s.d0.b.j().g("key_person_dynamic_tab_guide_has_shown", false);
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f23275a.getPageActivity()).inflate(R.layout.person_center_dynamic_tab_guide, (ViewGroup) null);
-            this.f23278d = inflate;
+            View inflate = LayoutInflater.from(this.f23291a.getPageActivity()).inflate(R.layout.person_center_dynamic_tab_guide, (ViewGroup) null);
+            this.f23294d = inflate;
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.id_person_center_dynamic_tab_guide_img);
-            this.f23279e = tbImageView;
+            this.f23295e = tbImageView;
             e(tbImageView);
-            this.f23279e.setAutoChangeStyle(true);
-            this.f23279e.setRadius(l.g(this.f23275a.getPageActivity(), R.dimen.tbds24));
-            this.f23279e.setConrers(3);
-            this.f23279e.setIsBitmapPic(true);
-            this.f23280f = (TextView) this.f23278d.findViewById(R.id.id_person_center_dynamic_tab_guide_tip);
-            this.f23281g = (TextView) this.f23278d.findViewById(R.id.id_person_center_dynamic_tab_guide_title);
-            TextView textView = (TextView) this.f23278d.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
-            this.f23282h = textView;
-            textView.setOnClickListener(this.f23283i);
+            this.f23295e.setAutoChangeStyle(true);
+            this.f23295e.setRadius(l.g(this.f23291a.getPageActivity(), R.dimen.tbds24));
+            this.f23295e.setConrers(3);
+            this.f23295e.setIsBitmapPic(true);
+            this.f23296f = (TextView) this.f23294d.findViewById(R.id.id_person_center_dynamic_tab_guide_tip);
+            this.f23297g = (TextView) this.f23294d.findViewById(R.id.id_person_center_dynamic_tab_guide_title);
+            TextView textView = (TextView) this.f23294d.findViewById(R.id.id_person_center_dynamic_tab_guide_close);
+            this.f23298h = textView;
+            textView.setOnClickListener(this.f23299i);
             d();
         }
     }
@@ -129,16 +129,16 @@ public class a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23277c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23293c : invokeV.booleanValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setImageResource(this.f23279e, R.drawable.pic_person_center_dynamic_guide);
-            SkinManager.setViewTextColor(this.f23280f, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f23281g, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f23282h, R.color.CAM_X0302);
+            SkinManager.setImageResource(this.f23295e, R.drawable.pic_person_center_dynamic_guide);
+            SkinManager.setViewTextColor(this.f23296f, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f23297g, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f23298h, R.color.CAM_X0302);
         }
     }
 
@@ -148,7 +148,7 @@ public class a {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) tbImageView.getLayoutParams();
-        int k = l.k(this.f23275a.getPageActivity()) - (l.g(this.f23275a.getPageActivity(), R.dimen.ds40) * 2);
+        int k = l.k(this.f23291a.getPageActivity()) - (l.g(this.f23291a.getPageActivity(), R.dimen.ds40) * 2);
         layoutParams.width = k;
         layoutParams.height = (k * 214) / 380;
         tbImageView.setLayoutParams(layoutParams);
@@ -156,18 +156,18 @@ public class a {
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f23277c) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f23293c) {
             return;
         }
-        this.f23277c = true;
+        this.f23293c = true;
         c.a.q0.s.d0.b.j().t("key_person_dynamic_tab_guide_has_shown", true);
         b();
-        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f23275a.getPageActivity());
-        this.f23276b = aVar;
+        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f23291a.getPageActivity());
+        this.f23292b = aVar;
         aVar.setContentViewSize(1);
-        this.f23276b.setCancelable(true);
-        this.f23276b.setCanceledOnTouchOutside(false);
-        this.f23276b.setContentView(this.f23278d);
-        this.f23276b.create(this.f23275a).show();
+        this.f23292b.setCancelable(true);
+        this.f23292b.setCanceledOnTouchOutside(false);
+        this.f23292b.setContentView(this.f23294d);
+        this.f23292b.create(this.f23291a).show();
     }
 }

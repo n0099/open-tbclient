@@ -21,7 +21,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final p f65701a;
+    public final p f66012a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        this.f65701a = o.f();
+        this.f66012a = o.f();
     }
 
     public static a a() {
@@ -48,18 +48,18 @@ public class a {
     public void a(Context context, AdSlot adSlot, TTAdNative.InteractionAdListener interactionAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, adSlot, interactionAdListener) == null) {
-            this.f65701a.a(adSlot, new n(), 2, new p.b(this, interactionAdListener, context) { // from class: com.bytedance.sdk.openadsdk.component.c.a.1
+            this.f66012a.a(adSlot, new n(), 2, new p.b(this, interactionAdListener, context) { // from class: com.bytedance.sdk.openadsdk.component.c.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTAdNative.InteractionAdListener f65702a;
+                public final /* synthetic */ TTAdNative.InteractionAdListener f66013a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f65703b;
+                public final /* synthetic */ Context f66014b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f65704c;
+                public final /* synthetic */ a f66015c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -76,16 +76,16 @@ public class a {
                             return;
                         }
                     }
-                    this.f65704c = this;
-                    this.f65702a = interactionAdListener;
-                    this.f65703b = context;
+                    this.f66015c = this;
+                    this.f66013a = interactionAdListener;
+                    this.f66014b = context;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.p.b
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.f65702a.onError(i2, str);
+                        this.f66013a.onError(i2, str);
                     }
                 }
 
@@ -96,16 +96,16 @@ public class a {
                         if (aVar.c() != null && !aVar.c().isEmpty()) {
                             m mVar = aVar.c().get(0);
                             if (mVar.aK()) {
-                                b bVar = new b(this.f65703b, mVar);
+                                b bVar = new b(this.f66014b, mVar);
                                 bVar.a(new k(this, bVar) { // from class: com.bytedance.sdk.openadsdk.component.c.a.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ b f65705a;
+                                    public final /* synthetic */ b f66016a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass1 f65706b;
+                                    public final /* synthetic */ AnonymousClass1 f66017b;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -122,15 +122,15 @@ public class a {
                                                 return;
                                             }
                                         }
-                                        this.f65706b = this;
-                                        this.f65705a = bVar;
+                                        this.f66017b = this;
+                                        this.f66016a = bVar;
                                     }
 
                                     @Override // com.bytedance.sdk.openadsdk.core.k
                                     public void a() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.f65706b.f65702a.onInteractionAdLoad(this.f65705a);
+                                            this.f66017b.f66013a.onInteractionAdLoad(this.f66016a);
                                         }
                                     }
 
@@ -138,16 +138,16 @@ public class a {
                                     public void b() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                            this.f65706b.f65702a.onError(-6, g.a(-6));
+                                            this.f66017b.f66013a.onError(-6, g.a(-6));
                                         }
                                     }
                                 });
                                 return;
                             }
-                            this.f65702a.onError(-4, g.a(-4));
+                            this.f66013a.onError(-4, g.a(-4));
                             return;
                         }
-                        this.f65702a.onError(-3, g.a(-3));
+                        this.f66013a.onError(-3, g.a(-3));
                     }
                 }
             });

@@ -14,14 +14,14 @@ public class d implements c.a.e.l.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f19608g;
+    public static final BdUniqueId f19623g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19609e;
+    public String f19624e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f19610f;
+    public BdUniqueId f19625f;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class d implements c.a.e.l.e.n {
                 return;
             }
         }
-        f19608g = BdUniqueId.gen();
+        f19623g = BdUniqueId.gen();
     }
 
     public d() {
@@ -56,26 +56,26 @@ public class d implements c.a.e.l.e.n {
     public BdUniqueId b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19610f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19625f : (BdUniqueId) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19609e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19624e : (String) invokeV.objValue;
     }
 
     public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.f19610f = bdUniqueId;
+            this.f19625f = bdUniqueId;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f19609e = str;
+            this.f19624e = str;
         }
     }
 
@@ -83,6 +83,6 @@ public class d implements c.a.e.l.e.n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f19608g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f19623g : (BdUniqueId) invokeV.objValue;
     }
 }

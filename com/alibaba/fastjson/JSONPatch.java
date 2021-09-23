@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.annotation.JSONType;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexerBase;
+import com.baidu.fsg.base.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -124,7 +125,7 @@ public class JSONPatch {
             replace = new OperationType(StickerDataChangeType.REPLACE, 2);
             move = new OperationType("move", 3);
             copy = new OperationType("copy", 4);
-            OperationType operationType = new OperationType("test", 5);
+            OperationType operationType = new OperationType(a.f39359g, 5);
             test = operationType;
             $VALUES = new OperationType[]{add, remove, replace, move, copy, operationType};
         }

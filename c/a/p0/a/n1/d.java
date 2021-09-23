@@ -17,10 +17,10 @@ public final class d extends RequestBody {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaType f7578a;
+    public MediaType f7586a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FormBody f7579b;
+    public final FormBody f7587b;
 
     public d(FormBody formBody) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class d extends RequestBody {
                 return;
             }
         }
-        this.f7579b = formBody;
+        this.f7587b = formBody;
     }
 
     public static d a(FormBody formBody, MediaType mediaType) {
@@ -54,7 +54,7 @@ public final class d extends RequestBody {
     public void b(MediaType mediaType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, mediaType) == null) {
-            this.f7578a = mediaType;
+            this.f7586a = mediaType;
         }
     }
 
@@ -62,7 +62,7 @@ public final class d extends RequestBody {
     public long contentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7579b.contentLength() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7587b.contentLength() : invokeV.longValue;
     }
 
     @Override // okhttp3.RequestBody
@@ -70,8 +70,8 @@ public final class d extends RequestBody {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            MediaType mediaType = this.f7578a;
-            return mediaType == null ? this.f7579b.contentType() : mediaType;
+            MediaType mediaType = this.f7586a;
+            return mediaType == null ? this.f7587b.contentType() : mediaType;
         }
         return (MediaType) invokeV.objValue;
     }
@@ -80,7 +80,7 @@ public final class d extends RequestBody {
     public void writeTo(BufferedSink bufferedSink) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
-            this.f7579b.writeTo(bufferedSink);
+            this.f7587b.writeTo(bufferedSink);
         }
     }
 }

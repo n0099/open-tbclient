@@ -30,22 +30,22 @@ public class b implements SensorEventListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.p0.j.n.c> f11695e;
+    public List<c.a.p0.j.n.c> f11703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SensorManager f11696f;
+    public SensorManager f11704f;
 
     /* renamed from: g  reason: collision with root package name */
-    public double f11697g;
+    public double f11705g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LocationClient f11698h;
+    public LocationClient f11706h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f11699i;
+    public boolean f11707i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BDLocation f11700j;
+    public BDLocation f11708j;
     public boolean k;
 
     /* loaded from: classes3.dex */
@@ -54,7 +54,7 @@ public class b implements SensorEventListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f11701a;
+        public final /* synthetic */ b f11709a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -71,19 +71,19 @@ public class b implements SensorEventListener {
                     return;
                 }
             }
-            this.f11701a = bVar;
+            this.f11709a = bVar;
         }
 
         @Override // com.baidu.location.BDLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                if (bDLocation == null || this.f11701a.f11695e.size() <= 0) {
-                    this.f11701a.o();
+                if (bDLocation == null || this.f11709a.f11703e.size() <= 0) {
+                    this.f11709a.o();
                     return;
                 }
-                this.f11701a.f11700j = bDLocation;
-                for (c.a.p0.j.n.c cVar : this.f11701a.f11695e) {
+                this.f11709a.f11708j = bDLocation;
+                for (c.a.p0.j.n.c cVar : this.f11709a.f11703e) {
                     if (cVar.k) {
                         MyLocationData build = new MyLocationData.Builder().direction(bDLocation.getDirection()).accuracy(bDLocation.getGpsAccuracyStatus()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).satellitesNum(bDLocation.getSatelliteNumber()).build();
                         BaiduMap map = cVar.l.getMap();
@@ -109,9 +109,9 @@ public class b implements SensorEventListener {
                 return;
             }
         }
-        this.f11699i = false;
+        this.f11707i = false;
         this.k = false;
-        this.f11695e = new ArrayList(1);
+        this.f11703e = new ArrayList(1);
         m();
     }
 
@@ -122,8 +122,8 @@ public class b implements SensorEventListener {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            for (c.a.p0.j.n.c cVar : this.f11695e) {
-                if (cVar != null && TextUtils.equals(cVar.f11760j, str)) {
+            for (c.a.p0.j.n.c cVar : this.f11703e) {
+                if (cVar != null && TextUtils.equals(cVar.f11768j, str)) {
                     return cVar;
                 }
             }
@@ -135,20 +135,20 @@ public class b implements SensorEventListener {
     public BDLocation e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11700j : (BDLocation) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11708j : (BDLocation) invokeV.objValue;
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f11698h == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f11706h == null) {
             LocationClient locationClient = new LocationClient(AppRuntime.getAppContext());
-            this.f11698h = locationClient;
+            this.f11706h = locationClient;
             locationClient.registerLocationListener(new a(this));
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setOpenGps(true);
             locationClientOption.setCoorType(CoordType.GCJ02.name());
             locationClientOption.setScanSpan(1000);
-            this.f11698h.setLocOption(locationClientOption);
+            this.f11706h.setLocOption(locationClientOption);
         }
     }
 
@@ -159,7 +159,7 @@ public class b implements SensorEventListener {
             if (cVar == null) {
                 return false;
             }
-            this.f11695e.add(cVar);
+            this.f11703e.add(cVar);
             return true;
         }
         return invokeL.booleanValue;
@@ -169,7 +169,7 @@ public class b implements SensorEventListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LocationClient locationClient = this.f11698h;
+            LocationClient locationClient = this.f11706h;
             return locationClient != null && locationClient.isStarted();
         }
         return invokeV.booleanValue;
@@ -179,7 +179,7 @@ public class b implements SensorEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             o();
-            for (c.a.p0.j.n.c cVar : this.f11695e) {
+            for (c.a.p0.j.n.c cVar : this.f11703e) {
                 cVar.l.onPause();
             }
         }
@@ -191,11 +191,11 @@ public class b implements SensorEventListener {
             o();
             this.k = false;
             if (Build.VERSION.SDK_INT > 19) {
-                for (c.a.p0.j.n.c cVar : this.f11695e) {
+                for (c.a.p0.j.n.c cVar : this.f11703e) {
                     cVar.l.onDestroy();
                 }
             }
-            this.f11695e.clear();
+            this.f11703e.clear();
         }
     }
 
@@ -205,7 +205,7 @@ public class b implements SensorEventListener {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             c.a.p0.j.n.c d2 = d(str);
             if (d2 != null) {
-                this.f11695e.remove(d2);
+                this.f11703e.remove(d2);
                 return true;
             }
             return false;
@@ -217,7 +217,7 @@ public class b implements SensorEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             m();
-            for (c.a.p0.j.n.c cVar : this.f11695e) {
+            for (c.a.p0.j.n.c cVar : this.f11703e) {
                 cVar.l.onResume();
             }
         }
@@ -227,11 +227,11 @@ public class b implements SensorEventListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.k) {
             f();
-            LocationClient locationClient = this.f11698h;
+            LocationClient locationClient = this.f11706h;
             if (locationClient == null || locationClient.isStarted()) {
                 return;
             }
-            this.f11698h.start();
+            this.f11706h.start();
             n();
             c.a.p0.a.e0.d.l("map", "start location");
         }
@@ -239,22 +239,22 @@ public class b implements SensorEventListener {
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f11699i) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f11707i) {
             return;
         }
         SensorManager sensorManager = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
-        this.f11696f = sensorManager;
+        this.f11704f = sensorManager;
         if (sensorManager != null) {
             sensorManager.registerListener(this, sensorManager.getDefaultSensor(3), 2);
-            this.f11699i = true;
+            this.f11707i = true;
         }
     }
 
     public final void o() {
         LocationClient locationClient;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.k && (locationClient = this.f11698h) != null && locationClient.isStarted()) {
-            this.f11698h.stop();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.k && (locationClient = this.f11706h) != null && locationClient.isStarted()) {
+            this.f11706h.stop();
             p();
             c.a.p0.a.e0.d.l("map", "stop location");
         }
@@ -272,8 +272,8 @@ public class b implements SensorEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, sensorEvent) == null) {
             double d2 = sensorEvent.values[0];
-            if (Math.abs(d2 - this.f11697g) > 1.0d) {
-                for (c.a.p0.j.n.c cVar : this.f11695e) {
+            if (Math.abs(d2 - this.f11705g) > 1.0d) {
+                for (c.a.p0.j.n.c cVar : this.f11703e) {
                     MyLocationData locationData = cVar.l.getMap().getLocationData();
                     if (locationData != null && cVar.k) {
                         cVar.l.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d2).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).satellitesNum(locationData.satellitesNum).build());
@@ -281,16 +281,16 @@ public class b implements SensorEventListener {
                     }
                 }
             }
-            this.f11697g = d2;
+            this.f11705g = d2;
         }
     }
 
     public final void p() {
         SensorManager sensorManager;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (sensorManager = this.f11696f) != null && this.f11699i) {
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (sensorManager = this.f11704f) != null && this.f11707i) {
             sensorManager.unregisterListener(this);
-            this.f11699i = false;
+            this.f11707i = false;
         }
     }
 

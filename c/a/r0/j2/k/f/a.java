@@ -27,33 +27,33 @@ public class a implements c.a.r0.r3.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f20388a;
+    public Context f20403a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f20389b;
+    public BdUniqueId f20404b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.j2.k.f.b f20390c;
+    public c.a.r0.j2.k.f.b f20405c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.q0.s.f0.a f20391d;
+    public c.a.q0.s.f0.a f20406d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f20392e;
+    public c f20407e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f20393f;
+    public HttpMessageListener f20408f;
 
     /* renamed from: c.a.r0.j2.k.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class DialogInterface$OnCancelListenerC0967a implements DialogInterface.OnCancelListener {
+    public class DialogInterface$OnCancelListenerC0965a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20394e;
+        public final /* synthetic */ a f20409e;
 
-        public DialogInterface$OnCancelListenerC0967a(a aVar) {
+        public DialogInterface$OnCancelListenerC0965a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,14 +68,14 @@ public class a implements c.a.r0.r3.a {
                     return;
                 }
             }
-            this.f20394e = aVar;
+            this.f20409e = aVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().removeMessage(this.f20394e.f20389b);
+                MessageManager.getInstance().removeMessage(this.f20409e.f20404b);
             }
         }
     }
@@ -86,7 +86,7 @@ public class a implements c.a.r0.r3.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f20395a;
+        public final /* synthetic */ a f20410a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2) {
@@ -106,7 +106,7 @@ public class a implements c.a.r0.r3.a {
                     return;
                 }
             }
-            this.f20395a = aVar;
+            this.f20410a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -114,20 +114,20 @@ public class a implements c.a.r0.r3.a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof UEGReportResponsedMessage)) {
-                if (this.f20395a.f20391d != null) {
-                    this.f20395a.f20391d.h(false);
+                if (this.f20410a.f20406d != null) {
+                    this.f20410a.f20406d.h(false);
                 }
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
                 if (!StringUtils.isNull(url)) {
-                    this.f20395a.i(url);
+                    this.f20410a.i(url);
                     return;
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.f20395a.f20388a.getString(R.string.neterror);
+                    errorString = this.f20410a.f20403a.getString(R.string.neterror);
                 }
-                this.f20395a.f20392e.b(errorString);
+                this.f20410a.f20407e.b(errorString);
             }
         }
     }
@@ -147,12 +147,12 @@ public class a implements c.a.r0.r3.a {
                 return;
             }
         }
-        this.f20393f = new b(this, CmdConfigHttp.CMD_UEG_REPORT);
-        this.f20388a = context;
-        this.f20390c = new c.a.r0.j2.k.f.b();
+        this.f20408f = new b(this, CmdConfigHttp.CMD_UEG_REPORT);
+        this.f20403a = context;
+        this.f20405c = new c.a.r0.j2.k.f.b();
         c cVar = new c();
-        this.f20392e = cVar;
-        cVar.f13816a = 1000L;
+        this.f20407e = cVar;
+        cVar.f13812a = 1000L;
     }
 
     @Override // c.a.r0.r3.a
@@ -160,7 +160,7 @@ public class a implements c.a.r0.r3.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             j();
-            this.f20390c.a(str);
+            this.f20405c.a(str);
         }
     }
 
@@ -168,11 +168,11 @@ public class a implements c.a.r0.r3.a {
     public void b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-            this.f20389b = bdUniqueId;
-            this.f20390c.c(bdUniqueId);
-            this.f20393f.setTag(bdUniqueId);
-            this.f20393f.setSelfListener(true);
-            MessageManager.getInstance().registerListener(this.f20393f);
+            this.f20404b = bdUniqueId;
+            this.f20405c.c(bdUniqueId);
+            this.f20408f.setTag(bdUniqueId);
+            this.f20408f.setSelfListener(true);
+            MessageManager.getInstance().registerListener(this.f20408f);
         }
     }
 
@@ -181,31 +181,31 @@ public class a implements c.a.r0.r3.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             j();
-            this.f20390c.b(str);
+            this.f20405c.b(str);
         }
     }
 
     public final void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f20388a, this.f20388a.getString(R.string.pb_web_view_report_title), str, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f20403a, this.f20403a.getString(R.string.pb_web_view_report_title), str, true)));
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f20391d == null) {
-                f<?> a2 = j.a(this.f20388a);
+            if (this.f20406d == null) {
+                f<?> a2 = j.a(this.f20403a);
                 TbPageContext tbPageContext = a2 instanceof TbPageContext ? (TbPageContext) a2 : null;
                 if (tbPageContext == null) {
                     return;
                 }
                 c.a.q0.s.f0.a aVar = new c.a.q0.s.f0.a(tbPageContext);
-                this.f20391d = aVar;
-                aVar.e(new DialogInterface$OnCancelListenerC0967a(this));
+                this.f20406d = aVar;
+                aVar.e(new DialogInterface$OnCancelListenerC0965a(this));
             }
-            this.f20391d.h(true);
+            this.f20406d.h(true);
         }
     }
 }

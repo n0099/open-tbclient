@@ -11,7 +11,7 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a f4590a;
+    public c.a f4598a;
 
     public a() {
         Interceptable interceptable = $ic;

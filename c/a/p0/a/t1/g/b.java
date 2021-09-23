@@ -29,7 +29,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8712a;
+    public static final boolean f8720a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public class b {
                 return;
             }
         }
-        f8712a = k.f7077a;
+        f8720a = k.f7085a;
     }
 
     public static void a(Map<String, String> map, String str) {
@@ -56,7 +56,7 @@ public class b {
         String b2 = b(map, "dynamicLibPath", 3);
         String b3 = b(map, "dynamicLibConfig", 3);
         String b4 = b(map, "pluginPath", 4);
-        if (TextUtils.isEmpty(str) || !f8712a) {
+        if (TextUtils.isEmpty(str) || !f8720a) {
             return;
         }
         c.a.p0.a.t1.d.a.a(str + ", dynamicLibPath = " + b2 + "; dynamicLibConfig = " + b3 + "; pluginPath = " + b4);
@@ -109,7 +109,7 @@ public class b {
             sb.append("(");
             for (int i2 = 0; i2 < size; i2++) {
                 sb.append("'");
-                sb.append(list.get(i2).f8708h);
+                sb.append(list.get(i2).f8716h);
                 sb.append("'");
                 if (i2 == size - 1) {
                     sb.append(SmallTailInfo.EMOTION_SUFFIX);
@@ -135,12 +135,12 @@ public class b {
                 c.a.p0.a.t1.d.a.a("getDownloadKey, app.json is null");
                 return null;
             }
-            SwanAppConfigData.k kVar = b2.f46556d;
+            SwanAppConfigData.k kVar = b2.f46658d;
             if (kVar == null) {
                 c.a.p0.a.t1.d.a.a("getDownloadKey, sub pkg obj is null");
                 return null;
             }
-            Map<String, String> map = kVar.f46595a;
+            Map<String, String> map = kVar.f46697a;
             if (map == null) {
                 c.a.p0.a.t1.d.a.a("getDownloadKey, sub pkg map is null");
                 return null;
@@ -194,7 +194,7 @@ public class b {
             e i2 = e.i();
             if (i2 != null && (F = i2.F()) != null && (list = F.k) != null) {
                 for (h hVar : list) {
-                    if (TextUtils.equals(str, hVar.f11885g)) {
+                    if (TextUtils.equals(str, hVar.f11893g)) {
                         return hVar;
                     }
                 }
@@ -245,12 +245,12 @@ public class b {
                         String optString = optJSONObject.optString("plugin_id");
                         if (!TextUtils.isEmpty(optString)) {
                             h hVar = new h();
-                            hVar.f11885g = optString;
-                            hVar.f11887i = optJSONObject.optLong("version_code", 0L);
-                            hVar.f11888j = optJSONObject.optString("version_name", "0.0.0");
+                            hVar.f11893g = optString;
+                            hVar.f11895i = optJSONObject.optLong("version_code", 0L);
+                            hVar.f11896j = optJSONObject.optString("version_name", "0.0.0");
                             hVar.p = optJSONObject.optString("token");
                             hVar.q = optJSONObject.optString("domains");
-                            hVar.f11886h = 4;
+                            hVar.f11894h = 4;
                             hVar.r = optJSONObject.optString("app_key");
                             hVar.s = optJSONObject.optString("app_name");
                             hVar.l = "";
@@ -285,7 +285,7 @@ public class b {
                 JSONObject jSONObject = new JSONObject();
                 for (c.a.p0.a.t1.f.a aVar : h2) {
                     if (aVar != null && aVar.d()) {
-                        w.f(jSONObject, aVar.f8708h, aVar.f8710j);
+                        w.f(jSONObject, aVar.f8716h, aVar.f8718j);
                     }
                 }
                 String jSONObject2 = jSONObject.toString();

@@ -17,13 +17,13 @@ import java.io.Serializable;
 import java.lang.Comparable;
 import java.math.BigInteger;
 import java.util.NoSuchElementException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class DiscreteDomain<C extends Comparable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean supportsFastOffset;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class BigIntegerDomain extends DiscreteDomain<BigInteger> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final BigIntegerDomain INSTANCE;
@@ -118,7 +118,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class IntegerDomain extends DiscreteDomain<Integer> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final IntegerDomain INSTANCE;
@@ -245,7 +245,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class LongDomain extends DiscreteDomain<Long> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final LongDomain INSTANCE;
@@ -386,7 +386,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -25,7 +25,7 @@ public class t0 implements c.a.p0.n.o.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final t0 f9416a;
+        public static final t0 f9424a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,7 +41,7 @@ public class t0 implements c.a.p0.n.o.a {
                     return;
                 }
             }
-            f9416a = new t0(null);
+            f9424a = new t0(null);
         }
     }
 
@@ -52,7 +52,7 @@ public class t0 implements c.a.p0.n.o.a {
     public static t0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f9416a : (t0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f9424a : (t0) invokeV.objValue;
     }
 
     @Override // c.a.p0.n.o.a

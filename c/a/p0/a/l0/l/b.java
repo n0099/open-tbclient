@@ -12,7 +12,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public V8Engine f7201a;
+    public V8Engine f7209a;
 
     public b(V8Engine v8Engine) {
         Interceptable interceptable = $ic;
@@ -29,20 +29,20 @@ public class b {
                 return;
             }
         }
-        this.f7201a = v8Engine;
+        this.f7209a = v8Engine;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f7201a.destroyOpenDataContext();
+            this.f7209a.destroyOpenDataContext();
         }
     }
 
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            this.f7201a.requireJSFileForOpenData(str, str2);
+            this.f7209a.requireJSFileForOpenData(str, str2);
         }
     }
 }

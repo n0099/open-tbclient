@@ -7,7 +7,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.face.platform.listener.IInitCallback;
 import com.baidu.pass.face.platform.model.FaceExtInfo;
-import com.baidu.pass.face.platform.stat.Ast;
 import com.baidu.pass.face.platform.strategy.FaceDetectStrategyExtModule;
 import com.baidu.pass.face.platform.strategy.FaceLivenessStrategyExtModule;
 import com.baidu.pass.face.platform.utils.Base64Utils;
@@ -20,6 +19,7 @@ import com.baidu.pass.main.facesdk.FaceInfo;
 import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceCropParam;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
+import com.baidu.pass.main.facesdk.model.BDFaceIsOutBoundary;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -120,10 +120,10 @@ public class FaceSDKManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f44210a;
+                public final /* synthetic */ IInitCallback f44272a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f44211b;
+                public final /* synthetic */ FaceSDKManager f44273b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -140,15 +140,15 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f44211b = this;
-                    this.f44210a = iInitCallback;
+                    this.f44273b = this;
+                    this.f44272a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
                 public final void onResponse(int i2, String str) {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f44210a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f44272a) == null) {
                         return;
                     }
                     iInitCallback2.initFailure(i2, str);
@@ -159,10 +159,10 @@ public class FaceSDKManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f44212a;
+                public final /* synthetic */ IInitCallback f44274a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f44213b;
+                public final /* synthetic */ FaceSDKManager f44275b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -179,15 +179,15 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f44213b = this;
-                    this.f44212a = iInitCallback;
+                    this.f44275b = this;
+                    this.f44274a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
                 public final void onResponse(int i2, String str) {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f44212a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f44274a) == null) {
                         return;
                     }
                     iInitCallback2.initFailure(i2, str);
@@ -198,10 +198,10 @@ public class FaceSDKManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f44214a;
+                public final /* synthetic */ IInitCallback f44276a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f44215b;
+                public final /* synthetic */ FaceSDKManager f44277b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -218,15 +218,15 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f44215b = this;
-                    this.f44214a = iInitCallback;
+                    this.f44277b = this;
+                    this.f44276a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
                 public final void onResponse(int i2, String str) {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f44214a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || i2 == 0 || (iInitCallback2 = this.f44276a) == null) {
                         return;
                     }
                     iInitCallback2.initFailure(i2, str);
@@ -237,10 +237,10 @@ public class FaceSDKManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IInitCallback f44216a;
+                public final /* synthetic */ IInitCallback f44278a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f44217b;
+                public final /* synthetic */ FaceSDKManager f44279b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -257,8 +257,8 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f44217b = this;
-                    this.f44216a = iInitCallback;
+                    this.f44279b = this;
+                    this.f44278a = iInitCallback;
                 }
 
                 @Override // com.baidu.pass.main.facesdk.callback.Callback
@@ -266,14 +266,14 @@ public class FaceSDKManager {
                     IInitCallback iInitCallback2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        if (i2 != 0 && (iInitCallback2 = this.f44216a) != null) {
+                        if (i2 != 0 && (iInitCallback2 = this.f44278a) != null) {
                             iInitCallback2.initFailure(i2, str);
                         }
-                        if (i2 != 0 || this.f44216a == null) {
+                        if (i2 != 0 || this.f44278a == null) {
                             return;
                         }
-                        this.f44217b.mInitFlag = true;
-                        this.f44216a.initSuccess();
+                        this.f44279b.mInitFlag = true;
+                        this.f44278a.initSuccess();
                     }
                 }
             });
@@ -283,17 +283,18 @@ public class FaceSDKManager {
     private void releaseModel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            FaceDetect faceDetect = this.mFaceDetect;
-            if (faceDetect != null) {
-                faceDetect.uninitModel();
-            }
-            FaceCrop faceCrop = this.mFaceCrop;
-            if (faceCrop != null) {
-                faceCrop.uninitFaceCrop();
-            }
-            FaceActionLive faceActionLive = this.mFaceActionLive;
-            if (faceActionLive != null) {
-                faceActionLive.uninitActionLiveModel();
+            try {
+                if (this.mFaceDetect != null) {
+                    this.mFaceDetect.uninitModel();
+                }
+                if (this.mFaceCrop != null) {
+                    this.mFaceCrop.uninitFaceCrop();
+                }
+                if (this.mFaceActionLive != null) {
+                    this.mFaceActionLive.uninitActionLiveModel();
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
             if (this.mFaceConfig != null) {
                 this.mFaceConfig = null;
@@ -316,7 +317,11 @@ public class FaceSDKManager {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (faceActionLive = this.mFaceActionLive) == null) {
             return;
         }
-        faceActionLive.clearHistory();
+        try {
+            faceActionLive.clearHistory();
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
     public byte[] compressImage(Bitmap bitmap, int i2) {
@@ -335,23 +340,54 @@ public class FaceSDKManager {
             bDFaceCropParam.enlargeRatio = getFaceConfig().getEnlargeRatio();
             bDFaceCropParam.height = i2;
             bDFaceCropParam.width = i3;
-            if (this.mFaceCrop.cropFaceByLandmarkIsOutofBoundary(bDFaceImageInstance, fArr, bDFaceCropParam) == null) {
+            try {
+                return this.mFaceCrop.cropFaceByLandmarkParamInstance(bDFaceImageInstance, fArr, bDFaceCropParam);
+            } catch (Throwable th) {
+                th.printStackTrace();
                 return null;
             }
-            return this.mFaceCrop.cropFaceByLandmarkParamInstance(bDFaceImageInstance, fArr, bDFaceCropParam);
         }
         return (BDFaceImageInstance) invokeLLII.objValue;
+    }
+
+    public FaceStatusNewEnum cropIsOutofBoundary(BDFaceImageInstance bDFaceImageInstance, float[] fArr, int i2, int i3) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048580, this, bDFaceImageInstance, fArr, i2, i3)) == null) {
+            BDFaceCropParam bDFaceCropParam = new BDFaceCropParam();
+            bDFaceCropParam.foreheadExtend = 0.22222222f;
+            bDFaceCropParam.chinExtend = 0.11111111f;
+            bDFaceCropParam.enlargeRatio = getFaceConfig().getEnlargeRatio();
+            bDFaceCropParam.height = i2;
+            bDFaceCropParam.width = i3;
+            try {
+                BDFaceIsOutBoundary cropFaceByLandmarkIsOutofBoundary = this.mFaceCrop.cropFaceByLandmarkIsOutofBoundary(bDFaceImageInstance, fArr, bDFaceCropParam);
+                if (cropFaceByLandmarkIsOutofBoundary != null && cropFaceByLandmarkIsOutofBoundary.top != 1 && cropFaceByLandmarkIsOutofBoundary.bottom != 1 && cropFaceByLandmarkIsOutofBoundary.left != 1 && cropFaceByLandmarkIsOutofBoundary.right != 1) {
+                    return FaceStatusNewEnum.OK;
+                }
+                return FaceStatusNewEnum.DetectRemindCodeNoPreviewFrameCenter;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return FaceStatusNewEnum.DetectRemindCodeNoPreviewFrameCenter;
+            }
+        }
+        return (FaceStatusNewEnum) invokeLLII.objValue;
     }
 
     public FaceInfo[] detect(BDFaceImageInstance bDFaceImageInstance) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bDFaceImageInstance)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bDFaceImageInstance)) == null) {
             FaceDetect faceDetect = this.mFaceDetect;
             if (faceDetect == null) {
                 return null;
             }
-            return faceDetect.track(BDFaceSDKCommon.DetectType.DETECT_VIS, bDFaceImageInstance);
+            try {
+                return faceDetect.track(BDFaceSDKCommon.DetectType.DETECT_VIS, bDFaceImageInstance);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return null;
+            }
         }
         return (FaceInfo[]) invokeL.objValue;
     }
@@ -359,7 +395,7 @@ public class FaceSDKManager {
     public a getDetectStrategyModule() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             FaceDetectStrategyExtModule faceDetectStrategyExtModule = new FaceDetectStrategyExtModule(this.mContext);
             faceDetectStrategyExtModule.setConfigValue(this.mFaceConfig);
             return faceDetectStrategyExtModule;
@@ -370,19 +406,19 @@ public class FaceSDKManager {
     public FaceConfig getFaceConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mFaceConfig : (FaceConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mFaceConfig : (FaceConfig) invokeV.objValue;
     }
 
     public boolean getInitFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mInitFlag : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mInitFlag : invokeV.booleanValue;
     }
 
     public c getLivenessStrategyModule(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, eVar)) == null) {
             FaceLivenessStrategyExtModule faceLivenessStrategyExtModule = new FaceLivenessStrategyExtModule(this.mContext);
             faceLivenessStrategyExtModule.setILivenessViewCallback(eVar);
             faceLivenessStrategyExtModule.setConfig(this.mFaceConfig);
@@ -394,13 +430,13 @@ public class FaceSDKManager {
     public String getZid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? "" : (String) invokeL.objValue;
     }
 
     public String imageSec(BDFaceImageInstance bDFaceImageInstance) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bDFaceImageInstance)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bDFaceImageInstance)) == null) {
             try {
                 if (this.mContext == null) {
                     return "";
@@ -412,6 +448,9 @@ public class FaceSDKManager {
             } catch (Exception e2) {
                 e2.getMessage();
                 return "";
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "";
             }
         }
         return (String) invokeL.objValue;
@@ -419,7 +458,7 @@ public class FaceSDKManager {
 
     public void initialize(Context context, String str, IInitCallback iInitCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, context, str, iInitCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, context, str, iInitCallback) == null) {
             initialize(context, str, "", iInitCallback);
         }
     }
@@ -427,12 +466,20 @@ public class FaceSDKManager {
     public int processLiveness(BDFaceSDKCommon.BDFaceActionLiveType bDFaceActionLiveType, BDFaceImageInstance bDFaceImageInstance, FaceExtInfo faceExtInfo, AtomicInteger atomicInteger) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, bDFaceActionLiveType, bDFaceImageInstance, faceExtInfo, atomicInteger)) == null) ? this.mFaceActionLive.actionLive(bDFaceActionLiveType, bDFaceImageInstance, faceExtInfo.getmLandmarks(), atomicInteger) : invokeLLLL.intValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, bDFaceActionLiveType, bDFaceImageInstance, faceExtInfo, atomicInteger)) == null) {
+            try {
+                return this.mFaceActionLive.actionLive(bDFaceActionLiveType, bDFaceImageInstance, faceExtInfo.getmLandmarks(), atomicInteger);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1;
+            }
+        }
+        return invokeLLLL.intValue;
     }
 
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             synchronized (FaceSDKManager.class) {
                 if (instance != null) {
                     instance.mInitFlag = false;
@@ -440,7 +487,6 @@ public class FaceSDKManager {
                     instance.releaseModel();
                     instance = null;
                 }
-                Ast.getInstance().immediatelyUpload();
             }
         }
     }
@@ -448,19 +494,19 @@ public class FaceSDKManager {
     public Bitmap scaleImage(Bitmap bitmap, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048592, this, bitmap, i2, i3)) == null) ? BitmapUtils.scale(bitmap, i2, i3) : (Bitmap) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048593, this, bitmap, i2, i3)) == null) ? BitmapUtils.scale(bitmap, i2, i3) : (Bitmap) invokeLII.objValue;
     }
 
     public void setFaceConfig(FaceConfig faceConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, faceConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, faceConfig) == null) {
             this.mFaceConfig = faceConfig;
         }
     }
 
     public void initialize(Context context, String str, String str2, IInitCallback iInitCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048588, this, context, str, str2, iInitCallback) == null) || this.mInitFlag) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048589, this, context, str, str2, iInitCallback) == null) || this.mInitFlag) {
             return;
         }
         FaceAuth faceAuth = new FaceAuth();
@@ -477,13 +523,13 @@ public class FaceSDKManager {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f44207a;
+            public final /* synthetic */ Context f44269a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ IInitCallback f44208b;
+            public final /* synthetic */ IInitCallback f44270b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ FaceSDKManager f44209c;
+            public final /* synthetic */ FaceSDKManager f44271c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -500,9 +546,9 @@ public class FaceSDKManager {
                         return;
                     }
                 }
-                this.f44209c = this;
-                this.f44207a = context;
-                this.f44208b = iInitCallback;
+                this.f44271c = this;
+                this.f44269a = context;
+                this.f44270b = iInitCallback;
             }
 
             @Override // com.baidu.pass.main.facesdk.callback.Callback
@@ -510,11 +556,10 @@ public class FaceSDKManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str3) == null) {
                     if (i2 == 0) {
-                        Ast.getInstance().init(this.f44207a, "4.1.0.0", "facenormal");
-                        this.f44209c.initModel(this.f44207a, this.f44208b);
+                        this.f44271c.initModel(this.f44269a, this.f44270b);
                         return;
                     }
-                    IInitCallback iInitCallback2 = this.f44208b;
+                    IInitCallback iInitCallback2 = this.f44270b;
                     if (iInitCallback2 != null) {
                         iInitCallback2.initFailure(i2, str3);
                     }
@@ -526,6 +571,6 @@ public class FaceSDKManager {
     public Bitmap scaleImage(Bitmap bitmap, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048591, this, bitmap, f2)) == null) ? BitmapUtils.scale(bitmap, f2) : (Bitmap) invokeLF.objValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048592, this, bitmap, f2)) == null) ? BitmapUtils.scale(bitmap, f2) : (Bitmap) invokeLF.objValue;
     }
 }

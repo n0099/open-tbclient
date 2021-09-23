@@ -53,16 +53,16 @@ public final class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f12379a = null;
+    public static String f12387a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f12380b = -1;
+    public static int f12388b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f12381c = 1;
+    public static int f12389c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f12382d;
+    public static int f12390d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -78,7 +78,7 @@ public final class d {
                 return;
             }
         }
-        f12379a = m();
+        f12387a = m();
     }
 
     public static boolean A(String str, String str2) {
@@ -1177,10 +1177,10 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
-            if (TextUtils.isEmpty(f12379a)) {
-                f12379a = n(AppRuntime.getAppContext());
+            if (TextUtils.isEmpty(f12387a)) {
+                f12387a = n(AppRuntime.getAppContext());
             }
-            return f12379a;
+            return f12387a;
         }
         return (String) invokeV.objValue;
     }
@@ -1212,18 +1212,18 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
-            int i2 = f12382d;
+            int i2 = f12390d;
             if (i2 > 0) {
                 return i2;
             }
             try {
-                f12382d = new StatFs("/data").getBlockSize();
+                f12390d = new StatFs("/data").getBlockSize();
             } catch (IllegalArgumentException unused) {
             }
-            if (f12382d <= 0) {
-                f12382d = 8192;
+            if (f12390d <= 0) {
+                f12390d = 8192;
             }
-            return f12382d;
+            return f12390d;
         }
         return invokeV.intValue;
     }
@@ -1252,7 +1252,7 @@ public final class d {
             }
             int lastIndexOf = str.lastIndexOf(File.separator);
             int length = str.length();
-            return (lastIndexOf == f12380b || length <= lastIndexOf) ? str : str.substring(lastIndexOf + f12381c, length);
+            return (lastIndexOf == f12388b || length <= lastIndexOf) ? str : str.substring(lastIndexOf + f12389c, length);
         }
         return (String) invokeL.objValue;
     }
@@ -1270,7 +1270,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, str)) == null) {
             String q = q(str);
-            return (TextUtils.isEmpty(q) || (lastIndexOf = q.lastIndexOf(".")) == f12380b || lastIndexOf == q.length() + (-1)) ? "" : q.substring(lastIndexOf + 1);
+            return (TextUtils.isEmpty(q) || (lastIndexOf = q.lastIndexOf(".")) == f12388b || lastIndexOf == q.length() + (-1)) ? "" : q.substring(lastIndexOf + 1);
         }
         return (String) invokeL.objValue;
     }
@@ -1311,11 +1311,11 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) {
-            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || TextUtils.isEmpty(f12379a)) {
+            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || TextUtils.isEmpty(f12387a)) {
                 return false;
             }
             try {
-                File file = new File(f12379a, ".696E5309-E4A7-27C0-A787-0B2CEBF1F1AB");
+                File file = new File(f12387a, ".696E5309-E4A7-27C0-A787-0B2CEBF1F1AB");
                 if (!file.exists()) {
                     if (!file.createNewFile()) {
                         return false;

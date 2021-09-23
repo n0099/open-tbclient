@@ -25,16 +25,16 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BDImageView f55223a;
+    public final BDImageView f55338a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final EMTextView f55224b;
+    public final EMTextView f55339b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TBSpecificationBtn f55225c;
+    public final TBSpecificationBtn f55340c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f55226d;
+    public View.OnClickListener f55341d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoDetailBrowseModeEmotionHolder(View view) {
@@ -56,44 +56,44 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
         }
         View findViewById = getView().findViewById(R.id.emotion_img);
         Intrinsics.checkExpressionValueIsNotNull(findViewById, "getView().findViewById(R.id.emotion_img)");
-        this.f55223a = (BDImageView) findViewById;
+        this.f55338a = (BDImageView) findViewById;
         View findViewById2 = getView().findViewById(R.id.description_text);
         Intrinsics.checkExpressionValueIsNotNull(findViewById2, "getView().findViewById(R.id.description_text)");
-        this.f55224b = (EMTextView) findViewById2;
+        this.f55339b = (EMTextView) findViewById2;
         View findViewById3 = getView().findViewById(R.id.agree_btn);
         Intrinsics.checkExpressionValueIsNotNull(findViewById3, "getView().findViewById(R.id.agree_btn)");
-        this.f55225c = (TBSpecificationBtn) findViewById3;
-        SkinManager.setImageResource(this.f55223a, R.drawable.new_pic_emotion_01);
-        this.f55224b.setText(R.string.pb_video_detail_browse_mode_description);
-        c.d(this.f55224b).w(R.color.CAM_X0107);
+        this.f55340c = (TBSpecificationBtn) findViewById3;
+        SkinManager.setImageResource(this.f55338a, R.drawable.new_pic_emotion_01);
+        this.f55339b.setText(R.string.pb_video_detail_browse_mode_description);
+        c.d(this.f55339b).w(R.color.CAM_X0107);
         b bVar = new b();
         bVar.o(R.color.CAM_X0303, R.color.CAM_X0101);
-        this.f55225c.setConfig(bVar);
-        this.f55225c.setText(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_browse_mode_agree_btn));
-        this.f55225c.setTextSize(R.dimen.T_X07);
+        this.f55340c.setConfig(bVar);
+        this.f55340c.setText(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_browse_mode_agree_btn));
+        this.f55340c.setTextSize(R.dimen.T_X07);
     }
 
     public final View.OnClickListener getOnAgreeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55226d : (View.OnClickListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55341d : (View.OnClickListener) invokeV.objValue;
     }
 
     public final void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setImageResource(this.f55223a, R.drawable.new_pic_emotion_01);
-            c.d(this.f55224b).w(R.color.CAM_X0107);
-            this.f55225c.changeSkinType();
+            SkinManager.setImageResource(this.f55338a, R.drawable.new_pic_emotion_01);
+            c.d(this.f55339b).w(R.color.CAM_X0107);
+            this.f55340c.changeSkinType();
         }
     }
 
     public final void setOnAgreeListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f55226d = onClickListener;
+            this.f55341d = onClickListener;
             if (onClickListener != null) {
-                this.f55225c.setOnClickListener(onClickListener);
+                this.f55340c.setOnClickListener(onClickListener);
             }
         }
     }

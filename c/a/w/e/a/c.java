@@ -21,7 +21,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f30496a;
+    public static final int[] f30517a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class c {
                 return;
             }
         }
-        f30496a = new int[]{16843848};
+        f30517a = new int[]{16843848};
     }
 
     public static void a(View view) {
@@ -64,7 +64,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65539, null, view, attributeSet, i2, i3) == null) {
             Context context = view.getContext();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, f30496a, i2, i3);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, f30517a, i2, i3);
             try {
                 if (obtainStyledAttributes.hasValue(0)) {
                     view.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));

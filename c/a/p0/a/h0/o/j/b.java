@@ -16,7 +16,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6367a;
+    public static final boolean f6375a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class b {
                 return;
             }
         }
-        f6367a = k.f7077a;
+        f6375a = k.f7085a;
     }
 
     public static a a(PMSAppInfo pMSAppInfo, String str) {
@@ -44,13 +44,13 @@ public class b {
             }
             File i2 = e.C0114e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
             if (!i2.exists()) {
-                boolean z = f6367a;
+                boolean z = f6375a;
                 return null;
             }
             a aVar = new a();
             if (new File(i2, "app.json").exists()) {
-                boolean z2 = f6367a;
-                aVar.f6364a = i2;
+                boolean z2 = f6375a;
+                aVar.f6372a = i2;
                 return aVar;
             } else if (TextUtils.isEmpty(str)) {
                 return null;
@@ -65,12 +65,12 @@ public class b {
                     while (lastIndexOf2 >= 0) {
                         g2 = g2.substring(0, lastIndexOf2);
                         if (new File(i2, g2 + File.separator + "app.json").exists()) {
-                            if (f6367a) {
+                            if (f6375a) {
                                 String str2 = "isInDependentPkg=true, pagePath=" + g2;
                             }
-                            aVar.f6365b = true;
-                            aVar.f6366c = g2;
-                            aVar.f6364a = new File(i2, g2);
+                            aVar.f6373b = true;
+                            aVar.f6374c = g2;
+                            aVar.f6372a = new File(i2, g2);
                             return aVar;
                         }
                         lastIndexOf2 = g2.lastIndexOf(File.separator);

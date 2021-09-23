@@ -25,7 +25,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7251a;
+    public static final boolean f7259a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -68,7 +68,7 @@ public class c {
                 return;
             }
         }
-        f7251a = k.f7077a;
+        f7259a = k.f7085a;
     }
 
     public static void a(String str) {
@@ -78,7 +78,7 @@ public class c {
         }
         File file = new File(e.g(), str);
         if (file.exists()) {
-            if (f7251a) {
+            if (f7259a) {
                 String str2 = "clear all pkg info's ext ,appId - " + str;
             }
             File[] listFiles = file.listFiles(new a());
@@ -99,7 +99,7 @@ public class c {
                 return;
             }
             h.a().edit().remove(e2).apply();
-            if (f7251a) {
+            if (f7259a) {
                 String str3 = "clear pkg info's ext , appId - " + str + ", version code - " + str2;
             }
         }
@@ -123,7 +123,7 @@ public class c {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 return str + "_" + str2 + "_pkg_info_ext";
-            } else if (f7251a) {
+            } else if (f7259a) {
                 String str3 = "appId - " + str;
                 String str4 = "version code - " + str2;
                 return null;
@@ -146,7 +146,7 @@ public class c {
                 return "";
             }
             String string = h.a().getString(c2, "");
-            if (f7251a) {
+            if (f7259a) {
                 String str = "appId - " + pMSAppInfo.appId + ", get pkg info' ext - " + string;
             }
             return string;
@@ -159,28 +159,28 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65543, null, str, jSONObject, fVar, list) == null) {
             if (jSONObject == null) {
-                boolean z = f7251a;
+                boolean z = f7259a;
             } else if (fVar == null && list == null) {
-                boolean z2 = f7251a;
+                boolean z2 = f7259a;
             } else {
                 String str2 = null;
                 if (fVar != null) {
-                    str = fVar.f11885g;
-                    j2 = fVar.f11887i;
+                    str = fVar.f11893g;
+                    j2 = fVar.f11895i;
                     str2 = fVar.p;
                 } else if (list.size() > 0) {
                     g gVar = list.get(0);
-                    j2 = gVar.f11887i;
+                    j2 = gVar.f11895i;
                     str2 = gVar.s;
                 } else {
                     j2 = -1;
                 }
                 if (str2 == null) {
-                    boolean z3 = f7251a;
+                    boolean z3 = f7259a;
                 } else if (!TextUtils.isEmpty(str) && j2 != -1) {
                     h.a().edit().putString(d(str, j2), str2).apply();
                 } else {
-                    boolean z4 = f7251a;
+                    boolean z4 = f7259a;
                 }
             }
         }

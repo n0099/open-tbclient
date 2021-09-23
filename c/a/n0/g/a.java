@@ -13,10 +13,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4237a;
+    public static String f4244a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4238b;
+    public static String f4245b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
@@ -33,8 +33,8 @@ public class a {
             if (!c.a.n0.b.a.h(context).e()) {
                 return k.c(String.valueOf(-1000), z2);
             }
-            if (z && !TextUtils.isEmpty(f4238b)) {
-                return f4238b;
+            if (z && !TextUtils.isEmpty(f4245b)) {
+                return f4245b;
             }
             if (c.a.n0.b.a.h(context).c()) {
                 str = c.a.n0.d.a.b(context);
@@ -55,7 +55,7 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return k.c(String.valueOf(-1003), z2);
             }
-            f4238b = str;
+            f4245b = str;
             return str;
         }
         return (String) invokeCommon.objValue;
@@ -74,8 +74,8 @@ public class a {
             if (!c.a.n0.b.a.h(context).e()) {
                 return k.c(String.valueOf(-1000), z2);
             }
-            if (z && !TextUtils.isEmpty(f4237a)) {
-                return f4237a;
+            if (z && !TextUtils.isEmpty(f4244a)) {
+                return f4244a;
             }
             if (!c.o(context)) {
                 return k.c(String.valueOf(-1002), z2);
@@ -84,7 +84,7 @@ public class a {
             if (TextUtils.isEmpty(a2)) {
                 return k.c(String.valueOf(-1003), z2);
             }
-            f4237a = a2;
+            f4244a = a2;
             return a2;
         }
         return (String) invokeCommon.objValue;

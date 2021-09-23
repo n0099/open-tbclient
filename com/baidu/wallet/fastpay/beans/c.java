@@ -20,16 +20,16 @@ public class c extends BaseBean<GetOrderResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61062a;
+    public String f61175a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61063b;
+    public String f61176b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61064c;
+    public String f61177c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61065d;
+    public String f61178d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> c(Context context) {
@@ -49,19 +49,19 @@ public class c extends BaseBean<GetOrderResponse> {
                 return;
             }
         }
-        this.f61062a = "";
-        this.f61063b = "";
-        this.f61064c = "";
-        this.f61065d = "";
+        this.f61175a = "";
+        this.f61176b = "";
+        this.f61177c = "";
+        this.f61178d = "";
     }
 
     public void a(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
-            this.f61062a = str2;
-            this.f61063b = str;
-            this.f61064c = str3;
-            this.f61065d = str4;
+            this.f61175a = str2;
+            this.f61176b = str;
+            this.f61177c = str3;
+            this.f61178d = str4;
         }
     }
 
@@ -79,10 +79,10 @@ public class c extends BaseBean<GetOrderResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f61063b)));
-            arrayList.add(new RestNameValuePair("price", this.f61062a));
-            arrayList.add(new RestNameValuePair("is_huodong_price", this.f61064c));
-            arrayList.add(new RestNameValuePair("device_token", this.f61065d));
+            arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f61176b)));
+            arrayList.add(new RestNameValuePair("price", this.f61175a));
+            arrayList.add(new RestNameValuePair("is_huodong_price", this.f61177c));
+            arrayList.add(new RestNameValuePair("device_token", this.f61178d));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -100,7 +100,7 @@ public class c extends BaseBean<GetOrderResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DomainConfig.getInstance().getLifeHost() + "/_u/pdc/common_charge/native";
+            return DomainConfig.getInstance().getLifeHost(this.tag) + "/_u/pdc/common_charge/native";
         }
         return (String) invokeV.objValue;
     }

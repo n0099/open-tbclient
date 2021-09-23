@@ -25,21 +25,21 @@ public class a extends c.a.r0.w0.m2.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ValueAnimator f27052e;
+    public ValueAnimator f27072e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ValueAnimator f27053f;
+    public ValueAnimator f27073f;
 
     /* renamed from: c.a.r0.w0.m2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1267a implements ValueAnimator.AnimatorUpdateListener {
+    public class C1265a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27054e;
+        public final /* synthetic */ a f27074e;
 
-        public C1267a(a aVar) {
+        public C1265a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,14 +54,14 @@ public class a extends c.a.r0.w0.m2.b {
                     return;
                 }
             }
-            this.f27054e = aVar;
+            this.f27074e = aVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                this.f27054e.f27080a.f27101a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f27074e.f27100a.f27121a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -72,7 +72,7 @@ public class a extends c.a.r0.w0.m2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27055e;
+        public final /* synthetic */ a f27075e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class a extends c.a.r0.w0.m2.b {
                     return;
                 }
             }
-            this.f27055e = aVar;
+            this.f27075e = aVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -103,10 +103,10 @@ public class a extends c.a.r0.w0.m2.b {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f27055e.f27080a.f27101a.setAlpha(1.0f);
-                a aVar = this.f27055e;
-                aVar.f27082c = 2;
-                b.a aVar2 = aVar.f27083d;
+                this.f27075e.f27100a.f27121a.setAlpha(1.0f);
+                a aVar = this.f27075e;
+                aVar.f27102c = 2;
+                b.a aVar2 = aVar.f27103d;
                 if (aVar2 != null) {
                     aVar2.onStateChanged(2);
                 }
@@ -134,7 +134,7 @@ public class a extends c.a.r0.w0.m2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27056e;
+        public final /* synthetic */ a f27076e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -151,14 +151,14 @@ public class a extends c.a.r0.w0.m2.b {
                     return;
                 }
             }
-            this.f27056e = aVar;
+            this.f27076e = aVar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                this.f27056e.f27080a.f27101a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f27076e.f27100a.f27121a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -169,7 +169,7 @@ public class a extends c.a.r0.w0.m2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27057e;
+        public final /* synthetic */ a f27077e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -186,7 +186,7 @@ public class a extends c.a.r0.w0.m2.b {
                     return;
                 }
             }
-            this.f27057e = aVar;
+            this.f27077e = aVar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -200,10 +200,10 @@ public class a extends c.a.r0.w0.m2.b {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f27057e.f27080a.f27101a.setAlpha(0.0f);
-                a aVar = this.f27057e;
-                aVar.f27082c = 0;
-                b.a aVar2 = aVar.f27083d;
+                this.f27077e.f27100a.f27121a.setAlpha(0.0f);
+                a aVar = this.f27077e;
+                aVar.f27102c = 0;
+                b.a aVar2 = aVar.f27103d;
                 if (aVar2 != null) {
                     aVar2.onStateChanged(0);
                 }
@@ -231,27 +231,27 @@ public class a extends c.a.r0.w0.m2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27058e;
+        public final /* synthetic */ a f27078e;
 
         /* renamed from: c.a.r0.w0.m2.a$e$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1268a implements ValueAnimator.AnimatorUpdateListener {
+        public class C1266a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ float f27059e;
+            public final /* synthetic */ float f27079e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ float f27060f;
+            public final /* synthetic */ float f27080f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ float f27061g;
+            public final /* synthetic */ float f27081g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ e f27062h;
+            public final /* synthetic */ e f27082h;
 
-            public C1268a(e eVar, float f2, float f3, float f4) {
+            public C1266a(e eVar, float f2, float f3, float f4) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -266,27 +266,27 @@ public class a extends c.a.r0.w0.m2.b {
                         return;
                     }
                 }
-                this.f27062h = eVar;
-                this.f27059e = f2;
-                this.f27060f = f3;
-                this.f27061g = f4;
+                this.f27082h = eVar;
+                this.f27079e = f2;
+                this.f27080f = f3;
+                this.f27081g = f4;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                    RelativeLayout relativeLayout = this.f27062h.f27058e.f27080a.f27102b;
-                    float f2 = this.f27059e;
+                    RelativeLayout relativeLayout = this.f27082h.f27078e.f27100a.f27122b;
+                    float f2 = this.f27079e;
                     relativeLayout.setScaleX(f2 + ((1.0f - f2) * ((Float) valueAnimator.getAnimatedValue()).floatValue()));
-                    RelativeLayout relativeLayout2 = this.f27062h.f27058e.f27080a.f27102b;
-                    float f3 = this.f27059e;
+                    RelativeLayout relativeLayout2 = this.f27082h.f27078e.f27100a.f27122b;
+                    float f3 = this.f27079e;
                     relativeLayout2.setScaleY(f3 + ((1.0f - f3) * ((Float) valueAnimator.getAnimatedValue()).floatValue()));
-                    RelativeLayout relativeLayout3 = this.f27062h.f27058e.f27080a.f27102b;
-                    float f4 = this.f27060f;
+                    RelativeLayout relativeLayout3 = this.f27082h.f27078e.f27100a.f27122b;
+                    float f4 = this.f27080f;
                     relativeLayout3.setTranslationX(f4 - (((Float) valueAnimator.getAnimatedValue()).floatValue() * f4));
-                    RelativeLayout relativeLayout4 = this.f27062h.f27058e.f27080a.f27102b;
-                    float f5 = this.f27061g;
+                    RelativeLayout relativeLayout4 = this.f27082h.f27078e.f27100a.f27122b;
+                    float f5 = this.f27081g;
                     relativeLayout4.setTranslationY(f5 - (((Float) valueAnimator.getAnimatedValue()).floatValue() * f5));
                 }
             }
@@ -298,7 +298,7 @@ public class a extends c.a.r0.w0.m2.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f27063e;
+            public final /* synthetic */ e f27083e;
 
             public b(e eVar) {
                 Interceptable interceptable = $ic;
@@ -315,7 +315,7 @@ public class a extends c.a.r0.w0.m2.b {
                         return;
                     }
                 }
-                this.f27063e = eVar;
+                this.f27083e = eVar;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -329,10 +329,10 @@ public class a extends c.a.r0.w0.m2.b {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.f27063e.f27058e.f27080a.f27102b.setScaleX(1.0f);
-                    this.f27063e.f27058e.f27080a.f27102b.setScaleY(1.0f);
-                    this.f27063e.f27058e.f27080a.f27102b.setTranslationX(0.0f);
-                    this.f27063e.f27058e.f27080a.f27102b.setTranslationY(0.0f);
+                    this.f27083e.f27078e.f27100a.f27122b.setScaleX(1.0f);
+                    this.f27083e.f27078e.f27100a.f27122b.setScaleY(1.0f);
+                    this.f27083e.f27078e.f27100a.f27122b.setTranslationX(0.0f);
+                    this.f27083e.f27078e.f27100a.f27122b.setTranslationY(0.0f);
                 }
             }
 
@@ -366,19 +366,19 @@ public class a extends c.a.r0.w0.m2.b {
                     return;
                 }
             }
-            this.f27058e = aVar;
+            this.f27078e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                float min = Math.min(269.0f / this.f27058e.f27080a.f27102b.getWidth(), 141.0f / this.f27058e.f27080a.f27102b.getHeight());
-                float left = 516.0f - ((this.f27058e.f27080a.f27102b.getLeft() + this.f27058e.f27080a.f27102b.getRight()) / 2.0f);
-                float top = 529.0f - ((this.f27058e.f27080a.f27102b.getTop() + this.f27058e.f27080a.f27102b.getBottom()) / 2.0f);
+                float min = Math.min(269.0f / this.f27078e.f27100a.f27122b.getWidth(), 141.0f / this.f27078e.f27100a.f27122b.getHeight());
+                float left = 516.0f - ((this.f27078e.f27100a.f27122b.getLeft() + this.f27078e.f27100a.f27122b.getRight()) / 2.0f);
+                float top = 529.0f - ((this.f27078e.f27100a.f27122b.getTop() + this.f27078e.f27100a.f27122b.getBottom()) / 2.0f);
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                 ofFloat.setDuration(220L);
-                ofFloat.addUpdateListener(new C1268a(this, min, left, top));
+                ofFloat.addUpdateListener(new C1266a(this, min, left, top));
                 ofFloat.addListener(new b(this));
                 ofFloat.start();
             }
@@ -391,27 +391,27 @@ public class a extends c.a.r0.w0.m2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Rect f27064e;
+        public final /* synthetic */ Rect f27084e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f27065f;
+        public final /* synthetic */ a f27085f;
 
         /* renamed from: c.a.r0.w0.m2.a$f$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1269a implements ValueAnimator.AnimatorUpdateListener {
+        public class C1267a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ float f27066e;
+            public final /* synthetic */ float f27086e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ float f27067f;
+            public final /* synthetic */ float f27087f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ f f27068g;
+            public final /* synthetic */ f f27088g;
 
-            public C1269a(f fVar, float f2, float f3) {
+            public C1267a(f fVar, float f2, float f3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -426,20 +426,20 @@ public class a extends c.a.r0.w0.m2.b {
                         return;
                     }
                 }
-                this.f27068g = fVar;
-                this.f27066e = f2;
-                this.f27067f = f3;
+                this.f27088g = fVar;
+                this.f27086e = f2;
+                this.f27087f = f3;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                    TextView textView = this.f27068g.f27065f.f27080a.f27105e;
-                    float f2 = this.f27066e;
+                    TextView textView = this.f27088g.f27085f.f27100a.f27125e;
+                    float f2 = this.f27086e;
                     textView.setTranslationX(f2 - (((Float) valueAnimator.getAnimatedValue()).floatValue() * f2));
-                    TextView textView2 = this.f27068g.f27065f.f27080a.f27105e;
-                    float f3 = this.f27067f;
+                    TextView textView2 = this.f27088g.f27085f.f27100a.f27125e;
+                    float f3 = this.f27087f;
                     textView2.setTranslationY(f3 - (((Float) valueAnimator.getAnimatedValue()).floatValue() * f3));
                 }
             }
@@ -451,7 +451,7 @@ public class a extends c.a.r0.w0.m2.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ f f27069e;
+            public final /* synthetic */ f f27089e;
 
             public b(f fVar) {
                 Interceptable interceptable = $ic;
@@ -468,7 +468,7 @@ public class a extends c.a.r0.w0.m2.b {
                         return;
                     }
                 }
-                this.f27069e = fVar;
+                this.f27089e = fVar;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -482,8 +482,8 @@ public class a extends c.a.r0.w0.m2.b {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.f27069e.f27065f.f27080a.f27105e.setTranslationX(0.0f);
-                    this.f27069e.f27065f.f27080a.f27105e.setTranslationY(0.0f);
+                    this.f27089e.f27085f.f27100a.f27125e.setTranslationX(0.0f);
+                    this.f27089e.f27085f.f27100a.f27125e.setTranslationY(0.0f);
                 }
             }
 
@@ -517,8 +517,8 @@ public class a extends c.a.r0.w0.m2.b {
                     return;
                 }
             }
-            this.f27065f = aVar;
-            this.f27064e = rect;
+            this.f27085f = aVar;
+            this.f27084e = rect;
         }
 
         @Override // java.lang.Runnable
@@ -527,7 +527,7 @@ public class a extends c.a.r0.w0.m2.b {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                 ofFloat.setDuration(220L);
-                ofFloat.addUpdateListener(new C1269a(this, this.f27064e.left - this.f27065f.f27080a.f27105e.getLeft(), this.f27064e.top - this.f27065f.f27080a.f27105e.getTop()));
+                ofFloat.addUpdateListener(new C1267a(this, this.f27084e.left - this.f27085f.f27100a.f27125e.getLeft(), this.f27084e.top - this.f27085f.f27100a.f27125e.getTop()));
                 ofFloat.addListener(new b(this));
                 ofFloat.start();
             }
@@ -540,27 +540,27 @@ public class a extends c.a.r0.w0.m2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Rect f27070e;
+        public final /* synthetic */ Rect f27090e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f27071f;
+        public final /* synthetic */ a f27091f;
 
         /* renamed from: c.a.r0.w0.m2.a$g$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1270a implements ValueAnimator.AnimatorUpdateListener {
+        public class C1268a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ float f27072e;
+            public final /* synthetic */ float f27092e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ float f27073f;
+            public final /* synthetic */ float f27093f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ g f27074g;
+            public final /* synthetic */ g f27094g;
 
-            public C1270a(g gVar, float f2, float f3) {
+            public C1268a(g gVar, float f2, float f3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -575,20 +575,20 @@ public class a extends c.a.r0.w0.m2.b {
                         return;
                     }
                 }
-                this.f27074g = gVar;
-                this.f27072e = f2;
-                this.f27073f = f3;
+                this.f27094g = gVar;
+                this.f27092e = f2;
+                this.f27093f = f3;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                    BarImageView barImageView = this.f27074g.f27071f.f27080a.f27104d;
-                    float f2 = this.f27072e;
+                    BarImageView barImageView = this.f27094g.f27091f.f27100a.f27124d;
+                    float f2 = this.f27092e;
                     barImageView.setTranslationX(f2 - (((Float) valueAnimator.getAnimatedValue()).floatValue() * f2));
-                    BarImageView barImageView2 = this.f27074g.f27071f.f27080a.f27104d;
-                    float f3 = this.f27073f;
+                    BarImageView barImageView2 = this.f27094g.f27091f.f27100a.f27124d;
+                    float f3 = this.f27093f;
                     barImageView2.setTranslationY(f3 - (((Float) valueAnimator.getAnimatedValue()).floatValue() * f3));
                 }
             }
@@ -600,7 +600,7 @@ public class a extends c.a.r0.w0.m2.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g f27075e;
+            public final /* synthetic */ g f27095e;
 
             public b(g gVar) {
                 Interceptable interceptable = $ic;
@@ -617,7 +617,7 @@ public class a extends c.a.r0.w0.m2.b {
                         return;
                     }
                 }
-                this.f27075e = gVar;
+                this.f27095e = gVar;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -631,8 +631,8 @@ public class a extends c.a.r0.w0.m2.b {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.f27075e.f27071f.f27080a.f27104d.setTranslationX(0.0f);
-                    this.f27075e.f27071f.f27080a.f27104d.setTranslationY(0.0f);
+                    this.f27095e.f27091f.f27100a.f27124d.setTranslationX(0.0f);
+                    this.f27095e.f27091f.f27100a.f27124d.setTranslationY(0.0f);
                 }
             }
 
@@ -666,8 +666,8 @@ public class a extends c.a.r0.w0.m2.b {
                     return;
                 }
             }
-            this.f27071f = aVar;
-            this.f27070e = rect;
+            this.f27091f = aVar;
+            this.f27090e = rect;
         }
 
         @Override // java.lang.Runnable
@@ -676,7 +676,7 @@ public class a extends c.a.r0.w0.m2.b {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                 ofFloat.setDuration(220L);
-                ofFloat.addUpdateListener(new C1270a(this, this.f27070e.left - this.f27071f.f27080a.f27104d.getLeft(), this.f27070e.top - this.f27071f.f27080a.f27104d.getTop()));
+                ofFloat.addUpdateListener(new C1268a(this, this.f27090e.left - this.f27091f.f27100a.f27124d.getLeft(), this.f27090e.top - this.f27091f.f27100a.f27124d.getTop()));
                 ofFloat.addListener(new b(this));
                 ofFloat.start();
             }
@@ -689,21 +689,21 @@ public class a extends c.a.r0.w0.m2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27076e;
+        public final /* synthetic */ a f27096e;
 
         /* renamed from: c.a.r0.w0.m2.a$h$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1271a implements ValueAnimator.AnimatorUpdateListener {
+        public class C1269a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f27077e;
+            public final /* synthetic */ int f27097e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h f27078f;
+            public final /* synthetic */ h f27098f;
 
-            public C1271a(h hVar, int i2) {
+            public C1269a(h hVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -718,8 +718,8 @@ public class a extends c.a.r0.w0.m2.b {
                         return;
                     }
                 }
-                this.f27078f = hVar;
-                this.f27077e = i2;
+                this.f27098f = hVar;
+                this.f27097e = i2;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -727,10 +727,10 @@ public class a extends c.a.r0.w0.m2.b {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    LinearLayout linearLayout = this.f27078f.f27076e.f27080a.f27107g;
-                    int i2 = this.f27077e;
+                    LinearLayout linearLayout = this.f27098f.f27096e.f27100a.f27127g;
+                    int i2 = this.f27097e;
                     linearLayout.setTranslationY(i2 - (i2 * floatValue));
-                    this.f27078f.f27076e.f27080a.f27107g.setAlpha((floatValue / 2.0f) + 0.5f);
+                    this.f27098f.f27096e.f27100a.f27127g.setAlpha((floatValue / 2.0f) + 0.5f);
                 }
             }
         }
@@ -741,7 +741,7 @@ public class a extends c.a.r0.w0.m2.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h f27079e;
+            public final /* synthetic */ h f27099e;
 
             public b(h hVar) {
                 Interceptable interceptable = $ic;
@@ -758,7 +758,7 @@ public class a extends c.a.r0.w0.m2.b {
                         return;
                     }
                 }
-                this.f27079e = hVar;
+                this.f27099e = hVar;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -772,7 +772,7 @@ public class a extends c.a.r0.w0.m2.b {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.f27079e.f27076e.f27080a.f27107g.setAlpha(1.0f);
+                    this.f27099e.f27096e.f27100a.f27127g.setAlpha(1.0f);
                 }
             }
 
@@ -806,7 +806,7 @@ public class a extends c.a.r0.w0.m2.b {
                     return;
                 }
             }
-            this.f27076e = aVar;
+            this.f27096e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -815,7 +815,7 @@ public class a extends c.a.r0.w0.m2.b {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                 ofFloat.setDuration(220L);
-                ofFloat.addUpdateListener(new C1271a(this, l.g(TbadkCoreApplication.getInst(), R.dimen.tbds160)));
+                ofFloat.addUpdateListener(new C1269a(this, l.g(TbadkCoreApplication.getInst(), R.dimen.tbds160)));
                 ofFloat.addListener(new b(this));
                 ofFloat.start();
             }
@@ -847,26 +847,26 @@ public class a extends c.a.r0.w0.m2.b {
     @Override // c.a.r0.w0.m2.b
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f27082c == 2) {
-            this.f27082c = 3;
-            b.a aVar = this.f27083d;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f27102c == 2) {
+            this.f27102c = 3;
+            b.a aVar = this.f27103d;
             if (aVar != null) {
                 aVar.onStateChanged(3);
             }
-            this.f27053f.start();
+            this.f27073f.start();
         }
     }
 
     @Override // c.a.r0.w0.m2.b
     public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f27082c == 0) {
-            this.f27082c = 1;
-            b.a aVar = this.f27083d;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f27102c == 0) {
+            this.f27102c = 1;
+            b.a aVar = this.f27103d;
             if (aVar != null) {
                 aVar.onStateChanged(1);
             }
-            this.f27052e.start();
+            this.f27072e.start();
             f();
             g();
             e();
@@ -877,54 +877,54 @@ public class a extends c.a.r0.w0.m2.b {
     public final void e() {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (intent = this.f27081b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (intent = this.f27101b) == null) {
             return;
         }
         ArrayList<Integer> integerArrayListExtra = intent.getIntegerArrayListExtra("info_forum_head_background_color");
         if (integerArrayListExtra != null && integerArrayListExtra.size() == 6) {
-            this.f27080a.f27103c.setGradientColor(integerArrayListExtra.get(0).intValue(), integerArrayListExtra.get(1).intValue(), integerArrayListExtra.get(2).intValue(), integerArrayListExtra.get(3).intValue(), integerArrayListExtra.get(4).intValue(), integerArrayListExtra.get(5).intValue());
+            this.f27100a.f27123c.setGradientColor(integerArrayListExtra.get(0).intValue(), integerArrayListExtra.get(1).intValue(), integerArrayListExtra.get(2).intValue(), integerArrayListExtra.get(3).intValue(), integerArrayListExtra.get(4).intValue(), integerArrayListExtra.get(5).intValue());
         }
-        String stringExtra = this.f27081b.getStringExtra("info_forum_head_background_vector");
+        String stringExtra = this.f27101b.getStringExtra("info_forum_head_background_vector");
         if (!k.isEmpty(stringExtra)) {
-            this.f27080a.f27110j.startLoad(stringExtra, 10, false);
+            this.f27100a.f27130j.startLoad(stringExtra, 10, false);
         }
-        this.f27080a.f27102b.post(new e(this));
+        this.f27100a.f27122b.post(new e(this));
     }
 
     public final void f() {
         Intent intent;
         Rect rect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (intent = this.f27081b) == null || (rect = (Rect) intent.getParcelableExtra("info_forum_image_rect")) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (intent = this.f27101b) == null || (rect = (Rect) intent.getParcelableExtra("info_forum_image_rect")) == null) {
             return;
         }
-        String stringExtra = this.f27081b.getStringExtra("info_forum_image_url");
+        String stringExtra = this.f27101b.getStringExtra("info_forum_image_url");
         if (k.isEmpty(stringExtra)) {
             return;
         }
-        this.f27080a.f27104d.startLoad(stringExtra, 10, false);
-        this.f27080a.f27104d.post(new g(this, rect));
+        this.f27100a.f27124d.startLoad(stringExtra, 10, false);
+        this.f27100a.f27124d.post(new g(this, rect));
     }
 
     public final void g() {
         Intent intent;
         Rect rect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (intent = this.f27081b) == null || (rect = (Rect) intent.getParcelableExtra("info_forum_name_rect")) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (intent = this.f27101b) == null || (rect = (Rect) intent.getParcelableExtra("info_forum_name_rect")) == null) {
             return;
         }
-        String stringExtra = this.f27081b.getStringExtra("info_forum_name_text");
+        String stringExtra = this.f27101b.getStringExtra("info_forum_name_text");
         if (k.isEmpty(stringExtra)) {
             return;
         }
-        this.f27080a.f27105e.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar), stringExtra));
-        this.f27080a.f27105e.post(new f(this, rect));
+        this.f27100a.f27125e.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar), stringExtra));
+        this.f27100a.f27125e.post(new f(this, rect));
     }
 
     public final void h() {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f27081b == null || (linearLayout = this.f27080a.f27107g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f27101b == null || (linearLayout = this.f27100a.f27127g) == null) {
             return;
         }
         linearLayout.post(new h(this));
@@ -934,15 +934,15 @@ public class a extends c.a.r0.w0.m2.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.f27052e = ofFloat;
+            this.f27072e = ofFloat;
             ofFloat.setDuration(270L);
-            this.f27052e.addUpdateListener(new C1267a(this));
-            this.f27052e.addListener(new b(this));
+            this.f27072e.addUpdateListener(new C1265a(this));
+            this.f27072e.addListener(new b(this));
             ValueAnimator ofFloat2 = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.f27053f = ofFloat2;
+            this.f27073f = ofFloat2;
             ofFloat2.setDuration(500L);
-            this.f27053f.addUpdateListener(new c(this));
-            this.f27053f.addListener(new d(this));
+            this.f27073f.addUpdateListener(new c(this));
+            this.f27073f.addListener(new d(this));
         }
     }
 }

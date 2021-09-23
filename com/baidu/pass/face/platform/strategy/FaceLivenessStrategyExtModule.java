@@ -3,9 +3,9 @@ package com.baidu.pass.face.platform.strategy;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.face.platform.FaceConfig;
 import com.baidu.pass.face.platform.FaceEnvironment;
 import com.baidu.pass.face.platform.FaceSDKManager;
@@ -19,7 +19,6 @@ import com.baidu.pass.face.platform.d;
 import com.baidu.pass.face.platform.decode.FaceModuleNew;
 import com.baidu.pass.face.platform.e;
 import com.baidu.pass.face.platform.listener.ISecurityCallback;
-import com.baidu.pass.face.platform.manager.TimeManager;
 import com.baidu.pass.face.platform.model.FaceExtInfo;
 import com.baidu.pass.face.platform.model.FaceModel;
 import com.baidu.pass.face.platform.model.ImageInfo;
@@ -43,7 +42,6 @@ public class FaceLivenessStrategyExtModule implements c {
     public static final String TAG = "FaceLivenessStrategyExtModule";
     public static volatile int mProcessCount;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler mAnimHandler;
     public HashMap<String, ImageInfo> mBase64ImageCropMap;
     public HashMap<String, ImageInfo> mBase64ImageSrcMap;
     public Context mContext;
@@ -70,9 +68,9 @@ public class FaceLivenessStrategyExtModule implements c {
     public boolean mTipLiveTimeout;
     public Map<FaceStatusNewEnum, String> mTipsMap;
 
-    /* renamed from: com.baidu.pass.face.platform.strategy.FaceLivenessStrategyExtModule$2  reason: invalid class name */
+    /* renamed from: com.baidu.pass.face.platform.strategy.FaceLivenessStrategyExtModule$1  reason: invalid class name */
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$face$platform$FaceStatusNewEnum;
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$face$platform$strategy$FaceLivenessStrategyExtModule$LivenessStatus;
         public static /* synthetic */ Interceptable $ic;
@@ -81,13 +79,13 @@ public class FaceLivenessStrategyExtModule implements c {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(777162741, "Lcom/baidu/pass/face/platform/strategy/FaceLivenessStrategyExtModule$2;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(777162710, "Lcom/baidu/pass/face/platform/strategy/FaceLivenessStrategyExtModule$1;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(777162741, "Lcom/baidu/pass/face/platform/strategy/FaceLivenessStrategyExtModule$2;");
+                    classClinitInterceptable.invokePostClinit(777162710, "Lcom/baidu/pass/face/platform/strategy/FaceLivenessStrategyExtModule$1;");
                     return;
                 }
             }
@@ -265,7 +263,6 @@ public class FaceLivenessStrategyExtModule implements c {
         this.mLivenessStrategy = new LivenessStatusStrategy();
         this.mFaceModule = new FaceModuleNew();
         this.mSoundPlayHelper = new SoundPoolHelper(context);
-        this.mAnimHandler = new Handler(Looper.getMainLooper());
     }
 
     public static /* synthetic */ int access$106() {
@@ -276,23 +273,28 @@ public class FaceLivenessStrategyExtModule implements c {
 
     private boolean cropStrategy(BDFaceImageInstance bDFaceImageInstance, FaceExtInfo faceExtInfo, LivenessTypeEnum livenessTypeEnum, int i2) {
         InterceptResult invokeLLLI;
+        FaceStatusNewEnum cropIsOutofBoundary;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65543, this, bDFaceImageInstance, faceExtInfo, livenessTypeEnum, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, bDFaceImageInstance, faceExtInfo, livenessTypeEnum, i2)) == null) {
             FaceStatusNewEnum cropStatus = this.mDetectStrategy.getCropStatus(faceExtInfo, this.mFaceConfig);
             if (cropStatus != FaceStatusNewEnum.OK) {
                 this.mILivenessStrategyCallback.a(cropStatus, getStatusTextResId(cropStatus), null, null, 0);
                 return false;
-            }
-            float totalCropScore = this.mDetectStrategy.getTotalCropScore();
-            this.mFaceModule.setFaceConfig(this.mFaceConfig);
-            BDFaceImageInstance cropFace = FaceSDKManager.getInstance().cropFace(bDFaceImageInstance, faceExtInfo.getmLandmarks(), this.mFaceConfig.getCropHeight(), this.mFaceConfig.getCropWidth());
-            if (cropFace == null) {
+            } else if (this.mFaceConfig.isNoBlackCropImage() && (cropIsOutofBoundary = FaceSDKManager.getInstance().cropIsOutofBoundary(bDFaceImageInstance, faceExtInfo.getmLandmarks(), this.mFaceConfig.getCropHeight(), this.mFaceConfig.getCropWidth())) != FaceStatusNewEnum.OK) {
+                this.mILivenessStrategyCallback.a(cropIsOutofBoundary, getStatusTextResId(cropIsOutofBoundary), null, null, 0);
                 return false;
+            } else {
+                float totalCropScore = this.mDetectStrategy.getTotalCropScore();
+                this.mFaceModule.setFaceConfig(this.mFaceConfig);
+                BDFaceImageInstance cropFace = FaceSDKManager.getInstance().cropFace(bDFaceImageInstance, faceExtInfo.getmLandmarks(), this.mFaceConfig.getCropHeight(), this.mFaceConfig.getCropWidth());
+                if (cropFace == null) {
+                    return false;
+                }
+                saveCropImageInstance(faceExtInfo, cropFace, i2, totalCropScore);
+                cropFace.destory();
+                saveSrcImageInstance(faceExtInfo, bDFaceImageInstance, i2, totalCropScore);
+                return true;
             }
-            saveCropImageInstance(faceExtInfo, cropFace, i2, totalCropScore);
-            cropFace.destory();
-            saveSrcImageInstance(faceExtInfo, bDFaceImageInstance, i2, totalCropScore);
-            return true;
         }
         return invokeLLLI.booleanValue;
     }
@@ -301,7 +303,7 @@ public class FaceLivenessStrategyExtModule implements c {
         InterceptResult invokeL;
         Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, faceStatusNewEnum)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, faceStatusNewEnum)) == null) {
             if (this.mTipsMap.containsKey(faceStatusNewEnum)) {
                 return this.mTipsMap.get(faceStatusNewEnum);
             }
@@ -318,53 +320,19 @@ public class FaceLivenessStrategyExtModule implements c {
 
     private void judgeLivenessTimeout() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.mLivenessStrategy.isCourseTimeout(this.mFaceConfig) && !this.mTipLiveTimeout) {
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && this.mLivenessStrategy.isCourseTimeout(this.mFaceConfig) && !this.mTipLiveTimeout) {
             e eVar = this.mILivenessViewCallback;
             if (eVar != null) {
                 eVar.a(this.mLivenessStrategy.getCurrentLivenessType());
             }
             processUICallback(FaceStatusNewEnum.FaceLivenessActionCodeTimeout, null);
-            this.mAnimHandler.postDelayed(new Runnable(this) { // from class: com.baidu.pass.face.platform.strategy.FaceLivenessStrategyExtModule.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ FaceLivenessStrategyExtModule this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.mLivenessStrategy.resetState();
-                        TimeManager.getInstance().setActiveAnimTime(0);
-                        this.this$0.mILivenessViewCallback.b();
-                        this.this$0.mTipLiveTimeout = false;
-                    }
-                }
-            }, TimeManager.getInstance().getActiveAnimTime() + 1000);
             this.mTipLiveTimeout = true;
         }
     }
 
     private void process(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, bArr) == null) || mProcessCount > 0) {
+        if (!(interceptable == null || interceptable.invokeL(65543, this, bArr) == null) || mProcessCount > 0) {
             return;
         }
         mProcessCount++;
@@ -374,20 +342,23 @@ public class FaceLivenessStrategyExtModule implements c {
     /* JADX INFO: Access modifiers changed from: private */
     public void processStrategy(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, this, bArr) == null) {
-            BDFaceImageInstance bDFaceImageInstance = new BDFaceImageInstance(bArr, this.mPreviewRect.width(), this.mPreviewRect.height(), BDFaceSDKCommon.BDFaceImageType.BDFACE_IMAGE_TYPE_YUV_NV21, 360 - this.mPreviewDegree, 1);
-            FaceInfo[] detect = FaceSDKManager.getInstance().detect(bDFaceImageInstance);
-            ISecurityCallback iSecurityCallback = this.mISecurityCallback;
-            if (iSecurityCallback != null) {
-                iSecurityCallback.getFaceInfoForSecurity(detect);
+        if (interceptable == null || interceptable.invokeL(65544, this, bArr) == null) {
+            try {
+                BDFaceImageInstance bDFaceImageInstance = new BDFaceImageInstance(bArr, this.mPreviewRect.width(), this.mPreviewRect.height(), BDFaceSDKCommon.BDFaceImageType.BDFACE_IMAGE_TYPE_YUV_NV21, 360 - this.mPreviewDegree, 1);
+                FaceInfo[] detect = FaceSDKManager.getInstance().detect(bDFaceImageInstance);
+                if (this.mISecurityCallback != null) {
+                    this.mISecurityCallback.getFaceInfoForSecurity(detect);
+                }
+                processUIResult(setFaceModel(detect), bDFaceImageInstance);
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-            processUIResult(setFaceModel(detect), bDFaceImageInstance);
         }
     }
 
     private void processUICallback(FaceStatusNewEnum faceStatusNewEnum, FaceExtInfo faceExtInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, this, faceStatusNewEnum, faceExtInfo) == null) {
+        if (interceptable == null || interceptable.invokeLL(65545, this, faceStatusNewEnum, faceExtInfo) == null) {
             if (faceStatusNewEnum == FaceStatusNewEnum.DetectRemindCodeTimeout) {
                 LogHelper.addLogWithKey(ConstantHelper.LOG_ETM, Long.valueOf(System.currentTimeMillis()));
                 LogHelper.sendLog();
@@ -418,7 +389,7 @@ public class FaceLivenessStrategyExtModule implements c {
 
     private void processUIResult(FaceModel faceModel, BDFaceImageInstance bDFaceImageInstance) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65549, this, faceModel, bDFaceImageInstance) == null) || bDFaceImageInstance == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65546, this, faceModel, bDFaceImageInstance) == null) || bDFaceImageInstance == null) {
             return;
         }
         if (this.mIsProcessing) {
@@ -431,7 +402,7 @@ public class FaceLivenessStrategyExtModule implements c {
                     bDFaceImageInstance.destory();
                     this.mIsProcessing = true;
                     processUICallback(FaceStatusNewEnum.DetectRemindCodeTimeout, null);
-                } else if (AnonymousClass2.$SwitchMap$com$baidu$pass$face$platform$FaceStatusNewEnum[faceModuleStateNew.ordinal()] != 1) {
+                } else if (AnonymousClass1.$SwitchMap$com$baidu$pass$face$platform$FaceStatusNewEnum[faceModuleStateNew.ordinal()] != 1) {
                     bDFaceImageInstance.destory();
                     processUITips(faceModuleStateNew, faceExtInfo);
                     this.mDetectStrategy.reset();
@@ -489,7 +460,7 @@ public class FaceLivenessStrategyExtModule implements c {
                 }
                 this.mNoFaceTime = 0L;
                 LogHelper.addLogWithKey(ConstantHelper.LOG_BTM, Long.valueOf(System.currentTimeMillis()));
-                int i2 = AnonymousClass2.$SwitchMap$com$baidu$pass$face$platform$strategy$FaceLivenessStrategyExtModule$LivenessStatus[this.mLivenessStatus.ordinal()];
+                int i2 = AnonymousClass1.$SwitchMap$com$baidu$pass$face$platform$strategy$FaceLivenessStrategyExtModule$LivenessStatus[this.mLivenessStatus.ordinal()];
                 if (i2 != 1) {
                     if (i2 != 2) {
                         if (i2 == 3 && processUITips(FaceStatusNewEnum.FaceLivenessActionComplete, faceExtInfo)) {
@@ -532,7 +503,7 @@ public class FaceLivenessStrategyExtModule implements c {
     private boolean processUITips(FaceStatusNewEnum faceStatusNewEnum, FaceExtInfo faceExtInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, faceStatusNewEnum, faceExtInfo)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, faceStatusNewEnum, faceExtInfo)) == null) {
             if (faceStatusNewEnum != null) {
                 this.mSoundPlayHelper.setEnableSound(this.mIsEnableSound);
                 boolean playSound = this.mSoundPlayHelper.playSound(faceStatusNewEnum);
@@ -551,7 +522,7 @@ public class FaceLivenessStrategyExtModule implements c {
     private void saveCropImageInstance(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i2, float f2) {
         ArrayList<ImageInfo> detectBestCropImageList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (detectBestCropImageList = this.mFaceModule.getDetectBestCropImageList(faceExtInfo, bDFaceImageInstance)) == null || detectBestCropImageList.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (detectBestCropImageList = this.mFaceModule.getDetectBestCropImageList(faceExtInfo, bDFaceImageInstance)) == null || detectBestCropImageList.size() <= 0) {
             return;
         }
         HashMap<String, ImageInfo> hashMap = this.mBase64ImageCropMap;
@@ -561,7 +532,7 @@ public class FaceLivenessStrategyExtModule implements c {
     private void saveSrcImageInstance(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i2, float f2) {
         ArrayList<ImageInfo> detectBestSrcImageList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (detectBestSrcImageList = this.mFaceModule.getDetectBestSrcImageList(faceExtInfo, bDFaceImageInstance)) == null || detectBestSrcImageList.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (detectBestSrcImageList = this.mFaceModule.getDetectBestSrcImageList(faceExtInfo, bDFaceImageInstance)) == null || detectBestSrcImageList.size() <= 0) {
             return;
         }
         HashMap<String, ImageInfo> hashMap = this.mBase64ImageSrcMap;
@@ -571,7 +542,7 @@ public class FaceLivenessStrategyExtModule implements c {
     private FaceModel setFaceModel(FaceInfo[] faceInfoArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, faceInfoArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, faceInfoArr)) == null) {
             FaceExtInfo[] faceExtInfo = this.mFaceModule.getFaceExtInfo(faceInfoArr);
             FaceModel faceModel = new FaceModel();
             faceModel.setFaceInfos(faceExtInfo);
@@ -616,11 +587,6 @@ public class FaceLivenessStrategyExtModule implements c {
             SoundPoolHelper soundPoolHelper = this.mSoundPlayHelper;
             if (soundPoolHelper != null) {
                 soundPoolHelper.release();
-            }
-            Handler handler = this.mAnimHandler;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-                this.mAnimHandler = null;
             }
             this.mIsFirstTipsed = false;
             this.mIsProcessing = false;

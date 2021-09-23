@@ -14,19 +14,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29109a;
+    public int f29129a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f29110b;
+    public float f29130b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29111c;
+    public int f29131c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Camera f29112d;
+    public Camera f29132d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f29113e;
+    public h f29133e;
 
     public b(Camera camera) {
         Interceptable interceptable = $ic;
@@ -43,15 +43,15 @@ public class b {
                 return;
             }
         }
-        this.f29109a = 0;
-        this.f29112d = camera;
+        this.f29129a = 0;
+        this.f29132d = camera;
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Camera camera = this.f29112d;
+            Camera camera = this.f29132d;
             if (camera == null) {
                 return -1;
             }
@@ -71,28 +71,28 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            h hVar = this.f29113e;
+            h hVar = this.f29133e;
             if (hVar == null || !hVar.j()) {
                 int action = motionEvent.getAction() & 255;
                 if (action == 0) {
-                    this.f29109a = 0;
+                    this.f29129a = 0;
                 } else if (action != 2) {
                     if (action == 5) {
-                        this.f29109a = 1;
-                        this.f29110b = e(motionEvent);
+                        this.f29129a = 1;
+                        this.f29130b = e(motionEvent);
                     }
-                } else if (this.f29109a != 1 || motionEvent.getPointerCount() < 2) {
+                } else if (this.f29129a != 1 || motionEvent.getPointerCount() < 2) {
                     return true;
                 } else {
                     float e2 = e(motionEvent);
-                    int i2 = (int) ((e2 - this.f29110b) / 10.0f);
+                    int i2 = (int) ((e2 - this.f29130b) / 10.0f);
                     if (i2 >= 1 || i2 <= -1) {
-                        int i3 = this.f29111c + i2;
+                        int i3 = this.f29131c + i2;
                         if (i3 > a()) {
                             i3 = a();
                         }
                         d(i3 >= 0 ? i3 : 0);
-                        this.f29110b = e2;
+                        this.f29130b = e2;
                     }
                 }
                 return true;
@@ -105,21 +105,21 @@ public class b {
     public void c(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) {
-            this.f29113e = hVar;
+            this.f29133e = hVar;
         }
     }
 
     public final void d(int i2) {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (camera = this.f29112d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (camera = this.f29132d) == null) {
             return;
         }
         Camera.Parameters parameters = camera.getParameters();
         if (parameters.isZoomSupported()) {
             parameters.setZoom(i2);
-            this.f29112d.setParameters(parameters);
-            this.f29111c = i2;
+            this.f29132d.setParameters(parameters);
+            this.f29131c = i2;
         }
     }
 

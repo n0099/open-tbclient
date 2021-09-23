@@ -10,7 +10,6 @@ import c.a.q0.s.l.c;
 import c.a.q0.s.q.s0;
 import c.a.q0.t.a.b;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
@@ -173,9 +172,6 @@ public class NetWork {
                             accountData.setID(s0Var.b().getUserId());
                             accountData.setBDUSS(s0Var.b().getBDUSS());
                             accountData.setPortrait(s0Var.b().getPortrait());
-                            if (s0Var.b() != null && s0Var.b().getBaijiahaoInfo() != null && !StringUtils.isNull(s0Var.b().getBaijiahaoInfo().avatar)) {
-                                accountData.setBjhAvatar(s0Var.b().getBaijiahaoInfo().avatar);
-                            }
                             accountData.setIsActive(1);
                             if (s0Var.a() != null) {
                                 accountData.setTbs(s0Var.a().getTbs());
@@ -208,14 +204,14 @@ public class NetWork {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             String currentBduss = TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getCurrentBduss() : f.b();
-            BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", currentBduss);
+            BasicNameValuePair basicNameValuePair = new BasicNameValuePair(HttpRequest.BDUSS, currentBduss);
             BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair(HttpRequest.TBS, TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : f.f());
             if (currentBduss != null) {
                 ArrayList<BasicNameValuePair> postData = this.mNet.getPostData();
                 int size = postData.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     BasicNameValuePair basicNameValuePair3 = postData.get(i2);
-                    if (basicNameValuePair3.getName().equals("BDUSS")) {
+                    if (basicNameValuePair3.getName().equals(HttpRequest.BDUSS)) {
                         postData.set(i2, basicNameValuePair);
                     } else if (basicNameValuePair3.getName().equals(HttpRequest.TBS)) {
                         postData.set(i2, basicNameValuePair2);

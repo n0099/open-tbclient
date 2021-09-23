@@ -17,26 +17,26 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f33426g;
+    public static final a f33449g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f33427a;
+    public final int f33450a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f33428b;
+    public final int f33451b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f33429c;
+    public final int f33452c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f33430d;
+    public final int f33453d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f33431e;
+    public final int f33454e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Typeface f33432f;
+    public final Typeface f33455f;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public final class a {
                 return;
             }
         }
-        f33426g = new a(-1, -16777216, 0, 0, -1, null);
+        f33449g = new a(-1, -16777216, 0, 0, -1, null);
     }
 
     public a(int i2, int i3, int i4, int i5, int i6, Typeface typeface) {
@@ -69,12 +69,12 @@ public final class a {
                 return;
             }
         }
-        this.f33427a = i2;
-        this.f33428b = i3;
-        this.f33429c = i4;
-        this.f33430d = i5;
-        this.f33431e = i6;
-        this.f33432f = typeface;
+        this.f33450a = i2;
+        this.f33451b = i3;
+        this.f33452c = i4;
+        this.f33453d = i5;
+        this.f33454e = i6;
+        this.f33455f = typeface;
     }
 
     @TargetApi(19)
@@ -82,7 +82,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, captionStyle)) == null) {
-            if (v.f33838a >= 21) {
+            if (v.f33861a >= 21) {
                 return c(captionStyle);
             }
             return b(captionStyle);
@@ -102,7 +102,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, captionStyle)) == null) {
-            return new a(captionStyle.hasForegroundColor() ? captionStyle.foregroundColor : f33426g.f33427a, captionStyle.hasBackgroundColor() ? captionStyle.backgroundColor : f33426g.f33428b, captionStyle.hasWindowColor() ? captionStyle.windowColor : f33426g.f33429c, captionStyle.hasEdgeType() ? captionStyle.edgeType : f33426g.f33430d, captionStyle.hasEdgeColor() ? captionStyle.edgeColor : f33426g.f33431e, captionStyle.getTypeface());
+            return new a(captionStyle.hasForegroundColor() ? captionStyle.foregroundColor : f33449g.f33450a, captionStyle.hasBackgroundColor() ? captionStyle.backgroundColor : f33449g.f33451b, captionStyle.hasWindowColor() ? captionStyle.windowColor : f33449g.f33452c, captionStyle.hasEdgeType() ? captionStyle.edgeType : f33449g.f33453d, captionStyle.hasEdgeColor() ? captionStyle.edgeColor : f33449g.f33454e, captionStyle.getTypeface());
         }
         return (a) invokeL.objValue;
     }

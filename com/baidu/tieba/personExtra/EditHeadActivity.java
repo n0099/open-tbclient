@@ -111,7 +111,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55839e;
+        public final /* synthetic */ EditHeadActivity f55958e;
 
         public a(EditHeadActivity editHeadActivity) {
             Interceptable interceptable = $ic;
@@ -128,14 +128,14 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55839e = editHeadActivity;
+            this.f55958e = editHeadActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f55839e.mProgress.h(false);
+                this.f55958e.mProgress.h(false);
             }
         }
     }
@@ -146,7 +146,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55840a;
+        public final /* synthetic */ EditHeadActivity f55959a;
 
         public b(EditHeadActivity editHeadActivity) {
             Interceptable interceptable = $ic;
@@ -163,14 +163,14 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55840a = editHeadActivity;
+            this.f55959a = editHeadActivity;
         }
 
         @Override // com.baidu.tbadk.widget.DragImageView.k
         public void a(DragImageView dragImageView, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dragImageView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.f55840a.mPreviewLayout != null && this.f55840a.mPreviewLayout.getVisibility() == 0) {
-                this.f55840a.mImagePreview.setImageBitmap(this.f55840a.mImage.getHeadBitmap(false));
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dragImageView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.f55959a.mPreviewLayout != null && this.f55959a.mPreviewLayout.getVisibility() == 0) {
+                this.f55959a.mImagePreview.setImageBitmap(this.f55959a.mImage.getHeadBitmap(false));
             }
         }
     }
@@ -181,7 +181,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55841a;
+        public final /* synthetic */ EditHeadActivity f55960a;
 
         public c(EditHeadActivity editHeadActivity) {
             Interceptable interceptable = $ic;
@@ -198,14 +198,14 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55841a = editHeadActivity;
+            this.f55960a = editHeadActivity;
         }
 
         @Override // com.baidu.tbadk.widget.DragImageView.j
         public void a(DragImageView dragImageView, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLII(1048576, this, dragImageView, i2, i3) == null) && this.f55841a.mPreviewLayout != null && this.f55841a.mPreviewLayout.getVisibility() == 0) {
-                this.f55841a.mImagePreview.setImageBitmap(this.f55841a.mImage.getHeadBitmap(false));
+            if ((interceptable == null || interceptable.invokeLII(1048576, this, dragImageView, i2, i3) == null) && this.f55960a.mPreviewLayout != null && this.f55960a.mPreviewLayout.getVisibility() == 0) {
+                this.f55960a.mImagePreview.setImageBitmap(this.f55960a.mImage.getHeadBitmap(false));
             }
         }
     }
@@ -216,7 +216,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55842e;
+        public final /* synthetic */ EditHeadActivity f55961e;
 
         public d(EditHeadActivity editHeadActivity) {
             Interceptable interceptable = $ic;
@@ -233,15 +233,15 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55842e = editHeadActivity;
+            this.f55961e = editHeadActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55842e.setResult(0);
-                this.f55842e.finish();
+                this.f55961e.setResult(0);
+                this.f55961e.finish();
             }
         }
     }
@@ -252,7 +252,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55843e;
+        public final /* synthetic */ EditHeadActivity f55962e;
 
         public e(EditHeadActivity editHeadActivity) {
             Interceptable interceptable = $ic;
@@ -269,18 +269,18 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55843e = editHeadActivity;
+            this.f55962e = editHeadActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55843e.mBeautifyRotateView.setVisibility(0);
-                this.f55843e.mShow.setVisibility(8);
-                this.f55843e.mBtnRotate.setPadding(0, this.f55843e.mBtnRotate.getPaddingTop(), this.f55843e.mBtnRotate.getPaddingRight(), this.f55843e.mBtnRotate.getPaddingBottom());
-                this.f55843e.mBtnRotate.setChecked(true);
-                this.f55843e.mBtnBeautify.setVisibility(8);
+                this.f55962e.mBeautifyRotateView.setVisibility(0);
+                this.f55962e.mShow.setVisibility(8);
+                this.f55962e.mBtnRotate.setPadding(0, this.f55962e.mBtnRotate.getPaddingTop(), this.f55962e.mBtnRotate.getPaddingRight(), this.f55962e.mBtnRotate.getPaddingBottom());
+                this.f55962e.mBtnRotate.setChecked(true);
+                this.f55962e.mBtnBeautify.setVisibility(8);
             }
         }
     }
@@ -291,7 +291,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55844e;
+        public final /* synthetic */ EditHeadActivity f55963e;
 
         public f(EditHeadActivity editHeadActivity) {
             Interceptable interceptable = $ic;
@@ -308,15 +308,15 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55844e = editHeadActivity;
+            this.f55963e = editHeadActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55844e.mBeautifyRotateView.setVisibility(8);
-                this.f55844e.mShow.setVisibility(0);
+                this.f55963e.mBeautifyRotateView.setVisibility(8);
+                this.f55963e.mShow.setVisibility(0);
             }
         }
     }
@@ -327,7 +327,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55845e;
+        public final /* synthetic */ EditHeadActivity f55964e;
 
         /* loaded from: classes7.dex */
         public class a implements a.d {
@@ -335,7 +335,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f55846a;
+            public final /* synthetic */ g f55965a;
 
             public a(g gVar) {
                 Interceptable interceptable = $ic;
@@ -352,18 +352,18 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                         return;
                     }
                 }
-                this.f55846a = gVar;
+                this.f55965a = gVar;
             }
 
             @Override // c.a.q0.d0.a.d
             public void a(String str, ImageUploadResult imageUploadResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, str, imageUploadResult) == null) {
-                    this.f55846a.f55845e.closeLoadingDialog();
-                    Intent intent = this.f55846a.f55845e.getIntent();
+                    this.f55965a.f55964e.closeLoadingDialog();
+                    Intent intent = this.f55965a.f55964e.getIntent();
                     if (imageUploadResult != null) {
                         if (imageUploadResult.error_code != 0) {
-                            this.f55846a.f55845e.showToast(R.string.upload_pic_error, false);
+                            this.f55965a.f55964e.showToast(R.string.upload_pic_error, false);
                         } else {
                             PhotoUrlData photoUrlData = new PhotoUrlData();
                             photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
@@ -385,21 +385,21 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                                     photoUrlData.setToServerPhotoInfo(imageUploadResult.getUploadedPicInfo().toPostString());
                                 }
                             }
-                            if (EditHeadActivityConfig.FROM_MISSON_SET_COVER.equals(this.f55846a.f55845e.fromWhere)) {
-                                this.f55846a.f55845e.sendSetCoverSuccessMessage(photoUrlData);
+                            if (EditHeadActivityConfig.FROM_MISSON_SET_COVER.equals(this.f55965a.f55964e.fromWhere)) {
+                                this.f55965a.f55964e.sendSetCoverSuccessMessage(photoUrlData);
                             }
                             intent.putExtra(EditHeadActivity.PHOTO_RESOURCE, String.valueOf(imageUploadResult.picId));
                             intent.putExtra(EditHeadActivity.PIC_INFO, photoUrlData);
-                            if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(this.f55846a.f55845e.fromWhere)) {
+                            if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(this.f55965a.f55964e.fromWhere)) {
                                 Intent intent2 = new Intent();
                                 intent2.setAction("com.tieba.action.ImagePickerPlugin");
                                 intent2.putExtra("pic_info", photoUrlData);
-                                this.f55846a.f55845e.sendBroadcast(intent2);
+                                this.f55965a.f55964e.sendBroadcast(intent2);
                             }
                         }
                     }
-                    this.f55846a.f55845e.setResult(-1, intent);
-                    this.f55846a.f55845e.finish();
+                    this.f55965a.f55964e.setResult(-1, intent);
+                    this.f55965a.f55964e.finish();
                 }
             }
         }
@@ -419,7 +419,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55845e = editHeadActivity;
+            this.f55964e = editHeadActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -427,32 +427,32 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f55845e.mEditType != 0) {
+                if (this.f55964e.mEditType != 0) {
                     str = TbConfig.GROUP_HEAD_FILE;
                 } else {
-                    str = !this.f55845e.needUpload ? TbConfig.PERSON_USER_PIC_TEMP_FILE : TbConfig.PERSON_HEAD_FILE;
+                    str = !this.f55964e.needUpload ? TbConfig.PERSON_USER_PIC_TEMP_FILE : TbConfig.PERSON_HEAD_FILE;
                 }
-                Bitmap headBitmap = this.f55845e.mImage.getHeadBitmap(this.f55845e.mEditType == 0 || this.f55845e.mEditType == 3);
-                if (headBitmap == null || !this.f55845e.saveFile(str, headBitmap)) {
+                Bitmap headBitmap = this.f55964e.mImage.getHeadBitmap(this.f55964e.mEditType == 0 || this.f55964e.mEditType == 3);
+                if (headBitmap == null || !this.f55964e.saveFile(str, headBitmap)) {
                     return;
                 }
-                if (this.f55845e.mEditType == 0) {
-                    if (this.f55845e.needUpload) {
-                        this.f55845e.modifyHead();
+                if (this.f55964e.mEditType == 0) {
+                    if (this.f55964e.needUpload) {
+                        this.f55964e.modifyHead();
                         return;
                     }
-                    Intent intent = this.f55845e.getIntent();
+                    Intent intent = this.f55964e.getIntent();
                     intent.putExtra("upload_image_type", 2);
-                    this.f55845e.setResult(-1, intent);
-                    this.f55845e.closeActivity();
+                    this.f55964e.setResult(-1, intent);
+                    this.f55964e.closeActivity();
                     return;
                 }
                 c.a.q0.d0.a aVar = new c.a.q0.d0.a(FileHelper.getFileDireciory(str), "head");
                 aVar.j();
                 aVar.l(new a(this));
-                aVar.n(this.f55845e.wasterMaskType);
+                aVar.n(this.f55964e.wasterMaskType);
                 aVar.g(false);
-                EditHeadActivity editHeadActivity = this.f55845e;
+                EditHeadActivity editHeadActivity = this.f55964e;
                 editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.uploading));
             }
         }
@@ -464,7 +464,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55847e;
+        public final /* synthetic */ EditHeadActivity f55966e;
 
         public h(EditHeadActivity editHeadActivity) {
             Interceptable interceptable = $ic;
@@ -481,17 +481,17 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55847e = editHeadActivity;
+            this.f55966e = editHeadActivity;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) && z) {
-                if (compoundButton == this.f55847e.mBtnBeautify) {
-                    this.f55847e.mRotateView.setVisibility(8);
-                } else if (compoundButton == this.f55847e.mBtnRotate) {
-                    this.f55847e.mRotateView.setVisibility(0);
+                if (compoundButton == this.f55966e.mBtnBeautify) {
+                    this.f55966e.mRotateView.setVisibility(8);
+                } else if (compoundButton == this.f55966e.mBtnRotate) {
+                    this.f55966e.mRotateView.setVisibility(0);
                 }
             }
         }
@@ -503,7 +503,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55848e;
+        public final /* synthetic */ EditHeadActivity f55967e;
 
         public i(EditHeadActivity editHeadActivity) {
             Interceptable interceptable = $ic;
@@ -520,19 +520,19 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55848e = editHeadActivity;
+            this.f55967e = editHeadActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f55848e.mProgress.c()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f55967e.mProgress.c()) {
                 return;
             }
-            if ((this.f55848e.mBitmap == null && this.f55848e.mPreparedBitmap == null) || view.getTag() == null) {
+            if ((this.f55967e.mBitmap == null && this.f55967e.mPreparedBitmap == null) || view.getTag() == null) {
                 return;
             }
-            this.f55848e.startFilterTask(view.getTag().toString());
+            this.f55967e.startFilterTask(view.getTag().toString());
         }
     }
 
@@ -542,19 +542,19 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f55849a;
+        public String f55968a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Bitmap f55850b;
+        public Bitmap f55969b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Boolean f55851c;
+        public Boolean f55970c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Boolean f55852d;
+        public Boolean f55971d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55853e;
+        public final /* synthetic */ EditHeadActivity f55972e;
 
         public j(EditHeadActivity editHeadActivity) {
             Interceptable interceptable = $ic;
@@ -571,10 +571,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55853e = editHeadActivity;
+            this.f55972e = editHeadActivity;
             Boolean bool = Boolean.FALSE;
-            this.f55851c = bool;
-            this.f55852d = bool;
+            this.f55970c = bool;
+            this.f55971d = bool;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -584,32 +584,32 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.f55849a = strArr[0];
-                if (this.f55853e.mBitmap == null && this.f55853e.mPreparedBitmap == null) {
+                this.f55968a = strArr[0];
+                if (this.f55972e.mBitmap == null && this.f55972e.mPreparedBitmap == null) {
                     return null;
                 }
-                if (!this.f55849a.equals("0") && !this.f55849a.equals("1")) {
-                    if (this.f55849a.equals("2") || this.f55849a.equals("3")) {
-                        this.f55852d = Boolean.TRUE;
+                if (!this.f55968a.equals("0") && !this.f55968a.equals("1")) {
+                    if (this.f55968a.equals("2") || this.f55968a.equals("3")) {
+                        this.f55971d = Boolean.TRUE;
                     }
                 } else {
-                    this.f55851c = Boolean.TRUE;
+                    this.f55970c = Boolean.TRUE;
                 }
-                if (this.f55851c.booleanValue() || this.f55852d.booleanValue()) {
-                    if (this.f55853e.mPreparedBitmap != null) {
-                        this.f55850b = this.f55853e.mPreparedBitmap.copy(this.f55853e.mPreparedBitmap.getConfig(), true);
+                if (this.f55970c.booleanValue() || this.f55971d.booleanValue()) {
+                    if (this.f55972e.mPreparedBitmap != null) {
+                        this.f55969b = this.f55972e.mPreparedBitmap.copy(this.f55972e.mPreparedBitmap.getConfig(), true);
                     } else {
-                        this.f55850b = this.f55853e.mBitmap.copy(this.f55853e.mBitmap.getConfig(), true);
+                        this.f55969b = this.f55972e.mBitmap.copy(this.f55972e.mBitmap.getConfig(), true);
                     }
                 } else {
-                    this.f55850b = this.f55853e.mBitmap.copy(this.f55853e.mBitmap.getConfig(), true);
+                    this.f55969b = this.f55972e.mBitmap.copy(this.f55972e.mBitmap.getConfig(), true);
                 }
-                if (this.f55851c.booleanValue()) {
-                    this.f55850b = BitmapHelper.rotateBitmap(this.f55850b, Integer.parseInt(this.f55849a));
-                } else if (this.f55852d.booleanValue()) {
-                    this.f55850b = BitmapHelper.reversalBitmap(this.f55850b, Integer.parseInt(this.f55849a));
+                if (this.f55970c.booleanValue()) {
+                    this.f55969b = BitmapHelper.rotateBitmap(this.f55969b, Integer.parseInt(this.f55968a));
+                } else if (this.f55971d.booleanValue()) {
+                    this.f55969b = BitmapHelper.reversalBitmap(this.f55969b, Integer.parseInt(this.f55968a));
                 }
-                return this.f55850b;
+                return this.f55969b;
             }
             return (Bitmap) invokeL.objValue;
         }
@@ -618,17 +618,17 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Bitmap bitmap = this.f55850b;
+                Bitmap bitmap = this.f55969b;
                 if (bitmap != null && !bitmap.isRecycled()) {
-                    Bitmap bitmap2 = this.f55853e.mPreparedBitmap;
-                    Bitmap bitmap3 = this.f55850b;
+                    Bitmap bitmap2 = this.f55972e.mPreparedBitmap;
+                    Bitmap bitmap3 = this.f55969b;
                     if (bitmap2 != bitmap3) {
                         bitmap3.recycle();
                     }
                 }
-                this.f55850b = null;
-                this.f55853e.mProgress.h(false);
-                this.f55853e.mTitleRightButton.setClickable(true);
+                this.f55969b = null;
+                this.f55972e.mProgress.h(false);
+                this.f55972e.mTitleRightButton.setClickable(true);
                 super.cancel(true);
             }
         }
@@ -637,8 +637,8 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f55853e.mProgress.h(true);
-                this.f55853e.mTitleRightButton.setEnabled(false);
+                this.f55972e.mProgress.h(true);
+                this.f55972e.mTitleRightButton.setEnabled(false);
             }
         }
 
@@ -647,32 +647,32 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void onPostExecute(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
-                this.f55853e.mProgress.h(false);
-                this.f55853e.mTitleRightButton.setClickable(true);
-                this.f55853e.mTitleRightButton.setEnabled(true);
+                this.f55972e.mProgress.h(false);
+                this.f55972e.mTitleRightButton.setClickable(true);
+                this.f55972e.mTitleRightButton.setEnabled(true);
                 if (bitmap == null || bitmap.isRecycled()) {
                     return;
                 }
-                if (this.f55851c.booleanValue() || this.f55852d.booleanValue()) {
-                    this.f55853e.mImage.setImageBitmap(bitmap);
-                    if (this.f55853e.mBitmap.getWidth() > 1800 || this.f55853e.mBitmap.getHeight() > 1800) {
-                        EditHeadActivity editHeadActivity = this.f55853e;
+                if (this.f55970c.booleanValue() || this.f55971d.booleanValue()) {
+                    this.f55972e.mImage.setImageBitmap(bitmap);
+                    if (this.f55972e.mBitmap.getWidth() > 1800 || this.f55972e.mBitmap.getHeight() > 1800) {
+                        EditHeadActivity editHeadActivity = this.f55972e;
                         editHeadActivity.mBitmap = BitmapHelper.resizeBitmap(editHeadActivity.mBitmap, 1800);
                     }
-                    if (this.f55851c.booleanValue()) {
-                        EditHeadActivity editHeadActivity2 = this.f55853e;
-                        editHeadActivity2.mBitmap = BitmapHelper.rotateBitmap(editHeadActivity2.mBitmap, Integer.parseInt(this.f55849a));
-                    } else if (this.f55852d.booleanValue()) {
-                        EditHeadActivity editHeadActivity3 = this.f55853e;
-                        editHeadActivity3.mBitmap = BitmapHelper.reversalBitmap(editHeadActivity3.mBitmap, Integer.parseInt(this.f55849a));
+                    if (this.f55970c.booleanValue()) {
+                        EditHeadActivity editHeadActivity2 = this.f55972e;
+                        editHeadActivity2.mBitmap = BitmapHelper.rotateBitmap(editHeadActivity2.mBitmap, Integer.parseInt(this.f55968a));
+                    } else if (this.f55971d.booleanValue()) {
+                        EditHeadActivity editHeadActivity3 = this.f55972e;
+                        editHeadActivity3.mBitmap = BitmapHelper.reversalBitmap(editHeadActivity3.mBitmap, Integer.parseInt(this.f55968a));
                     }
                 } else {
-                    this.f55853e.mImage.replaceImageBitmap(bitmap);
+                    this.f55972e.mImage.replaceImageBitmap(bitmap);
                 }
-                if (this.f55853e.mPreparedBitmap != null && !this.f55853e.mPreparedBitmap.isRecycled()) {
-                    this.f55853e.mPreparedBitmap.recycle();
+                if (this.f55972e.mPreparedBitmap != null && !this.f55972e.mPreparedBitmap.isRecycled()) {
+                    this.f55972e.mPreparedBitmap.recycle();
                 }
-                this.f55853e.mPreparedBitmap = bitmap;
+                this.f55972e.mPreparedBitmap = bitmap;
             }
         }
     }
@@ -683,7 +683,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55854a;
+        public final /* synthetic */ EditHeadActivity f55973a;
 
         public k(EditHeadActivity editHeadActivity) {
             Interceptable interceptable = $ic;
@@ -700,7 +700,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55854a = editHeadActivity;
+            this.f55973a = editHeadActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -747,10 +747,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f55854a.mTask = null;
-                this.f55854a.mProgress.h(false);
-                this.f55854a.mTitleRightButton.setClickable(true);
-                this.f55854a.mTitleRightButton.setEnabled(true);
+                this.f55973a.mTask = null;
+                this.f55973a.mProgress.h(false);
+                this.f55973a.mTitleRightButton.setClickable(true);
+                this.f55973a.mTitleRightButton.setEnabled(true);
                 super.cancel(true);
             }
         }
@@ -759,8 +759,8 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f55854a.mProgress.h(true);
-                this.f55854a.mTitleRightButton.setClickable(false);
+                this.f55973a.mProgress.h(true);
+                this.f55973a.mTitleRightButton.setClickable(false);
             }
         }
 
@@ -774,15 +774,15 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
                 super.onPostExecute((k) bitmap);
-                this.f55854a.mTask = null;
-                this.f55854a.mBitmap = bitmap;
-                this.f55854a.mProgress.h(false);
-                this.f55854a.mTitleRightButton.setClickable(true);
-                this.f55854a.mTitleRightButton.setEnabled(true);
+                this.f55973a.mTask = null;
+                this.f55973a.mBitmap = bitmap;
+                this.f55973a.mProgress.h(false);
+                this.f55973a.mTitleRightButton.setClickable(true);
+                this.f55973a.mTitleRightButton.setEnabled(true);
                 if (bitmap == null || bitmap.isRecycled()) {
-                    this.f55854a.mImage.setImageDrawable(null);
+                    this.f55973a.mImage.setImageDrawable(null);
                 } else if (bitmap != null) {
-                    this.f55854a.mImage.setImageBitmap(bitmap);
+                    this.f55973a.mImage.setImageBitmap(bitmap);
                 }
             }
         }
@@ -839,10 +839,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f55855a;
+        public NetWork f55974a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ EditHeadActivity f55856b;
+        public final /* synthetic */ EditHeadActivity f55975b;
 
         public m(EditHeadActivity editHeadActivity) {
             Interceptable interceptable = $ic;
@@ -859,17 +859,17 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     return;
                 }
             }
-            this.f55856b = editHeadActivity;
-            this.f55855a = null;
+            this.f55975b = editHeadActivity;
+            this.f55974a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f55856b.closeLoadingDialog();
-                this.f55856b.mHeadModifyTask = null;
-                NetWork netWork = this.f55855a;
+                this.f55975b.closeLoadingDialog();
+                this.f55975b.mHeadModifyTask = null;
+                NetWork netWork = this.f55974a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
@@ -881,7 +881,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                EditHeadActivity editHeadActivity = this.f55856b;
+                EditHeadActivity editHeadActivity = this.f55975b;
                 editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.upload_head));
             }
         }
@@ -895,7 +895,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
-                this.f55855a = netWork;
+                this.f55974a = netWork;
                 try {
                     str = netWork.uploadImage(TbConfig.PERSON_HEAD_FILE);
                 } catch (Exception e3) {
@@ -908,7 +908,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     BdLog.e(e2.getMessage());
                     return str;
                 }
-                if (this.f55855a.getNetContext().getResponse().isRequestSuccess()) {
+                if (this.f55974a.getNetContext().getResponse().isRequestSuccess()) {
                     return str;
                 }
                 return null;
@@ -921,25 +921,25 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f55856b.closeLoadingDialog();
-                NetWork netWork = this.f55855a;
+                this.f55975b.closeLoadingDialog();
+                NetWork netWork = this.f55974a;
                 if (netWork != null) {
                     if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                         Intent intent = new Intent();
                         intent.putExtra("upload_image_type", 1);
-                        this.f55856b.setResult(-1, intent);
-                        if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(this.f55856b.fromWhere)) {
+                        this.f55975b.setResult(-1, intent);
+                        if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(this.f55975b.fromWhere)) {
                             Intent intent2 = new Intent();
                             intent2.setAction("com.tieba.action.ImagePickerPlugin");
                             intent2.putExtra("isHeadImage", true);
-                            this.f55856b.sendBroadcast(intent2);
+                            this.f55975b.sendBroadcast(intent2);
                         }
-                        this.f55856b.finish();
-                        EditHeadActivity editHeadActivity = this.f55856b;
+                        this.f55975b.finish();
+                        EditHeadActivity editHeadActivity = this.f55975b;
                         editHeadActivity.showToast(editHeadActivity.getPageContext().getString(R.string.upload_head_ok));
                         return;
                     }
-                    this.f55856b.showToast(this.f55855a.getErrorString());
+                    this.f55975b.showToast(this.f55974a.getErrorString());
                 }
             }
         }

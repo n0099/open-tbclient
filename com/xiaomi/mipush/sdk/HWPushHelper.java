@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.task.item.StrictModeTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ public class HWPushHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f77256a;
+    public static boolean f77575a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,12 +68,12 @@ public class HWPushHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            String a2 = i.a(e.f77305a);
+            String a2 = i.a(e.f77624a);
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
             String a3 = i.a(context, a2);
-            String a4 = ae.a(context).a(at.f77291c);
+            String a4 = ae.a(context).a(at.f77610c);
             return (TextUtils.isEmpty(a3) || TextUtils.isEmpty(a4) || !"synced".equals(a4)) ? false : true;
         }
         return invokeL.booleanValue;
@@ -89,7 +88,7 @@ public class HWPushHelper {
     public static boolean needConnect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f77256a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f77575a : invokeV.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
@@ -157,7 +156,7 @@ public class HWPushHelper {
     public static void registerHuaWeiAssemblePush(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, context) == null) || (a2 = f.a(context).a(e.f77305a)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65545, null, context) == null) || (a2 = f.a(context).a(e.f77624a)) == null) {
             return;
         }
         a2.register();
@@ -191,7 +190,7 @@ public class HWPushHelper {
     public static void setNeedConnect(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            f77256a = z;
+            f77575a = z;
         }
     }
 
@@ -201,7 +200,7 @@ public class HWPushHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             synchronized (HWPushHelper.class) {
-                z = Math.abs(System.currentTimeMillis() - context.getSharedPreferences("mipush_extra", 0).getLong("last_get_token_time", -1L)) > StrictModeTask.CLEAN_FILE_INTERVAL;
+                z = Math.abs(System.currentTimeMillis() - context.getSharedPreferences("mipush_extra", 0).getLong("last_get_token_time", -1L)) > 172800000;
             }
             return z;
         }
@@ -224,7 +223,7 @@ public class HWPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) {
-            i.a(context, e.f77305a, str);
+            i.a(context, e.f77624a, str);
         }
     }
 }

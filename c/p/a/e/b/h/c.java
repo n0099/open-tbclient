@@ -15,10 +15,10 @@ public class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final InputStream f35158a;
+    public final InputStream f35181a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.p.a.e.b.i.a f35159b;
+    public final c.p.a.e.b.i.a f35182b;
 
     public c(InputStream inputStream, int i2) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class c implements b {
                 return;
             }
         }
-        this.f35158a = inputStream;
-        this.f35159b = new c.p.a.e.b.i.a(i2);
+        this.f35181a = inputStream;
+        this.f35182b = new c.p.a.e.b.i.a(i2);
     }
 
     @Override // c.p.a.e.b.h.b
@@ -44,9 +44,9 @@ public class c implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.p.a.e.b.i.a aVar = this.f35159b;
-            aVar.f35162c = this.f35158a.read(aVar.f35160a);
-            return this.f35159b;
+            c.p.a.e.b.i.a aVar = this.f35182b;
+            aVar.f35185c = this.f35181a.read(aVar.f35183a);
+            return this.f35182b;
         }
         return (c.p.a.e.b.i.a) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public class c implements b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f.E(this.f35158a);
+            f.E(this.f35181a);
         }
     }
 }

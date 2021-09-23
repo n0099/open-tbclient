@@ -37,22 +37,22 @@ public class y extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5105e;
+        public final /* synthetic */ CallbackHandler f5113e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5106f;
+        public final /* synthetic */ String f5114f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f5107g;
+        public final /* synthetic */ Context f5115g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f5108h;
+        public final /* synthetic */ File f5116h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5109i;
+        public final /* synthetic */ UnitedSchemeEntity f5117i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ y f5110j;
+        public final /* synthetic */ y f5118j;
 
         /* renamed from: c.a.p0.a.c2.f.y$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -61,7 +61,7 @@ public class y extends a0 {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f5111e;
+            public final /* synthetic */ a f5119e;
 
             public RunnableC0145a(a aVar) {
                 Interceptable interceptable = $ic;
@@ -78,15 +78,15 @@ public class y extends a0 {
                         return;
                     }
                 }
-                this.f5111e = aVar;
+                this.f5119e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.f5111e;
-                    aVar.f5110j.p(aVar.f5107g, aVar.f5108h, aVar.f5109i, aVar.f5105e, aVar.f5106f);
+                    a aVar = this.f5119e;
+                    aVar.f5118j.p(aVar.f5115g, aVar.f5116h, aVar.f5117i, aVar.f5113e, aVar.f5114f);
                 }
             }
         }
@@ -106,12 +106,12 @@ public class y extends a0 {
                     return;
                 }
             }
-            this.f5110j = yVar;
-            this.f5105e = callbackHandler;
-            this.f5106f = str;
-            this.f5107g = context;
-            this.f5108h = file;
-            this.f5109i = unitedSchemeEntity;
+            this.f5118j = yVar;
+            this.f5113e = callbackHandler;
+            this.f5114f = str;
+            this.f5115g = context;
+            this.f5116h = file;
+            this.f5117i = unitedSchemeEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,7 +122,7 @@ public class y extends a0 {
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
                     c.a.p0.a.e0.d.g("SaveImage", "Permission denied");
-                    c.a.p0.a.e2.c.d.p(iVar, this.f5105e, this.f5106f);
+                    c.a.p0.a.e2.c.d.p(iVar, this.f5113e, this.f5114f);
                     return;
                 }
                 c.a.p0.a.v2.q.j(new RunnableC0145a(this), "SaveImageAction");
@@ -136,22 +136,22 @@ public class y extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f5112a;
+        public final /* synthetic */ Context f5120a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f5113b;
+        public final /* synthetic */ File f5121b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5114c;
+        public final /* synthetic */ CallbackHandler f5122c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f5115d;
+        public final /* synthetic */ String f5123d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5116e;
+        public final /* synthetic */ UnitedSchemeEntity f5124e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ y f5117f;
+        public final /* synthetic */ y f5125f;
 
         public b(y yVar, Context context, File file, CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -168,12 +168,12 @@ public class y extends a0 {
                     return;
                 }
             }
-            this.f5117f = yVar;
-            this.f5112a = context;
-            this.f5113b = file;
-            this.f5114c = callbackHandler;
-            this.f5115d = str;
-            this.f5116e = unitedSchemeEntity;
+            this.f5125f = yVar;
+            this.f5120a = context;
+            this.f5121b = file;
+            this.f5122c = callbackHandler;
+            this.f5123d = str;
+            this.f5124e = unitedSchemeEntity;
         }
 
         @Override // c.a.p0.a.s1.f
@@ -181,15 +181,15 @@ public class y extends a0 {
             String str2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                boolean q = c.a.p0.a.v2.d.a() ? this.f5117f.q(this.f5112a, this.f5113b) : this.f5117f.r(this.f5112a, this.f5113b);
+                boolean q = c.a.p0.a.v2.d.a() ? this.f5125f.q(this.f5120a, this.f5121b) : this.f5125f.r(this.f5120a, this.f5121b);
                 int i2 = q ? 0 : 1001;
                 if (q) {
                     str2 = "save success";
                 } else {
-                    str2 = "can not save to album : " + this.f5113b;
+                    str2 = "can not save to album : " + this.f5121b;
                 }
                 c.a.p0.a.e0.d.g("SaveImage", str2);
-                this.f5114c.handleSchemeDispatchCallback(this.f5115d, UnitedSchemeUtility.wrapCallbackParams(i2, str2).toString());
+                this.f5122c.handleSchemeDispatchCallback(this.f5123d, UnitedSchemeUtility.wrapCallbackParams(i2, str2).toString());
             }
         }
 
@@ -198,7 +198,7 @@ public class y extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 c.a.p0.a.e0.d.g("SaveImage", str + "");
-                UnitedSchemeUtility.safeCallback(this.f5114c, this.f5116e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f5115d);
+                UnitedSchemeUtility.safeCallback(this.f5122c, this.f5124e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f5123d);
             }
         }
     }
@@ -243,7 +243,7 @@ public class y extends a0 {
                             str = cursor.getString(columnIndexOrThrow);
                         } catch (SQLException e2) {
                             e = e2;
-                            if (a0.f4766b) {
+                            if (a0.f4774b) {
                                 e.printStackTrace();
                             }
                             c.a.p0.t.d.d(cursor);
@@ -304,7 +304,7 @@ public class y extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not find such file : " + n);
                 return false;
             } catch (Exception e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.printStackTrace();
                 }
                 c.a.p0.a.e0.d.b("SaveImage", "Illegal file_path");
@@ -365,7 +365,7 @@ public class y extends a0 {
             try {
                 str = MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getPath(), file.getName(), "by aiapp");
             } catch (FileNotFoundException e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.printStackTrace();
                 }
                 str = null;
@@ -376,7 +376,7 @@ public class y extends a0 {
                     c.a.p0.a.v2.u.q(context, o);
                 }
             }
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str2 = "saveToAlbum : file = " + file;
                 String str3 = "saveToAlbum : image = " + str;
             }

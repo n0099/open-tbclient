@@ -27,34 +27,34 @@ public class b implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f8371a;
+    public c f8379a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SimpleDateFormat f8372b;
+    public SimpleDateFormat f8380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, List<c.a.p0.a.r1.k.a>> f8373c;
+    public HashMap<String, List<c.a.p0.a.r1.k.a>> f8381c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f8374d;
+    public final Object f8382d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8375e;
+    public String f8383e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f8376f;
+    public boolean f8384f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f8377g;
+    public boolean f8385g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f8378h;
+    public long f8386h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f8379i;
+    public long f8387i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile c.a.p0.a.r1.k.j.c f8380j;
+    public volatile c.a.p0.a.r1.k.j.c f8388j;
 
     /* loaded from: classes.dex */
     public class a implements c {
@@ -62,7 +62,7 @@ public class b implements d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f8381a;
+        public final /* synthetic */ b f8389a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class b implements d {
                     return;
                 }
             }
-            this.f8381a = bVar;
+            this.f8389a = bVar;
         }
 
         @Override // c.a.p0.a.r1.k.c
@@ -91,7 +91,7 @@ public class b implements d {
                     return false;
                 }
                 if (b.k || aVar.b() == 0) {
-                    return this.f8381a.o(aVar.e());
+                    return this.f8389a.o(aVar.e());
                 }
                 return false;
             }
@@ -112,7 +112,7 @@ public class b implements d {
                 return;
             }
         }
-        k = k.f7077a;
+        k = k.f7085a;
     }
 
     public b() {
@@ -128,7 +128,7 @@ public class b implements d {
                 return;
             }
         }
-        this.f8374d = new Object();
+        this.f8382d = new Object();
     }
 
     @Override // c.a.p0.a.r1.k.e
@@ -137,7 +137,7 @@ public class b implements d {
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
             p();
             u();
-            this.f8378h = j2;
+            this.f8386h = j2;
             q("launch start time-" + j2);
         }
     }
@@ -146,10 +146,10 @@ public class b implements d {
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f8377g = true;
-            this.f8379i = j2;
+            this.f8385g = true;
+            this.f8387i = j2;
             v(k());
-            q("launch end time-" + (this.f8378h + this.f8379i));
+            q("launch end time-" + (this.f8386h + this.f8387i));
         }
     }
 
@@ -158,7 +158,7 @@ public class b implements d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && f.j().m()) {
             p();
-            if (this.f8376f) {
+            if (this.f8384f) {
                 q("aiapp start finish");
                 return;
             }
@@ -174,9 +174,9 @@ public class b implements d {
                     if (l != null && l.length() > 0) {
                         JSONObject optJSONObject = l.optJSONObject("ext");
                         if (optJSONObject != null && optJSONObject.length() > 0) {
-                            if (TextUtils.isEmpty(this.f8375e)) {
-                                this.f8375e = optJSONObject.optString("swan");
-                                q("current swan version " + this.f8375e);
+                            if (TextUtils.isEmpty(this.f8383e)) {
+                                this.f8383e = optJSONObject.optString("swan");
+                                q("current swan version " + this.f8383e);
                             }
                             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -206,35 +206,35 @@ public class b implements d {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f8377g && this.f8372b != null) {
+            if (this.f8385g && this.f8380b != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("----- ");
                 sb.append("launch start time ");
-                sb.append(this.f8372b.format(Long.valueOf(this.f8378h)));
+                sb.append(this.f8380b.format(Long.valueOf(this.f8386h)));
                 sb.append(StringUtils.LF);
                 sb.append("----- ");
                 sb.append("launch end time ");
-                sb.append(this.f8372b.format(Long.valueOf(this.f8378h + this.f8379i)));
+                sb.append(this.f8380b.format(Long.valueOf(this.f8386h + this.f8387i)));
                 sb.append(StringUtils.LF);
                 sb.append("----- ");
                 sb.append("swan js version ");
-                sb.append(this.f8375e);
+                sb.append(this.f8383e);
                 sb.append(StringUtils.LF);
-                synchronized (this.f8374d) {
+                synchronized (this.f8382d) {
                     i2 = 0;
                     i3 = 0;
-                    for (Map.Entry<String, List<c.a.p0.a.r1.k.a>> entry : this.f8373c.entrySet()) {
+                    for (Map.Entry<String, List<c.a.p0.a.r1.k.a>> entry : this.f8381c.entrySet()) {
                         List<c.a.p0.a.r1.k.a> value = entry.getValue();
                         if (value != null && value.size() > 0) {
                             StringBuilder sb2 = new StringBuilder();
                             int i4 = 0;
                             for (c.a.p0.a.r1.k.a aVar : value) {
-                                if (this.f8371a == null || this.f8371a.a(aVar)) {
+                                if (this.f8379a == null || this.f8379a.a(aVar)) {
                                     sb2.append("----- start time ");
-                                    sb2.append(this.f8372b.format(Long.valueOf(aVar.e())));
+                                    sb2.append(this.f8380b.format(Long.valueOf(aVar.e())));
                                     sb2.append(StringUtils.LF);
                                     sb2.append("----- end time ");
-                                    sb2.append(this.f8372b.format(Long.valueOf(aVar.d())));
+                                    sb2.append(this.f8380b.format(Long.valueOf(aVar.d())));
                                     sb2.append(StringUtils.LF);
                                     sb2.append("----- cost time ");
                                     sb2.append(aVar.c());
@@ -292,10 +292,10 @@ public class b implements d {
 
     public final void n(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) && this.f8380j == null) {
-            synchronized (this.f8374d) {
-                if (this.f8380j == null) {
-                    this.f8380j = jSONObject.has("caller") ? new c.a.p0.a.r1.k.j.b() : new c.a.p0.a.r1.k.j.a();
+        if ((interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) && this.f8388j == null) {
+            synchronized (this.f8382d) {
+                if (this.f8388j == null) {
+                    this.f8388j = jSONObject.has("caller") ? new c.a.p0.a.r1.k.j.b() : new c.a.p0.a.r1.k.j.a();
                 }
             }
         }
@@ -305,20 +305,20 @@ public class b implements d {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-            long j3 = this.f8378h;
-            return j2 >= j3 && j2 <= j3 + this.f8379i;
+            long j3 = this.f8386h;
+            return j2 >= j3 && j2 <= j3 + this.f8387i;
         }
         return invokeJ.booleanValue;
     }
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f8373c == null) {
-            synchronized (this.f8374d) {
-                if (this.f8373c == null) {
-                    this.f8373c = new HashMap<>();
-                    this.f8372b = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
-                    this.f8371a = new a(this);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f8381c == null) {
+            synchronized (this.f8382d) {
+                if (this.f8381c == null) {
+                    this.f8381c = new HashMap<>();
+                    this.f8380b = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
+                    this.f8379a = new a(this);
                 }
             }
         }
@@ -334,7 +334,7 @@ public class b implements d {
     public final boolean r(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) ? this.f8377g && j2 > this.f8378h + this.f8379i : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) ? this.f8385g && j2 > this.f8386h + this.f8387i : invokeJ.booleanValue;
     }
 
     public final void s(JSONArray jSONArray) {
@@ -349,8 +349,8 @@ public class b implements d {
                     z &= !t(optJSONObject);
                 }
             }
-            this.f8376f = z;
-            q("start done " + this.f8376f);
+            this.f8384f = z;
+            q("start done " + this.f8384f);
         }
     }
 
@@ -361,15 +361,15 @@ public class b implements d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, jSONObject)) == null) {
             n(jSONObject);
             String optString = jSONObject.optString(com.alipay.sdk.cons.c.n);
-            if (TextUtils.isEmpty(optString) || (a2 = this.f8380j.a(jSONObject)) == null || a2.size() <= 0) {
+            if (TextUtils.isEmpty(optString) || (a2 = this.f8388j.a(jSONObject)) == null || a2.size() <= 0) {
                 return true;
             }
             boolean z = a2.size() > 0;
-            synchronized (this.f8374d) {
-                List<c.a.p0.a.r1.k.a> list = this.f8373c.get(optString);
+            synchronized (this.f8382d) {
+                List<c.a.p0.a.r1.k.a> list = this.f8381c.get(optString);
                 if (list == null) {
                     list = new ArrayList<>();
-                    this.f8373c.put(optString, list);
+                    this.f8381c.put(optString, list);
                 }
                 list.addAll(a2);
                 for (c.a.p0.a.r1.k.a aVar : a2) {
@@ -387,16 +387,16 @@ public class b implements d {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.f8373c.size() > 0) {
-                synchronized (this.f8374d) {
-                    this.f8373c.clear();
+            if (this.f8381c.size() > 0) {
+                synchronized (this.f8382d) {
+                    this.f8381c.clear();
                 }
             }
-            this.f8376f = false;
-            this.f8377g = false;
-            this.f8379i = 0L;
-            this.f8378h = 0L;
-            this.f8375e = null;
+            this.f8384f = false;
+            this.f8385g = false;
+            this.f8387i = 0L;
+            this.f8386h = 0L;
+            this.f8383e = null;
             v("===== loading... =====");
         }
     }
@@ -406,6 +406,6 @@ public class b implements d {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        c.a.p0.a.q2.d.f8133j.d(str);
+        c.a.p0.a.q2.d.f8141j.d(str);
     }
 }

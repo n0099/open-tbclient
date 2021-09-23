@@ -18,34 +18,34 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f67393a;
+    public final a f67704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f67394b;
+    public boolean f67705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f67395c;
+    public boolean f67706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f67396d;
+    public float f67707d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f67397e;
+    public float f67708e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67398f;
+    public int f67709f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f67399g;
+    public int f67710g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f67400h;
+    public boolean f67711h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f67401i;
+    public boolean f67712i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final View.OnTouchListener f67402j;
+    public final View.OnTouchListener f67713j;
     public boolean k;
 
     /* loaded from: classes9.dex */
@@ -72,16 +72,16 @@ public class h {
                 return;
             }
         }
-        this.f67394b = false;
-        this.f67395c = false;
-        this.f67400h = true;
-        this.f67401i = false;
-        this.f67402j = new View.OnTouchListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.h.1
+        this.f67705b = false;
+        this.f67706c = false;
+        this.f67711h = true;
+        this.f67712i = false;
+        this.f67713j = new View.OnTouchListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.h.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ h f67403a;
+            public final /* synthetic */ h f67714a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -98,7 +98,7 @@ public class h {
                         return;
                     }
                 }
-                this.f67403a = this;
+                this.f67714a = this;
             }
 
             @Override // android.view.View.OnTouchListener
@@ -107,63 +107,63 @@ public class h {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
-                    if (this.f67403a.f67393a.m()) {
-                        return this.f67403a.f67394b || !this.f67403a.f67395c;
+                    if (this.f67714a.f67704a.m()) {
+                        return this.f67714a.f67705b || !this.f67714a.f67706c;
                     }
                     float x = motionEvent.getX();
                     float y = motionEvent.getY();
                     int action = motionEvent.getAction();
                     if (action == 0) {
-                        h hVar = this.f67403a;
+                        h hVar = this.f67714a;
                         hVar.k = hVar.a(motionEvent);
-                        this.f67403a.f67396d = x;
-                        this.f67403a.f67397e = y;
-                        this.f67403a.f67398f = (int) x;
-                        this.f67403a.f67399g = (int) y;
-                        this.f67403a.f67400h = true;
-                        if (this.f67403a.f67393a != null && this.f67403a.f67395c && !this.f67403a.f67394b) {
-                            this.f67403a.f67393a.a(view, true);
+                        this.f67714a.f67707d = x;
+                        this.f67714a.f67708e = y;
+                        this.f67714a.f67709f = (int) x;
+                        this.f67714a.f67710g = (int) y;
+                        this.f67714a.f67711h = true;
+                        if (this.f67714a.f67704a != null && this.f67714a.f67706c && !this.f67714a.f67705b) {
+                            this.f67714a.f67704a.a(view, true);
                         }
                     } else if (action == 1) {
-                        if (Math.abs(x - this.f67403a.f67398f) > 20.0f || Math.abs(y - this.f67403a.f67399g) > 20.0f) {
-                            this.f67403a.f67400h = false;
+                        if (Math.abs(x - this.f67714a.f67709f) > 20.0f || Math.abs(y - this.f67714a.f67710g) > 20.0f) {
+                            this.f67714a.f67711h = false;
                         }
-                        if (!this.f67403a.f67394b) {
-                            this.f67403a.f67400h = true;
+                        if (!this.f67714a.f67705b) {
+                            this.f67714a.f67711h = true;
                         }
-                        this.f67403a.f67401i = false;
-                        this.f67403a.f67396d = 0.0f;
-                        this.f67403a.f67397e = 0.0f;
-                        this.f67403a.f67398f = 0;
-                        if (this.f67403a.f67393a != null) {
-                            this.f67403a.f67393a.a(view, this.f67403a.f67400h);
+                        this.f67714a.f67712i = false;
+                        this.f67714a.f67707d = 0.0f;
+                        this.f67714a.f67708e = 0.0f;
+                        this.f67714a.f67709f = 0;
+                        if (this.f67714a.f67704a != null) {
+                            this.f67714a.f67704a.a(view, this.f67714a.f67711h);
                         }
-                        this.f67403a.k = false;
+                        this.f67714a.k = false;
                     } else if (action != 2) {
                         if (action == 3) {
-                            this.f67403a.k = false;
+                            this.f67714a.k = false;
                         }
-                    } else if (this.f67403a.f67394b && !this.f67403a.k) {
-                        float abs = Math.abs(x - this.f67403a.f67396d);
-                        float abs2 = Math.abs(y - this.f67403a.f67397e);
-                        if (!this.f67403a.f67401i) {
+                    } else if (this.f67714a.f67705b && !this.f67714a.k) {
+                        float abs = Math.abs(x - this.f67714a.f67707d);
+                        float abs2 = Math.abs(y - this.f67714a.f67708e);
+                        if (!this.f67714a.f67712i) {
                             if (abs <= 20.0f && abs2 <= 20.0f) {
                                 return true;
                             }
-                            this.f67403a.f67401i = true;
+                            this.f67714a.f67712i = true;
                         }
-                        if (this.f67403a.f67393a != null) {
-                            this.f67403a.f67393a.l();
+                        if (this.f67714a.f67704a != null) {
+                            this.f67714a.f67704a.l();
                         }
-                        this.f67403a.f67396d = x;
-                        this.f67403a.f67397e = y;
+                        this.f67714a.f67707d = x;
+                        this.f67714a.f67708e = y;
                     }
-                    return this.f67403a.f67394b || !this.f67403a.f67395c;
+                    return this.f67714a.f67705b || !this.f67714a.f67706c;
                 }
                 return invokeLL.booleanValue;
             }
         };
-        this.f67393a = aVar;
+        this.f67704a = aVar;
     }
 
     public void a(View view) {
@@ -171,13 +171,13 @@ public class h {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        view.setOnTouchListener(this.f67402j);
+        view.setOnTouchListener(this.f67713j);
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f67395c = z;
+            this.f67706c = z;
         }
     }
 

@@ -15,7 +15,7 @@ public class a implements b.InterfaceC0197b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5801a;
+    public static final boolean f5809a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class a implements b.InterfaceC0197b {
                 return;
             }
         }
-        f5801a = k.f7077a;
+        f5809a = k.f7085a;
     }
 
     public a() {
@@ -52,14 +52,14 @@ public class a implements b.InterfaceC0197b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z = f5801a;
+            boolean z = f5809a;
         }
     }
 
     @Override // c.a.p0.a.h0.c.a.b.InterfaceC0197b
     public void b(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && f5801a) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && f5809a) {
             String str = "pre download fail error code - " + i2;
         }
     }
@@ -68,7 +68,7 @@ public class a implements b.InterfaceC0197b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            boolean z = f5801a;
+            boolean z = f5809a;
         }
     }
 }

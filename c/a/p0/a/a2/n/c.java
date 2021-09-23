@@ -18,7 +18,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4593a;
+    public static final boolean f4601a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -26,23 +26,23 @@ public final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final f<a> f4594e;
+        public static final f<a> f4602e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final e<a> f4595f;
+        public static final e<a> f4603f;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f4596a;
+        public int f4604a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4597b;
+        public int f4605b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f4598c;
+        public int f4606c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f4599d;
+        public int f4607d;
 
         /* renamed from: c.a.p0.a.a2.n.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -70,10 +70,10 @@ public final class c {
             public void b(@NonNull a aVar, @NonNull c.a.p0.a.b1.d dVar) throws Exception {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, dVar) == null) {
-                    dVar.writeInt(aVar.f4596a);
-                    dVar.writeInt(aVar.f4597b);
-                    dVar.writeInt(aVar.f4598c);
-                    dVar.writeInt(aVar.f4599d);
+                    dVar.writeInt(aVar.f4604a);
+                    dVar.writeInt(aVar.f4605b);
+                    dVar.writeInt(aVar.f4606c);
+                    dVar.writeInt(aVar.f4607d);
                 }
             }
         }
@@ -105,10 +105,10 @@ public final class c {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
                     a aVar = new a();
-                    aVar.f4596a = cVar.readInt();
-                    aVar.f4597b = cVar.readInt();
-                    aVar.f4598c = cVar.readInt();
-                    aVar.f4599d = cVar.readInt();
+                    aVar.f4604a = cVar.readInt();
+                    aVar.f4605b = cVar.readInt();
+                    aVar.f4606c = cVar.readInt();
+                    aVar.f4607d = cVar.readInt();
                     return aVar;
                 }
                 return (a) invokeL.objValue;
@@ -128,8 +128,8 @@ public final class c {
                     return;
                 }
             }
-            f4594e = new C0119a();
-            f4595f = new b();
+            f4602e = new C0119a();
+            f4603f = new b();
         }
 
         public a() {
@@ -158,11 +158,11 @@ public final class c {
                     return b();
                 }
                 a aVar = new a();
-                aVar.f4597b = optJSONObject.optInt("connectSocket", 60000);
-                aVar.f4596a = optJSONObject.optInt("request", c());
-                aVar.f4597b = optJSONObject.optInt("connectSocket", 60000);
-                aVar.f4598c = optJSONObject.optInt("uploadFile");
-                aVar.f4599d = optJSONObject.optInt("downloadFile");
+                aVar.f4605b = optJSONObject.optInt("connectSocket", 60000);
+                aVar.f4604a = optJSONObject.optInt("request", c());
+                aVar.f4605b = optJSONObject.optInt("connectSocket", 60000);
+                aVar.f4606c = optJSONObject.optInt("uploadFile");
+                aVar.f4607d = optJSONObject.optInt("downloadFile");
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -172,10 +172,10 @@ public final class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                boolean z = c.f4593a;
+                boolean z = c.f4601a;
                 a aVar = new a();
-                aVar.f4596a = 60000;
-                aVar.f4597b = 60000;
+                aVar.f4604a = 60000;
+                aVar.f4605b = 60000;
                 return aVar;
             }
             return (a) invokeV.objValue;
@@ -191,7 +191,7 @@ public final class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, aVar)) == null) {
-                return aVar != null && aVar.f4596a > 0 ? aVar.f4596a : c();
+                return aVar != null && aVar.f4604a > 0 ? aVar.f4604a : c();
             }
             return invokeL.intValue;
         }
@@ -210,6 +210,6 @@ public final class c {
                 return;
             }
         }
-        f4593a = k.f7077a;
+        f4601a = k.f7085a;
     }
 }

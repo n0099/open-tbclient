@@ -25,7 +25,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InitUserNameDialogActivity f48080a;
+        public final /* synthetic */ InitUserNameDialogActivity f48188a;
 
         public a(InitUserNameDialogActivity initUserNameDialogActivity) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f48080a = initUserNameDialogActivity;
+            this.f48188a = initUserNameDialogActivity;
         }
 
         @Override // c.a.q0.t.i.b.e
@@ -50,7 +50,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921350));
-                this.f48080a.finish();
+                this.f48188a.finish();
             }
         }
     }
@@ -61,7 +61,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InitUserNameDialogActivity f48081a;
+        public final /* synthetic */ InitUserNameDialogActivity f48189a;
 
         public b(InitUserNameDialogActivity initUserNameDialogActivity) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f48081a = initUserNameDialogActivity;
+            this.f48189a = initUserNameDialogActivity;
         }
 
         @Override // c.a.q0.t.i.b.e
@@ -86,7 +86,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921350));
-                this.f48081a.finish();
+                this.f48189a.finish();
             }
         }
     }

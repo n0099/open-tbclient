@@ -22,13 +22,13 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> f3685a;
+    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> f3686a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f3686b;
+    public static b f3687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f3687c;
+    public static volatile boolean f3688c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -51,7 +51,7 @@ public final class f {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
                 f.d();
-                f.f3686b.sendEmptyMessageDelayed(0, 15000L);
+                f.f3687b.sendEmptyMessageDelayed(0, 15000L);
             }
         }
 
@@ -89,10 +89,10 @@ public final class f {
                 return;
             }
         }
-        f3685a = new ConcurrentHashMap<>();
-        f3687c = false;
+        f3686a = new ConcurrentHashMap<>();
+        f3688c = false;
         b bVar = new b(c.a.k.a.o.b.a("PreferenceQueue").getLooper(), null);
-        f3686b = bVar;
+        f3687b = bVar;
         bVar.sendEmptyMessageDelayed(0, 15000L);
     }
 
@@ -101,16 +101,16 @@ public final class f {
         if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, obj) == null) || str == null) {
             return;
         }
-        if (!f3685a.containsKey(str)) {
+        if (!f3686a.containsKey(str)) {
             if (obj == null || str2 == null) {
                 return;
             }
             ConcurrentHashMap<String, Object> concurrentHashMap = new ConcurrentHashMap<>();
             concurrentHashMap.put(str2, obj);
-            f3685a.put(str, concurrentHashMap);
+            f3686a.put(str, concurrentHashMap);
             return;
         }
-        ConcurrentHashMap<String, Object> concurrentHashMap2 = f3685a.get(str);
+        ConcurrentHashMap<String, Object> concurrentHashMap2 = f3686a.get(str);
         if (concurrentHashMap2 != null) {
             if (obj != null) {
                 concurrentHashMap2.put(str2, obj);
@@ -121,23 +121,23 @@ public final class f {
         } else {
             ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
             concurrentHashMap3.put(str2, obj);
-            f3685a.put(str, concurrentHashMap3);
+            f3686a.put(str, concurrentHashMap3);
         }
     }
 
     public static void d() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f3687c) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f3688c) {
             return;
         }
-        f3687c = true;
+        f3688c = true;
         try {
             try {
                 Context baseContext = c.a.k.a.b.a().getBaseContext();
-                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + f3685a.size());
-                for (String str : f3685a.keySet()) {
-                    ConcurrentHashMap<String, Object> concurrentHashMap = f3685a.get(str);
+                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + f3686a.size());
+                for (String str : f3686a.keySet()) {
+                    ConcurrentHashMap<String, Object> concurrentHashMap = f3686a.get(str);
                     if (concurrentHashMap == null || concurrentHashMap.size() <= 0) {
                         i2 = 0;
                     } else {
@@ -173,14 +173,14 @@ public final class f {
                 e2.printStackTrace();
             }
         } finally {
-            f3687c = false;
+            f3688c = false;
         }
     }
 
     public static void e(String str) {
         ConcurrentHashMap<String, Object> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) || str == null || (concurrentHashMap = f3685a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) || str == null || (concurrentHashMap = f3686a.get(str)) == null) {
             return;
         }
         concurrentHashMap.clear();
@@ -188,16 +188,16 @@ public final class f {
 
     public static void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || f3686b.hasMessages(0)) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || f3687b.hasMessages(0)) {
             return;
         }
-        f3686b.sendEmptyMessageDelayed(0, 15000L);
+        f3687b.sendEmptyMessageDelayed(0, 15000L);
     }
 
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            f3686b.removeMessages(0);
+            f3687b.removeMessages(0);
             d();
             f();
         }

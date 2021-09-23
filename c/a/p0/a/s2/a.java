@@ -9,17 +9,17 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8602a;
+    public static String f8610a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(f8602a)) {
-                f8602a = b.d();
+            if (TextUtils.isEmpty(f8610a)) {
+                f8610a = b.d();
             }
-            return f8602a;
+            return f8610a;
         }
         return (String) invokeV.objValue;
     }

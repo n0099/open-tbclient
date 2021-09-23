@@ -29,13 +29,13 @@ public class SingleLinkCardView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f47783e;
+    public TbImageView f47890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f47784f;
+    public TextView f47891f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47785g;
+    public TextView f47892g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SingleLinkCardView(Context context) {
@@ -63,7 +63,7 @@ public class SingleLinkCardView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             if (cVar instanceof PbLinkData) {
                 PbLinkData pbLinkData = (PbLinkData) cVar;
-                this.f47783e.startLoad(pbLinkData.picUrl, 10, false);
+                this.f47890e.startLoad(pbLinkData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbLinkData.linkFrom)) {
                     spannableStringBuilder.append((CharSequence) pbLinkData.linkFrom);
@@ -85,24 +85,24 @@ public class SingleLinkCardView extends RelativeLayout {
                 } else {
                     spannableStringBuilder.append((CharSequence) pbLinkData.title);
                 }
-                this.f47784f.setText(spannableStringBuilder);
+                this.f47891f.setText(spannableStringBuilder);
                 if (pbLinkData.urlType == 2) {
                     if (TextUtils.isEmpty(pbLinkData.extTxt)) {
-                        this.f47785g.setVisibility(8);
+                        this.f47892g.setVisibility(8);
                     } else {
-                        this.f47784f.setMaxLines(1);
-                        this.f47785g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbLinkData.extTxt));
-                        this.f47785g.setVisibility(0);
+                        this.f47891f.setMaxLines(1);
+                        this.f47892g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbLinkData.extTxt));
+                        this.f47892g.setVisibility(0);
                     }
                 } else {
-                    this.f47785g.setVisibility(8);
+                    this.f47892g.setVisibility(8);
                 }
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl) && TextUtils.isEmpty(pbLinkData.extTxt)) {
-                    this.f47784f.setMaxLines(1);
+                    this.f47891f.setMaxLines(1);
                 }
             } else if (cVar instanceof PbGoodsData) {
                 PbGoodsData pbGoodsData = (PbGoodsData) cVar;
-                this.f47783e.startLoad(pbGoodsData.picUrl, 10, false);
+                this.f47890e.startLoad(pbGoodsData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbGoodsData.linkFrom)) {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.linkFrom);
@@ -124,16 +124,16 @@ public class SingleLinkCardView extends RelativeLayout {
                 } else {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.title);
                 }
-                this.f47784f.setText(spannableStringBuilder2);
+                this.f47891f.setText(spannableStringBuilder2);
                 if (TextUtils.isEmpty(pbGoodsData.price)) {
-                    this.f47785g.setVisibility(8);
+                    this.f47892g.setVisibility(8);
                 } else {
-                    this.f47784f.setMaxLines(1);
-                    this.f47785g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbGoodsData.price));
-                    this.f47785g.setVisibility(0);
+                    this.f47891f.setMaxLines(1);
+                    this.f47892g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbGoodsData.price));
+                    this.f47892g.setVisibility(0);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl) && TextUtils.isEmpty(pbGoodsData.price)) {
-                    this.f47784f.setMaxLines(1);
+                    this.f47891f.setMaxLines(1);
                 }
             }
         }
@@ -143,8 +143,8 @@ public class SingleLinkCardView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.bg_link_card);
-            SkinManager.setViewTextColor(this.f47784f, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f47785g, R.color.CAM_X0305);
+            SkinManager.setViewTextColor(this.f47891f, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f47892g, R.color.CAM_X0305);
         }
     }
 
@@ -198,19 +198,19 @@ public class SingleLinkCardView extends RelativeLayout {
         }
         LayoutInflater.from(context).inflate(R.layout.single_link_card_layout, this);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.iv_single_link_icon);
-        this.f47783e = tbImageView;
+        this.f47890e = tbImageView;
         tbImageView.setBorderSurroundContent(true);
-        this.f47783e.setDrawCorner(true);
-        this.f47783e.setConrers(15);
-        this.f47783e.setGifIconSupport(false);
-        this.f47783e.setLongIconSupport(false);
-        this.f47783e.setDrawBorder(true);
-        this.f47783e.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1));
-        this.f47783e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.f47783e.setRadius(l.g(context, R.dimen.tbds10));
-        this.f47783e.setPlaceHolder(2);
-        this.f47784f = (TextView) findViewById(R.id.tv_single_link_text);
-        this.f47785g = (TextView) findViewById(R.id.goods_price);
+        this.f47890e.setDrawCorner(true);
+        this.f47890e.setConrers(15);
+        this.f47890e.setGifIconSupport(false);
+        this.f47890e.setLongIconSupport(false);
+        this.f47890e.setDrawBorder(true);
+        this.f47890e.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1));
+        this.f47890e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        this.f47890e.setRadius(l.g(context, R.dimen.tbds10));
+        this.f47890e.setPlaceHolder(2);
+        this.f47891f = (TextView) findViewById(R.id.tv_single_link_text);
+        this.f47892g = (TextView) findViewById(R.id.goods_price);
         onChangeSkinType();
     }
 }

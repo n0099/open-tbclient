@@ -14,10 +14,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f18186a;
+    public static int f18196a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f18187b;
+    public static int f18197b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,18 +59,18 @@ public class c {
         int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
         View childAt = bdTypeRecyclerView.getChildAt(0);
         int top = childAt != null ? childAt.getTop() : 0;
-        f18186a = firstVisiblePosition;
-        f18187b = top;
+        f18196a = firstVisiblePosition;
+        f18197b = top;
     }
 
     public static void c(BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) || f18186a > bdTypeRecyclerView.getCount() - 1) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) || f18196a > bdTypeRecyclerView.getCount() - 1) {
             return;
         }
         bdTypeRecyclerView.requestFocusFromTouch();
-        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(f18186a, f18187b);
-        f18186a = 0;
-        f18187b = 0;
+        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(f18196a, f18197b);
+        f18196a = 0;
+        f18197b = 0;
     }
 }

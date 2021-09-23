@@ -17,7 +17,7 @@ public class h extends c.a.p0.g.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppDownloadNetworkStateReceiver f10855c;
+    public AppDownloadNetworkStateReceiver f10863c;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class h extends c.a.p0.g.f.a {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,12 +62,12 @@ public class h extends c.a.p0.g.f.a {
                 bVar.onFail(202, "params may be error");
                 return null;
             }
-            if (this.f10855c == null) {
-                this.f10855c = new AppDownloadNetworkStateReceiver();
+            if (this.f10863c == null) {
+                this.f10863c = new AppDownloadNetworkStateReceiver();
             }
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            c.a.p0.a.c1.a.b().registerReceiver(this.f10855c, intentFilter);
+            c.a.p0.a.c1.a.b().registerReceiver(this.f10863c, intentFilter);
             bVar.a(null);
             return null;
         }

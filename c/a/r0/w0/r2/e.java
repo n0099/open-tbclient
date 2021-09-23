@@ -18,8 +18,8 @@ import c.a.q0.s.s.a;
 import c.a.r0.b4.h;
 import c.a.r0.j3.k;
 import c.a.r0.j3.k0.a;
-import c.a.r0.j3.o;
 import c.a.r0.j3.p;
+import c.a.r0.j3.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -55,22 +55,22 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<n> f27736e;
+    public List<n> f27756e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f27737f;
+    public Context f27757f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f27738g;
+    public TbPageContext f27758g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27739h;
+    public String f27759h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f27740i;
+    public String f27760i;
 
     /* renamed from: j  reason: collision with root package name */
-    public UserData f27741j;
+    public UserData f27761j;
     public w k;
     public int l;
     public String m;
@@ -86,7 +86,7 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f27742e;
+        public final /* synthetic */ e f27762e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -103,22 +103,22 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
                     return;
                 }
             }
-            this.f27742e = eVar;
+            this.f27762e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            C1307e c1307e;
+            C1305e c1305e;
             TextView textView;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if ((this.f27742e.f27737f == null || ViewHelper.checkUpIsLogin(this.f27742e.f27737f)) && view != null) {
-                    if ((view.getTag() instanceof k) || (view.getTag() instanceof C1307e)) {
+                if ((this.f27762e.f27757f == null || ViewHelper.checkUpIsLogin(this.f27762e.f27757f)) && view != null) {
+                    if ((view.getTag() instanceof k) || (view.getTag() instanceof C1305e)) {
                         k kVar = null;
                         if (view.getTag() instanceof k) {
                             kVar = (k) view.getTag();
-                        } else if ((view.getTag() instanceof C1307e) && (textView = (c1307e = (C1307e) view.getTag()).f27751c) != null && (textView.getTag() instanceof k)) {
-                            kVar = (k) c1307e.f27751c.getTag();
+                        } else if ((view.getTag() instanceof C1305e) && (textView = (c1305e = (C1305e) view.getTag()).f27771c) != null && (textView.getTag() instanceof k)) {
+                            kVar = (k) c1305e.f27771c.getTag();
                         }
                         if (kVar != null && kVar.k() == 2) {
                             if (StringUtils.isNull(kVar.i())) {
@@ -126,20 +126,20 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
                             }
                             String i2 = kVar.i();
                             if ((i2.contains("nohead:url") || i2.contains("booktown")) && !TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                                l.L(this.f27742e.f27737f, R.string.book_plugin_not_install_tip);
+                                l.L(this.f27762e.f27757f, R.string.book_plugin_not_install_tip);
                                 return;
                             }
-                            UrlManager.getInstance().dealOneLink(this.f27742e.f27738g, new String[]{i2});
-                            a.b b2 = c.a.r0.j3.k0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", kVar.c(), this.f27742e.f27739h, this.f27742e.f27740i, null);
+                            UrlManager.getInstance().dealOneLink(this.f27762e.f27758g, new String[]{i2});
+                            a.b b2 = c.a.r0.j3.k0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", kVar.c(), this.f27762e.f27759h, this.f27762e.f27760i, null);
                             b2.e(TiebaStatic.Params.OBJ_URL, kVar.i());
                             b2.f();
                         } else if (kVar == null || kVar.k() != 3) {
                         } else {
-                            new StatisticItem("c13442").param("forum_id", this.f27742e.f27739h).eventStat();
-                            if (this.f27742e.f27738g == null || TextUtils.isEmpty(this.f27742e.f27739h)) {
+                            new StatisticItem("c13442").param("forum_id", this.f27762e.f27759h).eventStat();
+                            if (this.f27762e.f27758g == null || TextUtils.isEmpty(this.f27762e.f27759h)) {
                                 return;
                             }
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(this.f27742e.f27738g.getPageActivity()).createNormalConfig(c.a.e.e.m.b.g(this.f27742e.f27739h, 0L), 1)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(this.f27762e.f27758g.getPageActivity()).createNormalConfig(c.a.e.e.m.b.g(this.f27762e.f27759h, 0L), 1)));
                         }
                     }
                 }
@@ -153,7 +153,7 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f27743e;
+        public final /* synthetic */ e f27763e;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -170,25 +170,25 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
                     return;
                 }
             }
-            this.f27743e = eVar;
+            this.f27763e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            C1307e c1307e;
+            C1305e c1305e;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 view.setPressed(false);
-                if (this.f27743e.k == null || !(view.getTag() instanceof C1307e) || (c1307e = (C1307e) view.getTag()) == null) {
+                if (this.f27763e.k == null || !(view.getTag() instanceof C1305e) || (c1305e = (C1305e) view.getTag()) == null) {
                     return;
                 }
-                n nVar = (n) ListUtils.getItem(this.f27743e.f27736e, c1307e.f27749a);
+                n nVar = (n) ListUtils.getItem(this.f27763e.f27756e, c1305e.f27769a);
                 if (nVar instanceof d2) {
                     d2 d2Var = (d2) nVar;
-                    this.f27743e.k.b(view, d2Var, BdUniqueId.gen(), null, this.f27743e.o ? c1307e.f27749a + 1 : c1307e.f27749a, 0L);
-                    TiebaStatic.log(new StatisticItem("c13124").param("fid", d2Var.T()).param("tid", d2Var.s1()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", c1307e.f27749a + 1));
-                } else if (nVar instanceof p) {
-                    this.f27743e.k.b(view, (p) nVar, BdUniqueId.gen(), null, c1307e.f27749a, 0L);
+                    this.f27763e.k.b(view, d2Var, BdUniqueId.gen(), null, this.f27763e.o ? c1305e.f27769a + 1 : c1305e.f27769a, 0L);
+                    TiebaStatic.log(new StatisticItem("c13124").param("fid", d2Var.T()).param("tid", d2Var.s1()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", c1305e.f27769a + 1));
+                } else if (nVar instanceof q) {
+                    this.f27763e.k.b(view, (q) nVar, BdUniqueId.gen(), null, c1305e.f27769a, 0L);
                 }
             }
         }
@@ -200,16 +200,16 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f27744e;
+        public final /* synthetic */ f f27764e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f27745f;
+        public final /* synthetic */ String f27765f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f27746g;
+        public final /* synthetic */ String f27766g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f27747h;
+        public final /* synthetic */ e f27767h;
 
         public c(e eVar, f fVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -226,19 +226,19 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
                     return;
                 }
             }
-            this.f27747h = eVar;
-            this.f27744e = fVar;
-            this.f27745f = str;
-            this.f27746g = str2;
+            this.f27767h = eVar;
+            this.f27764e = fVar;
+            this.f27765f = str;
+            this.f27766g = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27744e.f27751c.getLayout().getEllipsisCount(this.f27744e.f27751c.getLineCount() - 1) <= 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27764e.f27771c.getLayout().getEllipsisCount(this.f27764e.f27771c.getLineCount() - 1) <= 0) {
                 return;
             }
-            this.f27747h.x(this.f27745f, this.f27746g);
+            this.f27767h.x(this.f27765f, this.f27766g);
         }
     }
 
@@ -248,7 +248,7 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f27748e;
+        public final /* synthetic */ c.a.q0.s.s.a f27768e;
 
         public d(e eVar, c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -265,37 +265,37 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
                     return;
                 }
             }
-            this.f27748e = aVar;
+            this.f27768e = aVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f27748e.dismiss();
+                this.f27768e.dismiss();
             }
         }
     }
 
     /* renamed from: c.a.r0.w0.r2.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1307e {
+    public class C1305e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f27749a;
+        public int f27769a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f27750b;
+        public View f27770b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f27751c;
+        public TextView f27771c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f27752d;
+        public TextView f27772d;
 
-        public C1307e(e eVar) {
+        public C1305e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -313,12 +313,12 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
     }
 
     /* loaded from: classes4.dex */
-    public class f extends C1307e {
+    public class f extends C1305e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f27753e;
+        public TextView f27773e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(e eVar) {
@@ -342,15 +342,15 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
     }
 
     /* loaded from: classes4.dex */
-    public class g extends C1307e {
+    public class g extends C1305e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public TbImageView f27754e;
+        public TbImageView f27774e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f27755f;
+        public TextView f27775f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(e eVar) {
@@ -388,30 +388,30 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
                 return;
             }
         }
-        this.f27739h = "";
-        this.f27740i = "";
+        this.f27759h = "";
+        this.f27760i = "";
         this.l = SkinManager.getColor(R.color.CAM_X0302);
         this.m = "";
         this.n = new HashSet<>();
         this.p = new c.a.r0.w0.k2.b();
         this.q = new a(this);
         this.r = new b(this);
-        this.f27737f = context;
-        this.f27738g = p();
+        this.f27757f = context;
+        this.f27758g = p();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f27736e) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f27756e) : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? ListUtils.getItem(this.f27736e, i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? ListUtils.getItem(this.f27756e, i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -446,38 +446,38 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
                     gVar = (g) view.getTag();
                 } else {
                     gVar = new g(this);
-                    view = LayoutInflater.from(this.f27737f).inflate(R.layout.frs_header_top_item_single, (ViewGroup) null, false);
-                    gVar.f27750b = view;
-                    gVar.f27754e = (TbImageView) view.findViewById(R.id.frs_header_top_item_image);
-                    gVar.f27751c = (TextView) view.findViewById(R.id.frs_header_top_item_title);
-                    gVar.f27752d = (TextView) view.findViewById(R.id.top_item_type);
-                    gVar.f27755f = (TextView) view.findViewById(R.id.top_item_rank);
+                    view = LayoutInflater.from(this.f27757f).inflate(R.layout.frs_header_top_item_single, (ViewGroup) null, false);
+                    gVar.f27770b = view;
+                    gVar.f27774e = (TbImageView) view.findViewById(R.id.frs_header_top_item_image);
+                    gVar.f27771c = (TextView) view.findViewById(R.id.frs_header_top_item_title);
+                    gVar.f27772d = (TextView) view.findViewById(R.id.top_item_type);
+                    gVar.f27775f = (TextView) view.findViewById(R.id.top_item_rank);
                     view.setTag(gVar);
                 }
-                m(gVar, (n) ListUtils.getItem(this.f27736e, i2));
+                m(gVar, (n) ListUtils.getItem(this.f27756e, i2));
             } else if (getItemViewType(i2) == 2) {
                 if (view != null && (view.getTag() instanceof f)) {
                     fVar = (f) view.getTag();
                 } else {
                     fVar = new f(this);
-                    view = LayoutInflater.from(this.f27737f).inflate(R.layout.frs_header_top_item_double, (ViewGroup) null, false);
-                    fVar.f27750b = view;
-                    fVar.f27752d = (TextView) view.findViewById(R.id.top_item_type);
-                    fVar.f27751c = (TextView) view.findViewById(R.id.top_item_title);
-                    fVar.f27753e = (TextView) view.findViewById(R.id.top_item_rank);
+                    view = LayoutInflater.from(this.f27757f).inflate(R.layout.frs_header_top_item_double, (ViewGroup) null, false);
+                    fVar.f27770b = view;
+                    fVar.f27772d = (TextView) view.findViewById(R.id.top_item_type);
+                    fVar.f27771c = (TextView) view.findViewById(R.id.top_item_title);
+                    fVar.f27773e = (TextView) view.findViewById(R.id.top_item_rank);
                     view.setTag(fVar);
                 }
-                n nVar = (n) ListUtils.getItem(this.f27736e, i2);
+                n nVar = (n) ListUtils.getItem(this.f27756e, i2);
                 if (nVar instanceof d2) {
                     i(fVar, (d2) nVar, i2);
-                    fVar.f27749a = i2;
+                    fVar.f27769a = i2;
                 } else if (nVar instanceof k) {
                     k(fVar, (k) nVar);
-                } else if (nVar instanceof o) {
-                    y((o) nVar, fVar, i2);
                 } else if (nVar instanceof p) {
-                    fVar.f27749a = i2;
-                    l(fVar, (p) nVar, i2);
+                    y((p) nVar, fVar, i2);
+                } else if (nVar instanceof q) {
+                    fVar.f27769a = i2;
+                    l(fVar, (q) nVar, i2);
                 }
             }
             return view;
@@ -485,13 +485,13 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
         return (View) invokeILL.objValue;
     }
 
-    public final void h(C1307e c1307e) {
+    public final void h(C1305e c1305e) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, c1307e) == null) || c1307e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, c1305e) == null) || c1305e == null) {
             return;
         }
-        SkinManager.setViewTextColor(c1307e.f27751c, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(c1307e.f27752d, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(c1305e.f27771c, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(c1305e.f27772d, R.color.CAM_X0101);
     }
 
     public final void i(f fVar, d2 d2Var, int i2) {
@@ -499,17 +499,17 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
         if (!(interceptable == null || interceptable.invokeLLI(1048582, this, fVar, d2Var, i2) == null) || fVar == null || d2Var == null) {
             return;
         }
-        fVar.f27752d.setText(TbadkCoreApplication.getInst().getString(R.string.top));
-        TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f27737f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f27752d);
+        fVar.f27772d.setText(TbadkCoreApplication.getInst().getString(R.string.top));
+        TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f27757f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f27772d);
         d2Var.b3();
         SpannableStringBuilder g1 = d2Var.g1();
         if ((g1 == null || c.a.e.e.p.k.isEmptyStringAfterTrim(g1.toString())) && d2Var.p() != null) {
             g1 = new SpannableStringBuilder(d2Var.p());
             TiePlusEventController.tryExposeTiePlusLinkEvent(d2Var.t1());
         }
-        fVar.f27751c.setOnTouchListener(new h(g1));
-        fVar.f27751c.setText(g1);
-        fVar.f27750b.setOnClickListener(this.r);
+        fVar.f27771c.setOnTouchListener(new h(g1));
+        fVar.f27771c.setText(g1);
+        fVar.f27770b.setOnClickListener(this.r);
         h(fVar);
     }
 
@@ -524,62 +524,62 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar, kVar) == null) {
             String o = o(kVar);
-            fVar.f27751c.setText(kVar.g());
-            fVar.f27752d.setText(o);
-            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f27737f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f27752d);
+            fVar.f27771c.setText(kVar.g());
+            fVar.f27772d.setText(o);
+            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f27757f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f27772d);
             if (kVar.d() != 0) {
-                fVar.f27753e.setVisibility(0);
+                fVar.f27773e.setVisibility(0);
                 if (kVar.d() == -1) {
-                    fVar.f27753e.setText(this.f27737f.getString(R.string.no_rank));
+                    fVar.f27773e.setText(this.f27757f.getString(R.string.no_rank));
                 } else if (kVar.d() > 999) {
-                    fVar.f27753e.setText(this.f27737f.getString(R.string.rang_orer_thousand));
+                    fVar.f27773e.setText(this.f27757f.getString(R.string.rang_orer_thousand));
                 } else {
-                    TextView textView = fVar.f27753e;
-                    textView.setText(this.f27737f.getString(R.string.rang_identify) + kVar.d());
+                    TextView textView = fVar.f27773e;
+                    textView.setText(this.f27757f.getString(R.string.rang_identify) + kVar.d());
                 }
                 if (!StringUtils.isNull(kVar.g())) {
-                    fVar.f27751c.setText(kVar.g());
+                    fVar.f27771c.setText(kVar.g());
                 }
             } else {
-                fVar.f27753e.setVisibility(8);
+                fVar.f27773e.setVisibility(8);
             }
             h(fVar);
-            fVar.f27751c.setTag(kVar);
+            fVar.f27771c.setTag(kVar);
             View.OnClickListener onClickListener = this.q;
             if (onClickListener != null) {
-                fVar.f27750b.setOnClickListener(onClickListener);
+                fVar.f27770b.setOnClickListener(onClickListener);
             }
             HashSet<String> hashSet = this.n;
             if (hashSet == null || !hashSet.add(kVar.c())) {
                 return;
             }
-            a.b b2 = c.a.r0.j3.k0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.c(), this.f27739h, this.f27740i, null);
+            a.b b2 = c.a.r0.j3.k0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.c(), this.f27759h, this.f27760i, null);
             b2.e(TiebaStatic.Params.OBJ_URL, kVar.i());
             b2.f();
         }
     }
 
-    public final void l(f fVar, p pVar, int i2) {
+    public final void l(f fVar, q qVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048585, this, fVar, pVar, i2) == null) || fVar == null || pVar == null || pVar.b() == null || this.f27741j == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048585, this, fVar, qVar, i2) == null) || fVar == null || qVar == null || qVar.b() == null || this.f27761j == null) {
             return;
         }
-        fVar.f27752d.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules));
-        TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f27737f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f27752d);
-        if (this.f27741j.getIs_manager() == 1) {
-            if (pVar.b().audit_status.intValue() == 0 && pVar.b().has_forum_rule.intValue() == 0) {
-                fVar.f27751c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_none));
-            } else if (pVar.b().audit_status.intValue() == 0) {
-                fVar.f27751c.setText(pVar.b().title);
-            } else if (pVar.b().audit_status.intValue() == 1) {
-                fVar.f27751c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_chenking));
-            } else if (pVar.b().audit_status.intValue() == 2) {
-                fVar.f27751c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_refuse));
+        fVar.f27772d.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules));
+        TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f27757f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f27772d);
+        if (this.f27761j.getIs_manager() == 1) {
+            if (qVar.b().audit_status.intValue() == 0 && qVar.b().has_forum_rule.intValue() == 0) {
+                fVar.f27771c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_none));
+            } else if (qVar.b().audit_status.intValue() == 0) {
+                fVar.f27771c.setText(qVar.b().title);
+            } else if (qVar.b().audit_status.intValue() == 1) {
+                fVar.f27771c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_chenking));
+            } else if (qVar.b().audit_status.intValue() == 2) {
+                fVar.f27771c.setText(TbadkCoreApplication.getInst().getString(R.string.frs_top_forum_rules_refuse));
             }
         } else {
-            fVar.f27751c.setText(pVar.b().title);
+            fVar.f27771c.setText(qVar.b().title);
         }
-        fVar.f27750b.setOnClickListener(this.r);
+        fVar.f27770b.setOnClickListener(this.r);
         h(fVar);
     }
 
@@ -596,65 +596,65 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
                 g1 = new SpannableStringBuilder(d2Var.p());
                 TiePlusEventController.tryExposeTiePlusLinkEvent(d2Var.t1());
             }
-            gVar.f27752d.setText(TbadkCoreApplication.getInst().getString(R.string.top));
-            gVar.f27751c.setOnTouchListener(new h(g1));
-            gVar.f27751c.setText(g1);
+            gVar.f27772d.setText(TbadkCoreApplication.getInst().getString(R.string.top));
+            gVar.f27771c.setOnTouchListener(new h(g1));
+            gVar.f27771c.setText(g1);
             if (StringUtils.isNull(this.m)) {
-                gVar.f27754e.setVisibility(8);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) gVar.f27752d.getLayoutParams();
-                layoutParams.setMargins((int) this.f27737f.getResources().getDimension(R.dimen.tbds56), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
+                gVar.f27774e.setVisibility(8);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) gVar.f27772d.getLayoutParams();
+                layoutParams.setMargins((int) this.f27757f.getResources().getDimension(R.dimen.tbds56), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
             } else {
-                gVar.f27754e.setVisibility(0);
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) gVar.f27752d.getLayoutParams();
-                layoutParams2.setMargins((int) this.f27737f.getResources().getDimension(R.dimen.tbds26), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
-                gVar.f27754e.startLoad(this.m, 10, false);
+                gVar.f27774e.setVisibility(0);
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) gVar.f27772d.getLayoutParams();
+                layoutParams2.setMargins((int) this.f27757f.getResources().getDimension(R.dimen.tbds26), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
+                gVar.f27774e.startLoad(this.m, 10, false);
             }
-            gVar.f27752d.setTextColor(this.l);
-            gVar.f27750b.setOnClickListener(this.r);
+            gVar.f27772d.setTextColor(this.l);
+            gVar.f27770b.setOnClickListener(this.r);
             h(gVar);
         } else if (nVar instanceof k) {
             k kVar = (k) nVar;
             String o = o(kVar);
             if (StringUtils.isNull(this.m)) {
-                gVar.f27752d.setText(o);
-                gVar.f27752d.setVisibility(0);
-                gVar.f27751c.setText(kVar.g());
-                gVar.f27754e.setVisibility(8);
+                gVar.f27772d.setText(o);
+                gVar.f27772d.setVisibility(0);
+                gVar.f27771c.setText(kVar.g());
+                gVar.f27774e.setVisibility(8);
             } else {
-                gVar.f27752d.setVisibility(8);
-                gVar.f27754e.setVisibility(0);
-                TextView textView = gVar.f27751c;
+                gVar.f27772d.setVisibility(8);
+                gVar.f27774e.setVisibility(0);
+                TextView textView = gVar.f27771c;
                 textView.setText(o + "：" + kVar.g());
-                gVar.f27754e.startLoad(this.m, 10, false);
+                gVar.f27774e.startLoad(this.m, 10, false);
             }
             if (kVar.d() != 0) {
-                gVar.f27755f.setVisibility(0);
+                gVar.f27775f.setVisibility(0);
                 if (kVar.d() == -1) {
-                    gVar.f27755f.setText(this.f27737f.getString(R.string.no_rank));
+                    gVar.f27775f.setText(this.f27757f.getString(R.string.no_rank));
                 } else if (kVar.d() > 999) {
-                    gVar.f27755f.setText(this.f27737f.getString(R.string.rang_orer_thousand));
+                    gVar.f27775f.setText(this.f27757f.getString(R.string.rang_orer_thousand));
                 } else {
-                    TextView textView2 = gVar.f27755f;
-                    textView2.setText(this.f27737f.getString(R.string.rang_identify) + kVar.d());
+                    TextView textView2 = gVar.f27775f;
+                    textView2.setText(this.f27757f.getString(R.string.rang_identify) + kVar.d());
                 }
                 if (!StringUtils.isNull(kVar.g())) {
-                    gVar.f27751c.setText(kVar.g());
+                    gVar.f27771c.setText(kVar.g());
                 }
             } else {
-                gVar.f27755f.setVisibility(8);
+                gVar.f27775f.setVisibility(8);
             }
-            gVar.f27752d.setTextColor(this.l);
+            gVar.f27772d.setTextColor(this.l);
             h(gVar);
-            gVar.f27751c.setTag(kVar);
+            gVar.f27771c.setTag(kVar);
             View.OnClickListener onClickListener = this.q;
             if (onClickListener != null) {
-                gVar.f27750b.setOnClickListener(onClickListener);
+                gVar.f27770b.setOnClickListener(onClickListener);
             }
             HashSet<String> hashSet = this.n;
             if (hashSet == null || !hashSet.add(kVar.c())) {
                 return;
             }
-            a.b b2 = c.a.r0.j3.k0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.c(), this.f27739h, this.f27740i, null);
+            a.b b2 = c.a.r0.j3.k0.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", kVar.c(), this.f27759h, this.f27760i, null);
             b2.e(TiebaStatic.Params.OBJ_URL, kVar.i());
             b2.f();
         }
@@ -663,7 +663,7 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
     public List<n> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f27736e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f27756e : (List) invokeV.objValue;
     }
 
     public final String o(k kVar) {
@@ -685,7 +685,7 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            Context context = this.f27737f;
+            Context context = this.f27757f;
             if (context instanceof BaseFragmentActivity) {
                 return ((BaseFragmentActivity) context).getPageContext();
             }
@@ -703,7 +703,7 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
     public void r(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
-            this.f27736e = list;
+            this.f27756e = list;
             notifyDataSetChanged();
         }
     }
@@ -711,9 +711,9 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
     public void s(String str, String str2, UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048592, this, str, str2, userData) == null) {
-            this.f27739h = str;
-            this.f27740i = str2;
-            this.f27741j = userData;
+            this.f27759h = str;
+            this.f27760i = str2;
+            this.f27761j = userData;
         }
     }
 
@@ -749,7 +749,7 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
         if (!(interceptable == null || interceptable.invokeLL(1048597, this, str, str2) == null) || c.a.e.e.p.k.isEmpty(str) || c.a.e.e.p.k.isEmpty(str2)) {
             return;
         }
-        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a((BaseFragmentActivity) this.f27737f);
+        c.a.q0.s.s.a aVar = new c.a.q0.s.s.a((BaseFragmentActivity) this.f27757f);
         aVar.setTitle(str2);
         aVar.setTitleShowCenter(true);
         aVar.setMessage(str);
@@ -757,25 +757,25 @@ public class e extends BaseAdapter implements c.a.r0.w0.k2.d {
         aVar.create(p()).show();
     }
 
-    public final boolean y(o oVar, f fVar, int i2) {
+    public final boolean y(p pVar, f fVar, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048598, this, oVar, fVar, i2)) == null) {
-            if (i2 != 0 || oVar == null || oVar.b() == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048598, this, pVar, fVar, i2)) == null) {
+            if (i2 != 0 || pVar == null || pVar.b() == null) {
                 return false;
             }
-            ForumData b2 = oVar.b();
-            boolean z = oVar.c() && !ListUtils.isEmpty(b2.getTipInfos());
+            ForumData b2 = pVar.b();
+            boolean z = pVar.c() && !ListUtils.isEmpty(b2.getTipInfos());
             String riskTipNotice = z ? b2.getTipInfos().get(0).tip_notice : b2.getRiskTipNotice();
             String riskTipPopTitle = z ? b2.getTipInfos().get(0).tip_pop_title : b2.getRiskTipPopTitle();
             String riskTipPop = z ? b2.getTipInfos().get(0).tip_pop : b2.getRiskTipPop();
             if (StringUtils.isNull(riskTipNotice)) {
                 return false;
             }
-            fVar.f27752d.setText(TbadkCoreApplication.getInst().getString(R.string.risk_notice_title));
-            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f27737f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f27752d);
-            fVar.f27751c.setText(riskTipNotice);
-            fVar.f27751c.setOnClickListener(new c(this, fVar, riskTipPop, riskTipPopTitle));
+            fVar.f27772d.setText(TbadkCoreApplication.getInst().getString(R.string.risk_notice_title));
+            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(l.g(this.f27757f, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(this.l).into(fVar.f27772d);
+            fVar.f27771c.setText(riskTipNotice);
+            fVar.f27771c.setOnClickListener(new c(this, fVar, riskTipPop, riskTipPopTitle));
             h(fVar);
             return true;
         }

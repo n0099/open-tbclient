@@ -1,9 +1,9 @@
 package c.a.r0.c4.m;
 
 import c.a.e.e.d.l;
-import c.a.q0.d1.i0;
-import c.a.q0.d1.l0;
-import c.a.q0.d1.o;
+import c.a.q0.d1.j0;
+import c.a.q0.d1.m0;
+import c.a.q0.d1.r;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,20 +18,20 @@ public class a {
 
     /* renamed from: c.a.r0.c4.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0809a extends i0<Integer> {
+    public static class C0807a extends j0<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f16789a;
+        public final /* synthetic */ int f16799a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f16790b;
+        public final /* synthetic */ String f16800b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f16791c;
+        public final /* synthetic */ String f16801c;
 
-        public C0809a(int i2, String str, String str2) {
+        public C0807a(int i2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,23 +46,23 @@ public class a {
                     return;
                 }
             }
-            this.f16789a = i2;
-            this.f16790b = str;
-            this.f16791c = str2;
+            this.f16799a = i2;
+            this.f16800b = str;
+            this.f16801c = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // c.a.q0.d1.i0
+        @Override // c.a.q0.d1.j0
         public Integer doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.f16789a;
+                int i2 = this.f16799a;
                 c.a.q0.s.r.a.f();
-                l<String> g2 = c.a.q0.s.r.a.g("tb.write_privacy_state_space" + this.f16790b);
+                l<String> g2 = c.a.q0.s.r.a.g("tb.write_privacy_state_space" + this.f16800b);
                 if (g2 != null) {
-                    i2 = c.a.e.e.m.b.e(g2.get(this.f16791c), this.f16789a);
+                    i2 = c.a.e.e.m.b.e(g2.get(this.f16801c), this.f16799a);
                 }
                 return Integer.valueOf(i2);
             }
@@ -71,12 +71,12 @@ public class a {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements o<Integer> {
+    public static class b implements r<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f16792a;
+        public final /* synthetic */ c f16802a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -93,16 +93,16 @@ public class a {
                     return;
                 }
             }
-            this.f16792a = cVar;
+            this.f16802a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.o
+        @Override // c.a.q0.d1.r
         /* renamed from: a */
         public void onReturnDataInUI(Integer num) {
             c cVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, num) == null) || (cVar = this.f16792a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, num) == null) || (cVar = this.f16802a) == null) {
                 return;
             }
             cVar.a(num.intValue());
@@ -123,7 +123,7 @@ public class a {
         if (StringUtils.isNull(currentAccount)) {
             return;
         }
-        l0.b(new C0809a(i2, currentAccount, str), new b(cVar));
+        m0.b(new C0807a(i2, currentAccount, str), new b(cVar));
     }
 
     public static void b(String str, int i2) {

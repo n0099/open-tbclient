@@ -14,7 +14,7 @@ public class i extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f40629a;
+    public final /* synthetic */ LBSAuthManager f40691a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(LBSAuthManager lBSAuthManager, Looper looper) {
@@ -34,7 +34,7 @@ public class i extends Handler {
                 return;
             }
         }
-        this.f40629a = lBSAuthManager;
+        this.f40691a = lBSAuthManager;
     }
 
     @Override // android.os.Handler
@@ -44,7 +44,7 @@ public class i extends Handler {
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             a.a("handleMessage !!");
             String string = message.getData().getString("listenerKey");
-            hashtable = LBSAuthManager.f40608f;
+            hashtable = LBSAuthManager.f40670f;
             LBSAuthManagerListener lBSAuthManagerListener = (LBSAuthManagerListener) hashtable.get(string);
             a.a("handleMessage listener = " + lBSAuthManagerListener);
             if (lBSAuthManagerListener != null) {

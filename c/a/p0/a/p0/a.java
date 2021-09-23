@@ -26,13 +26,13 @@ public class a extends c.a.p0.a.p0.d.b<c.a.p0.a.p0.h.c.a, c.a.p0.a.p0.i.b.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f7898d;
+    public static final boolean f7906d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f7899e;
+    public static volatile a f7907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f7900f;
+    public static boolean f7908f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.p0.a$a  reason: collision with other inner class name */
@@ -125,7 +125,7 @@ public class a extends c.a.p0.a.p0.d.b<c.a.p0.a.p0.h.c.a, c.a.p0.a.p0.i.b.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
                 Bundle bundle2 = new Bundle();
-                bundle2.putBoolean("swan_preset_extension", a.f7900f);
+                bundle2.putBoolean("swan_preset_extension", a.f7908f);
                 d.h("ExtCore-AppsManager", "is extension file exists : " + a.n());
                 return bundle2;
             }
@@ -146,9 +146,9 @@ public class a extends c.a.p0.a.p0.d.b<c.a.p0.a.p0.h.c.a, c.a.p0.a.p0.i.b.a> {
                 return;
             }
         }
-        f7898d = k.f7077a;
+        f7906d = k.f7085a;
         c.a.p0.a.c1.a.Z().getSwitch("swan_preset_extension", true);
-        f7900f = true;
+        f7908f = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -175,12 +175,12 @@ public class a extends c.a.p0.a.p0.d.b<c.a.p0.a.p0.h.c.a, c.a.p0.a.p0.i.b.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                d.h("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f7900f);
-                return f7900f;
+                d.h("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f7908f);
+                return f7908f;
             }
             f b2 = c.a.p0.a.v1.b.d.b(b.class, null);
             boolean z = true;
-            if (b2.a() && !b2.f9229a.getBoolean("swan_preset_extension", true)) {
+            if (b2.a() && !b2.f9237a.getBoolean("swan_preset_extension", true)) {
                 z = false;
             }
             d.h("ExtCore-AppsManager", "swanProcess mPresetExtension: " + z);
@@ -193,14 +193,14 @@ public class a extends c.a.p0.a.p0.d.b<c.a.p0.a.p0.h.c.a, c.a.p0.a.p0.i.b.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f7899e == null) {
+            if (f7907e == null) {
                 synchronized (a.class) {
-                    if (f7899e == null) {
-                        f7899e = new a();
+                    if (f7907e == null) {
+                        f7907e = new a();
                     }
                 }
             }
-            return f7899e;
+            return f7907e;
         }
         return (a) invokeV.objValue;
     }
@@ -246,10 +246,10 @@ public class a extends c.a.p0.a.p0.d.b<c.a.p0.a.p0.h.c.a, c.a.p0.a.p0.i.b.a> {
             if (ProcessUtils.isMainProcess()) {
                 extensionCore = d();
             } else {
-                Bundle bundle = c.a.p0.a.v1.b.d.b(C0343a.class, null).f9229a;
+                Bundle bundle = c.a.p0.a.v1.b.d.b(C0343a.class, null).f9237a;
                 bundle.setClassLoader(ExtensionCore.class.getClassLoader());
                 extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-                if (f7898d) {
+                if (f7906d) {
                     String str = "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore;
                 }
             }

@@ -28,7 +28,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Gson f10940a;
+    public Gson f10948a;
 
     /* renamed from: c.a.p0.g.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -37,10 +37,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.g.h.b f10941a;
+        public final /* synthetic */ c.a.p0.g.h.b f10949a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f10942b;
+        public final /* synthetic */ a f10950b;
 
         /* renamed from: c.a.p0.g.h.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -80,8 +80,8 @@ public class a {
                     return;
                 }
             }
-            this.f10942b = aVar;
-            this.f10941a = bVar;
+            this.f10950b = aVar;
+            this.f10949a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,21 +89,21 @@ public class a {
         /* renamed from: a */
         public void onSuccess(String str, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) || TextUtils.isEmpty(str) || this.f10941a == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) || TextUtils.isEmpty(str) || this.f10949a == null) {
                 return;
             }
-            ResultData resultData = (ResultData) this.f10942b.f10940a.fromJson(str, new C0549a(this).getType());
+            ResultData resultData = (ResultData) this.f10950b.f10948a.fromJson(str, new C0549a(this).getType());
             if (resultData == null) {
-                this.f10941a.onFail("result is null");
+                this.f10949a.onFail("result is null");
             } else if (resultData.errno == 0) {
                 T t = resultData.data;
                 if (t != 0 && ((ReservationGameResultData) t).apps != null) {
-                    this.f10941a.onSuccess(((ReservationGameResultData) t).apps);
+                    this.f10949a.onSuccess(((ReservationGameResultData) t).apps);
                     return;
                 }
-                this.f10941a.onFail("result data is null");
+                this.f10949a.onFail("result data is null");
             } else {
-                c.a.p0.g.h.b bVar = this.f10941a;
+                c.a.p0.g.h.b bVar = this.f10949a;
                 if (bVar != null) {
                     bVar.onFail(resultData.errmsg);
                 }
@@ -114,7 +114,7 @@ public class a {
         public void onFail(Exception exc) {
             c.a.p0.g.h.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) || (bVar = this.f10941a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) || (bVar = this.f10949a) == null) {
                 return;
             }
             bVar.onFail(exc.toString());
@@ -164,7 +164,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f10943a;
+        public static final a f10951a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -180,7 +180,7 @@ public class a {
                     return;
                 }
             }
-            f10943a = new a(null);
+            f10951a = new a(null);
         }
     }
 
@@ -191,7 +191,7 @@ public class a {
     public static final a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.f10943a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.f10951a : (a) invokeV.objValue;
     }
 
     public void c(String str) {
@@ -242,6 +242,6 @@ public class a {
                 return;
             }
         }
-        this.f10940a = new Gson();
+        this.f10948a = new Gson();
     }
 }

@@ -10,13 +10,13 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3448a;
+    public static final int f3449a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3449b;
+    public static final int f3450b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3450c;
+    public static final int f3451c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,10 +32,10 @@ public class d {
                 return;
             }
         }
-        int max = Math.max(200, c.a.f0.a.b.a.f3337a.get().u());
-        f3448a = max;
-        f3449b = max;
-        f3450c = max;
-        String str = "static initializer: " + f3448a + " " + f3449b;
+        int max = Math.max(200, c.a.f0.a.b.a.f3338a.get().u());
+        f3449a = max;
+        f3450b = max;
+        f3451c = max;
+        String str = "static initializer: " + f3449a + " " + f3450b;
     }
 }

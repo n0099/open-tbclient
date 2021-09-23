@@ -40,7 +40,7 @@ public class k extends g {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{aVar, cVar, context, unitedSchemeEntity, callbackHandler, eVar})) == null) {
-            c.a.p0.a.e0.d.g("video", "update, video id:" + cVar.n + " slave id: " + cVar.f4658g);
+            c.a.p0.a.e0.d.g("video", "update, video id:" + cVar.n + " slave id: " + cVar.f4666g);
             d(aVar, cVar, unitedSchemeEntity, callbackHandler);
             return true;
         }

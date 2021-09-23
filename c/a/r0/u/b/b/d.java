@@ -62,7 +62,7 @@ public class d implements c.a.p0.b.l.c0.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseDialog f25118a;
+    public BaseDialog f25139a;
 
     /* loaded from: classes3.dex */
     public class a extends GetTplStokenCallback {
@@ -70,7 +70,7 @@ public class d implements c.a.p0.b.l.c0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l.a f25119e;
+        public final /* synthetic */ l.a f25140e;
 
         public a(d dVar, l.a aVar) {
             Interceptable interceptable = $ic;
@@ -87,14 +87,14 @@ public class d implements c.a.p0.b.l.c0.a {
                     return;
                 }
             }
-            this.f25119e = aVar;
+            this.f25140e = aVar;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFinish() {
             l.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f25119e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f25140e) == null) {
                 return;
             }
             aVar.onFinish();
@@ -104,7 +104,7 @@ public class d implements c.a.p0.b.l.c0.a {
         public void onStart() {
             l.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.f25119e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.f25140e) == null) {
                 return;
             }
             aVar.onStart();
@@ -114,40 +114,40 @@ public class d implements c.a.p0.b.l.c0.a {
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(GetTplStokenResult getTplStokenResult) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) || this.f25119e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) || this.f25140e == null) {
                 return;
             }
             l lVar = new l();
             if (getTplStokenResult != null) {
-                lVar.f10113b = getTplStokenResult.tplStokenMap;
-                lVar.f10112a = getTplStokenResult.getResultCode();
+                lVar.f10121b = getTplStokenResult.tplStokenMap;
+                lVar.f10120a = getTplStokenResult.getResultCode();
                 getTplStokenResult.getResultMsg();
                 GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
                 if (failureType != null) {
                     failureType.name();
                 }
             }
-            this.f25119e.a(lVar);
+            this.f25140e.a(lVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(GetTplStokenResult getTplStokenResult) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) || this.f25119e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) || this.f25140e == null) {
                 return;
             }
             l lVar = new l();
             if (getTplStokenResult != null) {
-                lVar.f10113b = getTplStokenResult.tplStokenMap;
-                lVar.f10112a = getTplStokenResult.getResultCode();
+                lVar.f10121b = getTplStokenResult.tplStokenMap;
+                lVar.f10120a = getTplStokenResult.getResultCode();
                 getTplStokenResult.getResultMsg();
                 GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
                 if (failureType != null) {
                     failureType.name();
                 }
             }
-            this.f25119e.b(lVar);
+            this.f25140e.b(lVar);
         }
     }
 
@@ -157,10 +157,10 @@ public class d implements c.a.p0.b.l.c0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppPhoneLoginDialog.g f25120e;
+        public final /* synthetic */ SwanAppPhoneLoginDialog.g f25141e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f25121f;
+        public final /* synthetic */ Context f25142f;
 
         /* loaded from: classes3.dex */
         public class a implements DialogInterface.OnClickListener {
@@ -193,12 +193,12 @@ public class d implements c.a.p0.b.l.c0.a {
 
         /* renamed from: c.a.r0.u.b.b.d$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class DialogInterface$OnClickListenerC1170b implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC1168b implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f25122e;
+            public final /* synthetic */ b f25143e;
 
             /* renamed from: c.a.r0.u.b.b.d$b$b$a */
             /* loaded from: classes3.dex */
@@ -207,14 +207,14 @@ public class d implements c.a.p0.b.l.c0.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DialogInterface$OnClickListenerC1170b f25123e;
+                public final /* synthetic */ DialogInterface$OnClickListenerC1168b f25144e;
 
-                public a(DialogInterface$OnClickListenerC1170b dialogInterface$OnClickListenerC1170b) {
+                public a(DialogInterface$OnClickListenerC1168b dialogInterface$OnClickListenerC1168b) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {dialogInterface$OnClickListenerC1170b};
+                        Object[] objArr = {dialogInterface$OnClickListenerC1168b};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -224,7 +224,7 @@ public class d implements c.a.p0.b.l.c0.a {
                             return;
                         }
                     }
-                    this.f25123e = dialogInterface$OnClickListenerC1170b;
+                    this.f25144e = dialogInterface$OnClickListenerC1168b;
                 }
 
                 @Override // c.a.p0.a.m.a
@@ -232,15 +232,15 @@ public class d implements c.a.p0.b.l.c0.a {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                         if (i2 == 0) {
-                            this.f25123e.f25122e.f25120e.onSuccess();
+                            this.f25144e.f25143e.f25141e.onSuccess();
                         } else {
-                            this.f25123e.f25122e.f25120e.onFailure();
+                            this.f25144e.f25143e.f25141e.onFailure();
                         }
                     }
                 }
             }
 
-            public DialogInterface$OnClickListenerC1170b(b bVar) {
+            public DialogInterface$OnClickListenerC1168b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -255,14 +255,14 @@ public class d implements c.a.p0.b.l.c0.a {
                         return;
                     }
                 }
-                this.f25122e = bVar;
+                this.f25143e = bVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                    c.a.p0.b.l.a.N((FragmentActivity) this.f25122e.f25121f, false, null, new a(this));
+                    c.a.p0.b.l.a.N((FragmentActivity) this.f25143e.f25142f, false, null, new a(this));
                 }
             }
         }
@@ -273,7 +273,7 @@ public class d implements c.a.p0.b.l.c0.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f25124e;
+            public final /* synthetic */ b f25145e;
 
             public c(b bVar) {
                 Interceptable interceptable = $ic;
@@ -290,14 +290,14 @@ public class d implements c.a.p0.b.l.c0.a {
                         return;
                     }
                 }
-                this.f25124e = bVar;
+                this.f25145e = bVar;
             }
 
             @Override // c.a.p0.a.m.a
             public void onResult(int i2) {
                 SwanAppPhoneLoginDialog.g gVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (gVar = this.f25124e.f25120e) == null) {
+                if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (gVar = this.f25145e.f25141e) == null) {
                     return;
                 }
                 if (i2 == 0) {
@@ -323,15 +323,15 @@ public class d implements c.a.p0.b.l.c0.a {
                     return;
                 }
             }
-            this.f25120e = gVar;
-            this.f25121f = context;
+            this.f25141e = gVar;
+            this.f25142f = context;
         }
 
         @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
         public void onCheckCodeViewHide() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f25120e.b();
+                this.f25141e.b();
             }
         }
 
@@ -339,7 +339,7 @@ public class d implements c.a.p0.b.l.c0.a {
         public void onCheckCodeViewShow() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f25120e.a();
+                this.f25141e.a();
             }
         }
 
@@ -347,19 +347,19 @@ public class d implements c.a.p0.b.l.c0.a {
         public void onNeedBack(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
-                Context context = this.f25121f;
+                Context context = this.f25142f;
                 x.a(context, ((FragmentActivity) context).getWindow().getDecorView().getWindowToken());
-                String string = this.f25121f.getResources().getString(h.account_login_dialog_needback_other);
-                String string2 = this.f25121f.getResources().getString(h.account_login_dialog_needback_positive_btn_login);
+                String string = this.f25142f.getResources().getString(h.account_login_dialog_needback_other);
+                String string2 = this.f25142f.getResources().getString(h.account_login_dialog_needback_positive_btn_login);
                 if (webAuthResult.getResultCode() == 12) {
-                    string = this.f25121f.getResources().getString(h.account_login_dialog_needback_phone);
-                    string2 = this.f25121f.getResources().getString(h.account_login_dialog_needback_positive_btn_register);
+                    string = this.f25142f.getResources().getString(h.account_login_dialog_needback_phone);
+                    string2 = this.f25142f.getResources().getString(h.account_login_dialog_needback_positive_btn_register);
                 }
-                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f25121f);
-                aVar.V(this.f25121f.getResources().getString(h.account_login_dialog_needback_title));
+                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f25142f);
+                aVar.V(this.f25142f.getResources().getString(h.account_login_dialog_needback_title));
                 aVar.x(string);
-                aVar.P(string2, new DialogInterface$OnClickListenerC1170b(this));
-                aVar.C(this.f25121f.getResources().getString(h.account_login_dialog_needback_negative_btn), new a(this));
+                aVar.P(string2, new DialogInterface$OnClickListenerC1168b(this));
+                aVar.C(this.f25142f.getResources().getString(h.account_login_dialog_needback_negative_btn), new a(this));
                 aVar.X();
             }
         }
@@ -369,7 +369,7 @@ public class d implements c.a.p0.b.l.c0.a {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
-                this.f25120e.onFailure();
+                this.f25141e.onFailure();
             }
         }
 
@@ -389,13 +389,13 @@ public class d implements c.a.p0.b.l.c0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.b.p.g.e f25125a;
+        public final /* synthetic */ c.a.p0.b.p.g.e f25146a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Activity f25126b;
+        public final /* synthetic */ Activity f25147b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f25127c;
+        public final /* synthetic */ d f25148c;
 
         /* loaded from: classes3.dex */
         public class a implements c.a.p0.a.m.a {
@@ -403,7 +403,7 @@ public class d implements c.a.p0.b.l.c0.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f25128e;
+            public final /* synthetic */ c f25149e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -420,7 +420,7 @@ public class d implements c.a.p0.b.l.c0.a {
                         return;
                     }
                 }
-                this.f25128e = cVar;
+                this.f25149e = cVar;
             }
 
             @Override // c.a.p0.a.m.a
@@ -428,12 +428,12 @@ public class d implements c.a.p0.b.l.c0.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                     if (i2 == 0) {
-                        this.f25128e.f25125a.onResult(0);
+                        this.f25149e.f25146a.onResult(0);
                     } else {
-                        this.f25128e.f25125a.onResult(-1);
+                        this.f25149e.f25146a.onResult(-1);
                     }
-                    c cVar = this.f25128e;
-                    cVar.f25127c.r(cVar.f25126b);
+                    c cVar = this.f25149e;
+                    cVar.f25148c.r(cVar.f25147b);
                 }
             }
         }
@@ -453,17 +453,17 @@ public class d implements c.a.p0.b.l.c0.a {
                     return;
                 }
             }
-            this.f25127c = dVar;
-            this.f25125a = eVar;
-            this.f25126b = activity;
+            this.f25148c = dVar;
+            this.f25146a = eVar;
+            this.f25147b = activity;
         }
 
         @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
         public void onFail(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                this.f25125a.onResult(-1);
-                this.f25127c.r(this.f25126b);
+                this.f25146a.onResult(-1);
+                this.f25148c.r(this.f25147b);
             }
         }
 
@@ -471,8 +471,8 @@ public class d implements c.a.p0.b.l.c0.a {
         public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
-                this.f25125a.onResult(-1);
-                this.f25127c.r(this.f25126b);
+                this.f25146a.onResult(-1);
+                this.f25148c.r(this.f25147b);
             }
         }
 
@@ -487,14 +487,14 @@ public class d implements c.a.p0.b.l.c0.a {
 
     /* renamed from: c.a.r0.u.b.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1171d extends VerifyUserFaceIDCallback {
+    public class C1169d extends VerifyUserFaceIDCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b0 f25129a;
+        public final /* synthetic */ b0 f25150a;
 
-        public C1171d(d dVar, b0 b0Var) {
+        public C1169d(d dVar, b0 b0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -509,14 +509,14 @@ public class d implements c.a.p0.b.l.c0.a {
                     return;
                 }
             }
-            this.f25129a = b0Var;
+            this.f25150a = b0Var;
         }
 
         @Override // com.baidu.sapi2.callback.FaceIDCallback
         public void onFailure(SapiResult sapiResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
-                this.f25129a.onFailure(sapiResult.getResultMsg());
+                this.f25150a.onFailure(sapiResult.getResultMsg());
             }
         }
 
@@ -526,11 +526,11 @@ public class d implements c.a.p0.b.l.c0.a {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiResult) == null) {
                 z zVar = new z();
                 if (sapiResult instanceof RealNameFaceIDResult) {
-                    zVar.f10128a = ((RealNameFaceIDResult) sapiResult).callBackKey;
-                    this.f25129a.a(zVar);
+                    zVar.f10136a = ((RealNameFaceIDResult) sapiResult).callBackKey;
+                    this.f25150a.a(zVar);
                 } else if (sapiResult instanceof UnRealNameFaceIDResult) {
-                    zVar.f10128a = ((UnRealNameFaceIDResult) sapiResult).registerResult;
-                    this.f25129a.a(zVar);
+                    zVar.f10136a = ((UnRealNameFaceIDResult) sapiResult).registerResult;
+                    this.f25150a.a(zVar);
                 }
             }
         }
@@ -542,7 +542,7 @@ public class d implements c.a.p0.b.l.c0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b0 f25130a;
+        public final /* synthetic */ b0 f25151a;
 
         public e(d dVar, b0 b0Var) {
             Interceptable interceptable = $ic;
@@ -559,7 +559,7 @@ public class d implements c.a.p0.b.l.c0.a {
                     return;
                 }
             }
-            this.f25130a = b0Var;
+            this.f25151a = b0Var;
         }
 
         @Override // com.baidu.sapi2.callback.AccountRealNameCallback
@@ -570,12 +570,12 @@ public class d implements c.a.p0.b.l.c0.a {
                 if (accountRealNameResult.getResultCode() == 0) {
                     z zVar = new z();
                     if (accountRealNameResult.seniorRealNameSuc) {
-                        zVar.f10128a = accountRealNameResult.callbackkey;
-                        this.f25130a.a(zVar);
+                        zVar.f10136a = accountRealNameResult.callbackkey;
+                        this.f25151a.a(zVar);
                         return;
                     }
                 }
-                this.f25130a.onFailure(accountRealNameResult.getResultMsg());
+                this.f25151a.onFailure(accountRealNameResult.getResultMsg());
             }
         }
     }
@@ -643,8 +643,8 @@ public class d implements c.a.p0.b.l.c0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             a0 a0Var = new a0();
-            a0Var.f10108a = c.a.r0.u.b.b.a.l().k();
-            a0Var.f10109b = c.a.r0.u.b.b.a.l().i();
+            a0Var.f10116a = c.a.r0.u.b.b.a.l().k();
+            a0Var.f10117b = c.a.r0.u.b.b.a.l().i();
             return a0Var;
         }
         return (a0) invokeL.objValue;
@@ -741,7 +741,7 @@ public class d implements c.a.p0.b.l.c0.a {
             FaceIDVerifyDTO faceIDVerifyDTO = new FaceIDVerifyDTO();
             faceIDVerifyDTO.businessSence = str;
             faceIDVerifyDTO.bduss = str2;
-            PassportSDK.getInstance().verifyUserFaceId(activity, new C1171d(this, b0Var), faceIDVerifyDTO);
+            PassportSDK.getInstance().verifyUserFaceId(activity, new C1169d(this, b0Var), faceIDVerifyDTO);
         }
     }
 
@@ -773,7 +773,7 @@ public class d implements c.a.p0.b.l.c0.a {
     public void r(Context context) {
         BaseDialog baseDialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, context) == null) || !(context instanceof Activity) || ((Activity) context).isFinishing() || (baseDialog = this.f25118a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, context) == null) || !(context instanceof Activity) || ((Activity) context).isFinishing() || (baseDialog = this.f25139a) == null) {
             return;
         }
         baseDialog.dismiss();
@@ -783,7 +783,7 @@ public class d implements c.a.p0.b.l.c0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, context) == null) {
             BaseDialog baseDialog = new BaseDialog(context, 16973833);
-            this.f25118a = baseDialog;
+            this.f25139a = baseDialog;
             Window window = baseDialog.getWindow();
             if (window != null) {
                 window.setBackgroundDrawableResource(17170445);
@@ -793,13 +793,13 @@ public class d implements c.a.p0.b.l.c0.a {
                 attributes.width = -1;
                 window.setAttributes(attributes);
             }
-            this.f25118a.setCanceledOnTouchOutside(false);
-            this.f25118a.setCancelable(false);
-            this.f25118a.setEnableImmersion(true);
-            this.f25118a.setContentView(R.layout.loading_layout);
-            View findViewById = this.f25118a.findViewById(R.id.root_container);
-            ProgressBar progressBar = (ProgressBar) this.f25118a.findViewById(R.id.loading_bar);
-            TextView textView = (TextView) this.f25118a.findViewById(R.id.message);
+            this.f25139a.setCanceledOnTouchOutside(false);
+            this.f25139a.setCancelable(false);
+            this.f25139a.setEnableImmersion(true);
+            this.f25139a.setContentView(R.layout.loading_layout);
+            View findViewById = this.f25139a.findViewById(R.id.root_container);
+            ProgressBar progressBar = (ProgressBar) this.f25139a.findViewById(R.id.loading_bar);
+            TextView textView = (TextView) this.f25139a.findViewById(R.id.message);
             if (findViewById != null) {
                 findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.novel_loading_bg));
             }
@@ -810,7 +810,7 @@ public class d implements c.a.p0.b.l.c0.a {
                 textView.setTextColor(textView.getResources().getColor(R.color.loading_text_color));
                 textView.setText(R.string.account_onekey_loading);
             }
-            this.f25118a.show();
+            this.f25139a.show();
         }
     }
 }

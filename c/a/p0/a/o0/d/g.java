@@ -15,14 +15,14 @@ public class g<T> extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f7813e;
+    public static final boolean f7821e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f7814c;
+    public T f7822c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7815d;
+    public boolean f7823d;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class g<T> extends a {
                 return;
             }
         }
-        f7813e = k.f7077a;
+        f7821e = k.f7085a;
     }
 
     public g() {
@@ -53,8 +53,8 @@ public class g<T> extends a {
                 return;
             }
         }
-        this.f7815d = true;
-        this.f7795a = "message";
+        this.f7823d = true;
+        this.f7803a = "message";
     }
 
     @Override // c.a.p0.a.o0.d.a
@@ -62,16 +62,16 @@ public class g<T> extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            T t = this.f7814c;
+            T t = this.f7822c;
             if (!(t instanceof String)) {
                 return t instanceof JSONObject ? c.a.p0.a.o0.a.d(str, "message", (JSONObject) t) : "";
             }
             String str2 = (String) t;
-            if (this.f7815d) {
+            if (this.f7823d) {
                 str2 = Uri.encode(str2);
             }
-            if (f7813e) {
-                String str3 = "mData: " + this.f7814c;
+            if (f7821e) {
+                String str3 = "mData: " + this.f7822c;
                 String str4 = "encode mData: " + str2;
             }
             return c.a.p0.a.o0.a.c(str, "message", str2);

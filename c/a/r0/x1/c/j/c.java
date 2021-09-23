@@ -25,10 +25,10 @@ public class c extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<BaseFragmentActivity> f28436e;
+    public TbPageContext<BaseFragmentActivity> f28456e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<o> f28437f;
+    public List<o> f28457f;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -36,10 +36,10 @@ public class c extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f28438a;
+        public LinearLayout f28458a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f28439b;
+        public TbImageView f28459b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -71,8 +71,8 @@ public class c extends BaseAdapter {
                 return;
             }
         }
-        this.f28436e = tbPageContext;
-        this.f28437f = arrayList;
+        this.f28456e = tbPageContext;
+        this.f28457f = arrayList;
     }
 
     @Override // android.widget.Adapter
@@ -80,7 +80,7 @@ public class c extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<o> list = this.f28437f;
+            List<o> list = this.f28457f;
             if (list == null) {
                 return 0;
             }
@@ -94,7 +94,7 @@ public class c extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            List<o> list = this.f28437f;
+            List<o> list = this.f28457f;
             if (list == null) {
                 return null;
             }
@@ -108,7 +108,7 @@ public class c extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<o> list = this.f28437f;
+            List<o> list = this.f28457f;
             if (list == null) {
                 return 0L;
             }
@@ -126,23 +126,23 @@ public class c extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 aVar = new a();
-                LinearLayout linearLayout = new LinearLayout(this.f28436e.getPageActivity());
-                aVar.f28438a = linearLayout;
+                LinearLayout linearLayout = new LinearLayout(this.f28456e.getPageActivity());
+                aVar.f28458a = linearLayout;
                 linearLayout.setGravity(1);
-                TbImageView tbImageView = new TbImageView(this.f28436e.getPageActivity());
-                int g2 = ((l.q(this.f28436e.getPageActivity()).widthPixels - (l.g(this.f28436e.getPageActivity(), R.dimen.ds24) * 2)) - l.g(this.f28436e.getPageActivity(), R.dimen.ds10)) / 2;
+                TbImageView tbImageView = new TbImageView(this.f28456e.getPageActivity());
+                int g2 = ((l.q(this.f28456e.getPageActivity()).widthPixels - (l.g(this.f28456e.getPageActivity(), R.dimen.ds24) * 2)) - l.g(this.f28456e.getPageActivity(), R.dimen.ds10)) / 2;
                 tbImageView.setLayoutParams(new LinearLayout.LayoutParams(g2, (int) ((g2 / 173.0f) * 85.0f)));
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                aVar.f28439b = tbImageView;
-                aVar.f28438a.addView(tbImageView);
-                view2 = aVar.f28438a;
+                aVar.f28459b = tbImageView;
+                aVar.f28458a.addView(tbImageView);
+                view2 = aVar.f28458a;
                 view2.setTag(aVar);
             } else {
                 view2 = view;
                 aVar = (a) view.getTag();
             }
-            aVar.f28439b.startLoad(this.f28437f.get(i2).b(), 10, false);
-            c.a.q0.w0.a.a(this.f28436e, view2);
+            aVar.f28459b.startLoad(this.f28457f.get(i2).b(), 10, false);
+            c.a.q0.w0.a.a(this.f28456e, view2);
             return view2;
         }
         return (View) invokeILL.objValue;

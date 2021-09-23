@@ -13,7 +13,7 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Bitmap f9524a;
+    public final Bitmap f9532a;
 
     public c(String id, String text, Bitmap img) {
         Interceptable interceptable = $ic;
@@ -33,12 +33,12 @@ public final class c {
         Intrinsics.checkNotNullParameter(id, "id");
         Intrinsics.checkNotNullParameter(text, "text");
         Intrinsics.checkNotNullParameter(img, "img");
-        this.f9524a = img;
+        this.f9532a = img;
     }
 
     public final Bitmap a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9524a : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9532a : (Bitmap) invokeV.objValue;
     }
 }

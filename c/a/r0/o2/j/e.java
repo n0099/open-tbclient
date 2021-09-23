@@ -37,10 +37,10 @@ public class e extends c.a.r0.a0.b<c.a.r0.o2.e.g> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.o2.e.g f23326e;
+        public final /* synthetic */ c.a.r0.o2.e.g f23342e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f23327f;
+        public final /* synthetic */ e f23343f;
 
         public a(e eVar, c.a.r0.o2.e.g gVar) {
             Interceptable interceptable = $ic;
@@ -57,15 +57,15 @@ public class e extends c.a.r0.a0.b<c.a.r0.o2.e.g> {
                     return;
                 }
             }
-            this.f23327f = eVar;
-            this.f23326e = gVar;
+            this.f23343f = eVar;
+            this.f23342e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f23327f.q(this.f23326e);
+                this.f23343f.q(this.f23342e);
             }
         }
     }
@@ -128,7 +128,7 @@ public class e extends c.a.r0.a0.b<c.a.r0.o2.e.g> {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                 this.m.showToast(R.string.gift_load_fail);
             } else if (ViewHelper.checkUpIsLogin(this.m.getPageActivity())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.m.getPageActivity(), gVar.f23210g, gVar.f23211h, gVar.f23212i, gVar.f23213j)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.m.getPageActivity(), gVar.f23226g, gVar.f23227h, gVar.f23228i, gVar.f23229j)));
             }
         }
     }
@@ -145,9 +145,9 @@ public class e extends c.a.r0.a0.b<c.a.r0.o2.e.g> {
                 this.n.setOnClickListener(aVar);
                 this.r.b(aVar);
                 this.q.setData(t(gVar.k));
-                if (gVar.f23208e) {
+                if (gVar.f23224e) {
                     this.p.setText(R.string.gift_received_by_me);
-                } else if (gVar.f23209f) {
+                } else if (gVar.f23225f) {
                     this.p.setText(R.string.gift_received_by_him);
                 } else {
                     this.p.setText(R.string.gift_received_by_her);
@@ -168,13 +168,13 @@ public class e extends c.a.r0.a0.b<c.a.r0.o2.e.g> {
                 return list;
             }
             List<c.a.e.l.e.n> arrayList = new ArrayList<>(list);
-            int g2 = c.a.e.e.p.l.g(this.f15549f.getPageActivity(), R.dimen.ds100);
-            int g3 = c.a.e.e.p.l.g(this.f15549f.getPageActivity(), R.dimen.ds32);
+            int g2 = c.a.e.e.p.l.g(this.f15558f.getPageActivity(), R.dimen.ds100);
+            int g3 = c.a.e.e.p.l.g(this.f15558f.getPageActivity(), R.dimen.ds32);
             if (count > 7) {
                 arrayList = arrayList.subList(0, 7);
                 c.a.r0.o2.e.h hVar = new c.a.r0.o2.e.h();
-                hVar.f23216f = g2;
-                hVar.f23215e = g2;
+                hVar.f23232f = g2;
+                hVar.f23231e = g2;
                 ListUtils.add(arrayList, hVar);
             }
             c.a.r0.l2.d dVar = new c.a.r0.l2.d(g3, g2);

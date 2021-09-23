@@ -22,17 +22,17 @@ public interface ak extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ak$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static class C2059a implements ak {
+        public static class C2063a implements ak {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static ak f75863a;
+            public static ak f76182a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f75864b;
+            public IBinder f76183b;
 
-            public C2059a(IBinder iBinder) {
+            public C2063a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public interface ak extends IInterface {
                         return;
                     }
                 }
-                this.f75864b = iBinder;
+                this.f76183b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ak
@@ -60,7 +60,7 @@ public interface ak extends IInterface {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.ProcessAidlCallback");
                         obtain.writeInt(i2);
                         obtain.writeInt(i3);
-                        if (!this.f75864b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f76183b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             a.a().a(i2, i3);
                         } else {
                             obtain2.readException();
@@ -76,7 +76,7 @@ public interface ak extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75864b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76183b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -107,7 +107,7 @@ public interface ak extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof ak)) {
                     return (ak) queryLocalInterface;
                 }
-                return new C2059a(iBinder);
+                return new C2063a(iBinder);
             }
             return (ak) invokeL.objValue;
         }
@@ -142,7 +142,7 @@ public interface ak extends IInterface {
         public static ak a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2059a.f75863a : (ak) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2063a.f76182a : (ak) invokeV.objValue;
         }
     }
 }

@@ -1,38 +1,43 @@
 package com.baidu.fsg.base;
 
+import com.baidu.fsg.base.InitDelayThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b {
+public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public b() {
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ InitDelayThread f39401a;
+
+    public b(InitDelayThread initDelayThread) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {initDelayThread};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f39401a = initDelayThread;
     }
 
-    public static com.baidu.fsg.base.restnet.b.a a() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public void run() {
+        InitDelayThread.InitDelayCallback initDelayCallback;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new com.baidu.fsg.base.restnet.b.a() : (com.baidu.fsg.base.restnet.b.a) invokeV.objValue;
-    }
-
-    public static EnvConfig b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? EnvConfig.a() : (EnvConfig) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (initDelayCallback = this.f39401a.mCallback) == null) {
+            return;
+        }
+        initDelayCallback.callBack();
     }
 }

@@ -19,7 +19,7 @@ public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
-    public static class a extends a.AbstractBinderC2025a {
+    public static class a extends a.AbstractBinderC2029a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -16,10 +16,10 @@ public class b extends ICommonPermissionListener.Stub {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f68060a;
+    public Handler f68371a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a f68061b;
+    public d.a f68372b;
 
     public b(d.a aVar) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class b extends ICommonPermissionListener.Stub {
                 return;
             }
         }
-        this.f68060a = new Handler(Looper.getMainLooper());
-        this.f68061b = aVar;
+        this.f68371a = new Handler(Looper.getMainLooper());
+        this.f68372b = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
@@ -49,10 +49,10 @@ public class b extends ICommonPermissionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f68063a;
+                public final /* synthetic */ String f68374a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f68064b;
+                public final /* synthetic */ b f68375b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -69,17 +69,17 @@ public class b extends ICommonPermissionListener.Stub {
                             return;
                         }
                     }
-                    this.f68064b = this;
-                    this.f68063a = str;
+                    this.f68375b = this;
+                    this.f68374a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68064b.f68061b == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68375b.f68372b == null) {
                         return;
                     }
-                    this.f68064b.f68061b.a(this.f68063a);
+                    this.f68375b.f68372b.a(this.f68374a);
                 }
             });
         }
@@ -94,7 +94,7 @@ public class b extends ICommonPermissionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f68062a;
+                public final /* synthetic */ b f68373a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -111,16 +111,16 @@ public class b extends ICommonPermissionListener.Stub {
                             return;
                         }
                     }
-                    this.f68062a = this;
+                    this.f68373a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68062a.f68061b == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f68373a.f68372b == null) {
                         return;
                     }
-                    this.f68062a.f68061b.a();
+                    this.f68373a.f68372b.a();
                 }
             });
         }
@@ -129,10 +129,10 @@ public class b extends ICommonPermissionListener.Stub {
     private void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, runnable) == null) {
-            if (this.f68060a == null) {
-                this.f68060a = new Handler(Looper.getMainLooper());
+            if (this.f68371a == null) {
+                this.f68371a = new Handler(Looper.getMainLooper());
             }
-            this.f68060a.post(runnable);
+            this.f68371a.post(runnable);
         }
     }
 }

@@ -31,7 +31,7 @@ public class a extends c.a.p0.a.c0.b.b {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,7 +66,7 @@ public class a extends c.a.p0.a.c0.b.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             super.a(jSONObject);
-            this.f4661j = TextUtils.equals(jSONObject.optString("hide"), "1") || jSONObject.optBoolean("hide");
+            this.f4669j = TextUtils.equals(jSONObject.optString("hide"), "1") || jSONObject.optBoolean("hide");
             this.n = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
             this.k = !TextUtils.equals(jSONObject.optString("gesture"), "0");
         }
@@ -76,6 +76,6 @@ public class a extends c.a.p0.a.c0.b.b {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f4657f) || TextUtils.isEmpty(this.f4658g)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f4665f) || TextUtils.isEmpty(this.f4666g)) ? false : true : invokeV.booleanValue;
     }
 }

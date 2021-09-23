@@ -15,13 +15,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, b> f23021a;
+    public HashMap<String, b> f23037a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<Integer> f23022b;
+    public ArrayList<Integer> f23038b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f23023c;
+    public c f23039c;
 
     public a(c cVar, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class a {
                 return;
             }
         }
-        this.f23022b = arrayList;
-        this.f23023c = cVar;
-        this.f23021a = new HashMap<>();
+        this.f23038b = arrayList;
+        this.f23039c = cVar;
+        this.f23037a = new HashMap<>();
     }
 
     public int a(String str, int i2) {
@@ -48,13 +48,13 @@ public class a {
         ArrayList<Integer> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
-            if (this.f23021a == null || k.isEmpty(str) || (arrayList = this.f23022b) == null || !arrayList.contains(Integer.valueOf(i2))) {
+            if (this.f23037a == null || k.isEmpty(str) || (arrayList = this.f23038b) == null || !arrayList.contains(Integer.valueOf(i2))) {
                 return 0;
             }
-            if (!this.f23021a.containsKey(str)) {
+            if (!this.f23037a.containsKey(str)) {
                 b(str);
             }
-            b bVar = this.f23021a.get(str);
+            b bVar = this.f23037a.get(str);
             if (bVar == null) {
                 return 0;
             }
@@ -65,17 +65,17 @@ public class a {
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f23021a == null || k.isEmpty(str) || this.f23023c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f23037a == null || k.isEmpty(str) || this.f23039c == null) {
             return;
         }
-        if (this.f23021a.containsKey(str)) {
-            b bVar = this.f23021a.get(str);
-            this.f23023c.b(this.f23022b, bVar);
-            this.f23021a.put(str, bVar);
+        if (this.f23037a.containsKey(str)) {
+            b bVar = this.f23037a.get(str);
+            this.f23039c.b(this.f23038b, bVar);
+            this.f23037a.put(str, bVar);
             return;
         }
         b bVar2 = new b();
-        this.f23023c.b(this.f23022b, bVar2);
-        this.f23021a.put(str, bVar2);
+        this.f23039c.b(this.f23038b, bVar2);
+        this.f23037a.put(str, bVar2);
     }
 }

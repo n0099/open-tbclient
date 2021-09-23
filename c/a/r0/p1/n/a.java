@@ -163,7 +163,7 @@ public class a extends e {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             ICardInfo v = v(i2);
             if (v != null) {
-                return c.a.r0.p1.o.e.f23536a.get(v.getAdapterType());
+                return c.a.r0.p1.o.e.f23552a.get(v.getAdapterType());
             }
             return 0;
         }
@@ -195,7 +195,7 @@ public class a extends e {
     public int getViewTypeCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.r0.p1.o.e.f23536a.size() + 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.r0.p1.o.e.f23552a.size() + 1 : invokeV.intValue;
     }
 
     @Override // c.a.e.l.e.e, android.widget.BaseAdapter, android.widget.Adapter

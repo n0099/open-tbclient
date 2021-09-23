@@ -23,16 +23,16 @@ public class g extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8898e;
+        public final /* synthetic */ String f8906e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f8899f;
+        public final /* synthetic */ boolean f8907f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f8900g;
+        public final /* synthetic */ boolean f8908g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g f8901h;
+        public final /* synthetic */ g f8909h;
 
         public a(g gVar, String str, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
@@ -49,10 +49,10 @@ public class g extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8901h = gVar;
-            this.f8898e = str;
-            this.f8899f = z;
-            this.f8900g = z2;
+            this.f8909h = gVar;
+            this.f8906e = str;
+            this.f8907f = z;
+            this.f8908g = z2;
         }
 
         @Override // java.lang.Runnable
@@ -63,22 +63,22 @@ public class g extends c.a.p0.a.u.c.d {
                 c.a.p0.a.o2.b.a t = g.t();
                 if (t == null) {
                     c.a.p0.a.e0.d.b("Api-TabBar", "tabBarViewController is null");
-                    this.f8901h.d(this.f8898e, new c.a.p0.a.u.h.b(1001));
+                    this.f8909h.d(this.f8906e, new c.a.p0.a.u.h.b(1001));
                     return;
                 }
-                if (this.f8899f) {
-                    j2 = t.r(this.f8900g);
+                if (this.f8907f) {
+                    j2 = t.r(this.f8908g);
                 } else {
-                    j2 = t.j(this.f8900g);
+                    j2 = t.j(this.f8908g);
                 }
                 if (!j2) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(this.f8899f ? "open" : IntentConfig.CLOSE);
+                    sb.append(this.f8907f ? "open" : IntentConfig.CLOSE);
                     sb.append("bottom bar fail");
                     c.a.p0.a.e0.d.b("Api-TabBar", sb.toString());
-                    this.f8901h.d(this.f8898e, new c.a.p0.a.u.h.b(1001));
+                    this.f8909h.d(this.f8906e, new c.a.p0.a.u.h.b(1001));
                 }
-                this.f8901h.d(this.f8898e, new c.a.p0.a.u.h.b(0));
+                this.f8909h.d(this.f8906e, new c.a.p0.a.u.h.b(0));
             }
         }
     }
@@ -131,7 +131,7 @@ public class g extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             return u(str, false);
         }
         return (c.a.p0.a.u.h.b) invokeL.objValue;
@@ -141,13 +141,13 @@ public class g extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str2 = "handle: " + str;
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-TabBar", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-TabBar", "parse fail");
                 }
                 return bVar;
@@ -182,7 +182,7 @@ public class g extends c.a.p0.a.u.c.d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-TabBar", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-TabBar", "parse fail");
                 }
                 return bVar;
@@ -203,7 +203,7 @@ public class g extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             return u(str, true);
         }
         return (c.a.p0.a.u.h.b) invokeL.objValue;
@@ -213,13 +213,13 @@ public class g extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str2 = "handle: " + str;
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-TabBar", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-TabBar", "parse fail");
                 }
                 return bVar;

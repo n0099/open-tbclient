@@ -17,10 +17,10 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f12025a;
+    public final String f12033a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<String> f12026b;
+    public final Set<String> f12034b;
 
     public j(String str, Set<String> set) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class j {
                 return;
             }
         }
-        this.f12025a = str;
-        this.f12026b = set;
+        this.f12033a = str;
+        this.f12034b = set;
     }
 
     public static j a(JSONObject jSONObject) {
@@ -67,12 +67,12 @@ public class j {
     public Set<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12026b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12034b : (Set) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12025a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12033a : (String) invokeV.objValue;
     }
 }

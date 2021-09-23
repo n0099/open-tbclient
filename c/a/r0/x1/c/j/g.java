@@ -33,14 +33,14 @@ public class g extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f28457g = 131;
+    public static int f28477g = 131;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f28458e;
+    public Context f28478e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<j> f28459f;
+    public List<j> f28479f;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -48,13 +48,13 @@ public class g extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f28460e;
+        public final /* synthetic */ j f28480e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f28461f;
+        public final /* synthetic */ int f28481f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f28462g;
+        public final /* synthetic */ g f28482g;
 
         public a(g gVar, j jVar, int i2) {
             Interceptable interceptable = $ic;
@@ -71,33 +71,33 @@ public class g extends BaseAdapter {
                     return;
                 }
             }
-            this.f28462g = gVar;
-            this.f28460e = jVar;
-            this.f28461f = i2;
+            this.f28482g = gVar;
+            this.f28480e = jVar;
+            this.f28481f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbPageContext = (TbPageContext) c.a.e.a.j.a(this.f28462g.f28458e)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbPageContext = (TbPageContext) c.a.e.a.j.a(this.f28482g.f28478e)) == null) {
                 return;
             }
-            if (this.f28460e.g() == g.f28457g) {
+            if (this.f28480e.g() == g.f28477g) {
                 MemberCenterStatic.b(tbPageContext);
             } else {
-                TiebaStatic.log(new StatisticItem("c11218").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f28461f + 1));
-                if (!StringUtils.isNull(this.f28460e.d())) {
-                    TiebaStatic.log(new StatisticItem("c10445").param("obj_id", this.f28460e.a()));
-                    MemberCenterStatic.a(tbPageContext, new String[]{this.f28460e.d(), this.f28460e.b(), this.f28460e.e()});
+                TiebaStatic.log(new StatisticItem("c11218").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f28481f + 1));
+                if (!StringUtils.isNull(this.f28480e.d())) {
+                    TiebaStatic.log(new StatisticItem("c10445").param("obj_id", this.f28480e.a()));
+                    MemberCenterStatic.a(tbPageContext, new String[]{this.f28480e.d(), this.f28480e.b(), this.f28480e.e()});
                 }
             }
-            if (this.f28460e.c() > 0) {
+            if (this.f28480e.c() > 0) {
                 String currentAccount = !TbadkCoreApplication.isLogin() ? SevenZipUtils.FILE_NAME_TEMP : TbadkCoreApplication.getCurrentAccount();
-                c.a.q0.s.d0.b.j().x("member_center_item_red_tip_" + this.f28460e.c() + currentAccount, this.f28460e.i());
+                c.a.q0.s.d0.b.j().x("member_center_item_red_tip_" + this.f28480e.c() + currentAccount, this.f28480e.i());
                 b bVar = (b) view.getTag();
                 if (bVar != null) {
-                    bVar.f28468f.setVisibility(8);
+                    bVar.f28488f.setVisibility(8);
                 }
             }
         }
@@ -109,25 +109,25 @@ public class g extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f28463a;
+        public View f28483a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f28464b;
+        public TbImageView f28484b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbImageView f28465c;
+        public TbImageView f28485c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f28466d;
+        public TextView f28486d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f28467e;
+        public TextView f28487e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbImageView f28468f;
+        public TbImageView f28488f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HeadPendantView f28469g;
+        public HeadPendantView f28489g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class g extends BaseAdapter {
                 return;
             }
         }
-        this.f28458e = context;
+        this.f28478e = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -184,11 +184,11 @@ public class g extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<j> list = this.f28459f;
+            List<j> list = this.f28479f;
             if (list == null || i2 < 0 || i2 >= list.size()) {
                 return null;
             }
-            return this.f28459f.get(i2);
+            return this.f28479f.get(i2);
         }
         return (j) invokeI.objValue;
     }
@@ -198,53 +198,53 @@ public class g extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, jVar) == null) || jVar == null || bVar == null) {
             return;
         }
-        if (jVar.g() == f28457g) {
-            SkinManager.setBackgroundResource(bVar.f28464b, R.color.CAM_X0204);
-            bVar.f28464b.setImageResource(0);
-            bVar.f28464b.startLoad("", 10, false);
-            bVar.f28469g.setVisibility(0);
-            if (bVar.f28469g.getHeadView() != null) {
+        if (jVar.g() == f28477g) {
+            SkinManager.setBackgroundResource(bVar.f28484b, R.color.CAM_X0204);
+            bVar.f28484b.setImageResource(0);
+            bVar.f28484b.startLoad("", 10, false);
+            bVar.f28489g.setVisibility(0);
+            if (bVar.f28489g.getHeadView() != null) {
                 if (jVar.k()) {
-                    bVar.f28469g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
+                    bVar.f28489g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
                 } else {
-                    bVar.f28469g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
+                    bVar.f28489g.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
                 }
             }
-            bVar.f28469g.startLoadPendantUrl(jVar.b());
+            bVar.f28489g.startLoadPendantUrl(jVar.b());
         } else {
-            bVar.f28464b.startLoad(jVar.b(), 10, false);
-            bVar.f28469g.setVisibility(8);
+            bVar.f28484b.startLoad(jVar.b(), 10, false);
+            bVar.f28489g.setVisibility(8);
         }
-        bVar.f28465c.startLoad(jVar.e(), 10, false);
-        bVar.f28467e.setText(jVar.f());
-        bVar.f28466d.setText(jVar.h());
+        bVar.f28485c.startLoad(jVar.e(), 10, false);
+        bVar.f28487e.setText(jVar.f());
+        bVar.f28486d.setText(jVar.h());
         if (TbadkCoreApplication.isLogin() && jVar.c() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             String p = c.a.q0.s.d0.b.j().p("member_center_item_red_tip_" + jVar.c() + currentAccount, "0");
             if (Long.parseLong(StringUtils.isNull(jVar.i()) ? "0" : jVar.i()) > Long.parseLong(StringUtils.isNull(p) ? "0" : p)) {
                 if (jVar.j() == 1) {
-                    bVar.f28468f.setVisibility(8);
+                    bVar.f28488f.setVisibility(8);
                 } else {
-                    bVar.f28468f.setVisibility(0);
+                    bVar.f28488f.setVisibility(0);
                 }
             } else {
-                bVar.f28468f.setVisibility(8);
+                bVar.f28488f.setVisibility(8);
             }
         } else {
-            bVar.f28468f.setVisibility(8);
+            bVar.f28488f.setVisibility(8);
         }
-        TbPageContext tbPageContext = (TbPageContext) c.a.e.a.j.a(this.f28458e);
+        TbPageContext tbPageContext = (TbPageContext) c.a.e.a.j.a(this.f28478e);
         if (tbPageContext == null) {
             return;
         }
         tbPageContext.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().j(bVar.f28463a);
+        tbPageContext.getLayoutMode().j(bVar.f28483a);
     }
 
     public void d(List<j> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f28459f = list;
+            this.f28479f = list;
         }
     }
 
@@ -253,7 +253,7 @@ public class g extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<j> list = this.f28459f;
+            List<j> list = this.f28479f;
             if (list != null) {
                 return list.size();
             }
@@ -285,27 +285,27 @@ public class g extends BaseAdapter {
             if (view != null && (view.getTag() instanceof b)) {
                 bVar = (b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f28458e).inflate(R.layout.index_dressup_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f28478e).inflate(R.layout.index_dressup_item, (ViewGroup) null);
                 bVar = new b();
-                bVar.f28463a = view.findViewById(R.id.root_bg_item_view);
-                bVar.f28464b = (TbImageView) view.findViewById(R.id.bg_image);
+                bVar.f28483a = view.findViewById(R.id.root_bg_item_view);
+                bVar.f28484b = (TbImageView) view.findViewById(R.id.bg_image);
                 TbImageView tbImageView = (TbImageView) view.findViewById(R.id.permission_icon);
-                bVar.f28465c = tbImageView;
+                bVar.f28485c = tbImageView;
                 tbImageView.setDefaultResource(R.drawable.transparent_bg);
-                bVar.f28465c.setDefaultBgResource(R.drawable.transparent_bg);
-                bVar.f28466d = (TextView) view.findViewById(R.id.txt_type);
-                bVar.f28467e = (TextView) view.findViewById(R.id.txt_name);
-                bVar.f28468f = (TbImageView) view.findViewById(R.id.privilege_new_icon);
+                bVar.f28485c.setDefaultBgResource(R.drawable.transparent_bg);
+                bVar.f28486d = (TextView) view.findViewById(R.id.txt_type);
+                bVar.f28487e = (TextView) view.findViewById(R.id.txt_name);
+                bVar.f28488f = (TbImageView) view.findViewById(R.id.privilege_new_icon);
                 HeadPendantView headPendantView = (HeadPendantView) view.findViewById(R.id.avatar_image);
-                bVar.f28469g = headPendantView;
+                bVar.f28489g = headPendantView;
                 if (headPendantView.getHeadView() != null) {
-                    bVar.f28469g.getHeadView().setIsRound(true);
-                    bVar.f28469g.getHeadView().setDrawBorder(false);
+                    bVar.f28489g.getHeadView().setIsRound(true);
+                    bVar.f28489g.getHeadView().setDrawBorder(false);
                 }
-                bVar.f28469g.setHasPendantStyle();
-                if (bVar.f28469g.getPendantView() != null) {
-                    bVar.f28469g.getPendantView().setIsRound(true);
-                    bVar.f28469g.getPendantView().setDrawBorder(false);
+                bVar.f28489g.setHasPendantStyle();
+                if (bVar.f28489g.getPendantView() != null) {
+                    bVar.f28489g.getPendantView().setIsRound(true);
+                    bVar.f28489g.getPendantView().setDrawBorder(false);
                 }
             }
             c(bVar, item);

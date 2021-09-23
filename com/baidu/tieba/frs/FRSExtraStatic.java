@@ -86,10 +86,10 @@ public class FRSExtraStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, t1.Y3, null));
+                absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, t1.Z3, null));
                 absDelegateAdapterList.add(new c.a.r0.w0.p1.a.a(null, n.k, true));
-                absDelegateAdapterList.add(new c.a.r0.w0.p1.a.b(null, f0.Z3, null));
-                absDelegateAdapterList.add(new c.a.r0.w0.t1.a(null, c.a.r0.z0.b.f29699i, null));
+                absDelegateAdapterList.add(new c.a.r0.w0.p1.a.b(null, f0.a4, null));
+                absDelegateAdapterList.add(new c.a.r0.w0.t1.a(null, c.a.r0.z0.b.f29719i, null));
             }
         }
     }
@@ -256,7 +256,7 @@ public class FRSExtraStatic {
                                 if (fragmentTabStructure == null) {
                                     return;
                                 }
-                                fragmentTabStructure.f13467a.setArguments(new Bundle());
+                                fragmentTabStructure.f13463a.setArguments(new Bundle());
                             }
                         }
                     }
@@ -295,7 +295,7 @@ public class FRSExtraStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c.a.r0.w0.r1.c(null, l.f20935g, true));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c.a.r0.w0.r1.c(null, l.f20947g, true));
             }
         }
     }
@@ -348,8 +348,8 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameCommentActivityConfig.class, FrsGameCommentActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameSubPbActivityConfig.class, FrsGameSubPbActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsProfessionIntroActivityConfig.class, FrsProfessionIntroActivity.class);
-        d2.L3.set(true);
-        c.a.r0.w0.e.f26567a.set(new a1());
+        d2.M3.set(true);
+        c.a.r0.w0.e.f26590a.set(new a1());
         MessageManager.getInstance().registerListener(new a(2003008));
         MessageManager.getInstance().registerTask(new CustomMessageTask(2003016, new b()));
         UrlManager.getInstance().addListener(new c());

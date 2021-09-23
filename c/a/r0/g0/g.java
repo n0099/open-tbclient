@@ -16,11 +16,11 @@ public class g extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f17757f;
+    public static final BdUniqueId f17767f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ScoreCardInfo f17758e;
+    public ScoreCardInfo f17768e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class g extends BaseCardInfo {
                 return;
             }
         }
-        f17757f = BdUniqueId.gen();
+        f17767f = BdUniqueId.gen();
     }
 
     public g() {
@@ -55,20 +55,20 @@ public class g extends BaseCardInfo {
     public ScoreCardInfo g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17758e : (ScoreCardInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17768e : (ScoreCardInfo) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f17757f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f17767f : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(ScoreCardInfo scoreCardInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scoreCardInfo) == null) {
-            this.f17758e = scoreCardInfo;
+            this.f17768e = scoreCardInfo;
         }
     }
 }

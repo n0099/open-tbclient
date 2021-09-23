@@ -6,8 +6,11 @@ import com.baidu.searchbox.launch.IdleLaunchTask;
 import com.baidu.searchbox.launch.SmartLaunchScheduler;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.TTIStats;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.performance.speed.SpeedStats;
 import com.baidu.searchbox.task.item.InitMainTabTask;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,6 +90,7 @@ public class IdleLaunchTaskManager {
             public void execute() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    TiebaStatic.log(new StatisticItem("app_idle").param("obj_type", System.currentTimeMillis() - SpeedStatsManager.getInstance().getAppLaunchStartTimeStamp()));
                     new SmartLaunchStats().stats();
                     new TTIStats().stats();
                     new InitMainTabTask().execute();

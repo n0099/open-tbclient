@@ -128,7 +128,7 @@ public class w extends b<d2> implements c.a.r0.o.e {
             return;
         }
         long T = this.s.T();
-        OriginalForumInfo originalForumInfo = this.s.I1;
+        OriginalForumInfo originalForumInfo = this.s.J1;
         if (originalForumInfo != null) {
             T = c.a.e.e.m.b.g(originalForumInfo.id, 0L);
         }

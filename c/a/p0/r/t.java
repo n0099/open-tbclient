@@ -19,7 +19,7 @@ public class t extends c.a.p0.t.j {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final t f12369a;
+        public static final t f12377a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -35,7 +35,7 @@ public class t extends c.a.p0.t.j {
                     return;
                 }
             }
-            f12369a = new t();
+            f12377a = new t();
         }
     }
 
@@ -60,6 +60,6 @@ public class t extends c.a.p0.t.j {
     public static t g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f12369a : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f12377a : (t) invokeV.objValue;
     }
 }

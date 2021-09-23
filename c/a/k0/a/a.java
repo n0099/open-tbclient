@@ -42,34 +42,34 @@ public final class a implements AREngineDelegate {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3741a;
+    public Context f3742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArBridge f3742b;
+    public ArBridge f3743b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<DebugConsole> f3743c;
+    public ArrayList<DebugConsole> f3744c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3744d;
+    public int f3745d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f3745e;
+    public long f3746e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f3746f;
+    public float f3747f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f3747g;
+    public float f3748g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GLSurfaceView.Renderer f3748h;
+    public GLSurfaceView.Renderer f3749h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f3749i;
+    public boolean f3750i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final d f3750j;
+    public final d f3751j;
     public Object k;
     public SurfaceHolder l;
     public b m;
@@ -82,7 +82,7 @@ public final class a implements AREngineDelegate {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3751e;
+        public final /* synthetic */ a f3752e;
 
         public RunnableC0092a(a aVar) {
             Interceptable interceptable = $ic;
@@ -99,15 +99,15 @@ public final class a implements AREngineDelegate {
                     return;
                 }
             }
-            this.f3751e = aVar;
+            this.f3752e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3751e.m.m = true;
-                this.f3751e.f3742b.smallGameDestroy();
+                this.f3752e.m.m = true;
+                this.f3752e.f3743b.smallGameDestroy();
             }
         }
     }
@@ -129,22 +129,22 @@ public final class a implements AREngineDelegate {
         public V8Engine K;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f3752e;
+        public int f3753e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f3753f;
+        public long f3754f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f3754g;
+        public long f3755g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f3755h;
+        public long f3756h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f3756i;
+        public long f3757i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f3757j;
+        public boolean f3758j;
         public boolean k;
         public boolean l;
         public volatile boolean m;
@@ -177,12 +177,12 @@ public final class a implements AREngineDelegate {
                     return;
                 }
             }
-            this.f3752e = 0;
-            this.f3753f = 0L;
-            this.f3754g = 0L;
-            this.f3755h = 0L;
-            this.f3756i = 0L;
-            this.f3757j = false;
+            this.f3753e = 0;
+            this.f3754f = 0L;
+            this.f3755g = 0L;
+            this.f3756h = 0L;
+            this.f3757i = 0L;
+            this.f3758j = false;
             this.k = false;
             this.l = false;
             this.m = false;
@@ -198,7 +198,7 @@ public final class a implements AREngineDelegate {
             this.z = 1;
             this.B = false;
             this.J = aVar;
-            this.I = aVar.f3750j;
+            this.I = aVar.f3751j;
         }
 
         public void A() {
@@ -245,18 +245,18 @@ public final class a implements AREngineDelegate {
         public final void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f3752e++;
-                if (this.f3753f != 0) {
-                    float currentTimeMillis = ((float) (System.currentTimeMillis() - this.f3753f)) / 1000.0f;
+                this.f3753e++;
+                if (this.f3754f != 0) {
+                    float currentTimeMillis = ((float) (System.currentTimeMillis() - this.f3754f)) / 1000.0f;
                     if (currentTimeMillis > 1.0f) {
-                        this.J.r((int) (this.f3752e / currentTimeMillis));
-                        this.f3752e = 0;
-                        this.f3753f = System.currentTimeMillis();
+                        this.J.r((int) (this.f3753e / currentTimeMillis));
+                        this.f3753e = 0;
+                        this.f3754f = System.currentTimeMillis();
                         return;
                     }
                     return;
                 }
-                this.f3753f = System.currentTimeMillis();
+                this.f3754f = System.currentTimeMillis();
             }
         }
 
@@ -394,7 +394,7 @@ public final class a implements AREngineDelegate {
             if (r0 == null) goto L46;
          */
         /* JADX WARN: Code restructure failed: missing block: B:147:0x0222, code lost:
-            r0.f3748h.onSurfaceCreated(null, null);
+            r0.f3749h.onSurfaceCreated(null, null);
          */
         /* JADX WARN: Code restructure failed: missing block: B:148:0x022a, code lost:
             r6 = false;
@@ -409,7 +409,7 @@ public final class a implements AREngineDelegate {
             if (r0 == null) goto L51;
          */
         /* JADX WARN: Code restructure failed: missing block: B:152:0x0231, code lost:
-            r0.f3748h.onSurfaceChanged(null, r10, r11);
+            r0.f3749h.onSurfaceChanged(null, r10, r11);
             r0.updateSurfaceViewSize(r10, r11);
          */
         /* JADX WARN: Code restructure failed: missing block: B:153:0x023e, code lost:
@@ -418,48 +418,48 @@ public final class a implements AREngineDelegate {
         /* JADX WARN: Code restructure failed: missing block: B:154:0x023f, code lost:
             r0 = r20.J;
             r14 = java.lang.System.currentTimeMillis();
-            r2 = r14 - r20.f3754g;
+            r2 = r14 - r20.f3755g;
          */
         /* JADX WARN: Code restructure failed: missing block: B:155:0x024f, code lost:
-            if (r0.f3749i == false) goto L94;
+            if (r0.f3750i == false) goto L94;
          */
         /* JADX WARN: Code restructure failed: missing block: B:157:0x0258, code lost:
             if (((float) r2) < k()) goto L94;
          */
         /* JADX WARN: Code restructure failed: missing block: B:158:0x025a, code lost:
-            r20.f3754g = java.lang.System.currentTimeMillis();
+            r20.f3755g = java.lang.System.currentTimeMillis();
          */
         /* JADX WARN: Code restructure failed: missing block: B:159:0x0262, code lost:
-            if (r20.f3757j != false) goto L61;
+            if (r20.f3758j != false) goto L61;
          */
         /* JADX WARN: Code restructure failed: missing block: B:161:0x0266, code lost:
             if (r20.J == null) goto L61;
          */
         /* JADX WARN: Code restructure failed: missing block: B:162:0x0268, code lost:
-            r20.f3757j = true;
+            r20.f3758j = true;
             r20.J.o("first_frame");
          */
         /* JADX WARN: Code restructure failed: missing block: B:163:0x0272, code lost:
-            r0.f3748h.onDrawFrame(null);
+            r0.f3749h.onDrawFrame(null);
             e();
             r2 = r4;
          */
         /* JADX WARN: Code restructure failed: missing block: B:164:0x0286, code lost:
-            if ((r14 - r20.f3756i) <= 33) goto L64;
+            if ((r14 - r20.f3757i) <= 33) goto L64;
          */
         /* JADX WARN: Code restructure failed: missing block: B:165:0x0288, code lost:
-            r0.f3742b.notifyFrameUpdated();
-            r20.f3756i = r14;
+            r0.f3743b.notifyFrameUpdated();
+            r20.f3757i = r14;
          */
         /* JADX WARN: Code restructure failed: missing block: B:167:0x0293, code lost:
             if (r20.l == false) goto L93;
          */
         /* JADX WARN: Code restructure failed: missing block: B:168:0x0295, code lost:
-            r20.J.f3742b.smallGameOnResume();
+            r20.J.f3743b.smallGameOnResume();
             r20.l = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:170:0x02a3, code lost:
-            r4 = r0.f3742b.shouldSwapBuffer();
+            r4 = r0.f3743b.shouldSwapBuffer();
          */
         /* JADX WARN: Code restructure failed: missing block: B:171:0x02ab, code lost:
             if (r4 == false) goto L92;
@@ -496,10 +496,10 @@ public final class a implements AREngineDelegate {
             r15 = r2;
          */
         /* JADX WARN: Code restructure failed: missing block: B:187:0x02d8, code lost:
-            r20.f3755h = java.lang.System.currentTimeMillis();
+            r20.f3756h = java.lang.System.currentTimeMillis();
          */
         /* JADX WARN: Code restructure failed: missing block: B:188:0x02e8, code lost:
-            if (r20.J.f3742b.isRenderCallbackQueueEmpty() != false) goto L91;
+            if (r20.J.f3743b.isRenderCallbackQueueEmpty() != false) goto L91;
          */
         /* JADX WARN: Code restructure failed: missing block: B:189:0x02ea, code lost:
             if (r4 == false) goto L91;
@@ -511,17 +511,17 @@ public final class a implements AREngineDelegate {
             r2 = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:193:0x02f9, code lost:
-            if ((r0.f3742b.getStuckScreenHandler() instanceof c.a.k0.a.b) == false) goto L87;
+            if ((r0.f3743b.getStuckScreenHandler() instanceof c.a.k0.a.b) == false) goto L87;
          */
         /* JADX WARN: Code restructure failed: missing block: B:194:0x02fb, code lost:
-            ((c.a.k0.a.b) r0.f3742b.getStuckScreenHandler()).f(r2, r20.f3755h);
+            ((c.a.k0.a.b) r0.f3743b.getStuckScreenHandler()).f(r2, r20.f3756h);
          */
         /* JADX WARN: Code restructure failed: missing block: B:195:0x030a, code lost:
             r0 = r15;
          */
         /* JADX WARN: Code restructure failed: missing block: B:196:0x030d, code lost:
             r14 = r4;
-            r0.f3749i = true;
+            r0.f3750i = true;
          */
         /* JADX WARN: Code restructure failed: missing block: B:197:0x0312, code lost:
             r0 = r2;
@@ -585,7 +585,7 @@ public final class a implements AREngineDelegate {
                                         this.p = this.o;
                                         if (this.o) {
                                             this.l = z;
-                                            this.J.f3742b.smallGameOnPauseOnGLThrad();
+                                            this.J.f3743b.smallGameOnPauseOnGLThrad();
                                         } else {
                                             this.l = true;
                                         }
@@ -651,7 +651,7 @@ public final class a implements AREngineDelegate {
                                         } else {
                                             try {
                                                 this.H.h();
-                                                this.J.f3742b.setEglContextToRecorder(this.J.m(), 0, 0);
+                                                this.J.f3743b.setEglContextToRecorder(this.J.m(), 0, 0);
                                                 this.t = true;
                                                 this.I.notifyAll();
                                                 z7 = z10;
@@ -703,7 +703,7 @@ public final class a implements AREngineDelegate {
                     } catch (Throwable th) {
                         synchronized (this.I) {
                             if (this.J != null) {
-                                this.J.f3742b.smallGameDestroy();
+                                this.J.f3743b.smallGameDestroy();
                             }
                             V8Engine v8Engine = V8Engine.getInstance();
                             if (v8Engine != null && !v8Engine.isDestroyed()) {
@@ -717,7 +717,7 @@ public final class a implements AREngineDelegate {
                 }
                 synchronized (this.I) {
                     if (this.J != null) {
-                        this.J.f3742b.smallGameDestroy();
+                        this.J.f3743b.smallGameDestroy();
                     }
                     V8Engine v8Engine2 = V8Engine.getInstance();
                     if (v8Engine2 != null && !v8Engine2.isDestroyed()) {
@@ -756,8 +756,8 @@ public final class a implements AREngineDelegate {
                 synchronized (this.I) {
                     Log.i(ArBridge.TAG, "onPause tid=" + getId());
                     this.o = true;
-                    if (this.J != null && (this.J.f3742b.getStuckScreenHandler() instanceof c.a.k0.a.b)) {
-                        ((c.a.k0.a.b) this.J.f3742b.getStuckScreenHandler()).e();
+                    if (this.J != null && (this.J.f3743b.getStuckScreenHandler() instanceof c.a.k0.a.b)) {
+                        ((c.a.k0.a.b) this.J.f3743b.getStuckScreenHandler()).e();
                     }
                     this.I.notifyAll();
                     while (!this.n && !this.p) {
@@ -984,7 +984,7 @@ public final class a implements AREngineDelegate {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-                return this.J.f3742b.mFirstFrameFinished && ((float) (System.currentTimeMillis() - this.f3755h)) > k();
+                return this.J.f3743b.mFirstFrameFinished && ((float) (System.currentTimeMillis() - this.f3756h)) > k();
             }
             return invokeV.booleanValue;
         }
@@ -1013,19 +1013,19 @@ public final class a implements AREngineDelegate {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f3758a;
+        public a f3759a;
 
         /* renamed from: b  reason: collision with root package name */
-        public EGLDisplay f3759b;
+        public EGLDisplay f3760b;
 
         /* renamed from: c  reason: collision with root package name */
-        public EGLSurface f3760c;
+        public EGLSurface f3761c;
 
         /* renamed from: d  reason: collision with root package name */
-        public EGLConfig f3761d;
+        public EGLConfig f3762d;
 
         /* renamed from: e  reason: collision with root package name */
-        public EGLContext f3762e;
+        public EGLContext f3763e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -1042,7 +1042,7 @@ public final class a implements AREngineDelegate {
                     return;
                 }
             }
-            this.f3758a = aVar;
+            this.f3759a = aVar;
         }
 
         public static String d(String str, int i2) {
@@ -1072,21 +1072,21 @@ public final class a implements AREngineDelegate {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f3759b != null) {
-                    if (this.f3761d != null) {
+                if (this.f3760b != null) {
+                    if (this.f3762d != null) {
                         b();
-                        Object obj = this.f3758a.l;
+                        Object obj = this.f3759a.l;
                         if (obj == null) {
-                            obj = this.f3758a.k;
+                            obj = this.f3759a.k;
                         }
                         if (obj != null) {
-                            this.f3760c = EGL14.eglCreateWindowSurface(this.f3759b, this.f3761d, obj, new int[]{ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                            this.f3761c = EGL14.eglCreateWindowSurface(this.f3760b, this.f3762d, obj, new int[]{ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
                         } else {
-                            this.f3760c = null;
+                            this.f3761c = null;
                         }
-                        EGLSurface eGLSurface = this.f3760c;
+                        EGLSurface eGLSurface = this.f3761c;
                         if (eGLSurface != null && eGLSurface != EGL14.EGL_NO_SURFACE) {
-                            return EGL14.eglMakeCurrent(this.f3759b, eGLSurface, eGLSurface, this.f3762e);
+                            return EGL14.eglMakeCurrent(this.f3760b, eGLSurface, eGLSurface, this.f3763e);
                         }
                         if (EGL14.eglGetError() == 12299) {
                             Log.e("EglHelper", "createWindowSurface returned EGL_BAD_NATIVE_WINDOW.");
@@ -1104,28 +1104,28 @@ public final class a implements AREngineDelegate {
             EGLSurface eGLSurface;
             EGLSurface eGLSurface2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (eGLSurface = this.f3760c) == null || eGLSurface == (eGLSurface2 = EGL14.EGL_NO_SURFACE)) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (eGLSurface = this.f3761c) == null || eGLSurface == (eGLSurface2 = EGL14.EGL_NO_SURFACE)) {
                 return;
             }
-            EGL14.eglMakeCurrent(this.f3759b, eGLSurface2, eGLSurface2, EGL14.EGL_NO_CONTEXT);
-            EGL14.eglDestroySurface(this.f3759b, this.f3760c);
-            this.f3760c = null;
+            EGL14.eglMakeCurrent(this.f3760b, eGLSurface2, eGLSurface2, EGL14.EGL_NO_CONTEXT);
+            EGL14.eglDestroySurface(this.f3760b, this.f3761c);
+            this.f3761c = null;
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                EGLContext eGLContext = this.f3762e;
+                EGLContext eGLContext = this.f3763e;
                 if (eGLContext != null) {
-                    EGL14.eglDestroyContext(this.f3759b, eGLContext);
-                    this.f3762e = null;
+                    EGL14.eglDestroyContext(this.f3760b, eGLContext);
+                    this.f3763e = null;
                 }
-                EGLDisplay eGLDisplay = this.f3759b;
+                EGLDisplay eGLDisplay = this.f3760b;
                 if (eGLDisplay != null) {
                     EGL14.eglTerminate(eGLDisplay);
-                    this.f3759b = null;
+                    this.f3760b = null;
                 }
-                this.f3758a.f3745e = -1L;
+                this.f3759a.f3746e = -1L;
             }
         }
 
@@ -1134,7 +1134,7 @@ public final class a implements AREngineDelegate {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
                 EGLConfig[] eGLConfigArr = new EGLConfig[1];
-                if (!EGL14.eglChooseConfig(this.f3759b, new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 8, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, 8, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, z ? 16 : 0, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, 0, 12352, 4, ZeusMonitorType.MONITOR_TYPE_AD_FILTER, 0, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
+                if (!EGL14.eglChooseConfig(this.f3760b, new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 8, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, 8, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, z ? 16 : 0, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, 0, 12352, 4, ZeusMonitorType.MONITOR_TYPE_AD_FILTER, 0, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
                     Log.w(ArBridge.TAG, "unable to find RGB8888 / " + i3 + " EGLConfig");
                     return null;
                 }
@@ -1146,7 +1146,7 @@ public final class a implements AREngineDelegate {
         public void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f3758a = null;
+                this.f3759a = null;
             }
         }
 
@@ -1154,24 +1154,24 @@ public final class a implements AREngineDelegate {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-                this.f3759b = eglGetDisplay;
+                this.f3760b = eglGetDisplay;
                 if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
                     int[] iArr = new int[2];
                     if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
                         EGLConfig e2 = e(0, 0, false);
-                        this.f3761d = e2;
-                        this.f3762e = EGL14.eglCreateContext(this.f3759b, e2, EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
-                        this.f3758a.f3745e = Thread.currentThread().getId();
-                        EGLContext eGLContext = this.f3762e;
+                        this.f3762d = e2;
+                        this.f3763e = EGL14.eglCreateContext(this.f3760b, e2, EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                        this.f3759a.f3746e = Thread.currentThread().getId();
+                        EGLContext eGLContext = this.f3763e;
                         if (eGLContext != null && eGLContext != EGL14.EGL_NO_CONTEXT) {
-                            this.f3760c = null;
+                            this.f3761c = null;
                             return;
                         }
-                        this.f3762e = null;
+                        this.f3763e = null;
                         j("createContext");
                         throw null;
                     }
-                    this.f3759b = null;
+                    this.f3760b = null;
                     throw new RuntimeException("unable to initialize EGL14");
                 }
                 throw new RuntimeException("unable to get EGL14 display");
@@ -1181,7 +1181,7 @@ public final class a implements AREngineDelegate {
         public int i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !EGL14.eglSwapBuffers(this.f3759b, this.f3760c) ? EGL14.eglGetError() : CommandMessage.COMMAND_BASE : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !EGL14.eglSwapBuffers(this.f3760b, this.f3761c) ? EGL14.eglGetError() : CommandMessage.COMMAND_BASE : invokeV.intValue;
         }
 
         public final void j(String str) {
@@ -1199,7 +1199,7 @@ public final class a implements AREngineDelegate {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public b f3763a;
+        public b f3764a;
 
         static {
             InterceptResult invokeClinit;
@@ -1233,8 +1233,8 @@ public final class a implements AREngineDelegate {
         public void a(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                if (this.f3763a == bVar) {
-                    this.f3763a = null;
+                if (this.f3764a == bVar) {
+                    this.f3764a = null;
                 }
                 synchronized (this) {
                     notifyAll();
@@ -1247,8 +1247,8 @@ public final class a implements AREngineDelegate {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
                 synchronized (this) {
                     bVar.n = true;
-                    if (this.f3763a == bVar) {
-                        this.f3763a = null;
+                    if (this.f3764a == bVar) {
+                        this.f3764a = null;
                     }
                     notifyAll();
                 }
@@ -1266,10 +1266,10 @@ public final class a implements AREngineDelegate {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f3764e;
+        public final long f3765e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Runnable f3765f;
+        public final Runnable f3766f;
 
         public e(Runnable runnable, long j2) {
             Interceptable interceptable = $ic;
@@ -1286,8 +1286,8 @@ public final class a implements AREngineDelegate {
                     return;
                 }
             }
-            this.f3765f = runnable;
-            this.f3764e = System.currentTimeMillis() + j2;
+            this.f3766f = runnable;
+            this.f3765e = System.currentTimeMillis() + j2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1296,20 +1296,20 @@ public final class a implements AREngineDelegate {
         public int compareTo(e eVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) ? (int) (this.f3764e - eVar.f3764e) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) ? (int) (this.f3765e - eVar.f3765e) : invokeL.intValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? System.currentTimeMillis() >= this.f3764e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? System.currentTimeMillis() >= this.f3765e : invokeV.booleanValue;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f3765f.run();
+                this.f3766f.run();
             }
         }
     }
@@ -1342,14 +1342,14 @@ public final class a implements AREngineDelegate {
                 return;
             }
         }
-        this.f3743c = null;
-        this.f3744d = 0;
-        this.f3746f = 0.0f;
-        this.f3747g = 0.0f;
-        this.f3749i = false;
-        this.f3750j = new d(null);
+        this.f3744c = null;
+        this.f3745d = 0;
+        this.f3747f = 0.0f;
+        this.f3748g = 0.0f;
+        this.f3750i = false;
+        this.f3751j = new d(null);
         Log.setMinLogLevel(6, false);
-        this.f3742b = new ArBridge();
+        this.f3743b = new ArBridge();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
@@ -1368,10 +1368,10 @@ public final class a implements AREngineDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, debugConsole) == null) {
             synchronized (this) {
-                if (this.f3743c == null) {
-                    this.f3743c = new ArrayList<>(1);
+                if (this.f3744c == null) {
+                    this.f3744c = new ArrayList<>(1);
                 }
-                this.f3743c.add(debugConsole);
+                this.f3744c.add(debugConsole);
             }
         }
     }
@@ -1416,8 +1416,8 @@ public final class a implements AREngineDelegate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f3742b.getGameRecorder() != null) {
-                return this.f3742b.getGameRecorder().s();
+            if (this.f3743b.getGameRecorder() != null) {
+                return this.f3743b.getGameRecorder().s();
             }
             return 0L;
         }
@@ -1428,7 +1428,7 @@ public final class a implements AREngineDelegate {
     public int getFPS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3744d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3745d : invokeV.intValue;
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
@@ -1443,7 +1443,7 @@ public final class a implements AREngineDelegate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ArBridge arBridge = this.f3742b;
+            ArBridge arBridge = this.f3743b;
             return arBridge == null ? new JSONArray() : arBridge.getPerformanceJson();
         }
         return (JSONArray) invokeV.objValue;
@@ -1454,7 +1454,7 @@ public final class a implements AREngineDelegate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ArBridge arBridge = this.f3742b;
+            ArBridge arBridge = this.f3743b;
             return arBridge == null ? new PerformanceJsonBean() : arBridge.getPerformanceJsonBean();
         }
         return (PerformanceJsonBean) invokeV.objValue;
@@ -1479,7 +1479,7 @@ public final class a implements AREngineDelegate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            ArBridge arBridge = this.f3742b;
+            ArBridge arBridge = this.f3743b;
             if (arBridge == null) {
                 return null;
             }
@@ -1498,11 +1498,11 @@ public final class a implements AREngineDelegate {
                 ((WindowManager) l.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 float f2 = displayMetrics.widthPixels;
                 float f3 = displayMetrics.heightPixels;
-                float f4 = this.f3746f;
+                float f4 = this.f3747f;
                 float f5 = f4 != 0.0f ? f4 : f2;
-                float f6 = this.f3747g;
+                float f6 = this.f3748g;
                 float f7 = f6 != 0.0f ? f6 : f3;
-                ArBridge arBridge = this.f3742b;
+                ArBridge arBridge = this.f3743b;
                 if (arBridge != null) {
                     arBridge.setDisplayMetrics(f5, f7, displayMetrics.xdpi, displayMetrics.ydpi, displayMetrics.density);
                     return;
@@ -1519,19 +1519,19 @@ public final class a implements AREngineDelegate {
     public boolean isDestroyed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f3742b.isDestroyed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f3743b.isDestroyed() : invokeV.booleanValue;
     }
 
     public ArBridge k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f3742b : (ArBridge) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f3743b : (ArBridge) invokeV.objValue;
     }
 
     public Context l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f3741a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f3742a : (Context) invokeV.objValue;
     }
 
     public EGLContext m() {
@@ -1542,17 +1542,17 @@ public final class a implements AREngineDelegate {
             if (bVar == null || bVar.H == null) {
                 return null;
             }
-            return this.m.H.f3762e;
+            return this.m.H.f3763e;
         }
         return (EGLContext) invokeV.objValue;
     }
 
     public final void n(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048593, this, i2, str) == null) || this.f3743c == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048593, this, i2, str) == null) || this.f3744c == null) {
             return;
         }
-        for (DebugConsole debugConsole : new ArrayList(this.f3743c)) {
+        for (DebugConsole debugConsole : new ArrayList(this.f3744c)) {
             debugConsole.onReceiveInfo(i2, str);
         }
     }
@@ -1560,7 +1560,7 @@ public final class a implements AREngineDelegate {
     public void o(String str) {
         ArBridge arBridge;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (arBridge = this.f3742b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (arBridge = this.f3743b) == null) {
             return;
         }
         arBridge.getPerformanceJsonBean().put(str);
@@ -1570,7 +1570,7 @@ public final class a implements AREngineDelegate {
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            if (this.n && this.f3748h != null) {
+            if (this.n && this.f3749h != null) {
                 b bVar = this.m;
                 int h2 = bVar != null ? bVar.h() : 1;
                 b bVar2 = new b(this);
@@ -1606,8 +1606,8 @@ public final class a implements AREngineDelegate {
             if (bVar != null) {
                 bVar.l();
             }
-            if (this.f3742b.getGameRecorder() != null) {
-                this.f3742b.getGameRecorder().w();
+            if (this.f3743b.getGameRecorder() != null) {
+                this.f3743b.getGameRecorder().w();
             }
         }
     }
@@ -1620,8 +1620,8 @@ public final class a implements AREngineDelegate {
             if (bVar != null) {
                 bVar.m();
             }
-            if (this.f3742b.getGameRecorder() != null) {
-                this.f3742b.getGameRecorder().z();
+            if (this.f3743b.getGameRecorder() != null) {
+                this.f3743b.getGameRecorder().z();
             }
         }
     }
@@ -1629,17 +1629,17 @@ public final class a implements AREngineDelegate {
     public void p(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, context) == null) {
-            this.f3741a = context;
+            this.f3742a = context;
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void pauseRecord() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || this.f3742b.getGameRecorder() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || this.f3743b.getGameRecorder() == null) {
             return;
         }
-        this.f3742b.getGameRecorder().v();
+        this.f3743b.getGameRecorder().v();
     }
 
     public void q(SurfaceHolder surfaceHolder) {
@@ -1668,7 +1668,7 @@ public final class a implements AREngineDelegate {
             if (i2 > 60) {
                 i2 = 60;
             }
-            this.f3744d = i2;
+            this.f3745d = i2;
         }
     }
 
@@ -1677,10 +1677,10 @@ public final class a implements AREngineDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, debugConsole) == null) {
             synchronized (this) {
-                if (this.f3743c == null) {
+                if (this.f3744c == null) {
                     return;
                 }
-                this.f3743c.remove(debugConsole);
+                this.f3744c.remove(debugConsole);
             }
         }
     }
@@ -1708,10 +1708,10 @@ public final class a implements AREngineDelegate {
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void resumeRecord() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || this.f3742b.getGameRecorder() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || this.f3743b.getGameRecorder() == null) {
             return;
         }
-        this.f3742b.getGameRecorder().y();
+        this.f3743b.getGameRecorder().y();
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
@@ -1727,34 +1727,34 @@ public final class a implements AREngineDelegate {
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setAudioEngineProxy(c.a.x.c.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048610, this, aVar) == null) || this.f3742b.getGameRecorder() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048610, this, aVar) == null) || this.f3743b.getGameRecorder() == null) {
             return;
         }
-        this.f3742b.getGameRecorder().A(aVar);
+        this.f3743b.getGameRecorder().A(aVar);
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, firstFrameListener) == null) {
-            this.f3742b.setFirstFrameListener(firstFrameListener);
+            this.f3743b.setFirstFrameListener(firstFrameListener);
         }
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setGameRecordCallback(c.a.x.c.c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048612, this, cVar) == null) || this.f3742b.getGameRecorder() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048612, this, cVar) == null) || this.f3743b.getGameRecorder() == null) {
             return;
         }
-        this.f3742b.getGameRecorder().C(cVar);
+        this.f3743b.getGameRecorder().C(cVar);
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setOnStuckScreenListener(c.a.k0.a.d.a aVar) {
         ArBridge arBridge;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048613, this, aVar) == null) || (arBridge = this.f3742b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048613, this, aVar) == null) || (arBridge = this.f3743b) == null) {
             return;
         }
         arBridge.setOnStuckScreenListener(aVar);
@@ -1782,7 +1782,7 @@ public final class a implements AREngineDelegate {
     public void setRenderer(GLSurfaceView.Renderer renderer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, renderer) == null) {
-            this.f3748h = renderer;
+            this.f3749h = renderer;
         }
     }
 
@@ -1790,7 +1790,7 @@ public final class a implements AREngineDelegate {
     public void setScreenShotStatus(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
-            this.f3742b.setScreenShotStatus(z);
+            this.f3743b.setScreenShotStatus(z);
         }
     }
 
@@ -1798,7 +1798,7 @@ public final class a implements AREngineDelegate {
     public void setStuckScreenLimitTime(long j2) {
         ArBridge arBridge;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048618, this, j2) == null) || (arBridge = this.f3742b) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048618, this, j2) == null) || (arBridge = this.f3743b) == null) {
             return;
         }
         arBridge.setStuckScreenLimitTime(j2);
@@ -1821,7 +1821,7 @@ public final class a implements AREngineDelegate {
     public void smallGameOnPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            this.f3742b.smallGameOnPause();
+            this.f3743b.smallGameOnPause();
         }
     }
 
@@ -1829,7 +1829,7 @@ public final class a implements AREngineDelegate {
     public void smallGameUpdate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            this.f3742b.smallGameUpdate();
+            this.f3743b.smallGameUpdate();
         }
     }
 
@@ -1837,7 +1837,7 @@ public final class a implements AREngineDelegate {
     public void startEngine() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            if (this.f3748h != null) {
+            if (this.f3749h != null) {
                 b bVar = new b(this);
                 this.m = bVar;
                 bVar.start();
@@ -1850,21 +1850,21 @@ public final class a implements AREngineDelegate {
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void startRecord(boolean z, int i2, String str, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2)}) == null) || this.f3742b.getGameRecorder() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2)}) == null) || this.f3743b.getGameRecorder() == null) {
             return;
         }
-        this.f3742b.nativeUpdateRecordingStatus(true);
-        this.f3742b.getGameRecorder().F(z, i2, str, z2);
+        this.f3743b.nativeUpdateRecordingStatus(true);
+        this.f3743b.getGameRecorder().F(z, i2, str, z2);
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void stopRecord() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048624, this) == null) || this.f3742b.getGameRecorder() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048624, this) == null) || this.f3743b.getGameRecorder() == null) {
             return;
         }
-        this.f3742b.getGameRecorder().I();
-        this.f3742b.nativeUpdateRecordingStatus(false);
+        this.f3743b.getGameRecorder().I();
+        this.f3743b.nativeUpdateRecordingStatus(false);
     }
 
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
@@ -1873,7 +1873,7 @@ public final class a implements AREngineDelegate {
         if (interceptable == null || interceptable.invokeII(1048625, this, i2, i3) == null) {
             Log.w(ArBridge.TAG, "[V8Dispose][AREngine] surfaceChanged. width=" + i2 + ", height=" + i3);
             this.m.n(i2, i3);
-            this.f3742b.setEglContextToRecorder(m(), i2, i3);
+            this.f3743b.setEglContextToRecorder(m(), i2, i3);
         }
     }
 
@@ -1904,9 +1904,9 @@ public final class a implements AREngineDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             Log.w(ArBridge.TAG, "[ARDispose] updateSurfaceViewSize, width=" + f2 + ", height=" + f3);
-            this.f3746f = f2;
-            this.f3747g = f3;
-            this.f3742b.setSize(f2, f3);
+            this.f3747f = f2;
+            this.f3748g = f3;
+            this.f3743b.setSize(f2, f3);
         }
     }
 

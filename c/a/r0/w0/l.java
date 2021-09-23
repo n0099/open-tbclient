@@ -11,10 +11,10 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f26957a;
+    public static String f26977a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d2 f26958b;
+    public static d2 f26978b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,21 +35,21 @@ public class l {
     public static d2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f26958b : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f26978b : (d2) invokeV.objValue;
     }
 
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26957a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26977a : (String) invokeV.objValue;
     }
 
     public static synchronized void c(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, d2Var) == null) {
             synchronized (l.class) {
-                f26957a = d2Var.D;
-                f26958b = d2Var;
+                f26977a = d2Var.E;
+                f26978b = d2Var;
             }
         }
     }

@@ -33,7 +33,7 @@ public final class BankSignFactory implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BankSignFactory f62381a;
+        public static BankSignFactory f62644a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +49,7 @@ public final class BankSignFactory implements IBeanFactory {
                     return;
                 }
             }
-            f62381a = new BankSignFactory(null);
+            f62644a = new BankSignFactory(null);
         }
     }
 
@@ -60,7 +60,7 @@ public final class BankSignFactory implements IBeanFactory {
     public static BankSignFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62381a : (BankSignFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62644a : (BankSignFactory) invokeV.objValue;
     }
 
     public BankSignFactory() {

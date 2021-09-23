@@ -14,14 +14,14 @@ public class e implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f8452f = true;
+    public static boolean f8460f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f8453g = -1;
+    public static int f8461g = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f8454e;
+    public final String f8462e;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -83,7 +83,7 @@ public class e implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
                 return;
             }
         }
-        this.f8454e = str;
+        this.f8462e = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -93,17 +93,17 @@ public class e implements c.a.p0.a.v2.e1.b<HybridUbcFlow> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
             synchronized (this) {
-                if (f8452f) {
-                    if (f8453g == -1) {
+                if (f8460f) {
+                    if (f8461g == -1) {
                         c.a.p0.a.c1.a.Z().getSwitch("swan_next_env_delay", 600);
-                        f8453g = 600;
+                        f8461g = 600;
                     }
-                    q0.Y(new a(this), f8453g);
+                    q0.Y(new a(this), f8461g);
                 }
-                if ("fmp_callback".equals(this.f8454e)) {
-                    f8452f = false;
-                } else if ("callback_on_submit".equals(this.f8454e)) {
-                    f8452f = true;
+                if ("fmp_callback".equals(this.f8462e)) {
+                    f8460f = false;
+                } else if ("callback_on_submit".equals(this.f8462e)) {
+                    f8460f = true;
                 }
             }
         }

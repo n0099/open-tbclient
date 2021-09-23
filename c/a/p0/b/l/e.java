@@ -18,7 +18,7 @@ public class e extends c.a.p0.a.v1.a.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f10110a;
+        public final /* synthetic */ e f10118a;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -35,15 +35,15 @@ public class e extends c.a.p0.a.v1.a.a.a {
                     return;
                 }
             }
-            this.f10110a = eVar;
+            this.f10118a = eVar;
         }
 
         @Override // c.a.p0.b.n.b.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f10110a.f9203d.putString("result", str);
-                this.f10110a.c();
+                this.f10118a.f9211d.putString("result", str);
+                this.f10118a.c();
             }
         }
     }

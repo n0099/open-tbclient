@@ -17,13 +17,13 @@ public final class Polygon extends Overlay {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Stroke f41548a;
+    public Stroke f41610a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41549b;
+    public int f41611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<LatLng> f41550c;
+    public List<LatLng> f41612c;
 
     public Polygon() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class Polygon extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f42246j;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f42308j;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
@@ -47,16 +47,16 @@ public final class Polygon extends Overlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             super.a(bundle);
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.f41550c.get(0));
+            GeoPoint ll2mc = CoordUtil.ll2mc(this.f41612c.get(0));
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-            Overlay.a(this.f41550c, bundle);
-            Overlay.a(this.f41549b, bundle);
-            if (this.f41548a == null) {
+            Overlay.a(this.f41612c, bundle);
+            Overlay.a(this.f41611b, bundle);
+            if (this.f41610a == null) {
                 bundle.putInt("has_stroke", 0);
             } else {
                 bundle.putInt("has_stroke", 1);
-                bundle.putBundle("stroke", this.f41548a.a(new Bundle()));
+                bundle.putBundle("stroke", this.f41610a.a(new Bundle()));
             }
             return bundle;
         }
@@ -66,25 +66,25 @@ public final class Polygon extends Overlay {
     public int getFillColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41549b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41611b : invokeV.intValue;
     }
 
     public List<LatLng> getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41550c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41612c : (List) invokeV.objValue;
     }
 
     public Stroke getStroke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41548a : (Stroke) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41610a : (Stroke) invokeV.objValue;
     }
 
     public void setFillColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f41549b = i2;
+            this.f41611b = i2;
             this.listener.b(this);
         }
     }
@@ -111,7 +111,7 @@ public final class Polygon extends Overlay {
                 }
                 i2 = i3;
             }
-            this.f41550c = list;
+            this.f41612c = list;
             this.listener.b(this);
         }
     }
@@ -119,7 +119,7 @@ public final class Polygon extends Overlay {
     public void setStroke(Stroke stroke) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, stroke) == null) {
-            this.f41548a = stroke;
+            this.f41610a = stroke;
             this.listener.b(this);
         }
     }

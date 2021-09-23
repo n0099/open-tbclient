@@ -19,7 +19,7 @@ public class fz implements gd {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f77665a;
+    public String f77984a;
 
     /* renamed from: a  reason: collision with other field name */
     public List<fz> f422a;
@@ -28,13 +28,13 @@ public class fz implements gd {
     public String[] f423a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f77666b;
+    public String f77985b;
 
     /* renamed from: b  reason: collision with other field name */
     public String[] f424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f77667c;
+    public String f77986c;
 
     public fz(String str, String str2, String[] strArr, String[] strArr2) {
         Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class fz implements gd {
         this.f423a = null;
         this.f424b = null;
         this.f422a = null;
-        this.f77665a = str;
-        this.f77666b = str2;
+        this.f77984a = str;
+        this.f77985b = str2;
         this.f423a = strArr;
         this.f424b = strArr2;
     }
@@ -78,11 +78,11 @@ public class fz implements gd {
         this.f423a = null;
         this.f424b = null;
         this.f422a = null;
-        this.f77665a = str;
-        this.f77666b = str2;
+        this.f77984a = str;
+        this.f77985b = str2;
         this.f423a = strArr;
         this.f424b = strArr2;
-        this.f77667c = str3;
+        this.f77986c = str3;
         this.f422a = list;
     }
 
@@ -146,9 +146,9 @@ public class fz implements gd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle bundle = new Bundle();
-            bundle.putString("ext_ele_name", this.f77665a);
-            bundle.putString("ext_ns", this.f77666b);
-            bundle.putString("ext_text", this.f77667c);
+            bundle.putString("ext_ele_name", this.f77984a);
+            bundle.putString("ext_ns", this.f77985b);
+            bundle.putString("ext_text", this.f77986c);
             Bundle bundle2 = new Bundle();
             String[] strArr = this.f423a;
             if (strArr != null && strArr.length > 0) {
@@ -183,7 +183,7 @@ public class fz implements gd {
     public String m337a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f77665a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f77984a : (String) invokeV.objValue;
     }
 
     public String a(String str) {
@@ -231,20 +231,20 @@ public class fz implements gd {
             if (!TextUtils.isEmpty(str)) {
                 str = gn.a(str);
             }
-            this.f77667c = str;
+            this.f77986c = str;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f77666b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f77985b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.f77667c) ? gn.b(this.f77667c) : this.f77667c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.f77986c) ? gn.b(this.f77986c) : this.f77986c : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.gd
@@ -254,12 +254,12 @@ public class fz implements gd {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("<");
-            sb.append(this.f77665a);
-            if (!TextUtils.isEmpty(this.f77666b)) {
+            sb.append(this.f77984a);
+            if (!TextUtils.isEmpty(this.f77985b)) {
                 sb.append(" ");
                 sb.append("xmlns=");
                 sb.append("\"");
-                sb.append(this.f77666b);
+                sb.append(this.f77985b);
                 sb.append("\"");
             }
             String[] strArr = this.f423a;
@@ -274,7 +274,7 @@ public class fz implements gd {
                     }
                 }
             }
-            if (TextUtils.isEmpty(this.f77667c)) {
+            if (TextUtils.isEmpty(this.f77986c)) {
                 List<fz> list = this.f422a;
                 if (list == null || list.size() <= 0) {
                     sb.append("/>");
@@ -286,10 +286,10 @@ public class fz implements gd {
                 }
             } else {
                 sb.append(">");
-                sb.append(this.f77667c);
+                sb.append(this.f77986c);
             }
             sb.append("</");
-            sb.append(this.f77665a);
+            sb.append(this.f77984a);
             sb.append(">");
             return sb.toString();
         }

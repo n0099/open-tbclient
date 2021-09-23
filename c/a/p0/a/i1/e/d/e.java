@@ -21,7 +21,7 @@ public class e implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6774a;
+    public static final boolean f6782a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class e implements c {
                 return;
             }
         }
-        f6774a = k.f7077a;
+        f6782a = k.f7085a;
     }
 
     public e() {
@@ -109,7 +109,7 @@ public class e implements c {
                 }
             }
             if (bitmap == null) {
-                if (!f6774a) {
+                if (!f6782a) {
                     c.a.p0.a.e0.d.h("SkiaImageDecoder", "bitmap is null");
                 } else {
                     throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");

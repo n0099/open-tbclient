@@ -23,11 +23,11 @@ public class a {
 
     /* renamed from: c.a.r0.y2.f0.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1376a {
+    public static class C1374a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f29404a;
+        public static final a f29424a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class a {
                     return;
                 }
             }
-            f29404a = new a();
+            f29424a = new a();
         }
     }
 
@@ -64,27 +64,27 @@ public class a {
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1376a.f29404a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1374a.f29424a : (a) invokeV.objValue;
     }
 
     public final ContentValues a(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-            if (bVar == null || TextUtils.isEmpty(bVar.f29405a)) {
+            if (bVar == null || TextUtils.isEmpty(bVar.f29425a)) {
                 return null;
             }
             ContentValues contentValues = new ContentValues();
-            contentValues.put("download_key", bVar.f29405a);
-            contentValues.put("package_name", bVar.f29406b);
-            contentValues.put("finish_download_time", String.valueOf(bVar.f29407c));
-            contentValues.put("show_times", String.valueOf(bVar.f29408d));
-            contentValues.put("last_show_time", String.valueOf(bVar.f29409e));
-            contentValues.put("ad_string", bVar.f29410f);
-            contentValues.put("cmatch", bVar.f29411g);
-            contentValues.put("install_status", Integer.valueOf(bVar.f29412h));
-            contentValues.put("ad_extension_info1", bVar.f29413i);
-            contentValues.put("ad_extension_info2", bVar.f29414j);
+            contentValues.put("download_key", bVar.f29425a);
+            contentValues.put("package_name", bVar.f29426b);
+            contentValues.put("finish_download_time", String.valueOf(bVar.f29427c));
+            contentValues.put("show_times", String.valueOf(bVar.f29428d));
+            contentValues.put("last_show_time", String.valueOf(bVar.f29429e));
+            contentValues.put("ad_string", bVar.f29430f);
+            contentValues.put("cmatch", bVar.f29431g);
+            contentValues.put("install_status", Integer.valueOf(bVar.f29432h));
+            contentValues.put("ad_extension_info1", bVar.f29433i);
+            contentValues.put("ad_extension_info2", bVar.f29434j);
             contentValues.put("ad_extension_info3", bVar.k);
             return contentValues;
         }
@@ -98,16 +98,16 @@ public class a {
             if (cursor != null && !cursor.isClosed()) {
                 try {
                     b bVar = new b();
-                    bVar.f29405a = cursor.getString(cursor.getColumnIndex("download_key"));
-                    bVar.f29406b = cursor.getString(cursor.getColumnIndex("package_name"));
-                    bVar.f29407c = Long.parseLong(cursor.getString(cursor.getColumnIndex("finish_download_time")));
-                    bVar.f29408d = Integer.parseInt(cursor.getString(cursor.getColumnIndex("show_times")));
-                    bVar.f29409e = Long.parseLong(cursor.getString(cursor.getColumnIndex("last_show_time")));
-                    bVar.f29410f = cursor.getString(cursor.getColumnIndex("ad_string"));
-                    bVar.f29411g = cursor.getString(cursor.getColumnIndex("cmatch"));
-                    bVar.f29412h = Integer.parseInt(cursor.getString(cursor.getColumnIndex("install_status")));
-                    bVar.f29413i = cursor.getString(cursor.getColumnIndex("ad_extension_info1"));
-                    bVar.f29414j = cursor.getString(cursor.getColumnIndex("ad_extension_info2"));
+                    bVar.f29425a = cursor.getString(cursor.getColumnIndex("download_key"));
+                    bVar.f29426b = cursor.getString(cursor.getColumnIndex("package_name"));
+                    bVar.f29427c = Long.parseLong(cursor.getString(cursor.getColumnIndex("finish_download_time")));
+                    bVar.f29428d = Integer.parseInt(cursor.getString(cursor.getColumnIndex("show_times")));
+                    bVar.f29429e = Long.parseLong(cursor.getString(cursor.getColumnIndex("last_show_time")));
+                    bVar.f29430f = cursor.getString(cursor.getColumnIndex("ad_string"));
+                    bVar.f29431g = cursor.getString(cursor.getColumnIndex("cmatch"));
+                    bVar.f29432h = Integer.parseInt(cursor.getString(cursor.getColumnIndex("install_status")));
+                    bVar.f29433i = cursor.getString(cursor.getColumnIndex("ad_extension_info1"));
+                    bVar.f29434j = cursor.getString(cursor.getColumnIndex("ad_extension_info2"));
                     bVar.k = cursor.getString(cursor.getColumnIndex("ad_extension_info3"));
                     return bVar;
                 } catch (Exception unused) {
@@ -178,7 +178,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             synchronized (this) {
                 if (bVar != null) {
-                    if (!TextUtils.isEmpty(bVar.f29405a) && !TextUtils.isEmpty(bVar.f29406b)) {
+                    if (!TextUtils.isEmpty(bVar.f29425a) && !TextUtils.isEmpty(bVar.f29426b)) {
                         SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
                         f2.beginTransaction();
                         f2.replace("ad_follow_up_info_table", null, a(bVar));

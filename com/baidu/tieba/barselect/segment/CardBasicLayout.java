@@ -68,21 +68,21 @@ public class CardBasicLayout extends LinearLayout {
                 return;
             }
             int g2 = a2.g();
-            if (g2 == c.f28299b) {
+            if (g2 == c.f28319b) {
                 if (i2 == VoteCandidateCard.MINE_VOTE) {
-                    this.status = a.f28297d;
+                    this.status = a.f28317d;
                     this.mElectionData = this.mData.f();
                     return;
                 }
-                this.status = a.f28294a;
+                this.status = a.f28314a;
                 List<d> b2 = this.mData.b();
                 if (b2 == null || b2.size() <= i2) {
                     return;
                 }
                 this.mElectionData = b2.get(i2);
-            } else if (g2 == c.f28300c) {
+            } else if (g2 == c.f28320c) {
                 if (i2 == VoteCandidateCard.MINE_VOTE) {
-                    this.status = a.f28296c;
+                    this.status = a.f28316c;
                     List<d> b3 = this.mData.b();
                     if (b3 == null || b3.size() <= 0) {
                         return;
@@ -95,7 +95,7 @@ public class CardBasicLayout extends LinearLayout {
                     }
                     return;
                 }
-                this.status = a.f28295b;
+                this.status = a.f28315b;
                 List<d> b4 = this.mData.b();
                 if (b4 == null || b4.size() <= i2) {
                     return;
@@ -103,7 +103,7 @@ public class CardBasicLayout extends LinearLayout {
                 d dVar2 = b4.get(i2);
                 this.mElectionData = dVar2;
                 if (dVar2.i() == 1 && i2 == 0) {
-                    this.status = a.f28296c;
+                    this.status = a.f28316c;
                 }
             }
         }

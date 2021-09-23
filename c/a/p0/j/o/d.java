@@ -21,23 +21,23 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f11766f;
+    public static final int f11774f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f11767a;
+    public View f11775a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f11768b;
+    public View f11776b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f11769c;
+    public View f11777c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f11770d;
+    public boolean f11778d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f11771e;
+    public b f11779e;
 
     /* loaded from: classes3.dex */
     public class a extends AnimatorListenerAdapter {
@@ -45,13 +45,13 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f11772e;
+        public final /* synthetic */ boolean f11780e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f11773f;
+        public final /* synthetic */ int f11781f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f11774g;
+        public final /* synthetic */ d f11782g;
 
         public a(d dVar, boolean z, int i2) {
             Interceptable interceptable = $ic;
@@ -68,9 +68,9 @@ public class d {
                     return;
                 }
             }
-            this.f11774g = dVar;
-            this.f11772e = z;
-            this.f11773f = i2;
+            this.f11782g = dVar;
+            this.f11780e = z;
+            this.f11781f = i2;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -79,11 +79,11 @@ public class d {
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
                 animator.removeAllListeners();
-                if (!this.f11772e) {
-                    this.f11774g.c(this.f11773f);
+                if (!this.f11780e) {
+                    this.f11782g.c(this.f11781f);
                 }
-                if (this.f11774g.f11771e != null) {
-                    this.f11774g.f11771e.onFlipOver(this.f11772e);
+                if (this.f11782g.f11779e != null) {
+                    this.f11782g.f11779e.onFlipOver(this.f11780e);
                 }
             }
         }
@@ -109,7 +109,7 @@ public class d {
                 return;
             }
         }
-        f11766f = n0.g(58.0f);
+        f11774f = n0.g(58.0f);
     }
 
     public d(View view, FrameLayout frameLayout, View view2) {
@@ -127,35 +127,35 @@ public class d {
                 return;
             }
         }
-        this.f11767a = view;
-        this.f11768b = frameLayout;
-        this.f11769c = view2;
+        this.f11775a = view;
+        this.f11776b = frameLayout;
+        this.f11777c = view2;
     }
 
     public final void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            ViewGroup.LayoutParams layoutParams = this.f11767a.getLayoutParams();
-            layoutParams.height = this.f11767a.getHeight() - (i2 * 2);
-            this.f11767a.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams = this.f11775a.getLayoutParams();
+            layoutParams.height = this.f11775a.getHeight() - (i2 * 2);
+            this.f11775a.setLayoutParams(layoutParams);
         }
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11770d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11778d : invokeV.booleanValue;
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            b bVar = this.f11771e;
+            b bVar = this.f11779e;
             if (bVar != null) {
                 bVar.onFlipStart(z);
             }
-            this.f11770d = z;
-            int i2 = f11766f;
+            this.f11778d = z;
+            int i2 = f11774f;
             if (z) {
                 i2 = -i2;
             }
@@ -176,7 +176,7 @@ public class d {
                 fArr2[1] = 0.0f;
             }
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ObjectAnimator.ofFloat(this.f11768b, "translationY", fArr), ObjectAnimator.ofFloat(this.f11767a, "translationY", fArr2), ObjectAnimator.ofFloat(this.f11769c, "translationY", fArr2));
+            animatorSet.playTogether(ObjectAnimator.ofFloat(this.f11776b, "translationY", fArr), ObjectAnimator.ofFloat(this.f11775a, "translationY", fArr2), ObjectAnimator.ofFloat(this.f11777c, "translationY", fArr2));
             animatorSet.setDuration(200L);
             animatorSet.start();
             animatorSet.addListener(new a(this, z, i2));

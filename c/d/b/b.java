@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f31717a = new a();
+    public static final b f31738a = new a();
 
     /* loaded from: classes4.dex */
     public class a implements b {

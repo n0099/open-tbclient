@@ -15,16 +15,16 @@ public class c implements c.a.n0.n.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f4335a;
+    public b f4342a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4336b;
+    public String f4343b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f4337c;
+    public Context f4344c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f4338d;
+    public a f4345d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class c implements c.a.n0.n.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f4336b)) {
-                this.f4336b = this.f4335a.a(0, null);
+            if (TextUtils.isEmpty(this.f4343b)) {
+                this.f4343b = this.f4342a.a(0, null);
             }
-            return this.f4336b;
+            return this.f4343b;
         }
         return (String) invokeV.objValue;
     }
@@ -57,11 +57,11 @@ public class c implements c.a.n0.n.a {
     public void a(Context context, c.a.n0.n.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
-            this.f4335a = new b(context);
-            this.f4337c = context;
+            this.f4342a = new b(context);
+            this.f4344c = context;
             if (b()) {
-                this.f4338d = new a(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f4338d);
+                this.f4345d = new a(this);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f4345d);
             }
             if (bVar != null) {
                 bVar.a();

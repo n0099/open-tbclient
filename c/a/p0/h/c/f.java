@@ -25,7 +25,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, String> f11047a;
+    public static final HashMap<String, String> f11055a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,9 +42,9 @@ public class f {
             }
         }
         HashMap<String, String> hashMap = new HashMap<>();
-        f11047a = hashMap;
+        f11055a = hashMap;
         hashMap.put("494433", EmotionResourceProvider.EMOTION_SOUND_SUFFIX);
-        f11047a.put("524946", ".wav");
+        f11055a.put("524946", ".wav");
     }
 
     public static String a(byte[] bArr) {
@@ -63,7 +63,7 @@ public class f {
                 sb.append(upperCase);
             }
             String sb2 = sb.toString();
-            if (k.f7077a) {
+            if (k.f7085a) {
                 String str = "audio buffer header: " + sb2;
             }
             return sb2;
@@ -82,14 +82,14 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gVar)) == null) {
             d dVar = new d();
-            dVar.f11034a = gVar.f11049f;
-            dVar.f11038e = gVar.autoplay;
-            dVar.f11039f = gVar.loop;
-            dVar.f11036c = gVar.src;
-            dVar.f11037d = gVar.startTime;
-            dVar.f11040g = gVar.obeyMuteSwitch;
-            dVar.f11042i = gVar.volume;
-            dVar.f11043j = i().toString();
+            dVar.f11042a = gVar.f11057f;
+            dVar.f11046e = gVar.autoplay;
+            dVar.f11047f = gVar.loop;
+            dVar.f11044c = gVar.src;
+            dVar.f11045d = gVar.startTime;
+            dVar.f11048g = gVar.obeyMuteSwitch;
+            dVar.f11050i = gVar.volume;
+            dVar.f11051j = i().toString();
             return dVar;
         }
         return (d) invokeL.objValue;
@@ -152,7 +152,7 @@ public class f {
             for (int i2 = 0; i2 < 3; i2++) {
                 bArr2[i2] = bArr[i2];
             }
-            return f11047a.get(a(bArr2));
+            return f11055a.get(a(bArr2));
         }
         return (String) invokeL.objValue;
     }
@@ -175,7 +175,7 @@ public class f {
                 jSONObject.put("onBufferingUpdate", "buffered");
                 jSONObject.put("onWaiting", "waiting");
             } catch (Exception e2) {
-                if (k.f7077a) {
+                if (k.f7085a) {
                     e2.printStackTrace();
                 }
             }

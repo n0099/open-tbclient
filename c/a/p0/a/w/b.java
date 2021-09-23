@@ -23,7 +23,7 @@ public class b extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9445c;
+    public String f9453c;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.w.a {
@@ -31,10 +31,10 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9446a;
+        public final /* synthetic */ CallbackHandler f9454a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f9447b;
+        public final /* synthetic */ b f9455b;
 
         public a(b bVar, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f9447b = bVar;
-            this.f9446a = callbackHandler;
+            this.f9455b = bVar;
+            this.f9454a = callbackHandler;
         }
 
         @Override // c.a.p0.a.w.a
@@ -72,13 +72,13 @@ public class b extends a0 {
                     jSONObject.put("charSet", str3);
                     jSONObject.put("result", str);
                     d.g("scanCode", jSONObject.toString());
-                    this.f9446a.handleSchemeDispatchCallback(this.f9447b.f9445c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                    this.f9454a.handleSchemeDispatchCallback(this.f9455b.f9453c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
                 } catch (JSONException e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                     d.g("scanCode", "scanCode exec fail");
-                    this.f9446a.handleSchemeDispatchCallback(this.f9447b.f9445c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    this.f9454a.handleSchemeDispatchCallback(this.f9455b.f9453c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 }
             }
         }
@@ -115,12 +115,12 @@ public class b extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
                 return false;
             } else if (eVar.d0()) {
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {
                 String optString = w.d(unitedSchemeEntity.getParam("params")).optString("cb");
-                this.f9445c = optString;
+                this.f9453c = optString;
                 if (TextUtils.isEmpty(optString)) {
                     d.g("scanCode", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);

@@ -29,7 +29,7 @@ public class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9413a;
+    public static final boolean f9421a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -38,10 +38,10 @@ public class t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f9414a;
+        public final /* synthetic */ b f9422a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9415b;
+        public final /* synthetic */ String f9423b;
 
         public a(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class t {
                     return;
                 }
             }
-            this.f9414a = bVar;
-            this.f9415b = str;
+            this.f9422a = bVar;
+            this.f9423b = str;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
@@ -67,7 +67,7 @@ public class t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
                 super.onCancellation(dataSource);
-                this.f9414a.a(this.f9415b, null);
+                this.f9422a.a(this.f9423b, null);
             }
         }
 
@@ -75,7 +75,7 @@ public class t {
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                this.f9414a.a(this.f9415b, null);
+                this.f9422a.a(this.f9423b, null);
             }
         }
 
@@ -91,17 +91,17 @@ public class t {
                         } else {
                             copy = bitmap.copy(bitmap.getConfig(), true);
                         }
-                        this.f9414a.a(this.f9415b, copy);
+                        this.f9422a.a(this.f9423b, copy);
                         return;
                     } catch (Exception e2) {
-                        if (t.f9413a) {
+                        if (t.f9421a) {
                             e2.getMessage();
                         }
-                        this.f9414a.a(this.f9415b, null);
+                        this.f9422a.a(this.f9423b, null);
                         return;
                     }
                 }
-                this.f9414a.a(this.f9415b, null);
+                this.f9422a.a(this.f9423b, null);
             }
         }
     }
@@ -124,7 +124,7 @@ public class t {
                 return;
             }
         }
-        f9413a = c.a.p0.a.k.f7077a;
+        f9421a = c.a.p0.a.k.f7085a;
     }
 
     public static Bitmap b(DataSource<CloseableReference<CloseableImage>> dataSource) {
@@ -176,12 +176,12 @@ public class t {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, uri, context)) == null) {
             if (uri != null && context != null) {
                 if (d(uri)) {
-                    if (f9413a) {
+                    if (f9421a) {
                         String str = "start get Bitmap from memory, uri : " + uri.toString();
                     }
                     return b(Fresco.getImagePipeline().fetchImageFromBitmapCache(ImageRequest.fromUri(uri), context.getApplicationContext()));
                 }
-                if (f9413a) {
+                if (f9421a) {
                     String str2 = "start get Bitmap from sdcard, uri : " + uri.toString();
                 }
                 DataSource<Boolean> isInDiskCache = Fresco.getImagePipeline().isInDiskCache(uri);
@@ -221,7 +221,7 @@ public class t {
         if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, uri, str) == null) || uri == null) {
             return;
         }
-        if (f9413a) {
+        if (f9421a) {
             String str2 = "start preFetch into memory, uri : " + uri.toString();
         }
         Fresco.getImagePipeline().prefetchToBitmapCache(ImageRequestBuilder.newBuilderWithSource(uri).build(), str);

@@ -15,11 +15,11 @@ public class b implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f20471f;
+    public static final BdUniqueId f20486f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20472e;
+    public int f20487e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class b implements n {
                 return;
             }
         }
-        f20471f = BdUniqueId.gen();
+        f20486f = BdUniqueId.gen();
     }
 
     public b() {
@@ -50,19 +50,19 @@ public class b implements n {
                 return;
             }
         }
-        this.f20472e = 0;
+        this.f20487e = 0;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20472e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20487e : invokeV.intValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f20472e = i2;
+            this.f20487e = i2;
         }
     }
 
@@ -70,6 +70,6 @@ public class b implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f20471f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f20486f : (BdUniqueId) invokeV.objValue;
     }
 }

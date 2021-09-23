@@ -28,31 +28,31 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BackgroundPreviewActivity f23946a;
+    public BackgroundPreviewActivity f23962a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f23947b;
+    public View f23963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdExpandImageView f23948c;
+    public BdExpandImageView f23964c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f23949d;
+    public TbImageView f23965d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f23950e;
+    public TbImageView f23966e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f23951f;
+    public TextView f23967f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f23952g;
+    public ImageView f23968g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f23953h;
+    public TextView f23969h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.e.e.l.c<c.a.e.l.d.a> f23954i;
+    public final c.a.e.e.l.c<c.a.e.l.d.a> f23970i;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.e.l.c<c.a.e.l.d.a> {
@@ -60,7 +60,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f23955a;
+        public final /* synthetic */ i f23971a;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class i {
                     return;
                 }
             }
-            this.f23955a = iVar;
+            this.f23971a = iVar;
         }
 
         @Override // c.a.e.e.l.c
@@ -103,7 +103,7 @@ public class i {
             if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) || aVar == null) {
                 return;
             }
-            aVar.h(this.f23955a.f23948c);
+            aVar.h(this.f23971a.f23964c);
         }
     }
 
@@ -122,41 +122,41 @@ public class i {
                 return;
             }
         }
-        this.f23954i = new a(this);
-        this.f23946a = backgroundPreviewActivity;
+        this.f23970i = new a(this);
+        this.f23962a = backgroundPreviewActivity;
         View inflate = LayoutInflater.from(backgroundPreviewActivity.getPageContext().getPageActivity()).inflate(R.layout.background_preview_header, (ViewGroup) null);
-        this.f23947b = inflate;
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.f23946a.getResources().getDimensionPixelSize(R.dimen.ds450)));
+        this.f23963b = inflate;
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.f23962a.getResources().getDimensionPixelSize(R.dimen.ds450)));
         c();
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23947b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23963b : (View) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f23948c = (BdExpandImageView) this.f23947b.findViewById(R.id.expand_image);
-            this.f23949d = (TbImageView) this.f23947b.findViewById(R.id.user_head);
-            TbImageView tbImageView = (TbImageView) this.f23947b.findViewById(R.id.vip_icon);
-            this.f23950e = tbImageView;
+            this.f23964c = (BdExpandImageView) this.f23963b.findViewById(R.id.expand_image);
+            this.f23965d = (TbImageView) this.f23963b.findViewById(R.id.user_head);
+            TbImageView tbImageView = (TbImageView) this.f23963b.findViewById(R.id.vip_icon);
+            this.f23966e = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.f23951f = (TextView) this.f23947b.findViewById(R.id.user_name);
-            this.f23952g = (ImageView) this.f23947b.findViewById(R.id.user_sex);
-            this.f23953h = (TextView) this.f23947b.findViewById(R.id.user_bar_age_num);
-            this.f23949d.setDefaultResource(R.drawable.icon_default_avatar100);
+            this.f23967f = (TextView) this.f23963b.findViewById(R.id.user_name);
+            this.f23968g = (ImageView) this.f23963b.findViewById(R.id.user_sex);
+            this.f23969h = (TextView) this.f23963b.findViewById(R.id.user_bar_age_num);
+            this.f23965d.setDefaultResource(R.drawable.icon_default_avatar100);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f23946a.getPageContext() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f23962a.getPageContext() == null) {
             return;
         }
-        c.a.q0.w0.a.a(this.f23946a.getPageContext(), this.f23947b);
+        c.a.q0.w0.a.a(this.f23962a.getPageContext(), this.f23963b);
     }
 
     public void e(DressItemData dressItemData) {
@@ -164,45 +164,45 @@ public class i {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, dressItemData) == null) || dressItemData == null) {
             return;
         }
-        c.a.e.e.l.d.h().k(dressItemData.getExampleImgUrl(), 10, this.f23954i, 0, 0, null, new Object[0]);
+        c.a.e.e.l.d.h().k(dressItemData.getExampleImgUrl(), 10, this.f23970i, 0, 0, null, new Object[0]);
         if (StringUtils.isNull(dressItemData.getPropsStateImg())) {
-            this.f23953h.setText("0");
+            this.f23969h.setText("0");
         } else {
-            this.f23953h.setText(dressItemData.getPropsStateImg());
+            this.f23969h.setText(dressItemData.getPropsStateImg());
         }
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo == null) {
-            SkinManager.setViewTextColor(this.f23953h, R.color.CAM_X0308, 1);
-            this.f23951f.setText(R.string.default_user_name);
-            this.f23952g.setImageResource(R.drawable.icon_pop_boy);
-            this.f23950e.setVisibility(8);
+            SkinManager.setViewTextColor(this.f23969h, R.color.CAM_X0308, 1);
+            this.f23967f.setText(R.string.default_user_name);
+            this.f23968g.setImageResource(R.drawable.icon_pop_boy);
+            this.f23966e.setVisibility(8);
             return;
         }
         String avatar = currentAccountInfo.getAvatar();
         int memberType = currentAccountInfo.getMemberType();
         if (!TextUtils.isEmpty(avatar)) {
-            this.f23949d.startLoad(avatar, 25, false);
+            this.f23965d.startLoad(avatar, 25, false);
         }
         String memberIconUrl = currentAccountInfo.getMemberIconUrl();
         if (StringUtils.isNull(memberIconUrl)) {
-            this.f23950e.setVisibility(8);
+            this.f23966e.setVisibility(8);
         } else {
-            this.f23950e.startLoad(memberIconUrl, 10, false);
-            this.f23950e.setVisibility(0);
+            this.f23966e.startLoad(memberIconUrl, 10, false);
+            this.f23966e.setVisibility(0);
         }
         if (memberType > 0) {
-            this.f23951f.setTextColor(this.f23946a.getResources().getColor(R.color.CAM_X0308));
+            this.f23967f.setTextColor(this.f23962a.getResources().getColor(R.color.CAM_X0308));
         } else {
-            this.f23951f.setTextColor(this.f23946a.getResources().getColor(R.color.CAM_X0111));
+            this.f23967f.setTextColor(this.f23962a.getResources().getColor(R.color.CAM_X0111));
         }
-        this.f23951f.setText(currentAccountInfo.getAccountNameShow());
+        this.f23967f.setText(currentAccountInfo.getAccountNameShow());
         int sex = currentAccountInfo.getSex();
         if (sex == 1) {
-            this.f23952g.setImageResource(R.drawable.icon_pop_boy);
+            this.f23968g.setImageResource(R.drawable.icon_pop_boy);
         } else if (sex == 2) {
-            this.f23952g.setImageResource(R.drawable.icon_pop_girl);
+            this.f23968g.setImageResource(R.drawable.icon_pop_girl);
         } else {
-            this.f23952g.setVisibility(8);
+            this.f23968g.setVisibility(8);
         }
     }
 }

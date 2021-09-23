@@ -12,11 +12,11 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile f f31490b;
+    public static volatile f f31511b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f31491a;
+    public final c f31512a;
 
     public f(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -33,21 +33,21 @@ public class f {
                 return;
             }
         }
-        this.f31491a = new c(context);
+        this.f31512a = new c(context);
     }
 
     public static f a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f31490b == null) {
+            if (f31511b == null) {
                 synchronized (f.class) {
-                    if (f31490b == null) {
-                        f31490b = new f(context);
+                    if (f31511b == null) {
+                        f31511b = new f(context);
                     }
                 }
             }
-            return f31490b;
+            return f31511b;
         }
         return (f) invokeL.objValue;
     }
@@ -55,7 +55,7 @@ public class f {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f31491a.c();
+            this.f31512a.c();
         }
     }
 }

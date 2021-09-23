@@ -26,13 +26,13 @@ public class b extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f8735e;
+        public final /* synthetic */ h f8743e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8736f;
+        public final /* synthetic */ CallbackHandler f8744f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8737g;
+        public final /* synthetic */ String f8745g;
 
         public a(b bVar, h hVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class b extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8735e = hVar;
-            this.f8736f = callbackHandler;
-            this.f8737g = str;
+            this.f8743e = hVar;
+            this.f8744f = callbackHandler;
+            this.f8745g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,8 +61,8 @@ public class b extends c.a.p0.a.u.c.d {
             JSONObject wrapCallbackParams;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                if (iVar.c() && b.s(iVar.f5582a)) {
-                    JSONObject optJSONObject = iVar.f5582a.optJSONObject("data");
+                if (iVar.c() && b.s(iVar.f5590a)) {
+                    JSONObject optJSONObject = iVar.f5590a.optJSONObject("data");
                     if (optJSONObject != null && optJSONObject.optBoolean("result")) {
                         wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
                         k.N("checkSession", "success");
@@ -72,10 +72,10 @@ public class b extends c.a.p0.a.u.c.d {
                     }
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(iVar.b());
-                    this.f8735e.g(this.f8736f, wrapCallbackParams.toString());
+                    this.f8743e.g(this.f8744f, wrapCallbackParams.toString());
                     k.O("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "result failed");
                 }
-                this.f8736f.handleSchemeDispatchCallback(this.f8737g, wrapCallbackParams.toString());
+                this.f8744f.handleSchemeDispatchCallback(this.f8745g, wrapCallbackParams.toString());
             }
         }
     }
@@ -110,7 +110,7 @@ public class b extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             k.N("checkSession", "create");
             h j2 = c.a.p0.a.c1.b.j();
             CallbackHandler h2 = a().h();

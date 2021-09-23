@@ -17,7 +17,7 @@ public abstract class l<IN, OUT> extends d<IN, OUT> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, a> f68637d;
+    public Map<String, a> f68948d;
 
     /* loaded from: classes9.dex */
     public static final class a {
@@ -25,7 +25,7 @@ public abstract class l<IN, OUT> extends d<IN, OUT> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<h> f68638a;
+        public List<h> f68949a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -40,14 +40,14 @@ public abstract class l<IN, OUT> extends d<IN, OUT> {
                     return;
                 }
             }
-            this.f68638a = new ArrayList();
+            this.f68949a = new ArrayList();
         }
 
         public a a(h hVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) {
-                this.f68638a.add(hVar);
+                this.f68949a.add(hVar);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -57,7 +57,7 @@ public abstract class l<IN, OUT> extends d<IN, OUT> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-                this.f68638a.addAll(list);
+                this.f68949a.addAll(list);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -81,13 +81,13 @@ public abstract class l<IN, OUT> extends d<IN, OUT> {
     public Map<String, a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68637d : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68948d : (Map) invokeV.objValue;
     }
 
     public boolean a(List<h> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) ? !list.isEmpty() && list.get(list.size() - 1).f68625a == f.class : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) ? !list.isEmpty() && list.get(list.size() - 1).f68936a == f.class : invokeL.booleanValue;
     }
 
     /* loaded from: classes9.dex */
@@ -96,10 +96,10 @@ public abstract class l<IN, OUT> extends d<IN, OUT> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, a> f68639a;
+        public Map<String, a> f68950a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.b.b.a f68640b;
+        public com.bytedance.sdk.openadsdk.preload.b.b.a f68951b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -114,16 +114,16 @@ public abstract class l<IN, OUT> extends d<IN, OUT> {
                     return;
                 }
             }
-            this.f68639a = new HashMap();
+            this.f68950a = new HashMap();
         }
 
         public a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (!this.f68639a.containsKey(str)) {
+                if (!this.f68950a.containsKey(str)) {
                     a aVar = new a();
-                    this.f68639a.put(str, aVar);
+                    this.f68950a.put(str, aVar);
                     return aVar;
                 }
                 throw new IllegalArgumentException("duplicated branch name");
@@ -134,7 +134,7 @@ public abstract class l<IN, OUT> extends d<IN, OUT> {
         public h a(Class<? extends l> cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? h.a.a().a(cls).a(this.f68639a).a(this.f68640b).b() : (h) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? h.a.a().a(cls).a(this.f68950a).a(this.f68951b).b() : (h) invokeL.objValue;
         }
     }
 
@@ -145,7 +145,7 @@ public abstract class l<IN, OUT> extends d<IN, OUT> {
             super.a(objArr);
             if (objArr != null && objArr.length == 1 && objArr[0] != null) {
                 try {
-                    this.f68637d = (Map) objArr[0];
+                    this.f68948d = (Map) objArr[0];
                     return;
                 } catch (ClassCastException e2) {
                     throw new IllegalArgumentException(e2);

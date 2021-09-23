@@ -74,7 +74,7 @@ public class m {
             return;
         }
         spannableString.setSpan(new c.a.q0.f1.m.c(bVar), i2, i4, 33);
-        spannableString.setSpan(new AbsoluteSizeSpan(bVar.f13242i), i2, i4, 33);
+        spannableString.setSpan(new AbsoluteSizeSpan(bVar.f13259i), i2, i4, 33);
     }
 
     public static SpannableStringBuilder d(String str, String str2) {
@@ -124,24 +124,24 @@ public class m {
             for (int i2 = 0; i2 != arrayList.size(); i2++) {
                 a aVar = arrayList.get(i2);
                 if (aVar != null) {
-                    int i3 = aVar.f15635a;
+                    int i3 = aVar.f15645a;
                     if (i3 > 0) {
-                        aVar.f15636b = context.getString(i3);
+                        aVar.f15646b = context.getString(i3);
                     }
-                    if (!c.a.e.e.p.k.isEmpty(aVar.f15636b)) {
+                    if (!c.a.e.e.p.k.isEmpty(aVar.f15646b)) {
                         int length = spannableStringBuilder.length();
-                        spannableStringBuilder.append((CharSequence) aVar.f15636b);
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f15637c)), length, spannableStringBuilder.length(), 17);
+                        spannableStringBuilder.append((CharSequence) aVar.f15646b);
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f15647c)), length, spannableStringBuilder.length(), 17);
                         if (i2 == arrayList.size() - 1 && !z2) {
                             break;
                         }
-                        Bitmap bitmap = SkinManager.getBitmap(aVar.f15638d);
+                        Bitmap bitmap = SkinManager.getBitmap(aVar.f15648d);
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
                         if (bitmap != null) {
                             bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                         }
                         c.a.q0.s.f0.j jVar = new c.a.q0.s.f0.j(bitmapDrawable);
-                        int i4 = aVar.f15639e;
+                        int i4 = aVar.f15649e;
                         if (i4 != 0) {
                             jVar.b(i4);
                         }
@@ -175,7 +175,7 @@ public class m {
                 return;
             }
             textView.setVisibility(0);
-            d2Var.p = 0;
+            d2Var.q = 0;
             d2Var.Z2(false, true);
             SpannableStringBuilder g1 = d2Var.g1();
             textView.setOnTouchListener(new c.a.r0.b4.h(g1));
@@ -208,19 +208,19 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f15635a;
+        public int f15645a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f15636b;
+        public String f15646b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f15637c;
+        public int f15647c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f15638d;
+        public int f15648d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f15639e;
+        public int f15649e;
 
         public a(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -237,14 +237,14 @@ public class m {
                     return;
                 }
             }
-            this.f15635a = -1;
-            this.f15636b = "";
-            this.f15637c = R.color.CAM_X0304;
-            this.f15638d = R.drawable.pic_dot_title;
-            this.f15639e = 0;
-            this.f15635a = i2;
-            this.f15637c = i3;
-            this.f15638d = i4;
+            this.f15645a = -1;
+            this.f15646b = "";
+            this.f15647c = R.color.CAM_X0304;
+            this.f15648d = R.drawable.pic_dot_title;
+            this.f15649e = 0;
+            this.f15645a = i2;
+            this.f15647c = i3;
+            this.f15648d = i4;
         }
 
         public a(int i2) {
@@ -262,12 +262,12 @@ public class m {
                     return;
                 }
             }
-            this.f15635a = -1;
-            this.f15636b = "";
-            this.f15637c = R.color.CAM_X0304;
-            this.f15638d = R.drawable.pic_dot_title;
-            this.f15639e = 0;
-            this.f15635a = i2;
+            this.f15645a = -1;
+            this.f15646b = "";
+            this.f15647c = R.color.CAM_X0304;
+            this.f15648d = R.drawable.pic_dot_title;
+            this.f15649e = 0;
+            this.f15645a = i2;
         }
 
         public a(String str) {
@@ -285,12 +285,12 @@ public class m {
                     return;
                 }
             }
-            this.f15635a = -1;
-            this.f15636b = "";
-            this.f15637c = R.color.CAM_X0304;
-            this.f15638d = R.drawable.pic_dot_title;
-            this.f15639e = 0;
-            this.f15636b = str;
+            this.f15645a = -1;
+            this.f15646b = "";
+            this.f15647c = R.color.CAM_X0304;
+            this.f15648d = R.drawable.pic_dot_title;
+            this.f15649e = 0;
+            this.f15646b = str;
         }
 
         public a(String str, int i2) {
@@ -308,13 +308,13 @@ public class m {
                     return;
                 }
             }
-            this.f15635a = -1;
-            this.f15636b = "";
-            this.f15637c = R.color.CAM_X0304;
-            this.f15638d = R.drawable.pic_dot_title;
-            this.f15639e = 0;
-            this.f15636b = str;
-            this.f15638d = i2;
+            this.f15645a = -1;
+            this.f15646b = "";
+            this.f15647c = R.color.CAM_X0304;
+            this.f15648d = R.drawable.pic_dot_title;
+            this.f15649e = 0;
+            this.f15646b = str;
+            this.f15648d = i2;
         }
     }
 }

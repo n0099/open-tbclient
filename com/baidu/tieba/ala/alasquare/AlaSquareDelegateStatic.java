@@ -118,7 +118,7 @@ public class AlaSquareDelegateStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof i0) {
                 i0 i0Var = (i0) data;
-                i0Var.a(new c.a.r0.v.d.g.a(i0Var.d(), i0Var.e()));
+                i0Var.a(new c.a.r0.v.f.g.a(i0Var.d(), i0Var.e()));
             }
         }
     }
@@ -340,7 +340,7 @@ public class AlaSquareDelegateStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.w0.g f49348a;
+        public final /* synthetic */ c.a.r0.w0.g f49459a;
 
         public i(c.a.r0.w0.g gVar) {
             Interceptable interceptable = $ic;
@@ -357,7 +357,7 @@ public class AlaSquareDelegateStatic {
                     return;
                 }
             }
-            this.f49348a = gVar;
+            this.f49459a = gVar;
         }
 
         @Override // c.a.q0.h0.b
@@ -366,11 +366,11 @@ public class AlaSquareDelegateStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 LiveTabYYSubFragment newInstance = LiveTabYYSubFragment.newInstance(false, 2);
-                newInstance.setForumInfo(this.f49348a.b(), this.f49348a.c());
+                newInstance.setForumInfo(this.f49459a.b(), this.f49459a.c());
                 c.a.q0.h0.c cVar = new c.a.q0.h0.c();
-                cVar.f13467a = newInstance;
-                cVar.f13471e = 1120;
-                cVar.f13475i = c.a.q0.h0.c.k;
+                cVar.f13463a = newInstance;
+                cVar.f13467e = 1120;
+                cVar.f13471i = c.a.q0.h0.c.k;
                 return cVar;
             }
             return (c.a.q0.h0.c) invokeV.objValue;
@@ -429,11 +429,11 @@ public class AlaSquareDelegateStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     c.a.q0.h0.c cVar = new c.a.q0.h0.c();
-                    cVar.f13467a = new MainBottomLiveTabFragment();
-                    cVar.f13471e = 20;
-                    cVar.f13468b = R.string.ala_live;
-                    cVar.f13472f = R.raw.lottie_tab_live;
-                    cVar.f13475i = c.a.q0.h0.c.l;
+                    cVar.f13463a = new MainBottomLiveTabFragment();
+                    cVar.f13467e = 20;
+                    cVar.f13464b = R.string.ala_live;
+                    cVar.f13468f = R.raw.lottie_tab_live;
+                    cVar.f13471i = c.a.q0.h0.c.l;
                     return cVar;
                 }
                 return (c.a.q0.h0.c) invokeV.objValue;

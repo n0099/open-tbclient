@@ -19,7 +19,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f28293a;
+    public TbPageContext f28313a;
 
     public a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -36,11 +36,11 @@ public class a {
                 return;
             }
         }
-        this.f28293a = tbPageContext;
+        this.f28313a = tbPageContext;
         b bVar = new b(309641);
         bVar.setResponsedClass(CandidateSearchSocketResMsg.class);
         MessageManager.getInstance().registerTask(bVar);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, c.a.r0.j3.d0.a.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, c.a.r0.j3.e0.a.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
         tbHttpMessageTask.setResponsedClass(CandidateSearchHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
@@ -51,7 +51,7 @@ public class a {
             CandidateSearchReqMsg candidateSearchReqMsg = new CandidateSearchReqMsg();
             candidateSearchReqMsg.applyId = i2;
             candidateSearchReqMsg.fid = j2;
-            candidateSearchReqMsg.setTag(this.f28293a.getUniqueId());
+            candidateSearchReqMsg.setTag(this.f28313a.getUniqueId());
             MessageManager.getInstance().sendMessage(candidateSearchReqMsg);
         }
     }

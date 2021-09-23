@@ -27,10 +27,10 @@ public class b implements AccountManagerService {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountManagerService.AccountStatusChangedListener f28055a;
+    public AccountManagerService.AccountStatusChangedListener f28075a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountManagerService.LoginResultListener f28056b;
+    public AccountManagerService.LoginResultListener f28076b;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -38,7 +38,7 @@ public class b implements AccountManagerService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f28057a;
+        public final /* synthetic */ b f28077a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -58,7 +58,7 @@ public class b implements AccountManagerService {
                     return;
                 }
             }
-            this.f28057a = bVar;
+            this.f28077a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,11 +66,11 @@ public class b implements AccountManagerService {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (this.f28057a.f28056b != null) {
-                    this.f28057a.f28056b.onResult(this.f28057a.isLogin(2) ? 0 : -2);
+                if (this.f28077a.f28076b != null) {
+                    this.f28077a.f28076b.onResult(this.f28077a.isLogin(2) ? 0 : -2);
                 }
-                if (this.f28057a.f28055a != null) {
-                    this.f28057a.f28055a.onAccountStatusChanged(this.f28057a.isLogin(2));
+                if (this.f28077a.f28075a != null) {
+                    this.f28077a.f28075a.onAccountStatusChanged(this.f28077a.isLogin(2));
                 }
             }
         }
@@ -96,7 +96,7 @@ public class b implements AccountManagerService {
     public void addLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, accountStatusChangedListener) == null) {
-            this.f28055a = accountStatusChangedListener;
+            this.f28075a = accountStatusChangedListener;
         }
     }
 
@@ -180,7 +180,7 @@ public class b implements AccountManagerService {
     public void login(Context context, AccountManagerService.LoginResultListener loginResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, loginResultListener) == null) {
-            this.f28056b = loginResultListener;
+            this.f28076b = loginResultListener;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
         }
     }
@@ -189,7 +189,7 @@ public class b implements AccountManagerService {
     public void removeLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, accountStatusChangedListener) == null) {
-            this.f28055a = null;
+            this.f28075a = null;
         }
     }
 }

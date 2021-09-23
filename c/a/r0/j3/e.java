@@ -32,17 +32,17 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Wire f20788c;
+    public static final Wire f20799c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static e f20789d;
+    public static e f20800d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public m f20790a;
+    public m f20801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.e.e.d.l<byte[]> f20791b;
+    public c.a.e.e.d.l<byte[]> f20802b;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +57,7 @@ public class e {
                 return;
             }
         }
-        f20788c = new Wire(new Class[0]);
+        f20799c = new Wire(new Class[0]);
     }
 
     public e() {
@@ -73,23 +73,23 @@ public class e {
                 return;
             }
         }
-        this.f20790a = null;
-        this.f20791b = null;
-        this.f20791b = BdCacheService.l().a("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.f20801a = null;
+        this.f20802b = null;
+        this.f20802b = BdCacheService.l().a("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
     public static e i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f20789d == null) {
+            if (f20800d == null) {
                 synchronized (e.class) {
-                    if (f20789d == null) {
-                        f20789d = new e();
+                    if (f20800d == null) {
+                        f20800d = new e();
                     }
                 }
             }
-            return f20789d;
+            return f20800d;
         }
         return (e) invokeV.objValue;
     }
@@ -101,28 +101,28 @@ public class e {
         }
         if (z) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            c.a.e.e.d.l<byte[]> lVar = this.f20791b;
+            c.a.e.e.d.l<byte[]> lVar = this.f20802b;
             lVar.e(currentAccount + str, bArr, h());
             return;
         }
         String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-        c.a.e.e.d.l<byte[]> lVar2 = this.f20791b;
+        c.a.e.e.d.l<byte[]> lVar2 = this.f20802b;
         lVar2.i(currentAccount2 + str, bArr, h());
     }
 
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.f20791b == null || str == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.f20802b == null || str == null) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        c.a.e.e.d.l<byte[]> lVar = this.f20791b;
+        c.a.e.e.d.l<byte[]> lVar = this.f20802b;
         byte[] bArr = lVar.get(currentAccount + str);
         if (bArr == null || bArr.length <= 0) {
             return;
         }
         try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f20788c.parseFrom(bArr, FrsPageResIdl.class);
+            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f20799c.parseFrom(bArr, FrsPageResIdl.class);
             if (frsPageResIdl == null || frsPageResIdl.data == null || frsPageResIdl.data.forum == null || frsPageResIdl.data.forum.banner_list == null || frsPageResIdl.data.forum.banner_list.app == null || frsPageResIdl.data.forum.banner_list.app.size() <= 0) {
                 return;
             }
@@ -150,17 +150,17 @@ public class e {
 
     public void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || this.f20791b == null || str == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || this.f20802b == null || str == null) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        c.a.e.e.d.l<byte[]> lVar = this.f20791b;
+        c.a.e.e.d.l<byte[]> lVar = this.f20802b;
         byte[] bArr = lVar.get(currentAccount + str);
         if (bArr == null || bArr.length <= 0) {
             return;
         }
         try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f20788c.parseFrom(bArr, FrsPageResIdl.class);
+            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f20799c.parseFrom(bArr, FrsPageResIdl.class);
             if (frsPageResIdl == null || frsPageResIdl.data == null || frsPageResIdl.data.ala_stage_list == null) {
                 return;
             }
@@ -178,17 +178,17 @@ public class e {
 
     public void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) || this.f20791b == null || str == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) || this.f20802b == null || str == null) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        c.a.e.e.d.l<byte[]> lVar = this.f20791b;
+        c.a.e.e.d.l<byte[]> lVar = this.f20802b;
         byte[] bArr = lVar.get(currentAccount + str);
         if (bArr == null || bArr.length <= 0) {
             return;
         }
         try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f20788c.parseFrom(bArr, FrsPageResIdl.class);
+            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f20799c.parseFrom(bArr, FrsPageResIdl.class);
             if (frsPageResIdl == null || frsPageResIdl.data == null || frsPageResIdl.data.thread_list == null) {
                 return;
             }
@@ -214,19 +214,19 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.f20791b != null && str != null) {
+            if (this.f20802b != null && str != null) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                c.a.e.e.d.l<byte[]> lVar = this.f20791b;
+                c.a.e.e.d.l<byte[]> lVar = this.f20802b;
                 byte[] bArr = lVar.get(currentAccount + str);
                 if (bArr != null && bArr.length > 0) {
                     m mVar = new m();
-                    this.f20790a = mVar;
+                    this.f20801a = mVar;
                     mVar.parserProtobuf(bArr, false);
-                    ForumData forumData = this.f20790a.forum;
+                    ForumData forumData = this.f20801a.forum;
                     if (forumData == null || forumData.getFrsBannerData() == null) {
                         return true;
                     }
-                    this.f20790a.forum.getFrsBannerData().f14195i = false;
+                    this.f20801a.forum.getFrsBannerData().f14195i = false;
                     return true;
                 }
             }
@@ -281,7 +281,7 @@ public class e {
     public m j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20790a : (m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20801a : (m) invokeV.objValue;
     }
 
     public final boolean k(long j2, List<ThreadInfo> list) {
@@ -306,7 +306,7 @@ public class e {
         l.b<byte[]> h2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (str == null || str.length() <= 0 || (h2 = this.f20791b.h(str)) == null) {
+            if (str == null || str.length() <= 0 || (h2 = this.f20802b.h(str)) == null) {
                 return false;
             }
             return UtilHelper.isSameDay(h2.f2225c, System.currentTimeMillis());
@@ -318,11 +318,11 @@ public class e {
         List<ThreadInfo> list;
         int count;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, str, bArr) == null) || this.f20791b == null || str == null || bArr == null || bArr.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeLL(1048587, this, str, bArr) == null) || this.f20802b == null || str == null || bArr == null || bArr.length <= 0) {
             return;
         }
         try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f20788c.parseFrom(bArr, FrsPageResIdl.class);
+            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) f20799c.parseFrom(bArr, FrsPageResIdl.class);
             if (frsPageResIdl == null || frsPageResIdl.data == null || (count = ListUtils.getCount((list = frsPageResIdl.data.thread_list))) <= 0) {
                 return;
             }
@@ -331,10 +331,10 @@ public class e {
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            c.a.e.e.d.l<byte[]> lVar = this.f20791b;
+            c.a.e.e.d.l<byte[]> lVar = this.f20802b;
             byte[] bArr2 = lVar.get(currentAccount + str);
             if (bArr2 != null) {
-                FrsPageResIdl frsPageResIdl2 = (FrsPageResIdl) f20788c.parseFrom(bArr2, FrsPageResIdl.class);
+                FrsPageResIdl frsPageResIdl2 = (FrsPageResIdl) f20799c.parseFrom(bArr2, FrsPageResIdl.class);
                 if (frsPageResIdl2 != null && frsPageResIdl2.data != null && frsPageResIdl2.data.thread_list != null) {
                     List<ThreadInfo> list2 = frsPageResIdl2.data.thread_list;
                     int count2 = ListUtils.getCount(list2);
@@ -377,12 +377,12 @@ public class e {
         }
         if (z) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            c.a.e.e.d.l<byte[]> lVar = this.f20791b;
+            c.a.e.e.d.l<byte[]> lVar = this.f20802b;
             lVar.remove(currentAccount + str);
             return;
         }
         String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-        c.a.e.e.d.l<byte[]> lVar2 = this.f20791b;
+        c.a.e.e.d.l<byte[]> lVar2 = this.f20802b;
         lVar2.d(currentAccount2 + str);
     }
 }

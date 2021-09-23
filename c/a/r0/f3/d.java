@@ -18,22 +18,22 @@ public class d implements PreLoadImageProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17685e;
+    public int f17695e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f17686f;
+    public String f17696f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17687g;
+    public String f17697g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17688h;
+    public int f17698h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f17689i;
+    public int f17699i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f17690j;
+    public int f17700j;
     public int k;
     public int l;
     public boolean m;
@@ -59,25 +59,25 @@ public class d implements PreLoadImageProvider {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17687g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17697g : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17689i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17699i : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17685e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17695e : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17686f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17696f : (String) invokeV.objValue;
     }
 
     public int e() {
@@ -89,7 +89,7 @@ public class d implements PreLoadImageProvider {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17688h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17698h : invokeV.intValue;
     }
 
     public int g() {
@@ -105,7 +105,7 @@ public class d implements PreLoadImageProvider {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
             PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-            preLoadImageInfo.imgUrl = this.f17687g;
+            preLoadImageInfo.imgUrl = this.f17697g;
             preLoadImageInfo.procType = 10;
             arrayList.add(preLoadImageInfo);
             return arrayList;
@@ -122,7 +122,7 @@ public class d implements PreLoadImageProvider {
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f17690j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f17700j : invokeV.intValue;
     }
 
     public boolean j() {
@@ -154,15 +154,15 @@ public class d implements PreLoadImageProvider {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f17685e = jSONObject.optInt("forum_id");
-        this.f17686f = jSONObject.optString("forum_name");
-        this.f17687g = jSONObject.optString("avatar");
-        this.f17688h = jSONObject.optInt("is_sign_in");
-        this.f17689i = jSONObject.optInt("cont_sign_num");
-        this.f17690j = jSONObject.optInt(IntentConfig.USER_LEVEL);
+        this.f17695e = jSONObject.optInt("forum_id");
+        this.f17696f = jSONObject.optString("forum_name");
+        this.f17697g = jSONObject.optString("avatar");
+        this.f17698h = jSONObject.optInt("is_sign_in");
+        this.f17699i = jSONObject.optInt("cont_sign_num");
+        this.f17700j = jSONObject.optInt(IntentConfig.USER_LEVEL);
         this.k = jSONObject.optInt("user_exp");
         this.l = jSONObject.optInt("need_exp");
-        if (this.f17688h != 0) {
+        if (this.f17698h != 0) {
             this.m = true;
             this.o = false;
         }
@@ -171,7 +171,7 @@ public class d implements PreLoadImageProvider {
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f17689i = i2;
+            this.f17699i = i2;
         }
     }
 
@@ -191,7 +191,7 @@ public class d implements PreLoadImageProvider {
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f17688h = i2;
+            this.f17698h = i2;
         }
     }
 
@@ -199,7 +199,7 @@ public class d implements PreLoadImageProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             this.o = z;
-            this.f17688h = 0;
+            this.f17698h = 0;
         }
     }
 
@@ -214,7 +214,7 @@ public class d implements PreLoadImageProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             this.m = z;
-            this.f17688h = 1;
+            this.f17698h = 1;
         }
     }
 
@@ -228,7 +228,7 @@ public class d implements PreLoadImageProvider {
     public void w(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f17690j = i2;
+            this.f17700j = i2;
         }
     }
 }

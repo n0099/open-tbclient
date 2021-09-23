@@ -22,10 +22,10 @@ public class i extends c.a.q0.s.s.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f16095a;
+    public LinearLayout f16105a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EditText f16096b;
+    public EditText f16106b;
 
     /* loaded from: classes3.dex */
     public class a implements a.e {
@@ -33,10 +33,10 @@ public class i extends c.a.q0.s.s.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f16097e;
+        public final /* synthetic */ Activity f16107e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f16098f;
+        public final /* synthetic */ i f16108f;
 
         public a(i iVar, Activity activity) {
             Interceptable interceptable = $ic;
@@ -53,22 +53,22 @@ public class i extends c.a.q0.s.s.a {
                     return;
                 }
             }
-            this.f16098f = iVar;
-            this.f16097e = activity;
+            this.f16108f = iVar;
+            this.f16107e = activity;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (!k.isEmpty(this.f16098f.f16096b.getText().toString())) {
+                if (!k.isEmpty(this.f16108f.f16106b.getText().toString())) {
                     TbSingleton.getInstance().setVisitPreviewServer(true);
-                    String obj = this.f16098f.f16096b.getText().toString();
+                    String obj = this.f16108f.f16106b.getText().toString();
                     TbSingleton.getInstance().setPubEnvValue(obj);
-                    l.L(this.f16097e, R.string.change_success);
+                    l.L(this.f16107e, R.string.change_success);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921508, obj));
                 }
-                this.f16098f.dismiss();
+                this.f16108f.dismiss();
             }
         }
     }
@@ -79,7 +79,7 @@ public class i extends c.a.q0.s.s.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f16099e;
+        public final /* synthetic */ i f16109e;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -96,14 +96,14 @@ public class i extends c.a.q0.s.s.a {
                     return;
                 }
             }
-            this.f16099e = iVar;
+            this.f16109e = iVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f16099e.dismiss();
+                this.f16109e.dismiss();
             }
         }
     }
@@ -127,9 +127,9 @@ public class i extends c.a.q0.s.s.a {
             }
         }
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_visit_preview_server, (ViewGroup) null);
-        this.f16095a = linearLayout;
+        this.f16105a = linearLayout;
         setContentView(linearLayout);
-        this.f16096b = (EditText) this.f16095a.findViewById(R.id.et_visit_preview_server_dialog_pub_env_value);
+        this.f16106b = (EditText) this.f16105a.findViewById(R.id.et_visit_preview_server_dialog_pub_env_value);
         setPositiveButton(R.string.confirm, new a(this, activity));
         setNegativeButton(R.string.cancel, new b(this));
     }

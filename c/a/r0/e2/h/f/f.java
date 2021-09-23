@@ -30,22 +30,22 @@ public class f implements Object<List<EmotionPackageData>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f17435e;
+    public TbPageContext f17445e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdListView f17436f;
+    public BdListView f17446f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.e2.h.d.b f17437g;
+    public c.a.r0.e2.h.d.b f17447g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f17438h;
+    public b f17448h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f17439i;
+    public View f17449i;
 
     /* renamed from: j  reason: collision with root package name */
-    public g f17440j;
+    public g f17450j;
     public FrameLayout k;
     public NoDataView l;
     public boolean m;
@@ -67,37 +67,37 @@ public class f implements Object<List<EmotionPackageData>> {
             }
         }
         this.m = false;
-        this.f17435e = tbPageContext;
+        this.f17445e = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_single_thread_emotions, (ViewGroup) null, false);
-        this.f17439i = inflate;
+        this.f17449i = inflate;
         NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
         this.n = noNetworkView;
         noNetworkView.addNetworkChangeListener(this);
-        this.k = (FrameLayout) this.f17439i.findViewById(R.id.single_emotion_loading);
-        this.f17436f = (BdListView) this.f17439i.findViewById(R.id.emotion_single_thread_list);
-        this.f17438h = new b(this.f17439i.findViewById(R.id.emotion_single_thread_empty), tbPageContext.getString(R.string.emotion_empty_single_thread));
-        this.f17436f.setDivider(null);
-        this.f17436f.setOverScrollMode(2);
-        this.f17436f.setVerticalScrollBarEnabled(false);
-        this.f17437g = new c.a.r0.e2.h.d.b(tbPageContext, this.f17436f);
+        this.k = (FrameLayout) this.f17449i.findViewById(R.id.single_emotion_loading);
+        this.f17446f = (BdListView) this.f17449i.findViewById(R.id.emotion_single_thread_list);
+        this.f17448h = new b(this.f17449i.findViewById(R.id.emotion_single_thread_empty), tbPageContext.getString(R.string.emotion_empty_single_thread));
+        this.f17446f.setDivider(null);
+        this.f17446f.setOverScrollMode(2);
+        this.f17446f.setVerticalScrollBarEnabled(false);
+        this.f17447g = new c.a.r0.e2.h.d.b(tbPageContext, this.f17446f);
         g();
     }
 
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17439i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17449i : (View) invokeV.objValue;
     }
 
     public void b() {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f17440j == null || (frameLayout = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f17450j == null || (frameLayout = this.k) == null) {
             return;
         }
         frameLayout.setVisibility(8);
-        this.f17440j.dettachView(this.k);
-        this.f17440j = null;
+        this.f17450j.dettachView(this.k);
+        this.f17450j = null;
     }
 
     public final void c() {
@@ -113,21 +113,21 @@ public class f implements Object<List<EmotionPackageData>> {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            View view = this.f17439i;
+            View view = this.f17449i;
             if (view != null) {
                 SkinManager.setBackgroundColor(view, R.color.cp_bg_line_d_alpha90, i2);
             }
-            BdListView bdListView = this.f17436f;
+            BdListView bdListView = this.f17446f;
             if (bdListView != null) {
                 SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0201, i2);
             }
-            b bVar = this.f17438h;
+            b bVar = this.f17448h;
             if (bVar != null) {
                 bVar.b(i2);
             }
             NoNetworkView noNetworkView = this.n;
             if (noNetworkView != null) {
-                noNetworkView.onChangeSkinType(this.f17435e, i2);
+                noNetworkView.onChangeSkinType(this.f17445e, i2);
             }
             FrameLayout frameLayout = this.k;
             if (frameLayout != null) {
@@ -148,7 +148,7 @@ public class f implements Object<List<EmotionPackageData>> {
         BdListView bdListView;
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bdListView = this.f17436f) == null || this.m || (bVar = this.f17438h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bdListView = this.f17446f) == null || this.m || (bVar = this.f17448h) == null) {
             return;
         }
         this.m = true;
@@ -157,29 +157,29 @@ public class f implements Object<List<EmotionPackageData>> {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f17435e == null || this.k == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f17445e == null || this.k == null) {
             return;
         }
         e();
         this.k.setVisibility(0);
-        if (this.f17440j == null) {
-            this.f17440j = new g(this.f17435e.getPageActivity());
+        if (this.f17450j == null) {
+            this.f17450j = new g(this.f17445e.getPageActivity());
         }
-        this.f17440j.attachView(this.k, true);
-        this.f17440j.onChangeSkinType();
+        this.f17450j.attachView(this.k, true);
+        this.f17450j.onChangeSkinType();
     }
 
     public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f17435e == null || this.k == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f17445e == null || this.k == null) {
             return;
         }
         e();
         this.k.setVisibility(0);
-        NoDataView b2 = NoDataViewFactory.b(this.f17435e.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f17435e.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f17435e.getString(R.string.emotion_error_net_tip)), null, true);
+        NoDataView b2 = NoDataViewFactory.b(this.f17445e.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, l.g(this.f17445e.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.e.d(null, this.f17445e.getString(R.string.emotion_error_net_tip)), null, true);
         this.l = b2;
         b2.setVisibility(0);
-        this.l.onActivityStart(this.f17435e);
+        this.l.onActivityStart(this.f17445e);
     }
 
     public void i(List<EmotionPackageData> list) {
@@ -187,7 +187,7 @@ public class f implements Object<List<EmotionPackageData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             f();
-            if (list == null || (bVar = this.f17437g) == null) {
+            if (list == null || (bVar = this.f17447g) == null) {
                 return;
             }
             bVar.a(list);

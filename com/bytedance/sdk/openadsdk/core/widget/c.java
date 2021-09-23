@@ -25,22 +25,22 @@ public class c extends AlertDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SSWebView f67318a;
+    public SSWebView f67629a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f67319b;
+    public Context f67630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f67320c;
+    public TextView f67631c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67321d;
+    public String f67632d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f67322e;
+    public a f67633e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f67323f;
+    public String f67634f;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -66,24 +66,24 @@ public class c extends AlertDialog {
                 return;
             }
         }
-        this.f67319b = context;
-        this.f67323f = str;
+        this.f67630b = context;
+        this.f67634f = str;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (TextUtils.isEmpty(this.f67323f)) {
-                this.f67321d = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
+            if (TextUtils.isEmpty(this.f67634f)) {
+                this.f67632d = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
                 return;
             }
             try {
-                com.bytedance.sdk.openadsdk.core.e.c b2 = com.bytedance.sdk.openadsdk.core.b.b(new JSONObject(this.f67323f));
+                com.bytedance.sdk.openadsdk.core.e.c b2 = com.bytedance.sdk.openadsdk.core.b.b(new JSONObject(this.f67634f));
                 if (b2 != null) {
                     String d2 = b2.d();
-                    this.f67321d = d2;
+                    this.f67632d = d2;
                     if (TextUtils.isEmpty(d2)) {
-                        this.f67321d = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
+                        this.f67632d = "http://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html";
                     }
                 }
             } catch (Throwable th) {
@@ -96,7 +96,7 @@ public class c extends AlertDialog {
     public void onBackPressed() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f67322e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f67633e) == null) {
             return;
         }
         aVar.a(this);
@@ -107,7 +107,7 @@ public class c extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(t.f(this.f67319b, "tt_app_privacy_dialog"));
+            setContentView(t.f(this.f67630b, "tt_app_privacy_dialog"));
             b();
             a();
         }
@@ -116,15 +116,15 @@ public class c extends AlertDialog {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f67318a = (SSWebView) findViewById(t.e(this.f67319b, "tt_privacy_webview"));
-            TextView textView = (TextView) findViewById(t.e(this.f67319b, "tt_app_privacy_back_tv"));
-            this.f67320c = textView;
+            this.f67629a = (SSWebView) findViewById(t.e(this.f67630b, "tt_privacy_webview"));
+            TextView textView = (TextView) findViewById(t.e(this.f67630b, "tt_app_privacy_back_tv"));
+            this.f67631c = textView;
             textView.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f67324a;
+                public final /* synthetic */ c f67635a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -141,24 +141,24 @@ public class c extends AlertDialog {
                             return;
                         }
                     }
-                    this.f67324a = this;
+                    this.f67635a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f67324a.f67322e == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f67635a.f67633e == null) {
                         return;
                     }
-                    this.f67324a.f67322e.a(this.f67324a);
+                    this.f67635a.f67633e.a(this.f67635a);
                 }
             });
-            this.f67318a.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.f67319b, null, null) { // from class: com.bytedance.sdk.openadsdk.core.widget.c.2
+            this.f67629a.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.f67630b, null, null) { // from class: com.bytedance.sdk.openadsdk.core.widget.c.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f67325a;
+                public final /* synthetic */ c f67636a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -179,7 +179,7 @@ public class c extends AlertDialog {
                             return;
                         }
                     }
-                    this.f67325a = this;
+                    this.f67636a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
@@ -211,10 +211,10 @@ public class c extends AlertDialog {
                     return invokeLL.booleanValue;
                 }
             });
-            this.f67318a.getSettings().setJavaScriptEnabled(true);
-            this.f67318a.getSettings().setDisplayZoomControls(false);
-            this.f67318a.getSettings().setCacheMode(2);
-            this.f67318a.loadUrl(this.f67321d);
+            this.f67629a.getSettings().setJavaScriptEnabled(true);
+            this.f67629a.getSettings().setDisplayZoomControls(false);
+            this.f67629a.getSettings().setCacheMode(2);
+            this.f67629a.loadUrl(this.f67632d);
         }
     }
 
@@ -222,7 +222,7 @@ public class c extends AlertDialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            this.f67322e = aVar;
+            this.f67633e = aVar;
             return this;
         }
         return (c) invokeL.objValue;

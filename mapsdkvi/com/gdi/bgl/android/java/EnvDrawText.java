@@ -23,7 +23,7 @@ public class EnvDrawText {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f79266a = "EnvDrawText";
+    public static final String f79585a = "EnvDrawText";
     public static boolean bBmpChange;
     public static Bitmap bmp;
     public static int[] buffer;
@@ -123,7 +123,7 @@ public class EnvDrawText {
                 textPaint3.setSubpixelText(true);
                 textPaint3.setAntiAlias(true);
                 if (i22 != 0 && fontCache != null && (aVar = fontCache.get(i22)) != null) {
-                    textPaint3.setTypeface(aVar.f79267a);
+                    textPaint3.setTypeface(aVar.f79586a);
                 }
                 textPaint3.setTextSize(f2);
                 int indexOf2 = str.indexOf(92, 0);
@@ -747,11 +747,11 @@ public class EnvDrawText {
                 a aVar = fontCache.get(i2);
                 if (aVar == null) {
                     a aVar2 = new a();
-                    aVar2.f79267a = typeface;
-                    aVar2.f79268b++;
+                    aVar2.f79586a = typeface;
+                    aVar2.f79587b++;
                     fontCache.put(i2, aVar2);
                 } else {
-                    aVar.f79268b++;
+                    aVar.f79587b++;
                 }
             }
         }
@@ -765,8 +765,8 @@ public class EnvDrawText {
                 if (aVar == null) {
                     return;
                 }
-                int i3 = aVar.f79268b - 1;
-                aVar.f79268b = i3;
+                int i3 = aVar.f79587b - 1;
+                aVar.f79587b = i3;
                 if (i3 == 0) {
                     fontCache.remove(i2);
                 }

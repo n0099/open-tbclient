@@ -27,17 +27,17 @@ public interface af extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.af$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static class C2057a implements af {
+        public static class C2061a implements af {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static af f75859a;
+            public static af f76178a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f75860b;
+            public IBinder f76179b;
 
-            public C2057a(IBinder iBinder) {
+            public C2061a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public interface af extends IInterface {
                         return;
                     }
                 }
-                this.f75860b = iBinder;
+                this.f76179b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.af
@@ -70,7 +70,7 @@ public interface af extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75860b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f76179b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(downloadInfo);
                         }
                         obtain2.readException();
@@ -87,7 +87,7 @@ public interface af extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75860b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76179b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.af
@@ -105,7 +105,7 @@ public interface af extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75860b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f76179b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().b(downloadInfo);
                         }
                         obtain2.readException();
@@ -133,7 +133,7 @@ public interface af extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f75860b.transact(3, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f76179b.transact(3, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().c(downloadInfo);
                         }
                         obtain2.readException();
@@ -174,7 +174,7 @@ public interface af extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof af)) {
                     return (af) queryLocalInterface;
                 }
-                return new C2057a(iBinder);
+                return new C2061a(iBinder);
             }
             return (af) invokeL.objValue;
         }
@@ -223,7 +223,7 @@ public interface af extends IInterface {
         public static af a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2057a.f75859a : (af) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2061a.f76178a : (af) invokeV.objValue;
         }
     }
 }

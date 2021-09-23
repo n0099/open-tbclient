@@ -21,11 +21,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6455b;
+    public static final boolean f6463b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<c.a.p0.a.o0.d.b> f6456a;
+    public final List<c.a.p0.a.o0.d.b> f6464a;
 
     /* loaded from: classes.dex */
     public static class a extends c.a.p0.a.o0.d.b {
@@ -33,7 +33,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f6457d;
+        public String f6465d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(@Nullable Map<String, String> map) {
@@ -61,10 +61,10 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                if (this.f6457d == null) {
-                    this.f6457d = super.b(aVar);
+                if (this.f6465d == null) {
+                    this.f6465d = super.b(aVar);
                 }
-                return this.f6457d;
+                return this.f6465d;
             }
             return (String) invokeL.objValue;
         }
@@ -83,7 +83,7 @@ public class b {
                 return;
             }
         }
-        f6455b = k.f7077a;
+        f6463b = k.f7085a;
     }
 
     public b() {
@@ -99,7 +99,7 @@ public class b {
                 return;
             }
         }
-        this.f6456a = new ArrayList();
+        this.f6464a = new ArrayList();
     }
 
     public b a(c.a.p0.a.o0.d.b bVar) {
@@ -107,7 +107,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
             if (bVar != null) {
-                this.f6456a.add(bVar);
+                this.f6464a.add(bVar);
             }
             return this;
         }
@@ -118,10 +118,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long currentTimeMillis = f6455b ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = f6463b ? System.currentTimeMillis() : 0L;
             TreeMap treeMap = new TreeMap();
             treeMap.put(NotificationCompat.WearableExtender.KEY_PAGES, c().toString());
-            if (f6455b) {
+            if (f6463b) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "build slave preload msg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
             }
@@ -135,7 +135,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            for (c.a.p0.a.o0.d.b bVar : this.f6456a) {
+            for (c.a.p0.a.o0.d.b bVar : this.f6464a) {
                 jSONArray.put(bVar.g());
             }
             return jSONArray;

@@ -19,14 +19,14 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f14815c;
+    public static f f14817c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f14816a;
+    public a f14818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14817b;
+    public String f14819b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -41,21 +41,21 @@ public class f {
                 return;
             }
         }
-        this.f14816a = b();
+        this.f14818a = b();
     }
 
     public static f c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f14815c == null) {
+            if (f14817c == null) {
                 synchronized (f.class) {
-                    if (f14815c == null) {
-                        f14815c = new f();
+                    if (f14817c == null) {
+                        f14817c = new f();
                     }
                 }
             }
-            return f14815c;
+            return f14817c;
         }
         return (f) invokeV.objValue;
     }
@@ -63,7 +63,7 @@ public class f {
     public void a(TbPageContext tbPageContext, ViewGroup viewGroup) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, viewGroup) == null) || (aVar = this.f14816a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, viewGroup) == null) || (aVar = this.f14818a) == null) {
             return;
         }
         aVar.f(tbPageContext, viewGroup);
@@ -86,7 +86,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a aVar = this.f14816a;
+            a aVar = this.f14818a;
             if (aVar != null) {
                 return aVar.h();
             }
@@ -99,7 +99,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            a aVar = this.f14816a;
+            a aVar = this.f14818a;
             if (aVar != null) {
                 return aVar.b();
             }
@@ -111,14 +111,14 @@ public class f {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14817b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14819b : (String) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            a aVar = this.f14816a;
+            a aVar = this.f14818a;
             if (aVar != null) {
                 return aVar.a();
             }
@@ -130,7 +130,7 @@ public class f {
     public void h(boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (aVar = this.f14816a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (aVar = this.f14818a) == null) {
             return;
         }
         aVar.i(z);
@@ -139,7 +139,7 @@ public class f {
     public void i(int i2, int i3) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) || (aVar = this.f14816a) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) || (aVar = this.f14818a) == null) {
             return;
         }
         aVar.g(i2, i3);
@@ -148,7 +148,7 @@ public class f {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f14817b = str;
+            this.f14819b = str;
         }
     }
 
@@ -156,7 +156,7 @@ public class f {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, activity, viewGroup)) == null) {
-            a aVar = this.f14816a;
+            a aVar = this.f14818a;
             if (aVar != null) {
                 return aVar.e(activity, viewGroup);
             }
@@ -169,7 +169,7 @@ public class f {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, tbPageContext, fVar)) == null) {
-            a aVar = this.f14816a;
+            a aVar = this.f14818a;
             if (aVar != null) {
                 return aVar.d(tbPageContext, fVar);
             }
@@ -181,7 +181,7 @@ public class f {
     public void m() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (aVar = this.f14816a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (aVar = this.f14818a) == null) {
             return;
         }
         aVar.c();

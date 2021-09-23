@@ -10,10 +10,10 @@ public final class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static o f64445a;
+    public static o f64756a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f64446b;
+    public static long f64757b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public p() {
@@ -35,11 +35,11 @@ public final class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (p.class) {
-                if (f64445a != null) {
-                    o oVar = f64445a;
-                    f64445a = oVar.f64443f;
-                    oVar.f64443f = null;
-                    f64446b -= 8192;
+                if (f64756a != null) {
+                    o oVar = f64756a;
+                    f64756a = oVar.f64754f;
+                    oVar.f64754f = null;
+                    f64757b -= 8192;
                     return oVar;
                 }
                 return new o();
@@ -51,19 +51,19 @@ public final class p {
     public static void a(o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, oVar) == null) {
-            if (oVar.f64443f == null && oVar.f64444g == null) {
-                if (oVar.f64441d) {
+            if (oVar.f64754f == null && oVar.f64755g == null) {
+                if (oVar.f64752d) {
                     return;
                 }
                 synchronized (p.class) {
-                    if (f64446b + 8192 > 65536) {
+                    if (f64757b + 8192 > 65536) {
                         return;
                     }
-                    f64446b += 8192;
-                    oVar.f64443f = f64445a;
-                    oVar.f64440c = 0;
-                    oVar.f64439b = 0;
-                    f64445a = oVar;
+                    f64757b += 8192;
+                    oVar.f64754f = f64756a;
+                    oVar.f64751c = 0;
+                    oVar.f64750b = 0;
+                    f64756a = oVar;
                     return;
                 }
             }

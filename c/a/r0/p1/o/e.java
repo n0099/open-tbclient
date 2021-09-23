@@ -19,10 +19,10 @@ public abstract class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SparseIntArray f23536a;
+    public static final SparseIntArray f23552a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SparseArray<BdUniqueId> f23537b;
+    public static final SparseArray<BdUniqueId> f23553b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,8 +38,8 @@ public abstract class e {
                 return;
             }
         }
-        f23536a = new SparseIntArray();
-        f23537b = new SparseArray<>();
+        f23552a = new SparseIntArray();
+        f23553b = new SparseArray<>();
     }
 
     public e() {

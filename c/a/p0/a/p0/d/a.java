@@ -16,7 +16,7 @@ public abstract class a<T extends c.a.p0.a.p0.g.c.a> {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public T f7904a;
+    public T f7912a;
 
     public a(@NonNull T t) {
         Interceptable interceptable = $ic;
@@ -33,13 +33,13 @@ public abstract class a<T extends c.a.p0.a.p0.g.c.a> {
                 return;
             }
         }
-        this.f7904a = t;
+        this.f7912a = t;
     }
 
     public File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7904a.f() : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7912a.f() : (File) invokeV.objValue;
     }
 
     @NonNull

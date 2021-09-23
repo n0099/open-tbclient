@@ -25,34 +25,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HttpURLConnection f3639a;
+    public HttpURLConnection f3640a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.j0.a.k.b f3640b;
+    public c.a.j0.a.k.b f3641b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f3641c;
+    public b f3642c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f3642d;
+    public c f3643d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3643e;
+    public String f3644e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3644f;
+    public String f3645f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3645g;
+    public String f3646g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3646h;
+    public String f3647h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f3647i;
+    public int f3648i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f3648j;
+    public int f3649j;
     public boolean k;
     public Uri.Builder l;
     public int m;
@@ -64,7 +64,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f3649g;
+        public final /* synthetic */ a f3650g;
 
         public C0086a(a aVar) {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class a {
                     return;
                 }
             }
-            this.f3649g = aVar;
+            this.f3650g = aVar;
         }
 
         @Override // c.a.j0.a.l.b
@@ -89,8 +89,8 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f3649g.i();
-                this.f3649g.e();
+                this.f3650g.i();
+                this.f3650g.e();
                 return null;
             }
             return invokeV.objValue;
@@ -135,7 +135,7 @@ public class a {
     public void c(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f3642d = cVar;
+            this.f3643d = cVar;
         }
     }
 
@@ -160,53 +160,53 @@ public class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 try {
-                    this.f3639a.connect();
-                    c.a.j0.a.k.b bVar = this.f3640b;
-                    bVar.b(OAdURLConnection.TAG, this.f3639a.getRequestMethod() + " connect code :" + this.f3639a.getResponseCode());
-                    int responseCode = this.f3639a.getResponseCode();
+                    this.f3640a.connect();
+                    c.a.j0.a.k.b bVar = this.f3641b;
+                    bVar.b(OAdURLConnection.TAG, this.f3640a.getRequestMethod() + " connect code :" + this.f3640a.getResponseCode());
+                    int responseCode = this.f3640a.getResponseCode();
                     if (responseCode == 302 || responseCode == 301) {
-                        this.f3639a.setInstanceFollowRedirects(false);
-                        HttpURLConnection g2 = g(this.f3639a);
-                        this.f3639a = g2;
+                        this.f3640a.setInstanceFollowRedirects(false);
+                        HttpURLConnection g2 = g(this.f3640a);
+                        this.f3640a = g2;
                         responseCode = g2.getResponseCode();
                     }
                     if (responseCode / 100 != 2) {
-                        if (this.f3641c != null) {
-                            this.f3641c.onFail(this.f3639a.getResponseMessage(), responseCode);
+                        if (this.f3642c != null) {
+                            this.f3642c.onFail(this.f3640a.getResponseMessage(), responseCode);
                         }
-                        if (this.f3642d != null) {
-                            this.f3642d.onFail(this.f3639a.getResponseMessage(), responseCode);
+                        if (this.f3643d != null) {
+                            this.f3643d.onFail(this.f3640a.getResponseMessage(), responseCode);
                         }
                     } else {
-                        String a2 = c.a.j0.a.l.a.a(this.f3643e);
-                        if (this.f3641c != null) {
-                            this.f3641c.onSuccess(f(), a2);
+                        String a2 = c.a.j0.a.l.a.a(this.f3644e);
+                        if (this.f3642c != null) {
+                            this.f3642c.onSuccess(f(), a2);
                         }
-                        if (this.f3642d != null) {
-                            this.f3642d.onSuccess(this.f3639a.getInputStream(), a2);
+                        if (this.f3643d != null) {
+                            this.f3643d.onSuccess(this.f3640a.getInputStream(), a2);
                         }
                     }
-                    httpURLConnection = this.f3639a;
+                    httpURLConnection = this.f3640a;
                     if (httpURLConnection == null) {
                         return;
                     }
                 } catch (Exception e2) {
-                    if (this.f3641c != null) {
-                        b bVar2 = this.f3641c;
+                    if (this.f3642c != null) {
+                        b bVar2 = this.f3642c;
                         bVar2.onFail("Net Connect RuntimeError: " + e2.toString(), 0);
                     }
-                    if (this.f3642d != null) {
-                        c cVar = this.f3642d;
+                    if (this.f3643d != null) {
+                        c cVar = this.f3643d;
                         cVar.onFail("Net Connect RuntimeError: " + e2.toString(), 0);
                     }
-                    httpURLConnection = this.f3639a;
+                    httpURLConnection = this.f3640a;
                     if (httpURLConnection == null) {
                         return;
                     }
                 }
                 httpURLConnection.disconnect();
             } catch (Throwable th) {
-                HttpURLConnection httpURLConnection2 = this.f3639a;
+                HttpURLConnection httpURLConnection2 = this.f3640a;
                 if (httpURLConnection2 != null) {
                     httpURLConnection2.disconnect();
                 }
@@ -221,7 +221,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             InputStream inputStream = null;
             try {
-                inputStream = this.f3639a.getInputStream();
+                inputStream = this.f3640a.getInputStream();
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 byte[] bArr = new byte[128];
                 while (true) {
@@ -309,47 +309,47 @@ public class a {
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || TextUtils.isEmpty(this.f3643e)) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || TextUtils.isEmpty(this.f3644e)) {
             return;
         }
         try {
-            HttpURLConnection b2 = c.a.j0.a.l.a.b(new URL(this.f3643e));
-            this.f3639a = b2;
-            b2.setConnectTimeout(this.f3647i);
-            this.f3639a.setReadTimeout(this.f3648j);
+            HttpURLConnection b2 = c.a.j0.a.l.a.b(new URL(this.f3644e));
+            this.f3640a = b2;
+            b2.setConnectTimeout(this.f3648i);
+            this.f3640a.setReadTimeout(this.f3649j);
             if (Integer.parseInt(Build.VERSION.SDK) < 8) {
                 System.setProperty("http.keepAlive", "false");
             }
-            this.f3639a.setRequestMethod(this.f3644f);
-            this.f3639a.setUseCaches(this.k);
-            if (!TextUtils.isEmpty(this.f3645g)) {
-                this.f3639a.setRequestProperty("User-Agent", this.f3645g);
+            this.f3640a.setRequestMethod(this.f3645f);
+            this.f3640a.setUseCaches(this.k);
+            if (!TextUtils.isEmpty(this.f3646g)) {
+                this.f3640a.setRequestProperty("User-Agent", this.f3646g);
             }
-            this.f3639a.setRequestProperty("Content-type", this.f3646h);
-            this.f3639a.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-            this.f3639a.setRequestProperty("Cache-Control", "no-cache");
-            if (this.f3644f.equals("POST")) {
-                this.f3639a.setDoInput(true);
-                this.f3639a.setDoOutput(true);
+            this.f3640a.setRequestProperty("Content-type", this.f3647h);
+            this.f3640a.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+            this.f3640a.setRequestProperty("Cache-Control", "no-cache");
+            if (this.f3645f.equals("POST")) {
+                this.f3640a.setDoInput(true);
+                this.f3640a.setDoOutput(true);
                 if (this.l != null) {
-                    h(this.l.build().getEncodedQuery(), this.f3639a);
+                    h(this.l.build().getEncodedQuery(), this.f3640a);
                 }
             }
         } catch (ArrayIndexOutOfBoundsException e2) {
-            b bVar = this.f3641c;
+            b bVar = this.f3642c;
             if (bVar != null) {
                 bVar.onFail("Net Create RuntimeError: " + e2.toString(), 0);
             }
-            c cVar = this.f3642d;
+            c cVar = this.f3643d;
             if (cVar != null) {
                 cVar.onFail("Net Create RuntimeError: " + e2.toString(), 0);
             }
         } catch (Throwable th) {
-            b bVar2 = this.f3641c;
+            b bVar2 = this.f3642c;
             if (bVar2 != null) {
                 bVar2.onFail("Net Create RuntimeError: " + th.toString(), 0);
             }
-            c cVar2 = this.f3642d;
+            c cVar2 = this.f3643d;
             if (cVar2 != null) {
                 cVar2.onFail("Net Create RuntimeError: " + th.toString(), 0);
             }
@@ -371,16 +371,16 @@ public class a {
                 return;
             }
         }
-        this.f3640b = c.a.j0.a.k.b.i();
-        this.f3641c = null;
-        this.f3642d = null;
-        this.f3646h = "text/plain";
-        this.f3647i = 10000;
-        this.f3648j = 10000;
+        this.f3641b = c.a.j0.a.k.b.i();
+        this.f3642c = null;
+        this.f3643d = null;
+        this.f3647h = "text/plain";
+        this.f3648i = 10000;
+        this.f3649j = 10000;
         this.k = false;
         this.l = null;
         this.m = i2;
-        this.f3643e = str;
-        this.f3644f = str2;
+        this.f3644e = str;
+        this.f3645f = str2;
     }
 }

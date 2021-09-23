@@ -28,7 +28,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f19785a;
+    public static final int f19800a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -37,7 +37,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdTypeRecyclerView f19786a;
+        public final /* synthetic */ BdTypeRecyclerView f19801a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -57,7 +57,7 @@ public class b {
                     return;
                 }
             }
-            this.f19786a = bdTypeRecyclerView;
+            this.f19801a = bdTypeRecyclerView;
         }
 
         @Override // androidx.recyclerview.widget.LinearSmoothScroller
@@ -70,8 +70,8 @@ public class b {
                     return calculateDtToFit;
                 }
                 int[] iArr = new int[2];
-                this.f19786a.getLocationOnScreen(iArr);
-                return ((calculateDtToFit - b.f19785a) - ((iArr[1] + this.f19786a.getHeight()) - c.a.e.e.p.l.i(TbadkCoreApplication.getInst().getApp()))) + c.a.e.e.p.a.b(TbadkCoreApplication.getInst().getApp());
+                this.f19801a.getLocationOnScreen(iArr);
+                return ((calculateDtToFit - b.f19800a) - ((iArr[1] + this.f19801a.getHeight()) - c.a.e.e.p.l.i(TbadkCoreApplication.getInst().getApp()))) + c.a.e.e.p.a.b(TbadkCoreApplication.getInst().getApp());
             }
             return invokeCommon.intValue;
         }
@@ -87,20 +87,20 @@ public class b {
 
     /* renamed from: c.a.r0.j2.k.e.a1.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class RunnableC0949b implements Runnable {
+    public static class RunnableC0947b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeRecyclerView f19787e;
+        public final /* synthetic */ BdTypeRecyclerView f19802e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f19788f;
+        public final /* synthetic */ String f19803f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ LinearSmoothScroller f19789g;
+        public final /* synthetic */ LinearSmoothScroller f19804g;
 
-        public RunnableC0949b(BdTypeRecyclerView bdTypeRecyclerView, String str, LinearSmoothScroller linearSmoothScroller) {
+        public RunnableC0947b(BdTypeRecyclerView bdTypeRecyclerView, String str, LinearSmoothScroller linearSmoothScroller) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,22 +115,22 @@ public class b {
                     return;
                 }
             }
-            this.f19787e = bdTypeRecyclerView;
-            this.f19788f = str;
-            this.f19789g = linearSmoothScroller;
+            this.f19802e = bdTypeRecyclerView;
+            this.f19803f = str;
+            this.f19804g = linearSmoothScroller;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int b2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (b2 = b.b(this.f19787e, this.f19788f)) < 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (b2 = b.b(this.f19802e, this.f19803f)) < 0) {
                 return;
             }
-            this.f19789g.setTargetPosition(b2);
-            RecyclerView.LayoutManager layoutManager = this.f19787e.getLayoutManager();
+            this.f19804g.setTargetPosition(b2);
+            RecyclerView.LayoutManager layoutManager = this.f19802e.getLayoutManager();
             if (layoutManager != null) {
-                layoutManager.startSmoothScroll(this.f19789g);
+                layoutManager.startSmoothScroll(this.f19804g);
             }
         }
     }
@@ -148,7 +148,7 @@ public class b {
                 return;
             }
         }
-        f19785a = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds150);
+        f19800a = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds150);
     }
 
     public static boolean a(BdTypeRecyclerView bdTypeRecyclerView) {
@@ -226,7 +226,7 @@ public class b {
                 int size = data.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     n nVar = data.get(i2);
-                    if ((nVar instanceof o) && ((o) nVar).f19651f == o.m) {
+                    if ((nVar instanceof o) && ((o) nVar).f19666f == o.m) {
                         return i2 + headerViewsCount;
                     }
                 }
@@ -260,6 +260,6 @@ public class b {
         }
         a aVar = new a(bdTypeRecyclerView.getContext(), bdTypeRecyclerView);
         e(bdTypeRecyclerView);
-        c.a.e.e.m.e.a().post(new RunnableC0949b(bdTypeRecyclerView, str, aVar));
+        c.a.e.e.m.e.a().post(new RunnableC0947b(bdTypeRecyclerView, str, aVar));
     }
 }

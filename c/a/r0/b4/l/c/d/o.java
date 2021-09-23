@@ -13,22 +13,22 @@ public class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f16373a;
+    public long f16383a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f16374b;
+    public int f16384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f16375c;
+    public int f16385c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f16376d;
+    public int f16386d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<MediaSegment> f16377e;
+    public List<MediaSegment> f16387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<MultiMediaData> f16378f;
+    public List<MultiMediaData> f16388f;
 
     public o() {
         Interceptable interceptable = $ic;

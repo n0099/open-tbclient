@@ -16,7 +16,7 @@ public final class e extends i.g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f78804a;
+    public static final e f79123a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -25,10 +25,10 @@ public final class e extends i.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i.u.a f78805e;
+        public final i.u.a f79124e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f78806f;
+        public final /* synthetic */ e f79125f;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public final class e extends i.g {
                     return;
                 }
             }
-            this.f78806f = eVar;
-            this.f78805e = new i.u.a();
+            this.f79125f = eVar;
+            this.f79124e = new i.u.a();
         }
 
         @Override // i.g.a
@@ -64,21 +64,21 @@ public final class e extends i.g {
         public k c(i.n.a aVar, long j2, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j2), timeUnit})) == null) ? b(new i(aVar, this, this.f78806f.now() + timeUnit.toMillis(j2))) : (k) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j2), timeUnit})) == null) ? b(new i(aVar, this, this.f79125f.now() + timeUnit.toMillis(j2))) : (k) invokeCommon.objValue;
         }
 
         @Override // i.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f78805e.isUnsubscribed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f79124e.isUnsubscribed() : invokeV.booleanValue;
         }
 
         @Override // i.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f78805e.unsubscribe();
+                this.f79124e.unsubscribe();
             }
         }
     }
@@ -96,7 +96,7 @@ public final class e extends i.g {
                 return;
             }
         }
-        f78804a = new e();
+        f79123a = new e();
     }
 
     public e() {

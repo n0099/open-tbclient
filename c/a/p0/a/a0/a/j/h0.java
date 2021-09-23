@@ -16,7 +16,7 @@ public class h0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint.Align f4417a;
+    public Paint.Align f4425a;
 
     public h0() {
         Interceptable interceptable = $ic;
@@ -36,10 +36,10 @@ public class h0 extends a {
     public void a(b bVar, Canvas canvas) {
         Paint.Align align;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (align = this.f4417a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (align = this.f4425a) == null) {
             return;
         }
-        bVar.f4395i.setTextAlign(align);
+        bVar.f4403i.setTextAlign(align);
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -50,15 +50,15 @@ public class h0 extends a {
                 if (jSONArray.length() > 0) {
                     String optString = jSONArray.optString(0);
                     if (TextUtils.equals(optString, "left")) {
-                        this.f4417a = Paint.Align.LEFT;
+                        this.f4425a = Paint.Align.LEFT;
                     } else if (TextUtils.equals(optString, "center")) {
-                        this.f4417a = Paint.Align.CENTER;
+                        this.f4425a = Paint.Align.CENTER;
                     } else if (TextUtils.equals(optString, HorizontalTranslateLayout.RIGHT)) {
-                        this.f4417a = Paint.Align.RIGHT;
+                        this.f4425a = Paint.Align.RIGHT;
                     }
                 }
             } catch (Exception e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
             }

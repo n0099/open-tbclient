@@ -18,17 +18,17 @@ public class n implements c.a.e.l.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f28541h;
+    public static final BdUniqueId f28561h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f28542e;
+    public d f28562e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<o> f28543f;
+    public List<o> f28563f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f28544g;
+    public boolean f28564g;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class n implements c.a.e.l.e.n {
                 return;
             }
         }
-        f28541h = BdUniqueId.gen();
+        f28561h = BdUniqueId.gen();
     }
 
     public n(VipSpecialList vipSpecialList) {
@@ -62,39 +62,39 @@ public class n implements c.a.e.l.e.n {
                 return;
             }
         }
-        this.f28544g = true;
+        this.f28564g = true;
         if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
             return;
         }
         String str = vipSpecialList.card_id;
         d dVar = new d();
-        this.f28542e = dVar;
+        this.f28562e = dVar;
         dVar.f(1);
-        this.f28542e.e(vipSpecialList.class_name);
-        this.f28542e.g(vipSpecialList.class_url_name);
-        this.f28542e.h(vipSpecialList.class_url);
-        this.f28543f = new ArrayList();
+        this.f28562e.e(vipSpecialList.class_name);
+        this.f28562e.g(vipSpecialList.class_url_name);
+        this.f28562e.h(vipSpecialList.class_url);
+        this.f28563f = new ArrayList();
         for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
-            this.f28543f.add(new o(vipSpecialItem));
+            this.f28563f.add(new o(vipSpecialItem));
         }
     }
 
     public d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28542e : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28562e : (d) invokeV.objValue;
     }
 
     public List<o> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28543f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28563f : (List) invokeV.objValue;
     }
 
     @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f28541h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f28561h : (BdUniqueId) invokeV.objValue;
     }
 }

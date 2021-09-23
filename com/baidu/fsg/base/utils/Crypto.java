@@ -28,25 +28,25 @@ public class Crypto {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f39559a = 16;
+    public static final int f39616a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39560b = 8;
+    public static final int f39617b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39561c = 128;
+    public static final int f39618c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f39562d = 64;
+    public static final int f39619d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f39563e = 8;
+    public static final int f39620e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f39564f = 1000;
+    public static final int f39621f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f39565g;
+    public static SecureRandom f39622g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,7 +62,7 @@ public class Crypto {
                 return;
             }
         }
-        f39565g = new SecureRandom();
+        f39622g = new SecureRandom();
     }
 
     public Crypto() {
@@ -93,7 +93,7 @@ public class Crypto {
                 str = "";
             }
             try {
-                return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 128)).getEncoded(), "AES");
+                return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 64)).getEncoded(), Coder.KEY_DES);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -107,7 +107,7 @@ public class Crypto {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             byte[] bArr = new byte[i2];
-            f39565g.nextBytes(bArr);
+            f39622g.nextBytes(bArr);
             return bArr;
         }
         return (byte[]) invokeI.objValue;
@@ -162,13 +162,13 @@ public class Crypto {
             }
             byte[] copyOf = Arrays.copyOf(bArr, 8);
             byte[] copyOfRange = Arrays.copyOfRange(bArr, 8, 24);
-            SecretKey a2 = a(str, copyOf);
-            if (a2 == null) {
+            SecretKey b2 = b(str, copyOf);
+            if (b2 == null) {
                 return null;
             }
             try {
                 Cipher cipher = Cipher.getInstance(UBCEncryptor.TRANSFORMATION);
-                cipher.init(2, a2, new IvParameterSpec(copyOfRange));
+                cipher.init(2, b2, new IvParameterSpec(copyOfRange));
                 int length = copyOf.length + copyOfRange.length;
                 return cipher.doFinal(bArr, length, bArr.length - length);
             } catch (Exception e2) {
@@ -184,13 +184,13 @@ public class Crypto {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bArr, str)) == null) {
             byte[] a2 = a(8);
-            SecretKey a3 = a(str, a2);
-            if (a3 == null) {
+            SecretKey b2 = b(str, a2);
+            if (b2 == null) {
                 return null;
             }
             try {
                 Cipher cipher = Cipher.getInstance(UBCEncryptor.TRANSFORMATION);
-                cipher.init(1, a3);
+                cipher.init(1, b2);
                 return a(a2, cipher.getIV(), cipher.doFinal(bArr));
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -208,7 +208,7 @@ public class Crypto {
                 str = "";
             }
             try {
-                return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 64)).getEncoded(), Coder.KEY_DES);
+                return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 128)).getEncoded(), "AES");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -226,13 +226,13 @@ public class Crypto {
             }
             byte[] copyOf = Arrays.copyOf(bArr, 8);
             byte[] copyOfRange = Arrays.copyOfRange(bArr, 8, 16);
-            SecretKey b2 = b(str, copyOf);
-            if (b2 == null) {
+            SecretKey a2 = a(str, copyOf);
+            if (a2 == null) {
                 return null;
             }
             try {
                 Cipher cipher = Cipher.getInstance("DES/CTR/NoPadding");
-                cipher.init(2, b2, new IvParameterSpec(copyOfRange));
+                cipher.init(2, a2, new IvParameterSpec(copyOfRange));
                 int length = copyOf.length + copyOfRange.length;
                 return cipher.doFinal(bArr, length, bArr.length - length);
             } catch (Exception e2) {
@@ -248,10 +248,10 @@ public class Crypto {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, bArr, str)) == null) {
             byte[] a2 = a(8);
-            SecretKey b2 = b(str, a2);
+            SecretKey a3 = a(str, a2);
             try {
                 Cipher cipher = Cipher.getInstance("DES/CTR/NoPadding");
-                cipher.init(1, b2);
+                cipher.init(1, a3);
                 return a(a2, cipher.getIV(), cipher.doFinal(bArr));
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -264,13 +264,13 @@ public class Crypto {
     public static byte[] rsaDecrypt(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, bArr, str)) == null) ? RSA.a(RSA.b(Base64.decode(str, 2)), bArr) : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, bArr, str)) == null) ? RSA.a(RSA.a(Base64.decode(str, 2)), bArr) : (byte[]) invokeLL.objValue;
     }
 
     public static byte[] rsaEncrypt(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, bArr, str)) == null) ? RSA.a(RSA.a(Base64.decode(str, 2)), bArr) : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, bArr, str)) == null) ? RSA.a(RSA.b(Base64.decode(str, 2)), bArr) : (byte[]) invokeLL.objValue;
     }
 
     public static String sha1(String str) throws Exception {

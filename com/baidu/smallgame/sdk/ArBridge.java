@@ -54,13 +54,13 @@ public class ArBridge {
     public b mVideoCallback;
 
     @NotProguard
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface FirstFrameListener {
         void onFirstFrameFinished();
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class TouchOrientation {
         public static final /* synthetic */ TouchOrientation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -125,12 +125,12 @@ public class ArBridge {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(String str, int i2, String str2);
     }

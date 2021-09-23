@@ -108,7 +108,7 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
     public String gameName;
     public List<FrsTabInfo> gameTabInfo;
     public String gameUrl;
-    public r gconAccount;
+    public s gconAccount;
     public boolean hasGame;
     public h0 headSdkData;
     public c.a.q0.s.q.c0 headlineImgInfoData;
@@ -123,11 +123,11 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
     public List<c.a.e.l.e.n> mCardShipinNew;
     public List<Integer> mCardShipinPos;
     public long mDataParseTime;
-    public NavTabInfo mEntelechyTabInfo;
+    public o mEntelechyTabInfo;
     public int mErrorNo;
     public g mFrsInsertLiveData;
     public h mFrsStageLiveData;
-    public q mFrsVideoActivityData;
+    public r mFrsVideoActivityData;
     public c.a.r0.z0.b mGameRankListData;
     public boolean mHasThreadExceptTop;
     public HotUserRankEntry mHotUserRankData;
@@ -148,7 +148,7 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
     public i0 recommendBookData;
     public t1 schoolRecommendInfo;
     public int schoolRecommendPos;
-    public a0 serviceAreaData;
+    public b0 serviceAreaData;
     public Integer showAdsense;
     public SmartApp smartApp;
     public List<String> smartAppAvatar;
@@ -198,6 +198,7 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
         this.isNewUrl = 0;
         this.color_eggs = new ArrayList<>();
         this.mActivityHeadData = null;
+        this.mEntelechyTabInfo = new o();
         this.frsDefaultTabId = 1;
         this.isShowRedTip = false;
         this.bawuCenterUrl = null;
@@ -225,11 +226,11 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
             this.frsDefaultTabId = 1;
-            NavTabInfo navTabInfo = this.mEntelechyTabInfo;
-            if (navTabInfo == null || (list = navTabInfo.tab) == null || list.size() <= 0) {
+            o oVar = this.mEntelechyTabInfo;
+            if (oVar == null || (list = oVar.f20995a) == null || list.size() <= 0) {
                 return;
             }
-            for (FrsTabInfo frsTabInfo : this.mEntelechyTabInfo.tab) {
+            for (FrsTabInfo frsTabInfo : this.mEntelechyTabInfo.f20995a) {
                 if (frsTabInfo != null && frsTabInfo.tab_id.intValue() == i2) {
                     this.frsDefaultTabId = i2;
                     return;
@@ -248,7 +249,7 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
             this.page = new b1();
             this.star = new n();
             this.userData = new UserData();
-            this.gconAccount = new r();
+            this.gconAccount = new s();
             setAnti(new AntiData());
             setChatGroup(new b());
             this.privateForumTotalData = new k1();
@@ -266,21 +267,21 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null) {
                 d2 d2Var = new d2();
-                d2Var.C3(dataRes.forum.id.longValue());
+                d2Var.B3(dataRes.forum.id.longValue());
                 SpecHotTopicHelper.setSpecTopicIcon(j2, d2Var);
-                d2Var.E4(this.userMap);
-                d2Var.K3(true);
+                d2Var.D4(this.userMap);
+                d2Var.J3(true);
                 d2Var.Y2(threadInfo);
                 d2Var.c3();
                 d2Var.G1();
                 if (d2Var.T() == 0 && j2 != 0) {
-                    d2Var.E3(j2);
+                    d2Var.D3(j2);
                 }
                 if (StringUtils.isNull(d2Var.Z())) {
-                    d2Var.I3(this.forum.getName());
+                    d2Var.H3(this.forum.getName());
                 }
                 d2Var.R2(this.color_eggs);
-                d2Var.J1 = this.forum.isBrandForum;
+                d2Var.K1 = this.forum.isBrandForum;
                 if (!TextUtils.isEmpty(d2Var.y0())) {
                     p0 p0Var = new p0();
                     p0Var.k(d2Var.y0());
@@ -411,10 +412,10 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mDataParseTime : invokeV.longValue;
     }
 
-    public NavTabInfo getEntelechyTabInfo() {
+    public o getEntelechyTabInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mEntelechyTabInfo : (NavTabInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mEntelechyTabInfo : (o) invokeV.objValue;
     }
 
     public String getFortuneDesc() {
@@ -459,10 +460,10 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mFrsStageLiveData : (h) invokeV.objValue;
     }
 
-    public q getFrsVideoActivityData() {
+    public r getFrsVideoActivityData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mFrsVideoActivityData : (q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mFrsVideoActivityData : (r) invokeV.objValue;
     }
 
     public int getGameDefaultTabId() {
@@ -495,10 +496,10 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.gameUrl : (String) invokeV.objValue;
     }
 
-    public r getGconAccount() {
+    public s getGconAccount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.gconAccount : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.gconAccount : (s) invokeV.objValue;
     }
 
     public h0 getHeadSdkData() {
@@ -802,10 +803,10 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
         }
     }
 
-    public void setEntelechyTabInfo(NavTabInfo navTabInfo) {
+    public void setEntelechyTabInfo(o oVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048653, this, navTabInfo) == null) {
-            this.mEntelechyTabInfo = navTabInfo;
+        if (interceptable == null || interceptable.invokeL(1048653, this, oVar) == null) {
+            this.mEntelechyTabInfo = oVar;
         }
     }
 
@@ -865,10 +866,10 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
         }
     }
 
-    public void setFrsVideoActivityData(q qVar) {
+    public void setFrsVideoActivityData(r rVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048662, this, qVar) == null) {
-            this.mFrsVideoActivityData = qVar;
+        if (interceptable == null || interceptable.invokeL(1048662, this, rVar) == null) {
+            this.mFrsVideoActivityData = rVar;
         }
     }
 
@@ -907,10 +908,10 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
         }
     }
 
-    public void setGconAccount(r rVar) {
+    public void setGconAccount(s sVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048668, this, rVar) == null) {
-            this.gconAccount = rVar;
+        if (interceptable == null || interceptable.invokeL(1048668, this, sVar) == null) {
+            this.gconAccount = sVar;
         }
     }
 
@@ -1113,26 +1114,26 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
                     }
                     c.a.q0.b.f.a.e(d2Var);
                     int[] g0 = d2Var.g0();
-                    if (d2Var.getType() == d2.Z2 && !d2Var.A2()) {
+                    if (d2Var.getType() == d2.a3 && !d2Var.A2()) {
                         c2 c2Var = new c2();
                         c2Var.w = d2Var;
                         c2Var.position = i2;
-                        c2Var.f14122e = true;
+                        c2Var.f14119e = true;
                         c2Var.setSupportType(BaseCardInfo.SupportType.TOP);
                         arrayList2.add(c2Var);
                         c2 c2Var2 = new c2();
                         c2Var2.w = d2Var;
                         c2Var2.position = i2;
                         if (d2Var.N1()) {
-                            c2Var2.f14127j = true;
+                            c2Var2.f14124j = true;
                         } else if (d2Var.d3() == 1) {
-                            c2Var2.f14125h = true;
+                            c2Var2.f14122h = true;
                             c2Var2.x = g0[0];
                             c2Var2.y = g0[1];
                         } else if (d2Var.d3() >= 2) {
-                            c2Var2.f14126i = true;
+                            c2Var2.f14123i = true;
                         } else {
-                            c2Var2.f14123f = true;
+                            c2Var2.f14120f = true;
                         }
                         c2Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                         arrayList2.add(c2Var2);
@@ -1185,11 +1186,11 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
                         c2Var8.position = i2;
                         c2Var8.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                         arrayList2.add(c2Var8);
-                    } else if ((d2Var.getType() == d2.w3 || d2Var.getType() == d2.P3) && !d2Var.A2()) {
+                    } else if ((d2Var.getType() == d2.x3 || d2Var.getType() == d2.Q3) && !d2Var.A2()) {
                         c2 c2Var9 = new c2();
                         c2Var9.w = d2Var;
                         c2Var9.position = i2;
-                        c2Var9.f14122e = true;
+                        c2Var9.f14119e = true;
                         c2Var9.setSupportType(BaseCardInfo.SupportType.TOP);
                         arrayList2.add(c2Var9);
                         c2 c2Var10 = new c2();
@@ -1243,7 +1244,7 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
                         c2 c2Var16 = new c2();
                         c2Var16.w = d2Var;
                         c2Var16.position = i2;
-                        c2Var16.f14122e = true;
+                        c2Var16.f14119e = true;
                         c2Var16.setSupportType(BaseCardInfo.SupportType.TOP);
                         arrayList2.add(c2Var16);
                         c2 c2Var17 = new c2();
@@ -1289,7 +1290,7 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
                         c2Var22.position = i2;
                         c2Var22.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                         arrayList2.add(c2Var22);
-                    } else if (d2Var.getType() == d2.o3 && d2Var.M1()) {
+                    } else if (d2Var.getType() == d2.p3 && d2Var.M1()) {
                         d2Var.position = i2;
                         arrayList2.add(d2Var);
                     } else {
@@ -1300,7 +1301,7 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
                     }
                     i2++;
                     d2Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                    if (next != null && next.getType() != d2.Y2) {
+                    if (next != null && next.getType() != d2.Z2) {
                         this.mHasThreadExceptTop = true;
                     }
                 } else {
@@ -1418,16 +1419,16 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
             if (dataRes.nav_tab_info == null) {
                 NavTabInfo.Builder builder = new NavTabInfo.Builder();
                 builder.tab = dataRes.frs_tab_info;
-                this.mEntelechyTabInfo = builder.build(true);
+                this.mEntelechyTabInfo.a(builder.build(true));
             } else {
-                this.mEntelechyTabInfo = dataRes.nav_tab_info;
+                this.mEntelechyTabInfo.a(dataRes.nav_tab_info);
             }
             this.defaultShowTab = 1;
-            if (c.a.q0.b.d.r() && !c.a.q0.b.g.a.f12777e.equals(((FrsTabInfo) ListUtils.getItem(this.mEntelechyTabInfo.tab, 0)).tab_name)) {
+            if (c.a.q0.b.d.r() && !c.a.q0.b.g.a.f12791e.equals(((FrsTabInfo) ListUtils.getItem(this.mEntelechyTabInfo.f20995a, 0)).tab_name)) {
                 this.defaultShowTab = c.a.q0.b.g.a.c();
             }
-            if (this.mEntelechyTabInfo != null && !ListUtils.isEmpty(this.mEntelechyTabInfo.head)) {
-                this.mNewChapterInfo = this.mEntelechyTabInfo.head.get(0);
+            if (this.mEntelechyTabInfo != null && !ListUtils.isEmpty(this.mEntelechyTabInfo.f20997c)) {
+                this.mNewChapterInfo = this.mEntelechyTabInfo.f20997c.get(0);
             }
             this.alaLiveCount = dataRes.ala_live_count.intValue();
             handleDefaultTab(dataRes.frs_tab_default.intValue());
@@ -1446,7 +1447,7 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
             if (dataRes.recommend_book != null) {
                 i0 i0Var = new i0();
                 this.recommendBookData = i0Var;
-                i0Var.O4(dataRes.recommend_book);
+                i0Var.N4(dataRes.recommend_book);
             }
             if (dataRes.book_info != null) {
                 c.a.q0.s.q.z zVar = new c.a.q0.s.q.z();
@@ -1466,22 +1467,22 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
             if (dataRes.business_promot != null) {
                 i iVar = new i();
                 this.businessPromot = iVar;
-                iVar.n(dataRes.business_promot);
+                iVar.o(dataRes.business_promot);
             }
             if (dataRes.card_shipin_info != null && dataRes.card_shipin_info.size() > 0) {
                 d2 d2Var = new d2();
                 this.cardVideoInfo = d2Var;
-                d2Var.R3(true);
-                this.cardVideoInfo.P3(this.photoLivePos);
-                this.cardVideoInfo.E4(this.userMap);
+                d2Var.Q3(true);
+                this.cardVideoInfo.O3(this.photoLivePos);
+                this.cardVideoInfo.D4(this.userMap);
                 this.cardVideoInfo.Y2(dataRes.card_shipin_info.get(0));
                 this.cardVideoInfo.c3();
-                this.cardVideoInfo.J1 = this.isBrandForum;
+                this.cardVideoInfo.K1 = this.isBrandForum;
                 if (this.cardVideoInfo.T() == 0 && j2 != 0) {
-                    this.cardVideoInfo.E3(j2);
+                    this.cardVideoInfo.D3(j2);
                 }
                 this.cardVideoInfo.R2(this.color_eggs);
-                this.cardVideoInfo.H3(!this.cardVideoInfo.y2());
+                this.cardVideoInfo.G3(!this.cardVideoInfo.y2());
                 if (this.cardVideoInfo.J() != null && this.cardVideoInfo.J().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.J().getUserId())) != null && metaData.getPendantData() != null) {
                     UserPendantData userPendantData = new UserPendantData();
                     userPendantData.setPropsId(metaData.getPendantData().getPropsId());
@@ -1492,17 +1493,17 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
             if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                 g gVar = new g();
                 this.mFrsInsertLiveData = gVar;
-                gVar.f20799f = dataRes.ala_insert_floor.intValue();
+                gVar.f20811f = dataRes.ala_insert_floor.intValue();
                 ArrayList arrayList = new ArrayList();
                 for (int i5 = 0; i5 < dataRes.ala_live_insert.ala_live_list.size(); i5++) {
                     if (dataRes.ala_live_insert.ala_live_list.get(i5) != null) {
                         d2 d2Var2 = new d2();
                         d2Var2.Y2(dataRes.ala_live_insert.ala_live_list.get(i5));
-                        d2Var2.J1 = this.isBrandForum;
+                        d2Var2.K1 = this.isBrandForum;
                         arrayList.add(d2Var2);
                     }
                 }
-                this.mFrsInsertLiveData.f20798e = arrayList;
+                this.mFrsInsertLiveData.f20810e = arrayList;
             }
             if (dataRes.ala_stage_list != null) {
                 this.mFrsStageLiveData = new h();
@@ -1511,17 +1512,17 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
                     if (dataRes.ala_stage_list.get(i6) != null) {
                         d2 d2Var3 = new d2();
                         d2Var3.Y2(dataRes.ala_stage_list.get(i6));
-                        d2Var3.J1 = this.isBrandForum;
+                        d2Var3.K1 = this.isBrandForum;
                         arrayList2.add(d2Var3);
                     }
                 }
-                this.mFrsStageLiveData.f20810e = arrayList2;
+                this.mFrsStageLiveData.f20822e = arrayList2;
             }
             if (dataRes.school_recom_info != null) {
                 this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
                 t1 t1Var = new t1();
                 this.schoolRecommendInfo = t1Var;
-                t1Var.P4(dataRes.school_recom_info);
+                t1Var.O4(dataRes.school_recom_info);
             }
             if (dataRes.carrier_enter != null) {
                 c.a.q0.s.q.t tVar = new c.a.q0.s.q.t();
@@ -1540,11 +1541,11 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
                 for (int i7 = 0; i7 < dataRes.card_shipin_new.size(); i7++) {
                     d2 d2Var4 = new d2();
                     if (this.mCardShipinPos != null && this.mCardShipinPos.size() >= dataRes.card_shipin_new.size()) {
-                        d2Var4.P3(this.mCardShipinPos.get(i7).intValue());
+                        d2Var4.O3(this.mCardShipinPos.get(i7).intValue());
                     }
-                    d2Var4.R3(true);
+                    d2Var4.Q3(true);
                     d2Var4.Y2(dataRes.card_shipin_new.get(i7));
-                    d2Var4.J1 = this.isBrandForum;
+                    d2Var4.K1 = this.isBrandForum;
                     this.mCardShipinNew.add(d2Var4);
                 }
             }
@@ -1565,9 +1566,9 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
             this.gameDefaultTabId = dataRes.game_default_tab_id.intValue();
             this.forumHeadIcon = dataRes.forum_head_icon;
             if (dataRes.video != null && dataRes.video.video_act != null) {
-                q qVar = new q();
-                this.mFrsVideoActivityData = qVar;
-                qVar.b(dataRes.video.video_act);
+                r rVar = new r();
+                this.mFrsVideoActivityData = rVar;
+                rVar.b(dataRes.video.video_act);
             }
             if (dataRes.info != null) {
                 this.recm_forum_list = dataRes.info.recm_forum_list;
@@ -1602,43 +1603,43 @@ public class m implements c.a.q0.k0.b.b, c.a.q0.k0.b.h {
                 this.bawuPopInfo = dataRes.add_bawu_pop;
             }
             if (!ListUtils.isEmpty(dataRes.service_area)) {
-                this.serviceAreaData = new a0();
+                this.serviceAreaData = new b0();
                 ArrayList arrayList3 = new ArrayList();
                 for (ServiceArea serviceArea : dataRes.service_area) {
                     if (serviceArea != null) {
-                        b0 b0Var = new b0();
-                        b0Var.f20771b = serviceArea.picurl;
-                        b0Var.f20772c = serviceArea.servicename;
+                        c0 c0Var2 = new c0();
+                        c0Var2.f20783b = serviceArea.picurl;
+                        c0Var2.f20784c = serviceArea.servicename;
                         String str = serviceArea.service_type;
-                        b0Var.f20770a = str;
+                        c0Var2.f20782a = str;
                         if (str != null && str.equals("原生小程序") && serviceArea.area_smart_app != null) {
-                            b0Var.f20771b = serviceArea.area_smart_app.avatar;
-                            b0Var.f20772c = serviceArea.area_smart_app.name;
+                            c0Var2.f20783b = serviceArea.area_smart_app.avatar;
+                            c0Var2.f20784c = serviceArea.area_smart_app.name;
                         }
-                        b0Var.f20773d = serviceArea.serviceurl;
-                        b0Var.f20774e = serviceArea.schema;
-                        b0Var.f20778i = serviceArea.third_statistics_url;
+                        c0Var2.f20785d = serviceArea.serviceurl;
+                        c0Var2.f20786e = serviceArea.schema;
+                        c0Var2.f20790i = serviceArea.third_statistics_url;
                         String str2 = serviceArea.version;
-                        String p = c.a.q0.s.d0.b.j().p("frs_service_version_" + this.forum.getName() + b0Var.f20772c, "");
+                        String p = c.a.q0.s.d0.b.j().p("frs_service_version_" + this.forum.getName() + c0Var2.f20784c, "");
                         if (!TextUtils.isEmpty(p)) {
                             p.equals(serviceArea.version);
                         }
                         if (serviceArea.area_smart_app != null) {
-                            c0 c0Var2 = new c0();
-                            c0Var2.a(serviceArea.area_smart_app);
-                            b0Var.f20775f = c0Var2;
+                            d0 d0Var = new d0();
+                            d0Var.a(serviceArea.area_smart_app);
+                            c0Var2.f20787f = d0Var;
                         }
                         if (this.forum != null) {
                             this.forum.getName();
-                            b0Var.f20776g = this.forum.getId();
+                            c0Var2.f20788g = this.forum.getId();
                         }
-                        b0Var.f20777h = i2;
+                        c0Var2.f20789h = i2;
                         i2++;
-                        arrayList3.add(b0Var);
+                        arrayList3.add(c0Var2);
                     }
                 }
-                this.serviceAreaData.f20768a = arrayList3.size();
-                this.serviceAreaData.f20769b = arrayList3;
+                this.serviceAreaData.f20780a = arrayList3.size();
+                this.serviceAreaData.f20781b = arrayList3;
             }
             this.itemInfo = dataRes.item_info;
             this.toLoadHorseData = dataRes.is_get_horse_race_lamp;

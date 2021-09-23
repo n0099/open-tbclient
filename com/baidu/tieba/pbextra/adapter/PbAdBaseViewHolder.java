@@ -37,7 +37,7 @@ public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UserIconBox f55733a;
+    public UserIconBox f55852a;
     public TextView floor;
     public TextView floorOwner;
     public PbGiftListView giftListView;
@@ -164,7 +164,7 @@ public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
         this.richText.setDisplayImage(z, false);
         this.richText.setVoiceViewRes(R.layout.voice_play_btn_new);
         this.mUserIconLayout = (UserIconBox) view.findViewById(R.id.user_icon_box);
-        this.f55733a = (UserIconBox) view.findViewById(R.id.user_tshow_icon_box);
+        this.f55852a = (UserIconBox) view.findViewById(R.id.user_tshow_icon_box);
         this.mAddPostLayout = (LinearLayout) view.findViewById(R.id.add_post_footer_layout);
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.addition_more_container);
         this.mAdditionMoreContainer = linearLayout;
@@ -177,7 +177,7 @@ public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
         this.mGodHeadImageView = (ClickableHeaderImageView) view.findViewById(R.id.god_user_photo);
         this.mHeadMask = (TbImageView) view.findViewById(R.id.user_head_mask);
         this.mGodHeadImageView.setGodIconMargin(0);
-        this.mGodHeadImageView.setGodIconWidth(R.dimen.ds24);
+        this.mGodHeadImageView.setGodIconWidth(R.dimen.tbds36);
         this.lottery_tail = (FrameLayout) view.findViewById(R.id.lottery_tail);
         this.lottery_tail_normal = (TbImageView) view.findViewById(R.id.lottery_tail_normalview);
         this.lottery_tail_gifview = (GifView) view.findViewById(R.id.lottery_tail_gifview);

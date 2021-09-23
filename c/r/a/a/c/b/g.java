@@ -17,14 +17,14 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f35553c;
+    public static Context f35576c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class f35554a;
+    public final Class f35577a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f35555b;
+    public i f35578b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class g {
                 return;
             }
         }
-        this.f35554a = g();
-        this.f35555b = new i(this);
+        this.f35577a = g();
+        this.f35578b = new i(this);
     }
 
     public /* synthetic */ g(byte b2) {
@@ -52,8 +52,8 @@ public final class g {
         g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            f35553c = context;
-            gVar = h.f35556a;
+            f35576c = context;
+            gVar = h.f35579a;
             return gVar;
         }
         return (g) invokeL.objValue;
@@ -82,7 +82,7 @@ public final class g {
             String f2 = f(str);
             if (f2 != null && str2 != null) {
                 try {
-                    obj = this.f35554a.getDeclaredMethod("getService", String.class).invoke(null, str);
+                    obj = this.f35577a.getDeclaredMethod("getService", String.class).invoke(null, str);
                     try {
                         Field declaredField = Class.forName(f2 + "$Stub").getDeclaredField(str2);
                         declaredField.setAccessible(true);
@@ -124,7 +124,7 @@ public final class g {
             Parcel obtain2 = Parcel.obtain();
             String str2 = null;
             try {
-                ((IBinder) this.f35554a.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
+                ((IBinder) this.f35577a.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
                 str2 = obtain2.readString();
             } finally {
                 try {

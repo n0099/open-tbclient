@@ -29,7 +29,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f3217a;
+    public b f3218a;
 
     /* loaded from: classes.dex */
     public class a extends c.a.e0.k.a.a<Map<String, String>> {
@@ -37,13 +37,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f3218a;
+        public final /* synthetic */ String f3219a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ m f3219b;
+        public final /* synthetic */ m f3220b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f3220c;
+        public final /* synthetic */ c f3221c;
 
         /* renamed from: c.a.e0.k.i.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -52,13 +52,13 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.e0.p.c f3221e;
+            public final /* synthetic */ c.a.e0.p.c f3222e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f3222f;
+            public final /* synthetic */ String f3223f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f3223g;
+            public final /* synthetic */ a f3224g;
 
             public RunnableC0061a(a aVar, c.a.e0.p.c cVar, String str) {
                 Interceptable interceptable = $ic;
@@ -75,20 +75,20 @@ public class c {
                         return;
                     }
                 }
-                this.f3223g = aVar;
-                this.f3221e = cVar;
-                this.f3222f = str;
+                this.f3224g = aVar;
+                this.f3222e = cVar;
+                this.f3223f = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.e0.p.c cVar = this.f3221e;
+                    c.a.e0.p.c cVar = this.f3222e;
                     if (cVar != null && cVar.u()) {
-                        this.f3221e.q();
+                        this.f3222e.q();
                     }
-                    this.f3223g.f3219b.a(0, this.f3222f);
+                    this.f3224g.f3220b.a(0, this.f3223f);
                 }
             }
         }
@@ -108,9 +108,9 @@ public class c {
                     return;
                 }
             }
-            this.f3220c = cVar;
-            this.f3218a = str;
-            this.f3219b = mVar;
+            this.f3221c = cVar;
+            this.f3219a = str;
+            this.f3220b = mVar;
         }
 
         @Override // c.a.e0.k.a.a
@@ -123,7 +123,7 @@ public class c {
                 } else {
                     message = th != null ? th.getMessage() : null;
                 }
-                m mVar = this.f3219b;
+                m mVar = this.f3220b;
                 mVar.a("launchpayment error msg is " + message, str);
                 c.a.e0.k.h.b bVar = new c.a.e0.k.h.b("1");
                 bVar.c(new com.baidu.poly.a.i.a("launchpayment error --> " + str, th).U());
@@ -137,23 +137,23 @@ public class c {
         public void a(Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-                d.f3183c = map.get("orderId");
+                d.f3184c = map.get("orderId");
                 if (!map.containsKey("parentType")) {
-                    this.f3220c.d(map, this.f3218a, this.f3219b);
+                    this.f3221c.d(map, this.f3219a, this.f3220b);
                     return;
                 }
                 String str = map.get("parentType");
                 if (TextUtils.isEmpty(str)) {
-                    this.f3220c.d(map, this.f3218a, this.f3219b);
+                    this.f3221c.d(map, this.f3219a, this.f3220b);
                 } else if (4 != Integer.parseInt(str)) {
-                    this.f3220c.d(map, this.f3218a, this.f3219b);
+                    this.f3221c.d(map, this.f3219a, this.f3220b);
                 } else {
                     String a2 = c.a.e0.n.b.a(0, map.get("orderId"), "Successful payment");
-                    c.a.e0.p.c cVar = new c.a.e0.p.c(View.inflate(this.f3219b.getContext(), g.pay_success, null), -1, -1, true);
+                    c.a.e0.p.c cVar = new c.a.e0.p.c(View.inflate(this.f3220b.getContext(), g.pay_success, null), -1, -1, true);
                     cVar.y(false);
                     cVar.A(false);
                     cVar.C(false);
-                    cVar.E(this.f3219b, 0, 0, 0);
+                    cVar.E(this.f3220b, 0, 0, 0);
                     new Handler().postDelayed(new RunnableC0061a(this, cVar, a2), 2000L);
                     c.a.e0.k.h.a.g("8");
                     c.a.e0.n.d.e("WalletList->pay() 命中0单元");
@@ -177,7 +177,7 @@ public class c {
                 return;
             }
         }
-        this.f3217a = bVar;
+        this.f3218a = bVar;
     }
 
     public final void a(Activity activity, String str, Map<String, String> map) {
@@ -232,7 +232,7 @@ public class c {
                     return;
                 }
             }
-            this.f3217a.b(map, str, mVar);
+            this.f3218a.b(map, str, mVar);
         }
     }
 

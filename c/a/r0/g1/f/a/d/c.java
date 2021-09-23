@@ -34,7 +34,7 @@ public class c extends c.a.r0.g1.f.a.d.a<c2, ThreadCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f18065b;
+        public final /* synthetic */ c f18075b;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class c extends c.a.r0.g1.f.a.d.a<c2, ThreadCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f18065b = cVar;
+            this.f18075b = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,7 +60,7 @@ public class c extends c.a.r0.g1.f.a.d.a<c2, ThreadCardViewHolder<d2>> {
         public void a(View view, d2 d2Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var) == null) {
-                this.f18065b.h0(view, d2Var);
+                this.f18075b.h0(view, d2Var);
             }
         }
     }
@@ -71,7 +71,7 @@ public class c extends c.a.r0.g1.f.a.d.a<c2, ThreadCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18066e;
+        public final /* synthetic */ c f18076e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class c extends c.a.r0.g1.f.a.d.a<c2, ThreadCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f18066e = cVar;
+            this.f18076e = cVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -98,8 +98,8 @@ public class c extends c.a.r0.g1.f.a.d.a<c2, ThreadCardViewHolder<d2>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 d2 d2Var = ((c2) nVar).w;
                 d2Var.objType = 1;
-                if (this.f18066e.q != null) {
-                    this.f18066e.q.a(threadCardViewHolder.getView(), d2Var);
+                if (this.f18076e.q != null) {
+                    this.f18076e.q.a(threadCardViewHolder.getView(), d2Var);
                 }
                 ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var, view.getContext(), 0, false);
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
@@ -109,7 +109,7 @@ public class c extends c.a.r0.g1.f.a.d.a<c2, ThreadCardViewHolder<d2>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, d2.j3);
+        super(tbPageContext, d2.k3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,7 +144,7 @@ public class c extends c.a.r0.g1.f.a.d.a<c2, ThreadCardViewHolder<d2>> {
             l0 k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.o);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.setPageId(this.f2961i);
+            threadCardViewHolder.setPageId(this.f2962i);
             d0(new b(this));
             return threadCardViewHolder;
         }
@@ -162,7 +162,7 @@ public class c extends c.a.r0.g1.f.a.d.a<c2, ThreadCardViewHolder<d2>> {
             if (c2Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || (d2Var = c2Var.w) == null) {
                 return null;
             }
-            d2Var.S1 = D(i2) + 1;
+            d2Var.T1 = D(i2) + 1;
             threadCardViewHolder.getCardView().q(i2);
             threadCardViewHolder.onBindDataToView(c2Var.w);
             threadCardViewHolder.getCardView().onChangeSkinType(this.n, TbadkCoreApplication.getInst().getSkinType());

@@ -5,7 +5,7 @@ import android.content.Context;
 import androidx.collection.ArrayMap;
 import c.a.e.e.j.b.a;
 import c.a.e.e.p.l;
-import c.a.q0.d1.g;
+import c.a.q0.d1.j;
 import c.a.q0.j0.b;
 import c.a.q0.j0.h;
 import com.baidu.adp.framework.MessageManager;
@@ -408,7 +408,7 @@ public class PermissionUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
             if (isAgreePrivacyPolicy()) {
                 if (localMacAddress == null) {
-                    localMacAddress = g.d().e(context);
+                    localMacAddress = j.d().e(context);
                 }
                 return localMacAddress;
             }

@@ -1,6 +1,7 @@
 package com.google.zxing.datamatrix.encoder;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.apollon.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +35,13 @@ public final class DataMatrixSymbolInfo144 extends SymbolInfo {
     public int getDataLengthForInterleavedBlock(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 <= 8 ? 156 : 155 : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            if (i2 <= 8) {
+                return 156;
+            }
+            return a.f37799e;
+        }
+        return invokeI.intValue;
     }
 
     @Override // com.google.zxing.datamatrix.encoder.SymbolInfo

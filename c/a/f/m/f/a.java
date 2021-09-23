@@ -19,19 +19,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f3319a;
+    public b f3320a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3320b;
+    public boolean f3321b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f3321c;
+    public BdUniqueId f3322c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoPasterResponseData f3322d;
+    public VideoPasterResponseData f3323d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f3323e;
+    public final HttpMessageListener f3324e;
 
     /* renamed from: c.a.f.m.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -40,7 +40,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f3324a;
+        public final /* synthetic */ a f3325a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C0069a(a aVar, int i2) {
@@ -60,7 +60,7 @@ public class a {
                     return;
                 }
             }
-            this.f3324a = aVar;
+            this.f3325a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,18 +68,18 @@ public class a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f3324a.f3320b = false;
+                this.f3325a.f3321b = false;
                 VideoPasterResponseData videoPasterResponseData = (VideoPasterResponseData) httpResponsedMessage;
-                this.f3324a.f3322d = videoPasterResponseData;
+                this.f3325a.f3323d = videoPasterResponseData;
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003431) {
                     return;
                 }
                 if (httpResponsedMessage instanceof VideoPasterResponseData) {
-                    if (this.f3324a.f3319a != null) {
-                        this.f3324a.f3319a.b(videoPasterResponseData.getPasterData());
+                    if (this.f3325a.f3320a != null) {
+                        this.f3325a.f3320a.b(videoPasterResponseData.getPasterData());
                     }
-                } else if (this.f3324a.f3319a != null) {
-                    this.f3324a.f3319a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (this.f3325a.f3320a != null) {
+                    this.f3325a.f3320a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -105,31 +105,31 @@ public class a {
                 return;
             }
         }
-        this.f3323e = new C0069a(this, CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
-        this.f3321c = BdUniqueId.gen();
-        this.f3323e.setSelfListener(true);
-        this.f3323e.setTag(this.f3321c);
-        MessageManager.getInstance().registerListener(this.f3323e);
+        this.f3324e = new C0069a(this, CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
+        this.f3322c = BdUniqueId.gen();
+        this.f3324e.setSelfListener(true);
+        this.f3324e.setTag(this.f3322c);
+        MessageManager.getInstance().registerListener(this.f3324e);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f3321c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f3322c == null) {
             return;
         }
-        MessageManager.getInstance().removeMessage(this.f3321c);
+        MessageManager.getInstance().removeMessage(this.f3322c);
     }
 
     public VideoPasterResponseData e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3322d : (VideoPasterResponseData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3323d : (VideoPasterResponseData) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3320b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3321b : invokeV.booleanValue;
     }
 
     public void g(VideoPasterRequestData videoPasterRequestData) {
@@ -137,19 +137,19 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, videoPasterRequestData) == null) || videoPasterRequestData == null) {
             return;
         }
-        this.f3320b = true;
-        videoPasterRequestData.setTag(this.f3321c);
+        this.f3321b = true;
+        videoPasterRequestData.setTag(this.f3322c);
         MessageManager.getInstance().sendMessage(videoPasterRequestData);
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f3323e != null) {
-                MessageManager.getInstance().unRegisterListener(this.f3323e);
+            if (this.f3324e != null) {
+                MessageManager.getInstance().unRegisterListener(this.f3324e);
             }
-            if (this.f3319a != null) {
-                this.f3319a = null;
+            if (this.f3320a != null) {
+                this.f3320a = null;
             }
         }
     }
@@ -158,15 +158,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             d();
-            this.f3320b = false;
-            this.f3322d = null;
+            this.f3321b = false;
+            this.f3323d = null;
         }
     }
 
     public void j(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f3319a = bVar;
+            this.f3320a = bVar;
         }
     }
 }

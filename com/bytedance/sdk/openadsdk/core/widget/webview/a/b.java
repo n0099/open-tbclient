@@ -28,26 +28,26 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f67421a;
+    public static File f67732a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f67422b;
+    public static volatile b f67733b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f67423c;
+    public AtomicBoolean f67734c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f67424d;
+    public AtomicBoolean f67735d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f67425e;
+    public boolean f67736e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f67426f;
+    public AtomicInteger f67737f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicLong f67427g;
+    public AtomicLong f67738g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -62,11 +62,11 @@ public class b {
                 return;
             }
         }
-        this.f67423c = new AtomicBoolean(true);
-        this.f67424d = new AtomicBoolean(false);
-        this.f67425e = false;
-        this.f67426f = new AtomicInteger(0);
-        this.f67427g = new AtomicLong();
+        this.f67734c = new AtomicBoolean(true);
+        this.f67735d = new AtomicBoolean(false);
+        this.f67736e = false;
+        this.f67737f = new AtomicInteger(0);
+        this.f67738g = new AtomicLong();
         f();
     }
 
@@ -75,7 +75,7 @@ public class b {
         File externalCacheDir;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f67421a == null) {
+            if (f67732a == null) {
                 try {
                     if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && o.a().getExternalCacheDir() != null) {
                         externalCacheDir = o.a().getExternalCacheDir();
@@ -84,12 +84,12 @@ public class b {
                     }
                     File file = new File(new File(externalCacheDir, "tt_tmpl_pkg"), MediaTrackConfig.AE_IMPORT_TEMPLATE);
                     file.mkdirs();
-                    f67421a = file;
+                    f67732a = file;
                 } catch (Throwable th) {
                     k.c("TemplateManager", "getTemplateDir error", th);
                 }
             }
-            return f67421a;
+            return f67732a;
         }
         return (File) invokeV.objValue;
     }
@@ -102,7 +102,7 @@ public class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f67428a;
+                public final /* synthetic */ b f67739a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -122,7 +122,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f67428a = this;
+                    this.f67739a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -130,15 +130,15 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         f.a();
-                        this.f67428a.f67423c.set(false);
-                        this.f67428a.g();
-                        this.f67428a.d();
+                        this.f67739a.f67734c.set(false);
+                        this.f67739a.g();
+                        this.f67739a.d();
                         l.d().post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.b.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f67429a;
+                            public final /* synthetic */ AnonymousClass1 f67740a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -155,7 +155,7 @@ public class b {
                                         return;
                                     }
                                 }
-                                this.f67429a = this;
+                                this.f67740a = this;
                             }
 
                             @Override // java.lang.Runnable
@@ -200,7 +200,7 @@ public class b {
                     f.d();
                 }
                 k.b("TemplateManager", "check template usable4: " + z);
-                this.f67425e = z;
+                this.f67736e = z;
                 return;
             }
             k.b("TemplateManager", "check template usable2");
@@ -209,7 +209,7 @@ public class b {
 
     private void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || this.f67426f.getAndSet(0) <= 0 || System.currentTimeMillis() - this.f67427g.get() <= 600000) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || this.f67737f.getAndSet(0) <= 0 || System.currentTimeMillis() - this.f67738g.get() <= 600000) {
             return;
         }
         d();
@@ -232,14 +232,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f67422b == null) {
+            if (f67733b == null) {
                 synchronized (b.class) {
-                    if (f67422b == null) {
-                        f67422b = new b();
+                    if (f67733b == null) {
+                        f67733b = new b();
                     }
                 }
             }
-            return f67422b;
+            return f67733b;
         }
         return (b) invokeV.objValue;
     }
@@ -247,7 +247,7 @@ public class b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67425e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67736e : invokeV.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:58:0x0135 A[Catch: all -> 0x0257, TRY_ENTER, TRY_LEAVE, TryCatch #2 {all -> 0x0257, blocks: (B:8:0x0014, B:11:0x001e, B:12:0x0023, B:14:0x0038, B:16:0x004d, B:19:0x0055, B:21:0x005f, B:24:0x0075, B:25:0x0081, B:27:0x008d, B:30:0x0099, B:32:0x00a3, B:54:0x0129, B:55:0x012d, B:58:0x0135, B:61:0x0169, B:64:0x0172, B:66:0x0192, B:68:0x0198, B:70:0x019e, B:73:0x01a9, B:74:0x01b7, B:76:0x01c5, B:77:0x01d0, B:79:0x01d6, B:82:0x020a, B:86:0x0214, B:33:0x00b1, B:34:0x00b9, B:36:0x00bf, B:38:0x00cf, B:39:0x00d3, B:41:0x00dd, B:43:0x00e3, B:45:0x00f1, B:46:0x00f5, B:47:0x00fd, B:49:0x0103, B:51:0x0113, B:52:0x0117, B:53:0x011d, B:87:0x0247), top: B:103:0x0014 }] */
@@ -258,26 +258,26 @@ public class b {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (this.f67423c.get()) {
+            if (this.f67734c.get()) {
                 k.b("TemplateManager", "loadTemplate error1");
                 return;
             }
             try {
-                if (this.f67424d.get()) {
+                if (this.f67735d.get()) {
                     if (z) {
-                        this.f67426f.getAndIncrement();
+                        this.f67737f.getAndIncrement();
                     }
                     k.b("TemplateManager", "loadTemplate error2: " + z);
                     return;
                 }
-                this.f67424d.set(true);
+                this.f67735d.set(true);
                 u a2 = o.f().a();
                 u b2 = f.b();
                 if (a2 != null && a2.f()) {
                     boolean b3 = f.b(a2.b());
                     if (!b3) {
-                        this.f67424d.set(false);
-                        this.f67427g.set(System.currentTimeMillis());
+                        this.f67735d.set(false);
+                        this.f67738g.set(System.currentTimeMillis());
                         k.b("TemplateManager", "loadTemplate error4");
                         return;
                     }
@@ -287,7 +287,7 @@ public class b {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f67430a;
+                            public final /* synthetic */ b f67741a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -304,7 +304,7 @@ public class b {
                                         return;
                                     }
                                 }
-                                this.f67430a = this;
+                                this.f67741a = this;
                             }
 
                             @Override // java.lang.Runnable
@@ -364,7 +364,7 @@ public class b {
                             if (execute != null && execute.isSuccess() && execute.getFile() != null && execute.getFile().exists()) {
                                 k.a("TemplateManager", "loadTemplate success ulr=", a4);
                             }
-                            this.f67424d.set(false);
+                            this.f67735d.set(false);
                             a(arrayList2);
                             k.b("TemplateManager", "loadTemplate error5");
                             return;
@@ -390,8 +390,8 @@ public class b {
                         f.c();
                         k.b("TemplateManager", "loadTemplate update success: " + a2.b());
                         g();
-                        this.f67424d.set(false);
-                        this.f67427g.set(System.currentTimeMillis());
+                        this.f67735d.set(false);
+                        this.f67738g.set(System.currentTimeMillis());
                         h();
                         return;
                     }
@@ -406,12 +406,12 @@ public class b {
                     f.c();
                     k.b("TemplateManager", "loadTemplate update success: " + a2.b());
                     g();
-                    this.f67424d.set(false);
-                    this.f67427g.set(System.currentTimeMillis());
+                    this.f67735d.set(false);
+                    this.f67738g.set(System.currentTimeMillis());
                     h();
                     return;
                 }
-                this.f67424d.set(false);
+                this.f67735d.set(false);
                 a(109);
                 k.b("TemplateManager", "loadTemplate error3");
             } catch (Throwable th) {

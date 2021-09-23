@@ -19,11 +19,11 @@ public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.k.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1920a implements b {
+    public static class C1924a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1920a() {
+        public C1924a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,10 +82,10 @@ public class a {
         }
     }
 
-    public static C1920a b() {
+    public static C1924a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C1920a() : (C1920a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C1924a() : (C1924a) invokeV.objValue;
     }
 
     public void a() {
@@ -104,15 +104,15 @@ public class a {
     public void a(com.bytedance.sdk.openadsdk.k.a aVar, b bVar, int i2, int i3, ImageView.ScaleType scaleType, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{aVar, bVar, Integer.valueOf(i2), Integer.valueOf(i3), scaleType, Boolean.valueOf(z)}) == null) {
-            ImageLoaderWrapper.from(aVar.f67962a).key(aVar.f67963b).width(i2).height(i3).config(Bitmap.Config.RGB_565).scaleType(scaleType).requestTime(z).to(new ILoaderListener(this, bVar) { // from class: com.bytedance.sdk.openadsdk.k.a.a.1
+            ImageLoaderWrapper.from(aVar.f68273a).key(aVar.f68274b).width(i2).height(i3).config(Bitmap.Config.RGB_565).scaleType(scaleType).requestTime(z).to(new ILoaderListener(this, bVar) { // from class: com.bytedance.sdk.openadsdk.k.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f67964a;
+                public final /* synthetic */ b f68275a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f67965b;
+                public final /* synthetic */ a f68276b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -129,15 +129,15 @@ public class a {
                             return;
                         }
                     }
-                    this.f67965b = this;
-                    this.f67964a = bVar;
+                    this.f68276b = this;
+                    this.f68275a = bVar;
                 }
 
                 @Override // com.bytedance.sdk.component.image.ILoaderListener
                 public void onFailed(int i4, String str, @Nullable Throwable th) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i4, str, th) == null) {
-                        this.f67965b.a(i4, str, th, this.f67964a);
+                        this.f68276b.a(i4, str, th, this.f68275a);
                     }
                 }
 
@@ -145,7 +145,7 @@ public class a {
                 public void onSuccess(ImageResponse imageResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageResponse) == null) {
-                        this.f67965b.a(imageResponse, this.f67964a);
+                        this.f68276b.a(imageResponse, this.f68275a);
                     }
                 }
             });

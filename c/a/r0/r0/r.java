@@ -35,22 +35,22 @@ public class r extends PopupWindow {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f24326a;
+    public Context f24342a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ListView f24327b;
+    public ListView f24343b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f24328c;
+    public ViewGroup f24344c;
 
     /* renamed from: d  reason: collision with root package name */
-    public w f24329d;
+    public w f24345d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24330e;
+    public int f24346e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f24331f;
+    public d f24347f;
 
     /* loaded from: classes3.dex */
     public class a implements AdapterView.OnItemClickListener {
@@ -58,7 +58,7 @@ public class r extends PopupWindow {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f24332e;
+        public final /* synthetic */ r f24348e;
 
         public a(r rVar) {
             Interceptable interceptable = $ic;
@@ -75,18 +75,18 @@ public class r extends PopupWindow {
                     return;
                 }
             }
-            this.f24332e = rVar;
+            this.f24348e = rVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                c.a.q0.f.a item = this.f24332e.f24329d.getItem(i2);
-                if ((item instanceof c.a.q0.f.a) && this.f24332e.f24331f != null) {
-                    this.f24332e.f24331f.onItemClick(i2, item);
+                c.a.q0.f.a item = this.f24348e.f24345d.getItem(i2);
+                if ((item instanceof c.a.q0.f.a) && this.f24348e.f24347f != null) {
+                    this.f24348e.f24347f.onItemClick(i2, item);
                 }
-                this.f24332e.h();
+                this.f24348e.h();
             }
         }
     }
@@ -97,7 +97,7 @@ public class r extends PopupWindow {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f24333e;
+        public final /* synthetic */ r f24349e;
 
         public b(r rVar) {
             Interceptable interceptable = $ic;
@@ -114,14 +114,14 @@ public class r extends PopupWindow {
                     return;
                 }
             }
-            this.f24333e = rVar;
+            this.f24349e = rVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f24333e.h();
+                this.f24349e.h();
             }
         }
     }
@@ -132,7 +132,7 @@ public class r extends PopupWindow {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ r f24334a;
+        public final /* synthetic */ r f24350a;
 
         public c(r rVar) {
             Interceptable interceptable = $ic;
@@ -149,14 +149,14 @@ public class r extends PopupWindow {
                     return;
                 }
             }
-            this.f24334a = rVar;
+            this.f24350a = rVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f24334a.f();
+                this.f24350a.f();
             }
         }
 
@@ -198,10 +198,10 @@ public class r extends PopupWindow {
                 return;
             }
         }
-        this.f24326a = context;
+        this.f24342a = context;
         setWidth(-1);
         setHeight(-1);
-        setContentView(e(new ArrayList(), c.a.q0.f.a.f13033f));
+        setContentView(e(new ArrayList(), c.a.q0.f.a.f13050f));
         setFocusable(true);
         setTouchable(true);
         setOutsideTouchable(true);
@@ -240,21 +240,21 @@ public class r extends PopupWindow {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
-            BdListView bdListView = new BdListView(this.f24326a);
-            this.f24327b = bdListView;
-            bdListView.setCacheColorHint(this.f24326a.getResources().getColor(17170445));
+            BdListView bdListView = new BdListView(this.f24342a);
+            this.f24343b = bdListView;
+            bdListView.setCacheColorHint(this.f24342a.getResources().getColor(17170445));
             bdListView.setDivider(null);
             bdListView.setDividerHeight(0);
             bdListView.setFadingEdgeLength(0);
-            w wVar = new w(this.f24326a);
-            this.f24329d = wVar;
+            w wVar = new w(this.f24342a);
+            this.f24345d = wVar;
             wVar.b(list, str);
-            bdListView.setAdapter((ListAdapter) this.f24329d);
+            bdListView.setAdapter((ListAdapter) this.f24345d);
             bdListView.setOnItemClickListener(new a(this));
-            FrameLayout frameLayout = new FrameLayout(this.f24326a);
-            FrameLayout frameLayout2 = new FrameLayout(this.f24326a);
-            this.f24328c = frameLayout2;
-            frameLayout2.setBackgroundColor(this.f24326a.getResources().getColor(R.color.common_color_10175));
+            FrameLayout frameLayout = new FrameLayout(this.f24342a);
+            FrameLayout frameLayout2 = new FrameLayout(this.f24342a);
+            this.f24344c = frameLayout2;
+            frameLayout2.setBackgroundColor(this.f24342a.getResources().getColor(R.color.common_color_10175));
             frameLayout2.setOnClickListener(new b(this));
             frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
             frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
@@ -281,8 +281,8 @@ public class r extends PopupWindow {
             alphaAnimation.setDuration(350L);
             alphaAnimation.setInterpolator(new LinearInterpolator());
             alphaAnimation.setAnimationListener(new c(this));
-            this.f24327b.startAnimation(translateAnimation);
-            this.f24328c.startAnimation(alphaAnimation);
+            this.f24343b.startAnimation(translateAnimation);
+            this.f24344c.startAnimation(alphaAnimation);
         }
     }
 
@@ -298,23 +298,23 @@ public class r extends PopupWindow {
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, list, str) == null) || list == null) {
             return;
         }
-        this.f24330e = d(list, str);
-        int dimensionPixelSize = list.size() > 5 ? this.f24326a.getResources().getDimensionPixelSize(R.dimen.ds618) : -2;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f24327b.getLayoutParams();
+        this.f24346e = d(list, str);
+        int dimensionPixelSize = list.size() > 5 ? this.f24342a.getResources().getDimensionPixelSize(R.dimen.ds618) : -2;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f24343b.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new FrameLayout.LayoutParams(-1, dimensionPixelSize);
         } else {
             layoutParams.height = dimensionPixelSize;
         }
-        this.f24327b.setLayoutParams(layoutParams);
-        this.f24329d.b(list, str);
-        this.f24329d.notifyDataSetChanged();
+        this.f24343b.setLayoutParams(layoutParams);
+        this.f24345d.b(list, str);
+        this.f24345d.notifyDataSetChanged();
     }
 
     public void j(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            this.f24331f = dVar;
+            this.f24347f = dVar;
         }
     }
 
@@ -327,15 +327,15 @@ public class r extends PopupWindow {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setDuration(350L);
             alphaAnimation.setInterpolator(new LinearInterpolator());
-            this.f24327b.startAnimation(translateAnimation);
-            this.f24328c.startAnimation(alphaAnimation);
+            this.f24343b.startAnimation(translateAnimation);
+            this.f24344c.startAnimation(alphaAnimation);
         }
     }
 
     public void l(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            this.f24327b.setSelection(this.f24330e);
+            this.f24343b.setSelection(this.f24346e);
             if (Build.VERSION.SDK_INT < 24) {
                 if (c.a.e.e.m.g.k(this, view)) {
                     k();

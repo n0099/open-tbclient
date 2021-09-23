@@ -29,7 +29,7 @@ public class b extends c.a.p0.v.i.a.c.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f12428a;
+        public final /* synthetic */ b f12436a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class b extends c.a.p0.v.i.a.c.a {
                     return;
                 }
             }
-            this.f12428a = bVar;
+            this.f12436a = bVar;
         }
 
         @Override // c.a.p0.v.j.a.a.b
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                this.f12428a.y0();
+                this.f12436a.y0();
             }
         }
     }
@@ -65,7 +65,7 @@ public class b extends c.a.p0.v.i.a.c.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f12429e;
+        public final /* synthetic */ b f12437e;
 
         public C0634b(b bVar) {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class b extends c.a.p0.v.i.a.c.a {
                     return;
                 }
             }
-            this.f12429e = bVar;
+            this.f12437e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -93,9 +93,9 @@ public class b extends c.a.p0.v.i.a.c.a {
             if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
                 if (num.intValue() == 2) {
                     if (c.a.p0.v.i.a.c.a.x) {
-                        String str = this.f12429e.f12411f + "-" + hashCode() + " authorize deny => onError 0";
+                        String str = this.f12437e.f12419f + "-" + hashCode() + " authorize deny => onError 0";
                     }
-                    a.InterfaceC0472a interfaceC0472a = this.f12429e.f12414i;
+                    a.InterfaceC0472a interfaceC0472a = this.f12437e.f12422i;
                     if (interfaceC0472a != null) {
                         interfaceC0472a.onError(0);
                         return;
@@ -103,7 +103,7 @@ public class b extends c.a.p0.v.i.a.c.a {
                     return;
                 }
                 if (c.a.p0.v.i.a.c.a.x) {
-                    String str2 = this.f12429e.f12411f + "-" + hashCode() + " real do prepareAsync";
+                    String str2 = this.f12437e.f12419f + "-" + hashCode() + " real do prepareAsync";
                 }
                 b.super.prepareAsync();
             }
@@ -116,10 +116,10 @@ public class b extends c.a.p0.v.i.a.c.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f12430e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f12438e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f12431f;
+        public final /* synthetic */ b f12439f;
 
         public c(b bVar, c.a.p0.a.v2.e1.b bVar2) {
             Interceptable interceptable = $ic;
@@ -136,8 +136,8 @@ public class b extends c.a.p0.v.i.a.c.a {
                     return;
                 }
             }
-            this.f12431f = bVar;
-            this.f12430e = bVar2;
+            this.f12439f = bVar;
+            this.f12438e = bVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,10 +148,10 @@ public class b extends c.a.p0.v.i.a.c.a {
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 boolean h2 = d.h(iVar);
                 if (c.a.p0.v.i.a.c.a.x) {
-                    String str = this.f12431f.f12411f + "-" + hashCode() + " authorize: " + h2;
+                    String str = this.f12439f.f12419f + "-" + hashCode() + " authorize: " + h2;
                 }
-                this.f12431f.A = h2 ? 1 : 2;
-                this.f12430e.onCallback(Integer.valueOf(this.f12431f.A));
+                this.f12439f.A = h2 ? 1 : 2;
+                this.f12438e.onCallback(Integer.valueOf(this.f12439f.A));
             }
         }
     }
@@ -178,7 +178,7 @@ public class b extends c.a.p0.v.i.a.c.a {
         this.A = 0;
         c.a.p0.v.j.a.a aVar = new c.a.p0.v.j.a.a();
         this.z = aVar;
-        aVar.e(this.f12408c);
+        aVar.e(this.f12416c);
         this.z.f(new a(this));
     }
 
@@ -200,7 +200,7 @@ public class b extends c.a.p0.v.i.a.c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, bVar) == null) {
             if (c.a.p0.v.i.a.c.a.x) {
-                String str = this.f12411f + "-" + hashCode() + " start authorize";
+                String str = this.f12419f + "-" + hashCode() + " start authorize";
             }
             e Q = e.Q();
             if (Q == null) {
@@ -212,7 +212,7 @@ public class b extends c.a.p0.v.i.a.c.a {
             } else if (c.a.p0.a.u1.a.a.r()) {
                 this.A = 1;
                 if (c.a.p0.v.i.a.c.a.x) {
-                    String str2 = this.f12411f + "-" + hashCode() + " authorize debug: true";
+                    String str2 = this.f12419f + "-" + hashCode() + " authorize debug: true";
                 }
                 bVar.onCallback(Integer.valueOf(this.A));
             } else {
@@ -265,9 +265,9 @@ public class b extends c.a.p0.v.i.a.c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (c.a.p0.v.i.a.c.a.x) {
-                String str = this.f12411f + "-" + hashCode() + " start prepareAsync";
+                String str = this.f12419f + "-" + hashCode() + " start prepareAsync";
             }
-            L0(this.f12408c, new C0634b(this));
+            L0(this.f12416c, new C0634b(this));
             return true;
         }
         return invokeV.booleanValue;

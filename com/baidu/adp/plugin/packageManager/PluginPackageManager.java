@@ -54,34 +54,34 @@ public class PluginPackageManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36325a;
+    public Context f36368a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Hashtable<String, k> f36326b;
+    public Hashtable<String, k> f36369b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36327c;
+    public boolean f36370c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36328d;
+    public boolean f36371d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36329e;
+    public boolean f36372e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f36330f;
+    public String f36373f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36331g;
+    public boolean f36374g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f36332h;
+    public long f36375h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f36333i;
+    public boolean f36376i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f36334j;
+    public boolean f36377j;
     public int k;
     public c.a.e.h.j.d l;
     public boolean m;
@@ -165,13 +165,13 @@ public class PluginPackageManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f36335a;
+        public long f36378a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f36336b;
+        public int f36379b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PluginPackageManager f36337c;
+        public final /* synthetic */ PluginPackageManager f36380c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PluginPackageManager pluginPackageManager, int i2) {
@@ -191,24 +191,24 @@ public class PluginPackageManager {
                     return;
                 }
             }
-            this.f36337c = pluginPackageManager;
+            this.f36380c = pluginPackageManager;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f36337c.f36333i && c.a.e.e.p.j.z()) {
-                if (this.f36336b < 3) {
-                    PluginPackageManager pluginPackageManager = this.f36337c;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f36380c.f36376i && c.a.e.e.p.j.z()) {
+                if (this.f36379b < 3) {
+                    PluginPackageManager pluginPackageManager = this.f36380c;
                     pluginPackageManager.y0(pluginPackageManager.m);
-                    this.f36336b++;
-                    this.f36335a = System.currentTimeMillis();
-                } else if (System.currentTimeMillis() - this.f36335a > 60000) {
-                    PluginPackageManager pluginPackageManager2 = this.f36337c;
+                    this.f36379b++;
+                    this.f36378a = System.currentTimeMillis();
+                } else if (System.currentTimeMillis() - this.f36378a > 60000) {
+                    PluginPackageManager pluginPackageManager2 = this.f36380c;
                     pluginPackageManager2.y0(pluginPackageManager2.m);
-                    this.f36336b = 0;
-                    this.f36335a = System.currentTimeMillis();
+                    this.f36379b = 0;
+                    this.f36378a = System.currentTimeMillis();
                 }
             }
         }
@@ -240,8 +240,8 @@ public class PluginPackageManager {
             this.installFailRetryMap = new HashMap();
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:21:0x00b5  */
-        /* JADX WARN: Removed duplicated region for block: B:24:0x00d5  */
+        /* JADX WARN: Removed duplicated region for block: B:21:0x00b3  */
+        /* JADX WARN: Removed duplicated region for block: B:24:0x00d3  */
         @Override // android.content.BroadcastReceiver
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -271,7 +271,7 @@ public class PluginPackageManager {
                     h2 = new PluginSetting();
                     h2.forbidden = false;
                 }
-                if (this.this$0.f36327c) {
+                if (this.this$0.f36370c) {
                     str2 = "load_lowversion";
                     if (this.installFailRetryMap.containsKey(h2.packageName)) {
                         c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
@@ -293,7 +293,7 @@ public class PluginPackageManager {
                         h2.versionCode = intExtra;
                         h2.installStatus = 0;
                         h2.tempVersionCode = 0;
-                        if (this.this$0.f36327c) {
+                        if (this.this$0.f36370c) {
                             c.a.e.h.h.a.b().d("plugin_install_suc", stringExtra, h2, "");
                             c.a.e.h.h.a b3 = c.a.e.h.h.a.b();
                             b3.o("plugin_install", "plugin_install_suc", stringExtra, "flag=" + stringExtra6 + "_fail=" + h2.install_fail_count);
@@ -324,7 +324,7 @@ public class PluginPackageManager {
                         h2.replaceMethodClasses = intent.getStringExtra("replace_method_classes");
                         h2.setInjectClassloader(booleanExtra);
                         this.this$0.B(h2);
-                        c.a.e.h.j.g.d.k().B(stringExtra, h2, this.this$0.f36327c);
+                        c.a.e.h.j.g.d.k().B(stringExtra, h2, this.this$0.f36370c);
                         boolean z = !h2.isPatch && TextUtils.isEmpty(h2.replaceMethodClasses);
                         if (!TextUtils.isEmpty(h2.requireLoad) && h2.requireLoad.equals("0") && !z) {
                             PluginCenter.getInstance().launch(h2.packageName);
@@ -347,7 +347,7 @@ public class PluginPackageManager {
                 h2.versionCode = intExtra;
                 h2.installStatus = 0;
                 h2.tempVersionCode = 0;
-                if (this.this$0.f36327c) {
+                if (this.this$0.f36370c) {
                 }
                 h2.tempMd5 = "";
                 h2.url = "";
@@ -358,7 +358,7 @@ public class PluginPackageManager {
                 h2.replaceMethodClasses = intent.getStringExtra("replace_method_classes");
                 h2.setInjectClassloader(booleanExtra);
                 this.this$0.B(h2);
-                c.a.e.h.j.g.d.k().B(stringExtra, h2, this.this$0.f36327c);
+                c.a.e.h.j.g.d.k().B(stringExtra, h2, this.this$0.f36370c);
                 if (h2.isPatch) {
                 }
                 if (!TextUtils.isEmpty(h2.requireLoad)) {
@@ -396,7 +396,7 @@ public class PluginPackageManager {
                             pluginSetting = h3;
                         }
                         pluginSetting.enable = false;
-                        if (this.this$0.f36327c) {
+                        if (this.this$0.f36370c) {
                             int i2 = pluginSetting.install_fail_count + 1;
                             pluginSetting.install_fail_count = i2;
                             if (i2 >= 5) {
@@ -412,11 +412,11 @@ public class PluginPackageManager {
                                 bdStatisticsManager.alert("alert_plugin", "package name = " + stringExtra10 + "; fail count = " + pluginSetting.install_fail_count);
                             }
                         }
-                        c.a.e.h.j.g.d.k().B(stringExtra10, pluginSetting, this.this$0.f36327c);
+                        c.a.e.h.j.g.d.k().B(stringExtra10, pluginSetting, this.this$0.f36370c);
                     }
                 }
                 this.this$0.J(substring, false, stringExtra8);
-                if (this.this$0.f36327c) {
+                if (this.this$0.f36370c) {
                     if (stringExtra9 != null) {
                         String lowerCase = stringExtra9.toLowerCase(Locale.getDefault());
                         if (lowerCase.contains("no_space_left_on_device") || lowerCase.contains("no space left on device")) {
@@ -471,7 +471,7 @@ public class PluginPackageManager {
                     h5.packageName = stringExtra14;
                 }
                 h5.enable = false;
-                if (this.this$0.f36327c && "low_version_code".equals(stringExtra13)) {
+                if (this.this$0.f36370c && "low_version_code".equals(stringExtra13)) {
                     this.this$0.B(h5);
                     h5.tempVersionCode = 0;
                     h5.url = "";
@@ -479,7 +479,7 @@ public class PluginPackageManager {
                     h5.install_fail_count = 0;
                     h5.installStatus = 0;
                 }
-                c.a.e.h.j.g.d.k().B(stringExtra14, h5, this.this$0.f36327c);
+                c.a.e.h.j.g.d.k().B(stringExtra14, h5, this.this$0.f36370c);
                 if ("low_version_code".equals(stringExtra13)) {
                     c.a.e.h.h.a.b().i("plugin_low_version_code", stringExtra14);
                 }
@@ -554,7 +554,7 @@ public class PluginPackageManager {
                 bundle.putString("package_name", string);
                 bundle.putString("current_path", str);
                 setResultExtras(bundle);
-                if (this.this$0.f36327c) {
+                if (this.this$0.f36370c) {
                     this.this$0.E(string, str);
                 }
             }
@@ -567,7 +567,7 @@ public class PluginPackageManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PluginPackageManager f36338a;
+        public final /* synthetic */ PluginPackageManager f36381a;
 
         public d(PluginPackageManager pluginPackageManager) {
             Interceptable interceptable = $ic;
@@ -584,7 +584,7 @@ public class PluginPackageManager {
                     return;
                 }
             }
-            this.f36338a = pluginPackageManager;
+            this.f36381a = pluginPackageManager;
         }
 
         @Override // c.a.e.h.j.a.c
@@ -608,7 +608,7 @@ public class PluginPackageManager {
                         str3 = str3 + str4;
                     }
                 }
-                c.a.e.h.j.g.d.k().u(str, str3, this.f36338a.f36327c);
+                c.a.e.h.j.g.d.k().u(str, str3, this.f36381a.f36370c);
             }
         }
     }
@@ -619,10 +619,10 @@ public class PluginPackageManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Object f36339a;
+        public final /* synthetic */ Object f36382a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PluginPackageManager f36340b;
+        public final /* synthetic */ PluginPackageManager f36383b;
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
@@ -630,7 +630,7 @@ public class PluginPackageManager {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f36341e;
+            public final /* synthetic */ e f36384e;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -647,7 +647,7 @@ public class PluginPackageManager {
                         return;
                     }
                 }
-                this.f36341e = eVar;
+                this.f36384e = eVar;
             }
 
             @Override // java.lang.Runnable
@@ -655,8 +655,8 @@ public class PluginPackageManager {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     c.a.e.h.h.b.e("PluginPackageManager_loadAllPlugins", "load_plugin#3");
-                    e eVar = this.f36341e;
-                    eVar.f36340b.m0(eVar.f36339a);
+                    e eVar = this.f36384e;
+                    eVar.f36383b.m0(eVar.f36382a);
                 }
             }
         }
@@ -676,8 +676,8 @@ public class PluginPackageManager {
                     return;
                 }
             }
-            this.f36340b = pluginPackageManager;
-            this.f36339a = obj;
+            this.f36383b = pluginPackageManager;
+            this.f36382a = obj;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -692,7 +692,7 @@ public class PluginPackageManager {
                 }
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     c.a.e.h.h.b.e("PluginPackageManager_loadAllPlugins", "load_plugin#2");
-                    this.f36340b.m0(this.f36339a);
+                    this.f36383b.m0(this.f36382a);
                     return null;
                 }
                 c.a.e.h.h.a.b().g("plugin_asyncinit_fail");
@@ -709,7 +709,7 @@ public class PluginPackageManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PluginPackageManager f36342a;
+        public final /* synthetic */ PluginPackageManager f36385a;
 
         public f(PluginPackageManager pluginPackageManager) {
             Interceptable interceptable = $ic;
@@ -726,7 +726,7 @@ public class PluginPackageManager {
                     return;
                 }
             }
-            this.f36342a = pluginPackageManager;
+            this.f36385a = pluginPackageManager;
         }
 
         @Override // c.a.e.h.g.a
@@ -738,26 +738,26 @@ public class PluginPackageManager {
                         PluginSettings l = c.a.e.h.j.g.d.k().l();
                         c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
                         StringBuilder sb = new StringBuilder();
-                        sb.append(this.f36342a.f36330f);
+                        sb.append(this.f36385a.f36373f);
                         sb.append("-");
                         sb.append(l != null ? l.getContainerVersion() : "");
                         b2.o("plugin_setting", "version_update_suc", null, sb.toString());
                     }
-                    c.a.e.h.j.g.d.k().w(this.f36342a.f36330f);
+                    c.a.e.h.j.g.d.k().w(this.f36385a.f36373f);
                     if (PluginPackageManager.O().c0()) {
-                        c.a.e.h.h.a.b().k("plugin_install", System.currentTimeMillis() - this.f36342a.f36332h);
+                        c.a.e.h.h.a.b().k("plugin_install", System.currentTimeMillis() - this.f36385a.f36375h);
                     }
                 } else if (PluginPackageManager.O().c0()) {
                     PluginSettings l2 = c.a.e.h.j.g.d.k().l();
                     c.a.e.h.h.a b3 = c.a.e.h.h.a.b();
                     StringBuilder sb2 = new StringBuilder();
-                    sb2.append(this.f36342a.f36330f);
+                    sb2.append(this.f36385a.f36373f);
                     sb2.append("-");
                     sb2.append(l2 != null ? l2.getContainerVersion() : "");
                     b3.o("plugin_setting", "version_update_fail", null, sb2.toString());
                 }
-                this.f36342a.l0();
-                this.f36342a.y0(true);
+                this.f36385a.l0();
+                this.f36385a.y0(true);
             }
         }
 
@@ -783,10 +783,10 @@ public class PluginPackageManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f36343e;
+        public final /* synthetic */ boolean f36386e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PluginPackageManager f36344f;
+        public final /* synthetic */ PluginPackageManager f36387f;
 
         public g(PluginPackageManager pluginPackageManager, boolean z) {
             Interceptable interceptable = $ic;
@@ -803,15 +803,15 @@ public class PluginPackageManager {
                     return;
                 }
             }
-            this.f36344f = pluginPackageManager;
-            this.f36343e = z;
+            this.f36387f = pluginPackageManager;
+            this.f36386e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.e.h.j.f.d.c().e(c.a.e.h.j.g.d.k().l(), this.f36343e, this.f36344f.r);
+                c.a.e.h.j.f.d.c().e(c.a.e.h.j.g.d.k().l(), this.f36386e, this.f36387f.r);
             }
         }
     }
@@ -822,7 +822,7 @@ public class PluginPackageManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PluginPackageManager f36345a;
+        public final /* synthetic */ PluginPackageManager f36388a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(PluginPackageManager pluginPackageManager, int i2) {
@@ -842,7 +842,7 @@ public class PluginPackageManager {
                     return;
                 }
             }
-            this.f36345a = pluginPackageManager;
+            this.f36388a = pluginPackageManager;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -857,8 +857,8 @@ public class PluginPackageManager {
                 return;
             }
             if (l != null) {
-                PluginPackageManager pluginPackageManager = this.f36345a;
-                if (pluginPackageManager.z(pluginPackageManager.f36330f, l.getContainerVersion())) {
+                PluginPackageManager pluginPackageManager = this.f36388a;
+                if (pluginPackageManager.z(pluginPackageManager.f36373f, l.getContainerVersion())) {
                     return;
                 }
             }
@@ -882,9 +882,9 @@ public class PluginPackageManager {
             if (z) {
                 configs.add(pluginConfig);
             }
-            this.f36345a.p0(c.a.e.h.j.f.d.c().g(c.a.e.h.j.g.d.k().l()), pluginConfig);
-            c.a.e.h.j.g.d.k().x(this.f36345a.N(configs));
-            this.f36345a.D();
+            this.f36388a.p0(c.a.e.h.j.f.d.c().g(c.a.e.h.j.g.d.k().l()), pluginConfig);
+            c.a.e.h.j.g.d.k().x(this.f36388a.N(configs));
+            this.f36388a.D();
         }
     }
 
@@ -894,7 +894,7 @@ public class PluginPackageManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PluginPackageManager f36346a;
+        public final /* synthetic */ PluginPackageManager f36389a;
 
         public i(PluginPackageManager pluginPackageManager) {
             Interceptable interceptable = $ic;
@@ -911,7 +911,7 @@ public class PluginPackageManager {
                     return;
                 }
             }
-            this.f36346a = pluginPackageManager;
+            this.f36389a = pluginPackageManager;
         }
 
         @Override // c.a.e.h.j.f.a
@@ -925,23 +925,23 @@ public class PluginPackageManager {
                             str2 = "";
                         } else {
                             List<PluginNetConfigInfos.PluginConfig> configs = pluginNetConfigInfos.getConfigs();
-                            this.f36346a.q0(cVar, configs);
-                            str2 = this.f36346a.N(configs);
+                            this.f36389a.q0(cVar, configs);
+                            str2 = this.f36389a.N(configs);
                         }
                         c.a.e.h.j.g.d.k().x(str2);
-                        this.f36346a.m = false;
-                        if (this.f36346a.f36327c) {
-                            MessageManager.getInstance().unRegisterListener(this.f36346a.t);
+                        this.f36389a.m = false;
+                        if (this.f36389a.f36370c) {
+                            MessageManager.getInstance().unRegisterListener(this.f36389a.t);
                         }
                     } else {
                         if (!c.a.e.e.p.k.isEmpty(str)) {
                             c.a.e.h.h.a.b().o("plugin_syncConfig", "plugin_syncConfigs_fail", null, str);
                         }
-                        this.f36346a.m = true;
-                        this.f36346a.h0();
+                        this.f36389a.m = true;
+                        this.f36389a.h0();
                     }
                 }
-                this.f36346a.D();
+                this.f36389a.D();
             }
         }
     }
@@ -952,10 +952,10 @@ public class PluginPackageManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, Long> f36347a;
+        public Map<String, Long> f36390a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PluginPackageManager f36348b;
+        public final /* synthetic */ PluginPackageManager f36391b;
 
         /* loaded from: classes4.dex */
         public class a implements c.a.e.h.g.b {
@@ -963,10 +963,10 @@ public class PluginPackageManager {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BdFileDownloadData f36349a;
+            public final /* synthetic */ BdFileDownloadData f36392a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ j f36350b;
+            public final /* synthetic */ j f36393b;
 
             public a(j jVar, BdFileDownloadData bdFileDownloadData) {
                 Interceptable interceptable = $ic;
@@ -983,26 +983,26 @@ public class PluginPackageManager {
                         return;
                     }
                 }
-                this.f36350b = jVar;
-                this.f36349a = bdFileDownloadData;
+                this.f36393b = jVar;
+                this.f36392a = bdFileDownloadData;
             }
 
             @Override // c.a.e.h.g.b
             public void a(String str) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f36350b.f36348b.l == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f36393b.f36391b.l == null) {
                     return;
                 }
-                this.f36350b.f36348b.l.c(this.f36349a, 0, "");
+                this.f36393b.f36391b.l.c(this.f36392a, 0, "");
             }
 
             @Override // c.a.e.h.g.b
             public void b(String str, String str2) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.f36350b.f36348b.l == null) {
+                if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.f36393b.f36391b.l == null) {
                     return;
                 }
-                this.f36350b.f36348b.l.c(this.f36349a, -1, "rom_size".equals(str2) ? BdBaseApplication.getInst().getString(R.string.rom_too_small) : "");
+                this.f36393b.f36391b.l.c(this.f36392a, -1, "rom_size".equals(str2) ? BdBaseApplication.getInst().getString(R.string.rom_too_small) : "");
             }
         }
 
@@ -1021,8 +1021,8 @@ public class PluginPackageManager {
                     return;
                 }
             }
-            this.f36348b = pluginPackageManager;
-            this.f36347a = new HashMap();
+            this.f36391b = pluginPackageManager;
+            this.f36390a = new HashMap();
         }
 
         @Override // c.a.e.h.j.e.a
@@ -1031,34 +1031,34 @@ public class PluginPackageManager {
             PluginSetting h2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdFileDownloadData) == null) {
-                if (this.f36348b.l != null) {
-                    this.f36348b.l.a(bdFileDownloadData);
+                if (this.f36391b.l != null) {
+                    this.f36391b.l.a(bdFileDownloadData);
                 }
                 if (bdFileDownloadData == null || (h2 = c.a.e.h.j.g.d.k().h((id = bdFileDownloadData.getId()))) == null) {
                     return;
                 }
                 c.a.e.h.j.g.d.k().y(id, c.a.e.h.j.g.b.f2844a);
-                if (this.f36347a.containsKey(id)) {
-                    long currentTimeMillis = System.currentTimeMillis() - this.f36347a.get(id).longValue();
+                if (this.f36390a.containsKey(id)) {
+                    long currentTimeMillis = System.currentTimeMillis() - this.f36390a.get(id).longValue();
                     c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
                     b2.o("plugin_download", "re-download-success", id, "costTimes:" + String.valueOf(currentTimeMillis));
-                    this.f36347a.remove(id);
+                    this.f36390a.remove(id);
                 }
                 c.a.e.h.h.a.b().t("plugin_download", bdFileDownloadData.getId());
                 if (Util.u(h2.size)) {
-                    if (this.f36348b.l != null) {
-                        k kVar = new k(this.f36348b, null);
-                        kVar.f36353c = id;
-                        kVar.f36351a = System.currentTimeMillis();
-                        kVar.f36352b = new a(this, bdFileDownloadData);
-                        this.f36348b.f36326b.put(id, kVar);
+                    if (this.f36391b.l != null) {
+                        k kVar = new k(this.f36391b, null);
+                        kVar.f36396c = id;
+                        kVar.f36394a = System.currentTimeMillis();
+                        kVar.f36395b = new a(this, bdFileDownloadData);
+                        this.f36391b.f36369b.put(id, kVar);
                     }
-                    this.f36348b.X(Util.l(h2), h2.packageName, "install_from_download");
+                    this.f36391b.X(Util.l(h2), h2.packageName, "install_from_download");
                     return;
                 }
                 c.a.e.h.g.d.q(bdFileDownloadData.getPath(), id, "rom_size", String.valueOf(Util.g()));
-                if (this.f36348b.l != null) {
-                    this.f36348b.l.c(bdFileDownloadData, -1, BdBaseApplication.getInst().getString(R.string.rom_too_small));
+                if (this.f36391b.l != null) {
+                    this.f36391b.l.c(bdFileDownloadData, -1, BdBaseApplication.getInst().getString(R.string.rom_too_small));
                 }
             }
         }
@@ -1086,28 +1086,28 @@ public class PluginPackageManager {
         @Override // c.a.e.h.j.e.a
         public void d(BdFileDownloadData bdFileDownloadData) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, bdFileDownloadData) == null) || this.f36348b.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, bdFileDownloadData) == null) || this.f36391b.l == null) {
                 return;
             }
-            this.f36348b.l.d(bdFileDownloadData);
+            this.f36391b.l.d(bdFileDownloadData);
         }
 
         @Override // c.a.e.h.j.e.a
         public void e(BdFileDownloadData bdFileDownloadData, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048580, this, bdFileDownloadData, i2, str, str2) == null) {
-                if (this.f36348b.l != null) {
+                if (this.f36391b.l != null) {
                     bdFileDownloadData.setStatusMsg(str);
                     bdFileDownloadData.setStatus(2);
                     bdFileDownloadData.setErrorCode(i2);
-                    this.f36348b.l.b(bdFileDownloadData);
+                    this.f36391b.l.b(bdFileDownloadData);
                 }
-                this.f36348b.h0();
+                this.f36391b.h0();
                 if (bdFileDownloadData == null) {
                     return;
                 }
-                if (!this.f36347a.containsKey(bdFileDownloadData.getId())) {
-                    this.f36347a.put(bdFileDownloadData.getId(), Long.valueOf(System.currentTimeMillis()));
+                if (!this.f36390a.containsKey(bdFileDownloadData.getId())) {
+                    this.f36390a.put(bdFileDownloadData.getId(), Long.valueOf(System.currentTimeMillis()));
                 }
                 c.a.e.h.h.a.b().p("plugin_download_fail", bdFileDownloadData.getId(), String.valueOf(i2), str2);
             }
@@ -1120,13 +1120,13 @@ public class PluginPackageManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f36351a;
+        public long f36394a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.e.h.g.b f36352b;
+        public c.a.e.h.g.b f36395b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f36353c;
+        public String f36396c;
 
         public /* synthetic */ k(PluginPackageManager pluginPackageManager, b bVar) {
             this(pluginPackageManager);
@@ -1177,13 +1177,13 @@ public class PluginPackageManager {
                 return;
             }
         }
-        this.f36326b = null;
-        this.f36327c = false;
-        this.f36328d = false;
-        this.f36329e = false;
-        this.f36332h = 0L;
-        this.f36333i = false;
-        this.f36334j = false;
+        this.f36369b = null;
+        this.f36370c = false;
+        this.f36371d = false;
+        this.f36372e = false;
+        this.f36375h = 0L;
+        this.f36376i = false;
+        this.f36377j = false;
         this.k = 0;
         this.n = new b(this);
         this.o = new c(this);
@@ -1192,8 +1192,8 @@ public class PluginPackageManager {
         this.r = new i(this);
         this.s = new j(this);
         this.t = new a(this, 2000994);
-        this.f36325a = BdBaseApplication.getInst();
-        this.f36326b = new Hashtable<>();
+        this.f36368a = BdBaseApplication.getInst();
+        this.f36369b = new Hashtable<>();
         s0();
     }
 
@@ -1224,12 +1224,12 @@ public class PluginPackageManager {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             synchronized (this) {
-                Iterator<Map.Entry<String, k>> it = this.f36326b.entrySet().iterator();
+                Iterator<Map.Entry<String, k>> it = this.f36369b.entrySet().iterator();
                 while (it.hasNext()) {
                     k value = it.next().getValue();
-                    if (value != null && currentTimeMillis - value.f36351a >= 600000) {
-                        if (value.f36352b != null) {
-                            value.f36352b.b(value.f36353c, "plugin install time out");
+                    if (value != null && currentTimeMillis - value.f36394a >= 600000) {
+                        if (value.f36395b != null) {
+                            value.f36395b.b(value.f36396c, "plugin install time out");
                         }
                         it.remove();
                     }
@@ -1240,15 +1240,15 @@ public class PluginPackageManager {
 
     public final void B(PluginSetting pluginSetting) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pluginSetting) == null) && this.f36327c) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pluginSetting) == null) && this.f36370c) {
             c.a.e.h.j.c.e().d(pluginSetting);
         }
     }
 
     public void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f36333i) {
-            c.a.e.h.j.b.d().c(this.f36327c);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f36376i) {
+            c.a.e.h.j.b.d().c(this.f36370c);
         }
     }
 
@@ -1318,7 +1318,7 @@ public class PluginPackageManager {
 
     public final void G() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f36327c) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f36370c) {
             c.a.e.h.j.g.d.k().v(false);
         }
     }
@@ -1332,7 +1332,7 @@ public class PluginPackageManager {
 
     public final void I(PluginSetting pluginSetting, c.a.e.h.j.e.a aVar, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, pluginSetting, aVar, z) == null) && this.f36327c && pluginSetting != null) {
+        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, pluginSetting, aVar, z) == null) && this.f36370c && pluginSetting != null) {
             BdFileDownloadData bdFileDownloadData = new BdFileDownloadData(pluginSetting.packageName, pluginSetting.url);
             bdFileDownloadData.setName(Util.j(pluginSetting));
             bdFileDownloadData.setPath(Util.l(pluginSetting));
@@ -1362,13 +1362,13 @@ public class PluginPackageManager {
         k remove;
         c.a.e.h.g.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Boolean.valueOf(z), str2}) == null) || StringUtils.isNull(str) || (remove = this.f36326b.remove(str)) == null || (bVar = remove.f36352b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Boolean.valueOf(z), str2}) == null) || StringUtils.isNull(str) || (remove = this.f36369b.remove(str)) == null || (bVar = remove.f36395b) == null) {
             return;
         }
         if (z) {
             bVar.a(str);
         } else {
-            bVar.b(remove.f36353c, str2);
+            bVar.b(remove.f36396c, str2);
         }
     }
 
@@ -1382,7 +1382,7 @@ public class PluginPackageManager {
     public String M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f36330f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f36373f : (String) invokeV.objValue;
     }
 
     public final String N(List<PluginNetConfigInfos.PluginConfig> list) {
@@ -1491,10 +1491,10 @@ public class PluginPackageManager {
     public void U(String str, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            this.f36327c = z;
-            this.f36328d = z2;
-            this.f36329e = z3;
-            this.f36330f = str;
+            this.f36370c = z;
+            this.f36371d = z2;
+            this.f36372e = z3;
+            this.f36373f = str;
             try {
                 BdBaseApplication inst = BdBaseApplication.getInst();
                 u = c.a.e.e.m.b.e(String.valueOf(inst.getPackageManager().getApplicationInfo(inst.getPackageName(), 128).metaData.get("PLUGIN_MIN_VERSIONCODE")), u);
@@ -1530,13 +1530,13 @@ public class PluginPackageManager {
 
     public void X(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048597, this, str, str2, str3) == null) && this.f36327c) {
+        if ((interceptable == null || interceptable.invokeLLL(1048597, this, str, str2, str3) == null) && this.f36370c) {
             c.a.e.h.h.a.b().d("plugin_install", str2, null, str3);
             if (!Util.u(new File(str).length())) {
                 c.a.e.h.g.d.q(str, str2, "rom_size", String.valueOf(Util.g()));
             } else if (str != null) {
                 if (new File(str).exists()) {
-                    c.a.e.h.g.c.B().F(this.f36325a, str);
+                    c.a.e.h.g.c.B().F(this.f36368a, str);
                     return;
                 }
                 c.a.e.h.h.a.b().o("plugin_install", "plugin_install_filenotexist", str2, null);
@@ -1556,8 +1556,8 @@ public class PluginPackageManager {
 
     public void Y() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && this.f36327c) {
-            c.a.e.h.g.c.B().E(this.f36325a, this.q);
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && this.f36370c) {
+            c.a.e.h.g.c.B().E(this.f36368a, this.q);
         }
     }
 
@@ -1595,7 +1595,7 @@ public class PluginPackageManager {
     public boolean c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f36327c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f36370c : invokeV.booleanValue;
     }
 
     public boolean d0(String str) {
@@ -1607,24 +1607,24 @@ public class PluginPackageManager {
     public boolean e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f36334j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f36377j : invokeV.booleanValue;
     }
 
     public boolean f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f36328d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f36371d : invokeV.booleanValue;
     }
 
     public boolean g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? S() && !this.f36331g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? S() && !this.f36374g : invokeV.booleanValue;
     }
 
     public final void h0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && this.f36327c) {
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && this.f36370c) {
             MessageManager.getInstance().unRegisterListener(this.t);
             MessageManager.getInstance().registerListener(this.t);
         }
@@ -1634,14 +1634,14 @@ public class PluginPackageManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{bVar, bVar2, Boolean.valueOf(z), obj}) == null) {
             c.a.e.h.h.b.e("PluginPackageManager_loadAllPlugins", ProgressInfo.JSON_KEY_BEGIN);
-            if (this.f36333i) {
+            if (this.f36376i) {
                 c.a.e.h.h.a.b().g("plugin_pkgmanager_recreate");
             }
             c.a.e.h.j.e.c.b().d(bVar);
             c.a.e.h.j.f.d.c().f(bVar2);
-            this.f36333i = true;
+            this.f36376i = true;
             PluginSettings l = c.a.e.h.j.g.d.k().l();
-            if (l != null && (l == null || !z(this.f36330f, l.getContainerVersion()))) {
+            if (l != null && (l == null || !z(this.f36373f, l.getContainerVersion()))) {
                 c.a.e.h.h.b.e("PluginPackageManager_loadAllPlugins", "load_plugin");
                 if ((c.a.e.e.b.a.a.d(Looper.myLooper(), "sThreadLocal") instanceof ThreadLocal) && z) {
                     e eVar = new e(this, obj);
@@ -1654,15 +1654,15 @@ public class PluginPackageManager {
             } else {
                 StringBuilder sb = new StringBuilder();
                 sb.append("install_buildin_plugin-");
-                sb.append(this.f36330f);
+                sb.append(this.f36373f);
                 sb.append("-");
                 sb.append(l == null ? "settings_is_null" : l.getContainerVersion());
                 c.a.e.h.h.b.e("PluginPackageManager_loadAllPlugins", sb.toString());
-                this.f36332h = System.currentTimeMillis();
+                this.f36375h = System.currentTimeMillis();
                 if (O().c0()) {
                     c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
                     StringBuilder sb2 = new StringBuilder();
-                    sb2.append(this.f36330f);
+                    sb2.append(this.f36373f);
                     sb2.append("-");
                     sb2.append(l == null ? "" : l.getContainerVersion());
                     b2.o("plugin_setting", "version_update", null, sb2.toString());
@@ -1689,7 +1689,7 @@ public class PluginPackageManager {
                         return;
                     }
                     Plugin.c launch = PluginCenter.getInstance().launch(pluginSetting.packageName);
-                    if (launch != null && !launch.f36311a) {
+                    if (launch != null && !launch.f36354a) {
                         c.a.e.h.h.a.b().g("patch_launch_failed");
                     }
                 } catch (Throwable th) {
@@ -1706,7 +1706,7 @@ public class PluginPackageManager {
     public void k0() {
         PluginSettings l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048610, this) == null) || (l = c.a.e.h.j.g.d.k().l()) == null || z(this.f36330f, l.getContainerVersion())) {
+        if (!(interceptable == null || interceptable.invokeV(1048610, this) == null) || (l = c.a.e.h.j.g.d.k().l()) == null || z(this.f36373f, l.getContainerVersion())) {
             return;
         }
         j0(l);
@@ -1730,15 +1730,15 @@ public class PluginPackageManager {
                         if (!pluginSetting.isPatch || this.k <= 0) {
                             if (pluginSetting.enable && pluginSetting.installStatus != c.a.e.h.j.g.b.f2845b) {
                                 c.a.e.h.h.b.e("PluginPackageManager_loadPlugin", pluginSetting.packageName + "_launch");
-                                if (!this.f36329e || "com.baidu.tieba.pluginCore".equals(pluginSetting.packageName) || "com.baidu.tieba.pluginExtend".equals(pluginSetting.packageName)) {
+                                if (!this.f36372e || "com.baidu.tieba.pluginCore".equals(pluginSetting.packageName) || "com.baidu.tieba.pluginExtend".equals(pluginSetting.packageName)) {
                                     Plugin.c launch = PluginCenter.getInstance().launch(pluginSetting.packageName);
                                     Plugin plugin2 = PluginCenter.getInstance().getPlugin(pluginSetting.packageName);
-                                    if (!launch.f36311a && (plugin2 == null || !plugin2.isLoaded())) {
-                                        c.a.e.h.h.b.e("PluginPackageManager_loadPlugin", pluginSetting.packageName + "_launch_fail-reason_" + launch.f36312b + "-comment_" + launch.f36313c);
+                                    if (!launch.f36354a && (plugin2 == null || !plugin2.isLoaded())) {
+                                        c.a.e.h.h.b.e("PluginPackageManager_loadPlugin", pluginSetting.packageName + "_launch_fail-reason_" + launch.f36355b + "-comment_" + launch.f36356c);
                                     } else {
                                         c.a.e.h.h.b.e("PluginPackageManager_loadPlugin", pluginSetting.packageName + "_launch_success");
                                     }
-                                    if (!launch.f36311a && plugin2 != null && !plugin2.isLoaded()) {
+                                    if (!launch.f36354a && plugin2 != null && !plugin2.isLoaded()) {
                                         i2++;
                                         if (O().c0()) {
                                             if (sb.length() > 0) {
@@ -1760,9 +1760,9 @@ public class PluginPackageManager {
                                             sb.append("-");
                                             sb.append(pluginSetting.getAbandon_apk_path());
                                             sb.append("-");
-                                            sb.append(launch.f36312b);
+                                            sb.append(launch.f36355b);
                                             sb.append("-");
-                                            sb.append(launch.f36313c);
+                                            sb.append(launch.f36356c);
                                         }
                                     }
                                 }
@@ -1805,7 +1805,7 @@ public class PluginPackageManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             PluginSettings l = c.a.e.h.j.g.d.k().l();
-            if (l != null && l.getPlugins() != null && !z(this.f36330f, l.getContainerVersion())) {
+            if (l != null && l.getPlugins() != null && !z(this.f36373f, l.getContainerVersion())) {
                 for (PluginSetting pluginSetting : l.getPlugins().values()) {
                     if (!(!pluginSetting.enable || pluginSetting.forbidden || !pluginSetting.isPatch || l.isFeatureForbidden(pluginSetting.packageName)) || !TextUtils.isEmpty(pluginSetting.replaceMethodClasses)) {
                         return true;
@@ -1828,12 +1828,12 @@ public class PluginPackageManager {
                 bVar.a(str);
             } else {
                 k kVar = new k(this, null);
-                kVar.f36353c = str;
-                kVar.f36351a = System.currentTimeMillis();
-                kVar.f36352b = bVar;
+                kVar.f36396c = str;
+                kVar.f36394a = System.currentTimeMillis();
+                kVar.f36395b = bVar;
                 synchronized (this) {
-                    if (this.f36326b.size() < 1000) {
-                        this.f36326b.put(str, kVar);
+                    if (this.f36369b.size() < 1000) {
+                        this.f36369b.put(str, kVar);
                     } else {
                         BdLog.e("packageaction count is morethan 1000");
                     }
@@ -1861,7 +1861,7 @@ public class PluginPackageManager {
         }
         if (h2.installStatus == c.a.e.h.j.g.b.f2844a) {
             String l = Util.l(h2);
-            if (!new File(l).exists() && this.f36327c) {
+            if (!new File(l).exists() && this.f36370c) {
                 c.a.e.h.h.a.b().o("plugin_install", "download_suc_file_not_exist", pluginConfig.package_name, l);
             }
         }
@@ -1884,7 +1884,7 @@ public class PluginPackageManager {
             c.a.e.h.j.g.d.k().y(pluginConfig.package_name, c.a.e.h.j.g.b.f2845b);
         } else {
             PluginNetConfigInfos.Newest newest = pluginConfig.newest;
-            if (newest != null && newest.version_code < u && this.f36327c) {
+            if (newest != null && newest.version_code < u && this.f36370c) {
                 c.a.e.h.h.a b2 = c.a.e.h.h.a.b();
                 String str3 = pluginConfig.package_name;
                 b2.o("plugin_install", "server_config_versionlower", str3, u + "_" + h2.versionCode + "_" + pluginConfig.newest.version_code);
@@ -2049,7 +2049,7 @@ public class PluginPackageManager {
                 intentFilter.addAction("com.baidu.adp.plugin.installfail");
                 intentFilter.addAction("com.baidu.adp.plugin.installcancel");
                 intentFilter.addAction("com.baidu.adp.plugin.deleted");
-                this.f36325a.registerReceiver(this.n, intentFilter);
+                this.f36368a.registerReceiver(this.n, intentFilter);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
@@ -2062,16 +2062,16 @@ public class PluginPackageManager {
             try {
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("com.baidu.adp.plugin.currentpath");
-                if (this.f36327c) {
+                if (this.f36370c) {
                     intentFilter.setPriority(1);
                 } else {
                     intentFilter.setPriority(1000);
                 }
-                this.f36325a.registerReceiver(this.o, intentFilter);
+                this.f36368a.registerReceiver(this.o, intentFilter);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            if (this.f36327c) {
+            if (this.f36370c) {
                 for (Map.Entry<String, PluginSetting> entry : c.a.e.h.j.g.d.k().l().getPlugins().entrySet()) {
                     PluginSetting value = entry.getValue();
                     if (value != null && (!TextUtils.isEmpty(value.getAbandon_apk_path()) || value.installStatus == c.a.e.h.j.g.b.f2845b)) {
@@ -2080,7 +2080,7 @@ public class PluginPackageManager {
                         bundle.putString("package_name", value.packageName);
                         bundle.putString("current_path", "");
                         intent.putExtras(bundle);
-                        this.f36325a.sendOrderedBroadcast(intent, null);
+                        this.f36368a.sendOrderedBroadcast(intent, null);
                     }
                 }
             }
@@ -2104,7 +2104,7 @@ public class PluginPackageManager {
     public void w0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            this.f36331g = true;
+            this.f36374g = true;
         }
     }
 
@@ -2157,7 +2157,7 @@ public class PluginPackageManager {
 
     public void y0(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048626, this, z) == null) && this.f36327c) {
+        if ((interceptable == null || interceptable.invokeZ(1048626, this, z) == null) && this.f36370c) {
             c.a.e.e.m.e.a().postDelayed(new g(this, z), 1500L);
         }
     }

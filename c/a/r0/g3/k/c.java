@@ -56,7 +56,7 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f18835a;
+        public final /* synthetic */ c f18844a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -73,22 +73,22 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
                     return;
                 }
             }
-            this.f18835a = cVar;
+            this.f18844a = cVar;
         }
 
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f18835a.y = false;
-                if (this.f18835a.w.getErrorCode() == 22) {
-                    l.M(this.f18835a.f15549f.getPageActivity(), this.f18835a.f15549f.getString(R.string.had_liked_forum));
+                this.f18844a.y = false;
+                if (this.f18844a.w.getErrorCode() == 22) {
+                    l.M(this.f18844a.f15558f.getPageActivity(), this.f18844a.f15558f.getString(R.string.had_liked_forum));
                 } else if (obj == null) {
                 } else {
-                    if (this.f18835a.w.getErrorCode() != 0) {
-                        l.M(this.f18835a.f15549f.getPageActivity(), this.f18835a.w.getErrorString());
+                    if (this.f18844a.w.getErrorCode() != 0) {
+                        l.M(this.f18844a.f15558f.getPageActivity(), this.f18844a.w.getErrorString());
                     } else {
-                        this.f18835a.w(true);
+                        this.f18844a.w(true);
                     }
                 }
             }
@@ -101,7 +101,7 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f18836a;
+        public final /* synthetic */ c f18845a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -118,14 +118,14 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
                     return;
                 }
             }
-            this.f18836a = cVar;
+            this.f18845a = cVar;
         }
 
         @Override // c.a.r0.j3.g0.a
         public void a(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
-                this.f18836a.y = false;
+                this.f18845a.y = false;
             }
         }
 
@@ -133,8 +133,8 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
         public void b(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
-                this.f18836a.y = false;
-                this.f18836a.w(false);
+                this.f18845a.y = false;
+                this.f18845a.w(false);
             }
         }
     }
@@ -199,13 +199,13 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
         }
         if (this.m == view) {
             u();
-            b0<T> b0Var = this.f15552i;
+            b0<T> b0Var = this.f15561i;
             if (b0Var != 0) {
                 b0Var.a(view, this.v);
             }
         } else if (this.s == view) {
-            if (this.f15549f.getPageActivity() instanceof ForumSquareActivity) {
-                String h2 = ((ForumSquareActivity) this.f15549f.getPageActivity()).getDelegate().h();
+            if (this.f15558f.getPageActivity() instanceof ForumSquareActivity) {
+                String h2 = ((ForumSquareActivity) this.f15558f.getPageActivity()).getDelegate().h();
                 if (!"推荐".equals(h2)) {
                     statisticItem = new StatisticItem("c13653");
                     statisticItem.param(TiebaStatic.Params.RESOURCE_ID, h2);
@@ -214,7 +214,7 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
                     statisticItem.param("obj_locate", 3);
                 }
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("fid", this.v.f18667e);
+                statisticItem.param("fid", this.v.f18676e);
                 statisticItem.param(TiebaStatic.Params.OBJ_TO, this.v.q() ? 2 : 1);
                 TiebaStatic.log(statisticItem);
             }
@@ -232,15 +232,15 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
             return;
         }
         if (!l.D()) {
-            UtilHelper.showToast(this.f15549f.getPageActivity(), this.f15549f.getString(R.string.neterror));
+            UtilHelper.showToast(this.f15558f.getPageActivity(), this.f15558f.getString(R.string.neterror));
             return;
         }
         c.a.r0.g3.f.b bVar = this.v;
-        if (bVar == null || StringUtils.isNull(bVar.k()) || this.v.i() <= 0 || !ViewHelper.checkUpIsLogin(this.f15549f.getPageActivity())) {
+        if (bVar == null || StringUtils.isNull(bVar.k()) || this.v.i() <= 0 || !ViewHelper.checkUpIsLogin(this.f15558f.getPageActivity())) {
             return;
         }
         if (this.w == null) {
-            LikeModel likeModel = new LikeModel(this.f15549f);
+            LikeModel likeModel = new LikeModel(this.f15558f);
             this.w = likeModel;
             likeModel.setLoadDataCallBack(new a(this));
         }
@@ -257,11 +257,11 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
             return;
         }
         if (!l.D()) {
-            UtilHelper.showToast(this.f15549f.getPageActivity(), this.f15549f.getString(R.string.neterror));
+            UtilHelper.showToast(this.f15558f.getPageActivity(), this.f15558f.getString(R.string.neterror));
             return;
         }
         c.a.r0.g3.f.b bVar = this.v;
-        if (bVar == null || StringUtils.isNull(bVar.k()) || this.v.i() <= 0 || !ViewHelper.checkUpIsLogin(this.f15549f.getPageActivity())) {
+        if (bVar == null || StringUtils.isNull(bVar.k()) || this.v.i() <= 0 || !ViewHelper.checkUpIsLogin(this.f15558f.getPageActivity())) {
             return;
         }
         if (this.x == null) {
@@ -281,7 +281,7 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
         }
         String k = bVar.k();
         if (k.isForumName(k)) {
-            this.f15549f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15549f.getPageActivity()).createNormalCfg(k, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
+            this.f15558f.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15558f.getPageActivity()).createNormalCfg(k, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
         }
     }
 
@@ -311,7 +311,7 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
         w(this.v.q());
         this.m.setOnClickListener(this);
         this.s.setOnClickListener(this);
-        l(this.f15549f, TbadkCoreApplication.getInst().getSkinType());
+        l(this.f15558f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void w(boolean z) {
@@ -339,7 +339,7 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
                 if (this.p.getVisibility() != 8) {
                     this.p.setVisibility(8);
                     if (this.o.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                        ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f15549f.getPageActivity(), R.dimen.tbds47);
+                        ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f15558f.getPageActivity(), R.dimen.tbds47);
                         this.o.requestLayout();
                         return;
                     }
@@ -350,7 +350,7 @@ public class c extends c.a.r0.a0.b<c.a.r0.g3.f.b> {
             if (this.p.getVisibility() != 0) {
                 this.p.setVisibility(0);
                 if (this.o.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f15549f.getPageActivity(), R.dimen.tbds24);
+                    ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(this.f15558f.getPageActivity(), R.dimen.tbds24);
                     this.o.requestLayout();
                 }
             }

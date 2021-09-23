@@ -2,6 +2,7 @@ package c.a.r0.y2.e0;
 
 import android.view.View;
 import androidx.annotation.NonNull;
+import c.a.q0.d1.e;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.widget.DragImageView;
@@ -14,7 +15,7 @@ public interface b extends IAdBaseAsyncController {
 
     boolean f(@NonNull String str);
 
-    void g(@NonNull c.a.q0.d1.c cVar);
+    void g(@NonNull e eVar);
 
     View h(@NonNull String str, boolean z, boolean z2);
 

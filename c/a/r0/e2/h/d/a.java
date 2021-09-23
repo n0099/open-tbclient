@@ -26,39 +26,39 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f17387a;
+    public BdListView f17397a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MyEmotionHorizontalAdater f17388b;
+    public MyEmotionHorizontalAdater f17398b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<EmotionPackageData> f17389c;
+    public List<EmotionPackageData> f17399c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<C0846a> f17390d;
+    public final List<C0844a> f17400d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f17391e;
+    public c f17401e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.e2.h.b.a f17392f;
+    public c.a.r0.e2.h.b.a f17402f;
 
     /* renamed from: c.a.r0.e2.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0846a {
+    public static class C0844a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f17393a;
+        public int f17403a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f17394b;
+        public int f17404b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f17395c;
+        public int f17405c;
 
-        public C0846a() {
+        public C0844a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "id: " + this.f17393a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.f17394b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.f17395c;
+                return "id: " + this.f17403a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.f17404b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.f17405c;
             }
             return (String) invokeV.objValue;
         }
@@ -97,82 +97,82 @@ public class a {
                 return;
             }
         }
-        this.f17387a = bdListView;
+        this.f17397a = bdListView;
         c cVar = new c(tbPageContext);
-        this.f17391e = cVar;
+        this.f17401e = cVar;
         cVar.b(TbadkCoreApplication.getInst().getSkinType());
-        this.f17387a.addHeaderView(this.f17391e.a());
-        this.f17389c = new ArrayList();
-        this.f17390d = new ArrayList();
-        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.f17389c, this.f17390d, tbPageContext);
-        this.f17388b = myEmotionHorizontalAdater;
-        this.f17392f = aVar;
-        this.f17387a.setAdapter((ListAdapter) myEmotionHorizontalAdater);
+        this.f17397a.addHeaderView(this.f17401e.a());
+        this.f17399c = new ArrayList();
+        this.f17400d = new ArrayList();
+        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.f17399c, this.f17400d, tbPageContext);
+        this.f17398b = myEmotionHorizontalAdater;
+        this.f17402f = aVar;
+        this.f17397a.setAdapter((ListAdapter) myEmotionHorizontalAdater);
     }
 
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || i2 < 0 || i2 >= this.f17389c.size() || i3 < 0 || i3 >= this.f17389c.size()) {
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || i2 < 0 || i2 >= this.f17399c.size() || i3 < 0 || i3 >= this.f17399c.size()) {
             return;
         }
-        List<EmotionPackageData> list = this.f17389c;
+        List<EmotionPackageData> list = this.f17399c;
         list.add(i3, list.remove(i2));
-        List<C0846a> list2 = this.f17390d;
+        List<C0844a> list2 = this.f17400d;
         list2.add(i3, list2.remove(i2));
-        this.f17388b.notifyDataSetChanged();
+        this.f17398b.notifyDataSetChanged();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921312, new Pair(Integer.valueOf(i2), Integer.valueOf(i3))));
     }
 
     public void b() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f17388b == null || this.f17387a == null || this.f17389c == null || (cVar = this.f17391e) == null || this.f17392f == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f17398b == null || this.f17397a == null || this.f17399c == null || (cVar = this.f17401e) == null || this.f17402f == null) {
             return;
         }
         cVar.c();
-        this.f17392f.b(0, this.f17388b.b());
-        this.f17392f.a(c.a.r0.e2.h.a.b().a());
-        this.f17388b.notifyDataSetChanged();
+        this.f17402f.b(0, this.f17398b.b());
+        this.f17402f.a(c.a.r0.e2.h.a.b().a());
+        this.f17398b.notifyDataSetChanged();
     }
 
     public void c(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.f17387a == null || this.f17388b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.f17397a == null || this.f17398b == null) {
             return;
         }
-        this.f17389c.clear();
-        this.f17389c.addAll(list);
+        this.f17399c.clear();
+        this.f17399c.addAll(list);
         d();
-        this.f17388b.d();
-        this.f17391e.d(Integer.valueOf(this.f17388b.b()));
-        this.f17392f.b(0, this.f17388b.b());
-        this.f17392f.a(c.a.r0.e2.h.a.b().a());
-        this.f17388b.notifyDataSetChanged();
+        this.f17398b.d();
+        this.f17401e.d(Integer.valueOf(this.f17398b.b()));
+        this.f17402f.b(0, this.f17398b.b());
+        this.f17402f.a(c.a.r0.e2.h.a.b().a());
+        this.f17398b.notifyDataSetChanged();
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ArrayList arrayList = new ArrayList(this.f17390d);
-            this.f17390d.clear();
-            for (EmotionPackageData emotionPackageData : this.f17389c) {
-                C0846a c0846a = null;
+            ArrayList arrayList = new ArrayList(this.f17400d);
+            this.f17400d.clear();
+            for (EmotionPackageData emotionPackageData : this.f17399c) {
+                C0844a c0844a = null;
                 Iterator it = arrayList.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    C0846a c0846a2 = (C0846a) it.next();
-                    if (c0846a2 != null && c0846a2.f17393a == emotionPackageData.id) {
-                        c0846a = c0846a2;
+                    C0844a c0844a2 = (C0844a) it.next();
+                    if (c0844a2 != null && c0844a2.f17403a == emotionPackageData.id) {
+                        c0844a = c0844a2;
                         break;
                     }
                 }
-                if (c0846a == null) {
-                    c0846a = new C0846a();
-                    c0846a.f17393a = emotionPackageData.id;
+                if (c0844a == null) {
+                    c0844a = new C0844a();
+                    c0844a.f17403a = emotionPackageData.id;
                 }
-                this.f17390d.add(c0846a);
+                this.f17400d.add(c0844a);
             }
         }
     }

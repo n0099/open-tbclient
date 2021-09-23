@@ -20,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.baidubce.services.vod.VodClient;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
@@ -687,7 +688,7 @@ public class WebSocketChannel {
                             }
                         }
                         String optString10 = optJSONObject7.optString("leaving");
-                        if (!TextUtils.isEmpty(optString10) && !optString10.equals("ok")) {
+                        if (!TextUtils.isEmpty(optString10) && !optString10.equals(NewBindCardEntry.BING_CARD_SUCCESS_MSG)) {
                             this.delegate.onLeaving(janusHandle.handleId, new BigInteger(optString10));
                             JanusHandle janusHandle2 = this.feeds.get(new BigInteger(optString10));
                             if (janusHandle2 != null && janusHandle2.onLeaving != null) {
@@ -696,7 +697,7 @@ public class WebSocketChannel {
                         }
                         String optString11 = optJSONObject7.optString("unpublished");
                         if (!TextUtils.isEmpty(optString11)) {
-                            if (!optString11.equals("ok") && !optString11.equals("self")) {
+                            if (!optString11.equals(NewBindCardEntry.BING_CARD_SUCCESS_MSG) && !optString11.equals("self")) {
                                 this.delegate.onLeaving(janusHandle.handleId, new BigInteger(optString11));
                                 JanusHandle janusHandle3 = this.feeds.get(new BigInteger(optString11));
                                 if (janusHandle3 != null && janusHandle3.onLeaving != null) {

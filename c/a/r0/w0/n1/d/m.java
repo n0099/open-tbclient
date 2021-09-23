@@ -45,7 +45,7 @@ public class m extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ m f27208b;
+        public final /* synthetic */ m f27228b;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class m extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
                     return;
                 }
             }
-            this.f27208b = mVar;
+            this.f27228b = mVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,49 +73,49 @@ public class m extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var) == null) || view == null || d2Var == null) {
                 return;
             }
-            if (this.f27208b.u != null) {
-                this.f27208b.u.b(view, d2Var, this.f27208b.K());
+            if (this.f27228b.u != null) {
+                this.f27228b.u.b(view, d2Var, this.f27228b.K());
             }
-            if ("c13010".equals(this.f27208b.x)) {
+            if ("c13010".equals(this.f27228b.x)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 1).param("fid", d2Var.T()).param("tid", d2Var.s1()));
             }
             if (view.getId() != R.id.user_name && view.getId() != R.id.user_avatar) {
                 if (view.getId() == R.id.thread_info_commont_container) {
-                    c.a.r0.w0.k2.a.e(d2Var, 5, this.f27208b.f2961i, c.a.r0.w0.k2.d.h0, this.f27208b.i0());
-                    c.a.r0.w0.n2.l.g(d2Var, this.f27208b.n, 1);
+                    c.a.r0.w0.k2.a.e(d2Var, 5, this.f27228b.f2962i, c.a.r0.w0.k2.d.h0, this.f27228b.i0());
+                    c.a.r0.w0.n2.l.g(d2Var, this.f27228b.n, 1);
                 } else if (view.getId() == R.id.share_num_container) {
-                    c.a.r0.w0.k2.a.e(d2Var, 14, this.f27208b.f2961i, c.a.r0.w0.k2.d.h0, this.f27208b.i0());
+                    c.a.r0.w0.k2.a.e(d2Var, 14, this.f27228b.f2962i, c.a.r0.w0.k2.d.h0, this.f27228b.i0());
                 } else if (view.getId() == R.id.img_agree) {
-                    c.a.r0.w0.k2.a.e(d2Var, 12, this.f27208b.f2961i, c.a.r0.w0.k2.d.h0, this.f27208b.i0());
+                    c.a.r0.w0.k2.a.e(d2Var, 12, this.f27228b.f2962i, c.a.r0.w0.k2.d.h0, this.f27228b.i0());
                 } else if (view.getId() == R.id.img_disagree) {
-                    c.a.r0.w0.k2.a.e(d2Var, 13, this.f27208b.f2961i, c.a.r0.w0.k2.d.h0, this.f27208b.i0());
+                    c.a.r0.w0.k2.a.e(d2Var, 13, this.f27228b.f2962i, c.a.r0.w0.k2.d.h0, this.f27228b.i0());
                 } else if (view instanceof TbImageView) {
-                    if (this.f27208b.B.f15554a instanceof Boolean) {
-                        if (((Boolean) this.f27208b.B.f15554a).booleanValue()) {
-                            c.a.r0.w0.k2.a.e(d2Var, 1, this.f27208b.f2961i, c.a.r0.w0.k2.d.h0, this.f27208b.i0());
+                    if (this.f27228b.B.f15563a instanceof Boolean) {
+                        if (((Boolean) this.f27228b.B.f15563a).booleanValue()) {
+                            c.a.r0.w0.k2.a.e(d2Var, 1, this.f27228b.f2962i, c.a.r0.w0.k2.d.h0, this.f27228b.i0());
                         } else {
-                            c.a.r0.w0.k2.a.e(d2Var, 3, this.f27208b.f2961i, c.a.r0.w0.k2.d.h0, this.f27208b.i0());
+                            c.a.r0.w0.k2.a.e(d2Var, 3, this.f27228b.f2962i, c.a.r0.w0.k2.d.h0, this.f27228b.i0());
                         }
                     }
-                    c.a.r0.w0.n2.l.g(d2Var, this.f27208b.n, 2);
+                    c.a.r0.w0.n2.l.g(d2Var, this.f27228b.n, 2);
                 } else if (view instanceof ThreadGodReplyLayout) {
-                    c.a.r0.w0.k2.a.e(d2Var, 15, this.f27208b.f2961i, c.a.r0.w0.k2.d.h0, this.f27208b.i0());
-                    c.a.r0.w0.n2.l.g(d2Var, this.f27208b.n, 1);
+                    c.a.r0.w0.k2.a.e(d2Var, 15, this.f27228b.f2962i, c.a.r0.w0.k2.d.h0, this.f27228b.i0());
+                    c.a.r0.w0.n2.l.g(d2Var, this.f27228b.n, 1);
                 } else {
-                    c.a.r0.w0.k2.a.e(d2Var, 1, this.f27208b.f2961i, c.a.r0.w0.k2.d.h0, this.f27208b.i0());
-                    c.a.r0.w0.n2.l.g(d2Var, this.f27208b.n, 1);
+                    c.a.r0.w0.k2.a.e(d2Var, 1, this.f27228b.f2962i, c.a.r0.w0.k2.d.h0, this.f27228b.i0());
+                    c.a.r0.w0.n2.l.g(d2Var, this.f27228b.n, 1);
                 }
             } else {
-                c.a.r0.w0.k2.a.e(d2Var, 2, this.f27208b.f2961i, c.a.r0.w0.k2.d.h0, this.f27208b.i0());
+                c.a.r0.w0.k2.a.e(d2Var, 2, this.f27228b.f2962i, c.a.r0.w0.k2.d.h0, this.f27228b.i0());
             }
             if (view.getId() == R.id.thread_card_root && d2Var.E2()) {
-                this.f27208b.P0(d2Var);
+                this.f27228b.P0(d2Var);
             } else if (view.getId() != R.id.user_name && view.getId() != R.id.user_avatar) {
                 if (view.getId() == R.id.card_divider_tv) {
                     c.a.r0.w0.n2.l.a(c.a.r0.w0.k2.d.h0, d2Var.getRecomReason());
                 } else if (view instanceof TbImageView) {
-                    if (this.f27208b.B.f15554a instanceof Boolean) {
-                        if (((Boolean) this.f27208b.B.f15554a).booleanValue()) {
+                    if (this.f27228b.B.f15563a instanceof Boolean) {
+                        if (((Boolean) this.f27228b.B.f15563a).booleanValue()) {
                             c.a.r0.w0.k2.c.j().g(c.a.r0.w0.k2.d.h0, d2Var, 1);
                         } else {
                             c.a.r0.w0.k2.c.j().g(c.a.r0.w0.k2.d.h0, d2Var, 3);
@@ -146,10 +146,10 @@ public class m extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.l.n f27209e;
+        public final /* synthetic */ c.a.l.n f27229e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f27210f;
+        public final /* synthetic */ m f27230f;
 
         public b(m mVar, c.a.l.n nVar) {
             Interceptable interceptable = $ic;
@@ -166,32 +166,32 @@ public class m extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
                     return;
                 }
             }
-            this.f27210f = mVar;
-            this.f27209e = nVar;
+            this.f27230f = mVar;
+            this.f27229e = nVar;
         }
 
         @Override // c.a.e.l.e.w
         public void b(View view, c.a.e.l.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof c2) && (view.getTag() instanceof ThreadCardViewHolder)) {
-                if ((c.a.r0.w0.b.f().i() || c.a.r0.w0.a.h().j()) && !this.f27209e.t()) {
+                if ((c.a.r0.w0.b.f().i() || c.a.r0.w0.a.h().j()) && !this.f27229e.t()) {
                     d2 d2Var = ((c2) nVar).w;
                     if (d2Var == null) {
                         return;
                     }
                     if (!d2Var.j2() && c.a.r0.w0.b.f().i()) {
                         if (c.a.r0.w0.b.f().a(d2Var)) {
-                            d2Var.g4(true);
+                            d2Var.f4(true);
                         }
                     } else if (!d2Var.k2() && c.a.r0.w0.a.h().j()) {
                         if (c.a.r0.w0.a.h().a(d2Var)) {
-                            d2Var.h4(true);
+                            d2Var.g4(true);
                         }
                     } else {
                         c.a.r0.w0.b.f().l(d2Var);
-                        d2Var.g4(false);
+                        d2Var.f4(false);
                         c.a.r0.w0.a.h().l(d2Var);
-                        d2Var.h4(false);
+                        d2Var.g4(false);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, d2Var));
                     return;
@@ -199,10 +199,10 @@ public class m extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 d2 d2Var2 = ((c2) nVar).w;
                 d2Var2.objType = 1;
-                if (this.f27210f.B != null) {
-                    this.f27210f.B.a(threadCardViewHolder.getView(), d2Var2);
+                if (this.f27230f.B != null) {
+                    this.f27230f.B.a(threadCardViewHolder.getView(), d2Var2);
                 }
-                ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var2, view.getContext(), this.f27210f.A, false);
+                ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var2, view.getContext(), this.f27230f.A, false);
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
             }
         }
@@ -231,7 +231,7 @@ public class m extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         this.A = 3;
         this.B = new a(this);
         this.o = tbPageContext;
-        this.f2961i = bdUniqueId2;
+        this.f2962i = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -249,7 +249,7 @@ public class m extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             l0 k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.q);
             k.r(3);
             ThreadCardViewHolder<d2> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.setPageId(this.f2961i);
+            threadCardViewHolder.setPageId(this.f2962i);
             d0(new b(this, nVar));
             return threadCardViewHolder;
         }
@@ -272,12 +272,12 @@ public class m extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             c.a.r0.w0.j.i(threadCardViewHolder.getCardView().e(), this.n);
             FrsViewData frsViewData = this.n;
             if (frsViewData != null && frsViewData.getForum() != null && !StringUtils.isNull(this.n.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.n.getForum().getTopic_special_icon_right())) {
-                c2Var.w.w4(this.n.getForum().getTopic_special_icon(), this.n.getForum().getTopic_special_icon_right());
+                c2Var.w.v4(this.n.getForum().getTopic_special_icon(), this.n.getForum().getTopic_special_icon_right());
             }
             threadCardViewHolder.onBindDataToView(c2Var.w);
             threadCardViewHolder.getCardView().onChangeSkinType(this.o, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.getCardView().p(this.B);
-            c2Var.w.N4();
+            c2Var.w.M4();
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

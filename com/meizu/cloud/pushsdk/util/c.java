@@ -14,7 +14,7 @@ import javax.crypto.Cipher;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f75005a = Charset.forName("UTF-8");
+    public static final Charset f75324a = Charset.forName("UTF-8");
 
     public static String a(String str, String str2) {
         if (str != null) {
@@ -22,7 +22,7 @@ public class c {
                 if (TextUtils.isEmpty(str2)) {
                     return null;
                 }
-                return new String(a(a(str), b(str2)), f75005a);
+                return new String(a(a(str), b(str2)), f75324a);
             } catch (Exception e2) {
                 c.l.a.a.a.b("RSAUtils", "decrypt " + e2.getMessage());
                 return null;

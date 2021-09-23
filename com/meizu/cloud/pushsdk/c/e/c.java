@@ -12,80 +12,80 @@ public abstract class c {
     public static final String n = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.c.b.c f74856b;
+    public com.meizu.cloud.pushsdk.c.b.c f75175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f74857c;
+    public b f75176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.c.e.a f74858d;
+    public com.meizu.cloud.pushsdk.c.e.a f75177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f74859e;
+    public String f75178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f74860f;
+    public String f75179f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f74861g;
+    public boolean f75180g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.c.f.b f74862h;
+    public com.meizu.cloud.pushsdk.c.f.b f75181h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f74863i;
+    public boolean f75182i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f74864j;
+    public long f75183j;
     public int k;
     public TimeUnit l;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f74855a = PushManager.TAG;
+    public final String f75174a = PushManager.TAG;
     public AtomicBoolean m = new AtomicBoolean(true);
 
     /* loaded from: classes10.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.meizu.cloud.pushsdk.c.b.c f74865a;
+        public final com.meizu.cloud.pushsdk.c.b.c f75184a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f74866b;
+        public final String f75185b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f74867c;
+        public final String f75186c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Context f74868d;
+        public final Context f75187d;
 
         /* renamed from: e  reason: collision with root package name */
-        public b f74869e = null;
+        public b f75188e = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f74870f = false;
+        public boolean f75189f = false;
 
         /* renamed from: g  reason: collision with root package name */
-        public com.meizu.cloud.pushsdk.c.f.b f74871g = com.meizu.cloud.pushsdk.c.f.b.OFF;
+        public com.meizu.cloud.pushsdk.c.f.b f75190g = com.meizu.cloud.pushsdk.c.f.b.OFF;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f74872h = false;
+        public boolean f75191h = false;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f74873i = 600;
+        public long f75192i = 600;
 
         /* renamed from: j  reason: collision with root package name */
-        public long f74874j = 300;
+        public long f75193j = 300;
         public long k = 15;
         public int l = 10;
         public TimeUnit m = TimeUnit.SECONDS;
         public Class<? extends c> n;
 
         public a(com.meizu.cloud.pushsdk.c.b.c cVar, String str, String str2, Context context, Class<? extends c> cls) {
-            this.f74865a = cVar;
-            this.f74866b = str;
-            this.f74867c = str2;
-            this.f74868d = context;
+            this.f75184a = cVar;
+            this.f75185b = str;
+            this.f75186c = str2;
+            this.f75187d = context;
             this.n = cls;
         }
 
@@ -95,51 +95,51 @@ public abstract class c {
         }
 
         public a a(b bVar) {
-            this.f74869e = bVar;
+            this.f75188e = bVar;
             return this;
         }
 
         public a a(com.meizu.cloud.pushsdk.c.f.b bVar) {
-            this.f74871g = bVar;
+            this.f75190g = bVar;
             return this;
         }
 
         public a a(Boolean bool) {
-            this.f74870f = bool.booleanValue();
+            this.f75189f = bool.booleanValue();
             return this;
         }
     }
 
     public c(a aVar) {
-        this.f74856b = aVar.f74865a;
-        this.f74860f = aVar.f74867c;
-        this.f74861g = aVar.f74870f;
-        this.f74859e = aVar.f74866b;
-        this.f74857c = aVar.f74869e;
-        this.f74862h = aVar.f74871g;
-        this.f74863i = aVar.f74872h;
-        this.f74864j = aVar.k;
+        this.f75175b = aVar.f75184a;
+        this.f75179f = aVar.f75186c;
+        this.f75180g = aVar.f75189f;
+        this.f75178e = aVar.f75185b;
+        this.f75176c = aVar.f75188e;
+        this.f75181h = aVar.f75190g;
+        this.f75182i = aVar.f75191h;
+        this.f75183j = aVar.k;
         int i2 = aVar.l;
         this.k = i2 < 2 ? 2 : i2;
         this.l = aVar.m;
-        if (this.f74863i) {
-            this.f74858d = new com.meizu.cloud.pushsdk.c.e.a(aVar.f74873i, aVar.f74874j, aVar.m, aVar.f74868d);
+        if (this.f75182i) {
+            this.f75177d = new com.meizu.cloud.pushsdk.c.e.a(aVar.f75192i, aVar.f75193j, aVar.m, aVar.f75187d);
         }
-        com.meizu.cloud.pushsdk.c.f.c.a(aVar.f74871g);
+        com.meizu.cloud.pushsdk.c.f.c.a(aVar.f75190g);
         com.meizu.cloud.pushsdk.c.f.c.c(n, "Tracker created successfully.", new Object[0]);
     }
 
     private com.meizu.cloud.pushsdk.c.a.b a(List<com.meizu.cloud.pushsdk.c.a.b> list) {
-        if (this.f74863i) {
-            list.add(this.f74858d.a());
+        if (this.f75182i) {
+            list.add(this.f75177d.a());
         }
-        b bVar = this.f74857c;
+        b bVar = this.f75176c;
         if (bVar != null) {
             if (!bVar.a().isEmpty()) {
-                list.add(new com.meizu.cloud.pushsdk.c.a.b("geolocation", this.f74857c.a()));
+                list.add(new com.meizu.cloud.pushsdk.c.a.b("geolocation", this.f75176c.a()));
             }
-            if (!this.f74857c.b().isEmpty()) {
-                list.add(new com.meizu.cloud.pushsdk.c.a.b("mobileinfo", this.f74857c.b()));
+            if (!this.f75176c.b().isEmpty()) {
+                list.add(new com.meizu.cloud.pushsdk.c.a.b("mobileinfo", this.f75176c.b()));
             }
         }
         LinkedList linkedList = new LinkedList();
@@ -150,12 +150,12 @@ public abstract class c {
     }
 
     private void a(com.meizu.cloud.pushsdk.c.a.c cVar, List<com.meizu.cloud.pushsdk.c.a.b> list, boolean z) {
-        if (this.f74857c != null) {
-            cVar.a(new HashMap(this.f74857c.c()));
+        if (this.f75176c != null) {
+            cVar.a(new HashMap(this.f75176c.c()));
             cVar.a("et", a(list).a());
         }
         com.meizu.cloud.pushsdk.c.f.c.c(n, "Adding new payload to event storage: %s", cVar);
-        this.f74856b.a(cVar, z);
+        this.f75175b.a(cVar, z);
     }
 
     public void a() {
@@ -171,10 +171,10 @@ public abstract class c {
     }
 
     public void a(b bVar) {
-        this.f74857c = bVar;
+        this.f75176c = bVar;
     }
 
     public com.meizu.cloud.pushsdk.c.b.c b() {
-        return this.f74856b;
+        return this.f75175b;
     }
 }

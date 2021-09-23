@@ -17,7 +17,7 @@ public class l implements com.kwad.sdk.core.webview.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f72560a;
+    public final com.kwad.sdk.core.webview.a f72879a;
 
     /* loaded from: classes10.dex */
     public static final class a extends com.kwad.sdk.core.response.a.a {
@@ -25,7 +25,7 @@ public class l implements com.kwad.sdk.core.webview.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f72562a;
+        public String f72881a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -48,13 +48,13 @@ public class l implements com.kwad.sdk.core.webview.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public double f72563a;
+        public double f72882a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f72564b;
+        public int f72883b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f72565c;
+        public long f72884c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class l implements com.kwad.sdk.core.webview.a.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ l f72561b;
+            public final /* synthetic */ l f72880b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -99,61 +99,61 @@ public class l implements com.kwad.sdk.core.webview.a.a {
                         return;
                     }
                 }
-                this.f72561b = this;
+                this.f72880b = this;
             }
 
             @Override // com.kwad.sdk.core.download.b.c
             public void a(int i2) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) || this.f72561b.f72560a.f72428g == null) {
+                if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) || this.f72880b.f72879a.f72747g == null) {
                     return;
                 }
-                this.f72561b.a(3, (i2 * 1.0f) / 100.0f, this.f72561b.f72560a.f72428g.b(a()));
+                this.f72880b.a(3, (i2 * 1.0f) / 100.0f, this.f72880b.f72879a.f72747g.b(a()));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f72561b.f72560a.f72428g == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f72880b.f72879a.f72747g == null) {
                     return;
                 }
-                this.f72561b.a(1, 0.0f, this.f72561b.f72560a.f72428g.b(a()));
+                this.f72880b.a(1, 0.0f, this.f72880b.f72879a.f72747g.b(a()));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f72561b.f72560a.f72428g == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f72880b.f72879a.f72747g == null) {
                     return;
                 }
-                this.f72561b.a(5, 1.0f, this.f72561b.f72560a.f72428g.b(a()));
+                this.f72880b.a(5, 1.0f, this.f72880b.f72879a.f72747g.b(a()));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.f72561b.f72560a.f72428g == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.f72880b.f72879a.f72747g == null) {
                     return;
                 }
-                this.f72561b.a(1, 0.0f, this.f72561b.f72560a.f72428g.b(a()));
+                this.f72880b.a(1, 0.0f, this.f72880b.f72879a.f72747g.b(a()));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onInstalled() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048580, this) == null) || this.f72561b.f72560a.f72428g == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048580, this) == null) || this.f72880b.f72879a.f72747g == null) {
                     return;
                 }
-                this.f72561b.a(6, 1.0f, this.f72561b.f72560a.f72428g.b(a()));
+                this.f72880b.a(6, 1.0f, this.f72880b.f72879a.f72747g.b(a()));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onProgressUpdate(int i2) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) || this.f72561b.f72560a.f72428g == null) {
+                if (!(interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) || this.f72880b.f72879a.f72747g == null) {
                     return;
                 }
-                this.f72561b.a(2, (i2 * 1.0f) / 100.0f, this.f72561b.f72560a.f72428g.b(a()));
+                this.f72880b.a(2, (i2 * 1.0f) / 100.0f, this.f72880b.f72879a.f72747g.b(a()));
             }
         } : (KsAppDownloadListener) invokeL.objValue;
     }
@@ -165,9 +165,9 @@ public class l implements com.kwad.sdk.core.webview.a.a {
             return;
         }
         b bVar = new b();
-        bVar.f72563a = f2;
-        bVar.f72564b = i2;
-        bVar.f72565c = com.kwad.sdk.core.response.b.c.i(this.f72560a.f72423b).totalBytes;
+        bVar.f72882a = f2;
+        bVar.f72883b = i2;
+        bVar.f72884c = com.kwad.sdk.core.response.b.c.i(this.f72879a.f72742b).totalBytes;
         cVar.a(bVar);
     }
 
@@ -187,19 +187,19 @@ public class l implements com.kwad.sdk.core.webview.a.a {
             AdTemplate adTemplate = new AdTemplate();
             try {
                 aVar.parseJson(new JSONObject(str));
-                adTemplate.parseJson(new JSONObject(aVar.f72562a));
+                adTemplate.parseJson(new JSONObject(aVar.f72881a));
             } catch (Exception e2) {
                 adTemplate = null;
                 com.kwad.sdk.core.d.a.b(e2);
             }
-            if (adTemplate == null || !com.kwad.sdk.core.response.b.c.b(adTemplate) || this.f72560a.f72428g == null) {
+            if (adTemplate == null || !com.kwad.sdk.core.response.b.c.b(adTemplate) || this.f72879a.f72747g == null) {
                 return;
             }
             com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(adTemplate);
             String a2 = bVar.a();
             bVar.a(a(a2));
-            this.f72560a.f72428g.a(a2, bVar);
-            this.f72560a.f72428g.a(a2, cVar);
+            this.f72879a.f72747g.a(a2, bVar);
+            this.f72879a.f72747g.a(a2, cVar);
         }
     }
 
@@ -207,7 +207,7 @@ public class l implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         y yVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (yVar = this.f72560a.f72428g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (yVar = this.f72879a.f72747g) == null) {
             return;
         }
         yVar.a();

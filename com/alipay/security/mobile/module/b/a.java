@@ -13,7 +13,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f36167a;
+    public static a f36210a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public final class a {
                 return;
             }
         }
-        f36167a = new a();
+        f36210a = new a();
     }
 
     public a() {
@@ -49,7 +49,7 @@ public final class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36167a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36210a : (a) invokeV.objValue;
     }
 
     public static String a(Context context) {

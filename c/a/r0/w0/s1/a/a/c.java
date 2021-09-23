@@ -16,22 +16,22 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27763a;
+    public String f27783a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27764b;
+    public int f27784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27765c;
+    public int f27785c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f27766d;
+    public List<n> f27786d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f27767e;
+    public boolean f27787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27768f;
+    public int f27788f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public class c {
             if (ListUtils.isEmpty(list)) {
                 return 0;
             }
-            if (ListUtils.isEmpty(this.f27766d)) {
+            if (ListUtils.isEmpty(this.f27786d)) {
                 LinkedList linkedList = new LinkedList();
-                this.f27766d = linkedList;
+                this.f27786d = linkedList;
                 linkedList.addAll(list);
                 return list.size();
             }
@@ -66,11 +66,11 @@ public class c {
                 n nVar = list.get(i2);
                 int i3 = 0;
                 while (true) {
-                    if (i3 >= this.f27766d.size()) {
+                    if (i3 >= this.f27786d.size()) {
                         z = false;
                         break;
                     }
-                    n nVar2 = this.f27766d.get(i3);
+                    n nVar2 = this.f27786d.get(i3);
                     if (nVar != null && (nVar instanceof b) && nVar2 != null && (nVar2 instanceof b)) {
                         d2 threadData = ((b) nVar).getThreadData();
                         d2 threadData2 = ((b) nVar2).getThreadData();
@@ -86,7 +86,7 @@ public class c {
                 }
             }
             if (linkedList2.size() != 0) {
-                ListUtils.addAll(this.f27766d, 0, linkedList2);
+                ListUtils.addAll(this.f27786d, 0, linkedList2);
             }
             return linkedList2.size();
         }

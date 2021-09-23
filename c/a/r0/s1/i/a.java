@@ -19,12 +19,12 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Application.ActivityLifecycleCallbacks f24745a;
+    public static Application.ActivityLifecycleCallbacks f24761a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.s1.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C1142a {
+    public static /* synthetic */ class C1140a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -110,7 +110,7 @@ public class a {
             }
         }
 
-        public /* synthetic */ b(C1142a c1142a) {
+        public /* synthetic */ b(C1140a c1140a) {
             this();
         }
     }
@@ -139,10 +139,10 @@ public class a {
     public static void c(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, application) == null) {
-            if (f24745a == null) {
-                f24745a = new b(null);
+            if (f24761a == null) {
+                f24761a = new b(null);
             }
-            application.registerActivityLifecycleCallbacks(f24745a);
+            application.registerActivityLifecycleCallbacks(f24761a);
         }
     }
 }

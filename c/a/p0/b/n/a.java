@@ -29,7 +29,7 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f10133d;
+        public final /* synthetic */ a f10141d;
 
         /* renamed from: c.a.p0.b.n.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -38,10 +38,10 @@ public class a extends d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.b f10134e;
+            public final /* synthetic */ c.b f10142e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ C0491a f10135f;
+            public final /* synthetic */ C0491a f10143f;
 
             public C0492a(C0491a c0491a, c.b bVar) {
                 Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class a extends d {
                         return;
                     }
                 }
-                this.f10135f = c0491a;
-                this.f10134e = bVar;
+                this.f10143f = c0491a;
+                this.f10142e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -69,15 +69,15 @@ public class a extends d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                     if (c.a.p0.a.e2.c.d.h(iVar)) {
-                        this.f10134e.a(this.f10135f.f10133d.t());
+                        this.f10142e.a(this.f10143f.f10141d.t());
                         return;
                     }
                     int b2 = iVar.b();
                     String f2 = c.a.p0.a.e2.c.d.f(b2);
-                    if (d.f8727c) {
+                    if (d.f8735c) {
                         String str = "getBduss failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX;
                     }
-                    this.f10134e.a(new c.a.p0.a.u.h.b(b2, f2));
+                    this.f10142e.a(new c.a.p0.a.u.h.b(b2, f2));
                 }
             }
         }
@@ -100,7 +100,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f10133d = aVar;
+            this.f10141d = aVar;
         }
 
         @Override // c.a.p0.a.u.c.c
@@ -111,7 +111,7 @@ public class a extends d {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
                 e Q = e.Q();
                 if (Q == null) {
-                    boolean z = d.f8727c;
+                    boolean z = d.f8735c;
                     return new c.a.p0.a.u.h.b(1001, "null swan runtime");
                 }
                 Q.T().g(c.a.p0.a.a2.d.g(), "mapp_i_get_bduss", new C0492a(this, bVar));
@@ -125,7 +125,7 @@ public class a extends d {
         public c.a.p0.a.u.h.b e(@NonNull JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.f10133d.t() : (c.a.p0.a.u.h.b) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.f10141d.t() : (c.a.p0.a.u.h.b) invokeL.objValue;
         }
 
         @Override // c.a.p0.a.u.c.c
@@ -172,12 +172,12 @@ public class a extends d {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("bduss", i2);
-                if (d.f8727c) {
+                if (d.f8735c) {
                     String str = "getBduss success: " + jSONObject.toString();
                 }
                 return new c.a.p0.a.u.h.b(0, jSONObject);
             } catch (JSONException e2) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     e2.printStackTrace();
                 }
                 return new c.a.p0.a.u.h.b(1001, "result JSONException");

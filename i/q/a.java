@@ -14,16 +14,16 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final i.e<Object> f78889a;
+    public static final i.e<Object> f79208a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C2133a implements i.e<Object> {
+    public static class C2137a implements i.e<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2133a() {
+        public C2137a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,12 +73,12 @@ public final class a {
                 return;
             }
         }
-        f78889a = new C2133a();
+        f79208a = new C2137a();
     }
 
     public static <T> i.e<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (i.e<T>) f78889a : (i.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (i.e<T>) f79208a : (i.e) invokeV.objValue;
     }
 }

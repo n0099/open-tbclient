@@ -14,19 +14,19 @@ public class ReverseGeoCodeOption {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41798a;
+    public int f41860a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41799b;
+    public int f41861b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f41800c;
+    public LatLng f41862c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f41801d;
+    public int f41863d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41802e;
+    public int f41864e;
 
     public ReverseGeoCodeOption() {
         Interceptable interceptable = $ic;
@@ -41,48 +41,48 @@ public class ReverseGeoCodeOption {
                 return;
             }
         }
-        this.f41798a = 10;
-        this.f41799b = 0;
-        this.f41800c = null;
-        this.f41801d = 0;
-        this.f41802e = 1000;
+        this.f41860a = 10;
+        this.f41861b = 0;
+        this.f41862c = null;
+        this.f41863d = 0;
+        this.f41864e = 1000;
     }
 
     public int getLatestAdmin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41801d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41863d : invokeV.intValue;
     }
 
     public LatLng getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41800c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41862c : (LatLng) invokeV.objValue;
     }
 
     public int getPageNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41799b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41861b : invokeV.intValue;
     }
 
     public int getPageSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41798a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41860a : invokeV.intValue;
     }
 
     public int getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41802e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41864e : invokeV.intValue;
     }
 
     public ReverseGeoCodeOption location(LatLng latLng) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, latLng)) == null) {
-            this.f41800c = latLng;
+            this.f41862c = latLng;
             return this;
         }
         return (ReverseGeoCodeOption) invokeL.objValue;
@@ -92,7 +92,7 @@ public class ReverseGeoCodeOption {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f41801d = i2;
+            this.f41863d = i2;
             return this;
         }
         return (ReverseGeoCodeOption) invokeI.objValue;
@@ -105,7 +105,7 @@ public class ReverseGeoCodeOption {
             if (i2 < 0) {
                 i2 = 0;
             }
-            this.f41799b = i2;
+            this.f41861b = i2;
             return this;
         }
         return (ReverseGeoCodeOption) invokeI.objValue;
@@ -118,10 +118,10 @@ public class ReverseGeoCodeOption {
             if (i2 <= 0) {
                 i2 = 10;
             } else if (i2 > 100) {
-                this.f41798a = 100;
+                this.f41860a = 100;
                 return this;
             }
-            this.f41798a = i2;
+            this.f41860a = i2;
             return this;
         }
         return (ReverseGeoCodeOption) invokeI.objValue;
@@ -134,10 +134,10 @@ public class ReverseGeoCodeOption {
             if (i2 < 0) {
                 i2 = 0;
             } else if (i2 > 1000) {
-                this.f41802e = 1000;
+                this.f41864e = 1000;
                 return this;
             }
-            this.f41802e = i2;
+            this.f41864e = i2;
             return this;
         }
         return (ReverseGeoCodeOption) invokeI.objValue;

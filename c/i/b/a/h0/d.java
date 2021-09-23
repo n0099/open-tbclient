@@ -18,13 +18,13 @@ public final class d implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f33693a;
+    public g f33716a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33694b;
+    public int f33717b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f33695c;
+    public byte[] f33718c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public final class d implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            this.f33693a = gVar;
-            Uri uri = gVar.f33702a;
+            this.f33716a = gVar;
+            Uri uri = gVar.f33725a;
             String scheme = uri.getScheme();
             if ("data".equals(scheme)) {
                 String[] split = uri.getSchemeSpecificPart().split(",");
@@ -54,14 +54,14 @@ public final class d implements e {
                     String str = split[1];
                     if (split[0].contains(DataUrlLoader.BASE64_TAG)) {
                         try {
-                            this.f33695c = Base64.decode(str, 0);
+                            this.f33718c = Base64.decode(str, 0);
                         } catch (IllegalArgumentException e2) {
                             throw new ParserException("Error while parsing Base64 encoded string: " + str, e2);
                         }
                     } else {
-                        this.f33695c = URLDecoder.decode(str, "US-ASCII").getBytes();
+                        this.f33718c = URLDecoder.decode(str, "US-ASCII").getBytes();
                     }
-                    return this.f33695c.length;
+                    return this.f33718c.length;
                 }
                 throw new ParserException("Unexpected URI format: " + uri);
             }
@@ -74,8 +74,8 @@ public final class d implements e {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f33693a = null;
-            this.f33695c = null;
+            this.f33716a = null;
+            this.f33718c = null;
         }
     }
 
@@ -84,9 +84,9 @@ public final class d implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            g gVar = this.f33693a;
+            g gVar = this.f33716a;
             if (gVar != null) {
-                return gVar.f33702a;
+                return gVar.f33725a;
             }
             return null;
         }
@@ -101,13 +101,13 @@ public final class d implements e {
             if (i3 == 0) {
                 return 0;
             }
-            int length = this.f33695c.length - this.f33694b;
+            int length = this.f33718c.length - this.f33717b;
             if (length == 0) {
                 return -1;
             }
             int min = Math.min(i3, length);
-            System.arraycopy(this.f33695c, this.f33694b, bArr, i2, min);
-            this.f33694b += min;
+            System.arraycopy(this.f33718c, this.f33717b, bArr, i2, min);
+            this.f33717b += min;
             return min;
         }
         return invokeLII.intValue;

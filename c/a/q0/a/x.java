@@ -30,22 +30,22 @@ public class x implements SensorEventListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12678e;
+    public Context f12686e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f12679f;
+    public b f12687f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SensorManager f12680g;
+    public SensorManager f12688g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Sensor f12681h;
+    public Sensor f12689h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Vibrator f12682i;
+    public Vibrator f12690i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SoundPool f12683j;
+    public SoundPool f12691j;
     public int k;
     public int l;
     public long m;
@@ -60,7 +60,7 @@ public class x implements SensorEventListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ x f12684e;
+        public final /* synthetic */ x f12692e;
 
         public a(x xVar) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class x implements SensorEventListener {
                     return;
                 }
             }
-            this.f12684e = xVar;
+            this.f12692e = xVar;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f12684e.o.start();
+                this.f12692e.o.start();
             }
         }
     }
@@ -114,16 +114,16 @@ public class x implements SensorEventListener {
         if (context == null) {
             return;
         }
-        this.f12678e = context;
-        this.f12679f = bVar;
+        this.f12686e = context;
+        this.f12687f = bVar;
         SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-        this.f12680g = sensorManager;
+        this.f12688g = sensorManager;
         if (sensorManager != null) {
-            this.f12681h = TbadkCoreApplication.getInst().getDefaultSensor(1);
+            this.f12689h = TbadkCoreApplication.getInst().getDefaultSensor(1);
         }
-        this.f12682i = (Vibrator) context.getSystemService("vibrator");
+        this.f12690i = (Vibrator) context.getSystemService("vibrator");
         SoundPool soundPool = new SoundPool(1, 3, 0);
-        this.f12683j = soundPool;
+        this.f12691j = soundPool;
         if (soundPool != null) {
             try {
                 this.k = soundPool.load(context, R.raw.shake_tone, 1);
@@ -150,7 +150,7 @@ public class x implements SensorEventListener {
     public void c() {
         SensorManager sensorManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sensorManager = this.f12680g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sensorManager = this.f12688g) == null) {
             return;
         }
         sensorManager.unregisterListener(this);
@@ -183,10 +183,10 @@ public class x implements SensorEventListener {
     public void f() {
         Sensor sensor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (sensor = this.f12681h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (sensor = this.f12689h) == null) {
             return;
         }
-        this.f12680g.registerListener(this, sensor, 2);
+        this.f12688g.registerListener(this, sensor, 2);
         this.n = true;
     }
 
@@ -194,21 +194,21 @@ public class x implements SensorEventListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Context context = this.f12678e;
+            Context context = this.f12686e;
             if (context == null) {
                 return false;
             }
             AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             int ringerMode = audioManager != null ? audioManager.getRingerMode() : -1;
-            Vibrator vibrator = this.f12682i;
+            Vibrator vibrator = this.f12690i;
             if (vibrator == null || !vibrator.hasVibrator() || ringerMode <= 0) {
                 return false;
             }
             if (Build.VERSION.SDK_INT >= 26) {
-                this.f12682i.vibrate(VibrationEffect.createOneShot(400L, 255));
+                this.f12690i.vibrate(VibrationEffect.createOneShot(400L, 255));
                 return true;
             }
-            this.f12682i.vibrate(400L);
+            this.f12690i.vibrate(400L);
             return true;
         }
         return invokeV.booleanValue;
@@ -219,14 +219,14 @@ public class x implements SensorEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (!z && (i2 = this.l) != 0) {
-                SoundPool soundPool = this.f12683j;
+                SoundPool soundPool = this.f12691j;
                 if (soundPool != null) {
                     soundPool.play(i2, 1.0f, 1.0f, 0, 0, 1.0f);
                     return;
                 }
                 return;
             }
-            SoundPool soundPool2 = this.f12683j;
+            SoundPool soundPool2 = this.f12691j;
             if (soundPool2 != null) {
                 soundPool2.play(this.k, 1.0f, 1.0f, 0, 0, 1.0f);
             }
@@ -276,7 +276,7 @@ public class x implements SensorEventListener {
     public void onSensorChanged(SensorEvent sensorEvent) {
         b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && (bVar = this.f12679f) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048587, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && (bVar = this.f12687f) != null) {
             bVar.a();
         }
     }

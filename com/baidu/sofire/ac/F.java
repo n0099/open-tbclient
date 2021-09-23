@@ -12,12 +12,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.e;
 import com.baidu.sofire.core.f;
+import com.baidu.sofire.core.g;
 import com.baidu.sofire.h.a;
 import com.baidu.sofire.jni.Asc;
 import com.baidu.sofire.utility.c;
-import com.baidu.sofire.utility.g;
-import com.baidu.sofire.utility.t;
-import com.baidu.sofire.utility.x;
+import com.baidu.sofire.utility.h;
+import com.baidu.sofire.utility.v;
+import com.baidu.sofire.utility.z;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +70,7 @@ public class F implements FI {
             if (bArr2 != null) {
                 try {
                     if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                        byte[] a2 = g.a(bArr2, bArr);
+                        byte[] a2 = h.a(bArr2, bArr);
                         if (a2 != null && a2.length != 0) {
                             return a2;
                         }
@@ -93,7 +94,7 @@ public class F implements FI {
             if (bArr2 != null) {
                 try {
                     if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                        byte[] a2 = g.a(bArr2, bArr, true);
+                        byte[] a2 = h.a(bArr2, bArr, true);
                         if (a2 != null && a2.length != 0) {
                             return a2;
                         }
@@ -189,7 +190,7 @@ public class F implements FI {
             if (context == null) {
                 return false;
             }
-            return t.a(context);
+            return v.a(context);
         }
         return invokeL.booleanValue;
     }
@@ -215,7 +216,7 @@ public class F implements FI {
             if (context == null) {
                 return null;
             }
-            return a.a(context).f45339a;
+            return a.a(context).f45428a;
         }
         return (SharedPreferences) invokeL.objValue;
     }
@@ -228,7 +229,7 @@ public class F implements FI {
             if (context == null) {
                 return null;
             }
-            return a.a(context).f45341c;
+            return a.a(context).f45430c;
         }
         return (SharedPreferences) invokeL.objValue;
     }
@@ -239,7 +240,7 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f45182d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f45244d;
                 if (aVar != null) {
                     return aVar.b();
                 }
@@ -289,7 +290,7 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             try {
-                ApkInfo apkInfo = f.a().f45296a.get(str);
+                ApkInfo apkInfo = f.a().f45385a.get(str);
                 if (apkInfo == null) {
                     return null;
                 }
@@ -311,7 +312,7 @@ public class F implements FI {
                 if (TextUtils.isEmpty(str) || intentFilter == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (a2 = f.a()) == null) {
                     return;
                 }
-                a2.a(new com.baidu.sofire.core.g(str, intentFilter, str2, str3));
+                a2.a(new g(str, intentFilter, str2, str3));
             } catch (Throwable unused) {
                 c.a();
             }
@@ -326,7 +327,7 @@ public class F implements FI {
             if (bArr2 != null) {
                 try {
                     if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                        byte[] c2 = g.c(bArr, bArr2);
+                        byte[] c2 = h.c(bArr, bArr2);
                         if (c2 != null && c2.length != 0) {
                             return c2;
                         }
@@ -350,7 +351,7 @@ public class F implements FI {
             if (bArr2 != null) {
                 try {
                     if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                        byte[] b2 = g.b(bArr, bArr2);
+                        byte[] b2 = h.b(bArr, bArr2);
                         if (b2 != null && b2.length != 0) {
                             return b2;
                         }
@@ -373,7 +374,7 @@ public class F implements FI {
             return;
         }
         try {
-            x.a(context).b(new U(context.getApplicationContext(), 5, true));
+            z.a(context).b(new U(context.getApplicationContext(), 5, true));
         } catch (Throwable unused) {
             c.a();
         }
@@ -384,12 +385,12 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f45182d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f45244d;
                 if (aVar != null) {
                     int i3 = z ? 1 : 0;
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("s", Integer.valueOf(i3));
-                    SQLiteDatabase sQLiteDatabase = aVar.f45185c;
+                    SQLiteDatabase sQLiteDatabase = aVar.f45247c;
                     sQLiteDatabase.update("pgn", contentValues, "k=" + i2 + " and n=1", null);
                 }
             } catch (Throwable unused) {
@@ -403,12 +404,12 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048595, this, str, z) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f45182d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f45244d;
                 if (aVar != null) {
                     int i2 = z ? 1 : 0;
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("s", Integer.valueOf(i2));
-                    aVar.f45185c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                    aVar.f45247c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
                 }
             } catch (Throwable unused) {
                 c.a();
@@ -437,7 +438,7 @@ public class F implements FI {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (a2 = f.a()) == null) {
                     return;
                 }
-                a2.b(new com.baidu.sofire.core.g(str, intentFilter, str2, str3));
+                a2.b(new g(str, intentFilter, str2, str3));
             } catch (Throwable unused) {
                 c.a();
             }

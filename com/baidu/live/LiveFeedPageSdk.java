@@ -21,30 +21,30 @@ public class LiveFeedPageSdk {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f40696e;
+    public static boolean f40758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static LiveFeedPageSdk f40697f;
+    public static LiveFeedPageSdk f40759f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40698a;
+    public String f40760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f40699b;
+    public Context f40761b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40700c;
+    public boolean f40762c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f40701d;
+    public b f40763d;
 
     /* loaded from: classes5.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final LiveFeedPageSdk f40702a;
+        public static final LiveFeedPageSdk f40764a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,7 +60,7 @@ public class LiveFeedPageSdk {
                     return;
                 }
             }
-            f40702a = new LiveFeedPageSdk();
+            f40764a = new LiveFeedPageSdk();
         }
 
         public Holder() {
@@ -111,10 +111,10 @@ public class LiveFeedPageSdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f40697f == null) {
-                f40697f = Holder.f40702a;
+            if (f40759f == null) {
+                f40759f = Holder.f40764a;
             }
-            return f40697f;
+            return f40759f;
         }
         return (LiveFeedPageSdk) invokeV.objValue;
     }
@@ -122,14 +122,14 @@ public class LiveFeedPageSdk {
     public static void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            boolean z = f40696e;
+            boolean z = f40758e;
         }
     }
 
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40699b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40761b : (Context) invokeV.objValue;
     }
 
     public String b() {
@@ -160,13 +160,13 @@ public class LiveFeedPageSdk {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40698a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40760a : (String) invokeV.objValue;
     }
 
     public b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40701d : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40763d : (b) invokeV.objValue;
     }
 
     public String g(Context context) {
@@ -178,7 +178,7 @@ public class LiveFeedPageSdk {
     public void h(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            this.f40698a = str;
+            this.f40760a = str;
             f.e().o(str, str2);
         }
     }
@@ -186,7 +186,7 @@ public class LiveFeedPageSdk {
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f40701d = bVar;
+            this.f40763d = bVar;
         }
     }
 
@@ -200,20 +200,20 @@ public class LiveFeedPageSdk {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40700c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40762c : invokeV.booleanValue;
     }
 
     public void m(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, context) == null) && context != null && this.f40699b == null) {
-            this.f40699b = context.getApplicationContext();
+        if ((interceptable == null || interceptable.invokeL(1048586, this, context) == null) && context != null && this.f40761b == null) {
+            this.f40761b = context.getApplicationContext();
         }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f40700c = true;
+            this.f40762c = true;
         }
     }
 

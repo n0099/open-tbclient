@@ -18,22 +18,22 @@ public class n extends BaseCardInfo implements p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f15589e;
+    public boolean f15598e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f15590f;
+    public boolean f15599f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15591g;
+    public String f15600g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<m> f15592h;
+    public List<m> f15601h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15593i;
+    public int f15602i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f15594j;
+    public int f15603j;
 
     static {
         InterceptResult invokeClinit;
@@ -64,15 +64,15 @@ public class n extends BaseCardInfo implements p {
                 return;
             }
         }
-        this.f15589e = true;
-        this.f15590f = true;
+        this.f15598e = true;
+        this.f15599f = true;
     }
 
     @Override // c.a.r0.a0.d0.p
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f15589e = z;
+            this.f15598e = z;
         }
     }
 
@@ -80,7 +80,7 @@ public class n extends BaseCardInfo implements p {
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15593i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15602i : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
@@ -104,7 +104,7 @@ public class n extends BaseCardInfo implements p {
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f15590f = z;
+            this.f15599f = z;
         }
     }
 }

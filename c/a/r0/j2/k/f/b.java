@@ -18,7 +18,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f20396a;
+    public BdUniqueId f20411a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
-            uEGReportRequestMessage.setTag(this.f20396a);
+            uEGReportRequestMessage.setTag(this.f20411a);
             uEGReportRequestMessage.setPid(str);
             MessageManager.getInstance().sendMessage(uEGReportRequestMessage);
         }
@@ -52,7 +52,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
-            uEGReportRequestMessage.setTag(this.f20396a);
+            uEGReportRequestMessage.setTag(this.f20411a);
             uEGReportRequestMessage.setTUid(str);
             MessageManager.getInstance().sendMessage(uEGReportRequestMessage);
         }
@@ -61,7 +61,7 @@ public class b {
     public void c(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.f20396a = bdUniqueId;
+            this.f20411a = bdUniqueId;
         }
     }
 }

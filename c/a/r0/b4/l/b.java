@@ -46,34 +46,34 @@ public class b extends AMediaPlayer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f16303a;
+    public Context f16313a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0783b f16304b;
+    public C0781b f16314b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final v f16305c;
+    public final v f16315c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IMediaPlayer.OnSpeedChangeListener f16306d;
+    public IMediaPlayer.OnSpeedChangeListener f16316d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f16307e;
+    public boolean f16317e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16308f;
+    public int f16318f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16309g;
+    public String f16319g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f16310h;
+    public Handler f16320h;
 
     /* renamed from: i  reason: collision with root package name */
-    public l f16311i;
+    public l f16321i;
 
     /* renamed from: j  reason: collision with root package name */
-    public k f16312j;
+    public k f16322j;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -97,18 +97,18 @@ public class b extends AMediaPlayer {
             }
         }
         String str = "QMExoMP@" + Integer.toHexString(hashCode());
-        this.f16303a = context.getApplicationContext();
+        this.f16313a = context.getApplicationContext();
         i iVar = new i();
-        this.f16305c = h.a(new f(context, null), new c(new a.C1494a(iVar)), new e());
-        C0783b c0783b = new C0783b(this, null);
-        this.f16304b = c0783b;
-        this.f16305c.i(c0783b);
-        this.f16305c.J(this.f16304b);
-        this.f16305c.l(false);
-        this.f16310h = new Handler(Looper.getMainLooper());
-        String v = c.i.b.a.i0.v.v(this.f16303a, "ExoMediaPlayer");
-        this.f16309g = v;
-        this.f16312j = new k(this.f16303a, v, iVar);
+        this.f16315c = h.a(new f(context, null), new c(new a.C1493a(iVar)), new e());
+        C0781b c0781b = new C0781b(this, null);
+        this.f16314b = c0781b;
+        this.f16315c.i(c0781b);
+        this.f16315c.J(this.f16314b);
+        this.f16315c.l(false);
+        this.f16320h = new Handler(Looper.getMainLooper());
+        String v = c.i.b.a.i0.v.v(this.f16313a, "ExoMediaPlayer");
+        this.f16319g = v;
+        this.f16322j = new k(this.f16313a, v, iVar);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
@@ -116,13 +116,13 @@ public class b extends AMediaPlayer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            v vVar = this.f16305c;
+            v vVar = this.f16315c;
             if (vVar == null) {
                 return 0L;
             }
             w m = vVar.m();
-            int k = this.f16305c.k();
-            long currentPosition = this.f16305c.getCurrentPosition();
+            int k = this.f16315c.k();
+            long currentPosition = this.f16315c.getCurrentPosition();
             w.c cVar = new w.c();
             if (m != null) {
                 for (int i2 = 0; i2 < m.o(); i2++) {
@@ -144,10 +144,10 @@ public class b extends AMediaPlayer {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f16307e && (vVar = this.f16305c) != null) {
+            if (this.f16317e && (vVar = this.f16315c) != null) {
                 w m = vVar.m();
-                this.f16305c.k();
-                this.f16305c.getCurrentPosition();
+                this.f16315c.k();
+                this.f16315c.getCurrentPosition();
                 w.c cVar = new w.c();
                 if (m != null) {
                     j2 = 0;
@@ -157,9 +157,9 @@ public class b extends AMediaPlayer {
                 } else {
                     j2 = 0;
                 }
-                return j2 == 0 ? this.f16308f : j2;
+                return j2 == 0 ? this.f16318f : j2;
             }
-            return this.f16308f;
+            return this.f16318f;
         }
         return invokeV.longValue;
     }
@@ -169,9 +169,9 @@ public class b extends AMediaPlayer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            v vVar = this.f16305c;
+            v vVar = this.f16315c;
             if (vVar != null) {
-                return vVar.d().f33943a;
+                return vVar.d().f33966a;
             }
             return 1.0f;
         }
@@ -182,7 +182,7 @@ public class b extends AMediaPlayer {
     public int getPlaybackState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16305c.getPlaybackState() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16315c.getPlaybackState() : invokeV.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
@@ -190,7 +190,7 @@ public class b extends AMediaPlayer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            v vVar = this.f16305c;
+            v vVar = this.f16315c;
             if (vVar != null) {
                 return vVar.O();
             }
@@ -211,7 +211,7 @@ public class b extends AMediaPlayer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int playbackState = this.f16305c.getPlaybackState();
+            int playbackState = this.f16315c.getPlaybackState();
             return (playbackState == 1 || playbackState == 2) ? false : true;
         }
         return invokeV.booleanValue;
@@ -222,7 +222,7 @@ public class b extends AMediaPlayer {
         InterceptResult invokeV;
         v vVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? isPlayable() && (vVar = this.f16305c) != null && vVar.getPlaybackState() != 4 && this.f16305c.g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? isPlayable() && (vVar = this.f16315c) != null && vVar.getPlaybackState() != 4 && this.f16315c.g() : invokeV.booleanValue;
     }
 
     public final l o(Uri uri, String str) {
@@ -239,15 +239,15 @@ public class b extends AMediaPlayer {
                 if (y != 1) {
                     if (y != 2) {
                         if (y == 3) {
-                            return new c.i.b.a.d0.i(uri, this.f16312j, new c.i.b.a.a0.c(), this.f16310h, null);
+                            return new c.i.b.a.d0.i(uri, this.f16322j, new c.i.b.a.a0.c(), this.f16320h, null);
                         }
                         throw new IllegalStateException("Unsupported type: " + y);
                     }
-                    return new j(uri, this.f16312j, this.f16310h, null);
+                    return new j(uri, this.f16322j, this.f16320h, null);
                 }
-                return new d(uri, new k(this.f16303a, this.f16309g), new a.C1488a(this.f16312j), this.f16310h, null);
+                return new d(uri, new k(this.f16313a, this.f16319g), new a.C1487a(this.f16322j), this.f16320h, null);
             }
-            return new c.i.b.a.d0.v.c(uri, new k(this.f16303a, this.f16309g), new f.a(this.f16312j), this.f16310h, null);
+            return new c.i.b.a.d0.v.c(uri, new k(this.f16313a, this.f16319g), new f.a(this.f16322j), this.f16320h, null);
         }
         return (l) invokeLL.objValue;
     }
@@ -255,8 +255,8 @@ public class b extends AMediaPlayer {
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
     public void pause() throws IllegalStateException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f16307e) {
-            v vVar = this.f16305c;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f16317e) {
+            v vVar = this.f16315c;
             if (vVar != null) {
                 vVar.l(false);
             }
@@ -266,33 +266,33 @@ public class b extends AMediaPlayer {
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
     public void prepareAsync() throws IllegalStateException {
-        C0783b c0783b;
+        C0781b c0781b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f16307e || this.f16311i == null || (c0783b = this.f16304b) == null || c0783b.f16313e) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f16317e || this.f16321i == null || (c0781b = this.f16314b) == null || c0781b.f16323e) {
             return;
         }
-        this.f16305c.b(this.f16311i);
-        this.f16304b.f16313e = true;
+        this.f16315c.b(this.f16321i);
+        this.f16314b.f16323e = true;
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f16307e = false;
-            this.f16311i = null;
-            C0783b c0783b = this.f16304b;
-            if (c0783b != null) {
-                c0783b.f16313e = false;
+            this.f16317e = false;
+            this.f16321i = null;
+            C0781b c0781b = this.f16314b;
+            if (c0781b != null) {
+                c0781b.f16323e = false;
             }
-            this.f16308f = 0;
-            this.f16305c.release();
-            C0783b c0783b2 = this.f16304b;
-            if (c0783b2 != null) {
-                this.f16305c.R(c0783b2);
-                this.f16305c.f(this.f16304b);
+            this.f16318f = 0;
+            this.f16315c.release();
+            C0781b c0781b2 = this.f16314b;
+            if (c0781b2 != null) {
+                this.f16315c.R(c0781b2);
+                this.f16315c.f(this.f16314b);
             }
-            this.f16304b = null;
+            this.f16314b = null;
             releaseListeners();
         }
     }
@@ -301,14 +301,14 @@ public class b extends AMediaPlayer {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f16311i = null;
-            this.f16307e = false;
-            C0783b c0783b = this.f16304b;
-            if (c0783b != null) {
-                c0783b.f16313e = false;
+            this.f16321i = null;
+            this.f16317e = false;
+            C0781b c0781b = this.f16314b;
+            if (c0781b != null) {
+                c0781b.f16323e = false;
             }
-            this.f16308f = 0;
-            v vVar = this.f16305c;
+            this.f16318f = 0;
+            v vVar = this.f16315c;
             if (vVar != null) {
                 vVar.stop();
             }
@@ -320,7 +320,7 @@ public class b extends AMediaPlayer {
         v vVar;
         int k;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) && this.f16307e && (vVar = this.f16305c) != null) {
+        if ((interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) && this.f16317e && (vVar = this.f16315c) != null) {
             w m = vVar.m();
             if (!m.p()) {
                 int o = m.o();
@@ -338,12 +338,12 @@ public class b extends AMediaPlayer {
                     }
                 }
             } else {
-                k = this.f16305c.k();
+                k = this.f16315c.k();
             }
-            this.f16305c.p(k, j2);
-            C0783b c0783b = this.f16304b;
-            if (c0783b != null) {
-                c0783b.f16314f = true;
+            this.f16315c.p(k, j2);
+            C0781b c0781b = this.f16314b;
+            if (c0781b != null) {
+                c0781b.f16324f = true;
             }
         }
     }
@@ -360,8 +360,8 @@ public class b extends AMediaPlayer {
     public void setAudioDataSource(List<AudioPlayData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
-            this.f16307e = false;
-            this.f16308f = 0;
+            this.f16317e = false;
+            this.f16318f = 0;
             int size = list.size();
             l[] lVarArr = new l[size];
             int i2 = 0;
@@ -371,7 +371,7 @@ public class b extends AMediaPlayer {
                 audioPlayData.offset = i2;
                 int i5 = audioPlayData.end - audioPlayData.start;
                 i2 += i5;
-                this.f16308f += i5;
+                this.f16318f += i5;
                 l o = o(Uri.parse(audioPlayData.audioPath), "");
                 int i6 = audioPlayData.start;
                 if (i6 < 0) {
@@ -383,7 +383,7 @@ public class b extends AMediaPlayer {
                 }
                 lVarArr[i3] = new c.i.b.a.d0.d(o, i6 * 1000, i4 * 1000);
             }
-            this.f16311i = new c.i.b.a.d0.f(lVarArr);
+            this.f16321i = new c.i.b.a.d0.f(lVarArr);
             setPlaybackState(IMediaPlayer.STATE_GOT_SOURCE);
         }
     }
@@ -400,7 +400,7 @@ public class b extends AMediaPlayer {
     public void setDisplay(SurfaceHolder surfaceHolder) {
         v vVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, surfaceHolder) == null) || (vVar = this.f16305c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, surfaceHolder) == null) || (vVar = this.f16315c) == null) {
             return;
         }
         vVar.T(surfaceHolder);
@@ -410,7 +410,7 @@ public class b extends AMediaPlayer {
     public void setOnSpeedChangeListener(IMediaPlayer.OnSpeedChangeListener onSpeedChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, onSpeedChangeListener) == null) {
-            this.f16306d = onSpeedChangeListener;
+            this.f16316d = onSpeedChangeListener;
         }
     }
 
@@ -419,7 +419,7 @@ public class b extends AMediaPlayer {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048597, this, f2)) == null) {
-            v vVar = this.f16305c;
+            v vVar = this.f16315c;
             if (vVar != null) {
                 vVar.c(new p(f2, 1.0f));
                 return true;
@@ -433,7 +433,7 @@ public class b extends AMediaPlayer {
     public void setSurface(Surface surface) {
         v vVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, surface) == null) || (vVar = this.f16305c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, surface) == null) || (vVar = this.f16315c) == null) {
             return;
         }
         vVar.S(surface);
@@ -443,7 +443,7 @@ public class b extends AMediaPlayer {
     public void setVolume(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f16305c.X(f2);
+            this.f16315c.X(f2);
         }
     }
 
@@ -451,11 +451,11 @@ public class b extends AMediaPlayer {
     public void start() throws IllegalStateException {
         v vVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.f16307e && (vVar = this.f16305c) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && this.f16317e && (vVar = this.f16315c) != null) {
             if (vVar.getPlaybackState() == 4) {
                 seekTo(0L);
             } else {
-                this.f16305c.l(true);
+                this.f16315c.l(true);
             }
             notifyOnPlayStateChange(1);
         }
@@ -465,13 +465,13 @@ public class b extends AMediaPlayer {
     public void stop() throws IllegalStateException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.f16311i = null;
-            this.f16307e = false;
-            C0783b c0783b = this.f16304b;
-            if (c0783b != null) {
-                c0783b.f16313e = false;
+            this.f16321i = null;
+            this.f16317e = false;
+            C0781b c0781b = this.f16314b;
+            if (c0781b != null) {
+                c0781b.f16323e = false;
             }
-            v vVar = this.f16305c;
+            v vVar = this.f16315c;
             if (vVar != null) {
                 vVar.stop();
             }
@@ -483,40 +483,40 @@ public class b extends AMediaPlayer {
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048592, this, context, uri, map) == null) {
-            this.f16307e = false;
+            this.f16317e = false;
             super.setDataSource(context, uri, map);
-            this.f16311i = o(uri, "");
+            this.f16321i = o(uri, "");
             setPlaybackState(IMediaPlayer.STATE_GOT_SOURCE);
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             mediaMetadataRetriever.setDataSource(uri.getPath());
             String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
             mediaMetadataRetriever.release();
-            this.f16308f = g.b(extractMetadata, 0);
+            this.f16318f = g.b(extractMetadata, 0);
         }
     }
 
     /* renamed from: c.a.r0.b4.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0783b extends q.a implements v.c {
+    public class C0781b extends q.a implements v.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f16313e;
+        public boolean f16323e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f16314f;
+        public boolean f16324f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f16315g;
+        public boolean f16325g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f16316h;
+        public boolean f16326h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f16317i;
+        public final /* synthetic */ b f16327i;
 
-        public C0783b(b bVar) {
+        public C0781b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -531,18 +531,18 @@ public class b extends AMediaPlayer {
                     return;
                 }
             }
-            this.f16317i = bVar;
-            this.f16313e = false;
-            this.f16314f = false;
-            this.f16315g = false;
-            this.f16316h = false;
+            this.f16327i = bVar;
+            this.f16323e = false;
+            this.f16324f = false;
+            this.f16325g = false;
+            this.f16326h = false;
         }
 
         @Override // c.i.b.a.q.a, c.i.b.a.q.b
         public void d(ExoPlaybackException exoPlaybackException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exoPlaybackException) == null) {
-                this.f16317i.notifyOnError(1, 1, exoPlaybackException);
+                this.f16327i.notifyOnError(1, 1, exoPlaybackException);
             }
         }
 
@@ -550,55 +550,55 @@ public class b extends AMediaPlayer {
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f16317i.notifyOnInfo(3, 0);
+                this.f16327i.notifyOnInfo(3, 0);
             }
         }
 
         @Override // c.i.b.a.q.a, c.i.b.a.q.b
         public void j(p pVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pVar) == null) || this.f16317i.f16306d == null || pVar == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pVar) == null) || this.f16327i.f16316d == null || pVar == null) {
                 return;
             }
-            this.f16317i.f16306d.onSpeedChange(pVar.f33943a);
+            this.f16327i.f16316d.onSpeedChange(pVar.f33966a);
         }
 
         @Override // c.i.b.a.q.b
         public void l(boolean z, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-                this.f16317i.setPlaybackState(i2);
-                if (this.f16315g && (i2 == 3 || i2 == 4)) {
-                    this.f16315g = false;
-                    b bVar = this.f16317i;
-                    bVar.notifyOnInfo(702, bVar.f16305c.j());
+                this.f16327i.setPlaybackState(i2);
+                if (this.f16325g && (i2 == 3 || i2 == 4)) {
+                    this.f16325g = false;
+                    b bVar = this.f16327i;
+                    bVar.notifyOnInfo(702, bVar.f16315c.j());
                 }
-                if (this.f16313e && i2 == 3) {
-                    this.f16313e = false;
-                    this.f16317i.f16307e = true;
-                    this.f16317i.notifyOnPrepared();
+                if (this.f16323e && i2 == 3) {
+                    this.f16323e = false;
+                    this.f16327i.f16317e = true;
+                    this.f16327i.notifyOnPrepared();
                 }
-                if (this.f16314f && i2 == 3) {
-                    this.f16314f = false;
-                    this.f16317i.notifyOnSeekComplete();
+                if (this.f16324f && i2 == 3) {
+                    this.f16324f = false;
+                    this.f16327i.notifyOnSeekComplete();
                 }
                 if (i2 == 2) {
-                    b bVar2 = this.f16317i;
-                    bVar2.notifyOnInfo(701, bVar2.f16305c.j());
-                    this.f16315g = true;
+                    b bVar2 = this.f16327i;
+                    bVar2.notifyOnInfo(701, bVar2.f16315c.j());
+                    this.f16325g = true;
                 } else if (i2 != 3) {
-                    if (i2 == 4 && !this.f16316h) {
-                        this.f16316h = true;
-                        if (!this.f16317i.isLooping()) {
-                            this.f16317i.notifyOnPlayStateChange(2);
-                            this.f16317i.notifyOnCompletion();
+                    if (i2 == 4 && !this.f16326h) {
+                        this.f16326h = true;
+                        if (!this.f16327i.isLooping()) {
+                            this.f16327i.notifyOnPlayStateChange(2);
+                            this.f16327i.notifyOnCompletion();
                             return;
                         }
-                        this.f16317i.seekTo(0L);
-                        this.f16317i.notifyOnLooping();
+                        this.f16327i.seekTo(0L);
+                        this.f16327i.notifyOnLooping();
                     }
                 } else {
-                    this.f16316h = false;
+                    this.f16326h = false;
                 }
             }
         }
@@ -607,11 +607,11 @@ public class b extends AMediaPlayer {
         public void onVideoSizeChanged(int i2, int i3, int i4, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)}) == null) {
-                this.f16317i.notifyOnVideoSizeChanged(i2, i3, i4, f2);
+                this.f16327i.notifyOnVideoSizeChanged(i2, i3, i4, f2);
             }
         }
 
-        public /* synthetic */ C0783b(b bVar, a aVar) {
+        public /* synthetic */ C0781b(b bVar, a aVar) {
             this(bVar);
         }
     }
@@ -620,8 +620,8 @@ public class b extends AMediaPlayer {
     public void setDataSource(List<VideoPlayData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
-            this.f16307e = false;
-            this.f16308f = 0;
+            this.f16317e = false;
+            this.f16318f = 0;
             l[] lVarArr = new l[list.size()];
             int i2 = 0;
             for (int i3 = 0; i3 < list.size(); i3++) {
@@ -643,7 +643,7 @@ public class b extends AMediaPlayer {
                 videoPlayData.offset = i2;
                 int i4 = videoPlayData.end - videoPlayData.start;
                 i2 += i4;
-                this.f16308f += i4;
+                this.f16318f += i4;
                 l o = o(Uri.parse(videoPlayData.videoPath), "");
                 int i5 = videoPlayData.start;
                 if (i5 < 0) {
@@ -655,7 +655,7 @@ public class b extends AMediaPlayer {
                 }
                 lVarArr[i3] = new c.i.b.a.d0.d(o, i5 * 1000, b5 * 1000);
             }
-            this.f16311i = new c.i.b.a.d0.f(lVarArr);
+            this.f16321i = new c.i.b.a.d0.f(lVarArr);
             setPlaybackState(IMediaPlayer.STATE_GOT_SOURCE);
         }
     }

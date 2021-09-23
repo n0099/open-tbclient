@@ -34,7 +34,7 @@ public class a extends l {
                 return;
             }
         }
-        o = k.f7077a;
+        o = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -101,10 +101,10 @@ public class a extends l {
                 return aVar;
             }
             c.a.p0.a.p0.g.a aVar2 = new c.a.p0.a.p0.g.a();
-            aVar2.f7981b = bVar.f11887i;
-            aVar2.f7980a = bVar.f11888j;
-            aVar2.f7982c = bVar.f11879a;
-            aVar2.f7983d = bVar.m;
+            aVar2.f7989b = bVar.f11895i;
+            aVar2.f7988a = bVar.f11896j;
+            aVar2.f7990c = bVar.f11887a;
+            aVar2.f7991d = bVar.m;
             if (c.a.p0.a.p0.b.b(1, aVar2) == null) {
                 boolean z = o;
                 return null;
@@ -134,7 +134,7 @@ public class a extends l {
                 return aVar;
             }
             a.b c2 = c.a.p0.a.m2.f.a.c(dVar, 1);
-            c.a.p0.t.d.j(dVar.f11879a);
+            c.a.p0.t.d.j(dVar.f11887a);
             if (c2.c()) {
                 boolean z = o;
                 long e2 = c.a.p0.a.m2.f.a.e(1);

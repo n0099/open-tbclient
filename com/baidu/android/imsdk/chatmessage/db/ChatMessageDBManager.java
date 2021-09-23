@@ -39,7 +39,6 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.task.item.StrictModeTask;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -2257,7 +2256,7 @@ public class ChatMessageDBManager extends DBBase {
                     return -1L;
                 }
                 try {
-                    return openDatabase.delete(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, "input_time < ?", new String[]{String.valueOf(System.currentTimeMillis() - StrictModeTask.CLEAN_FILE_INTERVAL)});
+                    return openDatabase.delete(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, "input_time < ?", new String[]{String.valueOf(System.currentTimeMillis() - 172800000)});
                 } catch (Exception e2) {
                     LogUtils.e(TAG, "deleteStudioUsePaMsgs :", e2);
                     return -1L;

@@ -31,22 +31,22 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f58287e;
+    public Context f58417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f58288f;
+    public TextView f58418f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f58289g;
+    public TextView f58419g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f58290h;
+    public TextView f58420h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f58291i;
+    public ImageView f58421i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f58292j;
+    public TextView f58422j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -65,10 +65,10 @@ public class PersonHeaderAttentionView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.r0.o0.a f58293e;
+        public c.a.r0.o0.a f58423e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PersonHeaderAttentionView f58294f;
+        public final /* synthetic */ PersonHeaderAttentionView f58424f;
 
         public a(PersonHeaderAttentionView personHeaderAttentionView) {
             Interceptable interceptable = $ic;
@@ -85,50 +85,50 @@ public class PersonHeaderAttentionView extends LinearLayout {
                     return;
                 }
             }
-            this.f58294f = personHeaderAttentionView;
-            this.f58293e = new c.a.r0.o0.a();
+            this.f58424f = personHeaderAttentionView;
+            this.f58423e = new c.a.r0.o0.a();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f58294f.q == null || view == null || !ViewHelper.checkUpIsLogin(this.f58294f.f58287e)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f58424f.q == null || view == null || !ViewHelper.checkUpIsLogin(this.f58424f.f58417e)) {
                 return;
             }
-            boolean equals = TbadkCoreApplication.getCurrentAccount().equals(this.f58294f.q.getUserId());
-            boolean z = this.f58294f.q.getIsFriend() == 1;
+            boolean equals = TbadkCoreApplication.getCurrentAccount().equals(this.f58424f.q.getUserId());
+            boolean z = this.f58424f.q.getIsFriend() == 1;
             int id = view.getId();
-            if (id != this.f58294f.f58288f.getId() && id != this.f58294f.f58289g.getId()) {
-                if (id != this.f58294f.f58290h.getId() && id != this.f58294f.f58292j.getId()) {
-                    if (id == this.f58294f.k.getId() || id == this.f58294f.l.getId()) {
+            if (id != this.f58424f.f58418f.getId() && id != this.f58424f.f58419g.getId()) {
+                if (id != this.f58424f.f58420h.getId() && id != this.f58424f.f58422j.getId()) {
+                    if (id == this.f58424f.k.getId() || id == this.f58424f.l.getId()) {
                         TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "10"));
-                        if (this.f58294f.q.getPersonPrivate() != null) {
-                            if (this.f58294f.q.getPersonPrivate().w() != 1 && !equals && (!z || this.f58294f.q.getPersonPrivate().w() != 2)) {
-                                PersonHeaderAttentionView personHeaderAttentionView = this.f58294f;
+                        if (this.f58424f.q.getPersonPrivate() != null) {
+                            if (this.f58424f.q.getPersonPrivate().w() != 1 && !equals && (!z || this.f58424f.q.getPersonPrivate().w() != 2)) {
+                                PersonHeaderAttentionView personHeaderAttentionView = this.f58424f;
                                 personHeaderAttentionView.m(personHeaderAttentionView.q.getSex());
                                 return;
                             }
-                            this.f58293e.f23032a = 7;
+                            this.f58423e.f23048a = 7;
                         } else {
-                            PersonHeaderAttentionView personHeaderAttentionView2 = this.f58294f;
+                            PersonHeaderAttentionView personHeaderAttentionView2 = this.f58424f;
                             personHeaderAttentionView2.m(personHeaderAttentionView2.q.getSex());
                             return;
                         }
                     }
                 } else {
                     TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "8"));
-                    this.f58293e.f23032a = 5;
+                    this.f58423e.f23048a = 5;
                 }
             } else {
                 TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "9"));
-                this.f58293e.f23032a = 4;
+                this.f58423e.f23048a = 4;
             }
-            if (this.f58294f.p == null) {
+            if (this.f58424f.p == null) {
                 return;
             }
-            this.f58293e.f23033b = new Bundle();
-            this.f58293e.f23033b.putSerializable(UserData.TYPE_USER, this.f58294f.q);
-            this.f58294f.p.a(view, this.f58293e);
+            this.f58423e.f23049b = new Bundle();
+            this.f58423e.f23049b.putSerializable(UserData.TYPE_USER, this.f58424f.q);
+            this.f58424f.p.a(view, this.f58423e);
         }
     }
 
@@ -160,10 +160,10 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f58290h.setOnClickListener(this.u);
-            this.f58292j.setOnClickListener(this.u);
-            this.f58288f.setOnClickListener(this.u);
-            this.f58289g.setOnClickListener(this.u);
+            this.f58420h.setOnClickListener(this.u);
+            this.f58422j.setOnClickListener(this.u);
+            this.f58418f.setOnClickListener(this.u);
+            this.f58419g.setOnClickListener(this.u);
             this.k.setOnClickListener(this.u);
             this.l.setOnClickListener(this.u);
             this.m.setOnClickListener(this.u);
@@ -174,15 +174,15 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public final void l(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f58287e = context;
+            this.f58417e = context;
             setOrientation(0);
             setGravity(16);
             LayoutInflater.from(context).inflate(R.layout.item_person_header_attention_view, (ViewGroup) this, true);
-            this.f58290h = (TextView) findViewById(R.id.person_header_fans_num);
-            this.f58292j = (TextView) findViewById(R.id.person_header_fans_des);
-            this.f58291i = (ImageView) findViewById(R.id.person_header_fans_red_tip);
-            this.f58288f = (TextView) findViewById(R.id.person_header_attention_num);
-            this.f58289g = (TextView) findViewById(R.id.person_header_attention_des);
+            this.f58420h = (TextView) findViewById(R.id.person_header_fans_num);
+            this.f58422j = (TextView) findViewById(R.id.person_header_fans_des);
+            this.f58421i = (ImageView) findViewById(R.id.person_header_fans_red_tip);
+            this.f58418f = (TextView) findViewById(R.id.person_header_attention_num);
+            this.f58419g = (TextView) findViewById(R.id.person_header_attention_des);
             this.k = (TextView) findViewById(R.id.person_header_bar_num);
             this.l = (TextView) findViewById(R.id.person_header_bar_des);
             TextView textView = (TextView) findViewById(R.id.person_header_thread_num);
@@ -202,7 +202,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public final void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            Context context = this.f58287e;
+            Context context = this.f58417e;
             BdToast.i(context, String.format(context.getString(R.string.person_privacy_toast), StringHelper.getUserDescByGender(i2)), R.drawable.icon_pure_toast_mistake40_svg, true).q();
         }
     }
@@ -210,8 +210,8 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public final void n(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, str4) == null) {
-            this.f58288f.setText(str);
-            this.f58290h.setText(str2);
+            this.f58418f.setText(str);
+            this.f58420h.setText(str2);
             this.k.setText(str4);
             this.m.setText(str3);
         }
@@ -223,11 +223,11 @@ public class PersonHeaderAttentionView extends LinearLayout {
             return;
         }
         this.o = i2;
-        SkinManager.setViewTextColor(this.f58288f, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f58289g, R.color.CAM_X0107, 1);
-        SkinManager.setViewTextColor(this.f58290h, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f58292j, R.color.CAM_X0107, 1);
-        SkinManager.setImageResource(this.f58291i, R.drawable.icon_news_down_bar_one);
+        SkinManager.setViewTextColor(this.f58418f, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f58419g, R.color.CAM_X0107, 1);
+        SkinManager.setViewTextColor(this.f58420h, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f58422j, R.color.CAM_X0107, 1);
+        SkinManager.setImageResource(this.f58421i, R.drawable.icon_news_down_bar_one);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0107, 1);
         SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
@@ -242,16 +242,16 @@ public class PersonHeaderAttentionView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048581, this, userData) == null) {
             this.q = userData;
             if (userData.getConcernNum() >= 9999000) {
-                this.f58288f.setTextSize(0, l.g(this.f58287e, R.dimen.ds32));
+                this.f58418f.setTextSize(0, l.g(this.f58417e, R.dimen.ds32));
             }
             if (this.q.getFansNum() >= 9999000) {
-                this.f58290h.setTextSize(0, l.g(this.f58287e, R.dimen.ds32));
+                this.f58420h.setTextSize(0, l.g(this.f58417e, R.dimen.ds32));
             }
             if (this.q.getLike_bars() >= 9999000) {
-                this.k.setTextSize(0, l.g(this.f58287e, R.dimen.ds32));
+                this.k.setTextSize(0, l.g(this.f58417e, R.dimen.ds32));
             }
             if (this.q.getPosts_num() >= 9999000) {
-                this.m.setTextSize(0, l.g(this.f58287e, R.dimen.ds32));
+                this.m.setTextSize(0, l.g(this.f58417e, R.dimen.ds32));
             }
             n(StringHelper.numFormatOverWanNa(this.q.getConcernNum()), StringHelper.numFormatOverWanNa(this.q.getFansNum()), StringHelper.numFormatOverWanNa(this.q.getPosts_num()), StringHelper.numFormatOverWanNa(this.q.getLike_bars()));
         }
@@ -267,7 +267,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public void showMyFansRedTip(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (imageView = this.f58291i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (imageView = this.f58421i) == null) {
             return;
         }
         if (z) {

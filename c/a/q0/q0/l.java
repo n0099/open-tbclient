@@ -22,31 +22,31 @@ public class l extends j {
     public long D;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13716b;
+    public boolean f13712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13717c;
+    public boolean f13713c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13718d;
+    public boolean f13714d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13719e;
+    public boolean f13715e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f13720f;
+    public long f13716f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f13721g;
+    public long f13717g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f13722h;
+    public long f13718h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f13723i;
+    public long f13719i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f13724j;
+    public long f13720j;
     public long k;
     public long l;
     public long m;
@@ -92,15 +92,15 @@ public class l extends j {
                 return;
             }
         }
-        this.f13716b = false;
-        this.f13717c = false;
-        this.f13718d = false;
-        this.f13719e = false;
-        this.f13720f = -1L;
-        this.f13721g = -1L;
-        this.f13722h = -1L;
-        this.f13723i = -1L;
-        this.f13724j = -1L;
+        this.f13712b = false;
+        this.f13713c = false;
+        this.f13714d = false;
+        this.f13715e = false;
+        this.f13716f = -1L;
+        this.f13717g = -1L;
+        this.f13718h = -1L;
+        this.f13719i = -1L;
+        this.f13720j = -1L;
         this.k = -1L;
         this.l = -1L;
         this.m = -1L;
@@ -142,14 +142,14 @@ public class l extends j {
     public void A(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f13716b = z;
+            this.f13712b = z;
         }
     }
 
     public void B(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f13724j = j2;
+            this.f13720j = j2;
         }
     }
 
@@ -162,14 +162,14 @@ public class l extends j {
     public void D(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f13719e = z;
+            this.f13715e = z;
         }
     }
 
     public void E(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f13723i = j2;
+            this.f13719i = j2;
         }
     }
 
@@ -204,7 +204,7 @@ public class l extends j {
     public void J(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f13721g = j2;
+            this.f13717g = j2;
         }
     }
 
@@ -232,7 +232,7 @@ public class l extends j {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f13720f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f13716f : invokeV.longValue;
     }
 
     public long d() {
@@ -244,30 +244,30 @@ public class l extends j {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f13717c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f13713c : invokeV.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             long j2 = 0;
-            if (this.D - this.f13720f <= 0 || this.f13718d || this.v <= 0 || !k.d().g()) {
+            if (this.D - this.f13716f <= 0 || this.f13714d || this.v <= 0 || !k.d().g()) {
                 return;
             }
-            long j3 = this.f13721g - this.f13720f;
+            long j3 = this.f13717g - this.f13716f;
             long j4 = this.t;
             long j5 = j4 > 0 ? this.u - j4 : -1L;
-            this.f13718d = true;
+            this.f13714d = true;
             long j6 = this.D - this.C;
             c.a.e.e.n.a a2 = j.a();
             a2.b("procname", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
             a2.b("appc", String.valueOf(j3));
-            a2.b("loadclass", String.valueOf(this.f13722h));
-            a2.b("sapiinit", String.valueOf(this.f13723i));
+            a2.b("loadclass", String.valueOf(this.f13718h));
+            a2.b("sapiinit", String.valueOf(this.f13719i));
             a2.b("acctinit", String.valueOf(this.A));
             a2.b("iminit", String.valueOf(this.y));
             a2.b("plugininit", String.valueOf(this.z));
-            a2.b("patchloaded", String.valueOf(this.f13724j));
+            a2.b("patchloaded", String.valueOf(this.f13720j));
             a2.b("naslibinit", String.valueOf(this.k));
             a2.b("websocketinit", String.valueOf(this.l));
             a2.b("settinginit", String.valueOf(this.m));
@@ -293,8 +293,8 @@ public class l extends j {
             }
             a2.b("tabc", String.valueOf(j6));
             a2.b("costt", String.valueOf(this.w - j2));
-            a2.b("newinst", this.f13716b ? "1" : "0");
-            a2.c("pluginloadsync", Boolean.valueOf(this.f13719e));
+            a2.b("newinst", this.f13712b ? "1" : "0");
+            a2.c("pluginloadsync", Boolean.valueOf(this.f13715e));
             a2.b("hptotal", String.valueOf(this.v));
             a2.b("locationinit", String.valueOf(j3 + this.B + this.r + j5 + this.s + j6 + this.v));
             a2.b("userperceptiont", String.valueOf(this.x - j2));
@@ -316,14 +316,14 @@ public class l extends j {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f13716b = false;
-            this.f13717c = false;
-            this.f13720f = -1L;
-            this.f13721g = -1L;
+            this.f13712b = false;
+            this.f13713c = false;
+            this.f13716f = -1L;
+            this.f13717g = -1L;
             this.w = -1L;
-            this.f13722h = -1L;
-            this.f13723i = -1L;
-            this.f13724j = -1L;
+            this.f13718h = -1L;
+            this.f13719i = -1L;
+            this.f13720j = -1L;
             this.B = -1L;
             this.t = -1L;
             this.u = -1L;
@@ -393,7 +393,7 @@ public class l extends j {
             return;
         }
         this.v = j2;
-        this.w = System.currentTimeMillis() - this.f13720f;
+        this.w = System.currentTimeMillis() - this.f13716f;
     }
 
     public void p(long j2) {
@@ -426,14 +426,14 @@ public class l extends j {
     public void t(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048606, this, j2) == null) {
-            this.f13720f = j2;
+            this.f13716f = j2;
         }
     }
 
     public void u(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
-            this.f13722h = j2;
+            this.f13718h = j2;
         }
     }
 
@@ -461,7 +461,7 @@ public class l extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048611, this, j2) == null) {
             this.D = j2;
-            this.f13717c = true;
+            this.f13713c = true;
         }
     }
 

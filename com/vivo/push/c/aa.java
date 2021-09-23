@@ -12,10 +12,10 @@ public final class aa implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.t f76541a;
+    public final /* synthetic */ com.vivo.push.b.t f76860a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ z f76542b;
+    public final /* synthetic */ z f76861b;
 
     public aa(z zVar, com.vivo.push.b.t tVar) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class aa implements Runnable {
                 return;
             }
         }
-        this.f76542b = zVar;
-        this.f76541a = tVar;
+        this.f76861b = zVar;
+        this.f76860a = tVar;
     }
 
     @Override // java.lang.Runnable
@@ -41,10 +41,10 @@ public final class aa implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            z zVar = this.f76542b;
-            PushMessageCallback pushMessageCallback = ((ab) zVar).f76543b;
-            context = zVar.f76727a;
-            pushMessageCallback.onPublish(context, this.f76541a.h(), this.f76541a.g());
+            z zVar = this.f76861b;
+            PushMessageCallback pushMessageCallback = ((ab) zVar).f76862b;
+            context = zVar.f77046a;
+            pushMessageCallback.onPublish(context, this.f76860a.h(), this.f76860a.g());
         }
     }
 }

@@ -40,7 +40,7 @@ public class i extends c.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<r
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ i f23055b;
+        public final /* synthetic */ i f23071b;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class i extends c.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<r
                     return;
                 }
             }
-            this.f23055b = iVar;
+            this.f23071b = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class i extends c.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<r
         public void a(View view, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, cardPersonDynamicThreadData) == null) {
-                TiebaStatic.log(new StatisticItem("c12042").param("obj_type", this.f23055b.n ? 1 : 2));
+                TiebaStatic.log(new StatisticItem("c12042").param("obj_type", this.f23071b.n ? 1 : 2));
             }
         }
     }
@@ -77,7 +77,7 @@ public class i extends c.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<r
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f23056a;
+        public final /* synthetic */ i f23072a;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class i extends c.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<r
                     return;
                 }
             }
-            this.f23056a = iVar;
+            this.f23072a = iVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -137,7 +137,7 @@ public class i extends c.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<r
         public ConstrainImageLayout d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f23056a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f23072a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
         }
 
         public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
@@ -153,7 +153,7 @@ public class i extends c.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<r
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f23057a;
+        public final /* synthetic */ i f23073a;
 
         public c(i iVar) {
             Interceptable interceptable = $ic;
@@ -170,7 +170,7 @@ public class i extends c.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<r
                     return;
                 }
             }
-            this.f23057a = iVar;
+            this.f23073a = iVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -215,7 +215,7 @@ public class i extends c.a.e.l.e.a<CardPersonDynamicThreadData, CardViewHolder<r
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.f23057a.m.getPageActivity());
+                TbImageView tbImageView = new TbImageView(this.f23073a.m.getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));

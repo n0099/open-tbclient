@@ -15,16 +15,16 @@ public class o extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4454a;
+    public String f4462a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f4455b;
+    public float f4463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4456c;
+    public boolean f4464c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4457d;
+    public boolean f4465d;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class o extends a {
                 return;
             }
         }
-        this.f4454a = TypefaceCompatApi28Impl.DEFAULT_FAMILY;
-        this.f4455b = c.a.p0.a.v2.n0.g(10.0f);
-        this.f4456c = false;
-        this.f4457d = false;
+        this.f4462a = TypefaceCompatApi28Impl.DEFAULT_FAMILY;
+        this.f4463b = c.a.p0.a.v2.n0.g(10.0f);
+        this.f4464c = false;
+        this.f4465d = false;
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -50,15 +50,15 @@ public class o extends a {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) {
-            if (this.f4456c && this.f4457d) {
+            if (this.f4464c && this.f4465d) {
                 i2 = 3;
-            } else if (this.f4456c) {
+            } else if (this.f4464c) {
                 i2 = 1;
             } else {
-                i2 = this.f4457d ? 2 : 0;
+                i2 = this.f4465d ? 2 : 0;
             }
-            bVar.f4395i.setTypeface(Typeface.create(this.f4454a, i2));
-            bVar.f4395i.setTextSize(this.f4455b);
+            bVar.f4403i.setTypeface(Typeface.create(this.f4462a, i2));
+            bVar.f4403i.setTextSize(this.f4463b);
         }
     }
 
@@ -71,11 +71,11 @@ public class o extends a {
                 if (jSONArray.length() > 0) {
                     for (String str : jSONArray.optString(0).split(" ")) {
                         if (str.contains("italic")) {
-                            this.f4457d = true;
+                            this.f4465d = true;
                         } else if (str.contains("oblique")) {
-                            this.f4457d = true;
+                            this.f4465d = true;
                         } else if (str.contains("bold")) {
-                            this.f4456c = true;
+                            this.f4464c = true;
                         } else if (!str.contains("normal")) {
                             if (Character.isDigit(str.charAt(0))) {
                                 int length = str.length();
@@ -90,15 +90,15 @@ public class o extends a {
                                         i2++;
                                     }
                                 }
-                                this.f4455b = c.a.p0.a.v2.n0.g(Float.parseFloat(str.substring(0, length)));
+                                this.f4463b = c.a.p0.a.v2.n0.g(Float.parseFloat(str.substring(0, length)));
                             } else {
-                                this.f4454a = str;
+                                this.f4462a = str;
                             }
                         }
                     }
                 }
             } catch (Exception e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
             }

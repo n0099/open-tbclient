@@ -23,13 +23,13 @@ public class a extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f6253e;
+        public final /* synthetic */ int f6261e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.q2.a f6254f;
+        public final /* synthetic */ c.a.p0.a.q2.a f6262f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f6255g;
+        public final /* synthetic */ a f6263g;
 
         public RunnableC0234a(a aVar, int i2, c.a.p0.a.q2.a aVar2) {
             Interceptable interceptable = $ic;
@@ -46,25 +46,25 @@ public class a extends f {
                     return;
                 }
             }
-            this.f6255g = aVar;
-            this.f6253e = i2;
-            this.f6254f = aVar2;
+            this.f6263g = aVar;
+            this.f6261e = i2;
+            this.f6262f = aVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f6255g.F == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f6263g.F == null) {
                 return;
             }
-            int i2 = this.f6253e;
+            int i2 = this.f6261e;
             if (i2 == -1) {
-                this.f6255g.F.b(this.f6254f);
+                this.f6263g.F.b(this.f6262f);
             } else if (i2 == 0) {
-                this.f6255g.F.a();
+                this.f6263g.F.a();
             } else if (i2 != 1) {
             } else {
-                this.f6255g.F.onSuccess();
+                this.f6263g.F.onSuccess();
             }
         }
     }
@@ -106,9 +106,9 @@ public class a extends f {
             super.B(aVar);
             c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
             aVar2.j(10L);
-            aVar2.h(aVar.f11875a);
-            aVar2.c(aVar.f11876b);
-            aVar2.p(aVar.f11877c);
+            aVar2.h(aVar.f11883a);
+            aVar2.c(aVar.f11884b);
+            aVar2.p(aVar.f11885c);
             G0(-1, aVar2);
         }
     }

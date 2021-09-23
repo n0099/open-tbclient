@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -26,7 +27,7 @@ public class b extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5657c;
+    public String f5665c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(e eVar) {
@@ -56,7 +57,7 @@ public class b extends a0 {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (context != null && callbackHandler != null && eVar != null) {
                 if (eVar.d0()) {
-                    boolean z = a0.f4766b;
+                    boolean z = a0.f4774b;
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                     return false;
                 }
@@ -65,7 +66,7 @@ public class b extends a0 {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str = "handle params:" + optParamsAsJo;
                 }
                 String optString = optParamsAsJo.optString("action");
@@ -78,7 +79,7 @@ public class b extends a0 {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
-                this.f5657c = optParamsAsJo.optString("cb");
+                this.f5665c = optParamsAsJo.optString("cb");
                 char c2 = 65535;
                 int hashCode = optString.hashCode();
                 if (hashCode != -1183792455) {
@@ -162,18 +163,18 @@ public class b extends a0 {
         if (interceptable == null || interceptable.invokeLLL(1048580, this, context, intent, callbackHandler) == null) {
             try {
                 context.startActivity(intent);
-                if (TextUtils.isEmpty(this.f5657c)) {
+                if (TextUtils.isEmpty(this.f5665c)) {
                     return;
                 }
-                callbackHandler.handleSchemeDispatchCallback(this.f5657c, UnitedSchemeUtility.wrapCallbackParams(0, "ok").toString());
+                callbackHandler.handleSchemeDispatchCallback(this.f5665c, UnitedSchemeUtility.wrapCallbackParams(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG).toString());
             } catch (Exception e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str = "startContactActivity:" + e2.toString();
                 }
-                if (TextUtils.isEmpty(this.f5657c)) {
+                if (TextUtils.isEmpty(this.f5665c)) {
                     return;
                 }
-                callbackHandler.handleSchemeDispatchCallback(this.f5657c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+                callbackHandler.handleSchemeDispatchCallback(this.f5665c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
             }
         }
     }

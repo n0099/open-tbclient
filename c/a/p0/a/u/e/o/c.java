@@ -27,7 +27,7 @@ public class c extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f9083e;
+        public final /* synthetic */ Context f9091e;
 
         public a(c cVar, Context context) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class c extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9083e = context;
+            this.f9091e = context;
         }
 
         @Override // java.lang.Runnable
@@ -53,7 +53,7 @@ public class c extends c.a.p0.a.u.c.d {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c.a.p0.a.z1.b.f.e.d()) {
                 return;
             }
-            c.a.p0.a.z1.b.f.e.f(this.f9083e, c.a.p0.a.h.clipboardapi_tip_content).F();
+            c.a.p0.a.z1.b.f.e.f(this.f9091e, c.a.p0.a.h.clipboardapi_tip_content).F();
         }
     }
 
@@ -82,17 +82,17 @@ public class c extends c.a.p0.a.u.c.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             JSONObject jSONObject = new JSONObject();
             try {
                 CharSequence a2 = r0.b(i()).a();
                 jSONObject.put("data", TextUtils.isEmpty(a2) ? "" : a2.toString());
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     String str = "getClipboardData:  " + jSONObject;
                 }
                 return new c.a.p0.a.u.h.b(0, jSONObject);
             } catch (JSONException e2) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e2.printStackTrace();
                 }
                 return new c.a.p0.a.u.h.b(1001, "JSONException");
@@ -107,11 +107,11 @@ public class c extends c.a.p0.a.u.c.d {
         SwanAppActivity x;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-ClipboardApi", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-ClipboardApi", "parse fail");
                 }
                 return bVar;

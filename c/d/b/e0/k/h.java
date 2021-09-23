@@ -25,22 +25,22 @@ public final class h implements Closeable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BufferedSink f32000e;
+    public final BufferedSink f32021e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f32001f;
+    public final boolean f32022f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Buffer f32002g;
+    public final Buffer f32023g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f32003h;
+    public int f32024h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f32004i;
+    public boolean f32025i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final b.C1456b f32005j;
+    public final b.C1454b f32026j;
 
     static {
         InterceptResult invokeClinit;
@@ -73,12 +73,12 @@ public final class h implements Closeable {
                 return;
             }
         }
-        this.f32000e = bufferedSink;
-        this.f32001f = z;
+        this.f32021e = bufferedSink;
+        this.f32022f = z;
         Buffer buffer = new Buffer();
-        this.f32002g = buffer;
-        this.f32005j = new b.C1456b(buffer);
-        this.f32003h = 16384;
+        this.f32023g = buffer;
+        this.f32026j = new b.C1454b(buffer);
+        this.f32024h = 16384;
     }
 
     public static void v(BufferedSink bufferedSink, int i2) throws IOException {
@@ -94,13 +94,13 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
             synchronized (this) {
-                if (!this.f32004i) {
-                    this.f32003h = kVar.f(this.f32003h);
+                if (!this.f32025i) {
+                    this.f32024h = kVar.f(this.f32024h);
                     if (kVar.c() != -1) {
-                        this.f32005j.e(kVar.c());
+                        this.f32026j.e(kVar.c());
                     }
                     j(0, 0, (byte) 4, (byte) 1);
-                    this.f32000e.flush();
+                    this.f32021e.flush();
                 } else {
                     throw new IOException("closed");
                 }
@@ -113,8 +113,8 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                this.f32004i = true;
-                this.f32000e.close();
+                this.f32025i = true;
+                this.f32021e.close();
             }
         }
     }
@@ -123,8 +123,8 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (!this.f32004i) {
-                    this.f32000e.flush();
+                if (!this.f32025i) {
+                    this.f32021e.flush();
                 } else {
                     throw new IOException("closed");
                 }
@@ -136,13 +136,13 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                if (!this.f32004i) {
-                    if (this.f32001f) {
+                if (!this.f32025i) {
+                    if (this.f32022f) {
                         if (k.isLoggable(Level.FINE)) {
-                            k.fine(c.d.b.e0.e.q(">> CONNECTION %s", c.f31904a.hex()));
+                            k.fine(c.d.b.e0.e.q(">> CONNECTION %s", c.f31925a.hex()));
                         }
-                        this.f32000e.write(c.f31904a.toByteArray());
-                        this.f32000e.flush();
+                        this.f32021e.write(c.f31925a.toByteArray());
+                        this.f32021e.flush();
                         return;
                     }
                     return;
@@ -156,7 +156,7 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), buffer, Integer.valueOf(i3)}) == null) {
             synchronized (this) {
-                if (!this.f32004i) {
+                if (!this.f32025i) {
                     i(i2, z ? (byte) 1 : (byte) 0, buffer, i3);
                 } else {
                     throw new IOException("closed");
@@ -170,7 +170,7 @@ public final class h implements Closeable {
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Byte.valueOf(b2), buffer, Integer.valueOf(i3)}) == null) {
             j(i2, i3, (byte) 0, b2);
             if (i3 > 0) {
-                this.f32000e.write(buffer, i3);
+                this.f32021e.write(buffer, i3);
             }
         }
     }
@@ -181,7 +181,7 @@ public final class h implements Closeable {
             if (k.isLoggable(Level.FINE)) {
                 k.fine(c.b(false, i2, i3, b2, b3));
             }
-            int i4 = this.f32003h;
+            int i4 = this.f32024h;
             if (i3 > i4) {
                 c.c("FRAME_SIZE_ERROR length > %d: %d", Integer.valueOf(i4), Integer.valueOf(i3));
                 throw null;
@@ -189,10 +189,10 @@ public final class h implements Closeable {
                 c.c("reserved bit set: %s", Integer.valueOf(i2));
                 throw null;
             } else {
-                v(this.f32000e, i3);
-                this.f32000e.writeByte(b2 & 255);
-                this.f32000e.writeByte(b3 & 255);
-                this.f32000e.writeInt(i2 & Integer.MAX_VALUE);
+                v(this.f32021e, i3);
+                this.f32021e.writeByte(b2 & 255);
+                this.f32021e.writeByte(b3 & 255);
+                this.f32021e.writeInt(i2 & Integer.MAX_VALUE);
             }
         }
     }
@@ -201,15 +201,15 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048583, this, i2, errorCode, bArr) == null) {
             synchronized (this) {
-                if (!this.f32004i) {
+                if (!this.f32025i) {
                     if (errorCode.httpCode != -1) {
                         j(0, bArr.length + 8, (byte) 7, (byte) 0);
-                        this.f32000e.writeInt(i2);
-                        this.f32000e.writeInt(errorCode.httpCode);
+                        this.f32021e.writeInt(i2);
+                        this.f32021e.writeInt(errorCode.httpCode);
                         if (bArr.length > 0) {
-                            this.f32000e.write(bArr);
+                            this.f32021e.write(bArr);
                         }
-                        this.f32000e.flush();
+                        this.f32021e.flush();
                     } else {
                         c.c("errorCode.httpCode == -1", new Object[0]);
                         throw null;
@@ -224,10 +224,10 @@ public final class h implements Closeable {
     public void l(boolean z, int i2, List<a> list) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), list}) == null) {
-            if (!this.f32004i) {
-                this.f32005j.g(list);
-                long size = this.f32002g.size();
-                int min = (int) Math.min(this.f32003h, size);
+            if (!this.f32025i) {
+                this.f32026j.g(list);
+                long size = this.f32023g.size();
+                int min = (int) Math.min(this.f32024h, size);
                 long j2 = min;
                 int i3 = (size > j2 ? 1 : (size == j2 ? 0 : -1));
                 byte b2 = i3 == 0 ? (byte) 4 : (byte) 0;
@@ -235,7 +235,7 @@ public final class h implements Closeable {
                     b2 = (byte) (b2 | 1);
                 }
                 j(i2, min, (byte) 1, b2);
-                this.f32000e.write(this.f32002g, j2);
+                this.f32021e.write(this.f32023g, j2);
                 if (i3 > 0) {
                     u(i2, size - j2);
                     return;
@@ -249,18 +249,18 @@ public final class h implements Closeable {
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f32003h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f32024h : invokeV.intValue;
     }
 
     public synchronized void o(boolean z, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             synchronized (this) {
-                if (!this.f32004i) {
+                if (!this.f32025i) {
                     j(0, 8, (byte) 6, z ? (byte) 1 : (byte) 0);
-                    this.f32000e.writeInt(i2);
-                    this.f32000e.writeInt(i3);
-                    this.f32000e.flush();
+                    this.f32021e.writeInt(i2);
+                    this.f32021e.writeInt(i3);
+                    this.f32021e.flush();
                 } else {
                     throw new IOException("closed");
                 }
@@ -272,15 +272,15 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048587, this, i2, i3, list) == null) {
             synchronized (this) {
-                if (!this.f32004i) {
-                    this.f32005j.g(list);
-                    long size = this.f32002g.size();
-                    int min = (int) Math.min(this.f32003h - 4, size);
+                if (!this.f32025i) {
+                    this.f32026j.g(list);
+                    long size = this.f32023g.size();
+                    int min = (int) Math.min(this.f32024h - 4, size);
                     long j2 = min;
                     int i4 = (size > j2 ? 1 : (size == j2 ? 0 : -1));
                     j(i2, min + 4, (byte) 5, i4 == 0 ? (byte) 4 : (byte) 0);
-                    this.f32000e.writeInt(i3 & Integer.MAX_VALUE);
-                    this.f32000e.write(this.f32002g, j2);
+                    this.f32021e.writeInt(i3 & Integer.MAX_VALUE);
+                    this.f32021e.write(this.f32023g, j2);
                     if (i4 > 0) {
                         u(i2, size - j2);
                     }
@@ -295,11 +295,11 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048588, this, i2, errorCode) == null) {
             synchronized (this) {
-                if (!this.f32004i) {
+                if (!this.f32025i) {
                     if (errorCode.httpCode != -1) {
                         j(i2, 4, (byte) 3, (byte) 0);
-                        this.f32000e.writeInt(errorCode.httpCode);
-                        this.f32000e.flush();
+                        this.f32021e.writeInt(errorCode.httpCode);
+                        this.f32021e.flush();
                     } else {
                         throw new IllegalArgumentException();
                     }
@@ -314,17 +314,17 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, kVar) == null) {
             synchronized (this) {
-                if (!this.f32004i) {
+                if (!this.f32025i) {
                     int i2 = 0;
                     j(0, kVar.j() * 6, (byte) 4, (byte) 0);
                     while (i2 < 10) {
                         if (kVar.g(i2)) {
-                            this.f32000e.writeShort(i2 == 4 ? 3 : i2 == 7 ? 4 : i2);
-                            this.f32000e.writeInt(kVar.b(i2));
+                            this.f32021e.writeShort(i2 == 4 ? 3 : i2 == 7 ? 4 : i2);
+                            this.f32021e.writeInt(kVar.b(i2));
                         }
                         i2++;
                     }
-                    this.f32000e.flush();
+                    this.f32021e.flush();
                 } else {
                     throw new IOException("closed");
                 }
@@ -336,7 +336,7 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), list}) == null) {
             synchronized (this) {
-                if (!this.f32004i) {
+                if (!this.f32025i) {
                     l(z, i2, list);
                 } else {
                     throw new IOException("closed");
@@ -349,13 +349,13 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             synchronized (this) {
-                if (this.f32004i) {
+                if (this.f32025i) {
                     throw new IOException("closed");
                 }
                 if (j2 != 0 && j2 <= 2147483647L) {
                     j(i2, 4, (byte) 8, (byte) 0);
-                    this.f32000e.writeInt((int) j2);
-                    this.f32000e.flush();
+                    this.f32021e.writeInt((int) j2);
+                    this.f32021e.flush();
                 } else {
                     c.c("windowSizeIncrement == 0 || windowSizeIncrement > 0x7fffffffL: %s", Long.valueOf(j2));
                     throw null;
@@ -368,11 +368,11 @@ public final class h implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             while (j2 > 0) {
-                int min = (int) Math.min(this.f32003h, j2);
+                int min = (int) Math.min(this.f32024h, j2);
                 long j3 = min;
                 j2 -= j3;
                 j(i2, min, (byte) 9, j2 == 0 ? (byte) 4 : (byte) 0);
-                this.f32000e.write(this.f32002g, j3);
+                this.f32021e.write(this.f32023g, j3);
             }
         }
     }

@@ -20,7 +20,7 @@ public class a extends c.a.r0.q.c.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.q.c.b f29565h;
+    public c.a.r0.q.c.b f29585h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
@@ -41,22 +41,22 @@ public class a extends c.a.r0.q.c.a {
                 return;
             }
         }
-        this.f29565h = c.a.r0.q.c.b.d();
+        this.f29585h = c.a.r0.q.c.b.d();
     }
 
     @Override // c.a.r0.q.c.a
     public void c(List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f29565h.a(this.f24074a, list);
+            this.f29585h.a(this.f24090a, list);
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (e.e(System.currentTimeMillis(), this.f29565h.e(this.f24074a), i2)) {
-                List<AdvertAppInfo> b2 = this.f29565h.b(this.f24074a);
+            if (e.e(System.currentTimeMillis(), this.f29585h.e(this.f24090a), i2)) {
+                List<AdvertAppInfo> b2 = this.f29585h.b(this.f24090a);
                 if (c.a.r0.p1.o.k.a.e(b2)) {
                     return;
                 }
@@ -71,12 +71,12 @@ public class a extends c.a.r0.q.c.a {
     public AdvertAppInfo i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29565h.c(this.f24074a) : (AdvertAppInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29585h.c(this.f24090a) : (AdvertAppInfo) invokeV.objValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29565h.f(this.f24074a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29585h.f(this.f24090a) : invokeV.booleanValue;
     }
 }

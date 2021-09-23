@@ -403,8 +403,8 @@ public class d {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:177:0x040a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:345:0x03ae */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:177:0x0408 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:336:0x03ad */
     /* JADX WARN: Can't wrap try/catch for region: R(21:17|18|(1:235)(2:22|(4:(1:233)(1:27)|(5:29|30|31|32|33)|38|(15:121|(2:123|(2:125|126))(1:232)|127|(3:129|130|(3:132|133|(2:135|(2:140|141)(1:139))(2:142|143))(5:155|156|157|158|(6:160|161|162|163|164|165)(1:175)))|187|188|189|190|191|192|193|194|195|(2:197|(1:(1:223)(5:199|(2:203|(2:207|(3:218|219|220)(1:212)))|221|222|220)))(0)|224)(8:42|(15:44|45|46|47|48|49|50|51|52|53|54|56|57|(1:59)(4:89|90|91|92)|60)(1:120)|62|63|64|(1:85)(3:68|(4:71|(3:76|77|78)|79|69)|82)|83|84)))|234|38|(1:40)|121|(0)(0)|127|(0)|187|188|189|190|191|192|193|194|195|(0)(0)|224) */
     /* JADX WARN: Can't wrap try/catch for region: R(6:9|(1:377)(2:13|(2:15|(21:17|18|(1:235)(2:22|(4:(1:233)(1:27)|(5:29|30|31|32|33)|38|(15:121|(2:123|(2:125|126))(1:232)|127|(3:129|130|(3:132|133|(2:135|(2:140|141)(1:139))(2:142|143))(5:155|156|157|158|(6:160|161|162|163|164|165)(1:175)))|187|188|189|190|191|192|193|194|195|(2:197|(1:(1:223)(5:199|(2:203|(2:207|(3:218|219|220)(1:212)))|221|222|220)))(0)|224)(8:42|(15:44|45|46|47|48|49|50|51|52|53|54|56|57|(1:59)(4:89|90|91|92)|60)(1:120)|62|63|64|(1:85)(3:68|(4:71|(3:76|77|78)|79|69)|82)|83|84)))|234|38|(1:40)|121|(0)(0)|127|(0)|187|188|189|190|191|192|193|194|195|(0)(0)|224)))|236|237|238|(5:363|364|365|366|367)(11:240|241|242|243|244|245|(2:247|(7:249|(8:253|(1:348)(2:257|(8:261|262|263|264|(2:266|(1:270))(2:274|(2:276|(2:280|281))(2:284|(3:286|(1:292)(1:290)|291)(6:293|294|295|296|(2:298|(2:302|303))(2:306|(2:308|(3:312|313|315))(2:319|(2:325|326)))|273)))|271|272|273))|347|271|272|273|250|251)|349|350|351|334|(4:337|338|339|340)(22:336|18|(1:20)|235|234|38|(0)|121|(0)(0)|127|(0)|187|188|189|190|191|192|193|194|195|(0)(0)|224)))|356|351|334|(0)(0))) */
     /* JADX WARN: Code restructure failed: missing block: B:120:0x0275, code lost:
@@ -420,27 +420,27 @@ public class d {
         r32 = "has_res";
         r9 = 0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:268:0x0676, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:268:0x0672, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:269:0x0677, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:269:0x0673, code lost:
         com.baidu.adp.lib.util.BdLog.e(r0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:273:0x0686, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:273:0x0682, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:274:0x0687, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:274:0x0683, code lost:
         com.baidu.adp.lib.util.BdLog.e(r0);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:293:0x078b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:293:0x0786, code lost:
         c.a.e.h.h.a.b().i("plugin_repeat_install", r5);
         r0 = new java.lang.StringBuilder();
         r6 = r21;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:294:0x079b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:294:0x0796, code lost:
         if (r41 == null) goto L216;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:295:0x079d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:295:0x0798, code lost:
         r0.append(r6);
         r0.append(r41.apkPath);
         r0.append(r6);
@@ -452,18 +452,18 @@ public class d {
         r0.append(r6);
         r0.append(r41.install_fail_count);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:296:0x07c5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:296:0x07c0, code lost:
         c.a.e.h.h.a.b().o(r37, "plugin_repeat_install", r5, r3.getAbsolutePath() + r6 + r14.getAbsolutePath() + r0.toString());
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:135:0x02ce  */
-    /* JADX WARN: Removed duplicated region for block: B:159:0x038d  */
-    /* JADX WARN: Removed duplicated region for block: B:208:0x0495  */
-    /* JADX WARN: Removed duplicated region for block: B:223:0x056a  */
-    /* JADX WARN: Removed duplicated region for block: B:227:0x05a8  */
-    /* JADX WARN: Removed duplicated region for block: B:231:0x05ee  */
-    /* JADX WARN: Removed duplicated region for block: B:278:0x0756 A[Catch: all -> 0x0805, TryCatch #23 {all -> 0x0805, blocks: (B:276:0x074c, B:278:0x0756, B:280:0x075a, B:282:0x075e, B:284:0x0764, B:286:0x076e, B:288:0x0774, B:290:0x077c, B:293:0x078b, B:295:0x079d, B:296:0x07c5), top: B:368:0x074c }] */
-    /* JADX WARN: Removed duplicated region for block: B:359:0x029f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:159:0x038c  */
+    /* JADX WARN: Removed duplicated region for block: B:208:0x0492  */
+    /* JADX WARN: Removed duplicated region for block: B:223:0x0566  */
+    /* JADX WARN: Removed duplicated region for block: B:227:0x05a4  */
+    /* JADX WARN: Removed duplicated region for block: B:231:0x05ea  */
+    /* JADX WARN: Removed duplicated region for block: B:278:0x0751 A[Catch: all -> 0x0800, TryCatch #20 {all -> 0x0800, blocks: (B:276:0x0747, B:278:0x0751, B:280:0x0755, B:282:0x0759, B:284:0x075f, B:286:0x0769, B:288:0x076f, B:290:0x0777, B:293:0x0786, B:295:0x0798, B:296:0x07c0), top: B:364:0x0747 }] */
+    /* JADX WARN: Removed duplicated region for block: B:362:0x029f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r10v19 */
     /* JADX WARN: Type inference failed for: r10v20, types: [java.io.InputStream] */
     /* JADX WARN: Type inference failed for: r10v21 */
@@ -583,7 +583,7 @@ public class d {
                             z10 = z9;
                         } else {
                             z10 = z9;
-                            if (!r(str15, file2.getAbsolutePath()).f36367a) {
+                            if (!r(str15, file2.getAbsolutePath()).f36410a) {
                                 if (pluginSetting == null || !str.startsWith("file://")) {
                                     z11 = z8;
                                     str16 = "is_third";
@@ -604,7 +604,7 @@ public class d {
                                     } catch (Exception e3) {
                                         BdLog.e(e3);
                                     }
-                                    q(str, str15, "signature_not_match", str15 + "-SourceMd5_" + a2 + "-tmpSize_" + length + "-error_" + r.f36368b + "-step_" + r.f36369c);
+                                    q(str, str15, "signature_not_match", str15 + "-SourceMd5_" + a2 + "-tmpSize_" + length + "-error_" + r.f36411b + "-step_" + r.f36412c);
                                     return null;
                                 }
                                 ?? r7 = "version_code";
@@ -923,10 +923,10 @@ public class d {
                                                 try {
                                                     Util.a d2 = Util.d(fileInputStream, file4);
                                                     file2.delete();
-                                                    if (!d2.f36367a) {
+                                                    if (!d2.f36410a) {
                                                         str20 = str3;
                                                         try {
-                                                            q(str, str15, str20, d2.f36368b);
+                                                            q(str, str15, str20, d2.f36411b);
                                                             c.a.e.e.m.a.c(fileInputStream);
                                                             return null;
                                                         } catch (Exception e13) {
@@ -1849,7 +1849,7 @@ public class d {
                         fileInputStream = new FileInputStream(file3);
                         try {
                             Util.a d2 = Util.d(fileInputStream, file2);
-                            if (d2.f36367a) {
+                            if (d2.f36410a) {
                                 if (file2.length() == file3.length()) {
                                     c.a.e.e.m.a.c(fileInputStream);
                                 } else {
@@ -1857,7 +1857,7 @@ public class d {
                                 }
                             } else {
                                 f.n(file2);
-                                throw new Exception(d2.f36368b);
+                                throw new Exception(d2.f36411b);
                             }
                         } catch (Exception e3) {
                             e = e3;
@@ -1893,13 +1893,13 @@ public class d {
                 long currentTimeMillis = System.currentTimeMillis();
                 File file = new File(Util.m(), String.valueOf(System.currentTimeMillis()));
                 Util.a d2 = Util.d(inputStream, file);
-                if (!d2.f36367a) {
+                if (!d2.f36410a) {
                     try {
                         file.delete();
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     }
-                    q(str, str2, "assets_copy_temp_fail", d2.f36368b);
+                    q(str, str2, "assets_copy_temp_fail", d2.f36411b);
                     return null;
                 }
                 c.a.e.h.h.a.b().n("plugin_copy_file", System.currentTimeMillis() - currentTimeMillis, str2);
@@ -2028,12 +2028,12 @@ public class d {
                         c.a.e.h.h.a.b().o("plugin_install", "collectCertificates_ok", str, null);
                     }
                 } catch (Throwable th3) {
-                    aVar.f36368b += "-exception_" + th3.toString();
+                    aVar.f36411b += "-exception_" + th3.toString();
                     return aVar;
                 }
             }
             if (signatureArr == null) {
-                aVar.f36368b = "get_newsignatures_null_" + str2;
+                aVar.f36411b = "get_newsignatures_null_" + str2;
                 return aVar;
             }
             Signature[] signatureArr2 = f2800h;
@@ -2044,14 +2044,14 @@ public class d {
                         signatureArr2 = e.a(file.getAbsolutePath(), aVar);
                         f2800h = signatureArr2;
                     } catch (Throwable th4) {
-                        aVar.f36368b += "-exception_" + th4.toString();
+                        aVar.f36411b += "-exception_" + th4.toString();
                         return aVar;
                     }
                 }
             }
             int b2 = Util.b(signatureArr2, signatureArr);
             if (b2 == 0) {
-                aVar.f36367a = true;
+                aVar.f36410a = true;
                 return aVar;
             }
             StringBuilder sb = new StringBuilder();
@@ -2081,7 +2081,7 @@ public class d {
                     sb.append(th6.getMessage());
                 }
             }
-            aVar.f36368b = "compare_signatures_fail_" + b2 + "_" + sb.toString();
+            aVar.f36411b = "compare_signatures_fail_" + b2 + "_" + sb.toString();
             return aVar;
         }
         return (Util.a) invokeLL.objValue;

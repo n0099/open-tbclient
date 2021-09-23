@@ -4,6 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
@@ -11,7 +12,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f16112a;
+    public boolean f16122a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -26,13 +27,13 @@ public class a {
                 return;
             }
         }
-        this.f16112a = false;
+        this.f16122a = false;
     }
 
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && "ok".equals(jSONObject.optString("status"))) {
-            this.f16112a = true;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && NewBindCardEntry.BING_CARD_SUCCESS_MSG.equals(jSONObject.optString("status"))) {
+            this.f16122a = true;
         }
     }
 }

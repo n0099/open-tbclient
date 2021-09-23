@@ -28,7 +28,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f27731e;
+        public final /* synthetic */ ImageView f27751e;
 
         public a(ImageView imageView) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class c {
                     return;
                 }
             }
-            this.f27731e = imageView;
+            this.f27751e = imageView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -54,7 +54,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 view.setTag(Boolean.valueOf(!((Boolean) view.getTag()).booleanValue()));
-                ImageView imageView = this.f27731e;
+                ImageView imageView = this.f27751e;
                 if (((Boolean) view.getTag()).booleanValue()) {
                     maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
                 } else {
@@ -71,13 +71,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f27732e;
+        public final /* synthetic */ ImageView f27752e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsTabInfo f27733f;
+        public final /* synthetic */ FrsTabInfo f27753f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FrsTabInfo f27734g;
+        public final /* synthetic */ FrsTabInfo f27754g;
 
         public b(ImageView imageView, FrsTabInfo frsTabInfo, FrsTabInfo frsTabInfo2) {
             Interceptable interceptable = $ic;
@@ -94,17 +94,17 @@ public class c {
                     return;
                 }
             }
-            this.f27732e = imageView;
-            this.f27733f = frsTabInfo;
-            this.f27734g = frsTabInfo2;
+            this.f27752e = imageView;
+            this.f27753f = frsTabInfo;
+            this.f27754g = frsTabInfo2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.q0.s.d0.b.j().t("key_frs_move_area_tip", !((Boolean) this.f27732e.getTag()).booleanValue());
-                c.a.r0.w0.a.h().m(this.f27733f.tab_id.intValue(), this.f27734g.tab_id.intValue());
+                c.a.q0.s.d0.b.j().t("key_frs_move_area_tip", !((Boolean) this.f27752e.getTag()).booleanValue());
+                c.a.r0.w0.a.h().m(this.f27753f.tab_id.intValue(), this.f27754g.tab_id.intValue());
             }
         }
     }

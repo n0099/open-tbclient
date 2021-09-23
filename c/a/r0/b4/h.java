@@ -21,13 +21,13 @@ public class h implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Spannable f16219e;
+    public final Spannable f16229e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.q0.f1.m.e f16220f;
+    public c.a.q0.f1.m.e f16230f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16221g;
+    public int f16231g;
 
     public h(Spannable spannable) {
         Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public class h implements View.OnTouchListener {
                 return;
             }
         }
-        this.f16220f = null;
-        this.f16221g = 0;
-        this.f16219e = spannable;
+        this.f16230f = null;
+        this.f16231g = 0;
+        this.f16229e = spannable;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f16221g = i2;
+            this.f16231g = i2;
         }
     }
 
@@ -65,10 +65,10 @@ public class h implements View.OnTouchListener {
             int action = motionEvent.getAction();
             if (view instanceof TextView) {
                 TextView textView = (TextView) view;
-                if (action == 3 && (eVar = this.f16220f) != null) {
+                if (action == 3 && (eVar = this.f16230f) != null) {
                     eVar.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     view.invalidate();
-                    this.f16220f = null;
+                    this.f16230f = null;
                     return false;
                 }
                 if (action == 1 || action == 0) {
@@ -79,7 +79,7 @@ public class h implements View.OnTouchListener {
                         return false;
                     }
                     int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
-                    Spannable spannable = this.f16219e;
+                    Spannable spannable = this.f16229e;
                     if (spannable == null) {
                         return false;
                     }
@@ -91,9 +91,9 @@ public class h implements View.OnTouchListener {
                             view.invalidate();
                         } else {
                             c.a.q0.f1.m.e eVar2 = eVarArr[0];
-                            this.f16220f = eVar2;
+                            this.f16230f = eVar2;
                             if (eVar2.e()) {
-                                int i2 = this.f16221g;
+                                int i2 = this.f16231g;
                                 if (i2 != 0) {
                                     eVarArr[0].g(SkinManager.getColor(i2));
                                 } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
@@ -102,18 +102,18 @@ public class h implements View.OnTouchListener {
                                     eVarArr[0].g(SkinManager.getColor(R.color.cp_bg_line_z));
                                 }
                             }
-                            Spannable spannable2 = this.f16219e;
-                            Selection.setSelection(spannable2, spannable2.getSpanStart(eVarArr[0]), this.f16219e.getSpanEnd(eVarArr[0]));
+                            Spannable spannable2 = this.f16229e;
+                            Selection.setSelection(spannable2, spannable2.getSpanStart(eVarArr[0]), this.f16229e.getSpanEnd(eVarArr[0]));
                             view.invalidate();
                         }
                         return true;
                     }
-                    c.a.q0.f1.m.e eVar3 = this.f16220f;
+                    c.a.q0.f1.m.e eVar3 = this.f16230f;
                     if (eVar3 != null) {
                         eVar3.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                         view.invalidate();
                     }
-                    Selection.removeSelection(this.f16219e);
+                    Selection.removeSelection(this.f16229e);
                 }
                 return false;
             }

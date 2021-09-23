@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.util.k;
+import com.alipay.sdk.util.l;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -58,7 +58,7 @@ public final class PackageInstallUtil {
     public static final boolean isInstallAlipay(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? isInstalled(context, k.f36098a) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? isInstalled(context, l.f36137b) : invokeL.booleanValue;
     }
 
     @JvmStatic

@@ -17,13 +17,13 @@ public class c implements View.OnTouchListener, GestureDetector.OnDoubleTapListe
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public GestureDetector f19694e;
+    public GestureDetector f19709e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f19695f;
+    public a f19710f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f19696g;
+    public View f19711g;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -49,14 +49,14 @@ public class c implements View.OnTouchListener, GestureDetector.OnDoubleTapListe
                 return;
             }
         }
-        this.f19695f = aVar;
-        this.f19694e = new GestureDetector(TbadkCoreApplication.getInst(), this);
+        this.f19710f = aVar;
+        this.f19709e = new GestureDetector(TbadkCoreApplication.getInst(), this);
     }
 
     public void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f19696g = view;
+            this.f19711g = view;
         }
     }
 
@@ -65,9 +65,9 @@ public class c implements View.OnTouchListener, GestureDetector.OnDoubleTapListe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            a aVar = this.f19695f;
+            a aVar = this.f19710f;
             if (aVar != null) {
-                return aVar.c(this.f19696g, motionEvent);
+                return aVar.c(this.f19711g, motionEvent);
             }
             return false;
         }
@@ -79,9 +79,9 @@ public class c implements View.OnTouchListener, GestureDetector.OnDoubleTapListe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            a aVar = this.f19695f;
+            a aVar = this.f19710f;
             if (aVar != null) {
-                return aVar.a(this.f19696g, motionEvent);
+                return aVar.a(this.f19711g, motionEvent);
             }
             return false;
         }
@@ -137,9 +137,9 @@ public class c implements View.OnTouchListener, GestureDetector.OnDoubleTapListe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            a aVar = this.f19695f;
+            a aVar = this.f19710f;
             if (aVar != null) {
-                return aVar.b(this.f19696g, motionEvent);
+                return aVar.b(this.f19711g, motionEvent);
             }
             return false;
         }
@@ -161,8 +161,8 @@ public class c implements View.OnTouchListener, GestureDetector.OnDoubleTapListe
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, view, motionEvent)) == null) {
-            this.f19696g = view;
-            GestureDetector gestureDetector = this.f19694e;
+            this.f19711g = view;
+            GestureDetector gestureDetector = this.f19709e;
             if (gestureDetector != null) {
                 return gestureDetector.onTouchEvent(motionEvent);
             }

@@ -18,25 +18,25 @@ public class i implements g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f27538a;
+    public h f27558a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoMiddleModel f27539b;
+    public VideoMiddleModel f27559b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27540c;
+    public String f27560c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27541d;
+    public String f27561d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f27542e;
+    public boolean f27562e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoSerializeVideoThreadInfo f27543f;
+    public VideoSerializeVideoThreadInfo f27563f;
 
     /* renamed from: g  reason: collision with root package name */
-    public VideoMiddleModel.b f27544g;
+    public VideoMiddleModel.b f27564g;
 
     /* loaded from: classes4.dex */
     public class a implements VideoMiddleModel.b {
@@ -44,7 +44,7 @@ public class i implements g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f27545a;
+        public final /* synthetic */ i f27565a;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -61,29 +61,29 @@ public class i implements g {
                     return;
                 }
             }
-            this.f27545a = iVar;
+            this.f27565a = iVar;
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.b
         public void a(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f27545a.f27538a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f27565a.f27558a == null) {
                 return;
             }
-            this.f27545a.f27538a.hideLoadingView();
-            this.f27545a.f27538a.showMsg(str);
-            this.f27545a.f27538a.onLoadFail();
+            this.f27565a.f27558a.hideLoadingView();
+            this.f27565a.f27558a.showMsg(str);
+            this.f27565a.f27558a.onLoadFail();
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.b
         public void b(List<BaseCardInfo> list, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z) == null) || this.f27545a.f27538a == null) {
+            if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z) == null) || this.f27565a.f27558a == null) {
                 return;
             }
-            this.f27545a.f27538a.hideLoadingView();
-            this.f27545a.f27542e = z;
-            this.f27545a.f27538a.setData(list, z, false);
+            this.f27565a.f27558a.hideLoadingView();
+            this.f27565a.f27562e = z;
+            this.f27565a.f27558a.setData(list, z, false);
         }
     }
 
@@ -102,18 +102,18 @@ public class i implements g {
                 return;
             }
         }
-        this.f27544g = new a(this);
+        this.f27564g = new a(this);
         if (hVar instanceof VideoMiddlePageFragment) {
-            this.f27538a = hVar;
+            this.f27558a = hVar;
             hVar.setPresenter(this);
-            this.f27539b = new VideoMiddleModel(((VideoMiddlePageFragment) hVar).getPageContext(), this.f27544g);
+            this.f27559b = new VideoMiddleModel(((VideoMiddlePageFragment) hVar).getPageContext(), this.f27564g);
         }
     }
 
     public void c() {
         VideoMiddleModel videoMiddleModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (videoMiddleModel = this.f27539b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (videoMiddleModel = this.f27559b) == null) {
             return;
         }
         videoMiddleModel.cancelLoadData();
@@ -123,7 +123,7 @@ public class i implements g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            VideoMiddleModel videoMiddleModel = this.f27539b;
+            VideoMiddleModel videoMiddleModel = this.f27559b;
             if (videoMiddleModel != null) {
                 return videoMiddleModel.A();
             }
@@ -135,40 +135,40 @@ public class i implements g {
     public VideoSerializeVideoThreadInfo e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27543f : (VideoSerializeVideoThreadInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27563f : (VideoSerializeVideoThreadInfo) invokeV.objValue;
     }
 
     public void f() {
         VideoMiddleModel videoMiddleModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (videoMiddleModel = this.f27539b) != null && this.f27542e) {
-            videoMiddleModel.setFrom(this.f27541d);
-            this.f27539b.LoadData();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (videoMiddleModel = this.f27559b) != null && this.f27562e) {
+            videoMiddleModel.setFrom(this.f27561d);
+            this.f27559b.LoadData();
         }
     }
 
     public void g() {
         VideoMiddleModel videoMiddleModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (videoMiddleModel = this.f27539b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (videoMiddleModel = this.f27559b) == null) {
             return;
         }
-        videoMiddleModel.setFrom(this.f27541d);
-        this.f27539b.LoadData();
+        videoMiddleModel.setFrom(this.f27561d);
+        this.f27559b.LoadData();
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f27541d = str;
+            this.f27561d = str;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f27540c = str;
-            VideoMiddleModel videoMiddleModel = this.f27539b;
+            this.f27560c = str;
+            VideoMiddleModel videoMiddleModel = this.f27559b;
             if (videoMiddleModel != null) {
                 videoMiddleModel.B(str);
             }
@@ -178,7 +178,7 @@ public class i implements g {
     public void j(String str) {
         VideoMiddleModel videoMiddleModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (videoMiddleModel = this.f27539b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (videoMiddleModel = this.f27559b) == null) {
             return;
         }
         videoMiddleModel.C(str);
@@ -187,7 +187,7 @@ public class i implements g {
     public void k(String str) {
         VideoMiddleModel videoMiddleModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (videoMiddleModel = this.f27539b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (videoMiddleModel = this.f27559b) == null) {
             return;
         }
         videoMiddleModel.D(str);
@@ -196,8 +196,8 @@ public class i implements g {
     public void l(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, videoSerializeVideoThreadInfo) == null) {
-            this.f27543f = videoSerializeVideoThreadInfo;
-            VideoMiddleModel videoMiddleModel = this.f27539b;
+            this.f27563f = videoSerializeVideoThreadInfo;
+            VideoMiddleModel videoMiddleModel = this.f27559b;
             if (videoMiddleModel != null) {
                 videoMiddleModel.E(videoSerializeVideoThreadInfo);
             }

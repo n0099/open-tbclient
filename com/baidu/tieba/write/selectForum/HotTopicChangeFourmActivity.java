@@ -43,7 +43,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicChangeFourmActivity f58797e;
+        public final /* synthetic */ HotTopicChangeFourmActivity f58927e;
 
         public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
                     return;
                 }
             }
-            this.f58797e = hotTopicChangeFourmActivity;
+            this.f58927e = hotTopicChangeFourmActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -69,10 +69,10 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, i2);
-                intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) this.f58797e.mList.get(i2)).getForumId());
-                intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) this.f58797e.mList.get(i2)).getForumName());
-                this.f58797e.setResult(-1, intent);
-                this.f58797e.finish();
+                intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) this.f58927e.mList.get(i2)).getForumId());
+                intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) this.f58927e.mList.get(i2)).getForumName());
+                this.f58927e.setResult(-1, intent);
+                this.f58927e.finish();
             }
         }
     }

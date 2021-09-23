@@ -58,7 +58,7 @@ public class d extends e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f23535a;
+        public static final d f23551a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -74,7 +74,7 @@ public class d extends e {
                     return;
                 }
             }
-            f23535a = new d(null);
+            f23551a = new d(null);
         }
     }
 
@@ -85,7 +85,7 @@ public class d extends e {
     public static d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f23535a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f23551a : (d) invokeV.objValue;
     }
 
     @Override // c.a.r0.p1.o.e
@@ -140,45 +140,45 @@ public class d extends e {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SparseIntArray sparseIntArray = e.f23536a;
+            SparseIntArray sparseIntArray = e.f23552a;
             sparseIntArray.put(1, sparseIntArray.size() + 1);
-            SparseIntArray sparseIntArray2 = e.f23536a;
+            SparseIntArray sparseIntArray2 = e.f23552a;
             sparseIntArray2.put(2, sparseIntArray2.size() + 1);
-            SparseIntArray sparseIntArray3 = e.f23536a;
+            SparseIntArray sparseIntArray3 = e.f23552a;
             sparseIntArray3.put(3, sparseIntArray3.size() + 1);
-            SparseIntArray sparseIntArray4 = e.f23536a;
+            SparseIntArray sparseIntArray4 = e.f23552a;
             sparseIntArray4.put(5, sparseIntArray4.size() + 1);
-            SparseIntArray sparseIntArray5 = e.f23536a;
+            SparseIntArray sparseIntArray5 = e.f23552a;
             sparseIntArray5.put(6, sparseIntArray5.size() + 1);
-            SparseIntArray sparseIntArray6 = e.f23536a;
+            SparseIntArray sparseIntArray6 = e.f23552a;
             sparseIntArray6.put(7, sparseIntArray6.size() + 1);
-            SparseIntArray sparseIntArray7 = e.f23536a;
+            SparseIntArray sparseIntArray7 = e.f23552a;
             sparseIntArray7.put(8, sparseIntArray7.size() + 1);
-            SparseIntArray sparseIntArray8 = e.f23536a;
+            SparseIntArray sparseIntArray8 = e.f23552a;
             sparseIntArray8.put(18, sparseIntArray8.size() + 1);
-            SparseIntArray sparseIntArray9 = e.f23536a;
+            SparseIntArray sparseIntArray9 = e.f23552a;
             sparseIntArray9.put(19, sparseIntArray9.size() + 1);
-            SparseIntArray sparseIntArray10 = e.f23536a;
+            SparseIntArray sparseIntArray10 = e.f23552a;
             sparseIntArray10.put(21, sparseIntArray10.size() + 1);
-            SparseIntArray sparseIntArray11 = e.f23536a;
+            SparseIntArray sparseIntArray11 = e.f23552a;
             sparseIntArray11.put(22, sparseIntArray11.size() + 1);
-            SparseIntArray sparseIntArray12 = e.f23536a;
+            SparseIntArray sparseIntArray12 = e.f23552a;
             sparseIntArray12.put(23, sparseIntArray12.size() + 1);
-            SparseIntArray sparseIntArray13 = e.f23536a;
+            SparseIntArray sparseIntArray13 = e.f23552a;
             sparseIntArray13.put(28, sparseIntArray13.size() + 1);
-            e.f23537b.put(1, BdUniqueId.gen());
-            e.f23537b.put(2, BdUniqueId.gen());
-            e.f23537b.put(3, BdUniqueId.gen());
-            e.f23537b.put(5, BdUniqueId.gen());
-            e.f23537b.put(6, BdUniqueId.gen());
-            e.f23537b.put(7, BdUniqueId.gen());
-            e.f23537b.put(8, BdUniqueId.gen());
-            e.f23537b.put(18, BdUniqueId.gen());
-            e.f23537b.put(19, BdUniqueId.gen());
-            e.f23537b.put(21, BdUniqueId.gen());
-            e.f23537b.put(22, BdUniqueId.gen());
-            e.f23537b.put(23, BdUniqueId.gen());
-            e.f23537b.put(28, BdUniqueId.gen());
+            e.f23553b.put(1, BdUniqueId.gen());
+            e.f23553b.put(2, BdUniqueId.gen());
+            e.f23553b.put(3, BdUniqueId.gen());
+            e.f23553b.put(5, BdUniqueId.gen());
+            e.f23553b.put(6, BdUniqueId.gen());
+            e.f23553b.put(7, BdUniqueId.gen());
+            e.f23553b.put(8, BdUniqueId.gen());
+            e.f23553b.put(18, BdUniqueId.gen());
+            e.f23553b.put(19, BdUniqueId.gen());
+            e.f23553b.put(21, BdUniqueId.gen());
+            e.f23553b.put(22, BdUniqueId.gen());
+            e.f23553b.put(23, BdUniqueId.gen());
+            e.f23553b.put(28, BdUniqueId.gen());
         }
     }
 

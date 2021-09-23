@@ -27,19 +27,19 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7929e;
+        public final /* synthetic */ CallbackHandler f7937e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7930f;
+        public final /* synthetic */ UnitedSchemeEntity f7938f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f7931g;
+        public final /* synthetic */ JSONObject f7939g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f7932h;
+        public final /* synthetic */ Context f7940h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f7933i;
+        public final /* synthetic */ b f7941i;
 
         public a(b bVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
             Interceptable interceptable = $ic;
@@ -56,11 +56,11 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f7933i = bVar;
-            this.f7929e = callbackHandler;
-            this.f7930f = unitedSchemeEntity;
-            this.f7931g = jSONObject;
-            this.f7932h = context;
+            this.f7941i = bVar;
+            this.f7937e = callbackHandler;
+            this.f7938f = unitedSchemeEntity;
+            this.f7939g = jSONObject;
+            this.f7940h = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,87 +73,87 @@ public class b extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
-                    c.a.p0.a.e2.c.d.o(iVar, this.f7929e, this.f7930f);
+                    c.a.p0.a.e2.c.d.o(iVar, this.f7937e, this.f7938f);
                     return;
                 }
                 try {
-                    JSONObject jSONObject = this.f7931g;
-                    b bVar = this.f7933i;
-                    String string = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_load_cts);
+                    JSONObject jSONObject = this.f7939g;
+                    b bVar = this.f7941i;
+                    String string = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_load_cts);
                     boolean s = c.a.p0.a.u1.a.a.s();
                     c.a.p0.a.p0.f.a.a(s);
                     jSONObject.put("loadCts", bVar.k(string, Integer.valueOf(s ? 1 : 0)));
-                    JSONObject jSONObject2 = this.f7931g;
-                    b bVar2 = this.f7933i;
-                    String string2 = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_live);
+                    JSONObject jSONObject2 = this.f7939g;
+                    b bVar2 = this.f7941i;
+                    String string2 = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_live);
                     boolean r = c.a.p0.a.u1.a.a.r();
                     c.a.p0.a.p0.f.a.a(r);
                     jSONObject2.put("emitLive", bVar2.k(string2, Integer.valueOf(r ? 1 : 0)));
-                    JSONObject jSONObject3 = this.f7931g;
-                    b bVar3 = this.f7933i;
-                    String string3 = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_https);
+                    JSONObject jSONObject3 = this.f7939g;
+                    b bVar3 = this.f7941i;
+                    String string3 = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_https);
                     boolean o = c.a.p0.a.u1.a.a.o();
                     c.a.p0.a.p0.f.a.a(o);
                     jSONObject3.put("emitHttps", bVar3.k(string3, Integer.valueOf(o ? 1 : 0)));
-                    JSONObject jSONObject4 = this.f7931g;
-                    b bVar4 = this.f7933i;
-                    String string4 = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_use_extension);
+                    JSONObject jSONObject4 = this.f7939g;
+                    b bVar4 = this.f7941i;
+                    String string4 = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_use_extension);
                     boolean x = c.a.p0.a.u1.a.a.x();
                     c.a.p0.a.p0.f.a.a(x);
                     jSONObject4.put("useExtension", bVar4.k(string4, Integer.valueOf(x ? 1 : 0)));
-                    JSONObject jSONObject5 = this.f7931g;
-                    b bVar5 = this.f7933i;
-                    String string5 = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_domain);
+                    JSONObject jSONObject5 = this.f7939g;
+                    b bVar5 = this.f7941i;
+                    String string5 = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_domain);
                     ?? r3 = (c.a.p0.a.u1.a.a.v() || c.a.p0.a.u1.a.a.z()) ? 0 : 1;
                     c.a.p0.a.p0.f.a.a(r3);
                     jSONObject5.put("emitDomain", bVar5.k(string5, Integer.valueOf((int) r3)));
-                    JSONObject jSONObject6 = this.f7931g;
-                    b bVar6 = this.f7933i;
-                    String string6 = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_wss);
+                    JSONObject jSONObject6 = this.f7939g;
+                    b bVar6 = this.f7941i;
+                    String string6 = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_wss);
                     boolean q = c.a.p0.a.u1.a.a.q();
                     c.a.p0.a.p0.f.a.a(q);
                     jSONObject6.put("emitWss", bVar6.k(string6, Integer.valueOf(q ? 1 : 0)));
-                    JSONObject jSONObject7 = this.f7931g;
-                    b bVar7 = this.f7933i;
-                    String string7 = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_launch_mode);
+                    JSONObject jSONObject7 = this.f7939g;
+                    b bVar7 = this.f7941i;
+                    String string7 = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_launch_mode);
                     boolean w = c.a.p0.a.u1.a.a.w();
                     c.a.p0.a.p0.f.a.a(w);
                     jSONObject7.put("emitLaunchMode", bVar7.k(string7, Integer.valueOf(w ? 1 : 0)));
-                    this.f7931g.put("debugEnvData", this.f7933i.k(this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_game_extra_data), c.a.p0.a.u1.a.a.g()));
-                    JSONObject jSONObject8 = this.f7931g;
-                    b bVar8 = this.f7933i;
-                    String string8 = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_replace_swan_core);
+                    this.f7939g.put("debugEnvData", this.f7941i.k(this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_game_extra_data), c.a.p0.a.u1.a.a.g()));
+                    JSONObject jSONObject8 = this.f7939g;
+                    b bVar8 = this.f7941i;
+                    String string8 = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_replace_swan_core);
                     boolean k = c.a.p0.a.u1.a.a.k();
                     c.a.p0.a.p0.f.a.a(k);
                     jSONObject8.put("emitReplaceSwanCore", bVar8.k(string8, Integer.valueOf(k ? 1 : 0)));
-                    JSONObject jSONObject9 = this.f7931g;
-                    b bVar9 = this.f7933i;
-                    String string9 = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_replace_game_core);
+                    JSONObject jSONObject9 = this.f7939g;
+                    b bVar9 = this.f7941i;
+                    String string9 = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_replace_game_core);
                     boolean h2 = c.a.p0.a.u1.a.a.h();
                     c.a.p0.a.p0.f.a.a(h2);
                     jSONObject9.put("emitReplaceGameCore", bVar9.k(string9, Integer.valueOf(h2 ? 1 : 0)));
-                    JSONObject jSONObject10 = this.f7931g;
-                    b bVar10 = this.f7933i;
-                    String string10 = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_replace_js_native);
+                    JSONObject jSONObject10 = this.f7939g;
+                    b bVar10 = this.f7941i;
+                    String string10 = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_replace_js_native);
                     boolean p = c.a.p0.a.u1.a.a.p();
                     c.a.p0.a.p0.f.a.a(p);
                     jSONObject10.put("emitReplaceJsNative", bVar10.k(string10, Integer.valueOf(p ? 1 : 0)));
                     boolean d2 = g.t.d();
-                    JSONObject jSONObject11 = this.f7931g;
-                    b bVar11 = this.f7933i;
-                    String string11 = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_replace_v8_core);
+                    JSONObject jSONObject11 = this.f7939g;
+                    b bVar11 = this.f7941i;
+                    String string11 = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_replace_v8_core);
                     c.a.p0.a.p0.f.a.a(d2);
                     jSONObject11.put("emitReplaceV8Core", bVar11.k(string11, Integer.valueOf(d2 ? 1 : 0)));
                     boolean m = c.a.p0.a.p0.f.b.m();
-                    JSONObject jSONObject12 = this.f7931g;
-                    b bVar12 = this.f7933i;
-                    String string12 = this.f7932h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_replace_dynamic_lib);
+                    JSONObject jSONObject12 = this.f7939g;
+                    b bVar12 = this.f7941i;
+                    String string12 = this.f7940h.getResources().getString(c.a.p0.a.h.aiapps_debug_emit_replace_dynamic_lib);
                     c.a.p0.a.p0.f.a.a(m);
                     jSONObject12.put("emitReplaceDynamicLib", bVar12.k(string12, Integer.valueOf(m ? 1 : 0)));
-                    UnitedSchemeUtility.callCallback(this.f7929e, this.f7930f, UnitedSchemeUtility.wrapCallbackParams(this.f7931g, 0));
+                    UnitedSchemeUtility.callCallback(this.f7937e, this.f7938f, UnitedSchemeUtility.wrapCallbackParams(this.f7939g, 0));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
-                    this.f7930f.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
+                    this.f7938f.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
                 }
             }
         }
@@ -191,7 +191,7 @@ public class b extends a0 {
                 eVar.T().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, jSONObject, context));
             } else if (c.a.p0.a.a2.d.g().l() == 1) {
                 c.a.p0.a.e0.d.g("getDebugConfig", "swangame getDebugConfig");
-                if (!a0.f4766b) {
+                if (!a0.f4774b) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                     return false;
                 }

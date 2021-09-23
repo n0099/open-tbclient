@@ -26,11 +26,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f28315b;
+    public static volatile a f28335b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, ArrayList<FunAdHistoryData>> f28316a;
+    public Map<String, ArrayList<FunAdHistoryData>> f28336a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,23 +46,23 @@ public class a {
             }
         }
         HashMap hashMap = new HashMap();
-        this.f28316a = hashMap;
+        this.f28336a = hashMap;
         hashMap.clear();
-        this.f28316a.putAll(d());
+        this.f28336a.putAll(d());
     }
 
     public static a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f28315b == null) {
+            if (f28335b == null) {
                 synchronized (a.class) {
-                    if (f28315b == null) {
-                        f28315b = new a();
+                    if (f28335b == null) {
+                        f28335b = new a();
                     }
                 }
             }
-            return f28315b;
+            return f28335b;
         }
         return (a) invokeV.objValue;
     }
@@ -109,10 +109,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.f28316a == null || TextUtils.isEmpty(str) || !this.f28316a.containsKey(str)) {
+            if (this.f28336a == null || TextUtils.isEmpty(str) || !this.f28336a.containsKey(str)) {
                 return null;
             }
-            return this.f28316a.get(str);
+            return this.f28336a.get(str);
         }
         return (ArrayList) invokeL.objValue;
     }
@@ -193,7 +193,7 @@ public class a {
     public final void j(String str) {
         ArrayList<FunAdHistoryData> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || this.f28316a == null || TextUtils.isEmpty(str) || !this.f28316a.containsKey(str) || (arrayList = this.f28316a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || this.f28336a == null || TextUtils.isEmpty(str) || !this.f28336a.containsKey(str) || (arrayList = this.f28336a.get(str)) == null) {
             return;
         }
         JSONArray jSONArray = new JSONArray();

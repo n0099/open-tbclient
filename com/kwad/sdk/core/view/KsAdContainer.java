@@ -18,7 +18,7 @@ public class KsAdContainer extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public v.a f72407a;
+    public v.a f72726a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KsAdContainer(Context context) {
@@ -38,7 +38,7 @@ public class KsAdContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f72407a = new v.a();
+        this.f72726a = new v.a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -60,7 +60,7 @@ public class KsAdContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f72407a = new v.a();
+        this.f72726a = new v.a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,7 +82,7 @@ public class KsAdContainer extends RelativeLayout {
                 return;
             }
         }
-        this.f72407a = new v.a();
+        this.f72726a = new v.a();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -93,10 +93,10 @@ public class KsAdContainer extends RelativeLayout {
             int action = motionEvent.getAction();
             if (action == 0) {
                 v.a aVar = new v.a(getWidth(), getHeight());
-                this.f72407a = aVar;
+                this.f72726a = aVar;
                 aVar.a(motionEvent.getX(), motionEvent.getY());
             } else if (action == 1) {
-                this.f72407a.b(motionEvent.getX(), motionEvent.getY());
+                this.f72726a.b(motionEvent.getX(), motionEvent.getY());
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -107,6 +107,6 @@ public class KsAdContainer extends RelativeLayout {
     public v.a getTouchCoords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72407a : (v.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72726a : (v.a) invokeV.objValue;
     }
 }

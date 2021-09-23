@@ -24,7 +24,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
     public final int prefetch;
     public final Scheduler scheduler;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static abstract class BaseObserveOnSubscriber<T> extends BasicIntQueueSubscription<T> implements FlowableSubscriber<T>, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8241002408341274697L;
@@ -236,7 +236,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class ObserveOnConditionalSubscriber<T> extends BaseObserveOnSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 644624475404284533L;
@@ -459,7 +459,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class ObserveOnSubscriber<T> extends BaseObserveOnSubscriber<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4547113800637756442L;

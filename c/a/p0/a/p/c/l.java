@@ -39,22 +39,22 @@ public class l implements c.a.p0.a.p.d.x {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Context f7854e;
+        public Context f7862e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ArrayList<MediaModel> f7855f;
+        public ArrayList<MediaModel> f7863f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f7856g;
+        public boolean f7864g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f7857h;
+        public String f7865h;
 
         /* renamed from: i  reason: collision with root package name */
-        public c.a.p0.a.i1.d.d.d f7858i;
+        public c.a.p0.a.i1.d.d.d f7866i;
 
         /* renamed from: j  reason: collision with root package name */
-        public HandlerC0338b f7859j;
+        public HandlerC0338b f7867j;
         public a k;
 
         /* loaded from: classes.dex */
@@ -63,10 +63,10 @@ public class l implements c.a.p0.a.p.d.x {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public HandlerC0338b f7860e;
+            public HandlerC0338b f7868e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f7861f;
+            public final /* synthetic */ b f7869f;
 
             public a(b bVar, HandlerC0338b handlerC0338b) {
                 Interceptable interceptable = $ic;
@@ -83,8 +83,8 @@ public class l implements c.a.p0.a.p.d.x {
                         return;
                     }
                 }
-                this.f7861f = bVar;
-                this.f7860e = handlerC0338b;
+                this.f7869f = bVar;
+                this.f7868e = handlerC0338b;
             }
 
             @Override // c.a.p0.a.g1.a, android.app.Application.ActivityLifecycleCallbacks
@@ -92,17 +92,17 @@ public class l implements c.a.p0.a.p.d.x {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
                     if ((activity instanceof SwanAppActivity) || (activity instanceof SwanAppAlbumActivity) || (activity instanceof SwanAppAlbumPreviewActivity)) {
-                        if (this.f7860e.f7863b != null && this.f7860e.f7863b.isShowing()) {
-                            this.f7860e.f7863b.cancel();
-                            this.f7860e.f7863b = null;
+                        if (this.f7868e.f7871b != null && this.f7868e.f7871b.isShowing()) {
+                            this.f7868e.f7871b.cancel();
+                            this.f7868e.f7871b = null;
                         }
-                        HandlerC0338b handlerC0338b = this.f7860e;
+                        HandlerC0338b handlerC0338b = this.f7868e;
                         if (handlerC0338b != null) {
                             handlerC0338b.removeMessages(1);
-                            this.f7860e.removeMessages(2);
-                            this.f7860e = null;
+                            this.f7868e.removeMessages(2);
+                            this.f7868e = null;
                         }
-                        this.f7861f.f();
+                        this.f7869f.f();
                     }
                 }
             }
@@ -115,10 +115,10 @@ public class l implements c.a.p0.a.p.d.x {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public WeakReference<Context> f7862a;
+            public WeakReference<Context> f7870a;
 
             /* renamed from: b  reason: collision with root package name */
-            public Dialog f7863b;
+            public Dialog f7871b;
 
             public /* synthetic */ HandlerC0338b(Context context, a aVar) {
                 this(context);
@@ -131,26 +131,26 @@ public class l implements c.a.p0.a.p.d.x {
                 if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                     int i2 = message.what;
                     if (i2 != 1) {
-                        if (i2 == 2 && (dialog = this.f7863b) != null && dialog.isShowing()) {
-                            Context context = this.f7862a.get();
+                        if (i2 == 2 && (dialog = this.f7871b) != null && dialog.isShowing()) {
+                            Context context = this.f7870a.get();
                             if ((context instanceof Activity) && !((Activity) context).isFinishing()) {
-                                this.f7863b.cancel();
+                                this.f7871b.cancel();
                             }
-                            this.f7863b = null;
+                            this.f7871b = null;
                             return;
                         }
                         return;
                     }
-                    Context context2 = this.f7862a.get();
+                    Context context2 = this.f7870a.get();
                     if (!(context2 instanceof Activity) || ((Activity) context2).isFinishing()) {
                         return;
                     }
-                    Dialog dialog2 = new Dialog(this.f7862a.get(), c.a.p0.a.i.SwanAppCompressDialog);
-                    this.f7863b = dialog2;
+                    Dialog dialog2 = new Dialog(this.f7870a.get(), c.a.p0.a.i.SwanAppCompressDialog);
+                    this.f7871b = dialog2;
                     dialog2.setContentView(c.a.p0.a.g.swanapp_progress_dialog);
-                    this.f7863b.findViewById(c.a.p0.a.f.layer_night).setVisibility(c.a.p0.a.c1.a.H().a() ? 0 : 8);
-                    this.f7863b.setCancelable(false);
-                    this.f7863b.show();
+                    this.f7871b.findViewById(c.a.p0.a.f.layer_night).setVisibility(c.a.p0.a.c1.a.H().a() ? 0 : 8);
+                    this.f7871b.setCancelable(false);
+                    this.f7871b.show();
                 }
             }
 
@@ -169,7 +169,7 @@ public class l implements c.a.p0.a.p.d.x {
                         return;
                     }
                 }
-                this.f7862a = new WeakReference<>(context);
+                this.f7870a = new WeakReference<>(context);
             }
         }
 
@@ -188,13 +188,13 @@ public class l implements c.a.p0.a.p.d.x {
                     return;
                 }
             }
-            this.f7854e = context;
-            this.f7855f = bundle.getParcelableArrayList("mediaModels");
+            this.f7862e = context;
+            this.f7863f = bundle.getParcelableArrayList("mediaModels");
             c.a.p0.a.v2.v.g(bundle, "swanAppId");
-            this.f7856g = c.a.p0.a.v2.v.c(bundle, "compressed", false);
-            this.f7857h = c.a.p0.a.v2.v.g(bundle, "swanTmpPath");
-            this.f7858i = dVar;
-            this.f7859j = new HandlerC0338b(context, null);
+            this.f7864g = c.a.p0.a.v2.v.c(bundle, "compressed", false);
+            this.f7865h = c.a.p0.a.v2.v.g(bundle, "swanTmpPath");
+            this.f7866i = dVar;
+            this.f7867j = new HandlerC0338b(context, null);
         }
 
         public final void b(MediaModel mediaModel, int i2) {
@@ -202,11 +202,11 @@ public class l implements c.a.p0.a.p.d.x {
             if (!(interceptable == null || interceptable.invokeLI(1048576, this, mediaModel, i2) == null) || mediaModel == null) {
                 return;
             }
-            if (c.a.p0.a.i1.d.c.c.f6730a) {
+            if (c.a.p0.a.i1.d.c.c.f6738a) {
                 String str = "compressImg : " + mediaModel.getPath();
             }
             File file = new File(mediaModel.getPath());
-            File l = c.a.p0.a.v2.u.l(this.f7857h, file.getName());
+            File l = c.a.p0.a.v2.u.l(this.f7865h, file.getName());
             if (l == null) {
                 return;
             }
@@ -220,10 +220,10 @@ public class l implements c.a.p0.a.p.d.x {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoModel) == null) || videoModel == null) {
                 return;
             }
-            if (c.a.p0.a.i1.d.c.c.f6730a) {
+            if (c.a.p0.a.i1.d.c.c.f6738a) {
                 String str = "compressVideo : " + videoModel.getPath();
             }
-            File l = c.a.p0.a.v2.u.l(this.f7857h, new File(videoModel.getPath()).getName());
+            File l = c.a.p0.a.v2.u.l(this.f7865h, new File(videoModel.getPath()).getName());
             if (l == null) {
                 return;
             }
@@ -238,7 +238,7 @@ public class l implements c.a.p0.a.p.d.x {
                 return;
             }
             File file = new File(mediaModel.getPath());
-            File l = c.a.p0.a.v2.u.l(this.f7857h, file.getName());
+            File l = c.a.p0.a.v2.u.l(this.f7865h, file.getName());
             if (l == null || !l.exists() || c.a.p0.t.d.f(file, l) == 0) {
                 return;
             }
@@ -248,7 +248,7 @@ public class l implements c.a.p0.a.p.d.x {
         public final void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.k = new a(this, this.f7859j);
+                this.k = new a(this, this.f7867j);
                 c.a.p0.a.c1.a.b().registerActivityLifecycleCallbacks(this.k);
             }
         }
@@ -267,12 +267,12 @@ public class l implements c.a.p0.a.p.d.x {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 e();
-                HandlerC0338b handlerC0338b = this.f7859j;
+                HandlerC0338b handlerC0338b = this.f7867j;
                 if (handlerC0338b != null) {
                     handlerC0338b.sendEmptyMessage(1);
                 }
-                if (this.f7856g) {
-                    Iterator<MediaModel> it = this.f7855f.iterator();
+                if (this.f7864g) {
+                    Iterator<MediaModel> it = this.f7863f.iterator();
                     while (it.hasNext()) {
                         MediaModel next = it.next();
                         if (next != null) {
@@ -288,7 +288,7 @@ public class l implements c.a.p0.a.p.d.x {
                         }
                     }
                 } else {
-                    Iterator<MediaModel> it2 = this.f7855f.iterator();
+                    Iterator<MediaModel> it2 = this.f7863f.iterator();
                     while (it2.hasNext()) {
                         MediaModel next2 = it2.next();
                         if (next2 != null) {
@@ -300,13 +300,13 @@ public class l implements c.a.p0.a.p.d.x {
                         }
                     }
                 }
-                HandlerC0338b handlerC0338b2 = this.f7859j;
+                HandlerC0338b handlerC0338b2 = this.f7867j;
                 if (handlerC0338b2 != null) {
                     handlerC0338b2.sendEmptyMessage(2);
                 }
-                c.a.p0.a.i1.d.d.d dVar = this.f7858i;
+                c.a.p0.a.i1.d.d.d dVar = this.f7866i;
                 if (dVar != null) {
-                    dVar.a(true, null, this.f7855f);
+                    dVar.a(true, null, this.f7863f);
                 }
                 f();
             }

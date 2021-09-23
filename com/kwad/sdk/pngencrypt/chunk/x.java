@@ -13,13 +13,13 @@ public class x extends s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f73187h;
+    public String f73506h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f73188i;
+    public int f73507i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int[] f73189j;
+    public int[] f73508j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(com.kwad.sdk.pngencrypt.k kVar) {
@@ -54,7 +54,7 @@ public class x extends s {
             int i7 = 0;
             int i8 = 0;
             while (true) {
-                byte[] bArr = dVar.f73143d;
+                byte[] bArr = dVar.f73462d;
                 if (i8 >= bArr.length) {
                     i8 = -1;
                     break;
@@ -65,42 +65,42 @@ public class x extends s {
                 }
             }
             if (i8 > 0) {
-                byte[] bArr2 = dVar.f73143d;
+                byte[] bArr2 = dVar.f73462d;
                 if (i8 <= bArr2.length - 2) {
-                    this.f73187h = b.a(bArr2, 0, i8);
-                    int a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, i8 + 1);
-                    this.f73188i = a2;
+                    this.f73506h = b.a(bArr2, 0, i8);
+                    int a2 = com.kwad.sdk.pngencrypt.n.a(dVar.f73462d, i8 + 1);
+                    this.f73507i = a2;
                     int i9 = i8 + 2;
-                    int length = (dVar.f73143d.length - i9) / (a2 == 8 ? 6 : 10);
-                    this.f73189j = new int[length * 5];
+                    int length = (dVar.f73462d.length - i9) / (a2 == 8 ? 6 : 10);
+                    this.f73508j = new int[length * 5];
                     int i10 = i9;
                     int i11 = 0;
                     while (i7 < length) {
-                        if (this.f73188i == 8) {
+                        if (this.f73507i == 8) {
                             int i12 = i10 + 1;
-                            i3 = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, i10);
+                            i3 = com.kwad.sdk.pngencrypt.n.a(dVar.f73462d, i10);
                             int i13 = i12 + 1;
-                            i4 = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, i12);
+                            i4 = com.kwad.sdk.pngencrypt.n.a(dVar.f73462d, i12);
                             int i14 = i13 + 1;
-                            i5 = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, i13);
+                            i5 = com.kwad.sdk.pngencrypt.n.a(dVar.f73462d, i13);
                             i2 = i14 + 1;
-                            i6 = com.kwad.sdk.pngencrypt.n.a(dVar.f73143d, i14);
+                            i6 = com.kwad.sdk.pngencrypt.n.a(dVar.f73462d, i14);
                         } else {
-                            int b2 = com.kwad.sdk.pngencrypt.n.b(dVar.f73143d, i10);
+                            int b2 = com.kwad.sdk.pngencrypt.n.b(dVar.f73462d, i10);
                             int i15 = i10 + 2;
-                            int b3 = com.kwad.sdk.pngencrypt.n.b(dVar.f73143d, i15);
+                            int b3 = com.kwad.sdk.pngencrypt.n.b(dVar.f73462d, i15);
                             int i16 = i15 + 2;
-                            int b4 = com.kwad.sdk.pngencrypt.n.b(dVar.f73143d, i16);
+                            int b4 = com.kwad.sdk.pngencrypt.n.b(dVar.f73462d, i16);
                             int i17 = i16 + 2;
-                            int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.f73143d, i17);
+                            int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.f73462d, i17);
                             i2 = i17 + 2;
                             i3 = b2;
                             i4 = b3;
                             i5 = b4;
                             i6 = b5;
                         }
-                        int b6 = com.kwad.sdk.pngencrypt.n.b(dVar.f73143d, i2);
-                        int[] iArr = this.f73189j;
+                        int b6 = com.kwad.sdk.pngencrypt.n.b(dVar.f73462d, i2);
+                        int[] iArr = this.f73508j;
                         int i18 = i11 + 1;
                         iArr[i11] = i3;
                         int i19 = i18 + 1;
@@ -124,6 +124,6 @@ public class x extends s {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73187h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73506h : (String) invokeV.objValue;
     }
 }

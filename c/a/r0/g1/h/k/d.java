@@ -7,7 +7,7 @@ import c.a.r0.a0.d0.j;
 import c.a.r0.a0.d0.k;
 import c.a.r0.a0.d0.l;
 import c.a.r0.a0.d0.p;
-import c.a.r0.j3.z;
+import c.a.r0.j3.a0;
 import c.a.r0.y2.y;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -207,30 +207,30 @@ public class d {
                 for (App app : list) {
                     c.a.r0.g1.h.j.a aVar = new c.a.r0.g1.h.j.a();
                     aVar.i(app);
-                    if (h2 != null && (advertAppInfo = aVar.f15568e) != null) {
-                        advertAppInfo.Z1 = true;
+                    if (h2 != null && (advertAppInfo = aVar.f15577e) != null) {
+                        advertAppInfo.a2 = true;
                         h2.add(advertAppInfo);
                     }
                     AdvertAppInfo g2 = aVar.g();
                     if (g2 == null) {
                         c.a.r0.y2.l0.d.h(aVar.g(), 1, 100);
                     } else {
-                        int T4 = g2.T4();
-                        if (T4 != 0) {
-                            c.a.r0.y2.l0.d.h(aVar.g(), 1, T4);
-                            if (T4 != 28 && T4 != 31) {
-                                g2.Y3 = -1001;
+                        int S4 = g2.S4();
+                        if (S4 != 0) {
+                            c.a.r0.y2.l0.d.h(aVar.g(), 1, S4);
+                            if (S4 != 28 && S4 != 31) {
+                                g2.Z3 = -1001;
                             }
                         }
                         if (aVar.getPosition() <= 0) {
                             c.a.r0.y2.l0.d.h(aVar.g(), 1, 23);
-                            g2.Y3 = -1001;
+                            g2.Z3 = -1001;
                         }
-                        if (g2.Q4()) {
+                        if (g2.P4()) {
                             try {
-                                if (TextUtils.isEmpty(g2.o4)) {
+                                if (TextUtils.isEmpty(g2.p4)) {
                                     c.a.r0.y2.l0.d.h(aVar.g(), 1, 26);
-                                } else if (z.b(TbadkCoreApplication.getInst().getContext(), g2.o4) && c.a.r0.a.h().D()) {
+                                } else if (a0.b(TbadkCoreApplication.getInst().getContext(), g2.p4) && c.a.r0.a.h().D()) {
                                     c.a.r0.y2.l0.d.h(aVar.g(), 1, 3);
                                 }
                             } catch (Exception unused) {
@@ -253,9 +253,9 @@ public class d {
             if (d2Var == null) {
                 return null;
             }
-            if (d2Var.y1) {
+            if (d2Var.z1) {
                 k kVar = new k();
-                kVar.f15562e = d2Var;
+                kVar.f15571e = d2Var;
                 return kVar;
             } else if (j.Y(d2Var)) {
                 return new j(d2Var);
@@ -272,7 +272,7 @@ public class d {
                 if (!d2Var.e2() && !d2Var.w2()) {
                     d2Var.Z1();
                 }
-                kVar2.f15562e = d2Var;
+                kVar2.f15571e = d2Var;
                 return kVar2;
             }
         }
@@ -296,7 +296,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, d2Var)) == null) {
             k kVar = new k();
-            kVar.f15562e = d2Var;
+            kVar.f15571e = d2Var;
             d2Var.e2();
             if (!d2Var.e2()) {
                 d2Var.Z1();
@@ -527,9 +527,9 @@ public class d {
                         c.a.r0.y2.l0.d.h(aVar.g(), 1, 100);
                         builder2.app.remove(size);
                     } else {
-                        int T4 = g2.T4();
-                        if (T4 != 0) {
-                            c.a.r0.y2.l0.d.h(aVar.g(), 1, T4);
+                        int S4 = g2.S4();
+                        if (S4 != 0) {
+                            c.a.r0.y2.l0.d.h(aVar.g(), 1, S4);
                             builder2.app.remove(size);
                         }
                     }
@@ -580,7 +580,7 @@ public class d {
             if (!TextUtils.isEmpty(z0) && !TextUtils.isEmpty(formatTimeForHomeC)) {
                 z0 = z0 + TbadkCoreApplication.getInst().getString(R.string.send_post) + "   " + TbadkCoreApplication.getInst().getString(R.string.repley_when) + formatTimeForHomeC;
             }
-            d2Var.y4(z0);
+            d2Var.x4(z0);
         }
     }
 

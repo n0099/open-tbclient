@@ -30,53 +30,53 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f26927a;
+    public TbPageContext f26947a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26928b;
+    public int f26948b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26929c;
+    public String f26949c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26930d;
+    public String f26950d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26931e;
+    public String f26951e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f26932f;
+    public HttpMessageListener f26952f;
 
     /* renamed from: c.a.r0.w0.k1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1261a implements a.e {
+    public class C1259a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f26933e;
+        public final /* synthetic */ c.a.q0.s.s.a f26953e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f26934f;
+        public final /* synthetic */ int f26954f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f26935g;
+        public final /* synthetic */ a f26955g;
 
         /* renamed from: c.a.r0.w0.k1.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC1262a implements View.OnClickListener {
+        public class View$OnClickListenerC1260a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C1261a f26936e;
+            public final /* synthetic */ C1259a f26956e;
 
-            public View$OnClickListenerC1262a(C1261a c1261a) {
+            public View$OnClickListenerC1260a(C1259a c1259a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1261a};
+                    Object[] objArr = {c1259a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -86,7 +86,7 @@ public class a {
                         return;
                     }
                 }
-                this.f26936e = c1261a;
+                this.f26956e = c1259a;
             }
 
             @Override // android.view.View.OnClickListener
@@ -94,13 +94,13 @@ public class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("_forumId", this.f26936e.f26935g.f26929c);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(this.f26936e.f26935g.f26927a.getPageActivity(), "ForumGradePage", hashMap)));
+                    hashMap.put("_forumId", this.f26956e.f26955g.f26949c);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(this.f26956e.f26955g.f26947a.getPageActivity(), "ForumGradePage", hashMap)));
                 }
             }
         }
 
-        public C1261a(a aVar, c.a.q0.s.s.a aVar2, int i2) {
+        public C1259a(a aVar, c.a.q0.s.s.a aVar2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,30 +115,30 @@ public class a {
                     return;
                 }
             }
-            this.f26935g = aVar;
-            this.f26933e = aVar2;
-            this.f26934f = i2;
+            this.f26955g = aVar;
+            this.f26953e = aVar2;
+            this.f26954f = i2;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                c.a.q0.s.d0.b.j().t("key_forum_broadcast_no_tip_again", this.f26933e.isNoTipAgainChecked());
-                this.f26933e.dismiss();
-                if (this.f26934f == 0) {
-                    new ScreenTopToast(this.f26935g.f26927a.getPageActivity()).setTitle(this.f26935g.f26927a.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip)).setBtnText(this.f26935g.f26927a.getString(R.string.frs_recommend_fail_tip_btn)).setBtnClickListener(new View$OnClickListenerC1262a(this)).show((ViewGroup) this.f26935g.f26927a.getPageActivity().findViewById(R.id.frs));
+                c.a.q0.s.d0.b.j().t("key_forum_broadcast_no_tip_again", this.f26953e.isNoTipAgainChecked());
+                this.f26953e.dismiss();
+                if (this.f26954f == 0) {
+                    new ScreenTopToast(this.f26955g.f26947a.getPageActivity()).setTitle(this.f26955g.f26947a.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip)).setBtnText(this.f26955g.f26947a.getString(R.string.frs_recommend_fail_tip_btn)).setBtnClickListener(new View$OnClickListenerC1260a(this)).show((ViewGroup) this.f26955g.f26947a.getPageActivity().findViewById(R.id.frs));
                     return;
                 }
-                ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(this.f26935g.f26927a.getPageActivity());
-                if (this.f26935g.f26928b == 1) {
-                    forumBroadcastHelper.jumpFlutterEditGenear(this.f26935g.f26929c, this.f26935g.f26930d, "3");
-                } else if (this.f26935g.f26928b == 2) {
-                    forumBroadcastHelper.jumpFlutterEditGenear(this.f26935g.f26929c, this.f26935g.f26930d, "4");
+                ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(this.f26955g.f26947a.getPageActivity());
+                if (this.f26955g.f26948b == 1) {
+                    forumBroadcastHelper.jumpFlutterEditGenear(this.f26955g.f26949c, this.f26955g.f26950d, "3");
+                } else if (this.f26955g.f26948b == 2) {
+                    forumBroadcastHelper.jumpFlutterEditGenear(this.f26955g.f26949c, this.f26955g.f26950d, "4");
                 } else {
-                    forumBroadcastHelper.jumpFlutterEditGenear(this.f26935g.f26929c, this.f26935g.f26930d, "0");
+                    forumBroadcastHelper.jumpFlutterEditGenear(this.f26955g.f26949c, this.f26955g.f26950d, "0");
                 }
-                forumBroadcastHelper.clipCopy(this.f26935g.f26931e);
+                forumBroadcastHelper.clipCopy(this.f26955g.f26951e);
                 forumBroadcastHelper.start();
             }
         }
@@ -150,7 +150,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f26937e;
+        public final /* synthetic */ c.a.q0.s.s.a f26957e;
 
         public b(a aVar, c.a.q0.s.s.a aVar2) {
             Interceptable interceptable = $ic;
@@ -167,7 +167,7 @@ public class a {
                     return;
                 }
             }
-            this.f26937e = aVar2;
+            this.f26957e = aVar2;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -175,7 +175,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 c.a.q0.s.d0.b.j().t("key_call_fans_no_tip_again", false);
-                this.f26937e.dismiss();
+                this.f26957e.dismiss();
             }
         }
     }
@@ -186,7 +186,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26938a;
+        public final /* synthetic */ a f26958a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, int i2) {
@@ -206,7 +206,7 @@ public class a {
                     return;
                 }
             }
-            this.f26938a = aVar;
+            this.f26958a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -218,11 +218,11 @@ public class a {
                 boolean g2 = c.a.q0.s.d0.b.j().g("key_forum_broadcast_no_tip_again", false);
                 int i2 = forumManagerRightsResMsg.broadcastTotalCount - forumManagerRightsResMsg.broadcastUsedCount;
                 if (!g2) {
-                    this.f26938a.j(i2);
-                } else if (this.f26938a.f26928b == 1) {
-                    this.f26938a.f26927a.showToast(R.string.top_success);
-                } else if (this.f26938a.f26928b == 2) {
-                    this.f26938a.f26927a.showToast(R.string.set_good_success);
+                    this.f26958a.j(i2);
+                } else if (this.f26958a.f26948b == 1) {
+                    this.f26958a.f26947a.showToast(R.string.top_success);
+                } else if (this.f26958a.f26948b == 2) {
+                    this.f26958a.f26947a.showToast(R.string.set_good_success);
                 }
             }
         }
@@ -243,19 +243,19 @@ public class a {
                 return;
             }
         }
-        this.f26932f = new c(this, CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
-        this.f26927a = tbPageContext;
+        this.f26952f = new c(this, CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
+        this.f26947a = tbPageContext;
         i();
-        tbPageContext.registerListener(this.f26932f);
+        tbPageContext.registerListener(this.f26952f);
     }
 
     public void g(int i2, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, str3}) == null) {
-            this.f26928b = i2;
-            this.f26929c = str;
-            this.f26930d = str2;
-            this.f26931e = str3;
+            this.f26948b = i2;
+            this.f26949c = str;
+            this.f26950d = str2;
+            this.f26951e = str3;
             h(str);
         }
     }
@@ -266,7 +266,7 @@ public class a {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
             httpMessage.addParam("forum_id", str);
-            this.f26927a.sendMessage(httpMessage);
+            this.f26947a.sendMessage(httpMessage);
         }
     }
 
@@ -285,20 +285,20 @@ public class a {
     public final void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f26927a.getPageActivity());
+            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f26947a.getPageActivity());
             aVar.setUseNoTipAgainStyle(true);
             aVar.setNegativeTextColor(R.color.CAM_X0105);
-            int i3 = this.f26928b;
+            int i3 = this.f26948b;
             if (i3 == 1) {
                 aVar.setTitle(R.string.top_success);
             } else if (i3 == 2) {
                 aVar.setTitle(R.string.set_good_success);
             }
-            aVar.setMessage(String.format(this.f26927a.getString(R.string.forum_broadcast_intro), Integer.valueOf(i2)));
+            aVar.setMessage(String.format(this.f26947a.getString(R.string.forum_broadcast_intro), Integer.valueOf(i2)));
             aVar.setContentViewSize(1);
-            aVar.setPositiveButton(this.f26927a.getString(R.string.send_forum_broadcast), new C1261a(this, aVar, i2));
-            aVar.setNegativeButton(this.f26927a.getString(R.string.next_time), new b(this, aVar));
-            aVar.create(this.f26927a).show();
+            aVar.setPositiveButton(this.f26947a.getString(R.string.send_forum_broadcast), new C1259a(this, aVar, i2));
+            aVar.setNegativeButton(this.f26947a.getString(R.string.next_time), new b(this, aVar));
+            aVar.create(this.f26947a).show();
         }
     }
 }

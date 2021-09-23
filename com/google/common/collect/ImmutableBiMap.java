@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableMap;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements k<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class SerializedForm extends ImmutableMap.SerializedForm {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -52,7 +52,7 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class a<K, V> extends ImmutableMap.b<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,12 +105,12 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.f70495c == 0) {
+                if (this.f70814c == 0) {
                     return ImmutableBiMap.of();
                 }
                 g();
-                this.f70496d = true;
-                return new RegularImmutableBiMap(this.f70494b, this.f70495c);
+                this.f70815d = true;
+                return new RegularImmutableBiMap(this.f70813b, this.f70814c);
             }
             return (ImmutableBiMap) invokeV.objValue;
         }

@@ -34,31 +34,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f18645a;
+    public final Context f18654a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.r0.g3.b f18646b;
+    public final c.a.r0.g3.b f18655b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.r0.g3.a f18647c;
+    public final c.a.r0.g3.a f18656c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.e.c.g.a f18648d;
+    public c.a.e.c.g.a f18657d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final View.OnClickListener f18649e;
+    public final View.OnClickListener f18658e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f18650f;
+    public View.OnClickListener f18659f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LeftAdapter.b f18651g;
+    public LeftAdapter.b f18660g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView.OnScrollListener f18652h;
+    public RecyclerView.OnScrollListener f18661h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdListView.p f18653i;
+    public BdListView.p f18662i;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -66,7 +66,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f18654a;
+        public final /* synthetic */ c f18663a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2, int i3) {
@@ -87,7 +87,7 @@ public class c {
                     return;
                 }
             }
-            this.f18654a = cVar;
+            this.f18663a = cVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -107,10 +107,10 @@ public class c {
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
-                    str = this.f18654a.f18645a.getResources().getString(R.string.enter_forum_search_tip);
+                    str = this.f18663a.f18654a.getResources().getString(R.string.enter_forum_search_tip);
                 }
-                if (this.f18654a.f18646b != null) {
-                    this.f18654a.f18646b.A(str);
+                if (this.f18663a.f18655b != null) {
+                    this.f18663a.f18655b.A(str);
                 }
             }
         }
@@ -122,7 +122,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18655e;
+        public final /* synthetic */ c f18664e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -139,28 +139,28 @@ public class c {
                     return;
                 }
             }
-            this.f18655e = cVar;
+            this.f18664e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f18655e.f18647c.j();
+                this.f18664e.f18656c.j();
             }
         }
     }
 
     /* renamed from: c.a.r0.g3.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0904c implements View.OnClickListener {
+    public class View$OnClickListenerC0902c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18656e;
+        public final /* synthetic */ c f18665e;
 
-        public View$OnClickListenerC0904c(c cVar) {
+        public View$OnClickListenerC0902c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -175,7 +175,7 @@ public class c {
                     return;
                 }
             }
-            this.f18656e = cVar;
+            this.f18665e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -183,7 +183,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log(new StatisticItem("c13654").param("uid", TbadkCoreApplication.getCurrentAccountId()));
-                this.f18656e.f();
+                this.f18665e.f();
             }
         }
     }
@@ -194,7 +194,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f18657a;
+        public final /* synthetic */ c f18666a;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -211,14 +211,14 @@ public class c {
                     return;
                 }
             }
-            this.f18657a = cVar;
+            this.f18666a = cVar;
         }
 
         @Override // com.baidu.tieba.square.adapter.LeftAdapter.b
         public void a(View view, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, str) == null) {
-                this.f18657a.f18647c.k(str);
+                this.f18666a.f18656c.k(str);
             }
         }
     }
@@ -267,7 +267,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18658e;
+        public final /* synthetic */ c f18667e;
 
         public f(c cVar) {
             Interceptable interceptable = $ic;
@@ -284,14 +284,14 @@ public class c {
                     return;
                 }
             }
-            this.f18658e = cVar;
+            this.f18667e = cVar;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18658e.f18647c.i();
+                this.f18667e.f18656c.i();
             }
         }
     }
@@ -311,20 +311,20 @@ public class c {
                 return;
             }
         }
-        this.f18648d = new a(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
-        this.f18649e = new b(this);
-        this.f18650f = new View$OnClickListenerC0904c(this);
-        this.f18651g = new d(this);
-        this.f18652h = new e(this);
-        this.f18653i = new f(this);
-        this.f18645a = context;
-        this.f18646b = bVar;
-        this.f18647c = aVar;
-        bVar.v(this.f18650f);
-        this.f18646b.x(this.f18649e);
-        this.f18646b.w(this.f18651g);
-        this.f18646b.z(this.f18653i);
-        this.f18646b.y(this.f18652h);
+        this.f18657d = new a(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
+        this.f18658e = new b(this);
+        this.f18659f = new View$OnClickListenerC0902c(this);
+        this.f18660g = new d(this);
+        this.f18661h = new e(this);
+        this.f18662i = new f(this);
+        this.f18654a = context;
+        this.f18655b = bVar;
+        this.f18656c = aVar;
+        bVar.v(this.f18659f);
+        this.f18655b.x(this.f18658e);
+        this.f18655b.w(this.f18660g);
+        this.f18655b.z(this.f18662i);
+        this.f18655b.y(this.f18661h);
     }
 
     public void e() {
@@ -332,10 +332,10 @@ public class c {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String hotSearch = TbSingleton.getInstance().getHotSearch();
             if (!TextUtils.isEmpty(hotSearch)) {
-                this.f18646b.A(hotSearch);
+                this.f18655b.A(hotSearch);
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
             } else {
-                MessageManager.getInstance().registerListener(this.f18648d);
+                MessageManager.getInstance().registerListener(this.f18657d);
                 g();
             }
         }
@@ -345,9 +345,9 @@ public class c {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && j.z()) {
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                TbadkCoreApplication.getInst().login(UtilHelper.getTbPageContext(this.f18645a), new CustomMessage<>(2002001, new LoginActivityConfig(this.f18645a, true, 11013)));
+                TbadkCoreApplication.getInst().login(UtilHelper.getTbPageContext(this.f18654a), new CustomMessage<>(2002001, new LoginActivityConfig(this.f18654a, true, 11013)));
             } else {
-                UrlManager.getInstance().dealOneLink(UtilHelper.getTbPageContext(this.f18645a), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
+                UrlManager.getInstance().dealOneLink(UtilHelper.getTbPageContext(this.f18654a), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
             }
         }
     }

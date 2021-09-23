@@ -17,7 +17,7 @@ public final class w {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9439a;
+    public static final boolean f9447a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public final class w {
                 return;
             }
         }
-        f9439a = c.a.p0.a.k.f7077a;
+        f9447a = c.a.p0.a.k.f7085a;
     }
 
     public static <T> T a(JSONObject jSONObject, String str, Class<T> cls) {
@@ -45,18 +45,18 @@ public final class w {
             }
             T t = (T) jSONObject.opt(str);
             if (cls.isInstance(t)) {
-                if (f9439a) {
+                if (f9447a) {
                     String obj = t.toString();
                     if (((t instanceof JSONObject) || (t instanceof JSONArray)) && obj.length() > 30) {
                         obj = obj.substring(0, 30) + "...";
                     }
-                    if (f9439a) {
+                    if (f9447a) {
                         String str2 = "json: " + str + "=" + obj;
                     }
                 }
                 return t;
             }
-            if (f9439a) {
+            if (f9447a) {
                 if (t == null) {
                     String str3 = "Json has no value by name: '" + str + "'!";
                 } else {
@@ -91,7 +91,7 @@ public final class w {
             try {
                 return new JSONObject(str);
             } catch (JSONException unused) {
-                boolean z = f9439a;
+                boolean z = f9447a;
                 return new JSONObject();
             }
         }
@@ -108,7 +108,7 @@ public final class w {
             try {
                 return new JSONArray(str);
             } catch (JSONException unused) {
-                boolean z = f9439a;
+                boolean z = f9447a;
                 return new JSONArray();
             }
         }

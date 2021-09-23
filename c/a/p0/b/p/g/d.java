@@ -18,7 +18,7 @@ public class d extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f10259a;
+        public final /* synthetic */ d f10267a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -35,15 +35,15 @@ public class d extends ActivityDelegation {
                     return;
                 }
             }
-            this.f10259a = dVar;
+            this.f10267a = dVar;
         }
 
         @Override // c.a.p0.b.p.g.e
         public void onResult(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f10259a.mResult.putInt("quick_login", i2);
-                this.f10259a.finish();
+                this.f10267a.mResult.putInt("quick_login", i2);
+                this.f10267a.finish();
             }
         }
     }

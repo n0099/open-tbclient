@@ -14,19 +14,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f19929a;
+    public Handler f19944a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SearchEmotionModel f19930b;
+    public SearchEmotionModel f19945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f19931c;
+    public String f19946c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SearchEmotionModel.b f19932d;
+    public SearchEmotionModel.b f19947d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f19933e;
+    public Runnable f19948e;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -34,7 +34,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f19934e;
+        public final /* synthetic */ b f19949e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -51,19 +51,19 @@ public class b {
                     return;
                 }
             }
-            this.f19934e = bVar;
+            this.f19949e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f19934e.f19931c) || this.f19934e.f19932d == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f19949e.f19946c) || this.f19949e.f19947d == null) {
                 return;
             }
-            if (this.f19934e.f19930b == null) {
-                this.f19934e.f19930b = new SearchEmotionModel();
+            if (this.f19949e.f19945b == null) {
+                this.f19949e.f19945b = new SearchEmotionModel();
             }
-            this.f19934e.f19930b.x(this.f19934e.f19931c, 0, 30, this.f19934e.f19932d);
+            this.f19949e.f19945b.x(this.f19949e.f19946c, 0, 30, this.f19949e.f19947d);
         }
     }
 
@@ -80,18 +80,18 @@ public class b {
                 return;
             }
         }
-        this.f19933e = new a(this);
-        this.f19929a = new Handler();
+        this.f19948e = new a(this);
+        this.f19944a = new Handler();
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SearchEmotionModel searchEmotionModel = this.f19930b;
+            SearchEmotionModel searchEmotionModel = this.f19945b;
             if (searchEmotionModel != null) {
                 searchEmotionModel.cancelLoadData();
             }
-            this.f19929a.removeCallbacks(this.f19933e);
+            this.f19944a.removeCallbacks(this.f19948e);
         }
     }
 
@@ -99,19 +99,19 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.f19931c = "";
+                this.f19946c = "";
                 return;
             }
-            this.f19929a.removeCallbacks(this.f19933e);
-            this.f19929a.postDelayed(this.f19933e, 300L);
-            this.f19931c = str;
+            this.f19944a.removeCallbacks(this.f19948e);
+            this.f19944a.postDelayed(this.f19948e, 300L);
+            this.f19946c = str;
         }
     }
 
     public void g(SearchEmotionModel.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f19932d = bVar;
+            this.f19947d = bVar;
         }
     }
 }

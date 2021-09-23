@@ -21,14 +21,14 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f13616c;
+    public static e f13612c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f13617a;
+    public List<String> f13613a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f13618b;
+    public List<String> f13614b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class e {
                 return;
             }
         }
-        this.f13617a = i(c.a.q0.s.d0.b.j().p("key_need_add_source_stat_list", ""));
-        this.f13618b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
+        this.f13613a = i(c.a.q0.s.d0.b.j().p("key_need_add_source_stat_list", ""));
+        this.f13614b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
     }
 
     public static void b(Context context, StatisticItem statisticItem, c.a.q0.o0.d dVar) {
@@ -82,14 +82,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f13616c == null) {
+            if (f13612c == null) {
                 synchronized (e.class) {
-                    if (f13616c == null) {
-                        f13616c = new e();
+                    if (f13612c == null) {
+                        f13612c = new e();
                     }
                 }
             }
-            return f13616c;
+            return f13612c;
         }
         return (e) invokeV.objValue;
     }
@@ -152,8 +152,8 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.f13618b) && !k.isEmpty(str)) {
-                for (String str2 : this.f13618b) {
+            if (!ListUtils.isEmpty(this.f13614b) && !k.isEmpty(str)) {
+                for (String str2 : this.f13614b) {
                     if (str.equals(str2)) {
                         return true;
                     }
@@ -168,8 +168,8 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.f13617a) && !k.isEmpty(str)) {
-                for (String str2 : this.f13617a) {
+            if (!ListUtils.isEmpty(this.f13613a) && !k.isEmpty(str)) {
+                for (String str2 : this.f13613a) {
                     if (str.equals(str2)) {
                         return true;
                     }
@@ -195,7 +195,7 @@ public class e {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f13617a = i(str);
+            this.f13613a = i(str);
             if (str == null) {
                 str = "";
             }

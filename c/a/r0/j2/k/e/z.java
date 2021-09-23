@@ -25,22 +25,22 @@ public class z implements c.a.e.l.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f20353e;
+    public String f20368e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20354f;
+    public int f20369f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20355g;
+    public int f20370g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f20356h;
+    public String f20371h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f20357i;
+    public String f20372i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MetaData f20358j;
+    public MetaData f20373j;
     public HashMap<String, MetaData> k;
     public boolean l;
     public String m;
@@ -88,14 +88,14 @@ public class z implements c.a.e.l.e.n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) {
             if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
-                this.f20353e = alaLiveInfo.user_info.user_name;
-                this.f20354f = alaLiveInfo.live_status.intValue();
-                this.f20355g = alaLiveInfo.audience_count.intValue();
-                this.f20356h = alaLiveInfo.description;
+                this.f20368e = alaLiveInfo.user_info.user_name;
+                this.f20369f = alaLiveInfo.live_status.intValue();
+                this.f20370g = alaLiveInfo.audience_count.intValue();
+                this.f20371h = alaLiveInfo.description;
                 String str = alaLiveInfo.cover_wide;
-                this.f20357i = str;
+                this.f20372i = str;
                 if (str == null || TextUtils.isEmpty(str)) {
-                    this.f20357i = alaLiveInfo.cover;
+                    this.f20372i = alaLiveInfo.cover;
                 }
                 alaLiveInfo.live_id.longValue();
                 this.l = alaLiveInfo.live_from.intValue() == 1;
@@ -107,7 +107,7 @@ public class z implements c.a.e.l.e.n {
                 yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
                 Long l = alaLiveInfo.user_info.user_id;
                 if (l != null && l.longValue() > 0 && (hashMap = this.k) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
-                    this.f20358j = metaData;
+                    this.f20373j = metaData;
                 }
                 List<DislikeInfo> list = alaLiveInfo.dislike_info;
                 if (ListUtils.getCount(list) > 0) {

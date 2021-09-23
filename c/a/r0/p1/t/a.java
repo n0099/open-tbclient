@@ -14,24 +14,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a extends c.a.q0.s.f0.u.b<c.a.q0.s.f0.u.d.a, C1106a> {
+public class a extends c.a.q0.s.f0.u.b<c.a.q0.s.f0.u.d.a, C1104a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f23704d;
+    public Context f23720d;
 
     /* renamed from: c.a.r0.p1.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1106a extends BdBaseViewPagerAdapter.a {
+    public class C1104a extends BdBaseViewPagerAdapter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public TbImageView f23705h;
+        public TbImageView f23721h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1106a(a aVar, View view) {
+        public C1104a(a aVar, View view) {
             super(view);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -50,7 +50,7 @@ public class a extends c.a.q0.s.f0.u.b<c.a.q0.s.f0.u.d.a, C1106a> {
             }
             if (view instanceof TbImageView) {
                 TbImageView tbImageView = (TbImageView) view;
-                this.f23705h = tbImageView;
+                this.f23721h = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
@@ -75,31 +75,31 @@ public class a extends c.a.q0.s.f0.u.b<c.a.q0.s.f0.u.d.a, C1106a> {
                 return;
             }
         }
-        this.f23704d = context;
+        this.f23720d = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.q0.s.f0.u.b
     /* renamed from: h */
-    public C1106a c(ViewGroup viewGroup) {
+    public C1104a c(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            TbImageView tbImageView = new TbImageView(this.f23704d);
+            TbImageView tbImageView = new TbImageView(this.f23720d);
             tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            return new C1106a(this, tbImageView);
+            return new C1104a(this, tbImageView);
         }
-        return (C1106a) invokeL.objValue;
+        return (C1104a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.q0.s.f0.u.b
     /* renamed from: i */
-    public View e(ViewGroup viewGroup, C1106a c1106a, c.a.q0.s.f0.u.d.a aVar) {
+    public View e(ViewGroup viewGroup, C1104a c1104a, c.a.q0.s.f0.u.d.a aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, viewGroup, c1106a, aVar)) == null) {
-            c1106a.f23705h.startLoad(aVar.b(), 17, false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, viewGroup, c1104a, aVar)) == null) {
+            c1104a.f23721h.startLoad(aVar.b(), 17, false);
             return null;
         }
         return (View) invokeLLL.objValue;
@@ -108,9 +108,9 @@ public class a extends c.a.q0.s.f0.u.b<c.a.q0.s.f0.u.d.a, C1106a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.q0.s.f0.u.b
     /* renamed from: j */
-    public void f(int i2, C1106a c1106a, c.a.q0.s.f0.u.d.a aVar) {
+    public void f(int i2, C1104a c1104a, c.a.q0.s.f0.u.d.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, c1106a, aVar) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, c1104a, aVar) == null) {
         }
     }
 }

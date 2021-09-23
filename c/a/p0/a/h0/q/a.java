@@ -22,13 +22,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6374a;
+    public static final boolean f6382a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6375b;
+    public static final boolean f6383b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final LruCache<String, Long> f6376c;
+    public static final LruCache<String, Long> f6384c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.h0.q.a$a  reason: collision with other inner class name */
@@ -38,10 +38,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6377e;
+        public final /* synthetic */ String f6385e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f6378f;
+        public final /* synthetic */ boolean f6386f;
 
         public RunnableC0248a(String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -58,31 +58,31 @@ public class a {
                     return;
                 }
             }
-            this.f6377e = str;
-            this.f6378f = z;
+            this.f6385e = str;
+            this.f6386f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = a.f6374a ? System.currentTimeMillis() : 0L;
-                Set<String> h2 = b.g().h(this.f6377e, true);
+                long currentTimeMillis = a.f6382a ? System.currentTimeMillis() : 0L;
+                Set<String> h2 = b.g().h(this.f6385e, true);
                 if (h2 == null || h2.size() <= 0) {
                     return;
                 }
-                if (a.f6374a) {
-                    String str = "start prelink, swan is already launched - " + this.f6378f;
+                if (a.f6382a) {
+                    String str = "start prelink, swan is already launched - " + this.f6386f;
                 }
                 for (String str2 : h2) {
                     if (a.d(str2)) {
-                        a.f6376c.put(str2, Long.valueOf(System.currentTimeMillis()));
+                        a.f6384c.put(str2, Long.valueOf(System.currentTimeMillis()));
                         b.g().m(str2);
                     }
                 }
-                if (a.f6374a) {
+                if (a.f6382a) {
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    String str3 = " prelink - " + this.f6377e + ", cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
+                    String str3 = " prelink - " + this.f6385e + ", cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
                 }
             }
         }
@@ -101,9 +101,9 @@ public class a {
                 return;
             }
         }
-        f6374a = k.f7077a;
-        f6375b = false;
-        f6376c = 0 != 0 ? new LruCache<>(10) : null;
+        f6382a = k.f7085a;
+        f6383b = false;
+        f6384c = 0 != 0 ? new LruCache<>(10) : null;
     }
 
     public static boolean d(String str) {
@@ -113,17 +113,17 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (f6374a) {
+            if (f6382a) {
                 String str2 = "prelink url - " + str;
-                String str3 = "prelink LRU size - " + f6376c.size();
+                String str3 = "prelink LRU size - " + f6384c.size();
             }
-            Long l = f6376c.get(str);
+            Long l = f6384c.get(str);
             if (l == null) {
-                boolean z = f6374a;
+                boolean z = f6382a;
                 return true;
             }
             boolean z2 = System.currentTimeMillis() - l.longValue() > 30000;
-            if (f6374a) {
+            if (f6382a) {
                 String str4 = "url in LRU, time is out - " + z2;
             }
             return z2;
@@ -134,15 +134,15 @@ public class a {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            if (!f6375b) {
-                boolean z = f6374a;
+            if (!f6383b) {
+                boolean z = f6382a;
             } else if (TextUtils.isEmpty(str)) {
-                boolean z2 = f6374a;
+                boolean z2 = f6382a;
             } else {
                 e r = d.g().r();
                 if (r == null) {
-                    boolean z3 = f6374a;
-                } else if (TextUtils.equals(r.f4558f, str)) {
+                    boolean z3 = f6382a;
+                } else if (TextUtils.equals(r.f4566f, str)) {
                     f(str, r.e());
                 }
             }

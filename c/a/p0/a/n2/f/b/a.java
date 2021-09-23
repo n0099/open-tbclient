@@ -31,16 +31,16 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7694a;
+        public final /* synthetic */ UnitedSchemeEntity f7702a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7695b;
+        public final /* synthetic */ CallbackHandler f7703b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ l f7696c;
+        public final /* synthetic */ l f7704c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f7697d;
+        public final /* synthetic */ a f7705d;
 
         public C0325a(a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l lVar) {
             Interceptable interceptable = $ic;
@@ -57,10 +57,10 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f7697d = aVar;
-            this.f7694a = unitedSchemeEntity;
-            this.f7695b = callbackHandler;
-            this.f7696c = lVar;
+            this.f7705d = aVar;
+            this.f7702a = unitedSchemeEntity;
+            this.f7703b = callbackHandler;
+            this.f7704c = lVar;
         }
 
         @Override // c.a.p0.a.n2.f.a.c
@@ -68,7 +68,7 @@ public class a extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
                 d.g("compass", "handle compass change, angle:" + f2 + ",accuracy: " + i2);
-                this.f7697d.k(this.f7694a, this.f7695b, this.f7696c, f2, i2);
+                this.f7705d.k(this.f7702a, this.f7703b, this.f7704c, f2, i2);
             }
         }
     }
@@ -102,24 +102,24 @@ public class a extends a0 {
             if (eVar == null) {
                 d.b("compass", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 return false;
             } else if (context == null) {
                 d.b("compass", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = a0.f4766b;
+                boolean z2 = a0.f4774b;
                 return false;
             } else {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    boolean z3 = a0.f4766b;
+                    boolean z3 = a0.f4774b;
                     d.b("compass", "none params");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
                 String optString = optParamsAsJo.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    boolean z4 = a0.f4766b;
+                    boolean z4 = a0.f4774b;
                     d.b("compass", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
@@ -146,7 +146,7 @@ public class a extends a0 {
             try {
                 jSONObject.put("direction", f2);
                 jSONObject.put("accuracy", c.a.p0.a.n2.f.a.h(i2));
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str = "compassAngle : " + jSONObject.toString();
                 }
                 lVar.c(unitedSchemeEntity, callbackHandler, jSONObject);

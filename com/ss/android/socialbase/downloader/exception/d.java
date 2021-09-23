@@ -12,10 +12,10 @@ public class d extends BaseException {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f75903a;
+    public final long f76222a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f75904b;
+    public final long f76223b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(long j2, long j3) {
@@ -36,19 +36,19 @@ public class d extends BaseException {
                 return;
             }
         }
-        this.f75903a = j2;
-        this.f75904b = j3;
+        this.f76222a = j2;
+        this.f76223b = j3;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75903a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76222a : invokeV.longValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75904b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76223b : invokeV.longValue;
     }
 }

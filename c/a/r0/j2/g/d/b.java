@@ -27,28 +27,28 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HeadImageView f19544a;
+    public HeadImageView f19559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f19545b;
+    public TextView f19560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbRichTextView f19546c;
+    public TbRichTextView f19561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewStub f19547d;
+    public ViewStub f19562d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f19548e;
+    public View f19563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f19549f;
+    public ImageView f19564f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f19550g;
+    public View f19565g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a f19551h;
+    public c.a f19566h;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -56,10 +56,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Post f19552e;
+        public final /* synthetic */ Post f19567e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f19553f;
+        public final /* synthetic */ b f19568f;
 
         public a(b bVar, Post post) {
             Interceptable interceptable = $ic;
@@ -76,18 +76,18 @@ public class b {
                     return;
                 }
             }
-            this.f19553f = bVar;
-            this.f19552e = post;
+            this.f19568f = bVar;
+            this.f19567e = post;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Post post;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (post = this.f19552e) == null || post.id == null || this.f19553f.f19551h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (post = this.f19567e) == null || post.id == null || this.f19568f.f19566h == null) {
                 return;
             }
-            this.f19553f.f19551h.a(String.valueOf(this.f19552e.id));
+            this.f19568f.f19566h.a(String.valueOf(this.f19567e.id));
         }
     }
 
@@ -106,21 +106,21 @@ public class b {
                 return;
             }
         }
-        this.f19547d = viewStub;
-        this.f19551h = aVar;
+        this.f19562d = viewStub;
+        this.f19566h = aVar;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f19548e == null) {
-            View inflate = this.f19547d.inflate();
-            this.f19548e = inflate;
-            this.f19544a = (HeadImageView) inflate.findViewById(R.id.chosen_pb_comment_head);
-            this.f19545b = (TextView) this.f19548e.findViewById(R.id.chosen_pb_comment_name);
-            this.f19546c = (TbRichTextView) this.f19548e.findViewById(R.id.chosen_pb_comment_content);
-            this.f19549f = (ImageView) this.f19548e.findViewById(R.id.chosen_pb_comment_reply);
-            this.f19550g = this.f19548e.findViewById(R.id.chosen_pb_comment_line);
-            this.f19546c.setTextSize(TbConfig.getContentSize());
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f19563e == null) {
+            View inflate = this.f19562d.inflate();
+            this.f19563e = inflate;
+            this.f19559a = (HeadImageView) inflate.findViewById(R.id.chosen_pb_comment_head);
+            this.f19560b = (TextView) this.f19563e.findViewById(R.id.chosen_pb_comment_name);
+            this.f19561c = (TbRichTextView) this.f19563e.findViewById(R.id.chosen_pb_comment_content);
+            this.f19564f = (ImageView) this.f19563e.findViewById(R.id.chosen_pb_comment_reply);
+            this.f19565g = this.f19563e.findViewById(R.id.chosen_pb_comment_line);
+            this.f19561c.setTextSize(TbConfig.getContentSize());
             c();
         }
     }
@@ -128,10 +128,10 @@ public class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.f19545b, R.color.CAM_X0106, 1);
-            SkinManager.setImageResource(this.f19549f, R.drawable.btn_comment_list);
-            SkinManager.setBackgroundColor(this.f19550g, R.color.CAM_X0204);
-            TbRichTextView tbRichTextView = this.f19546c;
+            SkinManager.setViewTextColor(this.f19560b, R.color.CAM_X0106, 1);
+            SkinManager.setImageResource(this.f19564f, R.drawable.btn_comment_list);
+            SkinManager.setBackgroundColor(this.f19565g, R.color.CAM_X0204);
+            TbRichTextView tbRichTextView = this.f19561c;
             if (tbRichTextView != null) {
                 tbRichTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             }
@@ -141,7 +141,7 @@ public class b {
     public void d(boolean z) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (view = this.f19548e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (view = this.f19563e) == null) {
             return;
         }
         view.setVisibility(z ? 0 : 8);
@@ -155,11 +155,11 @@ public class b {
             if (post != null && user != null && (list = post.content) != null && !list.isEmpty()) {
                 b();
                 d(true);
-                this.f19545b.setText(user.name_show);
-                this.f19549f.setOnClickListener(new a(this, post));
-                this.f19544a.startLoad(user.portrait, 12, false);
-                this.f19546c.setVisibility(0);
-                this.f19546c.setText(TbRichTextView.parser(context, post.content, false));
+                this.f19560b.setText(user.name_show);
+                this.f19564f.setOnClickListener(new a(this, post));
+                this.f19559a.startLoad(user.portrait, 12, false);
+                this.f19561c.setVisibility(0);
+                this.f19561c.setText(TbRichTextView.parser(context, post.content, false));
                 return true;
             }
             d(false);

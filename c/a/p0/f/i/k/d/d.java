@@ -27,16 +27,16 @@ public class d implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final e f10591e;
+    public final e f10599e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final DownloadInfo f10592f;
+    public final DownloadInfo f10600f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final a f10593g;
+    public final a f10601g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f10594h;
+    public long f10602h;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -60,15 +60,15 @@ public class d implements Runnable {
                 return;
             }
         }
-        this.f10591e = eVar;
-        this.f10592f = downloadInfo;
-        this.f10594h = downloadInfo.getProgress();
-        this.f10593g = aVar;
+        this.f10599e = eVar;
+        this.f10600f = downloadInfo;
+        this.f10602h = downloadInfo.getProgress();
+        this.f10601g = aVar;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f10592f.isPause()) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f10600f.isPause()) {
             throw new DownloadPauseException(7);
         }
     }
@@ -87,15 +87,15 @@ public class d implements Runnable {
         try {
             try {
                 try {
-                    URL url = new URL(this.f10592f.getUri());
-                    long j2 = this.f10594h;
+                    URL url = new URL(this.f10600f.getUri());
+                    long j2 = this.f10602h;
                     Response execute = new OkHttpClient().newCall(new Request.Builder().addHeader("RANGE", "bytes=" + j2 + "-").url(url).build()).execute();
                     if (execute == null || execute.body() == null) {
                         inputStream = null;
                     } else {
                         inputStream = execute.body().byteStream();
                         try {
-                            RandomAccessFile randomAccessFile3 = new RandomAccessFile(this.f10592f.getPath(), "rw");
+                            RandomAccessFile randomAccessFile3 = new RandomAccessFile(this.f10600f.getPath(), "rw");
                             try {
                                 randomAccessFile3.seek(j2);
                                 byte[] bArr = new byte[1024];
@@ -108,11 +108,11 @@ public class d implements Runnable {
                                     a();
                                     i2 += read;
                                     randomAccessFile3.write(bArr, 0, read);
-                                    this.f10592f.setProgress(this.f10594h + i2);
-                                    this.f10593g.b();
+                                    this.f10600f.setProgress(this.f10602h + i2);
+                                    this.f10601g.b();
                                 }
                                 execute.body().close();
-                                this.f10593g.a();
+                                this.f10601g.a();
                                 randomAccessFile2 = randomAccessFile3;
                             } catch (DownloadPauseException unused) {
                                 randomAccessFile2 = randomAccessFile3;
@@ -223,22 +223,22 @@ public class d implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Process.setThreadPriority(10);
             try {
-                if (this.f10592f.getSize() <= 0) {
-                    long c2 = c(this.f10592f.getUri());
+                if (this.f10600f.getSize() <= 0) {
+                    long c2 = c(this.f10600f.getUri());
                     if (c2 > 0) {
-                        this.f10592f.setSize(c2);
+                        this.f10600f.setSize(c2);
                     } else {
                         throw new DownloadException(6, "length <= 0");
                     }
                 }
-                this.f10592f.setStatus(DownloadState.DOWNLOADING.value());
-                this.f10591e.b(this.f10592f);
+                this.f10600f.setStatus(DownloadState.DOWNLOADING.value());
+                this.f10599e.b(this.f10600f);
                 b();
             } catch (DownloadException e2) {
-                this.f10592f.setStatus(DownloadState.DOWNLOAD_FAILED.value());
-                this.f10592f.setException(e2);
-                this.f10591e.b(this.f10592f);
-                this.f10591e.a(e2);
+                this.f10600f.setStatus(DownloadState.DOWNLOAD_FAILED.value());
+                this.f10600f.setException(e2);
+                this.f10599e.b(this.f10600f);
+                this.f10599e.a(e2);
             }
         }
     }

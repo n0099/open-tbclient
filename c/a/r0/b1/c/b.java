@@ -34,31 +34,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f15927a;
+    public c f15937a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseActivity f15928b;
+    public BaseActivity f15938b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f15929c;
+    public boolean f15939c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f15930d;
+    public int f15940d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<n> f15931e;
+    public List<n> f15941e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15932f;
+    public int f15942f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LongSparseArray<MetaData> f15933g;
+    public LongSparseArray<MetaData> f15943g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.e.c.g.a f15934h;
+    public c.a.e.c.g.a f15944h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f15935i;
+    public CustomMessageListener f15945i;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -66,7 +66,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f15936a;
+        public final /* synthetic */ b f15946a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2, int i3) {
@@ -87,36 +87,36 @@ public class b {
                     return;
                 }
             }
-            this.f15936a = bVar;
+            this.f15946a = bVar;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.f15936a.f15927a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.f15946a.f15937a == null) {
                 return;
             }
             if (responsedMessage instanceof GodSquareHttpResponsedMsg) {
                 GodSquareHttpResponsedMsg godSquareHttpResponsedMsg = (GodSquareHttpResponsedMsg) responsedMessage;
-                this.f15936a.f15927a.a(this.f15936a.f(godSquareHttpResponsedMsg.getResult()), this.f15936a.f15929c, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
+                this.f15946a.f15937a.a(this.f15946a.f(godSquareHttpResponsedMsg.getResult()), this.f15946a.f15939c, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
             } else if (responsedMessage instanceof GodSquareSocketResponsedMsg) {
                 GodSquareSocketResponsedMsg godSquareSocketResponsedMsg = (GodSquareSocketResponsedMsg) responsedMessage;
-                this.f15936a.f15927a.a(this.f15936a.f(godSquareSocketResponsedMsg.getResult()), this.f15936a.f15929c, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
+                this.f15946a.f15937a.a(this.f15946a.f(godSquareSocketResponsedMsg.getResult()), this.f15946a.f15939c, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
             }
         }
     }
 
     /* renamed from: c.a.r0.b1.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0762b extends CustomMessageListener {
+    public class C0760b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f15937a;
+        public final /* synthetic */ b f15947a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0762b(b bVar, int i2) {
+        public C0760b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -133,25 +133,25 @@ public class b {
                     return;
                 }
             }
-            this.f15937a = bVar;
+            this.f15947a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f15937a.f15927a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f15947a.f15937a == null) {
                 return;
             }
             if (!(customResponsedMessage instanceof GodSquareCacheResponsedMsg)) {
-                this.f15937a.i(1);
+                this.f15947a.i(1);
                 return;
             }
             GodSquareCacheResponsedMsg godSquareCacheResponsedMsg = (GodSquareCacheResponsedMsg) customResponsedMessage;
             if (godSquareCacheResponsedMsg.getResult() == null || ListUtils.isEmpty(godSquareCacheResponsedMsg.getResult().user_list)) {
-                this.f15937a.i(1);
+                this.f15947a.i(1);
             } else {
-                this.f15937a.f15927a.a(this.f15937a.f(godSquareCacheResponsedMsg.getResult()), this.f15937a.f15929c, true, godSquareCacheResponsedMsg.getErrorString());
+                this.f15947a.f15937a.a(this.f15947a.f(godSquareCacheResponsedMsg.getResult()), this.f15947a.f15939c, true, godSquareCacheResponsedMsg.getErrorString());
             }
         }
     }
@@ -176,28 +176,28 @@ public class b {
                 return;
             }
         }
-        this.f15930d = 0;
-        this.f15931e = new ArrayList();
-        this.f15932f = 1;
-        this.f15934h = new a(this, CmdConfigHttp.CMD_GET_HOT_GOD, 309315);
-        this.f15935i = new C0762b(this, 2016446);
-        this.f15927a = cVar;
-        this.f15928b = baseActivity;
+        this.f15940d = 0;
+        this.f15941e = new ArrayList();
+        this.f15942f = 1;
+        this.f15944h = new a(this, CmdConfigHttp.CMD_GET_HOT_GOD, 309315);
+        this.f15945i = new C0760b(this, 2016446);
+        this.f15937a = cVar;
+        this.f15938b = baseActivity;
         k();
     }
 
     public final void e(List<User> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (this.f15933g == null) {
-                this.f15933g = new LongSparseArray<>();
+            if (this.f15943g == null) {
+                this.f15943g = new LongSparseArray<>();
             }
             for (User user : list) {
                 h hVar = new h();
                 MetaData metaData = new MetaData();
-                hVar.f15579e = metaData;
+                hVar.f15588e = metaData;
                 metaData.parserProtobuf(user);
-                this.f15933g.put(user.id.longValue(), hVar.f15579e);
+                this.f15943g.put(user.id.longValue(), hVar.f15588e);
             }
         }
     }
@@ -215,18 +215,18 @@ public class b {
             e(dataRes.user_list);
             ArrayList arrayList2 = new ArrayList();
             ArrayList arrayList3 = new ArrayList();
-            if (!ListUtils.isEmpty(dataRes.recommend_uid_list) && this.f15929c) {
+            if (!ListUtils.isEmpty(dataRes.recommend_uid_list) && this.f15939c) {
                 for (Long l : dataRes.recommend_uid_list) {
-                    if (l != null && (metaData2 = this.f15933g.get(l.longValue())) != null) {
+                    if (l != null && (metaData2 = this.f15943g.get(l.longValue())) != null) {
                         h hVar = new h();
-                        hVar.f15579e = metaData2;
-                        hVar.f15580f = 1;
+                        hVar.f15588e = metaData2;
+                        hVar.f15589f = 1;
                         arrayList2.add(hVar);
                     }
                 }
-                if (this.f15928b != null && !ListUtils.isEmpty(arrayList2)) {
+                if (this.f15938b != null && !ListUtils.isEmpty(arrayList2)) {
                     e eVar = new e();
-                    eVar.f15605e = this.f15928b.getResources().getString(R.string.special_recommend);
+                    eVar.f15614e = this.f15938b.getResources().getString(R.string.special_recommend);
                     eVar.needTopMargin = false;
                     arrayList2.add(0, eVar);
                 }
@@ -234,18 +234,18 @@ public class b {
             }
             if (!ListUtils.isEmpty(dataRes.hot_uid_list)) {
                 for (Long l2 : dataRes.hot_uid_list) {
-                    if (l2 != null && (metaData = this.f15933g.get(l2.longValue())) != null) {
+                    if (l2 != null && (metaData = this.f15943g.get(l2.longValue())) != null) {
                         h hVar2 = new h();
-                        hVar2.f15579e = metaData;
-                        hVar2.f15580f = 0;
-                        hVar2.f15581g = this.f15932f;
+                        hVar2.f15588e = metaData;
+                        hVar2.f15589f = 0;
+                        hVar2.f15590g = this.f15942f;
                         arrayList3.add(hVar2);
-                        this.f15932f++;
+                        this.f15942f++;
                     }
                 }
-                if (this.f15928b != null && !ListUtils.isEmpty(arrayList3) && this.f15929c) {
+                if (this.f15938b != null && !ListUtils.isEmpty(arrayList3) && this.f15939c) {
                     e eVar2 = new e();
-                    eVar2.f15605e = this.f15928b.getResources().getString(R.string.hot_god);
+                    eVar2.f15614e = this.f15938b.getResources().getString(R.string.hot_god);
                     if (ListUtils.isEmpty(arrayList2)) {
                         eVar2.needTopMargin = false;
                     } else {
@@ -264,7 +264,7 @@ public class b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-            LongSparseArray<MetaData> longSparseArray = this.f15933g;
+            LongSparseArray<MetaData> longSparseArray = this.f15943g;
             return (longSparseArray == null || longSparseArray.get(j2) == null) ? false : true;
         }
         return invokeJ.booleanValue;
@@ -272,48 +272,48 @@ public class b {
 
     public final void h(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f15928b == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f15938b == null) {
             return;
         }
         GodSquareCacheRequestMsg godSquareCacheRequestMsg = new GodSquareCacheRequestMsg();
         godSquareCacheRequestMsg.cacheKey = i2 + "";
-        this.f15928b.sendMessage(godSquareCacheRequestMsg);
+        this.f15938b.sendMessage(godSquareCacheRequestMsg);
     }
 
     public final void i(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f15928b == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.f15938b == null) {
             return;
         }
-        this.f15930d = i2;
+        this.f15940d = i2;
         GodSquareRequestMsg godSquareRequestMsg = new GodSquareRequestMsg();
         godSquareRequestMsg.pn = i2;
-        this.f15928b.sendMessage(godSquareRequestMsg);
+        this.f15938b.sendMessage(godSquareRequestMsg);
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f15929c = false;
-            i(this.f15930d + 1);
+            this.f15939c = false;
+            i(this.f15940d + 1);
         }
     }
 
     public final void k() {
         BaseActivity baseActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (baseActivity = this.f15928b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (baseActivity = this.f15938b) == null) {
             return;
         }
-        baseActivity.registerListener(this.f15935i);
-        this.f15928b.registerListener(this.f15934h);
+        baseActivity.registerListener(this.f15945i);
+        this.f15938b.registerListener(this.f15944h);
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f15932f = 1;
-            this.f15929c = true;
+            this.f15942f = 1;
+            this.f15939c = true;
             if (j.A()) {
                 i(1);
             } else {

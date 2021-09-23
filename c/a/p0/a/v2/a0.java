@@ -31,10 +31,10 @@ public class a0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9287a;
+    public static final boolean f9295a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, String> f9288b;
+    public static final Map<String, String> f9296b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,24 +50,24 @@ public class a0 {
                 return;
             }
         }
-        f9287a = c.a.p0.a.k.f7077a;
+        f9295a = c.a.p0.a.k.f7085a;
         HashMap hashMap = new HashMap(14);
-        f9288b = hashMap;
+        f9296b = hashMap;
         hashMap.put("android.permission.ACCESS_FINE_LOCATION", "定位");
-        f9288b.put("android.permission.ACCESS_COARSE_LOCATION", "定位");
-        f9288b.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, "录音");
-        f9288b.put("android.permission.READ_CONTACTS", "读取联系人");
-        f9288b.put(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "访问网络状态");
-        f9288b.put("android.permission.REORDER_TASKS", "开机自启");
-        f9288b.put("android.permission.INTERNET", "网络");
-        f9288b.put("android.permission.REQUEST_INSTALL_PACKAGES", "安装软件包");
-        f9288b.put("android.permission.READ_CALENDAR", "读取日历");
-        f9288b.put("android.permission.WRITE_CALENDAR", "写入日历");
-        f9288b.put("android.permission.WRITE_EXTERNAL_STORAGE", "存储");
-        f9288b.put("android.permission.READ_EXTERNAL_STORAGE", "存储");
-        f9288b.put(PermissionRequest.RESOURCE_VIDEO_CAPTURE, "相机");
-        f9288b.put("android.permission.WRITE_SETTINGS", "系统设置");
-        f9288b.put("android.permission.SYSTEM_ALERT_WINDOW", "悬浮窗");
+        f9296b.put("android.permission.ACCESS_COARSE_LOCATION", "定位");
+        f9296b.put(PermissionRequest.RESOURCE_AUDIO_CAPTURE, "录音");
+        f9296b.put("android.permission.READ_CONTACTS", "读取联系人");
+        f9296b.put(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "访问网络状态");
+        f9296b.put("android.permission.REORDER_TASKS", "开机自启");
+        f9296b.put("android.permission.INTERNET", "网络");
+        f9296b.put("android.permission.REQUEST_INSTALL_PACKAGES", "安装软件包");
+        f9296b.put("android.permission.READ_CALENDAR", "读取日历");
+        f9296b.put("android.permission.WRITE_CALENDAR", "写入日历");
+        f9296b.put("android.permission.WRITE_EXTERNAL_STORAGE", "存储");
+        f9296b.put("android.permission.READ_EXTERNAL_STORAGE", "存储");
+        f9296b.put(PermissionRequest.RESOURCE_VIDEO_CAPTURE, "相机");
+        f9296b.put("android.permission.WRITE_SETTINGS", "系统设置");
+        f9296b.put("android.permission.SYSTEM_ALERT_WINDOW", "悬浮窗");
     }
 
     public static Map<String, ComponentName> a() {
@@ -114,7 +114,7 @@ public class a0 {
                     return readLine;
                 } catch (IOException e2) {
                     e = e2;
-                    if (f9287a) {
+                    if (f9295a) {
                         e.printStackTrace();
                     }
                     c.a.p0.t.d.d(bufferedReader);
@@ -143,7 +143,7 @@ public class a0 {
             try {
                 return context.getPackageManager().getPackageInfo(str, 0);
             } catch (Exception e2) {
-                if (f9287a) {
+                if (f9295a) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -163,7 +163,7 @@ public class a0 {
             try {
                 list = context.getPackageManager().queryIntentActivities(intent, 0);
             } catch (Exception e2) {
-                if (f9287a) {
+                if (f9295a) {
                     e2.printStackTrace();
                 }
                 list = null;
@@ -196,7 +196,7 @@ public class a0 {
             return;
         }
         String lowerCase = str.toLowerCase();
-        if (f9287a) {
+        if (f9295a) {
             String str2 = "goPermissionPage : " + lowerCase;
         }
         if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_XIAOMI)) {
@@ -227,7 +227,7 @@ public class a0 {
                 intent.putExtra("packageName", context.getPackageName());
                 context.startActivity(intent);
             } catch (Exception e2) {
-                if (f9287a) {
+                if (f9295a) {
                     e2.printStackTrace();
                 }
                 f(context);
@@ -239,7 +239,7 @@ public class a0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
             String c2 = c();
-            if (f9287a) {
+            if (f9295a) {
                 String str = "goPermissionPageForXiaomi rom version : " + c2;
             }
             Intent intent = new Intent();
@@ -273,12 +273,12 @@ public class a0 {
                 try {
                     i2 = ContextCompat.checkSelfPermission(context, str);
                 } catch (Exception e2) {
-                    if (f9287a) {
+                    if (f9295a) {
                         throw e2;
                     }
                 }
                 return i2 == 0;
-            } else if (f9287a) {
+            } else if (f9295a) {
                 throw new IllegalArgumentException("context or permission is null");
             } else {
                 return false;
@@ -295,14 +295,14 @@ public class a0 {
                     context.startActivity(intent);
                     return;
                 } catch (Exception e2) {
-                    if (f9287a) {
+                    if (f9295a) {
                         e2.printStackTrace();
                         return;
                     }
                     return;
                 }
             }
-            boolean z = f9287a;
+            boolean z = f9295a;
         }
     }
 
@@ -314,7 +314,7 @@ public class a0 {
                 intent.setComponent(componentName);
                 context.startActivity(intent);
             } catch (Exception e2) {
-                if (f9287a) {
+                if (f9295a) {
                     e2.printStackTrace();
                 }
                 f(context);
@@ -341,7 +341,7 @@ public class a0 {
                 intent.setComponent(new ComponentName(e2.activityInfo.packageName, e2.activityInfo.name));
                 context.startActivity(intent);
             } catch (Exception e3) {
-                if (f9287a) {
+                if (f9295a) {
                     e3.printStackTrace();
                 }
                 f(context);
@@ -353,7 +353,7 @@ public class a0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            String str2 = f9288b.get(str);
+            String str2 = f9296b.get(str);
             return str2 == null ? "" : str2;
         }
         return (String) invokeL.objValue;

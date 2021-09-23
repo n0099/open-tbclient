@@ -18,7 +18,7 @@ public interface e extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f71754a;
+        public IBinder f72073a;
 
         public a(IBinder iBinder) {
             Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public interface e extends IInterface {
                     return;
                 }
             }
-            this.f71754a = iBinder;
+            this.f72073a = iBinder;
         }
 
         public String a() {
@@ -47,7 +47,7 @@ public interface e extends IInterface {
                 try {
                     try {
                         obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-                        this.f71754a.transact(1, obtain, obtain2, 0);
+                        this.f72073a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } catch (Exception e2) {
@@ -68,7 +68,7 @@ public interface e extends IInterface {
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71754a : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72073a : (IBinder) invokeV.objValue;
         }
     }
 }

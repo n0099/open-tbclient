@@ -20,14 +20,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6055c;
+    public static final boolean f6063c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.l0.a f6056a;
+    public c.a.p0.a.l0.a f6064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f6057b;
+    public j f6065b;
 
     /* loaded from: classes.dex */
     public class a extends c.a.p0.a.l0.n.a {
@@ -35,13 +35,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f6058a;
+        public String f6066a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6059b;
+        public String f6067b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f6060c;
+        public final /* synthetic */ c f6068c;
 
         public a(@NonNull c cVar, @NonNull String str, String str2) {
             Interceptable interceptable = $ic;
@@ -58,10 +58,10 @@ public class c {
                     return;
                 }
             }
-            this.f6060c = cVar;
-            this.f6058a = str;
-            this.f6059b = str2;
-            if (c.f6055c) {
+            this.f6068c = cVar;
+            this.f6066a = str;
+            this.f6067b = str2;
+            if (c.f6063c) {
                 String str3 = "basePath: " + str + ", jsFile: " + str2;
             }
         }
@@ -70,7 +70,7 @@ public class c {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6059b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6067b : (String) invokeV.objValue;
         }
 
         @Override // c.a.p0.a.l0.n.a, c.a.p0.a.l0.n.b
@@ -85,8 +85,8 @@ public class c {
         public void c(c.a.p0.a.l0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                if (this.f6060c.f6057b != null) {
-                    this.f6060c.f6057b.a(aVar);
+                if (this.f6068c.f6065b != null) {
+                    this.f6068c.f6065b.a(aVar);
                 }
                 aVar.y0();
             }
@@ -104,7 +104,7 @@ public class c {
         public String getInitBasePath() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6058a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6066a : (String) invokeV.objValue;
         }
     }
 
@@ -121,7 +121,7 @@ public class c {
                 return;
             }
         }
-        f6055c = k.f7077a;
+        f6063c = k.f7085a;
     }
 
     public c(@NonNull String str, @NonNull String str2) {
@@ -139,8 +139,8 @@ public class c {
                 return;
             }
         }
-        this.f6056a = c.a.p0.a.l0.f.c(c(), new a(this, str, str2), null);
-        this.f6056a.addJavascriptInterface(new b(this.f6056a), SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        this.f6064a = c.a.p0.a.l0.f.c(c(), new a(this, str, str2), null);
+        this.f6064a.addJavascriptInterface(new b(this.f6064a), SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
     }
 
     public final g c() {
@@ -158,25 +158,25 @@ public class c {
     public c.a.p0.a.l0.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6056a : (c.a.p0.a.l0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6064a : (c.a.p0.a.l0.a) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.p0.a.l0.a aVar = this.f6056a;
+            c.a.p0.a.l0.a aVar = this.f6064a;
             if (aVar != null) {
                 aVar.k0();
-                this.f6056a = null;
+                this.f6064a = null;
             }
-            this.f6057b = null;
+            this.f6065b = null;
         }
     }
 
     public void f(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jVar) == null) {
-            this.f6057b = jVar;
+            this.f6065b = jVar;
         }
     }
 }

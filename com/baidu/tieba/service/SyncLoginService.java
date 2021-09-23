@@ -41,7 +41,7 @@ public class SyncLoginService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SyncLoginService f56608e;
+        public final /* synthetic */ SyncLoginService f56725e;
 
         public a(SyncLoginService syncLoginService) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class SyncLoginService extends BdBaseService {
                     return;
                 }
             }
-            this.f56608e = syncLoginService;
+            this.f56725e = syncLoginService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56608e.checkPassV6Switch();
+                this.f56725e.checkPassV6Switch();
             }
         }
     }
@@ -162,10 +162,10 @@ public class SyncLoginService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f56609a;
+        public NetWork f56726a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SyncLoginService f56610b;
+        public final /* synthetic */ SyncLoginService f56727b;
 
         public b(SyncLoginService syncLoginService) {
             Interceptable interceptable = $ic;
@@ -182,8 +182,8 @@ public class SyncLoginService extends BdBaseService {
                     return;
                 }
             }
-            this.f56610b = syncLoginService;
-            this.f56609a = null;
+            this.f56727b = syncLoginService;
+            this.f56726a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -198,42 +198,42 @@ public class SyncLoginService extends BdBaseService {
             d dVar = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
-                this.f56609a = netWork;
+                this.f56726a = netWork;
                 netWork.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
-                this.f56609a.addPostData("_phone_screen", stringBuffer.toString());
-                this.f56609a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
-                this.f56609a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
-                this.f56609a.addPostData("scr_dip", String.valueOf(l.h(TbadkCoreApplication.getInst().getApp())));
+                this.f56726a.addPostData("_phone_screen", stringBuffer.toString());
+                this.f56726a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
+                this.f56726a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
+                this.f56726a.addPostData("scr_dip", String.valueOf(l.h(TbadkCoreApplication.getInst().getApp())));
                 String str = "0";
                 if (c.a.q0.t.d.d.d().e() > 0) {
-                    this.f56609a.addPostData("_msg_status", "0");
+                    this.f56726a.addPostData("_msg_status", "0");
                 } else {
-                    this.f56609a.addPostData("_msg_status", "1");
+                    this.f56726a.addPostData("_msg_status", "1");
                 }
                 String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
                 if (activeVersion != null) {
                     if (activeVersion.length() >= 1) {
                         str = activeVersion;
                     }
-                    this.f56609a.addPostData("_active", str);
+                    this.f56726a.addPostData("_active", str);
                 }
-                this.f56609a.addPostData("_pic_quality", String.valueOf(k.c().e()));
+                this.f56726a.addPostData("_pic_quality", String.valueOf(k.c().e()));
                 if (SyncLoginService.mStatistics != null) {
-                    this.f56609a.addPostData("_msg_type", SyncLoginService.mStatistics);
+                    this.f56726a.addPostData("_msg_type", SyncLoginService.mStatistics);
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.f56609a.addPostData(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
+                this.f56726a.addPostData(AsInstallService.SCHEME_PACKAGE_ADDED, packageName);
                 int versionCode = TbadkCoreApplication.getInst().getVersionCode();
-                NetWork netWork2 = this.f56609a;
+                NetWork netWork2 = this.f56726a;
                 netWork2.addPostData("versioncode", versionCode + "");
-                this.f56609a.addPostData("signmd5", TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.f56609a.addPostData(PackageTable.MD5, n.a());
-                String postNetData = this.f56609a.postNetData();
-                if (this.f56609a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f56726a.addPostData("signmd5", TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.f56726a.addPostData(PackageTable.MD5, n.a());
+                String postNetData = this.f56726a.postNetData();
+                if (this.f56726a.getNetContext().getResponse().isRequestSuccess()) {
                     d dVar2 = new d();
                     try {
                         dVar2.a(postNetData);
@@ -259,7 +259,7 @@ public class SyncLoginService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
                 super.onPostExecute(dVar);
-                this.f56610b.mSyncTask = null;
+                this.f56727b.mSyncTask = null;
             }
         }
 
@@ -267,8 +267,8 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f56610b.mSyncTask = null;
-                NetWork netWork = this.f56609a;
+                this.f56727b.mSyncTask = null;
+                NetWork netWork = this.f56726a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }

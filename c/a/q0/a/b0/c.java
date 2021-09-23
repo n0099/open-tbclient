@@ -24,16 +24,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.q0.a.b0.a<b> f12505a;
+    public c.a.q0.a.b0.a<b> f12513a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12506b;
+    public boolean f12514b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f12507c;
+    public BdUniqueId f12515c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.e.c.g.a f12508d;
+    public c.a.e.c.g.a f12516d;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -41,7 +41,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f12509a;
+        public final /* synthetic */ c f12517a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2, int i3) {
@@ -62,20 +62,20 @@ public class c {
                     return;
                 }
             }
-            this.f12509a = cVar;
+            this.f12517a = cVar;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f12509a.f12506b = false;
-                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.f12509a.d() != responsedMessage.getOrginalMessage().getTag()) {
+                this.f12517a.f12514b = false;
+                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.f12517a.d() != responsedMessage.getOrginalMessage().getTag()) {
                     return;
                 }
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    if (this.f12509a.f12505a != null) {
-                        this.f12509a.f12505a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (this.f12517a.f12513a != null) {
+                        this.f12517a.f12513a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -89,22 +89,22 @@ public class c {
                 if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
                     c.a.q0.s.d0.b.j().w("pref_key_active_config_info", System.currentTimeMillis());
                 }
-                if (bVar != null && bVar.f12504g != null) {
-                    if (this.f12509a.f12505a != null) {
-                        this.f12509a.f12505a.a(bVar);
+                if (bVar != null && bVar.f12512g != null) {
+                    if (this.f12517a.f12513a != null) {
+                        this.f12517a.f12513a.a(bVar);
                     }
-                    if (bVar.f12504g.is_first_up != 1) {
-                        r.g().q(bVar.f12504g);
+                    if (bVar.f12512g.is_first_up != 1) {
+                        r.g().q(bVar.f12512g);
                     }
                 }
-                if (bVar == null || !this.f12509a.c()) {
+                if (bVar == null || !this.f12517a.c()) {
                     return;
                 }
                 c.a.q0.s.d0.b.j().w("pref_key_last_register_mission", System.currentTimeMillis());
                 o.b().i(bVar);
                 c.a.q0.s.c0.a.e().j(bVar);
-                if (this.f12509a.f12505a != null) {
-                    this.f12509a.f12505a.onSuccess(bVar);
+                if (this.f12517a.f12513a != null) {
+                    this.f12517a.f12513a.onSuccess(bVar);
                 }
             }
         }
@@ -125,12 +125,12 @@ public class c {
                 return;
             }
         }
-        this.f12506b = false;
-        this.f12508d = new a(this, CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637);
-        this.f12507c = bdUniqueId;
+        this.f12514b = false;
+        this.f12516d = new a(this, CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637);
+        this.f12515c = bdUniqueId;
         e();
-        this.f12508d.setTag(d());
-        MessageManager.getInstance().registerListener(this.f12508d);
+        this.f12516d.setTag(d());
+        MessageManager.getInstance().registerListener(this.f12516d);
     }
 
     public boolean c() {
@@ -142,14 +142,14 @@ public class c {
     public BdUniqueId d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12507c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12515c : (BdUniqueId) invokeV.objValue;
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.j3.d0.a.h(309637, ActiveConfigSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, c.a.r0.j3.d0.a.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
+            c.a.r0.j3.e0.a.h(309637, ActiveConfigSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, c.a.r0.j3.e0.a.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
             tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -158,11 +158,11 @@ public class c {
 
     public void f(boolean z, boolean z2, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) || this.f12506b) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) || this.f12514b) {
             return;
         }
         if (!z) {
-            this.f12506b = true;
+            this.f12514b = true;
         }
         c.a.q0.s.d0.b.j().w("pref_key_last_active_config", System.currentTimeMillis());
         ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
@@ -176,7 +176,7 @@ public class c {
     public void g(c.a.q0.a.b0.a<b> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f12505a = aVar;
+            this.f12513a = aVar;
         }
     }
 }

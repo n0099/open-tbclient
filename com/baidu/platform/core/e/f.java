@@ -83,7 +83,7 @@ public class f extends com.baidu.platform.base.d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetShareUrlResultListener)) {
             OnGetShareUrlResultListener onGetShareUrlResultListener = (OnGetShareUrlResultListener) obj;
-            int i2 = g.f44338a[a().ordinal()];
+            int i2 = g.f44400a[a().ordinal()];
             if (i2 == 1) {
                 onGetShareUrlResultListener.onGetPoiDetailShareUrlResult((ShareUrlResult) searchResult);
             } else if (i2 != 2) {

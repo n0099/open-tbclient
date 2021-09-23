@@ -65,7 +65,7 @@ public class a0 extends c.a.e.l.e.a<c.a.r0.a0.d0.o, CardViewHolder<c.a.r0.a0.s>>
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, oVar, cardViewHolder})) == null) {
             cardViewHolder.getCardView().k(oVar);
             cardViewHolder.getCardView().l(this.m, TbadkCoreApplication.getInst().getSkinType());
-            c.a.r0.a0.t.b().a(new StatisticItem("c10718").param("obj_id", String.valueOf(oVar.f15595e)));
+            c.a.r0.a0.t.b().a(new StatisticItem("c10718").param("obj_id", String.valueOf(oVar.f15604e)));
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

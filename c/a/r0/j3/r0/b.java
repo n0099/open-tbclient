@@ -16,19 +16,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f21059a;
+    public long f21071a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f21060b;
+    public long f21072b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f21061c;
+    public int f21073c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21062d;
+    public String f21074d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<Long, a> f21063e;
+    public Map<Long, a> f21075e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class b {
                 return;
             }
         }
-        this.f21059a = System.currentTimeMillis();
-        this.f21063e = new HashMap();
+        this.f21071a = System.currentTimeMillis();
+        this.f21075e = new HashMap();
     }
 
     public JSONObject a() throws JSONException {
@@ -52,13 +52,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("startTime", this.f21059a);
-            jSONObject.put("endTime", this.f21060b);
-            jSONObject.put("errorCode", this.f21061c);
-            jSONObject.put("errorMessage", this.f21062d);
-            if (this.f21063e != null) {
+            jSONObject.put("startTime", this.f21071a);
+            jSONObject.put("endTime", this.f21072b);
+            jSONObject.put("errorCode", this.f21073c);
+            jSONObject.put("errorMessage", this.f21074d);
+            if (this.f21075e != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (a aVar : this.f21063e.values()) {
+                for (a aVar : this.f21075e.values()) {
                     jSONArray.put(aVar.a());
                 }
                 jSONObject.put("imageInfo", jSONArray);

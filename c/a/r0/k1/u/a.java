@@ -27,14 +27,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f21641c;
+    public static a f21655c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashSet<String> f21642a;
+    public HashSet<String> f21656a;
 
     /* renamed from: b  reason: collision with root package name */
-    public StringBuilder f21643b;
+    public StringBuilder f21657b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class a {
                 return;
             }
         }
-        f21641c = new a();
+        f21655c = new a();
     }
 
     public a() {
@@ -65,14 +65,14 @@ public class a {
                 return;
             }
         }
-        this.f21642a = new HashSet<>();
-        this.f21643b = new StringBuilder();
+        this.f21656a = new HashSet<>();
+        this.f21657b = new StringBuilder();
     }
 
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f21641c : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f21655c : (a) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -80,7 +80,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null || str.length() <= 0) {
             return;
         }
-        StringBuilder sb = this.f21643b;
+        StringBuilder sb = this.f21657b;
         sb.append(str);
         sb.append(",");
     }
@@ -88,12 +88,12 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            StringBuilder sb = this.f21643b;
+            StringBuilder sb = this.f21657b;
             if (sb != null && sb.length() > 0) {
-                StringBuilder sb2 = this.f21643b;
+                StringBuilder sb2 = this.f21657b;
                 sb2.delete(0, sb2.length());
             }
-            HashSet<String> hashSet = this.f21642a;
+            HashSet<String> hashSet = this.f21656a;
             if (hashSet != null) {
                 hashSet.clear();
             }
@@ -107,8 +107,8 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, chatMessage, context) == null) || chatMessage == null || StringUtils.isNull(chatMessage.getContent()) || (userInfo = chatMessage.getUserInfo()) == null) {
             return;
         }
-        if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (k = c.k(chatMessage.getContent())) != null && !TextUtils.isEmpty(k.f21333b) && this.f21642a.add(k.f21333b)) {
-            TiebaStatic.eventStat(context, "message_open", PrefetchEvent.STATE_CLICK, 1, "task_type", k.f21332a, "task_id", k.f21333b);
+        if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (k = c.k(chatMessage.getContent())) != null && !TextUtils.isEmpty(k.f21347b) && this.f21656a.add(k.f21347b)) {
+            TiebaStatic.eventStat(context, "message_open", PrefetchEvent.STATE_CLICK, 1, "task_type", k.f21346a, "task_id", k.f21347b);
         }
     }
 
@@ -132,9 +132,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             String str2 = null;
-            if (this.f21642a != null) {
+            if (this.f21656a != null) {
                 StringBuilder sb3 = new StringBuilder();
-                Iterator<String> it = this.f21642a.iterator();
+                Iterator<String> it = this.f21656a.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null && next.length() > 0) {
@@ -146,20 +146,20 @@ public class a {
                     sb3.deleteCharAt(sb3.length() - 1);
                     if (sb3.length() > 0) {
                         str = sb3.toString();
-                        sb = this.f21643b;
+                        sb = this.f21657b;
                         if (sb != null && sb.length() > 0) {
-                            this.f21643b.deleteCharAt(sb2.length() - 1);
-                            str2 = this.f21643b.toString();
+                            this.f21657b.deleteCharAt(sb2.length() - 1);
+                            str2 = this.f21657b.toString();
                         }
                         new AddMsgRecordModel().reqViewAndClick(str, str2);
                     }
                 }
             }
             str = null;
-            sb = this.f21643b;
+            sb = this.f21657b;
             if (sb != null) {
-                this.f21643b.deleteCharAt(sb2.length() - 1);
-                str2 = this.f21643b.toString();
+                this.f21657b.deleteCharAt(sb2.length() - 1);
+                str2 = this.f21657b.toString();
             }
             new AddMsgRecordModel().reqViewAndClick(str, str2);
         }

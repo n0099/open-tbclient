@@ -15,7 +15,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l<byte[]> f25285a;
+    public l<byte[]> f25306a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            l<byte[]> lVar = this.f25285a;
+            l<byte[]> lVar = this.f25306a;
             l.b<byte[]> h2 = (lVar == null || str == null) ? null : lVar.h(str);
             if (h2 == null || (bArr = h2.f2224b) == null) {
                 return null;
@@ -50,9 +50,9 @@ public class a {
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f25285a == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f25306a == null) {
             c.a.q0.s.r.a.f();
-            this.f25285a = c.a.q0.s.r.a.d("tb.tbtiel_level_info");
+            this.f25306a = c.a.q0.s.r.a.d("tb.tbtiel_level_info");
         }
     }
 
@@ -62,6 +62,6 @@ public class a {
             return;
         }
         b();
-        this.f25285a.e(str, bArr, TbConfig.MILLS_7DAYS);
+        this.f25306a.e(str, bArr, TbConfig.MILLS_7DAYS);
     }
 }

@@ -37,7 +37,7 @@ public class TidHelper {
         if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || context == null) {
             return;
         }
-        b.a().a(context);
+        b.d().a(context);
     }
 
     public static Tid b(Context context) throws Exception {
@@ -45,12 +45,12 @@ public class TidHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                com.alipay.sdk.packet.b a2 = new c().a(com.alipay.sdk.sys.a.a(), context);
+                com.alipay.sdk.packet.b a2 = new c().a(com.alipay.sdk.sys.a.e(), context);
                 if (a2 != null) {
-                    JSONObject jSONObject = new JSONObject(a2.b());
+                    JSONObject jSONObject = new JSONObject(a2.a());
                     a a3 = a.a(context);
                     String optString = jSONObject.optString("tid");
-                    String string = jSONObject.getString(a.f36048d);
+                    String string = jSONObject.getString(a.f36082j);
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(string)) {
                         a3.a(optString, string);
                     }
@@ -66,7 +66,7 @@ public class TidHelper {
     public static void clearTID(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            a.a(context).g();
+            a.a(context).a();
         }
     }
 
@@ -75,7 +75,7 @@ public class TidHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
             a(context);
-            return com.alipay.sdk.util.a.a(context).b();
+            return com.alipay.sdk.util.a.b(context).b();
         }
         return (String) invokeL.objValue;
     }
@@ -85,7 +85,7 @@ public class TidHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             a(context);
-            return com.alipay.sdk.util.a.a(context).a();
+            return com.alipay.sdk.util.a.b(context).c();
         }
         return (String) invokeL.objValue;
     }
@@ -110,7 +110,7 @@ public class TidHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             a(context);
             com.alipay.sdk.data.b.b();
-            return com.alipay.sdk.data.b.c();
+            return com.alipay.sdk.data.b.f();
         }
         return (String) invokeL.objValue;
     }
@@ -121,7 +121,7 @@ public class TidHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             a(context);
             com.alipay.sdk.data.b.b();
-            return com.alipay.sdk.data.b.d();
+            return com.alipay.sdk.data.b.g();
         }
         return (String) invokeL.objValue;
     }
@@ -134,7 +134,7 @@ public class TidHelper {
             if (a2.h()) {
                 return null;
             }
-            return new Tid(a2.a(), a2.b(), a2.i().longValue());
+            return new Tid(a2.d(), a2.c(), a2.e().longValue());
         }
         return (Tid) invokeL.objValue;
     }
@@ -144,7 +144,7 @@ public class TidHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             synchronized (TidHelper.class) {
-                com.alipay.sdk.util.c.a(com.alipay.sdk.cons.a.x, "load_create_tid");
+                com.alipay.sdk.util.c.b(com.alipay.sdk.cons.a.x, "load_create_tid");
                 a(context);
                 Tid loadTID = loadTID(context);
                 if (Tid.isEmpty(loadTID)) {
@@ -169,7 +169,7 @@ public class TidHelper {
             a(context);
             Tid a2 = a(context, a.a(context));
             if (a2 == null) {
-                com.alipay.sdk.util.c.a(com.alipay.sdk.cons.a.x, "load_tid null");
+                com.alipay.sdk.util.c.b(com.alipay.sdk.cons.a.x, "load_tid null");
             }
             return a2;
         }
@@ -180,7 +180,7 @@ public class TidHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            com.alipay.sdk.util.c.a(com.alipay.sdk.cons.a.x, "reset_tid");
+            com.alipay.sdk.util.c.b(com.alipay.sdk.cons.a.x, "reset_tid");
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 a(context);
                 clearTID(context);
@@ -200,10 +200,10 @@ public class TidHelper {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, aVar)) == null) {
-            if (aVar == null || aVar.e()) {
+            if (aVar == null || aVar.i()) {
                 return null;
             }
-            return new Tid(aVar.a(), aVar.b(), aVar.i().longValue());
+            return new Tid(aVar.d(), aVar.c(), aVar.e().longValue());
         }
         return (Tid) invokeLL.objValue;
     }

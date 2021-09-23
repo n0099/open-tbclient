@@ -14,7 +14,7 @@ public class b0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DashPathEffect f4397a;
+    public DashPathEffect f4405a;
 
     public b0() {
         Interceptable interceptable = $ic;
@@ -34,10 +34,10 @@ public class b0 extends a {
     public void a(b bVar, Canvas canvas) {
         DashPathEffect dashPathEffect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (dashPathEffect = this.f4397a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (dashPathEffect = this.f4405a) == null) {
             return;
         }
-        bVar.f4393g.setPathEffect(dashPathEffect);
+        bVar.f4401g.setPathEffect(dashPathEffect);
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -59,7 +59,7 @@ public class b0 extends a {
             if (fArr == null || g2 < 0) {
                 return;
             }
-            this.f4397a = new DashPathEffect(fArr, g2);
+            this.f4405a = new DashPathEffect(fArr, g2);
         }
     }
 }

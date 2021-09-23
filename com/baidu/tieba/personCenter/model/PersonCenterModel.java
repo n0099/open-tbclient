@@ -33,19 +33,19 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f55813e;
+    public f f55932e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f55814f;
+    public c f55933f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f55815g;
+    public boolean f55934g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.e.c.g.a f55816h;
+    public c.a.e.c.g.a f55935h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f55817i;
+    public CustomMessageListener f55936i;
     public boolean mIsDataLoaded;
 
     /* loaded from: classes7.dex */
@@ -54,24 +54,24 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterModel f55818a;
+        public final /* synthetic */ PersonCenterModel f55937a;
 
         /* renamed from: com.baidu.tieba.personCenter.model.PersonCenterModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1793a implements MessageQueue.IdleHandler {
+        public class C1796a implements MessageQueue.IdleHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ResponsedMessage f55819a;
+            public final /* synthetic */ ResponsedMessage f55938a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ long f55820b;
+            public final /* synthetic */ long f55939b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ a f55821c;
+            public final /* synthetic */ a f55940c;
 
-            public C1793a(a aVar, ResponsedMessage responsedMessage, long j2) {
+            public C1796a(a aVar, ResponsedMessage responsedMessage, long j2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,9 +86,9 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
                         return;
                     }
                 }
-                this.f55821c = aVar;
-                this.f55819a = responsedMessage;
-                this.f55820b = j2;
+                this.f55940c = aVar;
+                this.f55938a = responsedMessage;
+                this.f55939b = j2;
             }
 
             @Override // android.os.MessageQueue.IdleHandler
@@ -96,7 +96,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.f55821c.f55818a.B(true, this.f55819a, this.f55820b);
+                    this.f55940c.f55937a.B(true, this.f55938a, this.f55939b);
                     return false;
                 }
                 return invokeV.booleanValue;
@@ -122,7 +122,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
                     return;
                 }
             }
-            this.f55818a = personCenterModel;
+            this.f55937a = personCenterModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -131,16 +131,16 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
                 return;
             }
-            if (((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) && this.f55818a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
+            if (((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) && this.f55937a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                 if (responsedMessage.getError() != 0) {
-                    this.f55818a.f55814f.onFail(responsedMessage.getError(), responsedMessage.getErrorString());
+                    this.f55937a.f55933f.onFail(responsedMessage.getError(), responsedMessage.getErrorString());
                 } else {
-                    PersonCenterModel personCenterModel = this.f55818a;
+                    PersonCenterModel personCenterModel = this.f55937a;
                     personCenterModel.mIsDataLoaded = true;
-                    personCenterModel.f55814f.a(this.f55818a.f55813e);
+                    personCenterModel.f55933f.a(this.f55937a.f55932e);
                 }
                 if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                    Looper.myQueue().addIdleHandler(new C1793a(this, responsedMessage, System.currentTimeMillis()));
+                    Looper.myQueue().addIdleHandler(new C1796a(this, responsedMessage, System.currentTimeMillis()));
                 }
             }
         }
@@ -152,7 +152,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterModel f55822a;
+        public final /* synthetic */ PersonCenterModel f55941a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PersonCenterModel personCenterModel, int i2) {
@@ -172,7 +172,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
                     return;
                 }
             }
-            this.f55822a = personCenterModel;
+            this.f55941a = personCenterModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -180,7 +180,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PersonChangeData)) {
-                this.f55822a.C((PersonChangeData) customResponsedMessage.getData());
+                this.f55941a.C((PersonChangeData) customResponsedMessage.getData());
             }
         }
     }
@@ -211,18 +211,18 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
             }
         }
         this.mIsDataLoaded = false;
-        this.f55815g = false;
-        this.f55816h = new a(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
-        this.f55817i = new b(this, 2001380);
+        this.f55934g = false;
+        this.f55935h = new a(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        this.f55936i = new b(this, 2001380);
         setUniqueId(bdUniqueId);
-        registerListener(this.f55817i);
-        registerListener(this.f55816h);
+        registerListener(this.f55936i);
+        registerListener(this.f55935h);
     }
 
     public f A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55813e : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55932e : (f) invokeV.objValue;
     }
 
     public void B(boolean z, ResponsedMessage<?> responsedMessage, long j2) {
@@ -244,7 +244,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     public final void C(PersonChangeData personChangeData) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, personChangeData) == null) || personChangeData == null || (fVar = this.f55813e) == null || fVar.p() == null || TbadkCoreApplication.getCurrentAccount() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, personChangeData) == null) || personChangeData == null || (fVar = this.f55932e) == null || fVar.p() == null || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
         E();
@@ -255,7 +255,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             if (!j.A()) {
-                this.f55814f.onFail(-1, null);
+                this.f55933f.onFail(-1, null);
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
             } else {
                 ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
@@ -268,14 +268,14 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
                 profileRequestMessage.set_error_hint(true);
                 profileRequestMessage.setSelf(true);
                 profileRequestMessage.setTag(this.unique_id);
-                if (this.f55815g) {
+                if (this.f55934g) {
                     profileRequestMessage.setIs_from_usercenter(1);
                 } else {
                     profileRequestMessage.setIs_from_usercenter(0);
                 }
                 profileRequestMessage.setPage(1);
                 f fVar = new f();
-                this.f55813e = fVar;
+                this.f55932e = fVar;
                 profileRequestMessage.setPersonCenterData(fVar);
                 sendMessage(profileRequestMessage);
             }
@@ -285,21 +285,21 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f55813e = new f();
+            this.f55932e = new f();
         }
     }
 
     public void F(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f55814f = cVar;
+            this.f55933f = cVar;
         }
     }
 
     public void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f55815g = z;
+            this.f55934g = z;
         }
     }
 

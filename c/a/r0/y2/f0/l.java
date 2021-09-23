@@ -67,7 +67,7 @@ public class l implements c.a.q0.w.e {
         if (TextUtils.isEmpty(path)) {
             path = c.a.r0.y2.b.h(downloadData.getId());
         }
-        c.a.r0.q.e.i.a.f24134a.get().c().onSuccess(downloadData.getId(), path);
+        c.a.r0.q.e.i.a.f24150a.get().c().onSuccess(downloadData.getId(), path);
         if (downloadData.isNeedInvokeApk()) {
             c.a.r0.q.e.e.c().n(downloadData.getId(), path);
         }

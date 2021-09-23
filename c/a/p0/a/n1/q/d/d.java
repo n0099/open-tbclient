@@ -17,17 +17,17 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f7655d;
+    public static final boolean f7663d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f7656a;
+    public final String f7664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f7657b;
+    public long f7665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f7658c;
+    public long f7666c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class d {
                 return;
             }
         }
-        f7655d = k.f7077a;
+        f7663d = k.f7085a;
     }
 
     public d(String str) {
@@ -60,8 +60,8 @@ public class d {
                 return;
             }
         }
-        this.f7656a = str;
-        if (f7655d) {
+        this.f7664a = str;
+        if (f7663d) {
             String str2 = "new model, scope id - " + str;
         }
     }
@@ -69,20 +69,20 @@ public class d {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f7657b = j2;
+            this.f7665b = j2;
         }
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7657b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7665b : invokeV.longValue;
     }
 
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f7658c = j2;
+            this.f7666c = j2;
         }
     }
 
@@ -92,15 +92,15 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("scope_id", this.f7656a);
-                jSONObject.put("begin_ts", this.f7657b);
-                jSONObject.put("end_ts", this.f7658c);
+                jSONObject.put("scope_id", this.f7664a);
+                jSONObject.put("begin_ts", this.f7665b);
+                jSONObject.put("end_ts", this.f7666c);
             } catch (JSONException e2) {
-                if (f7655d) {
+                if (f7663d) {
                     e2.printStackTrace();
                 }
             }
-            if (f7655d) {
+            if (f7663d) {
                 jSONObject.toString();
             }
             return jSONObject;

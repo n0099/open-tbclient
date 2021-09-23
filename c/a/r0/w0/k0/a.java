@@ -17,7 +17,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<LiveHorseRaceData> f26926a;
+    public List<LiveHorseRaceData> f26946a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,13 +32,13 @@ public class a {
                 return;
             }
         }
-        this.f26926a = new ArrayList();
+        this.f26946a = new ArrayList();
     }
 
     public List<LiveHorseRaceData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26926a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26946a : (List) invokeV.objValue;
     }
 
     public void b(DataRes dataRes) {
@@ -52,7 +52,7 @@ public class a {
             for (int i2 = 0; i2 < list.size(); i2++) {
                 LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
                 liveHorseRaceData.parserProtobuf(list.get(i2));
-                this.f26926a.add(liveHorseRaceData);
+                this.f26946a.add(liveHorseRaceData);
             }
         }
     }

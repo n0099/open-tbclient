@@ -18,23 +18,23 @@ public final class b0 implements Closeable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final z f31718e;
+    public final z f31739e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Protocol f31719f;
+    public final Protocol f31740f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f31720g;
+    public final int f31741g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f31721h;
+    public final String f31742h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final q f31722i;
+    public final q f31743i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final r f31723j;
+    public final r f31744j;
     @Nullable
     public final c0 k;
     @Nullable
@@ -63,16 +63,16 @@ public final class b0 implements Closeable {
                 return;
             }
         }
-        this.f31718e = aVar.f31724a;
-        this.f31719f = aVar.f31725b;
-        this.f31720g = aVar.f31726c;
-        this.f31721h = aVar.f31727d;
-        this.f31722i = aVar.f31728e;
-        this.f31723j = aVar.f31729f.d();
-        this.k = aVar.f31730g;
-        this.l = aVar.f31731h;
-        this.m = aVar.f31732i;
-        this.n = aVar.f31733j;
+        this.f31739e = aVar.f31745a;
+        this.f31740f = aVar.f31746b;
+        this.f31741g = aVar.f31747c;
+        this.f31742h = aVar.f31748d;
+        this.f31743i = aVar.f31749e;
+        this.f31744j = aVar.f31750f.d();
+        this.k = aVar.f31751g;
+        this.l = aVar.f31752h;
+        this.m = aVar.f31753i;
+        this.n = aVar.f31754j;
         this.o = aVar.k;
         this.p = aVar.l;
     }
@@ -87,7 +87,7 @@ public final class b0 implements Closeable {
     public Protocol B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31719f : (Protocol) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31740f : (Protocol) invokeV.objValue;
     }
 
     public long C() {
@@ -99,7 +99,7 @@ public final class b0 implements Closeable {
     public z D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31718e : (z) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31739e : (z) invokeV.objValue;
     }
 
     public long E() {
@@ -124,7 +124,7 @@ public final class b0 implements Closeable {
     public int code() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31720g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f31741g : invokeV.intValue;
     }
 
     @Nullable
@@ -142,7 +142,7 @@ public final class b0 implements Closeable {
             if (dVar != null) {
                 return dVar;
             }
-            d k = d.k(this.f31723j);
+            d k = d.k(this.f31744j);
             this.q = k;
             return k;
         }
@@ -160,7 +160,7 @@ public final class b0 implements Closeable {
     public q r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f31722i : (q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f31743i : (q) invokeV.objValue;
     }
 
     @Nullable
@@ -175,7 +175,7 @@ public final class b0 implements Closeable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, str2)) == null) {
-            String c2 = this.f31723j.c(str);
+            String c2 = this.f31744j.c(str);
             return c2 != null ? c2 : str2;
         }
         return (String) invokeLL.objValue;
@@ -185,7 +185,7 @@ public final class b0 implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "Response{protocol=" + this.f31719f + ", code=" + this.f31720g + ", message=" + this.f31721h + ", url=" + this.f31718e.h() + ExtendedMessageFormat.END_FE;
+            return "Response{protocol=" + this.f31740f + ", code=" + this.f31741g + ", message=" + this.f31742h + ", url=" + this.f31739e.h() + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -193,14 +193,14 @@ public final class b0 implements Closeable {
     public r v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f31723j : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f31744j : (r) invokeV.objValue;
     }
 
     public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            int i2 = this.f31720g;
+            int i2 = this.f31741g;
             if (i2 == 307 || i2 == 308) {
                 return true;
             }
@@ -220,7 +220,7 @@ public final class b0 implements Closeable {
     public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f31721h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f31742h : (String) invokeV.objValue;
     }
 
     @Nullable
@@ -243,40 +243,40 @@ public final class b0 implements Closeable {
         @Nullable
 
         /* renamed from: a  reason: collision with root package name */
-        public z f31724a;
+        public z f31745a;
         @Nullable
 
         /* renamed from: b  reason: collision with root package name */
-        public Protocol f31725b;
+        public Protocol f31746b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31726c;
+        public int f31747c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f31727d;
+        public String f31748d;
         @Nullable
 
         /* renamed from: e  reason: collision with root package name */
-        public q f31728e;
+        public q f31749e;
 
         /* renamed from: f  reason: collision with root package name */
-        public r.a f31729f;
+        public r.a f31750f;
         @Nullable
 
         /* renamed from: g  reason: collision with root package name */
-        public c0 f31730g;
+        public c0 f31751g;
         @Nullable
 
         /* renamed from: h  reason: collision with root package name */
-        public b0 f31731h;
+        public b0 f31752h;
         @Nullable
 
         /* renamed from: i  reason: collision with root package name */
-        public b0 f31732i;
+        public b0 f31753i;
         @Nullable
 
         /* renamed from: j  reason: collision with root package name */
-        public b0 f31733j;
+        public b0 f31754j;
         public long k;
         public long l;
 
@@ -293,15 +293,15 @@ public final class b0 implements Closeable {
                     return;
                 }
             }
-            this.f31726c = -1;
-            this.f31729f = new r.a();
+            this.f31747c = -1;
+            this.f31750f = new r.a();
         }
 
         public a a(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                this.f31729f.a(str, str2);
+                this.f31750f.a(str, str2);
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -311,7 +311,7 @@ public final class b0 implements Closeable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0Var)) == null) {
-                this.f31730g = c0Var;
+                this.f31751g = c0Var;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -321,15 +321,15 @@ public final class b0 implements Closeable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.f31724a != null) {
-                    if (this.f31725b != null) {
-                        if (this.f31726c >= 0) {
-                            if (this.f31727d != null) {
+                if (this.f31745a != null) {
+                    if (this.f31746b != null) {
+                        if (this.f31747c >= 0) {
+                            if (this.f31748d != null) {
                                 return new b0(this);
                             }
                             throw new IllegalStateException("message == null");
                         }
-                        throw new IllegalStateException("code < 0: " + this.f31726c);
+                        throw new IllegalStateException("code < 0: " + this.f31747c);
                     }
                     throw new IllegalStateException("protocol == null");
                 }
@@ -345,7 +345,7 @@ public final class b0 implements Closeable {
                 if (b0Var != null) {
                     f("cacheResponse", b0Var);
                 }
-                this.f31732i = b0Var;
+                this.f31753i = b0Var;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -381,7 +381,7 @@ public final class b0 implements Closeable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.f31726c = i2;
+                this.f31747c = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -391,7 +391,7 @@ public final class b0 implements Closeable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, qVar)) == null) {
-                this.f31728e = qVar;
+                this.f31749e = qVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -401,7 +401,7 @@ public final class b0 implements Closeable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-                this.f31729f.g(str, str2);
+                this.f31750f.g(str, str2);
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -411,7 +411,7 @@ public final class b0 implements Closeable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, rVar)) == null) {
-                this.f31729f = rVar.f();
+                this.f31750f = rVar.f();
                 return this;
             }
             return (a) invokeL.objValue;
@@ -421,7 +421,7 @@ public final class b0 implements Closeable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-                this.f31727d = str;
+                this.f31748d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -434,7 +434,7 @@ public final class b0 implements Closeable {
                 if (b0Var != null) {
                     f("networkResponse", b0Var);
                 }
-                this.f31731h = b0Var;
+                this.f31752h = b0Var;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -447,7 +447,7 @@ public final class b0 implements Closeable {
                 if (b0Var != null) {
                     e(b0Var);
                 }
-                this.f31733j = b0Var;
+                this.f31754j = b0Var;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -457,7 +457,7 @@ public final class b0 implements Closeable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, protocol)) == null) {
-                this.f31725b = protocol;
+                this.f31746b = protocol;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -477,7 +477,7 @@ public final class b0 implements Closeable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zVar)) == null) {
-                this.f31724a = zVar;
+                this.f31745a = zVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -508,17 +508,17 @@ public final class b0 implements Closeable {
                     return;
                 }
             }
-            this.f31726c = -1;
-            this.f31724a = b0Var.f31718e;
-            this.f31725b = b0Var.f31719f;
-            this.f31726c = b0Var.f31720g;
-            this.f31727d = b0Var.f31721h;
-            this.f31728e = b0Var.f31722i;
-            this.f31729f = b0Var.f31723j.f();
-            this.f31730g = b0Var.k;
-            this.f31731h = b0Var.l;
-            this.f31732i = b0Var.m;
-            this.f31733j = b0Var.n;
+            this.f31747c = -1;
+            this.f31745a = b0Var.f31739e;
+            this.f31746b = b0Var.f31740f;
+            this.f31747c = b0Var.f31741g;
+            this.f31748d = b0Var.f31742h;
+            this.f31749e = b0Var.f31743i;
+            this.f31750f = b0Var.f31744j.f();
+            this.f31751g = b0Var.k;
+            this.f31752h = b0Var.l;
+            this.f31753i = b0Var.m;
+            this.f31754j = b0Var.n;
             this.k = b0Var.o;
             this.l = b0Var.p;
         }

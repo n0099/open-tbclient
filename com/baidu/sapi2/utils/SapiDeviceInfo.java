@@ -115,6 +115,7 @@ public class SapiDeviceInfo implements NoProguard {
                 arrayList.add("sf_zid");
                 arrayList.add("hostver");
                 arrayList.add("iccid");
+                arrayList.add("pass_bio_ver");
                 return arrayList;
             }
             return (List) invokeV.objValue;
@@ -262,6 +263,7 @@ public class SapiDeviceInfo implements NoProguard {
             diExceptIndex.contains(35);
             arrayList.add("");
             arrayList.add(diExceptIndex.contains(36) ? "" : SapiUtils.getIccid(context));
+            arrayList.add(diExceptIndex.contains(37) ? "" : "9.4.1");
             return arrayList;
         }
         return (List) invokeL.objValue;

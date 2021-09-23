@@ -34,22 +34,22 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f52370e;
+    public Context f52487e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52371f;
+    public int f52488f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdRecyclerView f52372g;
+    public BdRecyclerView f52489g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AlaRecommendListAdapter f52373h;
+    public AlaRecommendListAdapter f52490h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<AlaLiveInfo> f52374i;
+    public List<AlaLiveInfo> f52491i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f52375j;
+    public CustomMessageListener f52492j;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -57,7 +57,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HomePageAlaRecommendLayout f52376a;
+        public final /* synthetic */ HomePageAlaRecommendLayout f52493a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HomePageAlaRecommendLayout homePageAlaRecommendLayout, int i2) {
@@ -77,7 +77,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f52376a = homePageAlaRecommendLayout;
+            this.f52493a = homePageAlaRecommendLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -87,13 +87,13 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
             AlaUserInfo alaUserInfo;
             Long l;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) == null || data.f48085d || StringUtils.isNull(data.f48084c) || this.f52376a.f52374i == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) == null || data.f48193d || StringUtils.isNull(data.f48192c) || this.f52493a.f52491i == null) {
                 return;
             }
-            for (AlaLiveInfo alaLiveInfo : this.f52376a.f52374i) {
-                if (alaLiveInfo != null && (alaUserInfo = alaLiveInfo.user_info) != null && (l = alaUserInfo.user_id) != null && data.f48084c.equals(l.toString())) {
-                    this.f52376a.f52374i.remove(alaLiveInfo);
-                    this.f52376a.updateAdapter();
+            for (AlaLiveInfo alaLiveInfo : this.f52493a.f52491i) {
+                if (alaLiveInfo != null && (alaUserInfo = alaLiveInfo.user_info) != null && (l = alaUserInfo.user_id) != null && data.f48192c.equals(l.toString())) {
+                    this.f52493a.f52491i.remove(alaLiveInfo);
+                    this.f52493a.updateAdapter();
                     return;
                 }
             }
@@ -127,16 +127,16 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.home_page_ala_recommend_layout, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f52372g = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
-            AlaRecommendListAdapter alaRecommendListAdapter = new AlaRecommendListAdapter(this.f52370e);
-            this.f52373h = alaRecommendListAdapter;
-            this.f52372g.setAdapter(alaRecommendListAdapter);
-            this.f52372g.setLayoutManager(new LinearLayoutManager(this.f52370e, 0, false));
-            this.f52372g.setItemAnimator(new DefaultItemAnimator());
-            int g2 = l.g(this.f52370e, R.dimen.tbds20);
-            this.f52372g.addItemDecoration(new CommonSpaceItemDecoration(g2, 0, g2));
-            BdRecyclerView bdRecyclerView = this.f52372g;
-            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), this.f52372g.getPaddingTop(), this.f52372g.getPaddingRight(), l.g(this.f52372g.getContext(), b.e(R.dimen.tbds0, R.dimen.tbds51)));
+            this.f52489g = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
+            AlaRecommendListAdapter alaRecommendListAdapter = new AlaRecommendListAdapter(this.f52487e);
+            this.f52490h = alaRecommendListAdapter;
+            this.f52489g.setAdapter(alaRecommendListAdapter);
+            this.f52489g.setLayoutManager(new LinearLayoutManager(this.f52487e, 0, false));
+            this.f52489g.setItemAnimator(new DefaultItemAnimator());
+            int g2 = l.g(this.f52487e, R.dimen.tbds20);
+            this.f52489g.addItemDecoration(new CommonSpaceItemDecoration(g2, 0, g2));
+            BdRecyclerView bdRecyclerView = this.f52489g;
+            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), this.f52489g.getPaddingTop(), this.f52489g.getPaddingRight(), l.g(this.f52489g.getContext(), b.e(R.dimen.tbds0, R.dimen.tbds51)));
         }
     }
 
@@ -144,24 +144,24 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().registerListener(this.f52375j);
+            MessageManager.getInstance().registerListener(this.f52492j);
             super.onAttachedToWindow();
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f52371f == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f52488f == i2) {
             return;
         }
-        this.f52371f = i2;
+        this.f52488f = i2;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f52375j);
+            MessageManager.getInstance().unRegisterListener(this.f52492j);
             super.onDetachedFromWindow();
         }
     }
@@ -170,7 +170,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             if (fVar != null && !ListUtils.isEmpty(fVar.g())) {
-                this.f52374i = fVar.g();
+                this.f52491i = fVar.g();
                 setVisibility(0);
                 updateAdapter();
                 return;
@@ -182,13 +182,13 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public void updateAdapter() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (ListUtils.isEmpty(this.f52374i)) {
+            if (ListUtils.isEmpty(this.f52491i)) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.f52373h.setData(this.f52374i);
-            this.f52373h.notifyDataSetChanged();
+            this.f52490h.setData(this.f52491i);
+            this.f52490h.notifyDataSetChanged();
         }
     }
 
@@ -211,9 +211,9 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
                 return;
             }
         }
-        this.f52371f = 3;
-        this.f52375j = new a(this, 2001115);
-        this.f52370e = context;
+        this.f52488f = 3;
+        this.f52492j = new a(this, 2001115);
+        this.f52487e = context;
         b();
     }
 }

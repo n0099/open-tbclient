@@ -19,11 +19,11 @@ public final class b {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f13492b;
+    public static final b f13488b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a> f13493a;
+    public final Map<String, a> f13489a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public final class b {
                 return;
             }
         }
-        f13492b = new b();
+        f13488b = new b();
     }
 
     public b() {
@@ -54,13 +54,13 @@ public final class b {
                 return;
             }
         }
-        this.f13493a = new HashMap();
+        this.f13489a = new HashMap();
     }
 
     public static void a(@NonNull String str, @NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) {
-            f13492b.f13493a.put(str, aVar);
+            f13488b.f13489a.put(str, aVar);
         }
     }
 
@@ -68,7 +68,7 @@ public final class b {
     public static <T> T b(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (T) f13492b.f13493a.get(str) : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (T) f13488b.f13489a.get(str) : (T) invokeL.objValue;
     }
 
     @NonNull

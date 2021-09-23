@@ -2,9 +2,9 @@ package c.a.r0.k1.t;
 
 import c.a.e.e.d.l;
 import c.a.e.e.p.p;
-import c.a.q0.d1.i0;
-import c.a.q0.d1.l0;
-import c.a.q0.d1.o;
+import c.a.q0.d1.j0;
+import c.a.q0.d1.m0;
+import c.a.q0.d1.r;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,24 +23,24 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, ChatSetting> f21615a;
+    public HashMap<String, ChatSetting> f21629a;
 
     /* renamed from: c.a.r0.k1.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1013a extends i0<Boolean> {
+    public class C1011a extends j0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f21616a;
+        public final /* synthetic */ String f21630a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f21617b;
+        public final /* synthetic */ String f21631b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f21618c;
+        public final /* synthetic */ a f21632c;
 
-        public C1013a(a aVar, String str, String str2) {
+        public C1011a(a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,19 +55,19 @@ public abstract class a {
                     return;
                 }
             }
-            this.f21618c = aVar;
-            this.f21616a = str;
-            this.f21617b = str2;
+            this.f21632c = aVar;
+            this.f21630a = str;
+            this.f21631b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // c.a.q0.d1.i0
+        @Override // c.a.q0.d1.j0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ChatSetting a2 = this.f21618c.a(this.f21616a, this.f21617b);
+                ChatSetting a2 = this.f21632c.a(this.f21630a, this.f21631b);
                 if (a2 == null) {
                     return Boolean.FALSE;
                 }
@@ -90,7 +90,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f21615a = new HashMap<>();
+        this.f21629a = new HashMap<>();
     }
 
     public abstract ChatSetting a(String str, String str2);
@@ -110,10 +110,10 @@ public abstract class a {
         return invokeLL.booleanValue;
     }
 
-    public void d(String str, String str2, o<Boolean> oVar) {
+    public void d(String str, String str2, r<Boolean> rVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, oVar) == null) {
-            l0.c(new C1013a(this, str, str2), oVar);
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, rVar) == null) {
+            m0.c(new C1011a(this, str, str2), rVar);
         }
     }
 
@@ -121,22 +121,22 @@ public abstract class a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
-            synchronized (this.f21615a) {
-                this.f21615a.clear();
+            synchronized (this.f21629a) {
+                this.f21629a.clear();
             }
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (id == null || id.length() == 0) {
                 return;
             }
             String str2 = id + TNCManager.TNC_PROBE_HEADER_SECEPTOR;
-            synchronized (this.f21615a) {
+            synchronized (this.f21629a) {
                 l<String> b2 = b();
                 List<l.b<String>> b3 = p.b(b2);
                 if (b3 != null) {
                     for (l.b<String> bVar : b3) {
                         String str3 = bVar.f2223a;
                         if (str3 != null && str3.startsWith(str2) && (str = b2.get(str3)) != null) {
-                            this.f21615a.put(str3, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                            this.f21629a.put(str3, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -154,17 +154,17 @@ public abstract class a {
         h(a2);
     }
 
-    public void g(String str, String str2, boolean z, o<Void> oVar) {
+    public void g(String str, String str2, boolean z, r<Void> rVar) {
         ChatSetting a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), oVar}) == null) || (a2 = a(str, str2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), rVar}) == null) || (a2 = a(str, str2)) == null) {
             return;
         }
         a2.setAcceptNotify(z);
-        i(a2, oVar);
+        i(a2, rVar);
     }
 
     public abstract void h(ChatSetting chatSetting);
 
-    public abstract void i(ChatSetting chatSetting, o<Void> oVar);
+    public abstract void i(ChatSetting chatSetting, r<Void> rVar);
 }

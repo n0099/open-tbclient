@@ -1,7 +1,7 @@
 package com.baidubce.services.vod.model;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.util.e;
+import com.alipay.sdk.util.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -55,7 +55,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
                 getMediaResourceResponse.setStatus(jSONObject.getString("status"));
                 getMediaResourceResponse.setAttributes(Attributes.formatFromJson(jSONObject.getJSONObject("attributes")));
                 getMediaResourceResponse.setMeta(MediaMeta.formatFromJson(jSONObject.getJSONObject("meta")));
-                if (getMediaResourceResponse.getStatus().equalsIgnoreCase(e.f36070a)) {
+                if (getMediaResourceResponse.getStatus().equalsIgnoreCase(f.f36105j)) {
                     getMediaResourceResponse.setError(VodError.formatFromJson(jSONObject.getJSONObject("error")));
                 }
                 getMediaResourceResponse.setPublishTime(jSONObject.optString("publishTime"));

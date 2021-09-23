@@ -10,7 +10,7 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public interface b {
-    public static final boolean e0 = k.f7077a;
+    public static final boolean e0 = k.f7085a;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -28,16 +28,16 @@ public interface b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, a> f7567a;
+        public final Map<String, a> f7575a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f7568b;
+        public boolean f7576b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f7569c;
+        public int f7577c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f7570d;
+        public int f7578d;
 
         public C0315b() {
             Interceptable interceptable = $ic;
@@ -52,10 +52,10 @@ public interface b {
                     return;
                 }
             }
-            this.f7567a = new HashMap();
-            this.f7568b = true;
-            this.f7569c = 0;
-            this.f7570d = 0;
+            this.f7575a = new HashMap();
+            this.f7576b = true;
+            this.f7577c = 0;
+            this.f7578d = 0;
         }
     }
 }

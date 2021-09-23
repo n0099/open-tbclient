@@ -31,17 +31,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f13383d;
+    public static a f13400d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CustomMessageListener f13384a;
+    public CustomMessageListener f13401a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13385b;
+    public boolean f13402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f13386c;
+    public HttpMessageListener f13403c;
 
     /* renamed from: c.a.q0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -50,7 +50,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13387a;
+        public final /* synthetic */ a f13404a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C0665a(a aVar, int i2) {
@@ -70,7 +70,7 @@ public class a {
                     return;
                 }
             }
-            this.f13387a = aVar;
+            this.f13404a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && l.D() && j.x()) {
-                this.f13387a.c();
+                this.f13404a.c();
             }
         }
     }
@@ -89,7 +89,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13388a;
+        public final /* synthetic */ a f13405a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2) {
@@ -109,7 +109,7 @@ public class a {
                     return;
                 }
             }
-            this.f13388a = aVar;
+            this.f13405a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,7 +117,7 @@ public class a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003392 && (httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
-                this.f13388a.f13385b = false;
+                this.f13405a.f13402b = false;
                 CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
                 if (checkBaiduSimResponseMessage.isSuc) {
                     c.a.q0.s.d0.b.j().x("key_baidu_sim_card_writting_tip", checkBaiduSimResponseMessage.isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free) : "");
@@ -155,40 +155,40 @@ public class a {
                 return;
             }
         }
-        this.f13384a = new C0665a(this, 2000994);
-        this.f13385b = false;
-        this.f13386c = new b(this, CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
+        this.f13401a = new C0665a(this, 2000994);
+        this.f13402b = false;
+        this.f13403c = new b(this, CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
     }
 
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f13383d == null) {
-                f13383d = new a();
+            if (f13400d == null) {
+                f13400d = new a();
             }
-            return f13383d;
+            return f13400d;
         }
         return (a) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.f13385b) {
-            this.f13385b = true;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.f13402b) {
+            this.f13402b = true;
             if (System.currentTimeMillis() >= c.a.q0.s.d0.b.j().l("key_next_check_baidu_sim_time", 0L)) {
                 c.a.q0.s.d0.b.j().w("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
                 tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);
-                MessageManager.getInstance().registerListener(this.f13386c);
+                MessageManager.getInstance().registerListener(this.f13403c);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
                 httpMessage.addParam("localip", UtilHelper.getGprsIpv4Address());
                 httpMessage.addParam("network", e());
                 MessageManager.getInstance().sendMessage(httpMessage);
                 return;
             }
-            this.f13385b = false;
+            this.f13402b = false;
         }
     }
 
@@ -205,7 +205,7 @@ public class a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.f13384a);
+            MessageManager.getInstance().registerListener(this.f13401a);
         }
     }
 }

@@ -22,13 +22,13 @@ public class ForumRankModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56928e;
+    public String f57045e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f56929f;
+    public b f57046f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f56930g;
+    public String f57047g;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -42,7 +42,7 @@ public class ForumRankModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumRankModel f56931a;
+        public final /* synthetic */ ForumRankModel f57048a;
 
         public b(ForumRankModel forumRankModel) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class ForumRankModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f56931a = forumRankModel;
+            this.f57048a = forumRankModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +74,7 @@ public class ForumRankModel extends BdBaseModel {
                 c.a.q0.s.r.a.f();
                 l<String> g2 = c.a.q0.s.r.a.g("tb.forum_rank");
                 if (g2 != null) {
-                    str = g2.get("forum_rank_cache_key_" + this.f56931a.f56928e);
+                    str = g2.get("forum_rank_cache_key_" + this.f57048a.f57045e);
                 } else {
                     str = null;
                 }
@@ -82,14 +82,14 @@ public class ForumRankModel extends BdBaseModel {
                     publishProgress(forumRankData);
                 }
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumsquarelist");
-                netWork.addPostData("list_id", this.f56931a.f56928e);
-                netWork.addPostData("st_type", this.f56931a.f56930g);
+                netWork.addPostData("list_id", this.f57048a.f57045e);
+                netWork.addPostData("st_type", this.f57048a.f57047g);
                 String postNetData = netWork.postNetData();
                 if (StringUtils.isNull(postNetData)) {
                     return null;
                 }
                 if (g2 != null) {
-                    g2.e("forum_rank_cache_key_" + this.f56931a.f56928e, postNetData, 86400000L);
+                    g2.e("forum_rank_cache_key_" + this.f57048a.f57045e, postNetData, 86400000L);
                 }
                 return (ForumRankData) OrmObject.objectWithJsonStr(postNetData, ForumRankData.class);
             }
@@ -102,9 +102,9 @@ public class ForumRankModel extends BdBaseModel {
         public void onPostExecute(ForumRankData forumRankData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumRankData) == null) {
-                this.f56931a.f56929f = null;
-                if (this.f56931a.mLoadDataCallBack != null) {
-                    this.f56931a.mLoadDataCallBack.c(forumRankData);
+                this.f57048a.f57046f = null;
+                if (this.f57048a.mLoadDataCallBack != null) {
+                    this.f57048a.mLoadDataCallBack.c(forumRankData);
                 }
             }
         }
@@ -114,7 +114,7 @@ public class ForumRankModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel(true);
-                this.f56931a.f56929f = null;
+                this.f57048a.f57046f = null;
             }
         }
 
@@ -125,10 +125,10 @@ public class ForumRankModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, forumRankDataArr) == null) {
                 super.onProgressUpdate(forumRankDataArr);
-                if (this.f56931a.mLoadDataCallBack == null || forumRankDataArr == null || forumRankDataArr.length <= 0) {
+                if (this.f57048a.mLoadDataCallBack == null || forumRankDataArr == null || forumRankDataArr.length <= 0) {
                     return;
                 }
-                this.f56931a.mLoadDataCallBack.c(forumRankDataArr[0]);
+                this.f57048a.mLoadDataCallBack.c(forumRankDataArr[0]);
             }
         }
 
@@ -155,18 +155,18 @@ public class ForumRankModel extends BdBaseModel {
                 return;
             }
         }
-        this.f56928e = null;
-        this.f56929f = null;
-        this.f56930g = null;
-        this.f56928e = bundle.getString("id");
-        this.f56930g = bundle.getString("st_type");
+        this.f57045e = null;
+        this.f57046f = null;
+        this.f57047g = null;
+        this.f57045e = bundle.getString("id");
+        this.f57047g = bundle.getString("st_type");
     }
 
     public void D(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            bundle.putString("id", this.f56928e);
-            bundle.putString("st_type", this.f56930g);
+            bundle.putString("id", this.f57045e);
+            bundle.putString("st_type", this.f57047g);
         }
     }
 
@@ -175,12 +175,12 @@ public class ForumRankModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f56928e == null) {
+            if (this.f57045e == null) {
                 return false;
             }
-            if (this.f56929f == null) {
+            if (this.f57046f == null) {
                 b bVar = new b(this, null);
-                this.f56929f = bVar;
+                this.f57046f = bVar;
                 bVar.execute(new Void[0]);
                 return true;
             }
@@ -194,7 +194,7 @@ public class ForumRankModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b bVar = this.f56929f;
+            b bVar = this.f57046f;
             if (bVar != null) {
                 bVar.cancel();
                 return false;
@@ -222,10 +222,10 @@ public class ForumRankModel extends BdBaseModel {
                 return;
             }
         }
-        this.f56928e = null;
-        this.f56929f = null;
-        this.f56930g = null;
-        this.f56928e = intent.getStringExtra("id");
-        this.f56930g = intent.getStringExtra("st_type");
+        this.f57045e = null;
+        this.f57046f = null;
+        this.f57047g = null;
+        this.f57045e = intent.getStringExtra("id");
+        this.f57047g = intent.getStringExtra("st_type");
     }
 }

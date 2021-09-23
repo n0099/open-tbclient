@@ -15,6 +15,7 @@ import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.baidu.wallet.router.LocalRouter;
 import com.baidu.wallet.router.RouterCallback;
 import com.baidu.wallet.router.RouterRequest;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
@@ -25,7 +26,7 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f61559a;
+    public boolean f61672a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,7 +41,7 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                 return;
             }
         }
-        this.f61559a = false;
+        this.f61672a = false;
     }
 
     @Override // com.baidu.wallet.lightapp.ability.a
@@ -54,7 +55,7 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
     public void a(Activity activity, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, iLightappInvokerCallback, str2) == null) {
-            this.f61559a = false;
+            this.f61672a = false;
             String str3 = "";
             if (!TextUtils.isEmpty(str)) {
                 try {
@@ -70,7 +71,7 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                         e3.printStackTrace();
                     }
                     try {
-                        this.f61559a = ((Boolean) jSONObject.get("showDialog")).booleanValue();
+                        this.f61672a = ((Boolean) jSONObject.get("showDialog")).booleanValue();
                     } catch (Exception e4) {
                         e4.printStackTrace();
                     }
@@ -78,18 +79,18 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                     e5.printStackTrace();
                 }
             }
-            LocalRouter.getInstance(DxmApplicationContextImpl.getApplicationContext(activity)).route(activity, new RouterRequest().provider("dxmPay").action("enterDoInnerBind").data("showDialog", Boolean.valueOf(this.f61559a)).data("orderInfo", str3), new RouterCallback(this, iLightappInvokerCallback, str2) { // from class: com.baidu.wallet.lightapp.ability.a.a.1
+            LocalRouter.getInstance(DxmApplicationContextImpl.getApplicationContext(activity)).route(activity, new RouterRequest().provider("dxmPay").action("enterDoInnerBind").data("showDialog", Boolean.valueOf(this.f61672a)).data("orderInfo", str3), new RouterCallback(this, iLightappInvokerCallback, str2) { // from class: com.baidu.wallet.lightapp.ability.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ILightappInvokerCallback f61560a;
+                public final /* synthetic */ ILightappInvokerCallback f61673a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f61561b;
+                public final /* synthetic */ String f61674b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f61562c;
+                public final /* synthetic */ a f61675c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -106,9 +107,9 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                             return;
                         }
                     }
-                    this.f61562c = this;
-                    this.f61560a = iLightappInvokerCallback;
-                    this.f61561b = str2;
+                    this.f61675c = this;
+                    this.f61673a = iLightappInvokerCallback;
+                    this.f61674b = str2;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -119,20 +120,20 @@ public class a extends com.baidu.wallet.lightapp.ability.b {
                             if (hashMap == null || hashMap.size() <= 0) {
                                 return;
                             }
-                            int intValue = ((Integer) hashMap.get("statusCode")).intValue();
+                            int intValue = ((Integer) hashMap.get(EnterDxmPayServiceAction.SERVICE_STATUS_CODE)).intValue();
                             String str4 = (String) hashMap.get("params");
                             if (intValue != 0) {
-                                this.f61562c.a(this.f61560a, this.f61561b, LightappConstants.ERRCODE_CANCEL, str4, "#bindCardInitiativeFail");
+                                this.f61675c.a(this.f61673a, this.f61674b, LightappConstants.ERRCODE_CANCEL, str4, "#bindCardInitiativeFail");
                                 return;
                             } else {
-                                this.f61560a.onResult(0, str4);
+                                this.f61673a.onResult(0, str4);
                                 return;
                             }
                         }
                         String str5 = (String) hashMap.get("errorMsg");
-                        a aVar = this.f61562c;
-                        ILightappInvokerCallback iLightappInvokerCallback2 = this.f61560a;
-                        String str6 = this.f61561b;
+                        a aVar = this.f61675c;
+                        ILightappInvokerCallback iLightappInvokerCallback2 = this.f61673a;
+                        String str6 = this.f61674b;
                         String num = Integer.toString(i2);
                         if (!TextUtils.isEmpty(str5)) {
                             str5 = LightappConstants.ROUTER_INVOKE_FAIL;

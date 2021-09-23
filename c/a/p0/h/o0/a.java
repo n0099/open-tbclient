@@ -21,7 +21,7 @@ public class a extends c.a.p0.a.u.e.d.a implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<a.InterfaceC0388a> f11411a;
+    public ArrayList<a.InterfaceC0388a> f11419a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class a extends c.a.p0.a.u.e.d.a implements i {
                 return;
             }
         }
-        this.f11411a = new ArrayList<>();
+        this.f11419a = new ArrayList<>();
     }
 
     @Nullable
@@ -66,8 +66,8 @@ public class a extends c.a.p0.a.u.e.d.a implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0388a) == null) {
             synchronized (this) {
-                if (!this.f11411a.contains(interfaceC0388a)) {
-                    this.f11411a.add(interfaceC0388a);
+                if (!this.f11419a.contains(interfaceC0388a)) {
+                    this.f11419a.add(interfaceC0388a);
                 }
             }
         }
@@ -78,7 +78,7 @@ public class a extends c.a.p0.a.u.e.d.a implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             synchronized (this) {
-                Iterator<a.InterfaceC0388a> it = this.f11411a.iterator();
+                Iterator<a.InterfaceC0388a> it = this.f11419a.iterator();
                 while (it.hasNext()) {
                     it.next().b(i2);
                 }
@@ -90,11 +90,11 @@ public class a extends c.a.p0.a.u.e.d.a implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                Iterator<a.InterfaceC0388a> it = this.f11411a.iterator();
+                Iterator<a.InterfaceC0388a> it = this.f11419a.iterator();
                 while (it.hasNext()) {
                     it.next().a();
                 }
-                this.f11411a.clear();
+                this.f11419a.clear();
             }
         }
     }

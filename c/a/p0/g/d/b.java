@@ -19,10 +19,10 @@ public class b implements f1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Boolean> f10928a;
+    public HashMap<String, Boolean> f10936a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.g.d.a f10929b;
+    public c.a.p0.g.d.a f10937b;
 
     /* loaded from: classes3.dex */
     public class a implements c.a.p0.a.u0.b {
@@ -30,10 +30,10 @@ public class b implements f1 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.u0.b f10930a;
+        public final /* synthetic */ c.a.p0.a.u0.b f10938a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f10931b;
+        public final /* synthetic */ b f10939b;
 
         public a(b bVar, c.a.p0.a.u0.b bVar2) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class b implements f1 {
                     return;
                 }
             }
-            this.f10931b = bVar;
-            this.f10930a = bVar2;
+            this.f10939b = bVar;
+            this.f10938a = bVar2;
         }
 
         @Override // c.a.p0.a.u0.b
         public void a(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f10931b.g(true);
-                this.f10930a.a(jSONObject);
+                this.f10939b.g(true);
+                this.f10938a.a(jSONObject);
             }
         }
 
@@ -67,8 +67,8 @@ public class b implements f1 {
         public void onFail(int i2, @Nullable String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f10931b.g(false);
-                this.f10930a.onFail(i2, str);
+                this.f10939b.g(false);
+                this.f10938a.onFail(i2, str);
             }
         }
     }
@@ -86,8 +86,8 @@ public class b implements f1 {
                 return;
             }
         }
-        this.f10928a = new HashMap<>();
-        this.f10929b = new c.a.p0.g.d.a();
+        this.f10936a = new HashMap<>();
+        this.f10937b = new c.a.p0.g.d.a();
     }
 
     @Override // c.a.p0.a.p.d.f1
@@ -100,7 +100,7 @@ public class b implements f1 {
                 bVar.a(null);
                 return null;
             }
-            return this.f10929b.a(jSONObject, c(bVar));
+            return this.f10937b.a(jSONObject, c(bVar));
         }
         return (c.a.p0.a.u.h.b) invokeLLL.objValue;
     }
@@ -127,7 +127,7 @@ public class b implements f1 {
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.f10929b.f10933a, str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.f10937b.f10941a, str) : invokeL.booleanValue;
     }
 
     public boolean f() {
@@ -136,7 +136,7 @@ public class b implements f1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             String d2 = d();
-            if (TextUtils.isEmpty(d2) || (bool = this.f10928a.get(d2)) == null) {
+            if (TextUtils.isEmpty(d2) || (bool = this.f10936a.get(d2)) == null) {
                 return false;
             }
             return bool.booleanValue();
@@ -151,7 +151,7 @@ public class b implements f1 {
             if (TextUtils.isEmpty(d2)) {
                 return;
             }
-            this.f10928a.put(d2, Boolean.valueOf(z));
+            this.f10936a.put(d2, Boolean.valueOf(z));
         }
     }
 }

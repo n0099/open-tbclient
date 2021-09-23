@@ -40,22 +40,22 @@ public class d implements Handler.Callback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Queue<c> f12560e;
+    public final Queue<c> f12568e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f12561f;
+    public BdUniqueId f12569f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.q0.n.b<c.a.q0.a.c> f12562g;
+    public c.a.q0.n.b<c.a.q0.a.c> f12570g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.q0.a.d0.b f12563h;
+    public c.a.q0.a.d0.b f12571h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12564i;
+    public boolean f12572i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Handler f12565j;
+    public final Handler f12573j;
     public c.a.e.c.g.a k;
     public CustomMessageListener l;
 
@@ -65,7 +65,7 @@ public class d implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f12566a;
+        public final /* synthetic */ d f12574a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2, int i3) {
@@ -86,7 +86,7 @@ public class d implements Handler.Callback {
                     return;
                 }
             }
-            this.f12566a = dVar;
+            this.f12574a = dVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: c.a.q0.a.d0.d$f */
@@ -96,12 +96,12 @@ public class d implements Handler.Callback {
             c.a.q0.a.d0.a data;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f12566a.f12564i = false;
+                this.f12574a.f12572i = false;
                 if (responsedMessage == null) {
                     return;
                 }
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.f12566a.r(responsedMessage);
+                    this.f12574a.r(responsedMessage);
                     return;
                 }
                 e eVar = null;
@@ -114,31 +114,31 @@ public class d implements Handler.Callback {
                 if (data == null) {
                     return;
                 }
-                if (this.f12566a.f12563h == null) {
-                    this.f12566a.f12563h = new c.a.q0.a.d0.b();
+                if (this.f12574a.f12571h == null) {
+                    this.f12574a.f12571h = new c.a.q0.a.d0.b();
                 }
-                this.f12566a.f12563h.d(data);
-                this.f12566a.f12563h.e();
+                this.f12574a.f12571h.d(data);
+                this.f12574a.f12571h.e();
                 Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
                 if (obj instanceof f) {
                     f fVar = (f) obj;
-                    c.a.q0.a.c cVar = fVar.f12573a;
+                    c.a.q0.a.c cVar = fVar.f12581a;
                     if (data != null && data.x == 1) {
                         cVar.z = true;
                     }
-                    this.f12566a.t(cVar);
+                    this.f12574a.t(cVar);
                     eVar = fVar;
                 } else if (obj instanceof e) {
                     e eVar2 = (e) obj;
-                    this.f12566a.s(eVar2.f12571a);
+                    this.f12574a.s(eVar2.f12579a);
                     eVar = eVar2;
                 } else if (obj instanceof g) {
                     o.b().g();
                 }
                 if (eVar != null) {
-                    this.f12566a.f12560e.remove(eVar);
+                    this.f12574a.f12568e.remove(eVar);
                 }
-                this.f12566a.u();
+                this.f12574a.u();
             }
         }
     }
@@ -149,7 +149,7 @@ public class d implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f12567a;
+        public final /* synthetic */ d f12575a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, int i2) {
@@ -169,7 +169,7 @@ public class d implements Handler.Callback {
                     return;
                 }
             }
-            this.f12567a = dVar;
+            this.f12575a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,8 +178,8 @@ public class d implements Handler.Callback {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof C0642d)) {
                 C0642d c0642d = (C0642d) customResponsedMessage.getData();
-                this.f12567a.k(c0642d.f12568a);
-                this.f12567a.l(c0642d.f12569b);
+                this.f12575a.k(c0642d.f12576a);
+                this.f12575a.l(c0642d.f12577b);
             }
         }
     }
@@ -211,13 +211,13 @@ public class d implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<i> f12568a;
+        public List<i> f12576a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<c.a.q0.a.c> f12569b;
+        public List<c.a.q0.a.c> f12577b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<c.a.q0.a.c> f12570c;
+        public List<c.a.q0.a.c> f12578c;
 
         public C0642d() {
             Interceptable interceptable = $ic;
@@ -236,7 +236,7 @@ public class d implements Handler.Callback {
         public void a(c.a.q0.a.c cVar) {
             List<c.a.q0.a.c> list;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (list = this.f12569b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || (list = this.f12577b) == null) {
                 return;
             }
             list.add(cVar);
@@ -245,7 +245,7 @@ public class d implements Handler.Callback {
         public void b(i iVar) {
             List<i> list;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar) == null) || (list = this.f12568a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar) == null) || (list = this.f12576a) == null) {
                 return;
             }
             list.add(iVar);
@@ -254,7 +254,7 @@ public class d implements Handler.Callback {
         public void c(c.a.q0.a.c cVar) {
             List<c.a.q0.a.c> list;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || (list = this.f12570c) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) || (list = this.f12578c) == null) {
                 return;
             }
             list.add(cVar);
@@ -267,10 +267,10 @@ public class d implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12571a;
+        public String f12579a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12572b;
+        public String f12580b;
 
         public e(String str) {
             Interceptable interceptable = $ic;
@@ -287,7 +287,7 @@ public class d implements Handler.Callback {
                     return;
                 }
             }
-            this.f12571a = str;
+            this.f12579a = str;
         }
     }
 
@@ -297,7 +297,7 @@ public class d implements Handler.Callback {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.q0.a.c f12573a;
+        public c.a.q0.a.c f12581a;
 
         public f(c.a.q0.a.c cVar) {
             Interceptable interceptable = $ic;
@@ -314,7 +314,7 @@ public class d implements Handler.Callback {
                     return;
                 }
             }
-            this.f12573a = cVar;
+            this.f12581a = cVar;
         }
     }
 
@@ -353,12 +353,12 @@ public class d implements Handler.Callback {
                 return;
             }
         }
-        this.f12560e = new LinkedList();
-        this.f12564i = false;
-        this.f12565j = new Handler(this);
+        this.f12568e = new LinkedList();
+        this.f12572i = false;
+        this.f12573j = new Handler(this);
         this.k = new a(this, CmdConfigHttp.CMD_COMPLETE_TASK, 309627);
         this.l = new b(this, 2921379);
-        this.f12561f = bdUniqueId;
+        this.f12569f = bdUniqueId;
         p();
         q();
     }
@@ -431,8 +431,8 @@ public class d implements Handler.Callback {
             }
         }
         e eVar = new e(jSONObject.toString());
-        eVar.f12572b = jSONObject2.toString();
-        this.f12560e.add(eVar);
+        eVar.f12580b = jSONObject2.toString();
+        this.f12568e.add(eVar);
         u();
     }
 
@@ -446,7 +446,7 @@ public class d implements Handler.Callback {
                 cVar.e0(cVar.F());
                 o(cVar);
             } else {
-                this.f12560e.add(new f(cVar));
+                this.f12568e.add(new f(cVar));
             }
         }
         u();
@@ -455,7 +455,7 @@ public class d implements Handler.Callback {
     public void m() {
         c.a.q0.a.d0.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.f12563h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.f12571h) == null) {
             return;
         }
         bVar.a();
@@ -464,13 +464,13 @@ public class d implements Handler.Callback {
     public BdUniqueId n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12561f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12569f : (BdUniqueId) invokeV.objValue;
     }
 
     public final void o(c.a.q0.a.c cVar) {
         c.a.q0.n.b<c.a.q0.a.c> bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (bVar = this.f12562g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (bVar = this.f12570g) == null) {
             return;
         }
         bVar.a(cVar);
@@ -479,8 +479,8 @@ public class d implements Handler.Callback {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.r0.j3.d0.a.h(309627, CompleteTaskSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, c.a.r0.j3.d0.a.a(TbConfig.COMPLETE_TASK_URL, 309627));
+            c.a.r0.j3.e0.a.h(309627, CompleteTaskSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, c.a.r0.j3.e0.a.a(TbConfig.COMPLETE_TASK_URL, 309627));
             tbHttpMessageTask.setResponsedClass(CompleteTaskHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -508,13 +508,13 @@ public class d implements Handler.Callback {
         Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
         if (obj instanceof f) {
             f fVar = (f) obj;
-            o(fVar.f12573a);
+            o(fVar.f12581a);
             eVar = fVar;
         } else if (obj instanceof e) {
             eVar = (e) obj;
         }
         if (eVar != null) {
-            this.f12560e.remove(eVar);
+            this.f12568e.remove(eVar);
         }
         u();
     }
@@ -572,16 +572,16 @@ public class d implements Handler.Callback {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             Message obtain = Message.obtain();
             obtain.what = 1;
-            this.f12565j.sendMessage(obtain);
+            this.f12573j.sendMessage(obtain);
         }
     }
 
     public void v(String str, int i2, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLILL(1048588, this, str, i2, str2, obj) == null) && j.z()) {
-            this.f12564i = true;
+            this.f12572i = true;
             CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(i2);
-            completeTaskReqMsg.setTag(this.f12561f);
+            completeTaskReqMsg.setTag(this.f12569f);
             completeTaskReqMsg.completeId = str;
             completeTaskReqMsg.setToken(str2);
             completeTaskReqMsg.extra = obj;
@@ -593,7 +593,7 @@ public class d implements Handler.Callback {
     public void w(c.a.q0.n.b<c.a.q0.a.c> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            this.f12562g = bVar;
+            this.f12570g = bVar;
         }
     }
 
@@ -608,22 +608,22 @@ public class d implements Handler.Callback {
             return invokeV.booleanValue;
         }
         try {
-            if (this.f12564i || (peek = this.f12560e.peek()) == null) {
+            if (this.f12572i || (peek = this.f12568e.peek()) == null) {
                 return false;
             }
             if (peek instanceof f) {
                 f fVar = (f) peek;
-                if (fVar == null || (cVar = fVar.f12573a) == null) {
+                if (fVar == null || (cVar = fVar.f12581a) == null) {
                     return false;
                 }
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(String.valueOf(cVar.d()), String.valueOf(cVar.q()));
                 v(jSONObject.toString(), 1, cVar.E(), fVar);
                 return true;
-            } else if (!(peek instanceof e) || (eVar = (e) peek) == null || (str = eVar.f12571a) == null) {
+            } else if (!(peek instanceof e) || (eVar = (e) peek) == null || (str = eVar.f12579a) == null) {
                 return false;
             } else {
-                v(str, 1, eVar.f12572b, eVar);
+                v(str, 1, eVar.f12580b, eVar);
                 return true;
             }
         } catch (Exception e2) {

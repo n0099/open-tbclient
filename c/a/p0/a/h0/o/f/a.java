@@ -42,7 +42,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (c.a.p0.a.h0.o.g.a.f6305a) {
+            if (c.a.p0.a.h0.o.g.a.f6313a) {
                 String str2 = "receive prefetchResources data = " + str;
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-Base", str);

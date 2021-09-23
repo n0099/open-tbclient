@@ -16,7 +16,7 @@ public interface a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f12788a;
+        public int f12802a;
 
         public C0645a(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public interface a {
                     return;
                 }
             }
-            this.f12788a = 0;
-            this.f12788a = i2;
+            this.f12802a = 0;
+            this.f12802a = i2;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12788a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12802a : invokeV.intValue;
         }
     }
 

@@ -17,11 +17,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f75606a;
+    public static a f75925a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f75607b;
+    public Context f75926b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        boolean z = f.f75550b;
+        boolean z = f.f75869b;
     }
 
     public a(Context context) {
@@ -54,19 +54,19 @@ public class a {
                 return;
             }
         }
-        this.f75607b = context;
+        this.f75926b = context;
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f75606a == null) {
+            if (f75925a == null) {
                 synchronized (a.class) {
-                    f75606a = new a(context);
+                    f75925a = new a(context);
                 }
             }
-            return f75606a;
+            return f75925a;
         }
         return (a) invokeL.objValue;
     }
@@ -74,9 +74,9 @@ public class a {
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            com.sdk.base.framework.f.b.a.a(this.f75607b, e.m, str2);
+            com.sdk.base.framework.f.b.a.a(this.f75926b, e.o, str2);
             if (c.b(str).booleanValue()) {
-                com.sdk.base.framework.f.b.a.a(this.f75607b, Constants.API_KEY, str);
+                com.sdk.base.framework.f.b.a.a(this.f75926b, Constants.API_KEY, str);
             }
         }
     }

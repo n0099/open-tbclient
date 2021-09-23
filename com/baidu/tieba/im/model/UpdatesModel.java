@@ -2,9 +2,9 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.i0;
-import c.a.q0.d1.l0;
-import c.a.q0.d1.o;
+import c.a.q0.d1.j0;
+import c.a.q0.d1.m0;
+import c.a.q0.d1.r;
 import c.a.r0.k1.h.d;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -103,12 +103,12 @@ public class UpdatesModel {
         return (List) invokeL.objValue;
     }
 
-    public static void deleteUpdatesData(UpdatesItemData updatesItemData, o<Boolean> oVar) {
+    public static void deleteUpdatesData(UpdatesItemData updatesItemData, r<Boolean> rVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, updatesItemData, oVar) == null) || updatesItemData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, updatesItemData, rVar) == null) || updatesItemData == null) {
             return;
         }
-        l0.c(new i0<Boolean>(updatesItemData) { // from class: com.baidu.tieba.im.model.UpdatesModel.2
+        m0.c(new j0<Boolean>(updatesItemData) { // from class: com.baidu.tieba.im.model.UpdatesModel.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UpdatesItemData val$data;
@@ -133,19 +133,19 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.q0.d1.i0
+            @Override // c.a.q0.d1.j0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
             }
-        }, oVar);
+        }, rVar);
     }
 
-    public static void requestUpdatesDataFromDB(o<LinkedList<GroupNewsPojo>> oVar) {
+    public static void requestUpdatesDataFromDB(r<LinkedList<GroupNewsPojo>> rVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, oVar) == null) {
-            l0.c(new i0<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, rVar) == null) {
+            m0.c(new j0<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -164,26 +164,26 @@ public class UpdatesModel {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.q0.d1.i0
+                @Override // c.a.q0.d1.j0
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d.f().c(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change") : (LinkedList) invokeV.objValue;
                 }
-            }, oVar);
+            }, rVar);
         }
     }
 
-    public static void updateUpdatesData(o<Boolean> oVar, UpdatesItemData... updatesItemDataArr) {
+    public static void updateUpdatesData(r<Boolean> rVar, UpdatesItemData... updatesItemDataArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, oVar, updatesItemDataArr) == null) || updatesItemDataArr == null) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, rVar, updatesItemDataArr) == null) || updatesItemDataArr == null) {
             return;
         }
         LinkedList linkedList = new LinkedList();
         for (UpdatesItemData updatesItemData : updatesItemDataArr) {
             linkedList.add(updatesItemData.toGroupNewsPojo());
         }
-        l0.c(new i0<Boolean>(linkedList) { // from class: com.baidu.tieba.im.model.UpdatesModel.1
+        m0.c(new j0<Boolean>(linkedList) { // from class: com.baidu.tieba.im.model.UpdatesModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LinkedList val$list;
@@ -208,13 +208,13 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.q0.d1.i0
+            @Override // c.a.q0.d1.j0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? d.f().n(this.val$list) : (Boolean) invokeV.objValue;
             }
-        }, oVar);
+        }, rVar);
     }
 
     public void addSelect(UpdatesItemData updatesItemData) {
@@ -250,10 +250,10 @@ public class UpdatesModel {
         }
     }
 
-    public void deleteDatas(o<Boolean> oVar) {
+    public void deleteDatas(r<Boolean> rVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, oVar) == null) {
-            l0.c(new i0<Boolean>(this) { // from class: com.baidu.tieba.im.model.UpdatesModel.3
+        if (interceptable == null || interceptable.invokeL(1048580, this, rVar) == null) {
+            m0.c(new j0<Boolean>(this) { // from class: com.baidu.tieba.im.model.UpdatesModel.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UpdatesModel this$0;
@@ -278,13 +278,13 @@ public class UpdatesModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.q0.d1.i0
+                @Override // c.a.q0.d1.j0
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.f().b(this.this$0.dataToDelete)) : (Boolean) invokeV.objValue;
                 }
-            }, oVar);
+            }, rVar);
         }
     }
 

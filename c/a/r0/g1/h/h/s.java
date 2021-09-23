@@ -46,7 +46,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ s f18304b;
+        public final /* synthetic */ s f18313b;
 
         public a(s sVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                     return;
                 }
             }
-            this.f18304b = sVar;
+            this.f18313b = sVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,14 +74,14 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, kVar) == null) {
                 c.a.r0.a0.t.b().d(true);
                 c.a.r0.o.d.c().h("page_recommend", "show_");
-                if (view == null || this.f18304b.o == null || kVar == null || kVar.getThreadData() == null || StringUtils.isNull(kVar.getThreadData().s1())) {
+                if (view == null || this.f18313b.o == null || kVar == null || kVar.getThreadData() == null || StringUtils.isNull(kVar.getThreadData().s1())) {
                     return;
                 }
                 if ((view.getTag() instanceof String) && !c.a.r0.g1.h.f.b(c.a.e.e.m.b.g(kVar.getThreadData().s1(), 0L))) {
                     c.a.r0.g1.h.f.a(c.a.e.e.m.b.g(kVar.getThreadData().s1(), 0L));
-                    this.f18304b.o.e(c.a.e.e.m.b.g(kVar.getThreadData().s1(), 0L), kVar.E(), kVar.t(), kVar.q(), kVar.g(), c.a.e.e.m.b.e((String) view.getTag(), 1), "homepage", kVar.getThreadData().L());
+                    this.f18313b.o.e(c.a.e.e.m.b.g(kVar.getThreadData().s1(), 0L), kVar.E(), kVar.t(), kVar.q(), kVar.g(), c.a.e.e.m.b.e((String) view.getTag(), 1), "homepage", kVar.getThreadData().L());
                 }
-                this.f18304b.n0(view, kVar);
+                this.f18313b.n0(view, kVar);
             }
         }
     }
@@ -92,7 +92,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f18305e;
+        public final /* synthetic */ s f18314e;
 
         public b(s sVar) {
             Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                     return;
                 }
             }
-            this.f18305e = sVar;
+            this.f18314e = sVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -119,8 +119,8 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 c.a.r0.a0.d0.k kVar = (c.a.r0.a0.d0.k) nVar;
                 kVar.k = 1;
-                if (this.f18305e.s != null) {
-                    this.f18305e.s.a(threadCardViewHolder.getView(), kVar);
+                if (this.f18314e.s != null) {
+                    this.f18314e.s.a(threadCardViewHolder.getView(), kVar);
                 }
                 ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) kVar, view.getContext(), 2, false, c.a.l.e.a((c.a.e.l.e.s) viewGroup, view, i2));
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
@@ -134,16 +134,16 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f18306a;
+        public final /* synthetic */ ViewGroup f18315a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f18307b;
+        public final /* synthetic */ View f18316b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f18308c;
+        public final /* synthetic */ int f18317c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a0.d0.k f18309d;
+        public final /* synthetic */ c.a.r0.a0.d0.k f18318d;
 
         public c(s sVar, ViewGroup viewGroup, View view, int i2, c.a.r0.a0.d0.k kVar) {
             Interceptable interceptable = $ic;
@@ -160,23 +160,23 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                     return;
                 }
             }
-            this.f18306a = viewGroup;
-            this.f18307b = view;
-            this.f18308c = i2;
-            this.f18309d = kVar;
+            this.f18315a = viewGroup;
+            this.f18316b = view;
+            this.f18317c = i2;
+            this.f18318d = kVar;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.i
         public void a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
-                ((PbActivityConfig) intentConfig).setVideoOriginArea(c.a.l.e.a((c.a.e.l.e.s) this.f18306a, this.f18307b, this.f18308c));
-                if (this.f18309d.getThreadData() == null || this.f18309d.getThreadData().e1() == null) {
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(c.a.l.e.a((c.a.e.l.e.s) this.f18315a, this.f18316b, this.f18317c));
+                if (this.f18318d.getThreadData() == null || this.f18318d.getThreadData().e1() == null) {
                     return;
                 }
-                StatisticItem w = this.f18309d.w(c.a.r0.a0.d0.k.n0);
-                w.param("obj_type", this.f18309d.getThreadData().e1().id);
-                w.param("obj_name", this.f18309d.getThreadData().e1().name);
+                StatisticItem w = this.f18318d.w(c.a.r0.a0.d0.k.n0);
+                w.param("obj_type", this.f18318d.getThreadData().e1().id);
+                w.param("obj_name", this.f18318d.getThreadData().e1().name);
                 TiebaStatic.log(w);
             }
         }
@@ -267,11 +267,11 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, threadCardViewHolder})) == null) {
-            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15562e == null) {
+            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15571e == null) {
                 return null;
             }
             kVar.K(kVar.position + 1);
-            kVar.f15562e.S1 = kVar.q();
+            kVar.f15571e.T1 = kVar.q();
             threadCardViewHolder.getCardView().q(i2);
             threadCardViewHolder.getCardView().setPage(this.p);
             if (threadCardViewHolder.getCardView().e() instanceof n0) {
@@ -283,7 +283,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
             threadCardViewHolder.getCardView().p(this.s);
             c.a.r0.a0.t.b().a(kVar.B());
             c.a.r0.o.d.c().a(kVar.B());
-            c.a.r0.g1.h.m.a.f(kVar.f15562e, this.m, kVar.q());
+            c.a.r0.g1.h.m.a.f(kVar.f15571e, this.m, kVar.q());
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -326,7 +326,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                         StatisticItem statisticItem2 = new StatisticItem("c10760");
                         statisticItem2.param("obj_locate", 2);
                         TiebaStatic.log(statisticItem2);
-                        c.a.r0.g1.h.m.a.b(kVar.f15562e, kVar.t(), kVar.q(), 1);
+                        c.a.r0.g1.h.m.a.b(kVar.f15571e, kVar.t(), kVar.q(), 1);
                     } else if (id == R.id.god_reply_user_pendant_header || id == R.id.god_reply_username_text) {
                         StatisticItem statisticItem3 = new StatisticItem("c10760");
                         statisticItem3.param("obj_locate", 1);
@@ -335,7 +335,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                         i2 = 0;
                     }
                     if (i2 != 0) {
-                        c.a.r0.g1.h.m.a.c(kVar.f15562e, this.m, kVar.q(), i2);
+                        c.a.r0.g1.h.m.a.c(kVar.f15571e, this.m, kVar.q(), i2);
                         return;
                     }
                     return;
@@ -345,7 +345,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                 }
             }
         } else {
-            if (c.a.r0.a0.d0.l.T(kVar.f15562e)) {
+            if (c.a.r0.a0.d0.l.T(kVar.f15571e)) {
                 A = kVar.D();
                 TiebaStatic.log(A);
             } else {
@@ -353,7 +353,7 @@ public class s extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                 TiebaStatic.log(A);
             }
             c.a.r0.o.d.c().i("page_recommend", "clk_", A);
-            c.a.r0.g1.h.m.a.b(kVar.f15562e, kVar.t(), kVar.q(), 1);
+            c.a.r0.g1.h.m.a.b(kVar.f15571e, kVar.t(), kVar.q(), 1);
         }
         i2 = 1;
         if (i2 != 0) {

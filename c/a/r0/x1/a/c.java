@@ -26,10 +26,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f28333e;
+        public final /* synthetic */ e f28353e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BubbleListData.BubbleData f28334f;
+        public final /* synthetic */ BubbleListData.BubbleData f28354f;
 
         public a(e eVar, BubbleListData.BubbleData bubbleData) {
             Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class c {
                     return;
                 }
             }
-            this.f28333e = eVar;
-            this.f28334f = bubbleData;
+            this.f28353e = eVar;
+            this.f28354f = bubbleData;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -55,9 +55,9 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                e eVar = this.f28333e;
+                e eVar = this.f28353e;
                 if (eVar != null) {
-                    eVar.a(this.f28334f.getBcode());
+                    eVar.a(this.f28354f.getBcode());
                 }
             }
         }
@@ -69,7 +69,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f28335e;
+        public final /* synthetic */ e f28355e;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class c {
                     return;
                 }
             }
-            this.f28335e = eVar;
+            this.f28355e = eVar;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -94,7 +94,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                e eVar = this.f28335e;
+                e eVar = this.f28355e;
                 if (eVar != null) {
                     eVar.b();
                 }
@@ -104,17 +104,17 @@ public class c {
 
     /* renamed from: c.a.r0.x1.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1334c implements a.e {
+    public static class C1332c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f28336e;
+        public final /* synthetic */ e f28356e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BubbleListData.BubbleData f28337f;
+        public final /* synthetic */ BubbleListData.BubbleData f28357f;
 
-        public C1334c(e eVar, BubbleListData.BubbleData bubbleData) {
+        public C1332c(e eVar, BubbleListData.BubbleData bubbleData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,8 +129,8 @@ public class c {
                     return;
                 }
             }
-            this.f28336e = eVar;
-            this.f28337f = bubbleData;
+            this.f28356e = eVar;
+            this.f28357f = bubbleData;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -138,9 +138,9 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                e eVar = this.f28336e;
+                e eVar = this.f28356e;
                 if (eVar != null) {
-                    eVar.a(this.f28337f.getBcode());
+                    eVar.a(this.f28357f.getBcode());
                 }
             }
         }
@@ -152,7 +152,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f28338e;
+        public final /* synthetic */ e f28358e;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public class c {
                     return;
                 }
             }
-            this.f28338e = eVar;
+            this.f28358e = eVar;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -177,7 +177,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                e eVar = this.f28338e;
+                e eVar = this.f28358e;
                 if (eVar != null) {
                     eVar.b();
                 }
@@ -226,7 +226,7 @@ public class c {
         c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(tbPageContext.getPageActivity());
         aVar.setCanceledOnTouchOutside(false);
         aVar.setMessage(String.format(tbPageContext.getString(R.string.bubble_pay_dialog_text), bubbleData.getLevel_name()));
-        aVar.setPositiveButton(R.string.open_now, new C1334c(eVar, bubbleData));
+        aVar.setPositiveButton(R.string.open_now, new C1332c(eVar, bubbleData));
         aVar.setNegativeButton(R.string.cancel, new d(eVar));
         aVar.create(tbPageContext);
         aVar.show();

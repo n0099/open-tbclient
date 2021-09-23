@@ -15,31 +15,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7259a;
+    public String f7267a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7260b;
+    public String f7268b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7261c;
+    public String f7269c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7262d;
+    public String f7270d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f7263e;
+    public long f7271e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f7264f;
+    public boolean f7272f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f7265g;
+    public long f7273g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f7266h;
+    public long f7274h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f7267i;
+    public int f7275i;
 
     /* renamed from: c.a.p0.a.l2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -68,22 +68,22 @@ public class a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) {
-                int length = aVar2.f7260b.length() - aVar.f7260b.length();
+                int length = aVar2.f7268b.length() - aVar.f7268b.length();
                 if (length != 0) {
                     return length;
                 }
-                int length2 = aVar2.f7259a.length() - aVar.f7259a.length();
+                int length2 = aVar2.f7267a.length() - aVar.f7267a.length();
                 if (length2 != 0) {
                     return length2;
                 }
-                int hashCode = aVar2.f7261c.hashCode() - aVar.f7261c.hashCode();
+                int hashCode = aVar2.f7269c.hashCode() - aVar.f7269c.hashCode();
                 if (hashCode != 0) {
                     return hashCode;
                 }
-                if (aVar2.f7262d == null) {
+                if (aVar2.f7270d == null) {
                     return -1;
                 }
-                return aVar.f7262d == null ? 1 : 0;
+                return aVar.f7270d == null ? 1 : 0;
             }
             return invokeLL.intValue;
         }
@@ -107,12 +107,12 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f7259a)) {
-                if (!this.f7259a.startsWith(".")) {
-                    return str.equals(this.f7259a);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f7267a)) {
+                if (!this.f7267a.startsWith(".")) {
+                    return str.equals(this.f7267a);
                 }
-                if (str.endsWith(this.f7259a.substring(1))) {
-                    int length = this.f7259a.length();
+                if (str.endsWith(this.f7267a.substring(1))) {
+                    int length = this.f7267a.length();
                     int length2 = str.length();
                     return length2 <= length + (-1) || str.charAt(length2 - length) == '.';
                 }
@@ -125,18 +125,18 @@ public class a {
     public boolean b(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(this.f7259a) || TextUtils.isEmpty(this.f7260b) || TextUtils.isEmpty(this.f7261c) || !TextUtils.equals(this.f7259a, aVar.f7259a) || !TextUtils.equals(this.f7260b, aVar.f7260b) || !TextUtils.equals(this.f7261c, aVar.f7261c)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(this.f7267a) || TextUtils.isEmpty(this.f7268b) || TextUtils.isEmpty(this.f7269c) || !TextUtils.equals(this.f7267a, aVar.f7267a) || !TextUtils.equals(this.f7268b, aVar.f7268b) || !TextUtils.equals(this.f7269c, aVar.f7269c)) ? false : true : invokeL.booleanValue;
     }
 
     public boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f7260b) || !str.startsWith(this.f7260b)) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f7268b) || !str.startsWith(this.f7268b)) {
                 return false;
             }
-            int length = this.f7260b.length();
-            return this.f7260b.charAt(length + (-1)) == '/' || str.length() <= length || str.charAt(length) == '/';
+            int length = this.f7268b.length();
+            return this.f7268b.charAt(length + (-1)) == '/' || str.length() <= length || str.charAt(length) == '/';
         }
         return invokeL.booleanValue;
     }
@@ -146,7 +146,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "domain: " + this.f7259a + "; path: " + this.f7260b + "; name: " + this.f7261c + "; value: " + this.f7262d + "; expires: " + this.f7263e + "; secure: " + this.f7264f;
+            return "domain: " + this.f7267a + "; path: " + this.f7268b + "; name: " + this.f7269c + "; value: " + this.f7270d + "; expires: " + this.f7271e + "; secure: " + this.f7272f;
         }
         return (String) invokeV.objValue;
     }
@@ -166,8 +166,8 @@ public class a {
                 return;
             }
         }
-        this.f7259a = str;
-        this.f7260b = str2;
-        this.f7263e = -1L;
+        this.f7267a = str;
+        this.f7268b = str2;
+        this.f7271e = -1L;
     }
 }

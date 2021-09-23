@@ -20,14 +20,14 @@ public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f30103b;
+    public static final boolean f30124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile x f30104c;
+    public static volatile x f30125c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public y f30105a;
+    public y f30126a;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -35,10 +35,10 @@ public class x {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f30106a;
+        public int f30127a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, JSONObject> f30107b;
+        public Map<String, JSONObject> f30128b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public class x {
                     return;
                 }
             }
-            this.f30106a = 0;
-            this.f30107b = new HashMap();
+            this.f30127a = 0;
+            this.f30128b = new HashMap();
         }
     }
 
@@ -71,7 +71,7 @@ public class x {
                 return;
             }
         }
-        f30103b = AppConfig.isDebug();
+        f30124b = AppConfig.isDebug();
     }
 
     public x() {
@@ -92,14 +92,14 @@ public class x {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f30104c == null) {
+            if (f30125c == null) {
                 synchronized (x.class) {
-                    if (f30104c == null) {
-                        f30104c = new x();
+                    if (f30125c == null) {
+                        f30125c = new x();
                     }
                 }
             }
-            return f30104c;
+            return f30125c;
         }
         return (x) invokeV.objValue;
     }
@@ -107,7 +107,7 @@ public class x {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str) && b()) {
-            this.f30105a.a(str);
+            this.f30126a.a(str);
         }
     }
 
@@ -159,8 +159,8 @@ public class x {
             if (j0Var == null || j0Var.v() || !c()) {
                 return false;
             }
-            this.f30105a.d();
-            Map<String, a> q = this.f30105a.q(7);
+            this.f30126a.d();
+            Map<String, a> q = this.f30126a.q(7);
             if (q != null && q.size() != 0) {
                 try {
                     JSONObject jSONObject = new JSONObject();
@@ -170,10 +170,10 @@ public class x {
                         if (aVar != null && !TextUtils.isEmpty(str)) {
                             JSONObject jSONObject2 = new JSONObject();
                             JSONArray jSONArray = new JSONArray();
-                            for (JSONObject jSONObject3 : aVar.f30107b.values()) {
+                            for (JSONObject jSONObject3 : aVar.f30128b.values()) {
                                 jSONArray.put(jSONObject3);
                             }
-                            jSONObject2.put("total", aVar.f30106a);
+                            jSONObject2.put("total", aVar.f30127a);
                             jSONObject2.put("data", jSONArray);
                             jSONObject.put(str.replace("-", ""), jSONObject2);
                             z = true;
@@ -209,15 +209,15 @@ public class x {
             map.put(str, aVar2);
             aVar = aVar2;
         }
-        Map<String, JSONObject> map2 = aVar.f30107b;
-        if (map2.containsKey(str2) && f30103b) {
+        Map<String, JSONObject> map2 = aVar.f30128b;
+        if (map2.containsKey(str2) && f30124b) {
             String str3 = "*******duplicate ubc id record: " + str2;
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("id", str2);
             jSONObject.put("c", i2);
-            aVar.f30106a += i2;
+            aVar.f30127a += i2;
             map2.put(str2, jSONObject);
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -227,7 +227,7 @@ public class x {
     public void g(y yVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, yVar) == null) {
-            this.f30105a = yVar;
+            this.f30126a = yVar;
         }
     }
 }

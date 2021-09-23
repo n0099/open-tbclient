@@ -24,10 +24,10 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f49940a;
+    public g f50051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49941b;
+    public int f50052b;
     public EntelechyUserLikeButton mAddLoveBtnTextView;
     public BarImageView mForumAvatarImageView;
     public TextView mForumNameTextView;
@@ -53,7 +53,7 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
         this.mForumAvatarImageView = null;
         this.mForumNameTextView = null;
         this.mAddLoveBtnTextView = null;
-        this.f49941b = 3;
+        this.f50052b = 3;
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -72,18 +72,18 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             if (cVar != null && (cVar instanceof g)) {
                 g gVar = (g) cVar;
-                this.f49940a = gVar;
-                this.mForumAvatarImageView.setTag(gVar.f15573b);
-                this.mForumAvatarImageView.setTag(R.id.tag_forum_name, this.f49940a.f15574c);
-                this.mForumAvatarImageView.startLoad(this.f49940a.f15573b, 15, false);
+                this.f50051a = gVar;
+                this.mForumAvatarImageView.setTag(gVar.f15582b);
+                this.mForumAvatarImageView.setTag(R.id.tag_forum_name, this.f50051a.f15583c);
+                this.mForumAvatarImageView.startLoad(this.f50051a.f15582b, 15, false);
                 TextView textView = this.mForumNameTextView;
-                textView.setText(StringHelper.getFixedText(this.f49940a.f15574c, 4, true) + getView().getContext().getResources().getString(R.string.forum));
-                this.mForumNameTextView.setTag(R.id.tag_forum_name, this.f49940a.f15574c);
-                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_id, Long.valueOf(this.f49940a.f15575d));
-                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_name, this.f49940a.f15574c);
-                getView().setTag(R.id.tag_forum_id, Long.valueOf(this.f49940a.f15575d));
-                getView().setTag(R.id.tag_forum_name, this.f49940a.f15574c);
-                a(this.mAddLoveBtnTextView, this.f49940a.f15576e);
+                textView.setText(StringHelper.getFixedText(this.f50051a.f15583c, 4, true) + getView().getContext().getResources().getString(R.string.forum));
+                this.mForumNameTextView.setTag(R.id.tag_forum_name, this.f50051a.f15583c);
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_id, Long.valueOf(this.f50051a.f15584d));
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_name, this.f50051a.f15583c);
+                getView().setTag(R.id.tag_forum_id, Long.valueOf(this.f50051a.f15584d));
+                getView().setTag(R.id.tag_forum_name, this.f50051a.f15583c);
+                a(this.mAddLoveBtnTextView, this.f50051a.f15585e);
                 this.mForumAvatarImageView.setOnClickListener(this.onClickListener);
                 this.mAddLoveBtnTextView.setOnClickListener(this.onClickListener);
                 this.mForumNameTextView.setOnClickListener(this.onClickListener);
@@ -114,12 +114,12 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (this.f49941b != i2) {
+            if (this.f50052b != i2) {
                 SkinManager.setBackgroundColor(getView(), R.color.CAM_X0201);
                 SkinManager.setViewTextColor(this.mForumNameTextView, R.color.CAM_X0105);
-                a(this.mAddLoveBtnTextView, this.f49940a.f15576e);
+                a(this.mAddLoveBtnTextView, this.f50051a.f15585e);
             }
-            this.f49941b = i2;
+            this.f50052b = i2;
         }
     }
 }

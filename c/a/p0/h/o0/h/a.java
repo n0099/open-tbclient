@@ -30,17 +30,17 @@ public class a extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f11498h;
+    public static final boolean f11506h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f11499e;
+    public f f11507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile String f11500f;
+    public volatile String f11508f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f11501g;
+    public e f11509g;
 
     /* renamed from: c.a.p0.h.o0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -49,10 +49,10 @@ public class a extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11502e;
+        public final /* synthetic */ String f11510e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11503f;
+        public final /* synthetic */ a f11511f;
 
         public RunnableC0592a(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -69,22 +69,22 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11503f = aVar;
-            this.f11502e = str;
+            this.f11511f = aVar;
+            this.f11510e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f11503f.f11499e == null) {
-                    this.f11503f.F();
+                if (this.f11511f.f11507e == null) {
+                    this.f11511f.F();
                 }
-                if (!this.f11503f.f11499e.e()) {
-                    this.f11503f.f11499e.I();
+                if (!this.f11511f.f11507e.e()) {
+                    this.f11511f.f11507e.I();
                 }
-                this.f11503f.f11499e.loadUrl(this.f11502e);
-                this.f11503f.D("open", new c.a.p0.h.o0.h.b(this.f11502e));
+                this.f11511f.f11507e.loadUrl(this.f11510e);
+                this.f11511f.D("open", new c.a.p0.h.o0.h.b(this.f11510e));
             }
         }
     }
@@ -95,7 +95,7 @@ public class a extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11504e;
+        public final /* synthetic */ a f11512e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -112,18 +112,18 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11504e = aVar;
+            this.f11512e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f11504e.f11499e != null && this.f11504e.f11499e.e()) {
-                this.f11504e.f11499e.removeFromParent();
-                this.f11504e.f11499e.destroy();
-                this.f11504e.f11499e = null;
-                a aVar = this.f11504e;
-                aVar.D(IntentConfig.CLOSE, new c.a.p0.h.o0.h.b(aVar.f11500f));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f11512e.f11507e != null && this.f11512e.f11507e.e()) {
+                this.f11512e.f11507e.removeFromParent();
+                this.f11512e.f11507e.destroy();
+                this.f11512e.f11507e = null;
+                a aVar = this.f11512e;
+                aVar.D(IntentConfig.CLOSE, new c.a.p0.h.o0.h.b(aVar.f11508f));
             }
         }
     }
@@ -134,10 +134,10 @@ public class a extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11505e;
+        public final /* synthetic */ String f11513e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11506f;
+        public final /* synthetic */ a f11514f;
 
         public c(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -154,20 +154,20 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11506f = aVar;
-            this.f11505e = str;
+            this.f11514f = aVar;
+            this.f11513e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11506f.f11499e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11514f.f11507e == null) {
                 return;
             }
-            if (TextUtils.equals("1", this.f11505e)) {
-                this.f11506f.f11499e.h(true);
+            if (TextUtils.equals("1", this.f11513e)) {
+                this.f11514f.f11507e.h(true);
             } else {
-                this.f11506f.f11499e.h(false);
+                this.f11514f.f11507e.h(false);
             }
         }
     }
@@ -178,7 +178,7 @@ public class a extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11507e;
+        public final /* synthetic */ a f11515e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -195,14 +195,14 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11507e = aVar;
+            this.f11515e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f11507e.close();
+                this.f11515e.close();
             }
         }
     }
@@ -213,16 +213,16 @@ public class a extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f11508a;
+        public String f11516a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11509b;
+        public String f11517b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f11510c;
+        public long f11518c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f11511d;
+        public long f11519d;
 
         public /* synthetic */ e(String str, String str2, long j2, RunnableC0592a runnableC0592a) {
             this(str, str2, j2);
@@ -232,7 +232,7 @@ public class a extends EventTargetImpl {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "H5GameInfo{mGameId='" + this.f11508a + ExtendedMessageFormat.QUOTE + ", mGameName='" + this.f11509b + ExtendedMessageFormat.QUOTE + ", mStartLoadingTimestamp=" + this.f11510c + ", mFinishLoadingTimestamp=" + this.f11511d + ExtendedMessageFormat.END_FE;
+                return "H5GameInfo{mGameId='" + this.f11516a + ExtendedMessageFormat.QUOTE + ", mGameName='" + this.f11517b + ExtendedMessageFormat.QUOTE + ", mStartLoadingTimestamp=" + this.f11518c + ", mFinishLoadingTimestamp=" + this.f11519d + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -252,9 +252,9 @@ public class a extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11508a = str;
-            this.f11509b = str2;
-            this.f11510c = j2;
+            this.f11516a = str;
+            this.f11517b = str2;
+            this.f11518c = j2;
         }
     }
 
@@ -271,7 +271,7 @@ public class a extends EventTargetImpl {
                 return;
             }
         }
-        f11498h = k.f7077a;
+        f11506h = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -350,7 +350,7 @@ public class a extends EventTargetImpl {
     public final void D(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            if (f11498h) {
+            if (f11506h) {
                 String str2 = "dispatchEvent:" + str + "," + obj;
             }
             dispatchEvent(new JSEvent(str, obj));
@@ -359,9 +359,9 @@ public class a extends EventTargetImpl {
 
     public final void F() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f11499e == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f11507e == null) {
             GameWebViewManager gameWebViewManager = new GameWebViewManager(c.a.p0.a.c1.a.b());
-            this.f11499e = gameWebViewManager;
+            this.f11507e = gameWebViewManager;
             gameWebViewManager.j(new d(this));
         }
     }
@@ -382,21 +382,21 @@ public class a extends EventTargetImpl {
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f11501g == null) {
-                boolean z = f11498h;
+            if (this.f11509g == null) {
+                boolean z = f11506h;
                 return;
             }
             c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
             if (Q == null) {
-                boolean z2 = f11498h;
+                boolean z2 = f11506h;
                 return;
             }
-            this.f11501g.f11511d = System.currentTimeMillis();
-            if (f11498h) {
-                String str = "onGameLoadingFinish: " + this.f11501g;
+            this.f11509g.f11519d = System.currentTimeMillis();
+            if (f11506h) {
+                String str = "onGameLoadingFinish: " + this.f11509g;
             }
-            c.a.p0.h.o0.h.d.a(Q, this.f11501g);
-            this.f11501g = null;
+            c.a.p0.h.o0.h.d.a(Q, this.f11509g);
+            this.f11509g = null;
         }
     }
 
@@ -418,9 +418,9 @@ public class a extends EventTargetImpl {
         String C = G.C("gameId");
         String C2 = G.C("gameName");
         if (!TextUtils.isEmpty(C) && !TextUtils.isEmpty(C2)) {
-            this.f11501g = new e(C, C2, System.currentTimeMillis(), null);
-            if (f11498h) {
-                String str = "onGameLoadingStart: " + this.f11501g;
+            this.f11509g = new e(C, C2, System.currentTimeMillis(), null);
+            if (f11506h) {
+                String str = "onGameLoadingStart: " + this.f11509g;
             }
             c.a.p0.h.m0.c.a(G, true, null);
             return;
@@ -443,10 +443,10 @@ public class a extends EventTargetImpl {
             } else if (!c.a.p0.a.b2.a.b.h(D)) {
                 D("error", C(D, "1002"));
             } else {
-                if (f11498h) {
+                if (f11506h) {
                     String str = "open:" + D;
                 }
-                this.f11500f = D;
+                this.f11508f = D;
                 q0.b0(new RunnableC0592a(this, D));
             }
         }

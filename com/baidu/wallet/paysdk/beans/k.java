@@ -7,27 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.controllers.PasswordController;
-import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
-import com.baidu.wallet.paysdk.datamodel.PwdRequest;
-import com.baidu.wallet.paysdk.storage.PayRequestCache;
-import com.dxmpay.apollon.armor.SecurePay;
+import com.baidu.wallet.paysdk.datamodel.FindPwdCardCheckResponse;
 import com.dxmpay.apollon.restnet.RestNameValuePair;
 import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
-import com.dxmpay.wallet.paysdk.PayUtils;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class k extends BaseBean<Object> {
+public class k extends BaseBean<k> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f62417a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public PwdRequest f62418b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> k(Context context) {
@@ -47,16 +35,13 @@ public class k extends BaseBean<Object> {
                 return;
             }
         }
-        this.f62417a = null;
-        this.f62418b = null;
-        this.f62418b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.execBean(null);
+            super.execBean(FindPwdCardCheckResponse.class);
         }
     }
 
@@ -65,22 +50,7 @@ public class k extends BaseBean<Object> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f62417a != null) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62417a.getmBankCard())));
-                String handlePwdSimple = PasswordController.handlePwdSimple(this.f62418b.mPayPass);
-                String seed = PasswordController.getSeed();
-                String handlePwd = PasswordController.handlePwd(this.f62418b.mConfirmPayPass, seed);
-                arrayList.add(new RestNameValuePair("mobile_pwd", SecurePay.getInstance().encryptProxy(handlePwdSimple)));
-                arrayList.add(new RestNameValuePair("confirm_mobile_pwd", handlePwd));
-                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f62418b.mConfirmPayPass)));
-                arrayList.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed)));
-                arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
-                arrayList.add(new RestNameValuePair("sms_token", this.f62417a.getSmsToken()));
-                arrayList.add(new RestNameValuePair("session_id", this.f62417a.getSessionId()));
-                return arrayList;
-            }
-            throw new IllegalStateException("not call setBindRequest(req) method or param(req) null");
+            return null;
         }
         return (List) invokeV.objValue;
     }
@@ -89,7 +59,7 @@ public class k extends BaseBean<Object> {
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_RESETPWD : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_GET_CARD_LIST : invokeV.intValue;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -104,7 +74,7 @@ public class k extends BaseBean<Object> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_FIND_PASS_FROM_OLD_CARD_RESETPASS;
+            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_FIND_PASS_FROM_OLD_CARD_GET_CARD_LIST;
         }
         return (String) invokeV.objValue;
     }

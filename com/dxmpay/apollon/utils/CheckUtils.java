@@ -19,10 +19,11 @@ import java.net.URLDecoder;
 import java.util.regex.Pattern;
 /* loaded from: classes9.dex */
 public final class CheckUtils {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int PHONE_LENGTH = 11;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f69434a;
+    public static long f69745a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -259,13 +260,13 @@ public final class CheckUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = currentTimeMillis - f69434a;
+            long j2 = currentTimeMillis - f69745a;
             LogUtil.logd("timeD=" + j2);
             if (0 < j2 && j2 < 800) {
                 LogUtil.logd("点的太快了 timeD=" + j2);
                 return true;
             }
-            f69434a = currentTimeMillis;
+            f69745a = currentTimeMillis;
             return false;
         }
         return invokeV.booleanValue;

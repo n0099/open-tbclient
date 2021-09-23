@@ -28,7 +28,7 @@ public class e implements d1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.w2.j.b f10396a;
+    public c.a.p0.a.w2.j.b f10404a;
 
     /* loaded from: classes.dex */
     public class a implements b.a {
@@ -36,10 +36,10 @@ public class e implements d1 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f10397a;
+        public final /* synthetic */ SwanAppActivity f10405a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10398b;
+        public final /* synthetic */ String f10406b;
 
         public a(e eVar, SwanAppActivity swanAppActivity, String str) {
             Interceptable interceptable = $ic;
@@ -56,15 +56,15 @@ public class e implements d1 {
                     return;
                 }
             }
-            this.f10397a = swanAppActivity;
-            this.f10398b = str;
+            this.f10405a = swanAppActivity;
+            this.f10406b = str;
         }
 
         @Override // c.a.p0.a.z1.b.e.b.a
         public void a(c.a.p0.a.z1.b.e.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                c.a.p0.a.i1.d.e.a.d(bVar.c(), this.f10397a, this.f10398b);
+                c.a.p0.a.i1.d.e.a.d(bVar.c(), this.f10405a, this.f10406b);
             }
         }
     }
@@ -75,10 +75,10 @@ public class e implements d1 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f10399a;
+        public final /* synthetic */ SwanAppActivity f10407a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f10400b;
+        public final /* synthetic */ e f10408b;
 
         public b(e eVar, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -95,16 +95,16 @@ public class e implements d1 {
                     return;
                 }
             }
-            this.f10400b = eVar;
-            this.f10399a = swanAppActivity;
+            this.f10408b = eVar;
+            this.f10407a = swanAppActivity;
         }
 
         @Override // c.a.p0.a.t0.a, c.a.p0.a.t0.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10400b.f10396a.j();
-                this.f10399a.unregisterCallback(this);
+                this.f10408b.f10404a.j();
+                this.f10407a.unregisterCallback(this);
             }
         }
     }
@@ -122,7 +122,7 @@ public class e implements d1 {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public e() {
@@ -154,14 +154,14 @@ public class e implements d1 {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ngWebView, str) == null) || (x = c.a.p0.a.a2.d.g().x()) == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f10396a = new c.a.p0.a.w2.j.b(ngWebView.covertToView());
+        this.f10404a = new c.a.p0.a.w2.j.b(ngWebView.covertToView());
         int[] g2 = g(x);
         int[] h2 = h(x);
         for (int i2 = 0; i2 < g2.length; i2++) {
-            this.f10396a.e(g2[i2], h2[i2]);
+            this.f10404a.e(g2[i2], h2[i2]);
         }
-        this.f10396a.r(new a(this, x, str));
-        this.f10396a.t();
+        this.f10404a.r(new a(this, x, str));
+        this.f10404a.t();
         x.registerCallback(new b(this, x));
     }
 
@@ -227,12 +227,12 @@ public class e implements d1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
             c.a.p0.a.j2.p.e eVar = new c.a.p0.a.j2.p.e();
-            eVar.f7063a = "tool";
-            eVar.f7068f = c.a.p0.a.a2.d.g().getAppId();
-            eVar.f7065c = "miniapp";
-            eVar.f7069g = "text";
-            eVar.f7064b = str;
-            eVar.f7067e = str2;
+            eVar.f7071a = "tool";
+            eVar.f7076f = c.a.p0.a.a2.d.g().getAppId();
+            eVar.f7073c = "miniapp";
+            eVar.f7077g = "text";
+            eVar.f7072b = str;
+            eVar.f7075e = str2;
             if (!TextUtils.isEmpty(str3)) {
                 eVar.a("query", str3);
             }

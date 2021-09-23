@@ -36,13 +36,13 @@ public final class PayUtils {
     public static final String KEY_VALID_DATE = "valid_date";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f62294a = "PayUtils";
+    public static String f62559a = "PayUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f62295b = "";
+    public static final String f62560b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f62296c;
+    public static ArrayList<String> f62561c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -88,12 +88,12 @@ public final class PayUtils {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        f62296c = arrayList;
+        f62561c = arrayList;
         arrayList.add("card_no");
-        f62296c.add("valid_date");
-        f62296c.add("cvv2");
-        f62296c.add("identity_code");
-        f62296c.add("phone_number");
+        f62561c.add("valid_date");
+        f62561c.add("cvv2");
+        f62561c.add("identity_code");
+        f62561c.add("phone_number");
     }
 
     public PayUtils() {
@@ -132,7 +132,7 @@ public final class PayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f62296c.contains(str)) {
+            if (f62561c.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -158,32 +158,10 @@ public final class PayUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String getCookie(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            if (AccountManager.getInstance(context).getLoginType() == 0) {
-                stringBuffer.append("BDUSS=" + AccountManager.getInstance(context).getBduss());
-            } else if (AccountManager.getInstance(context).getLoginType() == 1) {
-                stringBuffer.append("access_token=" + AccountManager.getInstance(context).getBduss());
-            }
-            String loginStoken = WalletLoginHelper.getInstance().getLoginStoken();
-            if (!TextUtils.isEmpty(loginStoken)) {
-                stringBuffer.append(";stoken=" + loginStoken);
-                if (!TextUtils.isEmpty(WalletLoginHelper.getInstance().getTpl())) {
-                    stringBuffer.append(";tpl=" + WalletLoginHelper.getInstance().getTpl());
-                }
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String getNewCookie(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             StringBuilder sb = new StringBuilder();
             Map<String, String> loginData = AccountManager.getInstance(context).getLoginData();
             if (loginData == null) {
@@ -215,7 +193,7 @@ public final class PayUtils {
     public static String getNonce(List<RestNameValuePair> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, list)) == null) {
             ArrayList arrayList = new ArrayList(list);
             Collections.sort(arrayList, new Comparator<RestNameValuePair>() { // from class: com.baidu.wallet.paysdk.PayUtils.1
                 public static /* synthetic */ Interceptable $ic;
@@ -253,13 +231,13 @@ public final class PayUtils {
     public static String getParamsSign(Map<String, String> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, map, str)) == null) ? (map == null || map.size() == 0) ? "" : a(mapToList(map), str) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, map, str)) == null) ? (map == null || map.size() == 0) ? "" : a(mapToList(map), str) : (String) invokeLL.objValue;
     }
 
     public static String list2String(List<RestNameValuePair> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, list)) == null) {
             if (list == null || list.size() == 0) {
                 return "";
             }
@@ -272,7 +250,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(com.alipay.sdk.encrypt.a.f35988h);
+                    sb.append(com.alipay.sdk.encrypt.a.f36022h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }
@@ -288,7 +266,7 @@ public final class PayUtils {
     public static List<String> mapToList(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, map)) == null) {
             ArrayList arrayList = new ArrayList();
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 StringBuilder sb = new StringBuilder();

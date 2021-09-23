@@ -30,34 +30,34 @@ public class g implements w.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final h f64112a;
+    public final h f64423a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final u f64113b;
+    public final u f64424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, b> f64114c;
+    public final Map<String, b> f64425c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, d.b> f64115d;
+    public final Map<String, d.b> f64426d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<q> f64116e;
+    public final List<q> f64427e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<d> f64117f;
+    public final Set<d> f64428f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final m f64118g;
+    public final m f64429g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f64119h;
+    public final boolean f64430h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final boolean f64120i;
+    public final boolean f64431i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final com.bytedance.sdk.component.a.a f64121j;
+    public final com.bytedance.sdk.component.a.a f64432j;
 
     /* loaded from: classes9.dex */
     public static final class a {
@@ -65,10 +65,10 @@ public class g implements w.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f64127a;
+        public boolean f64438a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f64128b;
+        public String f64439b;
 
         public a(boolean z, @NonNull String str) {
             Interceptable interceptable = $ic;
@@ -85,8 +85,8 @@ public class g implements w.a {
                     return;
                 }
             }
-            this.f64127a = z;
-            this.f64128b = str;
+            this.f64438a = z;
+            this.f64439b = str;
         }
     }
 
@@ -105,29 +105,29 @@ public class g implements w.a {
                 return;
             }
         }
-        this.f64114c = new HashMap();
-        this.f64115d = new HashMap();
-        this.f64116e = new ArrayList();
-        this.f64117f = new HashSet();
-        this.f64121j = aVar;
-        this.f64112a = jVar.f64134d;
+        this.f64425c = new HashMap();
+        this.f64426d = new HashMap();
+        this.f64427e = new ArrayList();
+        this.f64428f = new HashSet();
+        this.f64432j = aVar;
+        this.f64423a = jVar.f64445d;
         u uVar = new u(vVar, jVar.l, jVar.m);
-        this.f64113b = uVar;
+        this.f64424b = uVar;
         uVar.a(this);
-        this.f64113b.a(jVar.p);
-        this.f64118g = jVar.f64139i;
-        this.f64119h = jVar.f64138h;
-        this.f64120i = jVar.o;
+        this.f64424b.a(jVar.p);
+        this.f64429g = jVar.f64450i;
+        this.f64430h = jVar.f64449h;
+        this.f64431i = jVar.o;
     }
 
     private x b(String str, b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, str, bVar)) == null) {
-            if (this.f64120i) {
-                return x.f64194c;
+            if (this.f64431i) {
+                return x.f64505c;
             }
-            return this.f64113b.a(this.f64119h, str, bVar);
+            return this.f64424b.a(this.f64430h, str, bVar);
         }
         return (x) invokeLL.objValue;
     }
@@ -138,14 +138,14 @@ public class g implements w.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, qVar, fVar)) == null) {
-            b bVar = this.f64114c.get(qVar.f64145d);
+            b bVar = this.f64425c.get(qVar.f64456d);
             if (bVar != null) {
                 try {
-                    x b2 = b(fVar.f64109b, bVar);
-                    fVar.f64111d = b2;
+                    x b2 = b(fVar.f64420b, bVar);
+                    fVar.f64422d = b2;
                     if (b2 == null) {
-                        if (this.f64118g != null) {
-                            this.f64118g.a(fVar.f64109b, qVar.f64145d, 1);
+                        if (this.f64429g != null) {
+                            this.f64429g.a(fVar.f64420b, qVar.f64456d, 1);
                         }
                         i.a("Permission denied, call: " + qVar);
                         throw new s(-1);
@@ -158,16 +158,16 @@ public class g implements w.a {
                     }
                 } catch (v.a e2) {
                     i.a("No remote permission config fetched, call pending: " + qVar, e2);
-                    this.f64116e.add(qVar);
+                    this.f64427e.add(qVar);
                     return new a(false, y.a());
                 }
             }
-            d.b bVar2 = this.f64115d.get(qVar.f64145d);
+            d.b bVar2 = this.f64426d.get(qVar.f64456d);
             if (bVar2 != null) {
                 d a2 = bVar2.a();
-                a2.a(qVar.f64145d);
-                x b3 = b(fVar.f64109b, a2);
-                fVar.f64111d = b3;
+                a2.a(qVar.f64456d);
+                x b3 = b(fVar.f64420b, a2);
+                fVar.f64422d = b3;
                 if (b3 != null) {
                     i.a("Processing stateful call: " + qVar);
                     return a(qVar, a2, fVar);
@@ -176,9 +176,9 @@ public class g implements w.a {
                 a2.e();
                 throw new s(-1);
             }
-            m mVar = this.f64118g;
+            m mVar = this.f64429g;
             if (mVar != null) {
-                mVar.a(fVar.f64109b, qVar.f64145d, 2);
+                mVar.a(fVar.f64420b, qVar.f64456d, 2);
             }
             i.b("Received call: " + qVar + ", but not registered.");
             return null;
@@ -190,7 +190,7 @@ public class g implements w.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, eVar) == null) {
             eVar.a(str);
-            this.f64114c.put(str, eVar);
+            this.f64425c.put(str, eVar);
             i.a("JsBridge stateless method registered: " + str);
         }
     }
@@ -198,7 +198,7 @@ public class g implements w.a {
     public void a(String str, @NonNull d.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar) == null) {
-            this.f64115d.put(str, bVar);
+            this.f64426d.put(str, bVar);
             i.a("JsBridge stateful method registered: " + str);
         }
     }
@@ -206,13 +206,13 @@ public class g implements w.a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (d dVar : this.f64117f) {
+            for (d dVar : this.f64428f) {
                 dVar.f();
             }
-            this.f64117f.clear();
-            this.f64114c.clear();
-            this.f64115d.clear();
-            this.f64113b.b(this);
+            this.f64428f.clear();
+            this.f64425c.clear();
+            this.f64426d.clear();
+            this.f64424b.b(this);
         }
     }
 
@@ -221,7 +221,7 @@ public class g implements w.a {
     private a a(@NonNull q qVar, @NonNull e eVar, @NonNull f fVar) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, qVar, eVar, fVar)) == null) ? new a(true, y.a(this.f64112a.a((h) eVar.a(a(qVar.f64146e, (b) eVar), fVar)))) : (a) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, qVar, eVar, fVar)) == null) ? new a(true, y.a(this.f64423a.a((h) eVar.a(a(qVar.f64457e, (b) eVar), fVar)))) : (a) invokeLLL.objValue;
     }
 
     @NonNull
@@ -230,19 +230,19 @@ public class g implements w.a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, qVar, dVar, fVar)) == null) {
-            this.f64117f.add(dVar);
-            dVar.a(a(qVar.f64146e, dVar), fVar, new d.a(this, qVar, dVar) { // from class: com.bytedance.sdk.component.a.g.1
+            this.f64428f.add(dVar);
+            dVar.a(a(qVar.f64457e, dVar), fVar, new d.a(this, qVar, dVar) { // from class: com.bytedance.sdk.component.a.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f64122a;
+                public final /* synthetic */ q f64433a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f64123b;
+                public final /* synthetic */ d f64434b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ g f64124c;
+                public final /* synthetic */ g f64435c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -259,29 +259,29 @@ public class g implements w.a {
                             return;
                         }
                     }
-                    this.f64124c = this;
-                    this.f64122a = qVar;
-                    this.f64123b = dVar;
+                    this.f64435c = this;
+                    this.f64433a = qVar;
+                    this.f64434b = dVar;
                 }
 
                 @Override // com.bytedance.sdk.component.a.d.a
                 public void a(@Nullable Object obj) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) || this.f64124c.f64121j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) || this.f64435c.f64432j == null) {
                         return;
                     }
-                    this.f64124c.f64121j.b(y.a(this.f64124c.f64112a.a((h) obj)), this.f64122a);
-                    this.f64124c.f64117f.remove(this.f64123b);
+                    this.f64435c.f64432j.b(y.a(this.f64435c.f64423a.a((h) obj)), this.f64433a);
+                    this.f64435c.f64428f.remove(this.f64434b);
                 }
 
                 @Override // com.bytedance.sdk.component.a.d.a
                 public void a(@Nullable Throwable th) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) || this.f64124c.f64121j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) || this.f64435c.f64432j == null) {
                         return;
                     }
-                    this.f64124c.f64121j.b(y.a(th), this.f64122a);
-                    this.f64124c.f64117f.remove(this.f64123b);
+                    this.f64435c.f64432j.b(y.a(th), this.f64433a);
+                    this.f64435c.f64428f.remove(this.f64434b);
                 }
             });
             return new a(false, y.a());
@@ -295,15 +295,15 @@ public class g implements w.a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, qVar, cVar, xVar)) == null) {
-            cVar.a(qVar, new t(qVar.f64145d, xVar, new t.a(this, qVar) { // from class: com.bytedance.sdk.component.a.g.2
+            cVar.a(qVar, new t(qVar.f64456d, xVar, new t.a(this, qVar) { // from class: com.bytedance.sdk.component.a.g.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f64125a;
+                public final /* synthetic */ q f64436a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ g f64126b;
+                public final /* synthetic */ g f64437b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -320,8 +320,8 @@ public class g implements w.a {
                             return;
                         }
                     }
-                    this.f64126b = this;
-                    this.f64125a = qVar;
+                    this.f64437b = this;
+                    this.f64436a = qVar;
                 }
             }));
             return new a(false, y.a());
@@ -332,7 +332,7 @@ public class g implements w.a {
     private Object a(String str, b bVar) throws JSONException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, bVar)) == null) ? this.f64112a.a(str, a(bVar)[0]) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, bVar)) == null) ? this.f64423a.a(str, a(bVar)[0]) : invokeLL.objValue;
     }
 
     @NonNull

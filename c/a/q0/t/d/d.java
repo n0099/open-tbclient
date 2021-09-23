@@ -22,34 +22,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14795a;
+    public int f14797a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f14796b;
+    public boolean f14798b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f14797c;
+    public boolean f14799c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f14798d;
+    public boolean f14800d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14799e;
+    public boolean f14801e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14800f;
+    public boolean f14802f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14801g;
+    public boolean f14803g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14802h;
+    public boolean f14804h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14803i;
+    public boolean f14805i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f14804j;
+    public boolean f14806j;
     public boolean k;
     public String l;
     public String m;
@@ -83,16 +83,16 @@ public class d {
                 return;
             }
         }
-        this.f14795a = 300;
-        this.f14796b = true;
-        this.f14797c = false;
-        this.f14798d = true;
-        this.f14799e = true;
-        this.f14800f = true;
-        this.f14801g = true;
-        this.f14802h = false;
-        this.f14803i = true;
-        this.f14804j = true;
+        this.f14797a = 300;
+        this.f14798b = true;
+        this.f14799c = false;
+        this.f14800d = true;
+        this.f14801e = true;
+        this.f14802f = true;
+        this.f14803g = true;
+        this.f14804h = false;
+        this.f14805i = true;
+        this.f14806j = true;
         this.k = false;
         this.l = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
         this.m = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
@@ -122,7 +122,7 @@ public class d {
     public void C(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f14798d = z;
+            this.f14800d = z;
             b();
         }
     }
@@ -130,7 +130,7 @@ public class d {
     public void D(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f14796b = z;
+            this.f14798b = z;
             b();
         }
     }
@@ -139,11 +139,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             if (i2 == 0) {
-                this.f14795a = i2;
+                this.f14797a = i2;
                 b.g0().a0(0);
                 b.g0().d0(0);
             } else {
-                this.f14795a = 300;
+                this.f14797a = 300;
             }
             b();
         }
@@ -152,14 +152,14 @@ public class d {
     public void F(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f14804j = z;
+            this.f14806j = z;
         }
     }
 
     public void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f14801g = z;
+            this.f14803g = z;
             b();
         }
     }
@@ -167,7 +167,7 @@ public class d {
     public void H(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f14799e = z;
+            this.f14801e = z;
             b();
         }
     }
@@ -175,21 +175,21 @@ public class d {
     public void I(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f14803i = z;
+            this.f14805i = z;
         }
     }
 
     public void J(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f14802h = z;
+            this.f14804h = z;
         }
     }
 
     public void K(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f14800f = z;
+            this.f14802f = z;
             b();
         }
     }
@@ -253,7 +253,7 @@ public class d {
     public void T(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f14797c = z;
+            this.f14799c = z;
         }
     }
 
@@ -294,9 +294,9 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (this.f14803i || this.f14802h) {
-                if (!this.f14803i || this.f14802h) {
-                    return (this.f14803i || !this.f14802h) ? 3 : 2;
+            if (this.f14805i || this.f14804h) {
+                if (!this.f14805i || this.f14804h) {
+                    return (this.f14805i || !this.f14804h) ? 3 : 2;
                 }
                 return 1;
             }
@@ -308,7 +308,7 @@ public class d {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f14795a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f14797a : invokeV.intValue;
     }
 
     public String f() {
@@ -379,55 +379,55 @@ public class d {
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f14798d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f14800d : invokeV.booleanValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f14796b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f14798b : invokeV.booleanValue;
     }
 
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f14804j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f14806j : invokeV.booleanValue;
     }
 
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f14801g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f14803g : invokeV.booleanValue;
     }
 
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f14795a > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f14797a > 0 : invokeV.booleanValue;
     }
 
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f14799e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f14801e : invokeV.booleanValue;
     }
 
     public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f14803i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f14805i : invokeV.booleanValue;
     }
 
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f14802h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f14804h : invokeV.booleanValue;
     }
 
     public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f14800f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.f14802f : invokeV.booleanValue;
     }
 
     public boolean x() {
@@ -445,6 +445,6 @@ public class d {
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.f14797c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.f14799c : invokeV.booleanValue;
     }
 }

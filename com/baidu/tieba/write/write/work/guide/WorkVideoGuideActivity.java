@@ -58,12 +58,12 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             StatisticItem statisticItem = new StatisticItem("c14364");
             int i3 = this.mFrom;
-            if (i3 == c.a.q0.s.m.c.f14021c) {
+            if (i3 == c.a.q0.s.m.c.f14018c) {
                 i2 = 1;
-            } else if (i3 == c.a.q0.s.m.c.f14023e) {
+            } else if (i3 == c.a.q0.s.m.c.f14020e) {
                 i2 = 2;
             } else {
-                i2 = i3 == c.a.q0.s.m.c.f14022d ? 3 : 0;
+                i2 = i3 == c.a.q0.s.m.c.f14019d ? 3 : 0;
             }
             statisticItem.param("obj_source", i2);
             statisticItem.param("obj_type", this.mStatus);

@@ -33,34 +33,34 @@ public class k implements TTRewardVideoAd {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f65926a;
+    public final Context f66237a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m f65927b;
+    public final m f66238b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AdSlot f65928c;
+    public final AdSlot f66239c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTRewardVideoAd.RewardAdInteractionListener f65929d;
+    public TTRewardVideoAd.RewardAdInteractionListener f66240d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a f65930e;
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a f66241e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f65931f;
+    public boolean f66242f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f65932g;
+    public boolean f66243g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f65933h;
+    public String f66244h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f65934i;
+    public String f66245i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AtomicBoolean f65935j;
+    public AtomicBoolean f66246j;
     public String k;
 
     public k(Context context, m mVar, AdSlot adSlot) {
@@ -78,16 +78,16 @@ public class k implements TTRewardVideoAd {
                 return;
             }
         }
-        this.f65931f = true;
-        this.f65935j = new AtomicBoolean(false);
-        this.f65926a = context;
-        this.f65927b = mVar;
-        this.f65928c = adSlot;
+        this.f66242f = true;
+        this.f66246j = new AtomicBoolean(false);
+        this.f66237a = context;
+        this.f66238b = mVar;
+        this.f66239c = adSlot;
         if (getInteractionType() == 4) {
-            this.f65930e = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f65926a, this.f65927b, "rewarded_video");
+            this.f66241e = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f66237a, this.f66238b, "rewarded_video");
         }
-        this.f65932g = false;
-        this.k = com.bytedance.sdk.component.utils.e.a(this.f65927b.hashCode() + this.f65927b.aP().toString());
+        this.f66243g = false;
+        this.k = com.bytedance.sdk.component.utils.e.a(this.f66238b.hashCode() + this.f66238b.aP().toString());
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
@@ -95,7 +95,7 @@ public class k implements TTRewardVideoAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            m mVar = this.f65927b;
+            m mVar = this.f66238b;
             if (mVar == null) {
                 return -1;
             }
@@ -109,7 +109,7 @@ public class k implements TTRewardVideoAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            m mVar = this.f65927b;
+            m mVar = this.f66238b;
             if (mVar != null) {
                 return mVar.av();
             }
@@ -123,14 +123,14 @@ public class k implements TTRewardVideoAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            m mVar = this.f65927b;
+            m mVar = this.f66238b;
             if (mVar == null) {
                 return -1;
             }
             if (o.j(mVar)) {
                 return 2;
             }
-            return o.k(this.f65927b) ? 1 : 0;
+            return o.k(this.f66238b) ? 1 : 0;
         }
         return invokeV.intValue;
     }
@@ -139,7 +139,7 @@ public class k implements TTRewardVideoAd {
     public void setDownloadListener(TTAppDownloadListener tTAppDownloadListener) {
         com.bytedance.sdk.openadsdk.downloadnew.core.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, tTAppDownloadListener) == null) || (aVar = this.f65930e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, tTAppDownloadListener) == null) || (aVar = this.f66241e) == null) {
             return;
         }
         aVar.a(tTAppDownloadListener);
@@ -149,7 +149,7 @@ public class k implements TTRewardVideoAd {
     public void setRewardAdInteractionListener(TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, rewardAdInteractionListener) == null) {
-            this.f65929d = rewardAdInteractionListener;
+            this.f66240d = rewardAdInteractionListener;
             a(0);
         }
     }
@@ -158,7 +158,7 @@ public class k implements TTRewardVideoAd {
     public void setShowDownLoadBar(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f65931f = z;
+            this.f66242f = z;
         }
     }
 
@@ -172,19 +172,19 @@ public class k implements TTRewardVideoAd {
                 activity = null;
             }
             if (Looper.getMainLooper() == Looper.myLooper()) {
-                if (this.f65935j.get()) {
+                if (this.f66246j.get()) {
                     return;
                 }
-                this.f65935j.set(true);
-                m mVar = this.f65927b;
+                this.f66246j.set(true);
+                m mVar = this.f66238b;
                 if (mVar == null || mVar.V() == null) {
                     return;
                 }
-                Context context = activity == null ? this.f65926a : activity;
+                Context context = activity == null ? this.f66237a : activity;
                 if (context == null) {
                     context = com.bytedance.sdk.openadsdk.core.o.a();
                 }
-                if (this.f65927b.d() == 2) {
+                if (this.f66238b.d() == 2) {
                     intent = new Intent(context, TTRewardExpressVideoActivity.class);
                 } else {
                     intent = new Intent(context, TTRewardVideoActivity.class);
@@ -192,35 +192,35 @@ public class k implements TTRewardVideoAd {
                 if (activity == null) {
                     intent.addFlags(268435456);
                 }
-                intent.putExtra("reward_name", this.f65927b.b());
-                intent.putExtra("reward_amount", this.f65927b.c());
-                intent.putExtra("media_extra", this.f65928c.getMediaExtra());
-                intent.putExtra("user_id", this.f65928c.getUserID());
-                intent.putExtra("show_download_bar", this.f65931f);
-                intent.putExtra("orientation", this.f65928c.getOrientation());
-                if (!TextUtils.isEmpty(this.f65934i)) {
-                    intent.putExtra("rit_scene", this.f65934i);
+                intent.putExtra("reward_name", this.f66238b.b());
+                intent.putExtra("reward_amount", this.f66238b.c());
+                intent.putExtra("media_extra", this.f66239c.getMediaExtra());
+                intent.putExtra("user_id", this.f66239c.getUserID());
+                intent.putExtra("show_download_bar", this.f66242f);
+                intent.putExtra("orientation", this.f66239c.getOrientation());
+                if (!TextUtils.isEmpty(this.f66245i)) {
+                    intent.putExtra("rit_scene", this.f66245i);
                 }
-                if (this.f65932g) {
-                    intent.putExtra("video_cache_url", this.f65933h);
+                if (this.f66243g) {
+                    intent.putExtra("video_cache_url", this.f66244h);
                 }
-                com.bytedance.sdk.openadsdk.q.e.e(this.f65927b.aP().toString());
+                com.bytedance.sdk.openadsdk.q.e.e(this.f66238b.aP().toString());
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                    intent.putExtra(TTAdConstant.MULTI_PROCESS_MATERIALMETA, this.f65927b.aP().toString());
+                    intent.putExtra(TTAdConstant.MULTI_PROCESS_MATERIALMETA, this.f66238b.aP().toString());
                     intent.putExtra("multi_process_meta_md5", this.k);
                 } else {
                     t.a().g();
-                    t.a().a(this.f65927b);
-                    t.a().a(this.f65929d);
-                    t.a().a(this.f65930e);
-                    this.f65929d = null;
+                    t.a().a(this.f66238b);
+                    t.a().a(this.f66240d);
+                    t.a().a(this.f66241e);
+                    this.f66240d = null;
                 }
                 com.bytedance.sdk.component.utils.b.a(context, intent, new b.a(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.k.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ k f65936a;
+                    public final /* synthetic */ k f66247a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -237,7 +237,7 @@ public class k implements TTRewardVideoAd {
                                 return;
                             }
                         }
-                        this.f65936a = this;
+                        this.f66247a = this;
                     }
 
                     @Override // com.bytedance.sdk.component.utils.b.a
@@ -255,18 +255,18 @@ public class k implements TTRewardVideoAd {
                         }
                     }
                 });
-                if (TextUtils.isEmpty(this.f65927b.ao())) {
+                if (TextUtils.isEmpty(this.f66238b.ao())) {
                     return;
                 }
                 try {
-                    String optString = new JSONObject(this.f65927b.ao()).optString("rit", null);
-                    AdSlot b2 = h.a(this.f65926a).b(optString);
-                    h.a(this.f65926a).a(optString);
+                    String optString = new JSONObject(this.f66238b.ao()).optString("rit", null);
+                    AdSlot b2 = h.a(this.f66237a).b(optString);
+                    h.a(this.f66237a).a(optString);
                     if (b2 != null) {
-                        if (this.f65932g && !TextUtils.isEmpty(this.f65933h)) {
-                            h.a(this.f65926a).b(b2);
+                        if (this.f66243g && !TextUtils.isEmpty(this.f66244h)) {
+                            h.a(this.f66237a).b(b2);
                         } else {
-                            h.a(this.f65926a).a(b2);
+                            h.a(this.f66237a).a(b2);
                         }
                     }
                     return;
@@ -281,11 +281,11 @@ public class k implements TTRewardVideoAd {
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f65935j.get()) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f66246j.get()) {
             return;
         }
-        this.f65932g = true;
-        this.f65933h = str;
+        this.f66243g = true;
+        this.f66244h = str;
     }
 
     private void a(int i2) {
@@ -296,10 +296,10 @@ public class k implements TTRewardVideoAd {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f65937a;
+                public final /* synthetic */ int f66248a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ k f65938b;
+                public final /* synthetic */ k f66249b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -319,22 +319,22 @@ public class k implements TTRewardVideoAd {
                             return;
                         }
                     }
-                    this.f65938b = this;
-                    this.f65937a = i2;
+                    this.f66249b = this;
+                    this.f66248a = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.bytedance.sdk.openadsdk.multipro.aidl.a a2 = com.bytedance.sdk.openadsdk.multipro.aidl.a.a(this.f65938b.f65926a);
-                        if (this.f65937a == 0 && this.f65938b.f65929d != null) {
+                        com.bytedance.sdk.openadsdk.multipro.aidl.a a2 = com.bytedance.sdk.openadsdk.multipro.aidl.a.a(this.f66249b.f66237a);
+                        if (this.f66248a == 0 && this.f66249b.f66240d != null) {
                             com.bytedance.sdk.component.utils.k.b("MultiProcess", "start registerRewardVideoListener ! ");
-                            com.bytedance.sdk.openadsdk.multipro.aidl.b.d dVar = new com.bytedance.sdk.openadsdk.multipro.aidl.b.d(this.f65938b.f65929d);
+                            com.bytedance.sdk.openadsdk.multipro.aidl.b.d dVar = new com.bytedance.sdk.openadsdk.multipro.aidl.b.d(this.f66249b.f66240d);
                             IListenerManager asInterface = IListenerManager.Stub.asInterface(a2.a(0));
                             if (asInterface != null) {
                                 try {
-                                    asInterface.registerRewardVideoListener(this.f65938b.k, dVar);
+                                    asInterface.registerRewardVideoListener(this.f66249b.k, dVar);
                                     com.bytedance.sdk.component.utils.k.b("MultiProcess", "end registerRewardVideoListener ! ");
                                 } catch (RemoteException e2) {
                                     e2.printStackTrace();
@@ -356,9 +356,9 @@ public class k implements TTRewardVideoAd {
                 return;
             }
             if (ritScenes == TTAdConstant.RitScenes.CUSTOMIZE_SCENES) {
-                this.f65934i = str;
+                this.f66245i = str;
             } else {
-                this.f65934i = ritScenes.getScenesName();
+                this.f66245i = ritScenes.getScenesName();
             }
             showRewardVideoAd(activity);
         }

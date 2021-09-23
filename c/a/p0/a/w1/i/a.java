@@ -11,7 +11,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final View f9541a;
+    public final View f9549a;
 
     public a(View view) {
         Interceptable interceptable = $ic;
@@ -28,13 +28,13 @@ public class a {
                 return;
             }
         }
-        this.f9541a = view;
+        this.f9549a = view;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !z && this.f9541a.getVisibility() == 4) {
-            this.f9541a.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !z && this.f9549a.getVisibility() == 4) {
+            this.f9549a.setVisibility(8);
         }
     }
 }

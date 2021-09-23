@@ -29,26 +29,26 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f5393g;
+    public static final boolean f5401g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f5394a;
+    public int f5402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InputStream f5395b;
+    public InputStream f5403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OutputStream f5396c;
+    public OutputStream f5404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC0162a f5397d;
+    public InterfaceC0162a f5405d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebSocketFrame.OpCode f5398e;
+    public WebSocketFrame.OpCode f5406e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<WebSocketFrame> f5399f;
+    public final List<WebSocketFrame> f5407f;
 
     /* renamed from: c.a.p0.a.e0.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -75,7 +75,7 @@ public class a {
                 return;
             }
         }
-        f5393g = k.f7077a;
+        f5401g = k.f7085a;
     }
 
     public a() {
@@ -91,9 +91,9 @@ public class a {
                 return;
             }
         }
-        this.f5394a = 1;
-        this.f5398e = null;
-        this.f5399f = new LinkedList();
+        this.f5402a = 1;
+        this.f5406e = null;
+        this.f5407f = new LinkedList();
     }
 
     public static boolean f(Map<String, String> map) {
@@ -121,8 +121,8 @@ public class a {
     public void a(WebSocketFrame.CloseCode closeCode, String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, closeCode, str) == null) {
-            int i2 = this.f5394a;
-            this.f5394a = 3;
+            int i2 = this.f5402a;
+            this.f5402a = 3;
             if (i2 == 2) {
                 j(new WebSocketFrame.b(closeCode, str));
             } else {
@@ -133,13 +133,13 @@ public class a {
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f5394a == 4) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f5402a == 4) {
             return;
         }
-        d.d(this.f5395b);
-        d.d(this.f5396c);
-        this.f5394a = 4;
-        this.f5397d.onClose();
+        d.d(this.f5403b);
+        d.d(this.f5404c);
+        this.f5402a = 4;
+        this.f5405d.onClose();
     }
 
     public final void c(WebSocketFrame webSocketFrame) throws IOException {
@@ -154,7 +154,7 @@ public class a {
             } else {
                 str = "";
             }
-            if (this.f5394a == 3) {
+            if (this.f5402a == 3) {
                 b();
             } else {
                 a(closeCode, str);
@@ -166,23 +166,23 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, webSocketFrame) == null) {
             if (webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
-                if (this.f5398e != null && f5393g) {
+                if (this.f5406e != null && f5401g) {
                     throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Previous continuous frame sequence not completed.");
                 }
-                this.f5398e = webSocketFrame.f();
-                this.f5399f.clear();
-                this.f5399f.add(webSocketFrame);
+                this.f5406e = webSocketFrame.f();
+                this.f5407f.clear();
+                this.f5407f.add(webSocketFrame);
             } else if (webSocketFrame.h()) {
-                if (this.f5398e != null) {
-                    this.f5399f.add(webSocketFrame);
-                    this.f5397d.a(new WebSocketFrame(this.f5398e, this.f5399f));
-                    this.f5398e = null;
-                    this.f5399f.clear();
+                if (this.f5406e != null) {
+                    this.f5407f.add(webSocketFrame);
+                    this.f5405d.a(new WebSocketFrame(this.f5406e, this.f5407f));
+                    this.f5406e = null;
+                    this.f5407f.clear();
                     return;
                 }
                 throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
-            } else if (this.f5398e != null) {
-                this.f5399f.add(webSocketFrame);
+            } else if (this.f5406e != null) {
+                this.f5407f.add(webSocketFrame);
             } else {
                 throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
             }
@@ -197,13 +197,13 @@ public class a {
             } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Ping) {
                 j(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.d()));
             } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Pong) {
-                boolean z = f5393g;
+                boolean z = f5401g;
             } else if (webSocketFrame.h() && webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
-                if (this.f5398e == null) {
+                if (this.f5406e == null) {
                     if (webSocketFrame.f() != WebSocketFrame.OpCode.Text && webSocketFrame.f() != WebSocketFrame.OpCode.Binary) {
                         throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Non control or continuous frame expected.");
                     }
-                    this.f5397d.a(webSocketFrame);
+                    this.f5405d.a(webSocketFrame);
                     return;
                 }
                 throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence not completed.");
@@ -216,10 +216,10 @@ public class a {
     public void h(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, outputStream) == null) {
-            this.f5395b = inputStream;
-            this.f5396c = outputStream;
-            this.f5394a = 2;
-            InterfaceC0162a interfaceC0162a = this.f5397d;
+            this.f5403b = inputStream;
+            this.f5404c = outputStream;
+            this.f5402a = 2;
+            InterfaceC0162a interfaceC0162a = this.f5405d;
             if (interfaceC0162a != null) {
                 interfaceC0162a.onOpen();
             }
@@ -230,13 +230,13 @@ public class a {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            while (this.f5394a == 2) {
+            while (this.f5402a == 2) {
                 try {
                     try {
-                        e(WebSocketFrame.k(this.f5395b));
+                        e(WebSocketFrame.k(this.f5403b));
                     } catch (IOException e2) {
-                        if (this.f5397d != null) {
-                            this.f5397d.b(e2);
+                        if (this.f5405d != null) {
+                            this.f5405d.b(e2);
                         }
                         c.a.p0.a.e0.d.c("V8WebSocket", "parse web socket frame fail", e2);
                     }
@@ -251,7 +251,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, webSocketFrame) == null) {
             synchronized (this) {
-                webSocketFrame.t(this.f5396c);
+                webSocketFrame.t(this.f5404c);
             }
         }
     }
@@ -259,7 +259,7 @@ public class a {
     public void k(InterfaceC0162a interfaceC0162a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, interfaceC0162a) == null) {
-            this.f5397d = interfaceC0162a;
+            this.f5405d = interfaceC0162a;
         }
     }
 }

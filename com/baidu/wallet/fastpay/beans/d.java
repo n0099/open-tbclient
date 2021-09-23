@@ -77,7 +77,7 @@ public class d extends BaseBean<PromotionInfoResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DomainConfig.getInstance().getLifeHost() + "/_u/wireless/promotion_query";
+            return DomainConfig.getInstance().getLifeHost(this.tag) + "/_u/wireless/promotion_query";
         }
         return (String) invokeV.objValue;
     }

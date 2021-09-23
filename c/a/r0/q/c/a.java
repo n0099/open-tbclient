@@ -23,25 +23,25 @@ public class a implements AdAsyncRequestModel.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PlaceId f24074a;
+    public PlaceId f24090a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24075b;
+    public String f24091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24076c;
+    public int f24092c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f24077d;
+    public boolean f24093d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdAsyncRequestModel f24078e;
+    public AdAsyncRequestModel f24094e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f24079f;
+    public long f24095f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final WeakReference<IAdBaseAsyncController.a> f24080g;
+    public final WeakReference<IAdBaseAsyncController.a> f24096g;
 
     public a(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
@@ -58,19 +58,19 @@ public class a implements AdAsyncRequestModel.b {
                 return;
             }
         }
-        this.f24077d = false;
-        this.f24079f = 0L;
-        this.f24074a = placeId;
-        this.f24075b = str;
-        this.f24080g = new WeakReference<>(aVar);
-        this.f24078e = new AdAsyncRequestModel(this, this.f24074a);
+        this.f24093d = false;
+        this.f24095f = 0L;
+        this.f24090a = placeId;
+        this.f24091b = str;
+        this.f24096g = new WeakReference<>(aVar);
+        this.f24094e = new AdAsyncRequestModel(this, this.f24090a);
     }
 
     @Override // com.baidu.tieba.ad.asyncpv.AdAsyncRequestModel.b
     public final void a(boolean z, List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-            IAdBaseAsyncController.a aVar = this.f24080g.get();
+            IAdBaseAsyncController.a aVar = this.f24096g.get();
             if (!z || c.a.r0.p1.o.k.a.e(list)) {
                 if (aVar != null) {
                     aVar.b(null);
@@ -89,7 +89,7 @@ public class a implements AdAsyncRequestModel.b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24078e.c();
+            this.f24094e.c();
         }
     }
 
@@ -101,24 +101,24 @@ public class a implements AdAsyncRequestModel.b {
 
     public void d(int i2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, map) == null) || System.currentTimeMillis() - this.f24079f < this.f24076c * e.f29323c) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, map) == null) || System.currentTimeMillis() - this.f24095f < this.f24092c * e.f29343c) {
             return;
         }
-        this.f24078e.d(map, i2);
-        this.f24079f = System.currentTimeMillis();
+        this.f24094e.d(map, i2);
+        this.f24095f = System.currentTimeMillis();
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f24076c = i2;
+            this.f24092c = i2;
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f24077d = z;
+            this.f24093d = z;
         }
     }
 
@@ -128,13 +128,13 @@ public class a implements AdAsyncRequestModel.b {
             Iterator<AdvertAppInfo> it = list.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                next.g4 = this.f24075b;
-                if (c.a.r0.y2.a.n(next) && this.f24077d) {
+                next.h4 = this.f24091b;
+                if (c.a.r0.y2.a.n(next) && this.f24093d) {
                     it.remove();
                 } else {
-                    int T4 = next.T4();
-                    if (T4 != 0) {
-                        d.h(next, 0, T4);
+                    int S4 = next.S4();
+                    if (S4 != 0) {
+                        d.h(next, 0, S4);
                         it.remove();
                     }
                 }

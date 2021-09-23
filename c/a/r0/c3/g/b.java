@@ -159,8 +159,8 @@ public class b extends d {
         this.N = dVar4;
         this.O = dVar5;
         this.P = onClickListener;
-        this.D = (LinearLayout) this.f16555f.findViewById(R.id.first_line);
-        this.E = (LinearLayout) this.f16555f.findViewById(R.id.second_line);
+        this.D = (LinearLayout) this.f16565f.findViewById(R.id.first_line);
+        this.E = (LinearLayout) this.f16565f.findViewById(R.id.second_line);
         e0();
     }
 

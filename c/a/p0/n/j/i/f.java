@@ -18,17 +18,17 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f12014d;
+    public static f f12022d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f12015a;
+    public a f12023a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12016b;
+    public String f12024b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12017c;
+    public String f12025c;
 
     /* loaded from: classes3.dex */
     public static class a extends c.a.p0.t.j {
@@ -67,23 +67,23 @@ public class f {
                 return;
             }
         }
-        this.f12015a = new a();
-        this.f12016b = AppRuntime.getAppContext().getString(c.a.p0.n.e.swan_launch_failed_default_dialog_msg);
-        this.f12017c = AppRuntime.getAppContext().getString(c.a.p0.n.e.swan_launch_failed_default_toast_msg);
+        this.f12023a = new a();
+        this.f12024b = AppRuntime.getAppContext().getString(c.a.p0.n.e.swan_launch_failed_default_dialog_msg);
+        this.f12025c = AppRuntime.getAppContext().getString(c.a.p0.n.e.swan_launch_failed_default_toast_msg);
     }
 
     public static f b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12014d == null) {
+            if (f12022d == null) {
                 synchronized (f.class) {
-                    if (f12014d == null) {
-                        f12014d = new f();
+                    if (f12022d == null) {
+                        f12022d = new f();
                     }
                 }
             }
-            return f12014d;
+            return f12022d;
         }
         return (f) invokeV.objValue;
     }
@@ -91,19 +91,19 @@ public class f {
     public String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.f12015a.getString(String.format("%04d", Long.valueOf(j2)), this.f12016b) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.f12023a.getString(String.format("%04d", Long.valueOf(j2)), this.f12024b) : (String) invokeJ.objValue;
     }
 
     public String c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.f12015a.getString(String.format("%04d", Long.valueOf(j2)), this.f12017c) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.f12023a.getString(String.format("%04d", Long.valueOf(j2)), this.f12025c) : (String) invokeJ.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12015a.getString("tips_config_version", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12023a.getString("tips_config_version", "0") : (String) invokeV.objValue;
     }
 
     public void e(JSONObject jSONObject) {
@@ -129,7 +129,7 @@ public class f {
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, hashMap, str) == null) || hashMap == null || hashMap.isEmpty() || TextUtils.isEmpty(str)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f12015a.edit();
+        SharedPreferences.Editor edit = this.f12023a.edit();
         edit.clear();
         edit.putString("tips_config_version", str);
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {

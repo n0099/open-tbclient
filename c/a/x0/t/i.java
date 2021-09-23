@@ -13,7 +13,7 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f31161a;
+    public static boolean f31182a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class i {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            boolean z = f31161a;
+            boolean z = f31182a;
         }
     }
 
@@ -48,7 +48,7 @@ public class i {
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            boolean z = f31161a;
+            boolean z = f31182a;
         }
     }
 
@@ -62,7 +62,7 @@ public class i {
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
-            boolean z = f31161a;
+            boolean z = f31182a;
         }
     }
 }

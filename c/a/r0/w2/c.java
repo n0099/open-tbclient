@@ -15,11 +15,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f28163b;
+    public static c f28183b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, c.a.r0.w2.d.a> f28164a;
+    public ConcurrentHashMap<String, c.a.r0.w2.d.a> f28184a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,21 +34,21 @@ public class c {
                 return;
             }
         }
-        this.f28164a = new ConcurrentHashMap<>();
+        this.f28184a = new ConcurrentHashMap<>();
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f28163b == null) {
+            if (f28183b == null) {
                 synchronized (c.class) {
-                    if (f28163b == null) {
-                        f28163b = new c();
+                    if (f28183b == null) {
+                        f28183b = new c();
                     }
                 }
             }
-            return f28163b;
+            return f28183b;
         }
         return (c) invokeV.objValue;
     }
@@ -56,14 +56,14 @@ public class c {
     public ConcurrentHashMap<String, c.a.r0.w2.d.a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28164a : (ConcurrentHashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28184a : (ConcurrentHashMap) invokeV.objValue;
     }
 
     public c.a.r0.w2.d.a c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ConcurrentHashMap<String, c.a.r0.w2.d.a> concurrentHashMap = this.f28164a;
+            ConcurrentHashMap<String, c.a.r0.w2.d.a> concurrentHashMap = this.f28184a;
             if (concurrentHashMap == null) {
                 return null;
             }
@@ -75,13 +75,13 @@ public class c {
     public void d(String str) {
         ConcurrentHashMap<String, c.a.r0.w2.d.a> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.f28164a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.f28184a) == null) {
             return;
         }
         Iterator<String> it = concurrentHashMap.keySet().iterator();
         while (it.hasNext()) {
-            c.a.r0.w2.d.a aVar = this.f28164a.get(it.next());
-            if (aVar != null && str.equals(aVar.f28166b)) {
+            c.a.r0.w2.d.a aVar = this.f28184a.get(it.next());
+            if (aVar != null && str.equals(aVar.f28186b)) {
                 it.remove();
             }
         }
@@ -90,13 +90,13 @@ public class c {
     public void e(boolean z) {
         ConcurrentHashMap<String, c.a.r0.w2.d.a> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (concurrentHashMap = this.f28164a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (concurrentHashMap = this.f28184a) == null) {
             return;
         }
         for (String str : concurrentHashMap.keySet()) {
-            c.a.r0.w2.d.a aVar = this.f28164a.get(str);
+            c.a.r0.w2.d.a aVar = this.f28184a.get(str);
             if (aVar != null) {
-                aVar.f28169e = z;
+                aVar.f28189e = z;
             }
         }
     }
@@ -104,13 +104,13 @@ public class c {
     public void f(boolean z, String str) {
         ConcurrentHashMap<String, c.a.r0.w2.d.a> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.f28164a) == null) {
+        if (!(interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.f28184a) == null) {
             return;
         }
         for (String str2 : concurrentHashMap.keySet()) {
-            c.a.r0.w2.d.a aVar = this.f28164a.get(str2);
-            if (aVar != null && str.equals(aVar.f28166b)) {
-                aVar.f28169e = z;
+            c.a.r0.w2.d.a aVar = this.f28184a.get(str2);
+            if (aVar != null && str.equals(aVar.f28186b)) {
+                aVar.f28189e = z;
             }
         }
     }
@@ -118,22 +118,22 @@ public class c {
     public void g(HashMap<String, c.a.r0.w2.d.a> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            this.f28164a.clear();
+            this.f28184a.clear();
             if (hashMap == null) {
                 return;
             }
-            this.f28164a.putAll(hashMap);
+            this.f28184a.putAll(hashMap);
         }
     }
 
     public void h(String str, HashMap<String, c.a.r0.w2.d.a> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) {
-            if (this.f28164a == null) {
-                this.f28164a = new ConcurrentHashMap<>();
+            if (this.f28184a == null) {
+                this.f28184a = new ConcurrentHashMap<>();
             }
             d(str);
-            this.f28164a.putAll(hashMap);
+            this.f28184a.putAll(hashMap);
         }
     }
 }

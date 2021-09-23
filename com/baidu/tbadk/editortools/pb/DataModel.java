@@ -1,7 +1,6 @@
 package com.baidu.tbadk.editortools.pb;
 
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import c.a.e.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.WriteData;
@@ -39,19 +38,23 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
 
     public abstract String B();
 
-    public abstract WriteData C(String str);
+    public abstract String C();
 
-    public boolean D() {
+    public abstract WriteData D(String str);
+
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? E() || F() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? F() || G() : invokeV.booleanValue;
     }
-
-    public abstract boolean E();
 
     public abstract boolean F();
 
     public abstract boolean G();
+
+    public abstract boolean H();
+
+    public abstract String getForumId();
 
     public abstract String getFromForumId();
 
@@ -59,13 +62,13 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getFromForumId() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getFromForumId() : (String) invokeV.objValue;
     }
 
     public int x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return -1;
         }
         return invokeV.intValue;

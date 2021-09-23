@@ -16,12 +16,12 @@ public class a {
 
     /* renamed from: c.a.r0.j3.n0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0988a extends CustomMessageListener {
+    public static class C0986a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0988a(int i2) {
+        public C0986a(int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -53,7 +53,7 @@ public class a {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            MessageManager.getInstance().registerListener(new C0988a(2016301));
+            MessageManager.getInstance().registerListener(new C0986a(2016301));
         }
     }
 }

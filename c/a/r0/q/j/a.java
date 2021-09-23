@@ -29,19 +29,19 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, Integer> f24158a;
+    public static HashMap<String, Integer> f24174a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, Integer> f24159b;
+    public static HashMap<String, Integer> f24175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, String> f24160c;
+    public static HashMap<String, String> f24176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, String> f24161d;
+    public static HashMap<String, String> f24177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f24162e;
+    public static final Pattern f24178e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,10 +57,10 @@ public final class a {
                 return;
             }
         }
-        f24158a = new HashMap<>();
-        f24159b = new HashMap<>();
-        f24160c = new HashMap<>();
-        f24161d = new HashMap<>();
+        f24174a = new HashMap<>();
+        f24175b = new HashMap<>();
+        f24176c = new HashMap<>();
+        f24177d = new HashMap<>();
         a("application/andrew-inset", "ez", 5);
         a("application/dsptype", "tsp", 5);
         a("application/futuresplash", "spl", 5);
@@ -379,19 +379,19 @@ public final class a {
         a("audio/aac", "aac", 1);
         a("application/vnd.rn-realmedia", "rm", 0);
         a("message/rfc822", "mht", 11);
-        f24162e = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        f24178e = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     public static void a(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i2) == null) {
-            f24158a.put(str2, Integer.valueOf(i2));
-            f24159b.put(str, Integer.valueOf(i2));
-            f24160c.put(str2, str);
-            if (f24161d.containsKey(str)) {
+            f24174a.put(str2, Integer.valueOf(i2));
+            f24175b.put(str, Integer.valueOf(i2));
+            f24176c.put(str2, str);
+            if (f24177d.containsKey(str)) {
                 return;
             }
-            f24161d.put(str, str2);
+            f24177d.put(str, str2);
         }
     }
 
@@ -408,8 +408,8 @@ public final class a {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, str2, z)) == null) {
-            Integer num = f24159b.get(str2);
-            if (num != null ? !(!z || num.intValue() != 8) : !((num = f24158a.get(str)) != null && (!z || num.intValue() != 8))) {
+            Integer num = f24175b.get(str2);
+            if (num != null ? !(!z || num.intValue() != 8) : !((num = f24174a.get(str)) != null && (!z || num.intValue() != 8))) {
                 num = 5;
             }
             return num.intValue();
@@ -451,7 +451,7 @@ public final class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f24161d.get(str);
+            return f24177d.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -560,7 +560,7 @@ public final class a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f24160c.get(str);
+            return f24176c.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -570,7 +570,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             try {
-                Matcher matcher = f24162e.matcher(str);
+                Matcher matcher = f24178e.matcher(str);
                 if (matcher.find()) {
                     return matcher.group(2);
                 }

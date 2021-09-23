@@ -16,7 +16,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11636a;
+    public static final boolean f11644a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class a {
                 return;
             }
         }
-        f11636a = k.f7077a;
+        f11644a = k.f7085a;
     }
 
     public a() {
@@ -52,7 +52,7 @@ public class a {
     public <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, responseCallback) == null) {
-            if (f11636a) {
+            if (f11644a) {
                 String str3 = HttpRetryStatistic.RETRY_URL + str + "\nbody:" + str2;
             }
             if (TextUtils.isEmpty(str)) {

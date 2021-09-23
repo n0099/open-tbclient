@@ -33,20 +33,20 @@ public class BdContextMenuView extends FrameLayout implements a.g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f49337i;
+    public static final boolean f49447i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49338e;
+    public boolean f49448e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f49339f;
+    public b f49449f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f49340g;
+    public Context f49450g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ListView f49341h;
+    public ListView f49451h;
     public boolean mLayoutInCenter;
 
     /* loaded from: classes7.dex */
@@ -55,7 +55,7 @@ public class BdContextMenuView extends FrameLayout implements a.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdContextMenuView f49342e;
+        public final /* synthetic */ BdContextMenuView f49452e;
 
         public a(BdContextMenuView bdContextMenuView) {
             Interceptable interceptable = $ic;
@@ -72,14 +72,14 @@ public class BdContextMenuView extends FrameLayout implements a.g {
                     return;
                 }
             }
-            this.f49342e = bdContextMenuView;
+            this.f49452e = bdContextMenuView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f49342e.f49339f.a(i2);
+                this.f49452e.f49449f.a(i2);
             }
         }
     }
@@ -90,13 +90,13 @@ public class BdContextMenuView extends FrameLayout implements a.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<c.a.p0.a.z1.b.e.b> f49343e;
+        public List<c.a.p0.a.z1.b.e.b> f49453e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f49344f;
+        public Context f49454f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BdContextMenuView f49345g;
+        public final /* synthetic */ BdContextMenuView f49455g;
 
         /* loaded from: classes7.dex */
         public class a {
@@ -104,10 +104,10 @@ public class BdContextMenuView extends FrameLayout implements a.g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public ImageView f49346a;
+            public ImageView f49456a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TextView f49347b;
+            public TextView f49457b;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -141,16 +141,16 @@ public class BdContextMenuView extends FrameLayout implements a.g {
                     return;
                 }
             }
-            this.f49345g = bdContextMenuView;
-            this.f49343e = list;
-            this.f49344f = context;
+            this.f49455g = bdContextMenuView;
+            this.f49453e = list;
+            this.f49454f = context;
         }
 
         public void a(int i2) {
             c.a.p0.a.z1.b.e.b bVar;
             b.a d2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (d2 = (bVar = this.f49343e.get(i2)).d()) == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (d2 = (bVar = this.f49453e.get(i2)).d()) == null) {
                 return;
             }
             d2.a(bVar);
@@ -160,13 +160,13 @@ public class BdContextMenuView extends FrameLayout implements a.g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
                 if (getCount() == 1) {
-                    view.setBackground(this.f49344f.getResources().getDrawable(R.drawable.aiapps_context_menu_round_corner_selector));
+                    view.setBackground(this.f49454f.getResources().getDrawable(R.drawable.aiapps_context_menu_round_corner_selector));
                 } else if (i2 == 0) {
-                    view.setBackground(this.f49344f.getResources().getDrawable(R.drawable.aiapps_context_menu_top_corner_selector));
+                    view.setBackground(this.f49454f.getResources().getDrawable(R.drawable.aiapps_context_menu_top_corner_selector));
                 } else if (i2 == getCount() - 1) {
-                    view.setBackground(this.f49344f.getResources().getDrawable(R.drawable.aiapps_context_menu_bottom_corner_selector));
+                    view.setBackground(this.f49454f.getResources().getDrawable(R.drawable.aiapps_context_menu_bottom_corner_selector));
                 } else {
-                    view.setBackground(this.f49344f.getResources().getDrawable(R.drawable.aiapps_context_menu_no_corner_selector));
+                    view.setBackground(this.f49454f.getResources().getDrawable(R.drawable.aiapps_context_menu_no_corner_selector));
                 }
             }
         }
@@ -174,7 +174,7 @@ public class BdContextMenuView extends FrameLayout implements a.g {
         public void c(List<c.a.p0.a.z1.b.e.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                this.f49343e = list;
+                this.f49453e = list;
                 notifyDataSetChanged();
             }
         }
@@ -183,14 +183,14 @@ public class BdContextMenuView extends FrameLayout implements a.g {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49343e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49453e.size() : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f49343e.get(i2) : invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f49453e.get(i2) : invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
@@ -208,40 +208,40 @@ public class BdContextMenuView extends FrameLayout implements a.g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
                 if (view == null) {
-                    view = LayoutInflater.from(this.f49344f).inflate(R.layout.aiapps_menu_item_view, (ViewGroup) null);
+                    view = LayoutInflater.from(this.f49454f).inflate(R.layout.aiapps_menu_item_view, (ViewGroup) null);
                     aVar = new a(this);
-                    aVar.f49346a = (ImageView) view.findViewById(R.id.item_icon);
+                    aVar.f49456a = (ImageView) view.findViewById(R.id.item_icon);
                     TextView textView = (TextView) view.findViewById(R.id.item_title);
-                    aVar.f49347b = textView;
-                    textView.setTextColor(this.f49344f.getResources().getColor(R.color.aiapps_context_menu_item_title_color));
+                    aVar.f49457b = textView;
+                    textView.setTextColor(this.f49454f.getResources().getColor(R.color.aiapps_context_menu_item_title_color));
                     b(view, i2);
                     view.setTag(aVar);
                 } else {
                     aVar = (a) view.getTag();
                 }
-                c.a.p0.a.z1.b.e.b bVar = this.f49343e.get(i2);
-                aVar.f49347b.setText(bVar.e());
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.f49347b.getLayoutParams();
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.f49346a.getLayoutParams();
+                c.a.p0.a.z1.b.e.b bVar = this.f49453e.get(i2);
+                aVar.f49457b.setText(bVar.e());
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.f49457b.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.f49456a.getLayoutParams();
                 if (bVar.b() != null) {
-                    aVar.f49346a.setVisibility(0);
-                    aVar.f49346a.setImageDrawable(bVar.b());
-                    layoutParams.setMarginStart(this.f49344f.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_item_title_left_margin));
-                    aVar.f49347b.setLayoutParams(layoutParams);
+                    aVar.f49456a.setVisibility(0);
+                    aVar.f49456a.setImageDrawable(bVar.b());
+                    layoutParams.setMarginStart(this.f49454f.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_item_title_left_margin));
+                    aVar.f49457b.setLayoutParams(layoutParams);
                 } else {
-                    aVar.f49346a.setVisibility(8);
-                    layoutParams.setMarginStart(this.f49344f.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_item_icon_left_margin));
-                    aVar.f49347b.setLayoutParams(layoutParams);
+                    aVar.f49456a.setVisibility(8);
+                    layoutParams.setMarginStart(this.f49454f.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_item_icon_left_margin));
+                    aVar.f49457b.setLayoutParams(layoutParams);
                 }
-                if (this.f49345g.mLayoutInCenter) {
+                if (this.f49455g.mLayoutInCenter) {
                     ((LinearLayout) view).setGravity(17);
                     layoutParams.width = -2;
                     if (bVar.b() != null) {
                         layoutParams2.setMarginStart(0);
-                        aVar.f49346a.setLayoutParams(layoutParams2);
+                        aVar.f49456a.setLayoutParams(layoutParams2);
                     } else {
                         layoutParams.setMarginStart(0);
-                        aVar.f49347b.setLayoutParams(layoutParams);
+                        aVar.f49457b.setLayoutParams(layoutParams);
                     }
                 }
                 return view;
@@ -263,7 +263,7 @@ public class BdContextMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        f49337i = k.f7077a;
+        f49447i = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -286,8 +286,8 @@ public class BdContextMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        this.f49338e = false;
-        this.f49340g = context;
+        this.f49448e = false;
+        this.f49450g = context;
         b();
     }
 
@@ -295,34 +295,34 @@ public class BdContextMenuView extends FrameLayout implements a.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            setBackground(this.f49340g.getResources().getDrawable(R.drawable.aiapps_context_menu_bg));
-            ListView listView = new ListView(this.f49340g);
-            this.f49341h = listView;
+            setBackground(this.f49450g.getResources().getDrawable(R.drawable.aiapps_context_menu_bg));
+            ListView listView = new ListView(this.f49450g);
+            this.f49451h = listView;
             listView.setCacheColorHint(0);
-            this.f49341h.setDivider(getResources().getDrawable(R.color.aiapps_context_menu_divider_color));
-            this.f49341h.setDividerHeight(1);
-            this.f49341h.setSelector(new ColorDrawable(0));
-            addView(this.f49341h, new FrameLayout.LayoutParams(-1, -1));
-            this.f49341h.setOnItemClickListener(new a(this));
+            this.f49451h.setDivider(getResources().getDrawable(R.color.aiapps_context_menu_divider_color));
+            this.f49451h.setDividerHeight(1);
+            this.f49451h.setSelector(new ColorDrawable(0));
+            addView(this.f49451h, new FrameLayout.LayoutParams(-1, -1));
+            this.f49451h.setOnItemClickListener(new a(this));
         }
     }
 
     public void layoutMenu(List<c.a.p0.a.z1.b.e.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            boolean z = f49337i;
-            if (this.f49338e) {
+            boolean z = f49447i;
+            if (this.f49448e) {
                 return;
             }
-            b bVar = this.f49339f;
+            b bVar = this.f49449f;
             if (bVar == null) {
-                b bVar2 = new b(this, this.f49340g, list);
-                this.f49339f = bVar2;
-                this.f49341h.setAdapter((ListAdapter) bVar2);
+                b bVar2 = new b(this, this.f49450g, list);
+                this.f49449f = bVar2;
+                this.f49451h.setAdapter((ListAdapter) bVar2);
             } else {
                 bVar.c(list);
             }
-            this.f49338e = true;
+            this.f49448e = true;
         }
     }
 
@@ -335,7 +335,7 @@ public class BdContextMenuView extends FrameLayout implements a.g {
     public void onMenuSetChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f49338e = false;
+            this.f49448e = false;
         }
     }
 
@@ -365,8 +365,8 @@ public class BdContextMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        this.f49338e = false;
-        this.f49340g = context;
+        this.f49448e = false;
+        this.f49450g = context;
         b();
     }
 
@@ -388,8 +388,8 @@ public class BdContextMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        this.f49338e = false;
-        this.f49340g = context;
+        this.f49448e = false;
+        this.f49450g = context;
         b();
     }
 }

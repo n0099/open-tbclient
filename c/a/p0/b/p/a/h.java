@@ -35,22 +35,22 @@ public class h extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10211e;
+        public final /* synthetic */ CallbackHandler f10219e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10212f;
+        public final /* synthetic */ String f10220f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f10213g;
+        public final /* synthetic */ Context f10221g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f10214h;
+        public final /* synthetic */ String f10222h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f10215i;
+        public final /* synthetic */ c.a.p0.a.a2.e f10223i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.C0384c f10216j;
+        public final /* synthetic */ c.C0384c f10224j;
         public final /* synthetic */ Bundle k;
         public final /* synthetic */ h l;
 
@@ -70,12 +70,12 @@ public class h extends a0 {
                 }
             }
             this.l = hVar;
-            this.f10211e = callbackHandler;
-            this.f10212f = str;
-            this.f10213g = context;
-            this.f10214h = str2;
-            this.f10215i = eVar;
-            this.f10216j = c0384c;
+            this.f10219e = callbackHandler;
+            this.f10220f = str;
+            this.f10221g = context;
+            this.f10222h = str2;
+            this.f10223i = eVar;
+            this.f10224j = c0384c;
             this.k = bundle;
         }
 
@@ -86,15 +86,15 @@ public class h extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    if (this.l.o(this.f10213g, this.f10214h)) {
-                        this.l.m(this.f10215i, (Activity) this.f10213g, this.f10216j, this.f10211e, this.f10212f, this.k);
+                    if (this.l.o(this.f10221g, this.f10222h)) {
+                        this.l.m(this.f10223i, (Activity) this.f10221g, this.f10224j, this.f10219e, this.f10220f, this.k);
                         return;
                     } else {
-                        this.f10211e.handleSchemeDispatchCallback(this.f10212f, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
+                        this.f10219e.handleSchemeDispatchCallback(this.f10220f, UnitedSchemeUtility.wrapCallbackParams(10008, "app not installed").toString());
                         return;
                     }
                 }
-                c.a.p0.a.e2.c.d.p(iVar, this.f10211e, this.f10212f);
+                c.a.p0.a.e2.c.d.p(iVar, this.f10219e, this.f10220f);
             }
         }
     }
@@ -105,13 +105,13 @@ public class h extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.C0384c f10217e;
+        public final /* synthetic */ c.C0384c f10225e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10218f;
+        public final /* synthetic */ CallbackHandler f10226f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10219g;
+        public final /* synthetic */ String f10227g;
 
         public b(h hVar, c.C0384c c0384c, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -128,9 +128,9 @@ public class h extends a0 {
                     return;
                 }
             }
-            this.f10217e = c0384c;
-            this.f10218f = callbackHandler;
-            this.f10219g = str;
+            this.f10225e = c0384c;
+            this.f10226f = callbackHandler;
+            this.f10227g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -140,25 +140,25 @@ public class h extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!iVar.c()) {
-                    c.a.p0.a.e0.d.l("ThirdPartyLoginAction", iVar.b() + " " + this.f10217e.toString());
+                    c.a.p0.a.e0.d.l("ThirdPartyLoginAction", iVar.b() + " " + this.f10225e.toString());
                     String f2 = c.a.p0.a.e2.c.d.f(iVar.b());
                     if (!TextUtils.isEmpty(f2)) {
-                        this.f10218f.handleSchemeDispatchCallback(this.f10219g, UnitedSchemeUtility.wrapCallbackParams(iVar.b(), f2).toString());
+                        this.f10226f.handleSchemeDispatchCallback(this.f10227g, UnitedSchemeUtility.wrapCallbackParams(iVar.b(), f2).toString());
                     } else {
-                        this.f10218f.handleSchemeDispatchCallback(this.f10219g, UnitedSchemeUtility.wrapCallbackParams(iVar.b()).toString());
+                        this.f10226f.handleSchemeDispatchCallback(this.f10227g, UnitedSchemeUtility.wrapCallbackParams(iVar.b()).toString());
                     }
-                } else if (TextUtils.isEmpty(iVar.f5582a.f5600a)) {
-                    this.f10218f.handleSchemeDispatchCallback(this.f10219g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                } else if (TextUtils.isEmpty(iVar.f5590a.f5608a)) {
+                    this.f10226f.handleSchemeDispatchCallback(this.f10227g, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
                 } else {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("code", iVar.f5582a.f5600a);
-                        this.f10218f.handleSchemeDispatchCallback(this.f10219g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
+                        jSONObject.put("code", iVar.f5590a.f5608a);
+                        this.f10226f.handleSchemeDispatchCallback(this.f10227g, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
                     } catch (JSONException e2) {
-                        if (a0.f4766b) {
+                        if (a0.f4774b) {
                             e2.printStackTrace();
                         }
-                        this.f10218f.handleSchemeDispatchCallback(this.f10219g, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
+                        this.f10226f.handleSchemeDispatchCallback(this.f10227g, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
                     }
                 }
             }

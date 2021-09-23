@@ -60,29 +60,29 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f57984e;
+    public View f58106e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoPlayView f57985f;
+    public VideoPlayView f58107f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a.r0.z3.c.d f57986g;
+    public final c.a.r0.z3.c.d f58108g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57987h;
+    public int f58109h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Rect f57988i;
+    public Rect f58110i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f57989j;
+    public String f58111j;
     public String k;
     public boolean l;
     public String m;
     public VideoAttentionModel n;
     public final VideoPlayFragment.GoPbCommentFloatListener o;
     public final CustomMessageListener p;
-    public VideoPlayView.f q;
+    public VideoPlayView.g q;
     public final CustomMessageListener r;
     public final BdUniqueId s;
     public final BdSwipeRefreshLayout.k t;
@@ -95,7 +95,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionPageFragment f57990a;
+        public final /* synthetic */ VideoAttentionPageFragment f58112a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VideoAttentionPageFragment videoAttentionPageFragment, int i2) {
@@ -115,7 +115,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
                     return;
                 }
             }
-            this.f57990a = videoAttentionPageFragment;
+            this.f58112a = videoAttentionPageFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -139,8 +139,8 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
                                 throw new TypeCastException("null cannot be cast to non-null type com.baidu.tieba.tblauncher.IMaintabType");
                             }
                         }
-                        if ((this.f57990a.l && z) || ((c.a.e.a.b.f().b() instanceof VideoPlayActivity) && (this.f57990a.getActivity() instanceof VideoPlayActivity))) {
-                            this.f57990a.i();
+                        if ((this.f58112a.l && z) || ((c.a.e.a.b.f().b() instanceof VideoPlayActivity) && (this.f58112a.getActivity() instanceof VideoPlayActivity))) {
+                            this.f58112a.i();
                         }
                     }
                 }
@@ -154,7 +154,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionPageFragment f57991a;
+        public final /* synthetic */ VideoAttentionPageFragment f58113a;
 
         public b(VideoAttentionPageFragment videoAttentionPageFragment) {
             Interceptable interceptable = $ic;
@@ -171,7 +171,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
                     return;
                 }
             }
-            this.f57991a = videoAttentionPageFragment;
+            this.f58113a = videoAttentionPageFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -180,7 +180,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         public final void call(Void r5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
-                this.f57991a.setInterceptStimeStat(true);
+                this.f58113a.setInterceptStimeStat(true);
             }
         }
     }
@@ -191,7 +191,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionPageFragment f57992a;
+        public final /* synthetic */ VideoAttentionPageFragment f58114a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public c(VideoAttentionPageFragment videoAttentionPageFragment) {
@@ -209,7 +209,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
                     return;
                 }
             }
-            this.f57992a = videoAttentionPageFragment;
+            this.f58114a = videoAttentionPageFragment;
         }
 
         @Override // com.baidu.tieba.videoplay.model.VideoAttentionModel.c
@@ -218,33 +218,33 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) || ListUtils.isEmpty(list)) {
                 return;
             }
-            this.f57992a.f57986g.y(list);
-            VideoPlayView videoPlayView = this.f57992a.f57985f;
+            this.f58114a.f58108g.y(list);
+            VideoPlayView videoPlayView = this.f58114a.f58107f;
             if (videoPlayView != null) {
                 videoPlayView.notifyDataSetChanged();
             }
-            VideoPlayView videoPlayView2 = this.f57992a.f57985f;
+            VideoPlayView videoPlayView2 = this.f58114a.f58107f;
             if (videoPlayView2 != null) {
                 videoPlayView2.setSelectIndex(0, true);
             }
-            VideoPlayView videoPlayView3 = this.f57992a.f57985f;
+            VideoPlayView videoPlayView3 = this.f58114a.f58107f;
             if (videoPlayView3 != null) {
-                videoPlayView3.setPrimary(this.f57992a.isPrimary());
+                videoPlayView3.setPrimary(this.f58114a.isPrimary());
             }
         }
 
         @Override // com.baidu.tieba.videoplay.model.VideoAttentionModel.c
         public void b(List<? extends VideoItemData> list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list) || this.f57992a.f57986g.v()) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list) || this.f58114a.f58108g.v()) {
                 return;
             }
-            this.f57992a.f57986g.b(list);
-            VideoPlayView videoPlayView = this.f57992a.f57985f;
+            this.f58114a.f58108g.b(list);
+            VideoPlayView videoPlayView = this.f58114a.f58107f;
             if (videoPlayView != null) {
                 videoPlayView.notifyDataSetChanged();
             }
-            VideoPlayView videoPlayView2 = this.f57992a.f57985f;
+            VideoPlayView videoPlayView2 = this.f58114a.f58107f;
             if (videoPlayView2 != null) {
                 videoPlayView2.setViewPagerScrollable(true);
             }
@@ -255,16 +255,16 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
             VideoAttentionListPageFragment attentionListFragment;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, list, str, z) == null) {
-                this.f57992a.f57986g.z(list, str);
-                VideoPlayView videoPlayView = this.f57992a.f57985f;
+                this.f58114a.f58108g.z(list, str);
+                VideoPlayView videoPlayView = this.f58114a.f58107f;
                 if (videoPlayView != null) {
                     videoPlayView.notifyDataSetChanged();
                 }
-                VideoPlayView videoPlayView2 = this.f57992a.f57985f;
+                VideoPlayView videoPlayView2 = this.f58114a.f58107f;
                 if (videoPlayView2 != null && (attentionListFragment = videoPlayView2.getAttentionListFragment()) != null) {
                     attentionListFragment.scrollToPosition(0);
                 }
-                VideoPlayView videoPlayView3 = this.f57992a.f57985f;
+                VideoPlayView videoPlayView3 = this.f58114a.f58107f;
                 if (videoPlayView3 != null) {
                     videoPlayView3.setViewPagerScrollable(false);
                 }
@@ -278,7 +278,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionPageFragment f57993a;
+        public final /* synthetic */ VideoAttentionPageFragment f58115a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(VideoAttentionPageFragment videoAttentionPageFragment, int i2, boolean z) {
@@ -299,7 +299,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
                     return;
                 }
             }
-            this.f57993a = videoAttentionPageFragment;
+            this.f58115a = videoAttentionPageFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -309,14 +309,14 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Integer)) {
                 Object data = customResponsedMessage.getData();
                 if (data != null) {
-                    if (this.f57993a.f57986g.e(((Integer) data).intValue())) {
-                        VideoPlayView videoPlayView = this.f57993a.f57985f;
+                    if (this.f58115a.f58108g.e(((Integer) data).intValue())) {
+                        VideoPlayView videoPlayView = this.f58115a.f58107f;
                         if (videoPlayView != null) {
                             videoPlayView.notifyDataSetChanged();
                         }
-                        VideoPlayView videoPlayView2 = this.f57993a.f57985f;
+                        VideoPlayView videoPlayView2 = this.f58115a.f58107f;
                         if (videoPlayView2 != null) {
-                            videoPlayView2.setPrimary(this.f57993a.isPrimary());
+                            videoPlayView2.setPrimary(this.f58115a.isPrimary());
                             return;
                         }
                         return;
@@ -334,7 +334,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionPageFragment f57994a;
+        public final /* synthetic */ VideoAttentionPageFragment f58116a;
 
         public e(VideoAttentionPageFragment videoAttentionPageFragment) {
             Interceptable interceptable = $ic;
@@ -351,7 +351,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
                     return;
                 }
             }
-            this.f57994a = videoAttentionPageFragment;
+            this.f58116a = videoAttentionPageFragment;
         }
 
         @Override // com.baidu.tieba.videoplay.VideoPlayView.e
@@ -359,11 +359,11 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
             VideoAttentionModel videoAttentionModel;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                VideoAttentionModel videoAttentionModel2 = this.f57994a.n;
+                VideoAttentionModel videoAttentionModel2 = this.f58116a.n;
                 if (videoAttentionModel2 != null) {
-                    videoAttentionModel2.setFrom(this.f57994a.k);
+                    videoAttentionModel2.setFrom(this.f58116a.k);
                 }
-                if (this.f57994a.f57986g.w() || (videoAttentionModel = this.f57994a.n) == null) {
+                if (this.f58116a.f58108g.w() || (videoAttentionModel = this.f58116a.n) == null) {
                     return;
                 }
                 videoAttentionModel.loadMore();
@@ -372,12 +372,12 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
     }
 
     /* loaded from: classes7.dex */
-    public static final class f implements VideoPlayView.f {
+    public static final class f implements VideoPlayView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionPageFragment f57995a;
+        public final /* synthetic */ VideoAttentionPageFragment f58117a;
 
         public f(VideoAttentionPageFragment videoAttentionPageFragment) {
             Interceptable interceptable = $ic;
@@ -394,23 +394,23 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
                     return;
                 }
             }
-            this.f57995a = videoAttentionPageFragment;
+            this.f58117a = videoAttentionPageFragment;
         }
 
-        @Override // com.baidu.tieba.videoplay.VideoPlayView.f
+        @Override // com.baidu.tieba.videoplay.VideoPlayView.g
         public final void a() {
             VideoAttentionModel videoAttentionModel;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f57995a.v == 4 && this.f57995a.j() && this.f57995a.getPageContext() != null) {
-                TbPageContext<BaseFragmentActivity> pageContext = this.f57995a.getPageContext();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f58117a.v == 4 && this.f58117a.j() && this.f58117a.getPageContext() != null) {
+                TbPageContext<BaseFragmentActivity> pageContext = this.f58117a.getPageContext();
                 Intrinsics.checkExpressionValueIsNotNull(pageContext, "pageContext");
-                if (pageContext.getPageActivity() == null || (videoAttentionModel = this.f57995a.n) == null || videoAttentionModel.mHasMore != 0) {
+                if (pageContext.getPageActivity() == null || (videoAttentionModel = this.f58117a.n) == null || videoAttentionModel.mHasMore != 0) {
                     return;
                 }
-                TbPageContext<BaseFragmentActivity> pageContext2 = this.f57995a.getPageContext();
+                TbPageContext<BaseFragmentActivity> pageContext2 = this.f58117a.getPageContext();
                 Intrinsics.checkExpressionValueIsNotNull(pageContext2, "pageContext");
                 Activity pageActivity = pageContext2.getPageActivity();
-                TbPageContext<BaseFragmentActivity> pageContext3 = this.f57995a.getPageContext();
+                TbPageContext<BaseFragmentActivity> pageContext3 = this.f58117a.getPageContext();
                 Intrinsics.checkExpressionValueIsNotNull(pageContext3, "pageContext");
                 l.M(pageActivity, pageContext3.getPageActivity().getString(R.string.no_more_production));
             }
@@ -455,7 +455,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         this.t = kVar;
         this.u = i2;
         this.v = i3;
-        this.f57986g = new c.a.r0.z3.c.d();
+        this.f58108g = new c.a.r0.z3.c.d();
         this.o = new VideoPlayFragment.GoPbCommentFloatListener(new b(this));
         this.p = new d(this, 2921566, true);
         this.q = new f(this);
@@ -465,24 +465,24 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
     public final void b(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (view = this.f57984e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (view = this.f58106e) == null) {
             return;
         }
         if (view == null) {
             Intrinsics.throwNpe();
         }
         int paddingLeft = view.getPaddingLeft();
-        View view2 = this.f57984e;
+        View view2 = this.f58106e;
         if (view2 == null) {
             Intrinsics.throwNpe();
         }
         int paddingTop = view2.getPaddingTop();
-        View view3 = this.f57984e;
+        View view3 = this.f58106e;
         if (view3 == null) {
             Intrinsics.throwNpe();
         }
         int paddingRight = view3.getPaddingRight();
-        View view4 = this.f57984e;
+        View view4 = this.f58106e;
         if (view4 == null) {
             Intrinsics.throwNpe();
         }
@@ -498,35 +498,35 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
             Activity pageActivity = pageContext.getPageActivity();
             if (pageActivity != null) {
                 VideoPlayView videoPlayView = new VideoPlayView(bdUniqueId, (FragmentActivity) pageActivity, this, this.k, getUniqueId(), 0, this.v, false);
-                this.f57985f = videoPlayView;
+                this.f58107f = videoPlayView;
                 if (videoPlayView != null) {
                     videoPlayView.setSubFrom(VideoPlayView.FROM_ATTENTION_SUB_FRAGMENT);
                 }
-                VideoPlayView videoPlayView2 = this.f57985f;
+                VideoPlayView videoPlayView2 = this.f58107f;
                 if (videoPlayView2 != null) {
                     videoPlayView2.setProgressViewCallback(this.t);
                 }
-                VideoPlayView videoPlayView3 = this.f57985f;
+                VideoPlayView videoPlayView3 = this.f58107f;
                 if (videoPlayView3 != null) {
                     videoPlayView3.setBottomScrollMoreCallback(this.q);
                 }
-                VideoPlayView videoPlayView4 = this.f57985f;
+                VideoPlayView videoPlayView4 = this.f58107f;
                 if (videoPlayView4 != null) {
                     videoPlayView4.setOnLoadMoreListener(new e(this));
                 }
-                VideoPlayView videoPlayView5 = this.f57985f;
+                VideoPlayView videoPlayView5 = this.f58107f;
                 if (videoPlayView5 != null) {
-                    videoPlayView5.showData(this.f57986g, this.f57987h, this.f57988i);
+                    videoPlayView5.showData(this.f58108g, this.f58109h, this.f58110i);
                 }
-                VideoPlayView videoPlayView6 = this.f57985f;
+                VideoPlayView videoPlayView6 = this.f58107f;
                 if (videoPlayView6 != null) {
-                    videoPlayView6.setPageFrom(this.f57989j);
+                    videoPlayView6.setPageFrom(this.f58111j);
                 }
-                VideoPlayView videoPlayView7 = this.f57985f;
+                VideoPlayView videoPlayView7 = this.f58107f;
                 if (videoPlayView7 != null) {
                     videoPlayView7.setObjId(this.m);
                 }
-                VideoPlayView videoPlayView8 = this.f57985f;
+                VideoPlayView videoPlayView8 = this.f58107f;
                 if (videoPlayView8 != null) {
                     videoPlayView8.setVideoChannelPageType(this.u);
                     return;
@@ -549,7 +549,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            VideoItemData s = this.f57986g.s(this.f57987h);
+            VideoItemData s = this.f58108g.s(this.f58109h);
             if (s == null || TextUtils.isEmpty(s.thread_id)) {
                 return 0L;
             }
@@ -565,11 +565,11 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
             if (TbadkCoreApplication.isLogin()) {
                 return false;
             }
-            c.a.r0.z3.c.d dVar = this.f57986g;
+            c.a.r0.z3.c.d dVar = this.f58108g;
             if (dVar != null) {
                 dVar.A();
             }
-            VideoPlayView videoPlayView = this.f57985f;
+            VideoPlayView videoPlayView = this.f58107f;
             if (videoPlayView != null) {
                 videoPlayView.notifyDataSetChanged();
                 return true;
@@ -583,7 +583,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
     public void handleActivityResult(int i2, int i3, Intent intent) {
         VideoPlayView videoPlayView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, intent) == null) || (videoPlayView = this.f57985f) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, intent) == null) || (videoPlayView = this.f58107f) == null) {
             return;
         }
         videoPlayView.handleActivityResult(i2, i3, intent);
@@ -594,7 +594,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            VideoPlayView videoPlayView = this.f57985f;
+            VideoPlayView videoPlayView = this.f58107f;
             return videoPlayView != null && videoPlayView.handleBackPress();
         }
         return invokeV.booleanValue;
@@ -604,28 +604,28 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
     public void handleIndexMessage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            VideoPlayView videoPlayView = this.f57985f;
+            VideoPlayView videoPlayView = this.f58107f;
             if (videoPlayView == null) {
                 Intrinsics.throwNpe();
             }
             int i2 = videoPlayView.firstInIndex;
-            VideoPlayView videoPlayView2 = this.f57985f;
+            VideoPlayView videoPlayView2 = this.f58107f;
             if (videoPlayView2 == null) {
                 Intrinsics.throwNpe();
             }
             if (i2 != videoPlayView2.currentSelectIndex) {
-                VideoPlayView videoPlayView3 = this.f57985f;
+                VideoPlayView videoPlayView3 = this.f58107f;
                 if (videoPlayView3 == null) {
                     Intrinsics.throwNpe();
                 }
                 if (videoPlayView3.currentSelectIndex >= 0) {
-                    VideoPlayView videoPlayView4 = this.f57985f;
+                    VideoPlayView videoPlayView4 = this.f58107f;
                     if (videoPlayView4 == null) {
                         Intrinsics.throwNpe();
                     }
-                    if (videoPlayView4.currentSelectIndex < this.f57986g.k()) {
-                        c.a.r0.z3.c.d dVar = this.f57986g;
-                        VideoPlayView videoPlayView5 = this.f57985f;
+                    if (videoPlayView4.currentSelectIndex < this.f58108g.k()) {
+                        c.a.r0.z3.c.d dVar = this.f58108g;
+                        VideoPlayView videoPlayView5 = this.f58107f;
                         if (videoPlayView5 == null) {
                             Intrinsics.throwNpe();
                         }
@@ -653,7 +653,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             Bundle arguments = getArguments();
-            this.f57986g.y((ArrayList) (arguments != null ? arguments.getSerializable("video_list") : null));
+            this.f58108g.y((ArrayList) (arguments != null ? arguments.getSerializable("video_list") : null));
             if (getArguments() != null) {
                 Bundle arguments2 = getArguments();
                 if (arguments2 == null) {
@@ -663,11 +663,11 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
             } else {
                 i2 = 0;
             }
-            this.f57987h = i2;
+            this.f58109h = i2;
             Bundle arguments3 = getArguments();
-            this.f57988i = arguments3 != null ? (Rect) arguments3.getParcelable(VideoPlayActivityConfig.VIDEO_VIEW_RECT) : null;
+            this.f58110i = arguments3 != null ? (Rect) arguments3.getParcelable(VideoPlayActivityConfig.VIDEO_VIEW_RECT) : null;
             Bundle arguments4 = getArguments();
-            this.f57989j = arguments4 != null ? arguments4.getString("page_from") : null;
+            this.f58111j = arguments4 != null ? arguments4.getString("page_from") : null;
             Bundle arguments5 = getArguments();
             this.k = arguments5 != null ? arguments5.getString("from") : null;
             Bundle arguments6 = getArguments();
@@ -685,17 +685,17 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
                 }
                 arguments8.getBoolean("is_vertail", true);
             }
-            if (this.f57986g.v() && !ListUtils.isEmpty(VideoPlayActivityConfig.bigDataList)) {
-                this.f57986g.y(VideoPlayActivityConfig.bigDataList);
+            if (this.f58108g.v() && !ListUtils.isEmpty(VideoPlayActivityConfig.bigDataList)) {
+                this.f58108g.y(VideoPlayActivityConfig.bigDataList);
             }
-            this.f57986g.B(getUniqueId());
+            this.f58108g.B(getUniqueId());
             if (this.v != 4 && (!TbSingleton.getInstance().isFromFeedVideoClick() || this.v != 2)) {
-                this.f57986g.C("a023");
+                this.f58108g.C("a023");
             } else {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 Intrinsics.checkExpressionValueIsNotNull(inst, "TbadkCoreApplication.getInst()");
                 b(inst.getMainTabBottomBarHeight());
-                this.f57986g.C("a088");
+                this.f58108g.C("a088");
             }
             VideoAttentionModel videoAttentionModel2 = new VideoAttentionModel(getPageContext(), getUniqueId());
             this.n = videoAttentionModel2;
@@ -710,8 +710,8 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
             if (videoAttentionModel4 != null) {
                 videoAttentionModel4.I(new c(this));
             }
-            if (this.f57986g.s(0) != null) {
-                VideoItemData s = this.f57986g.s(0);
+            if (this.f58108g.s(0) != null) {
+                VideoItemData s = this.f58108g.s(0);
                 this.m = s != null ? s.thread_id : null;
             }
             VideoAttentionModel videoAttentionModel5 = this.n;
@@ -729,17 +729,17 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f57986g.j() == null) {
+            if (this.f58108g.j() == null) {
                 return false;
             }
-            if (this.f57986g.j().size() == 1) {
-                VideoItemModel videoItemModel = this.f57986g.j().get(0);
+            if (this.f58108g.j().size() == 1) {
+                VideoItemModel videoItemModel = this.f58108g.j().get(0);
                 Intrinsics.checkExpressionValueIsNotNull(videoItemModel, "dataController.dataList[0]");
                 VideoItemModel videoItemModel2 = videoItemModel;
                 if (videoItemModel2 != null && (videoItemModel2.getDataType() == 1 || videoItemModel2.getDataType() == 2)) {
                     return true;
                 }
-            } else if (this.f57986g.j().size() > 1) {
+            } else if (this.f58108g.j().size() > 1) {
                 return true;
             }
             return false;
@@ -773,11 +773,11 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            VideoPlayView videoPlayView = this.f57985f;
+            VideoPlayView videoPlayView = this.f58107f;
             if (videoPlayView != null) {
                 videoPlayView.onChangeSkinType(i2);
             }
-            SkinManager.setBackgroundColor(this.f57984e, R.color.CAM_X0611);
+            SkinManager.setBackgroundColor(this.f58106e, R.color.CAM_X0611);
         }
     }
 
@@ -789,7 +789,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
             registerListener(this.p);
             registerListener(this.r);
             View inflate = layoutInflater.inflate(R.layout.video_vertical_page_fragment, viewGroup, false);
-            this.f57984e = inflate;
+            this.f58106e = inflate;
             return inflate;
         }
         return (View) invokeLLL.objValue;
@@ -801,7 +801,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onDestroy();
             getLifecycle().removeObserver(this.o);
-            VideoPlayView videoPlayView = this.f57985f;
+            VideoPlayView videoPlayView = this.f58107f;
             if (videoPlayView != null) {
                 videoPlayView.onDestroy();
             }
@@ -826,7 +826,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onPause();
-            VideoPlayView videoPlayView = this.f57985f;
+            VideoPlayView videoPlayView = this.f58107f;
             if (videoPlayView != null) {
                 videoPlayView.onPause();
             }
@@ -849,7 +849,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 TiebaStatic.log(statisticItem);
             }
-            VideoPlayView videoPlayView = this.f57985f;
+            VideoPlayView videoPlayView = this.f58107f;
             if (videoPlayView != null) {
                 videoPlayView.setPrimary(isPrimary());
             }
@@ -873,7 +873,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements c.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             super.setUserVisibleHint(z);
-            VideoPlayView videoPlayView = this.f57985f;
+            VideoPlayView videoPlayView = this.f58107f;
             if (videoPlayView != null) {
                 videoPlayView.setCurrentFragmentUserHint(z);
             }

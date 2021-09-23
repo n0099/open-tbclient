@@ -18,7 +18,7 @@ public class a implements c.a.r0.w0.n1.e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.r0.w0.r2.b f27144a;
+    public c.a.r0.w0.r2.b f27164a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -77,9 +77,9 @@ public class a implements c.a.r0.w0.n1.e.a {
                 return null;
             }
             b bVar = new b(frsFragment, null, null, i2);
-            this.f27144a = bVar;
+            this.f27164a = bVar;
             bVar.L(frsFragment.getFrsAdapterItemClickListener());
-            return this.f27144a;
+            return this.f27164a;
         }
         return (c.a.r0.w0.r2.b) invokeLLI.objValue;
     }

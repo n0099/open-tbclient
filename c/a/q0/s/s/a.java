@@ -93,14 +93,14 @@ public class a {
 
     /* renamed from: c.a.q0.s.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0695a implements View.OnClickListener {
+    public class View$OnClickListenerC0693a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ a f14388e;
 
-        public View$OnClickListenerC0695a(a aVar) {
+        public View$OnClickListenerC0693a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -485,7 +485,7 @@ public class a {
             if (fVar instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) fVar;
                 tbPageContext.getLayoutMode().k(skinType == 1);
-                tbPageContext.getLayoutMode().f13760e = !isAutoNight();
+                tbPageContext.getLayoutMode().f13756e = !isAutoNight();
                 tbPageContext.getLayoutMode().j(this.mRootView);
                 if (this.mContentView != null) {
                     tbPageContext.getLayoutMode().j(this.mContentView);
@@ -607,7 +607,7 @@ public class a {
             this.noTipAgain = (TextView) inflate.findViewById(R.id.no_tip_again_text);
             this.noTipAgainCheckBox = (ImageView) inflate.findViewById(R.id.checkbox);
             setCheckBoxDrawable();
-            this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC0695a(this));
+            this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC0693a(this));
             return inflate;
         }
         return (View) invokeV.objValue;

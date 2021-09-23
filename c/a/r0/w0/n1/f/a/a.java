@@ -6,7 +6,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.e.e.p.j;
 import c.a.q0.b.d;
-import c.a.q0.d1.f0;
+import c.a.q0.d1.g0;
 import c.a.r0.j3.o0.e;
 import c.a.r0.w0.n2.k;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,36 +32,36 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f27246a;
+    public View f27266a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragment f27247b;
+    public BaseFragment f27267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f27248c;
+    public TextView f27268c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrsTabSortSwitchButton f27249d;
+    public FrsTabSortSwitchButton f27269d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27250e;
+    public int f27270e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27251f;
+    public String f27271f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsTabSortSwitchButton.e f27252g;
+    public FrsTabSortSwitchButton.e f27272g;
 
     /* renamed from: c.a.r0.w0.n1.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1278a implements FrsTabSortSwitchButton.e {
+    public class C1276a implements FrsTabSortSwitchButton.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27253a;
+        public final /* synthetic */ a f27273a;
 
-        public C1278a(a aVar) {
+        public C1276a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,11 +76,11 @@ public class a {
                     return;
                 }
             }
-            this.f27253a = aVar;
+            this.f27273a = aVar;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:25:0x0078, code lost:
-            if (((com.baidu.tieba.frs.commontab.FrsCommonTabFragment) r4.f27253a.f27247b).getMainView() != null) goto L18;
+            if (((com.baidu.tieba.frs.commontab.FrsCommonTabFragment) r4.f27273a.f27267b).getMainView() != null) goto L18;
          */
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.e
         /*
@@ -93,39 +93,39 @@ public class a {
                 boolean z = false;
                 if (!c.a.r0.w0.b.f().i() && !c.a.r0.w0.a.h().j()) {
                     if (!j.A()) {
-                        this.f27253a.f27247b.showToast(R.string.neterror);
+                        this.f27273a.f27267b.showToast(R.string.neterror);
                         return false;
                     }
-                    if (this.f27253a.f27247b instanceof FrsNewAreaFragment) {
-                        if (((FrsNewAreaFragment) this.f27253a.f27247b).getModelController() == null || ((FrsNewAreaFragment) this.f27253a.f27247b).getFrsView() == null) {
+                    if (this.f27273a.f27267b instanceof FrsNewAreaFragment) {
+                        if (((FrsNewAreaFragment) this.f27273a.f27267b).getModelController() == null || ((FrsNewAreaFragment) this.f27273a.f27267b).getFrsView() == null) {
                             return false;
                         }
-                    } else if (this.f27253a.f27247b instanceof FrsCommonTabFragment) {
-                        if (((FrsCommonTabFragment) this.f27253a.f27247b).getModelController() != null) {
+                    } else if (this.f27273a.f27267b instanceof FrsCommonTabFragment) {
+                        if (((FrsCommonTabFragment) this.f27273a.f27267b).getModelController() != null) {
                         }
                     }
                     z = true;
-                    if (this.f27253a.f27250e == i2) {
+                    if (this.f27273a.f27270e == i2) {
                         return true;
                     }
-                    this.f27253a.f27250e = i2;
-                    if (this.f27253a.f27250e != 7) {
-                        f0.c();
+                    this.f27273a.f27270e = i2;
+                    if (this.f27273a.f27270e != 7) {
+                        g0.c();
                         e.a();
                     } else {
                         e.b();
                     }
-                    if (this.f27253a.f27247b instanceof FrsNewAreaFragment) {
-                        ((FrsNewAreaFragment) this.f27253a.f27247b).getModelController().M(this.f27253a.f27249d.getSwitchMenuId(this.f27253a.f27250e));
+                    if (this.f27273a.f27267b instanceof FrsNewAreaFragment) {
+                        ((FrsNewAreaFragment) this.f27273a.f27267b).getModelController().M(this.f27273a.f27269d.getSwitchMenuId(this.f27273a.f27270e));
                         if (d.q()) {
-                            c.a.q0.b.g.a.f(this.f27253a.f27249d.getSwitchMenuId(this.f27253a.f27250e));
+                            c.a.q0.b.g.a.f(this.f27273a.f27269d.getSwitchMenuId(this.f27273a.f27270e));
                         }
-                        ((FrsNewAreaFragment) this.f27253a.f27247b).getFrsView().L();
+                        ((FrsNewAreaFragment) this.f27273a.f27267b).getFrsView().L();
                     } else {
-                        ((FrsCommonTabFragment) this.f27253a.f27247b).setSortType(k.d(this.f27253a.f27249d.getSwitchMenuId(this.f27253a.f27250e)));
-                        ((FrsCommonTabFragment) this.f27253a.f27247b).getMainView().w(true);
+                        ((FrsCommonTabFragment) this.f27273a.f27267b).setSortType(k.d(this.f27273a.f27269d.getSwitchMenuId(this.f27273a.f27270e)));
+                        ((FrsCommonTabFragment) this.f27273a.f27267b).getMainView().x(true);
                     }
-                    this.f27253a.f();
+                    this.f27273a.f();
                 }
                 return z;
             }
@@ -148,20 +148,20 @@ public class a {
                 return;
             }
         }
-        this.f27250e = -1;
-        this.f27252g = new C1278a(this);
+        this.f27270e = -1;
+        this.f27272g = new C1276a(this);
         if (baseFragment == null || relativeLayout == null) {
             return;
         }
-        this.f27247b = baseFragment;
+        this.f27267b = baseFragment;
         View inflate = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
-        this.f27246a = inflate;
+        this.f27266a = inflate;
         inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-        this.f27248c = (TextView) this.f27246a.findViewById(R.id.sort_tab_sort_name);
-        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.f27246a.findViewById(R.id.sort_tab_switch_btn);
-        this.f27249d = frsTabSortSwitchButton;
-        frsTabSortSwitchButton.setOnSwitchChangeListener(this.f27252g);
-        this.f27250e = this.f27249d.getState();
+        this.f27268c = (TextView) this.f27266a.findViewById(R.id.sort_tab_sort_name);
+        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.f27266a.findViewById(R.id.sort_tab_switch_btn);
+        this.f27269d = frsTabSortSwitchButton;
+        frsTabSortSwitchButton.setOnSwitchChangeListener(this.f27272g);
+        this.f27270e = this.f27269d.getState();
         h();
     }
 
@@ -169,36 +169,36 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             StatisticItem statisticItem = new StatisticItem("c11437");
-            statisticItem.param("obj_type", this.f27249d.getSwitchMenuId(this.f27250e));
-            statisticItem.param("fid", this.f27251f);
+            statisticItem.param("obj_type", this.f27269d.getSwitchMenuId(this.f27270e));
+            statisticItem.param("fid", this.f27271f);
             TiebaStatic.log(statisticItem);
         }
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f27249d == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f27269d == null) {
             return;
         }
-        this.f27249d.changeState(k.f(i2));
-        this.f27250e = this.f27249d.getState();
+        this.f27269d.changeState(k.f(i2));
+        this.f27270e = this.f27269d.getState();
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            FrsTabSortSwitchButton frsTabSortSwitchButton = this.f27249d;
+            FrsTabSortSwitchButton frsTabSortSwitchButton = this.f27269d;
             if (frsTabSortSwitchButton != null) {
                 frsTabSortSwitchButton.onChangeSkinType();
             }
-            SkinManager.setViewTextColor(this.f27248c, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f27268c, R.color.CAM_X0105);
         }
     }
 
     public void i(List<FrsTabInfo> list) {
         FrsTabSortSwitchButton frsTabSortSwitchButton;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (frsTabSortSwitchButton = this.f27249d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (frsTabSortSwitchButton = this.f27269d) == null) {
             return;
         }
         frsTabSortSwitchButton.setData(list);
@@ -207,7 +207,7 @@ public class a {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f27251f = str;
+            this.f27271f = str;
         }
     }
 }

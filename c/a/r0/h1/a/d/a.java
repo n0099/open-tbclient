@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a extends b.C0916b {
+public class a extends b.C0914b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,20 +34,20 @@ public class a extends b.C0916b {
         }
     }
 
-    @Override // c.a.r0.h1.a.b.C0916b, c.a.r0.h1.a.b.a
+    @Override // c.a.r0.h1.a.b.C0914b, c.a.r0.h1.a.b.a
     @TargetApi(11)
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18911a.isHardwareAccelerated() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18920a.isHardwareAccelerated() : invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.h1.a.b.C0916b, c.a.r0.h1.a.b.a
+    @Override // c.a.r0.h1.a.b.C0914b, c.a.r0.h1.a.b.a
     @TargetApi(14)
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f18911a.setScrollX(i2);
+            this.f18920a.setScrollX(i2);
         }
     }
 }

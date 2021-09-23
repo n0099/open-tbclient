@@ -32,7 +32,7 @@ public class b extends c.a.j0.a.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f3619a;
+        public final /* synthetic */ b f3620a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -49,14 +49,14 @@ public class b extends c.a.j0.a.d.a {
                     return;
                 }
             }
-            this.f3619a = bVar;
+            this.f3620a = bVar;
         }
 
         @Override // c.a.j0.a.e.a
         public void a(String str, View view, MaterialLoadErrorCode materialLoadErrorCode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view, materialLoadErrorCode) == null) {
-                this.f3619a.H("cache gif, load failed");
+                this.f3620a.H("cache gif, load failed");
             }
         }
 
@@ -64,8 +64,8 @@ public class b extends c.a.j0.a.d.a {
         public void onLoadingComplete(String str, View view, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view, bitmap) == null) {
-                b bVar = this.f3619a;
-                bVar.U(MaterialLoader.k(bVar.f3592e).l(str));
+                b bVar = this.f3620a;
+                bVar.U(MaterialLoader.k(bVar.f3593e).l(str));
             }
         }
 
@@ -113,7 +113,7 @@ public class b extends c.a.j0.a.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f3620e;
+        public final /* synthetic */ b f3621e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -130,14 +130,14 @@ public class b extends c.a.j0.a.d.a {
                     return;
                 }
             }
-            this.f3620e = bVar;
+            this.f3621e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f3620e.G();
+                this.f3621e.G();
             }
         }
     }
@@ -148,7 +148,7 @@ public class b extends c.a.j0.a.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f3621a;
+        public final /* synthetic */ b f3622a;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -165,14 +165,14 @@ public class b extends c.a.j0.a.d.a {
                     return;
                 }
             }
-            this.f3621a = bVar;
+            this.f3622a = bVar;
         }
 
         @Override // c.a.j0.a.f.e
         public void onAdPresent() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3621a.K();
+                this.f3622a.K();
             }
         }
     }
@@ -203,8 +203,8 @@ public class b extends c.a.j0.a.d.a {
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f3593f != 2) {
-                GifAnimView gifAnimView = new GifAnimView(this.f3592e, new C0083b(this));
+            if (this.f3594f != 2) {
+                GifAnimView gifAnimView = new GifAnimView(this.f3593e, new C0083b(this));
                 this.i0 = gifAnimView;
                 gifAnimView.setGifImage(this.c0);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
@@ -219,7 +219,7 @@ public class b extends c.a.j0.a.d.a {
                 super.C();
                 return;
             }
-            this.f3597j.a("XGifAdContainer: ad state is stopped, so can not show ad");
+            this.f3598j.a("XGifAdContainer: ad state is stopped, so can not show ad");
         }
     }
 
@@ -254,7 +254,7 @@ public class b extends c.a.j0.a.d.a {
             }
             try {
                 if (!this.m.c(this.y, MaterialLoader.MaterialCacheType.VIDEO)) {
-                    MaterialLoader.k(this.f3592e).f(this.y, new a(this));
+                    MaterialLoader.k(this.f3593e).f(this.y, new a(this));
                 } else {
                     U(this.m.b(this.y, MaterialLoader.MaterialCacheType.VIDEO));
                 }

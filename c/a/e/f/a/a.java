@@ -238,9 +238,9 @@ public abstract class a {
         } else {
             this.f2709f.set(0.0f, 0.0f, width, height);
         }
-        int length = this.k.f36298a.length;
+        int length = this.k.f36341a.length;
         for (int i2 = 0; i2 < length; i2++) {
-            float[] fArr = this.k.f36298a;
+            float[] fArr = this.k.f36341a;
             if (fArr[i2] > 0.0f && fArr[i2] < 1.0f) {
                 fArr[i2] = fArr[i2] * this.f2709f.height();
             }
@@ -369,13 +369,13 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.f2705b.setAlpha((int) (this.k.k * 255.0f));
-            if (C0041a.f2714a[this.k.f36303f.ordinal()] != 1) {
+            if (C0041a.f2714a[this.k.f36346f.ordinal()] != 1) {
                 this.f2705b.setColorFilter(null);
             } else {
                 this.f2705b.setColorFilter(p);
             }
-            this.f2706c.setColor(this.k.f36302e);
-            this.f2706c.setStrokeWidth(this.k.f36301d);
+            this.f2706c.setColor(this.k.f36345e);
+            this.f2706c.setStrokeWidth(this.k.f36344d);
         }
     }
 }

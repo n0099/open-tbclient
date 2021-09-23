@@ -14,10 +14,10 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f30759a;
+    public List<a> f30780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f30760b;
+    public int[] f30781b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e(List<a> list) {
@@ -55,30 +55,30 @@ public class e {
                 return;
             }
         }
-        this.f30759a = list;
+        this.f30780a = list;
         c(iArr);
     }
 
     public List<a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30759a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30780a : (List) invokeV.objValue;
     }
 
     public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30760b : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30781b : (int[]) invokeV.objValue;
     }
 
     public void c(int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
-            this.f30760b = iArr;
-            if (h.e(this.f30759a)) {
+            this.f30781b = iArr;
+            if (h.e(this.f30780a)) {
                 return;
             }
-            for (a aVar : this.f30759a) {
+            for (a aVar : this.f30780a) {
                 if (aVar.b() != null) {
                     aVar.b().mSoundTypes = iArr;
                 }

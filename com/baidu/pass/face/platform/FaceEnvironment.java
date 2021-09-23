@@ -44,6 +44,7 @@ public final class FaceEnvironment {
     public static final float VALUE_MAX_BRIGHTNESS = 200.0f;
     public static final int VALUE_MIN_FACE_SIZE = 200;
     public static final float VALUE_NOT_FACE_THRESHOLD = 0.6f;
+    public static final boolean VALUE_NO_BLACK_CROP = true;
     public static final float VALUE_OCCLUSION = 0.5f;
     public static final boolean VALUE_OPEN_MASK = true;
     public static final boolean VALUE_OPEN_ONLINE = true;

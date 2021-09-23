@@ -12,22 +12,22 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66403a;
+    public boolean f66714a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f66404b;
+    public boolean f66715b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f66405c;
+    public boolean f66716c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f66406d;
+    public boolean f66717d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f66407e;
+    public boolean f66718e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f66408f;
+    public boolean f66719f;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -42,19 +42,19 @@ public class e {
                 return;
             }
         }
-        this.f66403a = true;
-        this.f66404b = true;
-        this.f66405c = true;
-        this.f66406d = true;
-        this.f66407e = true;
-        this.f66408f = true;
+        this.f66714a = true;
+        this.f66715b = true;
+        this.f66716c = true;
+        this.f66717d = true;
+        this.f66718e = true;
+        this.f66719f = true;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ClickArea{clickUpperContentArea=" + this.f66403a + ", clickUpperNonContentArea=" + this.f66404b + ", clickLowerContentArea=" + this.f66405c + ", clickLowerNonContentArea=" + this.f66406d + ", clickButtonArea=" + this.f66407e + ", clickVideoArea=" + this.f66408f + ExtendedMessageFormat.END_FE;
+            return "ClickArea{clickUpperContentArea=" + this.f66714a + ", clickUpperNonContentArea=" + this.f66715b + ", clickLowerContentArea=" + this.f66716c + ", clickLowerNonContentArea=" + this.f66717d + ", clickButtonArea=" + this.f66718e + ", clickVideoArea=" + this.f66719f + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

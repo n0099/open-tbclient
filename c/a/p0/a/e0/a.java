@@ -16,7 +16,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5179a;
+    public static boolean f5187a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.e0.a$a  reason: collision with other inner class name */
@@ -26,7 +26,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f5180e;
+        public final /* synthetic */ c.a.p0.a.a2.e f5188e;
 
         public DialogInterface$OnClickListenerC0149a(c.a.p0.a.a2.e eVar) {
             Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class a {
                     return;
                 }
             }
-            this.f5180e = eVar;
+            this.f5188e = eVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                SwanAppActivity x = this.f5180e.x();
+                SwanAppActivity x = this.f5188e.x();
                 if (x != null && Build.VERSION.SDK_INT >= 21) {
                     x.finishAndRemoveTask();
                 }
@@ -62,13 +62,13 @@ public class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f5179a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f5187a : invokeV.booleanValue;
     }
 
     public static void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            f5179a = z;
+            f5187a = z;
         }
     }
 

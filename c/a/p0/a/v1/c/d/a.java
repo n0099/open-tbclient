@@ -16,7 +16,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9241a;
+    public static final boolean f9249a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,14 +32,14 @@ public class a {
                 return;
             }
         }
-        f9241a = k.f7077a;
+        f9249a = k.f7085a;
     }
 
     public static void a(Message message) {
         Bundle bundle;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
-            boolean z = f9241a;
+            boolean z = f9249a;
             int i2 = message.arg1;
             Bundle bundle2 = (Bundle) message.obj;
             String str = "";
@@ -78,7 +78,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
             Object obj = message.obj;
             if (!(obj instanceof Bundle)) {
-                if (f9241a) {
+                if (f9249a) {
                     throw new RuntimeException("delegation msg obj is not a bundle");
                 }
                 return;
@@ -95,7 +95,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
             Object obj = message.obj;
             if (!(obj instanceof Bundle)) {
-                if (f9241a) {
+                if (f9249a) {
                     throw new RuntimeException("delegation msg obj is not a bundle");
                 }
                 return;

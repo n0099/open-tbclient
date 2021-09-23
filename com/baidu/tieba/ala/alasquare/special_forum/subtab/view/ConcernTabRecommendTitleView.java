@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.r0.a0.b;
-import c.a.r0.v.d.g.c.g;
+import c.a.r0.v.f.g.c.g;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -108,7 +108,7 @@ public class ConcernTabRecommendTitleView extends b<g> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || (viewHolder = this.m) == null) {
             return;
         }
-        if (gVar.f25800e) {
+        if (gVar.f25823e) {
             viewHolder.devider.setVisibility(0);
         } else {
             viewHolder.devider.setVisibility(8);

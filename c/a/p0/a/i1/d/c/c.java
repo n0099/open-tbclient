@@ -11,16 +11,16 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6730a;
+    public static final boolean f6738a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f6731b;
+    public static float f6739b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f6732c;
+    public static float f6740c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f6733d;
+    public static boolean f6741d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,9 +36,9 @@ public class c {
                 return;
             }
         }
-        f6730a = k.f7077a;
-        f6731b = 2.5f;
-        f6732c = 100.0f;
-        f6733d = true;
+        f6738a = k.f7085a;
+        f6739b = 2.5f;
+        f6740c = 100.0f;
+        f6741d = true;
     }
 }

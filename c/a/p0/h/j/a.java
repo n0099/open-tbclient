@@ -18,13 +18,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11279a;
+    public static final boolean f11287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f11280b;
+    public static long f11288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f11281c;
+    public static String f11289c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,9 +40,9 @@ public class a {
                 return;
             }
         }
-        f11279a = k.f7077a;
-        f11280b = 86400000L;
-        f11281c = "duration_permission_list";
+        f11287a = k.f7085a;
+        f11288b = 86400000L;
+        f11289c = "duration_permission_list";
     }
 
     public static void a(JsObject jsObject) {
@@ -54,7 +54,7 @@ public class a {
             if (jsObject == null || i2 == null || !b(i2)) {
                 bVar = null;
             } else {
-                if (f11279a) {
+                if (f11287a) {
                     r0 = "params is " + jsObject.toString();
                 }
                 c.a.p0.a.y.b.a G = c.a.p0.a.y.b.a.G(jsObject);
@@ -79,7 +79,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) {
-            String string = h.a().getString(f11281c, "");
+            String string = h.a().getString(f11289c, "");
             if (!TextUtils.isEmpty(string)) {
                 try {
                     JSONArray jSONArray = new JSONArray(string);
@@ -89,7 +89,7 @@ public class a {
                         }
                     }
                 } catch (Exception e2) {
-                    if (f11279a) {
+                    if (f11287a) {
                         e2.printStackTrace();
                     }
                 }
@@ -121,7 +121,7 @@ public class a {
                 a2.putLong(V + "_Duration", j3 - j2);
             }
         } else {
-            a2.putLong(V + "_Duration", j3 % f11280b);
+            a2.putLong(V + "_Duration", j3 % f11288b);
         }
         a2.putLong(V + "_LastPause", System.currentTimeMillis());
     }

@@ -18,13 +18,13 @@ public class j implements c.a.r0.z1.g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24798a;
+    public String f24814a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24799b;
+    public String f24815b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, c.a.r0.z1.e> f24800c;
+    public HashMap<String, c.a.r0.z1.e> f24816c;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -37,7 +37,7 @@ public class j implements c.a.r0.z1.g {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c.a.r0.z1.g f24801a;
+        public static final c.a.r0.z1.g f24817a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public class j implements c.a.r0.z1.g {
                     return;
                 }
             }
-            f24801a = new j(null);
+            f24817a = new j(null);
         }
     }
 
@@ -64,14 +64,14 @@ public class j implements c.a.r0.z1.g {
     public static c.a.r0.z1.g m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f24801a : (c.a.r0.z1.g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f24817a : (c.a.r0.z1.g) invokeV.objValue;
     }
 
     @Override // c.a.r0.z1.g
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            n().c(this.f24798a, i2, str);
+            n().c(this.f24814a, i2, str);
         }
     }
 
@@ -79,7 +79,7 @@ public class j implements c.a.r0.z1.g {
     public void b(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            n().f(this.f24798a, i2, str);
+            n().f(this.f24814a, i2, str);
         }
     }
 
@@ -87,8 +87,8 @@ public class j implements c.a.r0.z1.g {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            n().k(this.f24798a);
-            q(this.f24798a);
+            n().k(this.f24814a);
+            q(this.f24814a);
         }
     }
 
@@ -96,32 +96,32 @@ public class j implements c.a.r0.z1.g {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f24799b = this.f24798a;
+            this.f24815b = this.f24814a;
         }
     }
 
     @Override // c.a.r0.z1.g
     public void e(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || StringUtils.isNull(this.f24799b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || StringUtils.isNull(this.f24815b)) {
             return;
         }
-        if (!o(this.f24799b) && !p(this.f24799b)) {
-            c.a.r0.z1.d.b(this.f24799b);
-            this.f24800c.remove(this.f24798a);
+        if (!o(this.f24815b) && !p(this.f24815b)) {
+            c.a.r0.z1.d.b(this.f24815b);
+            this.f24816c.remove(this.f24814a);
         } else {
-            q(this.f24799b);
+            q(this.f24815b);
         }
         g();
-        n().h(this.f24799b, str);
-        this.f24799b = null;
+        n().h(this.f24815b, str);
+        this.f24815b = null;
     }
 
     @Override // c.a.r0.z1.g
     public void f(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, str) == null) {
-            n().b(this.f24798a, i2, i3, str);
+            n().b(this.f24814a, i2, i3, str);
         }
     }
 
@@ -129,7 +129,7 @@ public class j implements c.a.r0.z1.g {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f24798a = UUID.randomUUID().toString();
+            this.f24814a = UUID.randomUUID().toString();
         }
     }
 
@@ -137,7 +137,7 @@ public class j implements c.a.r0.z1.g {
     public void h(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, str) == null) {
-            n().g(this.f24798a, i2, str);
+            n().g(this.f24814a, i2, str);
         }
     }
 
@@ -145,7 +145,7 @@ public class j implements c.a.r0.z1.g {
     public void i(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str) == null) {
-            n().l(this.f24798a, i2, str);
+            n().l(this.f24814a, i2, str);
         }
     }
 
@@ -153,7 +153,7 @@ public class j implements c.a.r0.z1.g {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            n().j(this.f24798a);
+            n().j(this.f24814a);
         }
     }
 
@@ -161,14 +161,14 @@ public class j implements c.a.r0.z1.g {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            n().i(this.f24798a, str);
-            if (!o(this.f24798a) && !p(this.f24798a)) {
-                c.a.r0.z1.d.b(this.f24798a);
-                this.f24800c.remove(this.f24798a);
+            n().i(this.f24814a, str);
+            if (!o(this.f24814a) && !p(this.f24814a)) {
+                c.a.r0.z1.d.b(this.f24814a);
+                this.f24816c.remove(this.f24814a);
             } else {
-                q(this.f24798a);
+                q(this.f24814a);
             }
-            this.f24798a = null;
+            this.f24814a = null;
         }
     }
 
@@ -176,8 +176,8 @@ public class j implements c.a.r0.z1.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            i iVar = new i(this.f24798a);
-            this.f24800c.put(this.f24798a, iVar);
+            i iVar = new i(this.f24814a);
+            this.f24816c.put(this.f24814a, iVar);
             return iVar;
         }
         return (c.a.r0.z1.e) invokeV.objValue;
@@ -187,7 +187,7 @@ public class j implements c.a.r0.z1.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            c.a.r0.z1.e eVar = this.f24800c.get(this.f24798a);
+            c.a.r0.z1.e eVar = this.f24816c.get(this.f24814a);
             return eVar == null ? l() : eVar;
         }
         return (c.a.r0.z1.e) invokeV.objValue;
@@ -208,11 +208,11 @@ public class j implements c.a.r0.z1.g {
     public void q(String str) {
         c.a.r0.z1.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || (eVar = this.f24800c.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || (eVar = this.f24816c.get(str)) == null) {
             return;
         }
         eVar.a(str);
-        this.f24800c.remove(str);
+        this.f24816c.remove(str);
     }
 
     public j() {
@@ -228,6 +228,6 @@ public class j implements c.a.r0.z1.g {
                 return;
             }
         }
-        this.f24800c = new HashMap<>();
+        this.f24816c = new HashMap<>();
     }
 }

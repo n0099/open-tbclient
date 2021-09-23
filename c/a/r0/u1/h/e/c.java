@@ -19,22 +19,22 @@ public class c implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Long f25355e;
+    public Long f25376e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25356f;
+    public String f25377f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f25357g;
+    public String f25378g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f25358h;
+    public List<String> f25379h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Double f25359i;
+    public Double f25380i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Integer f25360j;
+    public Integer f25381j;
 
     static {
         InterceptResult invokeClinit;
@@ -69,25 +69,25 @@ public class c implements n {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25357g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25378g : (String) invokeV.objValue;
     }
 
     public Long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25355e : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25376e : (Long) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25356f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25377f : (String) invokeV.objValue;
     }
 
     public Double g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25359i : (Double) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25380i : (Double) invokeV.objValue;
     }
 
     @Override // c.a.e.l.e.n
@@ -100,25 +100,25 @@ public class c implements n {
     public Integer h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f25360j : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f25381j : (Integer) invokeV.objValue;
     }
 
     public List<String> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f25358h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f25379h : (List) invokeV.objValue;
     }
 
     public void k(Item item) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, item) == null) {
-            this.f25355e = item.item_id;
-            this.f25356f = item.item_name;
+            this.f25376e = item.item_id;
+            this.f25377f = item.item_name;
             Double d2 = item.icon_size;
-            this.f25357g = item.icon_url;
-            this.f25358h = item.tags;
-            this.f25359i = item.score;
-            this.f25360j = item.star;
+            this.f25378g = item.icon_url;
+            this.f25379h = item.tags;
+            this.f25380i = item.score;
+            this.f25381j = item.star;
         }
     }
 }

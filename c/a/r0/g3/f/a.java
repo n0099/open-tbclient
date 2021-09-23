@@ -15,10 +15,10 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f18665a;
+    public String f18674a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f18666b;
+    public int f18675b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,19 +37,19 @@ public abstract class a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18666b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18675b : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18665a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18674a : (String) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18665a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18674a != null : invokeV.booleanValue;
     }
 
     public abstract void d(JSONObject jSONObject) throws Exception;
@@ -71,7 +71,7 @@ public abstract class a {
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
             try {
                 int optInt = jSONObject.optInt("error_code", 0);
-                this.f18666b = optInt;
+                this.f18675b = optInt;
                 if (optInt != 0) {
                     g(jSONObject.optString("error_msg", "网络不给力呀"));
                     return;
@@ -79,7 +79,7 @@ public abstract class a {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
                     int optInt2 = optJSONObject.optInt("errno", 0);
-                    this.f18666b = optInt2;
+                    this.f18675b = optInt2;
                     if (optInt2 != 0) {
                         g(optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG, "网络不给力呀"));
                         return;
@@ -100,7 +100,7 @@ public abstract class a {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f18665a = str;
+            this.f18674a = str;
         }
     }
 }

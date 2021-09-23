@@ -30,7 +30,7 @@ public class f extends c.a.r0.w0.k<d2, c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f27184a;
+        public final /* synthetic */ f f27204a;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class f extends c.a.r0.w0.k<d2, c> {
                     return;
                 }
             }
-            this.f27184a = fVar;
+            this.f27204a = fVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -90,7 +90,7 @@ public class f extends c.a.r0.w0.k<d2, c> {
         public ConstrainImageLayout d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f27184a.o.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f27204a.o.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
         }
 
         public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
@@ -106,7 +106,7 @@ public class f extends c.a.r0.w0.k<d2, c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f27185a;
+        public final /* synthetic */ f f27205a;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public class f extends c.a.r0.w0.k<d2, c> {
                     return;
                 }
             }
-            this.f27185a = fVar;
+            this.f27205a = fVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -168,7 +168,7 @@ public class f extends c.a.r0.w0.k<d2, c> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.f27185a.o.getPageActivity());
+                TbImageView tbImageView = new TbImageView(this.f27205a.o.getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
@@ -195,7 +195,7 @@ public class f extends c.a.r0.w0.k<d2, c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.r0.w0.n1.g.g f27186a;
+        public c.a.r0.w0.n1.g.g f27206a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(c.a.r0.w0.n1.g.g gVar) {
@@ -215,7 +215,7 @@ public class f extends c.a.r0.w0.k<d2, c> {
                     return;
                 }
             }
-            this.f27186a = gVar;
+            this.f27206a = gVar;
         }
     }
 
@@ -249,7 +249,7 @@ public class f extends c.a.r0.w0.k<d2, c> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            c.a.r0.w0.n1.g.g gVar = new c.a.r0.w0.n1.g.g(this.o, this.f2961i);
+            c.a.r0.w0.n1.g.g gVar = new c.a.r0.w0.n1.g.g(this.o, this.f2962i);
             gVar.z(this.o.getUniqueId());
             gVar.D(this.x);
             gVar.B(this.y);
@@ -267,10 +267,10 @@ public class f extends c.a.r0.w0.k<d2, c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, d2Var, cVar})) == null) {
             super.a0(i2, view, viewGroup, d2Var, cVar);
-            cVar.f27186a.l(this.o, this.r);
-            cVar.f27186a.k(d2Var);
+            cVar.f27206a.l(this.o, this.r);
+            cVar.f27206a.k(d2Var);
             if (d2Var != null) {
-                d2Var.N4();
+                d2Var.M4();
             }
             return cVar.getView();
         }

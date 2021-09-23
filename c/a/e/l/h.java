@@ -13,7 +13,7 @@ public abstract class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Interpolator f3070a;
+    public static final Interpolator f3071a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -60,7 +60,7 @@ public abstract class h {
                 return;
             }
         }
-        f3070a = new a();
+        f3071a = new a();
     }
 
     public static int a(float f2, float f3, boolean z) {
@@ -69,9 +69,9 @@ public abstract class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
             if (z) {
-                interpolation = f2 - (f3070a.getInterpolation(f3 / (f3 - f2)) * f2);
+                interpolation = f2 - (f3071a.getInterpolation(f3 / (f3 - f2)) * f2);
             } else {
-                interpolation = f2 * f3070a.getInterpolation(f3 / f2);
+                interpolation = f2 * f3071a.getInterpolation(f3 / f2);
             }
             return (int) interpolation;
         }

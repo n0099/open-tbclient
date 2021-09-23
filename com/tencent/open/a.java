@@ -24,7 +24,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, b> f76303a;
+    public HashMap<String, b> f76622a;
 
     /* loaded from: classes10.dex */
     public static class b {
@@ -54,11 +54,11 @@ public class a {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void call(String str, List<String> list, C2091a c2091a) {
+        public void call(String str, List<String> list, C2095a c2095a) {
             Method method;
             Object invoke;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, list, c2091a) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, list, c2095a) == null) {
                 Method[] declaredMethods = getClass().getDeclaredMethods();
                 int length = declaredMethods.length;
                 int i2 = 0;
@@ -74,8 +74,8 @@ public class a {
                     i2++;
                 }
                 if (method == null) {
-                    if (c2091a != null) {
-                        c2091a.a();
+                    if (c2095a != null) {
+                        c2095a.a();
                         return;
                     }
                     return;
@@ -90,15 +90,15 @@ public class a {
                     Class<?> returnType = method.getReturnType();
                     SLog.d("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                     if (!"void".equals(returnType.getName()) && returnType != Void.class) {
-                        if (c2091a == null || !customCallback()) {
+                        if (c2095a == null || !customCallback()) {
                             return;
                         }
-                        c2091a.a(invoke != null ? invoke.toString() : null);
+                        c2095a.a(invoke != null ? invoke.toString() : null);
                     }
                 } catch (Exception e2) {
                     SLog.e("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + method, e2);
-                    if (c2091a != null) {
-                        c2091a.a();
+                    if (c2095a != null) {
+                        c2095a.a();
                     }
                 }
             }
@@ -127,19 +127,19 @@ public class a {
                 return;
             }
         }
-        this.f76303a = new HashMap<>();
+        this.f76622a = new HashMap<>();
     }
 
     public void a(b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, str) == null) {
-            this.f76303a.put(str, bVar);
+            this.f76622a.put(str, bVar);
         }
     }
 
-    public void a(String str, String str2, List<String> list, C2091a c2091a) {
+    public void a(String str, String str2, List<String> list, C2095a c2095a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, list, c2091a) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, list, c2095a) == null) {
             SLog.v("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -149,35 +149,35 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            b bVar = this.f76303a.get(str);
+            b bVar = this.f76622a.get(str);
             if (bVar != null) {
                 SLog.d("openSDK_LOG.JsBridge", "call----");
-                bVar.call(str2, list, c2091a);
+                bVar.call(str2, list, c2095a);
                 return;
             }
             SLog.d("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-            if (c2091a != null) {
-                c2091a.a();
+            if (c2095a != null) {
+                c2095a.a();
             }
         }
     }
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C2091a {
+    public static class C2095a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<WebView> f76305a;
+        public WeakReference<WebView> f76624a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f76306b;
+        public long f76625b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f76307c;
+        public String f76626c;
 
-        public C2091a(WebView webView, long j2, String str) {
+        public C2095a(WebView webView, long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -192,16 +192,16 @@ public class a {
                     return;
                 }
             }
-            this.f76305a = new WeakReference<>(webView);
-            this.f76306b = j2;
-            this.f76307c = str;
+            this.f76624a = new WeakReference<>(webView);
+            this.f76625b = j2;
+            this.f76626c = str;
         }
 
         public void a(Object obj) {
             WebView webView;
             String obj2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (webView = this.f76305a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (webView = this.f76624a.get()) == null) {
                 return;
             }
             if (obj instanceof String) {
@@ -212,22 +212,22 @@ public class a {
             } else {
                 obj2 = obj.toString();
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f76306b + ",{'r':0,'result':" + obj2 + "});");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f76625b + ",{'r':0,'result':" + obj2 + "});");
         }
 
         public void a() {
             WebView webView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (webView = this.f76305a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (webView = this.f76624a.get()) == null) {
                 return;
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f76306b + ",{'r':1,'result':'no such method'})");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f76625b + ",{'r':1,'result':'no such method'})");
         }
 
         public void a(String str) {
             WebView webView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (webView = this.f76305a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (webView = this.f76624a.get()) == null) {
                 return;
             }
             webView.loadUrl("javascript:" + str);
@@ -245,9 +245,9 @@ public class a {
                     return false;
                 }
                 List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-                C2091a c2091a = new C2091a(webView, 4L, str);
+                C2095a c2095a = new C2095a(webView, 4L, str);
                 webView.getUrl();
-                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c2091a);
+                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c2095a);
                 return true;
             }
             return false;

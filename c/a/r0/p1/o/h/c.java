@@ -22,7 +22,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f23546a;
+    public String f23562a;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<String, Void, Void> {
@@ -30,7 +30,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f23547a;
+        public final /* synthetic */ c f23563a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class c {
                     return;
                 }
             }
-            this.f23547a = cVar;
+            this.f23563a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,12 +56,12 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                HashMap c2 = this.f23547a.c();
+                HashMap c2 = this.f23563a.c();
                 e eVar = new e();
-                eVar.b().s(this.f23547a.f23546a);
+                eVar.b().s(this.f23563a.f23562a);
                 eVar.b().q(HttpMessageTask.HTTP_METHOD.GET);
                 if (c2 != null && !c2.isEmpty()) {
-                    eVar.b().p(this.f23547a.c());
+                    eVar.b().p(this.f23563a.c());
                 }
                 new c.a.e.e.j.a.c(eVar).n(1, 0, 0);
                 eVar.c();
@@ -86,7 +86,7 @@ public class c {
                 return;
             }
         }
-        this.f23546a = str;
+        this.f23562a = str;
     }
 
     public static b e(AdvertAppInfo advertAppInfo) {
@@ -94,7 +94,7 @@ public class c {
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.e4) == null || !(iLegoAdvert instanceof b)) {
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.f4) == null || !(iLegoAdvert instanceof b)) {
                 return null;
             }
             return (b) iLegoAdvert;
@@ -115,8 +115,8 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bVar) == null) || bVar == null || bVar.getParallelCharge() == null) {
             return;
         }
-        f(bVar.getParallelCharge().f23543b);
-        Iterator<String> it = bVar.getParallelCharge().f23544c.iterator();
+        f(bVar.getParallelCharge().f23559b);
+        Iterator<String> it = bVar.getParallelCharge().f23560c.iterator();
         while (it.hasNext()) {
             f(it.next());
         }
@@ -129,10 +129,10 @@ public class c {
             if (bVar == null || bVar.getParallelCharge() == null) {
                 return false;
             }
-            String str = bVar.getParallelCharge().f23542a;
+            String str = bVar.getParallelCharge().f23558a;
             f(str);
             boolean z = !TextUtils.isEmpty(str);
-            Iterator<String> it = bVar.getParallelCharge().f23545d.iterator();
+            Iterator<String> it = bVar.getParallelCharge().f23561d.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 z = z || !TextUtils.isEmpty(next);
@@ -149,7 +149,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
             if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-                cookie = c.a.q0.m.a.f13562a;
+                cookie = c.a.q0.m.a.f13558a;
             }
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("Cookie", cookie);

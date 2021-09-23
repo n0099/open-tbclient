@@ -91,7 +91,7 @@ public final class ShareUtils {
                                 str2 = null;
                                 if (TextUtils.isEmpty(str2)) {
                                 }
-                                bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f42280a).getFileDescriptor()));
+                                bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f42342a).getFileDescriptor()));
                                 file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str + str2);
                                 if (file.exists()) {
                                 }
@@ -172,7 +172,7 @@ public final class ShareUtils {
                 sb.append(i2 == 0 ? "_sdk_temp.mp4" : "_sdk_temp.jpg");
                 str2 = sb.toString();
             }
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f42280a).getFileDescriptor()));
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(context.getContentResolver().openFileDescriptor(uri, r.f42342a).getFileDescriptor()));
         } catch (Exception e5) {
             e = e5;
             bufferedInputStream = null;

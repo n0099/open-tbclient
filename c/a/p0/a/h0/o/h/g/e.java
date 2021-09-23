@@ -66,7 +66,7 @@ public final class e {
                         e = e2;
                         httpURLConnection2 = httpURLConnection;
                         str2 = null;
-                        if (c.a.p0.a.h0.o.h.e.a.f6322a) {
+                        if (c.a.p0.a.h0.o.h.e.a.f6330a) {
                             Log.getStackTraceString(e);
                         }
                         str3 = str2;
@@ -93,7 +93,7 @@ public final class e {
                 httpURLConnection2 = httpURLConnection;
                 str2 = responseMessage;
                 e = e4;
-                if (c.a.p0.a.h0.o.h.e.a.f6322a) {
+                if (c.a.p0.a.h0.o.h.e.a.f6330a) {
                 }
                 str3 = str2;
                 inputStream = null;

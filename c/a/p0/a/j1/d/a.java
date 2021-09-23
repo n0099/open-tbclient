@@ -14,22 +14,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6959a;
+    public String f6967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6960b;
+    public String f6968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6961c;
+    public String f6969c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6962d;
+    public String f6970d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f6963e;
+    public String f6971e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6964f;
+    public String f6972f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public class a {
                 return null;
             }
             a aVar = new a();
-            aVar.f6959a = optJSONObject2.optString(ContentUtil.RESULT_KEY_AK);
-            aVar.f6960b = optJSONObject2.optString(ContentUtil.RESULT_KEY_SK);
-            aVar.f6961c = optJSONObject2.optString("token");
-            aVar.f6962d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
+            aVar.f6967a = optJSONObject2.optString(ContentUtil.RESULT_KEY_AK);
+            aVar.f6968b = optJSONObject2.optString(ContentUtil.RESULT_KEY_SK);
+            aVar.f6969c = optJSONObject2.optString("token");
+            aVar.f6970d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
             if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
-                aVar.f6964f = optJSONObject.optString("bosobject");
-                aVar.f6963e = optJSONObject.optString("bosurl");
+                aVar.f6972f = optJSONObject.optString("bosobject");
+                aVar.f6971e = optJSONObject.optString("bosurl");
             }
             return aVar;
         }

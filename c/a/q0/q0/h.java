@@ -18,31 +18,31 @@ public class h extends g {
     public HashMap<String, String> E;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13688b;
+    public boolean f13684b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f13689c;
+    public long f13685c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f13690d;
+    public long f13686d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f13691e;
+    public long f13687e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f13692f;
+    public long f13688f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f13693g;
+    public long f13689g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f13694h;
+    public long f13690h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f13695i;
+    public long f13691i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f13696j;
+    public long f13692j;
     public long k;
     public long l;
     public long m;
@@ -73,8 +73,8 @@ public class h extends g {
                 return;
             }
         }
-        this.f13695i = 0L;
-        this.f13696j = 0L;
+        this.f13691i = 0L;
+        this.f13692j = 0L;
         this.n = 0L;
         this.p = 0L;
         this.q = 0L;
@@ -96,7 +96,7 @@ public class h extends g {
     public void c() {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mVar = (m) k.d().e(this.f13687a)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mVar = (m) k.d().e(this.f13683a)) == null) {
             return;
         }
         mVar.b(this);
@@ -105,7 +105,7 @@ public class h extends g {
     public void d(int i2) {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (mVar = (m) k.d().e(this.f13687a)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (mVar = (m) k.d().e(this.f13683a)) == null) {
             return;
         }
         mVar.c(this, i2);
@@ -114,7 +114,7 @@ public class h extends g {
     public void e(boolean z) {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (mVar = (m) k.d().e(this.f13687a)) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (mVar = (m) k.d().e(this.f13683a)) == null) {
             return;
         }
         mVar.d(this, z);
@@ -135,8 +135,8 @@ public class h extends g {
                 return;
             }
         }
-        this.f13695i = 0L;
-        this.f13696j = 0L;
+        this.f13691i = 0L;
+        this.f13692j = 0L;
         this.n = 0L;
         this.p = 0L;
         this.q = 0L;
@@ -148,7 +148,7 @@ public class h extends g {
         if (responsedMessage == null) {
             return;
         }
-        this.f13687a = i2;
+        this.f13683a = i2;
         this.s = z;
         if (z) {
             this.r = responsedMessage.getDownSize();
@@ -163,18 +163,18 @@ public class h extends g {
             this.q = responsedMessage.getDownSize();
             this.z = responsedMessage.getOrginalMessage().getSquencedId();
         }
-        this.f13689c = j2;
-        this.f13690d = j5;
-        this.f13691e = j3;
+        this.f13685c = j2;
+        this.f13686d = j5;
+        this.f13687e = j3;
         this.o = j4;
         this.m = j6;
-        this.f13688b = !responsedMessage.hasError();
+        this.f13684b = !responsedMessage.hasError();
         c.a.e.c.i.a aVar2 = responsedMessage.performanceData;
-        this.f13692f = aVar2.f2078a;
-        this.f13693g = aVar2.f2079b;
-        this.f13694h = aVar2.f2080c;
-        this.f13695i = aVar2.f2081d;
-        this.f13696j = aVar2.f2082e;
+        this.f13688f = aVar2.f2078a;
+        this.f13689g = aVar2.f2079b;
+        this.f13690h = aVar2.f2080c;
+        this.f13691i = aVar2.f2081d;
+        this.f13692j = aVar2.f2082e;
         this.k = aVar2.f2083f;
         this.l = aVar2.f2084g;
         long j8 = aVar2.f2085h;

@@ -38,7 +38,7 @@ public class j extends c.a.e.l.e.a<c.a.r0.a0.d0.l, ThreadCardViewHolder<c.a.r0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ j f17853b;
+        public final /* synthetic */ j f17862b;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class j extends c.a.e.l.e.a<c.a.r0.a0.d0.l, ThreadCardViewHolder<c.a.r0.a
                     return;
                 }
             }
-            this.f17853b = jVar;
+            this.f17862b = jVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,7 +64,7 @@ public class j extends c.a.e.l.e.a<c.a.r0.a0.d0.l, ThreadCardViewHolder<c.a.r0.a
         public void a(View view, c.a.r0.a0.d0.l lVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, lVar) == null) {
-                BdToast.i(this.f17853b.o.getContext(), this.f17853b.o.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
+                BdToast.i(this.f17862b.o.getContext(), this.f17862b.o.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
             }
         }
     }
@@ -75,7 +75,7 @@ public class j extends c.a.e.l.e.a<c.a.r0.a0.d0.l, ThreadCardViewHolder<c.a.r0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f17854e;
+        public final /* synthetic */ j f17863e;
 
         public b(j jVar) {
             Interceptable interceptable = $ic;
@@ -92,14 +92,14 @@ public class j extends c.a.e.l.e.a<c.a.r0.a0.d0.l, ThreadCardViewHolder<c.a.r0.a
                     return;
                 }
             }
-            this.f17854e = jVar;
+            this.f17863e = jVar;
         }
 
         @Override // c.a.e.l.e.w
         public void b(View view, c.a.e.l.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                BdToast.i(this.f17854e.o.getContext(), this.f17854e.o.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
+                BdToast.i(this.f17863e.o.getContext(), this.f17863e.o.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
             }
         }
     }

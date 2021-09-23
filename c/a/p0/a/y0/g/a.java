@@ -59,21 +59,21 @@ public class a extends c.a.p0.a.y0.b<c.a.p0.a.y0.g.h.a> {
             }
         }
         e();
-        this.f9716a.a(new c.a.p0.a.y0.g.f.a.d());
-        this.f9716a.a(new c.a.p0.a.y0.g.f.a.e());
-        this.f9716a.a(new f());
-        this.f9716a.a(new g());
-        this.f9716a.a(new h());
-        this.f9716a.a(new c.a.p0.a.y0.g.f.a.a());
-        this.f9716a.a(new i());
-        this.f9716a.a(new c.a.p0.a.y0.g.f.a.b());
-        this.f9716a.a(new c.a.p0.a.y0.g.f.a.c());
+        this.f9724a.a(new c.a.p0.a.y0.g.f.a.d());
+        this.f9724a.a(new c.a.p0.a.y0.g.f.a.e());
+        this.f9724a.a(new f());
+        this.f9724a.a(new g());
+        this.f9724a.a(new h());
+        this.f9724a.a(new c.a.p0.a.y0.g.f.a.a());
+        this.f9724a.a(new i());
+        this.f9724a.a(new c.a.p0.a.y0.g.f.a.b());
+        this.f9724a.a(new c.a.p0.a.y0.g.f.a.c());
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ((c.a.p0.a.y0.g.h.a) this.f9718c).o(new C0464a(this));
+            ((c.a.p0.a.y0.g.h.a) this.f9726c).o(new C0464a(this));
         }
     }
 
@@ -82,11 +82,11 @@ public class a extends c.a.p0.a.y0.b<c.a.p0.a.y0.g.h.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
             String str = command == null ? "" : command.what;
-            if (((c.a.p0.a.y0.g.h.a) this.f9718c).q()) {
+            if (((c.a.p0.a.y0.g.h.a) this.f9726c).q()) {
                 c.a.p0.a.e0.d.g("InlineRtcItemController", "isReleased command：" + str);
                 return;
             }
-            c.a.p0.a.e0.d.g("InlineRtcItemController", "authorize type：" + ((c.a.p0.a.y0.g.h.a) this.f9718c).a() + " command：" + str);
+            c.a.p0.a.e0.d.g("InlineRtcItemController", "authorize type：" + ((c.a.p0.a.y0.g.h.a) this.f9726c).a() + " command：" + str);
             super.sendCommand(command);
         }
     }

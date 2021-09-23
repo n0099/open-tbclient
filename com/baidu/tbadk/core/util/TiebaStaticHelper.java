@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.s.a.a;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -128,7 +127,7 @@ public class TiebaStaticHelper {
     public static void addYYParam(StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, statisticItem) == null) && TbSingleton.getInstance().isYYSwitchStatusIsOn()) {
-            statisticItem.param("hdid", a.a(TbadkCoreApplication.getInst().getContext()));
+            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
         }
     }
 }

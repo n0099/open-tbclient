@@ -22,19 +22,19 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f15981a;
+    public BdUniqueId f15991a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f15982b;
+    public int f15992b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f15983c;
+    public d f15993c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f15984d;
+    public b f15994d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.e.c.g.a f15985e;
+    public c.a.e.c.g.a f15995e;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -42,7 +42,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f15986a;
+        public final /* synthetic */ c f15996a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2, int i3) {
@@ -63,7 +63,7 @@ public class c {
                     return;
                 }
             }
-            this.f15986a = cVar;
+            this.f15996a = cVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -73,31 +73,31 @@ public class c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.f15986a.f15981a) {
+            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.f15996a.f15991a) {
                 if (responsedMessage instanceof ForbiddenForumHttpResMsg) {
                     pageData = ((ForbiddenForumHttpResMsg) responsedMessage).getPageData();
                 } else {
                     pageData = responsedMessage instanceof ForbiddenForumSocketResMsg ? ((ForbiddenForumSocketResMsg) responsedMessage).getPageData() : null;
                 }
                 if (responsedMessage.getError() == 0) {
-                    if (this.f15986a.f15982b == 1 && (pageData == null || ListUtils.isEmpty(pageData.f15987a))) {
-                        if (this.f15986a.f15984d != null) {
-                            this.f15986a.f15984d.a(null);
+                    if (this.f15996a.f15992b == 1 && (pageData == null || ListUtils.isEmpty(pageData.f15997a))) {
+                        if (this.f15996a.f15994d != null) {
+                            this.f15996a.f15994d.a(null);
                         }
                     } else if (pageData != null) {
-                        this.f15986a.f15983c.f15987a.addAll(pageData.f15987a);
-                        if (ListUtils.isEmpty(pageData.f15987a)) {
-                            this.f15986a.f15983c.f15988b = false;
+                        this.f15996a.f15993c.f15997a.addAll(pageData.f15997a);
+                        if (ListUtils.isEmpty(pageData.f15997a)) {
+                            this.f15996a.f15993c.f15998b = false;
                         } else {
-                            this.f15986a.f15983c.f15988b = pageData.f15988b;
-                            c.c(this.f15986a);
+                            this.f15996a.f15993c.f15998b = pageData.f15998b;
+                            c.c(this.f15996a);
                         }
-                        if (this.f15986a.f15984d != null) {
-                            this.f15986a.f15984d.a(pageData);
+                        if (this.f15996a.f15994d != null) {
+                            this.f15996a.f15994d.a(pageData);
                         }
                     }
-                } else if (this.f15986a.f15984d != null) {
-                    this.f15986a.f15984d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                } else if (this.f15996a.f15994d != null) {
+                    this.f15996a.f15994d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
         }
@@ -125,20 +125,20 @@ public class c {
                 return;
             }
         }
-        this.f15982b = 1;
+        this.f15992b = 1;
         a aVar = new a(this, CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, 309692);
-        this.f15985e = aVar;
-        this.f15981a = bdUniqueId;
+        this.f15995e = aVar;
+        this.f15991a = bdUniqueId;
         aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f15985e);
+        MessageManager.getInstance().registerListener(this.f15995e);
         i();
         h();
-        this.f15983c = new d();
+        this.f15993c = new d();
     }
 
     public static /* synthetic */ int c(c cVar) {
-        int i2 = cVar.f15982b;
-        cVar.f15982b = i2 + 1;
+        int i2 = cVar.f15992b;
+        cVar.f15992b = i2 + 1;
         return i2;
     }
 
@@ -146,12 +146,12 @@ public class c {
         d dVar;
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (dVar = this.f15983c) == null || ListUtils.isEmpty(dVar.f15987a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (dVar = this.f15993c) == null || ListUtils.isEmpty(dVar.f15997a)) {
             return;
         }
-        for (c.a.r0.b3.a.b bVar : this.f15983c.f15987a) {
-            if (bVar != null && (str2 = bVar.f15980c) != null && str2.equals(str)) {
-                this.f15983c.f15987a.remove(bVar);
+        for (c.a.r0.b3.a.b bVar : this.f15993c.f15997a) {
+            if (bVar != null && (str2 = bVar.f15990c) != null && str2.equals(str)) {
+                this.f15993c.f15997a.remove(bVar);
                 return;
             }
         }
@@ -160,13 +160,13 @@ public class c {
     public d g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15983c : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15993c : (d) invokeV.objValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, c.a.r0.j3.d0.a.a(TbConfig.URL_GET_FORBIDDEN_FORUM, 309692));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, c.a.r0.j3.e0.a.a(TbConfig.URL_GET_FORBIDDEN_FORUM, 309692));
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setResponsedClass(ForbiddenForumHttpResMsg.class);
             tbHttpMessageTask.setPriority(4);
@@ -190,8 +190,8 @@ public class c {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             ForbiddenForumReqMsg forbiddenForumReqMsg = new ForbiddenForumReqMsg();
             forbiddenForumReqMsg.pageSize = 20;
-            forbiddenForumReqMsg.pageNum = this.f15982b;
-            forbiddenForumReqMsg.setTag(this.f15981a);
+            forbiddenForumReqMsg.pageNum = this.f15992b;
+            forbiddenForumReqMsg.setTag(this.f15991a);
             MessageManager.getInstance().sendMessage(forbiddenForumReqMsg);
         }
     }
@@ -199,7 +199,7 @@ public class c {
     public void k(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f15984d = bVar;
+            this.f15994d = bVar;
         }
     }
 }

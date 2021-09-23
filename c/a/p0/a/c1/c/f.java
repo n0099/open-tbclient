@@ -44,10 +44,10 @@ public class f implements c.a.p0.n.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f4753e;
+        public final /* synthetic */ Set f4761e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.n.j.i.j f4754f;
+        public final /* synthetic */ c.a.p0.n.j.i.j f4762f;
 
         /* renamed from: c.a.p0.a.c1.c.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -56,10 +56,10 @@ public class f implements c.a.p0.n.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ AtomicInteger f4755a;
+            public final /* synthetic */ AtomicInteger f4763a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f4756b;
+            public final /* synthetic */ a f4764b;
 
             public C0131a(a aVar, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
@@ -76,15 +76,15 @@ public class f implements c.a.p0.n.a {
                         return;
                     }
                 }
-                this.f4756b = aVar;
-                this.f4755a = atomicInteger;
+                this.f4764b = aVar;
+                this.f4763a = atomicInteger;
             }
 
             @Override // c.a.p0.a.h0.m.a
             public void d() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f4755a.get() == 0) {
-                    c.a.p0.n.j.i.k.a().c(this.f4756b.f4754f);
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f4763a.get() == 0) {
+                    c.a.p0.n.j.i.k.a().c(this.f4764b.f4762f);
                 }
             }
 
@@ -94,18 +94,18 @@ public class f implements c.a.p0.n.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                     super.e(aVar);
-                    if (aVar == null || (i2 = aVar.f11875a) == 1010 || i2 == 1015) {
+                    if (aVar == null || (i2 = aVar.f11883a) == 1010 || i2 == 1015) {
                         return;
                     }
-                    this.f4755a.incrementAndGet();
+                    this.f4763a.incrementAndGet();
                 }
             }
 
             @Override // c.a.p0.a.h0.m.a
             public void g() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f4755a.get() == 0) {
-                    c.a.p0.n.j.i.k.a().c(this.f4756b.f4754f);
+                if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f4763a.get() == 0) {
+                    c.a.p0.n.j.i.k.a().c(this.f4764b.f4762f);
                 }
             }
         }
@@ -125,8 +125,8 @@ public class f implements c.a.p0.n.a {
                     return;
                 }
             }
-            this.f4753e = set;
-            this.f4754f = jVar;
+            this.f4761e = set;
+            this.f4762f = jVar;
         }
 
         @Override // java.lang.Runnable
@@ -135,7 +135,7 @@ public class f implements c.a.p0.n.a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ArrayList arrayList = new ArrayList();
                 AtomicInteger atomicInteger = new AtomicInteger(0);
-                for (String str : this.f4753e) {
+                for (String str : this.f4761e) {
                     if (!TextUtils.isEmpty(str)) {
                         arrayList.add(new b.a(str, 0));
                     }
@@ -154,10 +154,10 @@ public class f implements c.a.p0.n.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.k2.g.b f4757e;
+        public final /* synthetic */ c.a.p0.a.k2.g.b f4765e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f4758f;
+        public final /* synthetic */ JSONObject f4766f;
 
         public b(f fVar, c.a.p0.a.k2.g.b bVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -174,15 +174,15 @@ public class f implements c.a.p0.n.a {
                     return;
                 }
             }
-            this.f4757e = bVar;
-            this.f4758f = jSONObject;
+            this.f4765e = bVar;
+            this.f4766f = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.n1.q.a.g().q(this.f4757e, this.f4758f);
+                c.a.p0.a.n1.q.a.g().q(this.f4765e, this.f4766f);
             }
         }
     }
@@ -193,7 +193,7 @@ public class f implements c.a.p0.n.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.n.h.h f4759a;
+        public final /* synthetic */ c.a.p0.n.h.h f4767a;
 
         public c(f fVar, c.a.p0.n.h.h hVar) {
             Interceptable interceptable = $ic;
@@ -210,7 +210,7 @@ public class f implements c.a.p0.n.a {
                     return;
                 }
             }
-            this.f4759a = hVar;
+            this.f4767a = hVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -220,7 +220,7 @@ public class f implements c.a.p0.n.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
                 c.a.p0.a.t1.d.a.a("download plugin result = " + bool);
-                c.a.p0.a.t1.e.a.b(this.f4759a.f11885g);
+                c.a.p0.a.t1.e.a.b(this.f4767a.f11893g);
             }
         }
     }
@@ -401,7 +401,7 @@ public class f implements c.a.p0.n.a {
     public boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? c.a.p0.a.k.f7077a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? c.a.p0.a.k.f7085a : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.n.a
@@ -488,18 +488,18 @@ public class f implements c.a.p0.n.a {
     public void s(c.a.p0.n.j.k.a aVar, c.a.p0.n.o.f fVar) {
         Collection<c.a.p0.n.h.h> collection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048604, this, aVar, fVar) == null) || aVar == null || (collection = aVar.f12052e) == null || fVar == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048604, this, aVar, fVar) == null) || aVar == null || (collection = aVar.f12060e) == null || fVar == null) {
             return;
         }
         for (c.a.p0.n.h.h hVar : collection) {
-            c.a.p0.a.t1.a.a aVar2 = new c.a.p0.a.t1.a.a(hVar.f11885g, hVar.f11888j, hVar.f11887i, new c(this, hVar));
+            c.a.p0.a.t1.a.a aVar2 = new c.a.p0.a.t1.a.a(hVar.f11893g, hVar.f11896j, hVar.f11895i, new c(this, hVar));
             c.a.p0.n.j.k.a aVar3 = new c.a.p0.n.j.k.a();
-            aVar3.f12052e = new ArrayList();
+            aVar3.f12060e = new ArrayList();
             c.a.p0.n.o.f fVar2 = new c.a.p0.n.o.f();
             c.a.p0.n.j.k.b.b(hVar, fVar2);
             aVar2.F(fVar2);
-            aVar3.f12052e.clear();
-            aVar3.f12052e.add(hVar);
+            aVar3.f12060e.clear();
+            aVar3.f12060e.add(hVar);
             c.a.p0.n.i.i.a.e(aVar3, aVar2);
         }
     }

@@ -26,19 +26,19 @@ public class b<T> extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10361d;
+    public String f10369d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10362e;
+    public String f10370e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ResponseCallback<T> f10363f;
+    public ResponseCallback<T> f10371f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f10364g;
+    public int f10372g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.C0618a f10365h;
+    public a.C0618a f10373h;
 
     /* loaded from: classes.dex */
     public class a extends ResponseCallback<String> {
@@ -46,10 +46,10 @@ public class b<T> extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public T f10366a;
+        public T f10374a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f10367b;
+        public final /* synthetic */ b f10375b;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class b<T> extends c {
                     return;
                 }
             }
-            this.f10367b = bVar;
+            this.f10375b = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,38 +75,38 @@ public class b<T> extends c {
         public void onSuccess(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                if (c.a.p0.c.a.a.f10311a) {
+                if (c.a.p0.c.a.a.f10319a) {
                     r0 = "BdtlsPostRequest onSuccess=" + str;
                 }
                 if (TextUtils.equals(str, "recovery")) {
                     if (!g.l().m().b()) {
-                        this.f10367b.f10363f.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                        this.f10375b.f10371f.onFail(new Exception("Exceeded the limit of continuous downgrade"));
                         return;
                     }
                     g.l().m().a();
-                    this.f10367b.i(true);
-                    this.f10367b.p();
+                    this.f10375b.i(true);
+                    this.f10375b.p();
                     return;
                 }
                 g.l().m().k();
-                b bVar = this.f10367b;
-                if (!bVar.f10368a) {
-                    if (bVar.f10363f != null) {
-                        this.f10367b.f10363f.onSuccess(this.f10366a, i2);
-                        this.f10367b.f10364g = 0;
+                b bVar = this.f10375b;
+                if (!bVar.f10376a) {
+                    if (bVar.f10371f != null) {
+                        this.f10375b.f10371f.onSuccess(this.f10374a, i2);
+                        this.f10375b.f10372g = 0;
                     }
-                } else if (bVar.f10369b == 1) {
+                } else if (bVar.f10377b == 1) {
                     f.a("application");
-                    if (this.f10367b.f10363f != null) {
-                        this.f10367b.f10363f.onSuccess(this.f10366a, i2);
+                    if (this.f10375b.f10371f != null) {
+                        this.f10375b.f10371f.onSuccess(this.f10374a, i2);
                     }
-                    this.f10367b.f10364g = 0;
+                    this.f10375b.f10372g = 0;
                 } else if (b.m(bVar) >= 3) {
-                    this.f10367b.f10363f.onFail(new IOException("request fail : " + this.f10366a));
-                    this.f10367b.f10364g = 0;
+                    this.f10375b.f10371f.onFail(new IOException("request fail : " + this.f10374a));
+                    this.f10375b.f10372g = 0;
                 } else {
-                    b bVar2 = this.f10367b;
-                    bVar2.q(bVar2.f10361d, this.f10367b.f10362e, this.f10367b.f10363f);
+                    b bVar2 = this.f10375b;
+                    bVar2.q(bVar2.f10369d, this.f10375b.f10370e, this.f10375b.f10371f);
                 }
             }
         }
@@ -115,11 +115,11 @@ public class b<T> extends c {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (c.a.p0.c.a.a.f10311a) {
+                if (c.a.p0.c.a.a.f10319a) {
                     String str = "BdtlsPostRequest onFail=" + exc.getMessage();
                 }
-                if (this.f10367b.f10363f != null) {
-                    this.f10367b.f10363f.onFail(exc);
+                if (this.f10375b.f10371f != null) {
+                    this.f10375b.f10371f.onFail(exc);
                 }
             }
         }
@@ -136,25 +136,25 @@ public class b<T> extends c {
                     g.l().m().s(0);
                     return "recovery";
                 }
-                b bVar = this.f10367b;
-                if (!bVar.f10368a) {
-                    if (bVar.f10363f != null) {
-                        this.f10366a = (T) this.f10367b.f10363f.parseResponse(response, i2);
+                b bVar = this.f10375b;
+                if (!bVar.f10376a) {
+                    if (bVar.f10371f != null) {
+                        this.f10374a = (T) this.f10375b.f10371f.parseResponse(response, i2);
                         return "";
                     }
                     return "";
                 }
                 ResponseBody body = response.body();
-                String g2 = this.f10367b.g(body.bytes());
-                if (c.a.p0.c.a.a.f10311a) {
+                String g2 = this.f10375b.g(body.bytes());
+                if (c.a.p0.c.a.a.f10319a) {
                     String str2 = "BdtlsPostRequest parseResponse=" + g2;
                 }
-                if (this.f10367b.f10369b == 1) {
+                if (this.f10375b.f10377b == 1) {
                     Buffer buffer = new Buffer();
                     buffer.writeString(g2, Charset.forName("utf-8"));
                     Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                    if (this.f10367b.f10363f != null) {
-                        this.f10366a = (T) this.f10367b.f10363f.parseResponse(build, i2);
+                    if (this.f10375b.f10371f != null) {
+                        this.f10374a = (T) this.f10375b.f10371f.parseResponse(build, i2);
                     }
                 }
                 return g2;
@@ -176,14 +176,14 @@ public class b<T> extends c {
                 return;
             }
         }
-        this.f10361d = null;
-        this.f10362e = null;
-        this.f10363f = null;
+        this.f10369d = null;
+        this.f10370e = null;
+        this.f10371f = null;
     }
 
     public static /* synthetic */ int m(b bVar) {
-        int i2 = bVar.f10364g;
-        bVar.f10364g = i2 + 1;
+        int i2 = bVar.f10372g;
+        bVar.f10372g = i2 + 1;
         return i2;
     }
 
@@ -198,7 +198,7 @@ public class b<T> extends c {
     public void e(IOException iOException) {
         ResponseCallback<T> responseCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) || (responseCallback = this.f10363f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) || (responseCallback = this.f10371f) == null) {
             return;
         }
         responseCallback.onFail(iOException);
@@ -208,10 +208,10 @@ public class b<T> extends c {
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (c.a.p0.c.a.a.f10311a) {
+            if (c.a.p0.c.a.a.f10319a) {
                 String str = "onRequestError=" + i2;
             }
-            ResponseCallback<T> responseCallback = this.f10363f;
+            ResponseCallback<T> responseCallback = this.f10371f;
             if (responseCallback != null) {
                 responseCallback.onFail(new Exception("request error  code : " + i2));
             }
@@ -222,20 +222,20 @@ public class b<T> extends c {
     public void h(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            String str = this.f10361d;
+            String str = this.f10369d;
             HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/json");
-            if (this.f10368a) {
+            if (this.f10376a) {
                 hashMap.put("Bdtls", "Bdtls");
             }
-            if (c.a.p0.c.a.a.f10311a) {
+            if (c.a.p0.c.a.a.f10319a) {
                 String str2 = "BdtlsPostRequest url=" + str;
             }
             h a2 = c.a.p0.a.c1.a.p().a();
             PostByteRequest.PostByteRequestBuilder postByteRequest = c.a.p0.m.e.a.g().postByteRequest();
-            a.C0618a c0618a = this.f10365h;
+            a.C0618a c0618a = this.f10373h;
             if (c0618a != null) {
-                postByteRequest.connectionTimeout(c0618a.f11850a).readTimeout(this.f10365h.f11851b).writeTimeout(this.f10365h.f11852c);
+                postByteRequest.connectionTimeout(c0618a.f11858a).readTimeout(this.f10373h.f11859b).writeTimeout(this.f10373h.f11860c);
             }
             postByteRequest.mediaType("application/json").url(str).cookieManager(a2).headers(hashMap).content(bArr).build().executeAsync(new a(this));
         }
@@ -244,7 +244,7 @@ public class b<T> extends c {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            q(this.f10361d, this.f10362e, this.f10363f);
+            q(this.f10369d, this.f10370e, this.f10371f);
         }
     }
 
@@ -253,13 +253,13 @@ public class b<T> extends c {
         if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, responseCallback) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f10361d = str;
-        this.f10362e = str2;
-        this.f10363f = responseCallback;
-        if (c.a.p0.c.a.a.f10311a) {
+        this.f10369d = str;
+        this.f10370e = str2;
+        this.f10371f = responseCallback;
+        if (c.a.p0.c.a.a.f10319a) {
             String str3 = "requestPost url=" + str;
             String str4 = "requestPost body=" + str2;
         }
-        a(this.f10362e);
+        a(this.f10370e);
     }
 }

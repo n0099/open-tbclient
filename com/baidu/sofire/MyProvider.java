@@ -20,7 +20,7 @@ public class MyProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f45168a;
+    public static boolean f45230a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +55,7 @@ public class MyProvider extends ContentProvider {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f45168a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f45230a : invokeV.booleanValue;
     }
 
     @Override // android.content.ContentProvider
@@ -96,7 +96,7 @@ public class MyProvider extends ContentProvider {
                         a2 = com.baidu.sofire.core.d.a(getContext().getApplicationContext(), str, bundle);
                     }
                     if (a2 != null) {
-                        a2.putString("server_version", "3.5.8.7");
+                        a2.putString("server_version", "3.5.8.8");
                     }
                     return a2;
                 }
@@ -144,7 +144,7 @@ public class MyProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            f45168a = true;
+            f45230a = true;
             return false;
         }
         return invokeV.booleanValue;

@@ -12,10 +12,10 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f8110a;
+    public static d f8118a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f8111b;
+    public static final d f8119b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -58,24 +58,24 @@ public class e {
                 return;
             }
         }
-        f8111b = new a();
+        f8119b = new a();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            d dVar = f8110a;
-            return dVar == null ? f8111b : dVar;
+            d dVar = f8118a;
+            return dVar == null ? f8119b : dVar;
         }
         return (d) invokeV.objValue;
     }
 
     public static void b(d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, dVar) == null) || f8110a == dVar) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, dVar) == null) || f8118a == dVar) {
             return;
         }
-        f8110a = dVar;
+        f8118a = dVar;
     }
 }

@@ -33,16 +33,16 @@ public class an implements com.kwad.sdk.core.d<com.kwad.sdk.core.response.model.
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f72225a = jSONObject.optInt("entryType");
-        aVar.f72226b = jSONObject.optString("sourceDesc");
-        aVar.f72227c = jSONObject.optInt("sourceDescPos", new Integer("1").intValue());
-        aVar.f72228d = jSONObject.optInt("likePos");
-        aVar.f72229e = jSONObject.optString("entryId");
-        aVar.f72230f = jSONObject.optString("entryTitle", new String("精彩短视频"));
-        aVar.f72231g = jSONObject.optInt("entryTitlePos", new Integer("1").intValue());
-        aVar.f72232h = jSONObject.optInt("videoDurationPos", new Integer("1").intValue());
-        aVar.f72233i = jSONObject.optInt("videoDescPos", new Integer("1").intValue());
-        aVar.f72234j = jSONObject.optInt("commentsPos", new Integer("1").intValue());
+        aVar.f72544a = jSONObject.optInt("entryType");
+        aVar.f72545b = jSONObject.optString("sourceDesc");
+        aVar.f72546c = jSONObject.optInt("sourceDescPos", new Integer("1").intValue());
+        aVar.f72547d = jSONObject.optInt("likePos");
+        aVar.f72548e = jSONObject.optString("entryId");
+        aVar.f72549f = jSONObject.optString("entryTitle", new String("精彩短视频"));
+        aVar.f72550g = jSONObject.optInt("entryTitlePos", new Integer("1").intValue());
+        aVar.f72551h = jSONObject.optInt("videoDurationPos", new Integer("1").intValue());
+        aVar.f72552i = jSONObject.optInt("videoDescPos", new Integer("1").intValue());
+        aVar.f72553j = jSONObject.optInt("commentsPos", new Integer("1").intValue());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,16 +54,16 @@ public class an implements com.kwad.sdk.core.d<com.kwad.sdk.core.response.model.
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "entryType", aVar.f72225a);
-            com.kwad.sdk.utils.q.a(jSONObject, "sourceDesc", aVar.f72226b);
-            com.kwad.sdk.utils.q.a(jSONObject, "sourceDescPos", aVar.f72227c);
-            com.kwad.sdk.utils.q.a(jSONObject, "likePos", aVar.f72228d);
-            com.kwad.sdk.utils.q.a(jSONObject, "entryId", aVar.f72229e);
-            com.kwad.sdk.utils.q.a(jSONObject, "entryTitle", aVar.f72230f);
-            com.kwad.sdk.utils.q.a(jSONObject, "entryTitlePos", aVar.f72231g);
-            com.kwad.sdk.utils.q.a(jSONObject, "videoDurationPos", aVar.f72232h);
-            com.kwad.sdk.utils.q.a(jSONObject, "videoDescPos", aVar.f72233i);
-            com.kwad.sdk.utils.q.a(jSONObject, "commentsPos", aVar.f72234j);
+            com.kwad.sdk.utils.q.a(jSONObject, "entryType", aVar.f72544a);
+            com.kwad.sdk.utils.q.a(jSONObject, "sourceDesc", aVar.f72545b);
+            com.kwad.sdk.utils.q.a(jSONObject, "sourceDescPos", aVar.f72546c);
+            com.kwad.sdk.utils.q.a(jSONObject, "likePos", aVar.f72547d);
+            com.kwad.sdk.utils.q.a(jSONObject, "entryId", aVar.f72548e);
+            com.kwad.sdk.utils.q.a(jSONObject, "entryTitle", aVar.f72549f);
+            com.kwad.sdk.utils.q.a(jSONObject, "entryTitlePos", aVar.f72550g);
+            com.kwad.sdk.utils.q.a(jSONObject, "videoDurationPos", aVar.f72551h);
+            com.kwad.sdk.utils.q.a(jSONObject, "videoDescPos", aVar.f72552i);
+            com.kwad.sdk.utils.q.a(jSONObject, "commentsPos", aVar.f72553j);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

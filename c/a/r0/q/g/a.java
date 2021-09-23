@@ -34,41 +34,41 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f24151a;
+    public b f24167a;
 
     /* renamed from: c.a.r0.q.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1124a extends BdRunnable {
+    public class C1122a extends BdRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f24152g;
+        public final /* synthetic */ Map f24168g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f24153h;
+        public final /* synthetic */ String f24169h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f24154i;
+        public final /* synthetic */ a f24170i;
 
         /* renamed from: c.a.r0.q.g.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1125a extends BdRunnable {
+        public class C1123a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f24155g;
+            public final /* synthetic */ JSONObject f24171g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ C1124a f24156h;
+            public final /* synthetic */ C1122a f24172h;
 
-            public C1125a(C1124a c1124a, JSONObject jSONObject) {
+            public C1123a(C1122a c1122a, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1124a, jSONObject};
+                    Object[] objArr = {c1122a, jSONObject};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -78,20 +78,20 @@ public class a {
                         return;
                     }
                 }
-                this.f24156h = c1124a;
-                this.f24155g = jSONObject;
+                this.f24172h = c1122a;
+                this.f24171g = jSONObject;
             }
 
             @Override // com.baidu.browser.core.async.BdRunnable
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f24156h.f24154i.f24151a.a(this.f24155g);
+                    this.f24172h.f24170i.f24167a.a(this.f24171g);
                 }
             }
         }
 
-        public C1124a(a aVar, Map map, String str) {
+        public C1122a(a aVar, Map map, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,9 +106,9 @@ public class a {
                     return;
                 }
             }
-            this.f24154i = aVar;
-            this.f24152g = map;
-            this.f24153h = str;
+            this.f24170i = aVar;
+            this.f24168g = map;
+            this.f24169h = str;
         }
 
         @Override // com.baidu.browser.core.async.BdRunnable
@@ -118,8 +118,8 @@ public class a {
                 MediaType parse = MediaType.parse("application/json; charset=utf-8");
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    this.f24154i.d(this.f24152g);
-                    this.f24154i.f(this.f24152g, jSONObject);
+                    this.f24170i.d(this.f24168g);
+                    this.f24170i.f(this.f24168g, jSONObject);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -127,12 +127,12 @@ public class a {
                 RequestBody create = RequestBody.create(parse, String.valueOf(jSONObject));
                 Response response = null;
                 try {
-                    response = okHttpClient.newCall(new Request.Builder().url(this.f24153h).post(create).build()).execute();
+                    response = okHttpClient.newCall(new Request.Builder().url(this.f24169h).post(create).build()).execute();
                 } catch (IOException e3) {
                     e3.printStackTrace();
                 }
                 try {
-                    d.f().h(new C1125a(this, new JSONObject(response.body().string())));
+                    d.f().h(new C1123a(this, new JSONObject(response.body().string())));
                 } catch (IOException e4) {
                     e4.printStackTrace();
                 } catch (JSONException e5) {
@@ -162,7 +162,7 @@ public class a {
                 return;
             }
         }
-        this.f24151a = bVar;
+        this.f24167a = bVar;
     }
 
     public static String e() {
@@ -218,7 +218,7 @@ public class a {
     public void g(Map<String, String> map, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, str) == null) {
-            d.f().g(new C1124a(this, map, str));
+            d.f().g(new C1122a(this, map, str));
         }
     }
 }

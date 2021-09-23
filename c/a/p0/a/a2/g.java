@@ -17,11 +17,11 @@ public class g extends f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f4563b;
+    public static final boolean f4571b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f4564a;
+    public Map<String, Object> f4572a;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class g extends f {
                 return;
             }
         }
-        f4563b = c.a.p0.a.k.f7077a;
+        f4571b = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,13 +57,13 @@ public class g extends f {
                 return;
             }
         }
-        this.f4564a = new HashMap();
+        this.f4572a = new HashMap();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f4564a.clear();
+            this.f4572a.clear();
         }
     }
 
@@ -74,7 +74,7 @@ public class g extends f {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return this.f4564a.containsKey(str);
+            return this.f4572a.containsKey(str);
         }
         return invokeL.booleanValue;
     }
@@ -86,7 +86,7 @@ public class g extends f {
             try {
                 return (Boolean) f(str, bool);
             } catch (ClassCastException e2) {
-                if (f4563b) {
+                if (f4571b) {
                     e2.printStackTrace();
                 }
                 return bool;
@@ -102,7 +102,7 @@ public class g extends f {
             try {
                 return (Integer) f(str, num);
             } catch (ClassCastException e2) {
-                if (f4563b) {
+                if (f4571b) {
                     e2.printStackTrace();
                 }
                 return num;
@@ -118,7 +118,7 @@ public class g extends f {
             try {
                 return (String) f(str, str2);
             } catch (ClassCastException e2) {
-                if (f4563b) {
+                if (f4571b) {
                     e2.printStackTrace();
                 }
                 return str2;
@@ -132,13 +132,13 @@ public class g extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, v)) == null) {
             if (b(str)) {
-                if (this.f4564a.get(str) == null) {
+                if (this.f4572a.get(str) == null) {
                     return null;
                 }
                 try {
-                    return (V) this.f4564a.get(str);
+                    return (V) this.f4572a.get(str);
                 } catch (Exception e2) {
-                    if (f4563b) {
+                    if (f4571b) {
                         e2.printStackTrace();
                         return v;
                     }
@@ -181,7 +181,7 @@ public class g extends f {
     public final <V> void k(String str, V v) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, v) == null) {
-            this.f4564a.put(str, v);
+            this.f4572a.put(str, v);
         }
     }
 }

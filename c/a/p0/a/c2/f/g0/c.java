@@ -36,7 +36,7 @@ public class c extends a {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            c.a.p0.a.v1.b.b v = c.a.p0.a.v1.b.c.E("swan_forbidden_kill_on_client").y("mAppId", str).v("ipc_forbidden_flag", this.f4848f);
+            c.a.p0.a.v1.b.b v = c.a.p0.a.v1.b.c.E("swan_forbidden_kill_on_client").y("mAppId", str).v("ipc_forbidden_flag", this.f4856f);
             v.J(str);
             v.L();
         }
@@ -48,7 +48,7 @@ public class c extends a {
     public void onCallback(i.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && c.a.p0.a.v1.b.c.f(aVar.C(), "swan_forbidden_kill_on_server")) {
-            this.f4848f = aVar.j("ipc_forbidden_flag", 1);
+            this.f4856f = aVar.j("ipc_forbidden_flag", 1);
             e(aVar.o("mAppId", c.a.p0.a.a2.d.g().getAppId()));
         }
     }

@@ -37,19 +37,19 @@ public abstract class b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("bundle_id", eVar.f11885g);
-            contentValues.put("category", Integer.valueOf(eVar.f11886h));
-            contentValues.put("version_name", eVar.f11888j);
-            contentValues.put("version_code", Long.valueOf(eVar.f11887i));
+            contentValues.put("bundle_id", eVar.f11893g);
+            contentValues.put("category", Integer.valueOf(eVar.f11894h));
+            contentValues.put("version_name", eVar.f11896j);
+            contentValues.put("version_code", Long.valueOf(eVar.f11895i));
             contentValues.put("size", Long.valueOf(eVar.k));
             contentValues.put(PackageTable.MD5, eVar.l);
             contentValues.put("sign", eVar.m);
             contentValues.put(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL, eVar.n);
-            contentValues.put(PackageTable.FILE_PATH, eVar.f11879a);
-            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(eVar.f11880b));
-            contentValues.put("create_time", Long.valueOf(eVar.f11881c));
-            contentValues.put("update_time", Long.valueOf(eVar.f11882d));
-            contentValues.put("state", Integer.valueOf(eVar.f11883e));
+            contentValues.put(PackageTable.FILE_PATH, eVar.f11887a);
+            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(eVar.f11888b));
+            contentValues.put("create_time", Long.valueOf(eVar.f11889c));
+            contentValues.put("update_time", Long.valueOf(eVar.f11890d));
+            contentValues.put("state", Integer.valueOf(eVar.f11891e));
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -78,20 +78,20 @@ public abstract class b<T> {
                 if (TextUtils.isEmpty(string)) {
                     return false;
                 }
-                eVar.f11885g = string;
-                eVar.f11886h = cursor.getInt(columnIndex2);
-                eVar.f11888j = cursor.getString(columnIndex3);
-                eVar.f11887i = cursor.getInt(columnIndex4);
+                eVar.f11893g = string;
+                eVar.f11894h = cursor.getInt(columnIndex2);
+                eVar.f11896j = cursor.getString(columnIndex3);
+                eVar.f11895i = cursor.getInt(columnIndex4);
                 eVar.k = cursor.getLong(columnIndex5);
                 eVar.l = cursor.getString(columnIndex6);
                 eVar.m = cursor.getString(columnIndex7);
                 eVar.n = cursor.getString(columnIndex8);
-                eVar.f11879a = cursor.getString(columnIndex10);
-                eVar.f11880b = cursor.getLong(columnIndex11);
-                eVar.f11881c = cursor.getLong(columnIndex12);
-                eVar.f11882d = cursor.getLong(columnIndex13);
-                eVar.f11884f = cursor.getLong(columnIndex9);
-                eVar.f11883e = cursor.getInt(columnIndex14);
+                eVar.f11887a = cursor.getString(columnIndex10);
+                eVar.f11888b = cursor.getLong(columnIndex11);
+                eVar.f11889c = cursor.getLong(columnIndex12);
+                eVar.f11890d = cursor.getLong(columnIndex13);
+                eVar.f11892f = cursor.getLong(columnIndex9);
+                eVar.f11891e = cursor.getInt(columnIndex14);
                 return true;
             }
             return false;

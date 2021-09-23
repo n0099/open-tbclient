@@ -60,10 +60,10 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f22820e;
+        public final /* synthetic */ f f22836e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f22821f;
+        public final /* synthetic */ c f22837f;
 
         public a(c cVar, f fVar) {
             Interceptable interceptable = $ic;
@@ -80,8 +80,8 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
                     return;
                 }
             }
-            this.f22821f = cVar;
-            this.f22820e = fVar;
+            this.f22837f = cVar;
+            this.f22836e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -89,7 +89,7 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 TiebaStatic.log("c13386");
-                this.f22821f.v.dispatchMvcEvent(new c.a.q0.k0.c.b(15, this.f22820e, null, null));
+                this.f22837f.v.dispatchMvcEvent(new c.a.q0.k0.c.b(15, this.f22836e, null, null));
             }
         }
     }
@@ -100,10 +100,10 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ x f22822e;
+        public final /* synthetic */ x f22838e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f22823f;
+        public final /* synthetic */ c f22839f;
 
         public b(c cVar, x xVar) {
             Interceptable interceptable = $ic;
@@ -120,8 +120,8 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
                     return;
                 }
             }
-            this.f22823f = cVar;
-            this.f22822e = xVar;
+            this.f22839f = cVar;
+            this.f22838e = xVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -129,28 +129,28 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("info_forum_image_rect", this.f22823f.r());
-                bundle.putParcelable("info_forum_name_rect", this.f22823f.s());
-                c.a.q0.k0.c.b bVar = new c.a.q0.k0.c.b(1, this.f22822e, null, null);
+                bundle.putParcelable("info_forum_image_rect", this.f22839f.r());
+                bundle.putParcelable("info_forum_name_rect", this.f22839f.s());
+                c.a.q0.k0.c.b bVar = new c.a.q0.k0.c.b(1, this.f22838e, null, null);
                 bVar.g(bundle);
-                this.f22823f.v.dispatchMvcEvent(bVar);
+                this.f22839f.v.dispatchMvcEvent(bVar);
             }
         }
     }
 
     /* renamed from: c.a.r0.n0.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnLongClickListenerC1067c implements View.OnLongClickListener {
+    public class View$OnLongClickListenerC1065c implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ x f22824e;
+        public final /* synthetic */ x f22840e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f22825f;
+        public final /* synthetic */ c f22841f;
 
-        public View$OnLongClickListenerC1067c(c cVar, x xVar) {
+        public View$OnLongClickListenerC1065c(c cVar, x xVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,8 +165,8 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
                     return;
                 }
             }
-            this.f22825f = cVar;
-            this.f22824e = xVar;
+            this.f22841f = cVar;
+            this.f22840e = xVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -174,7 +174,7 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                this.f22825f.v.dispatchMvcEvent(new c.a.q0.k0.c.b(12, this.f22824e, null, null));
+                this.f22841f.v.dispatchMvcEvent(new c.a.q0.k0.c.b(12, this.f22840e, null, null));
                 return true;
             }
             return invokeL.booleanValue;
@@ -187,13 +187,13 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f22826e;
+        public final /* synthetic */ TextView f22842e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f22827f;
+        public final /* synthetic */ int f22843f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f22828g;
+        public final /* synthetic */ c f22844g;
 
         public d(c cVar, TextView textView, int i2) {
             Interceptable interceptable = $ic;
@@ -210,19 +210,19 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
                     return;
                 }
             }
-            this.f22828g = cVar;
-            this.f22826e = textView;
-            this.f22827f = i2;
+            this.f22844g = cVar;
+            this.f22842e = textView;
+            this.f22843f = i2;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int k;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f22826e.getParent() instanceof ViewGroup) && (k = l.k(this.f22828g.b())) != 0) {
-                this.f22826e.setMaxWidth(k - (this.f22827f + l.g(TbadkCoreApplication.getInst(), R.dimen.tbds452)));
-                this.f22826e.postInvalidate();
-                this.f22826e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f22842e.getParent() instanceof ViewGroup) && (k = l.k(this.f22844g.b())) != 0) {
+                this.f22842e.setMaxWidth(k - (this.f22843f + l.g(TbadkCoreApplication.getInst(), R.dimen.tbds452)));
+                this.f22842e.postInvalidate();
+                this.f22842e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
             }
         }
     }
@@ -266,7 +266,7 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
         this.t.setStrokeColorResId(R.color.CAM_X0201);
     }
 
-    @Override // c.a.r0.j3.t
+    @Override // c.a.r0.j3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -430,7 +430,7 @@ public class c extends c.a.q0.k0.f.a<x, c.a.r0.n0.d.c> {
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0105);
         this.x.setVisibility(8);
         this.k.setOnClickListener(new b(this, xVar));
-        this.k.setOnLongClickListener(new View$OnLongClickListenerC1067c(this, xVar));
+        this.k.setOnLongClickListener(new View$OnLongClickListenerC1065c(this, xVar));
         u(this.l, i3);
     }
 }

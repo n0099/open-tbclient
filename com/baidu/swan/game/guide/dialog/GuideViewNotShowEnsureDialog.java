@@ -28,7 +28,7 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideViewNotShowEnsureDialog f46956e;
+        public final /* synthetic */ GuideViewNotShowEnsureDialog f47058e;
 
         public a(GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog) {
             Interceptable interceptable = $ic;
@@ -45,15 +45,15 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
                     return;
                 }
             }
-            this.f46956e = guideViewNotShowEnsureDialog;
+            this.f47058e = guideViewNotShowEnsureDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46956e.dismiss();
-                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f46956e;
+                this.f47058e.dismiss();
+                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f47058e;
                 DialogInterface.OnClickListener onClickListener = guideViewNotShowEnsureDialog.clickListener;
                 if (onClickListener != null) {
                     onClickListener.onClick(guideViewNotShowEnsureDialog, -2);
@@ -68,7 +68,7 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideViewNotShowEnsureDialog f46957e;
+        public final /* synthetic */ GuideViewNotShowEnsureDialog f47059e;
 
         public b(GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog) {
             Interceptable interceptable = $ic;
@@ -85,15 +85,15 @@ public class GuideViewNotShowEnsureDialog extends Dialog {
                     return;
                 }
             }
-            this.f46957e = guideViewNotShowEnsureDialog;
+            this.f47059e = guideViewNotShowEnsureDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46957e.dismiss();
-                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f46957e;
+                this.f47059e.dismiss();
+                GuideViewNotShowEnsureDialog guideViewNotShowEnsureDialog = this.f47059e;
                 DialogInterface.OnClickListener onClickListener = guideViewNotShowEnsureDialog.clickListener;
                 if (onClickListener != null) {
                     onClickListener.onClick(guideViewNotShowEnsureDialog, -1);

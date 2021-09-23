@@ -41,34 +41,34 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12406a;
+    public int f12414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12407b;
+    public String f12415b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f12408c;
+    public Context f12416c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ZeusPluginFactory.Invoker f12409d;
+    public ZeusPluginFactory.Invoker f12417d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CyberPlayer f12410e;
+    public CyberPlayer f12418e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12411f;
+    public String f12419f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AudioManager f12412g;
+    public AudioManager f12420g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12413h;
+    public String f12421h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a.InterfaceC0472a f12414i;
+    public a.InterfaceC0472a f12422i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f12415j;
+    public boolean f12423j;
     public boolean k;
     public boolean l;
     public int m;
@@ -90,7 +90,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f12416e;
+        public final /* synthetic */ a f12424e;
 
         public C0633a(a aVar) {
             Interceptable interceptable = $ic;
@@ -107,14 +107,14 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                     return;
                 }
             }
-            this.f12416e = aVar;
+            this.f12424e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
         public void onSeekComplete() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && a.x) {
-                String str = "CyberPlayer" + this.f12416e.hashCode() + " - onSeekComplete()";
+                String str = "CyberPlayer" + this.f12424e.hashCode() + " - onSeekComplete()";
             }
         }
     }
@@ -125,7 +125,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f12417e;
+        public final /* synthetic */ a f12425e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                     return;
                 }
             }
-            this.f12417e = aVar;
+            this.f12425e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
@@ -150,18 +150,18 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
                 if (a.x) {
-                    String str = "CyberPlayer" + this.f12417e.hashCode() + " - onVideoSizeChanged(" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + SmallTailInfo.EMOTION_SUFFIX;
+                    String str = "CyberPlayer" + this.f12425e.hashCode() + " - onVideoSizeChanged(" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + SmallTailInfo.EMOTION_SUFFIX;
                 }
-                this.f12417e.o.f12444e = i2;
-                this.f12417e.o.f12445f = i3;
+                this.f12425e.o.f12452e = i2;
+                this.f12425e.o.f12453f = i3;
                 if (i4 == 0 || i5 == 0) {
-                    this.f12417e.m = 1;
-                    this.f12417e.n = 1;
+                    this.f12425e.m = 1;
+                    this.f12425e.n = 1;
                 } else {
-                    this.f12417e.m = i4;
-                    this.f12417e.n = i5;
+                    this.f12425e.m = i4;
+                    this.f12425e.n = i5;
                 }
-                a.InterfaceC0472a interfaceC0472a = this.f12417e.f12414i;
+                a.InterfaceC0472a interfaceC0472a = this.f12425e.f12422i;
                 if (interfaceC0472a != null) {
                     interfaceC0472a.f();
                 }
@@ -210,7 +210,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a f12418a;
+        public final /* synthetic */ d.a f12426a;
 
         public d(a aVar, d.a aVar2) {
             Interceptable interceptable = $ic;
@@ -227,14 +227,14 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                     return;
                 }
             }
-            this.f12418a = aVar2;
+            this.f12426a = aVar2;
         }
 
         @Override // c.a.p0.v.i.a.c.a.m
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f12418a.a(z);
+                this.f12426a.a(z);
             }
         }
     }
@@ -245,10 +245,10 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HashMap f12419e;
+        public final /* synthetic */ HashMap f12427e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f12420f;
+        public final /* synthetic */ a f12428f;
 
         public e(a aVar, HashMap hashMap) {
             Interceptable interceptable = $ic;
@@ -265,8 +265,8 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                     return;
                 }
             }
-            this.f12420f = aVar;
-            this.f12419e = hashMap;
+            this.f12428f = aVar;
+            this.f12427e = hashMap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -277,7 +277,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f12420f.w0().setDataSource(this.f12420f.f12408c, Uri.parse(str), this.f12419e);
+            this.f12428f.w0().setDataSource(this.f12428f.f12416c, Uri.parse(str), this.f12427e);
         }
     }
 
@@ -287,7 +287,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f12421a;
+        public final /* synthetic */ m f12429a;
 
         public f(m mVar) {
             Interceptable interceptable = $ic;
@@ -304,7 +304,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                     return;
                 }
             }
-            this.f12421a = mVar;
+            this.f12429a = mVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
@@ -313,7 +313,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
             if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
                 boolean z = a.x;
                 boolean unused = a.y = false;
-                m mVar = this.f12421a;
+                m mVar = this.f12429a;
                 if (mVar != null) {
                     mVar.a(false);
                 }
@@ -333,7 +333,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
                 boolean z = a.x;
                 boolean unused = a.y = false;
-                m mVar = this.f12421a;
+                m mVar = this.f12429a;
                 if (mVar != null) {
                     mVar.a(true);
                 }
@@ -347,7 +347,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f12422e;
+        public final /* synthetic */ boolean f12430e;
 
         public g(a aVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -364,7 +364,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                     return;
                 }
             }
-            this.f12422e = z;
+            this.f12430e = z;
         }
 
         @Override // java.lang.Runnable
@@ -377,7 +377,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                 return;
             }
             try {
-                if (this.f12422e) {
+                if (this.f12430e) {
                     window.addFlags(128);
                 } else {
                     window.clearFlags(128);
@@ -388,7 +388,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                 }
             }
             if (a.x) {
-                String str = "setKeepScreenOn: " + this.f12422e;
+                String str = "setKeepScreenOn: " + this.f12430e;
             }
         }
     }
@@ -399,7 +399,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f12423e;
+        public final /* synthetic */ a f12431e;
 
         public h(a aVar) {
             Interceptable interceptable = $ic;
@@ -416,7 +416,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                     return;
                 }
             }
-            this.f12423e = aVar;
+            this.f12431e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
@@ -424,11 +424,11 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (a.x) {
-                    String str = "CyberPlayer" + this.f12423e.hashCode() + " - onPrepared()";
+                    String str = "CyberPlayer" + this.f12431e.hashCode() + " - onPrepared()";
                 }
-                this.f12423e.o.f12444e = this.f12423e.getVideoWidth();
-                this.f12423e.o.f12445f = this.f12423e.getVideoHeight();
-                a.InterfaceC0472a interfaceC0472a = this.f12423e.f12414i;
+                this.f12431e.o.f12452e = this.f12431e.getVideoWidth();
+                this.f12431e.o.f12453f = this.f12431e.getVideoHeight();
+                a.InterfaceC0472a interfaceC0472a = this.f12431e.f12422i;
                 if (interfaceC0472a != null) {
                     interfaceC0472a.onPrepared();
                 }
@@ -442,7 +442,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f12424e;
+        public final /* synthetic */ a f12432e;
 
         public i(a aVar) {
             Interceptable interceptable = $ic;
@@ -459,7 +459,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                     return;
                 }
             }
-            this.f12424e = aVar;
+            this.f12432e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
@@ -469,16 +469,16 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
                 String obj2 = obj != null ? obj.toString() : StringUtil.NULL_STRING;
                 if (a.x) {
-                    String str = "CyberPlayer" + this.f12424e.hashCode() + " - onError(" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj2 + SmallTailInfo.EMOTION_SUFFIX;
+                    String str = "CyberPlayer" + this.f12432e.hashCode() + " - onError(" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj2 + SmallTailInfo.EMOTION_SUFFIX;
                 }
-                this.f12424e.n0();
-                this.f12424e.z0(i2);
+                this.f12432e.n0();
+                this.f12432e.z0(i2);
                 int i4 = i2 == -10000 ? 0 : i2;
-                a.InterfaceC0472a interfaceC0472a = this.f12424e.f12414i;
+                a.InterfaceC0472a interfaceC0472a = this.f12432e.f12422i;
                 if (interfaceC0472a != null) {
                     interfaceC0472a.onError(i4);
                 }
-                this.f12424e.B0(i2, i3, obj2);
+                this.f12432e.B0(i2, i3, obj2);
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -491,7 +491,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f12425e;
+        public final /* synthetic */ a f12433e;
 
         public j(a aVar) {
             Interceptable interceptable = $ic;
@@ -508,20 +508,20 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                     return;
                 }
             }
-            this.f12425e = aVar;
+            this.f12433e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean z = this.f12425e.getDuration() != 0 && this.f12425e.getCurrentPosition() >= this.f12425e.getDuration();
+                boolean z = this.f12433e.getDuration() != 0 && this.f12433e.getCurrentPosition() >= this.f12433e.getDuration();
                 if (a.x) {
-                    String str = "CyberPlayer" + this.f12425e.hashCode() + " - onCompletion:(" + z + SmallTailInfo.EMOTION_SUFFIX;
+                    String str = "CyberPlayer" + this.f12433e.hashCode() + " - onCompletion:(" + z + SmallTailInfo.EMOTION_SUFFIX;
                 }
-                this.f12425e.n0();
-                a aVar = this.f12425e;
-                a.InterfaceC0472a interfaceC0472a = aVar.f12414i;
+                this.f12433e.n0();
+                a aVar = this.f12433e;
+                a.InterfaceC0472a interfaceC0472a = aVar.f12422i;
                 if (interfaceC0472a != null) {
                     if (z) {
                         interfaceC0472a.onEnded();
@@ -539,7 +539,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f12426e;
+        public final /* synthetic */ a f12434e;
 
         public k(a aVar) {
             Interceptable interceptable = $ic;
@@ -556,7 +556,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                     return;
                 }
             }
-            this.f12426e = aVar;
+            this.f12434e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
@@ -565,23 +565,23 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
                 if (a.x) {
-                    String str = "CyberPlayer" + this.f12426e.hashCode() + " - onInfo(" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + (obj != null ? obj.toString() : StringUtil.NULL_STRING) + SmallTailInfo.EMOTION_SUFFIX;
+                    String str = "CyberPlayer" + this.f12434e.hashCode() + " - onInfo(" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + (obj != null ? obj.toString() : StringUtil.NULL_STRING) + SmallTailInfo.EMOTION_SUFFIX;
                 }
                 switch (i2) {
                     case CyberPlayerManager.MEDIA_INFO_AUDIO_BITRATE /* 938 */:
-                        this.f12426e.o.f12441b = i3;
+                        this.f12434e.o.f12449b = i3;
                         break;
                     case CyberPlayerManager.MEDIA_INFO_VIDEO_BITRATE /* 939 */:
-                        this.f12426e.o.f12440a = i3;
+                        this.f12434e.o.f12448a = i3;
                         break;
                     case CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE /* 940 */:
-                        this.f12426e.o.f12442c = i3;
+                        this.f12434e.o.f12450c = i3;
                         break;
                 }
-                this.f12426e.z0(i2);
-                this.f12426e.f12414i.b(i2);
+                this.f12434e.z0(i2);
+                this.f12434e.f12422i.b(i2);
                 if (i2 == 904) {
-                    this.f12426e.C0();
+                    this.f12434e.C0();
                     return false;
                 }
                 return false;
@@ -596,7 +596,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f12427e;
+        public final /* synthetic */ a f12435e;
 
         public l(a aVar) {
             Interceptable interceptable = $ic;
@@ -613,14 +613,14 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                     return;
                 }
             }
-            this.f12427e = aVar;
+            this.f12435e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
         public void onBufferingUpdate(int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && a.x) {
-                String str = "CyberPlayer" + this.f12427e.hashCode() + " - onBufferingUpdate(" + i2 + SmallTailInfo.EMOTION_SUFFIX;
+                String str = "CyberPlayer" + this.f12435e.hashCode() + " - onBufferingUpdate(" + i2 + SmallTailInfo.EMOTION_SUFFIX;
             }
         }
     }
@@ -643,7 +643,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                 return;
             }
         }
-        x = c.a.p0.a.k.f7077a;
+        x = c.a.p0.a.k.f7085a;
         y = true;
     }
 
@@ -662,8 +662,8 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                 return;
             }
         }
-        this.f12406a = -1;
-        this.f12415j = false;
+        this.f12414a = -1;
+        this.f12423j = false;
         this.k = false;
         this.l = false;
         this.m = 1;
@@ -677,15 +677,15 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         this.u = new C0633a(this);
         this.v = new b(this);
         this.w = new c(this);
-        this.f12409d = invoker;
+        this.f12417d = invoker;
         if (invoker != null) {
             Object obj = invoker.get("id");
             if (obj instanceof String) {
-                this.f12411f = (String) obj;
+                this.f12419f = (String) obj;
             }
         }
-        this.f12408c = c.a.p0.a.c1.a.b();
-        this.f12413h = str;
+        this.f12416c = c.a.p0.a.c1.a.b();
+        this.f12421h = str;
     }
 
     public static String A0(String str) {
@@ -728,7 +728,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
-                ZeusPluginFactory.Invoker invoker = this.f12409d;
+                ZeusPluginFactory.Invoker invoker = this.f12417d;
                 if (invoker != null) {
                     w0().changeProxyDynamic((String) invoker.get("Proxy"), true);
                     return;
@@ -757,10 +757,10 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                 boolean z = x;
                 return;
             }
-            if (this.f12412g == null) {
-                this.f12412g = (AudioManager) this.f12408c.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            if (this.f12420g == null) {
+                this.f12420g = (AudioManager) this.f12416c.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             }
-            AudioManager audioManager = this.f12412g;
+            AudioManager audioManager = this.f12420g;
             if (audioManager == null) {
                 return;
             }
@@ -799,7 +799,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
     public final void G0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f12415j = z;
+            this.f12423j = z;
         }
     }
 
@@ -826,7 +826,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                 String str4 = "setDataSource: " + str + " ;userAgent: " + str3 + " ;cookies: " + str2;
             }
             this.l = true;
-            this.f12407b = str;
+            this.f12415b = str;
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -834,7 +834,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                 str = str.substring(8);
             }
             String A0 = A0(str);
-            ZeusPluginFactory.Invoker invoker = this.f12409d;
+            ZeusPluginFactory.Invoker invoker = this.f12417d;
             if (invoker != null) {
                 String str5 = (String) invoker.get("Proxy");
                 if (!TextUtils.isEmpty(str5)) {
@@ -865,7 +865,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
             if (c.a.p0.a.k2.b.s(A0) == PathType.CLOUD) {
                 E0(A0, hashMap);
             } else {
-                w0().setDataSource(this.f12408c, Uri.parse(A0), hashMap);
+                w0().setDataSource(this.f12416c, Uri.parse(A0), hashMap);
             }
             return true;
         }
@@ -883,7 +883,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
     public a.InterfaceC0472a Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f12414i : (a.InterfaceC0472a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f12422i : (a.InterfaceC0472a) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.y0.k.g.a
@@ -899,7 +899,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f12406a = 0;
+            this.f12414a = 0;
             boolean isPlaying = isPlaying();
             pause();
             if (isPlaying) {
@@ -923,7 +923,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f12413h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f12421h : (String) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.y0.k.g.a
@@ -939,7 +939,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.f12411f + "-" + hashCode();
+            return this.f12419f + "-" + hashCode();
         }
         return (String) invokeV.objValue;
     }
@@ -949,7 +949,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
     public void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f12406a = 1;
+            this.f12414a = 1;
             if (isPlaying() || !v0()) {
                 return;
             }
@@ -970,7 +970,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f12408c : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f12416c : (Context) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.y0.k.g.a
@@ -1019,7 +1019,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
     public void h0(@NonNull a.InterfaceC0472a interfaceC0472a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, interfaceC0472a) == null) {
-            this.f12414i = interfaceC0472a;
+            this.f12422i = interfaceC0472a;
         }
     }
 
@@ -1035,7 +1035,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
     public String j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f12411f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f12419f : (String) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.y0.k.g.a
@@ -1065,10 +1065,10 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
     public final void n0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            if (this.f12412g == null) {
-                this.f12412g = (AudioManager) this.f12408c.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            if (this.f12420g == null) {
+                this.f12420g = (AudioManager) this.f12416c.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             }
-            AudioManager audioManager = this.f12412g;
+            AudioManager audioManager = this.f12420g;
             if (audioManager == null) {
                 return;
             }
@@ -1081,12 +1081,12 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             if (x) {
-                String str = this.f12411f + "-" + hashCode() + " pause()";
+                String str = this.f12419f + "-" + hashCode() + " pause()";
             }
             w0().pause();
             F0(false);
             G0(false);
-            a.InterfaceC0472a interfaceC0472a = this.f12414i;
+            a.InterfaceC0472a interfaceC0472a = this.f12422i;
             if (interfaceC0472a != null) {
                 interfaceC0472a.c(c());
             }
@@ -1110,9 +1110,9 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             if (x) {
-                String str = this.f12411f + " release()";
+                String str = this.f12419f + " release()";
             }
-            a.InterfaceC0472a interfaceC0472a = this.f12414i;
+            a.InterfaceC0472a interfaceC0472a = this.f12422i;
             if (interfaceC0472a != null) {
                 interfaceC0472a.onRelease(c());
             }
@@ -1151,14 +1151,14 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             if (x) {
-                String str = this.f12411f + "-" + hashCode() + " start()";
+                String str = this.f12419f + "-" + hashCode() + " start()";
             }
             if (x0()) {
                 if (x) {
-                    String str2 = this.f12411f + "-" + hashCode() + " start ignored, widget is in background";
+                    String str2 = this.f12419f + "-" + hashCode() + " start ignored, widget is in background";
                 }
                 G0(true);
-                a.InterfaceC0472a interfaceC0472a = this.f12414i;
+                a.InterfaceC0472a interfaceC0472a = this.f12422i;
                 if (interfaceC0472a != null) {
                     interfaceC0472a.c(c());
                     return;
@@ -1168,7 +1168,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
             D0();
             w0().start();
             F0(true);
-            a.InterfaceC0472a interfaceC0472a2 = this.f12414i;
+            a.InterfaceC0472a interfaceC0472a2 = this.f12422i;
             if (interfaceC0472a2 != null) {
                 interfaceC0472a2.e(c());
             }
@@ -1178,7 +1178,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
     public final boolean v0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.f12415j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.f12423j : invokeV.booleanValue;
     }
 
     public final synchronized CyberPlayer w0() {
@@ -1187,26 +1187,26 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             synchronized (this) {
-                if (this.f12410e == null) {
+                if (this.f12418e == null) {
                     if (c.a.p0.a.c1.a.Z().D()) {
                         boolean z = x;
-                        this.f12410e = new CyberPlayer(0);
+                        this.f12418e = new CyberPlayer(0);
                     } else {
                         boolean z2 = x;
-                        this.f12410e = new CyberPlayer(0);
+                        this.f12418e = new CyberPlayer(0);
                     }
-                    this.f12410e.setOnPreparedListener(this.p);
-                    this.f12410e.setOnVideoSizeChangedListener(this.v);
-                    this.f12410e.setOnCompletionListener(this.r);
-                    this.f12410e.setOnErrorListener(this.q);
-                    this.f12410e.setOnInfoListener(this.s);
-                    this.f12410e.setOnBufferingUpdateListener(this.t);
-                    this.f12410e.setOnSeekCompleteListener(this.u);
+                    this.f12418e.setOnPreparedListener(this.p);
+                    this.f12418e.setOnVideoSizeChangedListener(this.v);
+                    this.f12418e.setOnCompletionListener(this.r);
+                    this.f12418e.setOnErrorListener(this.q);
+                    this.f12418e.setOnInfoListener(this.s);
+                    this.f12418e.setOnBufferingUpdateListener(this.t);
+                    this.f12418e.setOnSeekCompleteListener(this.u);
                     if (x) {
-                        String str = "create " + this.f12410e.hashCode() + " player";
+                        String str = "create " + this.f12418e.hashCode() + " player";
                     }
                 }
-                cyberPlayer = this.f12410e;
+                cyberPlayer = this.f12418e;
             }
             return cyberPlayer;
         }
@@ -1217,7 +1217,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            if (this.f12406a == -1) {
+            if (this.f12414a == -1) {
                 SwanAppActivity x2 = c.a.p0.a.a2.d.g().x();
                 if (x2 == null) {
                     boolean z = x;
@@ -1239,10 +1239,10 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
             if (x) {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("check background by kernel state, background ? ");
-                sb2.append(this.f12406a == 0);
+                sb2.append(this.f12414a == 0);
                 sb2.toString();
             }
-            return this.f12406a == 0;
+            return this.f12414a == 0;
         }
         return invokeV.booleanValue;
     }
@@ -1257,7 +1257,7 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
             if (x) {
                 String str = "CyberPlayer" + hashCode() + " - send onNetStatus(" + a2 + SmallTailInfo.EMOTION_SUFFIX;
             }
-            a.InterfaceC0472a interfaceC0472a = this.f12414i;
+            a.InterfaceC0472a interfaceC0472a = this.f12422i;
             if (interfaceC0472a != null) {
                 interfaceC0472a.d(a2);
             }
@@ -1273,10 +1273,10 @@ public abstract class a implements c.a.p0.a.y0.k.g.a {
                 String str = "CyberPlayer" + hashCode() + " - send onStateChange(what " + i2 + ", statusCode " + b2 + SmallTailInfo.EMOTION_SUFFIX;
             }
             if (b2 != 100) {
-                if (b2 == 2101 && (interfaceC0472a = this.f12414i) != null) {
+                if (b2 == 2101 && (interfaceC0472a = this.f12422i) != null) {
                     interfaceC0472a.a(2102);
                 }
-                a.InterfaceC0472a interfaceC0472a2 = this.f12414i;
+                a.InterfaceC0472a interfaceC0472a2 = this.f12422i;
                 if (interfaceC0472a2 != null) {
                     interfaceC0472a2.a(b2);
                 }

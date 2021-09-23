@@ -5,20 +5,20 @@ import com.baidu.adp.BdUniqueId;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final BdUniqueId f18093a;
+    public static final BdUniqueId f18103a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BdUniqueId f18094b;
+    public static final BdUniqueId f18104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BdUniqueId f18095c;
+    public static final BdUniqueId f18105c;
 
     static {
         BdUniqueId.gen();
         BdUniqueId.gen();
-        f18093a = BdUniqueId.gen();
-        f18094b = BdUniqueId.gen();
+        f18103a = BdUniqueId.gen();
+        f18104b = BdUniqueId.gen();
         BdUniqueId.gen();
-        f18095c = BdUniqueId.gen();
+        f18105c = BdUniqueId.gen();
     }
 }

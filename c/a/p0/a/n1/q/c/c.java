@@ -14,10 +14,10 @@ public final class c extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f7641a;
+    public final String f7649a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f7642b;
+    public final boolean f7650b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class c extends b {
                 return;
             }
         }
-        this.f7641a = "SwanAppPayCheckNode";
+        this.f7649a = "SwanAppPayCheckNode";
     }
 
     @Override // c.a.p0.a.n1.q.c.b
@@ -46,7 +46,7 @@ public final class c extends b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean z = this.f7642b;
+            boolean z = this.f7650b;
         }
     }
 
@@ -54,7 +54,7 @@ public final class c extends b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            boolean z = this.f7642b;
+            boolean z = this.f7650b;
         }
     }
 
@@ -64,7 +64,7 @@ public final class c extends b {
         c.a.p0.a.e2.a T;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, jSONObject, str2) == null) {
-            boolean z = this.f7642b;
+            boolean z = this.f7650b;
             if (jSONObject == null || (Q = e.Q()) == null || (T = Q.T()) == null) {
                 return;
             }

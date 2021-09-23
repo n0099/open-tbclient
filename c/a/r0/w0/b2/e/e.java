@@ -27,7 +27,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f26505a;
+        public TextView f26528a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(e eVar, View view) {
@@ -48,13 +48,13 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
                 }
             }
             if (view instanceof TextView) {
-                this.f26505a = (TextView) view;
+                this.f26528a = (TextView) view;
                 ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
                 marginLayoutParams.topMargin = l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-                this.f26505a.setLayoutParams(marginLayoutParams);
-                this.f26505a.setText(R.string.frs_item_tab_comment_title);
-                this.f26505a.setPadding(l.g(eVar.f2957e, R.dimen.M_W_X005), l.g(eVar.f2957e, R.dimen.M_H_X005), 0, 0);
-                c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f26505a);
+                this.f26528a.setLayoutParams(marginLayoutParams);
+                this.f26528a.setText(R.string.frs_item_tab_comment_title);
+                this.f26528a.setPadding(l.g(eVar.f2958e, R.dimen.M_W_X005), l.g(eVar.f2958e, R.dimen.M_H_X005), 0, 0);
+                c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f26528a);
                 d2.A(R.dimen.T_X07);
                 d2.B(R.string.F_X02);
             }
@@ -63,7 +63,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
         public void onChangeSkinType() {
             TextView textView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (textView = this.f26505a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (textView = this.f26528a) == null) {
                 return;
             }
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(textView);
@@ -93,7 +93,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
                 return;
             }
         }
-        this.f2961i = bdUniqueId2;
+        this.f2962i = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -102,7 +102,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
     public a U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(this, new TextView(this.f2957e)) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(this, new TextView(this.f2958e)) : (a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

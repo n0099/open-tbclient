@@ -32,7 +32,7 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public a() {
@@ -67,25 +67,25 @@ public class a extends c.a.p0.j.k.a<c.a.p0.a.h1.c.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cVar, bVar, eVar, jSONObject)) == null) {
             c.a.p0.a.e0.d.g("map", "GetCenterLcationAction start");
-            c.a.p0.a.p.e.d B = c.a.p0.a.g1.f.V().B(cVar.f4658g);
+            c.a.p0.a.p.e.d B = c.a.p0.a.g1.f.V().B(cVar.f4666g);
             if (!(B instanceof c.a.p0.a.p.e.b)) {
                 c.a.p0.a.e0.d.b("map", "WebViewManager is null");
                 return false;
             }
-            c.a.p0.j.n.c d2 = c.a.p0.j.c.b().c((c.a.p0.a.p.e.b) B).d(cVar.f4657f);
+            c.a.p0.j.n.c d2 = c.a.p0.j.c.b().c((c.a.p0.a.p.e.b) B).d(cVar.f4665f);
             if (d2 == null) {
-                c.a.p0.a.e0.d.b("map", "can not find map by id " + cVar.f4657f);
+                c.a.p0.a.e0.d.b("map", "can not find map by id " + cVar.f4665f);
                 return false;
             }
             MapStatus mapStatus = d2.l.getMap().getMapStatus();
             c.a.p0.a.h1.c.h.c cVar2 = new c.a.p0.a.h1.c.h.c();
             LatLng latLng = mapStatus.target;
             double d3 = latLng.latitude;
-            cVar2.f6533e = d3;
-            cVar2.f6534f = latLng.longitude;
+            cVar2.f6541e = d3;
+            cVar2.f6542f = latLng.longitude;
             try {
                 jSONObject.put("latitude", d3);
-                jSONObject.put("longitude", cVar2.f6534f);
+                jSONObject.put("longitude", cVar2.f6542f);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

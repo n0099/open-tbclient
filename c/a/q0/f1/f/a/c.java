@@ -15,10 +15,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<WeakReference<View>> f13148a;
+    public SparseArray<WeakReference<View>> f13165a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f13149b;
+    public View f13166b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(View view) {
@@ -44,18 +44,18 @@ public class c {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13149b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13166b : (View) invokeV.objValue;
     }
 
     public <T extends View> T b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            WeakReference<View> weakReference = this.f13148a.get(i2);
+            WeakReference<View> weakReference = this.f13165a.get(i2);
             if (weakReference == null) {
-                T t = (T) this.f13149b.findViewById(i2);
+                T t = (T) this.f13166b.findViewById(i2);
                 if (t != null) {
-                    this.f13148a.put(i2, new WeakReference<>(t));
+                    this.f13165a.put(i2, new WeakReference<>(t));
                     return t;
                 }
                 return t;
@@ -69,7 +69,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener)) == null) {
-            this.f13149b.setOnClickListener(onClickListener);
+            this.f13166b.setOnClickListener(onClickListener);
             return this;
         }
         return (c) invokeL.objValue;
@@ -90,7 +90,7 @@ public class c {
                 return;
             }
         }
-        this.f13149b = view;
-        this.f13148a = new SparseArray<>();
+        this.f13166b = view;
+        this.f13165a = new SparseArray<>();
     }
 }

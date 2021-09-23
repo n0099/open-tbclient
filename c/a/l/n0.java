@@ -24,7 +24,7 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f3849j;
+    public int f3850j;
     public int k;
     public ThreadCommentAndPraiseInfoLayout l;
     public c.a.q0.s.q.a m;
@@ -35,7 +35,7 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n0 f3850e;
+        public final /* synthetic */ n0 f3851e;
 
         public a(n0 n0Var) {
             Interceptable interceptable = $ic;
@@ -52,16 +52,16 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3850e = n0Var;
+            this.f3851e = n0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3850e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3851e.c() == null) {
                 return;
             }
-            this.f3850e.c().a(view, this.f3850e.m);
+            this.f3851e.c().a(view, this.f3851e.m);
         }
     }
 
@@ -71,7 +71,7 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n0 f3851a;
+        public final /* synthetic */ n0 f3852a;
 
         public b(n0 n0Var) {
             Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3851a = n0Var;
+            this.f3852a = n0Var;
         }
 
         @Override // c.a.l.v0.a.b
@@ -98,15 +98,15 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
                 if (c0095a.c() instanceof Boolean) {
                     if (!((Boolean) c0095a.c()).booleanValue()) {
-                        if ((this.f3851a.f3849j & 128) <= 0) {
-                            this.f3851a.f3849j &= -5;
-                            this.f3851a.f3849j |= 64;
+                        if ((this.f3852a.f3850j & 128) <= 0) {
+                            this.f3852a.f3850j &= -5;
+                            this.f3852a.f3850j |= 64;
                         }
                     } else {
-                        n0 n0Var = this.f3851a;
-                        n0Var.f3849j = n0Var.k;
+                        n0 n0Var = this.f3852a;
+                        n0Var.f3850j = n0Var.k;
                     }
-                    this.f3851a.l.setShowFlag(this.f3851a.f3849j);
+                    this.f3852a.l.setShowFlag(this.f3852a.f3850j);
                     return false;
                 }
                 return false;
@@ -133,7 +133,7 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
                 return;
             }
         }
-        this.f3849j = 11;
+        this.f3850j = 11;
         this.k = 11;
         if ((TbadkCoreApplication.getInst().getPersonalizeViewData().s instanceof ThreadCardBottomOpSegmentLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().s.getParent() == null) {
             ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().s;
@@ -168,10 +168,10 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            int i3 = i2 | this.f3849j;
-            this.f3849j = i3;
+            int i3 = i2 | this.f3850j;
+            this.f3850j = i3;
             this.l.setShowFlag(i3);
-            this.k = this.f3849j;
+            this.k = this.f3850j;
         }
     }
 
@@ -179,10 +179,10 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            int i3 = (~i2) & this.f3849j;
-            this.f3849j = i3;
+            int i3 = (~i2) & this.f3850j;
+            this.f3850j = i3;
             this.l.setShowFlag(i3);
-            this.k = this.f3849j;
+            this.k = this.f3850j;
         }
     }
 
@@ -197,7 +197,7 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f3781e.m(4, new b(this));
+            this.f3782e.m(4, new b(this));
         }
     }
 
@@ -214,7 +214,7 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             boolean z = false;
             j(this.l, 0);
-            c.a.l.a f2 = this.f3781e.f();
+            c.a.l.a f2 = this.f3782e.f();
             if (f2 == null) {
                 return;
             }
@@ -232,7 +232,7 @@ public class n0 extends c.a.l.a<c.a.q0.s.q.a> {
                 }
             }
             if (z) {
-                List<h> h2 = this.f3781e.h();
+                List<h> h2 = this.f3782e.h();
                 if (ListUtils.isEmpty(h2)) {
                     return;
                 }

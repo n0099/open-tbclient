@@ -34,13 +34,13 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7100a;
+    public static final boolean f7108a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f7101b;
+    public static String f7109b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f7102c;
+    public static final Set<String> f7110c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -48,7 +48,7 @@ public final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f7103a;
+        public static final /* synthetic */ int[] f7111a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -65,13 +65,13 @@ public final class b {
                 }
             }
             int[] iArr = new int[PathType.values().length];
-            f7103a = iArr;
+            f7111a = iArr;
             try {
                 iArr[PathType.BD_FILE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f7103a[PathType.RELATIVE.ordinal()] = 2;
+                f7111a[PathType.RELATIVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -90,9 +90,9 @@ public final class b {
                 return;
             }
         }
-        f7100a = k.f7077a;
-        f7101b = "/aiapp";
-        f7102c = new HashSet(Arrays.asList("extension_core", "js_native", "swan_core"));
+        f7108a = k.f7085a;
+        f7109b = "/aiapp";
+        f7110c = new HashSet(Arrays.asList("extension_core", "js_native", "swan_core"));
     }
 
     public static File A() {
@@ -120,8 +120,8 @@ public final class b {
             String d2 = i2.j() != null ? i2.j().d() : "";
             if (!TextUtils.isEmpty(d2)) {
                 String d3 = f.d(d2.getBytes(), false);
-                if (D(str + f7101b + File.separator + d3)) {
-                    boolean z = f7100a;
+                if (D(str + f7109b + File.separator + d3)) {
+                    boolean z = f7108a;
                     return d3;
                 }
             }
@@ -168,11 +168,11 @@ public final class b {
         String M;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, eVar)) == null) {
-            int i2 = a.f7103a[s(str).ordinal()];
+            int i2 = a.f7111a[s(str).ordinal()];
             if (i2 != 1) {
                 M = i2 != 2 ? str : L(str, eVar, eVar.Z());
             } else {
-                M = M(str, eVar.f4558f);
+                M = M(str, eVar.f4566f);
             }
             return M == null ? str : M;
         }
@@ -186,7 +186,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (f7100a) {
+                if (f7108a) {
                     String str3 = "——> path2Scheme: path " + str + " swanAppId " + str2;
                 }
                 String v = v(str2);
@@ -203,14 +203,14 @@ public final class b {
                 } else if (!TextUtils.isEmpty(z) && str.startsWith(z)) {
                     return "bdfile://usr/" + str.replace(z + File.separator, "");
                 }
-                if (f7100a) {
+                if (f7108a) {
                     String str4 = "——> path2Scheme: relative path " + replace;
                 }
                 if (TextUtils.isEmpty(replace)) {
                     return null;
                 }
                 stringBuffer.append(new String(Base64.encode(replace.getBytes(), 10)));
-                if (f7100a) {
+                if (f7108a) {
                     String str5 = "——> path2Scheme: url " + ((Object) stringBuffer);
                 }
                 return stringBuffer.toString();
@@ -230,7 +230,7 @@ public final class b {
             if (I != null && !I.contains(".") && p != null) {
                 I = I + "." + p;
             }
-            if (f7100a) {
+            if (f7108a) {
                 String str3 = "path2SchemeWithExt: url" + I;
             }
             return I;
@@ -267,11 +267,11 @@ public final class b {
             if (eVar != null && !c.a.p0.t.d.w(str)) {
                 b.a N = eVar.N();
                 boolean z = N != null && N.m0();
-                if (f7100a && z) {
+                if (f7108a && z) {
                     String str3 = "relative path : " + str;
                     i2 = e.b.e();
-                } else if (!TextUtils.isEmpty(eVar.f4558f) && !TextUtils.isEmpty(str2) && s(str) == PathType.RELATIVE) {
-                    i2 = e.C0114e.i(eVar.f4558f, str2);
+                } else if (!TextUtils.isEmpty(eVar.f4566f) && !TextUtils.isEmpty(str2) && s(str) == PathType.RELATIVE) {
+                    i2 = e.C0114e.i(eVar.f4566f, str2);
                 }
                 if (i2.exists()) {
                     String replace = str.replace("//", "/");
@@ -304,7 +304,7 @@ public final class b {
                     return null;
                 }
                 String host = parse.getHost();
-                if (f7100a) {
+                if (f7108a) {
                     String str4 = "——> getFileStorePathFromScheme: uri " + str + "  host " + host;
                 }
                 if (TextUtils.isEmpty(host)) {
@@ -345,13 +345,13 @@ public final class b {
                         return null;
                     }
                     stringBuffer.append(str5);
-                    if (f7100a) {
+                    if (f7108a) {
                         String str6 = "——> scheme2Path: encodePath " + str3;
                         String str7 = "——> scheme2Path:  path " + stringBuffer.toString();
                     }
                     return stringBuffer.toString();
                 } catch (IllegalArgumentException e2) {
-                    if (f7100a) {
+                    if (f7108a) {
                         String str8 = "——> scheme2Path: IllegalArgumentException " + e2.getMessage();
                     }
                 }
@@ -422,7 +422,7 @@ public final class b {
     public static long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? c.a.p0.t.d.c(o(), f7102c) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? c.a.p0.t.d.c(o(), f7110c) : invokeV.longValue;
     }
 
     public static long h() {
@@ -534,7 +534,7 @@ public final class b {
             try {
                 str2 = new URI(str).getScheme();
             } catch (URISyntaxException e2) {
-                if (f7100a) {
+                if (f7108a) {
                     e2.printStackTrace();
                 }
             }
@@ -563,7 +563,7 @@ public final class b {
             if (N != null && !TextUtils.isEmpty(N.I()) && N.t1() == 1) {
                 return N.I() + "_dev";
             }
-            return eVar.f4558f;
+            return eVar.f4566f;
         }
         return (String) invokeL.objValue;
     }
@@ -588,10 +588,10 @@ public final class b {
             if (!Environment.getExternalStorageState().equals("mounted") || TextUtils.isEmpty(str)) {
                 return null;
             }
-            if (f7100a) {
+            if (f7108a) {
                 String str2 = "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null);
             }
-            String str3 = AppRuntime.getAppContext().getExternalFilesDir(null) + f7101b + "/store" + File.separator + "aiapp_" + str;
+            String str3 = AppRuntime.getAppContext().getExternalFilesDir(null) + f7109b + "/store" + File.separator + "aiapp_" + str;
             m(str3);
             return str3;
         }
@@ -603,10 +603,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             if (Environment.getExternalStorageState().equals("mounted")) {
-                if (f7100a) {
+                if (f7108a) {
                     r0 = "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null);
                 }
-                return AppRuntime.getAppContext().getExternalFilesDir(null) + f7101b;
+                return AppRuntime.getAppContext().getExternalFilesDir(null) + f7109b;
             }
             return null;
         }
@@ -620,10 +620,10 @@ public final class b {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            if (f7100a) {
+            if (f7108a) {
                 String str2 = "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir();
             }
-            String str3 = AppRuntime.getAppContext().getExternalCacheDir() + f7101b + "/tmp" + File.separator + "aiapp_" + str;
+            String str3 = AppRuntime.getAppContext().getExternalCacheDir() + f7109b + "/tmp" + File.separator + "aiapp_" + str;
             m(str3);
             return str3;
         }
@@ -634,10 +634,10 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
-            if (f7100a) {
+            if (f7108a) {
                 r0 = "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir();
             }
-            return AppRuntime.getAppContext().getExternalCacheDir() + f7101b;
+            return AppRuntime.getAppContext().getExternalCacheDir() + f7109b;
         }
         return (String) invokeV.objValue;
     }
@@ -651,14 +651,14 @@ public final class b {
                 return null;
             }
             String absolutePath = externalFilesDir.getAbsolutePath();
-            if (f7100a) {
+            if (f7108a) {
                 r0 = "——> getSwanAppStoreDirectory: " + absolutePath;
             }
             String C = C(absolutePath);
             if (C == null) {
                 return null;
             }
-            String str2 = absolutePath + f7101b + "/usr" + File.separator + C + File.separator + "aiapp_" + str;
+            String str2 = absolutePath + f7109b + "/usr" + File.separator + C + File.separator + "aiapp_" + str;
             m(str2);
             return str2;
         }

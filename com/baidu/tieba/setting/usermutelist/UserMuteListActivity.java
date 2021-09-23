@@ -60,7 +60,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f56779e;
+        public final /* synthetic */ UserMuteListActivity f56896e;
 
         public a(UserMuteListActivity userMuteListActivity) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f56779e = userMuteListActivity;
+            this.f56896e = userMuteListActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -95,7 +95,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f56780a;
+        public final /* synthetic */ UserMuteListActivity f56897a;
 
         public b(UserMuteListActivity userMuteListActivity) {
             Interceptable interceptable = $ic;
@@ -112,25 +112,25 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f56780a = userMuteListActivity;
+            this.f56897a = userMuteListActivity;
         }
 
         @Override // com.baidu.tieba.setting.usermutelist.UserMuteQueryModel.b
         public void a(ArrayList<MuteUser> arrayList, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, arrayList, i2, str) == null) {
-                this.f56780a.mWaitingDialog.h(false);
+                this.f56897a.mWaitingDialog.h(false);
                 if (i2 != UserMuteQueryModel.NET_SUCCESS) {
-                    this.f56780a.mView.e();
-                    this.f56780a.showToast(str);
+                    this.f56897a.mView.e();
+                    this.f56897a.showToast(str);
                     return;
                 }
-                UserMuteListActivity.access$108(this.f56780a);
-                this.f56780a.mData.addAll(arrayList);
-                if (this.f56780a.mData == null || this.f56780a.mData.size() <= 0) {
-                    this.f56780a.mView.e();
+                UserMuteListActivity.access$108(this.f56897a);
+                this.f56897a.mData.addAll(arrayList);
+                if (this.f56897a.mData == null || this.f56897a.mData.size() <= 0) {
+                    this.f56897a.mView.e();
                 } else {
-                    this.f56780a.mAdapter.d(this.f56780a.mData);
+                    this.f56897a.mAdapter.d(this.f56897a.mData);
                 }
             }
         }
@@ -142,7 +142,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f56781a;
+        public final /* synthetic */ UserMuteListActivity f56898a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(UserMuteListActivity userMuteListActivity, int i2) {
@@ -162,7 +162,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f56781a = userMuteListActivity;
+            this.f56898a = userMuteListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -172,17 +172,17 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() != UserMuteListActivity.MESSAGE_ID_USER_MUTE_LIST) {
                 return;
             }
-            this.f56781a.mWaitingDialog.h(false);
+            this.f56898a.mWaitingDialog.h(false);
             UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
             if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                this.f56781a.mToastMute.c(this.f56781a.mCtx.getResources().getString(R.string.un_mute_success));
+                this.f56898a.mToastMute.c(this.f56898a.mCtx.getResources().getString(R.string.un_mute_success));
                 return;
             }
             String muteMessage = userMuteDelResponseMessage.getMuteMessage();
             if (k.isEmpty(muteMessage)) {
-                muteMessage = this.f56781a.mCtx.getResources().getString(R.string.un_mute_fail);
+                muteMessage = this.f56898a.mCtx.getResources().getString(R.string.un_mute_fail);
             }
-            this.f56781a.mToastMute.b(muteMessage);
+            this.f56898a.mToastMute.b(muteMessage);
         }
     }
 
@@ -192,7 +192,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f56782a;
+        public final /* synthetic */ UserMuteListActivity f56899a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(UserMuteListActivity userMuteListActivity, int i2) {
@@ -212,7 +212,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f56782a = userMuteListActivity;
+            this.f56899a = userMuteListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -220,7 +220,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f56782a.isNeedRefresh = true;
+                this.f56899a.isNeedRefresh = true;
             }
         }
     }
@@ -231,7 +231,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f56783a;
+        public final /* synthetic */ UserMuteListActivity f56900a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(UserMuteListActivity userMuteListActivity, int i2) {
@@ -251,7 +251,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f56783a = userMuteListActivity;
+            this.f56900a = userMuteListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -259,15 +259,15 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                if ((customResponsedMessage != null || this.f56783a.delUserId == null) && this.f56783a.mData != null && this.f56783a.mData.size() > 0) {
-                    for (int i2 = 0; i2 < this.f56783a.mData.size(); i2++) {
-                        MuteUser muteUser = (MuteUser) this.f56783a.mData.get(i2);
+                if ((customResponsedMessage != null || this.f56900a.delUserId == null) && this.f56900a.mData != null && this.f56900a.mData.size() > 0) {
+                    for (int i2 = 0; i2 < this.f56900a.mData.size(); i2++) {
+                        MuteUser muteUser = (MuteUser) this.f56900a.mData.get(i2);
                         if (muteUser != null) {
-                            if ((muteUser.user_id + "").equals(this.f56783a.delUserId)) {
-                                this.f56783a.mData.remove(i2);
-                                this.f56783a.mAdapter.notifyDataSetChanged();
-                                if (this.f56783a.mData.size() == 0) {
-                                    this.f56783a.mView.e();
+                            if ((muteUser.user_id + "").equals(this.f56900a.delUserId)) {
+                                this.f56900a.mData.remove(i2);
+                                this.f56900a.mAdapter.notifyDataSetChanged();
+                                if (this.f56900a.mData.size() == 0) {
+                                    this.f56900a.mView.e();
                                     return;
                                 }
                                 return;
@@ -285,7 +285,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f56784a;
+        public final /* synthetic */ UserMuteListActivity f56901a;
 
         public f(UserMuteListActivity userMuteListActivity) {
             Interceptable interceptable = $ic;
@@ -302,7 +302,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f56784a = userMuteListActivity;
+            this.f56901a = userMuteListActivity;
         }
 
         @Override // c.a.r0.b3.f.a.e
@@ -310,16 +310,16 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(1048576, this, j2, str) == null) {
                 if (!c.a.e.e.p.j.z()) {
-                    this.f56784a.showToast(R.string.neterror);
+                    this.f56901a.showToast(R.string.neterror);
                     return;
                 }
                 TiebaStatic.log("c10047");
                 UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
                 userMuteAddAndDelCustomMessage.setData(true, j2 + "", str, null, null, 2, null, UserMuteListActivity.MESSAGE_ID_USER_MUTE_LIST);
-                UserMuteListActivity userMuteListActivity = this.f56784a;
+                UserMuteListActivity userMuteListActivity = this.f56901a;
                 userMuteListActivity.delUserId = j2 + "";
                 userMuteAddAndDelCustomMessage.setTag(UserMuteListActivity.MESSAGE_ID_USER_MUTE_LIST);
-                this.f56784a.showUserMuteDialog(true, userMuteAddAndDelCustomMessage, null, str);
+                this.f56901a.showUserMuteDialog(true, userMuteAddAndDelCustomMessage, null, str);
             }
         }
     }
@@ -330,7 +330,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f56785a;
+        public final /* synthetic */ UserMuteListActivity f56902a;
 
         public g(UserMuteListActivity userMuteListActivity) {
             Interceptable interceptable = $ic;
@@ -347,15 +347,15 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f56785a = userMuteListActivity;
+            this.f56902a = userMuteListActivity;
         }
 
         @Override // c.a.r0.b3.f.a.d
         public void a(long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(1048576, this, j2, str) == null) {
-                UserMuteListActivity userMuteListActivity = this.f56785a;
-                Activity pageActivity = this.f56785a.getPageContext().getPageActivity();
+                UserMuteListActivity userMuteListActivity = this.f56902a;
+                Activity pageActivity = this.f56902a.getPageContext().getPageActivity();
                 userMuteListActivity.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(pageActivity, j2 + "", str)));
             }
         }
@@ -367,7 +367,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f56786e;
+        public final /* synthetic */ UserMuteListActivity f56903e;
 
         public h(UserMuteListActivity userMuteListActivity) {
             Interceptable interceptable = $ic;
@@ -384,7 +384,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f56786e = userMuteListActivity;
+            this.f56903e = userMuteListActivity;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -398,7 +398,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) && absListView.getLastVisiblePosition() == absListView.getCount() - 1) {
-                this.f56786e.mUserMuteQueryModel.y(c.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), this.f56786e.page, this.f56786e.rN);
+                this.f56903e.mUserMuteQueryModel.y(c.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), this.f56903e.page, this.f56903e.rN);
             }
         }
     }
@@ -409,7 +409,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f56787e;
+        public final /* synthetic */ UserMuteListActivity f56904e;
 
         public i(UserMuteListActivity userMuteListActivity) {
             Interceptable interceptable = $ic;
@@ -426,15 +426,15 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f56787e = userMuteListActivity;
+            this.f56904e = userMuteListActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (this.f56787e.mUserMuteQueryModel != null) {
-                    this.f56787e.mUserMuteQueryModel.cancelLoadData();
+                if (this.f56904e.mUserMuteQueryModel != null) {
+                    this.f56904e.mUserMuteQueryModel.cancelLoadData();
                 }
                 MessageManager.getInstance().removeMessage(UserMuteListActivity.MESSAGE_ID_USER_MUTE_LIST);
             }
@@ -447,10 +447,10 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserMuteAddAndDelCustomMessage f56788e;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage f56905e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UserMuteListActivity f56789f;
+        public final /* synthetic */ UserMuteListActivity f56906f;
 
         public j(UserMuteListActivity userMuteListActivity, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
             Interceptable interceptable = $ic;
@@ -467,16 +467,16 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                     return;
                 }
             }
-            this.f56789f = userMuteListActivity;
-            this.f56788e = userMuteAddAndDelCustomMessage;
+            this.f56906f = userMuteListActivity;
+            this.f56905e = userMuteAddAndDelCustomMessage;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f56789f.showLoadingDialog();
-                MessageManager.getInstance().sendMessage(this.f56788e);
+                this.f56906f.showLoadingDialog();
+                MessageManager.getInstance().sendMessage(this.f56905e);
                 aVar.dismiss();
             }
         }
@@ -585,7 +585,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             this.mCtx = getPageContext();
             c.a.q0.s.f0.c cVar = new c.a.q0.s.f0.c();
             this.mToastMute = cVar;
-            cVar.f13816a = 1000L;
+            cVar.f13812a = 1000L;
             registerListener(this.mUserMuteDelListener);
             UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001431);
             BdUniqueId bdUniqueId = MESSAGE_ID_USER_MUTE_LIST;

@@ -60,7 +60,7 @@ public class SwanAudioPlayer {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAudioPlayer f47227a;
+        public final /* synthetic */ SwanAudioPlayer f47329a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SwanAudioPlayer swanAudioPlayer, Looper looper) {
@@ -80,7 +80,7 @@ public class SwanAudioPlayer {
                     return;
                 }
             }
-            this.f47227a = swanAudioPlayer;
+            this.f47329a = swanAudioPlayer;
         }
 
         @Override // android.os.Handler
@@ -89,37 +89,37 @@ public class SwanAudioPlayer {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == -1) {
-                    MediaPlayer.OnErrorListener onErrorListener = (MediaPlayer.OnErrorListener) this.f47227a.mErrorMap.get(message.arg1);
+                    MediaPlayer.OnErrorListener onErrorListener = (MediaPlayer.OnErrorListener) this.f47329a.mErrorMap.get(message.arg1);
                     if (onErrorListener != null) {
                         onErrorListener.onError(null, message.arg1, message.arg2);
                     }
                 } else if (i2 == 1) {
-                    MediaPlayer.OnPreparedListener onPreparedListener = (MediaPlayer.OnPreparedListener) this.f47227a.mPreparedMap.get(message.arg1);
+                    MediaPlayer.OnPreparedListener onPreparedListener = (MediaPlayer.OnPreparedListener) this.f47329a.mPreparedMap.get(message.arg1);
                     if (onPreparedListener != null) {
                         onPreparedListener.onPrepared(null);
                     }
                 } else if (i2 == 3) {
-                    MediaPlayer.OnSeekCompleteListener onSeekCompleteListener = (MediaPlayer.OnSeekCompleteListener) this.f47227a.mSeekMap.get(message.arg1);
+                    MediaPlayer.OnSeekCompleteListener onSeekCompleteListener = (MediaPlayer.OnSeekCompleteListener) this.f47329a.mSeekMap.get(message.arg1);
                     if (onSeekCompleteListener != null) {
                         onSeekCompleteListener.onSeekComplete(null);
                     }
                 } else if (i2 == 4) {
-                    MediaPlayer.OnCompletionListener onCompletionListener = (MediaPlayer.OnCompletionListener) this.f47227a.mEndMap.get(message.arg1);
+                    MediaPlayer.OnCompletionListener onCompletionListener = (MediaPlayer.OnCompletionListener) this.f47329a.mEndMap.get(message.arg1);
                     if (onCompletionListener != null) {
                         onCompletionListener.onCompletion(null);
                     }
                 } else if (i2 == 5) {
-                    c cVar = (c) this.f47227a.mPausedMap.get(message.arg1);
+                    c cVar = (c) this.f47329a.mPausedMap.get(message.arg1);
                     if (cVar != null) {
                         cVar.onPause();
                     }
                 } else if (i2 == 100) {
-                    this.f47227a.postRunnable(Long.parseLong(message.obj.toString()));
+                    this.f47329a.postRunnable(Long.parseLong(message.obj.toString()));
                 } else if (i2 != 101) {
                 } else {
                     c.a.p0.l.a.a aVar = (c.a.p0.l.a.a) message.obj;
-                    if (this.f47227a.mAudioRecordListener != null) {
-                        this.f47227a.mAudioRecordListener.a(aVar);
+                    if (this.f47329a.mAudioRecordListener != null) {
+                        this.f47329a.mAudioRecordListener.a(aVar);
                     }
                 }
             }
@@ -235,9 +235,9 @@ public class SwanAudioPlayer {
             return;
         }
         c.a.p0.l.a.a aVar = new c.a.p0.l.a.a();
-        aVar.f11837a = bArr;
-        aVar.f11838b = j2;
-        aVar.f11839c = System.nanoTime();
+        aVar.f11845a = bArr;
+        aVar.f11846b = j2;
+        aVar.f11847c = System.nanoTime();
         this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, aVar));
     }
 

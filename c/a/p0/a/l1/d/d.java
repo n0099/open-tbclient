@@ -27,7 +27,7 @@ public class d extends c.a.p0.a.l1.d.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f7252a;
+        public static final d f7260a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class d extends c.a.p0.a.l1.d.a {
                     return;
                 }
             }
-            f7252a = new d(null);
+            f7260a = new d(null);
         }
     }
 
@@ -54,7 +54,7 @@ public class d extends c.a.p0.a.l1.d.a {
     public static d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f7252a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f7260a : (d) invokeV.objValue;
     }
 
     public boolean g(PMSAppInfo pMSAppInfo) {
@@ -66,7 +66,7 @@ public class d extends c.a.p0.a.l1.d.a {
                 return false;
             }
             boolean optBoolean = c2.optBoolean("is_opti");
-            if (c.a.p0.a.l1.d.a.f7247c) {
+            if (c.a.p0.a.l1.d.a.f7255c) {
                 String str = "is opt pkg  - " + optBoolean;
             }
             return optBoolean;
@@ -86,7 +86,7 @@ public class d extends c.a.p0.a.l1.d.a {
                 JSONObject a2 = a(pMSAppInfo);
                 z = a2 != null && a2.optBoolean(PrefetchEvent.MODULE);
             }
-            if (c.a.p0.a.l1.d.a.f7247c) {
+            if (c.a.p0.a.l1.d.a.f7255c) {
                 String str = "is prefetch on - " + z;
             }
             return z;

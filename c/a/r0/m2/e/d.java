@@ -17,22 +17,22 @@ public class d extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22335e;
+    public int f22351e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22336f;
+    public int f22352f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22337g;
+    public int f22353g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22338h;
+    public int f22354h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f22339i;
+    public boolean f22355i;
 
     /* renamed from: j  reason: collision with root package name */
-    public UserData f22340j;
+    public UserData f22356j;
 
     static {
         InterceptResult invokeClinit;

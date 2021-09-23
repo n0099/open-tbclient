@@ -11,7 +11,7 @@ import io.reactivex.annotations.Experimental;
 import io.reactivex.functions.BiFunction;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @Experimental
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ParallelFailureHandling implements BiFunction<Long, Throwable, ParallelFailureHandling> {
     public static final /* synthetic */ ParallelFailureHandling[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

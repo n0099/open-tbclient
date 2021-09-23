@@ -32,23 +32,23 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static f f24233f;
+    public static f f24249f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f24234a;
+    public c f24250a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f24235b;
+    public List<String> f24251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24236c;
+    public int f24252c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f24237d;
+    public CustomMessageListener f24253d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f24238e;
+    public CustomMessageListener f24254e;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -56,7 +56,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f24239a;
+        public final /* synthetic */ f f24255a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, int i2) {
@@ -76,7 +76,7 @@ public class f {
                     return;
                 }
             }
-            this.f24239a = fVar;
+            this.f24255a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,7 +84,7 @@ public class f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001140 && (customResponsedMessage instanceof CancelDownloadMessage)) {
-                this.f24239a.d();
+                this.f24255a.d();
             }
         }
     }
@@ -95,7 +95,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f24240a;
+        public final /* synthetic */ f f24256a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(f fVar, int i2) {
@@ -115,7 +115,7 @@ public class f {
                     return;
                 }
             }
-            this.f24240a = fVar;
+            this.f24256a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,9 +123,9 @@ public class f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001119 && (customResponsedMessage instanceof QueryDownloadMessage)) {
-                this.f24240a.f24235b = ((QueryDownloadMessage) customResponsedMessage).getData();
-                f fVar = this.f24240a;
-                fVar.g(fVar.f24235b);
+                this.f24256a.f24251b = ((QueryDownloadMessage) customResponsedMessage).getData();
+                f fVar = this.f24256a;
+                fVar.g(fVar.f24251b);
             }
         }
     }
@@ -136,7 +136,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f24241a;
+        public final /* synthetic */ f f24257a;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class f {
                     return;
                 }
             }
-            this.f24241a = fVar;
+            this.f24257a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -191,13 +191,13 @@ public class f {
                     list = new LinkedList<>();
                 }
                 for (DownloadData downloadData : c.a.q0.w.f.k().j()) {
-                    for (String str : this.f24241a.f24235b) {
+                    for (String str : this.f24257a.f24251b) {
                         if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
                             list.add(downloadData);
                         }
                     }
                 }
-                this.f24241a.h(list);
+                this.f24257a.h(list);
             }
         }
     }
@@ -215,7 +215,7 @@ public class f {
                 return;
             }
         }
-        f24233f = new f();
+        f24249f = new f();
     }
 
     public f() {
@@ -231,17 +231,17 @@ public class f {
                 return;
             }
         }
-        this.f24236c = 5;
-        this.f24237d = new a(this, 2001140);
-        this.f24238e = new b(this, 2001119);
-        MessageManager.getInstance().registerListener(this.f24238e);
-        MessageManager.getInstance().registerListener(this.f24237d);
+        this.f24252c = 5;
+        this.f24253d = new a(this, 2001140);
+        this.f24254e = new b(this, 2001119);
+        MessageManager.getInstance().registerListener(this.f24254e);
+        MessageManager.getInstance().registerListener(this.f24253d);
     }
 
     public static f f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f24233f : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f24249f : (f) invokeV.objValue;
     }
 
     public void d() {
@@ -262,7 +262,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             c cVar = new c(this);
-            this.f24234a = cVar;
+            this.f24250a = cVar;
             cVar.execute(list);
         }
     }
@@ -328,6 +328,6 @@ public class f {
         sb.append(str);
         downloadData.setPath(sb.toString());
         BdLog.d("download:path:" + downloadData.getPath());
-        c.a.q0.w.f.k().m(downloadData, this.f24236c);
+        c.a.q0.w.f.k().m(downloadData, this.f24252c);
     }
 }

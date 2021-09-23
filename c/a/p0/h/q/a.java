@@ -15,11 +15,11 @@ public class a implements DebugConsole {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11513b;
+    public static final boolean f11521b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f11514a;
+    public long f11522a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class a implements DebugConsole {
                 return;
             }
         }
-        f11513b = k.f7077a;
+        f11521b = k.f7085a;
     }
 
     public a() {
@@ -54,15 +54,15 @@ public class a implements DebugConsole {
     @Override // com.baidu.searchbox.v8engine.console.DebugConsole
     public void onReceiveInfo(int i2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && f11513b && !h.d()) {
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) && f11521b && !h.d()) {
             if (i2 == 0) {
                 String.format("%s: %s %s", "queue event", "", str);
             } else if (i2 == 1) {
-                this.f11514a = System.currentTimeMillis();
+                this.f11522a = System.currentTimeMillis();
                 String.format("%s: %s %s", "run event start", "", str);
             } else if (i2 != 2) {
             } else {
-                String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.f11514a), str);
+                String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.f11522a), str);
             }
         }
     }

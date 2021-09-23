@@ -18,7 +18,7 @@ public class a extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7508a;
+    public static final boolean f7516a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class a extends ProviderDelegation {
                 return;
             }
         }
-        f7508a = k.f7077a;
+        f7516a = k.f7085a;
     }
 
     public a() {
@@ -61,8 +61,8 @@ public class a extends ProviderDelegation {
             Bundle bundle = new Bundle();
             bundle.putInt("level", i2);
             f b2 = d.b(a.class, bundle);
-            int i3 = b2.a() ? b2.f9229a.getInt("count", 0) : 0;
-            if (f7508a) {
+            int i3 = b2.a() ? b2.f9237a.getInt("count", 0) : 0;
+            if (f7516a) {
                 String str = "GetRecoveryCount level=" + i2 + ";count=" + i3;
             }
             return i3;

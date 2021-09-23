@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.l.q;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,22 +29,22 @@ public class e implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Handler f27401e;
+    public final Handler f27421e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoPressedRelativeLayout f27402f;
+    public NoPressedRelativeLayout f27422f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsFragment f27403g;
+    public FrsFragment f27423g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f27404h;
+    public TextView f27424h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Animation f27405i;
+    public final Animation f27425i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Animation f27406j;
+    public final Animation f27426j;
     public final Runnable k;
     public int l;
     public int m;
@@ -55,7 +56,7 @@ public class e implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f27407e;
+        public final /* synthetic */ e f27427e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -72,7 +73,7 @@ public class e implements q {
                     return;
                 }
             }
-            this.f27407e = eVar;
+            this.f27427e = eVar;
         }
 
         @Override // android.os.Handler.Callback
@@ -81,7 +82,7 @@ public class e implements q {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
                 if (message.what == 111) {
-                    this.f27407e.j();
+                    this.f27427e.j();
                     return true;
                 }
                 return false;
@@ -96,7 +97,7 @@ public class e implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f27408a;
+        public final /* synthetic */ e f27428a;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -113,16 +114,16 @@ public class e implements q {
                     return;
                 }
             }
-            this.f27408a = eVar;
+            this.f27428a = eVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f27408a.f27404h.getParent() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f27428a.f27424h.getParent() == null) {
                 return;
             }
-            ((ViewGroup) this.f27408a.f27404h.getParent()).removeView(this.f27408a.f27404h);
+            ((ViewGroup) this.f27428a.f27424h.getParent()).removeView(this.f27428a.f27424h);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -146,7 +147,7 @@ public class e implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f27409e;
+        public final /* synthetic */ e f27429e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -163,14 +164,14 @@ public class e implements q {
                     return;
                 }
             }
-            this.f27409e = eVar;
+            this.f27429e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27409e.e();
+                this.f27429e.e();
             }
         }
     }
@@ -181,7 +182,7 @@ public class e implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f27410e;
+        public final /* synthetic */ e f27430e;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -198,18 +199,18 @@ public class e implements q {
                     return;
                 }
             }
-            this.f27410e = eVar;
+            this.f27430e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f27410e.e();
-                if (this.f27410e.f27403g == null || this.f27410e.f27403g.getIsRefresh() || this.f27410e.f27403g.getFrsView() == null) {
+                this.f27430e.e();
+                if (this.f27430e.f27423g == null || this.f27430e.f27423g.getIsRefresh() || this.f27430e.f27423g.getFrsView() == null) {
                     return;
                 }
-                this.f27410e.f27403g.getFrsView().R1();
+                this.f27430e.f27423g.getFrsView().R1();
             }
         }
     }
@@ -232,12 +233,12 @@ public class e implements q {
         this.l = -1;
         this.m = -1;
         this.n = -1;
-        this.f27402f = noPressedRelativeLayout;
-        this.f27403g = frsFragment;
-        this.f27401e = new Handler(new a(this));
-        this.f27405i = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_in);
+        this.f27422f = noPressedRelativeLayout;
+        this.f27423g = frsFragment;
+        this.f27421e = new Handler(new a(this));
+        this.f27425i = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_in);
         Animation loadAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.f27406j = loadAnimation;
+        this.f27426j = loadAnimation;
         loadAnimation.setAnimationListener(new b(this));
         this.k = new c(this);
         f();
@@ -245,41 +246,41 @@ public class e implements q {
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27404h.getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27424h.getParent() == null) {
             return;
         }
         this.l = -1;
         this.n = -1;
-        this.f27401e.removeCallbacks(this.k);
-        this.f27404h.clearAnimation();
-        this.f27404h.startAnimation(this.f27406j);
+        this.f27421e.removeCallbacks(this.k);
+        this.f27424h.clearAnimation();
+        this.f27424h.startAnimation(this.f27426j);
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TextView textView = new TextView(TbadkCoreApplication.getInst());
-            this.f27404h = textView;
+            this.f27424h = textView;
             textView.setOnClickListener(new d(this));
-            this.f27404h.setGravity(17);
-            this.f27404h.setText(R.string.frs_game_refresh_tip_text);
-            int dimensionPixelSize = this.f27403g.getResources().getDimensionPixelSize(R.dimen.ds20);
-            int dimensionPixelSize2 = this.f27403g.getResources().getDimensionPixelSize(R.dimen.ds40);
-            this.f27404h.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
-            this.f27404h.setTextSize(0, this.f27403g.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-            SkinManager.setBackgroundResource(this.f27404h, R.drawable.bg_home_float);
-            SkinManager.setViewTextColor(this.f27404h, R.color.CAM_X0302);
+            this.f27424h.setGravity(17);
+            this.f27424h.setText(R.string.frs_game_refresh_tip_text);
+            int dimensionPixelSize = this.f27423g.getResources().getDimensionPixelSize(R.dimen.ds20);
+            int dimensionPixelSize2 = this.f27423g.getResources().getDimensionPixelSize(R.dimen.ds40);
+            this.f27424h.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
+            this.f27424h.setTextSize(0, this.f27423g.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+            SkinManager.setBackgroundResource(this.f27424h, R.drawable.bg_home_float);
+            SkinManager.setViewTextColor(this.f27424h, R.color.CAM_X0302);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(14);
-            layoutParams.topMargin = this.f27403g.getNavigationBar().getBottom() + c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds8);
-            this.f27404h.setLayoutParams(layoutParams);
+            layoutParams.topMargin = this.f27423g.getNavigationBar().getBottom() + c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds8);
+            this.f27424h.setLayoutParams(layoutParams);
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f27401e.removeCallbacksAndMessages(null);
+            this.f27421e.removeCallbacksAndMessages(null);
         }
     }
 
@@ -301,7 +302,7 @@ public class e implements q {
         if ((interceptable == null || interceptable.invokeLI(1048580, this, recyclerView, i2) == null) && i2 == 0) {
             int i5 = this.l;
             if (i5 > 0 && (i3 = this.m) > 0 && (i4 = this.n) >= 0 && i5 + i3 + 1 < i4) {
-                this.f27401e.sendEmptyMessage(111);
+                this.f27421e.sendEmptyMessage(111);
             }
             this.n = this.l;
         }
@@ -309,12 +310,12 @@ public class e implements q {
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f27404h.getParent() == null) {
-            this.f27402f.addView(this.f27404h);
-            this.f27404h.clearAnimation();
-            this.f27404h.startAnimation(this.f27405i);
-            this.f27401e.removeCallbacks(this.k);
-            this.f27401e.postDelayed(this.k, 4000L);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f27424h.getParent() == null) {
+            this.f27422f.addView(this.f27424h);
+            this.f27424h.clearAnimation();
+            this.f27424h.startAnimation(this.f27425i);
+            this.f27421e.removeCallbacks(this.k);
+            this.f27421e.postDelayed(this.k, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
         }
     }
 
@@ -322,8 +323,8 @@ public class e implements q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i2) == null) {
-            SkinManager.setBackgroundResource(this.f27404h, R.drawable.bg_home_float);
-            SkinManager.setViewTextColor(this.f27404h, R.color.CAM_X0302);
+            SkinManager.setBackgroundResource(this.f27424h, R.drawable.bg_home_float);
+            SkinManager.setViewTextColor(this.f27424h, R.color.CAM_X0302);
         }
     }
 }

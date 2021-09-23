@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.j;
 import c.a.e.e.p.l;
-import c.a.q0.d1.u;
+import c.a.q0.d1.x;
 import c.a.q0.s.q.d2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
@@ -46,13 +46,13 @@ public class b extends d {
                 return;
             }
         }
-        this.f23831e = 5000;
+        this.f23847e = 5000;
     }
 
     public void A0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            r0(this.f23835i);
+            r0(this.f23851i);
         }
     }
 
@@ -69,7 +69,7 @@ public class b extends d {
     @Override // c.a.r0.p2.q.d
     public void R() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.q == this.f23834h) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.q == this.f23850h) {
             A0();
         }
     }
@@ -78,7 +78,7 @@ public class b extends d {
     public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f23835i = 32;
+            this.f23851i = 32;
         }
     }
 
@@ -144,10 +144,10 @@ public class b extends d {
             this.L0 = videoSerializeVideoThreadInfo;
             videoSerializeVideoThreadInfo.copyFromThreadInfo(d2Var);
             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.L0;
-            videoSerializeVideoThreadInfo2.source = d2Var.W0;
-            videoSerializeVideoThreadInfo2.extra = d2Var.Z0;
-            videoSerializeVideoThreadInfo2.ab_tag = d2Var.Y0;
-            videoSerializeVideoThreadInfo2.weight = d2Var.X0;
+            videoSerializeVideoThreadInfo2.source = d2Var.X0;
+            videoSerializeVideoThreadInfo2.extra = d2Var.a1;
+            videoSerializeVideoThreadInfo2.ab_tag = d2Var.Z0;
+            videoSerializeVideoThreadInfo2.weight = d2Var.Y0;
         }
     }
 
@@ -170,7 +170,7 @@ public class b extends d {
         Context context = this.P;
         boolean z = this.U;
         String str2 = this.i0;
-        u.d(context, arrayList, str, z, 0, rect, "from_nani_video", "personalize_page", "", str2, str2, false);
+        x.d(context, arrayList, str, z, 0, rect, "from_nani_video", "personalize_page", "", str2, str2, false, this.M0.n);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

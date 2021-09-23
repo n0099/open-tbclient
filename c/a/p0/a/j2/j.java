@@ -15,7 +15,7 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f7007a;
+    public static int f7015a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,8 +31,8 @@ public final class j {
                 return;
             }
         }
-        boolean z = c.a.p0.a.k.f7077a;
-        f7007a = 0;
+        boolean z = c.a.p0.a.k.f7085a;
+        f7015a = 0;
     }
 
     public static String a(String str) {
@@ -59,13 +59,13 @@ public final class j {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f7007a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f7015a : invokeV.intValue;
     }
 
     public static void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
-            f7007a = i2;
+            f7015a = i2;
         }
     }
 

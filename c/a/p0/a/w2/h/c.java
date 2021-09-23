@@ -16,7 +16,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f9669a;
+    public RelativeLayout f9677a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,19 +31,19 @@ public class c {
                 return;
             }
         }
-        this.f9669a = null;
+        this.f9677a = null;
     }
 
     public final void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && viewGroup != null && (viewGroup instanceof RelativeLayout)) {
-            if (this.f9669a == null) {
+            if (this.f9677a == null) {
                 RelativeLayout relativeLayout = new RelativeLayout(viewGroup.getContext());
-                this.f9669a = relativeLayout;
+                this.f9677a = relativeLayout;
                 relativeLayout.setBackgroundResource(e.aiapps_night_black_background_bg);
             }
-            viewGroup.removeView(this.f9669a);
-            viewGroup.addView(this.f9669a, new ViewGroup.LayoutParams(-1, -1));
+            viewGroup.removeView(this.f9677a);
+            viewGroup.addView(this.f9677a, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
@@ -62,10 +62,10 @@ public class c {
     public final void c(ViewGroup viewGroup) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (relativeLayout = this.f9669a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (relativeLayout = this.f9677a) == null) {
             return;
         }
         viewGroup.removeView(relativeLayout);
-        this.f9669a = null;
+        this.f9677a = null;
     }
 }

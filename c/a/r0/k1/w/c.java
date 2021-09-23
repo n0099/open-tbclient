@@ -34,7 +34,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Pattern f21657a;
+    public static Pattern f21671a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,7 +50,7 @@ public class c {
                 return;
             }
         }
-        f21657a = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+        f21671a = Pattern.compile("(#\\([^#\\)\\(]+\\))");
     }
 
     public static String a(String str) {
@@ -257,8 +257,8 @@ public class c {
                 return null;
             }
             d dVar = new d();
-            dVar.f21332a = split[0];
-            dVar.f21333b = split[1];
+            dVar.f21346a = split[0];
+            dVar.f21347b = split[1];
             return dVar;
         }
         return (d) invokeL.objValue;
@@ -493,7 +493,7 @@ public class c {
             if (str == null) {
                 return null;
             }
-            Matcher matcher = f21657a.matcher(str);
+            Matcher matcher = f21671a.matcher(str);
             while (matcher.find()) {
                 String group = matcher.group();
                 str = str.replace(group, group.replace(SmallTailInfo.EMOTION_PREFIX, PreferencesUtil.LEFT_MOUNT).replace(SmallTailInfo.EMOTION_SUFFIX, PreferencesUtil.RIGHT_MOUNT));

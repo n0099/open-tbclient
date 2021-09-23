@@ -22,16 +22,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f28936a;
+    public Context f28956a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.x3.i.e.a f28937b;
+    public c.a.r0.x3.i.e.a f28957b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f28938c;
+    public b f28958c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.c f28939d;
+    public b.c f28959d;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class a {
                 return;
             }
         }
-        this.f28936a = context;
+        this.f28956a = context;
     }
 
     public static void a(List<c.a.r0.x3.i.e.a> list, int i2, String str, String str2) {
@@ -94,7 +94,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c.a.r0.x3.c.f28885f + VideoMuxer.FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + ".mp4";
+            return c.a.r0.x3.c.f28905f + VideoMuxer.FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + ".mp4";
         }
         return (String) invokeV.objValue;
     }
@@ -103,8 +103,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.r0.x3.i.e.a aVar = this.f28937b;
-            return (aVar == null || "normal".equalsIgnoreCase(aVar.f28984c)) ? "" : this.f28937b.f28984c;
+            c.a.r0.x3.i.e.a aVar = this.f28957b;
+            return (aVar == null || "normal".equalsIgnoreCase(aVar.f29004c)) ? "" : this.f28957b.f29004c;
         }
         return (String) invokeV.objValue;
     }
@@ -112,7 +112,7 @@ public class a {
     public void e() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f28938c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f28958c) == null) {
             return;
         }
         bVar.e();
@@ -122,7 +122,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b bVar = this.f28938c;
+            b bVar = this.f28958c;
             if (bVar != null) {
                 return bVar.f();
             }
@@ -134,15 +134,15 @@ public class a {
     public void g(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            b bVar = this.f28938c;
+            b bVar = this.f28958c;
             if ((bVar == null || !bVar.f()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-                b bVar2 = new b(this.f28936a, str, d(), str2);
-                this.f28938c = bVar2;
-                b.c cVar = this.f28939d;
+                b bVar2 = new b(this.f28956a, str, d(), str2);
+                this.f28958c = bVar2;
+                b.c cVar = this.f28959d;
                 if (cVar != null) {
                     bVar2.h(cVar);
                 }
-                this.f28938c.i();
+                this.f28958c.i();
             }
         }
     }
@@ -150,15 +150,15 @@ public class a {
     public void h(c.a.r0.x3.i.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f28937b = aVar;
+            this.f28957b = aVar;
         }
     }
 
     public void i(b.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f28939d = cVar;
-            b bVar = this.f28938c;
+            this.f28959d = cVar;
+            b bVar = this.f28958c;
             if (bVar != null) {
                 bVar.h(cVar);
             }

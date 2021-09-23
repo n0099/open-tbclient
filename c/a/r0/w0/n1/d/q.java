@@ -35,34 +35,34 @@ public class q implements e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsFragment f27217a;
+    public FrsFragment f27237a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.e.l.e.s f27218b;
+    public c.a.e.l.e.s f27238b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f27219c;
+    public List<c.a.e.l.e.a> f27239c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<Integer, d2> f27220d;
+    public final HashMap<Integer, d2> f27240d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<c.a.e.l.e.n> f27221e;
+    public ArrayList<c.a.e.l.e.n> f27241e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrsViewData f27222f;
+    public FrsViewData f27242f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27223g;
+    public boolean f27243g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.r0.w0.i f27224h;
+    public final c.a.r0.w0.i f27244h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d0 f27225i;
+    public d0 f27245i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.e.l.e.a f27226j;
+    public c.a.e.l.e.a f27246j;
     public y k;
     public k l;
     public v m;
@@ -92,12 +92,12 @@ public class q implements e0 {
                 return;
             }
         }
-        this.f27219c = new LinkedList();
-        this.f27223g = false;
-        this.f27218b = sVar;
-        this.f27224h = new c.a.r0.w0.i();
+        this.f27239c = new LinkedList();
+        this.f27243g = false;
+        this.f27238b = sVar;
+        this.f27244h = new c.a.r0.w0.i();
         q(frsFragment, sVar);
-        this.f27220d = new HashMap<>();
+        this.f27240d = new HashMap<>();
         o(z);
     }
 
@@ -108,7 +108,7 @@ public class q implements e0 {
         }
         for (c.a.e.l.e.a aVar : list) {
             if (aVar instanceof c.a.r0.w0.k) {
-                ((c.a.r0.w0.k) aVar).l0(this.f27224h);
+                ((c.a.r0.w0.k) aVar).l0(this.f27244h);
             }
         }
     }
@@ -117,7 +117,7 @@ public class q implements e0 {
     public void a(String str) {
         List<c.a.e.l.e.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (list = this.f27219c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (list = this.f27239c) == null) {
             return;
         }
         for (c.a.e.l.e.a aVar : list) {
@@ -131,10 +131,10 @@ public class q implements e0 {
     public void b(boolean z) {
         List<c.a.e.l.e.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (list = this.f27219c) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (list = this.f27239c) == null || list.size() == 0) {
             return;
         }
-        for (c.a.e.l.e.a aVar : this.f27219c) {
+        for (c.a.e.l.e.a aVar : this.f27239c) {
             if (aVar instanceof c.a.r0.w0.k) {
                 ((c.a.r0.w0.k) aVar).p0(z);
             }
@@ -146,7 +146,7 @@ public class q implements e0 {
         c.a.e.l.e.s sVar;
         List<c.a.e.l.e.n> data;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (sVar = this.f27218b) == null || sVar.getData() == null || this.f27218b.getData().size() == 0 || (data = this.f27218b.getData()) == null || data.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (sVar = this.f27238b) == null || sVar.getData() == null || this.f27238b.getData().size() == 0 || (data = this.f27238b.getData()) == null || data.size() == 0) {
             return;
         }
         for (c.a.e.l.e.n nVar : data) {
@@ -169,7 +169,7 @@ public class q implements e0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f27226j != null) {
+            if (this.f27246j != null) {
                 return R.id.frs_fortune_bag_item;
             }
             return 0;
@@ -181,10 +181,10 @@ public class q implements e0 {
     public void e(c.a.e.l.e.w wVar) {
         List<c.a.e.l.e.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, wVar) == null) || (list = this.f27219c) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, wVar) == null) || (list = this.f27239c) == null || list.size() == 0) {
             return;
         }
-        for (c.a.e.l.e.a aVar : this.f27219c) {
+        for (c.a.e.l.e.a aVar : this.f27239c) {
             if (aVar instanceof c.a.r0.w0.k) {
                 ((c.a.r0.w0.k) aVar).d0(wVar);
             } else if ((aVar instanceof t) || (aVar instanceof z)) {
@@ -197,15 +197,15 @@ public class q implements e0 {
     public void f() {
         List<c.a.e.l.e.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (list = this.f27219c) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (list = this.f27239c) == null || list.size() == 0) {
             return;
         }
-        for (c.a.e.l.e.a aVar : this.f27219c) {
+        for (c.a.e.l.e.a aVar : this.f27239c) {
             if (aVar instanceof c.a.r0.w0.k) {
-                ((c.a.r0.w0.k) aVar).o(this.f27217a.getPageContext(), this.f27217a.getUniqueId());
+                ((c.a.r0.w0.k) aVar).o(this.f27237a.getPageContext(), this.f27237a.getUniqueId());
             }
         }
-        A(this.f27219c);
+        A(this.f27239c);
     }
 
     @Override // c.a.r0.w0.n1.d.e0
@@ -213,7 +213,7 @@ public class q implements e0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c.a.e.l.e.s sVar = this.f27218b;
+            c.a.e.l.e.s sVar = this.f27238b;
             if (sVar != null) {
                 return sVar.getData();
             }
@@ -228,7 +228,7 @@ public class q implements e0 {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList, frsViewData) == null) {
             w(frsViewData);
             v();
-            c.a.r0.j3.v.f(arrayList, 1);
+            c.a.r0.j3.w.f(arrayList, 1);
             p(arrayList);
             y(arrayList);
             t(arrayList);
@@ -239,11 +239,11 @@ public class q implements e0 {
                     it.remove();
                 }
             }
-            this.f27218b.setData(arrayList);
-            this.f27222f = frsViewData;
+            this.f27238b.setData(arrayList);
+            this.f27242f = frsViewData;
             x();
             z();
-            this.f27221e = arrayList;
+            this.f27241e = arrayList;
         }
     }
 
@@ -251,7 +251,7 @@ public class q implements e0 {
     public HashMap<Integer, d2> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27220d : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27240d : (HashMap) invokeV.objValue;
     }
 
     @Override // c.a.r0.w0.n1.d.e0
@@ -259,7 +259,7 @@ public class q implements e0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f27226j != null) {
+            if (this.f27246j != null) {
                 return R.id.frs_bawu_center;
             }
             return 0;
@@ -272,7 +272,7 @@ public class q implements e0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f27226j != null) {
+            if (this.f27246j != null) {
                 return R.id.frs_my_service_item;
             }
             return 0;
@@ -288,7 +288,7 @@ public class q implements e0 {
             if (bdUniqueId == null) {
                 return false;
             }
-            for (c.a.e.l.e.a aVar : this.f27219c) {
+            for (c.a.e.l.e.a aVar : this.f27239c) {
                 if (aVar != null && aVar.K() == bdUniqueId) {
                     return true;
                 }
@@ -302,10 +302,10 @@ public class q implements e0 {
     public void m(c.a.r0.w0.f fVar) {
         List<c.a.e.l.e.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, fVar) == null) || (list = this.f27219c) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, fVar) == null) || (list = this.f27239c) == null || list.size() == 0) {
             return;
         }
-        for (c.a.e.l.e.a aVar : this.f27219c) {
+        for (c.a.e.l.e.a aVar : this.f27239c) {
             if (aVar instanceof c.a.r0.w0.k) {
                 ((c.a.r0.w0.k) aVar).m0(fVar);
             }
@@ -316,7 +316,7 @@ public class q implements e0 {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            for (c.a.e.l.e.a aVar : this.f27219c) {
+            for (c.a.e.l.e.a aVar : this.f27239c) {
                 if (aVar instanceof c.a.r0.w0.k) {
                     ((c.a.r0.w0.k) aVar).k0();
                 } else if (aVar instanceof c.a.r0.y2.p) {
@@ -329,19 +329,19 @@ public class q implements e0 {
     @Override // c.a.r0.w0.n1.d.e0
     public void notifyDataSetChanged() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f27218b.getListAdapter() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f27238b.getListAdapter() == null) {
             return;
         }
-        this.f27218b.getListAdapter().notifyDataSetChanged();
+        this.f27238b.getListAdapter().notifyDataSetChanged();
     }
 
     @Override // c.a.r0.w0.n1.d.e0
     public void o(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || this.f27223g == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || this.f27243g == z) {
             return;
         }
-        this.f27223g = z;
+        this.f27243g = z;
     }
 
     public final ArrayList<Integer> p(ArrayList<c.a.e.l.e.n> arrayList) {
@@ -356,9 +356,9 @@ public class q implements e0 {
                 c.a.e.l.e.n nVar = arrayList.get(i2);
                 if (nVar instanceof AdvertAppInfo) {
                     arrayList2.add(Integer.valueOf(i2));
-                    HashMap<Integer, d2> hashMap = this.f27220d;
+                    HashMap<Integer, d2> hashMap = this.f27240d;
                     if (hashMap != null && !hashMap.containsValue(nVar)) {
-                        this.f27220d.put(Integer.valueOf(i2), (d2) nVar);
+                        this.f27240d.put(Integer.valueOf(i2), (d2) nVar);
                     }
                 }
             }
@@ -370,120 +370,120 @@ public class q implements e0 {
     public void q(FrsFragment frsFragment, c.a.e.l.e.s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, frsFragment, sVar) == null) {
-            this.f27217a = frsFragment;
-            this.f27226j = c.a.r0.w0.e.e().c(frsFragment.getPageContext(), c.a.r0.j3.x.Z3, this.f27217a.getUniqueId(), false);
-            y yVar = new y(frsFragment.getTbPageContext(), d2.f3, this.f27217a.getUniqueId());
+            this.f27237a = frsFragment;
+            this.f27246j = c.a.r0.w0.e.e().c(frsFragment.getPageContext(), c.a.r0.j3.y.a4, this.f27237a.getUniqueId(), false);
+            y yVar = new y(frsFragment.getTbPageContext(), d2.g3, this.f27237a.getUniqueId());
             this.k = yVar;
             yVar.q0(sVar);
-            k kVar = new k(frsFragment.getTbPageContext(), d2.g3, this.f27217a.getUniqueId());
+            k kVar = new k(frsFragment.getTbPageContext(), d2.h3, this.f27237a.getUniqueId());
             this.l = kVar;
             kVar.q0(sVar);
-            v vVar = new v(frsFragment.getTbPageContext(), d2.i3, this.f27217a.getUniqueId());
+            v vVar = new v(frsFragment.getTbPageContext(), d2.j3, this.f27237a.getUniqueId());
             this.m = vVar;
             vVar.q0(sVar);
-            s sVar2 = new s(frsFragment.getTbPageContext(), d2.j3, this.f27217a.getUniqueId());
+            s sVar2 = new s(frsFragment.getTbPageContext(), d2.k3, this.f27237a.getUniqueId());
             this.n = sVar2;
             sVar2.q0(sVar);
-            j jVar = new j(frsFragment.getTbPageContext(), d2.l3, this.f27217a.getUniqueId());
+            j jVar = new j(frsFragment.getTbPageContext(), d2.m3, this.f27237a.getUniqueId());
             this.o = jVar;
             jVar.q0(sVar);
-            m mVar = new m(frsFragment.getTbPageContext(), d2.m3, this.f27217a.getUniqueId());
+            m mVar = new m(frsFragment.getTbPageContext(), d2.n3, this.f27237a.getUniqueId());
             this.p = mVar;
             mVar.q0(sVar);
-            a0 a0Var = new a0(frsFragment.getTbPageContext(), d2.r3, this.f27217a.getUniqueId());
+            a0 a0Var = new a0(frsFragment.getTbPageContext(), d2.s3, this.f27237a.getUniqueId());
             this.r = a0Var;
             a0Var.q0(sVar);
-            w wVar = new w(frsFragment.getTbPageContext(), d2.K3, this.f27217a.getUniqueId());
+            w wVar = new w(frsFragment.getTbPageContext(), d2.L3, this.f27237a.getUniqueId());
             this.q = wVar;
             wVar.q0(sVar);
-            u uVar = new u(frsFragment.getTbPageContext(), d2.s3, this.f27217a.getUniqueId());
+            u uVar = new u(frsFragment.getTbPageContext(), d2.t3, this.f27237a.getUniqueId());
             this.s = uVar;
             uVar.q0(sVar);
-            r rVar = new r(frsFragment.getTbPageContext(), d2.t3, this.f27217a.getUniqueId());
+            r rVar = new r(frsFragment.getTbPageContext(), d2.u3, this.f27237a.getUniqueId());
             this.t = rVar;
             rVar.q0(sVar);
-            z zVar = new z(frsFragment.getPageContext(), d2.w3, this.f27217a.getUniqueId());
+            z zVar = new z(frsFragment.getPageContext(), d2.x3, this.f27237a.getUniqueId());
             this.u = zVar;
             zVar.q0(sVar);
-            l lVar = new l(frsFragment.getPageContext(), d2.P3, this.f27217a.getUniqueId());
+            l lVar = new l(frsFragment.getPageContext(), d2.Q3, this.f27237a.getUniqueId());
             this.v = lVar;
             lVar.q0(sVar);
-            p pVar = new p(frsFragment.getPageContext(), d2.u3, this.f27217a.getUniqueId());
+            p pVar = new p(frsFragment.getPageContext(), d2.v3, this.f27237a.getUniqueId());
             pVar.q0(sVar);
-            x xVar = new x(frsFragment.getPageContext(), d2.B3, this.f27217a.getUniqueId());
+            x xVar = new x(frsFragment.getPageContext(), d2.C3, this.f27237a.getUniqueId());
             xVar.q0(sVar);
-            a aVar = new a(frsFragment.getPageContext(), d2.o3, frsFragment.getUniqueId());
+            a aVar = new a(frsFragment.getPageContext(), d2.p3, frsFragment.getUniqueId());
             aVar.q0(sVar);
             aVar.r(1);
-            c cVar = new c(frsFragment.getPageContext(), d2.k3, frsFragment.getUniqueId());
+            c cVar = new c(frsFragment.getPageContext(), d2.l3, frsFragment.getUniqueId());
             cVar.q0(sVar);
-            b bVar = new b(frsFragment.getPageContext(), d2.D3, this.f27217a.getUniqueId());
+            b bVar = new b(frsFragment.getPageContext(), d2.E3, this.f27237a.getUniqueId());
             bVar.q0(sVar);
             bVar.T0(true);
-            g gVar = new g(frsFragment.getPageContext(), d2.C3, this.f27217a.getUniqueId());
+            g gVar = new g(frsFragment.getPageContext(), d2.D3, this.f27237a.getUniqueId());
             gVar.q0(sVar);
             gVar.T0(true);
-            h hVar = new h(frsFragment.getPageContext(), d2.E3, this.f27217a.getUniqueId());
+            h hVar = new h(frsFragment.getPageContext(), d2.F3, this.f27237a.getUniqueId());
             hVar.q0(sVar);
             hVar.U0(true);
-            z zVar2 = new z(frsFragment.getPageContext(), d2.F3, this.f27217a.getUniqueId());
+            z zVar2 = new z(frsFragment.getPageContext(), d2.G3, this.f27237a.getUniqueId());
             zVar2.q0(sVar);
-            o oVar = new o(frsFragment.getPageContext(), d2.O3, this.f27217a.getUniqueId());
+            o oVar = new o(frsFragment.getPageContext(), d2.P3, this.f27237a.getUniqueId());
             oVar.q0(sVar);
-            n nVar = new n(frsFragment.getPageContext(), d2.G3, this.f27217a.getUniqueId());
+            n nVar = new n(frsFragment.getPageContext(), d2.H3, this.f27237a.getUniqueId());
             nVar.q0(sVar);
-            this.f27225i = new d0(frsFragment.getPageContext(), c.a.r0.j3.q.f21044g, this.f27217a.getUniqueId());
-            t tVar = new t(frsFragment.getPageContext(), d2.v3, this.f27217a.getUniqueId());
+            this.f27245i = new d0(frsFragment.getPageContext(), c.a.r0.j3.r.f21058g, this.f27237a.getUniqueId());
+            t tVar = new t(frsFragment.getPageContext(), d2.w3, this.f27237a.getUniqueId());
             this.w = tVar;
             tVar.q0(sVar);
-            c.a.e.l.e.a<? extends c2, ? extends TypeAdapter.ViewHolder> a2 = c.a.r0.w0.e.e().a(frsFragment.getPageContext(), this.f27217a.getUniqueId(), true);
-            c.a.e.l.e.a<? extends d2, ? extends TypeAdapter.ViewHolder> d2 = c.a.r0.w0.e.e().d(frsFragment.getPageContext(), d2.T3, this.f27217a.getUniqueId());
-            c.a.r0.w0.r rVar2 = new c.a.r0.w0.r(frsFragment.getPageContext(), c.a.r0.w0.s.f27756f);
-            i iVar = new i(frsFragment.getPageContext(), c.a.r0.w0.u.f27825e);
-            FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(frsFragment.getPageContext(), c.a.r0.w0.w.f27905i, this.f27217a.getUniqueId());
-            e eVar = new e(frsFragment.getPageContext(), d2.q3, this.f27217a.getUniqueId());
+            c.a.e.l.e.a<? extends c2, ? extends TypeAdapter.ViewHolder> a2 = c.a.r0.w0.e.e().a(frsFragment.getPageContext(), this.f27237a.getUniqueId(), true);
+            c.a.e.l.e.a<? extends d2, ? extends TypeAdapter.ViewHolder> d2 = c.a.r0.w0.e.e().d(frsFragment.getPageContext(), d2.U3, this.f27237a.getUniqueId());
+            c.a.r0.w0.r rVar2 = new c.a.r0.w0.r(frsFragment.getPageContext(), c.a.r0.w0.s.f27776f);
+            i iVar = new i(frsFragment.getPageContext(), c.a.r0.w0.u.f27845e);
+            FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(frsFragment.getPageContext(), c.a.r0.w0.w.f27925i, this.f27237a.getUniqueId());
+            e eVar = new e(frsFragment.getPageContext(), d2.r3, this.f27237a.getUniqueId());
             eVar.k0((BdTypeRecyclerView) sVar);
-            this.f27219c.add(this.f27226j);
-            this.f27219c.add(this.k);
-            this.f27219c.add(this.l);
-            this.f27219c.add(this.m);
-            this.f27219c.add(this.n);
-            this.f27219c.add(this.o);
-            this.f27219c.add(this.p);
-            this.f27219c.add(this.q);
-            this.f27219c.add(this.r);
-            this.f27219c.add(this.s);
-            this.f27219c.add(this.t);
-            this.f27219c.add(this.f27225i);
-            this.f27219c.add(pVar);
-            this.f27219c.add(xVar);
-            this.f27219c.add(aVar);
-            this.f27219c.add(cVar);
-            this.f27219c.add(bVar);
-            this.f27219c.add(gVar);
-            this.f27219c.add(hVar);
-            this.f27219c.add(this.w);
-            this.f27219c.add(this.u);
-            this.f27219c.add(this.v);
-            this.f27219c.add(a2);
-            this.f27219c.add(d2);
-            this.f27219c.add(rVar2);
-            this.f27219c.add(iVar);
-            this.f27219c.add(oVar);
-            this.f27219c.add(nVar);
-            this.f27219c.add(frsUserRecommendAdapter);
-            this.f27219c.add(zVar2);
-            this.f27219c.add(eVar);
-            this.f27219c.add(c.a.r0.x0.b.e().b(this.f27217a.getBaseFragmentActivity(), AdvertAppInfo.B4));
-            c.a.r0.f.f.b bVar2 = new c.a.r0.f.f.b(this.f27217a, 1);
-            bVar2.t(this.f27219c);
+            this.f27239c.add(this.f27246j);
+            this.f27239c.add(this.k);
+            this.f27239c.add(this.l);
+            this.f27239c.add(this.m);
+            this.f27239c.add(this.n);
+            this.f27239c.add(this.o);
+            this.f27239c.add(this.p);
+            this.f27239c.add(this.q);
+            this.f27239c.add(this.r);
+            this.f27239c.add(this.s);
+            this.f27239c.add(this.t);
+            this.f27239c.add(this.f27245i);
+            this.f27239c.add(pVar);
+            this.f27239c.add(xVar);
+            this.f27239c.add(aVar);
+            this.f27239c.add(cVar);
+            this.f27239c.add(bVar);
+            this.f27239c.add(gVar);
+            this.f27239c.add(hVar);
+            this.f27239c.add(this.w);
+            this.f27239c.add(this.u);
+            this.f27239c.add(this.v);
+            this.f27239c.add(a2);
+            this.f27239c.add(d2);
+            this.f27239c.add(rVar2);
+            this.f27239c.add(iVar);
+            this.f27239c.add(oVar);
+            this.f27239c.add(nVar);
+            this.f27239c.add(frsUserRecommendAdapter);
+            this.f27239c.add(zVar2);
+            this.f27239c.add(eVar);
+            this.f27239c.add(c.a.r0.x0.b.e().b(this.f27237a.getBaseFragmentActivity(), AdvertAppInfo.C4));
+            c.a.r0.f.f.b bVar2 = new c.a.r0.f.f.b(this.f27237a, 1);
+            bVar2.t(this.f27239c);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar2));
-            A(this.f27219c);
-            sVar.addAdapters(this.f27219c);
+            A(this.f27239c);
+            sVar.addAdapters(this.f27239c);
             AbsDelegateAdapterList absDelegateAdapterList = new AbsDelegateAdapterList();
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2003008, absDelegateAdapterList);
             CustomMessage customMessage = new CustomMessage(2003008);
-            customMessage.setTag(this.f27217a.getUniqueId());
+            customMessage.setTag(this.f27237a.getUniqueId());
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             u("page_frs");
@@ -494,16 +494,16 @@ public class q implements e0 {
             while (it.hasNext()) {
                 c.a.e.l.e.a<?, ?> next = it.next();
                 if (next instanceof c.a.r0.w0.k) {
-                    ((c.a.r0.w0.k) next).o(this.f27217a.getPageContext(), this.f27217a.getUniqueId());
+                    ((c.a.r0.w0.k) next).o(this.f27237a.getPageContext(), this.f27237a.getUniqueId());
                 }
             }
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(absDelegateAdapterList);
-            List<c.a.e.l.e.a> list = this.f27219c;
+            List<c.a.e.l.e.a> list = this.f27239c;
             if (list != null) {
                 list.addAll(arrayList);
             }
-            c.a.e.l.e.s sVar3 = this.f27218b;
+            c.a.e.l.e.s sVar3 = this.f27238b;
             if (sVar3 != null) {
                 sVar3.addAdapters(arrayList);
             }
@@ -518,7 +518,7 @@ public class q implements e0 {
                 return false;
             }
             BdUniqueId type = nVar.getType();
-            return type == d2.Z2 || type == d2.v3 || type == d2.w3 || type == d2.F3 || type == d2.O3;
+            return type == d2.a3 || type == d2.w3 || type == d2.x3 || type == d2.G3 || type == d2.P3;
         }
         return invokeL.booleanValue;
     }
@@ -526,9 +526,9 @@ public class q implements e0 {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            ArrayList<c.a.e.l.e.n> arrayList = this.f27221e;
+            ArrayList<c.a.e.l.e.n> arrayList = this.f27241e;
             if (arrayList != null) {
-                this.f27218b.setData(arrayList);
+                this.f27238b.setData(arrayList);
             }
             notifyDataSetChanged();
         }
@@ -538,10 +538,10 @@ public class q implements e0 {
     public void setFromCDN(boolean z) {
         List<c.a.e.l.e.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || (list = this.f27219c) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || (list = this.f27239c) == null || list.size() == 0) {
             return;
         }
-        for (c.a.e.l.e.a aVar : this.f27219c) {
+        for (c.a.e.l.e.a aVar : this.f27239c) {
             if (aVar instanceof c.a.r0.w0.k) {
                 ((c.a.r0.w0.k) aVar).setFromCDN(z);
             }
@@ -614,7 +614,7 @@ public class q implements e0 {
     public final void u(String str) {
         List<c.a.e.l.e.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, str) == null) || (list = this.f27219c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048599, this, str) == null) || (list = this.f27239c) == null) {
             return;
         }
         for (c.a.e.l.e.a aVar : list) {
@@ -626,12 +626,12 @@ public class q implements e0 {
 
     public final void v() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || ListUtils.isEmpty(this.f27219c) || this.f27217a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || ListUtils.isEmpty(this.f27239c) || this.f27237a == null) {
             return;
         }
-        for (c.a.e.l.e.a aVar : this.f27219c) {
+        for (c.a.e.l.e.a aVar : this.f27239c) {
             if (aVar instanceof c.a.r0.w0.k) {
-                ((c.a.r0.w0.k) aVar).s0(this.f27217a.getTbPageTag());
+                ((c.a.r0.w0.k) aVar).s0(this.f27237a.getTbPageTag());
             }
         }
     }
@@ -639,10 +639,10 @@ public class q implements e0 {
     public void w(FrsViewData frsViewData) {
         List<c.a.e.l.e.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, frsViewData) == null) || (list = this.f27219c) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048601, this, frsViewData) == null) || (list = this.f27239c) == null || list.size() == 0) {
             return;
         }
-        for (c.a.e.l.e.a aVar : this.f27219c) {
+        for (c.a.e.l.e.a aVar : this.f27239c) {
             if (aVar instanceof c.a.r0.w0.k) {
                 ((c.a.r0.w0.k) aVar).n0(frsViewData);
             }
@@ -652,26 +652,26 @@ public class q implements e0 {
     public final void x() {
         c.a.r0.w0.k2.b j2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || this.f27222f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || this.f27242f == null) {
             return;
         }
-        for (c.a.e.l.e.a aVar : this.f27219c) {
+        for (c.a.e.l.e.a aVar : this.f27239c) {
             if ((aVar instanceof c.a.r0.w0.k2.d) && (j2 = ((c.a.r0.w0.k2.d) aVar).j()) != null) {
-                if (this.f27222f.needLog == 1) {
-                    j2.f26939a = true;
+                if (this.f27242f.needLog == 1) {
+                    j2.f26959a = true;
                 } else {
-                    j2.f26939a = false;
+                    j2.f26959a = false;
                 }
-                if (this.f27222f.getForum() != null) {
-                    j2.f26941c = this.f27222f.getForum().getId();
+                if (this.f27242f.getForum() != null) {
+                    j2.f26961c = this.f27242f.getForum().getId();
                 }
-                FrsFragment frsFragment = this.f27217a;
+                FrsFragment frsFragment = this.f27237a;
                 if (frsFragment != null && frsFragment.getModelController() != null) {
-                    int R = this.f27217a.getModelController().R();
+                    int R = this.f27237a.getModelController().R();
                     if (R == -1) {
-                        R = this.f27217a.getModelController().Q();
+                        R = this.f27237a.getModelController().Q();
                     }
-                    j2.f26940b = R;
+                    j2.f26960b = R;
                 }
             }
         }
@@ -680,17 +680,17 @@ public class q implements e0 {
     public final void y(ArrayList<c.a.e.l.e.n> arrayList) {
         List<c.a.e.l.e.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, arrayList) == null) || (list = this.f27219c) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, arrayList) == null) || (list = this.f27239c) == null || list.size() == 0) {
             return;
         }
         int i2 = 0;
         if (arrayList != null && arrayList.size() > 0) {
             Iterator<c.a.e.l.e.n> it = arrayList.iterator();
-            while (it.hasNext() && it.next().getType().getId() == d2.Y2.getId()) {
+            while (it.hasNext() && it.next().getType().getId() == d2.Z2.getId()) {
                 i2++;
             }
         }
-        for (c.a.e.l.e.a aVar : this.f27219c) {
+        for (c.a.e.l.e.a aVar : this.f27239c) {
             if (aVar instanceof c.a.r0.w0.k) {
                 ((c.a.r0.w0.k) aVar).t0(i2);
             }
@@ -701,9 +701,9 @@ public class q implements e0 {
         FrsViewData frsViewData;
         d0 d0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || (frsViewData = this.f27222f) == null || frsViewData.getForum() == null || StringUtils.isNull(this.f27222f.getForum().getId()) || (d0Var = this.f27225i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || (frsViewData = this.f27242f) == null || frsViewData.getForum() == null || StringUtils.isNull(this.f27242f.getForum().getId()) || (d0Var = this.f27245i) == null) {
             return;
         }
-        d0Var.z0(this.f27222f.getForum().getId());
+        d0Var.z0(this.f27242f.getForum().getId());
     }
 }

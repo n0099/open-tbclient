@@ -54,7 +54,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.h1.g, CardViewHolder<c.a.r0.w0.p2.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f27530b;
+        public final /* synthetic */ e f27550b;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.h1.g, CardViewHolder<c.a.r0.w0.p2.a
                     return;
                 }
             }
-            this.f27530b = eVar;
+            this.f27550b = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,46 +82,46 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.h1.g, CardViewHolder<c.a.r0.w0.p2.a
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, gVar) == null) || view == null || gVar == null) {
                 return;
             }
-            String str = gVar.f26804f;
+            String str = gVar.f26824f;
             if (str == null) {
                 str = null;
             }
             d2 d2Var = new d2();
-            d2Var.O3(str);
-            d2Var.A4(str);
-            d2Var.E3(c.a.e.e.m.b.g(gVar.f26803e, 0L));
-            d2Var.z3(gVar.A);
-            d2Var.z4(40);
+            d2Var.N3(str);
+            d2Var.z4(str);
+            d2Var.D3(c.a.e.e.m.b.g(gVar.f26823e, 0L));
+            d2Var.y3(gVar.A);
+            d2Var.y4(40);
             if ((view.getId() == R.id.video_container || view.getId() == R.id.video_agg_container || view.getId() == R.id.mobile_network_play) && view.getTag() != null && (view.getTag() instanceof c.a.r0.w0.p2.a)) {
                 c.a.r0.w0.p2.a aVar = (c.a.r0.w0.p2.a) view.getTag();
-                if (this.f27530b.o != null && this.f27530b.o != aVar && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
-                    this.f27530b.o.A0();
+                if (this.f27550b.o != null && this.f27550b.o != aVar && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
+                    this.f27550b.o.A0();
                 }
-                if (this.f27530b.o != aVar) {
-                    this.f27530b.o = aVar;
+                if (this.f27550b.o != aVar) {
+                    this.f27550b.o = aVar;
                 }
-                if (this.f27530b.o != null) {
-                    this.f27530b.o.r0(this.f27530b.w);
+                if (this.f27550b.o != null) {
+                    this.f27550b.o.r0(this.f27550b.w);
                 }
             }
             if (view.getId() == R.id.title) {
                 StatisticItem statisticItem = new StatisticItem("c12411");
-                statisticItem.param("fid", gVar.f26803e);
+                statisticItem.param("fid", gVar.f26823e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
                 TiebaStatic.log(statisticItem);
-                if (this.f27530b.o == null || this.f27530b.o.c0()) {
+                if (this.f27550b.o == null || this.f27550b.o.c0()) {
                     return;
                 }
                 StatisticItem d2 = c.a.r0.i3.a.d(d2Var, "a023", "common_click", 1, gVar.I, false, null, null);
-                if ("14".equals(this.f27530b.v)) {
+                if ("14".equals(this.f27550b.v)) {
                     d2.param("page_source", "newcategory");
                 }
-                c.a.r0.i3.c.g().c(this.f27530b.n, d2);
+                c.a.r0.i3.c.g().c(this.f27550b.n, d2);
             } else if (view.getId() == R.id.agree_view_container) {
                 StatisticItem statisticItem2 = new StatisticItem("c12414");
-                statisticItem2.param("fid", gVar.f26803e);
+                statisticItem2.param("fid", gVar.f26823e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
@@ -130,7 +130,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.h1.g, CardViewHolder<c.a.r0.w0.p2.a
                 if (view.getId() != R.id.user_icon && view.getId() != R.id.user_name) {
                     if (view.getId() == R.id.attention) {
                         StatisticItem statisticItem3 = new StatisticItem("c12413");
-                        statisticItem3.param("fid", gVar.f26803e);
+                        statisticItem3.param("fid", gVar.f26823e);
                         if (TbadkCoreApplication.isLogin()) {
                             statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
                         }
@@ -138,7 +138,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.h1.g, CardViewHolder<c.a.r0.w0.p2.a
                         return;
                     } else if (view.getId() == R.id.mobile_network_play) {
                         StatisticItem statisticItem4 = new StatisticItem("c12416");
-                        statisticItem4.param("fid", gVar.f26803e);
+                        statisticItem4.param("fid", gVar.f26823e);
                         if (TbadkCoreApplication.isLogin()) {
                             statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
                         }
@@ -149,28 +149,28 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.h1.g, CardViewHolder<c.a.r0.w0.p2.a
                     }
                 }
                 StatisticItem statisticItem5 = new StatisticItem("c12412");
-                statisticItem5.param("fid", gVar.f26803e);
+                statisticItem5.param("fid", gVar.f26823e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem5.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
                 TiebaStatic.log(statisticItem5);
                 StatisticItem d3 = c.a.r0.i3.a.d(d2Var, "a023", "common_click", 2, gVar.I, false, null, null);
-                if ("14".equals(this.f27530b.v)) {
+                if ("14".equals(this.f27550b.v)) {
                     d3.param("page_source", "newcategory");
                 }
-                c.a.r0.i3.c.g().c(this.f27530b.n, d3);
+                c.a.r0.i3.c.g().c(this.f27550b.n, d3);
             } else {
                 StatisticItem statisticItem6 = new StatisticItem("c12415");
-                statisticItem6.param("fid", gVar.f26803e);
+                statisticItem6.param("fid", gVar.f26823e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem6.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
                 TiebaStatic.log(statisticItem6);
                 StatisticItem d4 = c.a.r0.i3.a.d(d2Var, "a023", "common_click", 5, gVar.I, false, null, null);
-                if ("14".equals(this.f27530b.v)) {
+                if ("14".equals(this.f27550b.v)) {
                     d4.param("page_source", "newcategory");
                 }
-                c.a.r0.i3.c.g().c(this.f27530b.n, d4);
+                c.a.r0.i3.c.g().c(this.f27550b.n, d4);
             }
         }
     }
@@ -181,7 +181,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.h1.g, CardViewHolder<c.a.r0.w0.p2.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f27531e;
+        public final /* synthetic */ e f27551e;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -198,14 +198,14 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.h1.g, CardViewHolder<c.a.r0.w0.p2.a
                     return;
                 }
             }
-            this.f27531e = eVar;
+            this.f27551e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f27531e.p) {
-                this.f27531e.p = false;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f27551e.p) {
+                this.f27551e.p = false;
             }
         }
     }
@@ -350,13 +350,13 @@ public class e extends c.a.e.l.e.a<c.a.r0.w0.h1.g, CardViewHolder<c.a.r0.w0.p2.a
             if (cardViewHolder.getCardView() instanceof c.a.r0.p1.o.l.h) {
                 cardViewHolder.getCardView().setCurrentPlayCallBack(this.z);
             }
-            String c2 = c.a.r0.i3.a.c(gVar.f26804f, "", "", gVar.A);
+            String c2 = c.a.r0.i3.a.c(gVar.f26824f, "", "", gVar.A);
             d2 d2Var = new d2();
-            d2Var.O3(gVar.f26804f);
-            d2Var.A4(gVar.f26804f);
-            d2Var.z3(gVar.A);
-            d2Var.E3(c.a.e.e.m.b.g(gVar.f26803e, 0L));
-            d2Var.z4(40);
+            d2Var.N3(gVar.f26824f);
+            d2Var.z4(gVar.f26824f);
+            d2Var.y3(gVar.A);
+            d2Var.D3(c.a.e.e.m.b.g(gVar.f26823e, 0L));
+            d2Var.y4(40);
             c.a.r0.i3.c.g().d(this.n, c2, c.a.r0.i3.a.f(d2Var, "a023", "common_exp", i2 + 1, false, null, null));
             return cardViewHolder.getView();
         }

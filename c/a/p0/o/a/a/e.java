@@ -31,22 +31,22 @@ public final class e extends n implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final m f12069e;
+    public final m f12077e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f12070f;
+    public d f12078f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f12071g;
+    public d f12079g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12072h;
+    public int f12080h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12073i;
+    public int f12081i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f12074j;
+    public int f12082j;
     public int k;
     public int l;
     public int m;
@@ -68,7 +68,7 @@ public final class e extends n implements Runnable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Fragment f12075a;
+        public final /* synthetic */ Fragment f12083a;
 
         public a(e eVar, Fragment fragment) {
             Interceptable interceptable = $ic;
@@ -85,14 +85,14 @@ public final class e extends n implements Runnable {
                     return;
                 }
             }
-            this.f12075a = fragment;
+            this.f12083a = fragment;
         }
 
         @Override // c.a.p0.o.a.a.o.f
         public View getView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12075a.f0() : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12083a.f0() : (View) invokeV.objValue;
         }
     }
 
@@ -102,22 +102,22 @@ public final class e extends n implements Runnable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f12076e;
+        public final /* synthetic */ View f12084e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f12077f;
+        public final /* synthetic */ Object f12085f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f12078g;
+        public final /* synthetic */ ArrayList f12086g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ C0626e f12079h;
+        public final /* synthetic */ C0626e f12087h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ boolean f12080i;
+        public final /* synthetic */ boolean f12088i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ Fragment f12081j;
+        public final /* synthetic */ Fragment f12089j;
         public final /* synthetic */ Fragment k;
         public final /* synthetic */ e l;
 
@@ -137,12 +137,12 @@ public final class e extends n implements Runnable {
                 }
             }
             this.l = eVar;
-            this.f12076e = view;
-            this.f12077f = obj;
-            this.f12078g = arrayList;
-            this.f12079h = c0626e;
-            this.f12080i = z;
-            this.f12081j = fragment;
+            this.f12084e = view;
+            this.f12085f = obj;
+            this.f12086g = arrayList;
+            this.f12087h = c0626e;
+            this.f12088i = z;
+            this.f12089j = fragment;
             this.k = fragment2;
         }
 
@@ -151,15 +151,15 @@ public final class e extends n implements Runnable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f12076e.getViewTreeObserver().removeOnPreDrawListener(this);
-                Object obj = this.f12077f;
+                this.f12084e.getViewTreeObserver().removeOnPreDrawListener(this);
+                Object obj = this.f12085f;
                 if (obj != null) {
-                    o.s(obj, this.f12078g);
-                    this.f12078g.clear();
-                    c.a.p0.o.a.c.a H = this.l.H(this.f12079h, this.f12080i, this.f12081j);
-                    o.v(this.f12077f, this.f12079h.f12099d, H, this.f12078g);
-                    this.l.O(H, this.f12079h);
-                    this.l.s(this.f12079h, this.f12081j, this.k, this.f12080i, H);
+                    o.s(obj, this.f12086g);
+                    this.f12086g.clear();
+                    c.a.p0.o.a.c.a H = this.l.H(this.f12087h, this.f12088i, this.f12089j);
+                    o.v(this.f12085f, this.f12087h.f12107d, H, this.f12086g);
+                    this.l.O(H, this.f12087h);
+                    this.l.s(this.f12087h, this.f12089j, this.k, this.f12088i, H);
                     return true;
                 }
                 return true;
@@ -174,19 +174,19 @@ public final class e extends n implements Runnable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f12082e;
+        public final /* synthetic */ View f12090e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ C0626e f12083f;
+        public final /* synthetic */ C0626e f12091f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f12084g;
+        public final /* synthetic */ int f12092g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Object f12085h;
+        public final /* synthetic */ Object f12093h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f12086i;
+        public final /* synthetic */ e f12094i;
 
         public c(e eVar, View view, C0626e c0626e, int i2, Object obj) {
             Interceptable interceptable = $ic;
@@ -203,11 +203,11 @@ public final class e extends n implements Runnable {
                     return;
                 }
             }
-            this.f12086i = eVar;
-            this.f12082e = view;
-            this.f12083f = c0626e;
-            this.f12084g = i2;
-            this.f12085h = obj;
+            this.f12094i = eVar;
+            this.f12090e = view;
+            this.f12091f = c0626e;
+            this.f12092g = i2;
+            this.f12093h = obj;
         }
 
         @Override // android.view.ViewTreeObserver.OnPreDrawListener
@@ -215,8 +215,8 @@ public final class e extends n implements Runnable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f12082e.getViewTreeObserver().removeOnPreDrawListener(this);
-                this.f12086i.A(this.f12083f, this.f12084g, this.f12085h);
+                this.f12090e.getViewTreeObserver().removeOnPreDrawListener(this);
+                this.f12094i.A(this.f12091f, this.f12092g, this.f12093h);
                 return true;
             }
             return invokeV.booleanValue;
@@ -229,31 +229,31 @@ public final class e extends n implements Runnable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public d f12087a;
+        public d f12095a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d f12088b;
+        public d f12096b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f12089c;
+        public int f12097c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Fragment f12090d;
+        public Fragment f12098d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12091e;
+        public int f12099e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f12092f;
+        public int f12100f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f12093g;
+        public int f12101g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f12094h;
+        public int f12102h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ArrayList<Fragment> f12095i;
+        public ArrayList<Fragment> f12103i;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -277,16 +277,16 @@ public final class e extends n implements Runnable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.p0.o.a.c.a<String, String> f12096a;
+        public c.a.p0.o.a.c.a<String, String> f12104a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<View> f12097b;
+        public ArrayList<View> f12105b;
 
         /* renamed from: c  reason: collision with root package name */
-        public o.e f12098c;
+        public o.e f12106c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f12099d;
+        public View f12107d;
 
         public C0626e(e eVar) {
             Interceptable interceptable = $ic;
@@ -303,9 +303,9 @@ public final class e extends n implements Runnable {
                     return;
                 }
             }
-            this.f12096a = new c.a.p0.o.a.c.a<>();
-            this.f12097b = new ArrayList<>();
-            this.f12098c = new o.e();
+            this.f12104a = new c.a.p0.o.a.c.a<>();
+            this.f12105b = new ArrayList<>();
+            this.f12106c = new o.e();
         }
     }
 
@@ -341,7 +341,7 @@ public final class e extends n implements Runnable {
             }
         }
         this.r = -1;
-        this.f12069e = mVar;
+        this.f12077e = mVar;
     }
 
     public static Object C(Fragment fragment, boolean z) {
@@ -435,7 +435,7 @@ public final class e extends n implements Runnable {
             return;
         }
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            R(c0626e.f12096a, arrayList.get(i2), arrayList2.get(i2));
+            R(c0626e.f12104a, arrayList.get(i2), arrayList2.get(i2));
         }
     }
 
@@ -447,21 +447,21 @@ public final class e extends n implements Runnable {
 
     public final void A(C0626e c0626e, int i2, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, c0626e, i2, obj) == null) || this.f12069e.f12113e == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, c0626e, i2, obj) == null) || this.f12077e.f12121e == null) {
             return;
         }
-        for (int i3 = 0; i3 < this.f12069e.f12113e.size(); i3++) {
-            Fragment fragment = this.f12069e.f12113e.get(i3);
+        for (int i3 = 0; i3 < this.f12077e.f12121e.size(); i3++) {
+            Fragment fragment = this.f12077e.f12121e.get(i3);
             View view = fragment.M;
             if (view != null && fragment.L != null && fragment.B == i2) {
                 if (fragment.D) {
-                    if (!c0626e.f12097b.contains(view)) {
+                    if (!c0626e.f12105b.contains(view)) {
                         o.l(obj, fragment.M, true);
-                        c0626e.f12097b.add(fragment.M);
+                        c0626e.f12105b.add(fragment.M);
                     }
                 } else {
                     o.l(obj, view, false);
-                    c0626e.f12097b.remove(fragment.M);
+                    c0626e.f12105b.remove(fragment.M);
                 }
             }
         }
@@ -547,69 +547,69 @@ public final class e extends n implements Runnable {
             p(-1);
             int i2 = c0626e != null ? 0 : this.n;
             int i3 = c0626e != null ? 0 : this.m;
-            for (d dVar2 = this.f12071g; dVar2 != null; dVar2 = dVar2.f12088b) {
-                int i4 = c0626e != null ? 0 : dVar2.f12093g;
-                int i5 = c0626e != null ? 0 : dVar2.f12094h;
-                switch (dVar2.f12089c) {
+            for (d dVar2 = this.f12079g; dVar2 != null; dVar2 = dVar2.f12096b) {
+                int i4 = c0626e != null ? 0 : dVar2.f12101g;
+                int i5 = c0626e != null ? 0 : dVar2.f12102h;
+                switch (dVar2.f12097c) {
                     case 1:
-                        Fragment fragment = dVar2.f12090d;
+                        Fragment fragment = dVar2.f12098d;
                         fragment.K = i5;
-                        this.f12069e.Z(fragment, m.d0(i3), i2);
+                        this.f12077e.Z(fragment, m.d0(i3), i2);
                         break;
                     case 2:
-                        Fragment fragment2 = dVar2.f12090d;
+                        Fragment fragment2 = dVar2.f12098d;
                         if (fragment2 != null) {
                             fragment2.K = i5;
-                            this.f12069e.Z(fragment2, m.d0(i3), i2);
+                            this.f12077e.Z(fragment2, m.d0(i3), i2);
                         }
-                        if (dVar2.f12095i != null) {
-                            for (int i6 = 0; i6 < dVar2.f12095i.size(); i6++) {
-                                Fragment fragment3 = dVar2.f12095i.get(i6);
+                        if (dVar2.f12103i != null) {
+                            for (int i6 = 0; i6 < dVar2.f12103i.size(); i6++) {
+                                Fragment fragment3 = dVar2.f12103i.get(i6);
                                 fragment3.K = i4;
-                                this.f12069e.h(fragment3, false);
+                                this.f12077e.h(fragment3, false);
                             }
                             break;
                         } else {
                             break;
                         }
                     case 3:
-                        Fragment fragment4 = dVar2.f12090d;
+                        Fragment fragment4 = dVar2.f12098d;
                         fragment4.K = i4;
-                        this.f12069e.h(fragment4, false);
+                        this.f12077e.h(fragment4, false);
                         break;
                     case 4:
-                        Fragment fragment5 = dVar2.f12090d;
+                        Fragment fragment5 = dVar2.f12098d;
                         fragment5.K = i4;
-                        this.f12069e.k0(fragment5, m.d0(i3), i2);
+                        this.f12077e.k0(fragment5, m.d0(i3), i2);
                         break;
                     case 5:
-                        Fragment fragment6 = dVar2.f12090d;
+                        Fragment fragment6 = dVar2.f12098d;
                         fragment6.K = i5;
-                        this.f12069e.K(fragment6, m.d0(i3), i2);
+                        this.f12077e.K(fragment6, m.d0(i3), i2);
                         break;
                     case 6:
-                        Fragment fragment7 = dVar2.f12090d;
+                        Fragment fragment7 = dVar2.f12098d;
                         fragment7.K = i4;
-                        this.f12069e.k(fragment7, m.d0(i3), i2);
+                        this.f12077e.k(fragment7, m.d0(i3), i2);
                         break;
                     case 7:
-                        Fragment fragment8 = dVar2.f12090d;
+                        Fragment fragment8 = dVar2.f12098d;
                         fragment8.K = i4;
-                        this.f12069e.m(fragment8, m.d0(i3), i2);
+                        this.f12077e.m(fragment8, m.d0(i3), i2);
                         break;
                     default:
-                        throw new IllegalArgumentException("Unknown cmd: " + dVar2.f12089c);
+                        throw new IllegalArgumentException("Unknown cmd: " + dVar2.f12097c);
                 }
             }
             if (z) {
-                m mVar = this.f12069e;
+                m mVar = this.f12077e;
                 mVar.R(mVar.l, m.d0(i3), i2, true);
             } else {
                 c0626e2 = c0626e;
             }
             int i7 = this.r;
             if (i7 >= 0) {
-                this.f12069e.H(i7);
+                this.f12077e.H(i7);
                 this.r = -1;
             }
             return c0626e2;
@@ -666,9 +666,9 @@ public final class e extends n implements Runnable {
                 if (view != null) {
                     String o = o.o(view);
                     if (z) {
-                        R(c0626e.f12096a, str, o);
+                        R(c0626e.f12104a, str, o);
                     } else {
-                        R(c0626e.f12096a, o, str);
+                        R(c0626e.f12104a, o, str);
                     }
                 }
             }
@@ -679,8 +679,8 @@ public final class e extends n implements Runnable {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048585, this, i2, i3, i4, i5)) == null) {
-            this.f12073i = i2;
-            this.f12074j = i3;
+            this.f12081i = i2;
+            this.f12082j = i3;
             this.k = i4;
             this.l = i5;
             return this;
@@ -694,7 +694,7 @@ public final class e extends n implements Runnable {
         if (!(interceptable == null || interceptable.invokeLL(1048586, this, aVar, c0626e) == null) || this.x == null || aVar.isEmpty() || (view = aVar.get(this.x.get(0))) == null) {
             return;
         }
-        c0626e.f12098c.f12145a = view;
+        c0626e.f12106c.f12153a = view;
     }
 
     public final void Q(SparseArray<Fragment> sparseArray, Fragment fragment) {
@@ -714,9 +714,9 @@ public final class e extends n implements Runnable {
                 String h2 = aVar.h(i2);
                 String o = o.o(aVar.k(i2));
                 if (z) {
-                    R(c0626e.f12096a, h2, o);
+                    R(c0626e.f12104a, h2, o);
                 } else {
-                    R(c0626e.f12096a, o, h2);
+                    R(c0626e.f12104a, o, h2);
                 }
             }
         }
@@ -775,8 +775,8 @@ public final class e extends n implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, fragment)) == null) {
             d dVar = new d();
-            dVar.f12089c = 4;
-            dVar.f12090d = fragment;
+            dVar.f12097c = 4;
+            dVar.f12098d = fragment;
             n(dVar);
             return this;
         }
@@ -789,8 +789,8 @@ public final class e extends n implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, fragment)) == null) {
             d dVar = new d();
-            dVar.f12089c = 3;
-            dVar.f12090d = fragment;
+            dVar.f12097c = 3;
+            dVar.f12098d = fragment;
             n(dVar);
             return this;
         }
@@ -814,8 +814,8 @@ public final class e extends n implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, fragment)) == null) {
             d dVar = new d();
-            dVar.f12089c = 5;
-            dVar.f12090d = fragment;
+            dVar.f12097c = 5;
+            dVar.f12098d = fragment;
             n(dVar);
             return this;
         }
@@ -825,20 +825,20 @@ public final class e extends n implements Runnable {
     public void n(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, dVar) == null) {
-            if (this.f12070f == null) {
-                this.f12071g = dVar;
-                this.f12070f = dVar;
+            if (this.f12078f == null) {
+                this.f12079g = dVar;
+                this.f12078f = dVar;
             } else {
-                d dVar2 = this.f12071g;
-                dVar.f12088b = dVar2;
-                dVar2.f12087a = dVar;
-                this.f12071g = dVar;
+                d dVar2 = this.f12079g;
+                dVar.f12096b = dVar2;
+                dVar2.f12095a = dVar;
+                this.f12079g = dVar;
             }
-            dVar.f12091e = this.f12073i;
-            dVar.f12092f = this.f12074j;
-            dVar.f12093g = this.k;
-            dVar.f12094h = this.l;
-            this.f12072h++;
+            dVar.f12099e = this.f12081i;
+            dVar.f12100f = this.f12082j;
+            dVar.f12101g = this.k;
+            dVar.f12102h = this.l;
+            this.f12080h++;
         }
     }
 
@@ -847,7 +847,7 @@ public final class e extends n implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048599, this, sparseArray, sparseArray2, z)) == null) {
             C0626e c0626e = new C0626e(this);
-            c0626e.f12099d = new View(this.f12069e.m.h());
+            c0626e.f12107d = new View(this.f12077e.m.h());
             boolean z2 = false;
             for (int i2 = 0; i2 < sparseArray.size(); i2++) {
                 if (w(sparseArray.keyAt(i2), c0626e, z, sparseArray, sparseArray2)) {
@@ -874,18 +874,18 @@ public final class e extends n implements Runnable {
             if (m.x) {
                 String str = "Bump nesting in " + this + " by " + i2;
             }
-            for (d dVar = this.f12070f; dVar != null; dVar = dVar.f12087a) {
-                Fragment fragment = dVar.f12090d;
+            for (d dVar = this.f12078f; dVar != null; dVar = dVar.f12095a) {
+                Fragment fragment = dVar.f12098d;
                 if (fragment != null) {
                     fragment.v += i2;
                     if (m.x) {
-                        String str2 = "Bump nesting of " + dVar.f12090d + " to " + dVar.f12090d.v;
+                        String str2 = "Bump nesting of " + dVar.f12098d + " to " + dVar.f12098d.v;
                     }
                 }
-                ArrayList<Fragment> arrayList = dVar.f12095i;
+                ArrayList<Fragment> arrayList = dVar.f12103i;
                 if (arrayList != null) {
                     for (int size = arrayList.size() - 1; size >= 0; size--) {
-                        Fragment fragment2 = dVar.f12095i.get(size);
+                        Fragment fragment2 = dVar.f12103i.get(size);
                         fragment2.v += i2;
                         if (m.x) {
                             String str3 = "Bump nesting of " + fragment2 + " to " + fragment2.v;
@@ -898,35 +898,35 @@ public final class e extends n implements Runnable {
 
     public void q(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048601, this, sparseArray, sparseArray2) == null) && this.f12069e.n.b()) {
-            for (d dVar = this.f12070f; dVar != null; dVar = dVar.f12087a) {
-                switch (dVar.f12089c) {
+        if ((interceptable == null || interceptable.invokeLL(1048601, this, sparseArray, sparseArray2) == null) && this.f12077e.n.b()) {
+            for (d dVar = this.f12078f; dVar != null; dVar = dVar.f12095a) {
+                switch (dVar.f12097c) {
                     case 1:
-                        P(sparseArray, dVar.f12090d);
+                        P(sparseArray, dVar.f12098d);
                         break;
                     case 2:
-                        ArrayList<Fragment> arrayList = dVar.f12095i;
+                        ArrayList<Fragment> arrayList = dVar.f12103i;
                         if (arrayList != null) {
                             for (int size = arrayList.size() - 1; size >= 0; size--) {
-                                Q(sparseArray2, dVar.f12095i.get(size));
+                                Q(sparseArray2, dVar.f12103i.get(size));
                             }
                         }
-                        P(sparseArray, dVar.f12090d);
+                        P(sparseArray, dVar.f12098d);
                         break;
                     case 3:
-                        Q(sparseArray2, dVar.f12090d);
+                        Q(sparseArray2, dVar.f12098d);
                         break;
                     case 4:
-                        Q(sparseArray2, dVar.f12090d);
+                        Q(sparseArray2, dVar.f12098d);
                         break;
                     case 5:
-                        P(sparseArray, dVar.f12090d);
+                        P(sparseArray, dVar.f12098d);
                         break;
                     case 6:
-                        Q(sparseArray2, dVar.f12090d);
+                        Q(sparseArray2, dVar.f12098d);
                         break;
                     case 7:
-                        P(sparseArray, dVar.f12090d);
+                        P(sparseArray, dVar.f12098d);
                         break;
                 }
             }
@@ -935,17 +935,17 @@ public final class e extends n implements Runnable {
 
     public final void r(SparseArray<Fragment> sparseArray, SparseArray<Fragment> sparseArray2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048602, this, sparseArray, sparseArray2) == null) && this.f12069e.n.b()) {
-            for (d dVar = this.f12070f; dVar != null; dVar = dVar.f12087a) {
-                switch (dVar.f12089c) {
+        if ((interceptable == null || interceptable.invokeLL(1048602, this, sparseArray, sparseArray2) == null) && this.f12077e.n.b()) {
+            for (d dVar = this.f12078f; dVar != null; dVar = dVar.f12095a) {
+                switch (dVar.f12097c) {
                     case 1:
-                        Q(sparseArray2, dVar.f12090d);
+                        Q(sparseArray2, dVar.f12098d);
                         break;
                     case 2:
-                        Fragment fragment = dVar.f12090d;
-                        if (this.f12069e.f12113e != null) {
-                            for (int i2 = 0; i2 < this.f12069e.f12113e.size(); i2++) {
-                                Fragment fragment2 = this.f12069e.f12113e.get(i2);
+                        Fragment fragment = dVar.f12098d;
+                        if (this.f12077e.f12121e != null) {
+                            for (int i2 = 0; i2 < this.f12077e.f12121e.size(); i2++) {
+                                Fragment fragment2 = this.f12077e.f12121e.get(i2);
                                 if (fragment == null || fragment2.B == fragment.B) {
                                     if (fragment2 == fragment) {
                                         fragment = null;
@@ -958,19 +958,19 @@ public final class e extends n implements Runnable {
                         Q(sparseArray2, fragment);
                         break;
                     case 3:
-                        P(sparseArray, dVar.f12090d);
+                        P(sparseArray, dVar.f12098d);
                         break;
                     case 4:
-                        P(sparseArray, dVar.f12090d);
+                        P(sparseArray, dVar.f12098d);
                         break;
                     case 5:
-                        Q(sparseArray2, dVar.f12090d);
+                        Q(sparseArray2, dVar.f12098d);
                         break;
                     case 6:
-                        P(sparseArray, dVar.f12090d);
+                        P(sparseArray, dVar.f12098d);
                         break;
                     case 7:
-                        Q(sparseArray2, dVar.f12090d);
+                        Q(sparseArray2, dVar.f12098d);
                         break;
                 }
             }
@@ -999,33 +999,33 @@ public final class e extends n implements Runnable {
             }
             int i2 = c0626e != null ? 0 : this.n;
             int i3 = c0626e != null ? 0 : this.m;
-            for (d dVar = this.f12070f; dVar != null; dVar = dVar.f12087a) {
-                int i4 = c0626e != null ? 0 : dVar.f12091e;
-                int i5 = c0626e != null ? 0 : dVar.f12092f;
-                switch (dVar.f12089c) {
+            for (d dVar = this.f12078f; dVar != null; dVar = dVar.f12095a) {
+                int i4 = c0626e != null ? 0 : dVar.f12099e;
+                int i5 = c0626e != null ? 0 : dVar.f12100f;
+                switch (dVar.f12097c) {
                     case 1:
-                        Fragment fragment = dVar.f12090d;
+                        Fragment fragment = dVar.f12098d;
                         fragment.K = i4;
-                        this.f12069e.h(fragment, false);
+                        this.f12077e.h(fragment, false);
                         break;
                     case 2:
-                        Fragment fragment2 = dVar.f12090d;
+                        Fragment fragment2 = dVar.f12098d;
                         int i6 = fragment2.B;
-                        if (this.f12069e.f12113e != null) {
-                            for (int i7 = 0; i7 < this.f12069e.f12113e.size(); i7++) {
-                                Fragment fragment3 = this.f12069e.f12113e.get(i7);
+                        if (this.f12077e.f12121e != null) {
+                            for (int i7 = 0; i7 < this.f12077e.f12121e.size(); i7++) {
+                                Fragment fragment3 = this.f12077e.f12121e.get(i7);
                                 if (m.x) {
                                     String str2 = "OP_REPLACE: adding=" + fragment2 + " old=" + fragment3;
                                 }
                                 if (fragment3.B == i6) {
                                     if (fragment3 == fragment2) {
-                                        dVar.f12090d = null;
+                                        dVar.f12098d = null;
                                         fragment2 = null;
                                     } else {
-                                        if (dVar.f12095i == null) {
-                                            dVar.f12095i = new ArrayList<>();
+                                        if (dVar.f12103i == null) {
+                                            dVar.f12103i = new ArrayList<>();
                                         }
-                                        dVar.f12095i.add(fragment3);
+                                        dVar.f12103i.add(fragment3);
                                         fragment3.K = i5;
                                         if (this.o) {
                                             fragment3.v++;
@@ -1033,51 +1033,51 @@ public final class e extends n implements Runnable {
                                                 String str3 = "Bump nesting of " + fragment3 + " to " + fragment3.v;
                                             }
                                         }
-                                        this.f12069e.Z(fragment3, i3, i2);
+                                        this.f12077e.Z(fragment3, i3, i2);
                                     }
                                 }
                             }
                         }
                         if (fragment2 != null) {
                             fragment2.K = i4;
-                            this.f12069e.h(fragment2, false);
+                            this.f12077e.h(fragment2, false);
                             break;
                         } else {
                             break;
                         }
                     case 3:
-                        Fragment fragment4 = dVar.f12090d;
+                        Fragment fragment4 = dVar.f12098d;
                         fragment4.K = i5;
-                        this.f12069e.Z(fragment4, i3, i2);
+                        this.f12077e.Z(fragment4, i3, i2);
                         break;
                     case 4:
-                        Fragment fragment5 = dVar.f12090d;
+                        Fragment fragment5 = dVar.f12098d;
                         fragment5.K = i5;
-                        this.f12069e.K(fragment5, i3, i2);
+                        this.f12077e.K(fragment5, i3, i2);
                         break;
                     case 5:
-                        Fragment fragment6 = dVar.f12090d;
+                        Fragment fragment6 = dVar.f12098d;
                         fragment6.K = i4;
-                        this.f12069e.k0(fragment6, i3, i2);
+                        this.f12077e.k0(fragment6, i3, i2);
                         break;
                     case 6:
-                        Fragment fragment7 = dVar.f12090d;
+                        Fragment fragment7 = dVar.f12098d;
                         fragment7.K = i5;
-                        this.f12069e.m(fragment7, i3, i2);
+                        this.f12077e.m(fragment7, i3, i2);
                         break;
                     case 7:
-                        Fragment fragment8 = dVar.f12090d;
+                        Fragment fragment8 = dVar.f12098d;
                         fragment8.K = i4;
-                        this.f12069e.k(fragment8, i3, i2);
+                        this.f12077e.k(fragment8, i3, i2);
                         break;
                     default:
-                        throw new IllegalArgumentException("Unknown cmd: " + dVar.f12089c);
+                        throw new IllegalArgumentException("Unknown cmd: " + dVar.f12097c);
                 }
             }
-            m mVar = this.f12069e;
+            m mVar = this.f12077e;
             mVar.R(mVar.l, i3, i2, true);
             if (this.o) {
-                this.f12069e.g(this);
+                this.f12077e.g(this);
             }
         }
     }
@@ -1140,11 +1140,11 @@ public final class e extends n implements Runnable {
                 }
                 this.q = true;
                 if (this.o) {
-                    this.r = this.f12069e.i(this);
+                    this.r = this.f12077e.i(this);
                 } else {
                     this.r = -1;
                 }
-                this.f12069e.D(this, z);
+                this.f12077e.D(this, z);
                 return this.r;
             }
             throw new IllegalStateException("commit already called");
@@ -1162,7 +1162,7 @@ public final class e extends n implements Runnable {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i2), c0626e, Boolean.valueOf(z), sparseArray, sparseArray2})) == null) {
-            ViewGroup viewGroup = (ViewGroup) this.f12069e.n.a(i2);
+            ViewGroup viewGroup = (ViewGroup) this.f12077e.n.a(i2);
             if (viewGroup == null) {
                 return false;
             }
@@ -1200,7 +1200,7 @@ public final class e extends n implements Runnable {
                 return false;
             }
             ArrayList arrayList2 = new ArrayList();
-            Object t = t(obj, fragment2, arrayList2, aVar, c0626e.f12099d);
+            Object t = t(obj, fragment2, arrayList2, aVar, c0626e.f12107d);
             ArrayList<String> arrayList3 = this.x;
             if (arrayList3 != null && aVar != null && (view = aVar.get(arrayList3.get(0))) != null) {
                 if (t != null) {
@@ -1223,12 +1223,12 @@ public final class e extends n implements Runnable {
             Object r = o.r(obj2, t, obj4, z2);
             if (r != null) {
                 obj3 = r;
-                o.d(obj2, obj4, viewGroup, aVar2, c0626e.f12099d, c0626e.f12098c, c0626e.f12096a, arrayList4, aVar, aVar3, arrayList);
+                o.d(obj2, obj4, viewGroup, aVar2, c0626e.f12107d, c0626e.f12106c, c0626e.f12104a, arrayList4, aVar, aVar3, arrayList);
                 B(viewGroup, c0626e, i2, obj3);
-                o.l(obj3, c0626e.f12099d, true);
+                o.l(obj3, c0626e.f12107d, true);
                 A(c0626e, i2, obj3);
                 o.e(viewGroup, obj3);
-                o.i(viewGroup, c0626e.f12099d, obj2, arrayList4, t, arrayList2, obj4, arrayList, obj3, c0626e.f12097b, aVar3);
+                o.i(viewGroup, c0626e.f12107d, obj2, arrayList4, t, arrayList2, obj4, arrayList, obj3, c0626e.f12105b, aVar3);
             } else {
                 obj3 = r;
             }
@@ -1240,7 +1240,7 @@ public final class e extends n implements Runnable {
     public final void x(int i2, Fragment fragment, String str, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i2), fragment, str, Integer.valueOf(i3)}) == null) {
-            fragment.w = this.f12069e;
+            fragment.w = this.f12077e;
             if (str != null) {
                 String str2 = fragment.C;
                 if (str2 != null && !str.equals(str2)) {
@@ -1257,8 +1257,8 @@ public final class e extends n implements Runnable {
                 fragment.B = i2;
             }
             d dVar = new d();
-            dVar.f12089c = i3;
-            dVar.f12090d = fragment;
+            dVar.f12097c = i3;
+            dVar.f12098d = fragment;
             n(dVar);
         }
     }
@@ -1289,12 +1289,12 @@ public final class e extends n implements Runnable {
                     printWriter.print(" mTransitionStyle=#");
                     printWriter.println(Integer.toHexString(this.n));
                 }
-                if (this.f12073i != 0 || this.f12074j != 0) {
+                if (this.f12081i != 0 || this.f12082j != 0) {
                     printWriter.print(str);
                     printWriter.print("mEnterAnim=#");
-                    printWriter.print(Integer.toHexString(this.f12073i));
+                    printWriter.print(Integer.toHexString(this.f12081i));
                     printWriter.print(" mExitAnim=#");
-                    printWriter.println(Integer.toHexString(this.f12074j));
+                    printWriter.println(Integer.toHexString(this.f12082j));
                 }
                 if (this.k != 0 || this.l != 0) {
                     printWriter.print(str);
@@ -1318,14 +1318,14 @@ public final class e extends n implements Runnable {
                     printWriter.println(this.v);
                 }
             }
-            if (this.f12070f != null) {
+            if (this.f12078f != null) {
                 printWriter.print(str);
                 printWriter.println("Operations:");
                 String str3 = str + "    ";
-                d dVar = this.f12070f;
+                d dVar = this.f12078f;
                 int i2 = 0;
                 while (dVar != null) {
-                    switch (dVar.f12089c) {
+                    switch (dVar.f12097c) {
                         case 0:
                             str2 = "NULL";
                             break;
@@ -1351,7 +1351,7 @@ public final class e extends n implements Runnable {
                             str2 = "ATTACH";
                             break;
                         default:
-                            str2 = "cmd=" + dVar.f12089c;
+                            str2 = "cmd=" + dVar.f12097c;
                             break;
                     }
                     printWriter.print(str);
@@ -1360,28 +1360,28 @@ public final class e extends n implements Runnable {
                     printWriter.print(": ");
                     printWriter.print(str2);
                     printWriter.print(" ");
-                    printWriter.println(dVar.f12090d);
+                    printWriter.println(dVar.f12098d);
                     if (z) {
-                        if (dVar.f12091e != 0 || dVar.f12092f != 0) {
+                        if (dVar.f12099e != 0 || dVar.f12100f != 0) {
                             printWriter.print(str);
                             printWriter.print("enterAnim=#");
-                            printWriter.print(Integer.toHexString(dVar.f12091e));
+                            printWriter.print(Integer.toHexString(dVar.f12099e));
                             printWriter.print(" exitAnim=#");
-                            printWriter.println(Integer.toHexString(dVar.f12092f));
+                            printWriter.println(Integer.toHexString(dVar.f12100f));
                         }
-                        if (dVar.f12093g != 0 || dVar.f12094h != 0) {
+                        if (dVar.f12101g != 0 || dVar.f12102h != 0) {
                             printWriter.print(str);
                             printWriter.print("popEnterAnim=#");
-                            printWriter.print(Integer.toHexString(dVar.f12093g));
+                            printWriter.print(Integer.toHexString(dVar.f12101g));
                             printWriter.print(" popExitAnim=#");
-                            printWriter.println(Integer.toHexString(dVar.f12094h));
+                            printWriter.println(Integer.toHexString(dVar.f12102h));
                         }
                     }
-                    ArrayList<Fragment> arrayList = dVar.f12095i;
+                    ArrayList<Fragment> arrayList = dVar.f12103i;
                     if (arrayList != null && arrayList.size() > 0) {
-                        for (int i3 = 0; i3 < dVar.f12095i.size(); i3++) {
+                        for (int i3 = 0; i3 < dVar.f12103i.size(); i3++) {
                             printWriter.print(str3);
-                            if (dVar.f12095i.size() == 1) {
+                            if (dVar.f12103i.size() == 1) {
                                 printWriter.print("Removed: ");
                             } else {
                                 if (i3 == 0) {
@@ -1392,10 +1392,10 @@ public final class e extends n implements Runnable {
                                 printWriter.print(i3);
                                 printWriter.print(": ");
                             }
-                            printWriter.println(dVar.f12095i.get(i3));
+                            printWriter.println(dVar.f12103i.get(i3));
                         }
                     }
-                    dVar = dVar.f12087a;
+                    dVar = dVar.f12095a;
                     i2++;
                 }
             }

@@ -11,11 +11,11 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f11924b;
+    public static d f11932b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.n.i.i.e.b f11925a;
+    public c.a.p0.n.i.i.e.b f11933a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,23 +30,23 @@ public class d {
                 return;
             }
         }
-        this.f11925a = new c.a.p0.n.i.i.e.b();
+        this.f11933a = new c.a.p0.n.i.i.e.b();
     }
 
     public static d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            d dVar = f11924b;
+            d dVar = f11932b;
             if (dVar != null) {
                 return dVar;
             }
             synchronized (d.class) {
-                if (f11924b == null) {
-                    f11924b = new d();
+                if (f11932b == null) {
+                    f11932b = new d();
                 }
             }
-            return f11924b;
+            return f11932b;
         }
         return (d) invokeV.objValue;
     }
@@ -69,7 +69,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             synchronized (this) {
-                e2 = this.f11925a.e(str);
+                e2 = this.f11933a.e(str);
             }
             return e2;
         }
@@ -82,7 +82,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             synchronized (this) {
-                f2 = this.f11925a.f(str);
+                f2 = this.f11933a.f(str);
             }
             return f2;
         }
@@ -93,7 +93,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             synchronized (this) {
-                this.f11925a.c(bVar);
+                this.f11933a.c(bVar);
             }
         }
     }
@@ -103,7 +103,7 @@ public class d {
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             synchronized (this) {
                 fVar.r(false);
-                this.f11925a.h(fVar);
+                this.f11933a.h(fVar);
             }
         }
     }
@@ -112,7 +112,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             synchronized (this) {
-                this.f11925a.i(bVar);
+                this.f11933a.i(bVar);
             }
         }
     }

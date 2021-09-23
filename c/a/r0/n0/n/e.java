@@ -26,19 +26,19 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f22888a;
+    public TbPageContext<?> f22904a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f22889b;
+    public View f22905b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f22890c;
+    public TextView f22906c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f22891d;
+    public ImageView f22907d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22892e;
+    public boolean f22908e;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -46,7 +46,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f22893e;
+        public final /* synthetic */ e f22909e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -63,18 +63,18 @@ public class e {
                     return;
                 }
             }
-            this.f22893e = eVar;
+            this.f22909e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.r0.n0.b.a(this.f22893e.f22888a, null);
+                c.a.r0.n0.b.a(this.f22909e.f22904a, null);
                 StatisticItem statisticItem = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_MORE);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_locate", 1);
-                statisticItem.param("obj_type", this.f22893e.f22892e ? 5 : 1);
+                statisticItem.param("obj_type", this.f22909e.f22908e ? 5 : 1);
                 statisticItem.param("obj_source", 2);
                 TiebaStatic.log(statisticItem);
             }
@@ -96,12 +96,12 @@ public class e {
                 return;
             }
         }
-        this.f22888a = tbPageContext;
+        this.f22904a = tbPageContext;
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.recommend_forum_title_item_view, (ViewGroup) null);
-        this.f22889b = inflate;
-        this.f22890c = (TextView) inflate.findViewById(R.id.text_title);
-        ImageView imageView = (ImageView) this.f22889b.findViewById(R.id.icon_into);
-        this.f22891d = imageView;
+        this.f22905b = inflate;
+        this.f22906c = (TextView) inflate.findViewById(R.id.text_title);
+        ImageView imageView = (ImageView) this.f22905b.findViewById(R.id.icon_into);
+        this.f22907d = imageView;
         imageView.setOnClickListener(new a(this));
     }
 
@@ -110,23 +110,23 @@ public class e {
         if (interceptable == null || interceptable.invokeL(1048576, this, s1Var) == null) {
             String title = s1Var.getTitle();
             if (!TextUtils.isEmpty(title)) {
-                this.f22890c.setText(title);
+                this.f22906c.setText(title);
             }
-            SkinManager.setViewTextColor(this.f22890c, R.color.CAM_X0105);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22891d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.f22906c, R.color.CAM_X0105);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22907d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22889b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22905b : (View) invokeV.objValue;
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f22892e = z;
+            this.f22908e = z;
         }
     }
 }

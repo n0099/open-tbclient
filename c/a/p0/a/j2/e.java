@@ -25,31 +25,31 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6978a;
+    public static final boolean f6986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f6979b;
+    public static volatile boolean f6987b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f6980c;
+    public static volatile boolean f6988c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f6981d;
+    public static volatile boolean f6989d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f6982e;
+    public static volatile boolean f6990e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f6983f;
+    public static volatile boolean f6991f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile boolean f6984g;
+    public static volatile boolean f6992g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HashMap<String, String> f6985h;
+    public static HashMap<String, String> f6993h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f6986i;
+    public static String f6994i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -58,7 +58,7 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Bundle f6987e;
+        public final /* synthetic */ Bundle f6995e;
 
         public a(Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -75,14 +75,14 @@ public final class e {
                     return;
                 }
             }
-            this.f6987e = bundle;
+            this.f6995e = bundle;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6987e.remove("page_display_flag_for_statistic");
+                this.f6995e.remove("page_display_flag_for_statistic");
             }
         }
     }
@@ -93,13 +93,13 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.j2.p.f f6988e;
+        public final /* synthetic */ c.a.p0.a.j2.p.f f6996e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6989f;
+        public final /* synthetic */ String f6997f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f6990g;
+        public final /* synthetic */ String f6998g;
 
         public b(c.a.p0.a.j2.p.f fVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -116,18 +116,18 @@ public final class e {
                     return;
                 }
             }
-            this.f6988e = fVar;
-            this.f6989f = str;
-            this.f6990g = str2;
+            this.f6996e = fVar;
+            this.f6997f = str;
+            this.f6998g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6988e.b(k.k(this.f6989f));
-                this.f6988e.d(this.f6990g);
-                k.onEvent(this.f6988e);
+                this.f6996e.b(k.k(this.f6997f));
+                this.f6996e.d(this.f6998g);
+                k.onEvent(this.f6996e);
             }
         }
     }
@@ -138,13 +138,13 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.j2.p.f f6991e;
+        public final /* synthetic */ c.a.p0.a.j2.p.f f6999e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6992f;
+        public final /* synthetic */ String f7000f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f6993g;
+        public final /* synthetic */ String f7001g;
 
         public c(c.a.p0.a.j2.p.f fVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -161,18 +161,18 @@ public final class e {
                     return;
                 }
             }
-            this.f6991e = fVar;
-            this.f6992f = str;
-            this.f6993g = str2;
+            this.f6999e = fVar;
+            this.f7000f = str;
+            this.f7001g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6991e.d(this.f6992f);
-                this.f6991e.b(k.k(this.f6993g));
-                k.onEvent(this.f6991e);
+                this.f6999e.d(this.f7000f);
+                this.f6999e.b(k.k(this.f7001g));
+                k.onEvent(this.f6999e);
             }
         }
     }
@@ -183,13 +183,13 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.j2.p.f f6994e;
+        public final /* synthetic */ c.a.p0.a.j2.p.f f7002e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6995f;
+        public final /* synthetic */ String f7003f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f6996g;
+        public final /* synthetic */ String f7004g;
 
         public d(c.a.p0.a.j2.p.f fVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -206,18 +206,18 @@ public final class e {
                     return;
                 }
             }
-            this.f6994e = fVar;
-            this.f6995f = str;
-            this.f6996g = str2;
+            this.f7002e = fVar;
+            this.f7003f = str;
+            this.f7004g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6994e.b(k.k(this.f6995f));
-                this.f6994e.d(this.f6996g);
-                k.onEvent(this.f6994e);
+                this.f7002e.b(k.k(this.f7003f));
+                this.f7002e.d(this.f7004g);
+                k.onEvent(this.f7002e);
             }
         }
     }
@@ -229,7 +229,7 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.j2.p.f f6997e;
+        public final /* synthetic */ c.a.p0.a.j2.p.f f7005e;
 
         public C0275e(c.a.p0.a.j2.p.f fVar) {
             Interceptable interceptable = $ic;
@@ -246,7 +246,7 @@ public final class e {
                     return;
                 }
             }
-            this.f6997e = fVar;
+            this.f7005e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -255,8 +255,8 @@ public final class e {
         public void onCallback(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f6997e.a(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject);
-                k.onEvent(this.f6997e);
+                this.f7005e.a(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject);
+                k.onEvent(this.f7005e);
                 c.a.p0.a.e0.d.h("SwanAppLaunchUbc", jSONObject.toString());
                 c.a.p0.a.c1.a.g0().flush(false);
             }
@@ -276,20 +276,20 @@ public final class e {
                 return;
             }
         }
-        f6978a = c.a.p0.a.k.f7077a;
-        f6979b = false;
-        f6980c = false;
-        f6981d = false;
-        f6982e = false;
-        f6983f = false;
-        f6984g = false;
+        f6986a = c.a.p0.a.k.f7085a;
+        f6987b = false;
+        f6988c = false;
+        f6989d = false;
+        f6990e = false;
+        f6991f = false;
+        f6992g = false;
     }
 
     public static synchronized void A(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
             synchronized (e.class) {
-                f6980c = z;
+                f6988c = z;
             }
         }
     }
@@ -298,7 +298,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
             synchronized (e.class) {
-                f6981d = z;
+                f6989d = z;
             }
         }
     }
@@ -307,7 +307,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
             synchronized (e.class) {
-                f6979b = z;
+                f6987b = z;
             }
         }
     }
@@ -315,14 +315,14 @@ public final class e {
     public static void D(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            f6983f = z;
+            f6991f = z;
         }
     }
 
     public static void E(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
-            f6982e = z;
+            f6990e = z;
         }
     }
 
@@ -331,10 +331,10 @@ public final class e {
         if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (f6985h == null) {
-            f6985h = new HashMap<>();
+        if (f6993h == null) {
+            f6993h = new HashMap<>();
         }
-        f6985h.put(str, str2);
+        f6993h.put(str, str2);
     }
 
     public static void G() {
@@ -348,7 +348,7 @@ public final class e {
         if (!(m instanceof c.a.p0.a.h0.g.f) || (Z2 = ((c.a.p0.a.h0.g.f) m).Z2()) == null) {
             return;
         }
-        f6986i = Z2.c();
+        f6994i = Z2.c();
     }
 
     public static void H() {
@@ -370,10 +370,10 @@ public final class e {
         if (!(interceptable == null || interceptable.invokeL(65545, null, dVar) == null) || f() || g() || dVar == null || (i2 = c.a.p0.a.a2.e.i()) == null || (L = i2.L()) == null) {
             return;
         }
-        boolean z = f6978a;
+        boolean z = f6986a;
         A(true);
         B(true);
-        c(L, dVar.f7892b, "0", dVar.f7893c, b(dVar.f7897g), false);
+        c(L, dVar.f7900b, "0", dVar.f7901c, b(dVar.f7905g), false);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -431,7 +431,7 @@ public final class e {
             try {
                 jSONObject.put("valuetype", str);
             } catch (JSONException e2) {
-                if (f6978a) {
+                if (f6986a) {
                     e2.printStackTrace();
                 }
             }
@@ -442,7 +442,7 @@ public final class e {
             try {
                 jSONObject2.put("valuetype", str2);
             } catch (JSONException e3) {
-                if (f6978a) {
+                if (f6986a) {
                     e3.printStackTrace();
                 }
             }
@@ -455,9 +455,9 @@ public final class e {
         if (interceptable == null || interceptable.invokeL(65548, null, aVar) == null) {
             E(true);
             c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-            fVar.f7063a = k.m(0);
-            fVar.f7064b = "launch";
-            fVar.f7067e = "narendersuccess";
+            fVar.f7071a = k.m(0);
+            fVar.f7072b = "launch";
+            fVar.f7075e = "narendersuccess";
             fVar.h(aVar);
             c.a.p0.a.r1.k.i.c.f().e(new d(fVar, aVar.W(), aVar.r0().getString(UBCCloudControlProcessor.UBC_KEY)), "handleNaRenderSuccess");
         }
@@ -469,7 +469,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             synchronized (e.class) {
-                z = f6979b;
+                z = f6987b;
             }
             return z;
         }
@@ -479,31 +479,31 @@ public final class e {
     public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f6980c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f6988c : invokeV.booleanValue;
     }
 
     public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? f6981d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? f6989d : invokeV.booleanValue;
     }
 
     public static boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f6983f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f6991f : invokeV.booleanValue;
     }
 
     public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? f6982e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? f6990e : invokeV.booleanValue;
     }
 
     public static boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f6984g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? f6992g : invokeV.booleanValue;
     }
 
     public static void k(b.a aVar, String str) {
@@ -528,17 +528,17 @@ public final class e {
             j3 = j2 - l;
         }
         c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-        fVar.f7063a = k.m(aVar.G());
-        fVar.f7068f = H;
+        fVar.f7071a = k.m(aVar.G());
+        fVar.f7076f = H;
         if (c.a.p0.a.e0.f.e.e.d()) {
-            fVar.f7065c = "remote-debug";
+            fVar.f7073c = "remote-debug";
         } else if (c.a.p0.a.u1.a.a.C()) {
-            fVar.f7065c = "local-debug";
+            fVar.f7073c = "local-debug";
         } else {
-            fVar.f7065c = aVar.T();
+            fVar.f7073c = aVar.T();
         }
-        fVar.f7064b = "launch";
-        fVar.f7067e = str;
+        fVar.f7072b = "launch";
+        fVar.f7075e = str;
         fVar.a("arrivetime", String.valueOf(j3));
         if (jSONObject != null) {
             fVar.e(jSONObject);
@@ -548,7 +548,7 @@ public final class e {
             fVar.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
         }
         fVar.b(k.k(aVar.W()));
-        if (f6978a) {
+        if (f6986a) {
             StringBuilder sb = new StringBuilder();
             sb.append("handle record arrival event, arrivalValue ");
             sb.append(str);
@@ -565,9 +565,9 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65557, null, bVar, i2, aVar) == null) {
             c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-            fVar.f7063a = k.m(i2);
-            fVar.f7064b = "launch";
-            fVar.f7067e = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+            fVar.f7071a = k.m(i2);
+            fVar.f7072b = "launch";
+            fVar.f7075e = com.baidu.pass.biometrics.face.liveness.b.a.g0;
             fVar.a("errcode", String.valueOf(aVar.a()));
             fVar.a("msg", aVar.f().toString());
             fVar.h(bVar);
@@ -586,7 +586,7 @@ public final class e {
 
     public static void o(b.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65559, null, aVar) == null) || aVar == null || f6983f) {
+        if (!(interceptable == null || interceptable.invokeL(65559, null, aVar) == null) || aVar == null || f6991f) {
             return;
         }
         D(true);
@@ -596,8 +596,8 @@ public final class e {
     public static void p(b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, null, aVar) == null) {
-            boolean z = f6978a;
-            c.a.p0.a.m1.f.e(f6986i);
+            boolean z = f6986a;
+            c.a.p0.a.m1.f.e(f6994i);
             if (!i()) {
                 d(aVar);
             }
@@ -637,11 +637,11 @@ public final class e {
         long currentTimeMillis = System.currentTimeMillis();
         if (j2 > 0) {
             c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-            fVar.f7063a = k.m(bVar.G());
-            fVar.f7068f = bVar.H();
-            fVar.f7065c = bVar.T();
-            fVar.f7064b = "launch";
-            fVar.f7067e = "realsuccess";
+            fVar.f7071a = k.m(bVar.G());
+            fVar.f7076f = bVar.H();
+            fVar.f7073c = bVar.T();
+            fVar.f7072b = "launch";
+            fVar.f7075e = "realsuccess";
             fVar.r = String.valueOf(currentTimeMillis - l);
             fVar.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
             k.onEvent(fVar);
@@ -652,18 +652,18 @@ public final class e {
 
     public static void t(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65564, null, str) == null) && f6984g) {
+        if ((interceptable == null || interceptable.invokeL(65564, null, str) == null) && f6992g) {
             c.a.p0.a.m1.f.e(str);
-            f6984g = false;
+            f6992g = false;
         }
     }
 
     public static void u(String str, b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65565, null, str, aVar) == null) {
-            HashMap<String, String> hashMap = f6985h;
-            String str2 = hashMap != null ? hashMap.get(f6986i) : "";
-            if (f6978a) {
+            HashMap<String, String> hashMap = f6993h;
+            String str2 = hashMap != null ? hashMap.get(f6994i) : "";
+            if (f6986a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("handle relaunch , launchPage : ");
                 sb.append(str);
@@ -676,7 +676,7 @@ public final class e {
                 return;
             }
             x();
-            f6984g = true;
+            f6992g = true;
         }
     }
 
@@ -684,10 +684,10 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65566, null, bVar) == null) {
             c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-            fVar.f7063a = k.m(0);
-            fVar.f7068f = bVar.H();
-            fVar.f7065c = bVar.T();
-            fVar.f7064b = "show";
+            fVar.f7071a = k.m(0);
+            fVar.f7076f = bVar.H();
+            fVar.f7073c = bVar.T();
+            fVar.f7072b = "show";
             c.a.p0.a.r1.k.i.c.f().e(new b(fVar, bVar.W(), bVar.r0().getString(UBCCloudControlProcessor.UBC_KEY)), "onShow606");
         }
     }

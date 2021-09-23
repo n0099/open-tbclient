@@ -15,19 +15,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<Integer> f21003a;
+    public ArrayList<Integer> f21016a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21004b;
+    public String f21017b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21005c;
+    public String f21018c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21006d;
+    public String f21019d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21007e;
+    public int f21020e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -54,13 +54,13 @@ public class a {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
-                    this.f21003a = new ArrayList<>();
+                    this.f21016a = new ArrayList<>();
                     for (int i2 = 0; i2 < length; i2++) {
-                        this.f21003a.add(Integer.valueOf(optJSONArray.getInt(i2)));
+                        this.f21016a.add(Integer.valueOf(optJSONArray.getInt(i2)));
                     }
                 }
-                this.f21004b = optJSONObject.optString("upload_id");
-                this.f21005c = optJSONObject.optString("video_url");
+                this.f21017b = optJSONObject.optString("upload_id");
+                this.f21018c = optJSONObject.optString("video_url");
             }
         } catch (JSONException unused) {
         }

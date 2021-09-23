@@ -24,13 +24,13 @@ public class t implements c.a.p0.a.p.d.l0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f7864e;
+        public final /* synthetic */ StringBuilder f7872e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f7865f;
+        public final /* synthetic */ File f7873f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f7866g;
+        public final /* synthetic */ Context f7874g;
 
         /* renamed from: c.a.p0.a.p.c.t$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -39,7 +39,7 @@ public class t implements c.a.p0.a.p.d.l0 {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f7867e;
+            public final /* synthetic */ a f7875e;
 
             /* renamed from: c.a.p0.a.p.c.t$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
@@ -48,7 +48,7 @@ public class t implements c.a.p0.a.p.d.l0 {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ RunnableC0339a f7868e;
+                public final /* synthetic */ RunnableC0339a f7876e;
 
                 public RunnableC0340a(RunnableC0339a runnableC0339a) {
                     Interceptable interceptable = $ic;
@@ -65,15 +65,15 @@ public class t implements c.a.p0.a.p.d.l0 {
                             return;
                         }
                     }
-                    this.f7868e = runnableC0339a;
+                    this.f7876e = runnableC0339a;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        a aVar = this.f7868e.f7867e;
-                        c.a.p0.a.v2.i0.a(aVar.f7866g, aVar.f7865f);
+                        a aVar = this.f7876e.f7875e;
+                        c.a.p0.a.v2.i0.a(aVar.f7874g, aVar.f7873f);
                     }
                 }
             }
@@ -93,7 +93,7 @@ public class t implements c.a.p0.a.p.d.l0 {
                         return;
                     }
                 }
-                this.f7867e = aVar;
+                this.f7875e = aVar;
             }
 
             @Override // java.lang.Runnable
@@ -101,15 +101,15 @@ public class t implements c.a.p0.a.p.d.l0 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        PrintWriter printWriter = new PrintWriter(this.f7867e.f7865f);
+                        PrintWriter printWriter = new PrintWriter(this.f7875e.f7873f);
                         printWriter.println(c.a.p0.a.v2.k.g(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss"));
-                        printWriter.println(this.f7867e.f7864e.toString());
+                        printWriter.println(this.f7875e.f7872e.toString());
                         printWriter.flush();
                         printWriter.close();
                         q0.X(new RunnableC0340a(this));
                     } catch (FileNotFoundException e2) {
                         c.a.p0.a.e0.d.a("DefaultSwanAppLogManager", Log.getStackTraceString(e2));
-                        c.a.p0.a.z1.b.f.e.g(AppRuntime.getAppContext(), this.f7867e.f7866g.getString(c.a.p0.a.h.swan_app_system_error)).F();
+                        c.a.p0.a.z1.b.f.e.g(AppRuntime.getAppContext(), this.f7875e.f7874g.getString(c.a.p0.a.h.swan_app_system_error)).F();
                     }
                 }
             }
@@ -130,9 +130,9 @@ public class t implements c.a.p0.a.p.d.l0 {
                     return;
                 }
             }
-            this.f7864e = sb;
-            this.f7865f = file;
-            this.f7866g = context;
+            this.f7872e = sb;
+            this.f7873f = file;
+            this.f7874g = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -141,7 +141,7 @@ public class t implements c.a.p0.a.p.d.l0 {
         public void onCallback(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f7864e.append(str);
+                this.f7872e.append(str);
                 c.a.p0.a.v2.q.j(new RunnableC0339a(this), "");
             }
         }

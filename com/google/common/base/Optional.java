@@ -12,34 +12,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class Optional<T> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Iterable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f70280e;
+        public final /* synthetic */ Iterable f70599e;
 
         /* renamed from: com.google.common.base.Optional$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class C1952a extends AbstractIterator<T> {
+        /* loaded from: classes9.dex */
+        public class C1956a extends AbstractIterator<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<? extends Optional<? extends T>> f70281g;
+            public final Iterator<? extends Optional<? extends T>> f70600g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ a f70282h;
+            public final /* synthetic */ a f70601h;
 
             /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator<? extends com.google.common.base.Optional<? extends T>> */
-            public C1952a(a aVar) {
+            public C1956a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,10 +54,10 @@ public abstract class Optional<T> implements Serializable {
                         return;
                     }
                 }
-                this.f70282h = aVar;
-                Iterator it = this.f70282h.f70280e.iterator();
+                this.f70601h = aVar;
+                Iterator it = this.f70601h.f70599e.iterator();
                 n.p(it);
-                this.f70281g = (Iterator<T>) it;
+                this.f70600g = (Iterator<T>) it;
             }
 
             @Override // com.google.common.base.AbstractIterator
@@ -65,8 +65,8 @@ public abstract class Optional<T> implements Serializable {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    while (this.f70281g.hasNext()) {
-                        Optional<? extends T> next = this.f70281g.next();
+                    while (this.f70600g.hasNext()) {
+                        Optional<? extends T> next = this.f70600g.next();
                         if (next.isPresent()) {
                             return next.get();
                         }
@@ -92,14 +92,14 @@ public abstract class Optional<T> implements Serializable {
                     return;
                 }
             }
-            this.f70280e = iterable;
+            this.f70599e = iterable;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1952a(this) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1956a(this) : (Iterator) invokeV.objValue;
         }
     }
 

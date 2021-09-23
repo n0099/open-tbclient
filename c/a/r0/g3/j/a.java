@@ -31,24 +31,24 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f18732e;
+    public Activity f18741e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<d> f18733f;
+    public ArrayList<d> f18742f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f18734g;
+    public View.OnClickListener f18743g;
 
     /* renamed from: c.a.r0.g3.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0908a implements View.OnClickListener {
+    public class View$OnClickListenerC0906a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f18735e;
+        public final /* synthetic */ a f18744e;
 
-        public View$OnClickListenerC0908a(a aVar) {
+        public View$OnClickListenerC0906a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,7 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f18735e = aVar;
+            this.f18744e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -72,11 +72,11 @@ public class a extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Object tag = view.getTag();
-                if ((tag instanceof b) && (dVar = ((b) tag).f18739d) != null) {
-                    if (dVar.f18742a == null) {
-                        BarFolderFirstDirActivity.k(this.f18735e.c(), null);
+                if ((tag instanceof b) && (dVar = ((b) tag).f18748d) != null) {
+                    if (dVar.f18751a == null) {
+                        BarFolderFirstDirActivity.k(this.f18744e.c(), null);
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.f18735e.c(), dVar.f18743b, dVar.f18742a, dVar.f18744c)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(this.f18744e.c(), dVar.f18752b, dVar.f18751a, dVar.f18753c)));
                     }
                 }
             }
@@ -89,16 +89,16 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public BarImageView f18736a;
+        public BarImageView f18745a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f18737b;
+        public TextView f18746b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BestStringsFitTextView f18738c;
+        public BestStringsFitTextView f18747c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d f18739d;
+        public d f18748d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -130,9 +130,9 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f18734g = new View$OnClickListenerC0908a(this);
-        this.f18732e = activity;
-        this.f18733f = bVar.h();
+        this.f18743g = new View$OnClickListenerC0906a(this);
+        this.f18741e = activity;
+        this.f18742f = bVar.h();
     }
 
     public final View a(ViewGroup viewGroup, int i2) {
@@ -140,17 +140,17 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i2)) == null) {
             if (i2 == 3) {
-                return LayoutInflater.from(this.f18732e).inflate(R.layout.bar_home_list_line, viewGroup, false);
+                return LayoutInflater.from(this.f18741e).inflate(R.layout.bar_home_list_line, viewGroup, false);
             }
             if (i2 == 2) {
-                return LayoutInflater.from(this.f18732e).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
+                return LayoutInflater.from(this.f18741e).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
             }
-            View inflate = LayoutInflater.from(this.f18732e).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-            inflate.setOnClickListener(this.f18734g);
+            View inflate = LayoutInflater.from(this.f18741e).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+            inflate.setOnClickListener(this.f18743g);
             b bVar = new b();
-            bVar.f18736a = (BarImageView) inflate.findViewById(R.id.portrait);
-            bVar.f18737b = (TextView) inflate.findViewById(R.id.name);
-            bVar.f18738c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+            bVar.f18745a = (BarImageView) inflate.findViewById(R.id.portrait);
+            bVar.f18746b = (TextView) inflate.findViewById(R.id.name);
+            bVar.f18747c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
             inflate.setTag(bVar);
             return inflate;
         }
@@ -160,23 +160,23 @@ public class a extends BaseAdapter {
     public final void b(ViewGroup viewGroup, b bVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, bVar, i2) == null) {
-            d dVar = this.f18733f.get(i2 / 2);
-            bVar.f18739d = dVar;
-            bVar.f18737b.setText(dVar.f18743b);
-            if (dVar.f18746e != null) {
-                bVar.f18738c.setVisibility(0);
-                String[] strArr = new String[dVar.f18746e.size()];
-                for (int i3 = 0; i3 < dVar.f18746e.size(); i3++) {
-                    strArr[i3] = dVar.f18746e.get(i3).f18743b;
+            d dVar = this.f18742f.get(i2 / 2);
+            bVar.f18748d = dVar;
+            bVar.f18746b.setText(dVar.f18752b);
+            if (dVar.f18755e != null) {
+                bVar.f18747c.setVisibility(0);
+                String[] strArr = new String[dVar.f18755e.size()];
+                for (int i3 = 0; i3 < dVar.f18755e.size(); i3++) {
+                    strArr[i3] = dVar.f18755e.get(i3).f18752b;
                 }
-                bVar.f18738c.setTextArray(strArr);
+                bVar.f18747c.setTextArray(strArr);
             } else {
-                bVar.f18738c.setVisibility(8);
+                bVar.f18747c.setVisibility(8);
             }
-            if (dVar.f18745d != null) {
-                int e2 = l.e(this.f18732e, 45.0f);
-                bVar.f18736a.setTag(dVar.f18745d);
-                bVar.f18736a.startLoad(dVar.f18745d, 10, e2, e2, false);
+            if (dVar.f18754d != null) {
+                int e2 = l.e(this.f18741e, 45.0f);
+                bVar.f18745a.setTag(dVar.f18754d);
+                bVar.f18745a.startLoad(dVar.f18754d, 10, e2, e2, false);
             }
         }
     }
@@ -184,19 +184,19 @@ public class a extends BaseAdapter {
     public Activity c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18732e : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18741e : (Activity) invokeV.objValue;
     }
 
     public ArrayList<d> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18733f : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18742f : (ArrayList) invokeV.objValue;
     }
 
     public void e(ArrayList<d> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f18733f = arrayList;
+            this.f18742f = arrayList;
         }
     }
 
@@ -205,7 +205,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<d> arrayList = this.f18733f;
+            ArrayList<d> arrayList = this.f18742f;
             if (arrayList == null) {
                 return 0;
             }

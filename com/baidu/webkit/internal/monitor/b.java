@@ -15,28 +15,28 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f63822a;
+    public long f64133a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f63823b;
+    public long f64134b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f63824c;
+    public long f64135c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f63825d;
+    public long f64136d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f63826e;
+    public long f64137e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f63827f;
+    public long f64138f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f63828g;
+    public long f64139g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f63829h;
+    public JSONObject f64140h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -51,31 +51,31 @@ public final class b {
                 return;
             }
         }
-        this.f63822a = -1L;
-        this.f63823b = -1L;
-        this.f63824c = -1L;
-        this.f63825d = -1L;
-        this.f63826e = -1L;
-        this.f63827f = -1L;
-        this.f63828g = -1L;
+        this.f64133a = -1L;
+        this.f64134b = -1L;
+        this.f64135c = -1L;
+        this.f64136d = -1L;
+        this.f64137e = -1L;
+        this.f64138f = -1L;
+        this.f64139g = -1L;
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f63822a = -1L;
-            this.f63823b = -1L;
-            this.f63824c = -1L;
+            this.f64133a = -1L;
+            this.f64134b = -1L;
+            this.f64135c = -1L;
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f63825d = -1L;
-            this.f63826e = -1L;
-            this.f63827f = -1L;
-            this.f63828g = -1L;
+            this.f64136d = -1L;
+            this.f64137e = -1L;
+            this.f64138f = -1L;
+            this.f64139g = -1L;
         }
     }
 
@@ -83,22 +83,22 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f63825d == -1) {
+            if (this.f64136d == -1) {
                 return null;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
-                if (this.f63825d != -1) {
-                    jSONObject.put("sf1", this.f63825d);
+                if (this.f64136d != -1) {
+                    jSONObject.put("sf1", this.f64136d);
                 }
-                if (this.f63826e != -1) {
-                    jSONObject.put("sf2", this.f63826e);
+                if (this.f64137e != -1) {
+                    jSONObject.put("sf2", this.f64137e);
                 }
-                if (this.f63827f != -1) {
-                    jSONObject.put("sf3", this.f63827f);
+                if (this.f64138f != -1) {
+                    jSONObject.put("sf3", this.f64138f);
                 }
-                if (this.f63828g != -1) {
-                    jSONObject.put("sf4", this.f63828g);
+                if (this.f64139g != -1) {
+                    jSONObject.put("sf4", this.f64139g);
                 }
                 d();
                 return jSONObject;
@@ -115,19 +115,19 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f63822a == -1 && this.f63823b == -1 && this.f63824c == -1) {
+            if (this.f64133a == -1 && this.f64134b == -1 && this.f64135c == -1) {
                 return null;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
-                if (this.f63822a != -1) {
-                    jSONObject.put(PrefetchEvent.STATE_CLICK, this.f63822a);
+                if (this.f64133a != -1) {
+                    jSONObject.put(PrefetchEvent.STATE_CLICK, this.f64133a);
                 }
-                if (this.f63823b != -1) {
-                    jSONObject.put("evajs", this.f63823b);
+                if (this.f64134b != -1) {
+                    jSONObject.put("evajs", this.f64134b);
                 }
-                if (this.f63824c != -1) {
-                    jSONObject.put("loadurl", this.f63824c);
+                if (this.f64135c != -1) {
+                    jSONObject.put("loadurl", this.f64135c);
                 }
                 c();
                 return jSONObject;

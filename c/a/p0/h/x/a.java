@@ -19,7 +19,7 @@ public final class a implements k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<Integer> f11585a;
+    public final ArrayList<Integer> f11593a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class a implements k {
                 return;
             }
         }
-        this.f11585a = new ArrayList<>();
+        this.f11593a = new ArrayList<>();
     }
 
     @Override // c.a.p0.a.p.b.a.k
@@ -49,10 +49,10 @@ public final class a implements k {
     @Override // c.a.p0.a.p.b.a.k
     public void b(n nVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar) == null) || this.f11585a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar) == null) || this.f11593a.isEmpty()) {
             return;
         }
-        Iterator<Integer> it = this.f11585a.iterator();
+        Iterator<Integer> it = this.f11593a.iterator();
         while (it.hasNext()) {
             Integer id = it.next();
             if (nVar != null) {
@@ -68,8 +68,8 @@ public final class a implements k {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, nVar, str)) == null) {
             Integer a2 = b.a(str);
             if (a2 != null) {
-                if (!this.f11585a.contains(a2)) {
-                    this.f11585a.add(a2);
+                if (!this.f11593a.contains(a2)) {
+                    this.f11593a.add(a2);
                 }
                 if (nVar != null) {
                     nVar.j(a2.intValue());

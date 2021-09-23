@@ -53,7 +53,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SearchFriendActivity f49304a;
+        public final /* synthetic */ SearchFriendActivity f49414a;
 
         public a(SearchFriendActivity searchFriendActivity) {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                     return;
                 }
             }
-            this.f49304a = searchFriendActivity;
+            this.f49414a = searchFriendActivity;
         }
 
         @Override // c.a.r0.s.e.b.a.c
@@ -79,7 +79,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SEARCH_FRIEND_CMD);
                 httpMessage.addParam(SearchFriendActivity.HTTP_PARAMS_SEARCH_KEY, str);
-                this.f49304a.sendMessage(httpMessage);
+                this.f49414a.sendMessage(httpMessage);
             }
         }
     }
@@ -90,7 +90,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SearchFriendActivity f49305a;
+        public final /* synthetic */ SearchFriendActivity f49415a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SearchFriendActivity searchFriendActivity, int i2) {
@@ -110,7 +110,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                     return;
                 }
             }
-            this.f49305a = searchFriendActivity;
+            this.f49415a = searchFriendActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -127,14 +127,14 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                         while (it.hasNext()) {
                             Object next = it.next();
                             if ((next instanceof c.a.q0.t.f.a) && userInfo.getUserId() == ((c.a.q0.t.f.a) next).e()) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.f49305a.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.f49415a.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
                                 return;
                             }
                         }
-                        this.f49305a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f49305a.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, "search")));
+                        this.f49415a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f49415a.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, "search")));
                         return;
                     }
-                    this.f49305a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f49305a.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, "search")));
+                    this.f49415a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f49415a.getPageContext().getPageActivity(), String.valueOf(userInfo.getUserId()), userInfo.getUserName(), null, "search")));
                 }
             }
         }
@@ -146,7 +146,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SearchFriendActivity f49306a;
+        public final /* synthetic */ SearchFriendActivity f49416a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(SearchFriendActivity searchFriendActivity, int i2) {
@@ -166,7 +166,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                     return;
                 }
             }
-            this.f49306a = searchFriendActivity;
+            this.f49416a = searchFriendActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,7 +174,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001521) {
-                this.f49306a.searchBar.j(true);
+                this.f49416a.searchBar.j(true);
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (httpResponsedMessage instanceof ResponseSearchFriendMessage) {
@@ -182,23 +182,23 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                     if (statusCode == 200 && error == 0 && responseSearchFriendMessage.getSearchFriendResult() != null) {
                         List<SearchFriendResult.UserInfo> userInfo = responseSearchFriendMessage.getSearchFriendResult().getUserInfo();
                         if (userInfo != null && userInfo.size() > 0) {
-                            this.f49306a.searchBar.k(null);
+                            this.f49416a.searchBar.k(null);
                             SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
                             if (userInfo2 == null) {
-                                SearchFriendActivity searchFriendActivity = this.f49306a;
+                                SearchFriendActivity searchFriendActivity = this.f49416a;
                                 searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.neterror));
                                 return;
                             }
-                            this.f49306a.sendMessage(new CustomMessage(2001265, userInfo2));
+                            this.f49416a.sendMessage(new CustomMessage(2001265, userInfo2));
                             return;
                         }
-                        SearchFriendActivity searchFriendActivity2 = this.f49306a;
+                        SearchFriendActivity searchFriendActivity2 = this.f49416a;
                         searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.neterror));
                     } else if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                        SearchFriendActivity searchFriendActivity3 = this.f49306a;
+                        SearchFriendActivity searchFriendActivity3 = this.f49416a;
                         searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.neterror));
                     } else {
-                        this.f49306a.showToast(httpResponsedMessage.getErrorString());
+                        this.f49416a.showToast(httpResponsedMessage.getErrorString());
                     }
                 }
             }
@@ -211,7 +211,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchFriendActivity f49307e;
+        public final /* synthetic */ SearchFriendActivity f49417e;
 
         public d(SearchFriendActivity searchFriendActivity) {
             Interceptable interceptable = $ic;
@@ -228,14 +228,14 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                     return;
                 }
             }
-            this.f49307e = searchFriendActivity;
+            this.f49417e = searchFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49307e.searchBar.g();
+                this.f49417e.searchBar.g();
             }
         }
     }
@@ -246,7 +246,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchFriendActivity f49308e;
+        public final /* synthetic */ SearchFriendActivity f49418e;
 
         public e(SearchFriendActivity searchFriendActivity) {
             Interceptable interceptable = $ic;
@@ -263,14 +263,14 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                     return;
                 }
             }
-            this.f49308e = searchFriendActivity;
+            this.f49418e = searchFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49308e.finish();
+                this.f49418e.finish();
             }
         }
     }

@@ -24,13 +24,13 @@ public class StringUtil {
     public static final Pattern AcceptUrlPat;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f63736a;
+    public static final char[] f64047a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Pattern f63737b;
+    public static Pattern f64048b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static WeakReference<Paint> f63738c;
+    public static WeakReference<Paint> f64049c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,10 +46,10 @@ public class StringUtil {
                 return;
             }
         }
-        f63736a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f64047a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         AcceptUrlPat = Pattern.compile("^(https?://|file:///android_asset/).*");
-        f63737b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
-        f63738c = new WeakReference<>(null);
+        f64048b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
+        f64049c = new WeakReference<>(null);
     }
 
     public StringUtil() {
@@ -78,8 +78,8 @@ public class StringUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b2)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(f63736a[(b2 >> 4) & 15]);
-            sb.append(f63736a[b2 & 15]);
+            sb.append(f64047a[(b2 >> 4) & 15]);
+            sb.append(f64047a[b2 & 15]);
             return sb.toString();
         }
         return (String) invokeB.objValue;
@@ -123,10 +123,10 @@ public class StringUtil {
             if (TextUtils.isEmpty(str)) {
                 return 0.0f;
             }
-            Paint paint = f63738c.get();
+            Paint paint = f64049c.get();
             if (paint == null) {
                 paint = new Paint();
-                f63738c = new WeakReference<>(paint);
+                f64049c = new WeakReference<>(paint);
             }
             paint.setTextSize(f2);
             return paint.measureText(str);
@@ -141,7 +141,7 @@ public class StringUtil {
             if (charSequence == null) {
                 return null;
             }
-            Matcher matcher = f63737b.matcher(charSequence);
+            Matcher matcher = f64048b.matcher(charSequence);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (matcher.matches()) {
                 spannableStringBuilder.append((CharSequence) matcher.group(1));

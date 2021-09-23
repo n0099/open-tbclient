@@ -30,19 +30,19 @@ public class c extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f11319e;
+        public final /* synthetic */ CallbackHandler f11327e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f11320f;
+        public final /* synthetic */ String f11328f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f11321g;
+        public final /* synthetic */ Context f11329g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f11322h;
+        public final /* synthetic */ String f11330h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c f11323i;
+        public final /* synthetic */ c f11331i;
 
         public a(c cVar, CallbackHandler callbackHandler, String str, Context context, String str2) {
             Interceptable interceptable = $ic;
@@ -59,11 +59,11 @@ public class c extends a0 {
                     return;
                 }
             }
-            this.f11323i = cVar;
-            this.f11319e = callbackHandler;
-            this.f11320f = str;
-            this.f11321g = context;
-            this.f11322h = str2;
+            this.f11331i = cVar;
+            this.f11327e = callbackHandler;
+            this.f11328f = str;
+            this.f11329g = context;
+            this.f11330h = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,9 +73,9 @@ public class c extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.p0.a.e2.c.d.h(iVar)) {
-                    this.f11323i.l(this.f11321g, this.f11322h, this.f11320f, this.f11319e);
+                    this.f11331i.l(this.f11329g, this.f11330h, this.f11328f, this.f11327e);
                 } else {
-                    c.a.p0.a.e2.c.d.p(iVar, this.f11319e, this.f11320f);
+                    c.a.p0.a.e2.c.d.p(iVar, this.f11327e, this.f11328f);
                 }
             }
         }
@@ -87,13 +87,13 @@ public class c extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f11324a;
+        public final /* synthetic */ Context f11332a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f11325b;
+        public final /* synthetic */ CallbackHandler f11333b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f11326c;
+        public final /* synthetic */ String f11334c;
 
         public b(c cVar, Context context, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -110,17 +110,17 @@ public class c extends a0 {
                     return;
                 }
             }
-            this.f11324a = context;
-            this.f11325b = callbackHandler;
-            this.f11326c = str;
+            this.f11332a = context;
+            this.f11333b = callbackHandler;
+            this.f11334c = str;
         }
 
         @Override // c.a.p0.a.a1.e.c
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.z1.b.f.e.f(this.f11324a, g.aiapps_debug_game_core_download_failed).F();
-                this.f11325b.handleSchemeDispatchCallback(this.f11326c, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                c.a.p0.a.z1.b.f.e.f(this.f11332a, g.aiapps_debug_game_core_download_failed).F();
+                this.f11333b.handleSchemeDispatchCallback(this.f11334c, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
             }
         }
 
@@ -137,17 +137,17 @@ public class c extends a0 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 File c2 = c.a.p0.h.p.a.b.c();
                 File b2 = c.a.p0.h.p.a.b.b();
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str = "gameCoreZipFile: " + c2 + " gameCoreDir: " + b2;
                 }
                 if (c2.exists() && c.a.p0.t.d.T(c2.getPath(), b2.getPath())) {
                     c.a.p0.a.u1.a.a.K(true);
-                    c.a.p0.a.z1.b.f.e.f(this.f11324a, g.aiapps_debug_game_core_download_success).F();
-                    this.f11325b.handleSchemeDispatchCallback(this.f11326c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    c.a.p0.a.z1.b.f.e.f(this.f11332a, g.aiapps_debug_game_core_download_success).F();
+                    this.f11333b.handleSchemeDispatchCallback(this.f11334c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     return;
                 }
-                c.a.p0.a.z1.b.f.e.f(this.f11324a, g.aiapps_debug_game_core_download_failed).F();
-                this.f11325b.handleSchemeDispatchCallback(this.f11326c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                c.a.p0.a.z1.b.f.e.f(this.f11332a, g.aiapps_debug_game_core_download_failed).F();
+                this.f11333b.handleSchemeDispatchCallback(this.f11334c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
     }

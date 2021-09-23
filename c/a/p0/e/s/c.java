@@ -15,7 +15,7 @@ public class c<ContenT> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, c<ContenT>.a> f10487a;
+    public final Map<String, c<ContenT>.a> f10495a;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -23,13 +23,13 @@ public class c<ContenT> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f10488e;
+        public final String f10496e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ContenT f10489f;
+        public final ContenT f10497f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f10490g;
+        public final /* synthetic */ c f10498g;
 
         public a(c cVar, String str, ContenT content) {
             Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class c<ContenT> {
                     return;
                 }
             }
-            this.f10490g = cVar;
-            this.f10488e = str;
-            this.f10489f = content;
+            this.f10498g = cVar;
+            this.f10496e = str;
+            this.f10497f = content;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10490g.d(this.f10488e);
+                this.f10498g.d(this.f10496e);
             }
         }
     }
@@ -73,7 +73,7 @@ public class c<ContenT> {
                 return;
             }
         }
-        this.f10487a = new HashMap();
+        this.f10495a = new HashMap();
     }
 
     public synchronized ContenT a(String str, ContenT content, long j2) {
@@ -86,7 +86,7 @@ public class c<ContenT> {
                     return null;
                 }
                 c<ContenT>.a aVar = new a(this, str, content);
-                this.f10487a.put(str, aVar);
+                this.f10495a.put(str, aVar);
                 if (j2 > 0) {
                     d.i().postDelayed(aVar, j2);
                 }
@@ -100,12 +100,12 @@ public class c<ContenT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                for (c<ContenT>.a aVar : this.f10487a.values()) {
+                for (c<ContenT>.a aVar : this.f10495a.values()) {
                     if (aVar != null) {
                         d.i().removeCallbacks(aVar);
                     }
                 }
-                this.f10487a.clear();
+                this.f10495a.clear();
             }
         }
     }
@@ -114,11 +114,11 @@ public class c<ContenT> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            c<ContenT>.a aVar = this.f10487a.get(str);
+            c<ContenT>.a aVar = this.f10495a.get(str);
             if (aVar == null) {
                 return null;
             }
-            return aVar.f10489f;
+            return aVar.f10497f;
         }
         return (ContenT) invokeL.objValue;
     }
@@ -128,10 +128,10 @@ public class c<ContenT> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             synchronized (this) {
-                c<ContenT>.a remove = this.f10487a.remove(str);
+                c<ContenT>.a remove = this.f10495a.remove(str);
                 if (remove != null) {
                     d.i().removeCallbacks(remove);
-                    return remove.f10489f;
+                    return remove.f10497f;
                 }
                 return null;
             }

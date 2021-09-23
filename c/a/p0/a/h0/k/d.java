@@ -225,7 +225,7 @@ public class d extends c.a.p0.a.l0.a {
                 return;
             }
         }
-        s = k.f7077a;
+        s = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -255,7 +255,7 @@ public class d extends c.a.p0.a.l0.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = new a(this, this.f7172f.getInitBasePath());
+            a aVar = new a(this, this.f7180f.getInitBasePath());
             aVar.env.config = c.a.p0.a.m2.c.a.b();
             return aVar;
         }

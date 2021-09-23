@@ -25,11 +25,11 @@ public class b extends c.a.q0.s.q.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f26515f;
+    public static final BdUniqueId f26538f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<f> f26516e;
+    public ArrayList<f> f26539e;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class b extends c.a.q0.s.q.a {
                 return;
             }
         }
-        f26515f = BdUniqueId.gen();
+        f26538f = BdUniqueId.gen();
     }
 
     public b() {
@@ -66,7 +66,7 @@ public class b extends c.a.q0.s.q.a {
     public ArrayList<f> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26516e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26539e : (ArrayList) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.q.a
@@ -93,54 +93,54 @@ public class b extends c.a.q0.s.q.a {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f26515f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f26538f : (BdUniqueId) invokeV.objValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !ListUtils.isEmpty(this.f26516e) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !ListUtils.isEmpty(this.f26539e) : invokeV.booleanValue;
     }
 
     public void k(ItemInfo itemInfo) {
         ApkDetail apkDetail;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, itemInfo) == null) {
-            if (this.f26516e == null) {
-                this.f26516e = new ArrayList<>();
+            if (this.f26539e == null) {
+                this.f26539e = new ArrayList<>();
             }
-            this.f26516e.clear();
+            this.f26539e.clear();
             if (itemInfo == null || (apkDetail = itemInfo.apk_detail) == null) {
                 return;
             }
             if (!k.isEmpty(apkDetail.developer)) {
-                this.f26516e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.developer), itemInfo.apk_detail.developer, null));
+                this.f26539e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.developer), itemInfo.apk_detail.developer, null));
             }
             if (!k.isEmpty(itemInfo.apk_detail.publisher)) {
-                this.f26516e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.publisher), itemInfo.apk_detail.publisher, null));
+                this.f26539e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.publisher), itemInfo.apk_detail.publisher, null));
             }
             if (!k.isEmpty(itemInfo.apk_detail.version)) {
-                this.f26516e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.current_version), itemInfo.apk_detail.version, null));
+                this.f26539e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.current_version), itemInfo.apk_detail.version, null));
             }
             if (!k.isEmpty(itemInfo.apk_detail.update_time)) {
-                this.f26516e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.update_tiem), itemInfo.apk_detail.update_time, null));
+                this.f26539e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.update_tiem), itemInfo.apk_detail.update_time, null));
             }
             if (c.a.e.e.m.b.g(itemInfo.apk_detail.size, 0L) > 0) {
-                this.f26516e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.file_size), StringHelper.getFormatSize(c.a.e.e.m.b.g(itemInfo.apk_detail.size, 0L)), null));
+                this.f26539e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.file_size), StringHelper.getFormatSize(c.a.e.e.m.b.g(itemInfo.apk_detail.size, 0L)), null));
             }
             if (itemInfo.apk_detail.need_network.intValue() > 0) {
-                this.f26516e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.is_need_network), TbadkCoreApplication.getInst().getResources().getString(itemInfo.apk_detail.need_network.intValue() == 1 ? R.string.editor_dialog_yes : R.string.editor_dialog_no), null));
+                this.f26539e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.is_need_network), TbadkCoreApplication.getInst().getResources().getString(itemInfo.apk_detail.need_network.intValue() == 1 ? R.string.editor_dialog_yes : R.string.editor_dialog_no), null));
             }
             if (itemInfo.apk_detail.need_inner_buy.intValue() > 0) {
-                this.f26516e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.has_purchasing), TbadkCoreApplication.getInst().getResources().getString(itemInfo.apk_detail.need_inner_buy.intValue() == 1 ? R.string.editor_dialog_yes : R.string.editor_dialog_no), null));
+                this.f26539e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.has_purchasing), TbadkCoreApplication.getInst().getResources().getString(itemInfo.apk_detail.need_inner_buy.intValue() == 1 ? R.string.editor_dialog_yes : R.string.editor_dialog_no), null));
             }
             if (!k.isEmpty(itemInfo.apk_detail.authority_url)) {
-                this.f26516e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.permission_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.authority_url));
+                this.f26539e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.permission_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.authority_url));
             }
             if (k.isEmpty(itemInfo.apk_detail.privacy_url)) {
                 return;
             }
-            this.f26516e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.privacy_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.privacy_url));
+            this.f26539e.add(new f(TbadkCoreApplication.getInst().getResources().getString(R.string.privacy_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.privacy_url));
         }
     }
 }

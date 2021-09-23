@@ -22,7 +22,10 @@ import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
 import com.baidu.fsg.face.liveness.view.LoadingDialog;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,62 +39,96 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLOSE_LOADING_ACTION = "com.baidu.sapi2.biometrics.liveness.close.loading";
     public static final String TAG = "LivenessLoadingActivity";
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadingDialog f39921a;
+    public static boolean f39977a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f39922b;
+    public LoadingDialog f39978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f39923c;
+    public i f39979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LivenessRecogDTO f39924d;
+    public g f39980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39925e;
+    public LivenessRecogDTO f39981e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f39982f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public LivenessRecogCallback f39983g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-62931914, "Lcom/baidu/fsg/face/liveness/activity/LivenessLoadingActivity;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-62931914, "Lcom/baidu/fsg/face/liveness/activity/LivenessLoadingActivity;");
+        }
+    }
 
     public LivenessLoadingActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            i iVar = new i(this);
-            this.f39922b = iVar;
-            iVar.setResponseCallback(this);
-            g gVar = new g(this);
-            this.f39923c = gVar;
-            gVar.setResponseCallback(this);
-            this.f39924d = (LivenessRecogDTO) c.a().a("request_data");
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            if (this.f39983g != null) {
+                LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
+                livenessRecogResult.setResultCode(a.ERROR_CODE_MANY_CALL);
+                livenessRecogResult.setResultMsg(a.ERROR_MSG_MANY_CALL);
+                this.f39983g.b(livenessRecogResult);
+            }
+            finish();
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            f.a(this, getResources().getColor(R.color.sapi_liveness_guide_bg_color));
-            a(this);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            i iVar = new i(this);
+            this.f39979c = iVar;
+            iVar.setResponseCallback(this);
+            g gVar = new g(this);
+            this.f39980d = gVar;
+            gVar.setResponseCallback(this);
+            this.f39981e = (LivenessRecogDTO) c.a().a("request_data");
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && isUseable(this) && this.f39921a.isShowing()) {
-            this.f39921a.dismiss();
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            f.a(this, getResources().getColor(R.color.sapi_liveness_guide_bg_color));
+            a(this);
+        }
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && isUseable(this) && this.f39978b.isShowing()) {
+            this.f39978b.dismiss();
             finish();
         }
     }
@@ -101,14 +138,17 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
             if (i2 == 1) {
-                c();
+                d();
                 LivenessRecogDTO livenessRecogDTO = this.livenessRecogDTO;
-                RimStatisticsUtil.onEventEndWithValue(d.f40235b, i3, livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "");
+                RimStatisticsUtil.onEventEndWithValue(d.f40295b, i3, livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "");
                 LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态结束  " + i3);
                 LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                 livenessRecogResult.setResultCode(i3);
                 livenessRecogResult.setResultMsg(str);
-                SapiLivenessRecogManager.getInstance().getLivenessRecogCallback().b(livenessRecogResult);
+                LivenessRecogCallback livenessRecogCallback = this.f39983g;
+                if (livenessRecogCallback != null) {
+                    livenessRecogCallback.b(livenessRecogResult);
+                }
                 RimStatisticsUtil.getInstance().triggerSending();
                 LogUtil.d("hello", "triggerSending():  发送日志");
             } else if (i2 != 2) {
@@ -118,14 +158,17 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(this.livenessRecogDTO.getSpno() + "");
                     arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-                    RimStatisticsUtil.onEventEndWithValues(d.f40238e, i3, arrayList);
+                    RimStatisticsUtil.onEventEndWithValues(d.f40298e, i3, arrayList);
                     LogUtil.d("hello", "onEventStart(StatServiceEvent.GETPORTRAIT):  获取公安网小图结束  " + i3 + str);
                 }
-                c();
+                d();
                 LivenessRecogResult livenessRecogResult2 = new LivenessRecogResult();
                 livenessRecogResult2.setResultCode(i3);
                 livenessRecogResult2.setResultMsg(str);
-                SapiLivenessRecogManager.getInstance().getLivenessRecogCallback().b(livenessRecogResult2);
+                LivenessRecogCallback livenessRecogCallback2 = this.f39983g;
+                if (livenessRecogCallback2 != null) {
+                    livenessRecogCallback2.b(livenessRecogResult2);
+                }
                 RimStatisticsUtil.getInstance().triggerSending();
                 LogUtil.d("hello", "triggerSending():  发送日志");
             }
@@ -134,7 +177,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
 
     /* JADX WARN: Removed duplicated region for block: B:40:0x00c8  */
     /* JADX WARN: Removed duplicated region for block: B:43:0x00cd  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00f7  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00f3  */
     @Override // com.baidu.fsg.face.liveness.activity.LivenessBaseActivity, com.baidu.fsg.base.activity.BeanActivity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -155,10 +198,10 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.livenessRecogDTO.getSpno() + "");
                 arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-                RimStatisticsUtil.onEventEndWithValues(d.f40238e, 0, arrayList);
+                RimStatisticsUtil.onEventEndWithValues(d.f40298e, 0, arrayList);
                 LogUtil.d("hello", "onEventStart(StatServiceEvent.GETPORTRAIT):  获取公安网小图结束  0");
             }
-            LivenessRecogDTO livenessRecogDTO = this.f39924d;
+            LivenessRecogDTO livenessRecogDTO = this.f39981e;
             if (livenessRecogDTO.showGuidePage) {
                 if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS && !TextUtils.isEmpty(str)) {
                     try {
@@ -167,20 +210,20 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
                         e2.printStackTrace();
                     }
                 }
-                c();
+                d();
                 Intent intent = new Intent(this, LivenessRecogGuidActivity.class);
                 intent.setFlags(268435456);
                 startActivity(intent);
                 return;
             }
-            c();
+            d();
             Intent intent2 = new Intent(this, LivenessRecogActivity.class);
             intent2.setFlags(268435456);
             startActivity(intent2);
             return;
         }
         LivenessRecogDTO livenessRecogDTO2 = this.livenessRecogDTO;
-        RimStatisticsUtil.onEventEndWithValue(d.f40235b, 0, livenessRecogDTO2 != null ? livenessRecogDTO2.getSpno() : "");
+        RimStatisticsUtil.onEventEndWithValue(d.f40295b, 0, livenessRecogDTO2 != null ? livenessRecogDTO2.getSpno() : "");
         LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态结束  0");
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -189,29 +232,32 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
                 e3.printStackTrace();
             }
             z = optInt == 1;
-            this.f39925e = z;
+            this.f39982f = z;
             if (!z) {
                 LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                 livenessRecogResult.setResultCode(LivenessRecogResult.ERROR_CODE_VIDEO_IS_REVIEWING);
                 livenessRecogResult.setResultMsg(LivenessRecogResult.ERROR_MSG_VIDEO_IS_REVIEWING);
-                SapiLivenessRecogManager.getInstance().getLivenessRecogCallback().b(livenessRecogResult);
-                c();
+                LivenessRecogCallback livenessRecogCallback = this.f39983g;
+                if (livenessRecogCallback != null) {
+                    livenessRecogCallback.b(livenessRecogResult);
+                }
+                d();
                 RimStatisticsUtil.getInstance().triggerSending();
                 LogUtil.d("hello", "triggerSending():  发送日志");
                 return;
             }
-            RimStatisticsUtil.onEventStart(d.f40238e);
+            RimStatisticsUtil.onEventStart(d.f40298e);
             g gVar = new g(this);
-            this.f39923c = gVar;
+            this.f39980d = gVar;
             gVar.setResponseCallback(this);
             LogUtil.d("hello", "onEventStart(StatServiceEvent.GETPORTRAIT):  获取公安网小图开始");
-            this.f39923c.execBean();
+            this.f39980d.execBean();
             return;
         }
         optInt = 0;
         if (optInt == 1) {
         }
-        this.f39925e = z;
+        this.f39982f = z;
         if (!z) {
         }
     }
@@ -254,46 +300,62 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
+            if (f39977a) {
+                a();
+                LogUtil.d("hello", "loading callManyTimes");
+                return;
+            }
+            f39977a = true;
+            LivenessRecogCallback livenessRecogCallback = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
+            this.f39983g = livenessRecogCallback;
             if (this.livenessRecogDTO == null) {
-                LivenessRecogCallback livenessRecogCallback = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
                 if (livenessRecogCallback != null) {
                     LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                     livenessRecogResult.setResultCode(-206);
                     livenessRecogResult.setResultMsg(a.ERROR_MSG_SERVER_ERROR);
-                    livenessRecogCallback.b(livenessRecogResult);
+                    this.f39983g.b(livenessRecogResult);
                 }
                 finish();
                 return;
             }
             setContentView(R.layout.layout_sapi_liveness_loading);
+            c();
             b();
-            a();
-            if (this.f39924d == null) {
+            if (this.f39981e == null) {
                 finish();
             }
-            if (this.f39924d.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
-                this.f39922b.execBean();
-                RimStatisticsUtil.onEventStart(d.f40235b);
+            if (this.f39981e.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
+                this.f39979c.execBean();
+                RimStatisticsUtil.onEventStart(d.f40295b);
                 LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态开始  ");
                 return;
             }
-            RimStatisticsUtil.onEventStart(d.f40238e);
+            RimStatisticsUtil.onEventStart(d.f40298e);
             LogUtil.d("hello", "onEventStart(StatServiceEvent.GETPORTRAIT):  获取公安网小图开始");
-            this.f39923c.execBean();
+            this.f39980d.execBean();
+        }
+    }
+
+    @Override // com.baidu.fsg.base.activity.BeanActivity, com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onDestroy();
+            f39977a = false;
         }
     }
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-            if (this.f39921a == null) {
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
+            if (this.f39978b == null) {
                 LoadingDialog loadingDialog = new LoadingDialog(context);
-                this.f39921a = loadingDialog;
+                this.f39978b = loadingDialog;
                 loadingDialog.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-                this.f39921a.setCancelable(false);
+                this.f39978b.setCancelable(false);
             }
-            if ((context instanceof Activity) && isUseable((Activity) context) && !this.f39921a.isShowing()) {
-                this.f39921a.show();
+            if ((context instanceof Activity) && isUseable((Activity) context) && !this.f39978b.isShowing()) {
+                this.f39978b.show();
             }
         }
     }

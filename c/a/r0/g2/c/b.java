@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b extends c.a.e.l.e.a<c.a.r0.g2.d.b, C0902b> {
+public class b extends c.a.e.l.e.a<c.a.r0.g2.d.b, C0900b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public f<c.a.r0.g2.d.b> m;
@@ -66,15 +66,15 @@ public class b extends c.a.e.l.e.a<c.a.r0.g2.d.b, C0902b> {
 
     /* renamed from: c.a.r0.g2.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0902b extends TypeAdapter.ViewHolder {
+    public static class C0900b extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HotTopicListInfoItem f18618a;
+        public HotTopicListInfoItem f18627a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0902b(HotTopicListInfoItem hotTopicListInfoItem) {
+        public C0900b(HotTopicListInfoItem hotTopicListInfoItem) {
             super(hotTopicListInfoItem);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -91,7 +91,7 @@ public class b extends c.a.e.l.e.a<c.a.r0.g2.d.b, C0902b> {
                     return;
                 }
             }
-            this.f18618a = hotTopicListInfoItem;
+            this.f18627a = hotTopicListInfoItem;
         }
 
         public void a(c.a.r0.g2.d.b bVar) {
@@ -99,20 +99,20 @@ public class b extends c.a.e.l.e.a<c.a.r0.g2.d.b, C0902b> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
                 return;
             }
-            this.f18618a.bindData(bVar);
+            this.f18627a.bindData(bVar);
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f18618a.onChangeSkinType(i2);
+                this.f18627a.onChangeSkinType(i2);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.r0.g2.d.a.f18619a);
+        super(tbPageContext.getPageActivity(), c.a.r0.g2.d.a.f18628a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,33 +135,33 @@ public class b extends c.a.e.l.e.a<c.a.r0.g2.d.b, C0902b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.e.l.e.a
     /* renamed from: h0 */
-    public C0902b U(ViewGroup viewGroup) {
+    public C0900b U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             HotTopicListInfoItem hotTopicListInfoItem = new HotTopicListInfoItem(viewGroup.getContext());
             hotTopicListInfoItem.setOnItemCoverListener(this.m);
             hotTopicListInfoItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            C0902b c0902b = new C0902b(hotTopicListInfoItem);
-            c0902b.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            return c0902b;
+            C0900b c0900b = new C0900b(hotTopicListInfoItem);
+            c0900b.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            return c0900b;
         }
-        return (C0902b) invokeL.objValue;
+        return (C0900b) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.e.l.e.a
     /* renamed from: i0 */
-    public View a0(int i2, View view, ViewGroup viewGroup, c.a.r0.g2.d.b bVar, C0902b c0902b) {
+    public View a0(int i2, View view, ViewGroup viewGroup, c.a.r0.g2.d.b bVar, C0900b c0900b) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, c0902b})) == null) {
-            if (bVar == null || c0902b == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, c0900b})) == null) {
+            if (bVar == null || c0900b == null) {
                 return null;
             }
-            c0902b.a(bVar);
-            c0902b.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            return c0902b.getView();
+            c0900b.a(bVar);
+            c0900b.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            return c0900b.getView();
         }
         return (View) invokeCommon.objValue;
     }

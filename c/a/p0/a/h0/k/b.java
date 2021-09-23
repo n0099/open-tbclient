@@ -16,7 +16,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6054a;
+    public static final boolean f6062a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class b {
                 return;
             }
         }
-        f6054a = k.f7077a;
+        f6062a = k.f7085a;
     }
 
     public b(c.a.p0.a.h0.f.a aVar) {
@@ -56,7 +56,7 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (f6054a) {
+            if (f6062a) {
                 String str3 = "slave id: " + str + " data: " + str2;
             }
             int i2 = 0;

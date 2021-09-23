@@ -12,7 +12,7 @@ public final class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f35811a;
+    public final /* synthetic */ b f35834a;
 
     public c(b bVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class c implements Runnable {
                 return;
             }
         }
-        this.f35811a = bVar;
+        this.f35834a = bVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:7:0x0012 */
@@ -46,9 +46,9 @@ public final class c implements Runnable {
             try {
                 Process.setThreadPriority(0);
                 while (!linkedList.isEmpty()) {
-                    linkedList2 = this.f35811a.f35810c;
+                    linkedList2 = this.f35834a.f35833c;
                     Runnable runnable = (Runnable) linkedList2.get(0);
-                    linkedList3 = this.f35811a.f35810c;
+                    linkedList3 = this.f35834a.f35833c;
                     linkedList3.remove(0);
                     if (runnable != null) {
                         runnable.run();
@@ -56,10 +56,10 @@ public final class c implements Runnable {
                 }
             } catch (Exception unused) {
             } catch (Throwable th) {
-                this.f35811a.f35809b = null;
+                this.f35834a.f35832b = null;
                 throw th;
             }
-            this.f35811a.f35809b = null;
+            this.f35834a.f35832b = null;
         }
     }
 }

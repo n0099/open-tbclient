@@ -31,10 +31,10 @@ public class DlnaApi {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static DlnaProvider.DlnaSearchListener f42587a;
+    public static DlnaProvider.DlnaSearchListener f42649a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f42588b;
+    public static Handler f42650b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -71,14 +71,14 @@ public class DlnaApi {
                     if (i2 == 1) {
                         Map<String, Object> map = (Map) message.obj;
                         synchronized (DlnaApi.class) {
-                            if (DlnaApi.f42587a != null && map != null) {
-                                DlnaApi.f42587a.onDeviceChangeNotification(map);
+                            if (DlnaApi.f42649a != null && map != null) {
+                                DlnaApi.f42649a.onDeviceChangeNotification(map);
                             }
                         }
                     } else if (i2 == 2) {
                         synchronized (DlnaApi.class) {
-                            if (DlnaApi.f42587a != null) {
-                                DlnaApi.f42587a.onRefreshFinishNotification(message.arg1, message.arg2);
+                            if (DlnaApi.f42649a != null) {
+                                DlnaApi.f42649a.onRefreshFinishNotification(message.arg1, message.arg2);
                             }
                         }
                     }
@@ -103,7 +103,7 @@ public class DlnaApi {
                 return;
             }
         }
-        f42588b = new a(Looper.getMainLooper());
+        f42650b = new a(Looper.getMainLooper());
     }
 
     public DlnaApi() {
@@ -215,7 +215,7 @@ public class DlnaApi {
             HashMap hashMap = new HashMap();
             hashMap.put("friendlyName", str);
             hashMap.put("uuid", str2);
-            Message.obtain(f42588b, 1, hashMap).sendToTarget();
+            Message.obtain(f42650b, 1, hashMap).sendToTarget();
         }
     }
 
@@ -276,7 +276,7 @@ public class DlnaApi {
     public static void onRefreshFinished(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65549, null, i2, i3) == null) {
-            Message obtain = Message.obtain(f42588b, 2);
+            Message obtain = Message.obtain(f42650b, 2);
             obtain.arg1 = i2;
             obtain.arg2 = i3;
             obtain.sendToTarget();
@@ -289,7 +289,7 @@ public class DlnaApi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, dlnaSearchListener) == null) {
             synchronized (DlnaApi.class) {
-                f42587a = dlnaSearchListener;
+                f42649a = dlnaSearchListener;
             }
             try {
                 nativeSearch();
@@ -311,7 +311,7 @@ public class DlnaApi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
             synchronized (DlnaApi.class) {
-                f42587a = null;
+                f42649a = null;
             }
             try {
                 nativeStop();

@@ -16,7 +16,7 @@ public class x extends c.a.r0.a0.d0.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.r0.h1.b.c> f27976e;
+    public List<c.a.r0.h1.b.c> f27996e;
 
     public x() {
         Interceptable interceptable = $ic;
@@ -31,26 +31,26 @@ public class x extends c.a.r0.a0.d0.a {
                 return;
             }
         }
-        this.f27976e = new ArrayList();
+        this.f27996e = new ArrayList();
     }
 
     public void g(z0 z0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, z0Var) == null) {
-            this.f27976e.add(z0Var);
+            this.f27996e.add(z0Var);
         }
     }
 
     public List<c.a.r0.h1.b.c> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27976e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27996e : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? t1.Y3 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? t1.Z3 : (BdUniqueId) invokeV.objValue;
     }
 }

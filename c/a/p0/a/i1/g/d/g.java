@@ -21,7 +21,7 @@ public abstract class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6878a;
+    public static final boolean f6886a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public abstract class g {
                 return;
             }
         }
-        f6878a = c.a.p0.a.k.f7077a;
+        f6886a = c.a.p0.a.k.f7085a;
     }
 
     public g(@NonNull String str) {
@@ -76,7 +76,7 @@ public abstract class g {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (f6878a) {
+            if (f6886a) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);

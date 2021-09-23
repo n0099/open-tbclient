@@ -19,13 +19,13 @@ public class c extends RequestBody {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f7575a;
+    public final File f7583a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.p0.a.n1.p.a f7576b;
+    public final c.a.p0.a.n1.p.a f7584b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f7577c;
+    public final String f7585c;
 
     public c(File file, String str, c.a.p0.a.n1.p.a aVar) {
         Interceptable interceptable = $ic;
@@ -42,23 +42,23 @@ public class c extends RequestBody {
                 return;
             }
         }
-        this.f7575a = file;
-        this.f7577c = str;
-        this.f7576b = aVar;
+        this.f7583a = file;
+        this.f7585c = str;
+        this.f7584b = aVar;
     }
 
     @Override // okhttp3.RequestBody
     public long contentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7575a.length() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7583a.length() : invokeV.longValue;
     }
 
     @Override // okhttp3.RequestBody
     public MediaType contentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse(this.f7577c) : (MediaType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse(this.f7585c) : (MediaType) invokeV.objValue;
     }
 
     @Override // okhttp3.RequestBody
@@ -69,7 +69,7 @@ public class c extends RequestBody {
         }
         Source source = null;
         try {
-            source = Okio.source(this.f7575a);
+            source = Okio.source(this.f7583a);
             long j2 = 0;
             while (true) {
                 long read = source.read(bufferedSink.buffer(), 2048L);
@@ -78,7 +78,7 @@ public class c extends RequestBody {
                 }
                 j2 += read;
                 bufferedSink.flush();
-                this.f7576b.a(j2);
+                this.f7584b.a(j2);
             }
         } finally {
             c.a.p0.t.d.d(source);

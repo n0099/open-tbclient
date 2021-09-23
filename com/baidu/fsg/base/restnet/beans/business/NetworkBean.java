@@ -21,7 +21,6 @@ import com.baidu.fsg.base.utils.ChannelUtils;
 import com.baidu.fsg.base.utils.Crypto;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.Md5Utils;
-import com.baidu.fsg.base.utils.NetworkUtils;
 import com.baidu.fsg.base.utils.PhoneUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -97,11 +96,32 @@ public abstract class NetworkBean extends ApollonBean {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("cuid_2", PayUtils.encrypt("phone_number", PhoneUtils.getCUID2(context)));
-                jSONObject.put("fk_wcp", PayUtils.encrypt("phone_number", (((("fp=" + BdWalletUtils.getDeviceFP(this.mContext)) + "&lastModify=" + BdWalletUtils.getFPFileLastModified(this.mContext)) + "&cpuInfo=" + PhoneUtils.getSystemCPUInfo().getCpuPath() + "_" + PhoneUtils.getNumCores()) + "&diskCapacity=" + PhoneUtils.getTotalInternalMemorySize()) + "&upTime=" + (SystemClock.elapsedRealtime() / 1000)));
                 StringBuilder sb = new StringBuilder();
-                sb.append(NetworkUtils.getNetworkType(context));
-                sb.append("");
-                jSONObject.put("nettype", PayUtils.encrypt("phone_number", sb.toString()));
+                sb.append("fp=");
+                sb.append(BdWalletUtils.getDeviceFP(this.mContext));
+                String sb2 = sb.toString();
+                StringBuilder sb3 = new StringBuilder();
+                sb3.append(sb2);
+                sb3.append("&lastModify=");
+                sb3.append(BdWalletUtils.getFPFileLastModified(this.mContext));
+                String sb4 = sb3.toString();
+                StringBuilder sb5 = new StringBuilder();
+                sb5.append(sb4);
+                sb5.append("&cpuInfo=");
+                sb5.append(PhoneUtils.getSystemCPUInfo().getCpuPath());
+                sb5.append("_");
+                sb5.append(PhoneUtils.getNumCores());
+                String sb6 = sb5.toString();
+                StringBuilder sb7 = new StringBuilder();
+                sb7.append(sb6);
+                sb7.append("&diskCapacity=");
+                sb7.append(PhoneUtils.getTotalInternalMemorySize());
+                String sb8 = sb7.toString();
+                StringBuilder sb9 = new StringBuilder();
+                sb9.append(sb8);
+                sb9.append("&upTime=");
+                sb9.append(SystemClock.elapsedRealtime() / 1000);
+                jSONObject.put("fk_wcp", PayUtils.encrypt("phone_number", sb9.toString()));
                 jSONObject.put(PARAM_IMEI_NEW, PayUtils.encrypt("phone_number", PhoneUtils.getImei(context)));
                 jSONObject.put("wmip", PayUtils.encrypt("phone_number", PhoneUtils.getIpInfo()));
                 jSONObject.put("wloc", PayUtils.encrypt("phone_number", PhoneUtils.getGPSLocation(context)));
@@ -200,25 +220,25 @@ public abstract class NetworkBean extends ApollonBean {
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public void handleCommonErrors(Exception exc) {
         IBeanResponseCallback iBeanResponseCallback;
-        int i2;
+        int beanId;
         String str;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
             LogUtil.d("NetworkBean", "execBean. exception = " + exc);
-            int i3 = -2;
             if (exc instanceof RestRuntimeException) {
                 if (this.mRspCallback != null) {
                     RestRuntimeException restRuntimeException = (RestRuntimeException) exc;
                     if (restRuntimeException.contains(SocketTimeoutException.class)) {
                         iBeanResponseCallback = this.mRspCallback;
-                        i2 = getBeanId();
-                        i3 = -5;
+                        beanId = getBeanId();
                         str = BeanConstants.rim_timeout_error;
+                        i2 = -5;
                     } else if (restRuntimeException.contains(SSLPeerUnverifiedException.class) || restRuntimeException.contains(CertificateException.class)) {
                         iBeanResponseCallback = this.mRspCallback;
-                        i2 = getBeanId();
-                        i3 = -16;
+                        beanId = getBeanId();
                         str = BeanConstants.rim_ssl;
+                        i2 = -16;
                     } else if (restRuntimeException.contains(IllegalArgumentException.class)) {
                         iBeanResponseCallback = this.mRspCallback;
                         if (iBeanResponseCallback == null) {
@@ -226,11 +246,11 @@ public abstract class NetworkBean extends ApollonBean {
                         }
                     } else {
                         iBeanResponseCallback = this.mRspCallback;
-                        i2 = getBeanId();
-                        i3 = -15;
+                        beanId = getBeanId();
                         str = BeanConstants.rim_resolve_error;
+                        i2 = -15;
                     }
-                    iBeanResponseCallback.onBeanExecFailure(i2, i3, str);
+                    iBeanResponseCallback.onBeanExecFailure(beanId, i2, str);
                 }
                 return;
             } else if (!(exc instanceof IllegalArgumentException)) {
@@ -242,9 +262,10 @@ public abstract class NetworkBean extends ApollonBean {
                     return;
                 }
             }
-            i2 = getBeanId();
+            beanId = getBeanId();
             str = BeanConstants.rim_resolve_error;
-            iBeanResponseCallback.onBeanExecFailure(i2, i3, str);
+            i2 = -2;
+            iBeanResponseCallback.onBeanExecFailure(beanId, i2, str);
         }
     }
 

@@ -16,7 +16,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.k f66877a;
+    public com.bytedance.sdk.openadsdk.core.e.k f67188a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(@NonNull Context context, @NonNull com.bytedance.sdk.openadsdk.core.e.m mVar, @NonNull String str, int i2) {
@@ -67,21 +67,21 @@ public class d extends com.bytedance.sdk.openadsdk.core.b.a {
             } else {
                 i10 = a2[0];
                 i11 = a2[1];
-                i6 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66213b, i2)) + i10;
-                i7 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66213b, i3)) + i11;
-                i8 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66213b, i4)) + i10;
-                i9 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66213b, i5)) + i11;
+                i6 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66524b, i2)) + i10;
+                i7 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66524b, i3)) + i11;
+                i8 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66524b, i4)) + i10;
+                i9 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66524b, i5)) + i11;
             }
             int[] iArr = new int[2];
             int[] iArr2 = new int[2];
-            com.bytedance.sdk.openadsdk.core.e.k kVar = this.f66877a;
+            com.bytedance.sdk.openadsdk.core.e.k kVar = this.f67188a;
             if (kVar != null) {
-                j4 = kVar.f66450e;
-                j5 = kVar.f66451f;
-                iArr[0] = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66213b, kVar.f66452g)) + i10;
-                iArr[1] = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66213b, this.f66877a.f66453h)) + i11;
-                int b2 = (int) com.bytedance.sdk.openadsdk.q.s.b(this.f66213b, this.f66877a.f66454i);
-                int b3 = (int) com.bytedance.sdk.openadsdk.q.s.b(this.f66213b, this.f66877a.f66455j);
+                j4 = kVar.f66761e;
+                j5 = kVar.f66762f;
+                iArr[0] = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66524b, kVar.f66763g)) + i10;
+                iArr[1] = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f66524b, this.f67188a.f66764h)) + i11;
+                int b2 = (int) com.bytedance.sdk.openadsdk.q.s.b(this.f66524b, this.f67188a.f66765i);
+                int b3 = (int) com.bytedance.sdk.openadsdk.q.s.b(this.f66524b, this.f67188a.f66766j);
                 iArr2[0] = b2;
                 i12 = 1;
                 iArr2[1] = b3;
@@ -106,7 +106,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.b.a {
     public void a(com.bytedance.sdk.openadsdk.core.e.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar) == null) {
-            this.f66877a = kVar;
+            this.f67188a = kVar;
         }
     }
 }

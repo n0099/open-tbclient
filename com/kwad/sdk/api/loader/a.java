@@ -17,29 +17,29 @@ public class a {
 
     /* renamed from: com.kwad.sdk.api.loader.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C1972a {
+    public static class C1976a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f71090a;
+        public int f71409a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f71091b;
+        public String f71410b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f71092c;
+        public String f71411c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f71093d;
+        public long f71412d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f71094e;
+        public String f71413e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient File f71095f;
+        public transient File f71414f;
 
-        public C1972a() {
+        public C1976a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,23 +58,23 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f71090a = jSONObject.optInt("dynamicType");
-            this.f71091b = jSONObject.optString("dynamicUrl");
-            this.f71092c = jSONObject.optString(PackageTable.MD5);
-            this.f71093d = jSONObject.optLong("interval");
-            this.f71094e = jSONObject.optString(CommandMessage.SDK_VERSION);
+            this.f71409a = jSONObject.optInt("dynamicType");
+            this.f71410b = jSONObject.optString("dynamicUrl");
+            this.f71411c = jSONObject.optString(PackageTable.MD5);
+            this.f71412d = jSONObject.optLong("interval");
+            this.f71413e = jSONObject.optString(CommandMessage.SDK_VERSION);
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71090a == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71409a == 1 : invokeV.booleanValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71090a == -1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71409a == -1 : invokeV.booleanValue;
         }
     }
 
@@ -84,13 +84,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f71096a;
+        public long f71415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f71097b;
+        public String f71416b;
 
         /* renamed from: c  reason: collision with root package name */
-        public C1972a f71098c;
+        public C1976a f71417c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -111,17 +111,17 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f71096a = jSONObject.optLong("result");
-            this.f71097b = jSONObject.optString("errorMsg");
-            C1972a c1972a = new C1972a();
-            this.f71098c = c1972a;
-            c1972a.a(jSONObject.optJSONObject("data"));
+            this.f71415a = jSONObject.optLong("result");
+            this.f71416b = jSONObject.optString("errorMsg");
+            C1976a c1976a = new C1976a();
+            this.f71417c = c1976a;
+            c1976a.a(jSONObject.optJSONObject("data"));
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71096a == 1 && this.f71098c != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71415a == 1 && this.f71417c != null : invokeV.booleanValue;
         }
     }
 }

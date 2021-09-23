@@ -13,7 +13,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24763a;
+    public String f24779a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class a {
         if (optJSONObject != null) {
             optJSONObject.optInt("errno");
             String optString = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
-            this.f24763a = optString;
+            this.f24779a = optString;
             if (!StringUtils.isNull(optString)) {
-                this.f24763a = optJSONObject.optString("errmsg");
+                this.f24779a = optJSONObject.optString("errmsg");
             }
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("data");

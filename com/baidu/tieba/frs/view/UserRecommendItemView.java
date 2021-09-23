@@ -25,22 +25,22 @@ public class UserRecommendItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ClickableHeaderImageView f51816e;
+    public ClickableHeaderImageView f51930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CardUserLikeButton f51817f;
+    public CardUserLikeButton f51931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51818g;
+    public TextView f51932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f51819h;
+    public TextView f51933h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f51820i;
+    public boolean f51934i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f51821j;
+    public int f51935j;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -48,7 +48,7 @@ public class UserRecommendItemView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserRecommendItemView f51822e;
+        public final /* synthetic */ UserRecommendItemView f51936e;
 
         public a(UserRecommendItemView userRecommendItemView) {
             Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public class UserRecommendItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f51822e = userRecommendItemView;
+            this.f51936e = userRecommendItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f51822e.f51816e.onClick(this.f51822e.f51816e);
+                this.f51936e.f51930e.onClick(this.f51936e.f51930e);
             }
         }
     }
@@ -95,8 +95,8 @@ public class UserRecommendItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51820i = false;
-        this.f51821j = -1;
+        this.f51934i = false;
+        this.f51935j = -1;
         b(context);
     }
 
@@ -105,16 +105,16 @@ public class UserRecommendItemView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.frs_user_recommend_item, (ViewGroup) this, true);
             ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.user_recommend_head);
-            this.f51816e = clickableHeaderImageView;
+            this.f51930e = clickableHeaderImageView;
             clickableHeaderImageView.setAutoChangeStyle(true);
-            this.f51816e.setDefaultResource(17170445);
-            this.f51816e.setIsRound(true);
-            this.f51816e.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.f51930e.setDefaultResource(17170445);
+            this.f51930e.setIsRound(true);
+            this.f51930e.setScaleType(ImageView.ScaleType.FIT_XY);
             CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(R.id.user_recommend_like_btn);
-            this.f51817f = cardUserLikeButton;
+            this.f51931f = cardUserLikeButton;
             cardUserLikeButton.setGravity(17);
-            this.f51818g = (TextView) findViewById(R.id.user_recommend_username);
-            this.f51819h = (TextView) findViewById(R.id.user_recommend_fans_num);
+            this.f51932g = (TextView) findViewById(R.id.user_recommend_username);
+            this.f51933h = (TextView) findViewById(R.id.user_recommend_fans_num);
             setOrientation(1);
             setFocusable(true);
             setClickable(true);
@@ -126,54 +126,54 @@ public class UserRecommendItemView extends LinearLayout {
     public TextView getFansNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51819h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51933h : (TextView) invokeV.objValue;
     }
 
     public ClickableHeaderImageView getHeaderView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51816e : (ClickableHeaderImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51930e : (ClickableHeaderImageView) invokeV.objValue;
     }
 
     public CommonUserLikeButton getLikeBtn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51817f : (CommonUserLikeButton) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51931f : (CommonUserLikeButton) invokeV.objValue;
     }
 
     public TextView getUsername() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51818g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51932g : (TextView) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || i2 == this.f51821j) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || i2 == this.f51935j) {
             return;
         }
-        this.f51821j = i2;
-        this.f51819h.setTextColor(SkinManager.getColor(i2, R.color.CAM_X0109));
-        if (this.f51820i) {
-            this.f51818g.setTextColor(SkinManager.getColor(i2, R.color.cp_cont_r));
+        this.f51935j = i2;
+        this.f51933h.setTextColor(SkinManager.getColor(i2, R.color.CAM_X0109));
+        if (this.f51934i) {
+            this.f51932g.setTextColor(SkinManager.getColor(i2, R.color.cp_cont_r));
         } else {
-            this.f51818g.setTextColor(SkinManager.getColor(i2, R.color.CAM_X0105));
+            this.f51932g.setTextColor(SkinManager.getColor(i2, R.color.CAM_X0105));
         }
         setBackgroundColor(SkinManager.getColor(i2, R.color.CAM_X0201));
-        this.f51817f.onChangeSkinType(i2);
-        this.f51816e.setPlaceHolder(1);
+        this.f51931f.onChangeSkinType(i2);
+        this.f51930e.setPlaceHolder(1);
     }
 
     public void setIsGod(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || this.f51820i == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || this.f51934i == z) {
             return;
         }
-        this.f51820i = z;
+        this.f51934i = z;
         if (z) {
-            this.f51818g.setTextColor(SkinManager.getColor(this.f51821j, R.color.cp_cont_r));
+            this.f51932g.setTextColor(SkinManager.getColor(this.f51935j, R.color.cp_cont_r));
         } else {
-            this.f51818g.setTextColor(SkinManager.getColor(this.f51821j, R.color.CAM_X0105));
+            this.f51932g.setTextColor(SkinManager.getColor(this.f51935j, R.color.CAM_X0105));
         }
     }
 
@@ -196,8 +196,8 @@ public class UserRecommendItemView extends LinearLayout {
                 return;
             }
         }
-        this.f51820i = false;
-        this.f51821j = -1;
+        this.f51934i = false;
+        this.f51935j = -1;
         b(context);
     }
 }

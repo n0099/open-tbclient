@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.p0.a.v2.o0;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,7 @@ public class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10127a;
+    public static final boolean f10135a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,13 +41,13 @@ public class y {
                 return;
             }
         }
-        f10127a = c.a.p0.a.k.f7077a;
+        f10135a = c.a.p0.a.k.f7085a;
     }
 
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? b(str, "BDUSS", str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? b(str, HttpRequest.BDUSS, str2) : (String) invokeLL.objValue;
     }
 
     public static String b(String str, String str2, String str3) {
@@ -117,12 +118,12 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, list) == null) {
             if (list == null) {
-                boolean z = f10127a;
+                boolean z = f10135a;
                 return;
             }
             for (String str2 : list) {
                 if (TextUtils.isEmpty(str)) {
-                    a2 = o0.k(str2, "BDUSS", "deleted", 0L);
+                    a2 = o0.k(str2, HttpRequest.BDUSS, "deleted", 0L);
                 } else {
                     a2 = a(str2, str);
                 }
@@ -154,7 +155,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, list) == null) {
             if (list == null) {
-                boolean z = f10127a;
+                boolean z = f10135a;
                 return;
             }
             for (String str2 : list) {

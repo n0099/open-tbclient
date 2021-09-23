@@ -1,7 +1,7 @@
 package c.a.r0.n0.i.c;
 
 import android.text.TextUtils;
-import c.a.q0.d1.r0;
+import c.a.q0.d1.s0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.BaijiahaoInfo;
 import tbclient.GetInfluenceRank.DataRes;
 import tbclient.NewGodInfo;
 import tbclient.RankRuler;
@@ -27,25 +26,25 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f22628a;
+    public a f22644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f22629b;
+    public List<b> f22645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f22630c;
+    public b f22646c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f22631d;
+    public String f22647d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22632e;
+    public String f22648e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f22633f;
+    public long f22649f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f22634g;
+    public boolean f22650g;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -60,8 +59,8 @@ public class c {
                 return;
             }
         }
-        this.f22629b = new ArrayList();
-        this.f22634g = true;
+        this.f22645b = new ArrayList();
+        this.f22650g = true;
     }
 
     public final b a(User user) {
@@ -73,36 +72,27 @@ public class c {
                 return null;
             }
             b bVar = new b();
-            bVar.f22620a = user.level_influence;
-            bVar.f22622c = b(user);
-            BaijiahaoInfo baijiahaoInfo = user.baijiahao_info;
-            boolean z = false;
-            if (baijiahaoInfo != null) {
-                bVar.f22623d = baijiahaoInfo.auth_desc;
-                Integer num = baijiahaoInfo.auth_id;
-                bVar.f22626g = (num == null || num.intValue() == 0) ? false : true;
-            }
-            if (!bVar.f22626g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
-                bVar.f22623d = user.new_god_data.field_name + r0.c(user.new_god_data);
-                bVar.f22627h = true;
+            bVar.f22636a = user.level_influence;
+            bVar.f22638c = b(user);
+            boolean z = true;
+            if (!bVar.f22642g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
+                bVar.f22639d = user.new_god_data.field_name + s0.b(user.new_god_data);
+                bVar.f22643h = true;
             }
             if (user.influence == null) {
-                bVar.f22624e = "";
+                bVar.f22640e = "";
             } else {
-                bVar.f22624e = String.format(TbadkCoreApplication.getInst().getString(R.string.influence), StringHelper.numFormatOverWanNa(user.influence.intValue()));
+                bVar.f22640e = String.format(TbadkCoreApplication.getInst().getString(R.string.influence), StringHelper.numFormatOverWanNa(user.influence.intValue()));
             }
             MetaData metaData = new MetaData();
             metaData.parserProtobuf(user);
-            Integer num2 = user.has_concerned;
-            if (num2 != null && num2.intValue() != 0) {
-                z = true;
-            }
-            metaData.setIsLike(z);
-            bVar.f22625f = metaData;
+            Integer num = user.has_concerned;
+            metaData.setIsLike((num == null || num.intValue() == 0) ? false : false);
+            bVar.f22641f = metaData;
             if (metaData.getAvater() != null && metaData.getAvater().startsWith("http")) {
-                bVar.f22621b = metaData.getAvater();
+                bVar.f22637b = metaData.getAvater();
             } else {
-                bVar.f22621b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
+                bVar.f22637b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
             }
             return bVar;
         }
@@ -116,11 +106,7 @@ public class c {
             if (user == null) {
                 return "";
             }
-            BaijiahaoInfo baijiahaoInfo = user.baijiahao_info;
-            String str = baijiahaoInfo != null ? baijiahaoInfo.name : "";
-            if (TextUtils.isEmpty(str)) {
-                str = user.name_show;
-            }
+            String str = TextUtils.isEmpty("") ? user.name_show : "";
             return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.user_name_default_txt) : str;
         }
         return (String) invokeL.objValue;
@@ -131,43 +117,43 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f22628a = new a();
+        this.f22644a = new a();
         if (!ListUtils.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
-            this.f22628a.f22615b = b(dataRes.user_rank.get(0));
+            this.f22644a.f22631b = b(dataRes.user_rank.get(0));
             MetaData metaData = new MetaData();
             metaData.parserProtobuf(dataRes.user_rank.get(0));
-            this.f22628a.f22616c = metaData;
+            this.f22644a.f22632c = metaData;
             String avatarH = metaData.getAvatarH();
             if (TextUtils.isEmpty(avatarH)) {
                 avatarH = metaData.getAvater();
             }
             if (avatarH != null && avatarH.startsWith("http")) {
-                this.f22628a.f22618e = avatarH;
+                this.f22644a.f22634e = avatarH;
             } else {
-                a aVar = this.f22628a;
-                aVar.f22618e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
+                a aVar = this.f22644a;
+                aVar.f22634e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
             }
         }
-        a aVar2 = this.f22628a;
+        a aVar2 = this.f22644a;
         Long l = dataRes.timestamp;
-        aVar2.f22617d = l == null ? 0L : l.longValue();
-        this.f22628a.f22619f = dataRes.field_info;
+        aVar2.f22633d = l == null ? 0L : l.longValue();
+        this.f22644a.f22635f = dataRes.field_info;
         if (!ListUtils.isEmpty(dataRes.user_rank)) {
             for (User user : dataRes.user_rank) {
                 if (user != null) {
-                    this.f22629b.add(a(user));
+                    this.f22645b.add(a(user));
                 }
             }
         }
-        this.f22630c = a(dataRes.current_user);
+        this.f22646c = a(dataRes.current_user);
         RankRuler rankRuler = dataRes.rank_description;
         if (rankRuler != null) {
-            this.f22631d = rankRuler.top_link;
-            this.f22632e = rankRuler.bottom_link;
+            this.f22647d = rankRuler.top_link;
+            this.f22648e = rankRuler.bottom_link;
         }
         Long l2 = dataRes.timestamp;
-        this.f22633f = l2 != null ? l2.longValue() : 0L;
+        this.f22649f = l2 != null ? l2.longValue() : 0L;
         Boolean bool = dataRes.has_more;
-        this.f22634g = bool != null ? bool.booleanValue() : false;
+        this.f22650g = bool != null ? bool.booleanValue() : false;
     }
 }

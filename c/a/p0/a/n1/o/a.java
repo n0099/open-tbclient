@@ -18,10 +18,10 @@ public class a implements Interceptor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f7618a;
+    public b f7626a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f7619b;
+    public final e f7627b;
 
     /* renamed from: c.a.p0.a.n1.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -30,7 +30,7 @@ public class a implements Interceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f7620a;
+        public final /* synthetic */ a f7628a;
 
         public C0316a(a aVar) {
             Interceptable interceptable = $ic;
@@ -47,27 +47,27 @@ public class a implements Interceptor {
                     return;
                 }
             }
-            this.f7620a = aVar;
+            this.f7628a = aVar;
         }
 
         @Override // c.a.p0.a.n1.e
         public void a(long j2, long j3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-                if (this.f7620a.f7618a == null) {
-                    if (k.f7077a) {
+                if (this.f7628a.f7626a == null) {
+                    if (k.f7085a) {
                         throw new RuntimeException("DownloadProgressInterceptor.mIProgressCallback == null");
                     }
                 } else if (j3 == -1 && j2 != 0) {
-                    this.f7620a.f7618a.b(0, j2, j3);
+                    this.f7628a.f7626a.b(0, j2, j3);
                 } else if (j3 > 52428800) {
-                    this.f7620a.f7618a.a(j3);
+                    this.f7628a.f7626a.a(j3);
                 } else if (j3 <= 0 || j2 > j3 || j2 == 0) {
-                    this.f7620a.f7618a.c(j2, j3);
+                    this.f7628a.f7626a.c(j2, j3);
                 } else {
                     int floor = (int) Math.floor((100 * j2) / j3);
                     if (floor <= 100) {
-                        this.f7620a.f7618a.b(floor, j2, j3);
+                        this.f7628a.f7626a.b(floor, j2, j3);
                     }
                 }
             }
@@ -96,13 +96,13 @@ public class a implements Interceptor {
                 return;
             }
         }
-        this.f7619b = new C0316a(this);
+        this.f7627b = new C0316a(this);
     }
 
     public void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f7618a = bVar;
+            this.f7626a = bVar;
         }
     }
 
@@ -112,7 +112,7 @@ public class a implements Interceptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
             Response proceed = chain.proceed(chain.request());
-            return proceed.newBuilder().body(new h(proceed.body(), this.f7619b)).build();
+            return proceed.newBuilder().body(new h(proceed.body(), this.f7627b)).build();
         }
         return (Response) invokeL.objValue;
     }

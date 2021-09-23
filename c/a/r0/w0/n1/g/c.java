@@ -98,7 +98,7 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f27285e;
+        public final /* synthetic */ c f27305e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -115,14 +115,14 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27285e = cVar;
+            this.f27305e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (threadCommentAndPraiseInfoLayout = this.f27285e.o) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (threadCommentAndPraiseInfoLayout = this.f27305e.o) == null) {
                 return;
             }
             threadCommentAndPraiseInfoLayout.changeSelectStatus();
@@ -135,7 +135,7 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f27286a;
+        public final /* synthetic */ c f27306a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -152,35 +152,35 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27286a = cVar;
+            this.f27306a = cVar;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.j
         public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f27286a.J == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f27306a.J == null) {
                 return;
             }
-            this.f27286a.J.setBackgroundColor(SkinManager.getColor(z ? R.color.CAM_X0201 : R.color.transparent));
+            this.f27306a.J.setBackgroundColor(SkinManager.getColor(z ? R.color.CAM_X0201 : R.color.transparent));
         }
     }
 
     /* renamed from: c.a.r0.w0.n1.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1281c implements c.a.q0.f1.j.d {
+    public class C1279c implements c.a.q0.f1.j.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f27287a;
+        public final /* synthetic */ LinkedList f27307a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d2 f27288b;
+        public final /* synthetic */ d2 f27308b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f27289c;
+        public final /* synthetic */ c f27309c;
 
-        public C1281c(c cVar, LinkedList linkedList, d2 d2Var) {
+        public C1279c(c cVar, LinkedList linkedList, d2 d2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,31 +195,31 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27289c = cVar;
-            this.f27287a = linkedList;
-            this.f27288b = d2Var;
+            this.f27309c = cVar;
+            this.f27307a = linkedList;
+            this.f27308b = d2Var;
         }
 
         @Override // c.a.q0.f1.j.d
         public void a(View view, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                b0<d2> g2 = this.f27289c.g();
+                b0<d2> g2 = this.f27309c.g();
                 if (!z) {
                     if (g2 != null) {
                         view.setTag("1");
-                        g2.f15554a = Boolean.FALSE;
-                        g2.a(view, this.f27289c.z);
+                        g2.f15563a = Boolean.FALSE;
+                        g2.a(view, this.f27309c.z);
                     }
-                    this.f27289c.Q(view, this.f27287a, i2, this.f27288b);
+                    this.f27309c.Q(view, this.f27307a, i2, this.f27308b);
                     return;
                 }
                 if (g2 != null) {
                     view.setTag("1");
-                    g2.f15554a = Boolean.TRUE;
-                    g2.a(view, this.f27289c.z);
+                    g2.f15563a = Boolean.TRUE;
+                    g2.a(view, this.f27309c.z);
                 }
-                this.f27289c.x(false);
+                this.f27309c.x(false);
             }
         }
     }
@@ -230,10 +230,10 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d2 f27290e;
+        public final /* synthetic */ d2 f27310e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f27291f;
+        public final /* synthetic */ c f27311f;
 
         public d(c cVar, d2 d2Var) {
             Interceptable interceptable = $ic;
@@ -250,16 +250,16 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27291f = cVar;
-            this.f27290e = d2Var;
+            this.f27311f = cVar;
+            this.f27310e = d2Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f27291f.A != null) {
-                    this.f27291f.f15549f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(this.f27291f.f15549f.getContext(), "", this.f27290e.A1, true)));
+                if (this.f27311f.A != null) {
+                    this.f27311f.f15558f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(this.f27311f.f15558f.getContext(), "", this.f27310e.B1, true)));
                 }
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_STAR_PIC_CLICK));
             }
@@ -272,10 +272,10 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f27292e;
+        public final /* synthetic */ ThemeCardInUserData f27312e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f27293f;
+        public final /* synthetic */ c f27313f;
 
         public e(c cVar, ThemeCardInUserData themeCardInUserData) {
             Interceptable interceptable = $ic;
@@ -292,15 +292,15 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27293f = cVar;
-            this.f27292e = themeCardInUserData;
+            this.f27313f = cVar;
+            this.f27312e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f27293f.A.getPageActivity(), this.f27292e.getCardId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f27313f.A.getPageActivity(), this.f27312e.getCardId())));
             }
         }
     }
@@ -311,7 +311,7 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f27294e;
+        public final /* synthetic */ c f27314e;
 
         public f(c cVar) {
             Interceptable interceptable = $ic;
@@ -328,7 +328,7 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27294e = cVar;
+            this.f27314e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -336,14 +336,14 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (!c.a.r0.w0.b.f().i() && !c.a.r0.w0.a.h().j()) {
-                    if (this.f27294e.g() != null) {
-                        this.f27294e.g().a(view, this.f27294e.z);
+                    if (this.f27314e.g() != null) {
+                        this.f27314e.g().a(view, this.f27314e.z);
                     }
-                    c cVar = this.f27294e;
+                    c cVar = this.f27314e;
                     cVar.x(view == cVar.q);
                     return;
                 }
-                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.f27294e.o;
+                ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.f27314e.o;
                 if (threadCommentAndPraiseInfoLayout != null) {
                     threadCommentAndPraiseInfoLayout.changeSelectStatus();
                 }
@@ -357,7 +357,7 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f27295e;
+        public final /* synthetic */ c f27315e;
 
         public g(c cVar) {
             Interceptable interceptable = $ic;
@@ -374,18 +374,18 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27295e = cVar;
+            this.f27315e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b0<d2> g2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f27295e.g()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f27315e.g()) == null) {
                 return;
             }
             view.setTag("2");
-            g2.a(view, this.f27295e.z);
+            g2.a(view, this.f27315e.z);
         }
     }
 
@@ -395,7 +395,7 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f27296e;
+        public final /* synthetic */ c f27316e;
 
         public h(c cVar) {
             Interceptable interceptable = $ic;
@@ -412,16 +412,16 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27296e = cVar;
+            this.f27316e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27296e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27316e.g() == null) {
                 return;
             }
-            this.f27296e.g().a(view, this.f27296e.z);
+            this.f27316e.g().a(view, this.f27316e.z);
         }
     }
 
@@ -538,7 +538,7 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
         if (interceptable == null || interceptable.invokeL(1048576, this, d2Var) == null) {
             if (d2Var != null && t(2) == 1) {
                 if (!StringUtils.isNull(this.w) && !StringUtils.isNull(this.x)) {
-                    d2Var.w4(this.w, this.x);
+                    d2Var.v4(this.w, this.x);
                 }
                 SpannableString L2 = d2Var.L2();
                 if (L2 != null && !k.isEmpty(L2.toString())) {
@@ -615,7 +615,7 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, d2Var)) == null) {
             if (!StringUtils.isNull(this.w) && !StringUtils.isNull(this.x)) {
-                d2Var.w4(this.w, this.x);
+                d2Var.v4(this.w, this.x);
             }
             SpannableStringBuilder V2 = d2Var.V2(false, true);
             if (V2 != null && !StringUtils.isNull(V2.toString())) {
@@ -659,7 +659,7 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
             return;
         }
         if (this.u != null && d2Var != null) {
-            if (!StringUtils.isNull(d2Var.z1) && this.u.getVisibility() != 0) {
+            if (!StringUtils.isNull(d2Var.A1) && this.u.getVisibility() != 0) {
                 i iVar = this.I;
                 if (iVar != null && iVar.b() && (this.G.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.G.getLayoutParams();
@@ -668,7 +668,7 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
                 }
                 this.G.setVisibility(0);
                 this.G.setImageDrawable(null);
-                this.G.startLoad(d2Var.z1, 10, false);
+                this.G.startLoad(d2Var.A1, 10, false);
                 this.G.setOnClickListener(new d(this, d2Var));
                 return;
             }
@@ -742,15 +742,15 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
     public final void R() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (textView = this.B) == null || this.n == null || this.D == null || this.f15550g == null || textView.getVisibility() != 8) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (textView = this.B) == null || this.n == null || this.D == null || this.f15559g == null || textView.getVisibility() != 8) {
             return;
         }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
-        layoutParams.topMargin = this.f15550g.getResources().getDimensionPixelSize(R.dimen.tbds20);
+        layoutParams.topMargin = this.f15559g.getResources().getDimensionPixelSize(R.dimen.tbds20);
         this.n.setLayoutParams(layoutParams);
         if (this.n.getVisibility() == 8) {
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.D.getLayoutParams();
-            layoutParams2.topMargin = this.f15550g.getResources().getDimensionPixelSize(R.dimen.tbds28);
+            layoutParams2.topMargin = this.f15559g.getResources().getDimensionPixelSize(R.dimen.tbds28);
             this.D.setLayoutParams(layoutParams2);
         }
     }
@@ -961,7 +961,7 @@ public class c extends c.a.r0.a0.b<d2> implements z, Object {
                 if (ListUtils.getCount(linkedList) > 0) {
                     this.D.setVisibility(0);
                     this.D.setFromCDN(this.E);
-                    this.D.setImageClickListener(new C1281c(this, linkedList, d2Var));
+                    this.D.setImageClickListener(new C1279c(this, linkedList, d2Var));
                     this.D.setImageMediaList(linkedList);
                 } else {
                     this.D.setVisibility(8);

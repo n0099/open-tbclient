@@ -34,34 +34,34 @@ public class h extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f5033a;
+        public final /* synthetic */ String f5041a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.g1.f f5034b;
+        public final /* synthetic */ c.a.p0.a.g1.f f5042b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5035c;
+        public final /* synthetic */ UnitedSchemeEntity f5043c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5036d;
+        public final /* synthetic */ CallbackHandler f5044d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f5037e;
+        public final /* synthetic */ c.a.p0.a.a2.e f5045e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5038f;
+        public final /* synthetic */ String f5046f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.l1.b f5039g;
+        public final /* synthetic */ c.a.p0.a.l1.b f5047g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f5040h;
+        public final /* synthetic */ String f5048h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a.d f5041i;
+        public final /* synthetic */ a.d f5049i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.g.g f5042j;
+        public final /* synthetic */ c.a.p0.a.h0.g.g f5050j;
         public final /* synthetic */ Context k;
         public final /* synthetic */ h l;
 
@@ -81,16 +81,16 @@ public class h extends a0 {
                 }
             }
             this.l = hVar;
-            this.f5033a = str;
-            this.f5034b = fVar;
-            this.f5035c = unitedSchemeEntity;
-            this.f5036d = callbackHandler;
-            this.f5037e = eVar;
-            this.f5038f = str2;
-            this.f5039g = bVar;
-            this.f5040h = str3;
-            this.f5041i = dVar;
-            this.f5042j = gVar;
+            this.f5041a = str;
+            this.f5042b = fVar;
+            this.f5043c = unitedSchemeEntity;
+            this.f5044d = callbackHandler;
+            this.f5045e = eVar;
+            this.f5046f = str2;
+            this.f5047g = bVar;
+            this.f5048h = str3;
+            this.f5049i = dVar;
+            this.f5050j = gVar;
             this.k = context;
         }
 
@@ -98,11 +98,11 @@ public class h extends a0 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                c.a.p0.a.r1.i.d(this.f5033a);
+                c.a.p0.a.r1.i.d(this.f5041a);
                 c.a.p0.a.e0.d.g("relaunch", "check pages success");
-                this.f5034b.o();
-                c.a.p0.a.c2.f.p0.a.l(this.f5035c, this.f5036d, this.f5037e, this.f5038f, this.f5039g.f7236e, null, this.f5040h);
-                this.l.p(this.f5041i, this.f5039g, this.f5042j, this.f5033a);
+                this.f5042b.o();
+                c.a.p0.a.c2.f.p0.a.l(this.f5043c, this.f5044d, this.f5045e, this.f5046f, this.f5047g.f7244e, null, this.f5048h);
+                this.l.p(this.f5049i, this.f5047g, this.f5050j, this.f5041a);
             }
         }
 
@@ -111,12 +111,12 @@ public class h extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 c.a.p0.a.e0.d.b("relaunch", "check pages failed");
-                this.f5034b.o();
-                if (a0.f4766b) {
+                this.f5042b.o();
+                if (a0.f4774b) {
                     Context context = this.k;
                     c.a.p0.a.z1.b.f.e.g(context, this.k.getString(c.a.p0.a.h.aiapps_open_pages_failed) + i2).F();
                 }
-                c.a.p0.a.c2.f.p0.a.j(this.f5035c, this.f5036d, this.f5040h);
+                c.a.p0.a.c2.f.p0.a.j(this.f5043c, this.f5044d, this.f5048h);
             }
         }
     }
@@ -127,16 +127,16 @@ public class h extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.d f5043a;
+        public final /* synthetic */ a.d f5051a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f5044b;
+        public final /* synthetic */ String f5052b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.l1.b f5045c;
+        public final /* synthetic */ c.a.p0.a.l1.b f5053c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.g.g f5046d;
+        public final /* synthetic */ c.a.p0.a.h0.g.g f5054d;
 
         public b(h hVar, a.d dVar, String str, c.a.p0.a.l1.b bVar, c.a.p0.a.h0.g.g gVar) {
             Interceptable interceptable = $ic;
@@ -153,21 +153,21 @@ public class h extends a0 {
                     return;
                 }
             }
-            this.f5043a = dVar;
-            this.f5044b = str;
-            this.f5045c = bVar;
-            this.f5046d = gVar;
+            this.f5051a = dVar;
+            this.f5052b = str;
+            this.f5053c = bVar;
+            this.f5054d = gVar;
         }
 
         @Override // c.a.p0.a.h0.t.a.e
         public void onReady() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = a0.f4766b;
-                c.a.p0.a.r1.i.e(this.f5043a, this.f5044b);
-                c.a.p0.a.c2.f.p0.a.e(this.f5043a.f6437a, this.f5045c, this.f5044b);
-                h.o(this.f5046d, this.f5045c, this.f5044b);
-                boolean unused2 = a0.f4766b;
+                boolean unused = a0.f4774b;
+                c.a.p0.a.r1.i.e(this.f5051a, this.f5052b);
+                c.a.p0.a.c2.f.p0.a.e(this.f5051a.f6445a, this.f5053c, this.f5052b);
+                h.o(this.f5054d, this.f5053c, this.f5052b);
+                boolean unused2 = a0.f4774b;
             }
         }
     }
@@ -205,7 +205,7 @@ public class h extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 r0 = "handle entity: " + unitedSchemeEntity.toString();
             }
             String uuid = UUID.randomUUID().toString();
@@ -224,15 +224,15 @@ public class h extends a0 {
                 return false;
             }
             c.a.p0.a.l1.b g2 = c.a.p0.a.l1.b.g(o, V.A());
-            c.a.p0.a.j2.h.f(g2.f7236e, "3");
+            c.a.p0.a.j2.h.f(g2.f7244e, "3");
             if (!q0.b(V.s(), g2, true)) {
-                c.a.p0.a.e0.d.b("relaunch", "page params error : path=" + g2.f7236e + " ; routePath=" + g2.f7239h);
+                c.a.p0.a.e0.d.b("relaunch", "page params error : path=" + g2.f7244e + " ; routePath=" + g2.f7247h);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
             String n = c.a.p0.a.c2.f.p0.a.n(unitedSchemeEntity, "params", "initData");
-            if (!TextUtils.isEmpty(n) && g2 != null && !TextUtils.isEmpty(g2.f7239h) && c.a.p0.a.a2.e.i() != null) {
-                c.a.p0.a.a2.e.i().x0(n, g2.f7239h);
+            if (!TextUtils.isEmpty(n) && g2 != null && !TextUtils.isEmpty(g2.f7247h) && c.a.p0.a.a2.e.i() != null) {
+                c.a.p0.a.a2.e.i().x0(n, g2.f7247h);
             }
             String n2 = c.a.p0.a.c2.f.p0.a.n(unitedSchemeEntity, "params", "startTime");
             if (!TextUtils.isEmpty(n2)) {
@@ -242,8 +242,8 @@ public class h extends a0 {
                 q.C(ubcFlowEvent);
             }
             a.d g3 = c.a.p0.a.h0.t.a.g(V.getActivity(), true);
-            String c2 = g3.f6437a.c();
-            if (a0.f4766b) {
+            String c2 = g3.f6445a.c();
+            if (a0.f4774b) {
                 String str = "webview idx: " + c2;
             }
             String optString = w.d(unitedSchemeEntity.getParam("params")).optString("cb");
@@ -269,15 +269,15 @@ public class h extends a0 {
     public final void p(a.d dVar, c.a.p0.a.l1.b bVar, c.a.p0.a.h0.g.g gVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, bVar, gVar, str) == null) {
-            boolean z = dVar != null && dVar.f6438b;
+            boolean z = dVar != null && dVar.f6446b;
             HybridUbcFlow q = c.a.p0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
             q.C(new UbcFlowEvent("na_pre_load_slave_check"));
             q.A("preload", z ? "1" : "0");
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str2 = "tryToExecutePageRoute start. isReady : " + z;
             }
             c.a.p0.a.h0.t.a.n(dVar, new b(this, dVar, str, bVar, gVar));
-            boolean z2 = a0.f4766b;
+            boolean z2 = a0.f4774b;
         }
     }
 }

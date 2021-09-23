@@ -20,19 +20,19 @@ public class GoOnAnimView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f57374e;
+    public ImageView f57491e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f57375f;
+    public ImageView f57492f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f57376g;
+    public ImageView f57493g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57377h;
+    public int f57494h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f57378i;
+    public Handler f57495i;
 
     /* loaded from: classes7.dex */
     public class a extends Handler {
@@ -40,7 +40,7 @@ public class GoOnAnimView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GoOnAnimView f57379a;
+        public final /* synthetic */ GoOnAnimView f57496a;
 
         public a(GoOnAnimView goOnAnimView) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class GoOnAnimView extends LinearLayout {
                     return;
                 }
             }
-            this.f57379a = goOnAnimView;
+            this.f57496a = goOnAnimView;
         }
 
         @Override // android.os.Handler
@@ -65,28 +65,28 @@ public class GoOnAnimView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                this.f57379a.f57377h %= 4;
-                int i2 = this.f57379a.f57377h;
+                this.f57496a.f57494h %= 4;
+                int i2 = this.f57496a.f57494h;
                 if (i2 == 0) {
-                    this.f57379a.f57374e.setImageResource(R.drawable.pic_startpage1_next_3);
-                    this.f57379a.f57375f.setImageResource(R.drawable.pic_startpage1_next_2);
-                    this.f57379a.f57376g.setImageResource(R.drawable.pic_startpage1_next_1);
+                    this.f57496a.f57491e.setImageResource(R.drawable.pic_startpage1_next_3);
+                    this.f57496a.f57492f.setImageResource(R.drawable.pic_startpage1_next_2);
+                    this.f57496a.f57493g.setImageResource(R.drawable.pic_startpage1_next_1);
                 } else if (i2 == 1) {
-                    this.f57379a.f57374e.setImageResource(R.drawable.pic_startpage1_next_2);
-                    this.f57379a.f57375f.setImageResource(R.drawable.pic_startpage1_next_1);
-                    this.f57379a.f57376g.setImageResource(R.drawable.pic_startpage1_next_3);
+                    this.f57496a.f57491e.setImageResource(R.drawable.pic_startpage1_next_2);
+                    this.f57496a.f57492f.setImageResource(R.drawable.pic_startpage1_next_1);
+                    this.f57496a.f57493g.setImageResource(R.drawable.pic_startpage1_next_3);
                 } else if (i2 == 2) {
-                    this.f57379a.f57374e.setImageResource(R.drawable.pic_startpage1_next_1);
-                    this.f57379a.f57375f.setImageResource(R.drawable.pic_startpage1_next_3);
-                    this.f57379a.f57376g.setImageResource(R.drawable.pic_startpage1_next_2);
+                    this.f57496a.f57491e.setImageResource(R.drawable.pic_startpage1_next_1);
+                    this.f57496a.f57492f.setImageResource(R.drawable.pic_startpage1_next_3);
+                    this.f57496a.f57493g.setImageResource(R.drawable.pic_startpage1_next_2);
                 } else if (i2 == 3) {
-                    this.f57379a.f57374e.setImageResource(R.drawable.pic_startpage1_next_2);
-                    this.f57379a.f57375f.setImageResource(R.drawable.pic_startpage1_next_2);
-                    this.f57379a.f57376g.setImageResource(R.drawable.pic_startpage1_next_2);
+                    this.f57496a.f57491e.setImageResource(R.drawable.pic_startpage1_next_2);
+                    this.f57496a.f57492f.setImageResource(R.drawable.pic_startpage1_next_2);
+                    this.f57496a.f57493g.setImageResource(R.drawable.pic_startpage1_next_2);
                 }
-                GoOnAnimView.c(this.f57379a);
-                this.f57379a.f57378i.removeMessages(0);
-                this.f57379a.f57378i.sendEmptyMessageDelayed(0, 300L);
+                GoOnAnimView.c(this.f57496a);
+                this.f57496a.f57495i.removeMessages(0);
+                this.f57496a.f57495i.sendEmptyMessageDelayed(0, 300L);
             }
         }
     }
@@ -110,13 +110,13 @@ public class GoOnAnimView extends LinearLayout {
                 return;
             }
         }
-        this.f57378i = new a(this);
+        this.f57495i = new a(this);
         h(context);
     }
 
     public static /* synthetic */ int c(GoOnAnimView goOnAnimView) {
-        int i2 = goOnAnimView.f57377h;
-        goOnAnimView.f57377h = i2 + 1;
+        int i2 = goOnAnimView.f57494h;
+        goOnAnimView.f57494h = i2 + 1;
         return i2;
     }
 
@@ -124,12 +124,12 @@ public class GoOnAnimView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.go_on_anim, (ViewGroup) null, false);
-            this.f57374e = (ImageView) linearLayout.findViewById(R.id.tip_go_on_1);
-            this.f57375f = (ImageView) linearLayout.findViewById(R.id.tip_go_on_2);
-            this.f57376g = (ImageView) linearLayout.findViewById(R.id.tip_go_on_3);
-            this.f57374e.setImageResource(R.drawable.pic_startpage1_next_3);
-            this.f57375f.setImageResource(R.drawable.pic_startpage1_next_2);
-            this.f57376g.setImageResource(R.drawable.pic_startpage1_next_1);
+            this.f57491e = (ImageView) linearLayout.findViewById(R.id.tip_go_on_1);
+            this.f57492f = (ImageView) linearLayout.findViewById(R.id.tip_go_on_2);
+            this.f57493g = (ImageView) linearLayout.findViewById(R.id.tip_go_on_3);
+            this.f57491e.setImageResource(R.drawable.pic_startpage1_next_3);
+            this.f57492f.setImageResource(R.drawable.pic_startpage1_next_2);
+            this.f57493g.setImageResource(R.drawable.pic_startpage1_next_1);
             addView(linearLayout);
         }
     }
@@ -137,16 +137,16 @@ public class GoOnAnimView extends LinearLayout {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f57378i.removeMessages(0);
-            ImageView imageView = this.f57374e;
+            this.f57495i.removeMessages(0);
+            ImageView imageView = this.f57491e;
             if (imageView != null) {
                 imageView.setImageDrawable(null);
             }
-            ImageView imageView2 = this.f57375f;
+            ImageView imageView2 = this.f57492f;
             if (imageView2 != null) {
                 imageView2.setImageDrawable(null);
             }
-            ImageView imageView3 = this.f57376g;
+            ImageView imageView3 = this.f57493g;
             if (imageView3 != null) {
                 imageView3.setImageDrawable(null);
             }
@@ -156,15 +156,15 @@ public class GoOnAnimView extends LinearLayout {
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f57378i.removeMessages(0);
-            this.f57378i.sendEmptyMessage(0);
+            this.f57495i.removeMessages(0);
+            this.f57495i.sendEmptyMessage(0);
         }
     }
 
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f57378i.removeMessages(0);
+            this.f57495i.removeMessages(0);
         }
     }
 
@@ -186,7 +186,7 @@ public class GoOnAnimView extends LinearLayout {
                 return;
             }
         }
-        this.f57378i = new a(this);
+        this.f57495i = new a(this);
         h(context);
     }
 }

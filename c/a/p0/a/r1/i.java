@@ -83,16 +83,16 @@ public class i {
             if (dVar == null) {
                 return;
             }
-            c.a.p0.a.p.e.b bVar = dVar.f6437a;
+            c.a.p0.a.p.e.b bVar = dVar.f6445a;
             if (bVar != null) {
                 bVar.w(str);
             }
             HybridUbcFlow q = h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_slave_start");
-            ubcFlowEvent.h(dVar.f6440d);
+            ubcFlowEvent.h(dVar.f6448d);
             q.C(ubcFlowEvent);
             UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_pre_load_slave_end");
-            ubcFlowEvent2.h(dVar.f6441e);
+            ubcFlowEvent2.h(dVar.f6449e);
             q.C(ubcFlowEvent2);
         }
     }

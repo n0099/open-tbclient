@@ -15,10 +15,10 @@ public final class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f30354a = 1000;
+    public static int f30375a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f30355b = true;
+    public static boolean f30376b = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,14 +38,14 @@ public final class i {
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f30355b) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && f30376b) {
             c(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && f30355b) {
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && f30376b) {
             c(5, "BaiDuAbSDK", str, null);
         }
     }
@@ -55,7 +55,7 @@ public final class i {
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), str, str2, th}) == null) {
             if (!TextUtils.isEmpty(str2)) {
                 int length = str2.length();
-                int i3 = f30354a;
+                int i3 = f30375a;
                 if (length >= i3) {
                     if (i2 == 1) {
                         str2.substring(0, i3);
@@ -78,14 +78,14 @@ public final class i {
 
     public static void d(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && f30355b) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && f30376b) {
             c(2, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void e(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, th) == null) && f30355b) {
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, th) == null) && f30376b) {
             c(4, "BaiDuAbSDK", "", th);
         }
     }
@@ -146,7 +146,7 @@ public final class i {
     public static void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f30355b = z;
+            f30376b = z;
         }
     }
 }

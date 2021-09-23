@@ -18,13 +18,13 @@ public class b extends ImageSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Drawable> f13078e;
+    public WeakReference<Drawable> f13095e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13079f;
+    public int f13096f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13080g;
+    public int f13097g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Drawable drawable, int i2) {
@@ -44,20 +44,20 @@ public class b extends ImageSpan {
                 return;
             }
         }
-        this.f13079f = 0;
-        this.f13080g = 1;
-        this.f13080g = i2;
+        this.f13096f = 0;
+        this.f13097g = 1;
+        this.f13097g = i2;
     }
 
     public final Drawable a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.f13078e;
+            WeakReference<Drawable> weakReference = this.f13095e;
             Drawable drawable = weakReference != null ? weakReference.get() : null;
             if (drawable == null) {
                 Drawable drawable2 = getDrawable();
-                this.f13078e = new WeakReference<>(drawable2);
+                this.f13095e = new WeakReference<>(drawable2);
                 return drawable2;
             }
             return drawable;
@@ -72,9 +72,9 @@ public class b extends ImageSpan {
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) || (a2 = a()) == null) {
             return;
         }
-        int i7 = this.f13080g;
+        int i7 = this.f13097g;
         float f3 = i7 != 0 ? i7 != 1 ? i7 != 2 ? 0.0f : 0.2f : 0.15f : 0.1f;
-        float height = f3 != 0.0f ? ((i5 - i6) + (a2.getBounds().height() * f3)) - this.f13079f : 0.0f;
+        float height = f3 != 0.0f ? ((i5 - i6) + (a2.getBounds().height() * f3)) - this.f13096f : 0.0f;
         canvas.save();
         canvas.translate(a2.getBounds().width() * 0.15f, height);
         super.draw(canvas, charSequence, i2, i3, f2, i4, i5, i6, paint);

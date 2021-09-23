@@ -11,7 +11,7 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8344a;
+    public static final boolean f8352a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,13 +27,13 @@ public final class g {
                 return;
             }
         }
-        f8344a = k.f7077a;
+        f8352a = k.f7085a;
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            boolean z = f8344a;
+            boolean z = f8352a;
         }
     }
 }

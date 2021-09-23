@@ -26,16 +26,16 @@ public class c0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PbModel f19938a;
+    public PbModel f19953a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f19939b;
+    public b f19954b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BdUniqueId f19940c;
+    public final BdUniqueId f19955c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.e.c.g.a f19941d;
+    public final c.a.e.c.g.a f19956d;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -43,7 +43,7 @@ public class c0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c0 f19942a;
+        public final /* synthetic */ c0 f19957a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c0 c0Var, int i2, int i3) {
@@ -64,7 +64,7 @@ public class c0 {
                     return;
                 }
             }
-            this.f19942a = c0Var;
+            this.f19957a = c0Var;
         }
 
         @Override // c.a.e.c.g.a
@@ -73,17 +73,17 @@ public class c0 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == this.f19942a.f19940c) {
+            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == this.f19957a.f19955c) {
                 if (responsedMessage instanceof LookMoreHttpResMessage) {
                     LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
                     List<PostData> data = lookMoreHttpResMessage.getData();
                     String errorString = lookMoreHttpResMessage.getErrorString();
                     int error = lookMoreHttpResMessage.getError();
                     if (error != 0) {
-                        this.f19942a.f19939b.a(error, errorString, "");
+                        this.f19957a.f19954b.a(error, errorString, "");
                     } else if (ListUtils.isEmpty(data)) {
                     } else {
-                        this.f19942a.f19939b.onSuccess(data);
+                        this.f19957a.f19954b.onSuccess(data);
                     }
                 } else if (responsedMessage instanceof LookMoreSocketResMessage) {
                     LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
@@ -91,9 +91,9 @@ public class c0 {
                     String errorString2 = lookMoreSocketResMessage.getErrorString();
                     int error2 = lookMoreSocketResMessage.getError();
                     if (error2 != 0) {
-                        this.f19942a.f19939b.a(error2, errorString2, "");
+                        this.f19957a.f19954b.a(error2, errorString2, "");
                     } else if (data2 != null) {
-                        this.f19942a.f19939b.onSuccess(data2);
+                        this.f19957a.f19954b.onSuccess(data2);
                     }
                 }
             }
@@ -122,55 +122,55 @@ public class c0 {
                 return;
             }
         }
-        this.f19941d = new a(this, CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
-        this.f19938a = pbModel;
-        this.f19940c = BdUniqueId.gen();
+        this.f19956d = new a(this, CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
+        this.f19953a = pbModel;
+        this.f19955c = BdUniqueId.gen();
         e();
-        this.f19941d.setTag(baseFragmentActivity.getUniqueId());
-        MessageManager.getInstance().registerListener(this.f19941d);
-        this.f19939b = null;
+        this.f19956d.setTag(baseFragmentActivity.getUniqueId());
+        MessageManager.getInstance().registerListener(this.f19956d);
+        this.f19954b = null;
     }
 
     public void c(List<Long> list) {
         PbModel pbModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || (pbModel = this.f19938a) == null || pbModel.O0() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || (pbModel = this.f19953a) == null || pbModel.P0() == null) {
             return;
         }
         int k = c.a.e.e.p.l.k(TbadkCoreApplication.getInst());
         int i2 = c.a.e.e.p.l.i(TbadkCoreApplication.getInst());
         LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-        lookMoreReqMessage.setKz(Long.valueOf(c.a.e.e.m.b.g(this.f19938a.f55179f, 0L)));
+        lookMoreReqMessage.setKz(Long.valueOf(c.a.e.e.m.b.g(this.f19953a.f55294f, 0L)));
         lookMoreReqMessage.setPost_id(list);
-        lookMoreReqMessage.setSt_type(c.a.e.e.m.b.e(this.f19938a.mStType, 0));
+        lookMoreReqMessage.setSt_type(c.a.e.e.m.b.e(this.f19953a.mStType, 0));
         lookMoreReqMessage.setWith_floor(1);
         lookMoreReqMessage.setScr_w(k);
         lookMoreReqMessage.setScr_h(i2);
-        lookMoreReqMessage.setTag(this.f19940c);
+        lookMoreReqMessage.setTag(this.f19955c);
         MessageManager.getInstance().sendMessage(lookMoreReqMessage);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f19941d);
+            MessageManager.getInstance().unRegisterListener(this.f19956d);
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, c.a.r0.j3.d0.a.a(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, c.a.r0.j3.e0.a.a(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
             tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            c.a.r0.j3.d0.a.f(309446, LookMoreSocketResMessage.class, false);
+            c.a.r0.j3.e0.a.f(309446, LookMoreSocketResMessage.class, false);
         }
     }
 
     public void f(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f19939b = bVar;
+            this.f19954b = bVar;
         }
     }
 }

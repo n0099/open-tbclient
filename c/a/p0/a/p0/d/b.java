@@ -18,16 +18,16 @@ public abstract class b<P extends c.a.p0.a.p0.h.b, R extends c.a.p0.a.p0.i.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7905c;
+    public static final boolean f7913c;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public P f7906a;
+    public P f7914a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public R f7907b;
+    public R f7915b;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public abstract class b<P extends c.a.p0.a.p0.h.b, R extends c.a.p0.a.p0.i.a> {
                 return;
             }
         }
-        f7905c = k.f7077a;
+        f7913c = k.f7085a;
     }
 
     public b(@NonNull P p, @NonNull R r) {
@@ -60,8 +60,8 @@ public abstract class b<P extends c.a.p0.a.p0.h.b, R extends c.a.p0.a.p0.i.a> {
                 return;
             }
         }
-        this.f7906a = p;
-        this.f7907b = r;
+        this.f7914a = p;
+        this.f7915b = r;
     }
 
     public <T extends c.a.p0.a.p0.g.a> Exception a(T t) {
@@ -71,7 +71,7 @@ public abstract class b<P extends c.a.p0.a.p0.h.b, R extends c.a.p0.a.p0.i.a> {
             if (t == null) {
                 return new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo");
             }
-            return this.f7907b.e(t);
+            return this.f7915b.e(t);
         }
         return (Exception) invokeL.objValue;
     }
@@ -86,27 +86,27 @@ public abstract class b<P extends c.a.p0.a.p0.h.b, R extends c.a.p0.a.p0.i.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int c2 = this.f7906a.f7904a.c();
+            int c2 = this.f7914a.f7912a.c();
             if (c.a.p0.a.p0.j.a.f(c2)) {
                 ExtensionCore extensionCore = new ExtensionCore();
                 extensionCore.extensionCoreVersionCode = 0L;
                 extensionCore.extensionCoreVersionName = "0";
                 extensionCore.extensionCorePath = b(c2);
                 extensionCore.extensionCoreType = 2;
-                if (f7905c) {
+                if (f7913c) {
                     String str = "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString();
                 }
                 return extensionCore;
             }
-            ExtensionCore h2 = this.f7906a.h();
-            ExtensionCore f2 = this.f7907b.f();
+            ExtensionCore h2 = this.f7914a.h();
+            ExtensionCore f2 = this.f7915b.f();
             if (h2.extensionCoreVersionCode < f2.extensionCoreVersionCode && f2.isAvailable()) {
-                if (f7905c) {
+                if (f7913c) {
                     String str2 = "getExtensionCoreInMainProcess: remote=>" + f2.toString();
                 }
                 return f2;
             }
-            if (f7905c) {
+            if (f7913c) {
                 String str3 = "getExtensionCoreInMainProcess: preset=>" + h2.toString();
             }
             return h2;
@@ -118,27 +118,27 @@ public abstract class b<P extends c.a.p0.a.p0.h.b, R extends c.a.p0.a.p0.i.a> {
     public P e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7906a : (P) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7914a : (P) invokeV.objValue;
     }
 
     @NonNull
     public R f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7907b : (R) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7915b : (R) invokeV.objValue;
     }
 
     public void g(@Nullable c.a.p0.a.v2.e1.b<Exception> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f7906a.p(bVar);
+            this.f7914a.p(bVar);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f7906a.q();
+            this.f7914a.q();
         }
     }
 }

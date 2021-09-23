@@ -132,7 +132,7 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.mAct != null) {
-                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), d.l));
+                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), d.u));
             }
             super.onDestroy();
         }

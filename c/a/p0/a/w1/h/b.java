@@ -31,20 +31,20 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f9519d;
+    public static final boolean f9527d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static b f9520e;
+    public static b f9528e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f9521a;
+    public Bitmap f9529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, c> f9522b;
+    public HashMap<String, c> f9530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f9523c;
+    public List<String> f9531c;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class b {
                 return;
             }
         }
-        f9519d = k.f7077a;
+        f9527d = k.f7085a;
     }
 
     public b() {
@@ -75,22 +75,22 @@ public class b {
                 return;
             }
         }
-        this.f9522b = new HashMap<>();
-        this.f9523c = new ArrayList();
+        this.f9530b = new HashMap<>();
+        this.f9531c = new ArrayList();
     }
 
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f9520e == null) {
+            if (f9528e == null) {
                 synchronized (b.class) {
-                    if (f9520e == null) {
-                        f9520e = new b();
+                    if (f9528e == null) {
+                        f9528e = new b();
                     }
                 }
             }
-            return f9520e;
+            return f9528e;
         }
         return (b) invokeV.objValue;
     }
@@ -100,7 +100,7 @@ public class b {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashMap<String, c> hashMap = this.f9522b;
+            HashMap<String, c> hashMap = this.f9530b;
             if (hashMap == null || (cVar = hashMap.get(str)) == null) {
                 return null;
             }
@@ -112,20 +112,20 @@ public class b {
     public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9523c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9531c : (List) invokeV.objValue;
     }
 
     public Bitmap d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9521a : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9529a : (Bitmap) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> list = this.f9523c;
+            List<String> list = this.f9531c;
             return list != null && list.size() > 0;
         }
         return invokeV.booleanValue;
@@ -134,14 +134,14 @@ public class b {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (f9519d) {
+            if (f9527d) {
                 String str2 = "get emoji info from " + str;
             }
             File file = new File(str);
             if (file.exists() && file.isDirectory()) {
                 String D = c.a.p0.t.d.D(new File(str + File.separator + "emoji.json"));
                 if (TextUtils.isEmpty(D)) {
-                    boolean z = f9519d;
+                    boolean z = f9527d;
                     return;
                 }
                 try {
@@ -155,11 +155,11 @@ public class b {
                     }
                     String optString = optJSONObject.optString("package_icon");
                     if (!TextUtils.isEmpty(optString)) {
-                        this.f9521a = BitmapFactory.decodeFile(str + File.separator + optString);
+                        this.f9529a = BitmapFactory.decodeFile(str + File.separator + optString);
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
-                    this.f9523c.clear();
-                    this.f9522b.clear();
+                    this.f9531c.clear();
+                    this.f9530b.clear();
                     if (optJSONArray2 != null) {
                         int length = optJSONArray2.length();
                         for (int i2 = 0; i2 < length; i2++) {
@@ -168,8 +168,8 @@ public class b {
                             String optString3 = jSONObject.optString("text");
                             Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + jSONObject.optString("icon"));
                             if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
-                                this.f9523c.add(optString3);
-                                this.f9522b.put(optString3, new c(optString2, optString3, decodeFile));
+                                this.f9531c.add(optString3);
+                                this.f9530b.put(optString3, new c(optString2, optString3, decodeFile));
                             }
                         }
                         return;
@@ -180,7 +180,7 @@ public class b {
                     return;
                 }
             }
-            boolean z2 = f9519d;
+            boolean z2 = f9527d;
         }
     }
 
@@ -189,7 +189,7 @@ public class b {
         Object aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, charSequence, textView)) == null) {
-            boolean z = f9519d;
+            boolean z = f9527d;
             SpannableString spannableString = new SpannableString(charSequence);
             Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
             while (matcher.find()) {

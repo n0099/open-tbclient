@@ -38,13 +38,13 @@ public class e extends b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (String str : this.f68673f) {
-                List<File> b2 = com.bytedance.sdk.openadsdk.preload.geckox.utils.d.b(new File(this.f68672e, str));
-                if (b2 != null && b2.size() > this.f68671d.b()) {
-                    for (File file : b2.subList(0, b2.size() - this.f68671d.b())) {
+            for (String str : this.f68984f) {
+                List<File> b2 = com.bytedance.sdk.openadsdk.preload.geckox.utils.d.b(new File(this.f68983e, str));
+                if (b2 != null && b2.size() > this.f68982d.b()) {
+                    for (File file : b2.subList(0, b2.size() - this.f68982d.b())) {
                         boolean b3 = com.bytedance.sdk.openadsdk.preload.geckox.a.c.b(file.getAbsolutePath());
-                        if (this.f68671d.c() != null) {
-                            this.f68671d.c().a(file.getName(), b3);
+                        if (this.f68982d.c() != null) {
+                            this.f68982d.c().a(file.getName(), b3);
                         }
                     }
                 }

@@ -17,14 +17,14 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.ResumeSingleObserver;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class SingleResumeNext<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super Throwable, ? extends SingleSource<? extends T>> nextFunction;
     public final SingleSource<? extends T> source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class ResumeMainSingleObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5314538511045349925L;

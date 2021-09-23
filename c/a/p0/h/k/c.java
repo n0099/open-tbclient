@@ -20,7 +20,7 @@ public class c extends c.a.p0.a.l0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f11284a;
+        public String f11292a;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c extends c.a.p0.a.l0.a {
                     return;
                 }
             }
-            this.f11284a = str;
+            this.f11292a = str;
         }
 
         @Override // c.a.p0.a.l0.n.b
@@ -51,7 +51,7 @@ public class c extends c.a.p0.a.l0.a {
         public String getInitBasePath() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11284a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11292a : (String) invokeV.objValue;
         }
     }
 

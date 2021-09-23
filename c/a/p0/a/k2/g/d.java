@@ -16,7 +16,7 @@ public abstract class d extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7152a;
+    public static final boolean f7160a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public abstract class d extends ProviderDelegation {
                 return;
             }
         }
-        f7152a = k.f7077a;
+        f7160a = k.f7085a;
     }
 
     public d() {

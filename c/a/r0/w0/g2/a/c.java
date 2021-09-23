@@ -26,19 +26,19 @@ public class c implements NetModel.k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f26772e;
+    public TbPageContext<?> f26792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrsProfessionPermissionModel f26773f;
+    public FrsProfessionPermissionModel f26793f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.w0.g2.a.a f26774g;
+    public c.a.r0.w0.g2.a.a f26794g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f26775h;
+    public d f26795h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f26776i;
+    public int f26796i;
 
     /* loaded from: classes4.dex */
     public class a implements a.e {
@@ -46,13 +46,13 @@ public class c implements NetModel.k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f26777e;
+        public final /* synthetic */ String f26797e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f26778f;
+        public final /* synthetic */ c.a.q0.s.s.a f26798f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f26779g;
+        public final /* synthetic */ c f26799g;
 
         public a(c cVar, String str, c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -69,19 +69,19 @@ public class c implements NetModel.k {
                     return;
                 }
             }
-            this.f26779g = cVar;
-            this.f26777e = str;
-            this.f26778f = aVar;
+            this.f26799g = cVar;
+            this.f26797e = str;
+            this.f26798f = aVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                MembercenterActivityConfig membercenterActivityConfig = new MembercenterActivityConfig(this.f26779g.f26772e.getPageActivity());
-                membercenterActivityConfig.setUrl("https://tieba.baidu.com/mo/q/prozone/view?fid=" + this.f26777e);
+                MembercenterActivityConfig membercenterActivityConfig = new MembercenterActivityConfig(this.f26799g.f26792e.getPageActivity());
+                membercenterActivityConfig.setUrl("https://tieba.baidu.com/mo/q/prozone/view?fid=" + this.f26797e);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, membercenterActivityConfig));
-                this.f26778f.dismiss();
+                this.f26798f.dismiss();
             }
         }
     }
@@ -92,7 +92,7 @@ public class c implements NetModel.k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f26780e;
+        public final /* synthetic */ c.a.q0.s.s.a f26800e;
 
         public b(c cVar, c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -109,28 +109,28 @@ public class c implements NetModel.k {
                     return;
                 }
             }
-            this.f26780e = aVar;
+            this.f26800e = aVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f26780e.dismiss();
+                this.f26800e.dismiss();
             }
         }
     }
 
     /* renamed from: c.a.r0.w0.g2.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1256c implements a.e {
+    public class C1254c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.s.s.a f26781e;
+        public final /* synthetic */ c.a.q0.s.s.a f26801e;
 
-        public C1256c(c cVar, c.a.q0.s.s.a aVar) {
+        public C1254c(c cVar, c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,14 +145,14 @@ public class c implements NetModel.k {
                     return;
                 }
             }
-            this.f26781e = aVar;
+            this.f26801e = aVar;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f26781e.dismiss();
+                this.f26801e.dismiss();
             }
         }
     }
@@ -181,23 +181,23 @@ public class c implements NetModel.k {
                 return;
             }
         }
-        this.f26772e = tbPageContext;
+        this.f26792e = tbPageContext;
         c.a.r0.w0.g2.a.a aVar = new c.a.r0.w0.g2.a.a();
-        this.f26774g = aVar;
+        this.f26794g = aVar;
         FrsProfessionPermissionModel frsProfessionPermissionModel = new FrsProfessionPermissionModel(tbPageContext, aVar);
-        this.f26773f = frsProfessionPermissionModel;
+        this.f26793f = frsProfessionPermissionModel;
         frsProfessionPermissionModel.Z(this);
     }
 
     public final void b(c.a.r0.w0.g2.a.b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar != null && bVar.f26768f == 0) {
-            if (!bVar.f26767e && bVar.f26770h == 2) {
-                m(bVar.f26771i);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar != null && bVar.f26788f == 0) {
+            if (!bVar.f26787e && bVar.f26790h == 2) {
+                m(bVar.f26791i);
             }
-            d dVar = this.f26775h;
+            d dVar = this.f26795h;
             if (dVar != null) {
-                dVar.c(bVar.f26767e);
+                dVar.c(bVar.f26787e);
             }
         }
     }
@@ -207,26 +207,26 @@ public class c implements NetModel.k {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, str) == null) || bVar == null) {
             return;
         }
-        if (bVar.f26768f != 0) {
-            if (StringUtils.isNull(bVar.f26769g)) {
-                this.f26772e.showToast(R.string.neterror);
+        if (bVar.f26788f != 0) {
+            if (StringUtils.isNull(bVar.f26789g)) {
+                this.f26792e.showToast(R.string.neterror);
                 return;
             } else {
-                this.f26772e.showToast(bVar.f26769g);
+                this.f26792e.showToast(bVar.f26789g);
                 return;
             }
         }
-        if (!bVar.f26767e) {
-            int i2 = bVar.f26770h;
+        if (!bVar.f26787e) {
+            int i2 = bVar.f26790h;
             if (i2 == 1) {
-                l(bVar.f26771i, str);
+                l(bVar.f26791i, str);
             } else if (i2 == 3) {
-                m(bVar.f26771i);
+                m(bVar.f26791i);
             }
         }
-        d dVar = this.f26775h;
+        d dVar = this.f26795h;
         if (dVar != null) {
-            dVar.b(bVar.f26767e);
+            dVar.b(bVar.f26787e);
         }
     }
 
@@ -235,35 +235,35 @@ public class c implements NetModel.k {
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bVar, i2) == null) || bVar == null) {
             return;
         }
-        if (bVar.f26768f != 0) {
-            if (StringUtils.isNull(bVar.f26769g)) {
-                this.f26772e.showToast(R.string.neterror);
+        if (bVar.f26788f != 0) {
+            if (StringUtils.isNull(bVar.f26789g)) {
+                this.f26792e.showToast(R.string.neterror);
                 return;
             } else {
-                this.f26772e.showToast(bVar.f26769g);
+                this.f26792e.showToast(bVar.f26789g);
                 return;
             }
         }
-        d dVar = this.f26775h;
+        d dVar = this.f26795h;
         if (dVar != null) {
-            dVar.a(bVar.f26767e, i2);
+            dVar.a(bVar.f26787e, i2);
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f26773f.Q()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f26793f.Q()) {
             return;
         }
-        this.f26773f.R();
+        this.f26793f.R();
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            c.a.r0.w0.g2.a.a aVar = this.f26774g;
-            aVar.f26765h = 1;
-            aVar.f26764g = str;
+            c.a.r0.w0.g2.a.a aVar = this.f26794g;
+            aVar.f26785h = 1;
+            aVar.f26784g = str;
             e();
         }
     }
@@ -271,10 +271,10 @@ public class c implements NetModel.k {
     public void g(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j2) == null) {
-            c.a.r0.w0.g2.a.a aVar = this.f26774g;
-            aVar.f26764g = str;
-            aVar.f26763f = j2;
-            aVar.f26765h = 3;
+            c.a.r0.w0.g2.a.a aVar = this.f26794g;
+            aVar.f26784g = str;
+            aVar.f26783f = j2;
+            aVar.f26785h = 3;
             e();
         }
     }
@@ -282,10 +282,10 @@ public class c implements NetModel.k {
     public void h(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, str, i2) == null) {
-            c.a.r0.w0.g2.a.a aVar = this.f26774g;
-            aVar.f26762e = i2;
-            aVar.f26764g = str;
-            aVar.f26765h = 2;
+            c.a.r0.w0.g2.a.a aVar = this.f26794g;
+            aVar.f26782e = i2;
+            aVar.f26784g = str;
+            aVar.f26785h = 2;
             e();
         }
     }
@@ -293,15 +293,15 @@ public class c implements NetModel.k {
     public void i(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            this.f26775h = dVar;
+            this.f26795h = dVar;
         }
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f26776i = i2;
-            this.f26774g.f26766i = i2;
+            this.f26796i = i2;
+            this.f26794g.f26786i = i2;
         }
     }
 
@@ -311,17 +311,17 @@ public class c implements NetModel.k {
         if ((interceptable == null || interceptable.invokeLLL(1048585, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) && mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof c.a.r0.w0.g2.a.a) && mvcSocketResponsedMessage != null && (mvcSocketResponsedMessage.getData() instanceof c.a.r0.w0.g2.a.b)) {
             c.a.r0.w0.g2.a.a aVar = (c.a.r0.w0.g2.a.a) mvcNetMessage.getRequestData();
             c.a.r0.w0.g2.a.b bVar = (c.a.r0.w0.g2.a.b) mvcSocketResponsedMessage.getData();
-            if (aVar.f26766i != this.f26776i) {
+            if (aVar.f26786i != this.f26796i) {
                 return;
             }
-            int i2 = aVar.f26765h;
+            int i2 = aVar.f26785h;
             if (i2 == 1) {
                 b(bVar);
             } else if (i2 == 2) {
-                d(bVar, aVar.f26762e);
+                d(bVar, aVar.f26782e);
             } else if (i2 != 3) {
             } else {
-                c(bVar, aVar.f26764g);
+                c(bVar, aVar.f26784g);
             }
         }
     }
@@ -329,13 +329,13 @@ public class c implements NetModel.k {
     public final void l(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f26772e.getPageActivity());
+            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f26792e.getPageActivity());
             aVar.setCanceledOnTouchOutside(false);
             aVar.setCancelable(false);
             aVar.setMessage(str);
             aVar.setPositiveButton(R.string.comfirm_imediate, new a(this, str2, aVar));
             aVar.setNegativeButton(R.string.comfirm_cancel, new b(this, aVar));
-            aVar.create(this.f26772e);
+            aVar.create(this.f26792e);
             aVar.show();
         }
     }
@@ -343,12 +343,12 @@ public class c implements NetModel.k {
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f26772e.getPageActivity());
+            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f26792e.getPageActivity());
             aVar.setCanceledOnTouchOutside(false);
             aVar.setCancelable(false);
             aVar.setMessage(str);
-            aVar.setNegativeButton(R.string.know, new C1256c(this, aVar));
-            aVar.create(this.f26772e);
+            aVar.setNegativeButton(R.string.know, new C1254c(this, aVar));
+            aVar.create(this.f26792e);
             aVar.show();
         }
     }
@@ -359,17 +359,17 @@ public class c implements NetModel.k {
         if ((interceptable == null || interceptable.invokeLLL(1048588, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) && mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof c.a.r0.w0.g2.a.a) && mvcHttpResponsedMessage != null && (mvcHttpResponsedMessage.getData() instanceof c.a.r0.w0.g2.a.b)) {
             c.a.r0.w0.g2.a.a aVar = (c.a.r0.w0.g2.a.a) mvcNetMessage.getRequestData();
             c.a.r0.w0.g2.a.b bVar = (c.a.r0.w0.g2.a.b) mvcHttpResponsedMessage.getData();
-            if (aVar.f26766i != this.f26776i) {
+            if (aVar.f26786i != this.f26796i) {
                 return;
             }
-            int i2 = aVar.f26765h;
+            int i2 = aVar.f26785h;
             if (i2 == 1) {
                 b(bVar);
             } else if (i2 == 2) {
-                d(bVar, aVar.f26762e);
+                d(bVar, aVar.f26782e);
             } else if (i2 != 3) {
             } else {
-                c(bVar, aVar.f26764g);
+                c(bVar, aVar.f26784g);
             }
         }
     }

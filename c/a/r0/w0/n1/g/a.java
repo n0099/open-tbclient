@@ -18,8 +18,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.f0;
-import c.a.q0.d1.s0;
+import c.a.q0.d1.g0;
+import c.a.q0.d1.t0;
+import c.a.q0.d1.x;
 import c.a.q0.s.q.d2;
 import c.a.r0.a0.z;
 import c.a.r0.p2.f;
@@ -131,14 +132,14 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
 
     /* renamed from: c.a.r0.w0.n1.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1279a implements TbImageView.g {
+    public class C1277a implements TbImageView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27262a;
+        public final /* synthetic */ a f27282a;
 
-        public C1279a(a aVar) {
+        public C1277a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,14 +154,14 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27262a = aVar;
+            this.f27282a = aVar;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.f27262a.E != null) {
-                this.f27262a.E.setDefaultBgResource(0);
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.f27282a.E != null) {
+                this.f27282a.E.setDefaultBgResource(0);
             }
         }
 
@@ -178,7 +179,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27263e;
+        public final /* synthetic */ a f27283e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -195,23 +196,23 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27263e = aVar;
+            this.f27283e = aVar;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             FrameLayout frameLayout;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frameLayout = this.f27263e.t) == null || frameLayout.getLayoutParams() == null || this.f27263e.t.getVisibility() == 8) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frameLayout = this.f27283e.t) == null || frameLayout.getLayoutParams() == null || this.f27283e.t.getVisibility() == 8) {
                 return;
             }
-            this.f27263e.t.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-            ViewGroup.LayoutParams layoutParams = this.f27263e.t.getLayoutParams();
-            if (this.f27263e.t.getWidth() <= 0) {
+            this.f27283e.t.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            ViewGroup.LayoutParams layoutParams = this.f27283e.t.getLayoutParams();
+            if (this.f27283e.t.getWidth() <= 0) {
                 return;
             }
-            layoutParams.height = (int) (this.f27263e.t.getWidth() * 0.5625d);
-            this.f27263e.t.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (this.f27283e.t.getWidth() * 0.5625d);
+            this.f27283e.t.setLayoutParams(layoutParams);
         }
     }
 
@@ -221,10 +222,10 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d2 f27264e;
+        public final /* synthetic */ d2 f27284e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f27265f;
+        public final /* synthetic */ a f27285f;
 
         public c(a aVar, d2 d2Var) {
             Interceptable interceptable = $ic;
@@ -241,16 +242,16 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27265f = aVar;
-            this.f27264e = d2Var;
+            this.f27285f = aVar;
+            this.f27284e = d2Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f27265f.A != null) {
-                    this.f27265f.f15549f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(this.f27265f.f15549f.getContext(), "", this.f27264e.A1, true)));
+                if (this.f27285f.A != null) {
+                    this.f27285f.f15558f.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(this.f27285f.f15558f.getContext(), "", this.f27284e.B1, true)));
                 }
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_STAR_PIC_CLICK));
             }
@@ -311,7 +312,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27266e;
+        public final /* synthetic */ a f27286e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -328,16 +329,16 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27266e = aVar;
+            this.f27286e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27266e.G == null || this.f27266e.G.isPlaying()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27286e.G == null || this.f27286e.G.isPlaying()) {
                 return;
             }
-            this.f27266e.f0(true, 1);
+            this.f27286e.f0(true, 1);
         }
     }
 
@@ -347,7 +348,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27267e;
+        public final /* synthetic */ a f27287e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -364,15 +365,15 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27267e = aVar;
+            this.f27287e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27267e.b0();
-                this.f27267e.f0(true, 4);
+                this.f27287e.b0();
+                this.f27287e.f0(true, 4);
             }
         }
     }
@@ -383,7 +384,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27268e;
+        public final /* synthetic */ a f27288e;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -400,14 +401,14 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27268e = aVar;
+            this.f27288e = aVar;
         }
 
         @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.h
         public void onSurfaceDestroyed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27268e.stopPlay();
+                this.f27288e.stopPlay();
             }
         }
     }
@@ -418,7 +419,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27269e;
+        public final /* synthetic */ a f27289e;
 
         public h(a aVar) {
             Interceptable interceptable = $ic;
@@ -435,18 +436,18 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27269e = aVar;
+            this.f27289e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27269e.K == null || StringUtils.isNull(this.f27269e.K.Z())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27289e.K == null || StringUtils.isNull(this.f27289e.K.Z())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f27269e.A.getPageActivity()).createNormalCfg(this.f27269e.K.Z(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
-            if (this.f27269e.v0 != null) {
-                this.f27269e.v0.onClick(view);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f27289e.A.getPageActivity()).createNormalCfg(this.f27289e.K.Z(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
+            if (this.f27289e.v0 != null) {
+                this.f27289e.v0.onClick(view);
             }
         }
     }
@@ -457,7 +458,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27270e;
+        public final /* synthetic */ a f27290e;
 
         public i(a aVar) {
             Interceptable interceptable = $ic;
@@ -474,16 +475,16 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27270e = aVar;
+            this.f27290e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27270e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27290e.g() == null) {
                 return;
             }
-            this.f27270e.g().a(view, this.f27270e.K);
+            this.f27290e.g().a(view, this.f27290e.K);
         }
     }
 
@@ -493,7 +494,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27271e;
+        public final /* synthetic */ a f27291e;
 
         public j(a aVar) {
             Interceptable interceptable = $ic;
@@ -510,16 +511,16 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27271e = aVar;
+            this.f27291e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27271e.K == null || this.f27271e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27291e.K == null || this.f27291e.g() == null) {
                 return;
             }
-            this.f27271e.g().a(view, this.f27271e.K);
+            this.f27291e.g().a(view, this.f27291e.K);
         }
     }
 
@@ -529,7 +530,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27272a;
+        public final /* synthetic */ a f27292a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(a aVar, Looper looper) {
@@ -549,7 +550,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27272a = aVar;
+            this.f27292a = aVar;
         }
 
         @Override // android.os.Handler
@@ -558,10 +559,10 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 202) {
-                    this.f27272a.S();
+                    this.f27292a.S();
                 } else if (i2 != 203) {
                 } else {
-                    this.f27272a.R();
+                    this.f27292a.R();
                 }
             }
         }
@@ -573,7 +574,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27273a;
+        public final /* synthetic */ a f27293a;
 
         public l(a aVar) {
             Interceptable interceptable = $ic;
@@ -590,14 +591,14 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27273a = aVar;
+            this.f27293a = aVar;
         }
 
         @Override // c.a.r0.p2.f.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27273a.d0();
+                this.f27293a.d0();
             }
         }
     }
@@ -608,7 +609,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27274a;
+        public final /* synthetic */ a f27294a;
 
         public m(a aVar) {
             Interceptable interceptable = $ic;
@@ -625,14 +626,14 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27274a = aVar;
+            this.f27294a = aVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && this.f27274a.P == 3 && this.f27274a.E != null) {
-                this.f27274a.E.setVisibility(8);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && this.f27294a.P == 3 && this.f27294a.E != null) {
+                this.f27294a.E.setVisibility(8);
             }
         }
 
@@ -657,7 +658,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27275e;
+        public final /* synthetic */ a f27295e;
 
         public n(a aVar) {
             Interceptable interceptable = $ic;
@@ -674,17 +675,17 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27275e = aVar;
+            this.f27295e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
         public void onPrepared() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f27275e.G != null) {
-                    this.f27275e.G.setVolume(0.0f, 0.0f);
+                if (this.f27295e.G != null) {
+                    this.f27295e.G.setVolume(0.0f, 0.0f);
                 }
-                this.f27275e.j0();
+                this.f27295e.j0();
             }
         }
     }
@@ -695,7 +696,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27276e;
+        public final /* synthetic */ a f27296e;
 
         public o(a aVar) {
             Interceptable interceptable = $ic;
@@ -712,7 +713,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27276e = aVar;
+            this.f27296e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
@@ -721,7 +722,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
                 if (i2 == 3) {
-                    this.f27276e.f0(false, 3);
+                    this.f27296e.f0(false, 3);
                 }
                 return false;
             }
@@ -735,7 +736,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27277e;
+        public final /* synthetic */ a f27297e;
 
         public p(a aVar) {
             Interceptable interceptable = $ic;
@@ -752,14 +753,14 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27277e = aVar;
+            this.f27297e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27277e.G.start();
+                this.f27297e.G.start();
             }
         }
     }
@@ -770,7 +771,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27278e;
+        public final /* synthetic */ a f27298e;
 
         public q(a aVar) {
             Interceptable interceptable = $ic;
@@ -787,7 +788,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27278e = aVar;
+            this.f27298e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
@@ -795,9 +796,9 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
-                this.f27278e.b0();
-                this.f27278e.f0(true, 4);
-                this.f27278e.Q = false;
+                this.f27298e.b0();
+                this.f27298e.f0(true, 4);
+                this.f27298e.Q = false;
                 return true;
             }
             return invokeIIL.booleanValue;
@@ -810,7 +811,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27279a;
+        public final /* synthetic */ a f27299a;
 
         public r(a aVar) {
             Interceptable interceptable = $ic;
@@ -827,14 +828,14 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27279a = aVar;
+            this.f27299a = aVar;
         }
 
         @Override // com.baidu.tieba.play.VideoLoadingProgressView.c
         public void onAnimationEnd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27279a.j0();
+                this.f27299a.j0();
             }
         }
     }
@@ -845,7 +846,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27280e;
+        public final /* synthetic */ a f27300e;
 
         public s(a aVar) {
             Interceptable interceptable = $ic;
@@ -862,27 +863,27 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27280e = aVar;
+            this.f27300e = aVar;
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewAttachedToWindow(View view) {
             FrameLayout frameLayout;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (frameLayout = this.f27280e.t) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (frameLayout = this.f27300e.t) == null) {
                 return;
             }
-            frameLayout.getViewTreeObserver().addOnGlobalLayoutListener(this.f27280e.p0);
+            frameLayout.getViewTreeObserver().addOnGlobalLayoutListener(this.f27300e.p0);
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewDetachedFromWindow(View view) {
             FrameLayout frameLayout;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (frameLayout = this.f27280e.t) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (frameLayout = this.f27300e.t) == null) {
                 return;
             }
-            frameLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this.f27280e.p0);
+            frameLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this.f27300e.p0);
         }
     }
 
@@ -892,7 +893,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27281e;
+        public final /* synthetic */ a f27301e;
 
         public t(a aVar) {
             Interceptable interceptable = $ic;
@@ -909,14 +910,14 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27281e = aVar;
+            this.f27301e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (threadCommentAndPraiseInfoLayout = this.f27281e.m) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (threadCommentAndPraiseInfoLayout = this.f27301e.m) == null) {
                 return;
             }
             threadCommentAndPraiseInfoLayout.changeSelectStatus();
@@ -929,7 +930,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27282a;
+        public final /* synthetic */ a f27302a;
 
         public u(a aVar) {
             Interceptable interceptable = $ic;
@@ -946,16 +947,16 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                     return;
                 }
             }
-            this.f27282a = aVar;
+            this.f27302a = aVar;
         }
 
         @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.j
         public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f27282a.Z == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f27302a.Z == null) {
                 return;
             }
-            SkinManager.setBackgroundColor(this.f27282a.Z, z ? R.color.CAM_X0201 : R.color.transparent);
+            SkinManager.setBackgroundColor(this.f27302a.Z, z ? R.color.CAM_X0201 : R.color.transparent);
         }
     }
 
@@ -987,7 +988,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         this.k0 = new p(this);
         this.l0 = new q(this);
         this.m0 = new r(this);
-        this.o0 = new C1279a(this);
+        this.o0 = new C1277a(this);
         this.p0 = new b(this);
         this.q0 = new e(this);
         this.r0 = new f(this);
@@ -1136,7 +1137,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         VideoItemData videoItemData = new VideoItemData();
         videoItemData.buildWithThreadData(this.K);
         arrayList.add(videoItemData);
-        c.a.q0.d1.u.d(this.f15549f.getPageActivity(), arrayList, this.K.L() != null ? this.K.L().oriUgcNid : null, false, 0, rect, "from_nani_video", FrsFragment.STAR_FRS, null, str, "", false);
+        x.d(this.f15558f.getPageActivity(), arrayList, this.K.L() != null ? this.K.L().oriUgcNid : null, false, 0, rect, "from_nani_video", FrsFragment.STAR_FRS, null, str, "", false, this.K.n);
     }
 
     public final void Q() {
@@ -1250,10 +1251,10 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
             if (d2Var2 != null) {
                 c.a.r0.a0.m.a(d2Var2.f0());
                 SkinManager.setViewTextColor(this.D, R.color.CAM_X0109, 1);
-                f0.b(this.K.f0());
+                g0.b(this.K.f0());
                 String str = null;
                 String valueOf = String.valueOf(this.K.T());
-                OriginalForumInfo originalForumInfo = this.K.I1;
+                OriginalForumInfo originalForumInfo = this.K.J1;
                 if (originalForumInfo != null) {
                     valueOf = originalForumInfo.id;
                     str = valueOf;
@@ -1351,7 +1352,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
                 this.B.setOnClickListener(this);
                 W();
                 if (!StringUtils.isNull(this.W) && !StringUtils.isNull(this.Y)) {
-                    this.K.w4(this.W, this.Y);
+                    this.K.v4(this.W, this.Y);
                 }
                 boolean z = true;
                 this.K.Z2(false, true);
@@ -1461,17 +1462,17 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
             str = "frs_tab";
         }
         c.a.r0.p2.o oVar = new c.a.r0.p2.o();
-        oVar.f23806a = str;
-        oVar.f23808c = this.K.s1();
-        oVar.f23809d = this.K.T() + "";
-        oVar.f23810e = TbadkCoreApplication.getCurrentAccount();
+        oVar.f23822a = str;
+        oVar.f23824c = this.K.s1();
+        oVar.f23825d = this.K.T() + "";
+        oVar.f23826e = TbadkCoreApplication.getCurrentAccount();
         d2 d2Var2 = this.K;
-        oVar.f23811f = d2Var2.W0;
-        String str2 = d2Var2.Y0;
+        oVar.f23827f = d2Var2.X0;
+        String str2 = d2Var2.Z0;
         oVar.l = str2;
-        oVar.f23812g = str2;
-        oVar.f23813h = d2Var2.X0;
-        oVar.f23814i = "";
+        oVar.f23828g = str2;
+        oVar.f23829h = d2Var2.Y0;
+        oVar.f23830i = "";
         oVar.m = d2Var2.q1().video_md5;
         c.a.r0.p2.h.e(this.K.q1().video_md5, "", "1", oVar, this.G.getPcdnState());
     }
@@ -1598,7 +1599,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
         }
         if (d2Var == null) {
             tbImageView.setVisibility(8);
-        } else if (!StringUtils.isNull(d2Var.z1)) {
+        } else if (!StringUtils.isNull(d2Var.A1)) {
             c.a.r0.w0.o2.i iVar = this.U;
             if (iVar != null && iVar.b() && (this.V.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.V.getLayoutParams();
@@ -1607,7 +1608,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
             }
             this.V.setVisibility(0);
             this.V.setImageDrawable(null);
-            this.V.startLoad(d2Var.z1, 10, false);
+            this.V.startLoad(d2Var.A1, 10, false);
             this.V.setOnClickListener(new c(this, d2Var));
         } else {
             this.V.setVisibility(8);
@@ -1737,7 +1738,7 @@ public class a extends c.a.r0.a0.b<d2> implements z, Object {
             return;
         }
         tbCyberVideoView.stopPlayback();
-        if (s0.d()) {
+        if (t0.e()) {
             if (this.a0 || c.a.q0.s.d0.b.j().k("auto_play_video_frs", 0) == 1) {
                 f0(true, 2);
                 if (StringUtils.isNull(this.R)) {

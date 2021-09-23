@@ -15,7 +15,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f35548a;
+    public static boolean f35571a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, th) == null) {
             try {
-                if (f35548a) {
+                if (f35571a) {
                     th.printStackTrace();
                 }
             } catch (Exception unused) {

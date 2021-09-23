@@ -1,6 +1,6 @@
 package com.baidu.tieba.downloadmanager.net;
 
-import c.a.r0.i0.d.b;
+import c.a.r0.i0.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;

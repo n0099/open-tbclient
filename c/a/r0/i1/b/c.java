@@ -19,16 +19,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f19237a;
+    public TbPageContext<?> f19252a;
 
     /* renamed from: b  reason: collision with root package name */
-    public OvalActionButton f19238b;
+    public OvalActionButton f19253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f19239c;
+    public String f19254c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f19240d;
+    public String f19255d;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -36,7 +36,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f19241e;
+        public final /* synthetic */ c f19256e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class c {
                     return;
                 }
             }
-            this.f19241e = cVar;
+            this.f19256e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f19241e.b();
+                this.f19256e.b();
             }
         }
     }
@@ -80,32 +80,32 @@ public class c {
                 return;
             }
         }
-        this.f19237a = tbPageContext;
-        this.f19238b = ovalActionButton;
+        this.f19252a = tbPageContext;
+        this.f19253b = ovalActionButton;
         ovalActionButton.setIsCircle(true);
-        this.f19238b.setHasShadow(false);
-        this.f19238b.setOnClickListener(new a(this));
+        this.f19253b.setHasShadow(false);
+        this.f19253b.setOnClickListener(new a(this));
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || WriteActivityConfig.isAsyncWriting() || this.f19239c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || WriteActivityConfig.isAsyncWriting() || this.f19254c == null) {
             return;
         }
-        WriteActivityConfig.newInstance(this.f19237a.getPageActivity()).setType(9).setForumId("0").setTopicId(String.valueOf(this.f19239c)).setFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL).setCallFrom("1").setTitle(StringUtils.isNull(this.f19240d) ? null : String.format(TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_write_name), this.f19240d)).send();
+        WriteActivityConfig.newInstance(this.f19252a.getPageActivity()).setType(9).setForumId("0").setTopicId(String.valueOf(this.f19254c)).setFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL).setCallFrom("1").setTitle(StringUtils.isNull(this.f19255d) ? null : String.format(TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_write_name), this.f19255d)).send();
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f19240d = str;
+            this.f19255d = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f19239c = str;
+            this.f19254c = str;
         }
     }
 }

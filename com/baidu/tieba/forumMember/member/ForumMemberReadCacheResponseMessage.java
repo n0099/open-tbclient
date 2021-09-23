@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumMember.member;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.j3.w;
+import c.a.r0.j3.x;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public w mUserInfo;
+    public x mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberReadCacheResponseMessage() {
@@ -63,9 +63,9 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
                 }
                 if (getError() == 0 && (dataRes = getMemberInfoResIdl.data) != null) {
                     if (dataRes.forum_member_info != null) {
-                        w wVar = new w();
-                        this.mUserInfo = wVar;
-                        wVar.v(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        x xVar = new x();
+                        this.mUserInfo = xVar;
+                        xVar.v(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.r(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.w(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
@@ -107,10 +107,10 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPrivateMgrApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public w getUserInfo() {
+    public x getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUserInfo : (w) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUserInfo : (x) invokeV.objValue;
     }
 
     public boolean isBawuShow() {

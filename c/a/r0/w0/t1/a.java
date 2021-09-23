@@ -31,14 +31,14 @@ public class a extends k<c.a.r0.z0.b, GameRankListViewHolder> implements d {
 
     /* renamed from: c.a.r0.w0.t1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1310a implements GameRankHorizontalLayout.b {
+    public class C1308a implements GameRankHorizontalLayout.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27824a;
+        public final /* synthetic */ a f27844a;
 
-        public C1310a(a aVar) {
+        public C1308a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public class a extends k<c.a.r0.z0.b, GameRankListViewHolder> implements d {
                     return;
                 }
             }
-            this.f27824a = aVar;
+            this.f27844a = aVar;
         }
 
         @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.b
@@ -62,13 +62,13 @@ public class a extends k<c.a.r0.z0.b, GameRankListViewHolder> implements d {
             if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || aVar == null) {
                 return;
             }
-            if (this.f27824a.x != null) {
-                TiebaStatic.log(new StatisticItem("c12105").param("fid", this.f27824a.x.f26941c).param("obj_locate", i2 + 1));
+            if (this.f27844a.x != null) {
+                TiebaStatic.log(new StatisticItem("c12105").param("fid", this.f27844a.x.f26961c).param("obj_locate", i2 + 1));
             }
             if (StringUtils.isNull(aVar.c())) {
                 return;
             }
-            c.a.q0.m.a.l(this.f27824a.o.getPageActivity(), aVar.c());
+            c.a.q0.m.a.l(this.f27844a.o.getPageActivity(), aVar.c());
         }
     }
 
@@ -140,7 +140,7 @@ public class a extends k<c.a.r0.z0.b, GameRankListViewHolder> implements d {
     public GameRankListViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new GameRankListViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.game_rank_list_item, (ViewGroup) null)) : (GameRankListViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new GameRankListViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.game_rank_list_item, (ViewGroup) null)) : (GameRankListViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -156,12 +156,12 @@ public class a extends k<c.a.r0.z0.b, GameRankListViewHolder> implements d {
             }
             SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
             if (this.x != null) {
-                TiebaStatic.log(new StatisticItem("c12104").param("fid", this.x.f26941c));
+                TiebaStatic.log(new StatisticItem("c12104").param("fid", this.x.f26961c));
             }
             GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.mGameRankHorizontalLayout;
             if (gameRankHorizontalLayout != null) {
                 gameRankHorizontalLayout.setData(bVar);
-                gameRankListViewHolder.mGameRankHorizontalLayout.setOnCardClickListener(new C1310a(this));
+                gameRankListViewHolder.mGameRankHorizontalLayout.setOnCardClickListener(new C1308a(this));
             }
             TextView textView = gameRankListViewHolder.mCloseBtn;
             if (textView != null) {

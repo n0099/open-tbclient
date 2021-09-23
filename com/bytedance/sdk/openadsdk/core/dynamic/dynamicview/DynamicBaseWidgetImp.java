@@ -84,11 +84,11 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
                 view = this;
             }
             if (f()) {
-                view.setBackgroundColor(this.f66371j.r());
+                view.setBackgroundColor(this.f66682j.r());
             } else {
                 view.setBackgroundColor(0);
             }
-            view.setPadding(this.f66371j.c(), this.f66371j.b(), this.f66371j.d(), this.f66371j.a());
+            view.setPadding(this.f66682j.c(), this.f66682j.b(), this.f66682j.d(), this.f66682j.a());
             if (this.o) {
                 view.setVisibility(4);
                 return true;
@@ -120,7 +120,7 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
     public ViewGroup.LayoutParams getWidgetLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ViewGroup.LayoutParams(this.f66366e, this.f66367f) : (ViewGroup.LayoutParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ViewGroup.LayoutParams(this.f66677e, this.f66678f) : (ViewGroup.LayoutParams) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -130,7 +130,7 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
             return;
         }
         k.f("DynamicBaseWidget", "widget mDynamicView onLayout l,t,r,b:" + i2 + "," + i3 + "," + i4 + "," + i5);
-        this.n.layout(0, 0, this.f66366e, this.f66367f);
+        this.n.layout(0, 0, this.f66677e, this.f66678f);
     }
 
     @Override // android.view.View
@@ -138,7 +138,7 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            setMeasuredDimension(this.f66366e, this.f66367f);
+            setMeasuredDimension(this.f66677e, this.f66678f);
         }
     }
 }

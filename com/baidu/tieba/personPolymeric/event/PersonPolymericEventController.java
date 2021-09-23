@@ -59,7 +59,7 @@ public class PersonPolymericEventController extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f55992e;
+    public g f56109e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPolymericEventController(TbPageContext tbPageContext, g gVar) {
@@ -79,7 +79,7 @@ public class PersonPolymericEventController extends a {
                 return;
             }
         }
-        this.f55992e = gVar;
+        this.f56109e = gVar;
     }
 
     @Override // c.a.r0.o2.f.a, c.a.r0.b4.e
@@ -93,11 +93,11 @@ public class PersonPolymericEventController extends a {
             if (aVar == null) {
                 return;
             }
-            Bundle bundle = aVar.f23033b;
+            Bundle bundle = aVar.f23049b;
             String str2 = null;
             UserData userData = bundle != null ? (UserData) bundle.getSerializable(UserData.TYPE_USER) : null;
             int i3 = 1;
-            switch (aVar.f23032a) {
+            switch (aVar.f23048a) {
                 case 1:
                     if (userData == null) {
                         return;
@@ -112,7 +112,7 @@ public class PersonPolymericEventController extends a {
                     mVar.h(true);
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(mVar);
-                    this.f55992e.o().r(mVar, arrayList, 0);
+                    this.f56109e.o().r(mVar, arrayList, 0);
                     return;
                 case 2:
                 case 3:
@@ -131,15 +131,15 @@ public class PersonPolymericEventController extends a {
                 default:
                     return;
                 case 8:
-                    this.f23242a.getPageActivity().finish();
+                    this.f23258a.getPageActivity().finish();
                     return;
                 case 9:
-                    g gVar = this.f55992e;
+                    g gVar = this.f56109e;
                     if (gVar == null || gVar.m() == null) {
                         return;
                     }
                     TiebaStatic.log("c12207");
-                    this.f55992e.m().e();
+                    this.f56109e.m().e();
                     return;
                 case 10:
                     if (userData != null) {
@@ -151,17 +151,17 @@ public class PersonPolymericEventController extends a {
                         }
                         if (i2 == -1 && !str.equals(TbadkCoreApplication.getCurrentAccount())) {
                             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(this.f23242a.getPageActivity(), i2, (currentAccountInfo == null || StringUtils.isNull(str2) || StringUtils.isNull(currentAccountInfo.getPersonalBgUrl()) || !str2.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) ? 0 : 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(this.f23258a.getPageActivity(), i2, (currentAccountInfo == null || StringUtils.isNull(str2) || StringUtils.isNull(currentAccountInfo.getPersonalBgUrl()) || !str2.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) ? 0 : 0)));
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.f23242a.getPageActivity())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.f23258a.getPageActivity())));
                         return;
                     }
                     str = "";
                     i2 = -1;
                     if (i2 == -1) {
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.f23242a.getPageActivity())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(this.f23258a.getPageActivity())));
                     return;
                 case 11:
                     if (TbadkCoreApplication.getCurrentAccountInfo() == null) {
@@ -178,30 +178,30 @@ public class PersonPolymericEventController extends a {
                         personChangeData.setCanModifyAvatar(userData.canModifyAvatar());
                         personChangeData.setCantModifyAvatarDesc(userData.getCantModifyAvatarDesc());
                         personChangeData.setTiebaId(userData.getmTiebaUid());
-                        Bundle bundle2 = aVar.f23033b;
+                        Bundle bundle2 = aVar.f23049b;
                         if (bundle2 != null) {
                             personChangeData.setNickNameLeftDays(bundle2.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                         }
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(this.f23242a.getPageActivity(), 101, personChangeData, Boolean.FALSE)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(this.f23258a.getPageActivity(), 101, personChangeData, Boolean.FALSE)));
                     return;
                 case 12:
                     if (userData == null) {
                         return;
                     }
                     TiebaStatic.log("igift_icon_ck");
-                    if (ViewHelper.checkUpIsLogin(this.f23242a.getPageActivity())) {
-                        GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(this.f23242a.getPageActivity(), userData.getUserIdLong(), userData.getUserName(), userData.getName_show(), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001);
+                    if (ViewHelper.checkUpIsLogin(this.f23258a.getPageActivity())) {
+                        GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(this.f23258a.getPageActivity(), userData.getUserIdLong(), userData.getUserName(), userData.getName_show(), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001);
                         giftTabActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, giftTabActivityConfig));
                         return;
                     }
                     return;
                 case 13:
-                    UrlManager.getInstance().dealOneLink(this.f23242a, new String[]{TbConfig.WEB_URL_FANS});
+                    UrlManager.getInstance().dealOneLink(this.f23258a, new String[]{TbConfig.WEB_URL_FANS});
                     return;
                 case 14:
-                    CurrencyJumpHelper.personGotoBuyBean(this.f23242a.getPageActivity());
+                    CurrencyJumpHelper.personGotoBuyBean(this.f23258a.getPageActivity());
                     return;
                 case 15:
                     b(8);
@@ -212,12 +212,12 @@ public class PersonPolymericEventController extends a {
                     if (StringUtils.isNull(str3)) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(this.f23242a, new String[]{str3});
+                    UrlManager.getInstance().dealOneLink(this.f23258a, new String[]{str3});
                     return;
                 case 16:
                     b(7);
-                    c.a.r0.z2.a.v().L(7, false, this.f23245d);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(this.f23242a.getPageActivity())));
+                    c.a.r0.z2.a.v().L(7, false, this.f23261d);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(this.f23258a.getPageActivity())));
                     return;
                 case 17:
                     b(12);
@@ -225,63 +225,63 @@ public class PersonPolymericEventController extends a {
                     return;
                 case 20:
                     b(2);
-                    c.a.r0.z2.a.v().L(3, false, this.f23245d);
+                    c.a.r0.z2.a.v().L(3, false, this.f23261d);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001259));
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(this.f23242a.getPageActivity())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(this.f23258a.getPageActivity())));
                     return;
                 case 21:
                     b(5);
-                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 2).param("obj_source", this.f23244c));
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(this.f23242a.getPageActivity())));
+                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 2).param("obj_source", this.f23260c));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(this.f23258a.getPageActivity())));
                     return;
                 case 22:
-                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 3).param("obj_source", this.f23244c));
+                    TiebaStatic.log(new StatisticItem("c11590").param("obj_locate", 3).param("obj_source", this.f23260c));
                     if (userData == null) {
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MissonDetailsActivityConfig(this.f23242a.getPageActivity(), 24004, userData.getAnchorLevel(), userData.getPortrait(), userData.getName_show(), "from_person")));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MissonDetailsActivityConfig(this.f23258a.getPageActivity(), 24004, userData.getAnchorLevel(), userData.getPortrait(), userData.getName_show(), "from_person")));
                     return;
                 case 24:
                     b(3);
-                    c.a.r0.z2.a.v().L(4, false, this.f23245d);
+                    c.a.r0.z2.a.v().L(4, false, this.f23261d);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001185));
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddressListActivityConfig(this.f23242a.getPageActivity())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddressListActivityConfig(this.f23258a.getPageActivity())));
                     return;
                 case 27:
                     b(10);
                     TiebaStatic.log(new StatisticItem("c11948"));
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BigImgPbActivityConfig(this.f23242a.getPageActivity())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BigImgPbActivityConfig(this.f23258a.getPageActivity())));
                     return;
                 case 29:
                     if (userData == null) {
                         return;
                     }
                     b(6);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.f23242a.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getPortrait(), userData.getSex(), true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.f23258a.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getPortrait(), userData.getSex(), true)));
                     return;
                 case 30:
                     b(1);
-                    c.a.r0.z2.a.v().L(8, false, this.f23245d);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.f23242a.getPageActivity())));
+                    c.a.r0.z2.a.v().L(8, false, this.f23261d);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.f23258a.getPageActivity())));
                     return;
                 case 31:
                     b(9);
-                    UrlManager.getInstance().dealOneLink(this.f23242a, new String[]{aVar.f23033b.getString("book_jump_link")}, true);
+                    UrlManager.getInstance().dealOneLink(this.f23258a, new String[]{aVar.f23049b.getString("book_jump_link")}, true);
                     return;
                 case 32:
-                    if (ViewHelper.checkUpIsLogin(this.f23242a.getPageActivity())) {
+                    if (ViewHelper.checkUpIsLogin(this.f23258a.getPageActivity())) {
                         b(4);
-                        c.a.r0.z2.a.v().L(1, false, this.f23245d);
+                        c.a.r0.z2.a.v().L(1, false, this.f23261d);
                         if (userData == null || !TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.f23242a.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.f23258a.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
                         return;
                     }
                     return;
                 case 33:
                     b(11);
-                    UrlManager.getInstance().dealOneLink(this.f23242a, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                    UrlManager.getInstance().dealOneLink(this.f23258a, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
                     return;
                 case 34:
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921008, Boolean.FALSE));
@@ -290,27 +290,27 @@ public class PersonPolymericEventController extends a {
                     if (userData == null) {
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.f23242a.getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getName_show(), userData.getSex())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.f23258a.getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getName_show(), userData.getSex())));
                     return;
                 case 38:
                     if (userData == null) {
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.f23242a.getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), userData.getSex(), false)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.f23258a.getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), userData.getSex(), false)));
                     return;
                 case 39:
                     StringBuilder sb = new StringBuilder();
                     sb.append("http://tieba.baidu.com/mo/q/hybrid-main-service/uegServiceCenter?is_yy_user=");
                     sb.append(TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
-                    c.a.q0.m.a.l(this.f23242a.getPageActivity(), sb.toString());
+                    c.a.q0.m.a.l(this.f23258a.getPageActivity(), sb.toString());
                     return;
                 case 40:
-                    if (userData == null || !ViewHelper.checkUpIsLogin(this.f23242a.getPageActivity()) || userData == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    if (userData == null || !ViewHelper.checkUpIsLogin(this.f23258a.getPageActivity()) || userData == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                         return;
                     }
                     try {
                         TiebaStatic.log(new StatisticItem("c11593"));
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.f23242a.getPageActivity(), Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getName_show(), userData.getPortrait(), userData.getSex(), userData.getIsFriend(), userData.getUserType())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.f23258a.getPageActivity(), Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getName_show(), userData.getPortrait(), userData.getSex(), userData.getIsFriend(), userData.getUserType())));
                         return;
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -326,8 +326,8 @@ public class PersonPolymericEventController extends a {
                     mVar2.h(false);
                     ArrayList arrayList2 = new ArrayList();
                     arrayList2.add(mVar2);
-                    if (this.f55992e.o() != null) {
-                        this.f55992e.o().s(mVar2, arrayList2, 0, true);
+                    if (this.f56109e.o() != null) {
+                        this.f56109e.o().s(mVar2, arrayList2, 0, true);
                         return;
                     }
                     return;

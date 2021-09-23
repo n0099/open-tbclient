@@ -16,7 +16,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
     public final long timeout;
     public final TimeUnit unit;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class DebounceEmitter<T> extends AtomicReference<Disposable> implements Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6812032969491025141L;
@@ -86,7 +86,7 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class DebounceTimedObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

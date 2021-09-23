@@ -17,7 +17,7 @@ public class e extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<String, String[]> f30543b;
+    public static final HashMap<String, String[]> f30564b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class e extends b {
                 return;
             }
         }
-        f30543b = new HashMap<>();
+        f30564b = new HashMap<>();
     }
 
     public e() {
@@ -49,24 +49,24 @@ public class e extends b {
                 return;
             }
         }
-        f30543b.put("color_1F1F1F", new String[]{"#141414", "#BFFFFFFF", "#E6FFFFFF", ""});
-        f30543b.put("color_white1", new String[]{"#FFFFFF", "#141414", "#000000", ""});
-        f30543b.put("color_white2", new String[]{"#F5F5F5", "#272729", "#141414", ""});
-        f30543b.put("color_white3", new String[]{"#FFFFFF", "#D9FFFFFF", "#FFFFFF", ""});
-        f30543b.put("color_F5F5F51", new String[]{"#F2F2F5", "#141414", "#000000", ""});
-        f30543b.put("color_F5F5F52", new String[]{"#F7F7FA", "#1E1D1F", "#1AFFFFFF", ""});
-        f30543b.put("color_F5F5F53", new String[]{"#0D000000", "#0DFFFFFF", "#1AFFFFFF", ""});
-        f30543b.put("color_FF33551", new String[]{"#FF3355", "#D42A46", "#FF3355", ""});
-        f30543b.put("color_FF33552", new String[]{"#1AFF3355", "#1AD42A46", "#1AFF3355", ""});
-        f30543b.put("color_858585", new String[]{"#858585", "#59FFFFFF", "#80FFFFFF", ""});
-        f30543b.put("color_525252", new String[]{"#525252", "#555555", "#99FFFFFF", ""});
-        f30543b.put("color_FF3333", new String[]{"#FF3333", "#FF3333", "#FF3333", ""});
-        f30543b.put("color_768CAE", new String[]{"#768CAE", "#768CAE", "#768CAE", ""});
-        f30543b.put("color_4E6EF2", new String[]{"#4E6EF2", "#4E6EF2", "#4E6EF2", ""});
-        f30543b.put("color_8585852", new String[]{"#858585", "#444444", "#80FFFFFF", ""});
-        f30543b.put("color_5252522", new String[]{"#525252", "#555555", "#99FFFFFF", ""});
-        f30543b.put("color_btn_stroke", new String[]{"#00000000", "#00000000", "#00000000", ""});
-        f30543b.put("color_btn_fill", new String[]{"#F7F7FA", "#1E1D1F", "#000000", ""});
+        f30564b.put("color_1F1F1F", new String[]{"#141414", "#BFFFFFFF", "#E6FFFFFF", ""});
+        f30564b.put("color_white1", new String[]{"#FFFFFF", "#141414", "#000000", ""});
+        f30564b.put("color_white2", new String[]{"#F5F5F5", "#272729", "#141414", ""});
+        f30564b.put("color_white3", new String[]{"#FFFFFF", "#D9FFFFFF", "#FFFFFF", ""});
+        f30564b.put("color_F5F5F51", new String[]{"#F2F2F5", "#141414", "#000000", ""});
+        f30564b.put("color_F5F5F52", new String[]{"#F7F7FA", "#1E1D1F", "#1AFFFFFF", ""});
+        f30564b.put("color_F5F5F53", new String[]{"#0D000000", "#0DFFFFFF", "#1AFFFFFF", ""});
+        f30564b.put("color_FF33551", new String[]{"#FF3355", "#D42A46", "#FF3355", ""});
+        f30564b.put("color_FF33552", new String[]{"#1AFF3355", "#1AD42A46", "#1AFF3355", ""});
+        f30564b.put("color_858585", new String[]{"#858585", "#59FFFFFF", "#80FFFFFF", ""});
+        f30564b.put("color_525252", new String[]{"#525252", "#555555", "#99FFFFFF", ""});
+        f30564b.put("color_FF3333", new String[]{"#FF3333", "#FF3333", "#FF3333", ""});
+        f30564b.put("color_768CAE", new String[]{"#768CAE", "#768CAE", "#768CAE", ""});
+        f30564b.put("color_4E6EF2", new String[]{"#4E6EF2", "#4E6EF2", "#4E6EF2", ""});
+        f30564b.put("color_8585852", new String[]{"#858585", "#444444", "#80FFFFFF", ""});
+        f30564b.put("color_5252522", new String[]{"#525252", "#555555", "#99FFFFFF", ""});
+        f30564b.put("color_btn_stroke", new String[]{"#00000000", "#00000000", "#00000000", ""});
+        f30564b.put("color_btn_fill", new String[]{"#F7F7FA", "#1E1D1F", "#000000", ""});
     }
 
     @Override // c.a.w.i.b
@@ -74,16 +74,16 @@ public class e extends b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), str})) == null) {
-            if (f30543b.containsKey(str)) {
-                String str2 = f30543b.get(str)[0];
+            if (f30564b.containsKey(str)) {
+                String str2 = f30564b.get(str)[0];
                 if (z) {
-                    str2 = f30543b.get(str)[3];
+                    str2 = f30564b.get(str)[3];
                 } else {
-                    String str3 = this.f30540a;
+                    String str3 = this.f30561a;
                     if (SkinManager.SKIN_TYPE_STR_NIGHT == str3) {
-                        str2 = f30543b.get(str)[1];
+                        str2 = f30564b.get(str)[1];
                     } else if (SkinManager.SKIN_TYPE_STR_DARK == str3) {
-                        str2 = f30543b.get(str)[2];
+                        str2 = f30564b.get(str)[2];
                     }
                 }
                 if (j.a(str2)) {

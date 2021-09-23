@@ -14,34 +14,34 @@ public final class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f33562a;
+    public String f33585a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33563b;
+    public int f33586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f33564c;
+    public boolean f33587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f33565d;
+    public int f33588d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f33566e;
+    public boolean f33589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33567f;
+    public int f33590f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f33568g;
+    public int f33591g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f33569h;
+    public int f33592h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f33570i;
+    public int f33593i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f33571j;
+    public int f33594j;
     public float k;
     public String l;
     public e m;
@@ -60,11 +60,11 @@ public final class e {
                 return;
             }
         }
-        this.f33567f = -1;
-        this.f33568g = -1;
-        this.f33569h = -1;
-        this.f33570i = -1;
-        this.f33571j = -1;
+        this.f33590f = -1;
+        this.f33591g = -1;
+        this.f33592h = -1;
+        this.f33593i = -1;
+        this.f33594j = -1;
     }
 
     public e a(e eVar) {
@@ -81,8 +81,8 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f33566e) {
-                return this.f33565d;
+            if (this.f33589e) {
+                return this.f33588d;
             }
             throw new IllegalStateException("Background color has not been defined.");
         }
@@ -93,8 +93,8 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f33564c) {
-                return this.f33563b;
+            if (this.f33587c) {
+                return this.f33586b;
             }
             throw new IllegalStateException("Font color has not been defined.");
         }
@@ -104,7 +104,7 @@ public final class e {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33562a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33585a : (String) invokeV.objValue;
     }
 
     public float e() {
@@ -116,7 +116,7 @@ public final class e {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33571j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33594j : invokeV.intValue;
     }
 
     public String g() {
@@ -129,10 +129,10 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f33569h == -1 && this.f33570i == -1) {
+            if (this.f33592h == -1 && this.f33593i == -1) {
                 return -1;
             }
-            return (this.f33569h == 1 ? 1 : 0) | (this.f33570i == 1 ? 2 : 0);
+            return (this.f33592h == 1 ? 1 : 0) | (this.f33593i == 1 ? 2 : 0);
         }
         return invokeV.intValue;
     }
@@ -146,13 +146,13 @@ public final class e {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f33566e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f33589e : invokeV.booleanValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f33564c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f33587c : invokeV.booleanValue;
     }
 
     public final e l(e eVar, boolean z) {
@@ -160,33 +160,33 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, eVar, z)) == null) {
             if (eVar != null) {
-                if (!this.f33564c && eVar.f33564c) {
-                    q(eVar.f33563b);
+                if (!this.f33587c && eVar.f33587c) {
+                    q(eVar.f33586b);
                 }
-                if (this.f33569h == -1) {
-                    this.f33569h = eVar.f33569h;
+                if (this.f33592h == -1) {
+                    this.f33592h = eVar.f33592h;
                 }
-                if (this.f33570i == -1) {
-                    this.f33570i = eVar.f33570i;
+                if (this.f33593i == -1) {
+                    this.f33593i = eVar.f33593i;
                 }
-                if (this.f33562a == null) {
-                    this.f33562a = eVar.f33562a;
+                if (this.f33585a == null) {
+                    this.f33585a = eVar.f33585a;
                 }
-                if (this.f33567f == -1) {
-                    this.f33567f = eVar.f33567f;
+                if (this.f33590f == -1) {
+                    this.f33590f = eVar.f33590f;
                 }
-                if (this.f33568g == -1) {
-                    this.f33568g = eVar.f33568g;
+                if (this.f33591g == -1) {
+                    this.f33591g = eVar.f33591g;
                 }
                 if (this.n == null) {
                     this.n = eVar.n;
                 }
-                if (this.f33571j == -1) {
-                    this.f33571j = eVar.f33571j;
+                if (this.f33594j == -1) {
+                    this.f33594j = eVar.f33594j;
                     this.k = eVar.k;
                 }
-                if (z && !this.f33566e && eVar.f33566e) {
-                    o(eVar.f33565d);
+                if (z && !this.f33589e && eVar.f33589e) {
+                    o(eVar.f33588d);
                 }
             }
             return this;
@@ -197,21 +197,21 @@ public final class e {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f33567f == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f33590f == 1 : invokeV.booleanValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f33568g == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f33591g == 1 : invokeV.booleanValue;
     }
 
     public e o(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            this.f33565d = i2;
-            this.f33566e = true;
+            this.f33588d = i2;
+            this.f33589e = true;
             return this;
         }
         return (e) invokeI.objValue;
@@ -222,7 +222,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
             c.i.b.a.i0.a.f(this.m == null);
-            this.f33569h = z ? 1 : 0;
+            this.f33592h = z ? 1 : 0;
             return this;
         }
         return (e) invokeZ.objValue;
@@ -233,8 +233,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
             c.i.b.a.i0.a.f(this.m == null);
-            this.f33563b = i2;
-            this.f33564c = true;
+            this.f33586b = i2;
+            this.f33587c = true;
             return this;
         }
         return (e) invokeI.objValue;
@@ -245,7 +245,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             c.i.b.a.i0.a.f(this.m == null);
-            this.f33562a = str;
+            this.f33585a = str;
             return this;
         }
         return (e) invokeL.objValue;
@@ -265,7 +265,7 @@ public final class e {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            this.f33571j = i2;
+            this.f33594j = i2;
             return this;
         }
         return (e) invokeI.objValue;
@@ -286,7 +286,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048597, this, z)) == null) {
             c.i.b.a.i0.a.f(this.m == null);
-            this.f33570i = z ? 1 : 0;
+            this.f33593i = z ? 1 : 0;
             return this;
         }
         return (e) invokeZ.objValue;
@@ -297,7 +297,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
             c.i.b.a.i0.a.f(this.m == null);
-            this.f33567f = z ? 1 : 0;
+            this.f33590f = z ? 1 : 0;
             return this;
         }
         return (e) invokeZ.objValue;
@@ -318,7 +318,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048600, this, z)) == null) {
             c.i.b.a.i0.a.f(this.m == null);
-            this.f33568g = z ? 1 : 0;
+            this.f33591g = z ? 1 : 0;
             return this;
         }
         return (e) invokeZ.objValue;

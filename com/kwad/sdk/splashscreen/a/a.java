@@ -18,10 +18,10 @@ public class a extends Presenter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.d f73777a;
+    public com.kwad.sdk.splashscreen.d f74096a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsLogoView f73778b;
+    public KsLogoView f74097b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -59,19 +59,19 @@ public class a extends Presenter {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
             com.kwad.sdk.splashscreen.d dVar = (com.kwad.sdk.splashscreen.d) l();
-            this.f73777a = dVar;
-            KsLogoView ksLogoView = (KsLogoView) dVar.f73867e.findViewById(R.id.ksad_splash_logo_container);
-            this.f73778b = ksLogoView;
+            this.f74096a = dVar;
+            KsLogoView ksLogoView = (KsLogoView) dVar.f74186e.findViewById(R.id.ksad_splash_logo_container);
+            this.f74097b = ksLogoView;
             a((ViewGroup) ksLogoView);
-            if (this.f73777a.f73866d.adInfoList.isEmpty() || (adSplashInfo = this.f73777a.f73866d.adInfoList.get(0).adSplashInfo) == null) {
+            if (this.f74096a.f74185d.adInfoList.isEmpty() || (adSplashInfo = this.f74096a.f74185d.adInfoList.get(0).adSplashInfo) == null) {
                 return;
             }
             if (adSplashInfo.logoPosition == 0) {
-                this.f73778b.setVisibility(8);
+                this.f74097b.setVisibility(8);
                 return;
             }
-            this.f73778b.setVisibility(0);
-            this.f73778b.a(this.f73777a.f73866d);
+            this.f74097b.setVisibility(0);
+            this.f74097b.a(this.f74096a.f74185d);
         }
     }
 

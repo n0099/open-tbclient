@@ -83,7 +83,7 @@ public class a extends c.a.p0.a.c0.b.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             super.a(jSONObject);
-            this.n = jSONObject.optString("devicePosition", com.alipay.sdk.widget.d.l);
+            this.n = jSONObject.optString("devicePosition", com.alipay.sdk.widget.d.u);
             this.o = jSONObject.optString("flash", DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
         }
     }

@@ -11,7 +11,7 @@ public abstract class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37702a;
+    public Context f37750a;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public abstract class c {
                 return;
             }
         }
-        this.f37702a = context;
+        this.f37750a = context;
     }
 
     public abstract g a(e eVar);

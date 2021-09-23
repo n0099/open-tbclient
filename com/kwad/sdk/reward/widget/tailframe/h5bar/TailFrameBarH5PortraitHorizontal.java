@@ -26,13 +26,13 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f73731a;
+    public TextView f74050a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f73732b;
+    public TextView f74051b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ValueAnimator f73733c;
+    public ValueAnimator f74052c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TailFrameBarH5PortraitHorizontal(Context context) {
@@ -102,29 +102,29 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             LinearLayout.inflate(context, R.layout.ksad_video_tf_bar_h5_portrait_horizontal, this);
-            this.f73731a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
-            this.f73732b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
+            this.f74050a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
+            this.f74051b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            if (this.f73733c != null) {
+            if (this.f74052c != null) {
                 a();
-                this.f73733c.start();
+                this.f74052c.start();
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-            this.f73733c = ofFloat;
+            this.f74052c = ofFloat;
             ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-            this.f73733c.setRepeatCount(-1);
-            this.f73733c.setRepeatMode(1);
-            this.f73733c.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5PortraitHorizontal.1
+            this.f74052c.setRepeatCount(-1);
+            this.f74052c.setRepeatMode(1);
+            this.f74052c.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5PortraitHorizontal.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TailFrameBarH5PortraitHorizontal f73734a;
+                public final /* synthetic */ TailFrameBarH5PortraitHorizontal f74053a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -141,7 +141,7 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
                             return;
                         }
                     }
-                    this.f73734a = this;
+                    this.f74053a = this;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -149,21 +149,21 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                        this.f73734a.f73732b.setScaleY(floatValue);
-                        this.f73734a.f73732b.setScaleX(floatValue);
+                        this.f74053a.f74051b.setScaleY(floatValue);
+                        this.f74053a.f74051b.setScaleX(floatValue);
                     }
                 }
             });
-            this.f73733c.start();
+            this.f74052c.start();
         }
     }
 
     public void a() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.f73733c) != null && valueAnimator.isRunning()) {
-            this.f73733c.cancel();
-            this.f73733c.end();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.f74052c) != null && valueAnimator.isRunning()) {
+            this.f74052c.cancel();
+            this.f74052c.end();
         }
     }
 
@@ -171,8 +171,8 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
             AdInfo i2 = c.i(adTemplate);
-            this.f73731a.setText(a.m(i2));
-            this.f73732b.setText(a.u(i2));
+            this.f74050a.setText(a.m(i2));
+            this.f74051b.setText(a.u(i2));
             b();
         }
     }

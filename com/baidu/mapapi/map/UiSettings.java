@@ -13,7 +13,7 @@ public final class UiSettings {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.map.e f41645a;
+    public com.baidu.mapsdkplatform.comapi.map.e f41707a;
 
     public UiSettings(com.baidu.mapsdkplatform.comapi.map.e eVar) {
         Interceptable interceptable = $ic;
@@ -30,37 +30,37 @@ public final class UiSettings {
                 return;
             }
         }
-        this.f41645a = eVar;
+        this.f41707a = eVar;
     }
 
     public boolean isCompassEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41645a.r() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41707a.r() : invokeV.booleanValue;
     }
 
     public boolean isOverlookingGesturesEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41645a.z() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41707a.z() : invokeV.booleanValue;
     }
 
     public boolean isRotateGesturesEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41645a.y() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41707a.y() : invokeV.booleanValue;
     }
 
     public boolean isScrollGesturesEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41645a.w() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41707a.w() : invokeV.booleanValue;
     }
 
     public boolean isZoomGesturesEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41645a.x() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41707a.x() : invokeV.booleanValue;
     }
 
     public void setAllGesturesEnabled(boolean z) {
@@ -76,42 +76,42 @@ public final class UiSettings {
     public void setCompassEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f41645a.k(z);
+            this.f41707a.k(z);
         }
     }
 
     public void setEnlargeCenterWithDoubleClickEnable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f41645a.r(z);
+            this.f41707a.r(z);
         }
     }
 
     public void setOverlookingGesturesEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f41645a.t(z);
+            this.f41707a.t(z);
         }
     }
 
     public void setRotateGesturesEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f41645a.s(z);
+            this.f41707a.s(z);
         }
     }
 
     public void setScrollGesturesEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f41645a.p(z);
+            this.f41707a.p(z);
         }
     }
 
     public void setZoomGesturesEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f41645a.q(z);
+            this.f41707a.q(z);
         }
     }
 }

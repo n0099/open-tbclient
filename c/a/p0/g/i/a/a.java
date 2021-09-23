@@ -18,7 +18,7 @@ public class a extends c.a.p0.g.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f10944c;
+    public static final boolean f10952c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.g.i.a.a$a  reason: collision with other inner class name */
@@ -28,7 +28,7 @@ public class a extends c.a.p0.g.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f10945a;
+        public final /* synthetic */ b f10953a;
 
         public C0550a(a aVar, b bVar) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class a extends c.a.p0.g.f.a {
                     return;
                 }
             }
-            this.f10945a = bVar;
+            this.f10953a = bVar;
         }
 
         @Override // c.a.p0.a.f2.a.f
@@ -53,11 +53,11 @@ public class a extends c.a.p0.g.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == -1) {
-                    a.c(this.f10945a, "202");
+                    a.c(this.f10953a, "202");
                 } else if (i2 != 1) {
-                    this.f10945a.onFail(101, "noPermission");
+                    this.f10953a.onFail(101, "noPermission");
                 } else {
-                    a.c(this.f10945a, "200");
+                    a.c(this.f10953a, "200");
                 }
             }
         }
@@ -76,7 +76,7 @@ public class a extends c.a.p0.g.f.a {
                 return;
             }
         }
-        f10944c = k.f7077a;
+        f10952c = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -104,7 +104,7 @@ public class a extends c.a.p0.g.f.a {
             try {
                 jSONObject.put("data", str);
             } catch (JSONException e2) {
-                if (f10944c) {
+                if (f10952c) {
                     e2.printStackTrace();
                 }
             }
@@ -127,7 +127,7 @@ public class a extends c.a.p0.g.f.a {
                 return null;
             }
             bVar.onFail(100, "swan or activity is null");
-            boolean z = f10944c;
+            boolean z = f10952c;
             return null;
         }
         return (c.a.p0.a.u.h.b) invokeLL.objValue;

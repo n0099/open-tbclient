@@ -17,7 +17,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f13067a;
+    public static boolean f13084a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class a {
             }
         }
         boolean z = b.j().k("key_lcs_log_switch", 0) == 1;
-        f13067a = z;
+        f13084a = z;
         if (z) {
             a();
         }
@@ -60,7 +60,7 @@ public class a {
 
     public static void c(int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) && f13067a) {
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) && f13084a) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
             httpMessage.addParam("cmd", i2);
             httpMessage.addParam("lcs_status", i3);

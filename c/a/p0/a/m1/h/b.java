@@ -11,7 +11,7 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f7363e;
+    public boolean f7371e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(boolean z) {
@@ -31,12 +31,12 @@ public class b extends c {
                 return;
             }
         }
-        this.f7363e = z;
+        this.f7371e = z;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7363e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7371e : invokeV.booleanValue;
     }
 }

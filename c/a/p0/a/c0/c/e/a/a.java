@@ -57,7 +57,7 @@ public class a extends c.a.p0.a.c2.f.b {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = a0.f4766b;
+            boolean z = a0.f4774b;
             c.a.p0.a.c0.c.e.c.b q = q(unitedSchemeEntity);
             if (q == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -69,7 +69,7 @@ public class a extends c.a.p0.a.c2.f.b {
             if (a2) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f4663b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f4671b);
             }
             return a2;
         }
@@ -81,7 +81,7 @@ public class a extends c.a.p0.a.c2.f.b {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = a0.f4766b;
+            boolean z = a0.f4774b;
             c.a.p0.a.c0.c.e.c.b q = q(unitedSchemeEntity);
             if (q == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -90,7 +90,7 @@ public class a extends c.a.p0.a.c2.f.b {
             }
             c.a.p0.a.c0.c.e.c.a aVar = (c.a.p0.a.c0.c.e.c.a) c.a.p0.a.c0.d.a.a(q);
             if (aVar == null) {
-                String str2 = "can't find coverView component:#" + q.f4657f;
+                String str2 = "can't find coverView component:#" + q.f4665f;
                 d.b("Component-Action-CoverView", str2);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
                 return false;
@@ -100,7 +100,7 @@ public class a extends c.a.p0.a.c2.f.b {
             if (a2) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f4663b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f4671b);
             }
             return a2;
         }
@@ -112,7 +112,7 @@ public class a extends c.a.p0.a.c2.f.b {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = a0.f4766b;
+            boolean z = a0.f4774b;
             c.a.p0.a.c0.c.e.c.b q = q(unitedSchemeEntity);
             if (q == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -121,7 +121,7 @@ public class a extends c.a.p0.a.c2.f.b {
             }
             c.a.p0.a.c0.c.e.c.a aVar = (c.a.p0.a.c0.c.e.c.a) c.a.p0.a.c0.d.a.a(q);
             if (aVar == null) {
-                String str2 = "can't find coverView component:#" + q.f4657f;
+                String str2 = "can't find coverView component:#" + q.f4665f;
                 d.b("Component-Action-CoverView", str2);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
                 return false;
@@ -131,7 +131,7 @@ public class a extends c.a.p0.a.c2.f.b {
             if (a2) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f4663b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f4671b);
             }
             return a2;
         }

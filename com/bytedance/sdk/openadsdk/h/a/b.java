@@ -20,7 +20,7 @@ public class b extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<w> f67899a;
+    public WeakReference<w> f68210a;
 
     public b(w wVar) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class b extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f67899a = new WeakReference<>(wVar);
+        this.f68210a = new WeakReference<>(wVar);
     }
 
     @Override // com.bytedance.sdk.component.a.d
@@ -55,7 +55,7 @@ public class b extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ w f67900a;
+                public final /* synthetic */ w f68211a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -72,14 +72,14 @@ public class b extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                             return;
                         }
                     }
-                    this.f67900a = wVar;
+                    this.f68211a = wVar;
                 }
 
                 @Override // com.bytedance.sdk.component.a.d.b
                 public com.bytedance.sdk.component.a.d a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new b(this.f67900a) : (com.bytedance.sdk.component.a.d) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new b(this.f68211a) : (com.bytedance.sdk.component.a.d) invokeV.objValue;
                 }
             });
         }
@@ -90,7 +90,7 @@ public class b extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
     public void a(@NonNull JSONObject jSONObject, @NonNull com.bytedance.sdk.component.a.f fVar) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, fVar) == null) {
-            w wVar = this.f67899a.get();
+            w wVar = this.f68210a.get();
             if (wVar == null) {
                 c();
             } else {
@@ -99,7 +99,7 @@ public class b extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f67901a;
+                    public final /* synthetic */ b f68212a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -116,7 +116,7 @@ public class b extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                                 return;
                             }
                         }
-                        this.f67901a = this;
+                        this.f68212a = this;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.i.c
@@ -126,10 +126,10 @@ public class b extends com.bytedance.sdk.component.a.d<JSONObject, JSONObject> {
                             try {
                                 JSONObject jSONObject2 = new JSONObject();
                                 if (!z) {
-                                    this.f67901a.a((b) jSONObject2);
+                                    this.f68212a.a((b) jSONObject2);
                                 } else {
                                     jSONObject2.put("creatives", w.b(list));
-                                    this.f67901a.a((b) jSONObject2);
+                                    this.f68212a.a((b) jSONObject2);
                                 }
                                 if (com.bytedance.sdk.openadsdk.core.h.d().x()) {
                                     String str = "[JSB-RSP] version: 3 data=" + jSONObject2.toString();

@@ -23,13 +23,13 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.h0.o.h.c.a f6326b;
+    public c.a.p0.a.h0.o.h.c.a f6334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f6327c;
+    public File f6335c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f6328d;
+    public b f6336d;
 
     /* renamed from: c.a.p0.a.h0.o.h.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -38,16 +38,16 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6329e;
+        public final /* synthetic */ String f6337e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f6330f;
+        public final /* synthetic */ int f6338f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f6331g;
+        public final /* synthetic */ String f6339g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f6332h;
+        public final /* synthetic */ a f6340h;
 
         public RunnableC0243a(a aVar, String str, int i2, String str2) {
             Interceptable interceptable = $ic;
@@ -64,17 +64,17 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
                     return;
                 }
             }
-            this.f6332h = aVar;
-            this.f6329e = str;
-            this.f6330f = i2;
-            this.f6331g = str2;
+            this.f6340h = aVar;
+            this.f6337e = str;
+            this.f6338f = i2;
+            this.f6339g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6332h.f6328d.onError(this.f6329e, this.f6330f, this.f6331g);
+                this.f6340h.f6336d.onError(this.f6337e, this.f6338f, this.f6339g);
             }
         }
     }
@@ -90,10 +90,10 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.p0.a.h0.o.h.c.a f6333a;
+        public c.a.p0.a.h0.o.h.c.a f6341a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6334b;
+        public String f6342b;
 
         /* renamed from: c.a.p0.a.h0.o.h.g.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -102,7 +102,7 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ File f6335a;
+            public final /* synthetic */ File f6343a;
 
             public C0244a(c cVar, File file) {
                 Interceptable interceptable = $ic;
@@ -119,14 +119,14 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
                         return;
                     }
                 }
-                this.f6335a = file;
+                this.f6343a = file;
             }
 
             @Override // c.a.p0.a.h0.o.h.c.b
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.t.d.K(this.f6335a);
+                    c.a.p0.t.d.K(this.f6343a);
                 }
             }
         }
@@ -146,8 +146,8 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
                     return;
                 }
             }
-            this.f6333a = aVar2;
-            this.f6334b = str;
+            this.f6341a = aVar2;
+            this.f6342b = str;
         }
 
         @Override // c.a.p0.a.h0.o.h.g.d.a
@@ -155,9 +155,9 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
                 try {
-                    this.f6333a.a(this.f6334b, file, new C0244a(this, file));
+                    this.f6341a.a(this.f6342b, file, new C0244a(this, file));
                 } catch (Exception e2) {
-                    if (c.a.p0.a.h0.o.h.e.a.f6322a) {
+                    if (c.a.p0.a.h0.o.h.e.a.f6330a) {
                         Log.getStackTraceString(e2);
                     }
                 }
@@ -167,7 +167,7 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
         @Override // c.a.p0.a.h0.o.h.g.d.a
         public void b(File file) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && c.a.p0.a.h0.o.h.e.a.f6322a) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && c.a.p0.a.h0.o.h.e.a.f6330a) {
                 String str = "writer file fail, file = " + file;
             }
         }
@@ -188,8 +188,8 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
                 return;
             }
         }
-        this.f6327c = new File(c.a.p0.a.h0.o.h.d.a.a().b(), "image_temp");
-        this.f6326b = aVar;
+        this.f6335c = new File(c.a.p0.a.h0.o.h.d.a.a().b(), "image_temp");
+        this.f6334b = aVar;
         if (aVar == null) {
             g(context);
         }
@@ -202,15 +202,15 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
             if (bVar == null) {
                 return null;
             }
-            String str = bVar.f6340e;
+            String str = bVar.f6348e;
             if (str != null && str.toLowerCase().contains("html")) {
-                bVar.f6340e = SapiWebView.DATA_MIME_TYPE;
-                bVar.f6339d = "UTF-8";
+                bVar.f6348e = SapiWebView.DATA_MIME_TYPE;
+                bVar.f6347d = "UTF-8";
             }
             if (c.a.p0.a.v2.d.f()) {
-                return new WebResourceResponse(bVar.f6340e, bVar.f6339d, bVar.f6336a, bVar.f6337b, bVar.f6338c, bVar.f6341f);
+                return new WebResourceResponse(bVar.f6348e, bVar.f6347d, bVar.f6344a, bVar.f6345b, bVar.f6346c, bVar.f6349f);
             }
-            return new WebResourceResponse(bVar.f6340e, "UTF-8", bVar.f6341f);
+            return new WebResourceResponse(bVar.f6348e, "UTF-8", bVar.f6349f);
         }
         return (WebResourceResponse) invokeL.objValue;
     }
@@ -238,7 +238,7 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
             if (str.startsWith("intercept") && str.length() > 9) {
                 str = str.substring(9);
             }
-            if (c.a.p0.a.h0.o.h.e.a.f6322a) {
+            if (c.a.p0.a.h0.o.h.e.a.f6330a) {
                 String str2 = "real request url = " + str;
             }
             return str;
@@ -260,11 +260,11 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
             if (!TextUtils.isEmpty(d2)) {
                 b2 = new File(b2, d2);
             }
-            if (c.a.p0.a.h0.o.h.e.a.f6322a) {
+            if (c.a.p0.a.h0.o.h.e.a.f6330a) {
                 String str = "init default disk cache provider, path = " + b2;
             }
             c.a.p0.t.d.k(b2);
-            this.f6326b = c.a.p0.a.c1.a.P().b(context, b2, c.a.p0.a.h0.o.h.d.a.a().g());
+            this.f6334b = c.a.p0.a.c1.a.P().b(context, b2, c.a.p0.a.h0.o.h.d.a.a().g());
         }
     }
 
@@ -279,25 +279,25 @@ public abstract class a implements c.a.p0.a.h0.o.h.e.a {
             }
             String e2 = e(d2);
             InputStream inputStream = null;
-            c.a.p0.a.h0.o.h.c.a aVar = this.f6326b;
+            c.a.p0.a.h0.o.h.c.a aVar = this.f6334b;
             if (aVar != null && !aVar.isClosed()) {
-                inputStream = this.f6326b.get(e2);
+                inputStream = this.f6334b.get(e2);
             }
             if (inputStream != null) {
-                if (c.a.p0.a.h0.o.h.e.a.f6322a) {
+                if (c.a.p0.a.h0.o.h.e.a.f6330a) {
                     String str = "adopt cached image, url = " + e2;
                 }
                 return new WebResourceResponse(gVar.getMimeType(), "UTF-8", inputStream);
             }
             c.a.p0.a.h0.o.h.g.b a2 = e.a(e2, f(gVar));
-            if (a2 != null && (i2 = a2.f6336a) >= 400 && this.f6328d != null) {
-                c(e2, i2, a2.f6337b);
+            if (a2 != null && (i2 = a2.f6344a) >= 400 && this.f6336d != null) {
+                c(e2, i2, a2.f6345b);
             }
             WebResourceResponse b2 = b(a2);
             if (b2 != null && b2.getData() != null) {
-                b2.setData(new f(b2.getData(), new d(new File(this.f6327c, c.a.p0.a.h0.o.h.d.a.a().d().a(e2)), new c(this, this.f6326b, e2))));
+                b2.setData(new f(b2.getData(), new d(new File(this.f6335c, c.a.p0.a.h0.o.h.d.a.a().d().a(e2)), new c(this, this.f6334b, e2))));
             }
-            if (c.a.p0.a.h0.o.h.e.a.f6322a) {
+            if (c.a.p0.a.h0.o.h.e.a.f6330a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("download image, response = ");
                 sb.append(b2 != null);

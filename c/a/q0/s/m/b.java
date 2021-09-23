@@ -13,13 +13,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f14018a;
+    public static String f14015a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f14018a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f14015a : (String) invokeV.objValue;
     }
 
     public static boolean b() {
@@ -31,13 +31,13 @@ public class b {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "5".equals(f14018a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "5".equals(f14015a) : invokeV.booleanValue;
     }
 
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "6".equals(f14018a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "6".equals(f14015a) : invokeV.booleanValue;
     }
 
     public static void e(String str, String str2) {
@@ -46,7 +46,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || WriteActivityConfig.isAsyncWriting()) {
             return;
         }
-        f14018a = str;
+        f14015a = str;
         if (str == null || !str.equals("7")) {
             i2 = 6;
         } else {
@@ -64,7 +64,7 @@ public class b {
     public static void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            f14018a = str;
+            f14015a = str;
         }
     }
 }

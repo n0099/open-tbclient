@@ -16,14 +16,14 @@ public class a {
 
     /* renamed from: c.a.r0.w3.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1328a implements b.a {
+    public static class C1326a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f28177a;
+        public final /* synthetic */ f f28197a;
 
-        public C1328a(f fVar) {
+        public C1326a(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,7 +38,7 @@ public class a {
                     return;
                 }
             }
-            this.f28177a = fVar;
+            this.f28197a = fVar;
         }
 
         @Override // c.a.a0.a.b.a
@@ -53,9 +53,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
                 if (z) {
-                    this.f28177a.a();
+                    this.f28197a.a();
                 } else {
-                    this.f28177a.b();
+                    this.f28197a.b();
                 }
             }
         }
@@ -71,7 +71,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, fVar) == null) {
             c(context);
-            c.a.a0.a.b.q(new C1328a(fVar));
+            c.a.a0.a.b.q(new C1326a(fVar));
         }
     }
 

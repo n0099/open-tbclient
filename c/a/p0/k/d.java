@@ -14,13 +14,13 @@ public class d implements Interpolator {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f11811a;
+    public int f11819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final PointF f11812b;
+    public final PointF f11820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final PointF f11813c;
+    public final PointF f11821c;
 
     public d(float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
@@ -37,11 +37,11 @@ public class d implements Interpolator {
                 return;
             }
         }
-        this.f11811a = 0;
-        this.f11812b = new PointF();
+        this.f11819a = 0;
+        this.f11820b = new PointF();
         PointF pointF = new PointF();
-        this.f11813c = pointF;
-        PointF pointF2 = this.f11812b;
+        this.f11821c = pointF;
+        PointF pointF2 = this.f11820b;
         pointF2.x = f2;
         pointF2.y = f3;
         pointF.x = f4;
@@ -65,23 +65,23 @@ public class d implements Interpolator {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-            int i2 = this.f11811a;
+            int i2 = this.f11819a;
             float f3 = f2;
             while (true) {
                 if (i2 >= 4096) {
                     break;
                 }
                 f3 = (i2 * 1.0f) / 4096.0f;
-                if (a(f3, 0.0d, this.f11812b.x, this.f11813c.x, 1.0d) >= f2) {
-                    this.f11811a = i2;
+                if (a(f3, 0.0d, this.f11820b.x, this.f11821c.x, 1.0d) >= f2) {
+                    this.f11819a = i2;
                     break;
                 }
                 i2++;
             }
-            double a2 = a(f3, 0.0d, this.f11812b.y, this.f11813c.y, 1.0d);
+            double a2 = a(f3, 0.0d, this.f11820b.y, this.f11821c.y, 1.0d);
             if (a2 > 0.999d) {
                 a2 = 1.0d;
-                this.f11811a = 0;
+                this.f11819a = 0;
             }
             return (float) a2;
         }

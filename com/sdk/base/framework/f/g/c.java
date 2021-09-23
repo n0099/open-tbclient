@@ -15,13 +15,13 @@ public abstract class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f75583a;
+    public static final c f75902a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f75584b;
+    public static final c f75903b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f75585c;
+    public static final c f75904c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public abstract class c {
                 return;
             }
         }
-        f75583a = new c(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0) { // from class: com.sdk.base.framework.f.g.d
+        f75902a = new c(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0) { // from class: com.sdk.base.framework.f.g.d
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,7 +72,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f75584b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
+        f75903b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f75585c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
+        f75904c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

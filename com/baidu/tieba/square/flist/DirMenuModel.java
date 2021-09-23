@@ -22,22 +22,22 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f56882e;
+    public b f56999e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f56883f;
+    public c f57000f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f56884g;
+    public String f57001g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f56885h;
+    public String f57002h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f56886i;
+    public String f57003i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f56887j;
+    public boolean f57004j;
     public boolean k;
 
     /* loaded from: classes7.dex */
@@ -69,17 +69,17 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 return;
             }
         }
-        this.f56887j = false;
+        this.f57004j = false;
         this.k = false;
-        this.f56884g = str;
-        this.f56885h = str2;
-        this.f56886i = str3;
+        this.f57001g = str;
+        this.f57002h = str2;
+        this.f57003i = str3;
     }
 
     public void E(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f56883f = cVar;
+            this.f57000f = cVar;
         }
     }
 
@@ -89,7 +89,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b bVar = new b(this, null);
-            this.f56882e = bVar;
+            this.f56999e = bVar;
             bVar.execute(new Object[0]);
             return true;
         }
@@ -101,7 +101,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b bVar = this.f56882e;
+            b bVar = this.f56999e;
             if (bVar != null) {
                 bVar.cancel();
                 return false;
@@ -117,13 +117,13 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f56888a;
+        public NetWork f57005a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.r0.g3.j.c f56889b;
+        public c.a.r0.g3.j.c f57006b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ DirMenuModel f56890c;
+        public final /* synthetic */ DirMenuModel f57007c;
 
         public b(DirMenuModel dirMenuModel) {
             Interceptable interceptable = $ic;
@@ -140,9 +140,9 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                     return;
                 }
             }
-            this.f56890c = dirMenuModel;
-            this.f56888a = null;
-            this.f56889b = new c.a.r0.g3.j.c();
+            this.f57007c = dirMenuModel;
+            this.f57005a = null;
+            this.f57006b = new c.a.r0.g3.j.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -157,40 +157,40 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 c.a.q0.s.r.a.f();
                 l<String> g2 = c.a.q0.s.r.a.g("tb.my_posts");
                 if (g2 != null) {
-                    str = g2.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.f56890c.f56884g + "_dir");
+                    str = g2.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.f57007c.f57001g + "_dir");
                 } else {
                     str = null;
                 }
                 if (str != null) {
-                    this.f56889b.e(str);
-                    this.f56890c.k = true;
+                    this.f57006b.e(str);
+                    this.f57007c.k = true;
                     publishProgress(new Integer[0]);
                 }
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/seconddir");
-                    this.f56888a = netWork;
-                    netWork.addPostData(ForumListActivity.KEY_MENU_NAME, this.f56890c.f56884g);
-                    this.f56888a.addPostData("menu_type", this.f56890c.f56885h);
-                    this.f56888a.addPostData(ForumListActivity.KEY_MENU_ID, this.f56890c.f56886i);
-                    postNetData = this.f56888a.postNetData();
+                    this.f57005a = netWork;
+                    netWork.addPostData(ForumListActivity.KEY_MENU_NAME, this.f57007c.f57001g);
+                    this.f57005a.addPostData("menu_type", this.f57007c.f57002h);
+                    this.f57005a.addPostData(ForumListActivity.KEY_MENU_ID, this.f57007c.f57003i);
+                    postNetData = this.f57005a.postNetData();
                 } catch (Exception e2) {
-                    this.f56889b.g(e2.getMessage());
+                    this.f57006b.g(e2.getMessage());
                     BdLog.detailException(e2);
                 }
                 if (postNetData == null) {
-                    return this.f56889b;
+                    return this.f57006b;
                 }
-                if (this.f56888a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.f56889b.e(postNetData);
-                    this.f56890c.f56887j = true;
+                if (this.f57005a.getNetContext().getResponse().isRequestSuccess()) {
+                    this.f57006b.e(postNetData);
+                    this.f57007c.f57004j = true;
                     if (g2 != null) {
-                        g2.e(TbadkCoreApplication.getCurrentAccount() + "_" + this.f56890c.f56884g + "_dir", postNetData, 86400000L);
+                        g2.e(TbadkCoreApplication.getCurrentAccount() + "_" + this.f57007c.f57001g + "_dir", postNetData, 86400000L);
                     }
                 } else {
-                    this.f56889b.g(this.f56888a.getErrorString());
-                    this.f56890c.f56887j = false;
+                    this.f57006b.g(this.f57005a.getErrorString());
+                    this.f57007c.f57004j = false;
                 }
-                return this.f56889b;
+                return this.f57006b;
             }
             return (c.a.r0.g3.j.c) invokeL.objValue;
         }
@@ -201,10 +201,10 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         public void onPostExecute(c.a.r0.g3.j.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                if (!this.f56890c.f56887j) {
-                    this.f56890c.f56883f.a(false, -1, null, cVar.b(), this.f56890c.k);
+                if (!this.f57007c.f57004j) {
+                    this.f57007c.f57000f.a(false, -1, null, cVar.b(), this.f57007c.k);
                 } else if (cVar.h() != null) {
-                    this.f56890c.f56883f.a(true, cVar.a(), cVar.h(), cVar.b(), this.f56890c.k);
+                    this.f57007c.f57000f.a(true, cVar.a(), cVar.h(), cVar.b(), this.f57007c.k);
                 }
             }
         }
@@ -214,10 +214,10 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f56888a;
+                NetWork netWork = this.f57005a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
-                    this.f56888a = null;
+                    this.f57005a = null;
                 }
             }
         }
@@ -229,8 +229,8 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, numArr) == null) {
                 super.onProgressUpdate(numArr);
-                if (this.f56889b != null) {
-                    this.f56890c.f56883f.a(true, this.f56889b.a(), this.f56889b.h(), this.f56889b.b(), this.f56890c.k);
+                if (this.f57006b != null) {
+                    this.f57007c.f57000f.a(true, this.f57006b.a(), this.f57006b.h(), this.f57006b.b(), this.f57007c.k);
                 }
             }
         }

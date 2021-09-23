@@ -21,25 +21,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PushDialogActivity f25426a;
+    public PushDialogActivity f25447a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25427b;
+    public String f25448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f25428c;
+    public long f25449c;
 
     /* renamed from: c.a.r0.u2.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1187a extends c.a.e.c.g.a {
+    public class C1185a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f25429a;
+        public final /* synthetic */ a f25450a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1187a(a aVar, int i2, int i3) {
+        public C1185a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -57,7 +57,7 @@ public class a {
                     return;
                 }
             }
-            this.f25429a = aVar;
+            this.f25450a = aVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -65,9 +65,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage instanceof PushDialogHttpResMsg) {
-                    this.f25429a.f((PushDialogHttpResMsg) responsedMessage);
+                    this.f25450a.f((PushDialogHttpResMsg) responsedMessage);
                 } else if (responsedMessage instanceof PushDialogSocketResMsg) {
-                    this.f25429a.g((PushDialogSocketResMsg) responsedMessage);
+                    this.f25450a.g((PushDialogSocketResMsg) responsedMessage);
                 }
             }
         }
@@ -88,14 +88,14 @@ public class a {
                 return;
             }
         }
-        this.f25426a = pushDialogActivity;
-        pushDialogActivity.registerListener(new C1187a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
-        Intent intent = this.f25426a.getIntent();
+        this.f25447a = pushDialogActivity;
+        pushDialogActivity.registerListener(new C1185a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
+        Intent intent = this.f25447a.getIntent();
         if (intent != null) {
-            this.f25427b = intent.getStringExtra("thread_id");
-            this.f25428c = intent.getLongExtra("task_id", 0L);
-            if (StringUtils.isNull(this.f25427b)) {
-                this.f25426a.finish();
+            this.f25448b = intent.getStringExtra("thread_id");
+            this.f25449c = intent.getLongExtra("task_id", 0L);
+            if (StringUtils.isNull(this.f25448b)) {
+                this.f25447a.finish();
             }
         }
     }
@@ -103,21 +103,21 @@ public class a {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25428c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25449c : invokeV.longValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25427b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25448b : (String) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long g2 = c.a.e.e.m.b.g(this.f25427b, 0L);
+            long g2 = c.a.e.e.m.b.g(this.f25448b, 0L);
             if (g2 == 0) {
-                PushDialogActivity pushDialogActivity = this.f25426a;
+                PushDialogActivity pushDialogActivity = this.f25447a;
                 if (pushDialogActivity != null) {
                     pushDialogActivity.onNetCallback(false, null);
                     return;
@@ -125,7 +125,7 @@ public class a {
                 return;
             }
             PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
-            pushDialogReqNetMsg.setTask_id(this.f25428c);
+            pushDialogReqNetMsg.setTask_id(this.f25449c);
             pushDialogReqNetMsg.setTid(g2);
             MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
         }
@@ -134,7 +134,7 @@ public class a {
     public final void f(PushDialogHttpResMsg pushDialogHttpResMsg) {
         PushDialogActivity pushDialogActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pushDialogHttpResMsg) == null) || (pushDialogActivity = this.f25426a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, pushDialogHttpResMsg) == null) || (pushDialogActivity = this.f25447a) == null) {
             return;
         }
         pushDialogActivity.onNetCallback(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
@@ -143,7 +143,7 @@ public class a {
     public final void g(PushDialogSocketResMsg pushDialogSocketResMsg) {
         PushDialogActivity pushDialogActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, pushDialogSocketResMsg) == null) || (pushDialogActivity = this.f25426a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, pushDialogSocketResMsg) == null) || (pushDialogActivity = this.f25447a) == null) {
             return;
         }
         pushDialogActivity.onNetCallback(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());

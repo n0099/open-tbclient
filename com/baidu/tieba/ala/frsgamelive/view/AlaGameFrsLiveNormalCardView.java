@@ -4,7 +4,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import c.a.q0.s.q.d2;
 import c.a.r0.a0.b;
-import c.a.r0.v.e.b.c;
+import c.a.r0.v.e;
+import c.a.r0.v.g.b.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -19,7 +20,7 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
-    public c.a.r0.v.e.d.b n;
+    public c.a.r0.v.g.d.b n;
 
     /* loaded from: classes7.dex */
     public static class AlaGameFrsNormalViewHolder extends TypeAdapter.ViewHolder {
@@ -80,7 +81,7 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
 
     @Override // c.a.r0.a0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
-        c.a.r0.v.e.d.b bVar;
+        c.a.r0.v.g.d.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || (bVar = this.n) == null) {
             return;
@@ -98,7 +99,7 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.n = new c.a.r0.v.e.d.b(this.m);
+            this.n = new c.a.r0.v.g.d.b(this.m);
             ((ViewGroup) j()).addView(this.n.c());
         }
     }
@@ -108,20 +109,20 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
     /* renamed from: q */
     public void k(c cVar) {
         d2 d2Var;
-        c.a.r0.v.e.d.b bVar;
+        c.a.r0.v.g.d.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (d2Var = cVar.f25949e) == null || (bVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (d2Var = cVar.f25972e) == null || (bVar = this.n) == null) {
             return;
         }
         bVar.d(d2Var);
     }
 
-    public void s(c.a.r0.v.c cVar) {
-        c.a.r0.v.e.d.b bVar;
+    public void s(e eVar) {
+        c.a.r0.v.g.d.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) || (bVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) || (bVar = this.n) == null) {
             return;
         }
-        bVar.g(cVar);
+        bVar.g(eVar);
     }
 }

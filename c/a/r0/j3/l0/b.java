@@ -16,25 +16,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f20948a;
+    public Rect f20960a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f20949b;
+    public Bitmap f20961b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f20950c;
+    public Rect f20962c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f20951d;
+    public Context f20963d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bundle f20952e;
+    public Bundle f20964e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20953f;
+    public boolean f20965f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f20954g;
+    public boolean f20966g;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -51,16 +51,16 @@ public class b {
                 return;
             }
         }
-        this.f20951d = context;
-        this.f20950c = new Rect();
+        this.f20963d = context;
+        this.f20962c = new Rect();
     }
 
     public void a(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f20951d.getResources().getDisplayMetrics();
-            this.f20950c.set(0, 0, this.f20949b.getWidth(), this.f20949b.getHeight());
-            canvas.drawBitmap(this.f20949b, this.f20950c, this.f20948a, (Paint) null);
+            this.f20963d.getResources().getDisplayMetrics();
+            this.f20962c.set(0, 0, this.f20961b.getWidth(), this.f20961b.getHeight());
+            canvas.drawBitmap(this.f20961b, this.f20962c, this.f20960a, (Paint) null);
         }
     }
 }

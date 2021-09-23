@@ -60,32 +60,32 @@ public final class d extends b<d> {
                     this.t.e(f2);
                     this.u = Float.MAX_VALUE;
                 }
-                this.f26389b = this.t.a();
-                this.f26388a = 0.0f;
+                this.f26412b = this.t.a();
+                this.f26411a = 0.0f;
                 this.v = false;
                 return true;
             }
             if (this.u != Float.MAX_VALUE) {
                 this.t.a();
                 long j3 = j2 / 2;
-                b.i h2 = this.t.h(this.f26389b, this.f26388a, j3);
+                b.i h2 = this.t.h(this.f26412b, this.f26411a, j3);
                 this.t.e(this.u);
                 this.u = Float.MAX_VALUE;
-                b.i h3 = this.t.h(h2.f26398a, h2.f26399b, j3);
-                this.f26389b = h3.f26398a;
-                this.f26388a = h3.f26399b;
+                b.i h3 = this.t.h(h2.f26421a, h2.f26422b, j3);
+                this.f26412b = h3.f26421a;
+                this.f26411a = h3.f26422b;
             } else {
-                b.i h4 = this.t.h(this.f26389b, this.f26388a, j2);
-                this.f26389b = h4.f26398a;
-                this.f26388a = h4.f26399b;
+                b.i h4 = this.t.h(this.f26412b, this.f26411a, j2);
+                this.f26412b = h4.f26421a;
+                this.f26411a = h4.f26422b;
             }
-            float max = Math.max(this.f26389b, this.f26395h);
-            this.f26389b = max;
-            float min = Math.min(max, this.f26394g);
-            this.f26389b = min;
-            if (k(min, this.f26388a)) {
-                this.f26389b = this.t.a();
-                this.f26388a = 0.0f;
+            float max = Math.max(this.f26412b, this.f26418h);
+            this.f26412b = max;
+            float min = Math.min(max, this.f26417g);
+            this.f26412b = min;
+            if (k(min, this.f26411a)) {
+                this.f26412b = this.t.a();
+                this.f26411a = 0.0f;
                 return true;
             }
             return false;
@@ -105,8 +105,8 @@ public final class d extends b<d> {
             e eVar = this.t;
             if (eVar != null) {
                 double a2 = eVar.a();
-                if (a2 <= this.f26394g) {
-                    if (a2 < this.f26395h) {
+                if (a2 <= this.f26417g) {
+                    if (a2 < this.f26418h) {
                         throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
                     }
                     return;

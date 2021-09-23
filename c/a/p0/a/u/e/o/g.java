@@ -40,7 +40,7 @@ public class g extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             if (l()) {
                 c.a.p0.a.e0.d.b("Api-PhoneCallApi", "Api-PhoneCallApi does not supported when app is invisible.");
                 return new c.a.p0.a.u.h.b(1001, "Api-PhoneCallApi does not supported when app is invisible.");

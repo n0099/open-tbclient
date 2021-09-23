@@ -23,7 +23,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<c.a.r0.s1.k.a> f24742a;
+    public static final List<c.a.r0.s1.k.a> f24758a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class a {
                 return;
             }
         }
-        f24742a = new ArrayList();
+        f24758a = new ArrayList();
     }
 
     public static void a(Context context) {
@@ -200,15 +200,15 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         if (aVar != null) {
             try {
-                if (!TextUtils.isEmpty(aVar.f24764a)) {
-                    jSONObject.put("callback", aVar.f24764a);
+                if (!TextUtils.isEmpty(aVar.f24780a)) {
+                    jSONObject.put("callback", aVar.f24780a);
                     if (aVar2 != null) {
-                        f24742a.add(aVar2);
+                        f24758a.add(aVar2);
                     }
                 }
-                jSONObject.put("isTranslucent", aVar.f24765b);
-                if (!TextUtils.isEmpty(aVar.f24766c)) {
-                    jSONObject.put("from", aVar.f24766c);
+                jSONObject.put("isTranslucent", aVar.f24781b);
+                if (!TextUtils.isEmpty(aVar.f24782c)) {
+                    jSONObject.put("from", aVar.f24782c);
                 }
             } catch (JSONException unused) {
             }
@@ -305,10 +305,10 @@ public class a {
     public static void o(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, jSONObject) == null) {
-            for (int i2 = 0; i2 < f24742a.size(); i2++) {
-                f24742a.get(i2).onCallback(jSONObject);
+            for (int i2 = 0; i2 < f24758a.size(); i2++) {
+                f24758a.get(i2).onCallback(jSONObject);
             }
-            f24742a.clear();
+            f24758a.clear();
         }
     }
 

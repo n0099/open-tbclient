@@ -13,31 +13,31 @@ public final class S {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final S f76873a;
+    public static final S f77192a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final S f76874b;
+    public static final S f77193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final S f76875c;
+    public static final S f77194c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final S f76876d;
+    public static final S f77195d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final S f76877e;
+    public static final S f77196e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final S f76878f;
+    public static final S f77197f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final S f76879g;
+    public static final S f77198g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final S f76880h;
+    public static final S f77199h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final /* synthetic */ S[] f76881i;
+    public static final /* synthetic */ S[] f77200i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,16 +53,16 @@ public final class S {
                 return;
             }
         }
-        f76873a = new S("UnknownHost", 0);
-        f76874b = new S("Socket", 1);
-        f76875c = new S("SocketTimeout", 2);
-        f76876d = new S("ConnectTimeout", 3);
-        f76877e = new S("IO", 4);
-        f76878f = new S("HttpResponse", 5);
-        f76879g = new S("JSON", 6);
+        f77192a = new S("UnknownHost", 0);
+        f77193b = new S("Socket", 1);
+        f77194c = new S("SocketTimeout", 2);
+        f77195d = new S("ConnectTimeout", 3);
+        f77196e = new S("IO", 4);
+        f77197f = new S("HttpResponse", 5);
+        f77198g = new S("JSON", 6);
         S s = new S("Interrupted", 7);
-        f76880h = s;
-        f76881i = new S[]{f76873a, f76874b, f76875c, f76876d, f76877e, f76878f, f76879g, s};
+        f77199h = s;
+        f77200i = new S[]{f77192a, f77193b, f77194c, f77195d, f77196e, f77197f, f77198g, s};
     }
 
     public S(String str, int i2) {
@@ -93,6 +93,6 @@ public final class S {
     public static S[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (S[]) f76881i.clone() : (S[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (S[]) f77200i.clone() : (S[]) invokeV.objValue;
     }
 }

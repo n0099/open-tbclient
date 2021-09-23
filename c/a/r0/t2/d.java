@@ -28,34 +28,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PostSearchActivity f25033a;
+    public PostSearchActivity f25054a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25034b;
+    public String f25055b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25035c;
+    public String f25056c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f25036d;
+    public int f25057d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f25037e;
+    public int f25058e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f25038f;
+    public int f25059f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f25039g;
+    public boolean f25060g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f25040h;
+    public boolean f25061h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f25041i;
+    public boolean f25062i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ArrayList<String> f25042j;
+    public ArrayList<String> f25063j;
     public int k;
     public final HttpMessageListener l;
     public CustomMessageListener m;
@@ -66,7 +66,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f25043a;
+        public final /* synthetic */ d f25064a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -86,7 +86,7 @@ public class d {
                     return;
                 }
             }
-            this.f25043a = dVar;
+            this.f25064a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -99,22 +99,22 @@ public class d {
                 if ((httpResponsedMessage instanceof PostSearchHttpResponseMessage) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
                     HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
                     int intValue = httpMessage.getExtra() instanceof Integer ? ((Integer) httpMessage.getExtra()).intValue() : 0;
-                    this.f25043a.p(intValue);
-                    boolean z = this.f25043a.i(intValue) > 1;
+                    this.f25064a.p(intValue);
+                    boolean z = this.f25064a.i(intValue) > 1;
                     PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                     if (statusCode == 200 && error == 0) {
-                        this.f25043a.f25033a.refreshResultListByTab(intValue, postSearchHttpResponseMessage.getSearchData(), z);
-                        this.f25043a.f(intValue);
-                        this.f25043a.r();
-                        this.f25043a.s();
+                        this.f25064a.f25054a.refreshResultListByTab(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                        this.f25064a.f(intValue);
+                        this.f25064a.r();
+                        this.f25064a.s();
                         return;
                     }
                     String errorString = postSearchHttpResponseMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = this.f25043a.f25033a.getResources().getString(R.string.neterror);
+                        errorString = this.f25064a.f25054a.getResources().getString(R.string.neterror);
                     }
-                    this.f25043a.f25033a.showToast(errorString);
-                    this.f25043a.f25033a.refreshResultListByTab(intValue, null, z);
+                    this.f25064a.f25054a.showToast(errorString);
+                    this.f25064a.f25054a.refreshResultListByTab(intValue, null, z);
                 }
             }
         }
@@ -126,7 +126,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f25044a;
+        public final /* synthetic */ d f25065a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, int i2) {
@@ -146,7 +146,7 @@ public class d {
                     return;
                 }
             }
-            this.f25044a = dVar;
+            this.f25065a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -157,9 +157,9 @@ public class d {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof ArrayList)) {
                 return;
             }
-            d dVar = this.f25044a;
-            dVar.f25042j = (ArrayList) data;
-            dVar.f25033a.refreshHistoryList();
+            d dVar = this.f25065a;
+            dVar.f25063j = (ArrayList) data;
+            dVar.f25054a.refreshHistoryList();
         }
     }
 
@@ -178,31 +178,31 @@ public class d {
                 return;
             }
         }
-        this.f25036d = 1;
-        this.f25037e = 1;
-        this.f25038f = 1;
-        this.f25039g = false;
-        this.f25040h = false;
-        this.f25041i = false;
+        this.f25057d = 1;
+        this.f25058e = 1;
+        this.f25059f = 1;
+        this.f25060g = false;
+        this.f25061h = false;
+        this.f25062i = false;
         this.k = 0;
         this.l = new a(this, CmdConfigHttp.CMD_POST_SEARCH);
         b bVar = new b(this, 2009001);
         this.m = bVar;
-        this.f25033a = postSearchActivity;
+        this.f25054a = postSearchActivity;
         postSearchActivity.registerListener(bVar);
-        this.f25033a.registerListener(this.l);
+        this.f25054a.registerListener(this.l);
     }
 
     public final void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 1) {
-                this.f25036d++;
+                this.f25057d++;
             } else if (i2 == 2) {
-                this.f25037e++;
+                this.f25058e++;
             } else if (i2 != 3) {
             } else {
-                this.f25038f++;
+                this.f25059f++;
             }
         }
     }
@@ -210,11 +210,11 @@ public class d {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ArrayList<String> arrayList = this.f25042j;
+            ArrayList<String> arrayList = this.f25063j;
             if (arrayList != null) {
                 arrayList.clear();
             }
-            this.f25033a.sendMessage(new CustomMessage(2009004));
+            this.f25054a.sendMessage(new CustomMessage(2009004));
         }
     }
 
@@ -223,22 +223,22 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-            httpMessage.addParam("word", this.f25034b);
+            httpMessage.addParam("word", this.f25055b);
             httpMessage.addParam("rn", 30);
-            httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, this.f25033a.mForumName);
+            httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, this.f25054a.mForumName);
             httpMessage.setExtra(Integer.valueOf(this.k));
             if (i2 == 1) {
                 httpMessage.addParam("sm", 1);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam("pn", this.f25036d);
+                httpMessage.addParam("pn", this.f25057d);
             } else if (i2 == 2) {
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam("pn", this.f25037e);
+                httpMessage.addParam("pn", this.f25058e);
             } else if (i2 == 3) {
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam("pn", this.f25038f);
+                httpMessage.addParam("pn", this.f25059f);
             }
             return httpMessage;
         }
@@ -254,11 +254,11 @@ public class d {
                     if (i2 != 3) {
                         return 0;
                     }
-                    return this.f25038f;
+                    return this.f25059f;
                 }
-                return this.f25037e;
+                return this.f25058e;
             }
-            return this.f25036d;
+            return this.f25057d;
         }
         return invokeI.intValue;
     }
@@ -266,7 +266,7 @@ public class d {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f25033a.sendMessage(new CustomMessage(2009001));
+            this.f25054a.sendMessage(new CustomMessage(2009001));
         }
     }
 
@@ -289,7 +289,7 @@ public class d {
             if (StringUtils.isNull(str)) {
                 return false;
             }
-            if (!str.equals(this.f25034b)) {
+            if (!str.equals(this.f25055b)) {
                 q();
             }
             if (i2 != 1) {
@@ -310,13 +310,13 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (this.f25041i) {
+            if (this.f25062i) {
                 return false;
             }
-            this.f25034b = str;
+            this.f25055b = str;
             this.k = 3;
-            this.f25033a.sendMessage(h(3));
-            this.f25041i = true;
+            this.f25054a.sendMessage(h(3));
+            this.f25062i = true;
             return true;
         }
         return invokeL.booleanValue;
@@ -326,13 +326,13 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (this.f25040h) {
+            if (this.f25061h) {
                 return false;
             }
-            this.f25034b = str;
+            this.f25055b = str;
             this.k = 2;
-            this.f25033a.sendMessage(h(2));
-            this.f25040h = true;
+            this.f25054a.sendMessage(h(2));
+            this.f25061h = true;
             return true;
         }
         return invokeL.booleanValue;
@@ -342,13 +342,13 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (this.f25039g) {
+            if (this.f25060g) {
                 return false;
             }
-            this.f25034b = str;
+            this.f25055b = str;
             this.k = 1;
-            this.f25033a.sendMessage(h(1));
-            this.f25039g = true;
+            this.f25054a.sendMessage(h(1));
+            this.f25060g = true;
             return true;
         }
         return invokeL.booleanValue;
@@ -358,12 +358,12 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             if (i2 == 1) {
-                this.f25039g = false;
+                this.f25060g = false;
             } else if (i2 == 2) {
-                this.f25040h = false;
+                this.f25061h = false;
             } else if (i2 != 3) {
             } else {
-                this.f25041i = false;
+                this.f25062i = false;
             }
         }
     }
@@ -371,30 +371,30 @@ public class d {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f25036d = 1;
-            this.f25037e = 1;
-            this.f25038f = 1;
+            this.f25057d = 1;
+            this.f25058e = 1;
+            this.f25059f = 1;
         }
     }
 
     public void r() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || StringUtils.isNull(this.f25034b) || this.f25034b.equals(this.f25035c)) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || StringUtils.isNull(this.f25055b) || this.f25055b.equals(this.f25056c)) {
             return;
         }
-        this.f25033a.sendMessage(new CustomMessage(2009003, this.f25034b));
-        this.f25035c = this.f25034b;
+        this.f25054a.sendMessage(new CustomMessage(2009003, this.f25055b));
+        this.f25056c = this.f25055b;
     }
 
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.f25042j == null) {
-                this.f25042j = new ArrayList<>();
+            if (this.f25063j == null) {
+                this.f25063j = new ArrayList<>();
             }
-            this.f25042j.remove(this.f25034b);
-            this.f25042j.add(0, this.f25034b);
-            k(this.f25042j);
+            this.f25063j.remove(this.f25055b);
+            this.f25063j.add(0, this.f25055b);
+            k(this.f25063j);
         }
     }
 }

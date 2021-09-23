@@ -50,7 +50,7 @@ public class a extends a0 {
                 eVar.B().e(eVar.getAppId());
             }
             if (eVar != null && eVar.d0()) {
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
                 return false;
             }

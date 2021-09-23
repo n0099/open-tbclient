@@ -19,7 +19,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Integer> f5686a;
+    public final Map<String, Integer> f5694a;
 
     /* renamed from: c.a.p0.a.f1.d.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f5687a;
+        public static final a f5695a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class a {
                     return;
                 }
             }
-            f5687a = new a();
+            f5695a = new a();
         }
     }
 
@@ -60,7 +60,7 @@ public class a {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public a() {
@@ -76,19 +76,19 @@ public class a {
                 return;
             }
         }
-        this.f5686a = new ConcurrentHashMap();
+        this.f5694a = new ConcurrentHashMap();
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0185a.f5687a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0185a.f5695a : (a) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f5686a.put(str, Integer.valueOf(c(str) + 1));
+            this.f5694a.put(str, Integer.valueOf(c(str) + 1));
         }
     }
 
@@ -96,7 +96,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Integer num = this.f5686a.get(str);
+            Integer num = this.f5694a.get(str);
             if (num != null) {
                 return num.intValue();
             }
@@ -134,7 +134,7 @@ public class a {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f5686a.remove(str);
+            this.f5694a.remove(str);
         }
     }
 }

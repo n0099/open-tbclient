@@ -12,22 +12,22 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f18499a;
+    public long f18508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f18500b;
+    public long f18509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18501c;
+    public String f18510c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18502d;
+    public String f18511d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18503e;
+    public String f18512e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18504f;
+    public int f18513f;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, timeLineInfo) == null) || timeLineInfo == null) {
             return;
         }
-        this.f18500b = timeLineInfo.tid.longValue();
-        this.f18501c = timeLineInfo.title;
-        this.f18502d = k.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
-        this.f18503e = timeLineInfo.bg_color;
+        this.f18509b = timeLineInfo.tid.longValue();
+        this.f18510c = timeLineInfo.title;
+        this.f18511d = k.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
+        this.f18512e = timeLineInfo.bg_color;
     }
 }

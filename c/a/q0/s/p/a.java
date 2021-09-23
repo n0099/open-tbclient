@@ -20,22 +20,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f14059b;
+    public static a f14056b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Runnable f14060a;
+    public Runnable f14057a;
 
     /* renamed from: c.a.q0.s.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0694a implements Runnable {
+    public class RunnableC0692a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f14061e;
+        public final /* synthetic */ a f14058e;
 
-        public RunnableC0694a(a aVar) {
+        public RunnableC0692a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,14 +50,14 @@ public class a {
                     return;
                 }
             }
-            this.f14061e = aVar;
+            this.f14058e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f14061e.d(0);
+                this.f14058e.d(0);
             }
         }
     }
@@ -75,21 +75,21 @@ public class a {
                 return;
             }
         }
-        this.f14060a = new RunnableC0694a(this);
+        this.f14057a = new RunnableC0692a(this);
     }
 
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f14059b == null) {
+            if (f14056b == null) {
                 synchronized (a.class) {
-                    if (f14059b == null) {
-                        f14059b = new a();
+                    if (f14056b == null) {
+                        f14056b = new a();
                     }
                 }
             }
-            return f14059b;
+            return f14056b;
         }
         return (a) invokeV.objValue;
     }
@@ -105,7 +105,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (a() || DeviceInfoUtil.isHonor()) {
                 d(1);
-                e.a().postDelayed(this.f14060a, 500L);
+                e.a().postDelayed(this.f14057a, 500L);
             }
         }
     }

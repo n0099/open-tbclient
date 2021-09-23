@@ -43,7 +43,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseActivity f36361e;
+        public final /* synthetic */ PluginAdpBaseActivity f36404e;
 
         public a(PluginAdpBaseActivity pluginAdpBaseActivity) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
                     return;
                 }
             }
-            this.f36361e = pluginAdpBaseActivity;
+            this.f36404e = pluginAdpBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseActivity pluginAdpBaseActivity = this.f36361e;
+                PluginAdpBaseActivity pluginAdpBaseActivity = this.f36404e;
                 pluginAdpBaseActivity.onPreLoad(pluginAdpBaseActivity.onGetPreLoadListView());
             }
         }
@@ -153,7 +153,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             this.mId = BdUniqueId.gen();
-            b.f().o(getActivity());
+            b.f().n(getActivity());
         }
     }
 
@@ -165,7 +165,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
-            b.f().m(getActivity());
+            b.f().l(getActivity());
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }

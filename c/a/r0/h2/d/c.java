@@ -32,14 +32,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f19003c;
+    public static volatile c f19012c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f19004a;
+    public Activity f19013a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f19005b;
+    public e f19014b;
 
     /* loaded from: classes3.dex */
     public class a implements SapiCallback<CheckUserFaceIdResult> {
@@ -47,10 +47,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SapiAccount f19006e;
+        public final /* synthetic */ SapiAccount f19015e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f19007f;
+        public final /* synthetic */ c f19016f;
 
         public a(c cVar, SapiAccount sapiAccount) {
             Interceptable interceptable = $ic;
@@ -67,8 +67,8 @@ public class c {
                     return;
                 }
             }
-            this.f19007f = cVar;
-            this.f19006e = sapiAccount;
+            this.f19016f = cVar;
+            this.f19015e = sapiAccount;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,8 +80,8 @@ public class c {
                 if (checkUserFaceIdResult != null) {
                     l.M(TbadkCoreApplication.getInst(), checkUserFaceIdResult.getResultMsg());
                 }
-                if (this.f19007f.f19005b != null) {
-                    this.f19007f.f19005b.onFail();
+                if (this.f19016f.f19014b != null) {
+                    this.f19016f.f19014b.onFail();
                 }
             }
         }
@@ -96,25 +96,25 @@ public class c {
                 if (i2 == 1) {
                     if (!TextUtils.isEmpty(checkUserFaceIdResult.livingUname)) {
                         BdLog.e("非实名人脸验证流程");
-                        this.f19007f.e(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, checkUserFaceIdResult.livingUname, this.f19006e.bduss);
+                        this.f19016f.e(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, checkUserFaceIdResult.livingUname, this.f19015e.bduss);
                         return;
                     }
                     BdLog.e("实名人脸验证流程");
-                    this.f19007f.e(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, "", this.f19006e.bduss);
+                    this.f19016f.e(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, "", this.f19015e.bduss);
                 } else if (i2 == 2) {
                     BdLog.e("人脸注册流程");
-                    this.f19007f.j(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, checkUserFaceIdResult.authsid, checkUserFaceIdResult.livingUname, checkUserFaceIdResult.authWidgetURL);
+                    this.f19016f.j(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, checkUserFaceIdResult.authsid, checkUserFaceIdResult.livingUname, checkUserFaceIdResult.authWidgetURL);
                 } else if (i2 == 3) {
                     BdLog.e("人脸验证不可用");
                     l.M(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
-                    if (this.f19007f.f19005b != null) {
-                        this.f19007f.f19005b.c();
+                    if (this.f19016f.f19014b != null) {
+                        this.f19016f.f19014b.c();
                     }
                 } else {
                     BdLog.e("人脸验证不可用");
                     l.M(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
-                    if (this.f19007f.f19005b != null) {
-                        this.f19007f.f19005b.c();
+                    if (this.f19016f.f19014b != null) {
+                        this.f19016f.f19014b.c();
                     }
                 }
             }
@@ -141,13 +141,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f19008a;
+        public final /* synthetic */ boolean f19017a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f19009b;
+        public final /* synthetic */ boolean f19018b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f19010c;
+        public final /* synthetic */ c f19019c;
 
         public b(c cVar, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
@@ -164,9 +164,9 @@ public class c {
                     return;
                 }
             }
-            this.f19010c = cVar;
-            this.f19008a = z;
-            this.f19009b = z2;
+            this.f19019c = cVar;
+            this.f19017a = z;
+            this.f19018b = z2;
         }
 
         @Override // com.baidu.sapi2.callback.FaceIDCallback
@@ -176,8 +176,8 @@ public class c {
                 if (sapiResult != null && sapiResult.getResultCode() != -204 && !StringHelper.equals("用户取消操作", sapiResult.getResultMsg())) {
                     l.M(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
                 }
-                if (this.f19010c.f19005b != null) {
-                    this.f19010c.f19005b.b(sapiResult instanceof RealNameFaceIDResult, false, null);
+                if (this.f19019c.f19014b != null) {
+                    this.f19019c.f19014b.b(sapiResult instanceof RealNameFaceIDResult, false, null);
                 }
             }
         }
@@ -190,11 +190,11 @@ public class c {
                     RealNameFaceIDResult realNameFaceIDResult = (RealNameFaceIDResult) sapiResult;
                     BdLog.d("实名人脸验证成功,callBackKey:" + realNameFaceIDResult.callBackKey + ",authSid:" + realNameFaceIDResult.authSid);
                     l.M(TbadkCoreApplication.getInst(), "刷脸验证成功");
-                    if (this.f19010c.f19005b != null) {
-                        this.f19010c.f19005b.b(true, true, realNameFaceIDResult.callBackKey);
+                    if (this.f19019c.f19014b != null) {
+                        this.f19019c.f19014b.b(true, true, realNameFaceIDResult.callBackKey);
                     }
-                    if (this.f19008a) {
-                        this.f19010c.h(this.f19009b, realNameFaceIDResult.callBackKey);
+                    if (this.f19017a) {
+                        this.f19019c.h(this.f19018b, realNameFaceIDResult.callBackKey);
                     }
                 } else if (sapiResult instanceof UnRealNameFaceIDResult) {
                     StringBuilder sb = new StringBuilder();
@@ -203,11 +203,11 @@ public class c {
                     sb.append(unRealNameFaceIDResult.registerResult);
                     BdLog.d(sb.toString());
                     l.M(TbadkCoreApplication.getInst(), "刷脸验证成功");
-                    if (this.f19010c.f19005b != null) {
-                        this.f19010c.f19005b.b(false, true, unRealNameFaceIDResult.callBackKey);
+                    if (this.f19019c.f19014b != null) {
+                        this.f19019c.f19014b.b(false, true, unRealNameFaceIDResult.callBackKey);
                     }
-                    if (this.f19008a) {
-                        this.f19010c.h(this.f19009b, unRealNameFaceIDResult.callBackKey);
+                    if (this.f19017a) {
+                        this.f19019c.h(this.f19018b, unRealNameFaceIDResult.callBackKey);
                     }
                 }
             }
@@ -216,20 +216,20 @@ public class c {
 
     /* renamed from: c.a.r0.h2.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0920c extends RegisterUserFaceIDCallback {
+    public class C0918c extends RegisterUserFaceIDCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f19011a;
+        public final /* synthetic */ boolean f19020a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f19012b;
+        public final /* synthetic */ boolean f19021b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f19013c;
+        public final /* synthetic */ c f19022c;
 
-        public C0920c(c cVar, boolean z, boolean z2) {
+        public C0918c(c cVar, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,9 +244,9 @@ public class c {
                     return;
                 }
             }
-            this.f19013c = cVar;
-            this.f19011a = z;
-            this.f19012b = z2;
+            this.f19022c = cVar;
+            this.f19020a = z;
+            this.f19021b = z2;
         }
 
         @Override // com.baidu.sapi2.callback.FaceIDCallback
@@ -256,8 +256,8 @@ public class c {
                 if (sapiResult != null && sapiResult.getResultCode() != -204 && !StringHelper.equals("用户取消操作", sapiResult.getResultMsg())) {
                     l.M(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
                 }
-                if (this.f19013c.f19005b != null) {
-                    this.f19013c.f19005b.a(false, null);
+                if (this.f19022c.f19014b != null) {
+                    this.f19022c.f19014b.a(false, null);
                 }
             }
         }
@@ -272,11 +272,11 @@ public class c {
                 sb.append(unRealNameFaceIDResult.registerResult);
                 BdLog.d(sb.toString());
                 l.M(TbadkCoreApplication.getInst(), "刷脸注册成功");
-                if (this.f19013c.f19005b != null) {
-                    this.f19013c.f19005b.a(true, unRealNameFaceIDResult.callBackKey);
+                if (this.f19022c.f19014b != null) {
+                    this.f19022c.f19014b.a(true, unRealNameFaceIDResult.callBackKey);
                 }
-                if (this.f19011a) {
-                    this.f19013c.h(this.f19012b, unRealNameFaceIDResult.callBackKey);
+                if (this.f19020a) {
+                    this.f19022c.h(this.f19021b, unRealNameFaceIDResult.callBackKey);
                 }
             }
         }
@@ -288,7 +288,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f19014e;
+        public final /* synthetic */ boolean f19023e;
 
         public d(c cVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -305,7 +305,7 @@ public class c {
                     return;
                 }
             }
-            this.f19014e = z;
+            this.f19023e = z;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -367,14 +367,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f19003c == null) {
+            if (f19012c == null) {
                 synchronized (c.class) {
-                    if (f19003c == null) {
-                        f19003c = new c();
+                    if (f19012c == null) {
+                        f19012c = new c();
                     }
                 }
             }
-            return f19003c;
+            return f19012c;
         }
         return (c) invokeV.objValue;
     }
@@ -387,7 +387,7 @@ public class c {
             faceIDVerifyDTO.businessSence = str;
             faceIDVerifyDTO.bduss = str3;
             faceIDVerifyDTO.showGuidePage = false;
-            PassportSDK.getInstance().verifyUserFaceId(this.f19004a, new b(this, z, z2), faceIDVerifyDTO);
+            PassportSDK.getInstance().verifyUserFaceId(this.f19013a, new b(this, z, z2), faceIDVerifyDTO);
         }
     }
 
@@ -405,8 +405,8 @@ public class c {
     public void g(Activity activity, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, eVar) == null) {
-            this.f19004a = activity;
-            this.f19005b = eVar;
+            this.f19013a = activity;
+            this.f19014b = eVar;
             f();
         }
     }
@@ -427,14 +427,14 @@ public class c {
             faceIDRegDTO.businessSence = str;
             faceIDRegDTO.authWidgetURL = str4;
             faceIDRegDTO.showGuidePage = true;
-            PassportSDK.getInstance().registerUserFaceID(this.f19004a, new C0920c(this, z, z2), faceIDRegDTO);
+            PassportSDK.getInstance().registerUserFaceID(this.f19013a, new C0918c(this, z, z2), faceIDRegDTO);
         }
     }
 
     public void k(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
-            this.f19005b = eVar;
+            this.f19014b = eVar;
         }
     }
 }

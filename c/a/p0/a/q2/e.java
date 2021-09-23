@@ -27,10 +27,10 @@ public final class e implements c.a.p0.a.q2.b, d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f8134e;
+        public final /* synthetic */ Set f8142e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Set f8135f;
+        public final /* synthetic */ Set f8143f;
 
         public a(e eVar, Set set, Set set2) {
             Interceptable interceptable = $ic;
@@ -47,16 +47,16 @@ public final class e implements c.a.p0.a.q2.b, d {
                     return;
                 }
             }
-            this.f8134e = set;
-            this.f8135f = set2;
+            this.f8142e = set;
+            this.f8143f = set2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (b bVar : this.f8134e) {
-                    bVar.onCallback(this.f8135f);
+                for (b bVar : this.f8142e) {
+                    bVar.onCallback(this.f8143f);
                 }
             }
         }
@@ -71,7 +71,7 @@ public final class e implements c.a.p0.a.q2.b, d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f8136a;
+        public static final e f8144a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -87,7 +87,7 @@ public final class e implements c.a.p0.a.q2.b, d {
                     return;
                 }
             }
-            f8136a = new e();
+            f8144a = new e();
         }
     }
 
@@ -110,7 +110,7 @@ public final class e implements c.a.p0.a.q2.b, d {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.f8136a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.f8144a : (e) invokeV.objValue;
     }
 
     public final <T> boolean b(T... tArr) {
@@ -163,7 +163,7 @@ public final class e implements c.a.p0.a.q2.b, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
             String aVar2 = aVar == null ? "" : aVar.toString();
-            boolean z = c.a.p0.a.q2.b.f8121a;
+            boolean z = c.a.p0.a.q2.b.f8129a;
             c.a.p0.a.e0.d.b("Tracer-ErrCode", aVar2);
             return this;
         }

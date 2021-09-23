@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.PayData;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
 import com.baidu.wallet.paysdk.PayCallBackManager;
-import com.baidu.wallet.paysdk.beans.n;
+import com.baidu.wallet.paysdk.beans.o;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
@@ -188,7 +188,7 @@ public class ErrorContentResponse implements Serializable {
         public static final String RETRY_PAY = "retry_pay";
         public static final String SEND_SMS = "send_sms";
         public transient /* synthetic */ FieldHolder $fh;
-        public transient Map<String, n> handlers;
+        public transient Map<String, o> handlers;
         public String hint;
         public String jump_uri;
         public String mobile;
@@ -217,17 +217,17 @@ public class ErrorContentResponse implements Serializable {
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof Operations) && TextUtils.equals(((Operations) obj).type, this.type) : invokeL.booleanValue;
         }
 
-        public n getAction() {
+        public o getAction() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (NOTICE.equals(this.type)) {
-                    return new n<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.1
+                    return new o<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f62449a;
+                        public final /* synthetic */ Operations f62727a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -244,26 +244,26 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f62449a = this;
+                            this.f62727a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.wallet.paysdk.beans.n
+                        @Override // com.baidu.wallet.paysdk.beans.o
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62449a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62727a.type);
                             }
                         }
                     };
                 }
                 if (CALL_UP.equals(this.type)) {
-                    return new n<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.2
+                    return new o<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f62450a;
+                        public final /* synthetic */ Operations f62728a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -280,15 +280,15 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f62450a = this;
+                            this.f62728a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.wallet.paysdk.beans.n
+                        @Override // com.baidu.wallet.paysdk.beans.o
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62450a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62728a.type);
                                 try {
                                     String str = operations.mobile;
                                     context.startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)));
@@ -300,12 +300,12 @@ public class ErrorContentResponse implements Serializable {
                     };
                 }
                 if (CASHDESK_CLOSE.equals(this.type)) {
-                    return new n<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.3
+                    return new o<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f62451a;
+                        public final /* synthetic */ Operations f62729a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -322,27 +322,27 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f62451a = this;
+                            this.f62729a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.wallet.paysdk.beans.n
+                        @Override // com.baidu.wallet.paysdk.beans.o
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62451a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62729a.type);
                                 PayCallBackManager.callBackClientPaying(context);
                             }
                         }
                     };
                 }
                 if (HELP_CENTER.equals(this.type)) {
-                    return new n<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.4
+                    return new o<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.4
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f62452a;
+                        public final /* synthetic */ Operations f62730a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -359,30 +359,30 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f62452a = this;
+                            this.f62730a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.wallet.paysdk.beans.n
+                        @Override // com.baidu.wallet.paysdk.beans.o
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62452a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62730a.type);
                                 if (context == null || operations == null || TextUtils.isEmpty(operations.jump_uri)) {
                                     return;
                                 }
-                                BaiduWalletDelegate.getInstance().openH5Module(context, this.f62452a.jump_uri, false);
-                                if ("1".equals(this.f62452a.need_close)) {
+                                BaiduWalletDelegate.getInstance().openH5Module(context, this.f62730a.jump_uri, false);
+                                if ("1".equals(this.f62730a.need_close)) {
                                     StatisticManager.onEvent("payTimeoutGuideToOrderDetail", PayDataCache.getInstance().getInsideTransOrder());
                                     new Handler().postDelayed(new Runnable(this, context) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.4.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
 
                                         /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ Context f62453a;
+                                        public final /* synthetic */ Context f62731a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass4 f62454b;
+                                        public final /* synthetic */ AnonymousClass4 f62732b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -399,15 +399,15 @@ public class ErrorContentResponse implements Serializable {
                                                     return;
                                                 }
                                             }
-                                            this.f62454b = this;
-                                            this.f62453a = context;
+                                            this.f62732b = this;
+                                            this.f62731a = context;
                                         }
 
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                PayCallBackManager.callBackClientPaying(this.f62453a);
+                                                PayCallBackManager.callBackClientPaying(this.f62731a);
                                             }
                                         }
                                     }, 20L);
@@ -417,12 +417,12 @@ public class ErrorContentResponse implements Serializable {
                     };
                 }
                 if (FIND_PWD.equals(this.type)) {
-                    return new n<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.5
+                    return new o<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.5
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f62455a;
+                        public final /* synthetic */ Operations f62733a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -439,15 +439,15 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f62455a = this;
+                            this.f62733a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.wallet.paysdk.beans.n
+                        @Override // com.baidu.wallet.paysdk.beans.o
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62455a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f62733a.type);
                                 if (context instanceof PwdPayActivity) {
                                     ((PwdPayActivity) context).forgetPassword();
                                 } else if (context instanceof PwdCheckActivity) {
@@ -459,7 +459,7 @@ public class ErrorContentResponse implements Serializable {
                 }
                 return this.handlers.get(this.type);
             }
-            return (n) invokeV.objValue;
+            return (o) invokeV.objValue;
         }
 
         public String getActionName() {
@@ -474,10 +474,10 @@ public class ErrorContentResponse implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (TextUtils.isEmpty(this.type) || TextUtils.isEmpty(this.hint)) ? false : true : invokeV.booleanValue;
         }
 
-        public void registerActionHandler(String str, n nVar) {
+        public void registerActionHandler(String str, o oVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, str, nVar) == null) {
-                this.handlers.put(str, nVar);
+            if (interceptable == null || interceptable.invokeLL(1048580, this, str, oVar) == null) {
+                this.handlers.put(str, oVar);
             }
         }
     }

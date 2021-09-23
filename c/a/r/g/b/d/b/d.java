@@ -9,22 +9,22 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f15429a;
+    public static byte[] f15438a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f15430b;
+    public static byte[] f15439b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            byte[] bArr = f15430b;
+            byte[] bArr = f15439b;
             if (bArr != null) {
                 return bArr;
             }
-            byte[] byteArray = new BigInteger(c.f15426c).modPow(new BigInteger(c.f15427d), new BigInteger(c.f15428e)).toByteArray();
-            f15430b = byteArray;
+            byte[] byteArray = new BigInteger(c.f15435c).modPow(new BigInteger(c.f15436d), new BigInteger(c.f15437e)).toByteArray();
+            f15439b = byteArray;
             return byteArray;
         }
         return (byte[]) invokeV.objValue;
@@ -34,12 +34,12 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            byte[] bArr = f15429a;
+            byte[] bArr = f15438a;
             if (bArr != null) {
                 return bArr;
             }
-            byte[] byteArray = new BigInteger(c.f15424a).modPow(new BigInteger(c.f15425b), new BigInteger(c.f15428e)).toByteArray();
-            f15429a = byteArray;
+            byte[] byteArray = new BigInteger(c.f15433a).modPow(new BigInteger(c.f15434b), new BigInteger(c.f15437e)).toByteArray();
+            f15438a = byteArray;
             return byteArray;
         }
         return (byte[]) invokeV.objValue;

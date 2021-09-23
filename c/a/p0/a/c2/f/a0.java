@@ -24,7 +24,7 @@ public abstract class a0 extends d<UnitedSchemeBaseDispatcher> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f4766b;
+    public static final boolean f4774b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public abstract class a0 extends d<UnitedSchemeBaseDispatcher> {
                 return;
             }
         }
-        f4766b = c.a.p0.a.k.f7077a;
+        f4774b = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -79,7 +79,7 @@ public abstract class a0 extends d<UnitedSchemeBaseDispatcher> {
             try {
                 return new JSONObject(param);
             } catch (JSONException e2) {
-                if (f4766b) {
+                if (f4774b) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -101,12 +101,12 @@ public abstract class a0 extends d<UnitedSchemeBaseDispatcher> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str)) == null) {
             try {
-                if (TextUtils.equals(this.f4768a, str)) {
+                if (TextUtils.equals(this.f4776a, str)) {
                     return d(context, unitedSchemeEntity, callbackHandler, c());
                 }
                 return i(context, unitedSchemeEntity, callbackHandler, str, c());
             } catch (Throwable th) {
-                if (f4766b) {
+                if (f4774b) {
                     Log.getStackTraceString(th);
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "execute with exception: " + Log.getStackTraceString(th));

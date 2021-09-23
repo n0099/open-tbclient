@@ -12,10 +12,10 @@ public final class a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f78924a;
+    public final long f79243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final T f78925b;
+    public final T f79244b;
 
     public a(long j2, T t) {
         Interceptable interceptable = $ic;
@@ -32,20 +32,20 @@ public final class a<T> {
                 return;
             }
         }
-        this.f78925b = t;
-        this.f78924a = j2;
+        this.f79244b = t;
+        this.f79243a = j2;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f78924a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f79243a : invokeV.longValue;
     }
 
     public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78925b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f79244b : (T) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -57,9 +57,9 @@ public final class a<T> {
             }
             if (obj != null && (obj instanceof a)) {
                 a aVar = (a) obj;
-                if (this.f78924a == aVar.f78924a) {
-                    T t = this.f78925b;
-                    T t2 = aVar.f78925b;
+                if (this.f79243a == aVar.f79243a) {
+                    T t = this.f79244b;
+                    T t2 = aVar.f79244b;
                     if (t == t2) {
                         return true;
                     }
@@ -78,9 +78,9 @@ public final class a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j2 = this.f78924a;
+            long j2 = this.f79243a;
             int i2 = (((int) (j2 ^ (j2 >>> 32))) + 31) * 31;
-            T t = this.f78925b;
+            T t = this.f79244b;
             return i2 + (t == null ? 0 : t.hashCode());
         }
         return invokeV.intValue;
@@ -89,6 +89,6 @@ public final class a<T> {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.f78924a), this.f78925b.toString()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.f79243a), this.f79244b.toString()) : (String) invokeV.objValue;
     }
 }

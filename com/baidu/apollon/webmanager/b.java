@@ -32,35 +32,35 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f38364a;
+    public static final boolean f38415a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38365b = "JsJavaBridge";
+    public static final String f38416b = "JsJavaBridge";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38366c = "BdWallet:";
+    public static final String f38417c = "BdWallet:";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38367d;
+    public static final String f38418d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f38368e = 0;
+    public static final int f38419e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f38369f = 101;
+    public static final int f38420f = 101;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f38370g = 102;
+    public static final int f38421g = 102;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f38371h = 100;
+    public static final int f38422h = 100;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38372i = "Local";
+    public static final String f38423i = "Local";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final HashMap<String, Object> f38373j;
+    public final HashMap<String, Object> f38424j;
     public final HashMap<String, Set<String>> k;
     public boolean l;
     public String m;
@@ -79,8 +79,8 @@ public class b {
                 return;
             }
         }
-        f38364a = ApollonConstants.DEBUG & false;
-        f38367d = f38366c.toLowerCase();
+        f38415a = ApollonConstants.DEBUG & false;
+        f38418d = f38417c.toLowerCase();
     }
 
     public b() {
@@ -96,7 +96,7 @@ public class b {
                 return;
             }
         }
-        this.f38373j = new HashMap<>();
+        this.f38424j = new HashMap<>();
         this.k = new HashMap<>();
         this.l = false;
         this.n = new HashMap();
@@ -105,13 +105,13 @@ public class b {
     public void a(Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, str) == null) {
-            if (f38364a) {
+            if (f38415a) {
                 String str2 = "addJavascriptInterface to map: <" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + obj + ">";
             }
             if (obj == null || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f38373j.put(str, obj);
+            this.f38424j.put(str, obj);
             this.m = null;
         }
     }
@@ -127,7 +127,7 @@ public class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f38373j.clear();
+            this.f38424j.clear();
             this.m = null;
         }
     }
@@ -159,11 +159,11 @@ public class b {
             StringBuilder sb = new StringBuilder();
             sb.append("javascript:");
             sb.append("(function JsAddJavascriptInterface_(){");
-            for (String str : this.f38373j.keySet()) {
+            for (String str : this.f38424j.keySet()) {
                 try {
-                    a(sb, this.f38373j.get(str), str);
+                    a(sb, this.f38424j.get(str), str);
                 } catch (JSONException unused) {
-                    boolean z = f38364a;
+                    boolean z = f38415a;
                 }
             }
             for (String str2 : this.n.values()) {
@@ -172,13 +172,13 @@ public class b {
                 }
             }
             this.l = false;
-            if (f38364a) {
+            if (f38415a) {
                 sb.append("console.log('addJavascript done!');");
             }
             sb.append("}");
             sb.append(")()");
             this.m = sb.toString();
-            if (f38364a) {
+            if (f38415a) {
                 String str3 = "getImpactedJsString : " + this.m;
             }
             return this.m;
@@ -189,9 +189,9 @@ public class b {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f38373j.remove(str);
+            this.f38424j.remove(str);
             this.m = null;
-            if (f38364a) {
+            if (f38415a) {
                 String str2 = "removeJavascriptInterface from map: " + str;
             }
         }
@@ -219,17 +219,17 @@ public class b {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, jsPromptResult)) == null) {
-            if (f38364a) {
+            if (f38415a) {
                 String str4 = "handle url: " + str;
                 String str5 = "handle msg: " + str2;
             }
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }
-            if (str2.startsWith(f38366c)) {
+            if (str2.startsWith(f38417c)) {
                 substring = str2.substring(9);
                 z = true;
-            } else if (!str2.startsWith(f38366c.toLowerCase())) {
+            } else if (!str2.startsWith(f38417c.toLowerCase())) {
                 return false;
             } else {
                 substring = str2.substring(9);
@@ -237,7 +237,7 @@ public class b {
             }
             try {
                 JavaBridgeObject javaBridgeObject = (JavaBridgeObject) JsonUtils.fromJson(substring, JavaBridgeObject.class);
-                if (f38364a && javaBridgeObject != null) {
+                if (f38415a && javaBridgeObject != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append(javaBridgeObject.obj);
                     sb.append(".");
@@ -254,14 +254,14 @@ public class b {
                         }
                     }
                     sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                    LogUtil.i(f38365b, "call: " + sb.toString());
+                    LogUtil.i(f38416b, "call: " + sb.toString());
                 }
                 if (javaBridgeObject != null) {
                     return a(jsPromptResult, z, javaBridgeObject);
                 }
                 return true;
             } catch (JSONException e2) {
-                if (f38364a) {
+                if (f38415a) {
                     e2.printStackTrace();
                 }
                 jsPromptResult.cancel();
@@ -291,7 +291,7 @@ public class b {
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, sb, obj, str) == null) {
             if (sb != null && obj != null && !TextUtils.isEmpty(str)) {
                 Class<?> cls = obj.getClass();
-                if (f38364a) {
+                if (f38415a) {
                     sb.append("if(typeof(window." + str + ")!='undefined'){");
                     sb.append("console.log('window." + str + " is exist!!');}else{");
                 } else {
@@ -304,7 +304,7 @@ public class b {
                 HashSet hashSet = new HashSet();
                 for (Method method : methods) {
                     String name = method.getName();
-                    if (!name.endsWith(f38372i) && !c(name) && !hashSet.contains(name)) {
+                    if (!name.endsWith(f38423i) && !c(name) && !hashSet.contains(name)) {
                         hashSet.add(name);
                         sb.append(name);
                         sb.append(":function(){");
@@ -312,7 +312,7 @@ public class b {
                             sb.append("return ");
                         }
                         sb.append("prompt('");
-                        sb.append(f38367d);
+                        sb.append(f38418d);
                         sb.append("'+");
                         sb.append("JSON.stringify({");
                         sb.append("obj");
@@ -337,7 +337,7 @@ public class b {
                 }
                 sb.append("};");
                 sb.append("}");
-            } else if (f38364a) {
+            } else if (f38415a) {
                 String str2 = "script=" + ((Object) sb);
                 String str3 = "obj=" + obj + ", interfaceName=" + str;
             }
@@ -361,9 +361,9 @@ public class b {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{jsPromptResult, Boolean.valueOf(z), javaBridgeObject})) == null) {
-            Object obj = this.f38373j.get(javaBridgeObject.obj);
+            Object obj = this.f38424j.get(javaBridgeObject.obj);
             if (obj == null) {
-                if (f38364a) {
+                if (f38415a) {
                     String str = "not exist js interface:" + javaBridgeObject.obj;
                 }
                 if (z) {
@@ -373,7 +373,7 @@ public class b {
                 }
                 return true;
             } else if (javaBridgeObject.args == null && javaBridgeObject.func == null) {
-                if (f38364a) {
+                if (f38415a) {
                     String str2 = "interface query: found for " + obj;
                 }
                 if (z) {
@@ -389,7 +389,7 @@ public class b {
                     clsArr = new Class[length];
                     for (int i2 = 0; i2 < length; i2++) {
                         clsArr[i2] = a(javaBridgeObject.args[i2]);
-                        if (f38364a) {
+                        if (f38415a) {
                             String str3 = "type:" + clsArr[i2].getName();
                         }
                     }
@@ -401,7 +401,7 @@ public class b {
                     if (invoke != null && invoke.getClass() != Void.TYPE) {
                         z2 = false;
                         String obj2 = !z2 ? "" : invoke.toString();
-                        if (f38364a) {
+                        if (f38415a) {
                             String str4 = "called ok: " + obj2;
                         }
                         if (!z) {
@@ -414,13 +414,13 @@ public class b {
                     z2 = true;
                     if (!z2) {
                     }
-                    if (f38364a) {
+                    if (f38415a) {
                     }
                     if (!z) {
                     }
                     return true;
                 } catch (IllegalAccessException e2) {
-                    if (f38364a) {
+                    if (f38415a) {
                         e2.printStackTrace();
                         return false;
                     }
@@ -431,7 +431,7 @@ public class b {
                     }
                     return true;
                 } catch (IllegalArgumentException e3) {
-                    if (f38364a) {
+                    if (f38415a) {
                         e3.printStackTrace();
                         return false;
                     }
@@ -439,7 +439,7 @@ public class b {
                     }
                     return true;
                 } catch (NoSuchMethodException unused) {
-                    if (f38364a) {
+                    if (f38415a) {
                         StringBuilder sb = new StringBuilder(javaBridgeObject.func);
                         sb.append("(");
                         if (length > 0) {
@@ -461,7 +461,7 @@ public class b {
                     }
                     return true;
                 } catch (InvocationTargetException e4) {
-                    if (f38364a) {
+                    if (f38415a) {
                         e4.printStackTrace();
                         return false;
                     }
@@ -488,7 +488,7 @@ public class b {
                     jSONObject.put("result", str2);
                 }
             } catch (JSONException e2) {
-                if (f38364a) {
+                if (f38415a) {
                     e2.printStackTrace();
                 }
             }

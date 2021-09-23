@@ -22,14 +22,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7284c;
+    public static final boolean f7292c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f7285a;
+    public a f7293a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7286b;
+    public boolean f7294b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class b {
                 return;
             }
         }
-        f7284c = k.f7077a;
+        f7292c = k.f7085a;
     }
 
     public b() {
@@ -60,7 +60,7 @@ public class b {
                 return;
             }
         }
-        this.f7285a = null;
+        this.f7293a = null;
     }
 
     public synchronized void a(c.a.p0.a.l2.a aVar) {
@@ -68,24 +68,24 @@ public class b {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             synchronized (this) {
                 if (aVar != null) {
-                    if (!TextUtils.isEmpty(aVar.f7259a) && !TextUtils.isEmpty(aVar.f7261c) && !TextUtils.isEmpty(aVar.f7260b)) {
-                        if (aVar.f7263e == -1) {
+                    if (!TextUtils.isEmpty(aVar.f7267a) && !TextUtils.isEmpty(aVar.f7269c) && !TextUtils.isEmpty(aVar.f7268b)) {
+                        if (aVar.f7271e == -1) {
                             return;
                         }
                         SQLiteDatabase f2 = f();
                         if (f2 == null) {
                             return;
                         }
-                        if (f7284c) {
+                        if (f7292c) {
                             String str = "addCookie cookie=" + aVar.toString();
                         }
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put("domain", aVar.f7259a);
-                        contentValues.put("path", aVar.f7260b);
-                        contentValues.put("name", aVar.f7261c);
-                        contentValues.put("value", aVar.f7262d);
-                        contentValues.put("expires", Long.valueOf(aVar.f7263e));
-                        contentValues.put(ClientCookie.SECURE_ATTR, Boolean.valueOf(aVar.f7264f));
+                        contentValues.put("domain", aVar.f7267a);
+                        contentValues.put("path", aVar.f7268b);
+                        contentValues.put("name", aVar.f7269c);
+                        contentValues.put("value", aVar.f7270d);
+                        contentValues.put("expires", Long.valueOf(aVar.f7271e));
+                        contentValues.put(ClientCookie.SECURE_ATTR, Boolean.valueOf(aVar.f7272f));
                         f2.insert("cookies", null, contentValues);
                     }
                 }
@@ -101,7 +101,7 @@ public class b {
                 if (f2 == null) {
                     return;
                 }
-                boolean z = f7284c;
+                boolean z = f7292c;
                 f2.delete("cookies", "expires <= ?", new String[]{Long.toString(System.currentTimeMillis())});
             }
         }
@@ -111,14 +111,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f7285a == null) {
+                if (this.f7293a == null) {
                     return;
                 }
                 try {
-                    boolean z = f7284c;
-                    this.f7285a.close();
-                    this.f7285a = null;
-                    this.f7286b = true;
+                    boolean z = f7292c;
+                    this.f7293a.close();
+                    this.f7293a = null;
+                    this.f7294b = true;
                 } catch (Exception e2) {
                     d.h("SwanCookieDatabase", "close fail:" + Log.getStackTraceString(e2));
                 }
@@ -137,7 +137,7 @@ public class b {
                 if (f2 == null) {
                     return;
                 }
-                if (f7284c) {
+                if (f7292c) {
                     String str4 = "deleteCookies domain=" + str + ";path=" + str2 + ";name=" + str3;
                 }
                 f2.delete("cookies", "(domain == ?) AND (path == ?) AND (name == ?)", new String[]{str, str2, str3});
@@ -150,7 +150,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             synchronized (this) {
-                if (f7284c) {
+                if (f7292c) {
                     String str2 = "getCookiesForDomain baseDomain=" + str;
                 }
                 ArrayList<c.a.p0.a.l2.a> arrayList = new ArrayList<>();
@@ -175,20 +175,20 @@ public class b {
                     int columnIndex6 = query.getColumnIndex(ClientCookie.SECURE_ATTR);
                     do {
                         c.a.p0.a.l2.a aVar = new c.a.p0.a.l2.a();
-                        aVar.f7259a = query.getString(columnIndex);
-                        aVar.f7260b = query.getString(columnIndex2);
-                        aVar.f7261c = query.getString(columnIndex3);
-                        aVar.f7262d = query.getString(columnIndex4);
+                        aVar.f7267a = query.getString(columnIndex);
+                        aVar.f7268b = query.getString(columnIndex2);
+                        aVar.f7269c = query.getString(columnIndex3);
+                        aVar.f7270d = query.getString(columnIndex4);
                         if (query.isNull(columnIndex5)) {
-                            aVar.f7263e = -1L;
+                            aVar.f7271e = -1L;
                         } else {
-                            aVar.f7263e = query.getLong(columnIndex5);
+                            aVar.f7271e = query.getLong(columnIndex5);
                         }
-                        aVar.f7264f = query.getShort(columnIndex6) != 0;
-                        aVar.f7267i = 1;
-                        if (aVar.f7263e > currentTimeMillis) {
+                        aVar.f7272f = query.getShort(columnIndex6) != 0;
+                        aVar.f7275i = 1;
+                        if (aVar.f7271e > currentTimeMillis) {
                             arrayList.add(aVar);
-                            if (f7284c) {
+                            if (f7292c) {
                                 String str3 = "getCookiesForDomain cookie=" + aVar.toString();
                             }
                         }
@@ -207,10 +207,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f7286b) {
+            if (this.f7294b) {
                 return null;
             }
-            a aVar = this.f7285a;
+            a aVar = this.f7293a;
             if (aVar != null) {
                 return aVar.getWritableDatabase();
             }
@@ -222,7 +222,7 @@ public class b {
             String t = c.a.p0.a.k2.b.t(c.a.p0.a.a2.d.g().r());
             d.h("SwanCookieDatabase", "initDbHelper name =" + t);
             a aVar2 = new a(c.a.p0.a.c1.a.b(), t);
-            this.f7285a = aVar2;
+            this.f7293a = aVar2;
             return aVar2.getWritableDatabase();
         }
         return (SQLiteDatabase) invokeV.objValue;

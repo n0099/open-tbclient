@@ -41,13 +41,13 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f27313e;
+        public final /* synthetic */ ShareItem f27333e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f27314f;
+        public final /* synthetic */ TbPageContext f27334f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FrsViewData f27315g;
+        public final /* synthetic */ FrsViewData f27335g;
 
         public a(ShareItem shareItem, TbPageContext tbPageContext, FrsViewData frsViewData) {
             Interceptable interceptable = $ic;
@@ -64,22 +64,22 @@ public class i {
                     return;
                 }
             }
-            this.f27313e = shareItem;
-            this.f27314f = tbPageContext;
-            this.f27315g = frsViewData;
+            this.f27333e = shareItem;
+            this.f27334f = tbPageContext;
+            this.f27335g = frsViewData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", this.f27313e.q).param("obj_type", 18).param("obj_source", 10));
-                FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(this.f27314f.getPageActivity());
-                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f27314f.getPageActivity());
-                if (frsPrivateShareDialogView.configShareDialog(this.f27315g, this.f27314f, aVar)) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", this.f27333e.q).param("obj_type", 18).param("obj_source", 10));
+                FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(this.f27334f.getPageActivity());
+                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f27334f.getPageActivity());
+                if (frsPrivateShareDialogView.configShareDialog(this.f27335g, this.f27334f, aVar)) {
                     aVar.setContentViewSize(2);
                     aVar.setContentView(frsPrivateShareDialogView);
-                    aVar.create(this.f27314f).show();
+                    aVar.create(this.f27334f).show();
                 }
             }
         }
@@ -91,10 +91,10 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f27316e;
+        public final /* synthetic */ String f27336e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f27317f;
+        public final /* synthetic */ TbPageContext f27337f;
 
         public b(String str, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -111,16 +111,16 @@ public class i {
                     return;
                 }
             }
-            this.f27316e = str;
-            this.f27317f = tbPageContext;
+            this.f27336e = str;
+            this.f27337f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.e.e.p.a.a(this.f27316e);
-                c.a.e.e.p.l.M(this.f27317f.getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+                c.a.e.e.p.a.a(this.f27336e);
+                c.a.e.e.p.l.M(this.f27337f.getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
@@ -131,22 +131,22 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsFragment f27318e;
+        public final /* synthetic */ FrsFragment f27338e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsShareCardView f27319f;
+        public final /* synthetic */ FrsShareCardView f27339f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f27320g;
+        public final /* synthetic */ long f27340g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f27321h;
+        public final /* synthetic */ String f27341h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ long f27322i;
+        public final /* synthetic */ long f27342i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ ShareFromFrsMsgData f27323j;
+        public final /* synthetic */ ShareFromFrsMsgData f27343j;
 
         public c(FrsFragment frsFragment, FrsShareCardView frsShareCardView, long j2, String str, long j3, ShareFromFrsMsgData shareFromFrsMsgData) {
             Interceptable interceptable = $ic;
@@ -163,20 +163,20 @@ public class i {
                     return;
                 }
             }
-            this.f27318e = frsFragment;
-            this.f27319f = frsShareCardView;
-            this.f27320g = j2;
-            this.f27321h = str;
-            this.f27322i = j3;
-            this.f27323j = shareFromFrsMsgData;
+            this.f27338e = frsFragment;
+            this.f27339f = frsShareCardView;
+            this.f27340g = j2;
+            this.f27341h = str;
+            this.f27342i = j3;
+            this.f27343j = shareFromFrsMsgData;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f27318e.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.f27319f.getChatMsgView());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.f27318e.getTbPageContext().getPageActivity(), this.f27320g, this.f27321h, this.f27322i, "from_share", this.f27319f.getLeaveMsg(), this.f27323j.toChatMessageContent())));
+                this.f27338e.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.f27339f.getChatMsgView());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.f27338e.getTbPageContext().getPageActivity(), this.f27340g, this.f27341h, this.f27342i, "from_share", this.f27339f.getLeaveMsg(), this.f27343j.toChatMessageContent())));
                 aVar.dismiss();
             }
         }
@@ -188,10 +188,10 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsFragment f27324e;
+        public final /* synthetic */ FrsFragment f27344e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsShareCardView f27325f;
+        public final /* synthetic */ FrsShareCardView f27345f;
 
         public d(FrsFragment frsFragment, FrsShareCardView frsShareCardView) {
             Interceptable interceptable = $ic;
@@ -208,15 +208,15 @@ public class i {
                     return;
                 }
             }
-            this.f27324e = frsFragment;
-            this.f27325f = frsShareCardView;
+            this.f27344e = frsFragment;
+            this.f27345f = frsShareCardView;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f27324e.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.f27325f.getChatMsgView());
+                this.f27344e.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.f27345f.getChatMsgView());
                 aVar.dismiss();
             }
         }
@@ -282,7 +282,7 @@ public class i {
             shareItem.r = name + tbPageContext.getString(R.string.forum);
             shareItem.s = slogan;
             shareItem.t = str2;
-            shareItem.f48106b = true;
+            shareItem.f48214b = true;
             shareItem.E = 10;
             shareItem.q = str;
             if (parse2 != null) {
@@ -292,7 +292,7 @@ public class i {
             shareItem2.r = name + tbPageContext.getString(R.string.forum);
             shareItem2.s = slogan;
             shareItem2.t = str2;
-            shareItem2.f48106b = true;
+            shareItem2.f48214b = true;
             shareItem2.E = 10;
             shareItem2.q = str;
             shareItem2.p = frsViewData.getForum().getName();

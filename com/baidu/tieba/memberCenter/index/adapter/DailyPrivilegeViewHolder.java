@@ -15,7 +15,7 @@ public class DailyPrivilegeViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f54277a;
+    public d f54392a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DailyPrivilegeViewHolder(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -35,7 +35,7 @@ public class DailyPrivilegeViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54277a = new d(baseFragmentActivity, view, onClickListener);
+        this.f54392a = new d(baseFragmentActivity, view, onClickListener);
     }
 
     public void fillView(g gVar) {
@@ -43,7 +43,7 @@ public class DailyPrivilegeViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) || gVar == null) {
             return;
         }
-        this.f54277a.a(gVar);
-        this.f54277a.c();
+        this.f54392a.a(gVar);
+        this.f54392a.c();
     }
 }

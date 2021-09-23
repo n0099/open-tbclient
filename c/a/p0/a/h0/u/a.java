@@ -17,34 +17,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6458a;
+    public String f6466a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6459b;
+    public String f6467b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6460c;
+    public String f6468c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6461d;
+    public String f6469d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f6462e;
+    public String f6470e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6463f;
+    public String f6471f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f6464g;
+    public String f6472g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f6465h;
+    public boolean f6473h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f6466i;
+    public String f6474i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f6467j;
+    public boolean f6475j;
     public String k;
     public boolean l;
 
@@ -70,23 +70,23 @@ public class a {
             if (aVar == null) {
                 return treeMap;
             }
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, aVar.f6458a);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, aVar.f6459b);
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, aVar.f6460c);
-            treeMap.put("pageUrl", aVar.f6461d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, aVar.f6463f);
-            treeMap.put(PrefetchEvent.EVENT_DATA_ROOT_PATH, aVar.f6464g);
-            if (!TextUtils.isEmpty(aVar.f6462e)) {
-                treeMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, aVar.f6462e);
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, aVar.f6466a);
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, aVar.f6467b);
+            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, aVar.f6468c);
+            treeMap.put("pageUrl", aVar.f6469d);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, aVar.f6471f);
+            treeMap.put(PrefetchEvent.EVENT_DATA_ROOT_PATH, aVar.f6472g);
+            if (!TextUtils.isEmpty(aVar.f6470e)) {
+                treeMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, aVar.f6470e);
             }
-            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(aVar.f6465h));
-            treeMap.put("pageType", aVar.f6466i);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(aVar.f6467j));
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(aVar.f6473h));
+            treeMap.put("pageType", aVar.f6474i);
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(aVar.f6475j));
             if (!TextUtils.isEmpty(aVar.k)) {
                 treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, aVar.k);
             }
             c.a.p0.a.t1.g.b.a(treeMap, "app ready event");
-            j.a(aVar.f6461d, treeMap);
+            j.a(aVar.f6469d, treeMap);
             if (c.a.p0.a.h0.g.b.c()) {
                 treeMap.put("offlinePerfTool", String.valueOf(1));
             }

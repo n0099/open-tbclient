@@ -13,10 +13,10 @@ public class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f19304a;
+    public long f19319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f19305b;
+    public String f19320b;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -35,9 +35,9 @@ public class l {
     public void a(UserInfo userInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, userInfo) == null) {
-            this.f19304a = userInfo.user_id.longValue();
+            this.f19319a = userInfo.user_id.longValue();
             String str = userInfo.user_name;
-            this.f19305b = userInfo.portrait;
+            this.f19320b = userInfo.portrait;
         }
     }
 
@@ -48,7 +48,7 @@ public class l {
             if (this == obj) {
                 return true;
             }
-            return obj != null && l.class == obj.getClass() && this.f19304a == ((l) obj).f19304a;
+            return obj != null && l.class == obj.getClass() && this.f19319a == ((l) obj).f19319a;
         }
         return invokeL.booleanValue;
     }
@@ -57,7 +57,7 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = this.f19304a;
+            long j2 = this.f19319a;
             return (int) (j2 ^ (j2 >>> 32));
         }
         return invokeV.intValue;

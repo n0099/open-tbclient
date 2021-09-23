@@ -27,20 +27,20 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f16794e;
+    public final Context f16804e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HotTopicChangeFourmActivity f16795f;
+    public HotTopicChangeFourmActivity f16805f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<HotTopicBussinessData> f16796g;
+    public List<HotTopicBussinessData> f16806g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f16797h;
+    public ViewGroup f16807h;
 
     /* renamed from: c.a.r0.c4.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C0810a {
+    public static /* synthetic */ class C0808a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -51,16 +51,16 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f16798a;
+        public View f16808a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f16799b;
+        public TbImageView f16809b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f16800c;
+        public TextView f16810c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f16801d;
+        public View f16811d;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, C0810a c0810a) {
+        public /* synthetic */ b(a aVar, C0808a c0808a) {
             this(aVar);
         }
     }
@@ -98,9 +98,9 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f16797h = null;
-        this.f16795f = hotTopicChangeFourmActivity;
-        this.f16794e = hotTopicChangeFourmActivity.getPageContext().getContext();
+        this.f16807h = null;
+        this.f16805f = hotTopicChangeFourmActivity;
+        this.f16804e = hotTopicChangeFourmActivity.getPageContext().getContext();
     }
 
     public final b a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
@@ -113,11 +113,11 @@ public class a extends BaseAdapter {
             } else {
                 bVar = (b) obj;
             }
-            bVar.f16800c.setText(d(hotTopicBussinessData.mForumName));
-            bVar.f16799b.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
-            SkinManager.setBackgroundResource(bVar.f16798a, R.drawable.select_forum_item_bg);
-            SkinManager.setViewTextColor(bVar.f16800c, R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(bVar.f16801d, R.color.CAM_X0205);
+            bVar.f16810c.setText(d(hotTopicBussinessData.mForumName));
+            bVar.f16809b.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+            SkinManager.setBackgroundResource(bVar.f16808a, R.drawable.select_forum_item_bg);
+            SkinManager.setViewTextColor(bVar.f16810c, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(bVar.f16811d, R.color.CAM_X0205);
             return bVar;
         }
         return (b) invokeLL.objValue;
@@ -128,17 +128,17 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b bVar = new b(this, null);
-            View inflate = LayoutInflater.from(this.f16794e).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
-            bVar.f16798a = inflate;
+            View inflate = LayoutInflater.from(this.f16804e).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
+            bVar.f16808a = inflate;
             SkinManager.setBackgroundResource(inflate, R.drawable.select_forum_item_bg);
-            SkinManager.setViewTextColor(bVar.f16800c, R.color.CAM_X0105);
-            bVar.f16800c = (TextView) bVar.f16798a.findViewById(R.id.fourm_tv);
-            bVar.f16801d = bVar.f16798a.findViewById(R.id.line_view);
-            TbImageView tbImageView = (TbImageView) bVar.f16798a.findViewById(R.id.icon_img);
-            bVar.f16799b = tbImageView;
+            SkinManager.setViewTextColor(bVar.f16810c, R.color.CAM_X0105);
+            bVar.f16810c = (TextView) bVar.f16808a.findViewById(R.id.fourm_tv);
+            bVar.f16811d = bVar.f16808a.findViewById(R.id.line_view);
+            TbImageView tbImageView = (TbImageView) bVar.f16808a.findViewById(R.id.icon_img);
+            bVar.f16809b = tbImageView;
             tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-            bVar.f16799b.setDefaultResource(R.drawable.transparent_bg);
-            bVar.f16798a.setTag(bVar);
+            bVar.f16809b.setDefaultResource(R.drawable.transparent_bg);
+            bVar.f16808a.setTag(bVar);
             return bVar;
         }
         return (b) invokeV.objValue;
@@ -151,9 +151,9 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<HotTopicBussinessData> list = this.f16796g;
+            List<HotTopicBussinessData> list = this.f16806g;
             if (list != null && i2 < list.size()) {
-                return this.f16796g.get(i2);
+                return this.f16806g.get(i2);
             }
             return null;
         }
@@ -178,7 +178,7 @@ public class a extends BaseAdapter {
     public void e(List<HotTopicBussinessData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f16796g = list;
+            this.f16806g = list;
         }
     }
 
@@ -187,10 +187,10 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (ListUtils.isEmpty(this.f16796g)) {
+            if (ListUtils.isEmpty(this.f16806g)) {
                 return 0;
             }
-            return this.f16796g.size();
+            return this.f16806g.size();
         }
         return invokeV.intValue;
     }
@@ -211,8 +211,8 @@ public class a extends BaseAdapter {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, view, viewGroup)) == null) {
-            if (this.f16797h == null) {
-                this.f16797h = viewGroup;
+            if (this.f16807h == null) {
+                this.f16807h = viewGroup;
             }
             HotTopicBussinessData item = getItem(i2);
             if (item != null) {
@@ -221,7 +221,7 @@ public class a extends BaseAdapter {
                 bVar = null;
             }
             if (bVar != null) {
-                return bVar.f16798a;
+                return bVar.f16808a;
             }
             return null;
         }

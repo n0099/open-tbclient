@@ -15,16 +15,16 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20970a;
+    public String f20982a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20971b;
+    public String f20983b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f20972c;
+    public JSONObject f20984c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f20973d;
+    public String f20985d;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -43,17 +43,17 @@ public class e {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20970a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20982a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (k.isEmpty(this.f20971b)) {
-                return this.f20970a;
+            if (k.isEmpty(this.f20983b)) {
+                return this.f20982a;
             }
-            return this.f20971b + "/" + this.f20970a;
+            return this.f20983b + "/" + this.f20982a;
         }
         return (String) invokeV.objValue;
     }
@@ -61,25 +61,25 @@ public class e {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20971b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20983b : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20973d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20985d : (String) invokeV.objValue;
     }
 
     public JSONObject e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20972c : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20984c : (JSONObject) invokeV.objValue;
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f20970a = str;
+            this.f20982a = str;
         }
     }
 
@@ -92,21 +92,21 @@ public class e {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f20971b = str;
+            this.f20983b = str;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f20973d = str;
+            this.f20985d = str;
         }
     }
 
     public void j(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            this.f20972c = jSONObject;
+            this.f20984c = jSONObject;
         }
     }
 }

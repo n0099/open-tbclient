@@ -11,17 +11,17 @@ public class k implements c.a.e.l.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f28528h;
+    public static final BdUniqueId f28548h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28529e;
+    public boolean f28549e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f28530f;
+    public l f28550f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28531g;
+    public String f28551g;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +36,13 @@ public class k implements c.a.e.l.e.n {
                 return;
             }
         }
-        f28528h = BdUniqueId.gen();
+        f28548h = BdUniqueId.gen();
     }
 
     @Override // c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f28528h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f28548h : (BdUniqueId) invokeV.objValue;
     }
 }

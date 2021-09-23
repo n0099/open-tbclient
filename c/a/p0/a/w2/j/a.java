@@ -59,7 +59,7 @@ public class a extends c.a.p0.a.z1.b.e.a {
     public void u(PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
-            popupWindow.showAtLocation(this.f10003a, 17, 0, 0);
+            popupWindow.showAtLocation(this.f10011a, 17, 0, 0);
         }
     }
 }

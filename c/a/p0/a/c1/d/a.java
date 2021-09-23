@@ -50,7 +50,7 @@ public abstract class a implements a0 {
     public String F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a.p0.a.d0.c.w(String.format("%s/ma/navigate", c.a.p0.a.d0.c.f5140a), true) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a.p0.a.d0.c.w(String.format("%s/ma/navigate", c.a.p0.a.d0.c.f5148a), true) : (String) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.p.d.a0
@@ -128,7 +128,7 @@ public abstract class a implements a0 {
     public String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.p0.a.d0.c.v(String.format("%s/ma/customer/checknewmess", c.a.p0.a.d0.c.f5140a)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? c.a.p0.a.d0.c.v(String.format("%s/ma/customer/checknewmess", c.a.p0.a.d0.c.f5148a)) : (String) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.p.d.a0

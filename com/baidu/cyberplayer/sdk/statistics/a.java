@@ -18,14 +18,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f39223a;
+    public static a f39282a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f39224b;
+    public c f39283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39225c;
+    public boolean f39284c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class a {
                 return;
             }
         }
-        this.f39225c = false;
-        this.f39224b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
+        this.f39284c = false;
+        this.f39283b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
     }
 
     public static synchronized a a() {
@@ -50,10 +50,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (a.class) {
-                if (f39223a == null) {
-                    f39223a = new a();
+                if (f39282a == null) {
+                    f39282a = new a();
                 }
-                aVar = f39223a;
+                aVar = f39282a;
             }
             return aVar;
         }
@@ -63,15 +63,15 @@ public class a {
     public JSONObject a(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? this.f39224b.a(jSONObject) : (JSONObject) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? this.f39283b.a(jSONObject) : (JSONObject) invokeL.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f39225c) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f39284c) {
             return;
         }
-        this.f39225c = true;
+        this.f39284c = true;
         Context applicationContext = CyberPlayerManager.getApplicationContext();
         PackageManager packageManager = applicationContext.getPackageManager();
         String packageName = applicationContext.getPackageName();
@@ -84,16 +84,16 @@ public class a {
             }
         }
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(applicationContext);
-        this.f39224b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_name", packageName));
-        this.f39224b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_version", str));
-        this.f39224b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SDK_VERSION, CyberVersion.getSDKVersionInternal()));
-        this.f39224b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "cuid", CyberPlayerManager.getClientID()));
-        this.f39224b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "network", networkStatisticsData));
-        this.f39224b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_KERNEL_SESSION_ID, System.currentTimeMillis()));
-        this.f39224b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_INIT));
+        this.f39283b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_name", packageName));
+        this.f39283b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_version", str));
+        this.f39283b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SDK_VERSION, CyberVersion.getSDKVersionInternal()));
+        this.f39283b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "cuid", CyberPlayerManager.getClientID()));
+        this.f39283b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "network", networkStatisticsData));
+        this.f39283b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_KERNEL_SESSION_ID, System.currentTimeMillis()));
+        this.f39283b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_INIT));
         String str2 = CyberPlayerManager.getInstallOpts().get("abtest_sid");
         if (str2 != null) {
-            this.f39224b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "abtest_sid", str2));
+            this.f39283b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "abtest_sid", str2));
         }
     }
 }

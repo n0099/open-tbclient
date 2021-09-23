@@ -17,13 +17,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.r0.k0.e.a f21175a;
+    public c.a.r0.k0.e.a f21189a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f21176b;
+    public b f21190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f21177c;
+    public HttpMessageListener f21191c;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -31,7 +31,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f21178a;
+        public final /* synthetic */ d f21192a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -51,7 +51,7 @@ public class d {
                     return;
                 }
             }
-            this.f21178a = dVar;
+            this.f21192a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,9 +60,9 @@ public class d {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof RnSyncResponseMessage)) {
                 RnSyncResponseMessage rnSyncResponseMessage = (RnSyncResponseMessage) httpResponsedMessage;
-                this.f21178a.f21175a = rnSyncResponseMessage.getData();
-                if (this.f21178a.f21176b != null) {
-                    this.f21178a.f21176b.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
+                this.f21192a.f21189a = rnSyncResponseMessage.getData();
+                if (this.f21192a.f21190b != null) {
+                    this.f21192a.f21190b.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
                 }
             }
         }
@@ -86,21 +86,21 @@ public class d {
                 return;
             }
         }
-        this.f21177c = new a(this, CmdConfigHttp.CMD_GET_RN_SYNC);
-        MessageManager.getInstance().registerListener(this.f21177c);
+        this.f21191c = new a(this, CmdConfigHttp.CMD_GET_RN_SYNC);
+        MessageManager.getInstance().registerListener(this.f21191c);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f21177c);
+            MessageManager.getInstance().unRegisterListener(this.f21191c);
         }
     }
 
     public void d(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f21176b = bVar;
+            this.f21190b = bVar;
         }
     }
 

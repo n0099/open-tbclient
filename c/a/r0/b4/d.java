@@ -18,7 +18,7 @@ public class d extends ShapeDrawable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f16194a;
+    public int f16204a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Path path, float f2, float f3) {
@@ -38,13 +38,13 @@ public class d extends ShapeDrawable {
                 return;
             }
         }
-        this.f16194a = TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0201);
+        this.f16204a = TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0201);
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f16194a = i2;
+            this.f16204a = i2;
         }
     }
 
@@ -52,7 +52,7 @@ public class d extends ShapeDrawable {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            getPaint().setColor(this.f16194a);
+            getPaint().setColor(this.f16204a);
             super.draw(canvas);
         }
     }

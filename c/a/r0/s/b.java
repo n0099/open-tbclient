@@ -19,7 +19,7 @@ public class b extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f24497a;
+    public boolean f24513a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -54,13 +54,13 @@ public class b extends j {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
                 c.a.r0.s.f.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-                this.f24497a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
+                this.f24513a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
                 if (addressListData != null) {
                     for (e eVar : addressListData.a()) {
                         List<c.a.q0.t.f.a> a2 = eVar.a();
                         ArrayList arrayList = new ArrayList();
                         for (c.a.q0.t.f.a aVar : a2) {
-                            if (!this.f24497a && aVar.i() == 1) {
+                            if (!this.f24513a && aVar.i() == 1) {
                                 arrayList.add(aVar);
                             }
                         }

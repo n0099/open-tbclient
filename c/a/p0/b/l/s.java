@@ -38,7 +38,7 @@ public class s extends c.a.p0.a.e2.c.j.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ s f10121g;
+        public final /* synthetic */ s f10129g;
 
         public b(s sVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class s extends c.a.p0.a.e2.c.j.f {
                     return;
                 }
             }
-            this.f10121g = sVar;
+            this.f10129g = sVar;
         }
 
         @Override // c.a.p0.a.e2.c.e
@@ -63,15 +63,15 @@ public class s extends c.a.p0.a.e2.c.j.f {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                boolean e2 = c.a.p0.a.c1.a.a0().e(this.f10121g.m);
+                boolean e2 = c.a.p0.a.c1.a.a0().e(this.f10129g.m);
                 if (s.t) {
                     String str = "LoginPreparation isLogin : " + e2 + " call stack:" + Log.getStackTraceString(new Exception());
                 }
                 if (!e2) {
-                    this.f10121g.N().j().f(this.f10121g.m, this.f10121g.p, this);
+                    this.f10129g.N().j().f(this.f10129g.m, this.f10129g.p, this);
                     return false;
                 }
-                s sVar = this.f10121g;
+                s sVar = this.f10129g;
                 sVar.i(new c(sVar, null));
                 return true;
             }
@@ -91,7 +91,7 @@ public class s extends c.a.p0.a.e2.c.j.f {
                     e(new OAuthException(10004));
                 } else {
                     c.a.p0.a.e2.c.d.j("Login Preparation ok, is already login", Boolean.FALSE);
-                    s sVar = this.f10121g;
+                    s sVar = this.f10129g;
                     sVar.i(new c(sVar, null));
                     d();
                 }
@@ -109,7 +109,7 @@ public class s extends c.a.p0.a.e2.c.j.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ s f10122g;
+        public final /* synthetic */ s f10130g;
 
         /* loaded from: classes.dex */
         public class a implements c.a.p0.a.v2.e1.b<Bundle> {
@@ -117,7 +117,7 @@ public class s extends c.a.p0.a.e2.c.j.f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f10123e;
+            public final /* synthetic */ c f10131e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class s extends c.a.p0.a.e2.c.j.f {
                         return;
                     }
                 }
-                this.f10123e = cVar;
+                this.f10131e = cVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -145,17 +145,17 @@ public class s extends c.a.p0.a.e2.c.j.f {
                 if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                     if (bundle == null) {
                         c.a.p0.a.e2.c.d.j("null stoken", Boolean.TRUE);
-                        this.f10123e.e(new OAuthException(10001));
+                        this.f10131e.e(new OAuthException(10001));
                         return;
                     }
                     String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
                     if (!TextUtils.isEmpty(string)) {
-                        this.f10123e.f10122g.s = string;
-                        this.f10123e.d();
+                        this.f10131e.f10130g.s = string;
+                        this.f10131e.d();
                         return;
                     }
                     c.a.p0.a.e2.c.d.j("empty stoken", Boolean.TRUE);
-                    this.f10123e.e(new OAuthException(10001));
+                    this.f10131e.e(new OAuthException(10001));
                 }
             }
         }
@@ -169,7 +169,7 @@ public class s extends c.a.p0.a.e2.c.j.f {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.p0.b.l.a.t(this.f10122g.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                c.a.p0.b.l.a.t(this.f10130g.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
                 return false;
             }
             return invokeV.booleanValue;
@@ -191,11 +191,11 @@ public class s extends c.a.p0.a.e2.c.j.f {
                     return;
                 }
             }
-            this.f10122g = sVar;
-            if (sVar.o == null || (c0384c = sVar.n) == null || !c0384c.f8751a) {
+            this.f10130g = sVar;
+            if (sVar.o == null || (c0384c = sVar.n) == null || !c0384c.f8759a) {
                 return;
             }
-            long j2 = c0384c.f8752b;
+            long j2 = c0384c.f8760b;
             if (s.t) {
                 String str = "send timeout " + j2 + "ms msg";
             }
@@ -216,7 +216,7 @@ public class s extends c.a.p0.a.e2.c.j.f {
                 return;
             }
         }
-        t = c.a.p0.a.k.f7077a;
+        t = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

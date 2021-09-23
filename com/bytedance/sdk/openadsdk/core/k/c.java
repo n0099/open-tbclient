@@ -20,7 +20,6 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.pass.face.platform.utils.DeviceUtils;
 import com.baidu.searchbox.pms.constants.PmsConstant;
-import com.baidu.searchbox.task.item.StrictModeTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,13 +53,13 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f66734a = null;
+    public static String f67045a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f66735b = false;
+    public static volatile boolean f67046b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f66736c = true;
+    public static volatile boolean f67047c = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -68,7 +67,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IntentFilter f66737a;
+        public static final IntentFilter f67048a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -84,7 +83,7 @@ public class c {
                     return;
                 }
             }
-            f66737a = new IntentFilter("android.intent.action.BATTERY_CHANGED");
+            f67048a = new IntentFilter("android.intent.action.BATTERY_CHANGED");
         }
 
         public static int a(Context context) {
@@ -92,7 +91,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
                 try {
-                    Intent registerReceiver = context.registerReceiver(null, f66737a);
+                    Intent registerReceiver = context.registerReceiver(null, f67048a);
                     if (registerReceiver != null) {
                         int intExtra = registerReceiver.getIntExtra("status", -1);
                         return intExtra == -1 ? intExtra : intExtra == 2 ? 1 : 0;
@@ -109,7 +108,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
                 try {
-                    Intent registerReceiver = context.registerReceiver(null, f66737a);
+                    Intent registerReceiver = context.registerReceiver(null, f67048a);
                     if (registerReceiver != null) {
                         return (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra("scale", -1);
                     }
@@ -146,10 +145,10 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
                 if ("android.intent.action.SCREEN_ON".equals(intent.getAction())) {
-                    boolean unused = c.f66736c = true;
+                    boolean unused = c.f67047c = true;
                     k.c(DeviceUtils.TAG, "screen_on");
                 } else if ("android.intent.action.SCREEN_OFF".equals(intent.getAction())) {
-                    boolean unused2 = c.f66736c = false;
+                    boolean unused2 = c.f67047c = false;
                     k.c(DeviceUtils.TAG, "screen_off");
                 }
             }
@@ -236,13 +235,13 @@ public class c {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || f66735b) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || f67046b) {
             return;
         }
         try {
             PowerManager powerManager = (PowerManager) context.getSystemService("power");
             if (powerManager != null) {
-                f66736c = powerManager.isScreenOn();
+                f67047c = powerManager.isScreenOn();
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -252,7 +251,7 @@ public class c {
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         context.registerReceiver(bVar, intentFilter);
-        f66735b = true;
+        f67046b = true;
     }
 
     public static boolean a() {
@@ -263,13 +262,13 @@ public class c {
                 try {
                     PowerManager powerManager = (PowerManager) o.a().getSystemService("power");
                     if (powerManager != null) {
-                        f66736c = powerManager.isScreenOn();
+                        f67047c = powerManager.isScreenOn();
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            return f66736c;
+            return f67047c;
         }
         return invokeV.booleanValue;
     }
@@ -282,9 +281,9 @@ public class c {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (TextUtils.isEmpty(f66734a)) {
-                String a2 = h.a("sdk_local_mac_address", (long) StrictModeTask.CLEAN_FILE_INTERVAL);
-                f66734a = a2;
+            if (TextUtils.isEmpty(f67045a)) {
+                String a2 = h.a("sdk_local_mac_address", 172800000L);
+                f67045a = a2;
                 if (TextUtils.isEmpty(a2)) {
                     TTCustomController f2 = h.d().f();
                     if (f2 != null && f2.isCanUseWifiState() && f2.isCanUseLocation()) {
@@ -296,12 +295,12 @@ public class c {
                         str = "DU:MM:YA:DD:RE:SS";
                     }
                     String str2 = TextUtils.isEmpty(str) ? "DU:MM:YA:DD:RE:SS" : str;
-                    f66734a = str2;
+                    f67045a = str2;
                     h.a("sdk_local_mac_address", str2);
                 }
-                return f66734a;
+                return f67045a;
             }
-            return f66734a;
+            return f67045a;
         }
         return (String) invokeV.objValue;
     }
@@ -455,7 +454,7 @@ public class c {
                 jSONObject.put("screen_width", s.c(context));
                 jSONObject.put("screen_height", s.d(context));
                 jSONObject.put("oaid", com.bytedance.sdk.openadsdk.q.k.a());
-                jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, f.f68850a);
+                jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, f.f69161a);
                 jSONObject.put("applog_did", AppLogHelper.getInstance().getAppLogDid());
                 jSONObject.put("sec_did", com.bytedance.sdk.openadsdk.core.s.a().b());
                 jSONObject.put("locale_language", c());

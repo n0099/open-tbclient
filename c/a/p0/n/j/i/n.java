@@ -14,11 +14,11 @@ public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile n f12033b;
+    public static volatile n f12041b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12034a;
+    public String f12042a;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12033b == null) {
+            if (f12041b == null) {
                 synchronized (n.class) {
-                    if (f12033b == null) {
-                        f12033b = new n();
+                    if (f12041b == null) {
+                        f12041b = new n();
                     }
                 }
             }
-            return f12033b;
+            return f12041b;
         }
         return (n) invokeV.objValue;
     }
@@ -54,10 +54,10 @@ public class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f12034a)) {
-                this.f12034a = c.a.p0.n.c.b().j().getString("extract_js_url", null);
+            if (TextUtils.isEmpty(this.f12042a)) {
+                this.f12042a = c.a.p0.n.c.b().j().getString("extract_js_url", null);
             }
-            return this.f12034a;
+            return this.f12042a;
         }
         return (String) invokeV.objValue;
     }
@@ -72,7 +72,7 @@ public class n {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            if (c.a.p0.n.c.f11856a) {
+            if (c.a.p0.n.c.f11864a) {
                 String str = WebGLImageLoader.DATA_URL + jSONObject;
             }
             if (jSONObject == null) {

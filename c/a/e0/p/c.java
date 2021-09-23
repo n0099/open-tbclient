@@ -46,34 +46,34 @@ public class c {
     public int O;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3257a;
+    public Context f3258a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WindowManager f3258b;
+    public WindowManager f3259b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f3259c;
+    public boolean f3260c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3260d;
+    public boolean f3261d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f3261e;
+    public View f3262e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f3262f;
+    public View f3263f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f3263g;
+    public boolean f3264g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f3264h;
+    public int f3265h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f3265i;
+    public int f3266i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f3266j;
+    public boolean f3267j;
     public boolean k;
     public boolean l;
     public int m;
@@ -97,7 +97,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f3267a;
+        public final /* synthetic */ c f3268a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -114,21 +114,21 @@ public class c {
                     return;
                 }
             }
-            this.f3267a = cVar;
+            this.f3268a = cVar;
         }
 
         @Override // android.view.ViewTreeObserver.OnScrollChangedListener
         public void onScrollChanged() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View view = this.f3267a.L != null ? (View) this.f3267a.L.get() : null;
-                if (view == null || this.f3267a.f3262f == null) {
+                View view = this.f3268a.L != null ? (View) this.f3268a.L.get() : null;
+                if (view == null || this.f3268a.f3263f == null) {
                     return;
                 }
-                WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f3267a.f3262f.getLayoutParams();
-                c cVar = this.f3267a;
-                cVar.p(cVar.j(view, layoutParams, cVar.N, this.f3267a.O));
-                this.f3267a.F(layoutParams.x, layoutParams.y, -1, -1, true);
+                WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f3268a.f3263f.getLayoutParams();
+                c cVar = this.f3268a;
+                cVar.p(cVar.j(view, layoutParams, cVar.N, this.f3268a.O));
+                this.f3268a.F(layoutParams.x, layoutParams.y, -1, -1, true);
             }
         }
     }
@@ -145,7 +145,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f3268e;
+        public final /* synthetic */ c f3269e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C0066c(c cVar, Context context) {
@@ -165,7 +165,7 @@ public class c {
                     return;
                 }
             }
-            this.f3268e = cVar;
+            this.f3269e = cVar;
         }
 
         @Override // android.view.ViewGroup, android.view.View
@@ -185,7 +185,7 @@ public class c {
                         }
                         return true;
                     } else if (keyEvent.getAction() == 1 && (keyDispatcherState = getKeyDispatcherState()) != null && keyDispatcherState.isTracking(keyEvent) && !keyEvent.isCanceled()) {
-                        this.f3268e.q();
+                        this.f3269e.q();
                         return true;
                     } else {
                         return super.dispatchKeyEvent(keyEvent);
@@ -201,7 +201,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-                if (this.f3268e.s == null || !this.f3268e.s.onTouch(this, motionEvent)) {
+                if (this.f3269e.s == null || !this.f3269e.s.onTouch(this, motionEvent)) {
                     return super.dispatchTouchEvent(motionEvent);
                 }
                 return true;
@@ -214,7 +214,7 @@ public class c {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                if (this.f3268e.G) {
+                if (this.f3269e.G) {
                     int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 1);
                     View.mergeDrawableStates(onCreateDrawableState, c.Q);
                     return onCreateDrawableState;
@@ -232,10 +232,10 @@ public class c {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
                 if (motionEvent.getAction() == 0 && (x < 0 || x >= super.getWidth() || y < 0 || y >= super.getHeight())) {
-                    this.f3268e.q();
+                    this.f3269e.q();
                     return true;
                 } else if (motionEvent.getAction() == 4) {
-                    this.f3268e.q();
+                    this.f3269e.q();
                     return true;
                 } else {
                     return super.onTouchEvent(motionEvent);
@@ -248,8 +248,8 @@ public class c {
         public void sendAccessibilityEvent(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                if (this.f3268e.f3261e != null) {
-                    this.f3268e.f3261e.sendAccessibilityEvent(i2);
+                if (this.f3269e.f3262e != null) {
+                    this.f3269e.f3262e.sendAccessibilityEvent(i2);
                 } else {
                     super.sendAccessibilityEvent(i2);
                 }
@@ -270,7 +270,7 @@ public class c {
                 return;
             }
         }
-        P = d.f3238d;
+        P = d.f3239d;
         Q = new int[]{16842922};
     }
 
@@ -289,9 +289,9 @@ public class c {
                 return;
             }
         }
-        this.f3264h = 0;
-        this.f3265i = 1;
-        this.f3266j = true;
+        this.f3265h = 0;
+        this.f3266i = 1;
+        this.f3267j = true;
         this.k = false;
         this.l = true;
         this.m = -1;
@@ -306,8 +306,8 @@ public class c {
         this.M = new a(this);
         if (view != null) {
             Context context = view.getContext();
-            this.f3257a = context;
-            this.f3258b = (WindowManager) context.getSystemService("window");
+            this.f3258a = context;
+            this.f3259b = (WindowManager) context.getSystemService("window");
         }
         z(view);
         D(i2);
@@ -318,7 +318,7 @@ public class c {
     public void A(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f3263g = z;
+            this.f3264g = z;
         }
     }
 
@@ -361,10 +361,10 @@ public class c {
                 this.y = i5;
                 B(i5);
             }
-            if (!u() || this.f3261e == null) {
+            if (!u() || this.f3262e == null) {
                 return;
             }
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f3262f.getLayoutParams();
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.f3263f.getLayoutParams();
             int i6 = this.t;
             if (i6 >= 0) {
                 i6 = this.v;
@@ -404,7 +404,7 @@ public class c {
                 z2 = z;
             }
             if (z2) {
-                this.f3258b.updateViewLayout(this.f3262f, layoutParams);
+                this.f3259b.updateViewLayout(this.f3263f, layoutParams);
             }
         }
     }
@@ -415,7 +415,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             int i2 = this.K;
             if (i2 == -1) {
-                if (this.f3260d) {
+                if (this.f3261d) {
                     return this.G ? i.PopupWindow_DropDownUp : i.PopupWindow_DropDownDown;
                 }
                 return 0;
@@ -458,7 +458,7 @@ public class c {
             layoutParams.flags = w(layoutParams.flags);
             layoutParams.type = this.H;
             layoutParams.token = iBinder;
-            layoutParams.softInputMode = this.f3265i;
+            layoutParams.softInputMode = this.f3266i;
             layoutParams.setTitle("PopupWindow:" + Integer.toHexString(hashCode()));
             return layoutParams;
         }
@@ -467,12 +467,12 @@ public class c {
 
     public void f(IBinder iBinder, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(1048585, this, iBinder, i2, i3, i4) == null) || iBinder == null || u() || this.f3261e == null) {
+        if (!(interceptable == null || interceptable.invokeLIII(1048585, this, iBinder, i2, i3, i4) == null) || iBinder == null || u() || this.f3262e == null) {
             return;
         }
         b();
-        this.f3259c = true;
-        this.f3260d = false;
+        this.f3260c = true;
+        this.f3261d = false;
         WindowManager.LayoutParams d2 = d(iBinder);
         d2.windowAnimations = a();
         m(d2);
@@ -498,11 +498,11 @@ public class c {
     public final void g(WindowManager.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, layoutParams) == null) {
-            Context context = this.f3257a;
+            Context context = this.f3258a;
             if (context != null) {
                 layoutParams.packageName = context.getPackageName();
             }
-            this.f3258b.addView(this.f3262f, layoutParams);
+            this.f3259b.addView(this.f3263f, layoutParams);
         }
     }
 
@@ -577,19 +577,19 @@ public class c {
     public final void m(WindowManager.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, layoutParams) == null) {
-            View view = this.f3261e;
-            if (view != null && this.f3257a != null && this.f3258b != null) {
+            View view = this.f3262e;
+            if (view != null && this.f3258a != null && this.f3259b != null) {
                 if (this.D != null) {
                     ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
                     int i2 = -2;
                     i2 = (layoutParams2 == null || layoutParams2.height != -2) ? -1 : -1;
-                    C0066c c0066c = new C0066c(this, this.f3257a);
+                    C0066c c0066c = new C0066c(this, this.f3258a);
                     FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, i2);
                     c0066c.setBackgroundDrawable(this.D);
-                    c0066c.addView(this.f3261e, layoutParams3);
-                    this.f3262f = c0066c;
+                    c0066c.addView(this.f3262e, layoutParams3);
+                    this.f3263f = c0066c;
                 } else {
-                    this.f3262f = view;
+                    this.f3263f = view;
                 }
                 this.z = layoutParams.width;
                 this.A = layoutParams.height;
@@ -608,11 +608,11 @@ public class c {
         if (this.D != null) {
             Drawable drawable = this.E;
             if (drawable == null) {
-                this.f3262f.refreshDrawableState();
+                this.f3263f.refreshDrawableState();
             } else if (z) {
-                this.f3262f.setBackgroundDrawable(drawable);
+                this.f3263f.setBackgroundDrawable(drawable);
             } else {
-                this.f3262f.setBackgroundDrawable(this.F);
+                this.f3263f.setBackgroundDrawable(this.F);
             }
         }
     }
@@ -620,30 +620,30 @@ public class c {
     public void q() {
         b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && u() && this.f3262f != null) {
-            this.f3259c = false;
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && u() && this.f3263f != null) {
+            this.f3260c = false;
             b();
             try {
                 try {
-                    this.f3258b.removeView(this.f3262f);
-                    View view = this.f3262f;
-                    View view2 = this.f3261e;
+                    this.f3259b.removeView(this.f3263f);
+                    View view = this.f3263f;
+                    View view2 = this.f3262e;
                     if (view != view2 && (view instanceof ViewGroup)) {
                         ((ViewGroup) view).removeView(view2);
                     }
-                    this.f3262f = null;
+                    this.f3263f = null;
                     bVar = this.I;
                     if (bVar == null) {
                         return;
                     }
                 } catch (IllegalArgumentException e2) {
                     if (!P) {
-                        View view3 = this.f3262f;
-                        View view4 = this.f3261e;
+                        View view3 = this.f3263f;
+                        View view4 = this.f3262e;
                         if (view3 != view4 && (view3 instanceof ViewGroup)) {
                             ((ViewGroup) view3).removeView(view4);
                         }
-                        this.f3262f = null;
+                        this.f3263f = null;
                         bVar = this.I;
                         if (bVar == null) {
                             return;
@@ -654,12 +654,12 @@ public class c {
                 }
                 bVar.onDismiss();
             } catch (Throwable th) {
-                View view5 = this.f3262f;
-                View view6 = this.f3261e;
+                View view5 = this.f3263f;
+                View view6 = this.f3262e;
                 if (view5 != view6 && (view5 instanceof ViewGroup)) {
                     ((ViewGroup) view5).removeView(view6);
                 }
-                this.f3262f = null;
+                this.f3263f = null;
                 b bVar2 = this.I;
                 if (bVar2 != null) {
                     bVar2.onDismiss();
@@ -672,21 +672,21 @@ public class c {
     public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f3259c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f3260c : invokeV.booleanValue;
     }
 
     public boolean v() {
         InterceptResult invokeV;
         Context context;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? (this.m >= 0 || (context = this.f3257a) == null) ? this.m == 1 : context.getApplicationInfo().targetSdkVersion >= 11 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? (this.m >= 0 || (context = this.f3258a) == null) ? this.m == 1 : context.getApplicationInfo().targetSdkVersion >= 11 : invokeV.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0019, code lost:
-        if (r4.f3264h == 1) goto L34;
+        if (r4.f3265h == 1) goto L34;
      */
     /* JADX WARN: Code restructure failed: missing block: B:13:0x001f, code lost:
-        if (r4.f3264h == 2) goto L34;
+        if (r4.f3265h == 2) goto L34;
      */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0021, code lost:
         r5 = r5 | 131072;
@@ -702,10 +702,10 @@ public class c {
             if (this.J) {
                 i3 |= 32768;
             }
-            if (!this.f3263g) {
+            if (!this.f3264g) {
                 i3 |= 8;
             }
-            if (!this.f3266j) {
+            if (!this.f3267j) {
                 i3 |= 16;
             }
             if (this.k) {
@@ -748,13 +748,13 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(1048597, this, view) == null) || u()) {
             return;
         }
-        this.f3261e = view;
-        if (this.f3257a == null && view != null) {
-            this.f3257a = view.getContext();
+        this.f3262e = view;
+        if (this.f3258a == null && view != null) {
+            this.f3258a = view.getContext();
         }
-        if (this.f3258b != null || this.f3261e == null || (context = this.f3257a) == null) {
+        if (this.f3259b != null || this.f3262e == null || (context = this.f3258a) == null) {
             return;
         }
-        this.f3258b = (WindowManager) context.getSystemService("window");
+        this.f3259b = (WindowManager) context.getSystemService("window");
     }
 }

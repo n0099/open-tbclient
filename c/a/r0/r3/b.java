@@ -24,17 +24,17 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f24480d;
+    public static boolean f24496d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UEGCancelModel f24481a;
+    public UEGCancelModel f24497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UEGCancelModel.b f24482b;
+    public UEGCancelModel.b f24498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24483c;
+    public int f24499c;
 
     /* loaded from: classes3.dex */
     public class a implements UEGCancelModel.b {
@@ -42,7 +42,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f24484a;
+        public final /* synthetic */ b f24500a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -59,32 +59,32 @@ public class b {
                     return;
                 }
             }
-            this.f24484a = bVar;
+            this.f24500a = bVar;
         }
 
         @Override // com.baidu.tieba.ueg.UEGCancelModel.b
         public void a(BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, blockPopInfoData) == null) || blockPopInfoData == null || b.f24480d) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, blockPopInfoData) == null) || blockPopInfoData == null || b.f24496d) {
                 return;
             }
-            this.f24484a.d(blockPopInfoData);
+            this.f24500a.d(blockPopInfoData);
         }
     }
 
     /* renamed from: c.a.r0.r3.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1137b implements a.e {
+    public class C1135b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f24485e;
+        public final /* synthetic */ BlockPopInfoData f24501e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f24486f;
+        public final /* synthetic */ b f24502f;
 
-        public C1137b(b bVar, BlockPopInfoData blockPopInfoData) {
+        public C1135b(b bVar, BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,8 +99,8 @@ public class b {
                     return;
                 }
             }
-            this.f24486f = bVar;
-            this.f24485e = blockPopInfoData;
+            this.f24502f = bVar;
+            this.f24501e = blockPopInfoData;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -108,7 +108,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", this.f24486f.f24483c).param("obj_type", this.f24485e.win_type));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", this.f24502f.f24499c).param("obj_type", this.f24501e.win_type));
             }
         }
     }
@@ -119,10 +119,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BlockPopInfoData f24487e;
+        public final /* synthetic */ BlockPopInfoData f24503e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f24488f;
+        public final /* synthetic */ b f24504f;
 
         public c(b bVar, BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
@@ -139,16 +139,16 @@ public class b {
                     return;
                 }
             }
-            this.f24488f = bVar;
-            this.f24487e = blockPopInfoData;
+            this.f24504f = bVar;
+            this.f24503e = blockPopInfoData;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f24488f.e(this.f24487e);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", this.f24488f.f24483c).param("obj_type", this.f24487e.win_type));
+                this.f24504f.e(this.f24503e);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", this.f24504f.f24499c).param("obj_type", this.f24503e.win_type));
             }
         }
     }
@@ -181,19 +181,19 @@ public class b {
                 return;
             }
         }
-        this.f24483c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
-        this.f24481a = new UEGCancelModel();
-        if (this.f24482b == null) {
-            this.f24482b = new a(this);
+        this.f24499c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
+        this.f24497a = new UEGCancelModel();
+        if (this.f24498b == null) {
+            this.f24498b = new a(this);
         }
-        this.f24481a.y(this.f24482b);
+        this.f24497a.y(this.f24498b);
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f24483c = i2;
-            this.f24481a.x();
+            this.f24499c = i2;
+            this.f24497a.x();
         }
     }
 
@@ -224,7 +224,7 @@ public class b {
         c.a.q0.s.d0.b j3 = c.a.q0.s.d0.b.j();
         j3.t(str + i2 + currentAccount, true);
         h(blockPopInfoData);
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.f24483c).param("obj_type", i2));
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.f24499c).param("obj_type", i2));
     }
 
     public final void e(BlockPopInfoData blockPopInfoData) {
@@ -239,7 +239,7 @@ public class b {
     public void f() {
         UEGCancelModel uEGCancelModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (uEGCancelModel = this.f24481a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (uEGCancelModel = this.f24497a) == null) {
             return;
         }
         uEGCancelModel.onDestroy();
@@ -248,7 +248,7 @@ public class b {
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            f24480d = z;
+            f24496d = z;
         }
     }
 
@@ -260,7 +260,7 @@ public class b {
         }
         c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(b2);
         aVar.setMessage(blockPopInfoData.block_info);
-        aVar.setNegativeButton(blockPopInfoData.ok_info, new C1137b(this, blockPopInfoData));
+        aVar.setNegativeButton(blockPopInfoData.ok_info, new C1135b(this, blockPopInfoData));
         aVar.setPositiveButton(blockPopInfoData.ahead_info, new c(this, blockPopInfoData));
         aVar.create(((g) b2).getPageContext());
         aVar.show();

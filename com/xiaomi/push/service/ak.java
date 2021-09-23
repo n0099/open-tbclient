@@ -26,7 +26,7 @@ public class ak {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f78113a;
+    public static boolean f78432a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class ak {
                 return;
             }
         }
-        f78113a = Log.isLoggable("NCHelper", 3);
+        f78432a = Log.isLoggable("NCHelper", 3);
     }
 
     @TargetApi(26)
@@ -75,7 +75,7 @@ public class ak {
             String b2 = aoVar.b();
             try {
                 NotificationChannel notificationChannel = new NotificationChannel(b2, com.xiaomi.push.g.m344b(aoVar.m595a(), aoVar.m596a()), 3);
-                if (f78113a) {
+                if (f78432a) {
                     a("create default channel:" + notificationChannel);
                 }
                 a(aoVar, notificationChannel);
@@ -94,7 +94,7 @@ public class ak {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{aoVar, str, charSequence, str2, Integer.valueOf(i2), Integer.valueOf(i3), str3})) == null) {
             String m597a = aoVar.m597a(str);
             try {
-                if (f78113a) {
+                if (f78432a) {
                     a("createChannel: appChannelId:" + m597a + " serverChannelId:" + str + " serverChannelName:" + ((Object) charSequence) + " serverChannelDesc:" + str2 + " serverChannelNotifyType:" + i2 + " serverChannelName:" + ((Object) charSequence) + " serverChannelImportance:" + i3 + " channelSoundStr:" + str3);
                 }
                 NotificationChannel notificationChannel = new NotificationChannel(m597a, charSequence, i3);
@@ -108,7 +108,7 @@ public class ak {
                         notificationChannel.setSound(Uri.parse(str3), Notification.AUDIO_ATTRIBUTES_DEFAULT);
                     }
                 }
-                if (f78113a) {
+                if (f78432a) {
                     a("create channel:" + notificationChannel);
                 }
                 a(aoVar, notificationChannel);
@@ -130,7 +130,7 @@ public class ak {
                 for (String str2 : keySet) {
                     if (a2.m599a(str2)) {
                         arrayList.add(str2);
-                        if (f78113a) {
+                        if (f78432a) {
                             a("delete channel copy record:" + str2);
                         }
                     }
@@ -144,7 +144,7 @@ public class ak {
     public static void a(Context context, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, list) == null) {
-            if (f78113a) {
+            if (f78432a) {
                 a("deleteCopiedChannelRecord:" + list);
             }
             if (list.isEmpty()) {
@@ -171,12 +171,12 @@ public class ak {
             Context m595a = aoVar.m595a();
             String id = notificationChannel.getId();
             String a2 = ao.a(id, aoVar.m596a());
-            if (f78113a) {
+            if (f78432a) {
                 a("appChannelId:" + id + " oldChannelId:" + a2);
             }
             if (!com.xiaomi.push.l.m539a(m595a) || TextUtils.equals(id, a2)) {
                 NotificationChannel m594a = aoVar.m594a(id);
-                if (f78113a) {
+                if (f78432a) {
                     a("elseLogic getNotificationChannel:" + m594a);
                 }
                 if (m594a != null) {
@@ -186,13 +186,13 @@ public class ak {
                 NotificationManager notificationManager = (NotificationManager) m595a.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                 NotificationChannel notificationChannel2 = notificationManager.getNotificationChannel(a2);
                 NotificationChannel m594a2 = aoVar.m594a(id);
-                if (f78113a) {
+                if (f78432a) {
                     a("xmsfChannel:" + notificationChannel2);
                     a("appChannel:" + m594a2);
                 }
                 if (notificationChannel2 != null) {
                     NotificationChannel a3 = a(id, notificationChannel2);
-                    if (f78113a) {
+                    if (f78432a) {
                         a("copyXmsf copyXmsfChannel:" + a3);
                     }
                     if (m594a2 != null) {
@@ -207,12 +207,12 @@ public class ak {
                     if (m587a(m595a, id) || !a(notificationChannel, m594a2)) {
                         return;
                     }
-                    if (f78113a) {
+                    if (f78432a) {
                         a("appHack updateNotificationChannel:" + notificationChannel);
                     }
                     aoVar.a(notificationChannel, !a(m594a2));
                     return;
-                } else if (f78113a) {
+                } else if (f78432a) {
                     a("appHack createNotificationChannel:" + notificationChannel);
                 }
             }
@@ -244,7 +244,7 @@ public class ak {
                 i2 = 0;
             }
             try {
-                if (f78113a) {
+                if (f78432a) {
                     a("isUserLockedChannel:" + i2 + " " + notificationChannel);
                 }
             } catch (Exception e3) {
@@ -271,47 +271,47 @@ public class ak {
             if (TextUtils.equals(notificationChannel.getName(), notificationChannel2.getName())) {
                 z = false;
             } else {
-                if (f78113a) {
+                if (f78432a) {
                     a("appHack channelConfigLowerCompare:getName");
                 }
                 z = true;
             }
             if (!TextUtils.equals(notificationChannel.getDescription(), notificationChannel2.getDescription())) {
-                if (f78113a) {
+                if (f78432a) {
                     a("appHack channelConfigLowerCompare:getDescription");
                 }
                 z = true;
             }
             if (notificationChannel.getImportance() != notificationChannel2.getImportance()) {
                 notificationChannel.setImportance(Math.min(notificationChannel.getImportance(), notificationChannel2.getImportance()));
-                if (f78113a) {
+                if (f78432a) {
                     a("appHack channelConfigLowerCompare:getImportance  " + notificationChannel.getImportance() + " " + notificationChannel2.getImportance());
                 }
                 z = true;
             }
             if (notificationChannel.shouldVibrate() != notificationChannel2.shouldVibrate()) {
                 notificationChannel.enableVibration(false);
-                if (f78113a) {
+                if (f78432a) {
                     a("appHack channelConfigLowerCompare:enableVibration");
                 }
                 z = true;
             }
             if (notificationChannel.shouldShowLights() != notificationChannel2.shouldShowLights()) {
                 notificationChannel.enableLights(false);
-                if (f78113a) {
+                if (f78432a) {
                     a("appHack channelConfigLowerCompare:enableLights");
                 }
                 z = true;
             }
             if ((notificationChannel.getSound() != null) != (notificationChannel2.getSound() != null)) {
                 notificationChannel.setSound(null, null);
-                if (f78113a) {
+                if (f78432a) {
                     a("appHack channelConfigLowerCompare:setSound");
                 }
             } else {
                 z2 = z;
             }
-            if (f78113a) {
+            if (f78432a) {
                 a("appHack channelConfigLowerCompare:isDifferent:" + z2);
             }
             return z2;
@@ -324,7 +324,7 @@ public class ak {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
-            if (f78113a) {
+            if (f78432a) {
                 a("checkCopeidChannel:newFullChannelId:" + str + GlideException.IndentedAppendable.INDENT + a(context).getBoolean(str, false));
             }
             return a(context).getBoolean(str, false);
@@ -335,7 +335,7 @@ public class ak {
     public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
-            if (f78113a) {
+            if (f78432a) {
                 a("recordCopiedChannel:" + str);
             }
             a(context).edit().putBoolean(str, true).apply();

@@ -16,10 +16,10 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public i f54286a;
+    public i f54401a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f54287b;
+    public View.OnClickListener f54402b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TaskViewHolder(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -39,24 +39,24 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54287b = onClickListener;
-        this.f54286a = new i(view, baseFragmentActivity, onClickListener);
+        this.f54402b = onClickListener;
+        this.f54401a = new i(view, baseFragmentActivity, onClickListener);
     }
 
     public void fillView(q qVar) {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) || qVar == null || (iVar = this.f54286a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) || qVar == null || (iVar = this.f54401a) == null) {
             return;
         }
         iVar.a(qVar);
-        this.f54286a.c();
+        this.f54401a.c();
     }
 
     public void setCommenClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f54287b = onClickListener;
+            this.f54402b = onClickListener;
         }
     }
 }

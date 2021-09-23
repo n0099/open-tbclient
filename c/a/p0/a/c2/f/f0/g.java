@@ -29,19 +29,19 @@ public class g extends a0 implements b.j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4825c;
+    public String f4833c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CallbackHandler f4826d;
+    public CallbackHandler f4834d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f4827e;
+    public long f4835e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f4828f;
+    public long f4836f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f4829g;
+    public long f4837g;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -49,19 +49,19 @@ public class g extends a0 implements b.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f4830e;
+        public final /* synthetic */ String f4838e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f4831f;
+        public final /* synthetic */ Context f4839f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f4832g;
+        public final /* synthetic */ JSONObject f4840g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f4833h;
+        public final /* synthetic */ c.a.p0.a.a2.e f4841h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f4834i;
+        public final /* synthetic */ g f4842i;
 
         /* renamed from: c.a.p0.a.c2.f.f0.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -70,13 +70,13 @@ public class g extends a0 implements b.j {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ShowFavoriteGuideApi.GuideType f4835e;
+            public final /* synthetic */ ShowFavoriteGuideApi.GuideType f4843e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f4836f;
+            public final /* synthetic */ String f4844f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f4837g;
+            public final /* synthetic */ a f4845g;
 
             public RunnableC0133a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
                 Interceptable interceptable = $ic;
@@ -93,9 +93,9 @@ public class g extends a0 implements b.j {
                         return;
                     }
                 }
-                this.f4837g = aVar;
-                this.f4835e = guideType;
-                this.f4836f = str;
+                this.f4845g = aVar;
+                this.f4843e = guideType;
+                this.f4844f = str;
             }
 
             @Override // java.lang.Runnable
@@ -103,9 +103,9 @@ public class g extends a0 implements b.j {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     c.a.p0.a.u.e.d.b l = c.a.p0.a.u.e.d.b.l();
-                    a aVar = this.f4837g;
-                    c.a.p0.a.a2.e eVar = aVar.f4833h;
-                    l.p(aVar.f4834i, (Activity) aVar.f4831f, eVar, this.f4835e, this.f4836f, eVar.L().Q(), this.f4837g.f4834i.f4827e);
+                    a aVar = this.f4845g;
+                    c.a.p0.a.a2.e eVar = aVar.f4841h;
+                    l.p(aVar.f4842i, (Activity) aVar.f4839f, eVar, this.f4843e, this.f4844f, eVar.L().Q(), this.f4845g.f4842i.f4835e);
                 }
             }
         }
@@ -125,11 +125,11 @@ public class g extends a0 implements b.j {
                     return;
                 }
             }
-            this.f4834i = gVar;
-            this.f4830e = str;
-            this.f4831f = context;
-            this.f4832g = jSONObject;
-            this.f4833h = eVar;
+            this.f4842i = gVar;
+            this.f4838e = str;
+            this.f4839f = context;
+            this.f4840g = jSONObject;
+            this.f4841h = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -137,10 +137,10 @@ public class g extends a0 implements b.j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.a.k2.g.b a2 = h.a();
-                ShowFavoriteGuideApi.GuideType parse = ShowFavoriteGuideApi.GuideType.parse(this.f4830e);
-                String string = this.f4831f.getString(parse.defaultText);
-                this.f4834i.f4825c = this.f4832g.optString("cb");
-                String str = this.f4833h.f4558f;
+                ShowFavoriteGuideApi.GuideType parse = ShowFavoriteGuideApi.GuideType.parse(this.f4838e);
+                String string = this.f4839f.getString(parse.defaultText);
+                this.f4842i.f4833c = this.f4840g.optString("cb");
+                String str = this.f4841h.f4566f;
                 String str2 = "favorite_guide_count_" + str;
                 if (c.a.p0.a.j0.b.a.n(str)) {
                     c.a.p0.a.e0.d.g("ShowFavoriteGuideAction", "favorite already");
@@ -161,11 +161,11 @@ public class g extends a0 implements b.j {
                 }
                 long currentTimeMillis = System.currentTimeMillis();
                 int i3 = i2;
-                this.f4834i.f4827e = a2.getLong("swan_favorite_guide_duration", 3L);
-                this.f4834i.f4828f = a2.getLong("swan_favorite_guide_intervalDays", 3L);
-                this.f4834i.f4829g = a2.getLong("swan_favorite_guide_maxTimes", 3L);
-                c.a.p0.a.e0.d.g("ShowFavoriteGuideAction", "duration=" + this.f4834i.f4827e + ", mIntervalDays=" + this.f4834i.f4828f + ", mMaxTimes=" + this.f4834i.f4829g + " ,storageValue=" + string2);
-                if (i3 < this.f4834i.f4829g && currentTimeMillis - j2 > this.f4834i.f4828f * 86400000) {
+                this.f4842i.f4835e = a2.getLong("swan_favorite_guide_duration", 3L);
+                this.f4842i.f4836f = a2.getLong("swan_favorite_guide_intervalDays", 3L);
+                this.f4842i.f4837g = a2.getLong("swan_favorite_guide_maxTimes", 3L);
+                c.a.p0.a.e0.d.g("ShowFavoriteGuideAction", "duration=" + this.f4842i.f4835e + ", mIntervalDays=" + this.f4842i.f4836f + ", mMaxTimes=" + this.f4842i.f4837g + " ,storageValue=" + string2);
+                if (i3 < this.f4842i.f4837g && currentTimeMillis - j2 > this.f4842i.f4836f * 86400000) {
                     h.a().putString(str2, (i3 + 1) + "#" + currentTimeMillis);
                     q0.b0(new RunnableC0133a(this, parse, string));
                     return;
@@ -207,7 +207,7 @@ public class g extends a0 implements b.j {
                 c.a.p0.a.e0.d.g("ShowFavoriteGuideAction", "not support outside baiduboxapp");
                 return false;
             }
-            this.f4826d = callbackHandler;
+            this.f4834d = callbackHandler;
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
             if (a2 != null && eVar != null && (context instanceof Activity)) {
                 String optString = a2.optString("type");
@@ -232,7 +232,7 @@ public class g extends a0 implements b.j {
     @AnyThread
     public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f4825c == null || this.f4826d == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f4833c == null || this.f4834d == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -241,6 +241,6 @@ public class g extends a0 implements b.j {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.f4826d.handleSchemeDispatchCallback(this.f4825c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success").toString());
+        this.f4834d.handleSchemeDispatchCallback(this.f4833c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success").toString());
     }
 }

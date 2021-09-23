@@ -13,7 +13,7 @@ public class ci implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f77437a;
+    public final /* synthetic */ Context f77756a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ cg.a f191a;
@@ -34,7 +34,7 @@ public class ci implements Runnable {
             }
         }
         this.f191a = aVar;
-        this.f77437a = context;
+        this.f77756a = context;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, IGET, INVOKE] complete} */
@@ -48,7 +48,7 @@ public class ci implements Runnable {
                     sQLiteDatabase = this.f191a.a();
                     if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
                         sQLiteDatabase.beginTransaction();
-                        this.f191a.a(this.f77437a, sQLiteDatabase);
+                        this.f191a.a(this.f77756a, sQLiteDatabase);
                         sQLiteDatabase.setTransactionSuccessful();
                     }
                     if (sQLiteDatabase != null) {
@@ -57,7 +57,7 @@ public class ci implements Runnable {
                         } catch (Exception e2) {
                             e = e2;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
-                            this.f191a.a(this.f77437a);
+                            this.f191a.a(this.f77756a);
                         }
                     }
                     if (this.f191a.f182a != null) {
@@ -71,28 +71,28 @@ public class ci implements Runnable {
                         } catch (Exception e4) {
                             e = e4;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
-                            this.f191a.a(this.f77437a);
+                            this.f191a.a(this.f77756a);
                         }
                     }
                     if (this.f191a.f182a != null) {
                         this.f191a.f182a.close();
                     }
                 }
-                this.f191a.a(this.f77437a);
+                this.f191a.a(this.f77756a);
             } catch (Throwable th) {
                 if (sQLiteDatabase != null) {
                     try {
                         sQLiteDatabase.endTransaction();
                     } catch (Exception e5) {
                         com.xiaomi.channel.commonutils.logger.b.a(e5);
-                        this.f191a.a(this.f77437a);
+                        this.f191a.a(this.f77756a);
                         throw th;
                     }
                 }
                 if (this.f191a.f182a != null) {
                     this.f191a.f182a.close();
                 }
-                this.f191a.a(this.f77437a);
+                this.f191a.a(this.f77756a);
                 throw th;
             }
         }

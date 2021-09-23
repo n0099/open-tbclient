@@ -12,19 +12,19 @@ public class n implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f67732a;
+    public long f68043a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67733b;
+    public long f68044b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67734c;
+    public int f68045c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67735d;
+    public int f68046d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f67736e;
+    public String f68047e;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -43,28 +43,28 @@ public class n implements c {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f67732a = j2;
+            this.f68043a = j2;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f67733b = j2;
+            this.f68044b = j2;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f67734c = i2;
+            this.f68045c = i2;
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f67735d = i2;
+            this.f68046d = i2;
         }
     }
 
@@ -75,11 +75,11 @@ public class n implements c {
             return;
         }
         try {
-            jSONObject.put("buffers_time", this.f67732a);
-            jSONObject.put("total_duration", this.f67733b);
-            jSONObject.put("error_code", this.f67734c);
-            jSONObject.put("extra_error_code", this.f67735d);
-            jSONObject.put("error_message", this.f67736e);
+            jSONObject.put("buffers_time", this.f68043a);
+            jSONObject.put("total_duration", this.f68044b);
+            jSONObject.put("error_code", this.f68045c);
+            jSONObject.put("extra_error_code", this.f68046d);
+            jSONObject.put("error_message", this.f68047e);
         } catch (Throwable th) {
             th.printStackTrace();
         }

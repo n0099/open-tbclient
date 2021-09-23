@@ -61,7 +61,7 @@ public class o extends a0 {
                 return true;
             } catch (JSONException e2) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.printStackTrace();
                 }
                 return false;

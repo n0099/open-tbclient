@@ -135,7 +135,7 @@ public class NetUtil {
             }
 
             @Override // javax.net.ssl.HostnameVerifier
-            public boolean verify(String str, SSLSession sSLSession) {
+            public final boolean verify(String str, SSLSession sSLSession) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
@@ -197,21 +197,21 @@ public class NetUtil {
                 }
 
                 @Override // javax.net.ssl.X509TrustManager
-                public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+                public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, x509CertificateArr, str) == null) {
                     }
                 }
 
                 @Override // javax.net.ssl.X509TrustManager
-                public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+                public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
                     }
                 }
 
                 @Override // javax.net.ssl.X509TrustManager
-                public X509Certificate[] getAcceptedIssuers() {
+                public final X509Certificate[] getAcceptedIssuers() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new X509Certificate[0] : (X509Certificate[]) invokeV.objValue;

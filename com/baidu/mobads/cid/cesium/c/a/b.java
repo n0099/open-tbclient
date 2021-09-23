@@ -17,16 +17,16 @@ public final class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int[] f42818g;
+    public static int[] f42880g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int[] f42819h;
+    public static int[] f42881h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final byte[] f42820i;
+    public static final byte[] f42882i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final byte[] f42821j;
+    public static final byte[] f42883j;
     public static final int[] k;
     public static final int[] l;
     public static final int[] m;
@@ -43,19 +43,19 @@ public final class b implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42822b;
+    public boolean f42884b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42823c;
+    public boolean f42885c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object[] f42824d;
+    public Object[] f42886d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f42825e;
+    public int[] f42887e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42826f;
+    public int f42888f;
 
     static {
         InterceptResult invokeClinit;
@@ -71,10 +71,10 @@ public final class b implements a {
             }
         }
         int[] iArr = new int[256];
-        f42818g = iArr;
-        f42819h = new int[256];
-        f42820i = new byte[256];
-        f42821j = new byte[256];
+        f42880g = iArr;
+        f42881h = new int[256];
+        f42882i = new byte[256];
+        f42883j = new byte[256];
         k = new int[256];
         l = new int[256];
         m = new int[256];
@@ -90,23 +90,23 @@ public final class b implements a {
         w = new byte[30];
         iArr[0] = 1;
         for (int i2 = 1; i2 < 256; i2++) {
-            int[] iArr2 = f42818g;
+            int[] iArr2 = f42880g;
             int i3 = i2 - 1;
             int i4 = iArr2[i3] ^ (iArr2[i3] << 1);
             if ((i4 & 256) != 0) {
                 i4 ^= 283;
             }
-            f42818g[i2] = i4;
+            f42880g[i2] = i4;
         }
         for (int i5 = 1; i5 < 255; i5++) {
-            f42819h[f42818g[i5]] = i5;
+            f42881h[f42880g[i5]] = i5;
         }
         byte[][] bArr = {new byte[]{1, 1, 1, 1, 1, 0, 0, 0}, new byte[]{0, 1, 1, 1, 1, 1, 0, 0}, new byte[]{0, 0, 1, 1, 1, 1, 1, 0}, new byte[]{0, 0, 0, 1, 1, 1, 1, 1}, new byte[]{1, 0, 0, 0, 1, 1, 1, 1}, new byte[]{1, 1, 0, 0, 0, 1, 1, 1}, new byte[]{1, 1, 1, 0, 0, 0, 1, 1}, new byte[]{1, 1, 1, 1, 0, 0, 0, 1}};
         byte[] bArr2 = {0, 1, 1, 0, 0, 0, 1, 1};
         byte[][] bArr3 = (byte[][]) Array.newInstance(byte.class, 256, 8);
         bArr3[1][7] = 1;
         for (int i6 = 2; i6 < 256; i6++) {
-            int i7 = f42818g[255 - f42819h[i6]];
+            int i7 = f42880g[255 - f42881h[i6]];
             for (int i8 = 0; i8 < 8; i8++) {
                 bArr3[i6][i8] = (byte) ((i7 >>> (7 - i8)) & 1);
             }
@@ -122,12 +122,12 @@ public final class b implements a {
             }
         }
         for (int i12 = 0; i12 < 256; i12++) {
-            f42820i[i12] = (byte) (bArr4[i12][0] << 7);
+            f42882i[i12] = (byte) (bArr4[i12][0] << 7);
             for (int i13 = 1; i13 < 8; i13++) {
-                byte[] bArr6 = f42820i;
+                byte[] bArr6 = f42882i;
                 bArr6[i12] = (byte) (bArr6[i12] ^ (bArr4[i12][i13] << (7 - i13)));
             }
-            f42821j[f42820i[i12] & 255] = (byte) i12;
+            f42883j[f42882i[i12] & 255] = (byte) i12;
         }
         byte[][] bArr7 = {new byte[]{2, 1, 1, 3}, new byte[]{3, 2, 1, 1}, new byte[]{1, 3, 2, 1}, new byte[]{1, 1, 3, 2}};
         byte[][] bArr8 = (byte[][]) Array.newInstance(byte.class, 4, 8);
@@ -158,8 +158,8 @@ public final class b implements a {
             for (int i19 = 0; i19 < 8; i19++) {
                 if (bArr8[i16][i19] != 0) {
                     byte[] bArr10 = bArr8[i16];
-                    int[] iArr3 = f42818g;
-                    int[] iArr4 = f42819h;
+                    int[] iArr3 = f42880g;
+                    int[] iArr4 = f42881h;
                     bArr10[i19] = (byte) iArr3[((iArr4[bArr8[i16][i19] & 255] + 255) - iArr4[b2 & 255]) % 255];
                 }
             }
@@ -179,12 +179,12 @@ public final class b implements a {
             }
         }
         for (int i24 = 0; i24 < 256; i24++) {
-            byte b4 = f42820i[i24];
+            byte b4 = f42882i[i24];
             k[i24] = a(b4, bArr7[0]);
             l[i24] = a(b4, bArr7[1]);
             m[i24] = a(b4, bArr7[2]);
             n[i24] = a(b4, bArr7[3]);
-            byte b5 = f42821j[i24];
+            byte b5 = f42883j[i24];
             o[i24] = a(b5, bArr9[0]);
             p[i24] = a(b5, bArr9[1]);
             q[i24] = a(b5, bArr9[2]);
@@ -200,8 +200,8 @@ public final class b implements a {
             i25 = a(2, i25);
             w[i26] = (byte) i25;
         }
-        f42819h = null;
-        f42818g = null;
+        f42881h = null;
+        f42880g = null;
     }
 
     public b() {
@@ -217,11 +217,11 @@ public final class b implements a {
                 return;
             }
         }
-        this.f42822b = false;
-        this.f42823c = false;
-        this.f42824d = null;
-        this.f42825e = null;
-        this.f42826f = 0;
+        this.f42884b = false;
+        this.f42885c = false;
+        this.f42886d = null;
+        this.f42887e = null;
+        this.f42888f = 0;
     }
 
     public static final int a(int i2, int i3) {
@@ -231,8 +231,8 @@ public final class b implements a {
             if (i2 == 0 || i3 == 0) {
                 return 0;
             }
-            int[] iArr = f42818g;
-            int[] iArr2 = f42819h;
+            int[] iArr = f42880g;
+            int[] iArr2 = f42881h;
             return iArr[(iArr2[i2 & 255] + iArr2[i3 & 255]) % 255];
         }
         return invokeII.intValue;
@@ -245,9 +245,9 @@ public final class b implements a {
             if (i2 == 0) {
                 return 0;
             }
-            int[] iArr = f42819h;
+            int[] iArr = f42881h;
             int i3 = iArr[i2 & 255];
-            return ((bArr[0] != 0 ? f42818g[(iArr[bArr[0] & 255] + i3) % 255] & 255 : 0) << 24) | ((bArr[1] != 0 ? f42818g[(f42819h[bArr[1] & 255] + i3) % 255] & 255 : 0) << 16) | ((bArr[2] != 0 ? f42818g[(f42819h[bArr[2] & 255] + i3) % 255] & 255 : 0) << 8) | (bArr[3] != 0 ? f42818g[(i3 + f42819h[bArr[3] & 255]) % 255] & 255 : 0);
+            return ((bArr[0] != 0 ? f42880g[(iArr[bArr[0] & 255] + i3) % 255] & 255 : 0) << 24) | ((bArr[1] != 0 ? f42880g[(f42881h[bArr[1] & 255] + i3) % 255] & 255 : 0) << 16) | ((bArr[2] != 0 ? f42880g[(f42881h[bArr[2] & 255] + i3) % 255] & 255 : 0) << 8) | (bArr[3] != 0 ? f42880g[(i3 + f42881h[bArr[3] & 255]) % 255] & 255 : 0);
         }
         return invokeIL.intValue;
     }
@@ -255,33 +255,33 @@ public final class b implements a {
     private void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
-            int[][] iArr = (int[][]) this.f42824d[z ? 1 : 0];
+            int[][] iArr = (int[][]) this.f42886d[z ? 1 : 0];
             int length = iArr.length;
-            this.f42825e = new int[length * 4];
+            this.f42887e = new int[length * 4];
             for (int i2 = 0; i2 < length; i2++) {
                 for (int i3 = 0; i3 < 4; i3++) {
-                    this.f42825e[(i2 * 4) + i3] = iArr[i2][i3];
+                    this.f42887e[(i2 * 4) + i3] = iArr[i2][i3];
                 }
             }
             if (z) {
-                int[] iArr2 = this.f42825e;
+                int[] iArr2 = this.f42887e;
                 int i4 = iArr2[iArr2.length - 4];
                 int i5 = iArr2[iArr2.length - 3];
                 int i6 = iArr2[iArr2.length - 2];
                 int i7 = iArr2[iArr2.length - 1];
                 for (int length2 = iArr2.length - 1; length2 > 3; length2--) {
-                    int[] iArr3 = this.f42825e;
+                    int[] iArr3 = this.f42887e;
                     iArr3[length2] = iArr3[length2 - 4];
                 }
-                int[] iArr4 = this.f42825e;
+                int[] iArr4 = this.f42887e;
                 iArr4[0] = i4;
                 iArr4[1] = i5;
                 iArr4[2] = i6;
                 iArr4[3] = i7;
             }
-            this.f42822b = length >= 13;
-            this.f42823c = length == 15;
-            this.f42826f = (length - 1) * 4;
+            this.f42884b = length >= 13;
+            this.f42885c = length == 15;
+            this.f42888f = (length - 1) * 4;
         }
     }
 
@@ -293,7 +293,7 @@ public final class b implements a {
         }
         int i3 = 0;
         while (true) {
-            int[] iArr = a.f42817a;
+            int[] iArr = a.f42879a;
             if (i3 >= iArr.length) {
                 return false;
             }
@@ -342,7 +342,7 @@ public final class b implements a {
                 while (i8 < i4) {
                     int i12 = iArr3[length - 1];
                     int i13 = iArr3[c2];
-                    byte[] bArr2 = f42820i;
+                    byte[] bArr2 = f42882i;
                     int i14 = (((bArr2[(i12 >>> 16) & 255] << 24) ^ ((bArr2[(i12 >>> 8) & 255] & 255) << 16)) ^ ((bArr2[i12 & 255] & 255) << 8)) ^ (bArr2[i12 >>> 24] & 255);
                     int i15 = i11 + 1;
                     iArr3[c2] = ((w[i11] << 24) ^ i14) ^ i13;
@@ -366,7 +366,7 @@ public final class b implements a {
                         }
                         int i18 = iArr3[i2 - 1];
                         int i19 = iArr3[i2];
-                        byte[] bArr3 = f42820i;
+                        byte[] bArr3 = f42882i;
                         iArr3[i2] = ((bArr3[i18 >>> 24] << 24) ^ ((((bArr3[(i18 >>> 8) & 255] & 255) << 8) ^ (bArr3[i18 & 255] & 255)) ^ ((bArr3[(i18 >>> 16) & 255] & 255) << 16))) ^ i19;
                         int i20 = i2 + 1;
                         while (i20 < length) {
@@ -419,7 +419,7 @@ public final class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, bArr}) == null) {
             if (a(bArr.length)) {
-                this.f42824d = a(bArr);
+                this.f42886d = a(bArr);
                 a(z);
                 return;
             }
@@ -436,7 +436,7 @@ public final class b implements a {
             int i7 = ((bArr[i4] & 255) << 16) | (bArr[i2] << 24) | ((bArr[i5] & 255) << 8);
             int i8 = i6 + 1;
             int i9 = i7 | (bArr[i6] & 255);
-            int[] iArr = this.f42825e;
+            int[] iArr = this.f42887e;
             int i10 = i9 ^ iArr[0];
             int i11 = i8 + 1;
             int i12 = i11 + 1;
@@ -456,7 +456,7 @@ public final class b implements a {
             int i26 = i25 + 1;
             int i27 = iArr[3] ^ (((((bArr[i25] & 255) << 16) | (bArr[i23] << 24)) | ((bArr[i26] & 255) << 8)) | (bArr[i26 + 1] & 255));
             int i28 = 4;
-            while (i28 < this.f42826f) {
+            while (i28 < this.f42888f) {
                 int[] iArr2 = k;
                 int i29 = iArr2[i10 >>> 24];
                 int[] iArr3 = l;
@@ -465,7 +465,7 @@ public final class b implements a {
                 int i31 = i30 ^ iArr4[(i24 >>> 8) & 255];
                 int[] iArr5 = n;
                 int i32 = i31 ^ iArr5[i27 & 255];
-                int[] iArr6 = this.f42825e;
+                int[] iArr6 = this.f42887e;
                 int i33 = i28 + 1;
                 int i34 = iArr6[i28] ^ i32;
                 int i35 = i33 + 1;
@@ -479,11 +479,11 @@ public final class b implements a {
                 i10 = i34;
                 i28 = i38 + 1;
             }
-            int[] iArr7 = this.f42825e;
+            int[] iArr7 = this.f42887e;
             int i40 = i28 + 1;
             int i41 = iArr7[i28];
             int i42 = i3 + 1;
-            byte[] bArr3 = f42820i;
+            byte[] bArr3 = f42882i;
             bArr2[i3] = (byte) (bArr3[i10 >>> 24] ^ (i41 >>> 24));
             int i43 = i42 + 1;
             bArr2[i42] = (byte) (bArr3[(i17 >>> 16) & 255] ^ (i41 >>> 16));
@@ -535,7 +535,7 @@ public final class b implements a {
             int i12 = ((bArr[i9] & 255) << 16) | (bArr[i2] << 24) | ((bArr[i10] & 255) << 8);
             int i13 = i11 + 1;
             int i14 = i12 | (bArr[i11] & 255);
-            int[] iArr = this.f42825e;
+            int[] iArr = this.f42887e;
             int i15 = i14 ^ iArr[4];
             int i16 = i13 + 1;
             int i17 = i16 + 1;
@@ -554,7 +554,7 @@ public final class b implements a {
             int i30 = i28 + 1;
             int i31 = i30 + 1;
             int i32 = (((((bArr[i30] & 255) << 16) | (bArr[i28] << 24)) | ((bArr[i31] & 255) << 8)) | (bArr[i31 + 1] & 255)) ^ iArr[7];
-            if (this.f42822b) {
+            if (this.f42884b) {
                 int[] iArr2 = o;
                 int i33 = iArr2[i15 >>> 24];
                 int[] iArr3 = p;
@@ -571,7 +571,7 @@ public final class b implements a {
                 i6 = (((iArr2[i37 >>> 24] ^ iArr3[(i36 >>> 16) & 255]) ^ iArr4[(i40 >>> 8) & 255]) ^ iArr5[i38 & 255]) ^ iArr[13];
                 i5 = (((iArr2[i38 >>> 24] ^ iArr3[(i37 >>> 16) & 255]) ^ iArr4[(i36 >>> 8) & 255]) ^ iArr5[i40 & 255]) ^ iArr[14];
                 int i41 = (((iArr2[i40 >>> 24] ^ iArr3[(i38 >>> 16) & 255]) ^ iArr4[(i37 >>> 8) & 255]) ^ iArr5[i36 & 255]) ^ iArr[15];
-                if (this.f42823c) {
+                if (this.f42885c) {
                     int i42 = (((iArr2[i7 >>> 24] ^ iArr3[(i41 >>> 16) & 255]) ^ iArr4[(i5 >>> 8) & 255]) ^ iArr5[i6 & 255]) ^ iArr[16];
                     int i43 = iArr[17] ^ (((iArr2[i6 >>> 24] ^ iArr3[(i7 >>> 16) & 255]) ^ iArr4[(i41 >>> 8) & 255]) ^ iArr5[i5 & 255]);
                     int i44 = (((iArr2[i5 >>> 24] ^ iArr3[(i6 >>> 16) & 255]) ^ iArr4[(i7 >>> 8) & 255]) ^ iArr5[i41 & 255]) ^ iArr[18];
@@ -600,7 +600,7 @@ public final class b implements a {
             int i48 = i47 ^ iArr8[(i5 >>> 8) & 255];
             int[] iArr9 = r;
             int i49 = i48 ^ iArr9[i6 & 255];
-            int[] iArr10 = this.f42825e;
+            int[] iArr10 = this.f42887e;
             int i50 = i8 + 1;
             int i51 = iArr10[i8] ^ i49;
             int i52 = i50 + 1;
@@ -681,7 +681,7 @@ public final class b implements a {
             int i127 = (((iArr6[i121 >>> 24] ^ iArr7[(i118 >>> 16) & 255]) ^ iArr8[(i116 >>> 8) & 255]) ^ iArr9[i114 & 255]) ^ iArr10[i124 + 1];
             int i128 = iArr10[0];
             int i129 = i3 + 1;
-            byte[] bArr3 = f42821j;
+            byte[] bArr3 = f42883j;
             bArr2[i3] = (byte) (bArr3[i123 >>> 24] ^ (i128 >>> 24));
             int i130 = i129 + 1;
             bArr2[i129] = (byte) (bArr3[(i127 >>> 16) & 255] ^ (i128 >>> 16));

@@ -13,7 +13,7 @@ public class n2 extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CloseParentView f77113a;
+    public final /* synthetic */ CloseParentView f77432a;
 
     public n2(CloseParentView closeParentView) {
         Interceptable interceptable = $ic;
@@ -30,26 +30,26 @@ public class n2 extends Handler {
                 return;
             }
         }
-        this.f77113a = closeParentView;
+        this.f77432a = closeParentView;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 10) {
-            CloseParentView closeParentView = this.f77113a;
-            closeParentView.f77197a.setText(String.valueOf(closeParentView.f77204h));
-            CloseParentView closeParentView2 = this.f77113a;
-            if (closeParentView2.f77204h <= 0) {
-                closeParentView2.f77197a.setVisibility(8);
-                this.f77113a.f77197a.setClickable(false);
-                this.f77113a.f77205i.removeMessages(10);
+            CloseParentView closeParentView = this.f77432a;
+            closeParentView.f77516a.setText(String.valueOf(closeParentView.f77523h));
+            CloseParentView closeParentView2 = this.f77432a;
+            if (closeParentView2.f77523h <= 0) {
+                closeParentView2.f77516a.setVisibility(8);
+                this.f77432a.f77516a.setClickable(false);
+                this.f77432a.f77524i.removeMessages(10);
             } else {
-                closeParentView2.f77197a.setVisibility(0);
-                this.f77113a.f77197a.setClickable(true);
+                closeParentView2.f77516a.setVisibility(0);
+                this.f77432a.f77516a.setClickable(true);
             }
-            this.f77113a.f77205i.sendEmptyMessageDelayed(10, 1000L);
-            this.f77113a.f77204h--;
+            this.f77432a.f77524i.sendEmptyMessageDelayed(10, 1000L);
+            this.f77432a.f77523h--;
         }
     }
 }

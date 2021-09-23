@@ -18,13 +18,13 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Presenter f71380a;
+    public Presenter f71699a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f71381b;
+    public T f71700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f71382c;
+    public ViewGroup f71701c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -44,17 +44,17 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends FrameLayout {
                 return;
             }
         }
-        this.f71382c = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
+        this.f71701c = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Presenter presenter = this.f71380a;
+            Presenter presenter = this.f71699a;
             if (presenter != null) {
                 presenter.h();
             }
-            this.f71382c = null;
+            this.f71701c = null;
         }
     }
 
@@ -71,13 +71,13 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
-            this.f71381b = b();
-            if (this.f71380a == null) {
+            this.f71700b = b();
+            if (this.f71699a == null) {
                 Presenter c2 = c();
-                this.f71380a = c2;
-                c2.a((View) this.f71382c);
+                this.f71699a = c2;
+                c2.a((View) this.f71701c);
             }
-            this.f71380a.a(this.f71381b);
+            this.f71699a.a(this.f71700b);
         }
     }
 
@@ -86,7 +86,7 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            T t = this.f71381b;
+            T t = this.f71700b;
             if (t != null) {
                 t.a();
             }

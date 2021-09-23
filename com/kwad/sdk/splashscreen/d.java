@@ -30,39 +30,39 @@ public class d extends com.kwad.sdk.core.e.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public KsSplashScreenAd.SplashScreenAdInteractionListener f73863a;
+    public KsSplashScreenAd.SplashScreenAdInteractionListener f74182a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f73864b;
+    public boolean f74183b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsVideoPlayConfig f73865c;
+    public KsVideoPlayConfig f74184c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f73866d;
+    public AdTemplate f74185d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public AdBaseFrameLayout f73867e;
+    public AdBaseFrameLayout f74186e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.b.a f73868f;
+    public com.kwad.sdk.splashscreen.b.a f74187f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f73869g;
+    public com.kwad.sdk.core.download.b.b f74188g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public KsScene f73870h;
+    public KsScene f74189h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.core.j.c f73871i;
+    public com.kwad.sdk.core.j.c f74190i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f73872j;
+    public String f74191j;
     public boolean k;
 
     public d() {
@@ -97,10 +97,10 @@ public class d extends com.kwad.sdk.core.e.b {
     public void a() {
         com.kwad.sdk.splashscreen.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f73868f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f74187f) == null) {
             return;
         }
-        if (this.f73872j != null) {
+        if (this.f74191j != null) {
             aVar.i();
         } else {
             aVar.h();
@@ -114,9 +114,9 @@ public class d extends com.kwad.sdk.core.e.b {
             if (e()) {
                 return false;
             }
-            AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f73866d);
+            AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f74185d);
             boolean F = com.kwad.sdk.core.response.b.a.F(i2);
-            KsScene ksScene = this.f73870h;
+            KsScene ksScene = this.f74189h;
             return F && (ksScene instanceof SceneImpl ? ((SceneImpl) ksScene).needShowMiniWindow : false) && com.kwad.sdk.core.response.b.a.b(i2) > 5;
         }
         return invokeV.booleanValue;
@@ -126,7 +126,7 @@ public class d extends com.kwad.sdk.core.e.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f73866d);
+            AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f74185d);
             boolean b2 = b();
             String a2 = com.kwad.sdk.core.response.b.a.a(i2);
             if (!b2 || an.a(a2)) {
@@ -142,36 +142,36 @@ public class d extends com.kwad.sdk.core.e.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.k) {
-                return this.f73872j;
+                return this.f74191j;
             }
-            AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f73866d);
+            AdInfo i2 = com.kwad.sdk.core.response.b.c.i(this.f74185d);
             boolean b2 = b();
             String a2 = com.kwad.sdk.core.response.b.a.a(i2);
-            if (!b2 || an.a(a2) || this.f73868f == null) {
+            if (!b2 || an.a(a2) || this.f74187f == null) {
                 return null;
             }
             String c2 = c();
-            ImageView imageView = (ImageView) this.f73867e.findViewById(R.id.ksad_splash_foreground);
-            Bitmap createBitmap = Bitmap.createBitmap(this.f73867e.getWidth(), this.f73867e.getHeight(), Bitmap.Config.ARGB_8888);
+            ImageView imageView = (ImageView) this.f74186e.findViewById(R.id.ksad_splash_foreground);
+            Bitmap createBitmap = Bitmap.createBitmap(this.f74186e.getWidth(), this.f74186e.getHeight(), Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
-            Bitmap bitmap = this.f73868f.a().getBitmap();
+            Bitmap bitmap = this.f74187f.a().getBitmap();
             imageView.setVisibility(0);
             imageView.setImageDrawable(new BitmapDrawable(imageView.getResources(), bitmap));
-            this.f73867e.invalidate();
-            this.f73867e.draw(canvas);
-            this.f73868f.f73841a = createBitmap;
-            SplashPlayModuleCache.a().a(c2, this.f73868f);
-            this.f73872j = c2;
+            this.f74186e.invalidate();
+            this.f74186e.draw(canvas);
+            this.f74187f.f74160a = createBitmap;
+            SplashPlayModuleCache.a().a(c2, this.f74187f);
+            this.f74191j = c2;
             this.k = true;
             imageView.post(new ax(new Runnable(this, imageView) { // from class: com.kwad.sdk.splashscreen.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ImageView f73873a;
+                public final /* synthetic */ ImageView f74192a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f73874b;
+                public final /* synthetic */ d f74193b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -188,15 +188,15 @@ public class d extends com.kwad.sdk.core.e.b {
                             return;
                         }
                     }
-                    this.f73874b = this;
-                    this.f73873a = imageView;
+                    this.f74193b = this;
+                    this.f74192a = imageView;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f73873a.setVisibility(4);
+                        this.f74192a.setVisibility(4);
                     }
                 }
             }));

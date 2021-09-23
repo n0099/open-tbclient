@@ -78,16 +78,16 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f71064a;
+                public final /* synthetic */ Context f71383a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f71065b;
+                public final /* synthetic */ File f71384b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f71066c;
+                public final /* synthetic */ String f71385c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DynamicInstallReceiver f71067d;
+                public final /* synthetic */ DynamicInstallReceiver f71386d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -104,10 +104,10 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                             return;
                         }
                     }
-                    this.f71067d = this;
-                    this.f71064a = context;
-                    this.f71065b = file;
-                    this.f71066c = stringExtra2;
+                    this.f71386d = this;
+                    this.f71383a = context;
+                    this.f71384b = file;
+                    this.f71385c = stringExtra2;
                 }
 
                 @Override // java.lang.Runnable
@@ -115,9 +115,9 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (b.a(this.f71064a, this.f71065b.getPath(), this.f71066c)) {
-                                f.a(this.f71064a, f.f71106a, this.f71066c);
-                                g.a(this.f71065b);
+                            if (b.a(this.f71383a, this.f71384b.getPath(), this.f71385c)) {
+                                f.a(this.f71383a, f.f71425a, this.f71385c);
+                                g.a(this.f71384b);
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();

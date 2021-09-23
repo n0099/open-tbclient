@@ -10,23 +10,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class LivenessVideoState {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int STATE_RECOG_FIRST = 1;
-    public static final int STATE_RECOG_INIT = 0;
-    public static final int STATE_SHOWING_LRCTIP = 3;
-    public static final int STATE_TO_SHOW_LRCTIP = 2;
+    public static final int STATE_BEFORE_RECOG = 0;
+    public static final int STATE_BEFORE_VIDEO = 3;
+    public static final int STATE_LIVE_NESS = 2;
+    public static final int STATE_RECOG_INIT = -1;
+    public static final int STATE_START_RECOG = 1;
     public static final int STATE_TO_START_VIDEO = 4;
     public static final int STATE_VIDEO = 5;
     public static final int STATE_VIDEO_DONE = 6;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f40246a;
+    public long f40308a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f40247b;
+    public long f40309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40248c;
+    public boolean f40310c;
     public int currentCount;
     public int currentState;
     public boolean isLrcTipAnimCalling;
@@ -48,9 +49,9 @@ public class LivenessVideoState {
                 return;
             }
         }
-        this.currentState = 0;
+        this.currentState = -1;
         this.currentCount = 0;
-        this.f40248c = false;
+        this.f40310c = false;
         this.isLrcTipViewHadGone = false;
     }
 
@@ -58,7 +59,7 @@ public class LivenessVideoState {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ((this.lrcTextStartTime - this.f40246a) / 1000) + "";
+            return ((this.lrcTextStartTime - this.f40308a) / 1000) + "";
         }
         return (String) invokeV.objValue;
     }
@@ -66,27 +67,21 @@ public class LivenessVideoState {
     public long getVideoTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (System.currentTimeMillis() - this.f40246a) / 1000 : invokeV.longValue;
-    }
-
-    public boolean isFirstRecog() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.currentState == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (System.currentTimeMillis() - this.f40308a) / 1000 : invokeV.longValue;
     }
 
     public boolean isFirstRecogTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.currentState < 5 && System.currentTimeMillis() - this.f40246a > 20000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.currentState < 5 && System.currentTimeMillis() - this.f40308a > 20000 : invokeV.booleanValue;
     }
 
     public boolean isGotoRecogFace(long[] jArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jArr)) == null) {
-            if (this.currentState < 5 && !this.f40248c) {
-                this.f40248c = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jArr)) == null) {
+            if (this.currentState < 5 && !this.f40310c) {
+                this.f40310c = true;
                 return true;
             }
             if (this.currentState == 5 && jArr != null && jArr.length != 0) {
@@ -109,49 +104,43 @@ public class LivenessVideoState {
         return invokeL.booleanValue;
     }
 
-    public boolean isInitOk() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.currentState > 0 : invokeV.booleanValue;
-    }
-
     public boolean isVideoStateLostFaceTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.currentState == 5 && System.currentTimeMillis() - this.f40247b > 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.currentState == 5 && System.currentTimeMillis() - this.f40309b > 5000 : invokeV.booleanValue;
     }
 
     public boolean isWarnCancleTipAfterOnPause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.currentState < 6 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.currentState < 6 : invokeV.booleanValue;
     }
 
     public void setLastFindFaceStartTime() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f40247b = System.currentTimeMillis();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f40309b = System.currentTimeMillis();
         }
     }
 
     public void setLrcTextStartTime() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.lrcTextStartTime = System.currentTimeMillis();
         }
     }
 
     public void setProcessStartTime() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f40246a = System.currentTimeMillis();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.f40308a = System.currentTimeMillis();
             setLastFindFaceStartTime();
         }
     }
 
     public void updateState(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             this.currentState = i2;
         }
     }

@@ -35,22 +35,22 @@ public class HotTopicTabThreadItem extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52258e;
+    public int f52375e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f52259f;
+    public TbImageView f52376f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f52260g;
+    public View f52377g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f52261h;
+    public View f52378h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f52262i;
+    public ImageView f52379i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f52263j;
+    public TextView f52380j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -64,7 +64,7 @@ public class HotTopicTabThreadItem extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicTabThreadItem f52264e;
+        public final /* synthetic */ HotTopicTabThreadItem f52381e;
 
         public a(HotTopicTabThreadItem hotTopicTabThreadItem) {
             Interceptable interceptable = $ic;
@@ -81,19 +81,19 @@ public class HotTopicTabThreadItem extends RelativeLayout {
                     return;
                 }
             }
-            this.f52264e = hotTopicTabThreadItem;
+            this.f52381e = hotTopicTabThreadItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f52264e.o == null || this.f52264e.o.f18108j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f52381e.o == null || this.f52381e.o.f18118j == null) {
                 return;
             }
-            if (this.f52264e.p != null) {
-                this.f52264e.p.a(view, this.f52264e.o, this.f52264e.o.f18103e, this.f52264e.o.f18103e);
+            if (this.f52381e.p != null) {
+                this.f52381e.p.a(view, this.f52381e.o, this.f52381e.o.f18113e, this.f52381e.o.f18113e);
             }
-            ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) this.f52264e.o.f18108j, view.getContext(), 2, false, true);
+            ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) this.f52381e.o.f18118j, view.getContext(), 2, false, true);
         }
     }
 
@@ -115,7 +115,7 @@ public class HotTopicTabThreadItem extends RelativeLayout {
                 return;
             }
         }
-        this.f52258e = 3;
+        this.f52375e = 3;
         d();
     }
 
@@ -126,45 +126,45 @@ public class HotTopicTabThreadItem extends RelativeLayout {
             return;
         }
         this.o = eVar;
-        if (TextUtils.isEmpty(eVar.f18106h)) {
-            this.f52259f.setVisibility(8);
-            this.f52260g.setVisibility(8);
-            this.f52261h.setVisibility(8);
+        if (TextUtils.isEmpty(eVar.f18116h)) {
+            this.f52376f.setVisibility(8);
+            this.f52377g.setVisibility(8);
+            this.f52378h.setVisibility(8);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
             layoutParams.addRule(8, 0);
             layoutParams.addRule(3, R.id.titleView);
             this.m.setLayoutParams(layoutParams);
         } else {
-            this.f52259f.startLoad(eVar.f18106h, 10, false);
-            this.f52259f.setVisibility(0);
+            this.f52376f.startLoad(eVar.f18116h, 10, false);
+            this.f52376f.setVisibility(0);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
             layoutParams2.addRule(8, R.id.coverView);
             layoutParams2.addRule(3, 0);
             this.m.setLayoutParams(layoutParams2);
-            if (eVar.f18107i > 0) {
-                this.f52261h.setVisibility(0);
-                this.f52260g.setVisibility(0);
-                this.f52263j.setText(StringUtils.translateSecondsToString(eVar.f18107i));
+            if (eVar.f18117i > 0) {
+                this.f52378h.setVisibility(0);
+                this.f52377g.setVisibility(0);
+                this.f52380j.setText(StringUtils.translateSecondsToString(eVar.f18117i));
             } else {
-                this.f52261h.setVisibility(8);
-                this.f52260g.setVisibility(8);
+                this.f52378h.setVisibility(8);
+                this.f52377g.setVisibility(8);
             }
         }
-        this.l.setText(eVar.f18104f);
-        int i2 = eVar.f18105g;
+        this.l.setText(eVar.f18114f);
+        int i2 = eVar.f18115g;
         if (i2 < 1000) {
             i2 = 1000;
         }
         String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(i2);
         TextView textView = this.m;
         textView.setText(textView.getContext().getResources().getString(R.string.hot_topic_thread_item_tag, numberUniformFormatExtraWithRoundInt));
-        this.k.setText(String.valueOf(eVar.f18103e));
+        this.k.setText(String.valueOf(eVar.f18113e));
         c();
         f<e> fVar = this.p;
         if (fVar == null || (eVar2 = this.o) == null) {
             return;
         }
-        int i3 = eVar2.f18103e;
+        int i3 = eVar2.f18113e;
         fVar.c(this, eVar2, i3, i3);
     }
 
@@ -174,7 +174,7 @@ public class HotTopicTabThreadItem extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (eVar = this.o) == null) {
             return;
         }
-        int indexTextColorRes = TagTextHelper.getIndexTextColorRes(eVar.f18103e);
+        int indexTextColorRes = TagTextHelper.getIndexTextColorRes(eVar.f18113e);
         Drawable background = this.m.getBackground();
         DrawableCompat.setTint(background, SkinManager.getColor(indexTextColorRes));
         background.setAlpha(40);
@@ -189,17 +189,17 @@ public class HotTopicTabThreadItem extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_tab_thread_item, (ViewGroup) this, true);
-            this.f52259f = (TbImageView) findViewById(R.id.coverView);
-            this.f52260g = findViewById(R.id.coverGradientMask);
-            this.f52261h = findViewById(R.id.videoTimeContainer);
-            this.f52262i = (ImageView) findViewById(R.id.videoPlayIcon);
-            this.f52263j = (TextView) findViewById(R.id.videoPlayTime);
+            this.f52376f = (TbImageView) findViewById(R.id.coverView);
+            this.f52377g = findViewById(R.id.coverGradientMask);
+            this.f52378h = findViewById(R.id.videoTimeContainer);
+            this.f52379i = (ImageView) findViewById(R.id.videoPlayIcon);
+            this.f52380j = (TextView) findViewById(R.id.videoPlayTime);
             this.k = (TextView) findViewById(R.id.indexView);
             this.l = (TextView) findViewById(R.id.titleView);
             this.m = (TextView) findViewById(R.id.tagView);
-            this.f52259f.setPlaceHolder(2);
-            this.f52259f.setRadius(l.g(getContext(), R.dimen.tbds10));
-            this.f52259f.setConrers(15);
+            this.f52376f.setPlaceHolder(2);
+            this.f52376f.setRadius(l.g(getContext(), R.dimen.tbds10));
+            this.f52376f.setConrers(15);
             View findViewById = findViewById(R.id.rootLayout);
             this.n = findViewById;
             findViewById.setOnClickListener(new a(this));
@@ -208,16 +208,16 @@ public class HotTopicTabThreadItem extends RelativeLayout {
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f52258e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f52375e == i2) {
             return;
         }
         TBSelector.setViewBackgroundColorWithPressedState(this.n, R.color.CAM_X0205, R.color.CAM_X0204);
         SkinManager.setViewTextColor(this.l, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.k, R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.f52263j, R.color.CAM_X0101);
-        this.f52262i.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+        SkinManager.setViewTextColor(this.f52380j, R.color.CAM_X0101);
+        this.f52379i.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
         c();
-        this.f52258e = i2;
+        this.f52375e = i2;
     }
 
     public void setOnItemCoverListener(f<e> fVar) {
@@ -246,7 +246,7 @@ public class HotTopicTabThreadItem extends RelativeLayout {
                 return;
             }
         }
-        this.f52258e = 3;
+        this.f52375e = 3;
         d();
     }
 
@@ -269,7 +269,7 @@ public class HotTopicTabThreadItem extends RelativeLayout {
                 return;
             }
         }
-        this.f52258e = 3;
+        this.f52375e = 3;
         d();
     }
 }

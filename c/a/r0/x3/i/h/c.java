@@ -37,25 +37,25 @@ public class c extends c.a.e.a.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f29026a;
+    public View f29046a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoverSeekBar f29027b;
+    public CoverSeekBar f29047b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f29028c;
+    public LinearLayout f29048c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.x3.i.h.a f29029d;
+    public c.a.r0.x3.i.h.a f29049d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HListView f29030e;
+    public HListView f29050e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.x3.i.c.a f29031f;
+    public c.a.r0.x3.i.c.a f29051f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CoverPendantDragView f29032g;
+    public CoverPendantDragView f29052g;
 
     /* loaded from: classes4.dex */
     public class a implements a.b {
@@ -63,7 +63,7 @@ public class c extends c.a.e.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f29033a;
+        public final /* synthetic */ c f29053a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class c extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29033a = cVar;
+            this.f29053a = cVar;
         }
 
         @Override // c.a.r0.x3.i.c.a.b
         public void a(View view, int i2, PendantData pendantData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, pendantData) == null) {
-                this.f29033a.f29032g.changeEditState(view, pendantData);
+                this.f29053a.f29052g.changeEditState(view, pendantData);
                 StatisticItem statisticItem = new StatisticItem("c12305");
                 statisticItem.param("obj_locate", i2 + 1);
                 TiebaStatic.log(statisticItem);
@@ -101,7 +101,7 @@ public class c extends c.a.e.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f29034a;
+        public final /* synthetic */ c f29054a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class c extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29034a = cVar;
+            this.f29054a = cVar;
         }
 
         @Override // com.baidu.tieba.video.editvideo.view.CoverSeekBar.d
@@ -140,23 +140,23 @@ public class c extends c.a.e.a.d {
         public void onProgress(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                int duration = (int) ((this.f29034a.f29029d.v().getDuration() * i2) / 1000);
-                this.f29034a.f29027b.setProgressImage(i2, duration);
-                this.f29034a.f29029d.v().seekTo(duration);
+                int duration = (int) ((this.f29054a.f29049d.v().getDuration() * i2) / 1000);
+                this.f29054a.f29047b.setProgressImage(i2, duration);
+                this.f29054a.f29049d.v().seekTo(duration);
             }
         }
     }
 
     /* renamed from: c.a.r0.x3.i.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1358c extends AnimatorListenerAdapter {
+    public class C1356c extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f29035e;
+        public final /* synthetic */ c f29055e;
 
-        public C1358c(c cVar) {
+        public C1356c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,7 +171,7 @@ public class c extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29035e = cVar;
+            this.f29055e = cVar;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -179,7 +179,7 @@ public class c extends c.a.e.a.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                this.f29035e.f29028c.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
+                this.f29055e.f29048c.animate().alphaBy(1.0f).alpha(0.0f).setDuration(500L).setStartDelay(2000L).start();
             }
         }
     }
@@ -190,7 +190,7 @@ public class c extends c.a.e.a.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f29036e;
+        public final /* synthetic */ c f29056e;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -207,15 +207,15 @@ public class c extends c.a.e.a.d {
                     return;
                 }
             }
-            this.f29036e = cVar;
+            this.f29056e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29036e.f29027b.seekTo(this.f29036e.f29027b.getCurrentPosition());
-                this.f29036e.f29029d.B();
+                this.f29056e.f29047b.seekTo(this.f29056e.f29047b.getCurrentPosition());
+                this.f29056e.f29049d.B();
             }
         }
     }
@@ -238,9 +238,9 @@ public class c extends c.a.e.a.d {
                 return;
             }
         }
-        this.f29029d = aVar;
+        this.f29049d = aVar;
         View inflate = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.edit_cover_layout, (ViewGroup) null);
-        this.f29026a = inflate;
+        this.f29046a = inflate;
         inflate.getResources();
         m();
     }
@@ -249,23 +249,23 @@ public class c extends c.a.e.a.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            this.f29032g.hideSoftKeyPad();
-            String text = this.f29032g.getText();
+            this.f29052g.hideSoftKeyPad();
+            String text = this.f29052g.getText();
             if (bitmap == null || TextUtils.isEmpty(text)) {
                 return null;
             }
-            int width = this.f29029d.v().getWidth();
-            int height = this.f29029d.v().getHeight();
+            int width = this.f29049d.v().getWidth();
+            int height = this.f29049d.v().getHeight();
             int width2 = bitmap.getWidth();
             int height2 = bitmap.getHeight();
             Bitmap createBitmap = Bitmap.createBitmap(width2, height2, Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
             canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-            Bitmap tempBitmap = this.f29032g.getTempBitmap();
+            Bitmap tempBitmap = this.f29052g.getTempBitmap();
             if (tempBitmap != null) {
                 Matrix matrix = new Matrix();
                 matrix.postScale(width2 / width, height2 / height);
-                Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.f29029d.v().getLeft(), this.f29029d.v().getTop(), width, height, matrix, true);
+                Bitmap createBitmap2 = Bitmap.createBitmap(tempBitmap, this.f29049d.v().getLeft(), this.f29049d.v().getTop(), width, height, matrix, true);
                 if (createBitmap2 != null) {
                     canvas.drawBitmap(createBitmap2, 0.0f, 0.0f, (Paint) null);
                 }
@@ -280,7 +280,7 @@ public class c extends c.a.e.a.d {
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29027b.getCurrentPosition() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29047b.getCurrentPosition() : invokeV.intValue;
     }
 
     public final List<PendantData> h() {
@@ -300,19 +300,19 @@ public class c extends c.a.e.a.d {
     public View i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29026a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29046a : (View) invokeV.objValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29032g.getText() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29052g.getText() : (String) invokeV.objValue;
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f29032g.hideSoftKeyPad();
+            this.f29052g.hideSoftKeyPad();
         }
     }
 
@@ -320,12 +320,12 @@ public class c extends c.a.e.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
             CoverPendantDragView coverPendantDragView = (CoverPendantDragView) view.findViewById(R.id.cover_pendant_view);
-            this.f29032g = coverPendantDragView;
+            this.f29052g = coverPendantDragView;
             coverPendantDragView.setParentViewController(this);
-            this.f29028c = (LinearLayout) view.findViewById(R.id.cover_tips);
+            this.f29048c = (LinearLayout) view.findViewById(R.id.cover_tips);
             if (c.a.q0.s.d0.b.j().g("video_cover_first_in", true)) {
-                this.f29028c.setVisibility(0);
-                this.f29028c.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new C1358c(this)).start();
+                this.f29048c.setVisibility(0);
+                this.f29048c.animate().alphaBy(0.0f).alpha(1.0f).setDuration(500L).setListener(new C1356c(this)).start();
                 c.a.q0.s.d0.b.j().t("video_cover_first_in", false);
             }
         }
@@ -334,21 +334,21 @@ public class c extends c.a.e.a.d {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f29027b = (CoverSeekBar) this.f29026a.findViewById(R.id.cover_seek_bar);
-            this.f29030e = (HListView) this.f29026a.findViewById(R.id.pendant_list_view);
+            this.f29047b = (CoverSeekBar) this.f29046a.findViewById(R.id.cover_seek_bar);
+            this.f29050e = (HListView) this.f29046a.findViewById(R.id.pendant_list_view);
             c.a.r0.x3.i.c.a aVar = new c.a.r0.x3.i.c.a(getPageContext());
-            this.f29031f = aVar;
+            this.f29051f = aVar;
             aVar.d(new a(this));
-            this.f29030e.setAdapter((ListAdapter) this.f29031f);
-            this.f29031f.c(h());
-            this.f29027b.setOnProgressChanged(new b(this));
+            this.f29050e.setAdapter((ListAdapter) this.f29051f);
+            this.f29051f.c(h());
+            this.f29047b.setOnProgressChanged(new b(this));
         }
     }
 
     public void n(f fVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar, i2) == null) {
-            SkinManager.setBackgroundColor(this.f29026a, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f29046a, R.color.CAM_X0201);
         }
     }
 
@@ -368,9 +368,9 @@ public class c extends c.a.e.a.d {
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f29032g.onSelectChange(z);
+            this.f29052g.onSelectChange(z);
             if (z) {
-                CoverSeekBar coverSeekBar = this.f29027b;
+                CoverSeekBar coverSeekBar = this.f29047b;
                 coverSeekBar.seekTo(coverSeekBar.getCurrentPosition());
             }
         }
@@ -379,11 +379,11 @@ public class c extends c.a.e.a.d {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            CoverSeekBar coverSeekBar = this.f29027b;
+            CoverSeekBar coverSeekBar = this.f29047b;
             if (coverSeekBar != null) {
                 coverSeekBar.release();
             }
-            CoverPendantDragView coverPendantDragView = this.f29032g;
+            CoverPendantDragView coverPendantDragView = this.f29052g;
             if (coverPendantDragView != null) {
                 coverPendantDragView.onDestroy();
             }
@@ -393,8 +393,8 @@ public class c extends c.a.e.a.d {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f29032g.setVideoSize(this.f29029d.v().getWidth(), this.f29029d.v().getHeight());
-            this.f29032g.setVideoLocation(this.f29029d.v().getLeft(), this.f29029d.v().getTop(), this.f29029d.v().getRight(), this.f29029d.v().getBottom());
+            this.f29052g.setVideoSize(this.f29049d.v().getWidth(), this.f29049d.v().getHeight());
+            this.f29052g.setVideoLocation(this.f29049d.v().getLeft(), this.f29049d.v().getTop(), this.f29049d.v().getRight(), this.f29049d.v().getBottom());
         }
     }
 
@@ -403,7 +403,7 @@ public class c extends c.a.e.a.d {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f29027b.setData(str);
+        this.f29047b.setData(str);
     }
 
     public void u(List<PendantData> list) {
@@ -413,7 +413,7 @@ public class c extends c.a.e.a.d {
                 list = new ArrayList<>();
             }
             list.addAll(0, h());
-            this.f29031f.c(list);
+            this.f29051f.c(list);
         }
     }
 }

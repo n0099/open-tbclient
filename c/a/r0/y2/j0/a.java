@@ -26,23 +26,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f29554f;
+    public static a f29574f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29555a;
+    public String f29575a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29556b;
+    public String f29576b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f29557c;
+    public long f29577c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29558d;
+    public String f29578d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29559e;
+    public String f29579e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -57,21 +57,21 @@ public class a {
                 return;
             }
         }
-        this.f29559e = b.j().p("asp_shown_info", "");
+        this.f29579e = b.j().p("asp_shown_info", "");
     }
 
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f29554f == null) {
+            if (f29574f == null) {
                 synchronized (c.a.r0.j3.n0.b.class) {
-                    if (f29554f == null) {
-                        f29554f = new a();
+                    if (f29574f == null) {
+                        f29574f = new a();
                     }
                 }
             }
-            return f29554f;
+            return f29574f;
         }
         return (a) invokeV.objValue;
     }
@@ -83,11 +83,11 @@ public class a {
             AppPosInfo.Builder builder = new AppPosInfo.Builder();
             builder.ap_mac = d();
             builder.ap_connected = Boolean.valueOf(j.H());
-            builder.latitude = this.f29556b;
-            builder.longitude = this.f29555a;
-            builder.addr_timestamp = Long.valueOf(this.f29557c);
+            builder.latitude = this.f29576b;
+            builder.longitude = this.f29575a;
+            builder.addr_timestamp = Long.valueOf(this.f29577c);
             builder.coordinate_type = "bd09ll";
-            builder.asp_shown_info = this.f29559e;
+            builder.asp_shown_info = this.f29579e;
             MercatorModel.MercatorData e2 = MercatorModel.d().e();
             if (e2 != null) {
                 builder.mercator_lat = e2.x();
@@ -136,10 +136,10 @@ public class a {
             AppPosInfo.Builder builder = new AppPosInfo.Builder();
             builder.ap_mac = d();
             builder.ap_connected = Boolean.valueOf(j.H());
-            String str = this.f29556b;
+            String str = this.f29576b;
             builder.latitude = str;
-            builder.longitude = this.f29555a;
-            if (k.isEmpty(str) || k.isEmpty(this.f29555a)) {
+            builder.longitude = this.f29575a;
+            if (k.isEmpty(str) || k.isEmpty(this.f29575a)) {
                 String p = b.j().p("key_last_receive_location_latitude_and_longitude", "");
                 if (!k.isEmpty(p)) {
                     String[] split = p.split(",");
@@ -149,9 +149,9 @@ public class a {
                     }
                 }
             }
-            builder.addr_timestamp = Long.valueOf(this.f29557c);
+            builder.addr_timestamp = Long.valueOf(this.f29577c);
             builder.coordinate_type = "BD09LL";
-            builder.asp_shown_info = this.f29559e;
+            builder.asp_shown_info = this.f29579e;
             MercatorModel.MercatorData e2 = MercatorModel.d().e();
             if (e2 != null) {
                 builder.mercator_lat = e2.x();
@@ -169,10 +169,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f29558d)) {
+            if (TextUtils.isEmpty(this.f29578d)) {
                 f();
             }
-            return this.f29558d;
+            return this.f29578d;
         }
         return (String) invokeV.objValue;
     }
@@ -185,9 +185,9 @@ public class a {
                 try {
                     WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
                     if (connectionInfo != null) {
-                        this.f29558d = connectionInfo.getBSSID();
+                        this.f29578d = connectionInfo.getBSSID();
                     } else {
-                        this.f29558d = "";
+                        this.f29578d = "";
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -199,35 +199,35 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b.j().x("asp_shown_info", this.f29559e);
+            b.j().x("asp_shown_info", this.f29579e);
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f29559e = str;
+            this.f29579e = str;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f29556b = str;
+            this.f29576b = str;
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f29555a = str;
+            this.f29575a = str;
         }
     }
 
     public void k(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f29557c = j2;
+            this.f29577c = j2;
         }
     }
 }

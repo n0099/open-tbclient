@@ -42,7 +42,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RelateTopicForumActivity f52691a;
+        public final /* synthetic */ RelateTopicForumActivity f52804a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RelateTopicForumActivity relateTopicForumActivity, int i2) {
@@ -62,25 +62,25 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     return;
                 }
             }
-            this.f52691a = relateTopicForumActivity;
+            this.f52804a = relateTopicForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f52691a.dataList.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f52804a.dataList.isEmpty()) {
                 return;
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof Long) {
-                RelateForumItemData itemByForumId = this.f52691a.getItemByForumId(((Long) data).longValue());
+                RelateForumItemData itemByForumId = this.f52804a.getItemByForumId(((Long) data).longValue());
                 if (itemByForumId != null) {
                     itemByForumId.followNum++;
                     itemByForumId.setIsLiked(true);
-                    j e2 = this.f52691a.mHotTopicMoreView.e();
+                    j e2 = this.f52804a.mHotTopicMoreView.e();
                     if (e2 != null) {
-                        e2.d(this.f52691a.dataList, this.f52691a.topicId);
+                        e2.d(this.f52804a.dataList, this.f52804a.topicId);
                         e2.notifyDataSetChanged();
                     }
                 }
@@ -94,7 +94,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RelateTopicForumActivity f52692a;
+        public final /* synthetic */ RelateTopicForumActivity f52805a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(RelateTopicForumActivity relateTopicForumActivity, int i2) {
@@ -114,25 +114,25 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     return;
                 }
             }
-            this.f52692a = relateTopicForumActivity;
+            this.f52805a = relateTopicForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f52692a.dataList.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f52805a.dataList.isEmpty()) {
                 return;
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof Long) {
-                RelateForumItemData itemByForumId = this.f52692a.getItemByForumId(((Long) data).longValue());
+                RelateForumItemData itemByForumId = this.f52805a.getItemByForumId(((Long) data).longValue());
                 if (itemByForumId != null) {
                     itemByForumId.followNum--;
                     itemByForumId.setIsLiked(false);
-                    j e2 = this.f52692a.mHotTopicMoreView.e();
+                    j e2 = this.f52805a.mHotTopicMoreView.e();
                     if (e2 != null) {
-                        e2.d(this.f52692a.dataList, this.f52692a.topicId);
+                        e2.d(this.f52805a.dataList, this.f52805a.topicId);
                         e2.notifyDataSetChanged();
                     }
                 }
@@ -146,7 +146,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RelateTopicForumActivity f52693a;
+        public final /* synthetic */ RelateTopicForumActivity f52806a;
 
         public c(RelateTopicForumActivity relateTopicForumActivity) {
             Interceptable interceptable = $ic;
@@ -163,18 +163,18 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     return;
                 }
             }
-            this.f52693a = relateTopicForumActivity;
+            this.f52806a = relateTopicForumActivity;
         }
 
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (AntiHelper.m(this.f52693a.likeModel.getErrorCode(), this.f52693a.likeModel.getErrorString())) {
-                    AntiHelper.u(this.f52693a.getActivity(), this.f52693a.likeModel.getErrorString());
-                } else if (StringUtils.isNull(this.f52693a.likeModel.getErrorString())) {
+                if (AntiHelper.m(this.f52806a.likeModel.getErrorCode(), this.f52806a.likeModel.getErrorString())) {
+                    AntiHelper.u(this.f52806a.getActivity(), this.f52806a.likeModel.getErrorString());
+                } else if (StringUtils.isNull(this.f52806a.likeModel.getErrorString())) {
                 } else {
-                    l.M(TbadkCoreApplication.getInst(), this.f52693a.likeModel.getErrorString());
+                    l.M(TbadkCoreApplication.getInst(), this.f52806a.likeModel.getErrorString());
                 }
             }
         }

@@ -64,7 +64,7 @@ public class c extends c.a.e.c.f.d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, httpMessage) == null) || (currentBduss = TbadkCoreApplication.getCurrentBduss()) == null) {
             return;
         }
-        httpMessage.addParam("BDUSS", currentBduss);
+        httpMessage.addParam(HttpRequest.BDUSS, currentBduss);
         String a2 = c.a.q0.s.l.e.a(TbadkCoreApplication.getCurrentAccountInfo());
         if (StringUtils.isNull(a2)) {
             return;
@@ -117,7 +117,7 @@ public class c extends c.a.e.c.f.d {
             httpMessage.addParam(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, TbSingleton.getInstance().getAppLastUpdateTime());
             httpMessage.addParam("event_day", TbSingleton.getInstance().getData());
             httpMessage.addParam("cmode", PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
-            httpMessage.addParam("is_teenager", c.a.q0.g1.b.e.d() ? "1" : "0");
+            httpMessage.addParam("is_teenager", c.a.q0.g1.b.c.d() ? "1" : "0");
         }
     }
 
@@ -145,7 +145,7 @@ public class c extends c.a.e.c.f.d {
                 httpMessage.addCookie("BAIDUCUID", new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes())));
             }
             if (httpMessage.getCmd() == 1003510) {
-                httpMessage.addCookie("BDUSS", TbadkCoreApplication.getCurrentBduss());
+                httpMessage.addCookie(HttpRequest.BDUSS, TbadkCoreApplication.getCurrentBduss());
             }
         }
     }
@@ -256,17 +256,7 @@ public class c extends c.a.e.c.f.d {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // c.a.e.c.f.f
-    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        HttpMessage httpMessage2 = httpMessage;
-        process2(httpMessage2, httpMessageTask);
-        return httpMessage2;
-    }
-
-    /* renamed from: process  reason: avoid collision after fix types in other method */
-    public HttpMessage process2(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+    public HttpMessage h(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, httpMessage, httpMessageTask)) == null) {
@@ -278,5 +268,14 @@ public class c extends c.a.e.c.f.d {
             return httpMessage;
         }
         return (HttpMessage) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // c.a.e.c.f.f
+    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        HttpMessage httpMessage2 = httpMessage;
+        h(httpMessage2, httpMessageTask);
+        return httpMessage2;
     }
 }

@@ -66,84 +66,92 @@ public final class SoundPlayer {
             if (sSoundPlayer == null) {
                 sSoundPlayer = new SoundPlayer();
             }
-            int i3 = sSoundPlayer.mSoundPoolCache.get(i2);
-            if (i3 == 0) {
-                int load = sSoundPlayer.mSoundPool.load(context, i2, 1);
-                sSoundPlayer.mSoundPoolCache.put(i2, load);
-                if (APIUtils.hasFroyo()) {
-                    sSoundPlayer.mSoundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener(load) { // from class: com.baidu.pass.face.platform.utils.SoundPlayer.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ int val$soundId;
+            try {
+                int i3 = sSoundPlayer.mSoundPoolCache.get(i2);
+                if (i3 == 0) {
+                    int load = sSoundPlayer.mSoundPool.load(context, i2, 1);
+                    sSoundPlayer.mSoundPoolCache.put(i2, load);
+                    if (APIUtils.hasFroyo()) {
+                        sSoundPlayer.mSoundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener(load) { // from class: com.baidu.pass.face.platform.utils.SoundPlayer.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ int val$soundId;
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {Integer.valueOf(load)};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {Integer.valueOf(load)};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i4 = newInitContext.flag;
+                                    if ((i4 & 1) != 0) {
+                                        int i5 = i4 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.val$soundId = load;
+                            }
+
+                            @Override // android.media.SoundPool.OnLoadCompleteListener
+                            public final void onLoadComplete(SoundPool soundPool, int i4, int i5) {
+                                Interceptable interceptable2 = $ic;
+                                if ((interceptable2 == null || interceptable2.invokeLII(1048576, this, soundPool, i4, i5) == null) && i5 == 0 && this.val$soundId == i4) {
+                                    try {
+                                        SoundPlayer.playTime = System.currentTimeMillis();
+                                        SoundPlayer.sSoundPlayer.mSoundPool.play(this.val$soundId, 1.0f, 1.0f, 5, 0, 1.0f);
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                    }
                                 }
                             }
-                            this.val$soundId = load;
-                        }
-
-                        @Override // android.media.SoundPool.OnLoadCompleteListener
-                        public void onLoadComplete(SoundPool soundPool, int i4, int i5) {
-                            Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeLII(1048576, this, soundPool, i4, i5) == null) && i5 == 0 && this.val$soundId == i4) {
-                                try {
-                                    SoundPlayer.playTime = System.currentTimeMillis();
-                                    SoundPlayer.sSoundPlayer.mSoundPool.play(this.val$soundId, 1.0f, 1.0f, 5, 0, 1.0f);
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
-                                }
-                            }
-                        }
-                    });
+                        });
+                        return;
+                    }
+                    try {
+                        Thread.currentThread().join(100L);
+                    } catch (InterruptedException e2) {
+                        e2.printStackTrace();
+                    }
+                    playTime = System.currentTimeMillis();
+                    sSoundPlayer.mSoundPool.play(load, 1.0f, 1.0f, 5, 0, 1.0f);
                     return;
                 }
                 try {
-                    Thread.currentThread().join(100L);
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
+                    sSoundPlayer.mSoundPool.play(i3, 1.0f, 1.0f, 5, 0, 1.0f);
+                    return;
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                    return;
                 }
-                playTime = System.currentTimeMillis();
-                sSoundPlayer.mSoundPool.play(load, 1.0f, 1.0f, 5, 0, 1.0f);
-                return;
+            } catch (Exception e4) {
+                e4.printStackTrace();
             }
-            try {
-                sSoundPlayer.mSoundPool.play(i3, 1.0f, 1.0f, 5, 0, 1.0f);
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
+            e4.printStackTrace();
         }
     }
 
     public static void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            SoundPlayer soundPlayer = sSoundPlayer;
-            if (soundPlayer != null) {
-                int size = soundPlayer.mSoundPoolCache.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    SoundPlayer soundPlayer2 = sSoundPlayer;
-                    soundPlayer2.mSoundPool.unload(soundPlayer2.mSoundPoolCache.valueAt(i2));
+            try {
+                if (sSoundPlayer != null) {
+                    int size = sSoundPlayer.mSoundPoolCache.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        sSoundPlayer.mSoundPool.unload(sSoundPlayer.mSoundPoolCache.valueAt(i2));
+                    }
+                    sSoundPlayer.mSoundPool.release();
+                    sSoundPlayer.mSoundPool = null;
+                    sSoundPlayer.mSoundPoolCache.clear();
+                    sSoundPlayer.mSoundPoolCache = null;
+                    sSoundPlayer = null;
                 }
-                sSoundPlayer.mSoundPool.release();
-                SoundPlayer soundPlayer3 = sSoundPlayer;
-                soundPlayer3.mSoundPool = null;
-                soundPlayer3.mSoundPoolCache.clear();
-                sSoundPlayer.mSoundPoolCache = null;
-                sSoundPlayer = null;
+                playTime = 0L;
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-            playTime = 0L;
         }
     }
 }

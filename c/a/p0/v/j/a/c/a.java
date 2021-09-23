@@ -16,26 +16,26 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f12439g;
+    public static final boolean f12447g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12440a;
+    public int f12448a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12441b;
+    public int f12449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12442c;
+    public int f12450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12443d;
+    public int f12451d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12444e;
+    public int f12452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12445f;
+    public int f12453f;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public final class a {
                 return;
             }
         }
-        f12439g = k.f7077a;
+        f12447g = k.f7085a;
     }
 
     public a() {
@@ -74,16 +74,16 @@ public final class a {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject.put("videoBitrate", this.f12440a);
-                jSONObject.put("audioBitrate", this.f12441b);
-                jSONObject.put("videoFPS", this.f12442c);
-                jSONObject.put("netSpeed", this.f12443d);
-                jSONObject.put("videoWidth", this.f12444e);
-                jSONObject.put("videoHeight", this.f12445f);
+                jSONObject.put("videoBitrate", this.f12448a);
+                jSONObject.put("audioBitrate", this.f12449b);
+                jSONObject.put("videoFPS", this.f12450c);
+                jSONObject.put("netSpeed", this.f12451d);
+                jSONObject.put("videoWidth", this.f12452e);
+                jSONObject.put("videoHeight", this.f12453f);
                 jSONObject2.putOpt("info", jSONObject);
                 return jSONObject2.toString();
             } catch (JSONException e2) {
-                if (f12439g) {
+                if (f12447g) {
                     String str = "toJSONObject failed: " + Log.getStackTraceString(e2);
                     return null;
                 }

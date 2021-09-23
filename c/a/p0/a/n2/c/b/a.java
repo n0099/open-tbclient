@@ -49,14 +49,14 @@ public class a extends b {
             if (j(context, eVar, unitedSchemeEntity)) {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    boolean z = a0.f4766b;
+                    boolean z = a0.f4774b;
                     d.b("battery", "none params");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
                 String optString = optParamsAsJo.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    boolean z2 = a0.f4766b;
+                    boolean z2 = a0.f4774b;
                     d.b("battery", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
@@ -66,13 +66,13 @@ public class a extends b {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                     return false;
                 }
-                if (a0.f4766b) {
-                    String str = "/swanAPI/getBatteryInfo = level: " + a2.f7678a + " ; plugged: " + a2.f7679b;
+                if (a0.f4774b) {
+                    String str = "/swanAPI/getBatteryInfo = level: " + a2.f7686a + " ; plugged: " + a2.f7687b;
                 }
                 JSONObject k = k(a2);
                 if (k == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
-                    boolean z3 = a0.f4766b;
+                    boolean z3 = a0.f4774b;
                     return false;
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(k, 0).toString(), optString);

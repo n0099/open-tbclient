@@ -37,10 +37,10 @@ public class e extends c.a.e.l.e.a<c.a.r0.u1.h.e.e, SearchSuggestRankingViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f25344e;
+        public final /* synthetic */ Context f25365e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f25345f;
+        public final /* synthetic */ e f25366f;
 
         public a(e eVar, Context context) {
             Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class e extends c.a.e.l.e.a<c.a.r0.u1.h.e.e, SearchSuggestRankingViewHold
                     return;
                 }
             }
-            this.f25345f = eVar;
-            this.f25344e = context;
+            this.f25366f = eVar;
+            this.f25365e = context;
         }
 
         @Override // c.a.e.l.e.w
@@ -72,8 +72,8 @@ public class e extends c.a.e.l.e.a<c.a.r0.u1.h.e.e, SearchSuggestRankingViewHold
                 hashMap.put("sort_type", c2.c() + "");
                 hashMap.put("rank_type", c2.b() + "");
                 hashMap.put("rank_code", c2.a() + "");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.r0.j3.i0.n(this.f25344e, "ItemRecommendList", hashMap)));
-                this.f25345f.j0(eVar);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.r0.j3.i0.n(this.f25365e, "ItemRecommendList", hashMap)));
+                this.f25366f.j0(eVar);
             }
         }
     }
@@ -98,7 +98,7 @@ public class e extends c.a.e.l.e.a<c.a.r0.u1.h.e.e, SearchSuggestRankingViewHold
             }
         }
         this.m = context;
-        this.f2960h = bdUniqueId;
+        this.f2961h = bdUniqueId;
         d0(new a(this, context));
     }
 

@@ -23,22 +23,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f26923a;
+    public TbPageContext f26943a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f26924b;
+    public CustomMessageListener f26944b;
 
     /* renamed from: c.a.r0.w0.j2.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1260a extends CustomMessageListener {
+    public class C1258a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26925a;
+        public final /* synthetic */ a f26945a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1260a(a aVar, int i2) {
+        public C1258a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -55,7 +55,7 @@ public class a {
                     return;
                 }
             }
-            this.f26925a = aVar;
+            this.f26945a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,11 +80,11 @@ public class a {
                     if (TextUtils.isEmpty(p) || !p.contains(str2)) {
                         b.j().x("key_match_id_list_" + optString4, p + str);
                     }
-                    Intent intent = new Intent(this.f26925a.f26923a.getPageActivity(), AlarmReceiver.class);
+                    Intent intent = new Intent(this.f26945a.f26943a.getPageActivity(), AlarmReceiver.class);
                     intent.putExtra("KEY_MATCH_NAME", optString2);
                     intent.putExtra("KEY_MATCH_TYPE", optString4);
                     intent.putExtra("KEY_MATCH_ID", optString);
-                    PendingIntent broadcast = PendingIntent.getBroadcast(this.f26925a.f26923a.getPageActivity(), 0, intent, 0);
+                    PendingIntent broadcast = PendingIntent.getBroadcast(this.f26945a.f26943a.getPageActivity(), 0, intent, 0);
                     Calendar calendar = Calendar.getInstance();
                     long currentTimeMillis = System.currentTimeMillis();
                     calendar.setTimeInMillis(currentTimeMillis);
@@ -92,7 +92,7 @@ public class a {
                     if (g2 > 0) {
                         calendar.add(14, (int) g2);
                     }
-                    ((AlarmManager) this.f26925a.f26923a.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
+                    ((AlarmManager) this.f26945a.f26943a.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -115,9 +115,9 @@ public class a {
                 return;
             }
         }
-        C1260a c1260a = new C1260a(this, 2921404);
-        this.f26924b = c1260a;
-        this.f26923a = tbPageContext;
-        tbPageContext.registerListener(c1260a);
+        C1258a c1258a = new C1258a(this, 2921404);
+        this.f26944b = c1258a;
+        this.f26943a = tbPageContext;
+        tbPageContext.registerListener(c1258a);
     }
 }

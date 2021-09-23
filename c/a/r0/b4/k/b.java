@@ -13,10 +13,10 @@ public class b implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final CloudMusicModel f16283a;
+    public final CloudMusicModel f16293a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f16284b;
+    public final d f16294b;
 
     /* loaded from: classes3.dex */
     public class a implements c.a.r0.b4.k.j.a<CloudMusicData> {
@@ -24,7 +24,7 @@ public class b implements c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f16285a;
+        public final /* synthetic */ b f16295a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class b implements c {
                     return;
                 }
             }
-            this.f16285a = bVar;
+            this.f16295a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -50,18 +50,18 @@ public class b implements c {
         public void a(CloudMusicData cloudMusicData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudMusicData) == null) {
-                this.f16285a.f16284b.displayLoading(false);
+                this.f16295a.f16294b.displayLoading(false);
                 if (cloudMusicData != null) {
-                    this.f16285a.f16284b.displayNoDataView(false);
+                    this.f16295a.f16294b.displayNoDataView(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        this.f16285a.f16284b.displayNoDataView(true);
+                        this.f16295a.f16294b.displayNoDataView(true);
                         return;
                     } else {
-                        this.f16285a.f16284b.showCloudMusicWithTagData(cloudMusicData);
+                        this.f16295a.f16294b.showCloudMusicWithTagData(cloudMusicData);
                         return;
                     }
                 }
-                this.f16285a.f16284b.displayNoDataView(true);
+                this.f16295a.f16294b.displayNoDataView(true);
             }
         }
     }
@@ -81,8 +81,8 @@ public class b implements c {
                 return;
             }
         }
-        this.f16283a = cloudMusicModel;
-        this.f16284b = dVar;
+        this.f16293a = cloudMusicModel;
+        this.f16294b = dVar;
         dVar.setPresenter(this);
     }
 
@@ -90,8 +90,8 @@ public class b implements c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f16284b.displayLoading(true);
-            this.f16283a.x(new a(this));
+            this.f16294b.displayLoading(true);
+            this.f16293a.x(new a(this));
         }
     }
 
@@ -99,7 +99,7 @@ public class b implements c {
     public void cancelLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f16283a.cancelLoadData();
+            this.f16293a.cancelLoadData();
         }
     }
 }

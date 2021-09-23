@@ -20,22 +20,22 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f47154e;
+    public TextView f47256e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f47155f;
+    public TextView f47257f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f47156g;
+    public View f47258g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LocationDetailAdapter f47157h;
+    public LocationDetailAdapter f47259h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f47158i;
+    public c f47260i;
 
     /* renamed from: j  reason: collision with root package name */
-    public b f47159j;
+    public b f47261j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationDetailViewHolder(View view, LocationDetailAdapter locationDetailAdapter, b bVar) {
@@ -56,17 +56,17 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
             }
         }
         a(view);
-        this.f47157h = locationDetailAdapter;
-        this.f47159j = bVar;
+        this.f47259h = locationDetailAdapter;
+        this.f47261j = bVar;
     }
 
     public final void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f47154e = (TextView) view.findViewById(e.main_title);
-            this.f47155f = (TextView) view.findViewById(e.sub_title);
+            this.f47256e = (TextView) view.findViewById(e.main_title);
+            this.f47257f = (TextView) view.findViewById(e.sub_title);
             View findViewById = view.findViewById(e.select);
-            this.f47156g = findViewById;
+            this.f47258g = findViewById;
             findViewById.setVisibility(8);
             this.itemView.setOnClickListener(this);
         }
@@ -91,12 +91,12 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            this.f47157h.resetSelectStatus();
-            this.f47158i.f11764b = true;
-            this.f47157h.notifyDataSetChanged();
-            b bVar = this.f47159j;
+            this.f47259h.resetSelectStatus();
+            this.f47260i.f11772b = true;
+            this.f47259h.notifyDataSetChanged();
+            b bVar = this.f47261j;
             if (bVar != null) {
-                bVar.c(this.f47158i);
+                bVar.c(this.f47260i);
             }
         }
     }
@@ -113,13 +113,13 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
         if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, cVar, str, z) == null) || cVar == null) {
             return;
         }
-        this.f47158i = cVar;
-        this.f47154e.setText(z ? b(cVar.f11763a.name, str) : cVar.f11763a.name);
-        this.f47155f.setVisibility(0);
-        this.f47155f.setText(cVar.f11763a.address);
-        if (cVar.f11765c || TextUtils.isEmpty(cVar.f11763a.address)) {
-            this.f47155f.setVisibility(8);
+        this.f47260i = cVar;
+        this.f47256e.setText(z ? b(cVar.f11771a.name, str) : cVar.f11771a.name);
+        this.f47257f.setVisibility(0);
+        this.f47257f.setText(cVar.f11771a.address);
+        if (cVar.f11773c || TextUtils.isEmpty(cVar.f11771a.address)) {
+            this.f47257f.setVisibility(8);
         }
-        this.f47156g.setVisibility(cVar.f11764b ? 0 : 8);
+        this.f47258g.setVisibility(cVar.f11772b ? 0 : 8);
     }
 }

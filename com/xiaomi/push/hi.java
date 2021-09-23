@@ -19,7 +19,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f77784a;
+    public static final iy f78103a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f481a;
@@ -42,7 +42,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
             }
         }
         f481a = new jg("ClientUploadData");
-        f77784a = new iy("", (byte) 15, (short) 1);
+        f78103a = new iy("", (byte) 15, (short) 1);
     }
 
     public hi() {
@@ -122,7 +122,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
         jbVar.m527a();
         while (true) {
             iy m523a = jbVar.m523a();
-            byte b2 = m523a.f78036a;
+            byte b2 = m523a.f78355a;
             if (b2 == 0) {
                 jbVar.f();
                 m375a();
@@ -176,7 +176,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
             m375a();
             jbVar.a(f481a);
             if (this.f482a != null) {
-                jbVar.a(f77784a);
+                jbVar.a(f78103a);
                 jbVar.a(new iz(StandardMessageCodec.LIST, this.f482a.size()));
                 for (hj hjVar : this.f482a) {
                     hjVar.b(jbVar);

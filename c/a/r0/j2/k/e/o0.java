@@ -20,13 +20,13 @@ public class o0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f20178a;
+    public TbPageContext f20193a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f20179b;
+    public boolean f20194b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g1 f20180c;
+    public g1 f20195c;
 
     public o0(TbPageContext tbPageContext) {
         Uri uri;
@@ -44,33 +44,33 @@ public class o0 {
                 return;
             }
         }
-        this.f20179b = false;
-        this.f20178a = tbPageContext;
-        if (tbPageContext.getPageActivity() == null || this.f20178a.getPageActivity().getIntent() == null || (uri = (Uri) this.f20178a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) == null) {
+        this.f20194b = false;
+        this.f20193a = tbPageContext;
+        if (tbPageContext.getPageActivity() == null || this.f20193a.getPageActivity().getIntent() == null || (uri = (Uri) this.f20193a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) == null) {
             return;
         }
         String queryParameter = uri.getQueryParameter("tid");
         uri.getQueryParameter("eqid");
         g1 g1Var = new g1();
-        this.f20180c = g1Var;
+        this.f20195c = g1Var;
         g1Var.f14196a = uri.getQueryParameter("tid");
-        this.f20180c.f14197b = uri.getQueryParameter("eqid");
-        if (TextUtils.isEmpty(queryParameter) || c.a.e.a.b.f().h() > 3) {
+        this.f20195c.f14197b = uri.getQueryParameter("eqid");
+        if (TextUtils.isEmpty(queryParameter) || c.a.e.a.b.f().g() > 3) {
             return;
         }
-        this.f20179b = true;
+        this.f20194b = true;
     }
 
     public void a(PbModel pbModel) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) || !this.f20179b || this.f20180c == null || pbModel == null || pbModel.O0() == null || pbModel.O0().m() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) || !this.f20194b || this.f20195c == null || pbModel == null || pbModel.P0() == null || pbModel.P0().m() == null) {
             return;
         }
-        ForumData m = pbModel.O0().m();
-        this.f20180c.f14198c = m.getFirst_class();
-        this.f20180c.f14199d = m.getSecond_class();
-        TbSingleton.getInstance().setPbToHomeUpdateData(this.f20180c);
-        if (c.a.e.a.b.f().i("MainTabActivity")) {
+        ForumData m = pbModel.P0().m();
+        this.f20195c.f14198c = m.getFirst_class();
+        this.f20195c.f14199d = m.getSecond_class();
+        TbSingleton.getInstance().setPbToHomeUpdateData(this.f20195c);
+        if (c.a.e.a.b.f().h("MainTabActivity")) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
         } else {
             TbSingleton.getInstance().setForceRefreshHomeRecommend(true);

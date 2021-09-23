@@ -94,7 +94,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11354e;
+        public final /* synthetic */ a f11362e;
 
         public RunnableC0578a(a aVar) {
             Interceptable interceptable = $ic;
@@ -111,14 +111,14 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11354e = aVar;
+            this.f11362e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11354e.H0.removeView(this.f11354e.I0);
+                this.f11362e.H0.removeView(this.f11362e.I0);
             }
         }
     }
@@ -129,10 +129,10 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.l0.a f11355a;
+        public final /* synthetic */ c.a.p0.a.l0.a f11363a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f11356b;
+        public final /* synthetic */ a f11364b;
 
         /* renamed from: c.a.p0.h.n.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -141,7 +141,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f11357e;
+            public final /* synthetic */ b f11365e;
 
             public RunnableC0579a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -158,17 +158,17 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                         return;
                     }
                 }
-                this.f11357e = bVar;
+                this.f11365e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 int b2;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && f0.q(this.f11357e.f11356b.h(), this.f11357e.f11356b.D0) && (b2 = f0.b(this.f11357e.f11356b.h())) > 0) {
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11357e.f11356b.D0.getLayoutParams();
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && f0.q(this.f11365e.f11364b.h(), this.f11365e.f11364b.D0) && (b2 = f0.b(this.f11365e.f11364b.h())) > 0) {
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11365e.f11364b.D0.getLayoutParams();
                     layoutParams.rightMargin += b2;
-                    this.f11357e.f11356b.D0.setLayoutParams(layoutParams);
+                    this.f11365e.f11364b.D0.setLayoutParams(layoutParams);
                     c.a.p0.h.t.a.e().b(b2);
                 }
             }
@@ -193,39 +193,39 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11356b = aVar;
-            this.f11355a = aVar2;
+            this.f11364b = aVar;
+            this.f11363a = aVar2;
         }
 
         @Override // android.view.OrientationEventListener
         @SuppressLint({"SourceLockedOrientationActivity"})
         public void onOrientationChanged(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f11356b.J0.h()) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f11364b.J0.h()) {
                 return;
             }
-            if (260 >= i2 || i2 >= 280 || this.f11356b.W0.equals("landscape")) {
-                if (80 >= i2 || i2 >= 100 || this.f11356b.W0.endsWith("landscapeReverse")) {
+            if (260 >= i2 || i2 >= 280 || this.f11364b.W0.equals("landscape")) {
+                if (80 >= i2 || i2 >= 100 || this.f11364b.W0.endsWith("landscapeReverse")) {
                     return;
                 }
-                this.f11356b.k0.setRequestedOrientation(8);
-                this.f11356b.W0 = "landscapeReverse";
-                c.a.p0.h.j0.a.a(this.f11355a, this.f11356b.W0);
+                this.f11364b.k0.setRequestedOrientation(8);
+                this.f11364b.W0 = "landscapeReverse";
+                c.a.p0.h.j0.a.a(this.f11363a, this.f11364b.W0);
                 if (a.f1) {
-                    String str = "onOrientationChanged: " + this.f11356b.W0;
+                    String str = "onOrientationChanged: " + this.f11364b.W0;
                 }
-                this.f11356b.D0.postDelayed(new RunnableC0579a(this), 100L);
+                this.f11364b.D0.postDelayed(new RunnableC0579a(this), 100L);
                 return;
             }
-            this.f11356b.k0.setRequestedOrientation(0);
-            this.f11356b.W0 = "landscape";
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11356b.D0.getLayoutParams();
-            layoutParams.rightMargin = this.f11356b.z().getDimensionPixelSize(c.a.p0.a.d.aigames_action_bar_right_operation_margin);
-            this.f11356b.D0.setLayoutParams(layoutParams);
+            this.f11364b.k0.setRequestedOrientation(0);
+            this.f11364b.W0 = "landscape";
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11364b.D0.getLayoutParams();
+            layoutParams.rightMargin = this.f11364b.z().getDimensionPixelSize(c.a.p0.a.d.aigames_action_bar_right_operation_margin);
+            this.f11364b.D0.setLayoutParams(layoutParams);
             c.a.p0.h.t.a.e().b(0);
-            c.a.p0.h.j0.a.a(this.f11355a, this.f11356b.W0);
+            c.a.p0.h.j0.a.a(this.f11363a, this.f11364b.W0);
             if (a.f1) {
-                String str2 = "onOrientationChanged: " + this.f11356b.W0;
+                String str2 = "onOrientationChanged: " + this.f11364b.W0;
             }
         }
     }
@@ -236,7 +236,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11358e;
+        public final /* synthetic */ a f11366e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -253,14 +253,14 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11358e = aVar;
+            this.f11366e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.h.t.a.i().a(this.f11358e.l0, this.f11358e.q());
+                c.a.p0.h.t.a.i().a(this.f11366e.l0, this.f11366e.q());
             }
         }
     }
@@ -271,7 +271,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11359a;
+        public final /* synthetic */ a f11367a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -288,7 +288,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11359a = aVar;
+            this.f11367a = aVar;
         }
 
         @Override // android.view.View.OnSystemUiVisibilityChangeListener
@@ -296,10 +296,10 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (a.f1) {
-                    String str = "onSystemUiVisibilityChange:" + i2 + ",mIsForeground:" + this.f11359a.R0;
+                    String str = "onSystemUiVisibilityChange:" + i2 + ",mIsForeground:" + this.f11367a.R0;
                 }
-                if (this.f11359a.R0 || this.f11359a.o3()) {
-                    c.a.p0.a.v2.f.e(this.f11359a.k0);
+                if (this.f11367a.R0 || this.f11367a.o3()) {
+                    c.a.p0.a.v2.f.e(this.f11367a.k0);
                 }
             }
         }
@@ -311,7 +311,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11360e;
+        public final /* synthetic */ a f11368e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -328,20 +328,20 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11360e = aVar;
+            this.f11368e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int e2 = f0.e(this.f11360e.q());
-                if (!f0.q(this.f11360e.h(), this.f11360e.D0) || ((SwanAppActivity) this.f11360e.h()).isLandScape()) {
+                int e2 = f0.e(this.f11368e.q());
+                if (!f0.q(this.f11368e.h(), this.f11368e.D0) || ((SwanAppActivity) this.f11368e.h()).isLandScape()) {
                     return;
                 }
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11360e.D0.getLayoutParams();
-                layoutParams.topMargin = this.f11360e.D0.getTop() + e2;
-                this.f11360e.D0.setLayoutParams(layoutParams);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11368e.D0.getLayoutParams();
+                layoutParams.topMargin = this.f11368e.D0.getTop() + e2;
+                this.f11368e.D0.setLayoutParams(layoutParams);
             }
         }
     }
@@ -352,7 +352,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11361e;
+        public final /* synthetic */ a f11369e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -369,17 +369,17 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11361e = aVar;
+            this.f11369e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f11361e.c2();
+                this.f11369e.c2();
                 c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-                fVar.f7067e = SupportMenuInflater.XML_MENU;
-                this.f11361e.w1(fVar);
+                fVar.f7075e = SupportMenuInflater.XML_MENU;
+                this.f11369e.w1(fVar);
             }
         }
     }
@@ -390,7 +390,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11362e;
+        public final /* synthetic */ a f11370e;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -407,7 +407,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11362e = aVar;
+            this.f11370e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -419,17 +419,17 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                 }
                 c.a.p0.a.a2.e i2 = c.a.p0.a.a2.e.i();
                 if (i2 != null && TextUtils.equals(c.a.p0.a.a2.e.V(), "7TxyeScrKPj02EATE68RBG5Z8f46a8So")) {
-                    this.f11362e.v3();
+                    this.f11370e.v3();
                 } else if (i2 != null && c.a.p0.a.v0.c.c().h()) {
-                    this.f11362e.u3("exitButton");
+                    this.f11370e.u3("exitButton");
                 } else {
                     c.a.p0.a.v0.b bVar = new c.a.p0.a.v0.b();
                     bVar.h();
                     if (bVar.k()) {
-                        c.a.p0.a.v0.c.c().j(this.f11362e.k0, bVar.f(), bVar.e(), bVar, this.f11362e.A1());
+                        c.a.p0.a.v0.c.c().j(this.f11370e.k0, bVar.f(), bVar.e(), bVar, this.f11370e.A1());
                         return;
                     }
-                    this.f11362e.u3("exitButton");
+                    this.f11370e.u3("exitButton");
                 }
             }
         }
@@ -441,7 +441,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11363a;
+        public final /* synthetic */ a f11371a;
 
         public h(a aVar) {
             Interceptable interceptable = $ic;
@@ -458,15 +458,15 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11363a = aVar;
+            this.f11371a = aVar;
         }
 
         @Override // com.baidu.swan.games.view.recommend.popview.PandaParkCloseDialog.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11363a.r3("pandacontinue");
-                this.f11363a.Y0.dismiss();
+                this.f11371a.r3("pandacontinue");
+                this.f11371a.Y0.dismiss();
             }
         }
 
@@ -474,8 +474,8 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f11363a.r3("pandaclose");
-                this.f11363a.Y0.dismiss();
+                this.f11371a.r3("pandaclose");
+                this.f11371a.Y0.dismiss();
             }
         }
 
@@ -483,9 +483,9 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f11363a.r3("pandaexit");
-                this.f11363a.Y0.dismiss();
-                this.f11363a.c3();
+                this.f11371a.r3("pandaexit");
+                this.f11371a.Y0.dismiss();
+                this.f11371a.c3();
             }
         }
     }
@@ -496,7 +496,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11364a;
+        public final /* synthetic */ a f11372a;
 
         public i(a aVar) {
             Interceptable interceptable = $ic;
@@ -513,14 +513,14 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11364a = aVar;
+            this.f11372a = aVar;
         }
 
         @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11364a.c3();
+                this.f11372a.c3();
             }
         }
 
@@ -528,17 +528,17 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f11364a.c3();
+                this.f11372a.c3();
             }
         }
 
         @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.e
         public void c() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f11364a.X0 == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f11372a.X0 == null) {
                 return;
             }
-            this.f11364a.H0.removeView(this.f11364a.X0);
+            this.f11372a.H0.removeView(this.f11372a.X0);
         }
     }
 
@@ -548,7 +548,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11365a;
+        public final /* synthetic */ a f11373a;
 
         public j(a aVar) {
             Interceptable interceptable = $ic;
@@ -565,14 +565,14 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11365a = aVar;
+            this.f11373a = aVar;
         }
 
         @Override // c.a.p0.a.v0.c.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11365a.c3();
+                this.f11373a.c3();
             }
         }
     }
@@ -583,7 +583,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11366a;
+        public final /* synthetic */ a f11374a;
 
         public k(a aVar) {
             Interceptable interceptable = $ic;
@@ -600,18 +600,18 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11366a = aVar;
+            this.f11374a = aVar;
         }
 
         @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f11366a.a1 != null) {
-                    this.f11366a.H0.removeView(this.f11366a.a1);
-                    this.f11366a.a1 = null;
+                if (this.f11374a.a1 != null) {
+                    this.f11374a.H0.removeView(this.f11374a.a1);
+                    this.f11374a.a1 = null;
                 }
-                this.f11366a.c3();
+                this.f11374a.c3();
             }
         }
 
@@ -636,7 +636,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11367a;
+        public final /* synthetic */ a f11375a;
 
         /* renamed from: c.a.p0.h.n.a$l$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -645,10 +645,10 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f11368e;
+            public final /* synthetic */ int f11376e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ l f11369f;
+            public final /* synthetic */ l f11377f;
 
             public RunnableC0580a(l lVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -665,24 +665,24 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                         return;
                     }
                 }
-                this.f11369f = lVar;
-                this.f11368e = i2;
+                this.f11377f = lVar;
+                this.f11376e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11369f.f11367a.p3()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11377f.f11375a.p3()) {
                     return;
                 }
-                int i2 = this.f11368e;
+                int i2 = this.f11376e;
                 if (i2 == -2) {
                     boolean unused = a.f1;
-                    this.f11369f.f11367a.F2();
+                    this.f11377f.f11375a.F2();
                 } else if (i2 != -1) {
                 } else {
                     boolean unused2 = a.f1;
-                    this.f11369f.f11367a.F2();
+                    this.f11377f.f11375a.F2();
                 }
             }
         }
@@ -702,7 +702,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11367a = aVar;
+            this.f11375a = aVar;
         }
 
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
@@ -724,10 +724,10 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<TextView> f11370a;
+        public WeakReference<TextView> f11378a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WeakReference<DuMixGameSurfaceView> f11371b;
+        public WeakReference<DuMixGameSurfaceView> f11379b;
 
         public m(TextView textView, DuMixGameSurfaceView duMixGameSurfaceView) {
             Interceptable interceptable = $ic;
@@ -744,16 +744,16 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11370a = new WeakReference<>(textView);
-            this.f11371b = new WeakReference<>(duMixGameSurfaceView);
+            this.f11378a = new WeakReference<>(textView);
+            this.f11379b = new WeakReference<>(duMixGameSurfaceView);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                TextView textView = this.f11370a.get();
-                DuMixGameSurfaceView duMixGameSurfaceView = this.f11371b.get();
+                TextView textView = this.f11378a.get();
+                DuMixGameSurfaceView duMixGameSurfaceView = this.f11379b.get();
                 if (textView != null) {
                     String valueOf = String.valueOf(duMixGameSurfaceView == null ? 0 : duMixGameSurfaceView.getFPS());
                     textView.setText(valueOf);
@@ -779,7 +779,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                 return;
             }
         }
-        f1 = c.a.p0.a.k.f7077a;
+        f1 = c.a.p0.a.k.f7085a;
     }
 
     public a() {
@@ -854,7 +854,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                 return v3();
             }
             if (i2 != null && c.a.p0.a.v0.c.c().h()) {
-                return u3(com.alipay.sdk.widget.d.o);
+                return u3(com.alipay.sdk.widget.d.x);
             }
             c.a.p0.a.v0.b bVar = new c.a.p0.a.v0.b();
             bVar.h();
@@ -862,7 +862,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                 c.a.p0.a.v0.c.c().j(this.k0, bVar.f(), bVar.e(), bVar, A1());
                 return true;
             }
-            return u3(com.alipay.sdk.widget.d.o);
+            return u3(com.alipay.sdk.widget.d.x);
         }
         return invokeV.booleanValue;
     }
@@ -923,7 +923,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
                 activity.moveTaskToBack(true);
             }
             c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-            fVar.f7067e = IntentConfig.CLOSE;
+            fVar.f7075e = IntentConfig.CLOSE;
             w1(fVar);
             ((SwanAppActivity) this.k0).handleSwanAppExit(1);
             x0.b().e(2);
@@ -1256,7 +1256,7 @@ public class a extends c.a.p0.a.h0.g.d implements c.a.p0.h.e0.a.b.b, a.Interface
             return;
         }
         c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-        fVar.f7067e = str;
+        fVar.f7075e = str;
         w1(fVar);
     }
 

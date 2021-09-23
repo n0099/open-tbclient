@@ -13,13 +13,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9677a;
+    public int f9685a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9678b;
+    public int f9686b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9679c;
+    public int f9687c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class b {
                 return;
             }
         }
-        this.f9677a = 0;
+        this.f9685a = 0;
     }
 
     @NonNull
@@ -42,7 +42,7 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.f9677a = i2 | this.f9677a;
+            this.f9685a = i2 | this.f9685a;
             return this;
         }
         return (b) invokeI.objValue;
@@ -51,39 +51,39 @@ public class b {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9678b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9686b : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9679c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9687c : invokeV.intValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f9677a & 1) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f9685a & 1) == 1 : invokeV.booleanValue;
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f9677a = (~i2) & this.f9677a;
+            this.f9685a = (~i2) & this.f9685a;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f9678b = i2;
+            this.f9686b = i2;
         }
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f9679c = i2;
+            this.f9687c = i2;
         }
     }
 }

@@ -49,8 +49,8 @@ public class b extends k<f0, FrsU9ViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            String str = "Frs U9 Context:" + this.f2957e + "   Resource:" + this.f2957e.getResources() + "  Asset:" + this.f2957e.getResources().getAssets();
-            return new FrsU9ViewHolder(this.o, LayoutInflater.from(this.f2957e).inflate(R.layout.u9_info_layout, (ViewGroup) null, true), this.f2961i);
+            String str = "Frs U9 Context:" + this.f2958e + "   Resource:" + this.f2958e.getResources() + "  Asset:" + this.f2958e.getResources().getAssets();
+            return new FrsU9ViewHolder(this.o, LayoutInflater.from(this.f2958e).inflate(R.layout.u9_info_layout, (ViewGroup) null, true), this.f2962i);
         }
         return (FrsU9ViewHolder) invokeL.objValue;
     }

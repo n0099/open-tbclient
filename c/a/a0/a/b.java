@@ -187,7 +187,7 @@ public final class b {
             DuMixARConfig.setAPIKey(str2);
             DuMixARConfig.setSecretKey(str3);
             c.a.a0.a.h.d.d().i(f1641d);
-            u(cVar);
+            t(cVar);
         }
     }
 
@@ -216,31 +216,24 @@ public final class b {
         }
     }
 
-    public static void r(boolean z) {
+    public static void r(c.a.a0.a.g.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
-            f1638a = z;
-        }
-    }
-
-    public static void s(c.a.a0.a.g.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(65554, null, bVar) == null) {
             f1640c = bVar;
         }
     }
 
-    public static void t(String str) {
+    public static void s(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
             f1646i = str;
         }
     }
 
-    public static void u(c cVar) {
+    public static void t(c cVar) {
         File f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, null, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(65556, null, cVar) == null) {
             f1639b = cVar;
             if (cVar != null || (f2 = g.e().f()) == null) {
                 return;
@@ -249,23 +242,23 @@ public final class b {
         }
     }
 
-    public static void v(File file) {
+    public static void u(File file) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65558, null, file) == null) || file == null) {
+        if (!(interceptable == null || interceptable.invokeL(65557, null, file) == null) || file == null) {
             return;
         }
         c cVar = f1639b;
         if (cVar == null) {
             cVar = new c(file.getAbsolutePath());
         }
-        u(cVar);
+        t(cVar);
     }
 
-    public static void w(boolean z) {
+    public static void v(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65559, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65558, null, z) == null) {
             f1645h = z;
-            v(g.e().f());
+            u(g.e().f());
         }
     }
 }

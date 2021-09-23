@@ -78,7 +78,7 @@ public class r extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f18302e;
+        public final /* synthetic */ r f18311e;
 
         public b(r rVar) {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class r extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                     return;
                 }
             }
-            this.f18302e = rVar;
+            this.f18311e = rVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -103,13 +103,13 @@ public class r extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
             c.a.r0.a0.d0.k kVar;
             d2 d2Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || !(nVar instanceof c.a.r0.a0.d0.k) || (kVar = (c.a.r0.a0.d0.k) nVar) == null || (d2Var = kVar.f15562e) == null || d2Var.e1() == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || !(nVar instanceof c.a.r0.a0.d0.k) || (kVar = (c.a.r0.a0.d0.k) nVar) == null || (d2Var = kVar.f15571e) == null || d2Var.e1() == null) {
                 return;
             }
-            this.f18302e.p0(kVar.f15562e, view);
+            this.f18311e.p0(kVar.f15571e, view);
             TiebaStatic.log(kVar.A());
             TiebaStatic.log(kVar.o());
-            this.f18302e.k0(kVar.f15562e, kVar.q());
+            this.f18311e.k0(kVar.f15571e, kVar.q());
         }
     }
 
@@ -119,7 +119,7 @@ public class r extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ r f18303b;
+        public final /* synthetic */ r f18312b;
 
         public c(r rVar) {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class r extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
                     return;
                 }
             }
-            this.f18303b = rVar;
+            this.f18312b = rVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -147,13 +147,13 @@ public class r extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
             d2 d2Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, kVar, str)) == null) {
-                if (kVar == null || (d2Var = kVar.f15562e) == null || d2Var.e1() == null) {
+                if (kVar == null || (d2Var = kVar.f15571e) == null || d2Var.e1() == null) {
                     return false;
                 }
-                this.f18303b.p0(kVar.f15562e, view);
+                this.f18312b.p0(kVar.f15571e, view);
                 TiebaStatic.log(kVar.A());
                 TiebaStatic.log(kVar.o());
-                this.f18303b.k0(kVar.f15562e, kVar.q());
+                this.f18312b.k0(kVar.f15571e, kVar.q());
                 return true;
             }
             return invokeLLL.booleanValue;
@@ -253,18 +253,18 @@ public class r extends c.a.e.l.e.a<c.a.r0.a0.d0.k, ThreadCardViewHolder<c.a.r0.a
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, threadCardViewHolder})) == null) {
-            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15562e == null) {
+            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15571e == null) {
                 return null;
             }
             kVar.K(kVar.position + 1);
-            kVar.f15562e.S1 = kVar.q();
+            kVar.f15571e.T1 = kVar.q();
             threadCardViewHolder.showNEGFeedBackView(false).t(this.p);
             threadCardViewHolder.onBindDataToView(kVar);
             threadCardViewHolder.getCardView().onChangeSkinType(this.n, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.getCardView().p(this.q);
             c.a.r0.a0.t.b().a(kVar.B());
             c.a.r0.o.d.c().i("page_recommend", "show_", kVar.B());
-            l0(kVar.f15562e, kVar.q());
+            l0(kVar.f15571e, kVar.q());
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

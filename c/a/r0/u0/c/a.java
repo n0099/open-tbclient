@@ -27,14 +27,14 @@ public class a extends c.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
 
     /* renamed from: c.a.r0.u0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1178a implements View.OnClickListener {
+    public class View$OnClickListenerC1176a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25230e;
+        public final /* synthetic */ a f25251e;
 
-        public View$OnClickListenerC1178a(a aVar) {
+        public View$OnClickListenerC1176a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public class a extends c.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
                     return;
                 }
             }
-            this.f25230e = aVar;
+            this.f25251e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -57,11 +57,11 @@ public class a extends c.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof String)) {
                 String str = (String) view.getTag();
-                if (this.f25230e.m == 1 || this.f25230e.m == 4) {
+                if (this.f25251e.m == 1 || this.f25251e.m == 4) {
                     str = str + "?isNightModel=1";
                 }
-                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.f25230e.f2957e, this.f25230e.f2957e.getString(R.string.complaint_bar_lord), str, true));
-                customMessage.setTag(this.f25230e.f2961i);
+                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.f25251e.f2958e, this.f25251e.f2958e.getString(R.string.complaint_bar_lord), str, true));
+                customMessage.setTag(this.f25251e.f2962i);
                 MessageManager.getInstance().sendMessage(customMessage);
             }
         }
@@ -69,7 +69,7 @@ public class a extends c.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(c.a.e.a.f fVar) {
-        super(fVar.getPageActivity(), b.f25231g, fVar.getUniqueId());
+        super(fVar.getPageActivity(), b.f25252g, fVar.getUniqueId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,7 +86,7 @@ public class a extends c.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
                 return;
             }
         }
-        this.n = new View$OnClickListenerC1178a(this);
+        this.n = new View$OnClickListenerC1176a(this);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
@@ -99,8 +99,8 @@ public class a extends c.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
     public final void l0(ComplaintBarlordViewHolder complaintBarlordViewHolder, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, complaintBarlordViewHolder, bVar) == null) {
-            complaintBarlordViewHolder.mTitleView.setText(bVar.f25232e);
-            complaintBarlordViewHolder.mRootLayout.setTag(bVar.f25233f);
+            complaintBarlordViewHolder.mTitleView.setText(bVar.f25253e);
+            complaintBarlordViewHolder.mRootLayout.setTag(bVar.f25254f);
             complaintBarlordViewHolder.mRootLayout.setOnClickListener(this.n);
         }
     }
@@ -127,7 +127,7 @@ public class a extends c.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
     public ComplaintBarlordViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new ComplaintBarlordViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false)) : (ComplaintBarlordViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new ComplaintBarlordViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false)) : (ComplaintBarlordViewHolder) invokeL.objValue;
     }
 
     public View o0(int i2, View view, ViewGroup viewGroup, b bVar, ComplaintBarlordViewHolder complaintBarlordViewHolder) {

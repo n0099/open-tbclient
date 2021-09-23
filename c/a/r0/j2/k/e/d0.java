@@ -38,34 +38,34 @@ public class d0 extends c.a.e.a.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragment f19973a;
+    public BaseFragment f19988a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19974b;
+    public View f19989b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FlowLayout f19975c;
+    public FlowLayout f19990c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EMTextView f19976d;
+    public EMTextView f19991d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f19977e;
+    public EMTextView f19992e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EMTextView f19978f;
+    public EMTextView f19993f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f19979g;
+    public EMTextView f19994g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f19980h;
+    public EMTextView f19995h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f19981i;
+    public EMTextView f19996i;
 
     /* renamed from: j  reason: collision with root package name */
-    public EMTextView f19982j;
+    public EMTextView f19997j;
     public EMTextView k;
     public EMTextView l;
     public EMTextView m;
@@ -116,7 +116,7 @@ public class d0 extends c.a.e.a.d {
         }
         this.n = null;
         this.v = null;
-        this.f19973a = baseFragment;
+        this.f19988a = baseFragment;
         this.v = onClickListener;
         initUI();
     }
@@ -140,15 +140,15 @@ public class d0 extends c.a.e.a.d {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.o.getLayoutParams().width = 201;
             this.k.getLayoutParams().width = 201;
-            this.f19976d.getLayoutParams().width = 201;
+            this.f19991d.getLayoutParams().width = 201;
             this.l.getLayoutParams().width = 201;
-            this.f19977e.getLayoutParams().width = 201;
-            this.f19978f.getLayoutParams().width = 201;
+            this.f19992e.getLayoutParams().width = 201;
+            this.f19993f.getLayoutParams().width = 201;
             this.n.getLayoutParams().width = 201;
-            this.f19979g.getLayoutParams().width = 201;
-            this.f19980h.getLayoutParams().width = 201;
-            this.f19981i.getLayoutParams().width = 201;
-            this.f19982j.getLayoutParams().width = 201;
+            this.f19994g.getLayoutParams().width = 201;
+            this.f19995h.getLayoutParams().width = 201;
+            this.f19996i.getLayoutParams().width = 201;
+            this.f19997j.getLayoutParams().width = 201;
             this.m.getLayoutParams().width = 201;
             this.p.getLayoutParams().width = 201;
             this.q.getLayoutParams().width = 201;
@@ -158,7 +158,7 @@ public class d0 extends c.a.e.a.d {
     public void D(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f19977e.setVisibility(z ? 0 : 8);
+            this.f19992e.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -179,14 +179,14 @@ public class d0 extends c.a.e.a.d {
     public void K(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f19982j.setVisibility(z ? 0 : 8);
+            this.f19997j.setVisibility(z ? 0 : 8);
             if (z2) {
-                this.f19982j.setText(R.string.pb_cancel_top);
-                R(this.f19982j, R.drawable.icon_pure_pb_recommend_toped30);
+                this.f19997j.setText(R.string.pb_cancel_top);
+                R(this.f19997j, R.drawable.icon_pure_pb_recommend_toped30);
                 return;
             }
-            this.f19982j.setText(R.string.top);
-            R(this.f19982j, R.drawable.icon_pure_pb_recommend_top30);
+            this.f19997j.setText(R.string.top);
+            R(this.f19997j, R.drawable.icon_pure_pb_recommend_top30);
         }
     }
 
@@ -239,7 +239,7 @@ public class d0 extends c.a.e.a.d {
     public void Q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f19976d.setVisibility(z ? 0 : 8);
+            this.f19991d.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -265,21 +265,21 @@ public class d0 extends c.a.e.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             MaskView.maskTextView(this.m, z);
-            MaskView.maskTextView(this.f19982j, z);
-            MaskView.maskTextView(this.f19978f, z);
+            MaskView.maskTextView(this.f19997j, z);
+            MaskView.maskTextView(this.f19993f, z);
         }
     }
 
     public TextView c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f19979g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f19994g : (TextView) invokeV.objValue;
     }
 
     public TextView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f19978f : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f19993f : (TextView) invokeV.objValue;
     }
 
     public TextView e() {
@@ -291,13 +291,13 @@ public class d0 extends c.a.e.a.d {
     public TextView f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f19980h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f19995h : (TextView) invokeV.objValue;
     }
 
     public TextView g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f19981i : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f19996i : (TextView) invokeV.objValue;
     }
 
     public TextView h() {
@@ -315,57 +315,57 @@ public class d0 extends c.a.e.a.d {
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            View inflate = LayoutInflater.from(this.f19973a.getPageContext().getPageActivity()).inflate(R.layout.pb_more_pop_view, (ViewGroup) null);
-            this.f19974b = inflate;
-            this.f19975c = (FlowLayout) inflate.findViewById(R.id.pb_more_flowlayout);
-            EMTextView eMTextView = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_host_only);
+            View inflate = LayoutInflater.from(this.f19988a.getPageContext().getPageActivity()).inflate(R.layout.pb_more_pop_view, (ViewGroup) null);
+            this.f19989b = inflate;
+            this.f19990c = (FlowLayout) inflate.findViewById(R.id.pb_more_flowlayout);
+            EMTextView eMTextView = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_host_only);
             this.o = eMTextView;
             eMTextView.setOnClickListener(this.v);
-            EMTextView eMTextView2 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_reversed);
+            EMTextView eMTextView2 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_reversed);
             this.k = eMTextView2;
             eMTextView2.setOnClickListener(this.v);
-            EMTextView eMTextView3 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_jump);
-            this.f19976d = eMTextView3;
+            EMTextView eMTextView3 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_jump);
+            this.f19991d = eMTextView3;
             eMTextView3.setOnClickListener(this.v);
-            EMTextView eMTextView4 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_night_style);
+            EMTextView eMTextView4 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_night_style);
             this.l = eMTextView4;
             eMTextView4.setOnClickListener(this.v);
-            EMTextView eMTextView5 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_jump_top);
-            this.f19977e = eMTextView5;
+            EMTextView eMTextView5 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_jump_top);
+            this.f19992e = eMTextView5;
             eMTextView5.setOnClickListener(this.v);
-            EMTextView eMTextView6 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_call_fans);
-            this.f19978f = eMTextView6;
+            EMTextView eMTextView6 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_call_fans);
+            this.f19993f = eMTextView6;
             eMTextView6.setOnClickListener(this.v);
-            EMTextView eMTextView7 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_report);
+            EMTextView eMTextView7 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_report);
             this.n = eMTextView7;
             eMTextView7.setOnClickListener(this.v);
-            EMTextView eMTextView8 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_block);
-            this.f19979g = eMTextView8;
+            EMTextView eMTextView8 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_block);
+            this.f19994g = eMTextView8;
             eMTextView8.setOnClickListener(this.v);
-            EMTextView eMTextView9 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_delete);
-            this.f19980h = eMTextView9;
+            EMTextView eMTextView9 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_delete);
+            this.f19995h = eMTextView9;
             eMTextView9.setOnClickListener(this.v);
-            EMTextView eMTextView10 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_forbidden);
-            this.f19981i = eMTextView10;
+            EMTextView eMTextView10 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_forbidden);
+            this.f19996i = eMTextView10;
             eMTextView10.setOnClickListener(this.v);
-            EMTextView eMTextView11 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_make_top);
-            this.f19982j = eMTextView11;
+            EMTextView eMTextView11 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_make_top);
+            this.f19997j = eMTextView11;
             eMTextView11.setOnClickListener(this.v);
-            EMTextView eMTextView12 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_add_good);
+            EMTextView eMTextView12 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_add_good);
             this.m = eMTextView12;
             eMTextView12.setOnClickListener(this.v);
-            EMTextView eMTextView13 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_private);
+            EMTextView eMTextView13 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_private);
             this.p = eMTextView13;
             eMTextView13.setOnClickListener(this.v);
-            EMTextView eMTextView14 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_view_item_heating_thread);
+            EMTextView eMTextView14 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_view_item_heating_thread);
             this.q = eMTextView14;
             eMTextView14.setOnClickListener(this.v);
-            this.s = (TextSizeSeekBar) this.f19974b.findViewById(R.id.pb_more_text_size_seekbar);
-            this.r = (LinearLayout) this.f19974b.findViewById(R.id.size_seek_bar_group);
-            EMTextView eMTextView15 = (EMTextView) this.f19974b.findViewById(R.id.pb_more_cancel);
+            this.s = (TextSizeSeekBar) this.f19989b.findViewById(R.id.pb_more_text_size_seekbar);
+            this.r = (LinearLayout) this.f19989b.findViewById(R.id.size_seek_bar_group);
+            EMTextView eMTextView15 = (EMTextView) this.f19989b.findViewById(R.id.pb_more_cancel);
             this.t = eMTextView15;
             eMTextView15.setOnClickListener(this.v);
-            this.u = this.f19974b.findViewById(R.id.pb_more_bomb_enter_anim_place_holder);
+            this.u = this.f19989b.findViewById(R.id.pb_more_bomb_enter_anim_place_holder);
             if (s()) {
                 return;
             }
@@ -376,13 +376,13 @@ public class d0 extends c.a.e.a.d {
     public TextView j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f19976d : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f19991d : (TextView) invokeV.objValue;
     }
 
     public TextView k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f19977e : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f19992e : (TextView) invokeV.objValue;
     }
 
     public TextView l() {
@@ -394,7 +394,7 @@ public class d0 extends c.a.e.a.d {
     public TextView m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f19982j : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f19997j : (TextView) invokeV.objValue;
     }
 
     public TextView n() {
@@ -424,7 +424,7 @@ public class d0 extends c.a.e.a.d {
     public View r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f19974b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f19989b : (View) invokeV.objValue;
     }
 
     public final boolean s() {
@@ -432,7 +432,7 @@ public class d0 extends c.a.e.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) this.f19973a.getBaseFragmentActivity().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) this.f19988a.getBaseFragmentActivity().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
             int i2 = displayMetrics.densityDpi;
             return i2 % 160 == 0 || ((double) ((((float) i2) * 1.0f) / 160.0f)) == 1.5d;
         }
@@ -449,42 +449,42 @@ public class d0 extends c.a.e.a.d {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            SkinManager.setBackgroundColor(this.f19975c, R.color.CAM_X0213);
+            SkinManager.setBackgroundColor(this.f19990c, R.color.CAM_X0213);
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.r);
             d2.o(R.string.J_X14);
             d2.f(R.color.CAM_X0213);
             SkinManager.setBackgroundResource(this.u, R.color.CAM_X0213);
             SkinManager.setBackgroundResource(this.t, R.color.CAM_X0213);
             SkinManager.setViewTextColorSelector(this.t, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f19976d, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.f19991d, R.color.CAM_X0107, 1);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0107, 1);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0107, 1);
-            SkinManager.setViewTextColor(this.f19977e, R.color.CAM_X0107, 1);
-            SkinManager.setViewTextColor(this.f19978f, R.color.CAM_X0107, 1);
-            SkinManager.setViewTextColor(this.f19979g, R.color.CAM_X0107, 1);
-            SkinManager.setViewTextColor(this.f19980h, R.color.CAM_X0107, 1);
-            SkinManager.setViewTextColor(this.f19982j, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.f19992e, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.f19993f, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.f19994g, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.f19995h, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.f19997j, R.color.CAM_X0107, 1);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0107, 1);
-            SkinManager.setViewTextColor(this.f19981i, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.f19996i, R.color.CAM_X0107, 1);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0107, 1);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0107, 1);
             SkinManager.setViewTextColor(this.p, R.color.CAM_X0107, 1);
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0107, 1);
-            int width = ((WindowManager) this.f19973a.getBaseFragmentActivity().getSystemService("window")).getDefaultDisplay().getWidth() - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
+            int width = ((WindowManager) this.f19988a.getBaseFragmentActivity().getSystemService("window")).getDefaultDisplay().getWidth() - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
             if (s()) {
                 i2 = (width - (UtilHelper.getDimenPixelSize(R.dimen.tbds201) * 5)) / 4;
             } else {
                 i2 = (width - 1005) / 4;
             }
-            this.f19975c.setHorizontalSpacing(i2);
-            R(this.f19976d, R.drawable.icon_pure_pb_recommend_jump30);
+            this.f19990c.setHorizontalSpacing(i2);
+            R(this.f19991d, R.drawable.icon_pure_pb_recommend_jump30);
             R(this.n, R.drawable.icon_pure_pb_recommend_report30);
-            R(this.f19977e, R.drawable.icon_pure_pb_recommend_initial30);
-            R(this.f19978f, R.drawable.icon_pure_pb_recommend_fans30);
-            this.f19978f.setAlpha(TbSingleton.getInstance().mCanCallFans ? 1.0f : 0.33f);
-            R(this.f19979g, R.drawable.icon_pure_pb_shield30);
-            R(this.f19980h, this.w ? R.drawable.icon_pure_pb_recommend_report30 : R.drawable.icon_pure_pb_recommend_delete30);
-            R(this.f19981i, R.drawable.icon_pure_pb_recommend_block30);
+            R(this.f19992e, R.drawable.icon_pure_pb_recommend_initial30);
+            R(this.f19993f, R.drawable.icon_pure_pb_recommend_fans30);
+            this.f19993f.setAlpha(TbSingleton.getInstance().mCanCallFans ? 1.0f : 0.33f);
+            R(this.f19994g, R.drawable.icon_pure_pb_shield30);
+            R(this.f19995h, this.w ? R.drawable.icon_pure_pb_recommend_report30 : R.drawable.icon_pure_pb_recommend_delete30);
+            R(this.f19996i, R.drawable.icon_pure_pb_recommend_block30);
             R(this.p, R.drawable.icon_pure_pb_recommend_private30);
             R(this.q, R.drawable.icon_pure_pb_recommend_fire_30);
             R(this.k, R.drawable.icon_pure_pb_recommend_sort30);
@@ -498,28 +498,28 @@ public class d0 extends c.a.e.a.d {
     public void v(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
-            this.f19979g.setVisibility(z ? 0 : 8);
+            this.f19994g.setVisibility(z ? 0 : 8);
         }
     }
 
     public void w(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
-            this.f19978f.setVisibility(z ? 0 : 8);
+            this.f19993f.setVisibility(z ? 0 : 8);
         }
     }
 
     public void x(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
-            this.f19980h.setVisibility(z ? 0 : 8);
+            this.f19995h.setVisibility(z ? 0 : 8);
         }
     }
 
     public void y(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
-            this.f19981i.setVisibility(z ? 0 : 8);
+            this.f19996i.setVisibility(z ? 0 : 8);
         }
     }
 

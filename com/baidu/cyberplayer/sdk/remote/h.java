@@ -34,34 +34,34 @@ public class h extends PlayerProvider implements g.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.cyberplayer.sdk.remote.b f39184a;
+    public com.baidu.cyberplayer.sdk.remote.b f39243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CyberPlayerManager.HttpDNS f39185b;
+    public CyberPlayerManager.HttpDNS f39244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CyberPlayerManager.OnPreparedListener f39186c;
+    public CyberPlayerManager.OnPreparedListener f39245c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CyberPlayerManager.OnCompletionListener f39187d;
+    public CyberPlayerManager.OnCompletionListener f39246d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CyberPlayerManager.OnBufferingUpdateListener f39188e;
+    public CyberPlayerManager.OnBufferingUpdateListener f39247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CyberPlayerManager.OnSeekCompleteListener f39189f;
+    public CyberPlayerManager.OnSeekCompleteListener f39248f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CyberPlayerManager.OnVideoSizeChangedListener f39190g;
+    public CyberPlayerManager.OnVideoSizeChangedListener f39249g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CyberPlayerManager.OnErrorListener f39191h;
+    public CyberPlayerManager.OnErrorListener f39250h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CyberPlayerManager.OnInfoListener f39192i;
+    public CyberPlayerManager.OnInfoListener f39251i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CyberPlayerManager.OnMediaSourceChangedListener f39193j;
+    public CyberPlayerManager.OnMediaSourceChangedListener f39252j;
     public a k;
     public Surface l;
     public b m;
@@ -74,7 +74,7 @@ public class h extends PlayerProvider implements g.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<h> f39194a;
+        public final WeakReference<h> f39253a;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class h extends PlayerProvider implements g.b {
                     return;
                 }
             }
-            this.f39194a = new WeakReference<>(hVar);
+            this.f39253a = new WeakReference<>(hVar);
         }
 
         public static void a(h hVar, String str) {
@@ -119,50 +119,50 @@ public class h extends PlayerProvider implements g.b {
         public void handleMessage(Message message) {
             h hVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (hVar = this.f39194a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (hVar = this.f39253a.get()) == null) {
                 return;
             }
             switch (message.what) {
                 case 0:
-                    if (hVar.f39186c != null) {
-                        hVar.f39186c.onPrepared();
+                    if (hVar.f39245c != null) {
+                        hVar.f39245c.onPrepared();
                         return;
                     }
                     return;
                 case 1:
-                    if (hVar.f39187d != null) {
-                        hVar.f39187d.onCompletion();
+                    if (hVar.f39246d != null) {
+                        hVar.f39246d.onCompletion();
                         return;
                     }
                     return;
                 case 2:
-                    if (hVar.f39188e != null) {
-                        hVar.f39188e.onBufferingUpdate(message.arg1);
+                    if (hVar.f39247e != null) {
+                        hVar.f39247e.onBufferingUpdate(message.arg1);
                         return;
                     }
                     return;
                 case 3:
-                    if (hVar.f39189f != null) {
-                        hVar.f39189f.onSeekComplete();
+                    if (hVar.f39248f != null) {
+                        hVar.f39248f.onSeekComplete();
                         return;
                     }
                     return;
                 case 4:
-                    if (hVar.f39190g != null) {
+                    if (hVar.f39249g != null) {
                         int[] iArr = (int[]) message.obj;
-                        hVar.f39190g.onVideoSizeChanged(iArr[0], iArr[1], iArr[2], iArr[3]);
+                        hVar.f39249g.onVideoSizeChanged(iArr[0], iArr[1], iArr[2], iArr[3]);
                         return;
                     }
                     return;
                 case 5:
-                    if (hVar.f39191h != null) {
-                        hVar.f39191h.onError(message.arg1, message.arg2, message.obj);
+                    if (hVar.f39250h != null) {
+                        hVar.f39250h.onError(message.arg1, message.arg2, message.obj);
                         return;
                     }
                     return;
                 case 6:
-                    if (hVar.f39192i != null) {
-                        hVar.f39192i.onInfo(message.arg1, message.arg2, message.obj);
+                    if (hVar.f39251i != null) {
+                        hVar.f39251i.onInfo(message.arg1, message.arg2, message.obj);
                     }
                     int i2 = message.arg1;
                     if (904 == i2) {
@@ -175,8 +175,8 @@ public class h extends PlayerProvider implements g.b {
                         return;
                     }
                 case 7:
-                    if (hVar.f39193j != null) {
-                        hVar.f39193j.onMediaSourceChanged(message.arg1, message.arg2, message.obj);
+                    if (hVar.f39252j != null) {
+                        hVar.f39252j.onMediaSourceChanged(message.arg1, message.arg2, message.obj);
                         return;
                     }
                     return;
@@ -192,10 +192,10 @@ public class h extends PlayerProvider implements g.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f39195a;
+        public a f39254a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CyberPlayerManager.HttpDNS f39196b;
+        public CyberPlayerManager.HttpDNS f39255b;
 
         public b(a aVar, CyberPlayerManager.HttpDNS httpDNS) {
             Interceptable interceptable = $ic;
@@ -212,15 +212,15 @@ public class h extends PlayerProvider implements g.b {
                     return;
                 }
             }
-            this.f39195a = aVar;
-            this.f39196b = httpDNS;
+            this.f39254a = aVar;
+            this.f39255b = httpDNS;
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
         public void a() {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f39195a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f39254a) == null) {
                 return;
             }
             aVar.sendEmptyMessage(0);
@@ -230,31 +230,31 @@ public class h extends PlayerProvider implements g.b {
         public void a(int i2) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (aVar = this.f39195a) == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (aVar = this.f39254a) == null) {
                 return;
             }
             Message obtain = Message.obtain(aVar, 2);
             obtain.arg1 = i2;
-            this.f39195a.sendMessage(obtain);
+            this.f39254a.sendMessage(obtain);
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
         public void a(int i2, int i3, int i4, int i5) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) || (aVar = this.f39195a) == null) {
+            if (!(interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) || (aVar = this.f39254a) == null) {
                 return;
             }
             Message obtain = Message.obtain(aVar, 4);
             obtain.obj = new int[]{i2, i3, i4, i5};
-            this.f39195a.sendMessage(obtain);
+            this.f39254a.sendMessage(obtain);
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.d
         public void a(String str, List<String> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) && str.equals("onHttpDNS")) {
-                if (this.f39196b == null || list == null || list.size() <= 0) {
+                if (this.f39255b == null || list == null || list.size() <= 0) {
                     if (list != null) {
                         list.clear();
                         return;
@@ -262,7 +262,7 @@ public class h extends PlayerProvider implements g.b {
                     return;
                 }
                 list.clear();
-                List<String> ipList = this.f39196b.getIpList(list.get(0));
+                List<String> ipList = this.f39255b.getIpList(list.get(0));
                 if (ipList != null) {
                     list.addAll(ipList);
                 }
@@ -274,13 +274,13 @@ public class h extends PlayerProvider implements g.b {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i2, i3, str)) == null) {
-                a aVar = this.f39195a;
+                a aVar = this.f39254a;
                 if (aVar != null) {
                     Message obtain = Message.obtain(aVar, 5);
                     obtain.arg1 = i2;
                     obtain.arg2 = i3;
                     obtain.obj = str;
-                    this.f39195a.sendMessage(obtain);
+                    this.f39254a.sendMessage(obtain);
                     return true;
                 }
                 return true;
@@ -293,8 +293,8 @@ public class h extends PlayerProvider implements g.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 synchronized (this) {
-                    if (this.f39195a != null) {
-                        this.f39195a.sendEmptyMessage(1);
+                    if (this.f39254a != null) {
+                        this.f39254a.sendEmptyMessage(1);
                     }
                 }
             }
@@ -305,13 +305,13 @@ public class h extends PlayerProvider implements g.b {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i2, i3, str)) == null) {
-                a aVar = this.f39195a;
+                a aVar = this.f39254a;
                 if (aVar != null) {
                     Message obtain = Message.obtain(aVar, 6);
                     obtain.arg1 = i2;
                     obtain.arg2 = i3;
                     obtain.obj = str;
-                    this.f39195a.sendMessage(obtain);
+                    this.f39254a.sendMessage(obtain);
                     return true;
                 }
                 return true;
@@ -323,7 +323,7 @@ public class h extends PlayerProvider implements g.b {
         public void c() {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f39195a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f39254a) == null) {
                 return;
             }
             aVar.sendEmptyMessage(3);
@@ -334,13 +334,13 @@ public class h extends PlayerProvider implements g.b {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, str)) == null) {
-                a aVar = this.f39195a;
+                a aVar = this.f39254a;
                 if (aVar != null) {
                     Message obtain = Message.obtain(aVar, 7);
                     obtain.arg1 = i2;
                     obtain.arg2 = i3;
                     obtain.obj = str;
-                    this.f39195a.sendMessage(obtain);
+                    this.f39254a.sendMessage(obtain);
                     return true;
                 }
                 return true;
@@ -351,8 +351,8 @@ public class h extends PlayerProvider implements g.b {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                this.f39195a = null;
-                this.f39196b = null;
+                this.f39254a = null;
+                this.f39255b = null;
             }
         }
     }
@@ -374,12 +374,12 @@ public class h extends PlayerProvider implements g.b {
         }
         this.n = -1;
         this.o = -1;
-        this.f39184a = bVar;
-        this.f39185b = httpDNS;
+        this.f39243a = bVar;
+        this.f39244b = httpDNS;
         this.k = new a(this);
         b bVar2 = new b(this.k, httpDNS);
         this.m = bVar2;
-        com.baidu.cyberplayer.sdk.remote.b bVar3 = this.f39184a;
+        com.baidu.cyberplayer.sdk.remote.b bVar3 = this.f39243a;
         if (bVar3 != null) {
             try {
                 bVar3.a(bVar2);
@@ -406,14 +406,14 @@ public class h extends PlayerProvider implements g.b {
     private void a(Uri uri, Map<String, String> map) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, uri, map) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, uri, map) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.a(new e(uri, map));
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setDataSource(Uri, Map)");
             }
@@ -438,14 +438,14 @@ public class h extends PlayerProvider implements g.b {
     public void changeProxyDynamic(String str, boolean z) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.a(str, z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "changeProxyDynamic(String, boolean)");
             }
@@ -461,7 +461,7 @@ public class h extends PlayerProvider implements g.b {
             if (i2 > -1) {
                 return i2;
             }
-            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39184a;
+            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39243a;
             if (bVar != null) {
                 try {
                     return bVar.i();
@@ -479,7 +479,7 @@ public class h extends PlayerProvider implements g.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39184a;
+            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39243a;
             if (bVar != null) {
                 try {
                     return bVar.j();
@@ -497,13 +497,13 @@ public class h extends PlayerProvider implements g.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39184a;
+            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39243a;
             if (bVar != null) {
                 try {
                     return bVar.a();
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
-                    CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+                    CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
                     if (onErrorListener != null) {
                         onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "getDecodeMode()");
                     }
@@ -519,7 +519,7 @@ public class h extends PlayerProvider implements g.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39184a;
+            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39243a;
             if (bVar != null) {
                 try {
                     return bVar.p();
@@ -541,7 +541,7 @@ public class h extends PlayerProvider implements g.b {
             if (i2 > -1) {
                 return i2;
             }
-            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39184a;
+            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39243a;
             if (bVar != null) {
                 try {
                     int k = bVar.k();
@@ -561,7 +561,7 @@ public class h extends PlayerProvider implements g.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39184a;
+            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39243a;
             if (bVar != null) {
                 try {
                     return bVar.o();
@@ -579,7 +579,7 @@ public class h extends PlayerProvider implements g.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39184a;
+            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39243a;
             if (bVar != null) {
                 try {
                     return bVar.g();
@@ -597,7 +597,7 @@ public class h extends PlayerProvider implements g.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39184a;
+            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39243a;
             if (bVar != null) {
                 try {
                     return bVar.f();
@@ -615,7 +615,7 @@ public class h extends PlayerProvider implements g.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39184a;
+            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39243a;
             if (bVar != null) {
                 try {
                     return bVar.n();
@@ -633,7 +633,7 @@ public class h extends PlayerProvider implements g.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39184a;
+            com.baidu.cyberplayer.sdk.remote.b bVar = this.f39243a;
             if (bVar != null) {
                 try {
                     return bVar.h();
@@ -660,14 +660,14 @@ public class h extends PlayerProvider implements g.b {
     public void muteOrUnmuteAudio(boolean z) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.d(z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "muteOrUnmuteAudio(boolean)");
             }
@@ -678,14 +678,14 @@ public class h extends PlayerProvider implements g.b {
     public void pause() {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.e();
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "pause()");
             }
@@ -696,14 +696,14 @@ public class h extends PlayerProvider implements g.b {
     public void prepareAsync() {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.b();
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "prepareAsync()");
             }
@@ -717,33 +717,33 @@ public class h extends PlayerProvider implements g.b {
     public void release() {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             try {
                 bVar.b(this.m);
-                this.f39184a.l();
+                this.f39243a.l();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
         } finally {
             g.a().b(this);
-            this.f39184a = null;
+            this.f39243a = null;
             this.l = null;
             this.k.removeCallbacksAndMessages(null);
             this.m.d();
             this.m = null;
             this.k = null;
-            this.f39185b = null;
-            this.f39186c = null;
-            this.f39187d = null;
-            this.f39188e = null;
-            this.f39189f = null;
-            this.f39190g = null;
-            this.f39191h = null;
-            this.f39192i = null;
-            this.f39193j = null;
+            this.f39244b = null;
+            this.f39245c = null;
+            this.f39246d = null;
+            this.f39247e = null;
+            this.f39248f = null;
+            this.f39249g = null;
+            this.f39250h = null;
+            this.f39251i = null;
+            this.f39252j = null;
             this.n = -1;
             this.o = -1;
         }
@@ -753,7 +753,7 @@ public class h extends PlayerProvider implements g.b {
     public void reset() {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
@@ -761,7 +761,7 @@ public class h extends PlayerProvider implements g.b {
             this.k.removeCallbacksAndMessages(null);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "reset()");
             }
@@ -782,14 +782,14 @@ public class h extends PlayerProvider implements g.b {
     public void seekTo(long j2, int i2) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.a(j2, i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "seekTo(long)");
             }
@@ -800,14 +800,14 @@ public class h extends PlayerProvider implements g.b {
     public void sendCommand(int i2, int i3, long j2, String str) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str}) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str}) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.a(i2, i3, j2, str);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "sendCommand(int, int, long, String)");
             }
@@ -818,7 +818,7 @@ public class h extends PlayerProvider implements g.b {
     public void setClarityInfo(String str) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
@@ -848,7 +848,7 @@ public class h extends PlayerProvider implements g.b {
     public void setDataSource(FileDescriptor fileDescriptor) {
         CyberPlayerManager.OnErrorListener onErrorListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, fileDescriptor) == null) || (onErrorListener = this.f39191h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, fileDescriptor) == null) || (onErrorListener = this.f39250h) == null) {
             return;
         }
         onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setDataSource(FileDescriptor)");
@@ -874,7 +874,7 @@ public class h extends PlayerProvider implements g.b {
     public void setDisplay(SurfaceHolder surfaceHolder) {
         Surface surface;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, surfaceHolder) == null) || this.f39184a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, surfaceHolder) == null) || this.f39243a == null) {
             return;
         }
         if (surfaceHolder != null) {
@@ -882,7 +882,7 @@ public class h extends PlayerProvider implements g.b {
                 surface = surfaceHolder.getSurface();
             } catch (RemoteException e2) {
                 e2.printStackTrace();
-                CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+                CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
                 if (onErrorListener != null) {
                     onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setDisplay()");
                     return;
@@ -892,21 +892,21 @@ public class h extends PlayerProvider implements g.b {
         } else {
             surface = null;
         }
-        this.f39184a.a(surface);
+        this.f39243a.a(surface);
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setEnableDumediaUA(boolean z) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048604, this, z) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048604, this, z) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.c(z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setEnableDumediaUA(boolean)");
             }
@@ -917,14 +917,14 @@ public class h extends PlayerProvider implements g.b {
     public void setLooping(boolean z) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048605, this, z) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048605, this, z) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.b(z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setLooping(boolean)");
             }
@@ -935,7 +935,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, onBufferingUpdateListener) == null) {
-            this.f39188e = onBufferingUpdateListener;
+            this.f39247e = onBufferingUpdateListener;
         }
     }
 
@@ -943,7 +943,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, onCompletionListener) == null) {
-            this.f39187d = onCompletionListener;
+            this.f39246d = onCompletionListener;
         }
     }
 
@@ -951,7 +951,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnErrorListener(CyberPlayerManager.OnErrorListener onErrorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, onErrorListener) == null) {
-            this.f39191h = onErrorListener;
+            this.f39250h = onErrorListener;
         }
     }
 
@@ -959,7 +959,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, onInfoListener) == null) {
-            this.f39192i = onInfoListener;
+            this.f39251i = onInfoListener;
         }
     }
 
@@ -967,7 +967,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, onMediaSourceChangedListener) == null) {
-            this.f39193j = onMediaSourceChangedListener;
+            this.f39252j = onMediaSourceChangedListener;
         }
     }
 
@@ -975,7 +975,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, onPreparedListener) == null) {
-            this.f39186c = onPreparedListener;
+            this.f39245c = onPreparedListener;
         }
     }
 
@@ -983,7 +983,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, onSeekCompleteListener) == null) {
-            this.f39189f = onSeekCompleteListener;
+            this.f39248f = onSeekCompleteListener;
         }
     }
 
@@ -991,7 +991,7 @@ public class h extends PlayerProvider implements g.b {
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, onVideoSizeChangedListener) == null) {
-            this.f39190g = onVideoSizeChangedListener;
+            this.f39249g = onVideoSizeChangedListener;
         }
     }
 
@@ -1007,14 +1007,14 @@ public class h extends PlayerProvider implements g.b {
     public void setOption(String str, String str2) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048615, this, str, str2) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048615, this, str, str2) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.a(str, str2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setOption(String, String)");
             }
@@ -1026,12 +1026,12 @@ public class h extends PlayerProvider implements g.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
             try {
-                if (this.f39184a != null) {
-                    this.f39184a.b(str);
+                if (this.f39243a != null) {
+                    this.f39243a.b(str);
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();
-                CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+                CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
                 if (onErrorListener != null) {
                     onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setPlayJson(String)");
                 }
@@ -1043,14 +1043,14 @@ public class h extends PlayerProvider implements g.b {
     public void setScreenOnWhilePlaying(boolean z) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048617, this, z) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048617, this, z) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.a(z);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setScreenOnWhilePlaying(boolean)");
             }
@@ -1061,14 +1061,14 @@ public class h extends PlayerProvider implements g.b {
     public void setSpeed(float f2) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048618, this, f2) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048618, this, f2) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.a(f2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setSpeed(float)");
             }
@@ -1078,17 +1078,17 @@ public class h extends PlayerProvider implements g.b {
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setSurface(Surface surface) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048619, this, surface) == null) || this.f39184a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048619, this, surface) == null) || this.f39243a == null) {
             return;
         }
         Surface surface2 = this.l;
         if (surface2 != surface || surface2 == null) {
             try {
-                this.f39184a.a(surface);
+                this.f39243a.a(surface);
                 this.l = surface;
             } catch (RemoteException e2) {
                 e2.printStackTrace();
-                CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+                CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
                 if (onErrorListener != null) {
                     onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setSurface()");
                 }
@@ -1101,14 +1101,14 @@ public class h extends PlayerProvider implements g.b {
     public void setVolume(float f2, float f3) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.a(f2, f3);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setVolume(float, float)");
             }
@@ -1119,14 +1119,14 @@ public class h extends PlayerProvider implements g.b {
     public void setWakeMode(Context context, int i2) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048621, this, context, i2) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048621, this, context, i2) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.a(i2);
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "setWakeMode()");
             }
@@ -1137,14 +1137,14 @@ public class h extends PlayerProvider implements g.b {
     public void start() {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048622, this) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048622, this) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
             bVar.c();
         } catch (RemoteException e2) {
             e2.printStackTrace();
-            CyberPlayerManager.OnErrorListener onErrorListener = this.f39191h;
+            CyberPlayerManager.OnErrorListener onErrorListener = this.f39250h;
             if (onErrorListener != null) {
                 onErrorListener.onError(CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, CyberPlayerManager.MEDIA_ERROR_REMOTE_EXCEPTION, "start()");
             }
@@ -1155,7 +1155,7 @@ public class h extends PlayerProvider implements g.b {
     public void stop() {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048623, this) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048623, this) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
@@ -1169,7 +1169,7 @@ public class h extends PlayerProvider implements g.b {
     public void switchMediaSource(int i2) {
         com.baidu.cyberplayer.sdk.remote.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048624, this, i2) == null) || (bVar = this.f39184a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048624, this, i2) == null) || (bVar = this.f39243a) == null) {
             return;
         }
         try {
@@ -1184,8 +1184,8 @@ public class h extends PlayerProvider implements g.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048625, this, i2, i3) == null) {
             try {
-                if (this.f39184a != null) {
-                    this.f39184a.a(i2, i3);
+                if (this.f39243a != null) {
+                    this.f39243a.a(i2, i3);
                 }
             } catch (RemoteException e2) {
                 e2.printStackTrace();

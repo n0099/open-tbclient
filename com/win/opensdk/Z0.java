@@ -15,16 +15,16 @@ public class Z0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a */
-    public static final String[] f76940a;
+    public static final String[] f77259a;
 
     /* renamed from: b */
-    public static final String[] f76941b;
+    public static final String[] f77260b;
 
     /* renamed from: c */
-    public static final String[] f76942c;
+    public static final String[] f77261c;
 
     /* renamed from: d */
-    public static final String[] f76943d;
+    public static final String[] f77262d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,10 +40,10 @@ public class Z0 {
                 return;
             }
         }
-        f76940a = new String[]{"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
-        f76941b = new String[]{"ins", "bd", "wdtr", "witr"};
-        f76942c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
-        f76943d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
+        f77259a = new String[]{"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
+        f77260b = new String[]{"ins", "bd", "wdtr", "witr"};
+        f77261c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
+        f77262d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
     }
 
     public Z0() {
@@ -70,21 +70,21 @@ public class Z0 {
         JSONStringer d2 = d();
         d2.key("e").value(str).key("timeis").value(c());
         if (a1Var != null) {
-            d2.key("pid").value(a1Var.f76947a);
-            if (a1Var.f76948b != null) {
+            d2.key("pid").value(a1Var.f77266a);
+            if (a1Var.f77267b != null) {
                 JSONStringer key = d2.key("traceid");
-                String traceid = a1Var.f76948b.getTraceid();
+                String traceid = a1Var.f77267b.getTraceid();
                 try {
                     traceid = N.a(traceid);
                 } catch (Exception unused) {
                 }
                 JSONStringer key2 = key.value(traceid).key(IAdRequestParam.CELL_ID);
-                String id = a1Var.f76948b.getId();
+                String id = a1Var.f77267b.getId();
                 try {
                     id = N.a(id);
                 } catch (Exception unused2) {
                 }
-                key2.value(id).key("type").value(a1Var.f76948b.getType());
+                key2.value(id).key("type").value(a1Var.f77267b.getType());
             }
         }
         return d2;

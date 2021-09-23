@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class EnterWalletDoRemotePayAction implements RouterAction {
@@ -39,13 +40,13 @@ public class EnterWalletDoRemotePayAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f62494a;
+                public final /* synthetic */ RouterCallback f62772a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f62495b;
+                public final /* synthetic */ boolean f62773b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoRemotePayAction f62496c;
+                public final /* synthetic */ EnterWalletDoRemotePayAction f62774c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -62,28 +63,28 @@ public class EnterWalletDoRemotePayAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f62496c = this;
-                    this.f62494a = routerCallback;
-                    this.f62495b = z;
+                    this.f62774c = this;
+                    this.f62772a = routerCallback;
+                    this.f62773b = z;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack
                 public boolean isHideLoadingDialog() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f62495b : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f62773b : invokeV.booleanValue;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack
                 public void onPayResult(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f62494a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f62772a == null) {
                         return;
                     }
                     HashMap hashMap2 = new HashMap();
-                    hashMap2.put("statusCode", Integer.valueOf(i2));
+                    hashMap2.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, Integer.valueOf(i2));
                     hashMap2.put("payDesc", str2);
-                    this.f62494a.onResult(0, hashMap2);
+                    this.f62772a.onResult(0, hashMap2);
                 }
             }, hashMap);
         }

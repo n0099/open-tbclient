@@ -1,6 +1,6 @@
 package com.baidu.tieba.location.data;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -44,7 +44,7 @@ public class LocationSearchNetRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.addr_name = this.addrName;
             if (z) {
-                x.a(builder, true);
+                a0.a(builder, true);
             }
             GetSuggestionByAddrNameReqIdl.Builder builder2 = new GetSuggestionByAddrNameReqIdl.Builder();
             builder2.data = builder.build(false);

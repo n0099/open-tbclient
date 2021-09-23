@@ -41,7 +41,7 @@ public class e extends c.a.e.l.e.a<g, CardViewHolder<c.a.r0.w0.h1.b>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f26795b;
+        public final /* synthetic */ e f26815b;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class e extends c.a.e.l.e.a<g, CardViewHolder<c.a.r0.w0.h1.b>> {
                     return;
                 }
             }
-            this.f26795b = eVar;
+            this.f26815b = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,23 +71,23 @@ public class e extends c.a.e.l.e.a<g, CardViewHolder<c.a.r0.w0.h1.b>> {
             }
             if ((view.getId() == R.id.video_container || view.getId() == R.id.video_agg_container || view.getId() == R.id.mobile_network_play) && view.getTag() != null && (view.getTag() instanceof c.a.r0.w0.h1.b)) {
                 c.a.r0.w0.h1.b bVar = (c.a.r0.w0.h1.b) view.getTag();
-                if (this.f26795b.n != null && this.f26795b.n != bVar && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
-                    this.f26795b.n.T();
+                if (this.f26815b.n != null && this.f26815b.n != bVar && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
+                    this.f26815b.n.T();
                 }
-                if (this.f26795b.n != bVar) {
-                    this.f26795b.n = bVar;
+                if (this.f26815b.n != bVar) {
+                    this.f26815b.n = bVar;
                 }
             }
             if (view.getId() == R.id.title) {
                 StatisticItem statisticItem = new StatisticItem("c12411");
-                statisticItem.param("fid", gVar.f26803e);
+                statisticItem.param("fid", gVar.f26823e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
                 TiebaStatic.log(statisticItem);
             } else if (view.getId() == R.id.agree_view_container) {
                 StatisticItem statisticItem2 = new StatisticItem("c12414");
-                statisticItem2.param("fid", gVar.f26803e);
+                statisticItem2.param("fid", gVar.f26823e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
@@ -96,7 +96,7 @@ public class e extends c.a.e.l.e.a<g, CardViewHolder<c.a.r0.w0.h1.b>> {
                 if (view.getId() != R.id.user_icon && view.getId() != R.id.user_name) {
                     if (view.getId() == R.id.attention) {
                         StatisticItem statisticItem3 = new StatisticItem("c12413");
-                        statisticItem3.param("fid", gVar.f26803e);
+                        statisticItem3.param("fid", gVar.f26823e);
                         if (TbadkCoreApplication.isLogin()) {
                             statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
                         }
@@ -104,7 +104,7 @@ public class e extends c.a.e.l.e.a<g, CardViewHolder<c.a.r0.w0.h1.b>> {
                         return;
                     } else if (view.getId() == R.id.mobile_network_play) {
                         StatisticItem statisticItem4 = new StatisticItem("c12416");
-                        statisticItem4.param("fid", gVar.f26803e);
+                        statisticItem4.param("fid", gVar.f26823e);
                         if (TbadkCoreApplication.isLogin()) {
                             statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
                         }
@@ -115,14 +115,14 @@ public class e extends c.a.e.l.e.a<g, CardViewHolder<c.a.r0.w0.h1.b>> {
                     }
                 }
                 StatisticItem statisticItem5 = new StatisticItem("c12412");
-                statisticItem5.param("fid", gVar.f26803e);
+                statisticItem5.param("fid", gVar.f26823e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem5.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
                 TiebaStatic.log(statisticItem5);
             } else {
                 StatisticItem statisticItem6 = new StatisticItem("c12415");
-                statisticItem6.param("fid", gVar.f26803e);
+                statisticItem6.param("fid", gVar.f26823e);
                 if (TbadkCoreApplication.isLogin()) {
                     statisticItem6.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
@@ -137,7 +137,7 @@ public class e extends c.a.e.l.e.a<g, CardViewHolder<c.a.r0.w0.h1.b>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f26796e;
+        public final /* synthetic */ e f26816e;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -154,14 +154,14 @@ public class e extends c.a.e.l.e.a<g, CardViewHolder<c.a.r0.w0.h1.b>> {
                     return;
                 }
             }
-            this.f26796e = eVar;
+            this.f26816e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f26796e.o) {
-                this.f26796e.o = false;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f26816e.o) {
+                this.f26816e.o = false;
             }
         }
     }

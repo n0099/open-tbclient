@@ -25,16 +25,16 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f11214a;
+        public final /* synthetic */ boolean f11222a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f11215b;
+        public final /* synthetic */ Context f11223b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11216c;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11224c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ f f11217d;
+        public final /* synthetic */ f f11225d;
 
         public a(f fVar, boolean z, Context context, c.a.p0.a.y.b.a aVar) {
             Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class f {
                     return;
                 }
             }
-            this.f11217d = fVar;
-            this.f11214a = z;
-            this.f11215b = context;
-            this.f11216c = aVar;
+            this.f11225d = fVar;
+            this.f11222a = z;
+            this.f11223b = context;
+            this.f11224c = aVar;
         }
 
         @Override // c.a.p0.a.h0.e.c.b
@@ -62,17 +62,17 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
                 if (z) {
-                    if (this.f11214a) {
-                        this.f11217d.g(this.f11215b, this.f11216c);
+                    if (this.f11222a) {
+                        this.f11225d.g(this.f11223b, this.f11224c);
                         return;
                     }
-                    c.a.p0.a.e0.a.c(this.f11215b, false);
-                    this.f11217d.e(this.f11216c, true, "setEnableDebug:ok");
+                    c.a.p0.a.e0.a.c(this.f11223b, false);
+                    this.f11225d.e(this.f11224c, true, "setEnableDebug:ok");
                     return;
                 }
-                c.a.p0.a.h0.e.c.c(this.f11215b, str);
-                f fVar = this.f11217d;
-                fVar.e(this.f11216c, false, fVar.f(str));
+                c.a.p0.a.h0.e.c.c(this.f11223b, str);
+                f fVar = this.f11225d;
+                fVar.e(this.f11224c, false, fVar.f(str));
             }
         }
     }
@@ -83,13 +83,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f11218e;
+        public final /* synthetic */ Context f11226e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11219f;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11227f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f11220g;
+        public final /* synthetic */ f f11228g;
 
         public b(f fVar, Context context, c.a.p0.a.y.b.a aVar) {
             Interceptable interceptable = $ic;
@@ -106,9 +106,9 @@ public class f {
                     return;
                 }
             }
-            this.f11220g = fVar;
-            this.f11218e = context;
-            this.f11219f = aVar;
+            this.f11228g = fVar;
+            this.f11226e = context;
+            this.f11227f = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,12 +118,12 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                 if (bool.booleanValue()) {
-                    c.a.p0.a.e0.a.c(this.f11218e, true);
-                    this.f11220g.e(this.f11219f, true, "setEnableDebug:ok");
+                    c.a.p0.a.e0.a.c(this.f11226e, true);
+                    this.f11228g.e(this.f11227f, true, "setEnableDebug:ok");
                     return;
                 }
-                d.m().p((Activity) this.f11218e, null);
-                this.f11220g.e(this.f11219f, false, "internet error");
+                d.m().p((Activity) this.f11226e, null);
+                this.f11228g.e(this.f11227f, false, "internet error");
             }
         }
     }

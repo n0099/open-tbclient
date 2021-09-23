@@ -13,7 +13,7 @@ public class b {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f10044a;
+    public static final int f10052a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,6 +29,6 @@ public class b {
                 return;
             }
         }
-        f10044a = Color.parseColor("#FFFFFF");
+        f10052a = Color.parseColor("#FFFFFF");
     }
 }

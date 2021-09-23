@@ -19,16 +19,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f23538a;
+    public String f23554a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f23539b;
+    public Rect f23555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23540c;
+    public String f23556c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f23541d;
+    public Rect f23557d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class a {
                 return;
             }
         }
-        this.f23538a = "";
-        this.f23539b = new Rect(0, 0, 0, 0);
-        this.f23540c = "";
-        this.f23541d = new Rect(0, 0, 0, 0);
+        this.f23554a = "";
+        this.f23555b = new Rect(0, 0, 0, 0);
+        this.f23556c = "";
+        this.f23557d = new Rect(0, 0, 0, 0);
     }
 
     public static a a(String str) {
@@ -69,13 +69,13 @@ public class a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f23540c) || this.f23541d.isEmpty()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f23556c) || this.f23557d.isEmpty()) ? false : true : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f23538a) || this.f23539b.isEmpty()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f23554a) || this.f23555b.isEmpty()) ? false : true : invokeV.booleanValue;
     }
 
     public void d(String str) {
@@ -93,8 +93,8 @@ public class a {
                 if (jSONObject == null) {
                     return;
                 }
-                this.f23540c = jSONObject.optString("pic_url");
-                this.f23541d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                this.f23556c = jSONObject.optString("pic_url");
+                this.f23557d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -110,11 +110,11 @@ public class a {
             if (c()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("pic_url", this.f23538a);
-                    jSONObject.put("rect_left", this.f23539b.left);
-                    jSONObject.put("rect_top", this.f23539b.top);
-                    jSONObject.put("rect_right", this.f23539b.right);
-                    jSONObject.put("rect_bottom", this.f23539b.bottom);
+                    jSONObject.put("pic_url", this.f23554a);
+                    jSONObject.put("rect_left", this.f23555b.left);
+                    jSONObject.put("rect_top", this.f23555b.top);
+                    jSONObject.put("rect_right", this.f23555b.right);
+                    jSONObject.put("rect_bottom", this.f23555b.bottom);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -140,7 +140,7 @@ public class a {
                 return;
             }
         }
-        this.f23538a = jSONObject.optString("pic_url");
-        this.f23539b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
+        this.f23554a = jSONObject.optString("pic_url");
+        this.f23555b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
     }
 }

@@ -54,13 +54,13 @@ public class a extends c.a.p0.a.g1.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a1.b f11579a;
+        public final /* synthetic */ c.a.p0.a.a1.b f11587a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f11580b;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f11588b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f11581c;
+        public final /* synthetic */ a f11589c;
 
         /* renamed from: c.a.p0.h.w.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -69,13 +69,13 @@ public class a extends c.a.p0.a.g1.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.p0.a.a1.a f11582e;
+            public final /* synthetic */ c.a.p0.a.a1.a f11590e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f11583f;
+            public final /* synthetic */ int f11591f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ C0600a f11584g;
+            public final /* synthetic */ C0600a f11592g;
 
             public RunnableC0601a(C0600a c0600a, c.a.p0.a.a1.a aVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -92,42 +92,42 @@ public class a extends c.a.p0.a.g1.b {
                         return;
                     }
                 }
-                this.f11584g = c0600a;
-                this.f11582e = aVar;
-                this.f11583f = i2;
+                this.f11592g = c0600a;
+                this.f11590e = aVar;
+                this.f11591f = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11584g.f11581c.f5749i) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11592g.f11589c.f5757i) {
                     return;
                 }
-                a.c cVar = (a.c) this.f11582e;
-                if (this.f11583f != 0 || cVar == null) {
+                a.c cVar = (a.c) this.f11590e;
+                if (this.f11591f != 0 || cVar == null) {
                     return;
                 }
-                C0600a c0600a = this.f11584g;
-                if (c0600a.f11579a == null) {
+                C0600a c0600a = this.f11592g;
+                if (c0600a.f11587a == null) {
                     return;
                 }
-                if (c0600a.f11580b.l0()) {
+                if (c0600a.f11588b.l0()) {
                     if (!c.a.p0.h.f.d.m().n()) {
                         c.a.p0.a.e0.b.c(false);
-                        this.f11584g.f11580b.y0(false);
+                        this.f11592g.f11588b.y0(false);
                     } else {
-                        a aVar = this.f11584g.f11581c;
-                        aVar.n(aVar.f5744d).setVisibility(0);
-                        this.f11584g.f11581c.q().H(this.f11584g.f11581c.f5746f);
+                        a aVar = this.f11592g.f11589c;
+                        aVar.n(aVar.f5752d).setVisibility(0);
+                        this.f11592g.f11589c.q().H(this.f11592g.f11589c.f5754f);
                         c.a.p0.a.e0.a.b(true);
                         c.a.p0.a.e0.d.g("GamesControllerImpl", "init sConsole for devHook");
                     }
                 }
-                this.f11584g.f11581c.l.c(cVar, this.f11584g.f11581c.f5744d);
-                this.f11584g.f11581c.k = cVar.f11540a;
-                this.f11584g.f11579a.a(0, cVar);
-                this.f11584g.f11581c.f0(cVar.f11542c);
-                c.a.p0.h.i0.a.b().e(cVar.f11542c);
+                this.f11592g.f11589c.l.c(cVar, this.f11592g.f11589c.f5752d);
+                this.f11592g.f11589c.k = cVar.f11548a;
+                this.f11592g.f11587a.a(0, cVar);
+                this.f11592g.f11589c.f0(cVar.f11550c);
+                c.a.p0.h.i0.a.b().e(cVar.f11550c);
             }
         }
 
@@ -146,18 +146,18 @@ public class a extends c.a.p0.a.g1.b {
                     return;
                 }
             }
-            this.f11581c = aVar;
-            this.f11579a = bVar;
-            this.f11580b = bVar2;
+            this.f11589c = aVar;
+            this.f11587a = bVar;
+            this.f11588b = bVar2;
         }
 
         @Override // c.a.p0.a.a1.b
         public void a(int i2, c.a.p0.a.a1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, aVar) == null) {
-                q0.a0(this.f11581c.m);
-                this.f11581c.m = new RunnableC0601a(this, aVar, i2);
-                q0.d0(this.f11581c.m);
+                q0.a0(this.f11589c.m);
+                this.f11589c.m = new RunnableC0601a(this, aVar, i2);
+                q0.d0(this.f11589c.m);
             }
         }
     }
@@ -175,7 +175,7 @@ public class a extends c.a.p0.a.g1.b {
                 return;
             }
         }
-        o = k.f7077a;
+        o = k.f7085a;
     }
 
     public a() {
@@ -234,13 +234,13 @@ public class a extends c.a.p0.a.g1.b {
             if (activity == null) {
                 return null;
             }
-            if (this.f5747g == null && (viewGroup = (ViewGroup) activity.findViewById(f.ai_apps_activity_root)) != null) {
+            if (this.f5755g == null && (viewGroup = (ViewGroup) activity.findViewById(f.ai_apps_activity_root)) != null) {
                 SwanAppPropertyWindow swanAppPropertyWindow = new SwanAppPropertyWindow(activity);
-                this.f5747g = swanAppPropertyWindow;
+                this.f5755g = swanAppPropertyWindow;
                 swanAppPropertyWindow.setVisibility(8);
-                viewGroup.addView(this.f5747g);
+                viewGroup.addView(this.f5755g);
             }
-            return this.f5747g;
+            return this.f5755g;
         }
         return (SwanAppPropertyWindow) invokeL.objValue;
     }
@@ -273,7 +273,7 @@ public class a extends c.a.p0.a.g1.b {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.P();
             c.a.p0.h.o.c.C();
-            c.a.p0.h.a0.b.f10978a.a().d(new JsObject());
+            c.a.p0.h.a0.b.f10986a.a().d(new JsObject());
             c.a.p0.t.d.j(c.a.p0.a.r0.n.n() + File.separator + "tmp");
         }
     }
@@ -314,7 +314,7 @@ public class a extends c.a.p0.a.g1.b {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f5748h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f5756h : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.a.g1.b, c.a.p0.a.g1.d
@@ -323,8 +323,8 @@ public class a extends c.a.p0.a.g1.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, activity)) == null) {
             super.n(activity);
-            this.f5746f.setAutoAttachEnable(false);
-            return this.f5746f;
+            this.f5754f.setAutoAttachEnable(false);
+            return this.f5754f;
         }
         return (FullScreenFloatView) invokeL.objValue;
     }
@@ -334,12 +334,12 @@ public class a extends c.a.p0.a.g1.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f5741a == null) {
-                this.f5741a = new h(AppRuntime.getAppContext());
+            if (this.f5749a == null) {
+                this.f5749a = new h(AppRuntime.getAppContext());
                 i.h(true);
             }
-            this.f5741a.G((ViewGroup) this.f5744d.findViewById(16908290));
-            return this.f5741a;
+            this.f5749a.G((ViewGroup) this.f5752d.findViewById(16908290));
+            return this.f5749a;
         }
         return (c.a.p0.a.p.e.a) invokeV.objValue;
     }
@@ -357,20 +357,20 @@ public class a extends c.a.p0.a.g1.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.w();
-            SwanAppActivity swanAppActivity = this.f5744d;
+            SwanAppActivity swanAppActivity = this.f5752d;
             if (swanAppActivity != null && swanAppActivity.getLaunchInfo() != null) {
-                b.a launchInfo = this.f5744d.getLaunchInfo();
+                b.a launchInfo = this.f5752d.getLaunchInfo();
                 c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-                fVar.f7063a = c.a.p0.a.j2.k.m(1);
-                fVar.f7068f = launchInfo.H();
-                fVar.f7065c = launchInfo.T();
-                fVar.f7064b = "show";
+                fVar.f7071a = c.a.p0.a.j2.k.m(1);
+                fVar.f7076f = launchInfo.H();
+                fVar.f7073c = launchInfo.T();
+                fVar.f7072b = "show";
                 fVar.d(launchInfo.r0().getString(UBCCloudControlProcessor.UBC_KEY));
                 fVar.b(c.a.p0.a.j2.k.k(launchInfo.W()));
                 c.a.p0.a.j2.k.onEvent(fVar);
             }
             c.a.p0.a.i1.b.h(true);
-            c.a.p0.h.a0.b.f10978a.a().j();
+            c.a.p0.h.a0.b.f10986a.a().j();
         }
     }
 
@@ -380,7 +380,7 @@ public class a extends c.a.p0.a.g1.b {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.x();
             c.a.p0.a.i1.b.h(false);
-            c.a.p0.h.a0.b.f10978a.a().f();
+            c.a.p0.h.a0.b.f10986a.a().f();
         }
     }
 
@@ -393,7 +393,7 @@ public class a extends c.a.p0.a.g1.b {
         View decorView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            SwanAppActivity swanAppActivity = this.f5744d;
+            SwanAppActivity swanAppActivity = this.f5752d;
             if (swanAppActivity == null) {
                 return super.y();
             }
@@ -406,14 +406,14 @@ public class a extends c.a.p0.a.g1.b {
                 i3 = decorView.getWidth();
                 i2 = decorView.getHeight();
             }
-            Display defaultDisplay = this.f5744d.getWindowManager().getDefaultDisplay();
+            Display defaultDisplay = this.f5752d.getWindowManager().getDefaultDisplay();
             if (i3 == 0 || i2 == 0) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 defaultDisplay.getRealMetrics(displayMetrics);
                 i3 = displayMetrics.widthPixels;
                 i2 = displayMetrics.heightPixels;
             }
-            if (this.f5744d.isLandScape() == ((defaultDisplay.getRotation() == 1 || defaultDisplay.getRotation() == 3) ? true : true)) {
+            if (this.f5752d.isLandScape() == ((defaultDisplay.getRotation() == 1 || defaultDisplay.getRotation() == 3) ? true : true)) {
                 int i4 = i3;
                 i3 = i2;
                 i2 = i4;

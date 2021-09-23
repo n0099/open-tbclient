@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 /* loaded from: classes4.dex */
-public class d0 extends c.a.r0.w0.k<c.a.r0.j3.q, FrsVideoActivityViewHolder> {
+public class d0 extends c.a.r0.w0.k<c.a.r0.j3.r, FrsVideoActivityViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String x;
@@ -30,17 +30,17 @@ public class d0 extends c.a.r0.w0.k<c.a.r0.j3.q, FrsVideoActivityViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.j3.q f27181e;
+        public final /* synthetic */ c.a.r0.j3.r f27201e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d0 f27182f;
+        public final /* synthetic */ d0 f27202f;
 
-        public a(d0 d0Var, c.a.r0.j3.q qVar) {
+        public a(d0 d0Var, c.a.r0.j3.r rVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d0Var, qVar};
+                Object[] objArr = {d0Var, rVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -50,22 +50,22 @@ public class d0 extends c.a.r0.w0.k<c.a.r0.j3.q, FrsVideoActivityViewHolder> {
                     return;
                 }
             }
-            this.f27182f = d0Var;
-            this.f27181e = qVar;
+            this.f27202f = d0Var;
+            this.f27201e = rVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem("c12587").param("fid", this.f27182f.x));
+                TiebaStatic.log(new StatisticItem("c12587").param("fid", this.f27202f.x));
                 c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
-                j2.w("frs_video_activity_tip" + this.f27182f.x, System.currentTimeMillis());
-                c.a.r0.j3.q qVar = this.f27181e;
-                if (qVar == null || StringUtils.isNull(qVar.f21046f)) {
+                j2.w("frs_video_activity_tip" + this.f27202f.x, System.currentTimeMillis());
+                c.a.r0.j3.r rVar = this.f27201e;
+                if (rVar == null || StringUtils.isNull(rVar.f21060f)) {
                     return;
                 }
-                c.a.q0.m.a.k(this.f27182f.f2957e, this.f27181e.f21046f);
+                c.a.q0.m.a.k(this.f27202f.f2958e, this.f27201e.f21060f);
             }
         }
     }
@@ -118,7 +118,7 @@ public class d0 extends c.a.r0.w0.k<c.a.r0.j3.q, FrsVideoActivityViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f2957e).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f2958e).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
             FrsVideoActivityViewHolder frsVideoActivityViewHolder = new FrsVideoActivityViewHolder(inflate);
             SkinManager.setViewTextColor(frsVideoActivityViewHolder.mTitleTv, R.color.CAM_X0105);
             SkinManager.setViewTextColor(frsVideoActivityViewHolder.mTypeTv, R.color.CAM_X0301);
@@ -135,15 +135,15 @@ public class d0 extends c.a.r0.w0.k<c.a.r0.j3.q, FrsVideoActivityViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.r0.w0.k, c.a.e.l.e.a
     /* renamed from: y0 */
-    public View a0(int i2, View view, ViewGroup viewGroup, c.a.r0.j3.q qVar, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
+    public View a0(int i2, View view, ViewGroup viewGroup, c.a.r0.j3.r rVar, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, qVar, frsVideoActivityViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, rVar, frsVideoActivityViewHolder})) == null) {
             if (view == null || frsVideoActivityViewHolder == null) {
                 return null;
             }
-            view.setOnClickListener(new a(this, qVar));
-            frsVideoActivityViewHolder.mTitleTv.setText(qVar != null ? qVar.f21045e : "");
+            view.setOnClickListener(new a(this, rVar));
+            frsVideoActivityViewHolder.mTitleTv.setText(rVar != null ? rVar.f21059e : "");
             c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
             if (w0(j2.l("frs_video_activity_tip" + this.x, 0L))) {
                 frsVideoActivityViewHolder.mTipImageView.setVisibility(0);

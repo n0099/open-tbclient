@@ -14,11 +14,11 @@ public class g0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g0 f26720b;
+    public static final g0 f26743b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LongSparseArray<LinkedList<String>> f26721a;
+    public LongSparseArray<LinkedList<String>> f26744a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class g0 {
                 return;
             }
         }
-        f26720b = new g0();
+        f26743b = new g0();
     }
 
     public g0() {
@@ -49,19 +49,19 @@ public class g0 {
                 return;
             }
         }
-        this.f26721a = new LongSparseArray<>();
+        this.f26744a = new LongSparseArray<>();
     }
 
     public static g0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26720b : (g0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26743b : (g0) invokeV.objValue;
     }
 
     public void b(long j2) {
         LinkedList<String> linkedList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) || (linkedList = this.f26721a.get(j2)) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) || (linkedList = this.f26744a.get(j2)) == null) {
             return;
         }
         linkedList.clear();

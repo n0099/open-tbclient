@@ -13,13 +13,13 @@ public final class c<ValueT> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f8122a;
+    public final String f8130a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ValueT f8123b;
+    public ValueT f8131b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<ValueT> f8124c;
+    public a<ValueT> f8132c;
 
     /* loaded from: classes.dex */
     public interface a<ValueT> {
@@ -43,7 +43,7 @@ public final class c<ValueT> {
                 return;
             }
         }
-        this.f8122a = str;
+        this.f8130a = str;
         e.a().h(this);
     }
 
@@ -51,7 +51,7 @@ public final class c<ValueT> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ValueT valuet = this.f8123b;
+            ValueT valuet = this.f8131b;
             return valuet == null ? "" : valuet.toString();
         }
         return (CharSequence) invokeV.objValue;
@@ -60,7 +60,7 @@ public final class c<ValueT> {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f8124c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f8132c) : invokeV.booleanValue;
     }
 
     public boolean c(a<ValueT> aVar) {
@@ -86,7 +86,7 @@ public final class c<ValueT> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, valuet)) == null) {
-            this.f8123b = valuet;
+            this.f8131b = valuet;
             e.a().e(this);
             return true;
         }
@@ -97,7 +97,7 @@ public final class c<ValueT> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            this.f8124c = aVar;
+            this.f8132c = aVar;
             b();
             return this;
         }
@@ -107,6 +107,6 @@ public final class c<ValueT> {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.f8122a, a()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.f8130a, a()) : (String) invokeV.objValue;
     }
 }

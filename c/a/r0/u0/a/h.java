@@ -25,22 +25,22 @@ public class h extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f25206e;
+    public TbPageContext<?> f25227e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<i> f25207f;
+    public ArrayList<i> f25228f;
 
     /* renamed from: g  reason: collision with root package name */
-    public l f25208g;
+    public l f25229g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f25209h;
+    public int f25230h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f25210i;
+    public int f25231i;
 
     /* renamed from: j  reason: collision with root package name */
-    public d f25211j;
+    public d f25232j;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -48,7 +48,7 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f25212e;
+        public final /* synthetic */ h f25233e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -65,16 +65,16 @@ public class h extends BaseAdapter {
                     return;
                 }
             }
-            this.f25212e = hVar;
+            this.f25233e = hVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25212e.f25211j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25233e.f25232j == null) {
                 return;
             }
-            this.f25212e.f25211j.a(this.f25212e.f25208g.b());
+            this.f25233e.f25232j.a(this.f25233e.f25229g.b());
         }
     }
 
@@ -84,7 +84,7 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f25213e;
+        public final /* synthetic */ h f25234e;
 
         public b(h hVar) {
             Interceptable interceptable = $ic;
@@ -101,16 +101,16 @@ public class h extends BaseAdapter {
                     return;
                 }
             }
-            this.f25213e = hVar;
+            this.f25234e = hVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25213e.f25211j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25234e.f25232j == null) {
                 return;
             }
-            this.f25213e.f25211j.a(this.f25213e.f25208g.b());
+            this.f25234e.f25232j.a(this.f25234e.f25229g.b());
         }
     }
 
@@ -120,7 +120,7 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f25214a;
+        public View f25235a;
 
         public c(h hVar) {
             Interceptable interceptable = $ic;
@@ -150,19 +150,19 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public RelativeLayout f25215a;
+        public RelativeLayout f25236a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BawuMemberInfoView f25216b;
+        public BawuMemberInfoView f25237b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BawuMemberInfoView f25217c;
+        public BawuMemberInfoView f25238c;
 
         /* renamed from: d  reason: collision with root package name */
-        public BawuManagerApplyInfoView f25218d;
+        public BawuManagerApplyInfoView f25239d;
 
         /* renamed from: e  reason: collision with root package name */
-        public BawuManagerApplyInfoView f25219e;
+        public BawuManagerApplyInfoView f25240e;
 
         public e(h hVar) {
             Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f25220a;
+        public TextView f25241a;
 
         public f(h hVar) {
             Interceptable interceptable = $ic;
@@ -221,12 +221,12 @@ public class h extends BaseAdapter {
                 return;
             }
         }
-        this.f25209h = 0;
-        this.f25210i = 0;
-        this.f25206e = tbPageContext;
-        this.f25207f = new ArrayList<>();
-        this.f25209h = c.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds31);
-        this.f25210i = c.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds0);
+        this.f25230h = 0;
+        this.f25231i = 0;
+        this.f25227e = tbPageContext;
+        this.f25228f = new ArrayList<>();
+        this.f25230h = c.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds31);
+        this.f25231i = c.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -236,11 +236,11 @@ public class h extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            ArrayList<i> arrayList = this.f25207f;
+            ArrayList<i> arrayList = this.f25228f;
             if (arrayList == null || i2 >= arrayList.size()) {
                 return null;
             }
-            return this.f25207f.get(i2);
+            return this.f25228f.get(i2);
         }
         return (i) invokeI.objValue;
     }
@@ -248,21 +248,21 @@ public class h extends BaseAdapter {
     public void d(ArrayList<i> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.f25207f = arrayList;
+            this.f25228f = arrayList;
         }
     }
 
     public void e(l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-            this.f25208g = lVar;
+            this.f25229g = lVar;
         }
     }
 
     public void f(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.f25211j = dVar;
+            this.f25232j = dVar;
         }
     }
 
@@ -271,7 +271,7 @@ public class h extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ArrayList<i> arrayList = this.f25207f;
+            ArrayList<i> arrayList = this.f25228f;
             if (arrayList != null) {
                 return arrayList.size();
             }
@@ -308,86 +308,86 @@ public class h extends BaseAdapter {
                 if (view != null && (view.getTag() instanceof f)) {
                     fVar = (f) view.getTag();
                 } else {
-                    view = LayoutInflater.from(this.f25206e.getPageActivity()).inflate(R.layout.bawu_item_title_view, viewGroup, false);
+                    view = LayoutInflater.from(this.f25227e.getPageActivity()).inflate(R.layout.bawu_item_title_view, viewGroup, false);
                     fVar = new f(this);
-                    fVar.f25220a = (TextView) view.findViewById(R.id.text_view_title);
+                    fVar.f25241a = (TextView) view.findViewById(R.id.text_view_title);
                     view.setTag(fVar);
                 }
-                fVar.f25220a.setText(((c.a.r0.u0.a.c) getItem(i2)).b());
-                this.f25206e.getLayoutMode().j(view);
+                fVar.f25241a.setText(((c.a.r0.u0.a.c) getItem(i2)).b());
+                this.f25227e.getLayoutMode().j(view);
             } else if (getItemViewType(i2) == 1) {
                 if (view != null && (view.getTag() instanceof e)) {
                     eVar = (e) view.getTag();
-                    eVar.f25216b.setVisibility(0);
-                    eVar.f25217c.setVisibility(8);
-                    eVar.f25218d.setVisibility(8);
-                    eVar.f25219e.setVisibility(8);
+                    eVar.f25237b.setVisibility(0);
+                    eVar.f25238c.setVisibility(8);
+                    eVar.f25239d.setVisibility(8);
+                    eVar.f25240e.setVisibility(8);
                 } else {
-                    view = LayoutInflater.from(this.f25206e.getPageActivity()).inflate(R.layout.bawu_item_member, viewGroup, false);
+                    view = LayoutInflater.from(this.f25227e.getPageActivity()).inflate(R.layout.bawu_item_member, viewGroup, false);
                     eVar = new e(this);
-                    eVar.f25215a = (RelativeLayout) view.findViewById(R.id.bawu_item_member_root);
-                    eVar.f25216b = (BawuMemberInfoView) view.findViewById(R.id.left_member);
-                    eVar.f25217c = (BawuMemberInfoView) view.findViewById(R.id.right_member);
-                    eVar.f25218d = (BawuManagerApplyInfoView) view.findViewById(R.id.left_manager_apply);
-                    eVar.f25219e = (BawuManagerApplyInfoView) view.findViewById(R.id.right_manager_apply);
+                    eVar.f25236a = (RelativeLayout) view.findViewById(R.id.bawu_item_member_root);
+                    eVar.f25237b = (BawuMemberInfoView) view.findViewById(R.id.left_member);
+                    eVar.f25238c = (BawuMemberInfoView) view.findViewById(R.id.right_member);
+                    eVar.f25239d = (BawuManagerApplyInfoView) view.findViewById(R.id.left_manager_apply);
+                    eVar.f25240e = (BawuManagerApplyInfoView) view.findViewById(R.id.right_manager_apply);
                     view.setTag(eVar);
                 }
                 c.a.r0.u0.a.b bVar = (c.a.r0.u0.a.b) getItem(i2);
                 if (bVar != null && bVar.c() != null && bVar.c().size() > 0) {
                     if (bVar.e() && bVar.b()) {
-                        RelativeLayout relativeLayout = eVar.f25215a;
-                        int i3 = this.f25209h;
-                        relativeLayout.setPadding(i3, 0, i3, this.f25210i);
-                        l lVar = this.f25208g;
+                        RelativeLayout relativeLayout = eVar.f25236a;
+                        int i3 = this.f25230h;
+                        relativeLayout.setPadding(i3, 0, i3, this.f25231i);
+                        l lVar = this.f25229g;
                         if (lVar != null && !lVar.d()) {
                             if (bVar.c().size() == 2) {
-                                if (bVar.d().equals(this.f25206e.getResources().getString(R.string.bawu_member_bazhu_tip))) {
-                                    eVar.f25219e.setVisibility(8);
-                                    eVar.f25218d.setVisibility(8);
-                                } else if (bVar.d().equals(this.f25206e.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
-                                    eVar.f25219e.setVisibility(8);
-                                    eVar.f25218d.setVisibility(0);
-                                    eVar.f25218d.fillView(this.f25206e.getResources().getString(R.string.tip_assist_apply), this.f25208g.c());
-                                    eVar.f25218d.setOnClickListener(new a(this));
+                                if (bVar.d().equals(this.f25227e.getResources().getString(R.string.bawu_member_bazhu_tip))) {
+                                    eVar.f25240e.setVisibility(8);
+                                    eVar.f25239d.setVisibility(8);
+                                } else if (bVar.d().equals(this.f25227e.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                                    eVar.f25240e.setVisibility(8);
+                                    eVar.f25239d.setVisibility(0);
+                                    eVar.f25239d.fillView(this.f25227e.getResources().getString(R.string.tip_assist_apply), this.f25229g.c());
+                                    eVar.f25239d.setOnClickListener(new a(this));
                                 }
-                            } else if (bVar.d().equals(this.f25206e.getResources().getString(R.string.bawu_member_bazhu_tip))) {
-                                eVar.f25217c.setVisibility(8);
-                                eVar.f25219e.setVisibility(8);
-                                eVar.f25218d.setVisibility(8);
-                            } else if (bVar.d().equals(this.f25206e.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
-                                eVar.f25217c.setVisibility(8);
-                                eVar.f25219e.setVisibility(0);
-                                eVar.f25218d.setVisibility(8);
-                                eVar.f25219e.fillView(this.f25206e.getResources().getString(R.string.tip_assist_apply), this.f25208g.c());
-                                eVar.f25219e.setOnClickListener(new b(this));
+                            } else if (bVar.d().equals(this.f25227e.getResources().getString(R.string.bawu_member_bazhu_tip))) {
+                                eVar.f25238c.setVisibility(8);
+                                eVar.f25240e.setVisibility(8);
+                                eVar.f25239d.setVisibility(8);
+                            } else if (bVar.d().equals(this.f25227e.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                                eVar.f25238c.setVisibility(8);
+                                eVar.f25240e.setVisibility(0);
+                                eVar.f25239d.setVisibility(8);
+                                eVar.f25240e.fillView(this.f25227e.getResources().getString(R.string.tip_assist_apply), this.f25229g.c());
+                                eVar.f25240e.setOnClickListener(new b(this));
                             }
                         }
                     } else {
-                        RelativeLayout relativeLayout2 = eVar.f25215a;
-                        int i4 = this.f25209h;
+                        RelativeLayout relativeLayout2 = eVar.f25236a;
+                        int i4 = this.f25230h;
                         relativeLayout2.setPadding(i4, 0, i4, 0);
-                        eVar.f25218d.setVisibility(8);
-                        eVar.f25219e.setVisibility(8);
+                        eVar.f25239d.setVisibility(8);
+                        eVar.f25240e.setVisibility(8);
                     }
-                    eVar.f25216b.fillView(bVar.c().get(0));
+                    eVar.f25237b.fillView(bVar.c().get(0));
                     if (bVar.c().size() >= 2) {
-                        eVar.f25217c.fillView(bVar.c().get(1));
-                        eVar.f25217c.setVisibility(0);
+                        eVar.f25238c.fillView(bVar.c().get(1));
+                        eVar.f25238c.setVisibility(0);
                     } else {
-                        eVar.f25217c.setVisibility(8);
+                        eVar.f25238c.setVisibility(8);
                     }
-                    this.f25206e.getLayoutMode().j(view);
+                    this.f25227e.getLayoutMode().j(view);
                 }
             } else if (getItemViewType(i2) == 2) {
                 if (view != null && (view.getTag() instanceof c)) {
                     c cVar = (c) view.getTag();
                 } else {
-                    view = LayoutInflater.from(this.f25206e.getPageActivity()).inflate(R.layout.bawu_item_divider_view, viewGroup, false);
+                    view = LayoutInflater.from(this.f25227e.getPageActivity()).inflate(R.layout.bawu_item_divider_view, viewGroup, false);
                     c cVar2 = new c(this);
-                    cVar2.f25214a = view.findViewById(R.id.divider_view);
+                    cVar2.f25235a = view.findViewById(R.id.divider_view);
                     view.setTag(cVar2);
                 }
-                this.f25206e.getLayoutMode().j(view);
+                this.f25227e.getLayoutMode().j(view);
             }
             return view;
         }

@@ -14,14 +14,14 @@ public class c implements f1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f10936c;
+    public static volatile c f10944c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.g.d.b f10937a;
+    public c.a.p0.g.d.b f10945a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f10938b;
+    public b f10946b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class c implements f1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f10936c == null) {
+            if (f10944c == null) {
                 synchronized (c.class) {
-                    if (f10936c == null) {
-                        f10936c = new c();
+                    if (f10944c == null) {
+                        f10944c = new c();
                     }
                 }
             }
-            return f10936c;
+            return f10944c;
         }
         return (c) invokeV.objValue;
     }
@@ -60,11 +60,11 @@ public class c implements f1 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, bVar)) == null) {
-            if (this.f10937a.e(str)) {
-                return this.f10937a.a(str, jSONObject, bVar);
+            if (this.f10945a.e(str)) {
+                return this.f10945a.a(str, jSONObject, bVar);
             }
-            if (this.f10937a.f()) {
-                return this.f10938b.a(str, jSONObject, bVar);
+            if (this.f10945a.f()) {
+                return this.f10946b.a(str, jSONObject, bVar);
             }
             return new c.a.p0.a.u.h.b(10001, "authorize fail.");
         }
@@ -74,8 +74,8 @@ public class c implements f1 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f10937a = new c.a.p0.g.d.b();
-            this.f10938b = new b();
+            this.f10945a = new c.a.p0.g.d.b();
+            this.f10946b = new b();
         }
     }
 }

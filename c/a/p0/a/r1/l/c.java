@@ -17,7 +17,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f8436a = -1;
+    public static int f8444a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -77,18 +77,18 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int i2 = f8436a;
+            int i2 = f8444a;
             if (i2 != -1) {
                 return i2;
             }
             c.a.p0.a.c1.a.Z().getSwitch("swan_backstage_policy", 0);
-            f8436a = 300;
+            f8444a = 300;
             if (300 < 60) {
-                f8436a = 60;
+                f8444a = 60;
             } else if (300 > 3600) {
-                f8436a = 3600;
+                f8444a = 3600;
             }
-            return f8436a;
+            return f8444a;
         }
         return invokeV.intValue;
     }

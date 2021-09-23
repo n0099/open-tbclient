@@ -17,7 +17,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public n f56326e;
+    public n f56443e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardAppLegoViewHolder(c.a.r0.p1.o.l.e<?> eVar) {
@@ -42,7 +42,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void autoPlay(int i2) {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (nVar = this.f56326e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (nVar = this.f56443e) == null) {
             return;
         }
         nVar.autoPlay(i2);
@@ -52,7 +52,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            n nVar = this.f56326e;
+            n nVar = this.f56443e;
             return nVar != null && nVar.canPlay();
         }
         return invokeV.booleanValue;
@@ -63,7 +63,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            n nVar = this.f56326e;
+            n nVar = this.f56443e;
             if (nVar == null) {
                 return 0;
             }
@@ -76,7 +76,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n nVar = this.f56326e;
+            n nVar = this.f56443e;
             if (nVar == null) {
                 return -2;
             }
@@ -90,7 +90,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            n nVar = this.f56326e;
+            n nVar = this.f56443e;
             return nVar == null ? "" : nVar.getPlayUrl();
         }
         return (String) invokeV.objValue;
@@ -101,7 +101,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            n nVar = this.f56326e;
+            n nVar = this.f56443e;
             if (nVar == null) {
                 return null;
             }
@@ -125,7 +125,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            n nVar = this.f56326e;
+            n nVar = this.f56443e;
             if (nVar == null) {
                 return false;
             }
@@ -139,7 +139,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            n nVar = this.f56326e;
+            n nVar = this.f56443e;
             if (nVar == null) {
                 return false;
             }
@@ -151,7 +151,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void release() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (nVar = this.f56326e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (nVar = this.f56443e) == null) {
             return;
         }
         nVar.release();
@@ -160,7 +160,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void setAdVideoView(n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, nVar) == null) {
-            this.f56326e = nVar;
+            this.f56443e = nVar;
         }
     }
 
@@ -168,7 +168,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void startPlay() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (nVar = this.f56326e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (nVar = this.f56443e) == null) {
             return;
         }
         nVar.startPlay();
@@ -178,7 +178,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void stopPlay() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (nVar = this.f56326e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (nVar = this.f56443e) == null) {
             return;
         }
         nVar.stopPlay();

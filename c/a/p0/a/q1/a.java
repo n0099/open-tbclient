@@ -25,23 +25,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f8060e;
+    public static final boolean f8068e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f8061f;
+    public static volatile a f8069f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8062a;
+    public String f8070a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8063b;
+    public String f8071b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8064c;
+    public String f8072c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.d0.e.a f8065d;
+    public c.a.d0.e.a f8073d;
 
     static {
         InterceptResult invokeClinit;
@@ -56,7 +56,7 @@ public class a {
                 return;
             }
         }
-        f8060e = k.f7077a;
+        f8068e = k.f7085a;
     }
 
     public a() {
@@ -89,14 +89,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f8061f == null) {
+            if (f8069f == null) {
                 synchronized (a.class) {
-                    if (f8061f == null) {
-                        f8061f = new a();
+                    if (f8069f == null) {
+                        f8069f = new a();
                     }
                 }
             }
-            return f8061f;
+            return f8069f;
         }
         return (a) invokeV.objValue;
     }
@@ -110,7 +110,7 @@ public class a {
                 jSONObject.put("url", str);
                 jSONObject.put(PmsConstant.Statistic.STATISTIC_ERRMSG, str2);
             } catch (JSONException e2) {
-                if (f8060e) {
+                if (f8068e) {
                     e2.printStackTrace();
                 }
             }
@@ -130,7 +130,7 @@ public class a {
             try {
                 return new JSONObject(str2).optString("src");
             } catch (JSONException e2) {
-                if (f8060e) {
+                if (f8068e) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -147,7 +147,7 @@ public class a {
             try {
                 jSONObject.put("finalUrl", str);
             } catch (JSONException e2) {
-                if (f8060e) {
+                if (f8068e) {
                     e2.printStackTrace();
                 }
             }

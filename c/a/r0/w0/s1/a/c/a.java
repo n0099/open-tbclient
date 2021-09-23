@@ -2,9 +2,9 @@ package c.a.r0.w0.s1.a.c;
 
 import c.a.e.e.d.l;
 import c.a.e.l.e.n;
-import c.a.q0.d1.i0;
-import c.a.q0.d1.l0;
-import c.a.q0.d1.o;
+import c.a.q0.d1.j0;
+import c.a.q0.d1.m0;
+import c.a.q0.d1.r;
 import c.a.r0.w0.s1.a.d.e;
 import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.adp.lib.util.BdLog;
@@ -25,24 +25,24 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l<byte[]> f27769a;
+    public l<byte[]> f27789a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f27770b;
+    public c f27790b;
 
     /* renamed from: c.a.r0.w0.s1.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1308a extends i0<GameForumGuideTabResIdl> {
+    public class C1306a extends j0<GameForumGuideTabResIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f27771a;
+        public final /* synthetic */ String f27791a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f27772b;
+        public final /* synthetic */ a f27792b;
 
-        public C1308a(a aVar, String str) {
+        public C1306a(a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,12 +57,12 @@ public class a {
                     return;
                 }
             }
-            this.f27772b = aVar;
-            this.f27771a = str;
+            this.f27792b = aVar;
+            this.f27791a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.i0
+        @Override // c.a.q0.d1.j0
         /* renamed from: a */
         public GameForumGuideTabResIdl doInBackground() {
             InterceptResult invokeV;
@@ -70,8 +70,8 @@ public class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 Wire wire = new Wire(new Class[0]);
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                l lVar = this.f27772b.f27769a;
-                byte[] bArr = (byte[]) lVar.get(currentAccount + this.f27771a);
+                l lVar = this.f27792b.f27789a;
+                byte[] bArr = (byte[]) lVar.get(currentAccount + this.f27791a);
                 if (bArr == null || bArr.length == 0) {
                     return null;
                 }
@@ -87,12 +87,12 @@ public class a {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements o<GameForumGuideTabResIdl> {
+    public class b implements r<GameForumGuideTabResIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f27773a;
+        public final /* synthetic */ a f27793a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -109,11 +109,11 @@ public class a {
                     return;
                 }
             }
-            this.f27773a = aVar;
+            this.f27793a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.o
+        @Override // c.a.q0.d1.r
         /* renamed from: a */
         public void onReturnDataInUI(GameForumGuideTabResIdl gameForumGuideTabResIdl) {
             Interceptable interceptable = $ic;
@@ -123,8 +123,8 @@ public class a {
             List<e> a2 = c.a.r0.w0.s1.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
             List<n> b2 = c.a.r0.w0.s1.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
             boolean z = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
-            if (this.f27773a.f27770b != null) {
-                this.f27773a.f27770b.a(a2, b2, z);
+            if (this.f27793a.f27790b != null) {
+                this.f27793a.f27790b.a(a2, b2, z);
             }
         }
     }
@@ -147,16 +147,16 @@ public class a {
                 return;
             }
         }
-        this.f27769a = null;
-        this.f27769a = BdCacheService.l().a("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.f27789a = null;
+        this.f27789a = BdCacheService.l().a("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f27769a == null || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f27789a == null || str == null) {
             return;
         }
-        l0.b(new C1308a(this, str), new b(this));
+        m0.b(new C1306a(this, str), new b(this));
     }
 
     public void d(String str, byte[] bArr, boolean z) {
@@ -166,19 +166,19 @@ public class a {
         }
         if (z) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            l<byte[]> lVar = this.f27769a;
+            l<byte[]> lVar = this.f27789a;
             lVar.e(currentAccount + str, bArr, 604800000L);
             return;
         }
         String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-        l<byte[]> lVar2 = this.f27769a;
+        l<byte[]> lVar2 = this.f27789a;
         lVar2.i(currentAccount2 + str, bArr, 604800000L);
     }
 
     public void e(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f27770b = cVar;
+            this.f27790b = cVar;
         }
     }
 }

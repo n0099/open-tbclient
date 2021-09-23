@@ -24,13 +24,13 @@ public class b extends c.a.x0.h.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30768h;
+    public int f30789h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30769i;
+    public int f30790i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f30770j;
+    public int f30791j;
     public c.a.x0.h.a k;
     public long l;
     public boolean m;
@@ -41,15 +41,15 @@ public class b extends c.a.x0.h.f.a {
     public c.a.x0.h.c r;
 
     /* loaded from: classes4.dex */
-    public class a implements a.InterfaceC1438a {
+    public class a implements a.InterfaceC1436a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f30771a;
+        public final /* synthetic */ StringBuilder f30792a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f30772b;
+        public final /* synthetic */ b f30793b;
 
         public a(b bVar, StringBuilder sb) {
             Interceptable interceptable = $ic;
@@ -66,21 +66,21 @@ public class b extends c.a.x0.h.f.a {
                     return;
                 }
             }
-            this.f30772b = bVar;
-            this.f30771a = sb;
+            this.f30793b = bVar;
+            this.f30792a = sb;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f30772b) {
-                    this.f30772b.notifyAll();
+                synchronized (this.f30793b) {
+                    this.f30793b.notifyAll();
                 }
             }
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -93,17 +93,17 @@ public class b extends c.a.x0.h.f.a {
                 sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
                 sb.append(obj != null ? obj.toString() : "");
                 String sb2 = sb.toString();
-                this.f30771a.append(sb2);
+                this.f30792a.append(sb2);
                 c.a.x0.t.c.j("FFmpegChain", sb2);
-                synchronized (this.f30772b) {
-                    this.f30772b.notifyAll();
+                synchronized (this.f30793b) {
+                    this.f30793b.notifyAll();
                 }
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -112,8 +112,8 @@ public class b extends c.a.x0.h.f.a {
                     return false;
                 }
                 c.a.x0.t.c.j("FFmpegChain", " createMuteAudio 进度i1 = " + i3);
-                b bVar = this.f30772b;
-                bVar.i((int) (((float) bVar.f30769i) + (((((float) i3) * 1.0f) / 100.0f) * 10.0f)));
+                b bVar = this.f30793b;
+                bVar.i((int) (((float) bVar.f30790i) + (((((float) i3) * 1.0f) / 100.0f) * 10.0f)));
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -122,17 +122,17 @@ public class b extends c.a.x0.h.f.a {
 
     /* renamed from: c.a.x0.h.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1421b implements a.InterfaceC1438a {
+    public class C1419b implements a.InterfaceC1436a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f30773a;
+        public final /* synthetic */ StringBuilder f30794a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f30774b;
+        public final /* synthetic */ b f30795b;
 
-        public C1421b(b bVar, StringBuilder sb) {
+        public C1419b(b bVar, StringBuilder sb) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,21 +147,21 @@ public class b extends c.a.x0.h.f.a {
                     return;
                 }
             }
-            this.f30774b = bVar;
-            this.f30773a = sb;
+            this.f30795b = bVar;
+            this.f30794a = sb;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f30774b) {
-                    this.f30774b.notifyAll();
+                synchronized (this.f30795b) {
+                    this.f30795b.notifyAll();
                 }
             }
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -174,17 +174,17 @@ public class b extends c.a.x0.h.f.a {
                 sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
                 sb.append(obj != null ? obj.toString() : "");
                 String sb2 = sb.toString();
-                this.f30773a.append(sb2);
+                this.f30794a.append(sb2);
                 c.a.x0.t.c.j("FFmpegChain", sb2);
-                synchronized (this.f30774b) {
-                    this.f30774b.notifyAll();
+                synchronized (this.f30795b) {
+                    this.f30795b.notifyAll();
                 }
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -197,18 +197,18 @@ public class b extends c.a.x0.h.f.a {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements a.InterfaceC1438a {
+    public class c implements a.InterfaceC1436a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f30775a;
+        public final /* synthetic */ StringBuilder f30796a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.x0.h.a f30776b;
+        public final /* synthetic */ c.a.x0.h.a f30797b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f30777c;
+        public final /* synthetic */ b f30798c;
 
         public c(b bVar, StringBuilder sb, c.a.x0.h.a aVar) {
             Interceptable interceptable = $ic;
@@ -225,22 +225,22 @@ public class b extends c.a.x0.h.f.a {
                     return;
                 }
             }
-            this.f30777c = bVar;
-            this.f30775a = sb;
-            this.f30776b = aVar;
+            this.f30798c = bVar;
+            this.f30796a = sb;
+            this.f30797b = aVar;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f30777c) {
-                    this.f30777c.notifyAll();
+                synchronized (this.f30798c) {
+                    this.f30798c.notifyAll();
                 }
             }
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -253,24 +253,24 @@ public class b extends c.a.x0.h.f.a {
                 sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
                 sb.append(obj != null ? obj.toString() : "");
                 String sb2 = sb.toString();
-                this.f30775a.append(sb2);
-                c.a.x0.h.a aVar = this.f30776b;
+                this.f30796a.append(sb2);
+                c.a.x0.h.a aVar = this.f30797b;
                 if (aVar != null && aVar.a() != null) {
-                    this.f30775a.append(",audioformat:");
-                    this.f30775a.append(this.f30776b.a().f());
-                    this.f30775a.append(",audiopath:");
-                    this.f30775a.append(this.f30776b.a().h());
+                    this.f30796a.append(",audioformat:");
+                    this.f30796a.append(this.f30797b.a().f());
+                    this.f30796a.append(",audiopath:");
+                    this.f30796a.append(this.f30797b.a().h());
                 }
                 c.a.x0.t.c.j("FFmpegChain", sb2);
-                synchronized (this.f30777c) {
-                    this.f30777c.notifyAll();
+                synchronized (this.f30798c) {
+                    this.f30798c.notifyAll();
                 }
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -279,8 +279,8 @@ public class b extends c.a.x0.h.f.a {
                     return false;
                 }
                 c.a.x0.t.c.j("FFmpegChain", " dealAudioPlayData 进度i1 = " + i3);
-                b bVar = this.f30777c;
-                bVar.i(bVar.f30769i + ((int) ((((((float) (this.f30777c.f30770j + (-1))) + ((((float) i3) * 1.0f) / 100.0f)) * 1.0f) / ((float) this.f30777c.f30768h)) * 60.0f)));
+                b bVar = this.f30798c;
+                bVar.i(bVar.f30790i + ((int) ((((((float) (this.f30798c.f30791j + (-1))) + ((((float) i3) * 1.0f) / 100.0f)) * 1.0f) / ((float) this.f30798c.f30789h)) * 60.0f)));
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -288,15 +288,15 @@ public class b extends c.a.x0.h.f.a {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements a.InterfaceC1438a {
+    public class d implements a.InterfaceC1436a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f30778a;
+        public final /* synthetic */ StringBuilder f30799a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f30779b;
+        public final /* synthetic */ b f30800b;
 
         public d(b bVar, StringBuilder sb) {
             Interceptable interceptable = $ic;
@@ -313,21 +313,21 @@ public class b extends c.a.x0.h.f.a {
                     return;
                 }
             }
-            this.f30779b = bVar;
-            this.f30778a = sb;
+            this.f30800b = bVar;
+            this.f30799a = sb;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f30779b) {
-                    this.f30779b.notifyAll();
+                synchronized (this.f30800b) {
+                    this.f30800b.notifyAll();
                 }
             }
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -340,17 +340,17 @@ public class b extends c.a.x0.h.f.a {
                 sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
                 sb.append(obj != null ? obj.toString() : "");
                 String sb2 = sb.toString();
-                this.f30778a.append(sb2);
+                this.f30799a.append(sb2);
                 c.a.x0.t.c.j("FFmpegChain", sb2);
-                synchronized (this.f30779b) {
-                    this.f30779b.notifyAll();
+                synchronized (this.f30800b) {
+                    this.f30800b.notifyAll();
                 }
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -359,8 +359,8 @@ public class b extends c.a.x0.h.f.a {
                     return false;
                 }
                 c.a.x0.t.c.j("FFmpegChain", " concatAudio 进度i1 = " + i3);
-                b bVar = this.f30779b;
-                bVar.i((int) (((float) bVar.f30769i) + (((((float) i3) * 1.0f) / 100.0f) * 10.0f)));
+                b bVar = this.f30800b;
+                bVar.i((int) (((float) bVar.f30790i) + (((((float) i3) * 1.0f) / 100.0f) * 10.0f)));
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -368,15 +368,15 @@ public class b extends c.a.x0.h.f.a {
     }
 
     /* loaded from: classes4.dex */
-    public class e implements a.InterfaceC1438a {
+    public class e implements a.InterfaceC1436a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f30780a;
+        public final /* synthetic */ StringBuilder f30801a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f30781b;
+        public final /* synthetic */ b f30802b;
 
         public e(b bVar, StringBuilder sb) {
             Interceptable interceptable = $ic;
@@ -393,21 +393,21 @@ public class b extends c.a.x0.h.f.a {
                     return;
                 }
             }
-            this.f30781b = bVar;
-            this.f30780a = sb;
+            this.f30802b = bVar;
+            this.f30801a = sb;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f30781b) {
-                    this.f30781b.notifyAll();
+                synchronized (this.f30802b) {
+                    this.f30802b.notifyAll();
                 }
             }
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -420,17 +420,17 @@ public class b extends c.a.x0.h.f.a {
                 sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
                 sb.append(obj != null ? obj.toString() : "");
                 String sb2 = sb.toString();
-                this.f30780a.append(sb2);
+                this.f30801a.append(sb2);
                 c.a.x0.t.c.j("FFmpegChain", sb2);
-                synchronized (this.f30781b) {
-                    this.f30781b.notifyAll();
+                synchronized (this.f30802b) {
+                    this.f30802b.notifyAll();
                 }
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // c.a.x0.s.a.InterfaceC1438a
+        @Override // c.a.x0.s.a.InterfaceC1436a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -439,8 +439,8 @@ public class b extends c.a.x0.h.f.a {
                     return false;
                 }
                 c.a.x0.t.c.j("FFmpegChain", " mixAudio 进度i1 = " + i3);
-                b bVar = this.f30781b;
-                bVar.i((int) (((float) bVar.f30769i) + (((((float) i3) * 1.0f) / 100.0f) * 20.0f)));
+                b bVar = this.f30802b;
+                bVar.i((int) (((float) bVar.f30790i) + (((((float) i3) * 1.0f) / 100.0f) * 20.0f)));
                 return false;
             }
             return invokeIIL.booleanValue;
@@ -506,7 +506,7 @@ public class b extends c.a.x0.h.f.a {
             }
             c.a.x0.h.a aVar3 = this.k;
             str = aVar3 != null ? aVar3.a().h() : "";
-            i(this.f30769i + 10);
+            i(this.f30790i + 10);
             if (FileUtils.isExists(str) && TextUtils.isEmpty(sb.toString())) {
                 c.a.x0.t.c.j("FFmpegChain", "createMuteAudio 生成成功");
                 c.a.x0.h.a aVar4 = new c.a.x0.h.a(new AudioPlayData(str, 0, -1, 1.0f));
@@ -525,7 +525,7 @@ public class b extends c.a.x0.h.f.a {
                     arrayList.add(str);
                 }
                 a2 = a(str, "_concat.aac");
-                f.b(arrayList, a2, this.f30767g, new C1421b(this, sb), false, true);
+                f.b(arrayList, a2, this.f30788g, new C1419b(this, sb), false, true);
                 try {
                 } catch (InterruptedException e5) {
                     sb.append(e5.getMessage());
@@ -561,12 +561,12 @@ public class b extends c.a.x0.h.f.a {
                         }
                     }
                     if (!h.e(arrayList)) {
-                        String str = this.f30767g;
+                        String str = this.f30788g;
                         if (TextUtils.isEmpty(str)) {
                             str = FileUtils.getParentDir((String) arrayList.get(0));
                         }
                         String str2 = str + System.currentTimeMillis() + "_trackconcat.aac";
-                        f.b(arrayList, str2, this.f30767g, new d(this, sb), false, true);
+                        f.b(arrayList, str2, this.f30788g, new d(this, sb), false, true);
                         try {
                             synchronized (this) {
                                 wait();
@@ -607,7 +607,7 @@ public class b extends c.a.x0.h.f.a {
                     }
                 }
                 if (arrayList.size() >= 2) {
-                    String str2 = this.f30767g;
+                    String str2 = this.f30788g;
                     if (TextUtils.isEmpty(str2)) {
                         str2 = FileUtils.getParentDir((String) arrayList.get(0));
                     }
@@ -643,7 +643,7 @@ public class b extends c.a.x0.h.f.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f30766f = true;
+            this.f30787f = true;
             synchronized (this) {
                 notifyAll();
             }
@@ -668,35 +668,35 @@ public class b extends c.a.x0.h.f.a {
                 return;
             }
             String a2 = cVar.a();
-            this.f30767g = a2;
-            if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.f30767g)) {
-                new File(this.f30767g).mkdir();
+            this.f30788g = a2;
+            if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.f30788g)) {
+                new File(this.f30788g).mkdir();
             }
-            this.f30765e = false;
-            this.f30766f = false;
+            this.f30786e = false;
+            this.f30787f = false;
             this.k = cVar.b();
             x(cVar);
             y(cVar);
-            this.f30769i = 0;
-            if (this.m && !this.f30766f && !this.f30765e) {
+            this.f30790i = 0;
+            if (this.m && !this.f30787f && !this.f30786e) {
                 A();
             }
-            if (this.n && !this.f30766f && !this.f30765e) {
-                this.f30769i = 10;
+            if (this.n && !this.f30787f && !this.f30786e) {
+                this.f30790i = 10;
                 i(10);
                 z(cVar);
             }
-            if (this.p && !this.f30766f && !this.f30765e) {
-                this.f30769i = 70;
+            if (this.p && !this.f30787f && !this.f30786e) {
+                this.f30790i = 70;
                 i(70);
                 B(this.r);
             }
-            if (this.q && !this.f30766f && !this.f30765e) {
-                this.f30769i = 80;
+            if (this.q && !this.f30787f && !this.f30786e) {
+                this.f30790i = 80;
                 i(80);
                 C(this.r);
             }
-            if (this.f30765e || this.f30766f) {
+            if (this.f30786e || this.f30787f) {
                 return;
             }
             l(this.r);
@@ -716,7 +716,7 @@ public class b extends c.a.x0.h.f.a {
         StringBuilder sb;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048582, this, aVar, i2) == null) || this.f30765e || this.f30766f) {
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, aVar, i2) == null) || this.f30786e || this.f30787f) {
             return;
         }
         AudioPlayData b2 = aVar.b();
@@ -788,17 +788,17 @@ public class b extends c.a.x0.h.f.a {
 
     public final void s(c.a.x0.h.e eVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar, i2) == null) || eVar == null || h.e(eVar.a()) || this.f30766f || this.f30765e) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar, i2) == null) || eVar == null || h.e(eVar.a()) || this.f30787f || this.f30786e) {
             return;
         }
-        for (int i3 = 0; !this.f30765e && !this.f30766f && i3 < eVar.a().size(); i3++) {
+        for (int i3 = 0; !this.f30786e && !this.f30787f && i3 < eVar.a().size(); i3++) {
             c.a.x0.h.a aVar = eVar.a().get(i3);
-            this.f30770j++;
+            this.f30791j++;
             if (v(aVar)) {
                 q(aVar, i2);
             } else {
                 r(this.r, aVar, i2);
-                i(this.f30769i + ((int) (((this.f30770j * 1.0f) / this.f30768h) * 60.0f)));
+                i(this.f30790i + ((int) (((this.f30791j * 1.0f) / this.f30789h) * 60.0f)));
             }
         }
     }
@@ -841,7 +841,7 @@ public class b extends c.a.x0.h.f.a {
             int i2 = 0;
             for (int i3 = 0; i3 < c2.size(); i3++) {
                 if (!h.e(c2.get(i3).a())) {
-                    this.f30768h += h.b(c2.get(i3).a());
+                    this.f30789h += h.b(c2.get(i3).a());
                     List<c.a.x0.h.a> a2 = c2.get(i3).a();
                     if (!h.e(a2)) {
                         if (a2.size() > 1) {

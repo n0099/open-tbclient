@@ -104,7 +104,7 @@ public class c extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f9127a;
+        public final /* synthetic */ String f9135a;
 
         public C0421c(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -121,14 +121,14 @@ public class c extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9127a = str;
+            this.f9135a = str;
         }
 
         @Override // c.a.p0.a.h0.i.g.a
         public void a(@NonNull c.a.p0.a.h0.i.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
-                c.a.p0.a.h0.i.d.b(this.f9127a);
+                c.a.p0.a.h0.i.d.b(this.f9135a);
                 i.q(1);
                 c.a.p0.a.h0.i.f.c("skeleton", gVar);
                 i.i(c.a.p0.a.h0.i.c.b("5秒内未触发骨架屏移除；", gVar));
@@ -171,13 +171,13 @@ public class c extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str2 = "params = " + str;
             }
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-HandleException", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-HandleException", "parse fail");
                 }
                 return bVar;
@@ -187,7 +187,7 @@ public class c extends c.a.p0.a.u.c.d {
             if (TextUtils.isEmpty(optString)) {
                 return new c.a.p0.a.u.h.b(202, "code is required");
             }
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str3 = "code: " + optString + "msg: " + jSONObject.optString("msg");
             }
             char c2 = 65535;
@@ -272,7 +272,7 @@ public class c extends c.a.p0.a.u.c.d {
                 }
                 return new c.a.p0.a.u.h.b(0);
             } catch (JSONException e2) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e2.printStackTrace();
                 }
                 return new c.a.p0.a.u.h.b(202, "invalid json data: " + optString);
@@ -307,7 +307,7 @@ public class c extends c.a.p0.a.u.c.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
             if (w()) {
-                boolean z = c.a.p0.a.u.c.d.f8727c;
+                boolean z = c.a.p0.a.u.c.d.f8735c;
                 return new c.a.p0.a.u.h.b(0);
             }
             String optString = jSONObject.optString("data");
@@ -321,12 +321,12 @@ public class c extends c.a.p0.a.u.c.d {
                 }
                 if (q0.I(optString2) && q0.H()) {
                     i.s(new C0421c(this, optString2));
-                } else if (c.a.p0.a.u.c.d.f8727c) {
+                } else if (c.a.p0.a.u.c.d.f8735c) {
                     String str = "path is not first page: " + optString2;
                 }
                 return new c.a.p0.a.u.h.b(0);
             } catch (JSONException e2) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e2.printStackTrace();
                 }
                 return new c.a.p0.a.u.h.b(202, "invalid json data: " + optString);

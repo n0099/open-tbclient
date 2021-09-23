@@ -21,26 +21,26 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f7202f;
+    public static final boolean f7210f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile b f7203g;
+    public static volatile b f7211g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, c> f7204a;
+    public HashMap<String, c> f7212a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, ArrayList<ValueCallback<String>>> f7205b;
+    public HashMap<String, ArrayList<ValueCallback<String>>> f7213b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7206c;
+    public String f7214c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpManager f7207d;
+    public HttpManager f7215d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f7208e;
+    public final Object f7216e;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public class b implements a {
                 return;
             }
         }
-        f7202f = k.f7077a;
+        f7210f = k.f7085a;
     }
 
     public b() {
@@ -71,25 +71,25 @@ public class b implements a {
                 return;
             }
         }
-        this.f7204a = new HashMap<>();
-        this.f7205b = new HashMap<>();
-        this.f7208e = new Object();
-        this.f7207d = c.a.p0.a.c1.b.l().b();
-        this.f7206c = c.a.p0.a.c1.b.f().a();
+        this.f7212a = new HashMap<>();
+        this.f7213b = new HashMap<>();
+        this.f7216e = new Object();
+        this.f7215d = c.a.p0.a.c1.b.l().b();
+        this.f7214c = c.a.p0.a.c1.b.f().a();
     }
 
     public static b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f7203g == null) {
+            if (f7211g == null) {
                 synchronized (b.class) {
-                    if (f7203g == null) {
-                        f7203g = new b();
+                    if (f7211g == null) {
+                        f7211g = new b();
                     }
                 }
             }
-            return f7203g;
+            return f7211g;
         }
         return (b) invokeV.objValue;
     }
@@ -99,16 +99,16 @@ public class b implements a {
         ArrayList<ValueCallback<String>> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.f7208e) {
-                if (f(str) && (arrayList = this.f7205b.get(str)) != null) {
+            synchronized (this.f7216e) {
+                if (f(str) && (arrayList = this.f7213b.get(str)) != null) {
                     int size = arrayList.size();
                     for (int i2 = 0; i2 < size; i2++) {
                         arrayList.get(i2).onReceiveValue(str2);
-                        if (f7202f) {
+                        if (f7210f) {
                             String str3 = i2 + " load success url = " + str + " path = " + str2;
                         }
                     }
-                    this.f7204a.remove(str);
+                    this.f7212a.remove(str);
                 }
             }
         }
@@ -117,24 +117,24 @@ public class b implements a {
     public final void b(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            if (this.f7205b.containsKey(str)) {
-                this.f7205b.get(str).add(valueCallback);
+            if (this.f7213b.containsKey(str)) {
+                this.f7213b.get(str).add(valueCallback);
                 return;
             }
             ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
             arrayList.add(valueCallback);
-            this.f7205b.put(str, arrayList);
+            this.f7213b.put(str, arrayList);
         }
     }
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f7202f) {
+            if (f7210f) {
                 String str2 = "ImageDownloadManager SwanGamePreloadManager url:" + str;
             }
-            c cVar = new c(this.f7207d, this.f7206c, str, this);
-            this.f7204a.put(str, cVar);
+            c cVar = new c(this.f7215d, this.f7214c, str, this);
+            this.f7212a.put(str, cVar);
             cVar.e();
         }
     }
@@ -143,7 +143,7 @@ public class b implements a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.f7206c + c.a.p0.a.c1.b.f().c(str);
+            return this.f7214c + c.a.p0.a.c1.b.f().c(str);
         }
         return (String) invokeL.objValue;
     }
@@ -151,7 +151,7 @@ public class b implements a {
     public final boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f7204a.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f7212a.containsKey(str) : invokeL.booleanValue;
     }
 
     @Override // c.a.p0.a.l0.m.a
@@ -159,13 +159,13 @@ public class b implements a {
         ArrayList<ValueCallback<String>> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
-            synchronized (this.f7208e) {
-                if (f(str) && (arrayList = this.f7205b.get(str)) != null) {
+            synchronized (this.f7216e) {
+                if (f(str) && (arrayList = this.f7213b.get(str)) != null) {
                     int size = arrayList.size();
                     for (int i3 = 0; i3 < size; i3++) {
                         arrayList.get(i3).onReceiveValue("");
                     }
-                    this.f7204a.remove(str);
+                    this.f7212a.remove(str);
                 }
             }
         }
@@ -191,14 +191,14 @@ public class b implements a {
                     }
                     return;
                 }
-                synchronized (this.f7208e) {
+                synchronized (this.f7216e) {
                     if (!f(str)) {
                         c(str);
                     }
                     b(str, valueCallback);
                 }
             } catch (Exception e2) {
-                if (f7202f) {
+                if (f7210f) {
                     e2.printStackTrace();
                 }
             }

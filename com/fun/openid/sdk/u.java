@@ -17,7 +17,7 @@ public class u implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ v f70057a;
+    public final /* synthetic */ v f70376a;
 
     public u(v vVar) {
         Interceptable interceptable = $ic;
@@ -34,30 +34,30 @@ public class u implements ServiceConnection {
                 return;
             }
         }
-        this.f70057a = vVar;
+        this.f70376a = vVar;
     }
 
     @Override // android.content.ServiceConnection
     public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        t c1949a;
+        t c1953a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this) {
-                v vVar = this.f70057a;
-                int i2 = t.a.f70055a;
+                v vVar = this.f70376a;
+                int i2 = t.a.f70374a;
                 if (iBinder == null) {
-                    c1949a = null;
+                    c1953a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface("com.zui.deviceidservice.IDeviceidInterface");
-                    c1949a = (queryLocalInterface == null || !(queryLocalInterface instanceof t)) ? new t.a.C1949a(iBinder) : (t) queryLocalInterface;
+                    c1953a = (queryLocalInterface == null || !(queryLocalInterface instanceof t)) ? new t.a.C1953a(iBinder) : (t) queryLocalInterface;
                 }
-                vVar.f70059b = c1949a;
-                v vVar2 = this.f70057a;
-                v.a aVar = vVar2.f70061d;
+                vVar.f70378b = c1953a;
+                v vVar2 = this.f70376a;
+                v.a aVar = vVar2.f70380d;
                 if (aVar != null) {
                     aVar.a("Deviceid Service Connected", vVar2);
                 }
-                this.f70057a.getClass();
+                this.f70376a.getClass();
             }
         }
     }
@@ -66,7 +66,7 @@ public class u implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f70057a.f70059b = null;
+            this.f70376a.f70378b = null;
         }
     }
 }

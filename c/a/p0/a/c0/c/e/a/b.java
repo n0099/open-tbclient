@@ -32,13 +32,13 @@ public class b extends c.a.p0.a.c2.f.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.c0.c.e.b.b f4671a;
+        public final /* synthetic */ c.a.p0.a.c0.c.e.b.b f4679a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4672b;
+        public final /* synthetic */ CallbackHandler f4680b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f4673c;
+        public final /* synthetic */ b f4681c;
 
         public a(b bVar, c.a.p0.a.c0.c.e.b.b bVar2, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -55,27 +55,27 @@ public class b extends c.a.p0.a.c2.f.b {
                     return;
                 }
             }
-            this.f4673c = bVar;
-            this.f4671a = bVar2;
-            this.f4672b = callbackHandler;
+            this.f4681c = bVar;
+            this.f4679a = bVar2;
+            this.f4680b = callbackHandler;
         }
 
         @Override // c.a.p0.a.c0.c.e.b.a
         public void a(int i2, View view, @Nullable Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, view, obj) == null) {
-                c cVar = (c) this.f4671a.n();
+                c cVar = (c) this.f4679a.n();
                 if (i2 == 0 || i2 == 1) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("type", "loadState");
-                        jSONObject.put("parentId", cVar.f4659h);
-                        jSONObject.put("viewId", cVar.f4657f);
+                        jSONObject.put("parentId", cVar.f4667h);
+                        jSONObject.put("viewId", cVar.f4665f);
                         jSONObject.put("loadState", i2 == 1 ? ConstantHelper.LOG_FINISH : "error");
                     } catch (JSONException e2) {
                         d.c("Component-Action-ImageCover", "loadState callback error", e2);
                     }
-                    this.f4673c.s(this.f4672b, jSONObject, cVar.f4660i);
+                    this.f4681c.s(this.f4680b, jSONObject, cVar.f4668i);
                 }
             }
         }
@@ -115,7 +115,7 @@ public class b extends c.a.p0.a.c2.f.b {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = a0.f4766b;
+            boolean z = a0.f4774b;
             c r = r(unitedSchemeEntity);
             if (r == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -129,7 +129,7 @@ public class b extends c.a.p0.a.c2.f.b {
             if (a2) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f4663b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f4671b);
             }
             return a2;
         }
@@ -141,7 +141,7 @@ public class b extends c.a.p0.a.c2.f.b {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = a0.f4766b;
+            boolean z = a0.f4774b;
             c r = r(unitedSchemeEntity);
             if (r == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -150,7 +150,7 @@ public class b extends c.a.p0.a.c2.f.b {
             }
             c.a.p0.a.c0.c.e.b.b bVar = (c.a.p0.a.c0.c.e.b.b) c.a.p0.a.c0.d.a.a(r);
             if (bVar == null) {
-                String str2 = "can't find imageCoverView component:#" + r.f4657f;
+                String str2 = "can't find imageCoverView component:#" + r.f4665f;
                 d.b("Component-Action-ImageCover", str2);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
                 return false;
@@ -160,7 +160,7 @@ public class b extends c.a.p0.a.c2.f.b {
             if (a2) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f4663b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f4671b);
             }
             return a2;
         }
@@ -172,7 +172,7 @@ public class b extends c.a.p0.a.c2.f.b {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = a0.f4766b;
+            boolean z = a0.f4774b;
             c r = r(unitedSchemeEntity);
             if (r == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -181,7 +181,7 @@ public class b extends c.a.p0.a.c2.f.b {
             }
             c.a.p0.a.c0.c.e.b.b bVar = (c.a.p0.a.c0.c.e.b.b) c.a.p0.a.c0.d.a.a(r);
             if (bVar == null) {
-                String str2 = "can't find imageCoverView component:#" + r.f4657f;
+                String str2 = "can't find imageCoverView component:#" + r.f4665f;
                 d.b("Component-Action-ImageCover", str2);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
                 return false;
@@ -191,7 +191,7 @@ public class b extends c.a.p0.a.c2.f.b {
             if (a2) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f4663b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f4671b);
             }
             return a2;
         }

@@ -23,7 +23,7 @@ public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9373a;
+    public static final boolean f9381a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,14 +39,14 @@ public class p {
                 return;
             }
         }
-        f9373a = c.a.p0.a.k.f7077a;
+        f9381a = c.a.p0.a.k.f7085a;
     }
 
     public static String a(int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (f9373a) {
+            if (f9381a) {
                 return c.a.p0.a.u1.a.a.p() ? j.d(i2, true) : "";
             }
             return j.d(i2, z);
@@ -260,7 +260,7 @@ public class p {
         try {
             str = h(activity);
         } catch (Exception e2) {
-            if (!f9373a) {
+            if (!f9381a) {
                 c.a.p0.a.e0.d.i("SwanAppEnvironmentUtils", "getExtraInfo error", e2);
                 str = "";
             } else {

@@ -16,7 +16,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<C0623a> f11955a;
+    public List<C0623a> f11963a;
 
     /* renamed from: c.a.p0.n.i.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -25,25 +25,25 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f11956a;
+        public int f11964a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11957b;
+        public String f11965b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f11958c;
+        public int f11966c;
 
         /* renamed from: d  reason: collision with root package name */
-        public f f11959d;
+        public f f11967d;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<g> f11960e;
+        public List<g> f11968e;
 
         /* renamed from: f  reason: collision with root package name */
-        public PMSAppInfo f11961f;
+        public PMSAppInfo f11969f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f11962g;
+        public boolean f11970g;
 
         public C0623a() {
             Interceptable interceptable = $ic;
@@ -67,10 +67,10 @@ public class a {
                 if (super.equals(obj)) {
                     return true;
                 }
-                if (obj == null || (fVar = this.f11959d) == null || !(obj instanceof C0623a)) {
+                if (obj == null || (fVar = this.f11967d) == null || !(obj instanceof C0623a)) {
                     return false;
                 }
-                return fVar.equals(((C0623a) obj).f11959d);
+                return fVar.equals(((C0623a) obj).f11967d);
             }
             return invokeL.booleanValue;
         }
@@ -79,7 +79,7 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                f fVar = this.f11959d;
+                f fVar = this.f11967d;
                 if (fVar == null) {
                     return super.hashCode();
                 }
@@ -94,14 +94,14 @@ public class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("PMS Item: ");
-                sb.append(this.f11957b);
-                if (this.f11959d != null) {
+                sb.append(this.f11965b);
+                if (this.f11967d != null) {
                     sb.append(",pkgMain=");
-                    sb.append(this.f11959d);
+                    sb.append(this.f11967d);
                 }
-                if (this.f11961f != null) {
+                if (this.f11969f != null) {
                     sb.append(",appInfo=");
-                    sb.append(this.f11961f);
+                    sb.append(this.f11969f);
                 }
                 return sb.toString();
             }

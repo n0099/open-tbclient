@@ -38,7 +38,7 @@ public final class b {
     public static float Z = 15.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f59548a = false;
+    public static boolean f59679a = false;
     public static int aa = 200;
     public static HashMap ab = null;
     public static ResumeCallBack ac = null;
@@ -50,31 +50,31 @@ public final class b {
     public static int ai = 600;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59549b = "";
+    public static String f59680b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59550c = "";
+    public static String f59681c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f59551d = "";
+    public static String f59682d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f59552e = 0;
+    public static int f59683e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f59553f = "";
+    public static String f59684f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static Bitmap f59554g = null;
+    public static Bitmap f59685g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f59555h = "";
+    public static String f59686h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f59556i = "";
+    public static String f59687i = "";
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f59557j = 0;
+    public static int f59688j = 0;
     public static int k = 0;
     public static String l = "";
     public static String m = "";

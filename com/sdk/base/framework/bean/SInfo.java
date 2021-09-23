@@ -14,7 +14,7 @@ public class SInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f75535c;
+    public int f75854c;
     public String cm;
     public String n;
     public String v;
@@ -36,7 +36,7 @@ public class SInfo {
     public int getC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75535c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75854c : invokeV.intValue;
     }
 
     public String getCm() {
@@ -60,7 +60,7 @@ public class SInfo {
     public void setC(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f75535c = i2;
+            this.f75854c = i2;
         }
     }
 

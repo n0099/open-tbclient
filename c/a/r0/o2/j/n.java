@@ -84,11 +84,11 @@ public class n extends c.a.r0.a0.b<c.a.r0.o2.e.o> {
                 return;
             }
             l(this.m, TbadkCoreApplication.getInst().getSkinType());
-            this.o.startLoad(oVar.f23238e, 10, false);
+            this.o.startLoad(oVar.f23254e, 10, false);
             this.n.setOnClickListener(this);
-            if (oVar.f23239f > 0) {
+            if (oVar.f23255f > 0) {
                 this.p.setVisibility(0);
-                long j2 = oVar.f23239f;
+                long j2 = oVar.f23255f;
                 if (j2 > 99) {
                     this.p.setText("99");
                     return;

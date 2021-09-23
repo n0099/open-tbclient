@@ -51,7 +51,7 @@ public class c extends a {
             if (aVar != null) {
                 c.a.p0.a.c0.b.c C = aVar.C();
                 if (!C.a()) {
-                    c.a.p0.a.e0.d.b("CameraRemoveAction", "remove camera fail: " + C.f4663b);
+                    c.a.p0.a.e0.d.b("CameraRemoveAction", "remove camera fail: " + C.f4671b);
                 }
                 k(unitedSchemeEntity, callbackHandler, true);
                 return true;
@@ -67,7 +67,7 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
             String l = l(unitedSchemeEntity);
-            if (k.f7077a) {
+            if (k.f7085a) {
                 String str = "parseData:" + l;
             }
             return new c.a.p0.a.z.e.a(l);

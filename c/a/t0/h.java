@@ -34,7 +34,7 @@ public class h extends c.a.t0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Response f30012a;
+        public final /* synthetic */ Response f30033a;
 
         public a(h hVar, Response response) {
             Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class h extends c.a.t0.a {
                     return;
                 }
             }
-            this.f30012a = response;
+            this.f30033a = response;
         }
 
         @Override // c.a.t0.c0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30012a.body().close();
+                this.f30033a.body().close();
             }
         }
 
@@ -66,21 +66,21 @@ public class h extends c.a.t0.a {
         public String b() throws IOException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30012a.body().string() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30033a.body().string() : (String) invokeV.objValue;
         }
 
         @Override // c.a.t0.c0
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30012a.message() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30033a.message() : (String) invokeV.objValue;
         }
 
         @Override // c.a.t0.c0
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30012a.isSuccessful() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30033a.isSuccessful() : invokeV.booleanValue;
         }
     }
 
@@ -90,7 +90,7 @@ public class h extends c.a.t0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InputStream f30013a;
+        public final /* synthetic */ InputStream f30034a;
 
         public b(h hVar, InputStream inputStream) {
             Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class h extends c.a.t0.a {
                     return;
                 }
             }
-            this.f30013a = inputStream;
+            this.f30034a = inputStream;
         }
 
         @Override // okhttp3.RequestBody
@@ -123,7 +123,7 @@ public class h extends c.a.t0.a {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bufferedSink) == null) {
                 Source source = null;
                 try {
-                    source = Okio.source(this.f30013a);
+                    source = Okio.source(this.f30034a);
                     bufferedSink.writeAll(source);
                 } finally {
                     if (source != null) {
@@ -140,7 +140,7 @@ public class h extends c.a.t0.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Response f30014a;
+        public final /* synthetic */ Response f30035a;
 
         public c(h hVar, Response response) {
             Interceptable interceptable = $ic;
@@ -157,14 +157,14 @@ public class h extends c.a.t0.a {
                     return;
                 }
             }
-            this.f30014a = response;
+            this.f30035a = response;
         }
 
         @Override // c.a.t0.c0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30014a.body().close();
+                this.f30035a.body().close();
             }
         }
 
@@ -172,21 +172,21 @@ public class h extends c.a.t0.a {
         public String b() throws IOException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30014a.body().string() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30035a.body().string() : (String) invokeV.objValue;
         }
 
         @Override // c.a.t0.c0
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30014a.message() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30035a.message() : (String) invokeV.objValue;
         }
 
         @Override // c.a.t0.c0
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30014a.isSuccessful() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30035a.isSuccessful() : invokeV.booleanValue;
         }
     }
 

@@ -22,16 +22,16 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f71812a;
+    public static boolean f72131a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f71813b;
+    public static volatile boolean f72132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f71814c;
+    public static Context f72133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f71815d;
+    public static a f72134d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -64,13 +64,13 @@ public class c {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                com.kwad.sdk.core.config.c.a(c.f71814c);
-                if (c.f71815d != null) {
-                    c.f71815d.a();
+                com.kwad.sdk.core.config.c.a(c.f72133c);
+                if (c.f72134d != null) {
+                    c.f72134d.a();
                 }
-                if (!c.f71812a) {
-                    com.kwad.sdk.core.report.d.b(c.f71814c);
-                    boolean unused = c.f71812a = true;
+                if (!c.f72131a) {
+                    com.kwad.sdk.core.report.d.b(c.f72133c);
+                    boolean unused = c.f72131a = true;
                 }
                 c.a();
             }
@@ -191,11 +191,11 @@ public class c {
                 public void a(@NonNull com.kwad.sdk.core.g.b bVar, @NonNull SdkConfigData sdkConfigData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, sdkConfigData) == null) {
-                        com.kwad.sdk.core.config.b.a(c.f71814c);
+                        com.kwad.sdk.core.config.b.a(c.f72133c);
                         com.kwad.sdk.core.config.c.a(sdkConfigData);
-                        com.kwad.sdk.core.config.c.a(c.f71814c, sdkConfigData);
-                        if (c.f71815d != null) {
-                            c.f71815d.a(sdkConfigData);
+                        com.kwad.sdk.core.config.c.a(c.f72133c, sdkConfigData);
+                        if (c.f72134d != null) {
+                            c.f72134d.a(sdkConfigData);
                         }
                     }
                 }
@@ -207,13 +207,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, aVar) == null) {
             synchronized (c.class) {
-                if (f71813b) {
+                if (f72132b) {
                     com.kwad.sdk.core.d.a.a("ConfigRequestManager", "config request manager has init-ed");
                     return;
                 }
-                f71813b = true;
-                f71814c = context;
-                f71815d = aVar;
+                f72132b = true;
+                f72133c = context;
+                f72134d = aVar;
                 g.a(new b());
             }
         }

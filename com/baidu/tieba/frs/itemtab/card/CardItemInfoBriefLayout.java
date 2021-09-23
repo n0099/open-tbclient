@@ -25,16 +25,16 @@ public class CardItemInfoBriefLayout extends FrameLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MultiLineEllipsizeTextView f51453e;
+    public MultiLineEllipsizeTextView f51567e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EMTextView f51454f;
+    public EMTextView f51568f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f51455g;
+    public String f51569g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51456h;
+    public boolean f51570h;
 
     /* loaded from: classes7.dex */
     public class a implements MultiLineEllipsizeTextView.a {
@@ -42,7 +42,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CardItemInfoBriefLayout f51457a;
+        public final /* synthetic */ CardItemInfoBriefLayout f51571a;
 
         public a(CardItemInfoBriefLayout cardItemInfoBriefLayout) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public class CardItemInfoBriefLayout extends FrameLayout implements q {
                     return;
                 }
             }
-            this.f51457a = cardItemInfoBriefLayout;
+            this.f51571a = cardItemInfoBriefLayout;
         }
 
         @Override // com.baidu.tbadk.core.view.MultiLineEllipsizeTextView.a
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f51457a.f51454f.setVisibility((z || this.f51457a.f51456h) ? 0 : 8);
+                this.f51571a.f51568f.setVisibility((z || this.f51571a.f51570h) ? 0 : 8);
             }
         }
     }
@@ -77,7 +77,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemInfoBriefLayout f51458e;
+        public final /* synthetic */ CardItemInfoBriefLayout f51572e;
 
         public b(CardItemInfoBriefLayout cardItemInfoBriefLayout) {
             Interceptable interceptable = $ic;
@@ -94,23 +94,23 @@ public class CardItemInfoBriefLayout extends FrameLayout implements q {
                     return;
                 }
             }
-            this.f51458e = cardItemInfoBriefLayout;
+            this.f51572e = cardItemInfoBriefLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                CardItemInfoBriefLayout cardItemInfoBriefLayout = this.f51458e;
-                cardItemInfoBriefLayout.f51456h = !cardItemInfoBriefLayout.f51456h;
-                if (!this.f51458e.f51456h) {
-                    this.f51458e.f51454f.setText(R.string.expand);
-                    this.f51458e.f51453e.setMaxLines(3);
+                CardItemInfoBriefLayout cardItemInfoBriefLayout = this.f51572e;
+                cardItemInfoBriefLayout.f51570h = !cardItemInfoBriefLayout.f51570h;
+                if (!this.f51572e.f51570h) {
+                    this.f51572e.f51568f.setText(R.string.expand);
+                    this.f51572e.f51567e.setMaxLines(3);
                     return;
                 }
-                this.f51458e.f51454f.setText(R.string.fold);
-                this.f51458e.f51453e.setMaxLines(Integer.MAX_VALUE);
-                this.f51458e.f51453e.setText(this.f51458e.f51455g);
+                this.f51572e.f51568f.setText(R.string.fold);
+                this.f51572e.f51567e.setMaxLines(Integer.MAX_VALUE);
+                this.f51572e.f51567e.setText(this.f51572e.f51569g);
             }
         }
     }
@@ -142,26 +142,26 @@ public class CardItemInfoBriefLayout extends FrameLayout implements q {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setPadding(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(getContext());
-            this.f51453e = multiLineEllipsizeTextView;
+            this.f51567e = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
-            MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f51453e;
+            MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f51567e;
             multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.expand))));
-            c d2 = c.d(this.f51453e);
+            c d2 = c.d(this.f51567e);
             d2.A(R.dimen.T_X07);
             d2.x(R.dimen.M_T_X002);
-            this.f51453e.setPadding(0, 0, 0, l.g(getContext(), R.dimen.M_H_X005));
-            addView(this.f51453e, new FrameLayout.LayoutParams(-1, -2));
-            this.f51453e.setOnTextMeasuredCallback(new a(this));
+            this.f51567e.setPadding(0, 0, 0, l.g(getContext(), R.dimen.M_H_X005));
+            addView(this.f51567e, new FrameLayout.LayoutParams(-1, -2));
+            this.f51567e.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(getContext());
-            this.f51454f = eMTextView;
+            this.f51568f = eMTextView;
             eMTextView.setText(R.string.expand);
-            c.d(this.f51453e).A(R.dimen.T_X07);
-            this.f51454f.setPadding(l.g(getContext(), R.dimen.M_W_X005), l.g(getContext(), R.dimen.M_H_X005), 0, l.g(getContext(), R.dimen.M_H_X005));
-            this.f51454f.setVisibility(8);
+            c.d(this.f51567e).A(R.dimen.T_X07);
+            this.f51568f.setPadding(l.g(getContext(), R.dimen.M_W_X005), l.g(getContext(), R.dimen.M_H_X005), 0, l.g(getContext(), R.dimen.M_H_X005));
+            this.f51568f.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
-            addView(this.f51454f, layoutParams);
-            this.f51454f.setOnClickListener(new b(this));
+            addView(this.f51568f, layoutParams);
+            this.f51568f.setOnClickListener(new b(this));
         }
     }
 
@@ -173,8 +173,8 @@ public class CardItemInfoBriefLayout extends FrameLayout implements q {
             d2.n(2);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
-            c.d(this.f51453e).w(R.color.CAM_X0105);
-            c.d(this.f51454f).w(R.color.CAM_X0304);
+            c.d(this.f51567e).w(R.color.CAM_X0105);
+            c.d(this.f51568f).w(R.color.CAM_X0304);
         }
     }
 
@@ -184,8 +184,8 @@ public class CardItemInfoBriefLayout extends FrameLayout implements q {
             return;
         }
         String str = itemInfo.brief;
-        this.f51455g = str;
-        this.f51453e.setText(str);
+        this.f51569g = str;
+        this.f51567e.setText(str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

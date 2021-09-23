@@ -65,7 +65,7 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
             }
             for (Post post : list) {
                 PostData postData = new PostData();
-                postData.c0(post, TbadkCoreApplication.getInst());
+                postData.e0(post, TbadkCoreApplication.getInst());
                 postData.O = 102;
                 this.list.add(postData);
             }

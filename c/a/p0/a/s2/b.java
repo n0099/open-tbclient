@@ -24,10 +24,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8603a;
+    public static final boolean f8611a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8604b;
+    public static String f8612b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -35,32 +35,32 @@ public class b {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public static String f8605f = "%s/%s";
+        public static String f8613f = "%s/%s";
 
         /* renamed from: g  reason: collision with root package name */
-        public static String f8606g = "%s-%s/%s";
+        public static String f8614g = "%s-%s/%s";
 
         /* renamed from: h  reason: collision with root package name */
-        public static String f8607h = "(Baidu; P1 %s)";
+        public static String f8615h = "(Baidu; P1 %s)";
 
         /* renamed from: i  reason: collision with root package name */
-        public static String f8608i = "%s/%s";
+        public static String f8616i = "%s/%s";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8609a;
+        public String f8617a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8610b;
+        public String f8618b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8611c;
+        public String f8619c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f8612d;
+        public String f8620d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f8613e;
+        public String f8621e;
 
         static {
             InterceptResult invokeClinit;
@@ -95,10 +95,10 @@ public class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String format = String.format(f8605f, this.f8609a, this.f8610b);
-                String format2 = String.format(f8606g, this.f8609a, this.f8611c, this.f8612d);
-                String format3 = String.format(f8608i, this.f8611c, this.f8612d);
-                String format4 = String.format(f8607h, this.f8613e);
+                String format = String.format(f8613f, this.f8617a, this.f8618b);
+                String format2 = String.format(f8614g, this.f8617a, this.f8619c, this.f8620d);
+                String format3 = String.format(f8616i, this.f8619c, this.f8620d);
+                String format4 = String.format(f8615h, this.f8621e);
                 if (e()) {
                     return String.format("%s %s %s %s", format, format2, format3, format4);
                 }
@@ -111,7 +111,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f8609a = str;
+                this.f8617a = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -121,7 +121,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f8611c = str;
+                this.f8619c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -131,7 +131,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f8612d = str;
+                this.f8620d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -140,14 +140,14 @@ public class b {
         public final boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.equals(BaseWebViewActivity.SHOUBAI_SCHEME, this.f8611c) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.equals(BaseWebViewActivity.SHOUBAI_SCHEME, this.f8619c) : invokeV.booleanValue;
         }
 
         public a f(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f8613e = str;
+                this.f8621e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -157,7 +157,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f8610b = str;
+                this.f8618b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -177,7 +177,7 @@ public class b {
                 return;
             }
         }
-        f8603a = k.f7077a;
+        f8611a = k.f7085a;
     }
 
     public static Context a() {
@@ -228,15 +228,15 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (!TextUtils.isEmpty(f8604b)) {
-                return f8604b;
+            if (!TextUtils.isEmpty(f8612b)) {
+                return f8612b;
             }
             try {
                 String str = a().getPackageManager().getPackageInfo(a().getPackageName(), 0).versionName;
-                f8604b = str;
+                f8612b = str;
                 return str;
             } catch (PackageManager.NameNotFoundException e2) {
-                if (f8603a) {
+                if (f8611a) {
                     e2.printStackTrace();
                     return "0.8";
                 }

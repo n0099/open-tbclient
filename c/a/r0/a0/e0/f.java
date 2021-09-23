@@ -55,12 +55,12 @@ public class f extends c.a.r0.a0.b<e> {
     public void l(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f15548e != i2) {
+            if (this.f15557e != i2) {
                 SkinManager.setViewTextColor(this.n, R.color.CAM_X0109);
                 SkinManager.setBackgroundColor(this.o, R.color.CAM_X0204);
                 SkinManager.setBackgroundColor(this.m, R.color.CAM_X0204);
             }
-            this.f15548e = i2;
+            this.f15557e = i2;
         }
     }
 
@@ -84,7 +84,7 @@ public class f extends c.a.r0.a0.b<e> {
         } else {
             this.m.setVisibility(8);
         }
-        this.n.setText(eVar.f15605e);
+        this.n.setText(eVar.f15614e);
         l(null, TbadkCoreApplication.getInst().getSkinType());
     }
 }

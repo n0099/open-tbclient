@@ -57,50 +57,50 @@ public class d {
         }
         c asyncPublishStatData = writeData.getAsyncPublishStatData();
         long currentTimeMillis = System.currentTimeMillis();
-        asyncPublishStatData.f21067d = currentTimeMillis;
-        asyncPublishStatData.f21070g = currentTimeMillis - asyncPublishStatData.f21066c;
+        asyncPublishStatData.f21079d = currentTimeMillis;
+        asyncPublishStatData.f21082g = currentTimeMillis - asyncPublishStatData.f21078c;
         if (errorData != null && errorData.getError_code() == 0) {
-            asyncPublishStatData.f21068e = 0;
+            asyncPublishStatData.f21080e = 0;
         } else if (errorData != null) {
-            asyncPublishStatData.f21068e = errorData.error_code;
-            asyncPublishStatData.f21069f = errorData.error_msg;
+            asyncPublishStatData.f21080e = errorData.error_code;
+            asyncPublishStatData.f21081f = errorData.error_msg;
         } else {
-            asyncPublishStatData.f21068e = -17;
-            asyncPublishStatData.f21069f = TbadkCoreApplication.getInst().getApp().getString(R.string.neterror);
+            asyncPublishStatData.f21080e = -17;
+            asyncPublishStatData.f21081f = TbadkCoreApplication.getInst().getApp().getString(R.string.neterror);
         }
         f(asyncPublishStatData);
-        b("上传结束（endAsyncPublish）: id =" + asyncPublishStatData.f21066c + "    endTime = " + asyncPublishStatData.f21067d);
+        b("上传结束（endAsyncPublish）: id =" + asyncPublishStatData.f21078c + "    endTime = " + asyncPublishStatData.f21079d);
     }
 
     public static void d(WriteData writeData, ImageFileInfo imageFileInfo, ImageUploadResult imageUploadResult) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, writeData, imageFileInfo, imageUploadResult) == null) || writeData == null || imageFileInfo == null || writeData.getAsyncPublishStatData() == null || writeData.getAsyncPublishStatData().E == null || (aVar = writeData.getAsyncPublishStatData().E.f21063e.get(Long.valueOf(imageFileInfo.startUploadTime))) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, writeData, imageFileInfo, imageUploadResult) == null) || writeData == null || imageFileInfo == null || writeData.getAsyncPublishStatData() == null || writeData.getAsyncPublishStatData().E == null || (aVar = writeData.getAsyncPublishStatData().E.f21075e.get(Long.valueOf(imageFileInfo.startUploadTime))) == null) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        aVar.f21050b = currentTimeMillis;
+        aVar.f21062b = currentTimeMillis;
         long j2 = currentTimeMillis - aVar.o;
-        aVar.f21054f = j2;
+        aVar.f21066f = j2;
         if (j2 <= 0) {
-            aVar.f21054f = 1L;
+            aVar.f21066f = 1L;
         }
-        aVar.f21055g = (((float) aVar.u) / 1024.0f) / (((float) aVar.f21054f) / 1000.0f);
+        aVar.f21067g = (((float) aVar.u) / 1024.0f) / (((float) aVar.f21066f) / 1000.0f);
         if (imageUploadResult != null) {
             UploadedImageInfo uploadedPicInfo = imageUploadResult.getUploadedPicInfo();
             if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
-                aVar.f21051c = 0;
-                aVar.f21053e = uploadedPicInfo.toPostString();
+                aVar.f21063c = 0;
+                aVar.f21065e = uploadedPicInfo.toPostString();
             } else {
-                aVar.f21051c = imageUploadResult.error_code;
-                aVar.f21052d = imageUploadResult.error_msg;
+                aVar.f21063c = imageUploadResult.error_code;
+                aVar.f21064d = imageUploadResult.error_msg;
             }
         } else {
-            aVar.f21051c = -52;
-            aVar.f21052d = TbadkCoreApplication.getInst().getString(R.string.neterror);
+            aVar.f21063c = -52;
+            aVar.f21064d = TbadkCoreApplication.getInst().getString(R.string.neterror);
         }
         b("结束单张上传图片（endAsyncPublishImage）: path =" + imageFileInfo.getFilePath());
-        b("结束单张上传图片（网络耗时）: time = " + (aVar.f21050b - aVar.o));
+        b("结束单张上传图片（网络耗时）: time = " + (aVar.f21062b - aVar.o));
     }
 
     public static void e(WriteData writeData, ErrorData errorData) {
@@ -110,29 +110,29 @@ public class d {
         }
         c asyncPublishStatData = writeData.getAsyncPublishStatData();
         b bVar = asyncPublishStatData.E;
-        bVar.f21060b = System.currentTimeMillis();
-        asyncPublishStatData.f21071h = 1;
-        asyncPublishStatData.o = bVar.f21063e.size();
+        bVar.f21072b = System.currentTimeMillis();
+        asyncPublishStatData.f21083h = 1;
+        asyncPublishStatData.o = bVar.f21075e.size();
         long j2 = 0;
-        for (a aVar : bVar.f21063e.values()) {
+        for (a aVar : bVar.f21075e.values()) {
             j2 += aVar.u;
         }
         asyncPublishStatData.p = j2;
-        long j3 = bVar.f21060b - bVar.f21059a;
+        long j3 = bVar.f21072b - bVar.f21071a;
         asyncPublishStatData.n = j3;
         asyncPublishStatData.m = a(j3, j2);
         if (errorData == null) {
-            bVar.f21061c = 0;
+            bVar.f21073c = 0;
         } else {
-            bVar.f21061c = errorData.error_code;
-            bVar.f21062d = errorData.error_msg;
+            bVar.f21073c = errorData.error_code;
+            bVar.f21074d = errorData.error_msg;
         }
-        asyncPublishStatData.k = bVar.f21061c;
-        asyncPublishStatData.l = bVar.f21062d;
-        b("结束上传多张图片（endAsyncPublishImages）: id =" + bVar.f21059a + "    endTime = " + bVar.f21060b);
+        asyncPublishStatData.k = bVar.f21073c;
+        asyncPublishStatData.l = bVar.f21074d;
+        b("结束上传多张图片（endAsyncPublishImages）: id =" + bVar.f21071a + "    endTime = " + bVar.f21072b);
         StringBuilder sb = new StringBuilder();
         sb.append("结束上传多张图片（整体耗时）: time = ");
-        sb.append(bVar.f21060b - bVar.f21059a);
+        sb.append(bVar.f21072b - bVar.f21071a);
         b(sb.toString());
     }
 
@@ -144,7 +144,7 @@ public class d {
             try {
                 jSONObject.put("ext", cVar.b());
                 uBCManager.onEvent("4259", jSONObject);
-                b("【打点】-【结束】endAsyncPublishStat: id = " + cVar.f21064a);
+                b("【打点】-【结束】endAsyncPublishStat: id = " + cVar.f21076a);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -159,26 +159,26 @@ public class d {
         }
         c asyncPublishStatData = writeData.getAsyncPublishStatData();
         e eVar = asyncPublishStatData.G;
-        eVar.f21075b = System.currentTimeMillis();
-        asyncPublishStatData.f21072i = 1;
+        eVar.f21087b = System.currentTimeMillis();
+        asyncPublishStatData.f21084i = 1;
         if (videoFinishResult == null) {
-            eVar.f21076c = -53;
+            eVar.f21088c = -53;
         } else if (videoFinishResult.isSuccess()) {
-            eVar.f21076c = 0;
-            eVar.f21080g = videoFinishResult.getVideoMd5();
-            eVar.f21081h = videoFinishResult.getVideoUrl();
+            eVar.f21088c = 0;
+            eVar.f21092g = videoFinishResult.getVideoMd5();
+            eVar.f21093h = videoFinishResult.getVideoUrl();
         } else {
-            eVar.f21076c = videoFinishResult.getErrorNo();
-            eVar.f21077d = videoFinishResult.getUserMessage();
+            eVar.f21088c = videoFinishResult.getErrorNo();
+            eVar.f21089d = videoFinishResult.getUserMessage();
         }
-        asyncPublishStatData.u = eVar.f21076c;
-        asyncPublishStatData.v = eVar.f21077d;
-        long j2 = eVar.f21075b - eVar.f21074a;
+        asyncPublishStatData.u = eVar.f21088c;
+        asyncPublishStatData.v = eVar.f21089d;
+        long j2 = eVar.f21087b - eVar.f21086a;
         asyncPublishStatData.x = j2;
-        long j3 = eVar.f21082i;
+        long j3 = eVar.f21094i;
         asyncPublishStatData.y = j3;
         asyncPublishStatData.w = a(j2, j3);
-        b("上传视频结束（endAsyncPublishVideo）: id =" + eVar.f21074a + "    endTime = " + eVar.f21075b);
+        b("上传视频结束（endAsyncPublishVideo）: id =" + eVar.f21086a + "    endTime = " + eVar.f21087b);
     }
 
     public static void h(WriteData writeData, ImageUploadResult imageUploadResult) {
@@ -188,23 +188,23 @@ public class d {
             return;
         }
         a aVar = writeData.getAsyncPublishStatData().H;
-        aVar.f21050b = System.currentTimeMillis();
+        aVar.f21062b = System.currentTimeMillis();
         if (imageUploadResult == null) {
-            aVar.f21051c = -53;
+            aVar.f21063c = -53;
         } else {
             ImageUploadResult.picInfo picinfo = imageUploadResult.picInfo;
             if (picinfo != null && (picDetailedInfo = picinfo.bigPic) != null && !StringUtils.isNull(picDetailedInfo.picUrl)) {
-                aVar.f21051c = 0;
-                aVar.f21053e = imageUploadResult.picInfo.bigPic.picUrl;
+                aVar.f21063c = 0;
+                aVar.f21065e = imageUploadResult.picInfo.bigPic.picUrl;
             } else {
-                aVar.f21051c = imageUploadResult.error_code;
-                aVar.f21052d = imageUploadResult.error_msg;
+                aVar.f21063c = imageUploadResult.error_code;
+                aVar.f21064d = imageUploadResult.error_msg;
             }
         }
-        long j2 = aVar.f21050b - aVar.f21049a;
-        aVar.f21054f = j2;
-        aVar.f21055g = a(j2, aVar.f21057i);
-        b("上传视频首帧结束（endAsyncPublishVideoFirstFrame）: id =" + aVar.f21049a + "    endTime = " + aVar.f21050b);
+        long j2 = aVar.f21062b - aVar.f21061a;
+        aVar.f21066f = j2;
+        aVar.f21067g = a(j2, aVar.f21069i);
+        b("上传视频首帧结束（endAsyncPublishVideoFirstFrame）: id =" + aVar.f21061a + "    endTime = " + aVar.f21062b);
     }
 
     public static void i(WriteData writeData, r rVar) {
@@ -214,37 +214,37 @@ public class d {
         }
         c asyncPublishStatData = writeData.getAsyncPublishStatData();
         f fVar = asyncPublishStatData.F;
-        fVar.f21084b = System.currentTimeMillis();
-        asyncPublishStatData.f21073j = 1;
+        fVar.f21096b = System.currentTimeMillis();
+        asyncPublishStatData.f21085j = 1;
         if (rVar != null && rVar.d()) {
             q a2 = rVar.a();
             if (a2 != null) {
-                fVar.f21086d = 0;
-                fVar.f21088f = a2.b();
+                fVar.f21098d = 0;
+                fVar.f21100f = a2.b();
             } else {
-                fVar.f21086d = rVar.b();
-                fVar.f21087e = rVar.c();
+                fVar.f21098d = rVar.b();
+                fVar.f21099e = rVar.c();
             }
         } else if (rVar != null) {
-            fVar.f21086d = rVar.b();
-            fVar.f21087e = rVar.c();
+            fVar.f21098d = rVar.b();
+            fVar.f21099e = rVar.c();
         } else {
-            fVar.f21086d = TbErrInfo.ERR_VOI_SEND;
+            fVar.f21098d = TbErrInfo.ERR_VOI_SEND;
         }
-        asyncPublishStatData.z = fVar.f21086d;
-        asyncPublishStatData.A = fVar.f21087e;
-        long j2 = fVar.f21084b - fVar.f21083a;
+        asyncPublishStatData.z = fVar.f21098d;
+        asyncPublishStatData.A = fVar.f21099e;
+        long j2 = fVar.f21096b - fVar.f21095a;
         asyncPublishStatData.C = j2;
-        long j3 = fVar.f21089g;
+        long j3 = fVar.f21101g;
         asyncPublishStatData.D = j3;
         asyncPublishStatData.B = a(j2, j3);
-        b("上传声音结束（endAsyncPublishVoice）: id =" + fVar.f21083a + "    endTime = " + fVar.f21084b);
+        b("上传声音结束（endAsyncPublishVoice）: id =" + fVar.f21095a + "    endTime = " + fVar.f21096b);
     }
 
     public static void j(WriteData writeData, ImageFileInfo imageFileInfo, String str, int[] iArr, long j2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{writeData, imageFileInfo, str, iArr, Long.valueOf(j2)}) == null) || writeData == null || imageFileInfo == null || writeData.getAsyncPublishStatData() == null || writeData.getAsyncPublishStatData().E == null || (aVar = writeData.getAsyncPublishStatData().E.f21063e.get(Long.valueOf(imageFileInfo.startUploadTime))) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{writeData, imageFileInfo, str, iArr, Long.valueOf(j2)}) == null) || writeData == null || imageFileInfo == null || writeData.getAsyncPublishStatData() == null || writeData.getAsyncPublishStatData().E == null || (aVar = writeData.getAsyncPublishStatData().E.f21075e.get(Long.valueOf(imageFileInfo.startUploadTime))) == null) {
             return;
         }
         aVar.o = System.currentTimeMillis();
@@ -261,16 +261,16 @@ public class d {
             try {
                 c.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
                 statsItem.b("action", "async_publish_end");
-                statsItem.c("extId", Long.valueOf(cVar.f21064a));
-                statsItem.c("parentId", Long.valueOf(cVar.f21065b));
-                statsItem.c("startTime", Long.valueOf(cVar.f21066c));
-                statsItem.c("endTime", Long.valueOf(cVar.f21067d));
-                statsItem.c("errorCode", Integer.valueOf(cVar.f21068e));
-                statsItem.b("errorMessage", cVar.f21069f);
-                statsItem.c("sendThreadDuration", Long.valueOf(cVar.f21070g));
-                statsItem.c("haveImage", Integer.valueOf(cVar.f21071h));
-                statsItem.c("haveVideo", Integer.valueOf(cVar.f21072i));
-                statsItem.c("haveVoice", Integer.valueOf(cVar.f21073j));
+                statsItem.c("extId", Long.valueOf(cVar.f21076a));
+                statsItem.c("parentId", Long.valueOf(cVar.f21077b));
+                statsItem.c("startTime", Long.valueOf(cVar.f21078c));
+                statsItem.c("endTime", Long.valueOf(cVar.f21079d));
+                statsItem.c("errorCode", Integer.valueOf(cVar.f21080e));
+                statsItem.b("errorMessage", cVar.f21081f);
+                statsItem.c("sendThreadDuration", Long.valueOf(cVar.f21082g));
+                statsItem.c("haveImage", Integer.valueOf(cVar.f21083h));
+                statsItem.c("haveVideo", Integer.valueOf(cVar.f21084i));
+                statsItem.c("haveVoice", Integer.valueOf(cVar.f21085j));
                 if (cVar.E != null) {
                     statsItem.b("imagesData", cVar.E.a().toString());
                     statsItem.c("imageErrorCode", Integer.valueOf(cVar.k));
@@ -315,7 +315,7 @@ public class d {
         }
         c cVar = new c(writeData);
         writeData.setAsyncPublishStatData(cVar);
-        b("开始后台上传（startAsyncPublish） id = " + cVar.f21064a + "  parentId = " + cVar.f21065b);
+        b("开始后台上传（startAsyncPublish） id = " + cVar.f21076a + "  parentId = " + cVar.f21077b);
         o(cVar);
     }
 
@@ -324,7 +324,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeLL(65548, null, writeData, imageFileInfo) == null) || writeData == null || imageFileInfo == null || writeData.getAsyncPublishStatData() == null || writeData.getAsyncPublishStatData().E == null) {
             return;
         }
-        writeData.getAsyncPublishStatData().E.f21063e.put(Long.valueOf(imageFileInfo.startUploadTime), new a(imageFileInfo));
+        writeData.getAsyncPublishStatData().E.f21075e.put(Long.valueOf(imageFileInfo.startUploadTime), new a(imageFileInfo));
         b("多张图片开始上传(startAsyncPublishImage): path =" + imageFileInfo.getFilePath());
     }
 
@@ -342,7 +342,7 @@ public class d {
             asyncPublishStatData.s = writeImagesInfo.imageUploadConcurrency;
             asyncPublishStatData.t = writeImagesInfo.imageChunkRetry;
         }
-        b("多张图片开始上传（startAsyncPublishImages）: startTime = " + asyncPublishStatData.E.f21059a);
+        b("多张图片开始上传（startAsyncPublishImages）: startTime = " + asyncPublishStatData.E.f21071a);
     }
 
     public static void o(@NonNull c cVar) {
@@ -353,7 +353,7 @@ public class d {
             try {
                 jSONObject.put("ext", cVar.a());
                 uBCManager.onEvent("4260", jSONObject);
-                b("【打点】-【点击】startAsyncPublishStat: id = " + cVar.f21064a);
+                b("【打点】-【点击】startAsyncPublishStat: id = " + cVar.f21076a);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -369,7 +369,7 @@ public class d {
         c asyncPublishStatData = writeData.getAsyncPublishStatData();
         e eVar = new e(videoInfo);
         asyncPublishStatData.G = eVar;
-        eVar.f21082i = FileHelper.getFileSize(videoInfo.getVideoPath());
+        eVar.f21094i = FileHelper.getFileSize(videoInfo.getVideoPath());
         b("开始上传视频（startAsyncPublishVideo）: id =" + videoInfo.getVideoPath());
     }
 
@@ -381,8 +381,8 @@ public class d {
         c asyncPublishStatData = writeData.getAsyncPublishStatData();
         a aVar = new a(str);
         asyncPublishStatData.H = aVar;
-        aVar.f21057i = FileHelper.getFileSize(str);
-        b("开始上传视频首帧（startAsyncPublishVideoFirstFrame): path =" + asyncPublishStatData.H.f21056h);
+        aVar.f21069i = FileHelper.getFileSize(str);
+        b("开始上传视频首帧（startAsyncPublishVideoFirstFrame): path =" + asyncPublishStatData.H.f21068h);
     }
 
     public static void r(WriteData writeData, long j2) {
@@ -392,22 +392,22 @@ public class d {
         }
         c asyncPublishStatData = writeData.getAsyncPublishStatData();
         f fVar = new f(writeData.getVoice());
-        fVar.f21089g = j2;
+        fVar.f21101g = j2;
         asyncPublishStatData.F = fVar;
-        b("开始上传声音（startAsyncPublishVoice）: id =" + fVar.f21085c);
+        b("开始上传声音（startAsyncPublishVoice）: id =" + fVar.f21097c);
     }
 
     public static void s(WriteData writeData, ImageFileInfo imageFileInfo, String str, int[] iArr, long j2, boolean z, boolean z2, boolean z3, String str2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{writeData, imageFileInfo, str, iArr, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str2}) == null) || writeData == null || imageFileInfo == null || writeData.getAsyncPublishStatData() == null || writeData.getAsyncPublishStatData().E == null || (aVar = writeData.getAsyncPublishStatData().E.f21063e.get(Long.valueOf(imageFileInfo.startUploadTime))) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{writeData, imageFileInfo, str, iArr, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str2}) == null) || writeData == null || imageFileInfo == null || writeData.getAsyncPublishStatData() == null || writeData.getAsyncPublishStatData().E == null || (aVar = writeData.getAsyncPublishStatData().E.f21075e.get(Long.valueOf(imageFileInfo.startUploadTime))) == null) {
             return;
         }
         aVar.n = System.currentTimeMillis();
-        aVar.f21056h = str;
-        aVar.f21058j = iArr[0];
+        aVar.f21068h = str;
+        aVar.f21070j = iArr[0];
         aVar.k = iArr[1];
-        aVar.f21057i = j2;
+        aVar.f21069i = j2;
         aVar.l = z;
         aVar.m = z2;
         aVar.p = z3;
@@ -420,9 +420,9 @@ public class d {
         if (interceptable == null || interceptable.invokeL(65555, null, cVar) == null) {
             c.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
             statsItem.b("action", "async_publish_start");
-            statsItem.c("extId", Long.valueOf(cVar.f21064a));
-            statsItem.c("parentId", Long.valueOf(cVar.f21065b));
-            statsItem.c("startTime", Long.valueOf(cVar.f21066c));
+            statsItem.c("extId", Long.valueOf(cVar.f21076a));
+            statsItem.c("parentId", Long.valueOf(cVar.f21077b));
+            statsItem.c("startTime", Long.valueOf(cVar.f21078c));
             BdStatisticsManager.getInstance().performance("thread", statsItem);
         }
     }

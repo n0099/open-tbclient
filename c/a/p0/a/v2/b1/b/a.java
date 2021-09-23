@@ -28,11 +28,11 @@ public class a extends j.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f9294c;
+    public static final boolean f9302c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f9295b;
+    public final String f9303b;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class a extends j.a {
                 return;
             }
         }
-        f9294c = k.f7077a;
+        f9302c = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,7 +69,7 @@ public class a extends j.a {
             }
         }
         String str = z ? "swan_js_native_v8_ab.txt" : "swan_js_native_webview_ab.txt";
-        this.f9295b = e.g().getPath() + File.separator + "js_native" + File.separator + str;
+        this.f9303b = e.g().getPath() + File.separator + "js_native" + File.separator + str;
     }
 
     public boolean a(int i2) {
@@ -121,10 +121,10 @@ public class a extends j.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            if (jSONArray.length() <= 0 || !d.u(this.f9295b)) {
+            if (jSONArray.length() <= 0 || !d.u(this.f9303b)) {
                 return false;
             }
-            return b.a(jSONArray, new File(this.f9295b), SchemeCollecter.getSchemesDesListSize(this.f9352a ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW));
+            return b.a(jSONArray, new File(this.f9303b), SchemeCollecter.getSchemesDesListSize(this.f9360a ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW));
         }
         return invokeL.booleanValue;
     }
@@ -133,18 +133,18 @@ public class a extends j.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            boolean z = f9294c;
+            boolean z = f9302c;
             if (!m.b() && !TextUtils.equals(m.a(), "0")) {
-                File file = new File(this.f9295b);
+                File file = new File(this.f9303b);
                 if (file.exists()) {
                     d.K(file);
                 }
             }
-            if (d.u(this.f9295b)) {
-                boolean z2 = f9294c;
-                return d.E(new File(this.f9295b));
+            if (d.u(this.f9303b)) {
+                boolean z2 = f9302c;
+                return d.E(new File(this.f9303b));
             }
-            return b(this.f9352a, this.f9295b);
+            return b(this.f9360a, this.f9303b);
         }
         return (List) invokeV.objValue;
     }

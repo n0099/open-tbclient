@@ -27,35 +27,35 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f6827j;
+    public static final boolean f6835j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaCodec f6828a;
+    public MediaCodec f6836a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer[] f6829b;
+    public ByteBuffer[] f6837b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ByteBuffer[] f6830c;
+    public ByteBuffer[] f6838c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaCodec.BufferInfo f6831d;
+    public MediaCodec.BufferInfo f6839d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ByteArrayOutputStream f6832e;
+    public ByteArrayOutputStream f6840e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f6833f;
+    public long f6841f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6834g;
+    public int f6842g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6835h;
+    public int f6843h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f6836i;
+    public String f6844i;
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +70,7 @@ public class a {
                 return;
             }
         }
-        f6827j = k.f7077a;
+        f6835j = k.f7085a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:26:0x0063  */
@@ -93,21 +93,21 @@ public class a {
                 return;
             }
         }
-        this.f6833f = 0L;
+        this.f6841f = 0L;
         char c2 = 0;
-        this.f6834g = 0;
-        this.f6835h = 0;
-        this.f6836i = "aac";
-        this.f6834g = i3;
-        this.f6835h = i2;
-        this.f6832e = new ByteArrayOutputStream();
+        this.f6842g = 0;
+        this.f6843h = 0;
+        this.f6844i = "aac";
+        this.f6842g = i3;
+        this.f6843h = i2;
+        this.f6840e = new ByteArrayOutputStream();
         if (TextUtils.isEmpty(str)) {
-            this.f6836i = "aac";
+            this.f6844i = "aac";
         } else {
-            this.f6836i = str;
+            this.f6844i = str;
         }
         try {
-            String str2 = this.f6836i;
+            String str2 = this.f6844i;
             int hashCode = str2.hashCode();
             if (hashCode == 96323) {
                 if (str2.equals("aac")) {
@@ -123,7 +123,7 @@ public class a {
                     if (c2 == 0) {
                         return;
                     }
-                    boolean z = f6827j;
+                    boolean z = f6835j;
                     MediaCodecInfo d2 = d("audio/mp4a-latm");
                     MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", i3, i2);
                     createAudioFormat.setInteger("bitrate", i4);
@@ -131,12 +131,12 @@ public class a {
                     createAudioFormat.setInteger("max-input-size", 102400);
                     if (d2 != null) {
                         MediaCodec createByCodecName = MediaCodec.createByCodecName(d2.getName());
-                        this.f6828a = createByCodecName;
+                        this.f6836a = createByCodecName;
                         createByCodecName.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
-                        this.f6828a.start();
-                        this.f6829b = this.f6828a.getInputBuffers();
-                        this.f6830c = this.f6828a.getOutputBuffers();
-                        this.f6831d = new MediaCodec.BufferInfo();
+                        this.f6836a.start();
+                        this.f6837b = this.f6836a.getInputBuffers();
+                        this.f6838c = this.f6836a.getOutputBuffers();
+                        this.f6839d = new MediaCodec.BufferInfo();
                         return;
                     }
                     return;
@@ -200,7 +200,7 @@ public class a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            int i2 = this.f6834g;
+            int i2 = this.f6842g;
             if (i2 == 0) {
                 return 0L;
             }
@@ -253,61 +253,61 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
-            if (this.f6828a != null && bArr != null) {
-                boolean z = f6827j;
-                int dequeueInputBuffer = this.f6828a.dequeueInputBuffer(-1L);
+            if (this.f6836a != null && bArr != null) {
+                boolean z = f6835j;
+                int dequeueInputBuffer = this.f6836a.dequeueInputBuffer(-1L);
                 if (dequeueInputBuffer >= 0) {
-                    ByteBuffer byteBuffer = this.f6829b[dequeueInputBuffer];
+                    ByteBuffer byteBuffer = this.f6837b[dequeueInputBuffer];
                     byteBuffer.clear();
                     try {
                         byteBuffer.put(bArr);
                         byteBuffer.limit(bArr.length);
-                        this.f6828a.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, b(this.f6833f), 0);
-                        this.f6833f++;
+                        this.f6836a.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, b(this.f6841f), 0);
+                        this.f6841f++;
                     } catch (IllegalArgumentException | BufferOverflowException e2) {
-                        if (f6827j) {
+                        if (f6835j) {
                             e2.printStackTrace();
                         }
                         return bArr;
                     }
                 }
-                int dequeueOutputBuffer = this.f6828a.dequeueOutputBuffer(this.f6831d, 0L);
+                int dequeueOutputBuffer = this.f6836a.dequeueOutputBuffer(this.f6839d, 0L);
                 while (dequeueOutputBuffer >= 0) {
-                    MediaCodec.BufferInfo bufferInfo = this.f6831d;
+                    MediaCodec.BufferInfo bufferInfo = this.f6839d;
                     int i2 = bufferInfo.size;
-                    ByteBuffer byteBuffer2 = this.f6830c[dequeueOutputBuffer];
+                    ByteBuffer byteBuffer2 = this.f6838c[dequeueOutputBuffer];
                     try {
                         byteBuffer2.position(bufferInfo.offset);
-                        byteBuffer2.limit(this.f6831d.offset + i2);
-                        byte[] c2 = c(i2, 2, this.f6834g, this.f6835h);
+                        byteBuffer2.limit(this.f6839d.offset + i2);
+                        byte[] c2 = c(i2, 2, this.f6842g, this.f6843h);
                         try {
                             byteBuffer2.get(c2, 7, i2);
-                            byteBuffer2.position(this.f6831d.offset);
-                            this.f6832e.write(c2);
-                            this.f6828a.releaseOutputBuffer(dequeueOutputBuffer, false);
-                            dequeueOutputBuffer = this.f6828a.dequeueOutputBuffer(this.f6831d, 0L);
+                            byteBuffer2.position(this.f6839d.offset);
+                            this.f6840e.write(c2);
+                            this.f6836a.releaseOutputBuffer(dequeueOutputBuffer, false);
+                            dequeueOutputBuffer = this.f6836a.dequeueOutputBuffer(this.f6839d, 0L);
                         } catch (IOException | IllegalArgumentException | BufferUnderflowException e3) {
-                            if (f6827j) {
+                            if (f6835j) {
                                 e3.printStackTrace();
                             }
                             return bArr;
                         }
                     } catch (IllegalArgumentException e4) {
-                        if (f6827j) {
+                        if (f6835j) {
                             e4.printStackTrace();
                         }
                         return bArr;
                     }
                 }
-                bArr = this.f6832e.toByteArray();
+                bArr = this.f6840e.toByteArray();
                 try {
-                    this.f6832e.flush();
+                    this.f6840e.flush();
                 } catch (IOException e5) {
-                    if (f6827j) {
+                    if (f6835j) {
                         e5.printStackTrace();
                     }
                 }
-                this.f6832e.reset();
+                this.f6840e.reset();
             }
             return bArr;
         }
@@ -318,8 +318,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
-            if (this.f6828a != null && bArr != null) {
-                String str = this.f6836i;
+            if (this.f6836a != null && bArr != null) {
+                String str = this.f6844i;
                 char c2 = 65535;
                 int hashCode = str.hashCode();
                 if (hashCode != 96323) {
@@ -342,7 +342,7 @@ public class a {
                 }
                 return e(bArr);
             }
-            boolean z = f6827j;
+            boolean z = f6835j;
             return bArr;
         }
         return (byte[]) invokeL.objValue;

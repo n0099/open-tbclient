@@ -15,16 +15,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27941a;
+    public int f27961a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27942b;
+    public boolean f27962b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f27943c;
+    public b f27963c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f27944d;
+    public List<n> f27964d;
 
     public c(JSONObject jSONObject) {
         int length;
@@ -45,19 +45,19 @@ public class c {
         if (jSONObject == null) {
             return;
         }
-        this.f27941a = jSONObject.optInt("current_pn");
-        this.f27942b = jSONObject.optInt("has_more", 0) == 1;
+        this.f27961a = jSONObject.optInt("current_pn");
+        this.f27962b = jSONObject.optInt("has_more", 0) == 1;
         JSONObject optJSONObject = jSONObject.optJSONObject("main_comment");
         if (optJSONObject != null) {
-            this.f27943c = new b(optJSONObject);
+            this.f27963c = new b(optJSONObject);
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("sub_comment");
         if (optJSONArray == null || (length = optJSONArray.length()) <= 0) {
             return;
         }
-        this.f27944d = new ArrayList(length);
+        this.f27964d = new ArrayList(length);
         for (int i4 = 0; i4 < length; i4++) {
-            this.f27944d.add(new d(optJSONArray.optJSONObject(i4)));
+            this.f27964d.add(new d(optJSONArray.optJSONObject(i4)));
         }
     }
 }

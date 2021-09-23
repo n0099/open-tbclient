@@ -23,26 +23,26 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static d f16729g;
+    public static d f16739g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f16730a;
+    public Handler f16740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BroadcastReceiver f16731b;
+    public BroadcastReceiver f16741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ContentObserver f16732c;
+    public ContentObserver f16742c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<InterfaceC0808d> f16733d;
+    public ArrayList<InterfaceC0806d> f16743d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f16734e;
+    public Handler f16744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f16735f;
+    public Runnable f16745f;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -50,7 +50,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16736e;
+        public final /* synthetic */ d f16746e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -67,14 +67,14 @@ public class d {
                     return;
                 }
             }
-            this.f16736e = dVar;
+            this.f16746e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f16736e.h(false);
+                this.f16746e.h(false);
             }
         }
     }
@@ -118,7 +118,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f16737a;
+        public final /* synthetic */ d f16747a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(d dVar, Handler handler) {
@@ -138,22 +138,22 @@ public class d {
                     return;
                 }
             }
-            this.f16737a = dVar;
+            this.f16747a = dVar;
         }
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f16737a.f16734e.removeCallbacks(this.f16737a.f16735f);
-                this.f16737a.f16734e.postDelayed(this.f16737a.f16735f, 2000L);
+                this.f16747a.f16744e.removeCallbacks(this.f16747a.f16745f);
+                this.f16747a.f16744e.postDelayed(this.f16747a.f16745f, 2000L);
             }
         }
     }
 
     /* renamed from: c.a.r0.c4.k.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0808d {
+    public interface InterfaceC0806d {
         void onImageRefresh(boolean z);
     }
 
@@ -170,36 +170,36 @@ public class d {
                 return;
             }
         }
-        this.f16730a = new Handler(Looper.getMainLooper());
-        this.f16733d = new ArrayList<>();
-        this.f16734e = new Handler();
-        this.f16735f = new a(this);
+        this.f16740a = new Handler(Looper.getMainLooper());
+        this.f16743d = new ArrayList<>();
+        this.f16744e = new Handler();
+        this.f16745f = new a(this);
     }
 
     public static d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f16729g == null) {
+            if (f16739g == null) {
                 synchronized (d.class) {
-                    if (f16729g == null) {
+                    if (f16739g == null) {
                         d dVar = new d();
-                        f16729g = dVar;
+                        f16739g = dVar;
                         dVar.g(TbadkCoreApplication.getInst());
                     }
                 }
             }
-            return f16729g;
+            return f16739g;
         }
         return (d) invokeV.objValue;
     }
 
-    public void d(InterfaceC0808d interfaceC0808d) {
+    public void d(InterfaceC0806d interfaceC0806d) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, interfaceC0808d) == null) || interfaceC0808d == null || this.f16733d.contains(interfaceC0808d)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, interfaceC0806d) == null) || interfaceC0806d == null || this.f16743d.contains(interfaceC0806d)) {
             return;
         }
-        this.f16733d.add(interfaceC0808d);
+        this.f16743d.add(interfaceC0806d);
     }
 
     public void e() {
@@ -207,18 +207,18 @@ public class d {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             j();
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            inst.unregisterReceiver(this.f16731b);
-            inst.getContentResolver().unregisterContentObserver(this.f16732c);
-            this.f16734e.removeCallbacks(this.f16735f);
-            f16729g = null;
+            inst.unregisterReceiver(this.f16741b);
+            inst.getContentResolver().unregisterContentObserver(this.f16742c);
+            this.f16744e.removeCallbacks(this.f16745f);
+            f16739g = null;
         }
     }
 
     public final void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f16731b = new b(this);
-            this.f16732c = new c(this, this.f16730a);
+            this.f16741b = new b(this);
+            this.f16742c = new c(this, this.f16740a);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
             intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -226,15 +226,15 @@ public class d {
             intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
             intentFilter.addAction("android.intent.action.MEDIA_EJECT");
             intentFilter.addDataScheme("file");
-            context.registerReceiver(this.f16731b, intentFilter);
-            context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f16732c);
+            context.registerReceiver(this.f16741b, intentFilter);
+            context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f16742c);
         }
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            Iterator<InterfaceC0808d> it = this.f16733d.iterator();
+            Iterator<InterfaceC0806d> it = this.f16743d.iterator();
             while (it.hasNext()) {
                 it.next().onImageRefresh(z);
             }
@@ -248,22 +248,22 @@ public class d {
                 h(true);
                 return;
             }
-            this.f16734e.removeCallbacks(this.f16735f);
-            this.f16734e.postDelayed(this.f16735f, 2000L);
+            this.f16744e.removeCallbacks(this.f16745f);
+            this.f16744e.postDelayed(this.f16745f, 2000L);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f16733d.clear();
+            this.f16743d.clear();
         }
     }
 
-    public void k(InterfaceC0808d interfaceC0808d) {
+    public void k(InterfaceC0806d interfaceC0806d) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, interfaceC0808d) == null) && this.f16733d.contains(interfaceC0808d)) {
-            this.f16733d.remove(interfaceC0808d);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, interfaceC0806d) == null) && this.f16743d.contains(interfaceC0806d)) {
+            this.f16743d.remove(interfaceC0806d);
         }
     }
 }

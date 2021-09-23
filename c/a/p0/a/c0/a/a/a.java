@@ -97,7 +97,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends c.a.p0.a.c0
     public void S(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            boolean z = c.a.p0.a.c0.b.a.f4644h;
+            boolean z = c.a.p0.a.c0.b.a.f4652h;
             v.setBackgroundColor(0);
         }
     }
@@ -106,7 +106,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends c.a.p0.a.c0
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, v, m)) == null) {
-            if (c.a.p0.a.c0.b.a.f4644h) {
+            if (c.a.p0.a.c0.b.a.f4652h) {
                 String str = "renderConfirmType:" + m.L;
             }
             String str2 = m.L;
@@ -164,7 +164,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends c.a.p0.a.c0
     public void f0(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, v, m) == null) {
-            boolean z = c.a.p0.a.c0.b.a.f4644h;
+            boolean z = c.a.p0.a.c0.b.a.f4652h;
             Editable text = v.getText();
             int length = text != null ? text.length() : 0;
             int i2 = m.I;
@@ -178,7 +178,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends c.a.p0.a.c0
     public final void g0(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
-            boolean z = c.a.p0.a.c0.b.a.f4644h;
+            boolean z = c.a.p0.a.c0.b.a.f4652h;
             if (m.G >= 0) {
                 v.setFilters(new InputFilter[]{new InputFilter.LengthFilter(m.G)});
             }
@@ -189,7 +189,7 @@ public abstract class a<V extends SwanEditText, M extends b> extends c.a.p0.a.c0
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, v, m) == null) {
-            boolean z = c.a.p0.a.c0.b.a.f4644h;
+            boolean z = c.a.p0.a.c0.b.a.f4652h;
             Editable text = v.getText();
             int length = text != null ? text.length() : 0;
             int i3 = m.K;

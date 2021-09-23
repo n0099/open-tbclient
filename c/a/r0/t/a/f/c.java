@@ -15,7 +15,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f24893a;
+    public SharedPreferences f24915a;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public class c {
                 return;
             }
         }
-        this.f24893a = TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info", 0);
+        this.f24915a = TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info", 0);
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24893a.getString("splash", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24915a.getString("splash", "") : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            SharedPreferences.Editor edit = this.f24893a.edit();
+            SharedPreferences.Editor edit = this.f24915a.edit();
             edit.putString("splash", str);
             edit.commit();
         }

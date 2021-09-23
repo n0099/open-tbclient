@@ -25,29 +25,29 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f27914g;
+    public static final int f27934g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f27915h;
+    public static final int f27935h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity f27916a;
+    public BaseActivity f27936a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BlankView f27917b;
+    public BlankView f27937b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.j0.b f27918c;
+    public c.a.r0.j0.b f27938c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f27919d;
+    public NavigationBar f27939d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f27920e;
+    public e f27940e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27921f;
+    public boolean f27941f;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnTouchListener {
@@ -55,7 +55,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f27922e;
+        public final /* synthetic */ c f27942e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class c {
                     return;
                 }
             }
-            this.f27922e = cVar;
+            this.f27942e = cVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -80,7 +80,7 @@ public class c {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                this.f27922e.f27918c.c(motionEvent);
+                this.f27942e.f27938c.c(motionEvent);
                 return false;
             }
             return invokeLL.booleanValue;
@@ -93,7 +93,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f27923a;
+        public final /* synthetic */ c f27943a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -110,27 +110,27 @@ public class c {
                     return;
                 }
             }
-            this.f27923a = cVar;
+            this.f27943a = cVar;
         }
 
         @Override // c.a.r0.j0.a.b
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                this.f27923a.i();
+                this.f27943a.i();
             }
         }
 
         @Override // c.a.r0.j0.a.b
         public void b(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f27923a.f27920e == null || !this.f27923a.f27920e.c() || Math.abs(i3) <= c.f27915h) {
+            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f27943a.f27940e == null || !this.f27943a.f27940e.c() || Math.abs(i3) <= c.f27935h) {
                 return;
             }
-            if (this.f27923a.f27917b != null) {
-                this.f27923a.f27917b.setBackgroundResource(R.color.transparent);
+            if (this.f27943a.f27937b != null) {
+                this.f27943a.f27937b.setBackgroundResource(R.color.transparent);
             }
-            this.f27923a.f27916a.finish();
+            this.f27943a.f27936a.finish();
         }
 
         @Override // c.a.r0.j0.a.b
@@ -150,14 +150,14 @@ public class c {
 
     /* renamed from: c.a.r0.w0.w1.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1315c implements View.OnClickListener {
+    public class View$OnClickListenerC1313c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f27924e;
+        public final /* synthetic */ c f27944e;
 
-        public View$OnClickListenerC1315c(c cVar) {
+        public View$OnClickListenerC1313c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -172,14 +172,14 @@ public class c {
                     return;
                 }
             }
-            this.f27924e = cVar;
+            this.f27944e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f27924e.f27916a.finish();
+                this.f27944e.f27936a.finish();
             }
         }
     }
@@ -190,7 +190,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f27925a;
+        public final /* synthetic */ c f27945a;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -207,19 +207,19 @@ public class c {
                     return;
                 }
             }
-            this.f27925a = cVar;
+            this.f27945a = cVar;
         }
 
         @Override // com.baidu.tieba.frs.gamesubpb.view.BlankView.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f27925a.f27917b != null) {
-                    this.f27925a.f27917b.setVisibility(8);
+                if (this.f27945a.f27937b != null) {
+                    this.f27945a.f27937b.setVisibility(8);
                 }
-                this.f27925a.f27921f = false;
-                if (this.f27925a.f27920e != null) {
-                    this.f27925a.f27920e.b();
+                this.f27945a.f27941f = false;
+                if (this.f27945a.f27940e != null) {
+                    this.f27945a.f27940e.b();
                 }
             }
         }
@@ -247,8 +247,8 @@ public class c {
                 return;
             }
         }
-        f27914g = l.g(TbadkCoreApplication.getInst(), R.dimen.ds160);
-        f27915h = l.g(TbadkCoreApplication.getInst(), R.dimen.ds20);
+        f27934g = l.g(TbadkCoreApplication.getInst(), R.dimen.ds160);
+        f27935h = l.g(TbadkCoreApplication.getInst(), R.dimen.ds20);
     }
 
     public c(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
@@ -266,63 +266,63 @@ public class c {
                 return;
             }
         }
-        this.f27921f = false;
-        this.f27916a = baseActivity;
-        this.f27918c = new c.a.r0.j0.b(baseActivity.getPageContext().getPageActivity());
-        this.f27919d = navigationBar;
+        this.f27941f = false;
+        this.f27936a = baseActivity;
+        this.f27938c = new c.a.r0.j0.b(baseActivity.getPageContext().getPageActivity());
+        this.f27939d = navigationBar;
         navigationBar.setStatusBarVisibility(8);
         view.setOnTouchListener(new a(this));
-        this.f27918c.d(new b(this));
+        this.f27938c.d(new b(this));
     }
 
     public void g() {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27921f || (viewGroup = (ViewGroup) this.f27916a.findViewById(16908290)) == null || !(viewGroup.getParent() instanceof LinearLayout)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27941f || (viewGroup = (ViewGroup) this.f27936a.findViewById(16908290)) == null || !(viewGroup.getParent() instanceof LinearLayout)) {
             return;
         }
-        BlankView blankView = new BlankView(this.f27916a.getPageContext().getPageActivity());
-        this.f27917b = blankView;
+        BlankView blankView = new BlankView(this.f27936a.getPageContext().getPageActivity());
+        this.f27937b = blankView;
         blankView.setBackgroundResource(R.color.transparent);
-        ((LinearLayout) viewGroup.getParent()).addView(this.f27917b, 0, new LinearLayout.LayoutParams(-1, f27914g));
-        this.f27917b.setVisibility(0);
-        this.f27917b.setOnClickListener(new View$OnClickListenerC1315c(this));
-        this.f27917b.setScrollCallBack(new d(this));
-        this.f27916a.setExcludeHeight(f27914g);
-        this.f27921f = true;
+        ((LinearLayout) viewGroup.getParent()).addView(this.f27937b, 0, new LinearLayout.LayoutParams(-1, f27934g));
+        this.f27937b.setVisibility(0);
+        this.f27937b.setOnClickListener(new View$OnClickListenerC1313c(this));
+        this.f27937b.setScrollCallBack(new d(this));
+        this.f27936a.setExcludeHeight(f27934g);
+        this.f27941f = true;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27921f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27941f : invokeV.booleanValue;
     }
 
     public void i() {
         BlankView blankView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f27921f && this.f27919d != null && (blankView = this.f27917b) != null && blankView.getVisibility() == 0) {
-            this.f27919d.setStatusBarVisibility(0);
-            this.f27916a.setExcludeHeight(0);
-            e eVar = this.f27920e;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f27941f && this.f27939d != null && (blankView = this.f27937b) != null && blankView.getVisibility() == 0) {
+            this.f27939d.setStatusBarVisibility(0);
+            this.f27936a.setExcludeHeight(0);
+            e eVar = this.f27940e;
             if (eVar != null) {
                 eVar.a();
             }
-            this.f27917b.startScrollDissmiss();
+            this.f27937b.startScrollDissmiss();
         }
     }
 
     public void j(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f27920e = eVar;
+            this.f27940e = eVar;
         }
     }
 
     public void k(int i2) {
         BlankView blankView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (blankView = this.f27917b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (blankView = this.f27937b) == null) {
             return;
         }
         SkinManager.setBackgroundResource(blankView, i2);

@@ -28,16 +28,16 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7669a;
+        public final /* synthetic */ CallbackHandler f7677a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7670b;
+        public final /* synthetic */ UnitedSchemeEntity f7678b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f7671c;
+        public final /* synthetic */ String f7679c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ b f7672d;
+        public final /* synthetic */ b f7680d;
 
         public a(b bVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
@@ -54,17 +54,17 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f7672d = bVar;
-            this.f7669a = callbackHandler;
-            this.f7670b = unitedSchemeEntity;
-            this.f7671c = str;
+            this.f7680d = bVar;
+            this.f7677a = callbackHandler;
+            this.f7678b = unitedSchemeEntity;
+            this.f7679c = str;
         }
 
         @Override // c.a.p0.a.n2.b.d.b
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f7672d.k(i2, this.f7669a, this.f7670b, this.f7671c);
+                this.f7680d.k(i2, this.f7677a, this.f7678b, this.f7679c);
             }
         }
     }
@@ -143,7 +143,7 @@ public class b extends a0 {
             }
             try {
                 jSONObject.put("volume", f2);
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str2 = "NewVolume: " + f2;
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);

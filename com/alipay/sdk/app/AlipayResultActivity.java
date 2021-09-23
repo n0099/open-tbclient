@@ -7,7 +7,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.alipay.sdk.sys.a;
-import com.alipay.sdk.util.i;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ public class AlipayResultActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f35834a;
+    public static final ConcurrentHashMap<String, a> f35865a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -45,7 +44,7 @@ public class AlipayResultActivity extends Activity {
                 return;
             }
         }
-        f35834a = new ConcurrentHashMap<>();
+        f35865a = new ConcurrentHashMap<>();
     }
 
     public AlipayResultActivity() {
@@ -65,12 +64,12 @@ public class AlipayResultActivity extends Activity {
     private void a(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, bundle) == null) {
-            a remove = f35834a.remove(str);
+            a remove = f35865a.remove(str);
             if (remove == null) {
                 return;
             }
             try {
-                remove.a(bundle.getInt("endCode"), bundle.getString(i.f36095b), bundle.getString("result"));
+                remove.a(bundle.getInt("endCode"), bundle.getString("memo"), bundle.getString("result"));
             } finally {
                 finish();
             }
@@ -79,6 +78,7 @@ public class AlipayResultActivity extends Activity {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
+        Throwable th;
         JSONObject jSONObject;
         Bundle bundle2;
         Interceptable interceptable = $ic;
@@ -89,12 +89,12 @@ public class AlipayResultActivity extends Activity {
                 String stringExtra = intent.getStringExtra("session");
                 Bundle bundleExtra = intent.getBundleExtra("result");
                 String stringExtra2 = intent.getStringExtra("scene");
-                com.alipay.sdk.sys.a a2 = a.C1565a.a(stringExtra);
+                com.alipay.sdk.sys.a a2 = a.C1566a.a(stringExtra);
                 if (a2 == null) {
                     finish();
                     return;
                 }
-                com.alipay.sdk.app.statistic.a.b(a2, "biz", "BSPSession", stringExtra + "|" + SystemClock.elapsedRealtime());
+                com.alipay.sdk.app.statistic.a.a(a2, "biz", "BSPSession", stringExtra + "|" + SystemClock.elapsedRealtime());
                 if (TextUtils.equals("mqpSchemePay", stringExtra2)) {
                     a(stringExtra, bundleExtra);
                     return;
@@ -104,10 +104,10 @@ public class AlipayResultActivity extends Activity {
                         JSONObject jSONObject2 = new JSONObject(new String(Base64.decode(intent.getData().getQuery(), 2), "UTF-8"));
                         jSONObject = jSONObject2.getJSONObject("result");
                         stringExtra = jSONObject2.getString("session");
-                        com.alipay.sdk.app.statistic.a.b(a2, "biz", "BSPUriSession", stringExtra);
+                        com.alipay.sdk.app.statistic.a.a(a2, "biz", "BSPUriSession", stringExtra);
                         bundle2 = new Bundle();
-                    } catch (Throwable th) {
-                        th = th;
+                    } catch (Throwable th2) {
+                        th = th2;
                     }
                     try {
                         Iterator<String> keys = jSONObject.keys();
@@ -116,26 +116,26 @@ public class AlipayResultActivity extends Activity {
                             bundle2.putString(next, jSONObject.getString(next));
                         }
                         bundleExtra = bundle2;
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th3) {
+                        th = th3;
                         bundleExtra = bundle2;
                         com.alipay.sdk.app.statistic.a.a(a2, "biz", "BSPResEx", th);
-                        com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.an, th);
+                        com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.x0, th);
                         if (TextUtils.isEmpty(stringExtra)) {
                         }
-                        com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.q);
+                        com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f36068d);
                         finish();
                     }
                 }
                 if (TextUtils.isEmpty(stringExtra) && bundleExtra != null) {
-                    com.alipay.sdk.app.statistic.a.b(a2, "biz", com.alipay.sdk.app.statistic.b.P, "" + SystemClock.elapsedRealtime());
-                    com.alipay.sdk.app.statistic.a.b(a2, "biz", com.alipay.sdk.app.statistic.b.Q, bundleExtra.getInt("endCode", -1) + "|" + bundleExtra.getString(i.f36095b, "-"));
+                    com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.Z, "" + SystemClock.elapsedRealtime());
+                    com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.a0, bundleExtra.getInt("endCode", -1) + "|" + bundleExtra.getString("memo", "-"));
                     OpenAuthTask.a(stringExtra, 9000, StatHelper.SENSOR_OK, bundleExtra);
-                    com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.q);
+                    com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f36068d);
                     finish();
                     return;
                 }
-                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.q);
+                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f36068d);
                 finish();
             } catch (Throwable unused) {
                 finish();

@@ -75,7 +75,7 @@ public class d extends c.a.r0.a0.b<e> {
             return;
         }
         ViewGroup.LayoutParams layoutParams = this.n.getLayoutParams();
-        layoutParams.height = l.g(this.f15550g, eVar.f22676e);
+        layoutParams.height = l.g(this.f15559g, eVar.f22692e);
         this.n.setLayoutParams(layoutParams);
     }
 }

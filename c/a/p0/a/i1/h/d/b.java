@@ -17,13 +17,13 @@ public class b extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f6887c;
+    public a f6895c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f6888d;
+    public e f6896d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f6889e;
+    public d f6897e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(c.a.p0.a.c2.e eVar) {
@@ -83,22 +83,22 @@ public class b extends a0 {
                 c2 = 65535;
             }
             if (c2 == 0) {
-                if (this.f6887c == null) {
-                    this.f6887c = new a("/swanAPI/vrvideo/open");
+                if (this.f6895c == null) {
+                    this.f6895c = new a("/swanAPI/vrvideo/open");
                 }
-                c3 = this.f6887c.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                c3 = this.f6895c.c(context, unitedSchemeEntity, callbackHandler, eVar);
             } else if (c2 == 1) {
-                if (this.f6888d == null) {
-                    this.f6888d = new e("/swanAPI/vrvideo/update");
+                if (this.f6896d == null) {
+                    this.f6896d = new e("/swanAPI/vrvideo/update");
                 }
-                c3 = this.f6888d.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                c3 = this.f6896d.c(context, unitedSchemeEntity, callbackHandler, eVar);
             } else if (c2 != 2) {
                 c3 = false;
             } else {
-                if (this.f6889e == null) {
-                    this.f6889e = new d("/swanAPI/vrvideo/remove");
+                if (this.f6897e == null) {
+                    this.f6897e = new d("/swanAPI/vrvideo/remove");
                 }
-                c3 = this.f6889e.c(context, unitedSchemeEntity, callbackHandler, eVar);
+                c3 = this.f6897e.c(context, unitedSchemeEntity, callbackHandler, eVar);
             }
             return c3 || super.i(context, unitedSchemeEntity, callbackHandler, str, eVar);
         }

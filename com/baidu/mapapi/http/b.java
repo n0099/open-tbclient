@@ -14,7 +14,7 @@ public class b implements HostnameVerifier {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ HttpClient f41348a;
+    public final /* synthetic */ HttpClient f41410a;
 
     public b(HttpClient httpClient) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b implements HostnameVerifier {
                 return;
             }
         }
-        this.f41348a = httpClient;
+        this.f41410a = httpClient;
     }
 
     @Override // javax.net.ssl.HostnameVerifier

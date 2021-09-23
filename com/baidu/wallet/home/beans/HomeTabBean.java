@@ -22,7 +22,7 @@ public class HomeTabBean extends BaseBean<HomeTabResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f61256a;
+    public HashMap<String, String> f61369a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomeTabBean(Context context) {
@@ -58,7 +58,7 @@ public class HomeTabBean extends BaseBean<HomeTabResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            HashMap<String, String> hashMap = this.f61256a;
+            HashMap<String, String> hashMap = this.f61369a;
             if (hashMap != null) {
                 for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                     arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -81,7 +81,7 @@ public class HomeTabBean extends BaseBean<HomeTabResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return DomainConfig.getInstance().getAppHost() + WalletHomeBeanConstants.HOME_TAB_URL;
+            return DomainConfig.getInstance().getAppHost(this.tag) + WalletHomeBeanConstants.HOME_TAB_URL;
         }
         return (String) invokeV.objValue;
     }
@@ -89,7 +89,7 @@ public class HomeTabBean extends BaseBean<HomeTabResponse> {
     public void setParams(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, hashMap) == null) {
-            this.f61256a = hashMap;
+            this.f61369a = hashMap;
         }
     }
 }

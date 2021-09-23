@@ -44,7 +44,7 @@ public class a extends c.a.e.l.e.a<d, AdCardViewHolder> implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f3289a;
+        public final /* synthetic */ a f3290a;
 
         public C0067a(a aVar) {
             Interceptable interceptable = $ic;
@@ -61,15 +61,15 @@ public class a extends c.a.e.l.e.a<d, AdCardViewHolder> implements f {
                     return;
                 }
             }
-            this.f3289a = aVar;
+            this.f3290a = aVar;
         }
 
         @Override // c.a.r0.p1.o.a
         public void a(int i2, HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, hashMap) == null) {
-                a aVar = this.f3289a;
-                aVar.l0(aVar.n, this.f3289a.n.k());
+                a aVar = this.f3290a;
+                aVar.l0(aVar.n, this.f3290a.n.k());
             }
         }
     }
@@ -147,7 +147,7 @@ public class a extends c.a.e.l.e.a<d, AdCardViewHolder> implements f {
         }
         AdvertAppInfo w = dVar.w();
         int i3 = 2;
-        if (w != null && (iLegoAdvert = w.e4) != null && iLegoAdvert.forFree()) {
+        if (w != null && (iLegoAdvert = w.f4) != null && iLegoAdvert.forFree()) {
             i3 = 102;
         }
         e.b().d(g.b(w, i3, i2));

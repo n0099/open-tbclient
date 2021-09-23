@@ -30,7 +30,7 @@ public class k extends a {
                 return;
             }
         }
-        l = c.a.p0.a.k.f7077a;
+        l = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -85,10 +85,10 @@ public class k extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo, cVar)) == null) {
             PMSAppInfo g2 = g();
-            if (this.f6091c == null) {
+            if (this.f6099c == null) {
                 return false;
             }
-            return (pMSAppInfo.versionCode == g2.versionCode && TextUtils.equals(pMSAppInfo.appId, g2.appId) && !m(cVar, this.f6092d)) ? false : true;
+            return (pMSAppInfo.versionCode == g2.versionCode && TextUtils.equals(pMSAppInfo.appId, g2.appId) && !m(cVar, this.f6100d)) ? false : true;
         }
         return invokeLL.booleanValue;
     }

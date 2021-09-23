@@ -85,14 +85,14 @@ public class a extends c.a.r0.a0.b<h> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f15548e != i2) {
+            if (this.f15557e != i2) {
                 SkinManager.setBackgroundResource(j(), R.drawable.home_thread_card_item_bg);
                 SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.r, R.color.CAM_X0109);
                 SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(this.p, R.color.CAM_X0109);
             }
-            this.f15548e = i2;
+            this.f15557e = i2;
         }
     }
 
@@ -117,16 +117,16 @@ public class a extends c.a.r0.a0.b<h> {
     public void k(h hVar) {
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) || hVar == null || (metaData = hVar.f15579e) == null || metaData.getGodUserData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, hVar) == null) || hVar == null || (metaData = hVar.f15588e) == null || metaData.getGodUserData() == null) {
             return;
         }
         this.w = hVar;
-        this.v = hVar.f15579e;
-        s(hVar.f15581g);
-        this.o.setData(hVar.f15579e);
-        this.q.setText(hVar.f15579e.getName_show());
-        this.r.setText(hVar.f15579e.getGodUserData().getIntro());
-        this.n.n(hVar.f15579e);
+        this.v = hVar.f15588e;
+        s(hVar.f15590g);
+        this.o.setData(hVar.f15588e);
+        this.q.setText(hVar.f15588e.getName_show());
+        this.r.setText(hVar.f15588e.getGodUserData().getIntro());
+        this.n.n(hVar.f15588e);
         l(null, TbadkCoreApplication.getInst().getSkinType());
     }
 

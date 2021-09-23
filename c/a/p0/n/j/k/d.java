@@ -44,7 +44,7 @@ public class d extends c.a.p0.n.j.b {
                 jSONObject.put("version_code", c.a.p0.n.c.b().w(0));
                 jSONArray.put(jSONObject);
             } catch (JSONException e2) {
-                if (c.a.p0.n.c.f11856a) {
+                if (c.a.p0.n.c.f11864a) {
                     e2.printStackTrace();
                 }
             }
@@ -55,7 +55,7 @@ public class d extends c.a.p0.n.j.b {
                 jSONObject2.put("version_code", c.a.p0.n.c.b().w(1));
                 jSONArray.put(jSONObject2);
             } catch (JSONException e3) {
-                if (c.a.p0.n.c.f11856a) {
+                if (c.a.p0.n.c.f11864a) {
                     e3.printStackTrace();
                 }
             }
@@ -66,7 +66,7 @@ public class d extends c.a.p0.n.j.b {
                 jSONObject3.put("version_code", c.a.p0.n.c.b().k(0));
                 jSONArray.put(jSONObject3);
             } catch (JSONException e4) {
-                if (c.a.p0.n.c.f11856a) {
+                if (c.a.p0.n.c.f11864a) {
                     e4.printStackTrace();
                 }
             }
@@ -77,14 +77,14 @@ public class d extends c.a.p0.n.j.b {
                 jSONObject4.put("version_code", c.a.p0.n.c.b().k(1));
                 jSONArray.put(jSONObject4);
             } catch (JSONException e5) {
-                if (c.a.p0.n.c.f11856a) {
+                if (c.a.p0.n.c.f11864a) {
                     e5.printStackTrace();
                 }
             }
             try {
                 n = c.a.p0.n.g.a.h().n(10);
             } catch (JSONException e6) {
-                if (c.a.p0.n.c.f11856a) {
+                if (c.a.p0.n.c.f11864a) {
                     e6.printStackTrace();
                 }
             }
@@ -94,9 +94,9 @@ public class d extends c.a.p0.n.j.b {
             for (h hVar : n) {
                 JSONObject jSONObject5 = new JSONObject();
                 jSONObject5.put("type", "ddl");
-                jSONObject5.put("bundle_id", hVar.f11885g);
-                jSONObject5.put("version_code", hVar.f11887i);
-                jSONObject5.put("version_name", hVar.f11888j);
+                jSONObject5.put("bundle_id", hVar.f11893g);
+                jSONObject5.put("version_code", hVar.f11895i);
+                jSONObject5.put("version_name", hVar.f11896j);
                 jSONArray.put(jSONObject5);
             }
             return jSONArray;

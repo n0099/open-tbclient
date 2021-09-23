@@ -16,10 +16,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f4297a = 60000;
+    public static long f4304a = 60000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f4298b;
+    public static long f4305b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class b {
                 return;
             }
         }
-        f4298b = f4297a * 60;
+        f4305b = f4304a * 60;
     }
 
     public static void a(Context context, long j2) {

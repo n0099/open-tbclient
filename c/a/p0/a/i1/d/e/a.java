@@ -30,10 +30,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Activity f6752a;
+    public final Activity f6760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.w2.j.a f6753b;
+    public c.a.p0.a.w2.j.a f6761b;
 
     /* renamed from: c.a.p0.a.i1.d.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -42,10 +42,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f6754a;
+        public final /* synthetic */ String f6762a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f6755b;
+        public final /* synthetic */ a f6763b;
 
         public C0265a(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -62,16 +62,16 @@ public class a {
                     return;
                 }
             }
-            this.f6755b = aVar;
-            this.f6754a = str;
+            this.f6763b = aVar;
+            this.f6762a = str;
         }
 
         @Override // c.a.p0.a.z1.b.e.b.a
         public void a(c.a.p0.a.z1.b.e.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                a.d(bVar.c(), this.f6755b.f6752a, this.f6754a);
-                this.f6755b.f6753b.j();
+                a.d(bVar.c(), this.f6763b.f6760a, this.f6762a);
+                this.f6763b.f6761b.j();
             }
         }
     }
@@ -125,7 +125,7 @@ public class a {
                 return;
             }
         }
-        this.f6752a = activity;
+        this.f6760a = activity;
     }
 
     public static void d(int i2, Activity activity, String str) {
@@ -166,7 +166,7 @@ public class a {
                 jSONObject.put("type", "0");
                 jSONObject.put("index", "0");
             } catch (JSONException e2) {
-                if (k.f7077a) {
+                if (k.f7085a) {
                     e2.printStackTrace();
                 }
             }
@@ -219,24 +219,24 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (!e(str)) {
-                this.f6753b.e(6, h.swan_app_img_menu_save_image);
+                this.f6761b.e(6, h.swan_app_img_menu_save_image);
             }
-            this.f6753b.e(5, h.swan_app_img_menu_share_image);
+            this.f6761b.e(5, h.swan_app_img_menu_share_image);
         }
     }
 
     public void j(View view, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, str) == null) {
-            c.a.p0.a.w2.j.a aVar = this.f6753b;
+            c.a.p0.a.w2.j.a aVar = this.f6761b;
             if (aVar != null && aVar.n()) {
-                this.f6753b.j();
+                this.f6761b.j();
             }
             c.a.p0.a.w2.j.a aVar2 = new c.a.p0.a.w2.j.a(view);
-            this.f6753b = aVar2;
+            this.f6761b = aVar2;
             aVar2.r(new C0265a(this, str));
             c(str);
-            this.f6753b.t();
+            this.f6761b.t();
         }
     }
 }

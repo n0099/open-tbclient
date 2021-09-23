@@ -21,19 +21,19 @@ public class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<String> f79301a;
+    public final Set<String> f79620a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final n.b f79302b;
+    public final n.b f79621b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final n.a f79303c;
+    public final n.a f79622c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f79304d;
+    public boolean f79623d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f79305e;
+    public boolean f79624e;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -41,16 +41,16 @@ public class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f79306e;
+        public final /* synthetic */ Context f79625e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f79307f;
+        public final /* synthetic */ String f79626f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f79308g;
+        public final /* synthetic */ String f79627g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ o f79309h;
+        public final /* synthetic */ o f79628h;
 
         public a(o oVar, Context context, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -67,10 +67,10 @@ public class o {
                     return;
                 }
             }
-            this.f79309h = oVar;
-            this.f79306e = context;
-            this.f79307f = str;
-            this.f79308g = str2;
+            this.f79628h = oVar;
+            this.f79625e = context;
+            this.f79626f = str;
+            this.f79627g = str2;
         }
 
         @Override // java.lang.Runnable
@@ -78,7 +78,7 @@ public class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f79309h.g(this.f79306e, this.f79307f, this.f79308g);
+                    this.f79628h.g(this.f79625e, this.f79626f, this.f79627g);
                     throw null;
                 } catch (UnsatisfiedLinkError unused) {
                     throw null;
@@ -104,9 +104,9 @@ public class o {
         }
         q qVar = new q();
         l lVar = new l();
-        this.f79301a = new HashSet();
-        this.f79302b = qVar;
-        this.f79303c = lVar;
+        this.f79620a = new HashSet();
+        this.f79621b = qVar;
+        this.f79622c = lVar;
     }
 
     public File a(Context context) {
@@ -119,7 +119,7 @@ public class o {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2)) == null) {
-            String d2 = ((q) this.f79302b).d(str);
+            String d2 = ((q) this.f79621b).d(str);
             if (n.b(str2)) {
                 return new File(a(context), d2);
             }
@@ -163,36 +163,36 @@ public class o {
     public final void g(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, context, str, str2) == null) {
-            if (this.f79301a.contains(str) && !this.f79304d) {
+            if (this.f79620a.contains(str) && !this.f79623d) {
                 String.format(Locale.US, "%s already loaded previously!", str);
                 return;
             }
             try {
-                ((q) this.f79302b).a(str);
-                this.f79301a.add(str);
+                ((q) this.f79621b).a(str);
+                this.f79620a.add(str);
                 String.format(Locale.US, "%s (%s) was loaded normally!", str, str2);
             } catch (UnsatisfiedLinkError e2) {
                 String.format(Locale.US, "Loading the library normally failed: %s", Log.getStackTraceString(e2));
                 String.format(Locale.US, "%s (%s) was not loaded normally, re-linking...", str, str2);
                 File b2 = b(context, str, str2);
-                if (!b2.exists() || this.f79304d) {
-                    if (this.f79304d) {
+                if (!b2.exists() || this.f79623d) {
+                    if (this.f79623d) {
                         String.format(Locale.US, "Forcing a re-link of %s (%s)...", str, str2);
                     }
                     File a2 = a(context);
                     File b3 = b(context, str, str2);
-                    File[] listFiles = a2.listFiles(new p(this, ((q) this.f79302b).d(str)));
+                    File[] listFiles = a2.listFiles(new p(this, ((q) this.f79621b).d(str)));
                     if (listFiles != null) {
                         for (File file : listFiles) {
-                            if (this.f79304d || !file.getAbsolutePath().equals(b3.getAbsolutePath())) {
+                            if (this.f79623d || !file.getAbsolutePath().equals(b3.getAbsolutePath())) {
                                 file.delete();
                             }
                         }
                     }
-                    ((l) this.f79303c).b(context, ((q) this.f79302b).b(), ((q) this.f79302b).d(str), b2, this);
+                    ((l) this.f79622c).b(context, ((q) this.f79621b).b(), ((q) this.f79621b).d(str), b2, this);
                 }
                 try {
-                    if (this.f79305e) {
+                    if (this.f79624e) {
                         w wVar = null;
                         try {
                             w wVar2 = new w(b2);
@@ -200,7 +200,7 @@ public class o {
                                 List<String> g2 = wVar2.g();
                                 wVar2.close();
                                 for (String str3 : g2) {
-                                    c(context, ((q) this.f79302b).e(str3), null, null);
+                                    c(context, ((q) this.f79621b).e(str3), null, null);
                                 }
                             } catch (Throwable th) {
                                 th = th;
@@ -214,8 +214,8 @@ public class o {
                     }
                 } catch (IOException unused) {
                 }
-                ((q) this.f79302b).c(b2.getAbsolutePath());
-                this.f79301a.add(str);
+                ((q) this.f79621b).c(b2.getAbsolutePath());
+                this.f79620a.add(str);
                 String.format(Locale.US, "%s (%s) was re-linked!", str, str2);
             }
         }

@@ -16,13 +16,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5206a;
+    public static final String f5214a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5207b;
+    public static final String f5215b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5208c;
+    public static final String f5216c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,9 +38,9 @@ public class b {
                 return;
             }
         }
-        f5206a = "__localDebug__" + File.separator + "master.js";
-        f5207b = "__localDebug__" + File.separator + "main.js";
-        f5208c = "__localDebug__" + File.separator + "slave.js";
+        f5214a = "__localDebug__" + File.separator + "master.js";
+        f5215b = "__localDebug__" + File.separator + "main.js";
+        f5216c = "__localDebug__" + File.separator + "slave.js";
     }
 
     public static e.g a(c.a.p0.a.f1.e.b bVar) {
@@ -54,9 +54,9 @@ public class b {
             e.g gVar = new e.g();
             File file = new File(d2, "app.json");
             SwanAppConfigData b2 = c.a.p0.a.a2.n.d.b(d2.getAbsolutePath());
-            gVar.f4498a = d2.getPath() + File.separator;
-            gVar.f4499b = b2;
-            c.a.p0.a.e0.d.h("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.f4498a);
+            gVar.f4506a = d2.getPath() + File.separator;
+            gVar.f4507b = b2;
+            c.a.p0.a.e0.d.h("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.f4506a);
             return gVar;
         }
         return (e.g) invokeL.objValue;
@@ -98,7 +98,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            return d() + File.separator + f5206a;
+            return d() + File.separator + f5214a;
         }
         return (String) invokeV.objValue;
     }
@@ -107,7 +107,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            return d() + File.separator + f5208c;
+            return d() + File.separator + f5216c;
         }
         return (String) invokeV.objValue;
     }

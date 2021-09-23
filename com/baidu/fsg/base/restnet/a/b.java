@@ -1,6 +1,7 @@
 package com.baidu.fsg.base.restnet.a;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.fsg.base.restnet.RestRuntimeException;
 import com.baidu.fsg.base.restnet.rest.e;
 import com.baidu.fsg.base.utils.FileCopyUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,20 +30,25 @@ public class b extends a<byte[]> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.fsg.base.restnet.a.a
-    /* renamed from: c */
-    public byte[] b(Class<?> cls, e eVar) throws IOException {
+    public /* bridge */ /* synthetic */ byte[] b(Class cls, e eVar) throws IOException, RestRuntimeException {
+        return b2((Class<?>) cls, eVar);
+    }
+
+    @Override // com.baidu.fsg.base.restnet.a.a
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public byte[] b2(Class<?> cls, e eVar) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, eVar)) == null) {
-            long h2 = eVar.d().h();
-            if (h2 >= 0) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((int) h2);
-                FileCopyUtils.copy(eVar.c(), byteArrayOutputStream);
+            long i2 = eVar.a().i();
+            if (i2 >= 0) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((int) i2);
+                FileCopyUtils.copy(eVar.d(), byteArrayOutputStream);
                 return byteArrayOutputStream.toByteArray();
             }
-            return FileCopyUtils.copyToByteArray(eVar.c());
+            return FileCopyUtils.copyToByteArray(eVar.d());
         }
         return (byte[]) invokeLL.objValue;
     }

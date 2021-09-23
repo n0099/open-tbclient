@@ -25,19 +25,19 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b<CardFrsGameCompetitionItemView> f49949e;
+    public b<CardFrsGameCompetitionItemView> f50060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49950f;
+    public int f50061f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49951g;
+    public int f50062g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f49952h;
+    public int f50063h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ViewGroup.OnHierarchyChangeListener f49953i;
+    public final ViewGroup.OnHierarchyChangeListener f50064i;
 
     /* loaded from: classes7.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
@@ -45,7 +45,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardFrsGameCompetitionLayout f49954e;
+        public final /* synthetic */ CardFrsGameCompetitionLayout f50065e;
 
         public a(CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f49954e = cardFrsGameCompetitionLayout;
+            this.f50065e = cardFrsGameCompetitionLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -75,8 +75,8 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof CardFrsGameCompetitionItemView) && this.f49954e.f49949e != null) {
-                this.f49954e.f49949e.e((CardFrsGameCompetitionItemView) view2);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof CardFrsGameCompetitionItemView) && this.f50065e.f50060e != null) {
+                this.f50065e.f50060e.e((CardFrsGameCompetitionItemView) view2);
             }
         }
     }
@@ -99,8 +99,8 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49949e = null;
-        this.f49953i = new a(this);
+        this.f50060e = null;
+        this.f50064i = new a(this);
         b();
     }
 
@@ -124,7 +124,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
             if (i2 == 0) {
                 layoutParams.leftMargin = 0;
             } else {
-                layoutParams.leftMargin = this.f49950f;
+                layoutParams.leftMargin = this.f50061f;
             }
             cardFrsGameCompetitionItemView.setLayoutParams(layoutParams);
         }
@@ -143,7 +143,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
     public int getChildItemWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49952h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50063h : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -151,7 +151,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
-            setOnHierarchyChangeListener(this.f49953i);
+            setOnHierarchyChangeListener(this.f50064i);
         }
     }
 
@@ -169,13 +169,13 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f49952h = this.f49951g + this.f49950f;
+        this.f50063h = this.f50062g + this.f50061f;
         int i2 = 0;
         int childCount = getChildCount();
         while (i2 < childCount && i2 < list.size()) {
             if (getChildAt(i2) instanceof CardFrsGameCompetitionItemView) {
                 CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView = (CardFrsGameCompetitionItemView) getChildAt(i2);
-                c(cardFrsGameCompetitionItemView, i2, this.f49951g);
+                c(cardFrsGameCompetitionItemView, i2, this.f50062g);
                 d(cardFrsGameCompetitionItemView, list.get(i2));
             }
             i2++;
@@ -185,11 +185,11 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
             i2++;
         }
         while (i2 < list.size()) {
-            CardFrsGameCompetitionItemView b2 = this.f49949e.b();
+            CardFrsGameCompetitionItemView b2 = this.f50060e.b();
             if (b2.getParent() != null) {
                 ((ViewGroup) b2.getParent()).removeView(b2);
             }
-            c(b2, i2, this.f49951g);
+            c(b2, i2, this.f50062g);
             d(b2, list.get(i2));
             addView(b2);
             i2++;
@@ -199,14 +199,14 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
     public void setItemSpace(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f49950f = i2;
+            this.f50061f = i2;
         }
     }
 
     public void setItemWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f49951g = i2;
+            this.f50062g = i2;
         }
     }
 
@@ -219,7 +219,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
     public void setViewPool(b<CardFrsGameCompetitionItemView> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f49949e = bVar;
+            this.f50060e = bVar;
         }
     }
 
@@ -242,8 +242,8 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49949e = null;
-        this.f49953i = new a(this);
+        this.f50060e = null;
+        this.f50064i = new a(this);
         b();
     }
 
@@ -266,8 +266,8 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49949e = null;
-        this.f49953i = new a(this);
+        this.f50060e = null;
+        this.f50064i = new a(this);
         b();
     }
 }

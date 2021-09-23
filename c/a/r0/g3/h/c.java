@@ -36,34 +36,34 @@ public class c {
     public int C;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f18705a;
+    public LinearLayout f18714a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f18706b;
+    public final View f18715b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final View f18707c;
+    public final View f18716c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewPager f18708d;
+    public ViewPager f18717d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f18709e;
+    public LinearLayout f18718e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f18710f;
+    public NavigationBar f18719f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18711g;
+    public TextView f18720g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f18712h;
+    public ImageView f18721h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdListView f18713i;
+    public BdListView f18722i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdListView f18714j;
+    public BdListView f18723j;
     public TextView k;
     public TextView l;
     public LinearLayout m;
@@ -87,7 +87,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18715e;
+        public final /* synthetic */ c f18724e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class c {
                     return;
                 }
             }
-            this.f18715e = cVar;
+            this.f18724e = cVar;
         }
 
         @Override // android.view.View.OnKeyListener
@@ -112,8 +112,8 @@ public class c {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
-                if (i2 == 4 && this.f18715e.u.isShowing()) {
-                    c cVar = this.f18715e;
+                if (i2 == 4 && this.f18724e.u.isShowing()) {
+                    c cVar = this.f18724e;
                     c.a.e.e.m.g.d(cVar.u, cVar.w.getPageContext().getPageActivity());
                     return false;
                 }
@@ -129,7 +129,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18716e;
+        public final /* synthetic */ c f18725e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public class c {
                     return;
                 }
             }
-            this.f18716e = cVar;
+            this.f18725e = cVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -154,8 +154,8 @@ public class c {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (this.f18716e.u.isShowing()) {
-                    c cVar = this.f18716e;
+                if (this.f18725e.u.isShowing()) {
+                    c cVar = this.f18725e;
                     c.a.e.e.m.g.d(cVar.u, cVar.w.getPageContext().getPageActivity());
                     return false;
                 }
@@ -167,14 +167,14 @@ public class c {
 
     /* renamed from: c.a.r0.g3.h.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0906c implements PopupWindow.OnDismissListener {
+    public class C0904c implements PopupWindow.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18717e;
+        public final /* synthetic */ c f18726e;
 
-        public C0906c(c cVar) {
+        public C0904c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,14 +189,14 @@ public class c {
                     return;
                 }
             }
-            this.f18717e = cVar;
+            this.f18726e = cVar;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18717e.B = false;
+                this.f18726e.B = false;
             }
         }
     }
@@ -218,18 +218,18 @@ public class c {
         }
         this.B = false;
         this.C = 0;
-        this.f18705a = (LinearLayout) forumListActivity.findViewById(R.id.forum_list_root);
+        this.f18714a = (LinearLayout) forumListActivity.findViewById(R.id.forum_list_root);
         ViewPager viewPager = (ViewPager) forumListActivity.findViewById(R.id.view_pager);
-        this.f18708d = viewPager;
+        this.f18717d = viewPager;
         viewPager.setOnPageChangeListener(forumListActivity);
-        this.f18709e = (LinearLayout) forumListActivity.findViewById(R.id.tab_strip);
+        this.f18718e = (LinearLayout) forumListActivity.findViewById(R.id.tab_strip);
         NavigationBar navigationBar = (NavigationBar) forumListActivity.findViewById(R.id.view_navigation_bar);
-        this.f18710f = navigationBar;
+        this.f18719f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        LinearLayout linearLayout = (LinearLayout) this.f18710f.setTitleView(R.layout.nb_item_forum_list, (View.OnClickListener) null);
+        LinearLayout linearLayout = (LinearLayout) this.f18719f.setTitleView(R.layout.nb_item_forum_list, (View.OnClickListener) null);
         this.z = linearLayout;
-        this.f18711g = (TextView) linearLayout.findViewById(R.id.title_text);
-        this.f18712h = (ImageView) this.z.findViewById(R.id.forum_list_title_arrow);
+        this.f18720g = (TextView) linearLayout.findViewById(R.id.title_text);
+        this.f18721h = (ImageView) this.z.findViewById(R.id.forum_list_title_arrow);
         TextView textView = (TextView) forumListActivity.findViewById(R.id.tab_recommends);
         this.k = textView;
         textView.setOnClickListener(forumListActivity);
@@ -240,12 +240,12 @@ public class c {
         this.t = new g(forumListActivity.getPageContext());
         LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.m = linearLayout2;
-        this.f18706b = linearLayout2.findViewById(R.id.footer_background);
+        this.f18715b = linearLayout2.findViewById(R.id.footer_background);
         this.n = (TextView) this.m.findViewById(R.id.footer_text);
         this.o = (ImageView) this.m.findViewById(R.id.footer_icon);
         LinearLayout linearLayout3 = (LinearLayout) LayoutInflater.from(forumListActivity.getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.p = linearLayout3;
-        this.f18707c = linearLayout3.findViewById(R.id.footer_background);
+        this.f18716c = linearLayout3.findViewById(R.id.footer_background);
         this.q = (TextView) this.p.findViewById(R.id.footer_text);
         this.r = (ImageView) this.p.findViewById(R.id.footer_icon);
         this.A = (ProgressBar) forumListActivity.findViewById(R.id.loading);
@@ -273,7 +273,7 @@ public class c {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18709e.setVisibility(8);
+            this.f18718e.setVisibility(8);
         }
     }
 
@@ -285,15 +285,15 @@ public class c {
             if (progressBar != null) {
                 progressBar.setVisibility(8);
             }
-            ViewPager viewPager = this.f18708d;
+            ViewPager viewPager = this.f18717d;
             if (viewPager == null) {
                 return;
             }
-            if (viewPager.getCurrentItem() == 0 && (bdListView = this.f18713i) != null) {
+            if (viewPager.getCurrentItem() == 0 && (bdListView = this.f18722i) != null) {
                 bdListView.completePullRefreshPostDelayed(0L);
                 return;
             }
-            BdListView bdListView2 = this.f18714j;
+            BdListView bdListView2 = this.f18723j;
             if (bdListView2 != null) {
                 bdListView2.completePullRefreshPostDelayed(0L);
             }
@@ -303,7 +303,7 @@ public class c {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f18712h.setVisibility(4);
+            this.f18721h.setVisibility(4);
             this.z.setClickable(false);
             this.z.setOnClickListener(null);
         }
@@ -333,7 +333,7 @@ public class c {
                 c.a.e.e.m.g.l(this.u, this.z, 0 - e2, l.e(this.w.getPageContext().getPageActivity(), 0.0f));
                 this.v.setOnKeyListener(new a(this));
                 this.v.setOnTouchListener(new b(this));
-                this.u.setOnDismissListener(new C0906c(this));
+                this.u.setOnDismissListener(new C0904c(this));
                 return;
             }
             c.a.e.e.m.g.d(this.u, this.w.getPageContext().getPageActivity());
@@ -344,14 +344,14 @@ public class c {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f18709e.setVisibility(0);
+            this.f18718e.setVisibility(0);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f18712h.setVisibility(0);
+            this.f18721h.setVisibility(0);
         }
     }
 }

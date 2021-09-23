@@ -33,7 +33,7 @@ public class PersonIntroductionActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonIntroductionActivity f56001e;
+        public final /* synthetic */ PersonIntroductionActivity f56118e;
 
         public a(PersonIntroductionActivity personIntroductionActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class PersonIntroductionActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f56001e = personIntroductionActivity;
+            this.f56118e = personIntroductionActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56001e.finish();
+                this.f56118e.finish();
             }
         }
     }

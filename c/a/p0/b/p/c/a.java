@@ -38,7 +38,7 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f10225d;
+        public final /* synthetic */ a f10233d;
 
         /* renamed from: c.a.p0.b.p.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -47,10 +47,10 @@ public class a extends d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.b f10226e;
+            public final /* synthetic */ c.b f10234e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ C0499a f10227f;
+            public final /* synthetic */ C0499a f10235f;
 
             public C0500a(C0499a c0499a, c.b bVar) {
                 Interceptable interceptable = $ic;
@@ -67,8 +67,8 @@ public class a extends d {
                         return;
                     }
                 }
-                this.f10227f = c0499a;
-                this.f10226e = bVar;
+                this.f10235f = c0499a;
+                this.f10234e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -78,15 +78,15 @@ public class a extends d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                     if (c.a.p0.a.e2.c.d.h(iVar)) {
-                        this.f10226e.a(this.f10227f.f10225d.t());
+                        this.f10234e.a(this.f10235f.f10233d.t());
                         return;
                     }
                     int b2 = iVar.b();
                     String f2 = c.a.p0.a.e2.c.d.f(b2);
-                    if (d.f8727c) {
+                    if (d.f8735c) {
                         String str = "getCommonSysInfo failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX;
                     }
-                    this.f10226e.a(new c.a.p0.a.u.h.b(b2, f2));
+                    this.f10234e.a(new c.a.p0.a.u.h.b(b2, f2));
                 }
             }
         }
@@ -109,7 +109,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f10225d = aVar;
+            this.f10233d = aVar;
         }
 
         @Override // c.a.p0.a.u.c.c
@@ -120,7 +120,7 @@ public class a extends d {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
                 e Q = e.Q();
                 if (Q == null) {
-                    boolean z = d.f8727c;
+                    boolean z = d.f8735c;
                     return new c.a.p0.a.u.h.b(1001, "null swan runtime");
                 }
                 Q.T().g(c.a.p0.a.a2.d.g(), "mapp_i_get_common_sys_info", new C0500a(this, bVar));
@@ -134,7 +134,7 @@ public class a extends d {
         public c.a.p0.a.u.h.b e(@NonNull JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.f10225d.t() : (c.a.p0.a.u.h.b) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.f10233d.t() : (c.a.p0.a.u.h.b) invokeL.objValue;
         }
 
         @Override // c.a.p0.a.u.c.c
@@ -233,7 +233,7 @@ public class a extends d {
             String l = o0.l(str3, "BAIDUID");
             String l2 = o0.l(str3, "H_WISE_SIDS");
             String a2 = c.a.p0.u.b.b(AppRuntime.getAppContext()).a();
-            if (d.f8727c) {
+            if (d.f8735c) {
                 String str4 = "cuid = " + i2 + ", imei = " + r + ", zid = " + str + ", uid = " + str2 + ", baiduId = " + l + ", sid = " + l2 + ", uuid = " + a2;
             }
             try {
@@ -245,12 +245,12 @@ public class a extends d {
                 jSONObject.put("baidu_id", l);
                 jSONObject.put("sid", l2);
                 jSONObject.put("uuid", a2);
-                if (d.f8727c) {
+                if (d.f8735c) {
                     String str5 = "getCommonSysInfo success: " + jSONObject.toString();
                 }
                 return new c.a.p0.a.u.h.b(0, jSONObject);
             } catch (JSONException e2) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     e2.printStackTrace();
                 }
                 return new c.a.p0.a.u.h.b(1001, "result JSONException");

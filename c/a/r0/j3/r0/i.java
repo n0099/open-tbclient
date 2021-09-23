@@ -54,25 +54,25 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final BdUniqueId f21104a;
+    public static final BdUniqueId f21116a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<c.a.q0.s.f0.a> f21105b;
+    public static WeakReference<c.a.q0.s.f0.a> f21117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static PostWriteCallBackData f21106c;
+    public static PostWriteCallBackData f21118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static k0 f21107d;
+    public static k0 f21119d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static WriteData f21108e;
+    public static WriteData f21120e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static AntiData f21109f;
+    public static AntiData f21121f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Intent f21110g;
+    public static Intent f21122g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -81,16 +81,16 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f21111e;
+        public final /* synthetic */ Activity f21123e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarCoverTip f21112f;
+        public final /* synthetic */ NavigationBarCoverTip f21124f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f21113g;
+        public final /* synthetic */ long f21125g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f21114h;
+        public final /* synthetic */ long f21126h;
 
         public a(Activity activity, NavigationBarCoverTip navigationBarCoverTip, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -107,10 +107,10 @@ public class i {
                     return;
                 }
             }
-            this.f21111e = activity;
-            this.f21112f = navigationBarCoverTip;
-            this.f21113g = j2;
-            this.f21114h = j3;
+            this.f21123e = activity;
+            this.f21124f = navigationBarCoverTip;
+            this.f21125g = j2;
+            this.f21126h = j3;
         }
 
         @Override // android.view.View.OnClickListener
@@ -120,22 +120,22 @@ public class i {
                 h.a("发帖-成功： 开始分享 -- start");
                 view.setOnClickListener(null);
                 if (!c.a.e.e.p.j.z()) {
-                    c.a.e.e.p.l.L(this.f21111e, R.string.neterror);
-                    this.f21112f.hideTip();
+                    c.a.e.e.p.l.L(this.f21123e, R.string.neterror);
+                    this.f21124f.hideTip();
                     h.a("发帖-成功： 开始分享 -- 失败 -- 无网");
                     return;
                 }
                 int k = c.a.e.e.p.l.k(TbadkCoreApplication.getInst());
                 int i2 = c.a.e.e.p.l.i(TbadkCoreApplication.getInst());
-                float f2 = this.f21111e.getResources().getDisplayMetrics().density;
+                float f2 = this.f21123e.getResources().getDisplayMetrics().density;
                 int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                requestGetMyPostNetMessage.setTag(i.f21104a);
-                requestGetMyPostNetMessage.setParams(this.f21113g, this.f21114h, 0L, k, i2, f2, i3);
+                requestGetMyPostNetMessage.setTag(i.f21116a);
+                requestGetMyPostNetMessage.setParams(this.f21125g, this.f21126h, 0L, k, i2, f2, i3);
                 MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
                 h.a("发帖-成功： 开始分享 -- 发送GetMyPost");
-                i.j(this.f21111e);
-                this.f21112f.hideTip();
+                i.j(this.f21123e);
+                this.f21124f.hideTip();
                 h.a("发帖-成功： 开始分享 -- 关闭成功弹框");
             }
         }
@@ -147,10 +147,10 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteData f21115e;
+        public final /* synthetic */ WriteData f21127e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f21116f;
+        public final /* synthetic */ Activity f21128f;
 
         public b(WriteData writeData, Activity activity) {
             Interceptable interceptable = $ic;
@@ -167,8 +167,8 @@ public class i {
                     return;
                 }
             }
-            this.f21115e = writeData;
-            this.f21116f = activity;
+            this.f21127e = writeData;
+            this.f21128f = activity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -177,13 +177,13 @@ public class i {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 h.a("发帖-失败： 重新编辑 -- start");
                 view.setOnClickListener(null);
-                WriteData writeData = this.f21115e;
+                WriteData writeData = this.f21127e;
                 if (writeData != null && writeData.isWork()) {
-                    c.a.q0.s.m.c.f14024f.d(this.f21115e, this.f21116f);
+                    c.a.q0.s.m.c.f14021f.d(this.f21127e, this.f21128f);
                     return;
                 }
-                WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f21116f);
-                Intent intent = i.f21110g;
+                WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f21128f);
+                Intent intent = i.f21122g;
                 if (intent != null) {
                     newInstance.setIntent(intent);
                 }
@@ -251,7 +251,7 @@ public class i {
                 return;
             }
         }
-        f21104a = BdUniqueId.gen();
+        f21116a = BdUniqueId.gen();
         i();
     }
 
@@ -322,13 +322,13 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             h.a("发帖-成功： 开始分享 -- 隐藏loading -- start");
-            WeakReference<c.a.q0.s.f0.a> weakReference = f21105b;
+            WeakReference<c.a.q0.s.f0.a> weakReference = f21117b;
             if (weakReference == null || (aVar = weakReference.get()) == null) {
                 return;
             }
             aVar.h(false);
             h.a("发帖-成功： 开始分享 -- 隐藏loading -- end");
-            f21105b.clear();
+            f21117b.clear();
         }
     }
 
@@ -336,7 +336,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
             c cVar = new c(CmdConfigHttp.CMD_GET_MY_POST, 303111);
-            cVar.setTag(f21104a);
+            cVar.setTag(f21116a);
             cVar.getHttpMessageListener().setSelfListener(true);
             cVar.getSocketMessageListener().setSelfListener(true);
             MessageManager.getInstance().registerListener(cVar);
@@ -347,7 +347,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
             c.a.q0.s.f0.a aVar = new c.a.q0.s.f0.a(activity);
-            f21105b = new WeakReference<>(aVar);
+            f21117b = new WeakReference<>(aVar);
             aVar.h(true);
             h.a("发帖-成功： 开始分享 -- 显示loading");
         }
@@ -384,7 +384,7 @@ public class i {
             shareItem.J = valueOf;
             shareItem.p = Z;
             shareItem.K = s1;
-            shareItem.f48110f = true;
+            shareItem.f48218f = true;
             shareItem.E = 15;
             shareItem.M = f(d2Var);
             if (parse != null) {
@@ -413,10 +413,10 @@ public class i {
                 h.a("发帖-失败： 失败弹框 -- 无backData");
                 return;
             }
-            f21106c = postWriteCallBackData;
-            f21107d = k0Var;
-            f21108e = writeData;
-            f21109f = antiData;
+            f21118c = postWriteCallBackData;
+            f21119d = k0Var;
+            f21120e = writeData;
+            f21121f = antiData;
             h.a("发帖-失败： 失败弹框 -- start");
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity == null) {

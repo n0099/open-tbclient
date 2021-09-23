@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.ScaleAnimation;
-import c.a.r0.j3.w;
+import c.a.r0.j3.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -49,7 +49,7 @@ public class g extends c.a.r0.w0.k<h, FrsMemberHeaderViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f25245e;
+        public final /* synthetic */ g f25266e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class g extends c.a.r0.w0.k<h, FrsMemberHeaderViewHolder> {
                     return;
                 }
             }
-            this.f25245e = gVar;
+            this.f25266e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -75,21 +75,21 @@ public class g extends c.a.r0.w0.k<h, FrsMemberHeaderViewHolder> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Object tag = view.getTag();
                 if (tag instanceof Integer) {
-                    c.a.e.l.e.n z = this.f25245e.z(((Integer) tag).intValue());
+                    c.a.e.l.e.n z = this.f25266e.z(((Integer) tag).intValue());
                     if (z instanceof h) {
                         h hVar = (h) z;
                         if (view.getId() == R.id.like_btn) {
-                            if (ViewHelper.checkUpIsLogin(this.f25245e.o.getPageActivity())) {
+                            if (ViewHelper.checkUpIsLogin(this.f25266e.o.getPageActivity())) {
                                 if (!c.a.e.e.p.j.z()) {
-                                    this.f25245e.o.showToast(R.string.neterror);
+                                    this.f25266e.o.showToast(R.string.neterror);
                                     return;
                                 }
                                 String b2 = hVar.b();
-                                this.f25245e.x.L(hVar.c(), b2);
+                                this.f25266e.x.L(hVar.c(), b2);
                             }
                         } else if (view.getId() == R.id.user_level_name) {
                             String b3 = hVar.b();
-                            this.f25245e.o.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.f25245e.f2957e, hVar.c(), b3)));
+                            this.f25266e.o.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.f25266e.f2958e, hVar.c(), b3)));
                         }
                     }
                 }
@@ -103,7 +103,7 @@ public class g extends c.a.r0.w0.k<h, FrsMemberHeaderViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f25246a;
+        public final /* synthetic */ g f25267a;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -120,25 +120,25 @@ public class g extends c.a.r0.w0.k<h, FrsMemberHeaderViewHolder> {
                     return;
                 }
             }
-            this.f25246a = gVar;
+            this.f25267a = gVar;
         }
 
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (!(obj instanceof w) || this.f25246a.x.getErrorCode() != 0) {
-                    if (AntiHelper.m(this.f25246a.x.getErrorCode(), this.f25246a.x.getErrorString())) {
-                        AntiHelper.u(this.f25246a.o.getPageActivity(), this.f25246a.x.getErrorString());
+                if (!(obj instanceof x) || this.f25267a.x.getErrorCode() != 0) {
+                    if (AntiHelper.m(this.f25267a.x.getErrorCode(), this.f25267a.x.getErrorString())) {
+                        AntiHelper.u(this.f25267a.o.getPageActivity(), this.f25267a.x.getErrorString());
                         return;
                     } else {
-                        this.f25246a.o.showToast(this.f25246a.x.getErrorString());
+                        this.f25267a.o.showToast(this.f25267a.x.getErrorString());
                         return;
                     }
                 }
-                w wVar = (w) obj;
-                wVar.v(1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
+                x xVar = (x) obj;
+                xVar.v(1);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, xVar));
             }
         }
     }
@@ -194,7 +194,7 @@ public class g extends c.a.r0.w0.k<h, FrsMemberHeaderViewHolder> {
             if (this.x == null) {
                 C0();
             }
-            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.A);
+            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.A);
         }
         return (FrsMemberHeaderViewHolder) invokeL.objValue;
     }
@@ -207,7 +207,7 @@ public class g extends c.a.r0.w0.k<h, FrsMemberHeaderViewHolder> {
             if (hVar != null && hVar.d() != null) {
                 int parseColor = Color.parseColor("#56cfa1");
                 int color = SkinManager.getColor(R.color.CAM_X0109);
-                w d2 = hVar.d();
+                x d2 = hVar.d();
                 if (TbadkCoreApplication.isLogin()) {
                     if (d2.l() == 1) {
                         frsMemberHeaderViewHolder.mLikeButton.setVisibility(8);

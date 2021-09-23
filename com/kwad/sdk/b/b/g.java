@@ -15,13 +15,13 @@ public class g extends com.kwad.sdk.b.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f71243b;
+    public ImageView f71562b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f71244c;
+    public AdInfo f71563c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f71245d;
+    public com.kwad.sdk.contentalliance.detail.video.d f71564d;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -36,12 +36,12 @@ public class g extends com.kwad.sdk.b.a.a {
                 return;
             }
         }
-        this.f71245d = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.b.b.g.1
+        this.f71564d = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.b.b.g.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ g f71246a;
+            public final /* synthetic */ g f71565a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -58,14 +58,14 @@ public class g extends com.kwad.sdk.b.a.a {
                         return;
                     }
                 }
-                this.f71246a = this;
+                this.f71565a = this;
             }
 
             @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
             public void f() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f71246a.e();
+                    this.f71565a.e();
                 }
             }
         };
@@ -75,8 +75,8 @@ public class g extends com.kwad.sdk.b.a.a {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            KSImageLoader.loadImage(this.f71243b, com.kwad.sdk.core.response.b.a.f(this.f71244c), ((com.kwad.sdk.b.a.a) this).f71190a.f71194d);
-            this.f71243b.setVisibility(0);
+            KSImageLoader.loadImage(this.f71562b, com.kwad.sdk.core.response.b.a.f(this.f71563c), ((com.kwad.sdk.b.a.a) this).f71509a.f71513d);
+            this.f71562b.setVisibility(0);
         }
     }
 
@@ -85,9 +85,9 @@ public class g extends com.kwad.sdk.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f71244c = com.kwad.sdk.core.response.b.c.i(((com.kwad.sdk.b.a.a) this).f71190a.f71194d);
-            ((com.kwad.sdk.b.a.a) this).f71190a.f71196f.a(this.f71245d);
-            this.f71243b.setVisibility(8);
+            this.f71563c = com.kwad.sdk.core.response.b.c.i(((com.kwad.sdk.b.a.a) this).f71509a.f71513d);
+            ((com.kwad.sdk.b.a.a) this).f71509a.f71515f.a(this.f71564d);
+            this.f71562b.setVisibility(8);
         }
     }
 
@@ -96,7 +96,7 @@ public class g extends com.kwad.sdk.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.b();
-            this.f71243b = (ImageView) a(R.id.ksad_video_cover_image);
+            this.f71562b = (ImageView) a(R.id.ksad_video_cover_image);
         }
     }
 
@@ -105,7 +105,7 @@ public class g extends com.kwad.sdk.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.c();
-            ((com.kwad.sdk.b.a.a) this).f71190a.f71196f.b(this.f71245d);
+            ((com.kwad.sdk.b.a.a) this).f71509a.f71515f.b(this.f71564d);
         }
     }
 }

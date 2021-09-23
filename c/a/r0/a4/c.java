@@ -21,19 +21,19 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f15855a;
+    public String f15865a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15856b;
+    public String f15866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f15857c;
+    public boolean f15867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a f15858d;
+    public b.a f15868d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f15859e;
+    public CustomMessageListener f15869e;
 
     /* loaded from: classes3.dex */
     public class a implements b.a {
@@ -41,7 +41,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f15860a;
+        public final /* synthetic */ c f15870a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -58,19 +58,19 @@ public class c {
                     return;
                 }
             }
-            this.f15860a = cVar;
+            this.f15870a = cVar;
         }
 
         @Override // c.a.r0.a4.b.a
         public void a(boolean z, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
-                this.f15860a.f15857c = false;
+                this.f15870a.f15867c = false;
                 if (z) {
-                    this.f15860a.f15856b = str;
-                    c.a.q0.s.d0.b.j().x("key_video_splash_path", this.f15860a.f15856b);
-                    this.f15860a.f15855a = str2;
-                    c.a.q0.s.d0.b.j().x("key_video_splash_url", this.f15860a.f15855a);
+                    this.f15870a.f15866b = str;
+                    c.a.q0.s.d0.b.j().x("key_video_splash_path", this.f15870a.f15866b);
+                    this.f15870a.f15865a = str2;
+                    c.a.q0.s.d0.b.j().x("key_video_splash_url", this.f15870a.f15865a);
                 }
             }
         }
@@ -82,7 +82,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f15861a;
+        public final /* synthetic */ c f15871a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(c cVar, int i2) {
@@ -102,7 +102,7 @@ public class c {
                     return;
                 }
             }
-            this.f15861a = cVar;
+            this.f15871a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -115,7 +115,7 @@ public class c {
             String p = c.a.q0.s.d0.b.j().p("key_video_splash_config", "");
             l0 l0Var = new l0();
             l0Var.g(p);
-            this.f15861a.n(l0Var.f());
+            this.f15871a.n(l0Var.f());
         }
     }
 
@@ -132,9 +132,9 @@ public class c {
                 return;
             }
         }
-        this.f15857c = false;
-        this.f15858d = new a(this);
-        this.f15859e = new b(this, 2001371);
+        this.f15867c = false;
+        this.f15868d = new a(this);
+        this.f15869e = new b(this, 2001371);
         j();
     }
 
@@ -144,10 +144,10 @@ public class c {
             return;
         }
         FileHelper.deleteFileOrDir(new File(h()));
-        this.f15856b = null;
-        c.a.q0.s.d0.b.j().x("key_video_splash_path", this.f15856b);
-        this.f15855a = null;
-        c.a.q0.s.d0.b.j().x("key_video_splash_url", this.f15855a);
+        this.f15866b = null;
+        c.a.q0.s.d0.b.j().x("key_video_splash_path", this.f15866b);
+        this.f15865a = null;
+        c.a.q0.s.d0.b.j().x("key_video_splash_url", this.f15865a);
     }
 
     public final String h() {
@@ -162,39 +162,39 @@ public class c {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15856b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15866b : (String) invokeV.objValue;
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f15857c = false;
-            this.f15855a = c.a.q0.s.d0.b.j().p("key_video_splash_url", null);
-            this.f15856b = c.a.q0.s.d0.b.j().p("key_video_splash_path", null);
-            MessageManager.getInstance().registerListener(this.f15859e);
+            this.f15867c = false;
+            this.f15865a = c.a.q0.s.d0.b.j().p("key_video_splash_url", null);
+            this.f15866b = c.a.q0.s.d0.b.j().p("key_video_splash_path", null);
+            MessageManager.getInstance().registerListener(this.f15869e);
         }
     }
 
     public final boolean k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (k.isEmpty(str) || str.equals(this.f15855a)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (k.isEmpty(str) || str.equals(this.f15865a)) ? false : true : invokeL.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f15857c || k.isEmpty(i())) {
+            if (this.f15867c || k.isEmpty(i())) {
                 return false;
             }
             if (new File(i()).exists()) {
                 return true;
             }
-            this.f15856b = null;
-            c.a.q0.s.d0.b.j().x("key_video_splash_path", this.f15856b);
-            this.f15855a = null;
-            c.a.q0.s.d0.b.j().x("key_video_splash_url", this.f15855a);
+            this.f15866b = null;
+            c.a.q0.s.d0.b.j().x("key_video_splash_path", this.f15866b);
+            this.f15865a = null;
+            c.a.q0.s.d0.b.j().x("key_video_splash_url", this.f15865a);
             return false;
         }
         return invokeV.booleanValue;
@@ -203,15 +203,15 @@ public class c {
     public final void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f15857c = true;
-            new c.a.r0.a4.b(h(), str, this.f15858d).execute(new Void[0]);
+            this.f15867c = true;
+            new c.a.r0.a4.b(h(), str, this.f15868d).execute(new Void[0]);
         }
     }
 
     public final void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if ((c.a.q0.s.d0.b.j().k("key_video_splash_switch", 0) == 1) && !this.f15857c && k(str)) {
+            if ((c.a.q0.s.d0.b.j().k("key_video_splash_switch", 0) == 1) && !this.f15867c && k(str)) {
                 m(str);
             }
         }

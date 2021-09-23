@@ -11,7 +11,7 @@ public class n implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBDrawVideo f77110a;
+    public final /* synthetic */ PBDrawVideo f77429a;
 
     public n(PBDrawVideo pBDrawVideo) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class n implements Runnable {
                 return;
             }
         }
-        this.f77110a = pBDrawVideo;
+        this.f77429a = pBDrawVideo;
     }
 
     @Override // java.lang.Runnable
@@ -36,8 +36,8 @@ public class n implements Runnable {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PBDrawVideo pBDrawVideo = this.f77110a;
-            if (pBDrawVideo.f76842h == null || pBDrawVideo.f76843i == null || (view = pBDrawVideo.f76844j) == null) {
+            PBDrawVideo pBDrawVideo = this.f77429a;
+            if (pBDrawVideo.f77161h == null || pBDrawVideo.f77162i == null || (view = pBDrawVideo.f77163j) == null) {
                 return;
             }
             view.setVisibility(0);

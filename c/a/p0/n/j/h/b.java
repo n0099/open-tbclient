@@ -15,11 +15,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f12003b;
+    public static volatile b f12011b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f12004a;
+    public a f12012a;
 
     /* loaded from: classes3.dex */
     public static class a extends j {
@@ -58,21 +58,21 @@ public class b {
                 return;
             }
         }
-        this.f12004a = new a();
+        this.f12012a = new a();
     }
 
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12003b == null) {
+            if (f12011b == null) {
                 synchronized (b.class) {
-                    if (f12003b == null) {
-                        f12003b = new b();
+                    if (f12011b == null) {
+                        f12011b = new b();
                     }
                 }
             }
-            return f12003b;
+            return f12011b;
         }
         return (b) invokeV.objValue;
     }
@@ -80,13 +80,13 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12004a.getString("ceres_info", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12012a.getString("ceres_info", "0") : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12004a.getString("global_info", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12012a.getString("global_info", "0") : (String) invokeV.objValue;
     }
 
     public c.a.p0.n.j.h.a d(JSONObject jSONObject) {
@@ -96,7 +96,7 @@ public class b {
             if (jSONObject == null) {
                 return null;
             }
-            if (c.a.p0.n.c.f11856a) {
+            if (c.a.p0.n.c.f11864a) {
                 String str = "ceres info " + jSONObject.toString();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
@@ -114,7 +114,7 @@ public class b {
             if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
                 return null;
             }
-            this.f12004a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+            this.f12012a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
             return new c.a.p0.n.j.h.a(optJSONArray, optJSONObject3);
         }
         return (c.a.p0.n.j.h.a) invokeL.objValue;

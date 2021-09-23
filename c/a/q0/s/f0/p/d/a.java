@@ -17,6 +17,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -41,32 +42,31 @@ import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.HashSet;
-import tbclient.Item;
 /* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f13875c;
+    public static a f13871c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashSet<String> f13876a;
+    public final HashSet<String> f13872a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, String> f13877b;
+    public final HashMap<String, String> f13873b;
 
     /* renamed from: c.a.q0.s.f0.p.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0683a extends HttpMessageListener {
+    public class C0681a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13878a;
+        public final /* synthetic */ a f13874a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0683a(a aVar, int i2) {
+        public C0681a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -83,7 +83,7 @@ public class a {
                     return;
                 }
             }
-            this.f13878a = aVar;
+            this.f13874a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,13 +98,13 @@ public class a {
                 BdUniqueId buttonTag = ((ItemFetchUrlHttpMsg) itemFetchUrlHttpResponsedMsg.getOrginalMessage()).getButtonTag();
                 if (downloadData != null) {
                     if (itemFetchUrlHttpResponsedMsg.getError() != 0 || !itemFetchUrlHttpResponsedMsg.isSuccess() || k.isEmpty(itemFetchUrlHttpResponsedMsg.getDownloadUrl())) {
-                        this.f13878a.l(pkgName, downloadData.getUrl());
-                        if (c.a.q0.e0.a.k(downloadData)) {
+                        this.f13874a.l(pkgName, downloadData.getUrl());
+                        if (c.a.q0.e0.a.l(downloadData)) {
                             c.a.q0.s.f0.p.d.b.a(downloadData, 300);
                         }
                     } else {
                         downloadData.setUrl(itemFetchUrlHttpResponsedMsg.getDownloadUrl());
-                        this.f13878a.l(pkgName, itemFetchUrlHttpResponsedMsg.getDownloadUrl());
+                        this.f13874a.l(pkgName, itemFetchUrlHttpResponsedMsg.getDownloadUrl());
                         if (downloadData.getExtra() instanceof ItemDownloadExtraData) {
                             itemDownloadExtraData = (ItemDownloadExtraData) downloadData.getExtra();
                         } else {
@@ -116,7 +116,7 @@ public class a {
                             itemDownloadExtraData.appName = itemFetchUrlHttpResponsedMsg.getAppname();
                         }
                         c.a.q0.s.f0.p.d.c.f().m(itemDownloadExtraData.pkgName, itemDownloadExtraData.shouzhuSource);
-                        if (c.a.q0.e0.a.k(downloadData)) {
+                        if (c.a.q0.e0.a.l(downloadData)) {
                             c.a.q0.s.f0.p.d.b.a(downloadData, 300);
                             if (itemFetchUrlHttpResponsedMsg.isBussinessApk() && !k.isEmpty(itemFetchUrlHttpResponsedMsg.getRcvUrl())) {
                                 new c().execute(itemFetchUrlHttpResponsedMsg.getRcvUrl());
@@ -129,7 +129,7 @@ public class a {
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     }
                 }
-                this.f13878a.f13876a.remove(pkgName);
+                this.f13874a.f13872a.remove(pkgName);
             }
         }
     }
@@ -140,7 +140,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f13879a;
+        public final /* synthetic */ a f13875a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2) {
@@ -160,7 +160,7 @@ public class a {
                     return;
                 }
             }
-            this.f13879a = aVar;
+            this.f13875a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -171,9 +171,9 @@ public class a {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Intent) {
                     Intent intent = (Intent) data;
-                    String f2 = c.a.q0.e0.a.f(intent);
+                    String g2 = c.a.q0.e0.a.g(intent);
                     if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) || "android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
-                        this.f13879a.k(f2);
+                        this.f13875a.k(g2);
                     }
                 }
             }
@@ -201,7 +201,6 @@ public class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
         public Integer doInBackground(String... strArr) {
             InterceptResult invokeL;
             HttpURLConnection httpURLConnection;
@@ -275,8 +274,8 @@ public class a {
                 return;
             }
         }
-        this.f13876a = new HashSet<>();
-        this.f13877b = new HashMap<>();
+        this.f13872a = new HashSet<>();
+        this.f13873b = new HashMap<>();
         j();
         h();
         i();
@@ -287,40 +286,40 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f13875c == null) {
-                f13875c = new a();
+            if (f13871c == null) {
+                f13871c = new a();
             }
-            return f13875c;
+            return f13871c;
         }
         return (a) invokeV.objValue;
     }
 
-    public void d(Item item, DownloadData downloadData, String str, BdUniqueId bdUniqueId) {
+    public void d(ItemData itemData, DownloadData downloadData, String str, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, item, downloadData, str, bdUniqueId) == null) || downloadData == null || item == null || !(downloadData.getExtra() instanceof ItemDownloadExtraData)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, itemData, downloadData, str, bdUniqueId) == null) || downloadData == null || itemData == null || !(downloadData.getExtra() instanceof ItemDownloadExtraData)) {
             return;
         }
-        String g2 = g(item.apk_name);
+        String g2 = g(itemData.pkgName);
         if (k.isEmpty(g2)) {
             FileHelper.deleteFile(new File(TbadkCoreApplication.getInst().getApp().getCacheDir() + "/" + downloadData.getId() + "_" + downloadData.getName() + ".tmp"));
-            e(item, downloadData, str, bdUniqueId);
+            e(itemData, downloadData, str, bdUniqueId);
             return;
         }
         downloadData.setUrl(g2);
-        c.a.q0.e0.a.k(downloadData);
+        c.a.q0.e0.a.l(downloadData);
     }
 
-    public void e(Item item, DownloadData downloadData, String str, BdUniqueId bdUniqueId) {
+    public void e(ItemData itemData, DownloadData downloadData, String str, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, downloadData, str, bdUniqueId) == null) || item == null || downloadData == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, itemData, downloadData, str, bdUniqueId) == null) || itemData == null || downloadData == null) {
             return;
         }
-        if (this.f13876a.contains(item.apk_name)) {
+        if (this.f13872a.contains(itemData.pkgName)) {
             l.M(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getResources().getString(R.string.item_downloading_tip));
             return;
         }
-        this.f13876a.add(item.apk_name);
-        MessageManager.getInstance().sendMessage(new ItemFetchUrlHttpMsg(downloadData, item, str, bdUniqueId));
+        this.f13872a.add(itemData.pkgName);
+        MessageManager.getInstance().sendMessage(new ItemFetchUrlHttpMsg(downloadData, itemData, str, bdUniqueId));
     }
 
     public final String g(String str) {
@@ -328,11 +327,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             String str2 = "url_" + str;
-            if (this.f13877b.containsKey(str2)) {
-                return this.f13877b.get(str2);
+            if (this.f13873b.containsKey(str2)) {
+                return this.f13873b.get(str2);
             }
             String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str2, "");
-            this.f13877b.put(str2, string);
+            this.f13873b.put(str2, string);
             return string;
         }
         return (String) invokeL.objValue;
@@ -341,7 +340,7 @@ public class a {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(new C0683a(this, CmdConfigHttp.CMD_ITEM_FETCH_URL));
+            MessageManager.getInstance().registerListener(new C0681a(this, CmdConfigHttp.CMD_ITEM_FETCH_URL));
         }
     }
 
@@ -369,7 +368,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             String str2 = "url_" + str;
-            this.f13877b.remove(str2);
+            this.f13873b.remove(str2);
             SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
             edit.remove(str2);
             edit.commit();
@@ -380,10 +379,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             String str3 = "url_" + str;
-            if (StringHelper.equals(this.f13877b.get(str3), str2)) {
+            if (StringHelper.equals(this.f13873b.get(str3), str2)) {
                 return;
             }
-            this.f13877b.put(str3, str2);
+            this.f13873b.put(str3, str2);
             SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
             edit.putString(str3, str2);
             edit.commit();

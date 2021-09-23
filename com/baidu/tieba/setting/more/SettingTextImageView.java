@@ -26,19 +26,19 @@ public class SettingTextImageView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f56732e;
+    public Context f56849e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f56733f;
+    public LinearLayout f56850f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f56734g;
+    public TextView f56851g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HeadImageView f56735h;
+    public HeadImageView f56852h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f56736i;
+    public ImageView f56853i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
@@ -59,7 +59,7 @@ public class SettingTextImageView extends FrameLayout {
                 return;
             }
         }
-        this.f56732e = context;
+        this.f56849e = context;
         b();
         a(attributeSet);
         switchSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -68,36 +68,36 @@ public class SettingTextImageView extends FrameLayout {
     public final void a(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.f56732e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
+            TypedArray obtainStyledAttributes = this.f56849e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
             String string = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingText);
             int color = obtainStyledAttributes.getColor(R$styleable.TbSettingView_settingTextColor, -1);
             obtainStyledAttributes.recycle();
             if (string != null) {
-                this.f56734g.setText(string);
+                this.f56851g.setText(string);
             }
             if (color > -1) {
-                this.f56734g.setTextColor(color);
+                this.f56851g.setTextColor(color);
             }
-            this.f56733f.setClickable(false);
-            this.f56733f.setFocusable(false);
+            this.f56850f.setClickable(false);
+            this.f56850f.setFocusable(false);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.f56732e).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
-            this.f56733f = (LinearLayout) findViewById(R.id.container);
-            this.f56734g = (TextView) findViewById(R.id.text);
-            this.f56735h = (HeadImageView) findViewById(R.id.icon);
-            this.f56736i = (ImageView) findViewById(R.id.arrow);
+            LayoutInflater.from(this.f56849e).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
+            this.f56850f = (LinearLayout) findViewById(R.id.container);
+            this.f56851g = (TextView) findViewById(R.id.text);
+            this.f56852h = (HeadImageView) findViewById(R.id.icon);
+            this.f56853i = (ImageView) findViewById(R.id.arrow);
         }
     }
 
     public void displayImage() {
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (headImageView = this.f56735h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (headImageView = this.f56852h) == null) {
             return;
         }
         headImageView.setVisibility(0);
@@ -106,7 +106,7 @@ public class SettingTextImageView extends FrameLayout {
     public void hideImage() {
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (headImageView = this.f56735h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (headImageView = this.f56852h) == null) {
             return;
         }
         headImageView.setVisibility(8);
@@ -122,9 +122,9 @@ public class SettingTextImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
             if (z) {
-                this.f56735h.startLoad(str, 26, false);
+                this.f56852h.startLoad(str, 26, false);
             } else {
-                this.f56735h.startLoad(str, 12, false);
+                this.f56852h.startLoad(str, 12, false);
             }
         }
     }
@@ -132,7 +132,7 @@ public class SettingTextImageView extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f56734g.setText(str);
+            this.f56851g.setText(str);
         }
     }
 
@@ -140,9 +140,9 @@ public class SettingTextImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
-            SkinManager.setViewTextColor(this.f56734g, R.color.CAM_X0105, 1);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56736i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            this.f56735h.invalidate();
+            SkinManager.setViewTextColor(this.f56851g, R.color.CAM_X0105, 1);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56853i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            this.f56852h.invalidate();
         }
     }
 
@@ -164,7 +164,7 @@ public class SettingTextImageView extends FrameLayout {
                 return;
             }
         }
-        this.f56732e = context;
+        this.f56849e = context;
         b();
         switchSkinType(TbadkCoreApplication.getInst().getSkinType());
     }

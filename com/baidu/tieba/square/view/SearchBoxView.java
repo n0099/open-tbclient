@@ -29,22 +29,22 @@ public class SearchBoxView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f57021e;
+    public Activity f57138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57022f;
+    public String f57139f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f57023g;
+    public LinearLayout f57140g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f57024h;
+    public TextView f57141h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f57025i;
+    public TextView f57142i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f57026j;
+    public View.OnClickListener f57143j;
     public View.OnClickListener k;
 
     /* loaded from: classes7.dex */
@@ -53,7 +53,7 @@ public class SearchBoxView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchBoxView f57027e;
+        public final /* synthetic */ SearchBoxView f57144e;
 
         public a(SearchBoxView searchBoxView) {
             Interceptable interceptable = $ic;
@@ -70,14 +70,14 @@ public class SearchBoxView extends RelativeLayout {
                     return;
                 }
             }
-            this.f57027e = searchBoxView;
+            this.f57144e = searchBoxView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CaptureActivityConfig(this.f57027e.f57021e, 16003)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CaptureActivityConfig(this.f57144e.f57138e, 16003)));
             }
         }
     }
@@ -88,7 +88,7 @@ public class SearchBoxView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchBoxView f57028e;
+        public final /* synthetic */ SearchBoxView f57145e;
 
         public b(SearchBoxView searchBoxView) {
             Interceptable interceptable = $ic;
@@ -105,15 +105,15 @@ public class SearchBoxView extends RelativeLayout {
                     return;
                 }
             }
-            this.f57028e = searchBoxView;
+            this.f57145e = searchBoxView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == R.id.search_bg_layout) {
-                TiebaStatic.eventStat(this.f57028e.f57021e, this.f57028e.f57022f, PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.f57028e.f57021e)));
+                TiebaStatic.eventStat(this.f57145e.f57138e, this.f57145e.f57139f, PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.f57145e.f57138e)));
             }
         }
     }
@@ -136,11 +136,11 @@ public class SearchBoxView extends RelativeLayout {
                 return;
             }
         }
-        this.f57022f = "sq_tb_search";
-        this.f57023g = null;
-        this.f57024h = null;
-        this.f57025i = null;
-        this.f57026j = new a(this);
+        this.f57139f = "sq_tb_search";
+        this.f57140g = null;
+        this.f57141h = null;
+        this.f57142i = null;
+        this.f57143j = new a(this);
         this.k = new b(this);
         c(context);
     }
@@ -148,14 +148,14 @@ public class SearchBoxView extends RelativeLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f57021e = (Activity) context;
+            this.f57138e = (Activity) context;
             LayoutInflater.from(context).inflate(R.layout.widget_search_box, this);
-            this.f57023g = (LinearLayout) findViewById(R.id.search_bg_layout);
-            this.f57024h = (TextView) findViewById(R.id.search_bar_text);
-            this.f57023g.setOnClickListener(this.k);
+            this.f57140g = (LinearLayout) findViewById(R.id.search_bg_layout);
+            this.f57141h = (TextView) findViewById(R.id.search_bar_text);
+            this.f57140g.setOnClickListener(this.k);
             TextView textView = (TextView) findViewById(R.id.search_from_qr);
-            this.f57025i = textView;
-            textView.setOnClickListener(this.f57026j);
+            this.f57142i = textView;
+            textView.setOnClickListener(this.f57143j);
         }
     }
 
@@ -167,7 +167,7 @@ public class SearchBoxView extends RelativeLayout {
                 tbPageContext.getLayoutMode().k(i2 == 1);
                 tbPageContext.getLayoutMode().j(this);
             }
-            this.f57024h.setHintTextColor(SkinManager.getColor(R.color.common_color_10221));
+            this.f57141h.setHintTextColor(SkinManager.getColor(R.color.common_color_10221));
             SkinManager.setBackgroundColor(this, R.color.common_color_10192);
         }
     }
@@ -175,7 +175,7 @@ public class SearchBoxView extends RelativeLayout {
     public void setClickStatKey(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f57022f = str;
+            this.f57139f = str;
         }
     }
 
@@ -185,27 +185,27 @@ public class SearchBoxView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        this.f57023g.setOnClickListener(onClickListener);
+        this.f57140g.setOnClickListener(onClickListener);
     }
 
     public void setText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
-            this.f57024h.setHint(charSequence);
+            this.f57141h.setHint(charSequence);
         }
     }
 
     public void showQuickResponse() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f57025i.setVisibility(0);
+            this.f57142i.setVisibility(0);
         }
     }
 
     public void setText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f57024h.setHint(i2);
+            this.f57141h.setHint(i2);
         }
     }
 
@@ -228,11 +228,11 @@ public class SearchBoxView extends RelativeLayout {
                 return;
             }
         }
-        this.f57022f = "sq_tb_search";
-        this.f57023g = null;
-        this.f57024h = null;
-        this.f57025i = null;
-        this.f57026j = new a(this);
+        this.f57139f = "sq_tb_search";
+        this.f57140g = null;
+        this.f57141h = null;
+        this.f57142i = null;
+        this.f57143j = new a(this);
         this.k = new b(this);
         c(context);
     }
@@ -256,11 +256,11 @@ public class SearchBoxView extends RelativeLayout {
                 return;
             }
         }
-        this.f57022f = "sq_tb_search";
-        this.f57023g = null;
-        this.f57024h = null;
-        this.f57025i = null;
-        this.f57026j = new a(this);
+        this.f57139f = "sq_tb_search";
+        this.f57140g = null;
+        this.f57141h = null;
+        this.f57142i = null;
+        this.f57143j = new a(this);
         this.k = new b(this);
         c(context);
     }

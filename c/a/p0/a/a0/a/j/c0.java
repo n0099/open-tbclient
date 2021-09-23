@@ -15,7 +15,7 @@ public class c0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint.Join f4402a;
+    public Paint.Join f4410a;
 
     public c0() {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public class c0 extends a {
     public void a(b bVar, Canvas canvas) {
         Paint.Join join;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (join = this.f4402a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (join = this.f4410a) == null) {
             return;
         }
-        bVar.f4393g.setStrokeJoin(join);
+        bVar.f4401g.setStrokeJoin(join);
     }
 
     @Override // c.a.p0.a.a0.a.j.a
@@ -49,11 +49,11 @@ public class c0 extends a {
         }
         String optString = jSONArray.optString(0);
         if (TextUtils.equals(optString, "bevel")) {
-            this.f4402a = Paint.Join.BEVEL;
+            this.f4410a = Paint.Join.BEVEL;
         } else if (TextUtils.equals(optString, "round")) {
-            this.f4402a = Paint.Join.ROUND;
+            this.f4410a = Paint.Join.ROUND;
         } else if (TextUtils.equals(optString, "miter")) {
-            this.f4402a = Paint.Join.MITER;
+            this.f4410a = Paint.Join.MITER;
         }
     }
 }

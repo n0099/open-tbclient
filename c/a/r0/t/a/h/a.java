@@ -29,32 +29,29 @@ import org.json.JSONObject;
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: f  reason: collision with root package name */
-    public static a f24894f;
+    /* renamed from: e  reason: collision with root package name */
+    public static a f24916e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f24895a;
+    public int f24917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24896b;
+    public String f24918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24897c;
+    public boolean f24919c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<b> f24898d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f24899e;
+    public ArrayList<b> f24920d;
 
     /* renamed from: c.a.r0.t.a.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1154a implements Runnable {
+    public class RunnableC1152a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC1154a(a aVar) {
+        public RunnableC1152a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,19 +89,18 @@ public class a {
                 return;
             }
         }
-        this.f24898d = new ArrayList<>();
-        this.f24899e = false;
-        this.f24895a = c.a.q0.s.d0.b.j().k("splash_ad_strategy_key", 0);
+        this.f24920d = new ArrayList<>();
+        this.f24917a = c.a.q0.s.d0.b.j().k("splash_ad_strategy_key", 0);
     }
 
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f24894f == null) {
-                f24894f = new a();
+            if (f24916e == null) {
+                f24916e = new a();
             }
-            return f24894f;
+            return f24916e;
         }
         return (a) invokeV.objValue;
     }
@@ -112,75 +108,73 @@ public class a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<b> it = this.f24898d.iterator();
+            Iterator<b> it = this.f24920d.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null) {
                     next.destroy();
                 }
             }
-            this.f24898d.clear();
+            this.f24920d.clear();
         }
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24895a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24917a : invokeV.intValue;
     }
 
     public final synchronized void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f24899e) {
-                    return;
-                }
-                this.f24899e = true;
-                e eVar = new e();
-                c.a.r0.t.a.b bVar = new c.a.r0.t.a.b();
-                d dVar = new d();
-                c cVar = new c();
-                this.f24898d.clear();
-                this.f24898d.add(eVar);
-                if (g.a()) {
-                    this.f24898d.add(bVar);
-                }
-                if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    r0 = "BEAR ad currentStretagy: " + this.f24895a;
-                }
-                if (this.f24895a == 101) {
-                    this.f24898d.add(cVar);
-                    this.f24898d.add(dVar);
-                } else if (this.f24895a == 102) {
-                    this.f24898d.add(dVar);
-                    this.f24898d.add(cVar);
-                } else {
-                    if (this.f24895a != 103 && this.f24895a != 104) {
-                        if (this.f24895a == 105) {
-                            this.f24898d.add(cVar);
-                        } else if (this.f24895a == 106) {
-                            BdLog.d("splash nothing to add: " + this.f24895a);
-                        } else {
-                            this.f24898d.add(dVar);
-                        }
+                if (this.f24920d.isEmpty()) {
+                    e eVar = new e();
+                    c.a.r0.t.a.b bVar = new c.a.r0.t.a.b();
+                    d dVar = new d();
+                    c cVar = new c();
+                    this.f24920d.clear();
+                    this.f24920d.add(eVar);
+                    if (g.a()) {
+                        this.f24920d.add(bVar);
                     }
-                    String p = c.a.q0.s.d0.b.j().p("splash_ad_last_show_key", "");
-                    this.f24896b = p;
-                    if (k.isEmpty(p)) {
-                        if (this.f24895a == 103) {
-                            this.f24898d.add(cVar);
-                            this.f24898d.add(dVar);
-                        } else {
-                            this.f24898d.add(dVar);
-                            this.f24898d.add(cVar);
-                        }
-                    } else if (StringHelper.equals(this.f24896b, cVar.d())) {
-                        this.f24898d.add(dVar);
-                        this.f24898d.add(cVar);
+                    if (TbadkCoreApplication.getInst().isDebugMode()) {
+                        r0 = "BEAR ad currentStretagy: " + this.f24917a;
+                    }
+                    if (this.f24917a == 101) {
+                        this.f24920d.add(cVar);
+                        this.f24920d.add(dVar);
+                    } else if (this.f24917a == 102) {
+                        this.f24920d.add(dVar);
+                        this.f24920d.add(cVar);
                     } else {
-                        this.f24898d.add(cVar);
-                        this.f24898d.add(dVar);
+                        if (this.f24917a != 103 && this.f24917a != 104) {
+                            if (this.f24917a == 105) {
+                                this.f24920d.add(cVar);
+                            } else if (this.f24917a == 106) {
+                                BdLog.d("splash nothing to add: " + this.f24917a);
+                            } else {
+                                this.f24920d.add(dVar);
+                            }
+                        }
+                        String p = c.a.q0.s.d0.b.j().p("splash_ad_last_show_key", "");
+                        this.f24918b = p;
+                        if (k.isEmpty(p)) {
+                            if (this.f24917a == 103) {
+                                this.f24920d.add(cVar);
+                                this.f24920d.add(dVar);
+                            } else {
+                                this.f24920d.add(dVar);
+                                this.f24920d.add(cVar);
+                            }
+                        } else if (StringHelper.equals(this.f24918b, cVar.d())) {
+                            this.f24920d.add(dVar);
+                            this.f24920d.add(cVar);
+                        } else {
+                            this.f24920d.add(cVar);
+                            this.f24920d.add(dVar);
+                        }
                     }
                 }
             }
@@ -190,15 +184,15 @@ public class a {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreApplication.getInst().isNeedBearAd(this.f24895a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreApplication.getInst().isNeedBearAd(this.f24917a) : invokeV.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f24897c = false;
+            this.f24919c = false;
             d();
-            Iterator<b> it = this.f24898d.iterator();
+            Iterator<b> it = this.f24920d.iterator();
             while (it.hasNext()) {
                 it.next().a();
             }
@@ -209,9 +203,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
             synchronized (this) {
-                this.f24897c = false;
+                this.f24919c = false;
                 d();
-                Iterator<b> it = this.f24898d.iterator();
+                Iterator<b> it = this.f24920d.iterator();
                 while (it.hasNext()) {
                     it.next().c(dVar);
                 }
@@ -230,15 +224,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048583, this, aVar, z) == null) {
             synchronized (this) {
-                if (this.f24897c) {
+                if (this.f24919c) {
                     return;
                 }
-                Iterator<b> it = this.f24898d.iterator();
+                Iterator<b> it = this.f24920d.iterator();
                 while (it.hasNext()) {
                     b next = it.next();
                     if (next != null) {
                         if (next.b() == AdLoadState.SUCCEED) {
-                            this.f24897c = true;
+                            this.f24919c = true;
                             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.SPLASHACTIVITY_AD_CALLSHOW_STAMP_KEY);
                             next.show();
                             c.a.q0.s.z.a.a("homePage", -1L, 0, "logo_splash", 0, "", "splashType", k.isEmpty(next.d()) ? "bes" : next.d());
@@ -264,7 +258,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || k.isEmpty(str)) {
             return;
         }
-        this.f24896b = str;
+        this.f24918b = str;
         c.a.q0.s.d0.b.j().x("splash_ad_last_show_key", str);
     }
 
@@ -273,8 +267,8 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
             int e2 = c.a.e.e.m.b.e(jSONObject.optString("ad_sdk_priority"), 0);
             c.n(c.a.e.e.m.b.e(jSONObject.optString("bear_sid_type"), 0));
-            if ((e2 == 103 || e2 == 104) && e2 != this.f24895a) {
-                this.f24896b = "";
+            if ((e2 == 103 || e2 == 104) && e2 != this.f24917a) {
+                this.f24918b = "";
                 c.a.q0.s.d0.b.j().C("splash_ad_last_show_key");
             }
             c.a.q0.s.d0.b.j().v("splash_ad_strategy_key", e2);
@@ -282,10 +276,10 @@ public class a {
                 if (l.C()) {
                     c.a.r0.x0.a.i().l();
                 } else {
-                    c.a.e.e.m.e.a().post(new RunnableC1154a(this));
+                    c.a.e.e.m.e.a().post(new RunnableC1152a(this));
                 }
             }
-            this.f24895a = e2;
+            this.f24917a = e2;
         }
     }
 }

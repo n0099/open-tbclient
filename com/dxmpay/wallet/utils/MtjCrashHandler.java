@@ -22,7 +22,7 @@ public class MtjCrashHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile AtomicBoolean f69930a;
+    public static volatile AtomicBoolean f70249a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class MtjCrashHandler {
                 return;
             }
         }
-        f69930a = new AtomicBoolean(false);
+        f70249a = new AtomicBoolean(false);
     }
 
     public MtjCrashHandler() {
@@ -63,7 +63,7 @@ public class MtjCrashHandler {
             linkedList.add("com.baidu.wallet");
             linkedList.add(BuildConfig.APPLICATION_ID);
             linkedList.add("com.baidu.android.pay");
-            linkedList.add(a.f37748b);
+            linkedList.add(a.f37796b);
             linkedList.add("com.baidu.android.minipay");
             linkedList.add(com.baidu.android.lbspay.BuildConfig.LIBRARY_PACKAGE_NAME);
             linkedList.add("com.dxm.face");
@@ -71,6 +71,9 @@ public class MtjCrashHandler {
             linkedList.add("com.dxm.passport");
             linkedList.add("com.dxmpay.apollon");
             linkedList.add("com.dxmpay.wallet");
+            linkedList.add("com.dxmpay.ocr");
+            linkedList.add("com.dxmpay.nfc");
+            linkedList.add("com.dxm.ai");
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -92,7 +95,7 @@ public class MtjCrashHandler {
 
     public static void init(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && f69930a.compareAndSet(false, true) && b()) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && f70249a.compareAndSet(false, true) && b()) {
             try {
                 StatService.setDebugOn(false);
                 StatService.setOn(context, 16);

@@ -21,7 +21,7 @@ public class b extends c.a.p0.g.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f10953c;
+    public static final boolean f10961c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class b extends c.a.p0.g.f.a {
                 return;
             }
         }
-        f10953c = k.f7077a;
+        f10961c = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,7 +67,7 @@ public class b extends c.a.p0.g.f.a {
                 bVar.onFail(202, "params may be error");
                 return null;
             }
-            if (f10953c) {
+            if (f10961c) {
                 String str = "params is " + jSONObject.toString();
             }
             String optString = jSONObject.optString("apkId");

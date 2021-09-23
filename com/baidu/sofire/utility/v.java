@@ -1,47 +1,80 @@
 package com.baidu.sofire.utility;
 
 import android.content.Context;
-import android.util.Base64;
-import com.baidu.searchbox.track.ui.TrackUI;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes6.dex */
 public final class v {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f45574a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str, int i2, Throwable th) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1443541929, "Lcom/baidu/sofire/utility/v;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1443541929, "Lcom/baidu/sofire/utility/v;");
+        }
+    }
+
+    public static void a(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65537, null, context, str, i2, th) == null) {
-            try {
-                HashMap hashMap = new HashMap();
-                hashMap.put("0", str);
-                hashMap.put("1", Integer.valueOf(i2));
-                hashMap.put("2", Base64.encodeToString(com.baidu.sofire.b.a(th).getBytes(), 0).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
-                c.a(context, "1090102", (Map<String, Object>) hashMap, true);
-            } catch (Throwable unused) {
-                c.a();
+        if (!(interceptable == null || interceptable.invokeLZ(65537, null, context, z) == null) || context == null) {
+            return;
+        }
+        f45574a = z ? 1 : 2;
+        c.a(context, ".ffnpp", !z ? 1 : 0);
+        if (context != null) {
+            com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
+            a2.f45431d.putBoolean("s_a_pl", z);
+            if (Build.VERSION.SDK_INT >= 9) {
+                a2.f45431d.apply();
+            } else {
+                a2.f45431d.commit();
             }
         }
     }
 
-    public static void a(Context context, String str, int i2, int i3) {
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65536, null, context, str, i2, i3) == null) {
-            try {
-                HashMap hashMap = new HashMap();
-                hashMap.put("0", str);
-                hashMap.put("1", Integer.valueOf(i2));
-                if (i2 == 2) {
-                    hashMap.put("2", Integer.valueOf(i3));
-                }
-                c.a(context, "1090101", hashMap);
-            } catch (Throwable unused) {
-                c.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return false;
             }
+            int a2 = c.a(context);
+            if (a2 == 1 && (i2 = f45574a) != -1) {
+                return i2 == 1;
+            }
+            boolean z = com.baidu.sofire.h.a.a(context).f45430c.getBoolean("s_a_pl", false);
+            boolean z2 = !c.b(context, ".ffnpp");
+            if (z && !z2 && a2 == 1) {
+                c.a(context, ".ffnpp", 0);
+                z2 = true;
+            }
+            if (a2 == 1) {
+                if (z2) {
+                    f45574a = 1;
+                } else {
+                    f45574a = 2;
+                }
+            }
+            return z2;
         }
+        return invokeL.booleanValue;
     }
 }

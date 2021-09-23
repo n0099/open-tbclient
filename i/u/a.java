@@ -16,19 +16,19 @@ public final class a implements k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final i.n.a f78931f;
+    public static final i.n.a f79250f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<i.n.a> f78932e;
+    public final AtomicReference<i.n.a> f79251e;
 
     /* renamed from: i.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C2136a implements i.n.a {
+    public static class C2140a implements i.n.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C2136a() {
+        public C2140a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,7 @@ public final class a implements k {
                 return;
             }
         }
-        f78931f = new C2136a();
+        f79250f = new C2140a();
     }
 
     public a() {
@@ -79,7 +79,7 @@ public final class a implements k {
                 return;
             }
         }
-        this.f78932e = new AtomicReference<>();
+        this.f79251e = new AtomicReference<>();
     }
 
     public static a a() {
@@ -98,7 +98,7 @@ public final class a implements k {
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f78932e.get() == f78931f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f79251e.get() == f79250f : invokeV.booleanValue;
     }
 
     @Override // i.k
@@ -106,9 +106,9 @@ public final class a implements k {
         i.n.a andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            i.n.a aVar = this.f78932e.get();
-            i.n.a aVar2 = f78931f;
-            if (aVar == aVar2 || (andSet = this.f78932e.getAndSet(aVar2)) == null || andSet == f78931f) {
+            i.n.a aVar = this.f79251e.get();
+            i.n.a aVar2 = f79250f;
+            if (aVar == aVar2 || (andSet = this.f79251e.getAndSet(aVar2)) == null || andSet == f79250f) {
                 return;
             }
             andSet.call();
@@ -130,6 +130,6 @@ public final class a implements k {
                 return;
             }
         }
-        this.f78932e = new AtomicReference<>(aVar);
+        this.f79251e = new AtomicReference<>(aVar);
     }
 }

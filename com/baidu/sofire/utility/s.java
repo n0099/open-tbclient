@@ -1,673 +1,236 @@
 package com.baidu.sofire.utility;
 
-import android.app.ActivityManager;
+import android.accounts.NetworkErrorException;
 import android.content.Context;
-import android.os.Build;
-import android.os.PowerManager;
-import android.provider.Settings;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.HashSet;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Interceptor;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 /* loaded from: classes6.dex */
-public final class s {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long A = 0;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f45461a = null;
+public class s {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f45462b = 0;
+    public static final byte[] f45560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f45463c = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static long f45464d = 0;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f45465e = null;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static long f45466f = 0;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f45467g = null;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static long f45468h = 0;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static String f45469i = null;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static long f45470j = 0;
-    public static String k = null;
-    public static long l = 0;
-    public static String m = null;
-    public static long n = 0;
-    public static boolean o = true;
-    public static boolean p = true;
-    public static boolean q = true;
-    public static boolean r = true;
-    public static boolean s = true;
-    public static boolean t = true;
-    public static boolean u = true;
-    public static boolean v = true;
-    public static boolean w = true;
-    public static boolean x = true;
-    public static boolean y;
-    public static boolean z;
+    public static OkHttpClient f45561c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f45562a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1443542022, "Lcom/baidu/sofire/utility/s;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1443542022, "Lcom/baidu/sofire/utility/s;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1443542022, "Lcom/baidu/sofire/utility/s;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1443542022, "Lcom/baidu/sofire/utility/s;");
-        }
+        f45560b = new byte[1024];
     }
 
-    public static void a(Context context, JSONObject jSONObject) {
+    public s(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, context, jSONObject) == null) || context == null || jSONObject == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f45562a = context;
+    }
+
+    private OkHttpClient a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            if (f45561c == null) {
+                synchronized (s.class) {
+                    if (f45561c == null) {
+                        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                        builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
+                        builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
+                        builder.addInterceptor(new Interceptor(this) { // from class: com.baidu.sofire.utility.s.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            /* renamed from: a  reason: collision with root package name */
+                            public final /* synthetic */ s f45563a;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.f45563a = this;
+                            }
+
+                            @Override // okhttp3.Interceptor
+                            public final Response intercept(Interceptor.Chain chain) throws IOException {
+                                InterceptResult invokeL;
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, chain)) == null) {
+                                    System.currentTimeMillis();
+                                    Response proceed = chain.proceed(chain.request());
+                                    System.currentTimeMillis();
+                                    return proceed;
+                                }
+                                return (Response) invokeL.objValue;
+                            }
+                        });
+                        f45561c = builder.build();
+                    }
+                }
+            }
+            return f45561c;
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    private Request b(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, bArr)) == null) {
+            try {
+                MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
+                String str2 = c.g(this.f45562a)[0];
+                Request.Builder url = new Request.Builder().url(str);
+                if (bArr != null) {
+                    url.post(RequestBody.create(parse, bArr));
+                }
+                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + ab.a(this.f45562a) + "/3.5.8.8").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
+                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", q.a(e.b(this.f45562a))).build();
+            } catch (Throwable unused) {
+                c.a();
+                return null;
+            }
+        }
+        return (Request) invokeLL.objValue;
+    }
+
+    public final String a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
+            try {
+                if (u.m(this.f45562a)) {
+                    Response execute = a().newCall(b(str, bArr)).execute();
+                    int code = execute.code();
+                    if (code == 200) {
+                        return execute.body().string();
+                    }
+                    throw new NetworkErrorException(String.valueOf(code));
+                }
+                throw new NetworkErrorException("Not allow background connect.");
+            } catch (Throwable unused) {
+                c.a();
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final boolean a(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
+            try {
+                if (u.m(this.f45562a)) {
+                    Response execute = a().newCall(new Request.Builder().url(str).build()).execute();
+                    int code = execute.code();
+                    if (code == 200) {
+                        InputStream byteStream = execute.body().byteStream();
+                        boolean a2 = a(byteStream, file);
+                        byteStream.close();
+                        return a2;
+                    }
+                    throw new NetworkErrorException(String.valueOf(code));
+                }
+                throw new NetworkErrorException("Not allow background connect.");
+            } catch (Throwable unused) {
+                c.a();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean a(InputStream inputStream, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream, file)) != null) {
+            return invokeLL.booleanValue;
+        }
+        if (inputStream == null) {
+            return false;
         }
         try {
-            com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-            a2.f45340b.putString("p_s_p_c", jSONObject.toString());
-            a2.f45340b.commit();
-            a(jSONObject);
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
+            while (true) {
+                int read = inputStream.read(f45560b);
+                if (read != -1) {
+                    bufferedOutputStream.write(f45560b, 0, read);
+                    bufferedOutputStream.flush();
+                } else {
+                    bufferedOutputStream.flush();
+                    bufferedOutputStream.close();
+                    return true;
+                }
+            }
         } catch (Throwable unused) {
             c.a();
+            return false;
         }
     }
 
-    public static boolean b(Context context) {
+    public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? context != null && q && o(context) : invokeL.booleanValue;
-    }
-
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? context != null && r && o(context) : invokeL.booleanValue;
-    }
-
-    public static boolean d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? context != null && s && o(context) : invokeL.booleanValue;
-    }
-
-    public static boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? context != null && t && o(context) : invokeL.booleanValue;
-    }
-
-    public static String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (context != null) {
-                try {
-                    if (r && t.a(context)) {
-                        if (System.currentTimeMillis() - f45468h < 86400000) {
-                            return f45467g;
-                        }
-                        com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f45467g)) {
-                            f45467g = a2.z();
-                            f45468h = a2.f45339a.getLong("p_s_e_c_t_t", 0L);
-                            if (System.currentTimeMillis() - f45468h < 86400000) {
-                                return f45467g;
-                            }
-                        }
-                        if (!r.b(context)) {
-                            return f45467g;
-                        }
-                        if (!n(context)) {
-                            return f45467g;
-                        }
-                        String e2 = e.e(context);
-                        if (!TextUtils.isEmpty(e2)) {
-                            f45467g = e2;
-                            f45468h = System.currentTimeMillis();
-                            String str = f45467g;
-                            if (TextUtils.isEmpty(str)) {
-                                a2.f45340b.putString("p_s_e_c_t", "");
-                                a2.f45340b.commit();
-                            } else {
-                                a2.f45340b.putString("p_s_e_c_t", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                a2.f45340b.commit();
-                            }
-                            a2.g(f45468h);
-                        } else {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            f45468h = currentTimeMillis;
-                            a2.g(currentTimeMillis);
-                        }
-                        return f45467g;
-                    }
-                } catch (Throwable unused) {
-                    c.a();
-                    return "";
-                }
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context != null) {
-                try {
-                    if (q && t.a(context)) {
-                        if (System.currentTimeMillis() - f45466f < 86400000) {
-                            return f45465e;
-                        }
-                        com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f45467g)) {
-                            f45465e = a2.A();
-                            f45466f = a2.f45339a.getLong("p_s_s_c_t_t", 0L);
-                            if (System.currentTimeMillis() - f45466f < 86400000) {
-                                return f45465e;
-                            }
-                        }
-                        if (!n(context)) {
-                            return f45465e;
-                        }
-                        String d2 = e.d(context);
-                        if (!TextUtils.isEmpty(d2)) {
-                            f45465e = d2;
-                            f45466f = System.currentTimeMillis();
-                            String str = f45465e;
-                            if (TextUtils.isEmpty(str)) {
-                                a2.f45340b.putString("p_s_s_c_t", "");
-                                a2.f45340b.commit();
-                            } else {
-                                try {
-                                    a2.f45340b.putString("p_s_s_c_t", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                    a2.f45340b.commit();
-                                } catch (Throwable unused) {
-                                    c.a();
-                                }
-                            }
-                            a2.h(f45466f);
-                        } else {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            f45466f = currentTimeMillis;
-                            a2.h(currentTimeMillis);
-                        }
-                        return f45465e;
-                    }
-                } catch (Throwable unused2) {
-                    c.a();
-                    return "";
-                }
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            if (context != null) {
-                try {
-                    if (o && t.a(context)) {
-                        if (System.currentTimeMillis() - f45462b < 86400000) {
-                            return f45461a;
-                        }
-                        if ("com.baidu.input_huawei".equals(context.getPackageName())) {
-                            return "";
-                        }
-                        com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f45461a)) {
-                            f45461a = a2.x();
-                            f45462b = a2.f45339a.getLong("p_s_i_t_t", 0L);
-                            if (System.currentTimeMillis() - f45462b < 86400000) {
-                                return f45461a;
-                            }
-                        }
-                        if (!r.a(context)) {
-                            return f45461a;
-                        }
-                        if (!n(context)) {
-                            return f45461a;
-                        }
-                        String deviceId = Build.VERSION.SDK_INT < 29 ? ((TelephonyManager) context.getSystemService("phone")).getDeviceId() : "";
-                        if (!TextUtils.isEmpty(deviceId)) {
-                            f45461a = deviceId;
-                            f45462b = System.currentTimeMillis();
-                            String str = f45461a;
-                            if (TextUtils.isEmpty(str)) {
-                                a2.f45340b.putString("p_s_i_t", "");
-                                a2.f45340b.commit();
-                            } else {
-                                a2.f45340b.putString("p_s_i_t", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                a2.f45340b.commit();
-                            }
-                            a2.e(f45462b);
-                        } else {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            f45462b = currentTimeMillis;
-                            a2.e(currentTimeMillis);
-                        }
-                        return f45461a;
-                    }
-                } catch (Throwable unused) {
-                    c.a();
-                    return "";
-                }
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (context != null) {
-                try {
-                    if (p && t.a(context)) {
-                        if (System.currentTimeMillis() - f45464d < 86400000) {
-                            return f45463c;
-                        }
-                        com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f45463c)) {
-                            f45463c = a2.y();
-                            f45464d = a2.f45339a.getLong("p_s_a_i_t_t", 0L);
-                            if (System.currentTimeMillis() - f45464d < 86400000) {
-                                return f45463c;
-                            }
-                        }
-                        if (!n(context)) {
-                            return f45463c;
-                        }
-                        String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
-                        if (!TextUtils.isEmpty(string)) {
-                            f45463c = string;
-                            f45464d = System.currentTimeMillis();
-                            String str = f45463c;
-                            if (TextUtils.isEmpty(str)) {
-                                a2.f45340b.putString("p_s_a_i_t", "");
-                                a2.f45340b.commit();
-                            } else {
-                                a2.f45340b.putString("p_s_a_i_t", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                a2.f45340b.commit();
-                            }
-                            a2.f(f45464d);
-                        } else {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            f45464d = currentTimeMillis;
-                            a2.f(currentTimeMillis);
-                        }
-                        return f45463c;
-                    }
-                } catch (Throwable unused) {
-                    c.a();
-                    return "";
-                }
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            if (context != null) {
-                try {
-                    if (x && t.a(context)) {
-                        if (System.currentTimeMillis() - f45470j < 86400000) {
-                            return f45469i;
-                        }
-                        com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f45469i)) {
-                            f45469i = a2.B();
-                            f45470j = a2.f45339a.getLong("p_s_o_d_t_t", 0L);
-                            if (System.currentTimeMillis() - f45470j < 86400000) {
-                                return f45469i;
-                            }
-                        }
-                        if (!n(context)) {
-                            return f45469i;
-                        }
-                        String b2 = com.baidu.sofire.j.a.a().b();
-                        if (!TextUtils.isEmpty(b2)) {
-                            f45469i = b2;
-                            f45470j = System.currentTimeMillis();
-                            String str = f45469i;
-                            if (TextUtils.isEmpty(str)) {
-                                a2.f45340b.putString("p_s_o_d_t", "");
-                                a2.f45340b.commit();
-                            } else {
-                                try {
-                                    a2.f45340b.putString("p_s_o_d_t", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                    a2.f45340b.commit();
-                                } catch (Throwable unused) {
-                                    c.a();
-                                }
-                            }
-                            a2.i(f45470j);
-                        } else {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            f45470j = currentTimeMillis;
-                            a2.i(currentTimeMillis);
-                        }
-                        return f45469i;
-                    }
-                } catch (Throwable unused2) {
-                    c.a();
-                    return "";
-                }
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            if (context != null) {
-                try {
-                    if (u && t.a(context)) {
-                        if (System.currentTimeMillis() - l < 86400000) {
-                            return k;
-                        }
-                        com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(k)) {
-                            k = a2.C();
-                            l = a2.f45339a.getLong("p_s_s_o_t_t", 0L);
-                            if (System.currentTimeMillis() - l < 86400000) {
-                                return k;
-                            }
-                        }
-                        if (!n(context)) {
-                            return k;
-                        }
-                        String simOperatorName = ((TelephonyManager) context.getSystemService("phone")).getSimOperatorName();
-                        if (!TextUtils.isEmpty(simOperatorName)) {
-                            k = simOperatorName;
-                            l = System.currentTimeMillis();
-                            String str = k;
-                            if (TextUtils.isEmpty(str)) {
-                                a2.f45340b.putString("p_s_s_o_t", "");
-                                a2.f45340b.commit();
-                            } else {
-                                a2.f45340b.putString("p_s_s_o_t", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                a2.f45340b.commit();
-                            }
-                            a2.j(l);
-                        } else {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            l = currentTimeMillis;
-                            a2.j(currentTimeMillis);
-                        }
-                        return k;
-                    }
-                } catch (Throwable unused) {
-                    c.a();
-                    return "";
-                }
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            if (context != null) {
-                try {
-                    if (v && t.a(context)) {
-                        if (System.currentTimeMillis() - n < 86400000) {
-                            return m;
-                        }
-                        com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(m)) {
-                            m = a2.D();
-                            n = a2.f45339a.getLong("p_s_n_o_t_t", 0L);
-                            if (System.currentTimeMillis() - n < 86400000) {
-                                return m;
-                            }
-                        }
-                        if (!n(context)) {
-                            return m;
-                        }
-                        String networkOperator = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
-                        if (!TextUtils.isEmpty(networkOperator)) {
-                            m = networkOperator;
-                            n = System.currentTimeMillis();
-                            String str = m;
-                            if (TextUtils.isEmpty(str)) {
-                                a2.f45340b.putString("p_s_n_o_t", "");
-                                a2.f45340b.commit();
-                            } else {
-                                a2.f45340b.putString("p_s_n_o_t", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                a2.f45340b.commit();
-                            }
-                            a2.k(n);
-                        } else {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            n = currentTimeMillis;
-                            a2.k(currentTimeMillis);
-                        }
-                        return m;
-                    }
-                } catch (Throwable unused) {
-                    c.a();
-                    return "";
-                }
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            return w || n(context);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean n(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
-            if (System.currentTimeMillis() - A < 1000) {
-                return z;
-            }
-            z = p(context) && q(context);
-            A = System.currentTimeMillis();
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean o(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) ? t.a(context) && n(context) : invokeL.booleanValue;
-    }
-
-    public static boolean p(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
-            try {
-                return ((PowerManager) context.getSystemService("power")).isScreenOn();
-            } catch (Throwable unused) {
-                c.a();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean q(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
-            try {
-                if (Build.VERSION.SDK_INT < 21) {
-                    return r(context);
-                }
-                if (context != null) {
-                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                        if (runningAppProcessInfo.importance == 100 && runningAppProcessInfo.importanceReasonCode == 0 && runningAppProcessInfo.pkgList != null && runningAppProcessInfo.pkgList.length != 0 && Arrays.asList(runningAppProcessInfo.pkgList).contains(context.getPackageName())) {
-                            return true;
-                        }
-                    }
-                    return false;
-                }
-                return false;
-            } catch (Throwable unused) {
-                c.a();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean r(Context context) {
-        InterceptResult invokeL;
-        ActivityManager.RunningTaskInfo runningTaskInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
-            try {
-                ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-                if (activityManager.getRunningTasks(1) == null || (runningTaskInfo = activityManager.getRunningTasks(1).get(0)) == null) {
-                    return false;
-                }
-                return context.getPackageName().equals(runningTaskInfo.topActivity.getPackageName());
-            } catch (Throwable unused) {
-                c.a();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static synchronized void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            synchronized (s.class) {
-                if (context == null) {
-                    return;
-                }
-                try {
-                    if (y) {
-                        return;
-                    }
-                    y = true;
-                    a(new JSONObject(com.baidu.sofire.h.a.a(context).f45339a.getString("p_s_p_c", "")));
-                } catch (Throwable unused) {
-                    c.a();
-                }
-            }
-        }
-    }
-
-    public static void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        w = jSONObject.optInt("0", 1) != 0;
-        JSONArray optJSONArray = jSONObject.optJSONArray("1");
-        if (optJSONArray == null) {
-            return;
-        }
-        HashSet hashSet = new HashSet();
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            hashSet.add(Integer.valueOf(optJSONArray.optInt(i2)));
-        }
-        if (hashSet.contains(27)) {
-            o = false;
-        } else {
-            o = true;
-        }
-        if (hashSet.contains(34)) {
-            u = false;
-        } else {
-            u = true;
-        }
-        if (hashSet.contains(40)) {
-            p = false;
-        } else {
-            p = true;
-        }
-        if (hashSet.contains(41)) {
-            x = false;
-        } else {
-            x = true;
-        }
-        if (hashSet.contains(42)) {
-            q = false;
-        } else {
-            q = true;
-        }
-        if (hashSet.contains(43)) {
-            s = false;
-        } else {
-            s = true;
-        }
-        if (hashSet.contains(44)) {
-            r = false;
-        } else {
-            r = true;
-        }
-        if (hashSet.contains(45)) {
-            t = false;
-        } else {
-            t = true;
-        }
-        if (hashSet.contains(46)) {
-            v = false;
-        } else {
-            v = true;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getPackageName().contains("com.baidu.searchbox") : invokeL.booleanValue;
     }
 }

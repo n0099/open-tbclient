@@ -42,7 +42,7 @@ public class f {
                 }
                 return jSONObject;
             } catch (JSONException e2) {
-                if (c.a.p0.n.c.f11856a) {
+                if (c.a.p0.n.c.f11864a) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -70,7 +70,7 @@ public class f {
                 }
             }
         }
-        if (!l.f12029a || (b2 = c.a.p0.n.c.b()) == null) {
+        if (!l.f12037a || (b2 = c.a.p0.n.c.b()) == null) {
             return;
         }
         b2.z();

@@ -15,7 +15,7 @@ public class c<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public T f3577a;
+    public T f3578a;
 
     public c(T t) {
         Interceptable interceptable = $ic;
@@ -32,23 +32,23 @@ public class c<T> {
                 return;
             }
         }
-        this.f3577a = t;
+        this.f3578a = t;
     }
 
     public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3577a : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3578a : (T) invokeV.objValue;
     }
 
     public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            T t = this.f3577a;
+            T t = this.f3578a;
             if (t instanceof Bitmap) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                ((Bitmap) this.f3577a).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                ((Bitmap) this.f3578a).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                 return byteArrayOutputStream.toByteArray();
             } else if (t instanceof File) {
                 return c.a.j0.a.k.d.a((File) t);
@@ -65,13 +65,13 @@ public class c<T> {
     public Class<?> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3577a.getClass() : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3578a.getClass() : (Class) invokeV.objValue;
     }
 
     public boolean d(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? (this.f3577a instanceof File) && System.currentTimeMillis() - ((File) this.f3577a).lastModified() > j2 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? (this.f3578a instanceof File) && System.currentTimeMillis() - ((File) this.f3578a).lastModified() > j2 : invokeJ.booleanValue;
     }
 
     public boolean e() {
@@ -79,18 +79,18 @@ public class c<T> {
         boolean delete;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            T t = this.f3577a;
+            T t = this.f3578a;
             if (t instanceof Bitmap) {
                 if (!((Bitmap) t).isRecycled()) {
-                    ((Bitmap) this.f3577a).recycle();
+                    ((Bitmap) this.f3578a).recycle();
                 }
             } else if (t instanceof File) {
                 delete = ((File) t).delete();
-                this.f3577a = null;
+                this.f3578a = null;
                 return delete;
             }
             delete = true;
-            this.f3577a = null;
+            this.f3578a = null;
             return delete;
         }
         return invokeV.booleanValue;
@@ -100,7 +100,7 @@ public class c<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.f3577a;
+            T t = this.f3578a;
             if (t instanceof Bitmap) {
                 return ((Bitmap) t).getByteCount();
             }

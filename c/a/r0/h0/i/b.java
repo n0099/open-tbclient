@@ -15,19 +15,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f18878a;
+    public String f18887a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Integer> f18879b;
+    public List<Integer> f18888b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f18880c;
+    public float f18889c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f18881d;
+    public boolean f18890d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18882e;
+    public boolean f18891e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class b {
                 return;
             }
         }
-        this.f18879b = new ArrayList();
-        this.f18881d = false;
-        this.f18882e = false;
+        this.f18888b = new ArrayList();
+        this.f18890d = false;
+        this.f18891e = false;
     }
 
     public static final b c(DnsIpData dnsIpData) {
@@ -55,9 +55,9 @@ public class b {
                 return null;
             }
             b bVar = new b();
-            bVar.f18878a = dnsIpData.address;
+            bVar.f18887a = dnsIpData.address;
             for (int i2 = 0; i2 < dnsIpData.data.size(); i2++) {
-                bVar.f18879b.add(dnsIpData.data.get(i2));
+                bVar.f18888b.add(dnsIpData.data.get(i2));
             }
             bVar.b();
             return bVar;
@@ -73,9 +73,9 @@ public class b {
                 return null;
             }
             DnsIpData.Builder builder = new DnsIpData.Builder();
-            builder.address = bVar.f18878a;
+            builder.address = bVar.f18887a;
             builder.data = new ArrayList();
-            for (Integer num : bVar.f18879b) {
+            for (Integer num : bVar.f18888b) {
                 builder.data.add(Integer.valueOf(num.intValue()));
             }
             return builder.build(true);
@@ -86,9 +86,9 @@ public class b {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f18879b.add(0, Integer.valueOf(i2));
-            while (this.f18879b.size() > 49) {
-                List<Integer> list = this.f18879b;
+            this.f18888b.add(0, Integer.valueOf(i2));
+            while (this.f18888b.size() > 49) {
+                List<Integer> list = this.f18888b;
                 list.remove(list.size() - 1);
             }
             b();
@@ -98,35 +98,35 @@ public class b {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int size = this.f18879b.size();
+            int size = this.f18888b.size();
             float f2 = 0.0f;
             if (size <= 0) {
-                this.f18880c = 0.0f;
+                this.f18889c = 0.0f;
                 return;
             }
             int i2 = 0;
             if (size == 1) {
-                this.f18880c = this.f18879b.get(0).intValue();
+                this.f18889c = this.f18888b.get(0).intValue();
                 return;
             }
             float f3 = 1.0f;
-            for (Integer num : this.f18879b) {
+            for (Integer num : this.f18888b) {
                 int intValue = num.intValue();
                 i2 += intValue;
                 f3 *= 0.5f;
                 f2 += intValue * f3;
             }
             float f4 = f2 + ((f3 * i2) / size);
-            this.f18880c = f4;
+            this.f18889c = f4;
             if (f4 < 0.05d) {
-                if (this.f18881d) {
+                if (this.f18890d) {
                     return;
                 }
-                c.a.r0.h0.d.c().b("ip_weight_lower", this.f18878a, String.valueOf(this.f18880c));
-                this.f18881d = true;
-            } else if (this.f18881d && f4 > 0.5d && !this.f18882e) {
-                c.a.r0.h0.d.c().b("ip_weight_lower_recover", this.f18878a, String.valueOf(this.f18880c));
-                this.f18882e = true;
+                c.a.r0.h0.d.c().b("ip_weight_lower", this.f18887a, String.valueOf(this.f18889c));
+                this.f18890d = true;
+            } else if (this.f18890d && f4 > 0.5d && !this.f18891e) {
+                c.a.r0.h0.d.c().b("ip_weight_lower_recover", this.f18887a, String.valueOf(this.f18889c));
+                this.f18891e = true;
             }
         }
     }

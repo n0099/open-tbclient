@@ -27,10 +27,10 @@ public class b extends c.a.p0.a.u.e.m.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile c.a.p0.t.b f9073d;
+    public static volatile c.a.p0.t.b f9081d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f9074e;
+    public static long f9082e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -56,7 +56,7 @@ public class b extends c.a.p0.a.u.e.m.a {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long unused = b.f9074e = b.f9073d.d();
+                long unused = b.f9082e = b.f9081d.d();
             }
         }
     }
@@ -95,7 +95,7 @@ public class b extends c.a.p0.a.u.e.m.a {
             }
         }
         synchronized (b.class) {
-            if (f9073d == null) {
+            if (f9081d == null) {
                 L();
             }
         }
@@ -105,11 +105,11 @@ public class b extends c.a.p0.a.u.e.m.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             synchronized (b.class) {
-                if (f9073d == null) {
+                if (f9081d == null) {
                     try {
-                        f9073d = new c("swan_js_global_storage", 2, e.g().getAbsolutePath());
+                        f9081d = new c("swan_js_global_storage", 2, e.g().getAbsolutePath());
                     } catch (NoClassDefFoundError | UnsatisfiedLinkError unused) {
-                        f9073d = new j("swan_js_global_storage");
+                        f9081d = new j("swan_js_global_storage");
                         d.i(1, "swan_js_global_storage");
                     }
                     M();
@@ -120,7 +120,7 @@ public class b extends c.a.p0.a.u.e.m.a {
 
     public static void M() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || f9073d == null) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || f9081d == null) {
             return;
         }
         q.e().execute(new a());
@@ -193,7 +193,7 @@ public class b extends c.a.p0.a.u.e.m.a {
     public c.a.p0.t.b v(@NonNull c.a.p0.a.a2.e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, eVar)) == null) ? f9073d : (c.a.p0.t.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, eVar)) == null) ? f9081d : (c.a.p0.t.b) invokeL.objValue;
     }
 
     @Override // c.a.p0.a.u.e.m.a
@@ -203,12 +203,12 @@ public class b extends c.a.p0.a.u.e.m.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f9073d.a()));
-                jSONObject.put("currentSize", f9074e / 1024);
+                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f9081d.a()));
+                jSONObject.put("currentSize", f9082e / 1024);
                 jSONObject.put("limitSize", 10240);
                 return new c.a.p0.a.u.h.b(0, jSONObject);
             } catch (JSONException e2) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e2.printStackTrace();
                 }
                 return new c.a.p0.a.u.h.b(202, "JSONException");
@@ -238,6 +238,6 @@ public class b extends c.a.p0.a.u.e.m.a {
     public boolean z(@Nullable c.a.p0.a.a2.e eVar, @NonNull String str, @NonNull String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, eVar, str, str2)) == null) ? (f9074e - ((long) f9073d.getString(str, "").length())) + ((long) str2.length()) > 10485760 : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, eVar, str, str2)) == null) ? (f9082e - ((long) f9081d.getString(str, "").length())) + ((long) str2.length()) > 10485760 : invokeLLL.booleanValue;
     }
 }

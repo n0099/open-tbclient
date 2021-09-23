@@ -13,34 +13,34 @@ public final class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f32661a;
+    public c f32684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32662b;
+    public long f32685b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f32663c;
+    public long f32686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f32664d;
+    public long f32687d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f32665e;
+    public int f32688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f32666f;
+    public int f32689f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long[] f32667g;
+    public long[] f32690g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f32668h;
+    public int[] f32691h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int[] f32669i;
+    public int[] f32692i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int[] f32670j;
+    public int[] f32693j;
     public long[] k;
     public boolean[] l;
     public boolean m;
@@ -68,7 +68,7 @@ public final class l {
     public void a(c.i.b.a.a0.f fVar) throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            fVar.readFully(this.q.f33812a, 0, this.p);
+            fVar.readFully(this.q.f33835a, 0, this.p);
             this.q.J(0);
             this.r = false;
         }
@@ -77,7 +77,7 @@ public final class l {
     public void b(c.i.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
-            lVar.g(this.q.f33812a, 0, this.p);
+            lVar.g(this.q.f33835a, 0, this.p);
             this.q.J(0);
             this.r = false;
         }
@@ -86,7 +86,7 @@ public final class l {
     public long c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.k[i2] + this.f32670j[i2] : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.k[i2] + this.f32693j[i2] : invokeI.longValue;
     }
 
     public void d(int i2) {
@@ -105,18 +105,18 @@ public final class l {
     public void e(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.f32665e = i2;
-            this.f32666f = i3;
-            int[] iArr = this.f32668h;
+            this.f32688e = i2;
+            this.f32689f = i3;
+            int[] iArr = this.f32691h;
             if (iArr == null || iArr.length < i2) {
-                this.f32667g = new long[i2];
-                this.f32668h = new int[i2];
+                this.f32690g = new long[i2];
+                this.f32691h = new int[i2];
             }
-            int[] iArr2 = this.f32669i;
+            int[] iArr2 = this.f32692i;
             if (iArr2 == null || iArr2.length < i3) {
                 int i4 = (i3 * 125) / 100;
-                this.f32669i = new int[i4];
-                this.f32670j = new int[i4];
+                this.f32692i = new int[i4];
+                this.f32693j = new int[i4];
                 this.k = new long[i4];
                 this.l = new boolean[i4];
                 this.n = new boolean[i4];
@@ -127,7 +127,7 @@ public final class l {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f32665e = 0;
+            this.f32688e = 0;
             this.s = 0L;
             this.m = false;
             this.r = false;

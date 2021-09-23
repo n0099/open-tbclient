@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class Converter<A, B> implements g<A, B> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean handleNullAutomatically;
     public transient Converter<B, A> reverse;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ConverterComposition<A, B, C> extends Converter<A, C> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -112,7 +112,7 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class FunctionBasedConverter<A, B> extends Converter<A, B> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,7 +188,7 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class IdentityConverter<T> extends Converter<T, T> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final IdentityConverter INSTANCE;
@@ -271,7 +271,7 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ReverseConverter<A, B> extends Converter<B, A> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -366,30 +366,30 @@ public abstract class Converter<A, B> implements g<A, B> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class a implements Iterable<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f70273e;
+        public final /* synthetic */ Iterable f70592e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Converter f70274f;
+        public final /* synthetic */ Converter f70593f;
 
         /* renamed from: com.google.common.base.Converter$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class C1951a implements Iterator<B> {
+        /* loaded from: classes9.dex */
+        public class C1955a implements Iterator<B> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final Iterator<? extends A> f70275e;
+            public final Iterator<? extends A> f70594e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f70276f;
+            public final /* synthetic */ a f70595f;
 
-            public C1951a(a aVar) {
+            public C1955a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -404,29 +404,29 @@ public abstract class Converter<A, B> implements g<A, B> {
                         return;
                     }
                 }
-                this.f70276f = aVar;
-                this.f70275e = this.f70276f.f70273e.iterator();
+                this.f70595f = aVar;
+                this.f70594e = this.f70595f.f70592e.iterator();
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70275e.hasNext() : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70594e.hasNext() : invokeV.booleanValue;
             }
 
             @Override // java.util.Iterator
             public B next() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (B) this.f70276f.f70274f.convert(this.f70275e.next()) : (B) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (B) this.f70595f.f70593f.convert(this.f70594e.next()) : (B) invokeV.objValue;
             }
 
             @Override // java.util.Iterator
             public void remove() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f70275e.remove();
+                    this.f70594e.remove();
                 }
             }
         }
@@ -446,15 +446,15 @@ public abstract class Converter<A, B> implements g<A, B> {
                     return;
                 }
             }
-            this.f70274f = converter;
-            this.f70273e = iterable;
+            this.f70593f = converter;
+            this.f70592e = iterable;
         }
 
         @Override // java.lang.Iterable
         public Iterator<B> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1951a(this) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1955a(this) : (Iterator) invokeV.objValue;
         }
     }
 

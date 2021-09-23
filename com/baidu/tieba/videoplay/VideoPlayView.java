@@ -41,27 +41,29 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public static final int PAGE_TYPE_ATTENTION = 0;
     public static final int PAGE_TYPE_RECOMMEND = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.z3.g.a A;
+    public String A;
+    public float B;
+    public c.a.r0.z3.g.a C;
     public int currentSelectIndex;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57913e;
+    public int f58035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f57914f;
+    public boolean f58036f;
     public int firstInIndex;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f57915g;
+    public View f58037g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdSwipeRefreshLayout f57916h;
+    public BdSwipeRefreshLayout f58038h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.q0.s.f0.f f57917i;
+    public c.a.q0.s.f0.f f58039i;
 
     /* renamed from: j  reason: collision with root package name */
-    public VerticalViewPager f57918j;
+    public VerticalViewPager f58040j;
     public VideoPlayFragmentAdapter k;
     public c.a.r0.z3.c.d l;
     public e m;
@@ -76,8 +78,8 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public c.a.r0.z3.d.a v;
     public c.a.r0.z3.d.b w;
     public f x;
-    public boolean y;
-    public String z;
+    public g y;
+    public boolean z;
 
     /* loaded from: classes7.dex */
     public class a implements BdSwipeRefreshLayout.j {
@@ -85,7 +87,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoPlayView f57919a;
+        public final /* synthetic */ VideoPlayView f58041a;
 
         public a(VideoPlayView videoPlayView) {
             Interceptable interceptable = $ic;
@@ -102,7 +104,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                     return;
                 }
             }
-            this.f57919a = videoPlayView;
+            this.f58041a = videoPlayView;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.j
@@ -110,11 +112,11 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bdSwipeRefreshLayout, view)) == null) {
-                if (this.f57919a.f57918j == null) {
+                if (this.f58041a.f58040j == null) {
                     return false;
                 }
-                VideoAttentionListPageFragment attentionListFragment = this.f57919a.getAttentionListFragment();
-                return attentionListFragment != null ? (this.f57919a.f57918j.getCurrentItem() == 0 && attentionListFragment.isOnViewTop()) ? false : true : this.f57919a.f57918j.getCurrentItem() != 0;
+                VideoAttentionListPageFragment attentionListFragment = this.f58041a.getAttentionListFragment();
+                return attentionListFragment != null ? (this.f58041a.f58040j.getCurrentItem() == 0 && attentionListFragment.isOnViewTop()) ? false : true : this.f58041a.f58040j.getCurrentItem() != 0;
             }
             return invokeLL.booleanValue;
         }
@@ -126,7 +128,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoPlayView f57920a;
+        public final /* synthetic */ VideoPlayView f58042a;
 
         public b(VideoPlayView videoPlayView) {
             Interceptable interceptable = $ic;
@@ -143,24 +145,24 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                     return;
                 }
             }
-            this.f57920a = videoPlayView;
+            this.f58042a = videoPlayView;
         }
 
         @Override // com.baidu.tieba.videoplay.VideoPlayFragment.e1
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f57920a.v.j();
+                this.f58042a.v.j();
             }
         }
 
         @Override // com.baidu.tieba.videoplay.VideoPlayFragment.e1
         public void onStart() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f57920a.z.equals(VideoPlayView.FROM_ATTENTION_SUB_FRAGMENT)) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f58042a.A.equals(VideoPlayView.FROM_ATTENTION_SUB_FRAGMENT)) {
                 return;
             }
-            this.f57920a.v.d();
+            this.f58042a.v.d();
         }
     }
 
@@ -170,7 +172,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoPlayView f57921e;
+        public final /* synthetic */ VideoPlayView f58043e;
 
         public c(VideoPlayView videoPlayView) {
             Interceptable interceptable = $ic;
@@ -187,11 +189,11 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                     return;
                 }
             }
-            this.f57921e = videoPlayView;
+            this.f58043e = videoPlayView;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:11:0x0013, code lost:
-            if (r5 != 3) goto L11;
+            if (r5 != 3) goto L12;
          */
         @Override // android.view.View.OnTouchListener
         /*
@@ -203,23 +205,23 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action != 0) {
-                    if (action != 1) {
-                        if (action == 2) {
-                            if (this.f57921e.s == 0.0f) {
-                                this.f57921e.s = motionEvent.getY();
-                            }
-                            float y = motionEvent.getY() - this.f57921e.s;
-                            if (this.f57921e.s > (l.j(TbadkCoreApplication.getInst(), true) - UtilHelper.getNavigationBarHeight(TbadkCoreApplication.getInst())) - this.f57921e.t && y < UtilHelper.getDimenPixelSize(R.dimen.tbds25) && UtilHelper.hasNavBar(this.f57921e.n) && l.j(TbadkCoreApplication.getInst(), true) != this.f57921e.u) {
-                                this.f57921e.q = true;
-                            }
+                    if (action == 1) {
+                        this.f58043e.B = motionEvent.getY() - this.f58043e.s;
+                    } else if (action == 2) {
+                        if (this.f58043e.s == 0.0f) {
+                            this.f58043e.s = motionEvent.getY();
+                        }
+                        this.f58043e.B = motionEvent.getY() - this.f58043e.s;
+                        if (this.f58043e.s > (l.j(TbadkCoreApplication.getInst(), true) - UtilHelper.getNavigationBarHeight(TbadkCoreApplication.getInst())) - this.f58043e.t && this.f58043e.B < UtilHelper.getDimenPixelSize(R.dimen.tbds25) && UtilHelper.hasNavBar(this.f58043e.n) && l.j(TbadkCoreApplication.getInst(), true) != this.f58043e.u) {
+                            this.f58043e.q = true;
                         }
                     }
-                    this.f57921e.s = 0.0f;
+                    this.f58043e.s = 0.0f;
                 } else {
-                    this.f57921e.s = motionEvent.getY();
-                    this.f57921e.q = false;
+                    this.f58043e.s = motionEvent.getY();
+                    this.f58043e.q = false;
                 }
-                VideoPlayFragment currentFragment = this.f57921e.k.getCurrentFragment(this.f57921e.f57918j.getCurrentItem());
+                VideoPlayFragment currentFragment = this.f58043e.k.getCurrentFragment(this.f58043e.f58040j.getCurrentItem());
                 if (currentFragment != null) {
                     return currentFragment.handleBackPress();
                 }
@@ -235,7 +237,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoPlayView f57922a;
+        public final /* synthetic */ VideoPlayView f58044a;
 
         public d(VideoPlayView videoPlayView) {
             Interceptable interceptable = $ic;
@@ -252,14 +254,14 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                     return;
                 }
             }
-            this.f57922a = videoPlayView;
+            this.f58044a = videoPlayView;
         }
 
         @Override // c.a.r0.y2.e0.c.a
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f57922a.toNextPage();
+                this.f58044a.toNextPage();
             }
         }
     }
@@ -271,6 +273,11 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
     /* loaded from: classes7.dex */
     public interface f {
+        void a();
+    }
+
+    /* loaded from: classes7.dex */
+    public interface g {
         void a();
     }
 
@@ -293,37 +300,38 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.t = UtilHelper.getDimenPixelSize(R.dimen.tbds35);
         this.u = SpeedStatsStampTable.INIT_MSG_EIGHT_START_STAMP_KEY;
         this.w = new c.a.r0.z3.d.b();
-        this.z = FROM_NO_SUB_FRAGMENT;
+        this.A = FROM_NO_SUB_FRAGMENT;
+        this.B = 0.0f;
         this.n = fragmentActivity;
-        this.f57913e = i3;
-        this.f57914f = z;
+        this.f58035e = i3;
+        this.f58036f = z;
         this.p = str;
         this.o = (TBLottieAnimationView) baseFragment.getView().findViewById(R.id.guide_animation_view);
-        this.f57915g = baseFragment.getView().findViewById(R.id.root_layout);
+        this.f58037g = baseFragment.getView().findViewById(R.id.root_layout);
         VerticalViewPager verticalViewPager = (VerticalViewPager) baseFragment.getView().findViewById(R.id.video_play_viewpager);
-        this.f57918j = verticalViewPager;
+        this.f58040j = verticalViewPager;
         verticalViewPager.setStrictSlide(false);
-        this.v = new c.a.r0.z3.d.a(this.o, this.f57918j);
+        this.v = new c.a.r0.z3.d.a(this.o, this.f58040j);
         BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) baseFragment.getView().findViewById(R.id.refresh_layout);
-        this.f57916h = bdSwipeRefreshLayout;
+        this.f58038h = bdSwipeRefreshLayout;
         bdSwipeRefreshLayout.setNoMoveTargetView(true);
-        this.f57916h.setLimitDragDistance(true);
+        this.f58038h.setLimitDragDistance(true);
         c.a.q0.s.f0.f fVar = new c.a.q0.s.f0.f(fragmentActivity);
-        this.f57917i = fVar;
-        this.f57916h.setProgressView(fVar);
-        this.f57916h.setOnChildScrollUpCallback(new a(this));
+        this.f58039i = fVar;
+        this.f58038h.setProgressView(fVar);
+        this.f58038h.setOnChildScrollUpCallback(new a(this));
         if (this.k == null) {
-            this.k = new VideoPlayFragmentAdapter(bdUniqueId, baseFragment, fragmentActivity, bdUniqueId2, i2, this.f57913e, this.f57914f);
+            this.k = new VideoPlayFragmentAdapter(bdUniqueId, baseFragment, fragmentActivity, bdUniqueId2, i2, this.f58035e, this.f58036f);
         }
         this.k.setVideoStatusListener(new b(this));
         this.k.setVideoPlayPrefetcher(this);
         MessageManager.getInstance().registerListener(this.k.getAttentionListener());
         this.k.setOnProgressUpdatedListener(this);
         this.k.mFromPage = this.p;
-        this.f57918j.setOffscreenPageLimit(1);
-        this.f57918j.setAdapter(this.k);
-        this.f57918j.setOnPageChangeListener(this);
-        this.f57918j.setOnTouchListener(new c(this));
+        this.f58040j.setOffscreenPageLimit(1);
+        this.f58040j.setAdapter(this.k);
+        this.f58040j.setOnPageChangeListener(this);
+        this.f58040j.setOnTouchListener(new c(this));
     }
 
     public VideoAttentionListPageFragment getAttentionListFragment() {
@@ -332,7 +340,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.k;
-            if (videoPlayFragmentAdapter == null || (verticalViewPager = this.f57918j) == null) {
+            if (videoPlayFragmentAdapter == null || (verticalViewPager = this.f58040j) == null) {
                 return null;
             }
             return videoPlayFragmentAdapter.getAttentionListFragment(verticalViewPager.getCurrentItem());
@@ -346,11 +354,11 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.k;
-            if (videoPlayFragmentAdapter == null || (verticalViewPager = this.f57918j) == null) {
+            if (videoPlayFragmentAdapter == null || (verticalViewPager = this.f58040j) == null) {
                 return null;
             }
             VideoPlayFragment currentFragment = videoPlayFragmentAdapter.getCurrentFragment(verticalViewPager.getCurrentItem());
-            return currentFragment == null ? this.k.getVideoAdFragment(this.f57918j.getCurrentItem()) : currentFragment;
+            return currentFragment == null ? this.k.getVideoAdFragment(this.f58040j.getCurrentItem()) : currentFragment;
         }
         return (b.InterfaceC0664b) invokeV.objValue;
     }
@@ -360,7 +368,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         VerticalViewPager verticalViewPager;
         VideoPlayFragment currentFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) || (videoPlayFragmentAdapter = this.k) == null || (verticalViewPager = this.f57918j) == null || (currentFragment = videoPlayFragmentAdapter.getCurrentFragment(verticalViewPager.getCurrentItem())) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) || (videoPlayFragmentAdapter = this.k) == null || (verticalViewPager = this.f58040j) == null || (currentFragment = videoPlayFragmentAdapter.getCurrentFragment(verticalViewPager.getCurrentItem())) == null) {
             return;
         }
         currentFragment.handleActivityResult(i2, i3, intent);
@@ -373,7 +381,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.k;
-            if (videoPlayFragmentAdapter == null || (verticalViewPager = this.f57918j) == null || (currentFragment = videoPlayFragmentAdapter.getCurrentFragment(verticalViewPager.getCurrentItem())) == null) {
+            if (videoPlayFragmentAdapter == null || (verticalViewPager = this.f58040j) == null || (currentFragment = videoPlayFragmentAdapter.getCurrentFragment(verticalViewPager.getCurrentItem())) == null) {
                 return false;
             }
             return currentFragment.handleBackPress();
@@ -381,22 +389,28 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         return invokeV.booleanValue;
     }
 
-    public final boolean k() {
+    public boolean isUpOrDownScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57913e == 6 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.B < 0.0f : invokeV.booleanValue;
     }
 
-    public final boolean l() {
+    public final boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? DeviceInfoUtil.isHuaWeiVirtual() && this.q && UtilHelper.getNavigationBarHeight(TbadkCoreApplication.getInst()) > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f58035e == 6 : invokeV.booleanValue;
+    }
+
+    public final boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? DeviceInfoUtil.isHuaWeiVirtual() && this.q && UtilHelper.getNavigationBarHeight(TbadkCoreApplication.getInst()) > 0 : invokeV.booleanValue;
     }
 
     public void notifyDataSetChanged() {
         VideoPlayFragmentAdapter videoPlayFragmentAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (videoPlayFragmentAdapter = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (videoPlayFragmentAdapter = this.k) == null) {
             return;
         }
         videoPlayFragmentAdapter.notifyDataSetChanged();
@@ -404,22 +418,22 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f57915g, R.color.CAM_X0611, i2);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            SkinManager.setBackgroundColor(this.f58037g, R.color.CAM_X0611, i2);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) && view.getId() == R.id.guide_animation_view) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, view) == null) && view.getId() == R.id.guide_animation_view) {
             this.v.onClick(view);
         }
     }
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.k != null) {
                 MessageManager.getInstance().unRegisterListener(this.k.getAttentionListener());
             }
@@ -434,37 +448,37 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i2) {
-        f fVar;
+        g gVar;
         VideoPlayFragmentAdapter videoPlayFragmentAdapter;
         VerticalViewPager verticalViewPager;
         VideoPlayFragmentAdapter videoPlayFragmentAdapter2;
         VerticalViewPager verticalViewPager2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            if (i2 == 1 && (videoPlayFragmentAdapter2 = this.k) != null && (verticalViewPager2 = this.f57918j) != null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            if (i2 == 1 && (videoPlayFragmentAdapter2 = this.k) != null && (verticalViewPager2 = this.f58040j) != null) {
                 videoPlayFragmentAdapter2.onStateChanged(verticalViewPager2.getCurrentItem());
             }
-            if (i2 == 0 && (videoPlayFragmentAdapter = this.k) != null && (verticalViewPager = this.f57918j) != null) {
+            if (i2 == 0 && (videoPlayFragmentAdapter = this.k) != null && (verticalViewPager = this.f58040j) != null) {
                 videoPlayFragmentAdapter.onPageScrollIdle(verticalViewPager.getCurrentItem());
-                if (l()) {
-                    this.f57918j.setNeedHanleTouch(true);
-                    this.f57918j.setSelected(true);
-                    VerticalViewPager verticalViewPager3 = this.f57918j;
+                if (n()) {
+                    this.f58040j.setNeedHanleTouch(true);
+                    this.f58040j.setSelected(true);
+                    VerticalViewPager verticalViewPager3 = this.f58040j;
                     verticalViewPager3.setCurrentItem(verticalViewPager3.getCurrentItem(), true);
-                    this.f57918j.setNeedHanleTouch(false);
+                    this.f58040j.setNeedHanleTouch(false);
                     this.q = false;
                 }
             }
             if (i2 == 0) {
-                if (this.y || (fVar = this.x) == null) {
+                if (this.z || (gVar = this.y) == null) {
                     return;
                 }
-                fVar.a();
+                gVar.a();
             } else if (i2 == 1) {
-                this.y = false;
+                this.z = false;
             } else if (i2 != 2) {
             } else {
-                this.y = true;
+                this.z = true;
             }
         }
     }
@@ -472,14 +486,14 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i2, float f2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
             if (i3 > l.i(TbadkCoreApplication.getInst())) {
                 this.q = true;
             }
-            if (l()) {
-                this.f57918j.setNeedHanleTouch(true);
+            if (n()) {
+                this.f58040j.setNeedHanleTouch(true);
             } else {
-                this.f57918j.setNeedHanleTouch(false);
+                this.f58040j.setNeedHanleTouch(false);
             }
         }
     }
@@ -488,26 +502,30 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public void onPageSelected(int i2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             this.currentSelectIndex = i2;
             this.w.c(i2);
             if (!this.l.v() && this.l.k() - 1 > 0 && this.l.k() - i2 <= 2 && (eVar = this.m) != null) {
                 eVar.a();
             }
-            if (l()) {
-                this.f57918j.computeScroll();
+            if (n()) {
+                this.f58040j.computeScroll();
             }
             this.v.g();
-            c.a.r0.z3.g.a aVar = this.A;
+            c.a.r0.z3.g.a aVar = this.C;
             if (aVar != null) {
                 aVar.m(i2);
+            }
+            f fVar = this.x;
+            if (fVar != null) {
+                fVar.a();
             }
         }
     }
 
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.v.h();
         }
     }
@@ -515,7 +533,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     @Override // c.a.r0.p2.f.c
     public void onProgressUpdated(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048590, this, i2, i3) == null) || i2 - i3 >= 3500 || this.z.equals(FROM_ATTENTION_SUB_FRAGMENT) || k()) {
+        if (!(interceptable == null || interceptable.invokeII(1048591, this, i2, i3) == null) || i2 - i3 >= 3500 || this.A.equals(FROM_ATTENTION_SUB_FRAGMENT) || m()) {
             return;
         }
         this.v.c();
@@ -524,7 +542,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     @Override // c.a.r0.z3.c.c
     public void onVideoDataAdd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             this.w.b();
         }
     }
@@ -532,14 +550,14 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     @Override // c.a.r0.z3.c.c
     public void onVideoDataDelete() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
         }
     }
 
     @Override // c.a.r0.z3.c.c
     public void onVideoDataReset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.w.b();
         }
     }
@@ -547,36 +565,36 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     @Override // c.a.r0.z3.h.a
     public void prefetch() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             this.w.a();
         }
     }
 
-    public void setBottomScrollMoreCallback(f fVar) {
+    public void setBottomScrollMoreCallback(g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, fVar) == null) {
-            this.x = fVar;
+        if (interceptable == null || interceptable.invokeL(1048596, this, gVar) == null) {
+            this.y = gVar;
         }
     }
 
     public void setCurrentFragmentUserHint(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             this.k.setCurrentFragmentUserHint(z);
         }
     }
 
     public void setEventListener(b.InterfaceC0664b interfaceC0664b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, interfaceC0664b) == null) {
-            this.f57918j.setEventListener(interfaceC0664b);
+        if (interceptable == null || interceptable.invokeL(1048598, this, interfaceC0664b) == null) {
+            this.f58040j.setEventListener(interfaceC0664b);
         }
     }
 
     public void setNadDispatcher(c.a.r0.z3.g.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, aVar) == null) {
-            this.A = aVar;
+        if (interceptable == null || interceptable.invokeL(1048599, this, aVar) == null) {
+            this.C = aVar;
             if (aVar == null) {
                 return;
             }
@@ -591,15 +609,22 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public void setObjId(String str) {
         VideoPlayFragmentAdapter videoPlayFragmentAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, str) == null) || (videoPlayFragmentAdapter = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, str) == null) || (videoPlayFragmentAdapter = this.k) == null) {
             return;
         }
         videoPlayFragmentAdapter.objId = str;
     }
 
+    public void setOnLastShowVideoCallBack(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, fVar) == null) {
+            this.x = fVar;
+        }
+    }
+
     public void setOnLoadMoreListener(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, eVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, eVar) == null) {
             this.m = eVar;
             this.w.e(eVar);
         }
@@ -608,7 +633,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public void setPageFrom(String str) {
         VideoPlayFragmentAdapter videoPlayFragmentAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, str) == null) || (videoPlayFragmentAdapter = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, str) == null) || (videoPlayFragmentAdapter = this.k) == null) {
             return;
         }
         videoPlayFragmentAdapter.mFrom = str;
@@ -616,15 +641,15 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
     public void setPrimary(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            if (this.f57916h != null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+            if (this.f58038h != null) {
                 if (!TbadkCoreApplication.isLogin() && this.r == 0) {
-                    this.f57916h.setEnabled(false);
+                    this.f58038h.setEnabled(false);
                 } else {
-                    this.f57916h.setEnabled(true);
+                    this.f58038h.setEnabled(true);
                 }
             }
-            if (UtilHelper.isFlyMeOs() || this.f57913e != 5) {
+            if (UtilHelper.isFlyMeOs() || this.f58035e != 5) {
                 return;
             }
             int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -638,57 +663,57 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
     public void setProgressViewCallback(BdSwipeRefreshLayout.k kVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, kVar) == null) {
-            this.f57917i.F().findViewById(R.id.continuous_loading_layout).setVisibility(4);
-            this.f57916h.setProgressViewCallback(kVar);
+        if (interceptable == null || interceptable.invokeL(1048605, this, kVar) == null) {
+            this.f58039i.F().findViewById(R.id.continuous_loading_layout).setVisibility(4);
+            this.f58038h.setProgressViewCallback(kVar);
         }
     }
 
     public void setSelectIndex(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.f57918j.setCurrentItem(i2, z);
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            this.f58040j.setCurrentItem(i2, z);
         }
     }
 
     public void setSubFrom(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.z = str;
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
+            this.A = str;
         }
     }
 
     public void setVideoChannelPageType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
             this.r = i2;
         }
     }
 
     public void setViewPagerScrollable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.f57918j.setScrollable(z);
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+            this.f58040j.setScrollable(z);
         }
     }
 
     public void showData(c.a.r0.z3.c.d dVar, int i2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048608, this, dVar, i2, rect) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048610, this, dVar, i2, rect) == null) {
             this.l = dVar;
             this.w.d(dVar);
             dVar.D(this);
             this.firstInIndex = i2;
             this.k.setDatas(dVar, rect);
             this.k.notifyDataSetChanged();
-            this.f57918j.setCurrentItem(i2);
+            this.f58040j.setCurrentItem(i2);
         }
     }
 
     public void toNextPage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            this.f57918j.arrowScroll(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            this.f58040j.arrowScroll(IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER);
         }
     }
 }

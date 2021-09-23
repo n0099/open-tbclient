@@ -495,6 +495,7 @@ public final class StatServiceEvent {
     public static final String TRIGGLESMSPAY = "triggleSmsPay";
     public static final String TRIGGLESMSVERIFY = "triggleSmsVerify";
     public static final String UNBIND_BANK_CARD = "unbindBankCard";
+    public static final String UNSUPPORT_DOMAIN_EXCHANGE = "UnsupportDomainExchange";
     public static String VALUE_AuthorizePay_ClickNext_BoundCard = "BoundCard";
     public static String VALUE_AuthorizePay_ClickNext_CompleteCard = "CompleteCard";
     public static String VALUE_AuthorizePay_ClickNext_NewCard = "NewCard";

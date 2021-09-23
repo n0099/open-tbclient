@@ -14,10 +14,10 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f29858a;
+    public static final Object f29879a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f29859b;
+    public static int f29880b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public final class c {
                 return;
             }
         }
-        f29858a = new Object();
+        f29879a = new Object();
     }
 
     public static String a(Context context) {
@@ -71,15 +71,15 @@ public final class c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (f29858a) {
-                if (f29859b == 0) {
+            synchronized (f29879a) {
+                if (f29880b == 0) {
                     try {
-                        f29859b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                        f29880b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
                     } catch (PackageManager.NameNotFoundException unused) {
                         throw new IllegalStateException("Cannot determine package version");
                     }
                 }
-                i2 = f29859b;
+                i2 = f29880b;
             }
             return i2;
         }

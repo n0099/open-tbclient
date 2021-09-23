@@ -15,34 +15,34 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12284a;
+    public String f12292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12285b;
+    public String f12293b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12286c;
+    public int f12294c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12287d;
+    public String f12295d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f12288e;
+    public JSONObject f12296e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f12289f;
+    public long f12297f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12290g;
+    public int f12298g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12291h;
+    public String f12299h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12292i;
+    public String f12300i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f12293j;
+    public boolean f12301j;
     public String k;
 
     public i(String str, String str2, int i2) {
@@ -60,19 +60,19 @@ public class i {
                 return;
             }
         }
-        this.f12287d = "";
-        this.f12293j = false;
+        this.f12295d = "";
+        this.f12301j = false;
         this.k = "";
-        this.f12284a = str;
-        this.f12285b = str;
-        this.f12286c = -1;
-        this.f12287d = str2;
-        this.f12290g = i2;
+        this.f12292a = str;
+        this.f12293b = str;
+        this.f12294c = -1;
+        this.f12295d = str2;
+        this.f12298g = i2;
         if ((i2 & 2) == 0) {
-            this.f12289f = System.currentTimeMillis();
+            this.f12297f = System.currentTimeMillis();
         }
         try {
-            this.f12288e = new JSONObject(this.f12287d);
+            this.f12296e = new JSONObject(this.f12295d);
         } catch (JSONException unused) {
         }
     }
@@ -81,7 +81,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = this.f12288e;
+            JSONObject jSONObject = this.f12296e;
             return jSONObject != null ? jSONObject.optString("bizId") : "";
         }
         return (String) invokeV.objValue;
@@ -90,8 +90,8 @@ public class i {
     public void b() {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (str = this.f12284a) != null && str.equals(this.f12285b) && d.g().a(this.f12284a)) {
-            this.f12291h = e.h().h();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (str = this.f12292a) != null && str.equals(this.f12293b) && d.g().a(this.f12292a)) {
+            this.f12299h = e.h().h();
         }
     }
 
@@ -110,16 +110,16 @@ public class i {
                 return;
             }
         }
-        this.f12287d = "";
-        this.f12293j = false;
+        this.f12295d = "";
+        this.f12301j = false;
         this.k = "";
-        this.f12284a = str;
-        this.f12285b = str;
-        this.f12286c = -1;
-        this.f12288e = jSONObject;
-        this.f12290g = i2;
+        this.f12292a = str;
+        this.f12293b = str;
+        this.f12294c = -1;
+        this.f12296e = jSONObject;
+        this.f12298g = i2;
         if ((i2 & 2) == 0) {
-            this.f12289f = System.currentTimeMillis();
+            this.f12297f = System.currentTimeMillis();
         }
     }
 
@@ -138,19 +138,19 @@ public class i {
                 return;
             }
         }
-        this.f12287d = "";
-        this.f12293j = false;
+        this.f12295d = "";
+        this.f12301j = false;
         this.k = "";
-        this.f12284a = str2;
-        this.f12285b = str;
-        this.f12286c = i2;
-        this.f12287d = str3;
-        this.f12290g = i3;
+        this.f12292a = str2;
+        this.f12293b = str;
+        this.f12294c = i2;
+        this.f12295d = str3;
+        this.f12298g = i3;
         if ((i3 & 2) == 0) {
-            this.f12289f = System.currentTimeMillis();
+            this.f12297f = System.currentTimeMillis();
         }
         try {
-            this.f12288e = new JSONObject(this.f12287d);
+            this.f12296e = new JSONObject(this.f12295d);
         } catch (JSONException unused) {
         }
     }
@@ -170,26 +170,26 @@ public class i {
                 return;
             }
         }
-        this.f12287d = "";
-        this.f12293j = false;
+        this.f12295d = "";
+        this.f12301j = false;
         this.k = "";
-        this.f12284a = str2;
-        this.f12285b = str;
-        this.f12286c = i2;
-        this.f12287d = str3;
-        this.f12290g = i3;
+        this.f12292a = str2;
+        this.f12293b = str;
+        this.f12294c = i2;
+        this.f12295d = str3;
+        this.f12298g = i3;
         if ((i3 & 2) == 0) {
             if (j2 > 0) {
-                this.f12289f = j2;
+                this.f12297f = j2;
             } else {
-                this.f12289f = System.currentTimeMillis();
+                this.f12297f = System.currentTimeMillis();
             }
         }
-        if (TextUtils.isEmpty(this.f12287d)) {
+        if (TextUtils.isEmpty(this.f12295d)) {
             return;
         }
         try {
-            this.f12288e = new JSONObject(this.f12287d);
+            this.f12296e = new JSONObject(this.f12295d);
         } catch (JSONException unused) {
         }
     }

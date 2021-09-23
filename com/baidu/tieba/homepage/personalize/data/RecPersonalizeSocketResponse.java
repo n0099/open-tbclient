@@ -62,10 +62,10 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        i.f18351a = false;
+        i.f18360a = false;
         if (i.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
             this.resultData = i.b();
-            i.f18351a = true;
+            i.f18360a = true;
             i.a();
             return;
         }

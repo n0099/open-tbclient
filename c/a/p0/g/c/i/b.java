@@ -204,16 +204,16 @@ public class b extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.k = c.a.p0.a.m2.b.e(TextUtils.equals(this.f7063a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
+            this.k = c.a.p0.a.m2.b.e(TextUtils.equals(this.f7071a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
             this.n = SwanAppNetworkUtils.f().type;
-            if (this.f7070h == null) {
-                this.f7070h = new JSONObject();
+            if (this.f7078h == null) {
+                this.f7078h = new JSONObject();
             }
             try {
-                this.f7070h.put("host", c.a.p0.a.c1.a.m().a());
-                this.f7070h.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.v);
+                this.f7078h.put("host", c.a.p0.a.c1.a.m().a());
+                this.f7078h.put(AsInstallService.SCHEME_PACKAGE_ADDED, this.v);
             } catch (JSONException e2) {
-                if (e.f7062j) {
+                if (e.f7070j) {
                     e2.printStackTrace();
                 }
             }
@@ -227,17 +227,17 @@ public class b extends f {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (e.f7062j) {
+        if (e.f7070j) {
             String str = "setCommonData: " + aVar.a();
         }
-        this.f7063a = aVar.f10917a;
-        this.f7068f = aVar.f10919c;
-        this.f7065c = aVar.f10918b;
-        this.o = aVar.f10922f;
-        this.p = aVar.f10923g;
-        this.s = aVar.f10924h;
-        this.u = aVar.f10925i;
-        this.l = aVar.f10920d;
-        this.m = aVar.f10921e;
+        this.f7071a = aVar.f10925a;
+        this.f7076f = aVar.f10927c;
+        this.f7073c = aVar.f10926b;
+        this.o = aVar.f10930f;
+        this.p = aVar.f10931g;
+        this.s = aVar.f10932h;
+        this.u = aVar.f10933i;
+        this.l = aVar.f10928d;
+        this.m = aVar.f10929e;
     }
 }

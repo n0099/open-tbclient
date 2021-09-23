@@ -12,7 +12,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.NoSuchElementException;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ObservableElementAt<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public final class ObservableElementAt<T> extends AbstractObservableWithUpstream
     public final boolean errorOnFewer;
     public final long index;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class ElementAtObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

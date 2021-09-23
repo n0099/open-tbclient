@@ -21,7 +21,7 @@ public class l {
             if (d2 == null || d2.size() <= 0) {
                 return null;
             }
-            File file = new File(d2.get(0).f9358a, "/debug/");
+            File file = new File(d2.get(0).f9366a, "/debug/");
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -33,6 +33,6 @@ public class l {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9358a, "/debug/").getAbsolutePath() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9366a, "/debug/").getAbsolutePath() : (String) invokeV.objValue;
     }
 }

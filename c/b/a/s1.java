@@ -18,16 +18,16 @@ public abstract class s1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f31422a;
+    public boolean f31443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31423b;
+    public boolean f31444b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31424c;
+    public boolean f31445c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31425d;
+    public boolean f31446d;
 
     public s1(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public abstract class s1 {
                 return;
             }
         }
-        this.f31423b = z;
-        this.f31424c = z2;
-        this.f31425d = false;
+        this.f31444b = z;
+        this.f31445c = z2;
+        this.f31446d = false;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:80:0x00e6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -111,7 +111,7 @@ public abstract class s1 {
                     e = e2;
                     try {
                         if (Build.VERSION.SDK_INT >= 23) {
-                            if (j1.k().f31357g.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0) {
+                            if (j1.k().f31378g.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0) {
                                 h0.b(e);
                             } else {
                                 throw new SecurityException(e);
@@ -183,8 +183,8 @@ public abstract class s1 {
                 return;
             }
         }
-        this.f31423b = z;
-        this.f31424c = z2;
-        this.f31425d = z3;
+        this.f31444b = z;
+        this.f31445c = z2;
+        this.f31446d = z3;
     }
 }

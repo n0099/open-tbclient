@@ -11,10 +11,10 @@ public class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f10112a;
+    public int f10120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f10113b;
+    public Map<String, String> f10121b;
 
     /* loaded from: classes.dex */
     public interface a {

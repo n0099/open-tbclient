@@ -78,7 +78,7 @@ public class b {
                     if (this.f1859f.f1854b == null) {
                         this.f1859f.f1854b = new c.a.f0.b.a();
                     }
-                    this.f1859f.f1854b.l(c.a.f0.a.b.a.f3337a.get());
+                    this.f1859f.f1854b.l(c.a.f0.a.b.a.f3338a.get());
                     this.f1859f.f1855c = System.currentTimeMillis();
                 }
             }
@@ -145,7 +145,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
-        c.a.f0.a.b.a.f3337a.set(aVar);
+        c.a.f0.a.b.a.f3338a.set(aVar);
         aVar.p().registerActivityLifecycleCallbacks(new f());
         new BDAdConfig.Builder().setAppName(aVar.v()).setAppsid(aVar.s()).build(aVar.p()).init();
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
@@ -162,7 +162,7 @@ public class b {
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || c.a.f0.a.b.a.f3337a.get() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || c.a.f0.a.b.a.f3338a.get() == null) {
             return;
         }
         this.f1856d.postDelayed(new a(this, i2), 5000L);

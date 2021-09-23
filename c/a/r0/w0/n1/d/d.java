@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class d extends c.a.r0.w0.k<c.a.r0.j3.x, a> implements View.OnClickListener {
+public class d extends c.a.r0.w0.k<c.a.r0.j3.y, a> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean x;
@@ -35,34 +35,34 @@ public class d extends c.a.r0.w0.k<c.a.r0.j3.x, a> implements View.OnClickListen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f27171a;
+        public View f27191a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f27172b;
+        public TextView f27192b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f27173c;
+        public View f27193c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f27174d;
+        public TextView f27194d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f27175e;
+        public View f27195e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f27176f;
+        public View f27196f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f27177g;
+        public TextView f27197g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View f27178h;
+        public View f27198h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f27179i;
+        public View f27199i;
 
         /* renamed from: j  reason: collision with root package name */
-        public View f27180j;
+        public View f27200j;
         public List<View> k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,19 +84,19 @@ public class d extends c.a.r0.w0.k<c.a.r0.j3.x, a> implements View.OnClickListen
                 }
             }
             this.k = new ArrayList();
-            this.f27172b = (TextView) view.findViewById(R.id.frs_fortune_bag_content);
-            this.f27171a = view.findViewById(R.id.frs_fortune_bag_item);
-            this.f27173c = view.findViewById(R.id.frs_my_service_item);
-            this.f27174d = (TextView) view.findViewById(R.id.frs_my_service_content);
-            this.f27175e = view.findViewById(R.id.frs_list_item_official_buttom_line);
-            this.f27176f = view.findViewById(R.id.frs_bawu_center);
-            this.f27177g = (TextView) view.findViewById(R.id.frs_bawu_center_inner);
-            this.f27178h = view.findViewById(R.id.official_account_text_divider_fortune_top);
-            this.f27179i = view.findViewById(R.id.official_account_text_divider_service_top);
-            this.f27180j = view.findViewById(R.id.official_account_text_divider_bawucenter_top);
-            this.k.add(this.f27178h);
-            this.k.add(this.f27179i);
-            this.k.add(this.f27180j);
+            this.f27192b = (TextView) view.findViewById(R.id.frs_fortune_bag_content);
+            this.f27191a = view.findViewById(R.id.frs_fortune_bag_item);
+            this.f27193c = view.findViewById(R.id.frs_my_service_item);
+            this.f27194d = (TextView) view.findViewById(R.id.frs_my_service_content);
+            this.f27195e = view.findViewById(R.id.frs_list_item_official_buttom_line);
+            this.f27196f = view.findViewById(R.id.frs_bawu_center);
+            this.f27197g = (TextView) view.findViewById(R.id.frs_bawu_center_inner);
+            this.f27198h = view.findViewById(R.id.official_account_text_divider_fortune_top);
+            this.f27199i = view.findViewById(R.id.official_account_text_divider_service_top);
+            this.f27200j = view.findViewById(R.id.official_account_text_divider_bawucenter_top);
+            this.k.add(this.f27198h);
+            this.k.add(this.f27199i);
+            this.k.add(this.f27200j);
         }
     }
 
@@ -154,27 +154,27 @@ public class d extends c.a.r0.w0.k<c.a.r0.j3.x, a> implements View.OnClickListen
     public a U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.f2957e).inflate(R.layout.frs_extra_account_item, (ViewGroup) null)) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.f2958e).inflate(R.layout.frs_extra_account_item, (ViewGroup) null)) : (a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.r0.w0.k, c.a.e.l.e.a
     /* renamed from: w0 */
-    public View a0(int i2, View view, ViewGroup viewGroup, c.a.r0.j3.x xVar, a aVar) {
+    public View a0(int i2, View view, ViewGroup viewGroup, c.a.r0.j3.y yVar, a aVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, xVar, aVar})) == null) {
-            super.a0(i2, view, viewGroup, xVar, aVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), view, viewGroup, yVar, aVar})) == null) {
+            super.a0(i2, view, viewGroup, yVar, aVar);
             boolean z = true;
-            if (xVar.Q4()) {
-                String O4 = xVar.O4();
-                if (O4 != null) {
-                    aVar.f27172b.setText(O4);
+            if (yVar.P4()) {
+                String N4 = yVar.N4();
+                if (N4 != null) {
+                    aVar.f27192b.setText(N4);
                 } else {
                     FrsViewData frsViewData = this.n;
                     if (frsViewData != null && frsViewData.getForum() != null && this.n.getForum().getName() != null) {
-                        TextView textView = aVar.f27172b;
-                        Context context = this.f2957e;
+                        TextView textView = aVar.f27192b;
+                        Context context = this.f2958e;
                         int i3 = R.string.get_fortune_hint_format;
                         Object[] objArr = new Object[1];
                         FrsViewData frsViewData2 = this.n;
@@ -182,52 +182,52 @@ public class d extends c.a.r0.w0.k<c.a.r0.j3.x, a> implements View.OnClickListen
                         textView.setText(context.getString(i3, objArr));
                     }
                 }
-                aVar.f27171a.setTag(Integer.valueOf(i2));
-                aVar.f27171a.setOnClickListener(this);
-                aVar.f27171a.setVisibility(0);
+                aVar.f27191a.setTag(Integer.valueOf(i2));
+                aVar.f27191a.setOnClickListener(this);
+                aVar.f27191a.setVisibility(0);
             } else {
-                aVar.f27171a.setVisibility(8);
-                aVar.f27178h.setVisibility(8);
+                aVar.f27191a.setVisibility(8);
+                aVar.f27198h.setVisibility(8);
             }
-            c.a.r0.j3.r P4 = xVar.P4();
-            if (P4 != null && P4.b() && !TextUtils.isEmpty(P4.a())) {
-                aVar.f27174d.setText(P4.a());
-                aVar.f27173c.setTag(Integer.valueOf(i2));
-                aVar.f27173c.setOnClickListener(this);
-                aVar.f27173c.setVisibility(0);
+            c.a.r0.j3.s O4 = yVar.O4();
+            if (O4 != null && O4.b() && !TextUtils.isEmpty(O4.a())) {
+                aVar.f27194d.setText(O4.a());
+                aVar.f27193c.setTag(Integer.valueOf(i2));
+                aVar.f27193c.setOnClickListener(this);
+                aVar.f27193c.setVisibility(0);
             } else {
-                aVar.f27173c.setVisibility(8);
-                aVar.f27179i.setVisibility(8);
+                aVar.f27193c.setVisibility(8);
+                aVar.f27199i.setVisibility(8);
             }
             if (this.y) {
-                aVar.f27175e.setVisibility(0);
+                aVar.f27195e.setVisibility(0);
             } else {
-                aVar.f27175e.setVisibility(8);
+                aVar.f27195e.setVisibility(8);
             }
             this.o.getLayoutMode().k(this.r == 1);
             this.o.getLayoutMode().j(view);
             FrsViewData frsViewData3 = this.n;
             z = (frsViewData3 == null || frsViewData3.getUserData() == null || !this.n.getUserData().isBawu()) ? false : false;
             if (z) {
-                aVar.f27176f.setVisibility(0);
-                SkinManager.setBackgroundResource(aVar.f27176f, R.drawable.frs_top_item_bg);
-                aVar.f27175e.setVisibility(0);
-                aVar.f27176f.setOnClickListener(this);
-                aVar.f27176f.setTag(Integer.valueOf(i2));
+                aVar.f27196f.setVisibility(0);
+                SkinManager.setBackgroundResource(aVar.f27196f, R.drawable.frs_top_item_bg);
+                aVar.f27195e.setVisibility(0);
+                aVar.f27196f.setOnClickListener(this);
+                aVar.f27196f.setTag(Integer.valueOf(i2));
             } else {
-                aVar.f27176f.setVisibility(8);
-                aVar.f27180j.setVisibility(8);
+                aVar.f27196f.setVisibility(8);
+                aVar.f27200j.setVisibility(8);
             }
-            if (this.x || xVar.Q4()) {
+            if (this.x || yVar.P4()) {
                 return view;
             }
             if (z) {
-                aVar.f27171a.setVisibility(8);
-                aVar.f27173c.setVisibility(8);
+                aVar.f27191a.setVisibility(8);
+                aVar.f27193c.setVisibility(8);
                 u0(aVar);
                 return view;
             }
-            return new View(this.f2957e);
+            return new View(this.f2958e);
         }
         return (View) invokeCommon.objValue;
     }

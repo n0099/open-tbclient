@@ -11,13 +11,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f8162a;
+    public c f8170a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8163b;
+    public String f8171b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f8164c;
+    public Map<String, Object> f8172c;
 
     public b() {
         Interceptable interceptable = $ic;

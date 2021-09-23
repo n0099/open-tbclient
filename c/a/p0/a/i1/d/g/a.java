@@ -27,16 +27,16 @@ public class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<c.a.p0.a.i1.d.f.a> f6760e;
+    public ArrayList<c.a.p0.a.i1.d.f.a> f6768e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<MediaModel> f6761f;
+    public ArrayList<MediaModel> f6769f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f6762g;
+    public String f6770g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f6763h;
+    public Handler f6771h;
 
     public a(String str, Handler handler) {
         Interceptable interceptable = $ic;
@@ -53,15 +53,15 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f6760e = new ArrayList<>();
-        this.f6761f = new ArrayList<>();
-        this.f6762g = str;
-        this.f6763h = handler;
+        this.f6768e = new ArrayList<>();
+        this.f6769f = new ArrayList<>();
+        this.f6770g = str;
+        this.f6771h = handler;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.equals(this.f6762g, "video")) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.equals(this.f6770g, "video")) {
             return;
         }
         Cursor cursor = null;
@@ -69,7 +69,7 @@ public class a implements Runnable {
             try {
                 cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
             } catch (Exception e2) {
-                if (c.f6730a) {
+                if (c.f6738a) {
                     e2.printStackTrace();
                 }
             }
@@ -81,7 +81,7 @@ public class a implements Runnable {
                 long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
                 long j3 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
                 File file = new File(string);
-                if (file.exists() && (c.f6733d || !d.d(string))) {
+                if (file.exists() && (c.f6741d || !d.d(string))) {
                     ImageModel imageModel = new ImageModel(string);
                     imageModel.setAddDate(j2);
                     imageModel.setSize(j3);
@@ -114,7 +114,7 @@ public class a implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ?? r1 = "Image";
-            if (TextUtils.equals(this.f6762g, "Image")) {
+            if (TextUtils.equals(this.f6770g, "Image")) {
                 return;
             }
             try {
@@ -158,7 +158,7 @@ public class a implements Runnable {
                                     i3 = Integer.parseInt(extractMetadata2);
                                 } catch (Exception e4) {
                                     e = e4;
-                                    if (c.f6730a) {
+                                    if (c.f6738a) {
                                         e.printStackTrace();
                                     }
                                 }
@@ -190,7 +190,7 @@ public class a implements Runnable {
                     }
                 } catch (Exception e6) {
                     e2 = e6;
-                    if (c.f6730a) {
+                    if (c.f6738a) {
                         e2.printStackTrace();
                     }
                     c.a.p0.t.d.d(cursor);
@@ -227,14 +227,14 @@ public class a implements Runnable {
             c.a.p0.a.i1.d.f.a aVar = new c.a.p0.a.i1.d.f.a();
             aVar.h(name);
             aVar.g(path);
-            int indexOf = this.f6760e.indexOf(aVar);
+            int indexOf = this.f6768e.indexOf(aVar);
             if (indexOf >= 0) {
-                this.f6760e.get(indexOf).a(mediaModel);
+                this.f6768e.get(indexOf).a(mediaModel);
             } else {
                 aVar.a(mediaModel);
-                this.f6760e.add(aVar);
+                this.f6768e.add(aVar);
             }
-            this.f6761f.add(mediaModel);
+            this.f6769f.add(mediaModel);
         }
     }
 
@@ -244,20 +244,20 @@ public class a implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             a();
             b();
-            c(this.f6760e);
+            c(this.f6768e);
             c.a.p0.a.i1.d.f.a aVar = new c.a.p0.a.i1.d.f.a();
-            aVar.h(d.b(AppRuntime.getAppContext(), this.f6762g));
-            aVar.f6759h = this.f6761f;
-            this.f6760e.add(0, aVar);
-            Iterator<c.a.p0.a.i1.d.f.a> it = this.f6760e.iterator();
+            aVar.h(d.b(AppRuntime.getAppContext(), this.f6770g));
+            aVar.f6767h = this.f6769f;
+            this.f6768e.add(0, aVar);
+            Iterator<c.a.p0.a.i1.d.f.a> it = this.f6768e.iterator();
             while (it.hasNext()) {
                 Collections.sort(it.next().f());
             }
-            Handler handler = this.f6763h;
+            Handler handler = this.f6771h;
             if (handler != null) {
                 Message obtainMessage = handler.obtainMessage(0);
-                obtainMessage.obj = this.f6760e;
-                this.f6763h.sendMessage(obtainMessage);
+                obtainMessage.obj = this.f6768e;
+                this.f6771h.sendMessage(obtainMessage);
             }
         }
     }

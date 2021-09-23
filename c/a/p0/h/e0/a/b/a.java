@@ -12,10 +12,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public n f11176a;
+    public n f11184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11177b;
+    public boolean f11185b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class a {
                 return;
             }
         }
-        this.f11177b = true;
+        this.f11185b = true;
     }
 
     public void a() {
@@ -43,16 +43,16 @@ public class a {
     public void b(n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar) == null) {
-            this.f11176a = nVar;
-            c(this.f11177b);
+            this.f11184a = nVar;
+            c(this.f11185b);
         }
     }
 
     public final void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f11177b = z;
-            n nVar = this.f11176a;
+            this.f11185b = z;
+            n nVar = this.f11184a;
             if (nVar == null) {
                 return;
             }

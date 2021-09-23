@@ -26,10 +26,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8424a;
+    public static final boolean f8432a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f8425b;
+    public static final File f8433b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,8 +45,8 @@ public class a {
                 return;
             }
         }
-        f8424a = k.f7077a;
-        f8425b = AppRuntime.getAppContext().getExternalCacheDir();
+        f8432a = k.f7085a;
+        f8433b = AppRuntime.getAppContext().getExternalCacheDir();
     }
 
     public static JSONObject a() {
@@ -78,7 +78,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f8425b + File.separator + "swan_perf";
+            return f8433b + File.separator + "swan_perf";
         }
         return (String) invokeV.objValue;
     }
@@ -93,7 +93,7 @@ public class a {
                 if (!ubcFlowEvent.b()) {
                     try {
                         JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("id", ubcFlowEvent.f46174a);
+                        jSONObject3.put("id", ubcFlowEvent.f46276a);
                         jSONObject3.put("time", ubcFlowEvent.g());
                         jSONObject3.put("value", ubcFlowEvent.j());
                         jSONArray.put(jSONObject3);
@@ -118,7 +118,7 @@ public class a {
         Map<String, String> t;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, jSONObject) == null) {
-            if (f8424a) {
+            if (f8432a) {
                 c.a.p0.q.d.b().f();
             }
             if (c.a.p0.a.u1.a.a.D() && (Q = c.a.p0.a.a2.e.Q()) != null && (t = o0.t(o0.o(Q.L().W()))) != null && TextUtils.equals(t.get("_SwanStartupPerf_"), "1")) {
@@ -130,7 +130,7 @@ public class a {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                File file = new File(f8425b, "swan_perf");
+                File file = new File(f8433b, "swan_perf");
                 if (file.exists() || file.mkdirs()) {
                     c.a.p0.t.d.M(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
                 }

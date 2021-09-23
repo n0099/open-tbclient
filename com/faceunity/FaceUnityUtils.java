@@ -1,15 +1,16 @@
 package com.faceunity;
 
 import android.content.Context;
+import c.a.e.j.h;
 import c.a.r0.x3.l.e;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.wrapper.faceunity;
-import java.io.InputStream;
+import java.io.File;
+import java.io.FileInputStream;
 /* loaded from: classes9.dex */
 public class FaceUnityUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -35,12 +36,21 @@ public class FaceUnityUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                InputStream open = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/v3.mp3");
-                open.close();
-                faceunity.fuSetup(new byte[open.available()], null, e.a());
-                InputStream open2 = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/face_beautification.mp3");
-                open2.close();
-                return faceunity.fuCreateItemFromPackage(new byte[open2.available()]);
+                String b2 = h.b("v3.mp3");
+                File file = new File(b2);
+                if (file.exists() && file.isFile()) {
+                    FileInputStream fileInputStream = new FileInputStream(b2);
+                    fileInputStream.close();
+                    faceunity.fuSetup(new byte[fileInputStream.available()], null, e.a());
+                }
+                String b3 = h.b("face_beautification.mp3");
+                File file2 = new File(b3);
+                if (file2.exists() && file2.isFile()) {
+                    FileInputStream fileInputStream2 = new FileInputStream(b3);
+                    fileInputStream2.close();
+                    return faceunity.fuCreateItemFromPackage(new byte[fileInputStream2.available()]);
+                }
+                return 0;
             } catch (Throwable th) {
                 th.printStackTrace();
                 return 0;

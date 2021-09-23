@@ -74,22 +74,22 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
     public CustomMessageListener O;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16738e;
+    public int f16748e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16739f;
+    public int f16749f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16740g;
+    public int f16750g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16741h;
+    public boolean f16751h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f16742i;
+    public boolean f16752i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BaseFragmentActivity f16743j;
+    public BaseFragmentActivity f16753j;
     public c.a.r0.c4.k.c k;
     public c.a.r0.c4.k.a l;
     public f m;
@@ -113,7 +113,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f16744a;
+        public final /* synthetic */ e f16754a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(e eVar, int i2) {
@@ -133,17 +133,17 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                     return;
                 }
             }
-            this.f16744a = eVar;
+            this.f16754a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f16744a.f16743j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f16754a.f16753j == null) {
                 return;
             }
-            this.f16744a.f16743j.finish();
+            this.f16754a.f16753j.finish();
         }
     }
 
@@ -153,7 +153,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f16745a;
+        public final /* synthetic */ e f16755a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(e eVar, int i2) {
@@ -173,17 +173,17 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                     return;
                 }
             }
-            this.f16745a = eVar;
+            this.f16755a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f16745a.f16743j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f16755a.f16753j == null) {
                 return;
             }
-            this.f16745a.f16743j.closeLoadingDialog();
+            this.f16755a.f16753j.closeLoadingDialog();
         }
     }
 
@@ -193,7 +193,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f16746a;
+        public final /* synthetic */ e f16756a;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -210,7 +210,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                     return;
                 }
             }
-            this.f16746a = eVar;
+            this.f16756a = eVar;
         }
 
         @Override // c.a.r0.c4.k.f
@@ -230,7 +230,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                         }
                     }
                 }
-                BdToast.i(this.f16746a.f16743j, this.f16746a.f16743j.getString(R.string.uploade_attation), R.drawable.icon_toast_game_error, false).q();
+                BdToast.i(this.f16756a.f16753j, this.f16756a.f16753j.getString(R.string.uploade_attation), R.drawable.icon_toast_game_error, false).q();
                 return false;
             }
             return invokeL.booleanValue;
@@ -243,7 +243,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f16747a;
+        public final /* synthetic */ e f16757a;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -260,7 +260,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                     return;
                 }
             }
-            this.f16747a = eVar;
+            this.f16757a = eVar;
         }
 
         public /* synthetic */ d(e eVar, a aVar) {
@@ -273,8 +273,8 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                new c.a.q0.d0.f(null).o(this.f16747a.k.m(), true);
-                return this.f16747a.k.m().toJsonString();
+                new c.a.q0.d0.f(null).o(this.f16757a.k.m(), true);
+                return this.f16757a.k.m().toJsonString();
             }
             return (String) invokeL.objValue;
         }
@@ -286,8 +286,8 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, str);
-                this.f16747a.f16743j.setResult(-1, intent);
-                this.f16747a.f16743j.finish();
+                this.f16757a.f16753j.setResult(-1, intent);
+                this.f16757a.f16753j.finish();
             }
         }
     }
@@ -307,9 +307,9 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                 return;
             }
         }
-        this.f16740g = 0;
-        this.f16741h = false;
-        this.f16742i = false;
+        this.f16750g = 0;
+        this.f16751h = false;
+        this.f16752i = false;
         this.o = "";
         this.q = "";
         this.r = "";
@@ -335,25 +335,25 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         this.O = new b(this, 2921614);
         r(baseFragmentActivity, i2, i3);
         if (bundle == null) {
-            s(this.f16743j.getIntent());
+            s(this.f16753j.getIntent());
         } else {
             t(bundle);
         }
-        X(0, this.f16738e);
-        BaseFragmentActivity baseFragmentActivity2 = this.f16743j;
+        X(0, this.f16748e);
+        BaseFragmentActivity baseFragmentActivity2 = this.f16753j;
         if (baseFragmentActivity2 != null) {
             baseFragmentActivity2.registerListener(this.N);
-            this.f16743j.registerListener(this.O);
+            this.f16753j.registerListener(this.O);
         }
     }
 
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f16741h = true;
+            this.f16751h = true;
             Y();
-            this.f16743j.closeLoadingDialog();
-            this.f16743j.dismissAllDialog();
+            this.f16753j.closeLoadingDialog();
+            this.f16753j.dismissAllDialog();
             c.a.r0.c4.k.d.f().e();
             c.a.r0.c4.k.a aVar = this.l;
             if (aVar != null) {
@@ -380,8 +380,8 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Y();
-            if (this.f16742i) {
-                this.f16743j.finish();
+            if (this.f16752i) {
+                this.f16753j.finish();
             }
         }
     }
@@ -403,7 +403,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
             if (jVar != null) {
                 jVar.k();
             }
-            this.f16742i = false;
+            this.f16752i = false;
         }
     }
 
@@ -476,8 +476,8 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                 } else {
                     Intent intent2 = new Intent();
                     intent2.putExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH, intent.getStringExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH));
-                    this.f16743j.setResult(-1, intent2);
-                    this.f16743j.finish();
+                    this.f16753j.setResult(-1, intent2);
+                    this.f16753j.finish();
                     return;
                 }
             }
@@ -521,10 +521,10 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(this.f16743j, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-            permissionJudgePolicy.appendRequestPermission(this.f16743j, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-            permissionJudgePolicy.appendRequestPermission(this.f16743j, "android.permission.WRITE_EXTERNAL_STORAGE");
-            return permissionJudgePolicy.startRequestPermission(this.f16743j);
+            permissionJudgePolicy.appendRequestPermission(this.f16753j, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            permissionJudgePolicy.appendRequestPermission(this.f16753j, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+            permissionJudgePolicy.appendRequestPermission(this.f16753j, "android.permission.WRITE_EXTERNAL_STORAGE");
+            return permissionJudgePolicy.startRequestPermission(this.f16753j);
         }
         return invokeV.booleanValue;
     }
@@ -535,9 +535,9 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(this.f16743j, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-            permissionJudgePolicy.appendRequestPermission(this.f16743j, "android.permission.WRITE_EXTERNAL_STORAGE");
-            return permissionJudgePolicy.startRequestPermission(this.f16743j);
+            permissionJudgePolicy.appendRequestPermission(this.f16753j, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            permissionJudgePolicy.appendRequestPermission(this.f16753j, "android.permission.WRITE_EXTERNAL_STORAGE");
+            return permissionJudgePolicy.startRequestPermission(this.f16753j);
         }
         return invokeV.booleanValue;
     }
@@ -554,31 +554,31 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             if (i2 == 1) {
-                X(i2, this.f16739f);
+                X(i2, this.f16749f);
             } else {
-                X(i2, this.f16738e);
+                X(i2, this.f16748e);
             }
         }
     }
 
     public final void X(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) || this.f16741h) {
+        if (!(interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) || this.f16751h) {
             return;
         }
-        FragmentTransaction beginTransaction = this.f16743j.getSupportFragmentManager().beginTransaction();
-        Fragment findFragmentByTag = this.f16743j.getSupportFragmentManager().findFragmentByTag(this.l.i(this.f16740g));
+        FragmentTransaction beginTransaction = this.f16753j.getSupportFragmentManager().beginTransaction();
+        Fragment findFragmentByTag = this.f16753j.getSupportFragmentManager().findFragmentByTag(this.l.i(this.f16750g));
         if (findFragmentByTag != null) {
             beginTransaction.hide(findFragmentByTag);
         }
-        this.f16740g = i2;
-        if (this.f16743j.getSupportFragmentManager().findFragmentByTag(this.l.i(i2)) != null) {
+        this.f16750g = i2;
+        if (this.f16753j.getSupportFragmentManager().findFragmentByTag(this.l.i(i2)) != null) {
             beginTransaction.show(this.l.h(i2));
         } else {
             beginTransaction.add(i3, this.l.h(i2), this.l.i(i2));
         }
         beginTransaction.commitAllowingStateLoss();
-        this.f16743j.getSupportFragmentManager().executePendingTransactions();
+        this.f16753j.getSupportFragmentManager().executePendingTransactions();
     }
 
     public final void Y() {
@@ -608,11 +608,11 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                 if (T()) {
                     return;
                 }
-                this.f16743j.showLoadingDialog(null);
+                this.f16753j.showLoadingDialog(null);
                 TbCaptureActivityConfig tbCaptureActivityConfig = new TbCaptureActivityConfig(tbPageContext.getPageActivity());
-                tbCaptureActivityConfig.getIntent().putExtras(this.f16743j.getIntent());
+                tbCaptureActivityConfig.getIntent().putExtras(this.f16753j.getIntent());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921582, tbCaptureActivityConfig));
-                this.f16742i = true;
+                this.f16752i = true;
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 5).param("obj_type", 2));
                 if (c.a.q0.s.m.b.b()) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WORK_PUBLISH_ENTER_TYPE_CLICK).param("obj_locate", 1).param("obj_source", c.a.q0.s.m.b.d() ? 2 : 1));
@@ -621,12 +621,12 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
             } else {
                 ForumWriteData forumWriteData = new ForumWriteData(this.s, this.r, null, null);
                 forumWriteData.statisticFrom = this.p;
-                this.f16743j.showLoadingDialog(null);
+                this.f16753j.showLoadingDialog(null);
                 RecordVideoActivityConfig recordVideoActivityConfig = new RecordVideoActivityConfig(tbPageContext.getPageActivity(), this.F != 5 ? 2 : 3, forumWriteData, this.k.m(), "", this.G);
-                recordVideoActivityConfig.getIntent().putExtras(this.f16743j.getIntent());
+                recordVideoActivityConfig.getIntent().putExtras(this.f16753j.getIntent());
                 recordVideoActivityConfig.setShowType(1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921615, recordVideoActivityConfig));
-                this.f16742i = false;
+                this.f16752i = false;
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 5).param("obj_type", 2));
             }
         }
@@ -659,7 +659,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
             } else if (k()) {
                 return c(imageFileInfo);
             } else {
-                this.f16743j.showToast(String.format(this.f16743j.getString(R.string.max_choose_image_count), Integer.valueOf(l)));
+                this.f16753j.showToast(String.format(this.f16753j.getString(R.string.max_choose_image_count), Integer.valueOf(l)));
                 return false;
             }
         }
@@ -717,7 +717,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                 TiebaStatic.log(TbadkCoreStatisticKey.UPGRADE_DIALOG_CHOOSE_IMAGE);
             }
             if (this.t == 5) {
-                this.f16743j.showLoadingDialog("正在上传");
+                this.f16753j.showLoadingDialog("正在上传");
                 new d(this, null).execute(new String[0]);
             } else if (this.k == null) {
             } else {
@@ -726,7 +726,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                     if (this.k.p()) {
                         VideoFileInfo f2 = this.k.f();
                         if (this.n == null) {
-                            j jVar2 = new j(this.f16743j, this.r, this.s, "");
+                            j jVar2 = new j(this.f16753j, this.r, this.s, "");
                             this.n = jVar2;
                             jVar2.p(this.E);
                             this.n.o(this.K, this.J, this.L, this.M);
@@ -744,12 +744,12 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                         if (WriteActivityConfig.isAsyncWriting()) {
                             return;
                         }
-                        WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f16743j);
+                        WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f16753j);
                         newInstance.getIntent().setFlags(536870912);
                         newInstance.getIntent().setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-                        newInstance.getIntent().putExtras(this.f16743j.getIntent());
+                        newInstance.getIntent().putExtras(this.f16753j.getIntent());
                         newInstance.setType(9).setWriteImagesInfo(this.k.m()).send();
-                        this.f16743j.finish();
+                        this.f16753j.finish();
                     } else if (this.z) {
                         w();
                     } else {
@@ -804,7 +804,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         int l;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            if (this.f16743j.getIntent().getBooleanExtra(AlbumActivityConfig.IS_SELECT_DIRECTLY, false) && this.k.D() == (l = this.k.l()) && l == 1) {
+            if (this.f16753j.getIntent().getBooleanExtra(AlbumActivityConfig.IS_SELECT_DIRECTLY, false) && this.k.D() == (l = this.k.l()) && l == 1) {
                 try {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.k.g(), 0);
                     if (j(imageFileInfo)) {
@@ -830,8 +830,8 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
             }
             intent.putExtra(AlbumActivityConfig.LAST_ALBUM_ID, k);
             intent.putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.t);
-            this.f16743j.setResult(0, intent);
-            this.f16743j.finish();
+            this.f16753j.setResult(0, intent);
+            this.f16753j.finish();
         }
     }
 
@@ -847,8 +847,8 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.k.m().toJsonString());
         intent.putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.t);
         intent.putExtra("from_type", this.G);
-        this.f16743j.setResult(-1, intent);
-        this.f16743j.finish();
+        this.f16753j.setResult(-1, intent);
+        this.f16753j.finish();
     }
 
     public final void n(Intent intent) {
@@ -861,8 +861,8 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
             if (intent != null && !StringUtils.isNull(intent.getStringExtra("file_name"))) {
                 intent2.putExtra("file_name", intent.getStringExtra("file_name"));
             }
-            this.f16743j.setResult(-1, intent2);
-            this.f16743j.finish();
+            this.f16753j.setResult(-1, intent2);
+            this.f16753j.finish();
             if (AlbumActivityConfig.FROM_FLUTTER.equals(this.q)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921464, intent2));
             }
@@ -902,7 +902,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
                 }
                 l();
             } else if (view == this.l.c()) {
-                X(0, this.f16738e);
+                X(0, this.f16748e);
             } else if (view == this.l.l()) {
                 Z(2);
             } else if (view == this.l.k()) {
@@ -936,9 +936,9 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
     public final void r(BaseFragmentActivity baseFragmentActivity, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048616, this, baseFragmentActivity, i2, i3) == null) {
-            this.f16743j = baseFragmentActivity;
-            this.f16738e = i2;
-            this.f16739f = i3;
+            this.f16753j = baseFragmentActivity;
+            this.f16748e = i2;
+            this.f16749f = i3;
             c.a.r0.c4.k.a aVar = new c.a.r0.c4.k.a(baseFragmentActivity.getPageContext(), this);
             this.l = aVar;
             aVar.m();
@@ -949,7 +949,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, intent) == null) {
-            this.k = new c.a.r0.c4.k.c(this.f16743j.getPageContext());
+            this.k = new c.a.r0.c4.k.c(this.f16753j.getPageContext());
             if (intent != null) {
                 this.v = intent.getBooleanExtra(IntentConfig.KEY_CAN_SELECT_VIDEO, false);
                 this.w = intent.getBooleanExtra(IntentConfig.KEY_CAN_SELECT_ONLY_VIDEO, false);
@@ -998,7 +998,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, bundle) == null) {
-            this.k = new c.a.r0.c4.k.c(this.f16743j.getPageContext());
+            this.k = new c.a.r0.c4.k.c(this.f16753j.getPageContext());
             if (bundle != null) {
                 this.v = bundle.getBoolean(IntentConfig.KEY_CAN_SELECT_VIDEO);
                 this.w = bundle.getBoolean(IntentConfig.KEY_CAN_SELECT_ONLY_VIDEO);
@@ -1060,12 +1060,12 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048621, this) == null) || (cVar = this.k) == null || (m = cVar.m()) == null || m.getChosedFiles() == null || m.getChosedFiles().size() < 1) {
             return;
         }
-        boolean booleanExtra = this.f16743j.getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false);
-        VideoCoverSelectActivityConfig videoCoverSelectActivityConfig = new VideoCoverSelectActivityConfig(this.f16743j);
+        boolean booleanExtra = this.f16753j.getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false);
+        VideoCoverSelectActivityConfig videoCoverSelectActivityConfig = new VideoCoverSelectActivityConfig(this.f16753j);
         videoCoverSelectActivityConfig.setImagePath(m.getChosedFiles().getFirst().getFilePath());
         videoCoverSelectActivityConfig.getIntent().putExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, booleanExtra);
         videoCoverSelectActivityConfig.setVideoType(this.A);
-        this.f16743j.sendMessage(new CustomMessage(2002001, videoCoverSelectActivityConfig));
+        this.f16753j.sendMessage(new CustomMessage(2002001, videoCoverSelectActivityConfig));
     }
 
     public final void x() {
@@ -1075,7 +1075,7 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048622, this) == null) || (cVar = this.k) == null || (m = cVar.m()) == null) {
             return;
         }
-        this.f16743j.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f16743j, 12012, m, o())));
+        this.f16753j.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f16753j, 12012, m, o())));
     }
 
     public final boolean y() {
@@ -1100,8 +1100,8 @@ public class e implements c.a.q0.x0.a, View.OnClickListener {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
-            this.f16743j.closeLoadingDialog();
-            int i2 = this.f16740g;
+            this.f16753j.closeLoadingDialog();
+            int i2 = this.f16750g;
             if (i2 != 0) {
                 if (i2 == 1) {
                     W(0);

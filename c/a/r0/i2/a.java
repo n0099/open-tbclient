@@ -24,28 +24,28 @@ public class a extends c.a.e.a.d<PayVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayVcodeActivity f19418a;
+    public PayVcodeActivity f19433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f19419b;
+    public ViewGroup f19434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f19420c;
+    public View f19435c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f19421d;
+    public ViewGroup f19436d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f19422e;
+    public TextView f19437e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseWebView f19423f;
+    public BaseWebView f19438f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19424g;
+    public TextView f19439g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ProgressBar f19425h;
+    public ProgressBar f19440h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(PayVcodeActivity payVcodeActivity) {
@@ -65,7 +65,7 @@ public class a extends c.a.e.a.d<PayVcodeActivity> {
                 return;
             }
         }
-        this.f19418a = payVcodeActivity;
+        this.f19433a = payVcodeActivity;
         payVcodeActivity.setContentView(R.layout.pay_vcode_activity);
         h(payVcodeActivity);
     }
@@ -73,74 +73,74 @@ public class a extends c.a.e.a.d<PayVcodeActivity> {
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19420c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19435c : (View) invokeV.objValue;
     }
 
     public TextView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19424g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19439g : (TextView) invokeV.objValue;
     }
 
     public TextView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19422e : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19437e : (TextView) invokeV.objValue;
     }
 
     public ViewGroup f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19421d : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f19436d : (ViewGroup) invokeV.objValue;
     }
 
     public BaseWebView g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19423f : (BaseWebView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19438f : (BaseWebView) invokeV.objValue;
     }
 
     public final void h(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, payVcodeActivity) == null) {
-            this.f19419b = (ViewGroup) this.f19418a.findViewById(R.id.payvcode_parent);
-            TextView textView = (TextView) this.f19418a.findViewById(R.id.payment_performance);
-            this.f19422e = textView;
+            this.f19434b = (ViewGroup) this.f19433a.findViewById(R.id.payvcode_parent);
+            TextView textView = (TextView) this.f19433a.findViewById(R.id.payment_performance);
+            this.f19437e = textView;
             SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.f19422e, R.color.CAM_X0101, 1);
-            this.f19423f = (BaseWebView) payVcodeActivity.findViewById(R.id.vcode_webview);
-            this.f19424g = (TextView) payVcodeActivity.findViewById(R.id.webview_fail_view);
-            this.f19420c = payVcodeActivity.findViewById(R.id.payvcode_empty_layout);
-            this.f19421d = (ViewGroup) payVcodeActivity.findViewById(R.id.payvcode_layout);
-            this.f19425h = (ProgressBar) payVcodeActivity.findViewById(R.id.payvcode_progress);
-            this.f19423f.setHorizontalScrollBarEnabled(false);
-            this.f19423f.setHorizontalScrollbarOverlay(false);
-            this.f19423f.setScrollBarStyle(33554432);
-            this.f19423f.getSettings().setJavaScriptEnabled(true);
+            SkinManager.setViewTextColor(this.f19437e, R.color.CAM_X0101, 1);
+            this.f19438f = (BaseWebView) payVcodeActivity.findViewById(R.id.vcode_webview);
+            this.f19439g = (TextView) payVcodeActivity.findViewById(R.id.webview_fail_view);
+            this.f19435c = payVcodeActivity.findViewById(R.id.payvcode_empty_layout);
+            this.f19436d = (ViewGroup) payVcodeActivity.findViewById(R.id.payvcode_layout);
+            this.f19440h = (ProgressBar) payVcodeActivity.findViewById(R.id.payvcode_progress);
+            this.f19438f.setHorizontalScrollBarEnabled(false);
+            this.f19438f.setHorizontalScrollbarOverlay(false);
+            this.f19438f.setScrollBarStyle(33554432);
+            this.f19438f.getSettings().setJavaScriptEnabled(true);
         }
     }
 
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f19424g.setVisibility(z ? 0 : 8);
+            this.f19439g.setVisibility(z ? 0 : 8);
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f19425h.setVisibility(z ? 0 : 8);
+            this.f19440h.setVisibility(z ? 0 : 8);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            c.a.q0.w0.a.a(this.f19418a.getPageContext(), this.f19419b);
-            SkinManager.setBgColor(this.f19424g, i2);
-            SkinManager.setBackgroundResource(this.f19422e, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.f19422e, R.color.CAM_X0101, 1);
+            c.a.q0.w0.a.a(this.f19433a.getPageContext(), this.f19434b);
+            SkinManager.setBgColor(this.f19439g, i2);
+            SkinManager.setBackgroundResource(this.f19437e, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.f19437e, R.color.CAM_X0101, 1);
         }
     }
 }

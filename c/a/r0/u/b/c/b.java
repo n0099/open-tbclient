@@ -30,7 +30,7 @@ public class b implements h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.w.a f25131a;
+        public final /* synthetic */ c.a.p0.a.w.a f25152a;
 
         public a(b bVar, c.a.p0.a.w.a aVar) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class b implements h {
                     return;
                 }
             }
-            this.f25131a = aVar;
+            this.f25152a = aVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
-                this.f25131a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
+                this.f25152a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
             }
         }
     }

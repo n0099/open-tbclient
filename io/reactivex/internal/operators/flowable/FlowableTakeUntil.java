@@ -16,13 +16,13 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class FlowableTakeUntil<T, U> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Publisher<? extends U> other;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class TakeUntilMainSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4945480365982832967L;
@@ -33,7 +33,7 @@ public final class FlowableTakeUntil<T, U> extends AbstractFlowableWithUpstream<
         public final AtomicLong requested;
         public final AtomicReference<Subscription> s;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes10.dex */
         public final class OtherSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3592821756711087922L;

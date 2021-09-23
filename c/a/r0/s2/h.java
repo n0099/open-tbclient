@@ -19,31 +19,31 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f24785a;
+    public Context f24801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f24786b;
+    public View f24802b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeListView f24787c;
+    public BdTypeListView f24803c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoDataView f24788d;
+    public NoDataView f24804d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.g0.h f24789e;
+    public c.a.q0.g0.h f24805e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBarShadowView f24790f;
+    public NavigationBarShadowView f24806f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f24791g;
+    public d f24807g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f24792h;
+    public View.OnClickListener f24808h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AbsListView.OnScrollListener f24793i;
+    public AbsListView.OnScrollListener f24809i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -51,7 +51,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f24794e;
+        public final /* synthetic */ h f24810e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -68,19 +68,19 @@ public class h {
                     return;
                 }
             }
-            this.f24794e = hVar;
+            this.f24810e = hVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && c.a.e.e.p.j.A()) {
-                if (this.f24794e.f24789e != null) {
-                    this.f24794e.f24789e.dettachView(this.f24794e.f24786b);
-                    this.f24794e.f24789e = null;
+                if (this.f24810e.f24805e != null) {
+                    this.f24810e.f24805e.dettachView(this.f24810e.f24802b);
+                    this.f24810e.f24805e = null;
                 }
-                if (this.f24794e.f24791g != null) {
-                    this.f24794e.f24791g.onNoNetRefresh();
+                if (this.f24810e.f24807g != null) {
+                    this.f24810e.f24807g.onNoNetRefresh();
                 }
             }
         }
@@ -92,7 +92,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f24795e;
+        public final /* synthetic */ h f24811e;
 
         public b(h hVar) {
             Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class h {
                     return;
                 }
             }
-            this.f24795e = hVar;
+            this.f24811e = hVar;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -117,7 +117,7 @@ public class h {
             View childAt;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) && i2 == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
-                this.f24795e.f24790f.hide();
+                this.f24811e.f24806f.hide();
             }
         }
 
@@ -125,7 +125,7 @@ public class h {
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) && i2 == 1) {
-                this.f24795e.f24790f.show();
+                this.f24811e.f24806f.show();
             }
         }
     }
@@ -145,40 +145,40 @@ public class h {
                 return;
             }
         }
-        this.f24788d = null;
-        this.f24792h = new a(this);
-        this.f24793i = new b(this);
-        this.f24785a = context;
-        this.f24786b = view;
-        this.f24787c = (BdTypeListView) view.findViewById(R.id.list);
-        this.f24790f = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_thread);
-        this.f24787c.setOnScrollListener(this.f24793i);
+        this.f24804d = null;
+        this.f24808h = new a(this);
+        this.f24809i = new b(this);
+        this.f24801a = context;
+        this.f24802b = view;
+        this.f24803c = (BdTypeListView) view.findViewById(R.id.list);
+        this.f24806f = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_thread);
+        this.f24803c.setOnScrollListener(this.f24809i);
     }
 
     public BdTypeListView f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24787c : (BdTypeListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24803c : (BdTypeListView) invokeV.objValue;
     }
 
     public d g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24791g : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24807g : (d) invokeV.objValue;
     }
 
     public void h(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f24791g = dVar;
+            this.f24807g = dVar;
         }
     }
 
     public void i(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) {
-            f.b(this.f24789e, this.f24792h, this.f24785a, this.f24786b, str, z);
-            this.f24787c.setVisibility(8);
+            f.b(this.f24805e, this.f24808h, this.f24801a, this.f24802b, str, z);
+            this.f24803c.setVisibility(8);
         }
     }
 }

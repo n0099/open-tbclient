@@ -27,12 +27,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class MultimapBuilder<K0, V0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ArrayListSupplier<V> implements r<List<V>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class EnumSetSupplier<V extends Enum<V>> implements r<Set<V>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class HashSetSupplier<V> implements r<Set<V>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class LinkedHashSetSupplier<V> implements r<Set<V>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public abstract class MultimapBuilder<K0, V0> {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class LinkedListSupplier implements r<List<Object>> {
         public static final /* synthetic */ LinkedListSupplier[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -240,7 +240,7 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TreeSetSupplier<V> implements r<SortedSet<V>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -274,13 +274,13 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a extends b<K0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Class f70671a;
+        public final /* synthetic */ Class f70990a;
 
         public a(Class cls) {
             Interceptable interceptable = $ic;
@@ -297,32 +297,32 @@ public abstract class MultimapBuilder<K0, V0> {
                     return;
                 }
             }
-            this.f70671a = cls;
+            this.f70990a = cls;
         }
 
         @Override // com.google.common.collect.MultimapBuilder.b
         public <K extends K0, V> Map<K, Collection<V>> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new EnumMap(this.f70671a) : (Map) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new EnumMap(this.f70990a) : (Map) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static abstract class b<K0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public class a extends c<K0, Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f70672a;
+            public final /* synthetic */ int f70991a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f70673b;
+            public final /* synthetic */ b f70992b;
 
             public a(b bVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -339,15 +339,15 @@ public abstract class MultimapBuilder<K0, V0> {
                         return;
                     }
                 }
-                this.f70673b = bVar;
-                this.f70672a = i2;
+                this.f70992b = bVar;
+                this.f70991a = i2;
             }
 
             @Override // com.google.common.collect.MultimapBuilder.c
             public <K extends K0, V> e1<K, V> b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Multimaps.f(this.f70673b.a(), new LinkedHashSetSupplier(this.f70672a)) : (e1) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Multimaps.f(this.f70992b.a(), new LinkedHashSetSupplier(this.f70991a)) : (e1) invokeV.objValue;
             }
         }
 
@@ -384,7 +384,7 @@ public abstract class MultimapBuilder<K0, V0> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static abstract class c<K0, V0> extends MultimapBuilder<K0, V0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -73,34 +73,34 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f45419a = false;
+    public static boolean f45522a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f45420b = null;
+    public static String f45523b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f45421c = null;
+    public static String f45524c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f45422d = 0;
+    public static int f45525d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f45423e = "3";
+    public static String f45526e = "3";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f45424f = "925fc15df8a49bed0b3eca8d2b44cb7b";
+    public static String f45527f = "925fc15df8a49bed0b3eca8d2b44cb7b";
 
     /* renamed from: g  reason: collision with root package name */
-    public static MyReceiver f45425g = null;
+    public static MyReceiver f45528g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HashMap<Integer, ApkInfo> f45426h = null;
+    public static HashMap<Integer, ApkInfo> f45529h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static JSONObject f45427i = null;
+    public static JSONObject f45530i = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static long f45428j = 0;
+    public static long f45531j = 0;
     public static int k = -1;
     public static String l = "";
     public static String m = "";
@@ -134,7 +134,7 @@ public final class c {
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) {
             try {
             } catch (Throwable unused) {
                 com.baidu.sofire.b.c();
@@ -155,7 +155,7 @@ public final class c {
     public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -166,7 +166,7 @@ public final class c {
 
     public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65581, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65582, null, str) == null) {
             try {
                 if (TextUtils.isEmpty(str)) {
                     return;
@@ -194,7 +194,7 @@ public final class c {
     public static boolean e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65587, null, context)) == null) {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             return activeNetworkInfo != null && 1 == activeNetworkInfo.getType();
         }
@@ -204,7 +204,7 @@ public final class c {
     public static String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65587, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, str)) == null) {
             try {
                 int length = str.length();
                 int i2 = 0;
@@ -225,9 +225,9 @@ public final class c {
         String[] split;
         String[] split2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, context)) == null) {
-            String str = f45420b;
-            String str2 = f45421c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, context)) == null) {
+            String str = f45523b;
+            String str2 = f45524c;
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     String a2 = com.baidu.sofire.h.a.a(context).a();
@@ -236,14 +236,14 @@ public final class c {
                     }
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    String string = com.baidu.sofire.h.a.a(context).f45339a.getString("svi", "");
+                    String string = com.baidu.sofire.h.a.a(context).f45428a.getString("svi", "");
                     if (!TextUtils.isEmpty(string) && (split2 = string.split("-")) != null && split2.length == 2) {
                         return split2;
                     }
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    str = f45423e;
-                    str2 = f45424f;
+                    str = f45526e;
+                    str2 = f45527f;
                 }
                 return new String[]{str, str2};
             }
@@ -254,10 +254,10 @@ public final class c {
 
     public static void h(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65591, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65592, null, context) == null) {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = a2.f45339a.getLong("se_ae_fd", 0L);
+            long j2 = a2.f45428a.getLong("se_ae_fd", 0L);
             if (j2 == 0) {
                 j2 = System.currentTimeMillis();
                 a2.g();
@@ -277,7 +277,7 @@ public final class c {
     public static boolean i(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, context)) == null) {
             try {
                 if (p < 0 && context != null) {
                     String packageName = context.getPackageName();
@@ -295,7 +295,7 @@ public final class c {
 
     public static void j(Context context) throws UnsupportedOperationException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65593, null, context) == null) && i(context) && !"com.baidu.input".equals(context.getPackageName())) {
+        if ((interceptable == null || interceptable.invokeL(65594, null, context) == null) && i(context) && !"com.baidu.input".equals(context.getPackageName())) {
             StringBuilder sb = new StringBuilder("SDK Self Check: ");
             int length = sb.length();
             try {
@@ -326,7 +326,7 @@ public final class c {
         InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65595, null, context)) == null) {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                 if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.getState() == NetworkInfo.State.CONNECTED) {
@@ -377,7 +377,7 @@ public final class c {
     public static JSONObject l(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65595, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, context)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 String str = Build.BOARD;
@@ -439,8 +439,8 @@ public final class c {
                 jSONObject.put("12", e2);
                 jSONObject.put("13", e.c(context));
                 jSONObject.put("14", "");
-                jSONObject.put(Constants.VIA_REPORT_TYPE_START_GROUP, s.k(context));
-                jSONObject.put("18", s.l(context));
+                jSONObject.put(Constants.VIA_REPORT_TYPE_START_GROUP, u.k(context));
+                jSONObject.put("18", u.l(context));
                 jSONObject.put("20", Build.VERSION.SDK_INT);
                 TimeZone timeZone = TimeZone.getDefault();
                 if (timeZone != null) {
@@ -460,7 +460,7 @@ public final class c {
         InterceptResult invokeL;
         NetworkInfo networkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65597, null, context)) == null) {
             try {
                 networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (Throwable unused) {
@@ -482,7 +482,7 @@ public final class c {
 
     public static void n(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65597, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65598, null, context) == null) {
             try {
                 MyReceiver myReceiver = new MyReceiver();
                 IntentFilter intentFilter = new IntentFilter();
@@ -538,7 +538,7 @@ public final class c {
         String[] strArr2;
         JSONObject optJSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65598, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65599, null, context)) == null) {
             try {
                 String str4 = b() + "p/5/aio";
                 JSONObject jSONObject2 = new JSONObject();
@@ -550,7 +550,7 @@ public final class c {
                 jSONObject3.put("0", Build.MODEL);
                 jSONObject3.put("1", e.b(context));
                 jSONObject3.put("3", String.valueOf(Build.VERSION.SDK_INT));
-                jSONObject3.put("4", "3.5.8.7");
+                jSONObject3.put("4", "3.5.8.8");
                 String packageName = context.getPackageName();
                 PackageManager packageManager = context.getPackageManager();
                 PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 64);
@@ -563,7 +563,7 @@ public final class c {
                         if (encoded != null) {
                             a(context, encoded);
                             str = "5";
-                            jSONObject3.put("7", o.a(Base64.encodeToString(encoded, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "")));
+                            jSONObject3.put("7", q.a(Base64.encodeToString(encoded, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "")));
                         } else {
                             str = "5";
                             jSONObject3.put("7", "");
@@ -572,37 +572,37 @@ public final class c {
                         str = "5";
                     }
                     jSONObject3.put("8", packageInfo.versionName);
-                    jSONObject3.put("9", String.valueOf(com.baidu.sofire.h.a.a(context).f45339a.getInt("opi", 0)));
-                    jSONObject3.put("14", s.i(context));
-                    jSONObject3.put("15", s.j(context));
+                    jSONObject3.put("9", String.valueOf(com.baidu.sofire.h.a.a(context).f45428a.getInt("opi", 0)));
+                    jSONObject3.put("14", u.i(context));
+                    jSONObject3.put("15", u.j(context));
                     jSONObject2.put("1", jSONObject3);
-                    String a4 = f.a(context, str4, jSONObject2.toString(), true, true);
+                    String a4 = g.a(context, str4, jSONObject2.toString(), true, true);
                     if (TextUtils.isEmpty(a4)) {
                         return null;
                     }
                     JSONObject jSONObject4 = new JSONObject(a4);
                     try {
                         a2 = com.baidu.sofire.h.a.a(context);
-                        if (TextUtils.isEmpty(f45420b) || TextUtils.isEmpty(f45421c)) {
+                        if (TextUtils.isEmpty(f45523b) || TextUtils.isEmpty(f45524c)) {
                             String a5 = com.baidu.sofire.h.a.a(context).a();
                             if (TextUtils.isEmpty(a5)) {
                                 strArr = new String[0];
                             } else {
                                 strArr2 = a5.split("-");
                                 if (strArr2 != null && strArr2.length == 2) {
-                                    f45420b = strArr2[0];
-                                    f45421c = strArr2[1];
+                                    f45523b = strArr2[0];
+                                    f45524c = strArr2[1];
                                 }
                                 strArr = new String[0];
                             }
                             strArr2 = strArr;
                         } else {
-                            strArr2 = new String[]{f45420b, f45421c};
+                            strArr2 = new String[]{f45523b, f45524c};
                         }
                     } catch (Throwable unused) {
                         str2 = "9";
                     }
-                    if ((a2.f45339a.getInt("appinv_ky", 1) == 1 && (strArr2 == null || strArr2.length != 2 || TextUtils.isEmpty(strArr2[0]) || TextUtils.isEmpty(strArr2[1]))) && (optJSONObject2 = jSONObject4.optJSONObject("2")) != null) {
+                    if ((a2.f45428a.getInt("appinv_ky", 1) == 1 && (strArr2 == null || strArr2.length != 2 || TextUtils.isEmpty(strArr2[0]) || TextUtils.isEmpty(strArr2[1]))) && (optJSONObject2 = jSONObject4.optJSONObject("2")) != null) {
                         String optString2 = optJSONObject2.optString("0");
                         String optString3 = optJSONObject2.optString("1");
                         if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
@@ -611,14 +611,14 @@ public final class c {
                             } catch (Throwable unused2) {
                                 str2 = "9";
                             }
-                            if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && (!f45423e.equals(optString2) || !f45424f.equals(optString3))) {
-                                f45420b = optString2;
-                                f45421c = optString3;
-                                com.baidu.sofire.h.a aVar = a6.f45256a;
+                            if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && (!f45526e.equals(optString2) || !f45527f.equals(optString3))) {
+                                f45523b = optString2;
+                                f45524c = optString3;
+                                com.baidu.sofire.h.a aVar = a6.f45345a;
                                 str2 = "9";
                                 try {
-                                    aVar.f45340b.putString("svi_n", optString2 + "-" + optString3);
-                                    aVar.f45340b.commit();
+                                    aVar.f45429b.putString("svi_n", optString2 + "-" + optString3);
+                                    aVar.f45429b.commit();
                                 } catch (Throwable unused3) {
                                     try {
                                         com.baidu.sofire.b.c();
@@ -702,64 +702,64 @@ public final class c {
                                 com.baidu.sofire.h.a a722 = com.baidu.sofire.h.a.a(context);
                                 optInt = jSONObject.optInt("n");
                                 if (optInt > 0) {
-                                    a722.f45344f.putInt("re_net_ty", optInt);
-                                    a722.f45344f.commit();
+                                    a722.f45433f.putInt("re_net_ty", optInt);
+                                    a722.f45433f.commit();
                                 }
                                 optInt2 = jSONObject.optInt("i");
                                 if (optInt2 > 0) {
-                                    a722.f45344f.putInt("re_net_hr", optInt2);
-                                    a722.f45344f.commit();
+                                    a722.f45433f.putInt("re_net_hr", optInt2);
+                                    a722.f45433f.commit();
                                 }
                                 optInt3 = jSONObject.optInt("i2");
                                 if (optInt3 > 0) {
-                                    a722.f45344f.putInt("re_net_hr_bc", optInt3);
-                                    a722.f45344f.commit();
+                                    a722.f45433f.putInt("re_net_hr_bc", optInt3);
+                                    a722.f45433f.commit();
                                 }
                                 optInt4 = jSONObject.optInt("w");
                                 if (optInt4 > 0) {
-                                    a722.f45344f.putInt("re_net_wt", optInt4);
-                                    a722.f45344f.commit();
+                                    a722.f45433f.putInt("re_net_wt", optInt4);
+                                    a722.f45433f.commit();
                                 }
                                 if (jSONObject.optInt("s1") > 0) {
-                                    a722.f45344f.putInt("re_net_one_lt", jSONObject.optInt("s1"));
-                                    a722.f45344f.commit();
+                                    a722.f45433f.putInt("re_net_one_lt", jSONObject.optInt("s1"));
+                                    a722.f45433f.commit();
                                 }
                                 optInt5 = jSONObject.optInt("s2");
                                 if (optInt5 > 0) {
-                                    a722.f45344f.putInt("re_net_dy_lt", optInt5);
-                                    a722.f45344f.commit();
+                                    a722.f45433f.putInt("re_net_dy_lt", optInt5);
+                                    a722.f45433f.commit();
                                 }
                                 optInt6 = jSONObject.optInt("t");
                                 if (optInt6 > 0) {
-                                    a722.f45344f.putInt("re_net_over", optInt6);
-                                    a722.f45344f.commit();
+                                    a722.f45433f.putInt("re_net_over", optInt6);
+                                    a722.f45433f.commit();
                                 }
                                 optInt7 = jSONObject.optInt("l1");
                                 if (optInt7 > 0) {
-                                    a722.f45344f.putInt("up_nu_co", optInt7);
-                                    a722.f45344f.commit();
+                                    a722.f45433f.putInt("up_nu_co", optInt7);
+                                    a722.f45433f.commit();
                                 }
                                 optInt8 = jSONObject.optInt("l2");
                                 if (optInt8 > 0) {
-                                    a722.f45344f.putInt("up_nu_li", optInt8);
-                                    a722.f45344f.commit();
+                                    a722.f45433f.putInt("up_nu_li", optInt8);
+                                    a722.f45433f.commit();
                                 }
                                 com.baidu.sofire.h.a a822 = com.baidu.sofire.h.a.a(context);
                                 optString = jSONObject4.optString("0");
                                 if (!TextUtils.isEmpty(optString)) {
-                                    a822.f45342d.putString("gli", new String(Base64.encode(g.a("30212102dicudiab".getBytes(), optString.getBytes("UTF-8"), true), 10), "UTF-8"));
-                                    a822.f45342d.commit();
+                                    a822.f45431d.putString("gli", new String(Base64.encode(h.a("30212102dicudiab".getBytes(), optString.getBytes("UTF-8"), true), 10), "UTF-8"));
+                                    a822.f45431d.commit();
                                 }
                                 optJSONObject = jSONObject4.optJSONObject("4");
                                 if (optJSONObject == null) {
-                                    a822.f45340b.putInt("appinv_t", optJSONObject.optInt("app"));
-                                    a822.f45340b.commit();
-                                    a822.f45340b.putInt("appinv_js", optJSONObject.optInt("js"));
-                                    a822.f45340b.commit();
-                                    a822.f45340b.putInt("appinv_ky", optJSONObject.optInt("a", 1));
-                                    a822.f45340b.commit();
-                                    a822.f45340b.putInt("appplg_te", optJSONObject.optInt("pi", 360));
-                                    a822.f45340b.commit();
+                                    a822.f45429b.putInt("appinv_t", optJSONObject.optInt("app"));
+                                    a822.f45429b.commit();
+                                    a822.f45429b.putInt("appinv_js", optJSONObject.optInt("js"));
+                                    a822.f45429b.commit();
+                                    a822.f45429b.putInt("appinv_ky", optJSONObject.optInt("a", 1));
+                                    a822.f45429b.commit();
+                                    a822.f45429b.putInt("appplg_te", optJSONObject.optInt("pi", 360));
+                                    a822.f45429b.commit();
                                     int optInt9 = optJSONObject.optInt("ti", 1);
                                     if (optInt9 > 0) {
                                         str3 = "4";
@@ -787,7 +787,7 @@ public final class c {
                                     }
                                     if (optJSONObject.optInt("1", -1) == z) {
                                         i2 = 0;
-                                        a822.f45339a.getBoolean("se_fg_s", false);
+                                        a822.f45428a.getBoolean("se_fg_s", false);
                                         a822.b(z);
                                     } else {
                                         i2 = 0;
@@ -796,40 +796,40 @@ public final class c {
                                     a(context, "ampf", optJSONObject.optInt("mp", i2));
                                     int optInt11 = optJSONObject.optInt("tc", -1);
                                     if (optInt11 > 0 && optInt11 <= 20 && optInt11 <= 20) {
-                                        a822.f45340b.putInt("s_t_p_c_s", optInt11);
-                                        a822.f45340b.commit();
+                                        a822.f45429b.putInt("s_t_p_c_s", optInt11);
+                                        a822.f45429b.commit();
                                     }
                                     JSONObject optJSONObject3 = optJSONObject.optJSONObject("pc");
                                     if (optJSONObject3 != null) {
-                                        s.a(context, optJSONObject3);
+                                        u.a(context, optJSONObject3);
                                     }
                                     JSONObject optJSONObject4 = optJSONObject.optJSONObject("pr");
                                     if (optJSONObject4 != null && context != null) {
                                         com.baidu.sofire.b.b a9 = com.baidu.sofire.b.b.a(context);
                                         if (optJSONObject4 != null) {
                                             try {
-                                                w a10 = w.a(a9.f45223a);
+                                                y a10 = y.a(a9.f45285a);
                                                 try {
-                                                    a10.f45475b.putBoolean("lt_sdcf", optJSONObject4.getInt("1") == 1);
-                                                    a10.f45475b.commit();
+                                                    a10.f45578b.putBoolean("lt_sdcf", optJSONObject4.getInt("1") == 1);
+                                                    a10.f45578b.commit();
                                                 } catch (JSONException unused5) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45475b.putBoolean("lt_sucf", optJSONObject4.getInt("2") == 1);
-                                                    a10.f45475b.commit();
+                                                    a10.f45578b.putBoolean("lt_sucf", optJSONObject4.getInt("2") == 1);
+                                                    a10.f45578b.commit();
                                                 } catch (JSONException unused6) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45475b.putBoolean("lt_sbff", optJSONObject4.getInt("3") == 1);
-                                                    a10.f45475b.commit();
+                                                    a10.f45578b.putBoolean("lt_sbff", optJSONObject4.getInt("3") == 1);
+                                                    a10.f45578b.commit();
                                                 } catch (JSONException unused7) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45475b.putBoolean("lt_sppf", optJSONObject4.getInt(str3) == 1);
-                                                    a10.f45475b.commit();
+                                                    a10.f45578b.putBoolean("lt_sppf", optJSONObject4.getInt(str3) == 1);
+                                                    a10.f45578b.commit();
                                                 } catch (JSONException unused8) {
                                                     com.baidu.sofire.b.c();
                                                 }
@@ -845,26 +845,26 @@ public final class c {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45475b.putLong("lt_sfii", optJSONObject4.getLong("7"));
-                                                    a10.f45475b.commit();
+                                                    a10.f45578b.putLong("lt_sfii", optJSONObject4.getLong("7"));
+                                                    a10.f45578b.commit();
                                                 } catch (JSONException unused11) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45475b.putBoolean("lt_sfff", optJSONObject4.getInt("8") == 1);
-                                                    a10.f45475b.commit();
+                                                    a10.f45578b.putBoolean("lt_sfff", optJSONObject4.getInt("8") == 1);
+                                                    a10.f45578b.commit();
                                                 } catch (JSONException unused12) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45475b.putString("lt_sha", optJSONObject4.getJSONArray(str2).toString());
-                                                    a10.f45475b.commit();
+                                                    a10.f45578b.putString("lt_sha", optJSONObject4.getJSONArray(str2).toString());
+                                                    a10.f45578b.commit();
                                                 } catch (JSONException unused13) {
                                                     com.baidu.sofire.b.c();
                                                 }
                                                 try {
-                                                    a10.f45475b.putBoolean("lt_sbwnp", optJSONObject4.getInt("10") == 1);
-                                                    a10.f45475b.commit();
+                                                    a10.f45578b.putBoolean("lt_sbwnp", optJSONObject4.getInt("10") == 1);
+                                                    a10.f45578b.commit();
                                                 } catch (JSONException unused14) {
                                                     com.baidu.sofire.b.c();
                                                 }
@@ -916,7 +916,7 @@ public final class c {
                     }
                     return jSONObject4;
                 }
-                f45422d = 6;
+                f45525d = 6;
                 return null;
             } catch (Throwable unused16) {
                 com.baidu.sofire.b.c();
@@ -931,7 +931,7 @@ public final class c {
         ApplicationInfo applicationInfo;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65599, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65600, null, context)) == null) {
             try {
                 if (Build.VERSION.SDK_INT < 21 || (packageManager = context.getPackageManager()) == null || (applicationInfo = packageManager.getApplicationInfo(context.getPackageName(), 0)) == null) {
                     return "";
@@ -950,7 +950,7 @@ public final class c {
     public static int q(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65600, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, context)) == null) {
             try {
                 String b2 = b(context);
                 if (TextUtils.isEmpty(m)) {
@@ -973,7 +973,7 @@ public final class c {
         int length2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65602, null, context)) == null) {
             try {
                 StringBuilder sb = new StringBuilder();
                 sb.append(e.b(context));
@@ -1009,7 +1009,7 @@ public final class c {
         InterceptResult invokeL;
         ApkInfo a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65602, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65603, null, context)) == null) {
             synchronized (c.class) {
                 try {
                     com.baidu.sofire.h.a a3 = com.baidu.sofire.h.a.a(context);
@@ -1018,10 +1018,10 @@ public final class c {
                         return null;
                     }
                     JSONArray jSONArray = new JSONArray(b2);
-                    if (f45426h == null) {
-                        f45426h = new HashMap<>();
+                    if (f45529h == null) {
+                        f45529h = new HashMap<>();
                     } else {
-                        f45426h.clear();
+                        f45529h.clear();
                     }
                     ArrayList<ApkInfo> arrayList = new ArrayList();
                     ArrayList arrayList2 = new ArrayList();
@@ -1035,7 +1035,7 @@ public final class c {
                         }
                         String optString3 = optJSONObject.optString(PackageTable.MD5);
                         if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && optInt > 0) {
-                            SharedPreferences sharedPreferences = a3.f45339a;
+                            SharedPreferences sharedPreferences = a3.f45428a;
                             String string = sharedPreferences.getString("g_l_l_p_v_" + optInt, "");
                             boolean z = true;
                             boolean z2 = (TextUtils.isEmpty(string) || b(optString2, string)) ? false : true;
@@ -1051,14 +1051,14 @@ public final class c {
                             if (z) {
                                 arrayList.add(apkInfo);
                             } else {
-                                f45426h.put(Integer.valueOf(optInt), apkInfo);
+                                f45529h.put(Integer.valueOf(optInt), apkInfo);
                             }
                         }
                     }
                     a3.a(arrayList2);
-                    if (f45426h.size() > 0 || arrayList.size() > 0) {
+                    if (f45529h.size() > 0 || arrayList.size() > 0) {
                         JSONArray jSONArray2 = new JSONArray();
-                        for (ApkInfo apkInfo2 : f45426h.values()) {
+                        for (ApkInfo apkInfo2 : f45529h.values()) {
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("pk", apkInfo2.packageName);
                             jSONObject.put("m", apkInfo2.apkMD5);
@@ -1089,7 +1089,7 @@ public final class c {
     public static String t(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65603, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65604, null, context)) == null) {
             try {
                 return DeviceId.getCUID(context);
             } catch (Throwable unused) {
@@ -1109,7 +1109,7 @@ public final class c {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65604, null, context)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65605, null, context)) != null) {
             return (String) invokeL.objValue;
         }
         String str2 = "";
@@ -1117,10 +1117,10 @@ public final class c {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
             String m2 = a2.m();
             if (TextUtils.isEmpty(m2)) {
-                String string = a2.f45341c.getString("xygls", "");
+                String string = a2.f45430c.getString("xygls", "");
                 if (TextUtils.isEmpty(string)) {
                     try {
-                        str = j.a(context);
+                        str = l.a(context);
                     } catch (Throwable unused) {
                         str = "";
                     }
@@ -1145,11 +1145,11 @@ public final class c {
                 }
                 try {
                     if (!TextUtils.isEmpty(string)) {
-                        a2.f45342d.putString("xyglsn", "");
-                        a2.f45342d.commit();
+                        a2.f45431d.putString("xyglsn", "");
+                        a2.f45431d.commit();
                     } else {
-                        a2.f45342d.putString("xyglsn", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), string.getBytes("UTF-8"), true), 10), "UTF-8"));
-                        a2.f45342d.commit();
+                        a2.f45431d.putString("xyglsn", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), string.getBytes("UTF-8"), true), 10), "UTF-8"));
+                        a2.f45431d.commit();
                     }
                     return string;
                 } catch (Throwable unused4) {
@@ -1192,8 +1192,8 @@ public final class c {
     public static boolean c(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !new File(str2).exists()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65580, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || str.length() != 3 || !new File(str2).exists()) {
                 return false;
             }
             try {
@@ -1211,9 +1211,9 @@ public final class c {
     public static String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, str)) == null) {
             try {
-                String str2 = new String(g.a("30212102dicudiab".getBytes(), Base64.decode(str, 10)), "UTF-8");
+                String str2 = new String(h.a("30212102dicudiab".getBytes(), Base64.decode(str, 10)), "UTF-8");
                 return !TextUtils.isEmpty(str2) ? str2 : "";
             } catch (Throwable unused) {
                 com.baidu.sofire.b.c();
@@ -1264,7 +1264,7 @@ public final class c {
     public static boolean f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, context)) == null) {
             try {
                 NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
                 if (activeNetworkInfo == null) {
@@ -1281,7 +1281,7 @@ public final class c {
 
     public static void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65577, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65578, null, context) == null) {
             try {
                 Report report = Report.getInstance(context);
                 JSONObject jSONObject = new JSONObject();
@@ -1309,7 +1309,7 @@ public final class c {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) {
             try {
                 return Looper.getMainLooper().getThread().getId() == Thread.currentThread().getId();
             } catch (Throwable unused) {
@@ -1323,7 +1323,7 @@ public final class c {
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, str)) == null) {
             try {
                 if (TextUtils.isEmpty(m)) {
                     m = b(Process.myPid());
@@ -1339,13 +1339,13 @@ public final class c {
 
     public static void d(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65580, null, context) == null) || TextUtils.isEmpty("3.5.8.7")) {
+        if (!(interceptable == null || interceptable.invokeL(65581, null, context) == null) || TextUtils.isEmpty("3.5.8.8")) {
             return;
         }
         Report report = Report.getInstance(context);
         try {
             c(context);
-            report.i("sofire", "com.baidu.sofire", "3.5.8.7", "1003003", "1003002");
+            report.i("sofire", "com.baidu.sofire", "3.5.8.8", "1003003", "1003002");
         } catch (Throwable unused) {
         }
     }
@@ -1353,9 +1353,9 @@ public final class c {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
             try {
-                return new String(F.getInstance().ad(Base64.decode(n.f45454a, 0), "30212102dicudiab".getBytes()));
+                return new String(F.getInstance().ad(Base64.decode(p.f45557a, 0), "30212102dicudiab".getBytes()));
             } catch (Throwable unused) {
                 return "";
             }
@@ -1366,7 +1366,7 @@ public final class c {
     public static boolean d(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65583, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65584, null, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
                     String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
@@ -1406,7 +1406,7 @@ public final class c {
     public static String b(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65571, null, context, str, str2)) != null) {
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65572, null, context, str, str2)) != null) {
             return (String) invokeLLL.objValue;
         }
         String str3 = "";
@@ -1436,7 +1436,7 @@ public final class c {
         InterceptResult invokeL;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, str)) == null) {
             try {
                 fileInputStream = new FileInputStream(str);
             } catch (Throwable unused) {
@@ -1483,7 +1483,7 @@ public final class c {
         InterceptResult invokeV;
         File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
             if (Build.VERSION.SDK_INT > 22) {
                 return Process.is64Bit();
             }
@@ -1580,16 +1580,16 @@ public final class c {
     public static boolean b(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65572, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65573, null, context, i2)) == null) {
             if (i2 != 1 || e(context)) {
                 return true;
             }
             IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-            if (f45425g == null) {
-                f45425g = new MyReceiver().a();
+            if (f45528g == null) {
+                f45528g = new MyReceiver().a();
             }
-            a(context, f45425g, intentFilter);
-            f45419a = true;
+            a(context, f45528g, intentFilter);
+            f45522a = true;
             return false;
         }
         return invokeLI.booleanValue;
@@ -1599,7 +1599,7 @@ public final class c {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
             Calendar calendar = Calendar.getInstance();
             int i2 = calendar.get(1);
             int i3 = calendar.get(2);
@@ -1616,14 +1616,14 @@ public final class c {
     public static boolean b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65575, null, str, str2)) == null) ? (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || str.equals(str2)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65576, null, str, str2)) == null) ? (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || str.equals(str2)) ? false : true : invokeLL.booleanValue;
     }
 
     public static String b(int i2) {
         InterceptResult invokeI;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65569, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65570, null, i2)) == null) {
             String str2 = null;
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
@@ -1719,7 +1719,7 @@ public final class c {
     public static boolean b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, context, str)) == null) {
             try {
                 File file = new File(context.getFilesDir(), ".tmp");
                 if (!file.exists()) {
@@ -1748,11 +1748,11 @@ public final class c {
                     }
                     hexString = sb.toString() + hexString;
                 }
-                byte[] a2 = g.a("30212102dicudiab".getBytes(), (r(context) + hexString).toString().getBytes(), false);
+                byte[] a2 = h.a("30212102dicudiab".getBytes(), (r(context) + hexString).toString().getBytes(), false);
                 com.baidu.sofire.h.a a3 = com.baidu.sofire.h.a.a(context);
-                int i3 = a3.f45339a.getInt("tk_sa_pu_cl", 0) + 1;
-                a3.f45340b.putInt("tk_sa_pu_cl", i3);
-                a3.f45340b.commit();
+                int i3 = a3.f45428a.getInt("tk_sa_pu_cl", 0) + 1;
+                a3.f45429b.putInt("tk_sa_pu_cl", i3);
+                a3.f45429b.commit();
                 String a4 = a(a2, i3);
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(a4);
@@ -2061,7 +2061,7 @@ public final class c {
     public static boolean a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65566, null, file)) == null) ? file != null && file.exists() && file.isFile() && file.canRead() && file.length() > 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65567, null, file)) == null) ? file != null && file.exists() && file.isFile() && file.canRead() && file.length() > 0 : invokeL.booleanValue;
     }
 
     public static Object a(Object obj, String str, Class<?>[] clsArr, Object... objArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
@@ -2100,7 +2100,7 @@ public final class c {
     public static boolean a(Method method, String str, Class<?>[] clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65567, null, method, str, clsArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65568, null, method, str, clsArr)) == null) {
             if (str.equals(method.getName())) {
                 Class<?>[] parameterTypes = method.getParameterTypes();
                 if ((parameterTypes == null || parameterTypes.length == 0) && (clsArr == null || clsArr.length == 0)) {
@@ -2137,7 +2137,7 @@ public final class c {
     public static void a(Context context, String str, Map<String, Object> map, boolean z) {
         String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, str, map, Boolean.valueOf(z)}) == null) && !TextUtils.isEmpty(str) && com.baidu.sofire.core.c.f45252c) {
+        if ((interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, str, map, Boolean.valueOf(z)}) == null) && !TextUtils.isEmpty(str) && com.baidu.sofire.core.c.f45341c) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 JSONObject jSONObject2 = new JSONObject();
@@ -2148,7 +2148,7 @@ public final class c {
                 if (g2 != null && g2.length == 2 && !TextUtils.isEmpty(g2[0]) && !TextUtils.isEmpty(g2[1])) {
                     str2 = g2[0];
                 } else {
-                    str2 = f45423e;
+                    str2 = f45526e;
                 }
                 jSONObject2.put("3", str2);
                 jSONObject2.put("4", 0);
@@ -2156,7 +2156,7 @@ public final class c {
                 jSONObject2.put("6", 1);
                 jSONObject2.put("7", 0);
                 jSONObject2.put("8", "sofire");
-                jSONObject2.put("9", "3.5.8.7");
+                jSONObject2.put("9", "3.5.8.8");
                 jSONObject2.put("10", str);
                 jSONObject.put("Common_section", jSONObject2);
                 if (map.size() > 0) {
@@ -2187,7 +2187,7 @@ public final class c {
             if (g2 != null && g2.length == 2 && !TextUtils.isEmpty(g2[0]) && !TextUtils.isEmpty(g2[1])) {
                 str2 = g2[0];
             } else {
-                str2 = f45423e;
+                str2 = f45526e;
             }
             jSONObject2.put("3", str2);
             jSONObject2.put("4", 0);
@@ -2195,7 +2195,7 @@ public final class c {
             jSONObject2.put("6", 1);
             jSONObject2.put("7", 0);
             jSONObject2.put("8", "sofire");
-            jSONObject2.put("9", "3.5.8.7");
+            jSONObject2.put("9", "3.5.8.8");
             jSONObject2.put("10", str);
             jSONObject.put("Common_section", jSONObject2);
             if (map.size() > 0) {
@@ -2232,7 +2232,7 @@ public final class c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{context, aVar, str, Boolean.valueOf(z)})) == null) {
-            return a(context, aVar.f45229a, aVar.f45231c, z ? aVar.f45232d : aVar.f45233e, str);
+            return a(context, aVar.f45318a, aVar.f45320c, z ? aVar.f45321d : aVar.f45322e, str);
         }
         return (JSONObject) invokeCommon.objValue;
     }
@@ -2299,7 +2299,7 @@ public final class c {
             try {
                 jSONObject3.put("1", context.getApplicationInfo().loadLabel(context.getPackageManager()).toString());
                 jSONObject3.put("2", context.getPackageName());
-                jSONObject3.put("3", z.a(context));
+                jSONObject3.put("3", ab.a(context));
                 jSONObject3.put("4", e.b(context));
                 jSONObject3.put("5", str);
                 jSONObject3.put("6", j2);
@@ -2308,23 +2308,23 @@ public final class c {
                 jSONObject3.put("9", str5);
                 jSONObject3.put("10", str3);
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                jSONObject3.put("11", a2.f45343e.getString("re_a_cv", ""));
-                jSONObject3.put("12", a2.f45343e.getString("re_a_lc", ""));
+                jSONObject3.put("11", a2.f45432e.getString("re_a_cv", ""));
+                jSONObject3.put("12", a2.f45432e.getString("re_a_lc", ""));
                 jSONObject3.put("13", 1);
                 if (k(context) == 4) {
                     jSONObject3.put("14", 1);
                 } else {
                     jSONObject3.put("14", 2);
                 }
-                jSONObject3.put("20", s.g(context));
-                jSONObject3.put("21", s.f(context));
+                jSONObject3.put("20", u.g(context));
+                jSONObject3.put("21", u.f(context));
                 jSONObject3.put(Constants.VIA_REPORT_TYPE_DATALINE, e.c(context));
                 jSONObject3.put(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS, u(context));
                 jSONObject3.put("25", com.baidu.sofire.rp.a.a(context));
                 jSONObject3.put("26", com.baidu.sofire.rp.a.b(context));
-                jSONObject3.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, p.a(context));
+                jSONObject3.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, r.a(context));
                 jSONObject3.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, t(context));
-                String j3 = s.j(context);
+                String j3 = u.j(context);
                 if (!TextUtils.isEmpty(j3)) {
                     str6 = j3;
                 }
@@ -2352,13 +2352,13 @@ public final class c {
             d a2 = d.a(context);
             Message message = new Message();
             message.what = 8;
-            a2.f45431b.a(message);
+            a2.f45534b.a(message);
             com.baidu.sofire.c.a aVar2 = new com.baidu.sofire.c.a();
-            aVar2.f45229a = str;
-            aVar2.f45230b = str2;
-            aVar2.f45231c = str3;
-            aVar2.f45232d = str4;
-            aVar2.f45233e = str5;
+            aVar2.f45318a = str;
+            aVar2.f45319b = str2;
+            aVar2.f45320c = str3;
+            aVar2.f45321d = str4;
+            aVar2.f45322e = str5;
             if (TextUtils.isEmpty(str4) || TextUtils.isEmpty(str5)) {
                 return;
             }
@@ -2370,32 +2370,32 @@ public final class c {
                 a3.a(aVar2);
             } else {
                 if (t != null && (indexOf = t.indexOf(aVar2)) != -1 && (aVar = t.get(indexOf)) != null) {
-                    a3.f45344f.putString("re_con", a3.f45343e.getString("re_con", "").replace(com.baidu.sofire.c.a.a(aVar), com.baidu.sofire.c.a.a(aVar2)));
-                    a3.f45344f.commit();
+                    a3.f45433f.putString("re_con", a3.f45432e.getString("re_con", "").replace(com.baidu.sofire.c.a.a(aVar), com.baidu.sofire.c.a.a(aVar2)));
+                    a3.f45433f.commit();
                 }
                 d.a(context).b();
                 return;
             }
-            String str6 = aVar2.f45233e;
-            SharedPreferences sharedPreferences = a3.f45343e;
+            String str6 = aVar2.f45322e;
+            SharedPreferences sharedPreferences = a3.f45432e;
             if (!sharedPreferences.getBoolean("re_net_ins_" + str6, false)) {
                 d a4 = d.a(context);
-                com.baidu.sofire.g.a aVar3 = a4.f45431b;
-                String e2 = aVar3.f45331a.e(aVar2.f45233e);
+                com.baidu.sofire.g.a aVar3 = a4.f45534b;
+                String e2 = aVar3.f45420a.e(aVar2.f45322e);
                 com.baidu.sofire.e.a aVar4 = new com.baidu.sofire.e.a();
-                aVar4.f45317b = aVar2.f45233e;
-                aVar4.f45322g = 0;
-                aVar4.f45318c = 1;
-                aVar4.f45320e = System.currentTimeMillis();
-                aVar4.f45321f = 1;
-                aVar4.f45319d = a(aVar3.f45332b, aVar2, e2, false).toString();
-                com.baidu.sofire.d.a.a(aVar3.f45332b).a(aVar4);
-                com.baidu.sofire.h.a aVar5 = aVar3.f45331a;
-                String str7 = aVar2.f45233e;
-                SharedPreferences.Editor editor = aVar5.f45344f;
+                aVar4.f45406b = aVar2.f45322e;
+                aVar4.f45411g = 0;
+                aVar4.f45407c = 1;
+                aVar4.f45409e = System.currentTimeMillis();
+                aVar4.f45410f = 1;
+                aVar4.f45408d = a(aVar3.f45421b, aVar2, e2, false).toString();
+                com.baidu.sofire.d.a.a(aVar3.f45421b).a(aVar4);
+                com.baidu.sofire.h.a aVar5 = aVar3.f45420a;
+                String str7 = aVar2.f45322e;
+                SharedPreferences.Editor editor = aVar5.f45433f;
                 editor.putBoolean("re_net_ins_" + str7, true);
-                aVar5.f45344f.commit();
-                a4.f45431b.a(aVar2);
+                aVar5.f45433f.commit();
+                a4.f45534b.a(aVar2);
             }
             d.a(context).b();
             d.a(context).c();
@@ -2409,7 +2409,7 @@ public final class c {
                 JSONObject jSONObject = new JSONObject(str);
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 System.currentTimeMillis();
-                a2.f45343e.getInt("re_net_ty", 2);
+                a2.f45432e.getInt("re_net_ty", 2);
                 JSONObject optJSONObject = jSONObject.optJSONObject("Common_section");
                 long optLong = optJSONObject.optLong("0");
                 String optString = optJSONObject.optString("10");
@@ -2421,25 +2421,25 @@ public final class c {
                     optInt2 = 1;
                 }
                 com.baidu.sofire.e.a aVar = new com.baidu.sofire.e.a();
-                aVar.f45319d = str;
-                aVar.f45317b = optString;
-                aVar.f45322g = optInt;
-                aVar.f45318c = 3;
-                aVar.f45320e = optLong;
-                aVar.f45321f = optInt2;
-                aVar.f45323h = optInt3;
-                aVar.f45324i = optInt4;
-                aVar.f45325j = "";
+                aVar.f45408d = str;
+                aVar.f45406b = optString;
+                aVar.f45411g = optInt;
+                aVar.f45407c = 3;
+                aVar.f45409e = optLong;
+                aVar.f45410f = optInt2;
+                aVar.f45412h = optInt3;
+                aVar.f45413i = optInt4;
+                aVar.f45414j = "";
                 d a3 = d.a(context);
                 Message message = new Message();
                 if (!z && !e()) {
-                    com.baidu.sofire.d.a.a(a3.f45430a).a(aVar);
+                    com.baidu.sofire.d.a.a(a3.f45533a).a(aVar);
                     message.what = 10;
-                    a3.f45431b.a(message);
+                    a3.f45534b.a(message);
                 }
                 message.what = 1;
                 message.obj = aVar;
-                a3.f45431b.a(message);
+                a3.f45534b.a(message);
             } catch (Throwable unused) {
                 com.baidu.sofire.b.c();
             }
@@ -2465,9 +2465,9 @@ public final class c {
                         }
                         if (!TextUtils.isEmpty(str3)) {
                             String optString = optJSONObject.optString(str3);
-                            SharedPreferences.Editor editor = a2.f45344f;
+                            SharedPreferences.Editor editor = a2.f45433f;
                             editor.putString("al_da" + str3, optString);
-                            a2.f45344f.commit();
+                            a2.f45433f.commit();
                         }
                     }
                 } catch (Throwable unused) {
@@ -2484,9 +2484,9 @@ public final class c {
                         }
                         if (!TextUtils.isEmpty(str2)) {
                             String optString2 = optJSONObject2.optString(str2);
-                            SharedPreferences.Editor editor2 = a2.f45344f;
+                            SharedPreferences.Editor editor2 = a2.f45433f;
                             editor2.putString("in_da" + str2, optString2);
-                            a2.f45344f.commit();
+                            a2.f45433f.commit();
                         }
                     }
                 } catch (Throwable unused2) {
@@ -2495,8 +2495,8 @@ public final class c {
                 try {
                     JSONArray optJSONArray = jSONObject.optJSONArray("2");
                     if (optJSONArray != null) {
-                        a2.f45344f.putString("li_pk_s", optJSONArray.toString());
-                        a2.f45344f.commit();
+                        a2.f45433f.putString("li_pk_s", optJSONArray.toString());
+                        a2.f45433f.commit();
                     }
                 } catch (Throwable unused3) {
                     com.baidu.sofire.b.c();
@@ -2521,7 +2521,7 @@ public final class c {
                 if (g2 != null && g2.length == 2) {
                     jSONObject2.put("3", g2[0]);
                 } else {
-                    jSONObject2.put("3", f45423e);
+                    jSONObject2.put("3", f45526e);
                 }
                 jSONObject2.put("4", 0);
                 jSONObject2.put("5", 0);
@@ -2620,6 +2620,49 @@ public final class c {
         }
     }
 
+    public static boolean a(Context context, byte[] bArr, File file) {
+        InterceptResult invokeLLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65566, null, context, bArr, file)) == null) {
+            if (context != null && bArr != null) {
+                try {
+                    if (bArr.length > 0) {
+                        fileOutputStream = new FileOutputStream(file);
+                        try {
+                            fileOutputStream.write(bArr);
+                            fileOutputStream.flush();
+                            try {
+                                fileOutputStream.close();
+                                return true;
+                            } catch (IOException unused) {
+                                com.baidu.sofire.b.c();
+                                return true;
+                            }
+                        } catch (Throwable unused2) {
+                            try {
+                                com.baidu.sofire.b.c();
+                                return false;
+                            } finally {
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (IOException unused3) {
+                                        com.baidu.sofire.b.c();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } catch (Throwable unused4) {
+                    fileOutputStream = null;
+                }
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
     public static boolean a(int i2) {
         InterceptResult invokeI;
         ApkInfo a2;
@@ -2627,7 +2670,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i2)) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f45182d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f45244d;
                 if (aVar == null || (a2 = aVar.a(i2)) == null || a2.initStatus != 1 || (a3 = com.baidu.sofire.core.f.a()) == null) {
                     return false;
                 }

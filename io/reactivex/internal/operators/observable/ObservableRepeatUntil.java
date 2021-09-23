@@ -13,13 +13,13 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.BooleanSupplier;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ObservableRepeatUntil<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BooleanSupplier until;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class RepeatUntilObserver<T> extends AtomicInteger implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;

@@ -18,7 +18,7 @@ public class e implements c.a.w.e.c.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f30511a;
+    public Handler f30532a;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -26,10 +26,10 @@ public class e implements c.a.w.e.c.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.w.e.c.a f30512e;
+        public final /* synthetic */ c.a.w.e.c.a f30533e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f30513f;
+        public final /* synthetic */ Object f30534f;
 
         public a(e eVar, c.a.w.e.c.a aVar, Object obj) {
             Interceptable interceptable = $ic;
@@ -46,15 +46,15 @@ public class e implements c.a.w.e.c.c {
                     return;
                 }
             }
-            this.f30512e = aVar;
-            this.f30513f = obj;
+            this.f30533e = aVar;
+            this.f30534f = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30512e.call(this.f30513f);
+                this.f30533e.call(this.f30534f);
             }
         }
     }
@@ -65,10 +65,10 @@ public class e implements c.a.w.e.c.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.w.e.c.a f30514e;
+        public final /* synthetic */ c.a.w.e.c.a f30535e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f30515f;
+        public final /* synthetic */ Object f30536f;
 
         public b(e eVar, c.a.w.e.c.a aVar, Object obj) {
             Interceptable interceptable = $ic;
@@ -85,15 +85,15 @@ public class e implements c.a.w.e.c.c {
                     return;
                 }
             }
-            this.f30514e = aVar;
-            this.f30515f = obj;
+            this.f30535e = aVar;
+            this.f30536f = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30514e.call(this.f30515f);
+                this.f30535e.call(this.f30536f);
             }
         }
     }
@@ -104,10 +104,10 @@ public class e implements c.a.w.e.c.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.w.e.c.a f30516e;
+        public final /* synthetic */ c.a.w.e.c.a f30537e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f30517f;
+        public final /* synthetic */ Object f30538f;
 
         public c(e eVar, c.a.w.e.c.a aVar, Object obj) {
             Interceptable interceptable = $ic;
@@ -124,15 +124,15 @@ public class e implements c.a.w.e.c.c {
                     return;
                 }
             }
-            this.f30516e = aVar;
-            this.f30517f = obj;
+            this.f30537e = aVar;
+            this.f30538f = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30516e.call(this.f30517f);
+                this.f30537e.call(this.f30538f);
             }
         }
     }
@@ -150,7 +150,7 @@ public class e implements c.a.w.e.c.c {
                 return;
             }
         }
-        this.f30511a = new Handler(Looper.getMainLooper());
+        this.f30532a = new Handler(Looper.getMainLooper());
     }
 
     @Override // c.a.w.e.c.c
@@ -161,7 +161,7 @@ public class e implements c.a.w.e.c.c {
                 if (b()) {
                     aVar.call(obj);
                 } else {
-                    this.f30511a.post(new a(this, aVar, obj));
+                    this.f30532a.post(new a(this, aVar, obj));
                 }
             } else if (i2 != 3) {
                 if (i2 != 4) {

@@ -13,10 +13,10 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f19630a;
+    public String f19645a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f19631b;
+    public String f19646b;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -31,20 +31,20 @@ public class i {
                 return;
             }
         }
-        this.f19630a = "";
-        this.f19631b = "";
+        this.f19645a = "";
+        this.f19646b = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19630a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19645a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19631b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19646b : (String) invokeV.objValue;
     }
 
     public void c(ForumHeadlineImgInfo forumHeadlineImgInfo) {
@@ -54,9 +54,9 @@ public class i {
         }
         forumHeadlineImgInfo.img_user_id.longValue();
         String str = forumHeadlineImgInfo.img_user_name;
-        this.f19630a = forumHeadlineImgInfo.img_url;
+        this.f19645a = forumHeadlineImgInfo.img_url;
         forumHeadlineImgInfo.rank_num.intValue();
         String str2 = forumHeadlineImgInfo.rank_up_info;
-        this.f19631b = forumHeadlineImgInfo.rank_url;
+        this.f19646b = forumHeadlineImgInfo.rank_url;
     }
 }

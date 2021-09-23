@@ -37,10 +37,10 @@ public class m extends c.a.e.l.e.a<x1, CardViewHolder<b>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f22724e;
+        public final /* synthetic */ b f22740e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f22725f;
+        public final /* synthetic */ m f22741f;
 
         public a(m mVar, b bVar) {
             Interceptable interceptable = $ic;
@@ -57,19 +57,19 @@ public class m extends c.a.e.l.e.a<x1, CardViewHolder<b>> {
                     return;
                 }
             }
-            this.f22725f = mVar;
-            this.f22724e = bVar;
+            this.f22741f = mVar;
+            this.f22740e = bVar;
         }
 
         @Override // c.a.e.l.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f22724e.p();
+                this.f22740e.p();
                 StatisticItem statisticItem = new StatisticItem("c13647");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("obj_id", this.f22725f.D(i2) + 1);
-                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f22725f.n);
+                statisticItem.param("obj_id", this.f22741f.D(i2) + 1);
+                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f22741f.n);
                 TiebaStatic.log(statisticItem);
             }
         }

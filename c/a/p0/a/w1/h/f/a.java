@@ -38,22 +38,22 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f9529e;
+    public int f9537e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9530f;
+    public int f9538f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f9531g;
+    public int f9539g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f9532h;
+    public List<String> f9540h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f9533i;
+    public Context f9541i;
 
     /* renamed from: j  reason: collision with root package name */
-    public PhotoChooseView.b f9534j;
+    public PhotoChooseView.b f9542j;
 
     /* renamed from: c.a.p0.a.w1.h.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -62,10 +62,10 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f9535e;
+        public final /* synthetic */ int f9543e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9536f;
+        public final /* synthetic */ a f9544f;
 
         public View$OnClickListenerC0445a(a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -82,18 +82,18 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f9536f = aVar;
-            this.f9535e = i2;
+            this.f9544f = aVar;
+            this.f9543e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f9536f.f9532h.remove(this.f9535e);
-                this.f9536f.notifyDataSetChanged();
-                if (this.f9536f.f9534j != null) {
-                    this.f9536f.f9534j.a(this.f9536f.f9532h.size());
+                this.f9544f.f9540h.remove(this.f9543e);
+                this.f9544f.notifyDataSetChanged();
+                if (this.f9544f.f9542j != null) {
+                    this.f9544f.f9542j.a(this.f9544f.f9540h.size());
                 }
             }
         }
@@ -105,16 +105,16 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SimpleDraweeView f9537a;
+        public SimpleDraweeView f9545a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f9538b;
+        public ImageView f9546b;
 
         /* renamed from: c  reason: collision with root package name */
-        public RelativeLayout f9539c;
+        public RelativeLayout f9547c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f9540d;
+        public TextView f9548d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -146,17 +146,17 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f9531g = 9;
-        this.f9532h = new ArrayList(0);
-        this.f9533i = context;
-        this.f9529e = i2;
-        this.f9530f = i3;
+        this.f9539g = 9;
+        this.f9540h = new ArrayList(0);
+        this.f9541i = context;
+        this.f9537e = i2;
+        this.f9538f = i3;
     }
 
     public List<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9532h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9540h : (List) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -165,13 +165,13 @@ public class a extends BaseAdapter {
     public String getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? i2 < this.f9532h.size() ? this.f9532h.get(i2) : "more_option" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? i2 < this.f9540h.size() ? this.f9540h.get(i2) : "more_option" : (String) invokeI.objValue;
     }
 
     public boolean e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 == getCount() - 1 && this.f9532h.size() < this.f9531g : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 == getCount() - 1 && this.f9540h.size() < this.f9539g : invokeI.booleanValue;
     }
 
     public void f(List<String> list) {
@@ -180,8 +180,8 @@ public class a extends BaseAdapter {
             return;
         }
         for (String str : list) {
-            if (!this.f9532h.contains(str)) {
-                this.f9532h.add(str);
+            if (!this.f9540h.contains(str)) {
+                this.f9540h.add(str);
             }
         }
     }
@@ -189,7 +189,7 @@ public class a extends BaseAdapter {
     public void g(PhotoChooseView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f9534j = bVar;
+            this.f9542j = bVar;
         }
     }
 
@@ -198,8 +198,8 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int size = this.f9532h.size();
-            int i2 = this.f9531g;
+            int size = this.f9540h.size();
+            int i2 = this.f9539g;
             return size < i2 ? size + 1 : i2;
         }
         return invokeV.intValue;
@@ -221,52 +221,52 @@ public class a extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 bVar = new b();
-                view2 = LayoutInflater.from(this.f9533i).inflate(g.swanapp_publisher_photo_choose_layout, viewGroup, false);
-                bVar.f9537a = (SimpleDraweeView) view2.findViewById(f.publish_img);
-                bVar.f9538b = (ImageView) view2.findViewById(f.publish_delete);
-                bVar.f9539c = (RelativeLayout) view2.findViewById(f.publish_right_bottom_bg);
-                bVar.f9540d = (TextView) view2.findViewById(f.publish_right_bottom_tip);
-                bVar.f9537a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                int o = n0.o(this.f9533i) - n0.g(30.0f);
-                int i3 = this.f9529e;
-                int i4 = this.f9530f;
+                view2 = LayoutInflater.from(this.f9541i).inflate(g.swanapp_publisher_photo_choose_layout, viewGroup, false);
+                bVar.f9545a = (SimpleDraweeView) view2.findViewById(f.publish_img);
+                bVar.f9546b = (ImageView) view2.findViewById(f.publish_delete);
+                bVar.f9547c = (RelativeLayout) view2.findViewById(f.publish_right_bottom_bg);
+                bVar.f9548d = (TextView) view2.findViewById(f.publish_right_bottom_tip);
+                bVar.f9545a.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                int o = n0.o(this.f9541i) - n0.g(30.0f);
+                int i3 = this.f9537e;
+                int i4 = this.f9538f;
                 int i5 = (o - (i3 * (i4 - 1))) / i4;
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) bVar.f9537a.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) bVar.f9545a.getLayoutParams();
                 layoutParams.width = i5;
                 layoutParams.height = i5;
-                bVar.f9537a.setLayoutParams(layoutParams);
-                bVar.f9537a.setBackground(ContextCompat.getDrawable(this.f9533i, e.swanapp_ugc_img_stroke_bg));
+                bVar.f9545a.setLayoutParams(layoutParams);
+                bVar.f9545a.setBackground(ContextCompat.getDrawable(this.f9541i, e.swanapp_ugc_img_stroke_bg));
                 view2.setTag(bVar);
             } else {
                 view2 = view;
                 bVar = (b) view.getTag();
             }
-            int o2 = n0.o(this.f9533i) / 3;
-            int o3 = n0.o(this.f9533i) / 3;
-            bVar.f9538b.setImageResource(e.swanapp_ugc_delete_selected_img);
-            bVar.f9538b.setVisibility(8);
+            int o2 = n0.o(this.f9541i) / 3;
+            int o3 = n0.o(this.f9541i) / 3;
+            bVar.f9546b.setImageResource(e.swanapp_ugc_delete_selected_img);
+            bVar.f9546b.setVisibility(8);
             if (e(i2)) {
-                bVar.f9539c.setVisibility(8);
-                bVar.f9537a.setBackground(ContextCompat.getDrawable(this.f9533i, e.swanapp_ugc_add_photo_stroke_bg));
-                bVar.f9537a.setImageResource(e.swanapp_ugc_add_localalbum_selector);
+                bVar.f9547c.setVisibility(8);
+                bVar.f9545a.setBackground(ContextCompat.getDrawable(this.f9541i, e.swanapp_ugc_add_photo_stroke_bg));
+                bVar.f9545a.setImageResource(e.swanapp_ugc_add_localalbum_selector);
             } else {
-                bVar.f9538b.setVisibility(0);
+                bVar.f9546b.setVisibility(0);
                 String item = getItem(i2);
                 if (!TextUtils.isEmpty(item)) {
                     if (h0.c(item)) {
-                        bVar.f9539c.setVisibility(0);
-                        bVar.f9540d.setText(this.f9533i.getString(h.swanapp_album_gif_photo));
+                        bVar.f9547c.setVisibility(0);
+                        bVar.f9548d.setText(this.f9541i.getString(h.swanapp_album_gif_photo));
                     } else if (h0.f(item)) {
-                        bVar.f9539c.setVisibility(0);
-                        bVar.f9540d.setText(this.f9533i.getString(h.swanapp_album_large_photo));
+                        bVar.f9547c.setVisibility(0);
+                        bVar.f9548d.setText(this.f9541i.getString(h.swanapp_album_large_photo));
                     } else {
-                        bVar.f9539c.setVisibility(8);
+                        bVar.f9547c.setVisibility(8);
                     }
                     Fresco.getImagePipeline().evictFromCache(o0.p(item));
-                    bVar.f9537a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setOldController(bVar.f9537a.getController()).setImageRequest(ImageRequestBuilder.newBuilderWithSource(o0.p(item)).setResizeOptions(new ResizeOptions((int) (o2 / 2.0f), (int) (o3 / 2.0f))).setImageDecodeOptions(ImageDecodeOptions.newBuilder().setForceStaticImage(true).build()).build()).build());
+                    bVar.f9545a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setOldController(bVar.f9545a.getController()).setImageRequest(ImageRequestBuilder.newBuilderWithSource(o0.p(item)).setResizeOptions(new ResizeOptions((int) (o2 / 2.0f), (int) (o3 / 2.0f))).setImageDecodeOptions(ImageDecodeOptions.newBuilder().setForceStaticImage(true).build()).build()).build());
                 }
             }
-            bVar.f9538b.setOnClickListener(new View$OnClickListenerC0445a(this, i2));
+            bVar.f9546b.setOnClickListener(new View$OnClickListenerC0445a(this, i2));
             return view2;
         }
         return (View) invokeILL.objValue;
@@ -275,7 +275,7 @@ public class a extends BaseAdapter {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f9531g = i2;
+            this.f9539g = i2;
         }
     }
 }

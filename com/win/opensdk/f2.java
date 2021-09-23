@@ -18,7 +18,7 @@ public class f2 implements DownloadListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ g2 f77027a;
+    public final /* synthetic */ g2 f77346a;
 
     public f2(g2 g2Var) {
         Interceptable interceptable = $ic;
@@ -35,19 +35,19 @@ public class f2 implements DownloadListener {
                 return;
             }
         }
-        this.f77027a = g2Var;
+        this.f77346a = g2Var;
     }
 
     @Override // android.webkit.DownloadListener
     public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
         Info info;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) || (info = this.f77027a.f77034c) == null || info.getOpent() != 1 || j2 <= 10) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) || (info = this.f77346a.f77353c) == null || info.getOpent() != 1 || j2 <= 10) {
             return;
         }
-        g2 g2Var = this.f77027a;
-        Context context = g2Var.f77032a;
-        Info info2 = g2Var.f77034c;
+        g2 g2Var = this.f77346a;
+        Context context = g2Var.f77351a;
+        Info info2 = g2Var.f77353c;
         if (!N.e(context)) {
             Toast.makeText(context, context.getString(R.string.win_wdownload_no_netwrok) + info2.getDl_name(), 0).show();
             Z0.a(context).b(new a1(info2), 1).a();
@@ -59,7 +59,7 @@ public class f2 implements DownloadListener {
                 a1 a1Var = new a1(info2);
                 String open = info2.getOpen();
                 try {
-                    a2.f76935b = Z0.a("wii", a1Var);
+                    a2.f77254b = Z0.a("wii", a1Var);
                     a2.a("msg", Z0.a(open));
                 } catch (JSONException unused) {
                 }

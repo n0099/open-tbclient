@@ -40,10 +40,10 @@ public class a extends UnitedSchemeBaseInterceptor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5133a;
+    public static final boolean f5141a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f5134b;
+    public static final Set<String> f5142b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,13 +59,13 @@ public class a extends UnitedSchemeBaseInterceptor {
                 return;
             }
         }
-        f5133a = k.f7077a;
+        f5141a = k.f7085a;
         HashSet hashSet = new HashSet();
-        f5134b = hashSet;
+        f5142b = hashSet;
         hashSet.add("_baiduboxapp");
-        f5134b.add("callback");
-        f5134b.add("upgrade");
-        f5134b.add("_naExtParams");
+        f5142b.add("callback");
+        f5142b.add("upgrade");
+        f5142b.add("_naExtParams");
     }
 
     public a() {
@@ -99,7 +99,7 @@ public class a extends UnitedSchemeBaseInterceptor {
     public final String b(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? o0.i(uri.getEncodedQuery(), f5134b) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? o0.i(uri.getEncodedQuery(), f5142b) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
@@ -130,7 +130,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 return true;
             }
             String j2 = o0.j(uri);
-            if (f5133a) {
+            if (f5141a) {
                 String str2 = "mAppId: " + j2;
             }
             String h2 = SwanLauncher.h();
@@ -151,11 +151,11 @@ public class a extends UnitedSchemeBaseInterceptor {
                 return true;
             }
             String n = o0.n(j2, uri, true);
-            if (f5133a) {
+            if (f5141a) {
                 String str3 = "pagePath: " + n;
             }
             String b2 = b(uri);
-            if (f5133a) {
+            if (f5141a) {
                 String str4 = "query: " + b2;
             }
             c.a.p0.a.c1.a.g0().b(c.a.p0.a.r1.l.e.o());
@@ -207,7 +207,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                         }
                     } catch (JSONException e2) {
                         e = e2;
-                        if (f5133a) {
+                        if (f5141a) {
                             String str5 = "getLaunchFrom failed: " + Log.getStackTraceString(e);
                         }
                         aVar2.y("tool_ip", unitedSchemeEntity.getParam("tip"));
@@ -218,7 +218,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                         aVar2.y("contentId", unitedSchemeEntity.getParam("contentId"));
                         if (TextUtils.isEmpty(queryParameter)) {
                         }
-                        if (f5133a) {
+                        if (f5141a) {
                         }
                         String param2 = unitedSchemeEntity.getParam("cb");
                         SwanLauncher.j().n(aVar2, bundle);
@@ -242,7 +242,7 @@ public class a extends UnitedSchemeBaseInterceptor {
             } else {
                 bundle = null;
             }
-            if (f5133a) {
+            if (f5141a) {
                 String str6 = "launchParams: " + aVar2 + " \n_naExtParmas: " + queryParameter;
             }
             String param22 = unitedSchemeEntity.getParam("cb");

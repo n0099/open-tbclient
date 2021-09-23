@@ -12,7 +12,7 @@ public class b implements c.a.e.e.k.c<c.a.q0.f1.i.a.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13195a;
+    public int f13212a;
 
     public b(int i2) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class b implements c.a.e.e.k.c<c.a.q0.f1.i.a.a> {
                 return;
             }
         }
-        this.f13195a = i2;
+        this.f13212a = i2;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -70,7 +70,7 @@ public class b implements c.a.e.e.k.c<c.a.q0.f1.i.a.a> {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13195a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13212a : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -79,7 +79,7 @@ public class b implements c.a.e.e.k.c<c.a.q0.f1.i.a.a> {
     public c.a.q0.f1.i.a.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new c.a.q0.f1.i.a.a(this.f13195a) : (c.a.q0.f1.i.a.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new c.a.q0.f1.i.a.a(this.f13212a) : (c.a.q0.f1.i.a.a) invokeV.objValue;
     }
 
     public c.a.q0.f1.i.a.a i(c.a.q0.f1.i.a.a aVar) {
@@ -91,7 +91,7 @@ public class b implements c.a.e.e.k.c<c.a.q0.f1.i.a.a> {
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f13195a = i2;
+            this.f13212a = i2;
         }
     }
 }

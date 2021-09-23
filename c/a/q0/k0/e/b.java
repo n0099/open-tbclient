@@ -11,7 +11,7 @@ public abstract class b<T> implements CustomMessageTask.CustomRunnable<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13541e;
+    public int f13537e;
 
     public b(int i2) {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public abstract class b<T> implements CustomMessageTask.CustomRunnable<T> {
                 return;
             }
         }
-        this.f13541e = i2;
+        this.f13537e = i2;
     }
 }

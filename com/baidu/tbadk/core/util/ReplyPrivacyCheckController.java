@@ -111,7 +111,7 @@ public class ReplyPrivacyCheckController {
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                     UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                    if (this.this$0.mLikeData == null || StringUtils.isNull(this.this$0.mLikeData.uid) || data == null || !this.this$0.mLikeData.uid.equals(data.f48084c)) {
+                    if (this.this$0.mLikeData == null || StringUtils.isNull(this.this$0.mLikeData.uid) || data == null || !this.this$0.mLikeData.uid.equals(data.f48192c)) {
                         return;
                     }
                     boolean z = false;
@@ -123,14 +123,14 @@ public class ReplyPrivacyCheckController {
                         }
                         z = true;
                     }
-                    if (data.f48082a) {
+                    if (data.f48190a) {
                         this.this$0.mLikeData.likeStatus = data.m;
-                        this.this$0.mLikeData.isAttention = data.f48085d;
+                        this.this$0.mLikeData.isAttention = data.f48193d;
                     }
                     if (!z || this.this$0.mAttentionCallback == null) {
                         return;
                     }
-                    this.this$0.mAttentionCallback.sendAfterAttention(data.f48082a, this.this$0.replyType);
+                    this.this$0.mAttentionCallback.sendAfterAttention(data.f48190a, this.this$0.replyType);
                 }
             }
         };

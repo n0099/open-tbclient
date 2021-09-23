@@ -20,7 +20,7 @@ public class ADActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ACTD f75091a;
+    public ACTD f75410a;
 
     public ADActivity() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class ADActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            ACTD actd = this.f75091a;
+            ACTD actd = this.f75410a;
             if (actd != null) {
                 actd.onActivityResult(i2, i3, intent);
             }
@@ -52,7 +52,7 @@ public class ADActivity extends Activity {
     public void onBackPressed() {
         ACTD actd;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (actd = this.f75091a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (actd = this.f75410a) == null) {
             return;
         }
         actd.onBackPressed();
@@ -63,7 +63,7 @@ public class ADActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            ACTD actd = this.f75091a;
+            ACTD actd = this.f75410a;
             if (actd != null) {
                 actd.onConfigurationChanged(configuration);
             }
@@ -86,7 +86,7 @@ public class ADActivity extends Activity {
                         String string = extras.getString("appid");
                         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string) && GDTADManager.getInstance().isInitialized()) {
                             ACTD activityDelegate = pOFactory.getActivityDelegate(str, this);
-                            this.f75091a = activityDelegate;
+                            this.f75410a = activityDelegate;
                             if (activityDelegate == null) {
                                 GDTLogger.e("创建 ADActivity Delegate " + str + " 失败");
                             }
@@ -96,7 +96,7 @@ public class ADActivity extends Activity {
             } catch (Throwable th) {
                 GDTLogger.e("创建ADActivity Delegate" + str + "发生异常", th);
             }
-            ACTD actd = this.f75091a;
+            ACTD actd = this.f75410a;
             if (actd != null) {
                 actd.onBeforeCreate(bundle);
             } else {
@@ -111,7 +111,7 @@ public class ADActivity extends Activity {
             } catch (Exception e3) {
                 GDTLogger.e("ADActivity onCreate 发生异常", e3);
             }
-            ACTD actd2 = this.f75091a;
+            ACTD actd2 = this.f75410a;
             if (actd2 != null) {
                 actd2.onAfterCreate(bundle);
             }
@@ -123,7 +123,7 @@ public class ADActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            ACTD actd = this.f75091a;
+            ACTD actd = this.f75410a;
             if (actd != null) {
                 actd.onDestroy();
             }
@@ -134,7 +134,7 @@ public class ADActivity extends Activity {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ACTD actd = this.f75091a;
+            ACTD actd = this.f75410a;
             if (actd != null) {
                 actd.onPause();
             }
@@ -147,7 +147,7 @@ public class ADActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            ACTD actd = this.f75091a;
+            ACTD actd = this.f75410a;
             if (actd != null) {
                 actd.onResume();
             }
@@ -158,7 +158,7 @@ public class ADActivity extends Activity {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ACTD actd = this.f75091a;
+            ACTD actd = this.f75410a;
             if (actd != null) {
                 actd.onStop();
             }

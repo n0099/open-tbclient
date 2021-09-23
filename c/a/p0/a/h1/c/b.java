@@ -72,6 +72,6 @@ public class b extends c {
         InterceptResult invokeV;
         ArrayList<c.a.p0.a.h1.c.h.c> arrayList;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f4658g) || TextUtils.isEmpty(this.f4657f) || (arrayList = this.D) == null || arrayList.size() <= 0) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f4666g) || TextUtils.isEmpty(this.f4665f) || (arrayList = this.D) == null || arrayList.size() <= 0) ? false : true : invokeV.booleanValue;
     }
 }

@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.InetAddress;
@@ -296,7 +297,7 @@ public class NetworkStatRecord {
                     jSONObject.put("errMsg", getStackTraceString(this.exception));
                 }
                 if (this.statusCode != -1) {
-                    jSONObject.put("statusCode", this.statusCode);
+                    jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, this.statusCode);
                 }
                 if (!TextUtils.isEmpty(this.localIP)) {
                     jSONObject.put("localIP", this.localIP);

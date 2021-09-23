@@ -18,24 +18,24 @@ public class a implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final CloudMusicListModel f16270a;
+    public final CloudMusicListModel f16280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f f16271b;
+    public final f f16281b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MusicPlayer f16272c;
+    public MusicPlayer f16282c;
 
     /* renamed from: c.a.r0.b4.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0779a implements c.a.r0.b4.k.j.a<CloudMusicData.MusicTagList> {
+    public class C0777a implements c.a.r0.b4.k.j.a<CloudMusicData.MusicTagList> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f16273a;
+        public final /* synthetic */ a f16283a;
 
-        public C0779a(a aVar) {
+        public C0777a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +50,7 @@ public class a implements e {
                     return;
                 }
             }
-            this.f16273a = aVar;
+            this.f16283a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,15 +59,15 @@ public class a implements e {
         public void a(CloudMusicData.MusicTagList musicTagList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, musicTagList) == null) {
-                this.f16273a.f16271b.displayLoadingMore(false);
+                this.f16283a.f16281b.displayLoadingMore(false);
                 if (!ListUtils.isEmpty(musicTagList.music_list) || musicTagList.page.pn != 1) {
-                    this.f16273a.f16271b.displayNoDataView(false);
-                    this.f16273a.f16271b.showMusicListData(musicTagList);
+                    this.f16283a.f16281b.displayNoDataView(false);
+                    this.f16283a.f16281b.showMusicListData(musicTagList);
                 } else {
-                    this.f16273a.f16271b.displayNoDataView(true);
+                    this.f16283a.f16281b.displayNoDataView(true);
                 }
                 if (musicTagList.page.has_more == 0) {
-                    this.f16273a.f16271b.displayNoMore();
+                    this.f16283a.f16281b.displayNoMore();
                 }
             }
         }
@@ -79,27 +79,27 @@ public class a implements e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f16274a;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f16284a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f16275b;
+        public final /* synthetic */ int f16285b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f16276c;
+        public final /* synthetic */ a f16286c;
 
         /* renamed from: c.a.r0.b4.k.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0780a implements MusicPlayer.b {
+        public class C0778a implements MusicPlayer.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f16277a;
+            public final /* synthetic */ String f16287a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f16278b;
+            public final /* synthetic */ b f16288b;
 
-            public C0780a(b bVar, String str) {
+            public C0778a(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,23 +114,23 @@ public class a implements e {
                         return;
                     }
                 }
-                this.f16278b = bVar;
-                this.f16277a = str;
+                this.f16288b = bVar;
+                this.f16287a = str;
             }
 
             @Override // com.baidu.tieba.view.cloudmusic.MusicPlayer.b
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f16278b.f16276c.f16272c.f();
-                    if (this.f16277a.startsWith("/")) {
-                        File file = new File(this.f16277a);
+                    this.f16288b.f16286c.f16282c.f();
+                    if (this.f16287a.startsWith("/")) {
+                        File file = new File(this.f16287a);
                         if (file.exists()) {
                             file.delete();
                         }
                         c.a.r0.p0.c.d.a.h().e();
-                        b bVar = this.f16278b;
-                        bVar.f16276c.a(bVar.f16274a, bVar.f16275b);
+                        b bVar = this.f16288b;
+                        bVar.f16286c.a(bVar.f16284a, bVar.f16285b);
                     }
                 }
             }
@@ -151,16 +151,16 @@ public class a implements e {
                     return;
                 }
             }
-            this.f16276c = aVar;
-            this.f16274a = musicList;
-            this.f16275b = i2;
+            this.f16286c = aVar;
+            this.f16284a = musicList;
+            this.f16285b = i2;
         }
 
         @Override // c.a.r0.p0.c.d.a.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f16276c.f16271b.downloadError(this.f16275b);
+                this.f16286c.f16281b.downloadError(this.f16285b);
             }
         }
 
@@ -168,7 +168,7 @@ public class a implements e {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f16276c.f16271b.downloadCancel(this.f16275b);
+                this.f16286c.f16281b.downloadCancel(this.f16285b);
             }
         }
 
@@ -179,7 +179,7 @@ public class a implements e {
                 if (!TextUtils.isEmpty(str2)) {
                     str = str2;
                 }
-                this.f16276c.f16272c.e(str, this.f16274a, new C0780a(this, str));
+                this.f16286c.f16282c.e(str, this.f16284a, new C0778a(this, str));
             }
         }
     }
@@ -190,16 +190,16 @@ public class a implements e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f16279a;
+        public final /* synthetic */ String f16289a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f16280b;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f16290b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f16281c;
+        public final /* synthetic */ int f16291c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f16282d;
+        public final /* synthetic */ a f16292d;
 
         public c(a aVar, String str, CloudMusicData.MusicTagList.MusicList musicList, int i2) {
             Interceptable interceptable = $ic;
@@ -216,24 +216,24 @@ public class a implements e {
                     return;
                 }
             }
-            this.f16282d = aVar;
-            this.f16279a = str;
-            this.f16280b = musicList;
-            this.f16281c = i2;
+            this.f16292d = aVar;
+            this.f16289a = str;
+            this.f16290b = musicList;
+            this.f16291c = i2;
         }
 
         @Override // com.baidu.tieba.view.cloudmusic.MusicPlayer.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f16282d.f16272c.f();
-                if (this.f16279a.startsWith("/")) {
-                    File file = new File(this.f16279a);
+                this.f16292d.f16282c.f();
+                if (this.f16289a.startsWith("/")) {
+                    File file = new File(this.f16289a);
                     if (file.exists()) {
                         file.delete();
                     }
                     c.a.r0.p0.c.d.a.h().e();
-                    this.f16282d.a(this.f16280b, this.f16281c);
+                    this.f16292d.a(this.f16290b, this.f16291c);
                 }
             }
         }
@@ -254,10 +254,10 @@ public class a implements e {
                 return;
             }
         }
-        this.f16270a = cloudMusicListModel;
-        this.f16271b = fVar;
+        this.f16280a = cloudMusicListModel;
+        this.f16281b = fVar;
         fVar.setPresenter(this);
-        this.f16272c = MusicPlayer.c();
+        this.f16282c = MusicPlayer.c();
     }
 
     @Override // c.a.r0.b4.k.e
@@ -268,18 +268,18 @@ public class a implements e {
         }
         String g2 = c.a.r0.p0.c.d.a.h().g(musicList.resource);
         if (TextUtils.isEmpty(g2)) {
-            this.f16271b.showMusicLoading(i2);
+            this.f16281b.showMusicLoading(i2);
             c.a.r0.p0.c.d.a.h().f(String.valueOf(musicList.music_id), musicList.resource, new b(this, musicList, i2));
             return;
         }
-        this.f16272c.e(g2, musicList, new c(this, g2, musicList, i2));
+        this.f16282c.e(g2, musicList, new c(this, g2, musicList, i2));
     }
 
     @Override // c.a.r0.b4.k.e
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f16270a.A();
+            this.f16280a.A();
         }
     }
 
@@ -288,13 +288,13 @@ public class a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicTagList) == null) {
             if (ListUtils.isEmpty(musicTagList.music_list)) {
-                this.f16271b.displayNoDataView(true);
+                this.f16281b.displayNoDataView(true);
             } else {
-                this.f16271b.displayNoDataView(false);
-                this.f16271b.showMusicListData(musicTagList);
+                this.f16281b.displayNoDataView(false);
+                this.f16281b.showMusicListData(musicTagList);
             }
             if (musicTagList.page.has_more == 0) {
-                this.f16271b.displayNoMore();
+                this.f16281b.displayNoMore();
             }
         }
     }
@@ -303,7 +303,7 @@ public class a implements e {
     public void cancelLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f16270a.cancelLoadData();
+            this.f16280a.cancelLoadData();
         }
     }
 
@@ -311,8 +311,8 @@ public class a implements e {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f16271b.displayLoadingMore(true);
-            this.f16270a.y(i2, new C0779a(this));
+            this.f16281b.displayLoadingMore(true);
+            this.f16280a.y(i2, new C0777a(this));
         }
     }
 }

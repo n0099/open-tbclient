@@ -10,9 +10,9 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PrivacyMarkActivity f56764a;
+        public final /* synthetic */ PrivacyMarkActivity f56881a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PrivacyMarkActivity privacyMarkActivity, int i2, boolean z) {
@@ -52,7 +52,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     return;
                 }
             }
-            this.f56764a = privacyMarkActivity;
+            this.f56881a = privacyMarkActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,14 +71,14 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     return;
                 }
                 if (PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE.equals(operation)) {
-                    this.f56764a.privacyMarkView.k();
+                    this.f56881a.privacyMarkView.k();
                 } else if (PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE.equals(operation)) {
-                    this.f56764a.privacyMarkView.l();
+                    this.f56881a.privacyMarkView.l();
                 }
                 if (httpResponsedMessage.getError() != -1 && j.z()) {
-                    this.f56764a.showToast(R.string.privacy_setting_failed);
+                    this.f56881a.showToast(R.string.privacy_setting_failed);
                 } else {
-                    this.f56764a.showToast(R.string.neterror);
+                    this.f56881a.showToast(R.string.neterror);
                 }
             }
         }

@@ -35,34 +35,34 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28179a;
+    public int f28199a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28180b;
+    public int f28200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f28181c;
+    public Context f28201c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextWordsEntity.TextStyleEntity f28182d;
+    public TextWordsEntity.TextStyleEntity f28202d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextWordsEntity.TextFontEntity f28183e;
+    public TextWordsEntity.TextFontEntity f28203e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final TextPaint f28184f;
+    public final TextPaint f28204f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TextPaint f28185g;
+    public final TextPaint f28205g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final TextPaint f28186h;
+    public final TextPaint f28206h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28187i;
+    public int f28207i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<String> f28188j;
+    public List<String> f28208j;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -77,12 +77,12 @@ public class e {
                 return;
             }
         }
-        this.f28180b = 5;
-        this.f28188j = new ArrayList();
-        this.f28184f = new TextPaint(1);
-        this.f28185g = new TextPaint(1);
-        this.f28186h = new TextPaint(1);
-        this.f28179a = t.j(R.dimen.tbds72);
+        this.f28200b = 5;
+        this.f28208j = new ArrayList();
+        this.f28204f = new TextPaint(1);
+        this.f28205g = new TextPaint(1);
+        this.f28206h = new TextPaint(1);
+        this.f28199a = t.j(R.dimen.tbds72);
     }
 
     public static e d() {
@@ -112,21 +112,21 @@ public class e {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f28184f.setTypeface(Typeface.DEFAULT);
-            this.f28185g.setTypeface(Typeface.DEFAULT);
-            this.f28186h.setTypeface(Typeface.DEFAULT);
+            this.f28204f.setTypeface(Typeface.DEFAULT);
+            this.f28205g.setTypeface(Typeface.DEFAULT);
+            this.f28206h.setTypeface(Typeface.DEFAULT);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f28184f.setShader(null);
-            this.f28184f.setColor(-1);
-            this.f28184f.clearShadowLayer();
-            this.f28185g.clearShadowLayer();
-            this.f28186h.clearShadowLayer();
-            this.f28188j.clear();
+            this.f28204f.setShader(null);
+            this.f28204f.setColor(-1);
+            this.f28204f.clearShadowLayer();
+            this.f28205g.clearShadowLayer();
+            this.f28206h.clearShadowLayer();
+            this.f28208j.clear();
         }
     }
 
@@ -173,20 +173,20 @@ public class e {
             TextPaint textPaint = new TextPaint(1);
             i(textPaint);
             textPaint.setStyle(Paint.Style.FILL);
-            textPaint.setTextSize(this.f28179a);
+            textPaint.setTextSize(this.f28199a);
             float measureText = textPaint.measureText(e2) + 2.0f + 40.0f;
             if (measureText > f()) {
                 measureText = f() + 2.0f;
             }
             float f2 = 0.0f;
             if (measureText > 0.0f) {
-                StaticLayout measuredStaticLayout = NewSubTitleCreater.getMeasuredStaticLayout(str, textPaint, (int) measureText, this.f28180b, Layout.Alignment.ALIGN_CENTER, 0);
-                this.f28187i = measuredStaticLayout.getLineCount();
+                StaticLayout measuredStaticLayout = NewSubTitleCreater.getMeasuredStaticLayout(str, textPaint, (int) measureText, this.f28200b, Layout.Alignment.ALIGN_CENTER, 0);
+                this.f28207i = measuredStaticLayout.getLineCount();
                 int i2 = 0;
-                for (int i3 = 0; i3 < this.f28187i; i3++) {
+                for (int i3 = 0; i3 < this.f28207i; i3++) {
                     int lineEnd = measuredStaticLayout.getLineEnd(i3);
                     if (lineEnd != 0) {
-                        this.f28188j.add(str.substring(i2, lineEnd));
+                        this.f28208j.add(str.substring(i2, lineEnd));
                         i2 = lineEnd;
                     }
                 }
@@ -208,14 +208,14 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, str, textStyleEntity, textFontEntity)) == null) {
             c();
-            this.f28181c = context;
-            this.f28182d = textStyleEntity;
-            this.f28183e = textFontEntity;
-            this.f28184f.setTextSize(this.f28179a);
+            this.f28201c = context;
+            this.f28202d = textStyleEntity;
+            this.f28203e = textFontEntity;
+            this.f28204f.setTextSize(this.f28199a);
             int[] g2 = g(str);
             if (g2[0] >= 1 && g2[1] >= 1) {
-                Bitmap a2 = c.a.x0.t.f.a(this.f28182d);
-                NinePatchChunk f2 = c.a.x0.t.f.f(a2, this.f28182d);
+                Bitmap a2 = c.a.x0.t.f.a(this.f28202d);
+                NinePatchChunk f2 = c.a.x0.t.f.f(a2, this.f28202d);
                 if (f2 != null) {
                     Rect rect = f2.padding;
                     i2 = rect.left;
@@ -237,27 +237,27 @@ public class e {
                 canvas2.save();
                 int i6 = 20;
                 c.a.x0.t.f.b(a2, f2, canvas2, 20);
-                int g3 = c.a.x0.t.f.g(this.f28184f);
+                int g3 = c.a.x0.t.f.g(this.f28204f);
                 int i7 = i2 + 20;
-                int abs = (g3 / 2) + ((int) (Math.abs(this.f28184f.ascent() + this.f28184f.descent()) / 2.0f)) + 20 + i3;
+                int abs = (g3 / 2) + ((int) (Math.abs(this.f28204f.ascent() + this.f28204f.descent()) / 2.0f)) + 20 + i3;
                 int i8 = 0;
-                while (i8 < this.f28187i) {
+                while (i8 < this.f28207i) {
                     int i9 = i8 + 1;
-                    c.a.x0.t.f.c(this.f28184f, this.f28182d, null);
-                    int[] d2 = c.a.x0.t.f.d(this.f28184f, this.f28185g, this.f28186h, this.f28182d, null);
-                    c.a.x0.t.f.e(canvas2, this.f28184f, i7, (g3 * i8) + i6 + i3, (g3 * i9) + i6 + i3, this.f28182d, null);
+                    c.a.x0.t.f.c(this.f28204f, this.f28202d, null);
+                    int[] d2 = c.a.x0.t.f.d(this.f28204f, this.f28205g, this.f28206h, this.f28202d, null);
+                    c.a.x0.t.f.e(canvas2, this.f28204f, i7, (g3 * i8) + i6 + i3, (g3 * i9) + i6 + i3, this.f28202d, null);
                     if (d2[0] != 0) {
                         i4 = i8;
                         canvas = canvas2;
-                        a(this.f28188j.get(i8), canvas2, i7, abs, i4, this.f28185g);
+                        a(this.f28208j.get(i8), canvas2, i7, abs, i4, this.f28205g);
                     } else {
                         i4 = i8;
                         canvas = canvas2;
                     }
                     if (d2[1] != 0) {
-                        a(this.f28188j.get(i4), canvas, i7, abs, i4, this.f28186h);
+                        a(this.f28208j.get(i4), canvas, i7, abs, i4, this.f28206h);
                     }
-                    a(this.f28188j.get(i4), canvas, i7, abs, i4, this.f28184f);
+                    a(this.f28208j.get(i4), canvas, i7, abs, i4, this.f28204f);
                     abs += g3;
                     canvas2 = canvas;
                     i8 = i9;
@@ -266,7 +266,7 @@ public class e {
                 canvas2.restore();
                 return createBitmap;
             }
-            return Bitmap.createBitmap(10, this.f28179a, Bitmap.Config.ARGB_8888);
+            return Bitmap.createBitmap(10, this.f28199a, Bitmap.Config.ARGB_8888);
         }
         return (Bitmap) invokeLLLL.objValue;
     }
@@ -274,7 +274,7 @@ public class e {
     public final void i(TextPaint textPaint) {
         TextWordsEntity.TextFontEntity textFontEntity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, textPaint) == null) || (textFontEntity = this.f28183e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, textPaint) == null) || (textFontEntity = this.f28203e) == null) {
             return;
         }
         try {
@@ -282,8 +282,8 @@ public class e {
                 b();
                 return;
             }
-            this.f28183e.setFontRootDir(new File(FileHelper.getVideoTmpDir()));
-            textPaint.setTypeface(Typeface.createFromFile(this.f28183e.getSourceFile()));
+            this.f28203e.setFontRootDir(new File(FileHelper.getVideoTmpDir()));
+            textPaint.setTypeface(Typeface.createFromFile(this.f28203e.getSourceFile()));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -292,7 +292,7 @@ public class e {
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f28179a = i2;
+            this.f28199a = i2;
         }
     }
 }

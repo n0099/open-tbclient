@@ -12,7 +12,7 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13709a;
+    public String f13705a;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class j {
                 return;
             }
         }
-        this.f13709a = null;
+        this.f13705a = null;
     }
 
     public static c.a.e.e.n.a a() {

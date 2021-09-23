@@ -11,7 +11,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f3471a;
+    public static d f3472a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static JSONObject a(Exception exc) {
@@ -34,7 +34,7 @@ public class g {
     public static void b(Exception exc) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, exc) == null) || (dVar = f3471a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, exc) == null) || (dVar = f3472a) == null) {
             return;
         }
         dVar.a(a(exc).toString());
@@ -43,7 +43,7 @@ public class g {
     public static void c(String str) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || (dVar = f3471a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || (dVar = f3472a) == null) {
             return;
         }
         dVar.a(str);

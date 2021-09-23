@@ -26,13 +26,13 @@ public class VideoDownloader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CyberVideoDownloader.DownloadListener f42697a;
+    public static CyberVideoDownloader.DownloadListener f42759a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f42698b;
+    public static final Object f42760b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ConcurrentHashMap<String, String> f42699c;
+    public static ConcurrentHashMap<String, String> f42761c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,8 +48,8 @@ public class VideoDownloader {
                 return;
             }
         }
-        f42698b = new Object();
-        f42699c = new ConcurrentHashMap<>();
+        f42760b = new Object();
+        f42761c = new ConcurrentHashMap<>();
     }
 
     public VideoDownloader() {
@@ -183,8 +183,8 @@ public class VideoDownloader {
     public static void e(CyberVideoDownloader.DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, downloadListener) == null) {
-            synchronized (f42698b) {
-                f42697a = downloadListener;
+            synchronized (f42760b) {
+                f42759a = downloadListener;
             }
         }
     }
@@ -201,7 +201,7 @@ public class VideoDownloader {
         if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f42699c.put(str, str2);
+        f42761c.put(str, str2);
     }
 
     public static void h(String str) {
@@ -239,8 +239,8 @@ public class VideoDownloader {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String str2 = f42699c.get(str);
-            f42699c.remove(str);
+            String str2 = f42761c.get(str);
+            f42761c.remove(str);
             return str2;
         }
         return (String) invokeL.objValue;
@@ -253,7 +253,7 @@ public class VideoDownloader {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f42699c.get(str);
+            return f42761c.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -275,9 +275,9 @@ public class VideoDownloader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65557, null, str, i2, i3) == null) {
             CyberLog.i("VideoDownloader", "operationCallback url=" + str + " operationType=" + i2 + " result=" + i3);
-            synchronized (f42698b) {
-                if (f42697a != null) {
-                    f42697a.operationCallback(str, i2, i3);
+            synchronized (f42760b) {
+                if (f42759a != null) {
+                    f42759a.operationCallback(str, i2, i3);
                 }
             }
         }
@@ -290,9 +290,9 @@ public class VideoDownloader {
         if (!(interceptable == null || interceptable.invokeL(65558, null, bundle) == null) || (a2 = a(bundle)) == null) {
             return;
         }
-        synchronized (f42698b) {
-            if (f42697a != null && a2 != null) {
-                f42697a.onDataTransfer(a2.url, a2);
+        synchronized (f42760b) {
+            if (f42759a != null && a2 != null) {
+                f42759a.onDataTransfer(a2.url, a2);
             }
         }
         int i2 = a2.status;
@@ -315,9 +315,9 @@ public class VideoDownloader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, null, bundle) == null) {
             VideoDownloadBean a2 = a(bundle);
-            synchronized (f42698b) {
-                if (f42697a != null && a2 != null) {
-                    f42697a.onDataTransfer(a2.url, a2);
+            synchronized (f42760b) {
+                if (f42759a != null && a2 != null) {
+                    f42759a.onDataTransfer(a2.url, a2);
                 }
             }
         }

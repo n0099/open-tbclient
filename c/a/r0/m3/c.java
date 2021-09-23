@@ -27,34 +27,34 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MainTabActivity f22404a;
+    public MainTabActivity f22420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PopupWindow f22405b;
+    public PopupWindow f22421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FragmentTabHost f22406c;
+    public FragmentTabHost f22422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f22407d;
+    public String f22423d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f22408e;
+    public long f22424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f22409f;
+    public View f22425f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22410g;
+    public TextView f22426g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f22411h;
+    public TextView f22427h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f22412i;
+    public Runnable f22428i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Runnable f22413j;
+    public Runnable f22429j;
     public View.OnClickListener k;
 
     /* loaded from: classes3.dex */
@@ -63,7 +63,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f22414e;
+        public final /* synthetic */ c f22430e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -80,22 +80,22 @@ public class c {
                     return;
                 }
             }
-            this.f22414e = cVar;
+            this.f22430e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f22414e.f22406c == null || this.f22414e.f22405b == null || this.f22414e.f22405b.getContentView() == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f22430e.f22422c == null || this.f22430e.f22421b == null || this.f22430e.f22421b.getContentView() == null) {
                 return;
             }
-            FragmentTabWidget fragmentTabWidget = this.f22414e.f22406c.getFragmentTabWidget();
-            int k = l.k(this.f22414e.f22404a.getActivity());
-            int g2 = l.g(this.f22414e.f22404a.getActivity(), R.dimen.ds278);
-            this.f22414e.f22405b.getContentView().measure(0, 0);
-            g.l(this.f22414e.f22405b, fragmentTabWidget, (k - l.g(this.f22414e.f22404a.getActivity(), R.dimen.ds430)) / 2, -g2);
-            c.a.q0.s.d0.b.j().w("home_tip", this.f22414e.f22408e);
-            c.a.e.e.m.e.a().postDelayed(this.f22414e.f22413j, 5000L);
+            FragmentTabWidget fragmentTabWidget = this.f22430e.f22422c.getFragmentTabWidget();
+            int k = l.k(this.f22430e.f22420a.getActivity());
+            int g2 = l.g(this.f22430e.f22420a.getActivity(), R.dimen.ds278);
+            this.f22430e.f22421b.getContentView().measure(0, 0);
+            g.l(this.f22430e.f22421b, fragmentTabWidget, (k - l.g(this.f22430e.f22420a.getActivity(), R.dimen.ds430)) / 2, -g2);
+            c.a.q0.s.d0.b.j().w("home_tip", this.f22430e.f22424e);
+            c.a.e.e.m.e.a().postDelayed(this.f22430e.f22429j, 5000L);
             TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 1));
         }
     }
@@ -106,7 +106,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f22415e;
+        public final /* synthetic */ c f22431e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -123,28 +123,28 @@ public class c {
                     return;
                 }
             }
-            this.f22415e = cVar;
+            this.f22431e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f22415e.g();
+                this.f22431e.g();
             }
         }
     }
 
     /* renamed from: c.a.r0.m3.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1046c implements View.OnClickListener {
+    public class View$OnClickListenerC1044c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f22416e;
+        public final /* synthetic */ c f22432e;
 
-        public View$OnClickListenerC1046c(c cVar) {
+        public View$OnClickListenerC1044c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,18 +159,18 @@ public class c {
                     return;
                 }
             }
-            this.f22416e = cVar;
+            this.f22432e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f22416e.h();
+                this.f22432e.h();
                 if (WriteActivityConfig.isAsyncWriting()) {
                     return;
                 }
-                WriteActivityConfig.newInstance(this.f22416e.f22404a).setType(9).setTitle(this.f22416e.f22407d).setForumId("0").send();
+                WriteActivityConfig.newInstance(this.f22432e.f22420a).setType(9).setTitle(this.f22432e.f22423d).setForumId("0").send();
                 TiebaStatic.log(new StatisticItem("c13017").param("obj_locate", 1));
             }
         }
@@ -191,25 +191,25 @@ public class c {
                 return;
             }
         }
-        this.f22412i = new a(this);
-        this.f22413j = new b(this);
-        this.k = new View$OnClickListenerC1046c(this);
-        this.f22404a = mainTabActivity;
-        this.f22406c = (FragmentTabHost) mainTabActivity.findViewById(R.id.tab_host);
+        this.f22428i = new a(this);
+        this.f22429j = new b(this);
+        this.k = new View$OnClickListenerC1044c(this);
+        this.f22420a = mainTabActivity;
+        this.f22422c = (FragmentTabHost) mainTabActivity.findViewById(R.id.tab_host);
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g.c(this.f22405b);
+            g.c(this.f22421b);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.e.e.m.e.a().removeCallbacks(this.f22412i);
-            c.a.e.e.m.e.a().removeCallbacks(this.f22413j);
+            c.a.e.e.m.e.a().removeCallbacks(this.f22428i);
+            c.a.e.e.m.e.a().removeCallbacks(this.f22429j);
             g();
         }
     }
@@ -226,23 +226,23 @@ public class c {
         if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) || c.a.q0.s.d0.b.j().l("home_tip", 0L) == j2 || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return;
         }
-        this.f22407d = str2;
-        this.f22408e = j2;
-        if (this.f22409f == null) {
-            View inflate = LayoutInflater.from(this.f22404a.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
-            this.f22409f = inflate;
-            this.f22410g = (TextView) inflate.findViewById(R.id.tips);
-            this.f22411h = (TextView) this.f22409f.findViewById(R.id.tips_content);
-            this.f22409f.setOnClickListener(this.k);
+        this.f22423d = str2;
+        this.f22424e = j2;
+        if (this.f22425f == null) {
+            View inflate = LayoutInflater.from(this.f22420a.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
+            this.f22425f = inflate;
+            this.f22426g = (TextView) inflate.findViewById(R.id.tips);
+            this.f22427h = (TextView) this.f22425f.findViewById(R.id.tips_content);
+            this.f22425f.setOnClickListener(this.k);
         }
-        this.f22410g.setText(StringHelper.cutHotTopicShow(str, 24, "..."));
-        this.f22411h.setText(R.string.topic_join);
-        if (this.f22405b == null) {
-            this.f22405b = new PopupWindow(this.f22409f, -2, -2);
+        this.f22426g.setText(StringHelper.cutHotTopicShow(str, 24, "..."));
+        this.f22427h.setText(R.string.topic_join);
+        if (this.f22421b == null) {
+            this.f22421b = new PopupWindow(this.f22425f, -2, -2);
         } else {
             h();
         }
-        c.a.e.e.m.e.a().removeCallbacks(this.f22412i);
-        c.a.e.e.m.e.a().postDelayed(this.f22412i, 100L);
+        c.a.e.e.m.e.a().removeCallbacks(this.f22428i);
+        c.a.e.e.m.e.a().postDelayed(this.f22428i, 100L);
     }
 }

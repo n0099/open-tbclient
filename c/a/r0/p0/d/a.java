@@ -8,7 +8,7 @@ public interface a {
 
     boolean b(QmStickerItem qmStickerItem);
 
-    void c(b.InterfaceC1097b interfaceC1097b);
+    void c(b.InterfaceC1095b interfaceC1095b);
 
     void d(QmStickerItem qmStickerItem);
 

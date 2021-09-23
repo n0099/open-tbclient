@@ -27,34 +27,34 @@ public class r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f12350a;
+    public a f12358a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f12351b;
+    public b f12359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12352c;
+    public String f12360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12353d;
+    public String f12361d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12354e;
+    public String f12362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12355f;
+    public String f12363f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12356g;
+    public String f12364g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12357h;
+    public String f12365h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12358i;
+    public String f12366i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f12359j;
+    public String f12367j;
     public String k;
     public String l;
     public String m;
@@ -73,28 +73,28 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12360a;
+        public String f12368a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12361b;
+        public String f12369b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12362c;
+        public String f12370c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12363d;
+        public String f12371d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12364e;
+        public int f12372e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f12365f;
+        public String f12373f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f12366g;
+        public String f12374g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f12367h;
+        public int f12375h;
 
         public a(r rVar) {
             Interceptable interceptable = $ic;
@@ -111,15 +111,15 @@ public class r {
                     return;
                 }
             }
-            this.f12360a = "Android";
-            this.f12361b = Build.VERSION.RELEASE;
-            this.f12362c = Build.MANUFACTURER;
-            this.f12364e = Build.VERSION.SDK_INT;
-            this.f12365f = Build.MODEL;
+            this.f12368a = "Android";
+            this.f12369b = Build.VERSION.RELEASE;
+            this.f12370c = Build.MANUFACTURER;
+            this.f12372e = Build.VERSION.SDK_INT;
+            this.f12373f = Build.MODEL;
             Context appContext = AppRuntime.getAppContext();
             WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
-            this.f12366g = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
-            this.f12367h = appContext.getResources().getDisplayMetrics().densityDpi;
+            this.f12374g = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
+            this.f12375h = appContext.getResources().getDisplayMetrics().densityDpi;
         }
     }
 
@@ -129,7 +129,7 @@ public class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12368a;
+        public String f12376a;
 
         public b(r rVar) {
             Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public class r {
                     return;
                 }
             }
-            this.f12368a = e.h().v(AppRuntime.getAppContext());
+            this.f12376a = e.h().v(AppRuntime.getAppContext());
         }
     }
 
@@ -165,24 +165,24 @@ public class r {
                 return;
             }
         }
-        this.f12350a = new a(this);
-        this.f12351b = new b(this);
-        this.f12358i = c.a.p0.s.a.c();
+        this.f12358a = new a(this);
+        this.f12359b = new b(this);
+        this.f12366i = c.a.p0.s.a.c();
         this.o = "";
         Context appContext = AppRuntime.getAppContext();
         try {
             PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
-            this.f12352c = packageInfo.versionName;
-            this.f12354e = packageInfo.packageName;
+            this.f12360c = packageInfo.versionName;
+            this.f12362e = packageInfo.packageName;
         } catch (PackageManager.NameNotFoundException unused) {
         }
         TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
         if (telephonyManager != null && (Build.VERSION.SDK_INT < 23 || appContext.checkSelfPermission("android.permission.READ_PHONE_STATE") == 0)) {
-            this.f12359j = telephonyManager.getSimOperator();
+            this.f12367j = telephonyManager.getSimOperator();
         }
-        this.f12355f = e.h().getDeviceId(appContext);
-        this.f12356g = e.h().p(appContext);
-        this.f12357h = e.h().a();
+        this.f12363f = e.h().getDeviceId(appContext);
+        this.f12364g = e.h().p(appContext);
+        this.f12365h = e.h().a();
         this.n = e.h().b();
         this.q = e.h().t();
         this.r = str;
@@ -288,26 +288,26 @@ public class r {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.putOpt("os", this.f12350a.f12360a);
-                jSONObject2.putOpt("osversion", this.f12350a.f12361b);
-                jSONObject2.putOpt("model", this.f12350a.f12365f);
-                jSONObject2.putOpt("deviceType", this.f12350a.f12363d);
-                jSONObject2.putOpt("sdk", this.f12350a.f12364e + "");
-                jSONObject2.putOpt("brand", this.f12350a.f12362c);
-                jSONObject2.putOpt("screen", this.f12350a.f12366g);
-                jSONObject2.putOpt("density", this.f12350a.f12367h + "");
+                jSONObject2.putOpt("os", this.f12358a.f12368a);
+                jSONObject2.putOpt("osversion", this.f12358a.f12369b);
+                jSONObject2.putOpt("model", this.f12358a.f12373f);
+                jSONObject2.putOpt("deviceType", this.f12358a.f12371d);
+                jSONObject2.putOpt("sdk", this.f12358a.f12372e + "");
+                jSONObject2.putOpt("brand", this.f12358a.f12370c);
+                jSONObject2.putOpt("screen", this.f12358a.f12374g);
+                jSONObject2.putOpt("density", this.f12358a.f12375h + "");
                 JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.putOpt("passId", this.f12351b.f12368a);
+                jSONObject3.putOpt("passId", this.f12359b.f12376a);
                 jSONObject.putOpt("userInfo", jSONObject3);
                 jSONObject.putOpt(ConstantHelper.LOG_OS, jSONObject2);
-                jSONObject.putOpt("appVersion", this.f12352c);
-                jSONObject.putOpt("appBranch", this.f12353d);
-                jSONObject.putOpt("appPackageName", this.f12354e);
-                jSONObject.putOpt("cuid", this.f12355f);
-                jSONObject.putOpt("uuid", this.f12356g);
-                jSONObject.putOpt("hostName", this.f12357h);
-                jSONObject.putOpt("net", this.f12358i);
-                jSONObject.putOpt("operator", this.f12359j);
+                jSONObject.putOpt("appVersion", this.f12360c);
+                jSONObject.putOpt("appBranch", this.f12361d);
+                jSONObject.putOpt("appPackageName", this.f12362e);
+                jSONObject.putOpt("cuid", this.f12363f);
+                jSONObject.putOpt("uuid", this.f12364g);
+                jSONObject.putOpt("hostName", this.f12365h);
+                jSONObject.putOpt("net", this.f12366i);
+                jSONObject.putOpt("operator", this.f12367j);
                 jSONObject.putOpt("smartAppId", this.k);
                 jSONObject.putOpt("smartAppVersion", this.l);
                 jSONObject.putOpt("swanCoreVersion", this.m);

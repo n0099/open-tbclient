@@ -22,22 +22,22 @@ public class a implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f22924e;
+    public ViewGroup f22940e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22925f;
+    public TextView f22941f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22926g;
+    public TextView f22942g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f22927h;
+    public ImageView f22943h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f22928i;
+    public TextView f22944i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f22929j;
+    public ImageView f22945j;
     public TextView k;
     public int l;
     public int m;
@@ -59,22 +59,22 @@ public class a implements View.OnClickListener {
             }
         }
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
-        this.f22924e = viewGroup;
-        this.f22925f = (TextView) viewGroup.findViewById(R.id.choose_like_label);
-        this.f22926g = (TextView) this.f22924e.findViewById(R.id.recommend_interest_thread);
-        this.f22927h = (ImageView) this.f22924e.findViewById(R.id.male_icon);
-        this.f22928i = (TextView) this.f22924e.findViewById(R.id.male_text);
-        this.f22929j = (ImageView) this.f22924e.findViewById(R.id.female_icon);
-        this.k = (TextView) this.f22924e.findViewById(R.id.female_text);
-        this.f22927h.setOnClickListener(this);
-        this.f22929j.setOnClickListener(this);
+        this.f22940e = viewGroup;
+        this.f22941f = (TextView) viewGroup.findViewById(R.id.choose_like_label);
+        this.f22942g = (TextView) this.f22940e.findViewById(R.id.recommend_interest_thread);
+        this.f22943h = (ImageView) this.f22940e.findViewById(R.id.male_icon);
+        this.f22944i = (TextView) this.f22940e.findViewById(R.id.male_text);
+        this.f22945j = (ImageView) this.f22940e.findViewById(R.id.female_icon);
+        this.k = (TextView) this.f22940e.findViewById(R.id.female_text);
+        this.f22943h.setOnClickListener(this);
+        this.f22945j.setOnClickListener(this);
         c();
     }
 
     public ViewGroup a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22924e : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22940e : (ViewGroup) invokeV.objValue;
     }
 
     public int b() {
@@ -86,11 +86,11 @@ public class a implements View.OnClickListener {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f22925f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f22926g, R.color.CAM_X0109);
-            SkinManager.setImageResource(this.f22927h, R.drawable.img_lable_boy_n);
-            SkinManager.setViewTextColor(this.f22928i, R.color.CAM_X0109);
-            SkinManager.setImageResource(this.f22929j, R.drawable.img_lable_girl_n);
+            SkinManager.setViewTextColor(this.f22941f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f22942g, R.color.CAM_X0109);
+            SkinManager.setImageResource(this.f22943h, R.drawable.img_lable_boy_n);
+            SkinManager.setViewTextColor(this.f22944i, R.color.CAM_X0109);
+            SkinManager.setImageResource(this.f22945j, R.drawable.img_lable_girl_n);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0109);
         }
     }
@@ -98,8 +98,8 @@ public class a implements View.OnClickListener {
     public void d(List<c.a.r0.n1.b.a> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && ListUtils.getCount(list) == 2) {
-            this.l = list.get(0).f22918a;
-            this.m = list.get(1).f22918a;
+            this.l = list.get(0).f22934a;
+            this.m = list.get(1).f22934a;
         }
     }
 
@@ -108,15 +108,15 @@ public class a implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             boolean z = false;
-            if (view == this.f22927h) {
+            if (view == this.f22943h) {
                 z = true;
             } else {
-                ImageView imageView = this.f22929j;
+                ImageView imageView = this.f22945j;
             }
             this.n = z ? this.l : this.m;
-            SkinManager.setImageResource(this.f22927h, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
-            SkinManager.setViewTextColor(this.f22928i, z ? R.color.CAM_X0302 : R.color.CAM_X0109);
-            SkinManager.setImageResource(this.f22929j, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
+            SkinManager.setImageResource(this.f22943h, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
+            SkinManager.setViewTextColor(this.f22944i, z ? R.color.CAM_X0302 : R.color.CAM_X0109);
+            SkinManager.setImageResource(this.f22945j, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
             SkinManager.setViewTextColor(this.k, z ? R.color.CAM_X0109 : R.color.CAM_X0301);
         }
     }

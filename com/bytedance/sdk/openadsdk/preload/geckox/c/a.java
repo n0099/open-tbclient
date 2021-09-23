@@ -23,7 +23,7 @@ public class a extends v<Boolean> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f68715a;
+        public static final /* synthetic */ int[] f69026a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,17 +40,17 @@ public class a extends v<Boolean> {
                 }
             }
             int[] iArr = new int[com.bytedance.sdk.openadsdk.preload.a.d.b.values().length];
-            f68715a = iArr;
+            f69026a = iArr;
             try {
-                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.f68563h.ordinal()] = 1;
+                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.f68874h.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f68715a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68564i.ordinal()] = 2;
+                f69026a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68875i.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f68715a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68562g.ordinal()] = 3;
+                f69026a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68873g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -91,7 +91,7 @@ public class a extends v<Boolean> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
-            int i2 = AnonymousClass1.f68715a[f2.ordinal()];
+            int i2 = AnonymousClass1.f69026a[f2.ordinal()];
             if (i2 != 1) {
                 if (i2 == 2) {
                     aVar.j();

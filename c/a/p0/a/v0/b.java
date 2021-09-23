@@ -21,16 +21,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f9190a;
+    public boolean f9198a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9191b;
+    public boolean f9199b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9192c;
+    public String f9200c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f9193d;
+    public JSONObject f9201d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (c.a.p0.a.a2.d.g().l() == 0) {
-                return c(this.f9193d, "bbasp_guide_");
+                return c(this.f9201d, "bbasp_guide_");
             }
             if (c.a.p0.a.a2.d.g().l() == 1) {
-                return c(this.f9193d, "bbaspg_guide_");
+                return c(this.f9201d, "bbaspg_guide_");
             }
             return false;
         }
@@ -65,7 +65,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONArray optJSONArray = this.f9193d.optJSONArray("custom_guide_list");
+            JSONArray optJSONArray = this.f9201d.optJSONArray("custom_guide_list");
             if (optJSONArray != null && optJSONArray.length() != 0) {
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
@@ -141,10 +141,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f9190a) {
+            if (this.f9198a) {
                 return "special";
             }
-            if (this.f9191b) {
+            if (this.f9199b) {
                 return "normal";
             }
             return null;
@@ -155,7 +155,7 @@ public class b {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9192c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9200c : (String) invokeV.objValue;
     }
 
     public final int g(JSONObject jSONObject, int i2, String str) {
@@ -169,7 +169,7 @@ public class b {
             if (i2 >= optJSONArray.length()) {
                 i2 = 0;
             }
-            this.f9192c = optJSONArray.optString(i2);
+            this.f9200c = optJSONArray.optString(i2);
             return i2;
         }
         return invokeLIL.intValue;
@@ -179,18 +179,18 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            this.f9190a = false;
-            this.f9191b = false;
-            this.f9192c = null;
+            this.f9198a = false;
+            this.f9199b = false;
+            this.f9200c = null;
             JSONObject d2 = d();
-            this.f9193d = d2;
+            this.f9201d = d2;
             if (d2 != null && d2.length() != 0) {
                 boolean b2 = b();
-                this.f9190a = b2;
+                this.f9198a = b2;
                 if (b2) {
                     return this;
                 }
-                this.f9191b = a();
+                this.f9199b = a();
             }
             return this;
         }
@@ -250,6 +250,6 @@ public class b {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f9191b || this.f9190a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f9199b || this.f9198a : invokeV.booleanValue;
     }
 }

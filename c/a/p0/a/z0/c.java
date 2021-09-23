@@ -20,10 +20,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9935a;
+    public static final boolean f9943a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a.g f9936b;
+    public static a.g f9944b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,13 +39,13 @@ public class c {
                 return;
             }
         }
-        f9935a = k.f7077a;
+        f9943a = k.f7085a;
     }
 
     public static void a(a.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
-            f9936b = gVar;
+            f9944b = gVar;
         }
     }
 
@@ -58,7 +58,7 @@ public class c {
 
     public static void c(EditText editText, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65539, null, editText, i2) == null) || editText == null || f9936b == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, editText, i2) == null) || editText == null || f9944b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -68,11 +68,11 @@ public class c {
             jSONObject.put("cursorOffset", editText.getSelectionStart());
             jSONObject.put("keyCode", i2);
         } catch (JSONException e2) {
-            if (f9935a) {
+            if (f9943a) {
                 e2.printStackTrace();
             }
         }
-        f9936b.a(String.valueOf(editText.getTag()), jSONObject);
+        f9944b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
     public static void d(EditText editText, int i2) {
@@ -84,7 +84,7 @@ public class c {
 
     public static void e(EditText editText, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, editText, str, i2) == null) || editText == null || f9936b == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, editText, str, i2) == null) || editText == null || f9944b == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -94,11 +94,11 @@ public class c {
             jSONObject.put("cursorOffset", editText.getText().length());
             jSONObject.put("keyboardHeight", n0.L(i2));
         } catch (JSONException e2) {
-            if (f9935a) {
+            if (f9943a) {
                 e2.printStackTrace();
             }
         }
-        f9936b.a(String.valueOf(editText.getTag()), jSONObject);
+        f9944b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
     public static void f(EditText editText, int i2) {

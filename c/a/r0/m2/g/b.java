@@ -68,7 +68,7 @@ public class b extends c.a.r0.a0.b<c.a.r0.m2.e.e> {
     public void k(c.a.r0.m2.e.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            l(this.f15549f, TbadkCoreApplication.getInst().getSkinType());
+            l(this.f15558f, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

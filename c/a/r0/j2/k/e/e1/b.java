@@ -87,14 +87,14 @@ public class b {
                 ThreadInfo threadInfo = list.get(i4);
                 if (threadInfo != null) {
                     d2 d2Var2 = new d2();
-                    d2Var2.I2 = i4 + 1;
+                    d2Var2.J2 = i4 + 1;
                     d2Var2.Y2(threadInfo);
                     if (d2Var2.Y() != null && !TextUtils.isEmpty(str)) {
                         d2Var2.Y().f14382j = str;
                     }
-                    if ((k.Y(d2Var2) || l.T(d2Var2)) && d2Var2.getType() != d2.B3) {
+                    if ((k.Y(d2Var2) || l.T(d2Var2)) && d2Var2.getType() != d2.C3) {
                         k d2 = d(d2Var2, i2);
-                        if (d2 != null && (d2Var = d2.f15562e) != null && d2Var.Y() != null && !StringUtils.isNull(d2Var.Y().f14374b)) {
+                        if (d2 != null && (d2Var = d2.f15571e) != null && d2Var.Y() != null && !StringUtils.isNull(d2Var.Y().f14374b)) {
                             d2.l = d2Var2.s1();
                             d2.position = i3;
                             f(d2);
@@ -120,12 +120,12 @@ public class b {
                             }
                         }
                         if (c2 != null && c2.isValid()) {
-                            c2.f15562e.G1();
+                            c2.f15571e.G1();
                             if (!d2Var2.D2() && d2Var2.J() != null) {
                                 String format = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), d2Var2.J().getName_show());
                                 SpannableString spannableString = new SpannableString(format);
                                 spannableString.setSpan(new a(16, d2Var2.J().getUserId(), c2), 0, format.length() - 1, 33);
-                                c2.f15562e.H1(spannableString);
+                                c2.f15571e.H1(spannableString);
                             }
                             list2.add(c2);
                         }
@@ -170,7 +170,7 @@ public class b {
                 if (!d2Var.e2() && !d2Var.w2()) {
                     d2Var.Z1();
                 }
-                kVar.f15562e = d2Var;
+                kVar.f15571e = d2Var;
                 kVar.G = i2;
                 return kVar;
             } else if (l.T(d2Var)) {
@@ -189,7 +189,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, d2Var, i2)) == null) {
             k kVar = new k();
-            kVar.f15562e = d2Var;
+            kVar.f15571e = d2Var;
             d2Var.e2();
             if (!d2Var.e2()) {
                 d2Var.Z1();

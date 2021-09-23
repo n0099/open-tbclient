@@ -113,7 +113,7 @@ public class e extends d {
             this.V = str2;
             S();
             T();
-            r0(this.f23832f);
+            r0(this.f23848f);
             this.G.setPlayer(this.u);
             this.C.setVisibility(8);
             this.v.setPlaceHolder(3);

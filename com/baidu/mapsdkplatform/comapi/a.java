@@ -25,29 +25,29 @@ public class a implements PermissionCheck.c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f42059a = "a";
+    public static final String f42121a = "a";
 
     /* renamed from: g  reason: collision with root package name */
-    public static a f42060g = null;
+    public static a f42122g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f42061h = -100;
+    public static int f42123h = -100;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f42062b;
+    public Context f42124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f42063c;
+    public Handler f42125c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f42064d;
+    public e f42126d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42065e;
+    public String f42127e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42066f;
+    public int f42128f;
 
     static {
         InterceptResult invokeClinit;
@@ -84,10 +84,10 @@ public class a implements PermissionCheck.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f42060g == null) {
-                f42060g = new a();
+            if (f42122g == null) {
+                f42122g = new a();
             }
-            return f42060g;
+            return f42122g;
         }
         return (a) invokeV.objValue;
     }
@@ -99,7 +99,7 @@ public class a implements PermissionCheck.c {
         if (interceptable == null || interceptable.invokeL(65539, this, message) == null) {
             if (message.what != 2012) {
                 if (message.arg2 == 3) {
-                    this.f42062b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
+                    this.f42124b.sendBroadcast(new Intent(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR));
                 }
                 int i2 = message.arg2;
                 if (i2 != 2 && i2 != 404 && i2 != 5 && i2 != 8) {
@@ -114,7 +114,7 @@ public class a implements PermissionCheck.c {
                 intent2.putExtra("error_message", (String) message.obj);
                 intent = intent2;
             }
-            this.f42062b.sendBroadcast(intent);
+            this.f42124b.sendBroadcast(intent);
         }
     }
 
@@ -125,8 +125,8 @@ public class a implements PermissionCheck.c {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
             intentFilter.addAction(McastConfig.ACTION_WIFI_STATE_CHANGED);
-            Context context = this.f42062b;
-            if (context == null || (eVar = this.f42064d) == null) {
+            Context context = this.f42124b;
+            if (context == null || (eVar = this.f42126d) == null) {
                 return;
             }
             context.registerReceiver(eVar, intentFilter);
@@ -137,7 +137,7 @@ public class a implements PermissionCheck.c {
         e eVar;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || (eVar = this.f42064d) == null || (context = this.f42062b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || (eVar = this.f42126d) == null || (context = this.f42124b) == null) {
             return;
         }
         context.unregisterReceiver(eVar);
@@ -146,7 +146,7 @@ public class a implements PermissionCheck.c {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f42062b = context;
+            this.f42124b = context;
         }
     }
 
@@ -157,47 +157,47 @@ public class a implements PermissionCheck.c {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || bVar == null) {
             return;
         }
-        if (bVar.f42506a == 0) {
-            i.f42539d = bVar.f42510e;
-            i.a(bVar.f42507b, bVar.f42508c);
+        if (bVar.f42568a == 0) {
+            i.f42601d = bVar.f42572e;
+            i.a(bVar.f42569b, bVar.f42570c);
         } else {
             String str = "Authentication Error\n" + bVar.toString();
         }
-        int i3 = bVar.f42506a;
-        if (i3 != PermissionCheck.f42497b && i3 != PermissionCheck.f42496a && i3 != PermissionCheck.f42498c) {
-            com.baidu.mapsdkplatform.comapi.util.d.a().a(bVar.f42511f);
+        int i3 = bVar.f42568a;
+        if (i3 != PermissionCheck.f42559b && i3 != PermissionCheck.f42558a && i3 != PermissionCheck.f42560c) {
+            com.baidu.mapsdkplatform.comapi.util.d.a().a(bVar.f42573f);
         }
-        Handler handler = this.f42063c;
-        if (handler == null || (i2 = bVar.f42506a) == f42061h) {
+        Handler handler = this.f42125c;
+        if (handler == null || (i2 = bVar.f42568a) == f42123h) {
             return;
         }
-        f42061h = i2;
+        f42123h = i2;
         Message obtainMessage = handler.obtainMessage();
         obtainMessage.what = 2012;
-        obtainMessage.arg1 = bVar.f42506a;
-        obtainMessage.obj = bVar.f42509d;
-        this.f42063c.sendMessage(obtainMessage);
+        obtainMessage.arg1 = bVar.f42568a;
+        obtainMessage.obj = bVar.f42571d;
+        this.f42125c.sendMessage(obtainMessage);
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f42065e = str;
+            this.f42127e = str;
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f42066f == 0) {
-                if (this.f42062b == null) {
+            if (this.f42128f == 0) {
+                if (this.f42124b == null) {
                     throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
                 }
-                this.f42064d = new e();
+                this.f42126d = new e();
                 f();
-                SysUpdateObservable.getInstance().updateNetworkInfo(this.f42062b);
+                SysUpdateObservable.getInstance().updateNetworkInfo(this.f42124b);
             }
-            this.f42066f++;
+            this.f42128f++;
         }
     }
 
@@ -205,12 +205,12 @@ public class a implements PermissionCheck.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f42062b != null) {
-                this.f42063c = new b(this);
-                i.b(this.f42062b);
-                com.baidu.mapsdkplatform.comapi.util.d.a().a(this.f42062b);
+            if (this.f42124b != null) {
+                this.f42125c = new b(this);
+                i.b(this.f42124b);
+                com.baidu.mapsdkplatform.comapi.util.d.a().a(this.f42124b);
                 i.f();
-                PermissionCheck.init(this.f42062b);
+                PermissionCheck.init(this.f42124b);
                 PermissionCheck.setPermissionCheckResultListener(this);
                 PermissionCheck.permissionCheck();
                 return true;
@@ -223,8 +223,8 @@ public class a implements PermissionCheck.c {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int i2 = this.f42066f - 1;
-            this.f42066f = i2;
+            int i2 = this.f42128f - 1;
+            this.f42128f = i2;
             if (i2 == 0) {
                 g();
                 i.a();
@@ -236,7 +236,7 @@ public class a implements PermissionCheck.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Context context = this.f42062b;
+            Context context = this.f42124b;
             if (context != null) {
                 return context;
             }

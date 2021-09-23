@@ -80,7 +80,7 @@ public class b implements c {
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            boolean z = c.f8423a;
+            boolean z = c.f8431a;
         }
     }
 }

@@ -45,10 +45,10 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public DragHorizonScrollView f48292i;
+    public DragHorizonScrollView f48400i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f48293j;
+    public TextView f48401j;
     public DragLayer k;
     public WriteImagesInfo l;
     public c.a.q0.d0.b m;
@@ -68,7 +68,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MultiImgToolView f48294a;
+        public final /* synthetic */ MultiImgToolView f48402a;
 
         public a(MultiImgToolView multiImgToolView) {
             Interceptable interceptable = $ic;
@@ -85,44 +85,44 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
                     return;
                 }
             }
-            this.f48294a = multiImgToolView;
+            this.f48402a = multiImgToolView;
         }
 
         @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.b
         public void a(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48294a.f48292i.isInDelete()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48402a.f48400i.isInDelete()) {
                 return;
             }
-            this.f48294a.delete(view);
-            int delete = this.f48294a.f48292i.delete(view);
-            if (delete < 0 || delete >= this.f48294a.l.getChosedFiles().size()) {
+            this.f48402a.delete(view);
+            int delete = this.f48402a.f48400i.delete(view);
+            if (delete < 0 || delete >= this.f48402a.l.getChosedFiles().size()) {
                 return;
             }
-            ImageFileInfo remove = this.f48294a.l.getChosedFiles().remove(delete);
+            ImageFileInfo remove = this.f48402a.l.getChosedFiles().remove(delete);
             if (remove.isTempFile()) {
                 d.g().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
             }
-            int maxItemNum = this.f48294a.f48292i.getMaxItemNum();
-            int size = this.f48294a.l.size();
-            this.f48294a.f48293j.setText(this.f48294a.getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
-            int size2 = this.f48294a.l.getChosedFiles().size();
-            if (this.f48294a.o != null) {
-                this.f48294a.o.sendAction(new c.a.q0.x.a(this.f48294a.r, -1, null));
+            int maxItemNum = this.f48402a.f48400i.getMaxItemNum();
+            int size = this.f48402a.l.size();
+            this.f48402a.f48401j.setText(this.f48402a.getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+            int size2 = this.f48402a.l.getChosedFiles().size();
+            if (this.f48402a.o != null) {
+                this.f48402a.o.sendAction(new c.a.q0.x.a(this.f48402a.r, -1, null));
                 if (size2 > 0) {
-                    this.f48294a.o.sendAction(new c.a.q0.x.a(2, this.f48294a.s, String.valueOf(size2)));
+                    this.f48402a.o.sendAction(new c.a.q0.x.a(2, this.f48402a.s, String.valueOf(size2)));
                 } else {
-                    this.f48294a.o.sendAction(new c.a.q0.x.a(2, this.f48294a.s, null));
+                    this.f48402a.o.sendAction(new c.a.q0.x.a(2, this.f48402a.s, null));
                 }
                 if (maxItemNum == 1 && size2 == 0) {
-                    if (this.f48294a.t) {
-                        this.f48294a.o.sendAction(new c.a.q0.x.a(1, 2, null));
+                    if (this.f48402a.t) {
+                        this.f48402a.o.sendAction(new c.a.q0.x.a(1, 2, null));
                         return;
                     }
-                    MultiImgToolView multiImgToolView = this.f48294a;
+                    MultiImgToolView multiImgToolView = this.f48402a;
                     multiImgToolView.k(multiImgToolView.l, true);
-                    this.f48294a.f48293j.setText(this.f48294a.u);
-                    this.f48294a.o.invalidate();
+                    this.f48402a.f48401j.setText(this.f48402a.u);
+                    this.f48402a.o.invalidate();
                 }
             }
         }
@@ -139,22 +139,22 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WriteImagesInfo f48295e;
+        public WriteImagesInfo f48403e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f48296f;
+        public Context f48404f;
 
         /* renamed from: g  reason: collision with root package name */
-        public c.a.q0.d0.b f48297g;
+        public c.a.q0.d0.b f48405g;
 
         /* renamed from: h  reason: collision with root package name */
-        public n f48298h;
+        public n f48406h;
 
         /* renamed from: i  reason: collision with root package name */
-        public b f48299i;
+        public b f48407i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f48300j;
+        public boolean f48408j;
 
         /* loaded from: classes6.dex */
         public class a implements c.a.q0.c0.b {
@@ -162,7 +162,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup f48301e;
+            public final /* synthetic */ ViewGroup f48409e;
 
             public a(c cVar, ViewGroup viewGroup) {
                 Interceptable interceptable = $ic;
@@ -179,14 +179,14 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
                         return;
                     }
                 }
-                this.f48301e = viewGroup;
+                this.f48409e = viewGroup;
             }
 
             @Override // c.a.q0.c0.b
             public void imageLoaded(c.a.e.l.d.a aVar, String str, boolean z) {
                 TbImageView tbImageView;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f48301e.findViewWithTag(str)) == null || aVar == null) {
+                if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f48409e.findViewWithTag(str)) == null || aVar == null) {
                     return;
                 }
                 tbImageView.invalidate();
@@ -199,10 +199,10 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup f48302e;
+            public final /* synthetic */ ViewGroup f48410e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f48303f;
+            public final /* synthetic */ c f48411f;
 
             public b(c cVar, ViewGroup viewGroup) {
                 Interceptable interceptable = $ic;
@@ -219,39 +219,39 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
                         return;
                     }
                 }
-                this.f48303f = cVar;
-                this.f48302e = viewGroup;
+                this.f48411f = cVar;
+                this.f48410e = viewGroup;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int indexOfChild;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (indexOfChild = this.f48302e.indexOfChild(view)) < 0) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (indexOfChild = this.f48410e.indexOfChild(view)) < 0) {
                     return;
                 }
-                ImageFileInfo imageFileInfo = (ImageFileInfo) this.f48303f.getItem(indexOfChild);
+                ImageFileInfo imageFileInfo = (ImageFileInfo) this.f48411f.getItem(indexOfChild);
                 if (!(imageFileInfo != null && new File(imageFileInfo.getFilePath()).exists())) {
-                    l.I(this.f48303f.f48296f, R.string.editor_mutiiamge_image_error);
-                } else if (this.f48303f.f48298h != null) {
-                    this.f48303f.f48298h.sendAction(new c.a.q0.x.a(15, 0, Integer.valueOf(indexOfChild)));
+                    l.I(this.f48411f.f48404f, R.string.editor_mutiiamge_image_error);
+                } else if (this.f48411f.f48406h != null) {
+                    this.f48411f.f48406h.sendAction(new c.a.q0.x.a(15, 0, Integer.valueOf(indexOfChild)));
                 }
             }
         }
 
         /* renamed from: com.baidu.tbadk.editortools.imagetool.MultiImgToolView$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC1743c implements View.OnClickListener {
+        public class View$OnClickListenerC1746c implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ FrameLayout f48304e;
+            public final /* synthetic */ FrameLayout f48412e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f48305f;
+            public final /* synthetic */ c f48413f;
 
-            public View$OnClickListenerC1743c(c cVar, FrameLayout frameLayout) {
+            public View$OnClickListenerC1746c(c cVar, FrameLayout frameLayout) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -266,17 +266,17 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
                         return;
                     }
                 }
-                this.f48305f = cVar;
-                this.f48304e = frameLayout;
+                this.f48413f = cVar;
+                this.f48412e = frameLayout;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48305f.f48299i == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48413f.f48407i == null) {
                     return;
                 }
-                this.f48305f.f48299i.a(this.f48304e);
+                this.f48413f.f48407i.a(this.f48412e);
             }
         }
 
@@ -295,19 +295,19 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
                     return;
                 }
             }
-            this.f48295e = null;
-            this.f48300j = true;
-            this.f48296f = context;
-            this.f48297g = bVar;
-            this.f48298h = nVar;
-            this.f48299i = bVar2;
-            this.f48300j = z;
+            this.f48403e = null;
+            this.f48408j = true;
+            this.f48404f = context;
+            this.f48405g = bVar;
+            this.f48406h = nVar;
+            this.f48407i = bVar2;
+            this.f48408j = z;
         }
 
         public void d(WriteImagesInfo writeImagesInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, writeImagesInfo) == null) {
-                this.f48295e = writeImagesInfo;
+                this.f48403e = writeImagesInfo;
             }
         }
 
@@ -316,7 +316,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                WriteImagesInfo writeImagesInfo = this.f48295e;
+                WriteImagesInfo writeImagesInfo = this.f48403e;
                 if (writeImagesInfo == null) {
                     return 0;
                 }
@@ -329,7 +329,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         public Object getItem(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f48295e.getChosedFiles().get(i2) : invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f48403e.getChosedFiles().get(i2) : invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
@@ -345,13 +345,13 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
                 if (view == null) {
-                    view = (FrameLayout) LayoutInflater.from(this.f48296f).inflate(R.layout.editor_muti_image_item, (ViewGroup) null);
+                    view = (FrameLayout) LayoutInflater.from(this.f48404f).inflate(R.layout.editor_muti_image_item, (ViewGroup) null);
                 }
-                ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.f48295e.getChosedFiles(), i2);
+                ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.f48403e.getChosedFiles(), i2);
                 if (imageFileInfo == null) {
                     return null;
                 }
-                int measuredWidth = (viewGroup.getMeasuredWidth() - (this.f48296f.getResources().getDimensionPixelSize(R.dimen.ds66) * 2)) + this.f48296f.getResources().getDimensionPixelSize(R.dimen.ds32);
+                int measuredWidth = (viewGroup.getMeasuredWidth() - (this.f48404f.getResources().getDimensionPixelSize(R.dimen.ds66) * 2)) + this.f48404f.getResources().getDimensionPixelSize(R.dimen.ds32);
                 FrameLayout frameLayout = (FrameLayout) view;
                 LinearLayout linearLayout = (LinearLayout) frameLayout.findViewById(R.id.iv_container);
                 FrameLayout frameLayout2 = (FrameLayout) frameLayout.findViewById(R.id.shadow_container);
@@ -367,17 +367,17 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
                     imageFileInfo.clearPageActions();
                     imageFileInfo.addPageAction(c.a.q0.d0.i.d.g(paddingRight, measuredHeight));
                     tbImageView.setTag(imageFileInfo.toCachedKey(true));
-                    if (this.f48297g.d(imageFileInfo, new a(this, viewGroup), true) != null) {
+                    if (this.f48405g.d(imageFileInfo, new a(this, viewGroup), true) != null) {
                         tbImageView.invalidate();
                     }
                 }
                 frameLayout.setLayoutParams(new ViewGroup.LayoutParams(measuredWidth / 3, -1));
-                if (this.f48300j) {
+                if (this.f48408j) {
                     frameLayout.setOnClickListener(new b(this, viewGroup));
                 }
                 ImageView imageView = (ImageView) frameLayout.findViewById(R.id.delete);
                 SkinManager.setImageResource(imageView, R.drawable.btn_add_photo_close);
-                imageView.setOnClickListener(new View$OnClickListenerC1743c(this, frameLayout));
+                imageView.setOnClickListener(new View$OnClickListenerC1746c(this, frameLayout));
                 frameLayout.setContentDescription(frameLayout.getResources().getString(R.string.editor_image) + (i2 + 1) + " " + imageFileInfo.getModifyTime());
                 return frameLayout;
             }
@@ -436,7 +436,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
     public DragHorizonScrollView getDragHorizonScrollView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48292i : (DragHorizonScrollView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48400i : (DragHorizonScrollView) invokeV.objValue;
     }
 
     public DragLayer getDragLayer() {
@@ -454,7 +454,7 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
     public TextView getMutiImageTips() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48293j : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48401j : (TextView) invokeV.objValue;
     }
 
     @Override // c.a.q0.x.n
@@ -482,8 +482,8 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
     public void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f48292i = (DragHorizonScrollView) findViewById(R.id.muti_image_upload_dragscrollview);
-            this.f48293j = (TextView) findViewById(R.id.muti_image_tips);
+            this.f48400i = (DragHorizonScrollView) findViewById(R.id.muti_image_upload_dragscrollview);
+            this.f48401j = (TextView) findViewById(R.id.muti_image_tips);
             this.k = (DragLayer) findViewById(R.id.muti_image_upload_draglayer);
         }
     }
@@ -495,17 +495,17 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
             c cVar = new c(getContext(), this.m, this, this.v, this.s == 10);
             this.n = cVar;
             cVar.d(this.l);
-            this.f48292i.setAdapter(this.n, z);
-            int maxItemNum = this.f48292i.getMaxItemNum();
+            this.f48400i.setAdapter(this.n, z);
+            int maxItemNum = this.f48400i.getMaxItemNum();
             int size = writeImagesInfo.size();
             if (size == 1 && !TextUtils.isEmpty(this.q)) {
-                this.f48293j.setText(this.q);
+                this.f48401j.setText(this.q);
             } else if (!w && size > 1) {
-                this.f48293j.setText(R.string.editor_mutiiamge_drag_tip);
+                this.f48401j.setText(R.string.editor_mutiiamge_drag_tip);
                 w = true;
                 TbadkSettings.getInst().saveBoolean("has_show_mutiimage_tip", true);
             } else {
-                this.f48293j.setText(getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+                this.f48401j.setText(getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
             }
             if (size > 0) {
                 String str = size + "";
@@ -520,15 +520,15 @@ public class MultiImgToolView extends DragContainer implements n, DragHorizonScr
         if (!(interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) || aVar == null) {
             return;
         }
-        int i2 = aVar.f15079a;
+        int i2 = aVar.f15086a;
         if (i2 == 9) {
             c cVar = this.n;
             if (cVar != null) {
                 cVar.notifyDataSetChanged();
             }
             sendAction(new c.a.q0.x.a(2, this.s, null));
-        } else if (i2 == 12 && (obj = aVar.f15081c) != null && (obj instanceof c.a.q0.x.r.a)) {
-            k(((c.a.q0.x.r.a) obj).f15103a, ((c.a.q0.x.r.a) obj).f15104b);
+        } else if (i2 == 12 && (obj = aVar.f15088c) != null && (obj instanceof c.a.q0.x.r.a)) {
+            k(((c.a.q0.x.r.a) obj).f15110a, ((c.a.q0.x.r.a) obj).f15111b);
         }
     }
 

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.m0;
+import c.a.q0.d1.n0;
 import c.a.q0.s.q.d2;
 import c.a.r0.a0.q;
 import com.baidu.adp.framework.MessageManager;
@@ -112,324 +112,9 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ r f15673a;
-
-        public a(r rVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15673a = rVar;
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.g
-        public void a(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.f15673a.F != null) {
-                this.f15673a.F.setDefaultBgResource(0);
-            }
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.g
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f15674e;
-
-        public b(r rVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15674e = rVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15674e.g() == null) {
-                return;
-            }
-            this.f15674e.g().a(view, this.f15674e.q);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardPersonDynamicThreadData f15675e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ r f15676f;
-
-        public c(r rVar, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rVar, cardPersonDynamicThreadData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15676f = rVar;
-            this.f15675e = cardPersonDynamicThreadData;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15676f.r == null) {
-                return;
-            }
-            if (this.f15676f.z == null) {
-                r rVar = this.f15676f;
-                rVar.z = new q(rVar.r);
-                this.f15676f.z.o();
-                this.f15676f.z.s(this.f15676f.Z);
-            }
-            this.f15676f.z.n(this.f15676f.q, this.f15675e.L == 1);
-            this.f15676f.z.u();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements c.a.q0.f1.j.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f15677a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d2 f15678b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ r f15679c;
-
-        public d(r rVar, LinkedList linkedList, d2 d2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rVar, linkedList, d2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15679c = rVar;
-            this.f15677a = linkedList;
-            this.f15678b = d2Var;
-        }
-
-        @Override // c.a.q0.f1.j.d
-        public void a(View view, int i2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                if (z) {
-                    this.f15679c.P();
-                } else {
-                    this.f15679c.X(view, this.f15677a, i2, this.f15678b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e extends c.a.r0.b4.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ r f15680f;
-
-        public e(r rVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15680f = rVar;
-        }
-
-        @Override // c.a.r0.b4.f
-        public void a(TextPaint textPaint, boolean z) {
-            int color;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, textPaint, z) == null) {
-                if (z) {
-                    color = this.f15680f.f15550g.getResources().getColor(R.color.CAM_X0304);
-                } else {
-                    color = this.f15680f.f15550g.getResources().getColor(R.color.CAM_X0302);
-                }
-                textPaint.setColor(color);
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f15680f.q == null || StringUtils.isNull(this.f15680f.q.l)) {
-                return;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15680f.f15550g).createNormalCfg(this.f15680f.q.l, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f15681e;
-
-        public f(r rVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15681e = rVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f15681e.g() != null) {
-                    this.f15681e.g().a(view, this.f15681e.q);
-                }
-                if (this.f15681e.q.o != 60) {
-                    if ((this.f15681e.q.o != 40 || this.f15681e.q.r != 2) && !this.f15681e.W) {
-                        this.f15681e.P();
-                        return;
-                    } else {
-                        BdToast.i(this.f15681e.d(), this.f15681e.d().getString(R.string.video_check_click_msg), R.drawable.icon_pure_toast_mistake40_svg, true).q();
-                        return;
-                    }
-                }
-                TiebaStatic.log(TbadkCoreStatisticKey.MY_THREAD_SHARE_LIVE);
-                if (this.f15681e.q.t.l1().live_status != 1) {
-                    this.f15681e.Q();
-                } else {
-                    this.f15681e.N();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class g extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ r f15682a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(r rVar, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15682a = rVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || this.f15682a.q == null || this.f15682a.q.f50010f == null || this.f15682a.A == null || this.f15682a.B == null || !((String) customResponsedMessage.getData()).equals(this.f15682a.q.f50010f) || this.f15682a.L()) {
-                return;
-            }
-            m.l(this.f15682a.A, this.f15682a.q.f50010f, R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(this.f15682a.B, this.f15682a.q.f50010f, R.color.CAM_X0107, R.color.CAM_X0109);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class h implements q.j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ r f15683a;
 
-        public h(r rVar) {
+        public a(r rVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -447,24 +132,31 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
             this.f15683a = rVar;
         }
 
-        @Override // c.a.r0.a0.q.j
-        public void a(boolean z) {
+        @Override // com.baidu.tbadk.widget.TbImageView.g
+        public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f15683a.V(z);
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.f15683a.F != null) {
+                this.f15683a.F.setDefaultBgResource(0);
+            }
+        }
+
+        @Override // com.baidu.tbadk.widget.TbImageView.g
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class i implements View.OnClickListener {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ r f15684e;
 
-        public i(r rVar) {
+        public b(r rVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -485,13 +177,321 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15684e.g() == null) {
+                return;
+            }
+            this.f15684e.g().a(view, this.f15684e.q);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CardPersonDynamicThreadData f15685e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ r f15686f;
+
+        public c(r rVar, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rVar, cardPersonDynamicThreadData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15686f = rVar;
+            this.f15685e = cardPersonDynamicThreadData;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15686f.r == null) {
+                return;
+            }
+            if (this.f15686f.z == null) {
+                r rVar = this.f15686f;
+                rVar.z = new q(rVar.r);
+                this.f15686f.z.o();
+                this.f15686f.z.s(this.f15686f.Z);
+            }
+            this.f15686f.z.n(this.f15686f.q, this.f15685e.L == 1);
+            this.f15686f.z.u();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements c.a.q0.f1.j.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ LinkedList f15687a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ d2 f15688b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ r f15689c;
+
+        public d(r rVar, LinkedList linkedList, d2 d2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rVar, linkedList, d2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15689c = rVar;
+            this.f15687a = linkedList;
+            this.f15688b = d2Var;
+        }
+
+        @Override // c.a.q0.f1.j.d
+        public void a(View view, int i2, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+                if (z) {
+                    this.f15689c.P();
+                } else {
+                    this.f15689c.X(view, this.f15687a, i2, this.f15688b);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e extends c.a.r0.b4.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ r f15690f;
+
+        public e(r rVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15690f = rVar;
+        }
+
+        @Override // c.a.r0.b4.f
+        public void a(TextPaint textPaint, boolean z) {
+            int color;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, textPaint, z) == null) {
+                if (z) {
+                    color = this.f15690f.f15559g.getResources().getColor(R.color.CAM_X0304);
+                } else {
+                    color = this.f15690f.f15559g.getResources().getColor(R.color.CAM_X0302);
+                }
+                textPaint.setColor(color);
+            }
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f15690f.q == null || StringUtils.isNull(this.f15690f.q.l)) {
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15690f.f15559g).createNormalCfg(this.f15690f.q.l, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ r f15691e;
+
+        public f(r rVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15691e = rVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b0<CardPersonDynamicThreadData> g2 = this.f15684e.g();
+                if (this.f15691e.g() != null) {
+                    this.f15691e.g().a(view, this.f15691e.q);
+                }
+                if (this.f15691e.q.o != 60) {
+                    if ((this.f15691e.q.o != 40 || this.f15691e.q.r != 2) && !this.f15691e.W) {
+                        this.f15691e.P();
+                        return;
+                    } else {
+                        BdToast.i(this.f15691e.d(), this.f15691e.d().getString(R.string.video_check_click_msg), R.drawable.icon_pure_toast_mistake40_svg, true).q();
+                        return;
+                    }
+                }
+                TiebaStatic.log(TbadkCoreStatisticKey.MY_THREAD_SHARE_LIVE);
+                if (this.f15691e.q.t.l1().live_status != 1) {
+                    this.f15691e.Q();
+                } else {
+                    this.f15691e.N();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class g extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ r f15692a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(r rVar, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15692a = rVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || this.f15692a.q == null || this.f15692a.q.f50121f == null || this.f15692a.A == null || this.f15692a.B == null || !((String) customResponsedMessage.getData()).equals(this.f15692a.q.f50121f) || this.f15692a.L()) {
+                return;
+            }
+            m.l(this.f15692a.A, this.f15692a.q.f50121f, R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.f15692a.B, this.f15692a.q.f50121f, R.color.CAM_X0107, R.color.CAM_X0109);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class h implements q.j {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ r f15693a;
+
+        public h(r rVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15693a = rVar;
+        }
+
+        @Override // c.a.r0.a0.q.j
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.f15693a.V(z);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class i implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ r f15694e;
+
+        public i(r rVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f15694e = rVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                b0<CardPersonDynamicThreadData> g2 = this.f15694e.g();
                 if (g2 != null) {
                     view.setTag("1");
-                    g2.a(view, this.f15684e.q);
+                    g2.a(view, this.f15694e.q);
                 }
-                this.f15684e.P();
+                this.f15694e.P();
             }
         }
     }
@@ -502,7 +502,7 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f15685e;
+        public final /* synthetic */ r f15695e;
 
         public j(r rVar) {
             Interceptable interceptable = $ic;
@@ -519,18 +519,18 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
                     return;
                 }
             }
-            this.f15685e = rVar;
+            this.f15695e = rVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b0<CardPersonDynamicThreadData> g2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f15685e.g()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f15695e.g()) == null) {
                 return;
             }
             view.setTag("2");
-            g2.a(view, this.f15685e.q);
+            g2.a(view, this.f15695e.q);
         }
     }
 
@@ -683,7 +683,7 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
             return;
         }
         if (!L()) {
-            m.a(this.q.f50010f);
+            m.a(this.q.f50121f);
         }
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
         alaLiveInfoCoreData.fillWithInfoData(this.q.t.l1());
@@ -698,14 +698,14 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
         d2 d2Var;
         OriginalThreadInfo originalThreadInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cardPersonDynamicThreadData = this.q) == null || (d2Var = cardPersonDynamicThreadData.t) == null || (originalThreadInfo = d2Var.x1) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cardPersonDynamicThreadData = this.q) == null || (d2Var = cardPersonDynamicThreadData.t) == null || (originalThreadInfo = d2Var.y1) == null) {
             return;
         }
-        PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.r.getPageActivity()).createCfgForPersonCenter(originalThreadInfo.f47422f, null, "person_page", 18005);
+        PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.r.getPageActivity()).createCfgForPersonCenter(originalThreadInfo.f47524f, null, "person_page", 18005);
         createCfgForPersonCenter.setStartFrom(this.l);
         createCfgForPersonCenter.setBjhData(originalThreadInfo.p);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createCfgForPersonCenter));
-        TiebaStatic.log(new StatisticItem("c12943").param("obj_type", "3").param("tid", this.q.f50010f).param("obj_param1", this.q.J ? 1 : 2));
+        TiebaStatic.log(new StatisticItem("c12943").param("obj_type", "3").param("tid", this.q.f50121f).param("obj_param1", this.q.J ? 1 : 2));
     }
 
     public final void P() {
@@ -714,9 +714,9 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
             return;
         }
         if (!L()) {
-            m.a(this.q.f50010f);
-            m.l(this.A, this.q.f50010f, R.color.CAM_X0105, R.color.CAM_X0109);
-            m.l(this.B, this.q.f50010f, R.color.CAM_X0107, R.color.CAM_X0109);
+            m.a(this.q.f50121f);
+            m.l(this.A, this.q.f50121f, R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.B, this.q.f50121f, R.color.CAM_X0107, R.color.CAM_X0109);
         }
         PbActivityConfig pbActivityConfig = new PbActivityConfig(this.r.getPageActivity());
         if (this.q.o == 40) {
@@ -726,15 +726,15 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
         pbActivityConfig.setForumId(String.valueOf(this.q.t.T()));
         pbActivityConfig.setForumName(this.q.t.Z());
         pbActivityConfig.setStartFrom(this.l);
-        pbActivityConfig.setIsShareThread(this.q.t.y1);
+        pbActivityConfig.setIsShareThread(this.q.t.z1);
         pbActivityConfig.setThreadData(this.q.t);
         pbActivityConfig.setIsPrivacy(this.q.s);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
         d2 d2Var = this.q.t;
-        if (d2Var == null || !d2Var.y1) {
+        if (d2Var == null || !d2Var.z1) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c12943").param("obj_type", "2").param("tid", this.q.f50010f).param("obj_param1", this.q.J ? 1 : 2));
+        TiebaStatic.log(new StatisticItem("c12943").param("obj_type", "2").param("tid", this.q.f50121f).param("obj_param1", this.q.J ? 1 : 2));
     }
 
     public final void Q() {
@@ -745,7 +745,7 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
             return;
         }
         if (!L()) {
-            m.a(this.q.f50010f);
+            m.a(this.q.f50121f);
         }
         if (this.q.t.l1().share_info.record_tid <= 0) {
             N();
@@ -793,7 +793,7 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
             W(cardPersonDynamicThreadData);
             d2 d2Var = cardPersonDynamicThreadData.t;
             if (d2Var != null) {
-                this.W = d2Var.y1 && cardPersonDynamicThreadData.r == 2;
+                this.W = d2Var.z1 && cardPersonDynamicThreadData.r == 2;
             }
             this.s.setText(cardPersonDynamicThreadData.v);
             this.u.setText(cardPersonDynamicThreadData.w);
@@ -810,8 +810,8 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
                     sb.append(StringHelper.cutChineseAndEnglishWithSuffix(multipleForumArr2[i2].forum_name, 14, "..."));
                     if (i2 < cardPersonDynamicThreadData.F.length - 1) {
                         sb.append("吧、");
-                    } else if (sb.lastIndexOf(this.f15550g.getString(R.string.forum)) != sb.length() - 1) {
-                        sb.append(this.f15550g.getString(R.string.forum));
+                    } else if (sb.lastIndexOf(this.f15559g.getString(R.string.forum)) != sb.length() - 1) {
+                        sb.append(this.f15559g.getString(R.string.forum));
                     }
                     i2++;
                 }
@@ -906,8 +906,8 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
                                 CardPersonDynamicThreadData cardPersonDynamicThreadData2 = this.q;
                                 if (cardPersonDynamicThreadData2.o == 60) {
                                     String str = cardPersonDynamicThreadData2.t.l1().user_info.user_name;
-                                    if (m0.d(str) > 14) {
-                                        str = m0.m(str, 14) + "...";
+                                    if (n0.d(str) > 14) {
+                                        str = n0.m(str, 14) + "...";
                                     }
                                     this.I.setText(m.d(str + ":", this.q.t.getTitle()));
                                     this.I.setVisibility(0);
@@ -915,7 +915,7 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
                                         this.E.setVisibility(0);
                                         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.E.getLayoutParams();
                                         int width = this.E.getWidth();
-                                        if (width == 0 || width > c.a.e.e.p.l.k(this.f15550g)) {
+                                        if (width == 0 || width > c.a.e.e.p.l.k(this.f15559g)) {
                                             width = (int) d().getResources().getDimension(R.dimen.ds560);
                                         }
                                         layoutParams.height = (width * 9) / 16;
@@ -929,7 +929,7 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
                                             this.O.playAnimation();
                                             SkinManager.setBackgroundResource(this.H, R.color.CAM_X0205);
                                             this.N.setVisibility(0);
-                                            this.N.setText(String.format(this.f15550g.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.q.t.l1().audience_count)));
+                                            this.N.setText(String.format(this.f15559g.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(this.q.t.l1().audience_count)));
                                             this.U.getCommentContainer().setOnClickListener(this.Y);
                                         } else {
                                             this.U.getCommentContainer().setOnClickListener(this.U);
@@ -950,7 +950,7 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
                     this.G.setImageResource(R.drawable.icon_play_video);
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.E.getLayoutParams();
                     int width2 = this.E.getWidth();
-                    if (width2 == 0 || width2 > c.a.e.e.p.l.k(this.f15550g)) {
+                    if (width2 == 0 || width2 > c.a.e.e.p.l.k(this.f15559g)) {
                         width2 = (int) d().getResources().getDimension(R.dimen.ds672);
                     }
                     layoutParams2.height = (int) (width2 * 0.5625d);
@@ -961,19 +961,19 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
                         this.F.startLoad(this.q.C.thumbnail_url, 17, false);
                         if (this.V) {
                             this.P.setVisibility(0);
-                            this.P.setText(String.format(this.f15550g.getResources().getString(R.string.video_review_state), new Object[0]));
+                            this.P.setText(String.format(this.f15559g.getResources().getString(R.string.video_review_state), new Object[0]));
                         } else {
                             this.K.setVisibility(0);
                             this.L.setText(StringHelper.stringForVideoTime(this.q.C.video_duration.intValue() * 1000));
-                            this.M.setText(String.format(this.f15550g.getResources().getString(R.string.play_count), StringHelper.numFormatOverWan(this.q.C.play_count.intValue())));
+                            this.M.setText(String.format(this.f15559g.getResources().getString(R.string.play_count), StringHelper.numFormatOverWan(this.q.C.play_count.intValue())));
                         }
                     }
                 }
             }
             d2 d2Var3 = cardPersonDynamicThreadData.t;
-            if (d2Var3 != null && d2Var3.x1 != null) {
+            if (d2Var3 != null && d2Var3.y1 != null) {
                 this.R.setVisibility(0);
-                this.R.fillData(cardPersonDynamicThreadData.t.x1);
+                this.R.fillData(cardPersonDynamicThreadData.t.y1);
                 this.R.setOnClickListener(this);
                 this.m.setVisibility(8);
                 this.C.setVisibility(8);
@@ -1057,7 +1057,7 @@ public class r extends c.a.r0.a0.b<CardPersonDynamicThreadData> {
                 this.A.setOnTouchListener(new c.a.r0.b4.h(U2));
                 this.A.setText(U2);
                 if (!L()) {
-                    m.l(this.A, cardPersonDynamicThreadData.f50010f, R.color.CAM_X0105, R.color.CAM_X0109);
+                    m.l(this.A, cardPersonDynamicThreadData.f50121f, R.color.CAM_X0105, R.color.CAM_X0109);
                 }
             } else {
                 this.A.setVisibility(8);

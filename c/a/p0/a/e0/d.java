@@ -19,7 +19,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5184a;
+    public static boolean f5192a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class d {
 
     public static void a(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && k.f7077a && objArr != null) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && k.f7085a && objArr != null) {
             StringBuilder sb = new StringBuilder();
             for (Object obj : objArr) {
                 if (obj != null) {
@@ -55,7 +55,7 @@ public class d {
         if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
             j("error", str, str2);
             c.a.p0.a.c1.a.g0().e(str, str2);
-            boolean z = k.f7077a;
+            boolean z = k.f7085a;
         }
     }
 
@@ -70,14 +70,14 @@ public class d {
             }
             j("error", str, str3);
             c.a.p0.a.c1.a.g0().e(str, str2, th);
-            boolean z = k.f7077a;
+            boolean z = k.f7085a;
         }
     }
 
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f5184a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f5192a : invokeV.booleanValue;
     }
 
     public static String e() {
@@ -111,7 +111,7 @@ public class d {
         if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
             j("info", str, str2);
             c.a.p0.a.c1.a.g0().i(str, str2);
-            boolean z = k.f7077a;
+            boolean z = k.f7085a;
         }
     }
 
@@ -119,7 +119,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
             c.a.p0.a.c1.a.g0().i(str, str2);
-            boolean z = k.f7077a;
+            boolean z = k.f7085a;
         }
     }
 
@@ -127,13 +127,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, th) == null) {
             c.a.p0.a.c1.a.g0().e(str, str2, th);
-            boolean z = k.f7077a;
+            boolean z = k.f7085a;
         }
     }
 
     public static void j(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65546, null, str, str2, str3) == null) && !TextUtils.isEmpty(str3) && f5184a) {
+        if ((interceptable == null || interceptable.invokeLLL(65546, null, str, str2, str3) == null) && !TextUtils.isEmpty(str3) && f5192a) {
             StringBuilder sb = new StringBuilder();
             String b2 = c.a.p0.a.v2.k.b(c.a.p0.a.v2.k.a(), "yyyy-MM-dd HH:mm:ss");
             String e2 = e();
@@ -156,7 +156,7 @@ public class d {
     public static void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            f5184a = z;
+            f5192a = z;
         }
     }
 
@@ -165,7 +165,7 @@ public class d {
         if (interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) {
             j("warn", str, str2);
             c.a.p0.a.c1.a.g0().w(str, str2);
-            boolean z = k.f7077a;
+            boolean z = k.f7085a;
         }
     }
 }

@@ -1,6 +1,7 @@
 package c.a.r0.j2.o.j;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import c.a.q0.t.c.f;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,10 +17,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FloatingIconItem f20696a;
+    public FloatingIconItem f20711a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f20697b;
+    public f f20712b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,36 +42,35 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             if (z) {
-                FloatingIconItem floatingIconItem = this.f20696a;
+                FloatingIconItem floatingIconItem = this.f20711a;
                 if (floatingIconItem != null) {
                     return floatingIconItem.icon_url;
                 }
                 return null;
             }
-            f fVar = this.f20697b;
+            f fVar = this.f20712b;
             if (fVar != null) {
-                return fVar.f();
+                return fVar.h();
             }
             return null;
         }
         return (String) invokeZ.objValue;
     }
 
-    @Nullable
     public String b(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             if (z) {
-                FloatingIconItem floatingIconItem = this.f20696a;
+                FloatingIconItem floatingIconItem = this.f20711a;
                 if (floatingIconItem != null) {
-                    return floatingIconItem.url;
+                    return floatingIconItem.package_name;
                 }
                 return null;
             }
-            f fVar = this.f20697b;
+            f fVar = this.f20712b;
             if (fVar != null) {
-                return fVar.g();
+                return fVar.i();
             }
             return null;
         }
@@ -82,66 +82,107 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
             if (z) {
-                FloatingIconItem floatingIconItem = this.f20696a;
+                FloatingIconItem floatingIconItem = this.f20711a;
                 if (floatingIconItem != null) {
-                    return floatingIconItem.click_statistics_url;
+                    return floatingIconItem.scheme;
                 }
                 return null;
             }
-            f fVar = this.f20697b;
+            f fVar = this.f20712b;
             if (fVar != null) {
-                return fVar.e();
+                return fVar.j();
             }
             return null;
         }
         return (String) invokeZ.objValue;
     }
 
+    @Nullable
     public String d(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
             if (z) {
-                FloatingIconItem floatingIconItem = this.f20696a;
+                FloatingIconItem floatingIconItem = this.f20711a;
                 if (floatingIconItem != null) {
-                    return floatingIconItem.view_statistics_url;
+                    return floatingIconItem.url;
                 }
                 return null;
             }
-            f fVar = this.f20697b;
+            f fVar = this.f20712b;
             if (fVar != null) {
-                return fVar.h();
+                return fVar.k();
             }
             return null;
         }
         return (String) invokeZ.objValue;
     }
 
-    public boolean e(boolean z) {
+    public String e(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             if (z) {
-                FloatingIconItem floatingIconItem = this.f20696a;
-                return (floatingIconItem == null || StringUtils.isNull(floatingIconItem.icon_url) || StringUtils.isNull(this.f20696a.url)) ? false : true;
+                FloatingIconItem floatingIconItem = this.f20711a;
+                if (floatingIconItem != null) {
+                    return floatingIconItem.click_statistics_url;
+                }
+                return null;
             }
-            f fVar = this.f20697b;
-            return (fVar == null || StringUtils.isNull(fVar.f()) || StringUtils.isNull(this.f20697b.g())) ? false : true;
+            f fVar = this.f20712b;
+            if (fVar != null) {
+                return fVar.g();
+            }
+            return null;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            if (z) {
+                FloatingIconItem floatingIconItem = this.f20711a;
+                if (floatingIconItem != null) {
+                    return floatingIconItem.view_statistics_url;
+                }
+                return null;
+            }
+            f fVar = this.f20712b;
+            if (fVar != null) {
+                return fVar.l();
+            }
+            return null;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public boolean g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            if (z) {
+                FloatingIconItem floatingIconItem = this.f20711a;
+                return (floatingIconItem == null || StringUtils.isNull(floatingIconItem.icon_url) || StringUtils.isNull(this.f20711a.url)) ? false : true;
+            }
+            f fVar = this.f20712b;
+            return (fVar == null || StringUtils.isNull(fVar.h()) || StringUtils.isNull(this.f20712b.k())) ? false : true;
         }
         return invokeZ.booleanValue;
     }
 
-    public void f(f fVar) {
+    public void h(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.f20697b = fVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
+            this.f20712b = fVar;
         }
     }
 
-    public void g(FloatingIconItem floatingIconItem) {
+    public void i(FloatingIconItem floatingIconItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, floatingIconItem) == null) {
-            this.f20696a = floatingIconItem;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, floatingIconItem) == null) {
+            this.f20711a = floatingIconItem;
         }
     }
 }

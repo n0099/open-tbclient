@@ -38,7 +38,7 @@ public class d extends c.a.r0.a0.c<x> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f27735e;
+        public final /* synthetic */ d f27755e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -55,16 +55,16 @@ public class d extends c.a.r0.a0.c<x> {
                     return;
                 }
             }
-            this.f27735e = dVar;
+            this.f27755e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27735e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27755e.g() == null) {
                 return;
             }
-            this.f27735e.g().a(view, null);
+            this.f27755e.g().a(view, null);
         }
     }
 
@@ -126,7 +126,7 @@ public class d extends c.a.r0.a0.c<x> {
                 for (int i2 = 0; i2 < ListUtils.getCount(this.A); i2++) {
                     c.a.r0.h1.b.c cVar = (c.a.r0.h1.b.c) ListUtils.getItem(this.A, i2);
                     c.a.r0.h1.b.c cVar2 = (c.a.r0.h1.b.c) ListUtils.getItem(list, i2);
-                    if ((cVar instanceof z0) && (cVar2 instanceof z0) && !((z0) cVar).f28047a.getUserId().equals(((z0) cVar2).f28047a.getUserId())) {
+                    if ((cVar instanceof z0) && (cVar2 instanceof z0) && !((z0) cVar).f28067a.getUserId().equals(((z0) cVar2).f28067a.getUserId())) {
                         return true;
                     }
                 }

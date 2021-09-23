@@ -10,11 +10,11 @@ public interface a {
 
     boolean c(f fVar, int i2);
 
-    void d();
+    void cancelRecord();
 
-    void e(f fVar);
+    void d(f fVar);
 
-    boolean f();
+    boolean e();
 
     void release();
 

@@ -14,13 +14,13 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<FutureTask<Boolean>> f12876a;
+    public List<FutureTask<Boolean>> f12890a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<g> f12877b;
+    public List<g> f12891b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ErrorData f12878c;
+    public ErrorData f12892c;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -38,12 +38,12 @@ public class h {
 
     public void a(ErrorData errorData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, errorData) == null) && this.f12878c == null) {
-            this.f12878c = errorData;
-            for (FutureTask<Boolean> futureTask : this.f12876a) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, errorData) == null) && this.f12892c == null) {
+            this.f12892c = errorData;
+            for (FutureTask<Boolean> futureTask : this.f12890a) {
                 futureTask.cancel(true);
             }
-            for (g gVar : this.f12877b) {
+            for (g gVar : this.f12891b) {
                 gVar.b();
             }
         }
@@ -52,14 +52,14 @@ public class h {
     public void b(List<g> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f12877b = list;
+            this.f12891b = list;
         }
     }
 
     public void c(List<FutureTask<Boolean>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f12876a = list;
+            this.f12890a = list;
         }
     }
 }

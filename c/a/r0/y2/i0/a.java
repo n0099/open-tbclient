@@ -92,18 +92,18 @@ public class a extends e {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SparseIntArray sparseIntArray = e.f23536a;
+            SparseIntArray sparseIntArray = e.f23552a;
             sparseIntArray.put(17, sparseIntArray.size() + 1);
-            SparseIntArray sparseIntArray2 = e.f23536a;
+            SparseIntArray sparseIntArray2 = e.f23552a;
             sparseIntArray2.put(27, sparseIntArray2.size() + 1);
-            SparseIntArray sparseIntArray3 = e.f23536a;
+            SparseIntArray sparseIntArray3 = e.f23552a;
             sparseIntArray3.put(33, sparseIntArray3.size() + 1);
-            SparseIntArray sparseIntArray4 = e.f23536a;
+            SparseIntArray sparseIntArray4 = e.f23552a;
             sparseIntArray4.put(34, sparseIntArray4.size() + 1);
-            e.f23537b.put(17, BdUniqueId.gen());
-            e.f23537b.put(27, BdUniqueId.gen());
-            e.f23537b.put(33, BdUniqueId.gen());
-            e.f23537b.put(34, BdUniqueId.gen());
+            e.f23553b.put(17, BdUniqueId.gen());
+            e.f23553b.put(27, BdUniqueId.gen());
+            e.f23553b.put(33, BdUniqueId.gen());
+            e.f23553b.put(34, BdUniqueId.gen());
         }
     }
 

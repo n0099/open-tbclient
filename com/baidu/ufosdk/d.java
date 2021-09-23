@@ -11,16 +11,16 @@ public final class d implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f59571a;
+    public final /* synthetic */ int f59702a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f59572b;
+    public final /* synthetic */ int f59703b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f59573c;
+    public final /* synthetic */ int f59704c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ int f59574d;
+    public final /* synthetic */ int f59705d;
 
     public d(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
@@ -37,10 +37,10 @@ public final class d implements Runnable {
                 return;
             }
         }
-        this.f59571a = i2;
-        this.f59572b = i3;
-        this.f59573c = i4;
-        this.f59574d = i5;
+        this.f59702a = i2;
+        this.f59703b = i3;
+        this.f59704c = i4;
+        this.f59705d = i5;
     }
 
     @Override // java.lang.Runnable
@@ -49,7 +49,7 @@ public final class d implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             context = UfoSDK.mApplication;
-            com.baidu.ufosdk.e.a.a(context, this.f59571a, this.f59572b, this.f59573c, this.f59574d, false);
+            com.baidu.ufosdk.e.a.a(context, this.f59702a, this.f59703b, this.f59704c, this.f59705d, false);
         }
     }
 }

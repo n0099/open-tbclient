@@ -34,19 +34,19 @@ public class SVG {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d0 f68952a;
+    public d0 f69263a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.c.a.d f68953b;
+    public c.c.a.d f69264b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f68954c;
+    public float f69265c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CSSParser.e f68955d;
+    public CSSParser.e f69266d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, j0> f68956e;
+    public Map<String, j0> f69267e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -132,22 +132,22 @@ public class SVG {
         public VectorEffect P;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f68957e;
+        public long f69268e;
 
         /* renamed from: f  reason: collision with root package name */
-        public m0 f68958f;
+        public m0 f69269f;
 
         /* renamed from: g  reason: collision with root package name */
-        public FillRule f68959g;
+        public FillRule f69270g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Float f68960h;
+        public Float f69271h;
 
         /* renamed from: i  reason: collision with root package name */
-        public m0 f68961i;
+        public m0 f69272i;
 
         /* renamed from: j  reason: collision with root package name */
-        public Float f68962j;
+        public Float f69273j;
         public o k;
         public LineCaps l;
         public LineJoin m;
@@ -672,7 +672,7 @@ public class SVG {
                     return;
                 }
             }
-            this.f68957e = 0L;
+            this.f69268e = 0L;
         }
 
         public static Style d() {
@@ -680,13 +680,13 @@ public class SVG {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 Style style = new Style();
-                style.f68957e = -1L;
-                style.f68958f = f.f68975f;
-                style.f68959g = FillRule.NonZero;
+                style.f69268e = -1L;
+                style.f69269f = f.f69286f;
+                style.f69270g = FillRule.NonZero;
                 Float valueOf = Float.valueOf(1.0f);
-                style.f68960h = valueOf;
-                style.f68961i = null;
-                style.f68962j = valueOf;
+                style.f69271h = valueOf;
+                style.f69272i = null;
+                style.f69273j = valueOf;
                 style.k = new o(1.0f);
                 style.l = LineCaps.Butt;
                 style.m = LineJoin.Miter;
@@ -694,7 +694,7 @@ public class SVG {
                 style.o = null;
                 style.p = new o(0.0f);
                 style.q = valueOf;
-                style.r = f.f68975f;
+                style.r = f.f69286f;
                 style.s = null;
                 style.t = new o(12.0f, Unit.pt);
                 style.u = 400;
@@ -710,7 +710,7 @@ public class SVG {
                 style.D = null;
                 style.E = bool;
                 style.F = bool;
-                style.G = f.f68975f;
+                style.G = f.f69286f;
                 style.H = valueOf;
                 style.I = null;
                 style.J = FillRule.NonZero;
@@ -754,7 +754,7 @@ public class SVG {
                 this.A = null;
                 this.I = null;
                 this.q = Float.valueOf(1.0f);
-                this.G = f.f68975f;
+                this.G = f.f69286f;
                 this.H = Float.valueOf(1.0f);
                 this.K = null;
                 this.L = null;
@@ -845,7 +845,7 @@ public class SVG {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f68963a;
+        public static final /* synthetic */ int[] f69274a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -862,41 +862,41 @@ public class SVG {
                 }
             }
             int[] iArr = new int[Unit.values().length];
-            f68963a = iArr;
+            f69274a = iArr;
             try {
                 iArr[Unit.px.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f68963a[Unit.em.ordinal()] = 2;
+                f69274a[Unit.em.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f68963a[Unit.ex.ordinal()] = 3;
+                f69274a[Unit.ex.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f68963a[Unit.in.ordinal()] = 4;
+                f69274a[Unit.in.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f68963a[Unit.cm.ordinal()] = 5;
+                f69274a[Unit.cm.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f68963a[Unit.mm.ordinal()] = 6;
+                f69274a[Unit.mm.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f68963a[Unit.pt.ordinal()] = 7;
+                f69274a[Unit.pt.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f68963a[Unit.pc.ordinal()] = 8;
+                f69274a[Unit.pc.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f68963a[Unit.percent.ordinal()] = 9;
+                f69274a[Unit.percent.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
         }
@@ -934,10 +934,10 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f68964c;
+        public String f69275c;
 
         /* renamed from: d  reason: collision with root package name */
-        public z0 f68965d;
+        public z0 f69276d;
 
         public a1(String str) {
             Interceptable interceptable = $ic;
@@ -954,14 +954,14 @@ public class SVG {
                     return;
                 }
             }
-            this.f68964c = str;
+            this.f69275c = str;
         }
 
         @Override // com.caverock.androidsvg.SVG.v0
         public z0 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68965d : (z0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69276d : (z0) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.l0
@@ -969,7 +969,7 @@ public class SVG {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return a1.class.getSimpleName() + " '" + this.f68964c + "'";
+                return a1.class.getSimpleName() + " '" + this.f69275c + "'";
             }
             return (String) invokeV.objValue;
         }
@@ -981,16 +981,16 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f68966e;
+        public float f69277e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f68967f;
+        public float f69278f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f68968g;
+        public float f69279g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f68969h;
+        public float f69280h;
 
         public b(float f2, float f3, float f4, float f5) {
             Interceptable interceptable = $ic;
@@ -1007,10 +1007,10 @@ public class SVG {
                     return;
                 }
             }
-            this.f68966e = f2;
-            this.f68967f = f3;
-            this.f68968g = f4;
-            this.f68969h = f5;
+            this.f69277e = f2;
+            this.f69278f = f3;
+            this.f69279g = f4;
+            this.f69280h = f5;
         }
 
         public static b a(float f2, float f3, float f4, float f5) {
@@ -1022,31 +1022,31 @@ public class SVG {
         public float d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68966e + this.f68968g : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69277e + this.f69279g : invokeV.floatValue;
         }
 
         public float e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68967f + this.f68969h : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69278f + this.f69280h : invokeV.floatValue;
         }
 
         public void f(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-                float f2 = bVar.f68966e;
-                if (f2 < this.f68966e) {
-                    this.f68966e = f2;
+                float f2 = bVar.f69277e;
+                if (f2 < this.f69277e) {
+                    this.f69277e = f2;
                 }
-                float f3 = bVar.f68967f;
-                if (f3 < this.f68967f) {
-                    this.f68967f = f3;
+                float f3 = bVar.f69278f;
+                if (f3 < this.f69278f) {
+                    this.f69278f = f3;
                 }
                 if (bVar.d() > d()) {
-                    this.f68968g = bVar.d() - this.f68966e;
+                    this.f69279g = bVar.d() - this.f69277e;
                 }
                 if (bVar.e() > e()) {
-                    this.f68969h = bVar.e() - this.f68967f;
+                    this.f69280h = bVar.e() - this.f69278f;
                 }
             }
         }
@@ -1055,7 +1055,7 @@ public class SVG {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return PreferencesUtil.LEFT_MOUNT + this.f68966e + " " + this.f68967f + " " + this.f68968g + " " + this.f68969h + PreferencesUtil.RIGHT_MOUNT;
+                return PreferencesUtil.LEFT_MOUNT + this.f69277e + " " + this.f69278f + " " + this.f69279g + " " + this.f69280h + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }
@@ -1126,16 +1126,16 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public o f68970a;
+        public o f69281a;
 
         /* renamed from: b  reason: collision with root package name */
-        public o f68971b;
+        public o f69282b;
 
         /* renamed from: c  reason: collision with root package name */
-        public o f68972c;
+        public o f69283c;
 
         /* renamed from: d  reason: collision with root package name */
-        public o f68973d;
+        public o f69284d;
 
         public c(o oVar, o oVar2, o oVar3, o oVar4) {
             Interceptable interceptable = $ic;
@@ -1152,10 +1152,10 @@ public class SVG {
                     return;
                 }
             }
-            this.f68970a = oVar;
-            this.f68971b = oVar2;
-            this.f68972c = oVar3;
-            this.f68973d = oVar4;
+            this.f69281a = oVar;
+            this.f69282b = oVar2;
+            this.f69283c = oVar3;
+            this.f69284d = oVar4;
         }
     }
 
@@ -1165,7 +1165,7 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public Float f68974h;
+        public Float f69285h;
 
         public c0() {
             Interceptable interceptable = $ic;
@@ -1313,11 +1313,11 @@ public class SVG {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final f f68975f;
+        public static final f f69286f;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f68976e;
+        public int f69287e;
 
         static {
             InterceptResult invokeClinit;
@@ -1332,7 +1332,7 @@ public class SVG {
                     return;
                 }
             }
-            f68975f = new f(0);
+            f69286f = new f(0);
         }
 
         public f(int i2) {
@@ -1350,13 +1350,13 @@ public class SVG {
                     return;
                 }
             }
-            this.f68976e = i2;
+            this.f69287e = i2;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("#%06x", Integer.valueOf(this.f68976e)) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("#%06x", Integer.valueOf(this.f69287e)) : (String) invokeV.objValue;
         }
     }
 
@@ -1366,10 +1366,10 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public List<l0> f68977i;
+        public List<l0> f69288i;
 
         /* renamed from: j  reason: collision with root package name */
-        public Set<String> f68978j;
+        public Set<String> f69289j;
         public String k;
         public Set<String> l;
         public Set<String> m;
@@ -1387,8 +1387,8 @@ public class SVG {
                     return;
                 }
             }
-            this.f68977i = new ArrayList();
-            this.f68978j = null;
+            this.f69288i = new ArrayList();
+            this.f69289j = null;
             this.k = null;
             this.l = null;
             this.m = null;
@@ -1437,7 +1437,7 @@ public class SVG {
         public void g(Set<String> set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, set) == null) {
-                this.f68978j = set;
+                this.f69289j = set;
             }
         }
 
@@ -1445,21 +1445,21 @@ public class SVG {
         public List<l0> getChildren() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68977i : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69288i : (List) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
         public Set<String> h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f68978j : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f69289j : (Set) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
         public void i(l0 l0Var) throws SAXException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l0Var) == null) {
-                this.f68977i.add(l0Var);
+                this.f69288i.add(l0Var);
             }
         }
 
@@ -1492,7 +1492,7 @@ public class SVG {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static g f68979e;
+        public static g f69290e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -1508,7 +1508,7 @@ public class SVG {
                     return;
                 }
             }
-            f68979e = new g();
+            f69290e = new g();
         }
 
         public g() {
@@ -1528,7 +1528,7 @@ public class SVG {
         public static g d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f68979e : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f69290e : (g) invokeV.objValue;
         }
     }
 
@@ -1538,10 +1538,10 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public Set<String> f68980i;
+        public Set<String> f69291i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f68981j;
+        public String f69292j;
         public Set<String> k;
         public Set<String> l;
         public Set<String> m;
@@ -1559,8 +1559,8 @@ public class SVG {
                     return;
                 }
             }
-            this.f68980i = null;
-            this.f68981j = null;
+            this.f69291i = null;
+            this.f69292j = null;
             this.k = null;
             this.l = null;
             this.m = null;
@@ -1570,7 +1570,7 @@ public class SVG {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68981j : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69292j : (String) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
@@ -1607,7 +1607,7 @@ public class SVG {
         public void g(Set<String> set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, set) == null) {
-                this.f68980i = set;
+                this.f69291i = set;
             }
         }
 
@@ -1615,7 +1615,7 @@ public class SVG {
         public Set<String> h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68980i : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69291i : (Set) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
@@ -1630,7 +1630,7 @@ public class SVG {
         public void k(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                this.f68981j = str;
+                this.f69292j = str;
             }
         }
 
@@ -1699,7 +1699,7 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public b f68982h;
+        public b f69293h;
 
         public i0() {
             Interceptable interceptable = $ic;
@@ -1714,7 +1714,7 @@ public class SVG {
                     return;
                 }
             }
-            this.f68982h = null;
+            this.f69293h = null;
         }
     }
 
@@ -1724,13 +1724,13 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<l0> f68983h;
+        public List<l0> f69294h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Boolean f68984i;
+        public Boolean f69295i;
 
         /* renamed from: j  reason: collision with root package name */
-        public Matrix f68985j;
+        public Matrix f69296j;
         public GradientSpread k;
         public String l;
 
@@ -1747,14 +1747,14 @@ public class SVG {
                     return;
                 }
             }
-            this.f68983h = new ArrayList();
+            this.f69294h = new ArrayList();
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
         public List<l0> getChildren() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68983h : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69294h : (List) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
@@ -1762,7 +1762,7 @@ public class SVG {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l0Var) == null) {
                 if (l0Var instanceof c0) {
-                    this.f68983h.add(l0Var);
+                    this.f69294h.add(l0Var);
                     return;
                 }
                 throw new SAXException("Gradient elements cannot contain " + l0Var + " elements.");
@@ -1776,19 +1776,19 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f68986c;
+        public String f69297c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Boolean f68987d;
+        public Boolean f69298d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Style f68988e;
+        public Style f69299e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Style f68989f;
+        public Style f69300f;
 
         /* renamed from: g  reason: collision with root package name */
-        public List<String> f68990g;
+        public List<String> f69301g;
 
         public j0() {
             Interceptable interceptable = $ic;
@@ -1803,11 +1803,11 @@ public class SVG {
                     return;
                 }
             }
-            this.f68986c = null;
-            this.f68987d = null;
-            this.f68988e = null;
-            this.f68989f = null;
-            this.f68990g = null;
+            this.f69297c = null;
+            this.f69298d = null;
+            this.f69299e = null;
+            this.f69300f = null;
+            this.f69301g = null;
         }
     }
 
@@ -1899,10 +1899,10 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SVG f68991a;
+        public SVG f69302a;
 
         /* renamed from: b  reason: collision with root package name */
-        public h0 f68992b;
+        public h0 f69303b;
 
         public l0() {
             Interceptable interceptable = $ic;
@@ -2215,10 +2215,10 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f68995e;
+        public String f69306e;
 
         /* renamed from: f  reason: collision with root package name */
-        public m0 f68996f;
+        public m0 f69307f;
 
         public t(String str, m0 m0Var) {
             Interceptable interceptable = $ic;
@@ -2235,15 +2235,15 @@ public class SVG {
                     return;
                 }
             }
-            this.f68995e = str;
-            this.f68996f = m0Var;
+            this.f69306e = str;
+            this.f69307f = m0Var;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.f68995e + " " + this.f68996f;
+                return this.f69306e + " " + this.f69307f;
             }
             return (String) invokeV.objValue;
         }
@@ -2341,16 +2341,16 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f68997a;
+        public byte[] f69308a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f68998b;
+        public int f69309b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float[] f68999c;
+        public float[] f69310c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f69000d;
+        public int f69311d;
 
         public v() {
             Interceptable interceptable = $ic;
@@ -2365,12 +2365,12 @@ public class SVG {
                     return;
                 }
             }
-            this.f68997a = null;
-            this.f68998b = 0;
-            this.f68999c = null;
-            this.f69000d = 0;
-            this.f68997a = new byte[8];
-            this.f68999c = new float[16];
+            this.f69308a = null;
+            this.f69309b = 0;
+            this.f69310c = null;
+            this.f69311d = 0;
+            this.f69308a = new byte[8];
+            this.f69310c = new float[16];
         }
 
         @Override // com.caverock.androidsvg.SVG.w
@@ -2379,12 +2379,12 @@ public class SVG {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
                 f((byte) 0);
                 g(2);
-                float[] fArr = this.f68999c;
-                int i2 = this.f69000d;
+                float[] fArr = this.f69310c;
+                int i2 = this.f69311d;
                 int i3 = i2 + 1;
-                this.f69000d = i3;
+                this.f69311d = i3;
                 fArr[i2] = f2;
-                this.f69000d = i3 + 1;
+                this.f69311d = i3 + 1;
                 fArr[i3] = f3;
             }
         }
@@ -2395,12 +2395,12 @@ public class SVG {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
                 f((byte) 1);
                 g(2);
-                float[] fArr = this.f68999c;
-                int i2 = this.f69000d;
+                float[] fArr = this.f69310c;
+                int i2 = this.f69311d;
                 int i3 = i2 + 1;
-                this.f69000d = i3;
+                this.f69311d = i3;
                 fArr[i2] = f2;
-                this.f69000d = i3 + 1;
+                this.f69311d = i3 + 1;
                 fArr[i3] = f3;
             }
         }
@@ -2411,18 +2411,18 @@ public class SVG {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
                 f((byte) 3);
                 g(4);
-                float[] fArr = this.f68999c;
-                int i2 = this.f69000d;
+                float[] fArr = this.f69310c;
+                int i2 = this.f69311d;
                 int i3 = i2 + 1;
-                this.f69000d = i3;
+                this.f69311d = i3;
                 fArr[i2] = f2;
                 int i4 = i3 + 1;
-                this.f69000d = i4;
+                this.f69311d = i4;
                 fArr[i3] = f3;
                 int i5 = i4 + 1;
-                this.f69000d = i5;
+                this.f69311d = i5;
                 fArr[i4] = f4;
-                this.f69000d = i5 + 1;
+                this.f69311d = i5 + 1;
                 fArr[i5] = f5;
             }
         }
@@ -2441,24 +2441,24 @@ public class SVG {
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)}) == null) {
                 f((byte) 2);
                 g(6);
-                float[] fArr = this.f68999c;
-                int i2 = this.f69000d;
+                float[] fArr = this.f69310c;
+                int i2 = this.f69311d;
                 int i3 = i2 + 1;
-                this.f69000d = i3;
+                this.f69311d = i3;
                 fArr[i2] = f2;
                 int i4 = i3 + 1;
-                this.f69000d = i4;
+                this.f69311d = i4;
                 fArr[i3] = f3;
                 int i5 = i4 + 1;
-                this.f69000d = i5;
+                this.f69311d = i5;
                 fArr[i4] = f4;
                 int i6 = i5 + 1;
-                this.f69000d = i6;
+                this.f69311d = i6;
                 fArr[i5] = f5;
                 int i7 = i6 + 1;
-                this.f69000d = i7;
+                this.f69311d = i7;
                 fArr[i6] = f6;
-                this.f69000d = i7 + 1;
+                this.f69311d = i7 + 1;
                 fArr[i7] = f7;
             }
         }
@@ -2469,21 +2469,21 @@ public class SVG {
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), Boolean.valueOf(z2), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
                 f((byte) ((z ? 2 : 0) | 4 | (z2 ? 1 : 0)));
                 g(5);
-                float[] fArr = this.f68999c;
-                int i2 = this.f69000d;
+                float[] fArr = this.f69310c;
+                int i2 = this.f69311d;
                 int i3 = i2 + 1;
-                this.f69000d = i3;
+                this.f69311d = i3;
                 fArr[i2] = f2;
                 int i4 = i3 + 1;
-                this.f69000d = i4;
+                this.f69311d = i4;
                 fArr[i3] = f3;
                 int i5 = i4 + 1;
-                this.f69000d = i5;
+                this.f69311d = i5;
                 fArr[i4] = f4;
                 int i6 = i5 + 1;
-                this.f69000d = i6;
+                this.f69311d = i6;
                 fArr[i5] = f5;
-                this.f69000d = i6 + 1;
+                this.f69311d = i6 + 1;
                 fArr[i6] = f6;
             }
         }
@@ -2491,16 +2491,16 @@ public class SVG {
         public final void f(byte b2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeB(1048582, this, b2) == null) {
-                int i2 = this.f68998b;
-                byte[] bArr = this.f68997a;
+                int i2 = this.f69309b;
+                byte[] bArr = this.f69308a;
                 if (i2 == bArr.length) {
                     byte[] bArr2 = new byte[bArr.length * 2];
                     System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
-                    this.f68997a = bArr2;
+                    this.f69308a = bArr2;
                 }
-                byte[] bArr3 = this.f68997a;
-                int i3 = this.f68998b;
-                this.f68998b = i3 + 1;
+                byte[] bArr3 = this.f69308a;
+                int i3 = this.f69309b;
+                this.f69309b = i3 + 1;
                 bArr3[i3] = b2;
             }
         }
@@ -2508,11 +2508,11 @@ public class SVG {
         public final void g(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                float[] fArr = this.f68999c;
-                if (fArr.length < this.f69000d + i2) {
+                float[] fArr = this.f69310c;
+                if (fArr.length < this.f69311d + i2) {
                     float[] fArr2 = new float[fArr.length * 2];
                     System.arraycopy(fArr, 0, fArr2, 0, fArr.length);
-                    this.f68999c = fArr2;
+                    this.f69310c = fArr2;
                 }
             }
         }
@@ -2522,16 +2522,16 @@ public class SVG {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wVar) == null) {
                 int i3 = 0;
-                for (int i4 = 0; i4 < this.f68998b; i4++) {
-                    byte b2 = this.f68997a[i4];
+                for (int i4 = 0; i4 < this.f69309b; i4++) {
+                    byte b2 = this.f69308a[i4];
                     if (b2 == 0) {
-                        float[] fArr = this.f68999c;
+                        float[] fArr = this.f69310c;
                         int i5 = i3 + 1;
                         i2 = i5 + 1;
                         wVar.a(fArr[i3], fArr[i5]);
                     } else if (b2 != 1) {
                         if (b2 == 2) {
-                            float[] fArr2 = this.f68999c;
+                            float[] fArr2 = this.f69310c;
                             int i6 = i3 + 1;
                             float f2 = fArr2[i3];
                             int i7 = i6 + 1;
@@ -2545,7 +2545,7 @@ public class SVG {
                             i3 = i10 + 1;
                             wVar.d(f2, f3, f4, f5, f6, fArr2[i10]);
                         } else if (b2 == 3) {
-                            float[] fArr3 = this.f68999c;
+                            float[] fArr3 = this.f69310c;
                             int i11 = i3 + 1;
                             int i12 = i11 + 1;
                             int i13 = i12 + 1;
@@ -2554,7 +2554,7 @@ public class SVG {
                         } else if (b2 != 8) {
                             boolean z = (b2 & 2) != 0;
                             boolean z2 = (b2 & 1) != 0;
-                            float[] fArr4 = this.f68999c;
+                            float[] fArr4 = this.f69310c;
                             int i14 = i3 + 1;
                             float f7 = fArr4[i3];
                             int i15 = i14 + 1;
@@ -2568,7 +2568,7 @@ public class SVG {
                             wVar.close();
                         }
                     } else {
-                        float[] fArr5 = this.f68999c;
+                        float[] fArr5 = this.f69310c;
                         int i18 = i3 + 1;
                         i2 = i18 + 1;
                         wVar.b(fArr5[i3], fArr5[i18]);
@@ -2581,7 +2581,7 @@ public class SVG {
         public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f68998b == 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f69309b == 0 : invokeV.booleanValue;
         }
     }
 
@@ -2629,7 +2629,7 @@ public class SVG {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l0Var) == null) {
                 if (l0Var instanceof v0) {
-                    this.f68977i.add(l0Var);
+                    this.f69288i.add(l0Var);
                     return;
                 }
                 throw new SAXException("Text content elements cannot contain " + l0Var + " elements.");
@@ -2784,11 +2784,11 @@ public class SVG {
                 return;
             }
         }
-        this.f68952a = null;
-        this.f68953b = null;
-        this.f68954c = 96.0f;
-        this.f68955d = new CSSParser.e();
-        this.f68956e = new HashMap();
+        this.f69263a = null;
+        this.f69264b = null;
+        this.f69265c = 96.0f;
+        this.f69266d = new CSSParser.e();
+        this.f69267e = new HashMap();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
@@ -2844,14 +2844,14 @@ public class SVG {
     public void a(CSSParser.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f68955d.b(eVar);
+            this.f69266d.b(eVar);
         }
     }
 
     public List<CSSParser.d> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68955d.c() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69266d.c() : (List) invokeV.objValue;
     }
 
     public final j0 c(h0 h0Var, String str) {
@@ -2860,13 +2860,13 @@ public class SVG {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, h0Var, str)) == null) {
             j0 j0Var = (j0) h0Var;
-            if (str.equals(j0Var.f68986c)) {
+            if (str.equals(j0Var.f69297c)) {
                 return j0Var;
             }
             for (l0 l0Var : h0Var.getChildren()) {
                 if (l0Var instanceof j0) {
                     j0 j0Var2 = (j0) l0Var;
-                    if (str.equals(j0Var2.f68986c)) {
+                    if (str.equals(j0Var2.f69297c)) {
                         return j0Var2;
                     }
                     if ((l0Var instanceof h0) && (c2 = c((h0) l0Var, str)) != null) {
@@ -2886,14 +2886,14 @@ public class SVG {
             if (str == null || str.length() == 0) {
                 return null;
             }
-            if (str.equals(this.f68952a.f68986c)) {
-                return this.f68952a;
+            if (str.equals(this.f69263a.f69297c)) {
+                return this.f69263a;
             }
-            if (this.f68956e.containsKey(str)) {
-                return this.f68956e.get(str);
+            if (this.f69267e.containsKey(str)) {
+                return this.f69267e.get(str);
             }
-            j0 c2 = c(this.f68952a, str);
-            this.f68956e.put(str, c2);
+            j0 c2 = c(this.f69263a, str);
+            this.f69267e.put(str, c2);
             return c2;
         }
         return (l0) invokeL.objValue;
@@ -2902,19 +2902,19 @@ public class SVG {
     public c.c.a.d e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68953b : (c.c.a.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f69264b : (c.c.a.d) invokeV.objValue;
     }
 
     public d0 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f68952a : (d0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f69263a : (d0) invokeV.objValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !this.f68955d.d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !this.f69266d.d() : invokeV.booleanValue;
     }
 
     public Picture l() {
@@ -2922,16 +2922,16 @@ public class SVG {
         float e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            o oVar = this.f68952a.r;
+            o oVar = this.f69263a.r;
             if (oVar != null) {
-                float e3 = oVar.e(this.f68954c);
-                d0 d0Var = this.f68952a;
+                float e3 = oVar.e(this.f69265c);
+                d0 d0Var = this.f69263a;
                 b bVar = d0Var.o;
                 if (bVar != null) {
-                    e2 = (bVar.f68969h * e3) / bVar.f68968g;
+                    e2 = (bVar.f69280h * e3) / bVar.f69279g;
                 } else {
                     o oVar2 = d0Var.s;
-                    e2 = oVar2 != null ? oVar2.e(this.f68954c) : e3;
+                    e2 = oVar2 != null ? oVar2.e(this.f69265c) : e3;
                 }
                 return m((int) Math.ceil(e3), (int) Math.ceil(e2));
             }
@@ -2945,7 +2945,7 @@ public class SVG {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
             Picture picture = new Picture();
-            new c.c.a.c(picture.beginRecording(i2, i3), new b(0.0f, 0.0f, i2, i3), this.f68954c).G0(this, null, null, false);
+            new c.c.a.c(picture.beginRecording(i2, i3), new b(0.0f, 0.0f, i2, i3), this.f69265c).G0(this, null, null, false);
             picture.endRecording();
             return picture;
         }
@@ -2973,7 +2973,7 @@ public class SVG {
     public void p(d0 d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, d0Var) == null) {
-            this.f68952a = d0Var;
+            this.f69263a = d0Var;
         }
     }
 
@@ -2989,10 +2989,10 @@ public class SVG {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f68993e;
+        public float f69304e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Unit f68994f;
+        public Unit f69305f;
 
         public o(float f2, Unit unit) {
             Interceptable interceptable = $ic;
@@ -3009,40 +3009,40 @@ public class SVG {
                     return;
                 }
             }
-            this.f68993e = 0.0f;
-            this.f68994f = Unit.px;
-            this.f68993e = f2;
-            this.f68994f = unit;
+            this.f69304e = 0.0f;
+            this.f69305f = Unit.px;
+            this.f69304e = f2;
+            this.f69305f = unit;
         }
 
         public float d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68993e : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69304e : invokeV.floatValue;
         }
 
         public float e(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-                int i2 = a.f68963a[this.f68994f.ordinal()];
+                int i2 = a.f69274a[this.f69305f.ordinal()];
                 if (i2 != 1) {
                     switch (i2) {
                         case 4:
-                            return this.f68993e * f2;
+                            return this.f69304e * f2;
                         case 5:
-                            return (this.f68993e * f2) / 2.54f;
+                            return (this.f69304e * f2) / 2.54f;
                         case 6:
-                            return (this.f68993e * f2) / 25.4f;
+                            return (this.f69304e * f2) / 25.4f;
                         case 7:
-                            return (this.f68993e * f2) / 72.0f;
+                            return (this.f69304e * f2) / 72.0f;
                         case 8:
-                            return (this.f68993e * f2) / 6.0f;
+                            return (this.f69304e * f2) / 6.0f;
                         default:
-                            return this.f68993e;
+                            return this.f69304e;
                     }
                 }
-                return this.f68993e;
+                return this.f69304e;
             }
             return invokeF.floatValue;
         }
@@ -3051,17 +3051,17 @@ public class SVG {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
-                if (this.f68994f == Unit.percent) {
+                if (this.f69305f == Unit.percent) {
                     b W = cVar.W();
                     if (W == null) {
-                        return this.f68993e;
+                        return this.f69304e;
                     }
-                    float f2 = W.f68968g;
-                    float f3 = W.f68969h;
+                    float f2 = W.f69279g;
+                    float f3 = W.f69280h;
                     if (f2 == f3) {
-                        return (this.f68993e * f2) / 100.0f;
+                        return (this.f69304e * f2) / 100.0f;
                     }
-                    return (this.f68993e * ((float) (Math.sqrt((f2 * f2) + (f3 * f3)) / 1.414213562373095d))) / 100.0f;
+                    return (this.f69304e * ((float) (Math.sqrt((f2 * f2) + (f3 * f3)) / 1.414213562373095d))) / 100.0f;
                 }
                 return h(cVar);
             }
@@ -3072,8 +3072,8 @@ public class SVG {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, cVar, f2)) == null) {
-                if (this.f68994f == Unit.percent) {
-                    return (this.f68993e * f2) / 100.0f;
+                if (this.f69305f == Unit.percent) {
+                    return (this.f69304e * f2) / 100.0f;
                 }
                 return h(cVar);
             }
@@ -3084,31 +3084,31 @@ public class SVG {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
-                switch (a.f68963a[this.f68994f.ordinal()]) {
+                switch (a.f69274a[this.f69305f.ordinal()]) {
                     case 1:
-                        return this.f68993e;
+                        return this.f69304e;
                     case 2:
-                        return this.f68993e * cVar.U();
+                        return this.f69304e * cVar.U();
                     case 3:
-                        return this.f68993e * cVar.V();
+                        return this.f69304e * cVar.V();
                     case 4:
-                        return this.f68993e * cVar.X();
+                        return this.f69304e * cVar.X();
                     case 5:
-                        return (this.f68993e * cVar.X()) / 2.54f;
+                        return (this.f69304e * cVar.X()) / 2.54f;
                     case 6:
-                        return (this.f68993e * cVar.X()) / 25.4f;
+                        return (this.f69304e * cVar.X()) / 25.4f;
                     case 7:
-                        return (this.f68993e * cVar.X()) / 72.0f;
+                        return (this.f69304e * cVar.X()) / 72.0f;
                     case 8:
-                        return (this.f68993e * cVar.X()) / 6.0f;
+                        return (this.f69304e * cVar.X()) / 6.0f;
                     case 9:
                         b W = cVar.W();
                         if (W == null) {
-                            return this.f68993e;
+                            return this.f69304e;
                         }
-                        return (this.f68993e * W.f68968g) / 100.0f;
+                        return (this.f69304e * W.f69279g) / 100.0f;
                     default:
-                        return this.f68993e;
+                        return this.f69304e;
                 }
             }
             return invokeL.floatValue;
@@ -3118,12 +3118,12 @@ public class SVG {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
-                if (this.f68994f == Unit.percent) {
+                if (this.f69305f == Unit.percent) {
                     b W = cVar.W();
                     if (W == null) {
-                        return this.f68993e;
+                        return this.f69304e;
                     }
-                    return (this.f68993e * W.f68969h) / 100.0f;
+                    return (this.f69304e * W.f69280h) / 100.0f;
                 }
                 return h(cVar);
             }
@@ -3133,20 +3133,20 @@ public class SVG {
         public boolean j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68993e < 0.0f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69304e < 0.0f : invokeV.booleanValue;
         }
 
         public boolean k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f68993e == 0.0f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f69304e == 0.0f : invokeV.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return String.valueOf(this.f68993e) + this.f68994f;
+                return String.valueOf(this.f69304e) + this.f69305f;
             }
             return (String) invokeV.objValue;
         }
@@ -3166,11 +3166,11 @@ public class SVG {
                     return;
                 }
             }
-            this.f68993e = 0.0f;
+            this.f69304e = 0.0f;
             Unit unit = Unit.px;
-            this.f68994f = unit;
-            this.f68993e = f2;
-            this.f68994f = unit;
+            this.f69305f = unit;
+            this.f69304e = f2;
+            this.f69305f = unit;
         }
     }
 }

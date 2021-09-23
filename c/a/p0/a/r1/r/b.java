@@ -20,7 +20,7 @@ public class b implements c.a.p0.a.f1.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<Runnable, String> f8484b;
+    public Map<Runnable, String> f8492b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -34,7 +34,7 @@ public class b implements c.a.p0.a.f1.f.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f8485a;
+        public static final b f8493a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public class b implements c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            f8485a = new b(null);
+            f8493a = new b(null);
         }
     }
 
@@ -77,23 +77,23 @@ public class b implements c.a.p0.a.f1.f.a {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0365b.f8485a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0365b.f8493a : (b) invokeV.objValue;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8484b.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8492b.isEmpty()) {
             return;
         }
-        if (c.a.p0.a.f1.f.a.f5702a) {
-            String str = "main process batch handle thread, size = " + this.f8484b.size();
+        if (c.a.p0.a.f1.f.a.f5710a) {
+            String str = "main process batch handle thread, size = " + this.f8492b.size();
         }
-        for (Map.Entry<Runnable, String> entry : this.f8484b.entrySet()) {
+        for (Map.Entry<Runnable, String> entry : this.f8492b.entrySet()) {
             if (entry != null) {
                 ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
             }
         }
-        this.f8484b.clear();
+        this.f8492b.clear();
     }
 
     public void c(Message message) {
@@ -105,7 +105,7 @@ public class b implements c.a.p0.a.f1.f.a {
         Bundle bundle = (Bundle) obj;
         boolean z = bundle.getBoolean("is_timeout", false);
         String string = bundle.getString("app_id", null);
-        if (c.a.p0.a.f1.f.a.f5702a) {
+        if (c.a.p0.a.f1.f.a.f5710a) {
             String str = "main process launch end，timeout = " + z + " ; appId = " + string;
         }
         a();
@@ -114,7 +114,7 @@ public class b implements c.a.p0.a.f1.f.a {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (c.a.p0.a.f1.f.a.f5702a) {
+            if (c.a.p0.a.f1.f.a.f5710a) {
                 String str2 = "main process launch start，appId = " + str;
             }
             System.currentTimeMillis();
@@ -134,6 +134,6 @@ public class b implements c.a.p0.a.f1.f.a {
                 return;
             }
         }
-        this.f8484b = new ConcurrentHashMap();
+        this.f8492b = new ConcurrentHashMap();
     }
 }

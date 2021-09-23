@@ -20,10 +20,10 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61060a;
+    public String f61173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61061b;
+    public boolean f61174b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -48,7 +48,7 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f61060a = str;
+            this.f61173a = str;
         }
     }
 
@@ -66,9 +66,9 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("subBizType", this.f61061b ? "1003003" : "1003002"));
+            arrayList.add(new RestNameValuePair("subBizType", this.f61174b ? "1003003" : "1003002"));
             arrayList.add(new RestNameValuePair("returnType", "2"));
-            arrayList.add(new RestNameValuePair("orderNo", this.f61060a));
+            arrayList.add(new RestNameValuePair("orderNo", this.f61173a));
             arrayList.add(new RestNameValuePair("ua", "WAP"));
             return arrayList;
         }
@@ -87,7 +87,7 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return DomainConfig.getInstance().getNfcHost() + BeanConstants.API_PAY_RESULT_CALLBACK_FOR_PHONECHARGE;
+            return DomainConfig.getInstance().getNfcHost(this.tag) + BeanConstants.API_PAY_RESULT_CALLBACK_FOR_PHONECHARGE;
         }
         return (String) invokeV.objValue;
     }
@@ -95,7 +95,7 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f61061b = z;
+            this.f61174b = z;
         }
     }
 }

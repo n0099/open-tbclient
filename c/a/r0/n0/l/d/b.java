@@ -13,28 +13,28 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public r1 f22731a;
+    public r1 f22747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<n> f22732b;
+    public ArrayList<n> f22748b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f22733c;
+    public boolean f22749c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f22734d;
+    public boolean f22750d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22735e;
+    public int f22751e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22736f;
+    public int f22752f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f22737g;
+    public c f22753g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f22738h;
+    public boolean f22754h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,12 +49,12 @@ public class b {
                 return;
             }
         }
-        this.f22733c = true;
-        this.f22734d = true;
-        this.f22735e = 0;
-        this.f22736f = 0;
-        this.f22738h = true;
-        this.f22732b = new ArrayList<>();
-        this.f22731a = new r1();
+        this.f22749c = true;
+        this.f22750d = true;
+        this.f22751e = 0;
+        this.f22752f = 0;
+        this.f22754h = true;
+        this.f22748b = new ArrayList<>();
+        this.f22747a = new r1();
     }
 }

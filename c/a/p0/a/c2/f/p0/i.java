@@ -33,34 +33,34 @@ public class i extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f5047a;
+        public final /* synthetic */ String f5055a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.g1.f f5048b;
+        public final /* synthetic */ c.a.p0.a.g1.f f5056b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5049c;
+        public final /* synthetic */ UnitedSchemeEntity f5057c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5050d;
+        public final /* synthetic */ CallbackHandler f5058d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f5051e;
+        public final /* synthetic */ c.a.p0.a.a2.e f5059e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5052f;
+        public final /* synthetic */ String f5060f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.l1.b f5053g;
+        public final /* synthetic */ c.a.p0.a.l1.b f5061g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f5054h;
+        public final /* synthetic */ String f5062h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a.d f5055i;
+        public final /* synthetic */ a.d f5063i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.g.g f5056j;
+        public final /* synthetic */ c.a.p0.a.h0.g.g f5064j;
         public final /* synthetic */ Context k;
         public final /* synthetic */ i l;
 
@@ -80,16 +80,16 @@ public class i extends a0 {
                 }
             }
             this.l = iVar;
-            this.f5047a = str;
-            this.f5048b = fVar;
-            this.f5049c = unitedSchemeEntity;
-            this.f5050d = callbackHandler;
-            this.f5051e = eVar;
-            this.f5052f = str2;
-            this.f5053g = bVar;
-            this.f5054h = str3;
-            this.f5055i = dVar;
-            this.f5056j = gVar;
+            this.f5055a = str;
+            this.f5056b = fVar;
+            this.f5057c = unitedSchemeEntity;
+            this.f5058d = callbackHandler;
+            this.f5059e = eVar;
+            this.f5060f = str2;
+            this.f5061g = bVar;
+            this.f5062h = str3;
+            this.f5063i = dVar;
+            this.f5064j = gVar;
             this.k = context;
         }
 
@@ -97,11 +97,11 @@ public class i extends a0 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                c.a.p0.a.r1.i.d(this.f5047a);
+                c.a.p0.a.r1.i.d(this.f5055a);
                 c.a.p0.a.e0.d.g("redirect", "check pages success");
-                this.f5048b.o();
-                c.a.p0.a.c2.f.p0.a.l(this.f5049c, this.f5050d, this.f5051e, this.f5052f, this.f5053g.f7236e, null, this.f5054h);
-                this.l.n(this.f5055i, this.f5053g, this.f5056j, this.f5047a);
+                this.f5056b.o();
+                c.a.p0.a.c2.f.p0.a.l(this.f5057c, this.f5058d, this.f5059e, this.f5060f, this.f5061g.f7244e, null, this.f5062h);
+                this.l.n(this.f5063i, this.f5061g, this.f5064j, this.f5055a);
             }
         }
 
@@ -110,12 +110,12 @@ public class i extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 c.a.p0.a.e0.d.b("redirect", "check pages failed");
-                this.f5048b.o();
-                if (a0.f4766b) {
+                this.f5056b.o();
+                if (a0.f4774b) {
                     Context context = this.k;
                     c.a.p0.a.z1.b.f.e.g(context, this.k.getString(c.a.p0.a.h.aiapps_open_pages_failed) + i2).F();
                 }
-                c.a.p0.a.c2.f.p0.a.j(this.f5049c, this.f5050d, this.f5054h);
+                c.a.p0.a.c2.f.p0.a.j(this.f5057c, this.f5058d, this.f5062h);
             }
         }
     }
@@ -126,16 +126,16 @@ public class i extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.d f5057a;
+        public final /* synthetic */ a.d f5065a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f5058b;
+        public final /* synthetic */ String f5066b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.l1.b f5059c;
+        public final /* synthetic */ c.a.p0.a.l1.b f5067c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.g.g f5060d;
+        public final /* synthetic */ c.a.p0.a.h0.g.g f5068d;
 
         public b(i iVar, a.d dVar, String str, c.a.p0.a.l1.b bVar, c.a.p0.a.h0.g.g gVar) {
             Interceptable interceptable = $ic;
@@ -152,21 +152,21 @@ public class i extends a0 {
                     return;
                 }
             }
-            this.f5057a = dVar;
-            this.f5058b = str;
-            this.f5059c = bVar;
-            this.f5060d = gVar;
+            this.f5065a = dVar;
+            this.f5066b = str;
+            this.f5067c = bVar;
+            this.f5068d = gVar;
         }
 
         @Override // c.a.p0.a.h0.t.a.e
         public void onReady() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = a0.f4766b;
-                c.a.p0.a.r1.i.e(this.f5057a, this.f5058b);
-                c.a.p0.a.c2.f.p0.a.e(this.f5057a.f6437a, this.f5059c, this.f5058b);
-                c.a.p0.a.u.e.k.c.u(this.f5060d, this.f5059c, this.f5058b, false);
-                boolean unused2 = a0.f4766b;
+                boolean unused = a0.f4774b;
+                c.a.p0.a.r1.i.e(this.f5065a, this.f5066b);
+                c.a.p0.a.c2.f.p0.a.e(this.f5065a.f6445a, this.f5067c, this.f5066b);
+                c.a.p0.a.u.e.k.c.u(this.f5068d, this.f5067c, this.f5066b, false);
+                boolean unused2 = a0.f4774b;
             }
         }
     }
@@ -197,7 +197,7 @@ public class i extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 r0 = "handle entity: " + unitedSchemeEntity.toString();
             }
             String uuid = UUID.randomUUID().toString();
@@ -216,15 +216,15 @@ public class i extends a0 {
                 return false;
             }
             c.a.p0.a.l1.b g2 = c.a.p0.a.l1.b.g(o, V.A());
-            c.a.p0.a.j2.h.f(g2.f7236e, "2");
+            c.a.p0.a.j2.h.f(g2.f7244e, "2");
             if (!q0.b(V.s(), g2, false)) {
-                c.a.p0.a.e0.d.b("redirect", "page params error : path=" + g2.f7236e + " ; routePath=" + g2.f7239h);
+                c.a.p0.a.e0.d.b("redirect", "page params error : path=" + g2.f7244e + " ; routePath=" + g2.f7247h);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
             String str = unitedSchemeEntity.getParams().get("initData");
-            if (!TextUtils.isEmpty(str) && g2 != null && !TextUtils.isEmpty(g2.f7239h) && c.a.p0.a.a2.e.i() != null) {
-                c.a.p0.a.a2.e.i().x0(str, g2.f7239h);
+            if (!TextUtils.isEmpty(str) && g2 != null && !TextUtils.isEmpty(g2.f7247h) && c.a.p0.a.a2.e.i() != null) {
+                c.a.p0.a.a2.e.i().x0(str, g2.f7247h);
             }
             String n = c.a.p0.a.c2.f.p0.a.n(unitedSchemeEntity, "params", "startTime");
             if (!TextUtils.isEmpty(n)) {
@@ -233,10 +233,10 @@ public class i extends a0 {
                 ubcFlowEvent.h(Long.valueOf(n).longValue());
                 q.C(ubcFlowEvent);
             }
-            boolean z = a0.f4766b;
+            boolean z = a0.f4774b;
             a.d f2 = c.a.p0.a.h0.t.a.f(V.getActivity());
-            String c2 = f2.f6437a.c();
-            if (a0.f4766b) {
+            String c2 = f2.f6445a.c();
+            if (a0.f4774b) {
                 String str2 = "webview id: " + c2;
             }
             String optString = w.d(unitedSchemeEntity.getParam("params")).optString("cb");
@@ -262,15 +262,15 @@ public class i extends a0 {
     public final void n(a.d dVar, c.a.p0.a.l1.b bVar, c.a.p0.a.h0.g.g gVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, bVar, gVar, str) == null) {
-            boolean z = dVar != null && dVar.f6438b;
+            boolean z = dVar != null && dVar.f6446b;
             HybridUbcFlow q = c.a.p0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
             q.C(new UbcFlowEvent("na_pre_load_slave_check"));
             q.A("preload", z ? "1" : "0");
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str2 = "tryToExecutePageRoute start. isReady : " + z;
             }
             c.a.p0.a.h0.t.a.n(dVar, new b(this, dVar, str, bVar, gVar));
-            boolean z2 = a0.f4766b;
+            boolean z2 = a0.f4774b;
         }
     }
 }

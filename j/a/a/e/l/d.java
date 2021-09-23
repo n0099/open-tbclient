@@ -12,13 +12,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f79169a;
+    public String f79488a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f79170b;
+    public String f79489b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f79171c;
+    public String f79490c;
 
     public d(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -35,16 +35,16 @@ public class d {
                 return;
             }
         }
-        this.f79169a = str;
-        this.f79170b = str2;
-        this.f79171c = str3;
+        this.f79488a = str;
+        this.f79489b = str2;
+        this.f79490c = str3;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TopUiParams{title='" + this.f79169a + ExtendedMessageFormat.QUOTE + ", rightTitle='" + this.f79170b + ExtendedMessageFormat.QUOTE + ", rightUrl='" + this.f79171c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "TopUiParams{title='" + this.f79488a + ExtendedMessageFormat.QUOTE + ", rightTitle='" + this.f79489b + ExtendedMessageFormat.QUOTE + ", rightUrl='" + this.f79490c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

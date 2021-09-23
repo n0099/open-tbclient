@@ -33,10 +33,10 @@ public final class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35543a = "";
+    public static String f35566a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35544b = "";
+    public static String f35567b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -77,7 +77,7 @@ public final class d {
                     String str = "";
                     if (Build.VERSION.SDK_INT < 29) {
                         try {
-                            str = g.d(context).f35555b.c();
+                            str = g.d(context).f35578b.c();
                         } catch (Throwable unused) {
                         }
                         if (TextUtils.isEmpty(str) || str.startsWith("KWE")) {
@@ -187,7 +187,7 @@ public final class d {
                     return "";
                 }
                 try {
-                    str = g.d(context).f35555b.a();
+                    str = g.d(context).f35578b.a();
                 } catch (Throwable unused) {
                     str = "";
                 }
@@ -217,10 +217,10 @@ public final class d {
         L4:
             java.lang.Class<c.r.a.a.c.a.d> r0 = c.r.a.a.c.a.d.class
             monitor-enter(r0)
-            java.lang.String r1 = c.r.a.a.c.a.d.f35543a     // Catch: java.lang.Throwable -> L3a
+            java.lang.String r1 = c.r.a.a.c.a.d.f35566a     // Catch: java.lang.Throwable -> L3a
             boolean r1 = android.text.TextUtils.isEmpty(r1)     // Catch: java.lang.Throwable -> L3a
             if (r1 != 0) goto L13
-            java.lang.String r1 = c.r.a.a.c.a.d.f35543a     // Catch: java.lang.Throwable -> L3a
+            java.lang.String r1 = c.r.a.a.c.a.d.f35566a     // Catch: java.lang.Throwable -> L3a
             monitor-exit(r0)
             return r1
         L13:
@@ -234,7 +234,7 @@ public final class d {
             c.r.a.a.c.b.c.f(r2)     // Catch: java.lang.Throwable -> L3a
             boolean r2 = android.text.TextUtils.isEmpty(r1)     // Catch: java.lang.Throwable -> L3a
             if (r2 != 0) goto L36
-            c.r.a.a.c.a.d.f35543a = r1     // Catch: java.lang.Throwable -> L3a
+            c.r.a.a.c.a.d.f35566a = r1     // Catch: java.lang.Throwable -> L3a
             monitor-exit(r0)
             return r1
         L36:
@@ -282,7 +282,7 @@ public final class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (d.class) {
                 try {
-                    if (TextUtils.isEmpty(f35544b)) {
+                    if (TextUtils.isEmpty(f35567b)) {
                         String f2 = Orange.a().f();
                         c.r.a.a.c.b.c.f("user dis :" + f2);
                         if (!TextUtils.isEmpty(f2)) {
@@ -290,15 +290,15 @@ public final class d {
                             for (int i2 = 0; i2 < bytes.length; i2++) {
                                 bytes[i2] = (byte) (bytes[i2] ^ 165);
                             }
-                            f35544b = "fuels:" + Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "");
+                            f35567b = "fuels:" + Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "");
                         }
-                        if (TextUtils.isEmpty(f35544b)) {
-                            f35544b = "KWE_N";
+                        if (TextUtils.isEmpty(f35567b)) {
+                            f35567b = "KWE_N";
                             return "KWE_N";
                         }
-                        return f35544b;
+                        return f35567b;
                     }
-                    return f35544b;
+                    return f35567b;
                 }
             }
         }
@@ -310,7 +310,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             try {
-                String d2 = c.r.a.a.b.b().d(context, b.f35538a.e(), false);
+                String d2 = c.r.a.a.b.b().d(context, b.f35561a.e(), false);
                 return !TextUtils.isEmpty(d2) ? d2 : "KWE_N";
             } catch (Throwable th) {
                 c.r.a.a.c.b.c.c(th);

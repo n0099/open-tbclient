@@ -16,7 +16,7 @@ public class w0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f20326a;
+    public TbPageContext f20341a;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
@@ -24,13 +24,13 @@ public class w0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f20327a;
+        public String f20342a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f20328b;
+        public byte[] f20343b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ w0 f20329c;
+        public final /* synthetic */ w0 f20344c;
 
         public a(w0 w0Var, String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -47,11 +47,11 @@ public class w0 {
                     return;
                 }
             }
-            this.f20329c = w0Var;
-            this.f20327a = null;
-            this.f20328b = null;
-            this.f20327a = str;
-            this.f20328b = bArr;
+            this.f20344c = w0Var;
+            this.f20342a = null;
+            this.f20343b = null;
+            this.f20342a = str;
+            this.f20343b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -76,12 +76,12 @@ public class w0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f20327a, this.f20328b, this.f20329c.f20326a.getPageActivity());
+                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f20342a, this.f20343b, this.f20344c.f20341a.getPageActivity());
                 if (saveImageFileByUser != -2) {
                     if (saveImageFileByUser != 0) {
-                        return this.f20329c.f20326a.getString(R.string.save_fail);
+                        return this.f20344c.f20341a.getString(R.string.save_fail);
                     }
-                    return this.f20329c.f20326a.getString(R.string.save_image_to_album);
+                    return this.f20344c.f20341a.getString(R.string.save_image_to_album);
                 }
                 return FileHelper.getSdErrorString();
             }
@@ -94,7 +94,7 @@ public class w0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
                 super.onPostExecute((a) str);
-                this.f20329c.f20326a.showToast(str);
+                this.f20344c.f20341a.showToast(str);
             }
         }
     }
@@ -114,7 +114,7 @@ public class w0 {
                 return;
             }
         }
-        this.f20326a = tbPageContext;
+        this.f20341a = tbPageContext;
     }
 
     public void b(String str, byte[] bArr) {

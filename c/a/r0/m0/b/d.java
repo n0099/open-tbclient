@@ -18,11 +18,11 @@ public class d extends c.a.q0.x.p.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d f22159f;
+    public static d f22173f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<c.a.q0.x.p.c> f22160e;
+    public LinkedList<c.a.q0.x.p.c> f22174e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class d extends c.a.q0.x.p.a {
                 return;
             }
         }
-        f22159f = new d();
+        f22173f = new d();
     }
 
     public d() {
@@ -60,7 +60,7 @@ public class d extends c.a.q0.x.p.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (d.class) {
-                dVar = f22159f;
+                dVar = f22173f;
             }
             return dVar;
         }
@@ -68,26 +68,26 @@ public class d extends c.a.q0.x.p.a {
     }
 
     @Override // c.a.q0.x.p.a
-    public void b(a.InterfaceC0717a interfaceC0717a) {
+    public void b(a.InterfaceC0715a interfaceC0715a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0717a) == null) {
-            LinkedList<c.a.q0.x.p.c> linkedList = this.f22160e;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0715a) == null) {
+            LinkedList<c.a.q0.x.p.c> linkedList = this.f22174e;
             if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<c.a.q0.x.p.c> it = this.f22160e.iterator();
+                Iterator<c.a.q0.x.p.c> it = this.f22174e.iterator();
                 while (it.hasNext()) {
                     c.a.q0.x.p.c next = it.next();
-                    if (interfaceC0717a != null) {
-                        interfaceC0717a.a(next);
+                    if (interfaceC0715a != null) {
+                        interfaceC0715a.a(next);
                     }
                 }
                 return;
             }
-            this.f22160e = new LinkedList<>();
+            this.f22174e = new LinkedList<>();
             if (TbFaceManager.e().h() > 0) {
                 c cVar = new c();
-                this.f22160e.add(cVar);
-                if (interfaceC0717a != null) {
-                    interfaceC0717a.a(cVar);
+                this.f22174e.add(cVar);
+                if (interfaceC0715a != null) {
+                    interfaceC0715a.a(cVar);
                 }
             }
         }
@@ -113,14 +113,14 @@ public class d extends c.a.q0.x.p.a {
     public List<c.a.q0.x.p.c> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22160e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22174e : (List) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinkedList<c.a.q0.x.p.c> linkedList = this.f22160e;
+            LinkedList<c.a.q0.x.p.c> linkedList = this.f22174e;
             return linkedList == null || linkedList.size() == 0;
         }
         return invokeV.booleanValue;

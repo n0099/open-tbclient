@@ -17,7 +17,7 @@ public class g implements SensorEventListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Handler> f23765e;
+    public WeakReference<Handler> f23781e;
 
     public g(Handler handler) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class g implements SensorEventListener {
                 return;
             }
         }
-        this.f23765e = new WeakReference<>(handler);
+        this.f23781e = new WeakReference<>(handler);
     }
 
     @Override // android.hardware.SensorEventListener
@@ -64,8 +64,8 @@ public class g implements SensorEventListener {
             if (round < 0) {
                 round += 360;
             }
-            WeakReference<Handler> weakReference = this.f23765e;
-            if (weakReference == null || weakReference.get() == null || (obtainMessage = (handler = this.f23765e.get()).obtainMessage(1)) == null) {
+            WeakReference<Handler> weakReference = this.f23781e;
+            if (weakReference == null || weakReference.get() == null || (obtainMessage = (handler = this.f23781e.get()).obtainMessage(1)) == null) {
                 return;
             }
             obtainMessage.arg1 = round;

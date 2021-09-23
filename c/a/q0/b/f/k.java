@@ -2,6 +2,7 @@ package c.a.q0.b.f;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,19 +11,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+@ModifyClass
 /* loaded from: classes3.dex */
 public class k extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BdUniqueId f12731c;
+    public static final BdUniqueId f12742c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<String> f12732a;
+    public final ArrayList<String> f12743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.q0.b.e f12733b;
+    public c.a.q0.b.e f12744b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +39,7 @@ public class k extends a {
                 return;
             }
         }
-        f12731c = BdUniqueId.gen();
+        f12742c = BdUniqueId.gen();
     }
 
     public k() {
@@ -53,41 +55,39 @@ public class k extends a {
                 return;
             }
         }
-        ArrayList<String> arrayList = new ArrayList<>();
-        this.f12732a = arrayList;
-        arrayList.add("11_7_index_a");
-        this.f12732a.add("11_7_index_b");
-        this.f12732a.add("11_7_index_c");
-        this.f12732a.add("11_7_index_d");
-        this.f12732a.add("11_7_index_e");
+        ArrayList<String> arrayList = new ArrayList<>(3);
+        this.f12743a = arrayList;
+        arrayList.add("12.7.5_frs_preload_a");
+        this.f12743a.add("12.7.5_frs_preload_b");
+        this.f12743a.add("12.7.5_frs_preload_c");
     }
 
     @Override // c.a.q0.b.f.a
     public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12732a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12743a : (ArrayList) invokeV.objValue;
     }
 
     @Override // c.a.q0.b.f.a
     public c.a.q0.b.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12733b : (c.a.q0.b.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12744b : (c.a.q0.b.e) invokeV.objValue;
     }
 
     @Override // c.a.q0.b.f.a
     public BdUniqueId c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f12731c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f12742c : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // c.a.q0.b.f.a
     public void f(c.a.q0.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f12733b = eVar;
+            this.f12744b = eVar;
         }
     }
 }

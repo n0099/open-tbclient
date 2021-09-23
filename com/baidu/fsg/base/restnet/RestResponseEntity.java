@@ -105,7 +105,7 @@ public class RestResponseEntity<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             a aVar = this.mHeaders;
-            return aVar != null ? aVar.c(str) : "";
+            return aVar != null ? aVar.getFirst(str) : "";
         }
         return (String) invokeL.objValue;
     }

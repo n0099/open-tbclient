@@ -33,13 +33,13 @@ public class a extends h<b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f5585a;
+        public final String f5593a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f5586b;
+        public final boolean f5594b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final JSONObject f5587c;
+        public final JSONObject f5595c;
 
         public /* synthetic */ b(boolean z, String str, JSONObject jSONObject, C0174a c0174a) {
             this(z, str, jSONObject);
@@ -48,7 +48,7 @@ public class a extends h<b> {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("Result(%b):%s", Boolean.valueOf(this.f5586b), this.f5585a) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("Result(%b):%s", Boolean.valueOf(this.f5594b), this.f5593a) : (String) invokeV.objValue;
         }
 
         public b(boolean z, String str, JSONObject jSONObject) {
@@ -66,9 +66,9 @@ public class a extends h<b> {
                     return;
                 }
             }
-            this.f5585a = str == null ? "" : str;
-            this.f5586b = z;
-            this.f5587c = jSONObject;
+            this.f5593a = str == null ? "" : str;
+            this.f5594b = z;
+            this.f5595c = jSONObject;
         }
     }
 
@@ -121,7 +121,7 @@ public class a extends h<b> {
                     c.a.p0.a.e2.c.d.l(c2);
                     c.a.p0.a.e2.c.d.s("Accredit", c2.toString());
                 }
-                if (c.a.p0.a.e2.c.c.f5518f) {
+                if (c.a.p0.a.e2.c.c.f5526f) {
                     throw new JSONException("Illegal errno=" + optInt + " errms=" + c2.optString("errms"));
                 }
             }

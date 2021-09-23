@@ -14,7 +14,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile h f12020a;
+    public static volatile h f12028a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public h() {
@@ -35,14 +35,14 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12020a == null) {
+            if (f12028a == null) {
                 synchronized (h.class) {
-                    if (f12020a == null) {
-                        f12020a = new h();
+                    if (f12028a == null) {
+                        f12028a = new h();
                     }
                 }
             }
-            return f12020a;
+            return f12028a;
         }
         return (h) invokeV.objValue;
     }
@@ -53,7 +53,7 @@ public class h {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (c.a.p0.n.c.f11856a) {
+        if (c.a.p0.n.c.f11864a) {
             String str = WebGLImageLoader.DATA_URL + jSONObject;
         }
         String optString = jSONObject.optString("version");

@@ -13,7 +13,7 @@ public class b implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f7503a;
+    public final String[] f7511a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f7503a = new String[]{c.a.p0.a.c1.a.b().getDatabasePath("ai_apps.db").getAbsolutePath(), c.a.p0.a.c1.a.b().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
+        this.f7511a = new String[]{c.a.p0.a.c1.a.b().getDatabasePath("ai_apps.db").getAbsolutePath(), c.a.p0.a.c1.a.b().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
     }
 
     @Override // c.a.p0.a.n0.j.d.a
@@ -37,7 +37,7 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.f7503a) {
+            for (String str : this.f7511a) {
                 String J = c.a.p0.t.d.J(str);
                 if (!TextUtils.isEmpty(J)) {
                     arraySet.add(J);

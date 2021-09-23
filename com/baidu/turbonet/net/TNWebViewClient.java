@@ -28,7 +28,7 @@ public class TNWebViewClient extends WebViewClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TurbonetEngine f59477a;
+    public final TurbonetEngine f59608a;
 
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
@@ -66,9 +66,9 @@ public class TNWebViewClient extends WebViewClient {
             } catch (Exception e4) {
                 String str5 = "Exception when intercept webview request: " + e4.toString();
             }
-            if (webResourceRequest.getMethod().equals("GET") && !this.f59477a.f()) {
+            if (webResourceRequest.getMethod().equals("GET") && !this.f59608a.f()) {
                 String str6 = "Intercept request and send " + webResourceRequest.getUrl().toString();
-                d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.f59477a);
+                d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.f59608a);
                 dVar.setRequestMethod(webResourceRequest.getMethod());
                 Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
                 if (requestHeaders != null) {

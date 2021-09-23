@@ -23,13 +23,13 @@ public class f extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f8968e;
+        public final /* synthetic */ c.a.p0.a.a2.e f8976e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8969f;
+        public final /* synthetic */ String f8977f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f8970g;
+        public final /* synthetic */ f f8978g;
 
         public a(f fVar, c.a.p0.a.a2.e eVar, String str) {
             Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class f extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8970g = fVar;
-            this.f8968e = eVar;
-            this.f8969f = str;
+            this.f8978g = fVar;
+            this.f8976e = eVar;
+            this.f8977f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8968e.P().b(this.f8970g.a().h(), this.f8969f);
+                this.f8976e.P().b(this.f8978g.a().h(), this.f8977f);
             }
         }
     }
@@ -93,12 +93,12 @@ public class f extends c.a.p0.a.u.c.d {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("networkType", e2);
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     String str = "getNetworkType:  " + jSONObject;
                 }
                 return new c.a.p0.a.u.h.b(0, jSONObject);
             } catch (JSONException e3) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     e3.printStackTrace();
                 }
                 return new c.a.p0.a.u.h.b(202);
@@ -113,7 +113,7 @@ public class f extends c.a.p0.a.u.c.d {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             c.a.p0.a.a2.e i2 = c.a.p0.a.a2.e.i();
             if (i2 == null) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-Network", "swan app is null");
                 }
                 return new c.a.p0.a.u.h.b(202, "swan app is null");
@@ -121,14 +121,14 @@ public class f extends c.a.p0.a.u.c.d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-Network", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-Network", "parse fail");
                 }
                 return bVar;
             }
             String optString = ((JSONObject) b2.second).optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-Network", "callback is null");
                 }
                 return new c.a.p0.a.u.h.b(1001, "callback is null");

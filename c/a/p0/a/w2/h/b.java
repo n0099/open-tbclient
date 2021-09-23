@@ -16,7 +16,7 @@ public class b implements c.a.p0.k.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f9668a;
+    public FrameLayout f9676a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b implements c.a.p0.k.a {
                 return;
             }
         }
-        this.f9668a = null;
+        this.f9676a = null;
     }
 
     @Override // c.a.p0.k.a
@@ -50,23 +50,23 @@ public class b implements c.a.p0.k.a {
     public final void b(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.f9668a == null) {
+            if (this.f9676a == null) {
                 FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-                this.f9668a = frameLayout;
+                this.f9676a = frameLayout;
                 frameLayout.setBackgroundResource(c.a.p0.a.c.aiapps_night_mode_cover_layer);
             }
-            viewGroup.removeView(this.f9668a);
-            viewGroup.addView(this.f9668a, new FrameLayout.LayoutParams(-1, -1));
+            viewGroup.removeView(this.f9676a);
+            viewGroup.addView(this.f9676a, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     public final void c(ViewGroup viewGroup) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.f9668a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.f9676a) == null) {
             return;
         }
         viewGroup.removeView(frameLayout);
-        this.f9668a = null;
+        this.f9676a = null;
     }
 }

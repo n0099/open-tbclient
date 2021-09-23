@@ -19,38 +19,38 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f11331c = null;
+    public static d f11339c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f11332d = "banner_ad_close_btn_show_key";
+    public static String f11340d = "banner_ad_close_btn_show_key";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f11333e = "banner_ad_close_duration_key";
+    public static String f11341e = "banner_ad_close_duration_key";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f11334f = "gdt_banner_ad_app_id_key";
+    public static String f11342f = "gdt_banner_ad_app_id_key";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f11335g = "gdt_video_ad_app_id_key";
+    public static String f11343g = "gdt_video_ad_app_id_key";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f11336h = "gdt_banner_ad_id_key";
+    public static String f11344h = "gdt_banner_ad_id_key";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f11337i = "gdt_video_ad_id_key";
+    public static String f11345i = "gdt_video_ad_id_key";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f11338j = "gdt_video_ad_config_time";
+    public static String f11346j = "gdt_video_ad_config_time";
     public static String k = "video_interaction_optimization";
     public static String l = "video_request_optimization";
     public static String m = "first_request_optimization";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f11339a;
+    public long f11347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11340b;
+    public long f11348b;
 
     /* loaded from: classes3.dex */
     public class a extends StringResponseCallback {
@@ -58,7 +58,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f11341a;
+        public final /* synthetic */ d f11349a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class d {
                     return;
                 }
             }
-            this.f11341a = dVar;
+            this.f11349a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,11 +89,11 @@ public class d {
                     if (!c.a.p0.h.y.c.a(str, i2) || (optJSONObject = new JSONObject(str).optJSONObject("data")) == null) {
                         return;
                     }
-                    this.f11341a.J(optJSONObject.optString("show", "1"));
-                    this.f11341a.L(optJSONObject.optString("duration", "1"));
-                    this.f11341a.I(optJSONObject.optLong("startNoBannerADGap", 5L));
-                    this.f11341a.H(optJSONObject.optLong("bannerShowSuccGap", 120L));
-                    this.f11341a.G(optJSONObject.optLong("preventBannerADShowingGap", 60L));
+                    this.f11349a.J(optJSONObject.optString("show", "1"));
+                    this.f11349a.L(optJSONObject.optString("duration", "1"));
+                    this.f11349a.I(optJSONObject.optLong("startNoBannerADGap", 5L));
+                    this.f11349a.H(optJSONObject.optLong("bannerShowSuccGap", 120L));
+                    this.f11349a.G(optJSONObject.optLong("preventBannerADShowingGap", 60L));
                 } catch (JSONException unused) {
                 }
             }
@@ -113,7 +113,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f11342a;
+        public final /* synthetic */ d f11350a;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class d {
                     return;
                 }
             }
-            this.f11342a = dVar;
+            this.f11350a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -150,24 +150,24 @@ public class d {
                     }
                     JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
                     if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject("ads_config")) == null) {
-                        this.f11342a.N("");
-                        this.f11342a.P("");
-                        this.f11342a.Q("");
-                        this.f11342a.R("");
-                        this.f11342a.O(0L);
-                        this.f11342a.T(false);
-                        this.f11342a.S(false);
-                        this.f11342a.M(false);
+                        this.f11350a.N("");
+                        this.f11350a.P("");
+                        this.f11350a.Q("");
+                        this.f11350a.R("");
+                        this.f11350a.O(0L);
+                        this.f11350a.T(false);
+                        this.f11350a.S(false);
+                        this.f11350a.M(false);
                         return;
                     }
-                    this.f11342a.N(optJSONObject.optString("banner"));
-                    this.f11342a.P(optJSONObject.optString("video"));
-                    this.f11342a.Q(optJSONObject.optString("banner_app_id"));
-                    this.f11342a.R(optJSONObject.optString("video_app_id"));
-                    this.f11342a.O(System.currentTimeMillis());
-                    this.f11342a.T(optJSONObject.optBoolean("video_ui_opt"));
-                    this.f11342a.S(optJSONObject.optBoolean("video_request_opt"));
-                    this.f11342a.M(optJSONObject.optBoolean("first_request_opt"));
+                    this.f11350a.N(optJSONObject.optString("banner"));
+                    this.f11350a.P(optJSONObject.optString("video"));
+                    this.f11350a.Q(optJSONObject.optString("banner_app_id"));
+                    this.f11350a.R(optJSONObject.optString("video_app_id"));
+                    this.f11350a.O(System.currentTimeMillis());
+                    this.f11350a.T(optJSONObject.optBoolean("video_ui_opt"));
+                    this.f11350a.S(optJSONObject.optBoolean("video_request_opt"));
+                    this.f11350a.M(optJSONObject.optBoolean("first_request_opt"));
                 } catch (JSONException unused) {
                 }
             }
@@ -194,7 +194,7 @@ public class d {
                 return;
             }
         }
-        f11331c = new d();
+        f11339c = new d();
     }
 
     public d() {
@@ -214,7 +214,7 @@ public class d {
     public static d A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f11331c : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f11339c : (d) invokeV.objValue;
     }
 
     public boolean B() {
@@ -232,14 +232,14 @@ public class d {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f11339a = System.currentTimeMillis();
+            this.f11347a = System.currentTimeMillis();
         }
     }
 
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f11340b = System.currentTimeMillis();
+            this.f11348b = System.currentTimeMillis();
         }
     }
 
@@ -276,7 +276,7 @@ public class d {
     public final void J(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            h.a().putBoolean(f11332d, "1".equals(str));
+            h.a().putBoolean(f11340d, "1".equals(str));
         }
     }
 
@@ -290,7 +290,7 @@ public class d {
     public final void L(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            h.a().putString(f11333e, str);
+            h.a().putString(f11341e, str);
         }
     }
 
@@ -304,35 +304,35 @@ public class d {
     public final void N(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            h.a().putString(f11336h, str);
+            h.a().putString(f11344h, str);
         }
     }
 
     public final void O(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            h.a().putLong(f11338j, j2);
+            h.a().putLong(f11346j, j2);
         }
     }
 
     public final void P(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            h.a().putString(f11337i, str);
+            h.a().putString(f11345i, str);
         }
     }
 
     public final void Q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            h.a().putString(f11334f, str);
+            h.a().putString(f11342f, str);
         }
     }
 
     public final void R(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            h.a().putString(f11335g, str);
+            h.a().putString(f11343g, str);
         }
     }
 
@@ -353,13 +353,13 @@ public class d {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f11339a != 0 && System.currentTimeMillis() - this.f11339a <= p() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f11347a != 0 && System.currentTimeMillis() - this.f11347a <= p() : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f11340b != 0 && System.currentTimeMillis() - this.f11340b <= o() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f11348b != 0 && System.currentTimeMillis() - this.f11348b <= o() : invokeV.booleanValue;
     }
 
     public void m() {
@@ -392,7 +392,7 @@ public class d {
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? h.a().getBoolean(f11332d, true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? h.a().getBoolean(f11340d, true) : invokeV.booleanValue;
     }
 
     public final long r(String str) {
@@ -412,7 +412,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            String string = h.a().getString(f11333e, "1");
+            String string = h.a().getString(f11341e, "1");
             if (string != null) {
                 return Long.valueOf(string).longValue() * 60 * 60 * 1000;
             }
@@ -436,30 +436,30 @@ public class d {
     public String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? h.a().getString(f11336h, "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? h.a().getString(f11344h, "") : (String) invokeV.objValue;
     }
 
     public Long w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? Long.valueOf(h.a().getLong(f11338j, 0L)) : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? Long.valueOf(h.a().getLong(f11346j, 0L)) : (Long) invokeV.objValue;
     }
 
     public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? h.a().getString(f11337i, "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? h.a().getString(f11345i, "") : (String) invokeV.objValue;
     }
 
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? h.a().getString(f11334f, "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? h.a().getString(f11342f, "") : (String) invokeV.objValue;
     }
 
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? h.a().getString(f11335g, "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? h.a().getString(f11343g, "") : (String) invokeV.objValue;
     }
 }

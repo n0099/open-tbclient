@@ -29,27 +29,27 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f4879f;
+    public static final boolean f4887f;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f4880g;
+    public static volatile a f4888g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f4881a;
+    public Activity f4889a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FloatButton f4882b;
+    public FloatButton f4890b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4883c;
+    public String f4891c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f4884d;
+    public JSONObject f4892d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f4885e;
+    public String f4893e;
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +64,7 @@ public class a {
                 return;
             }
         }
-        f4879f = k.f7077a;
+        f4887f = k.f7085a;
     }
 
     public a() {
@@ -80,31 +80,31 @@ public class a {
                 return;
             }
         }
-        this.f4885e = "";
+        this.f4893e = "";
     }
 
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f4880g == null) {
+            if (f4888g == null) {
                 synchronized (a.class) {
-                    if (f4880g == null) {
-                        f4880g = new a();
+                    if (f4888g == null) {
+                        f4888g = new a();
                     }
                 }
             }
-            return f4880g;
+            return f4888g;
         }
         return (a) invokeV.objValue;
     }
 
     public static void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f4880g == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f4888g == null) {
             return;
         }
-        f4880g = null;
+        f4888g = null;
     }
 
     public final FloatButton a(Context context, ViewGroup viewGroup) {
@@ -123,7 +123,7 @@ public class a {
 
     public void b(Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) || intent == null || this.f4882b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) || intent == null || this.f4890b == null) {
             return;
         }
         String dataString = intent.getDataString();
@@ -131,21 +131,21 @@ public class a {
             return;
         }
         String substring = dataString.substring(8);
-        if (TextUtils.isEmpty(substring) || !substring.equals(this.f4885e)) {
+        if (TextUtils.isEmpty(substring) || !substring.equals(this.f4893e)) {
             return;
         }
         if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-            this.f4883c = this.f4881a.getResources().getString(h.aiapps_tip_open_app);
+            this.f4891c = this.f4889a.getResources().getString(h.aiapps_tip_open_app);
         } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
-            this.f4883c = this.f4881a.getResources().getString(h.swan_app_hover_button_download);
+            this.f4891c = this.f4889a.getResources().getString(h.swan_app_hover_button_download);
         }
-        this.f4882b.setFloatButtonText(this.f4883c);
+        this.f4890b.setFloatButtonText(this.f4891c);
     }
 
     public FloatButton c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4882b : (FloatButton) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4890b : (FloatButton) invokeV.objValue;
     }
 
     public final FloatButton e(Context context) {
@@ -164,17 +164,17 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Activity activity = this.f4881a;
+            Activity activity = this.f4889a;
             if (activity instanceof SwanAppActivity) {
-                if (this.f4882b == null) {
-                    this.f4882b = a(activity, (ViewGroup) activity.findViewById(16908290));
+                if (this.f4890b == null) {
+                    this.f4890b = a(activity, (ViewGroup) activity.findViewById(16908290));
                 }
-                this.f4882b.setFloatButtonText(this.f4883c);
-                this.f4882b.setFloatButtonDrawable(this.f4881a.getResources().getDrawable(e.swan_app_hover_button_shape));
-                this.f4882b.setFloatButtonDefaultPosition();
-                this.f4882b.setFloatButtonStyle(this.f4884d);
-                this.f4882b.setVisibility(0);
-                return this.f4882b;
+                this.f4890b.setFloatButtonText(this.f4891c);
+                this.f4890b.setFloatButtonDrawable(this.f4889a.getResources().getDrawable(e.swan_app_hover_button_shape));
+                this.f4890b.setFloatButtonDefaultPosition();
+                this.f4890b.setFloatButtonStyle(this.f4892d);
+                this.f4890b.setVisibility(0);
+                return this.f4890b;
             }
             return null;
         }
@@ -187,32 +187,32 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, activity, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (f4879f) {
+        if (f4887f) {
             jSONObject.toString();
         }
-        this.f4881a = activity;
+        this.f4889a = activity;
         String optString = jSONObject.optString("name");
-        this.f4885e = optString;
+        this.f4893e = optString;
         if (q0.F(activity, optString)) {
             string = activity.getString(h.aiapps_tip_open_app);
         } else {
             string = activity.getString(h.swan_app_hover_button_download);
         }
-        this.f4883c = string;
-        this.f4884d = jSONObject.optJSONObject("style");
+        this.f4891c = string;
+        this.f4892d = jSONObject.optJSONObject("style");
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f4885e = str;
+            this.f4893e = str;
         }
     }
 
     public void j(FloatButton floatButton) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, floatButton) == null) {
-            this.f4882b = floatButton;
+            this.f4890b = floatButton;
         }
     }
 }

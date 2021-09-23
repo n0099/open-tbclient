@@ -18,11 +18,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f9186b;
+    public static volatile a f9194b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9187a;
+    public String f9195a;
 
     /* renamed from: c.a.p0.a.v0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -31,7 +31,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.j.b f9188e;
+        public final /* synthetic */ c.a.p0.a.h0.j.b f9196e;
 
         public DialogInterface$OnClickListenerC0426a(a aVar, c.a.p0.a.h0.j.b bVar) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class a {
                     return;
                 }
             }
-            this.f9188e = bVar;
+            this.f9196e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -56,7 +56,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                 k.e(QueryResponse.Options.CANCEL);
-                this.f9188e.a(Boolean.FALSE);
+                this.f9196e.a(Boolean.FALSE);
             }
         }
     }
@@ -67,7 +67,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.j.b f9189e;
+        public final /* synthetic */ c.a.p0.a.h0.j.b f9197e;
 
         public b(a aVar, c.a.p0.a.h0.j.b bVar) {
             Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class a {
                     return;
                 }
             }
-            this.f9189e = bVar;
+            this.f9197e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -92,7 +92,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                 k.e("confirm");
-                this.f9189e.a(Boolean.TRUE);
+                this.f9197e.a(Boolean.TRUE);
             }
         }
     }
@@ -145,45 +145,45 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f9186b == null) {
+            if (f9194b == null) {
                 synchronized (a.class) {
-                    if (f9186b == null) {
-                        f9186b = new a();
+                    if (f9194b == null) {
+                        f9194b = new a();
                     }
                 }
             }
-            return f9186b;
+            return f9194b;
         }
         return (a) invokeV.objValue;
     }
 
     public static void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f9186b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f9194b == null) {
             return;
         }
-        if (f9186b.f9187a != null) {
-            f9186b.f9187a = null;
+        if (f9194b.f9195a != null) {
+            f9194b.f9195a = null;
         }
-        f9186b = null;
+        f9194b = null;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9187a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9195a : (String) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.f9187a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.f9195a) : invokeV.booleanValue;
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f9187a = str;
+            this.f9195a = str;
         }
     }
 

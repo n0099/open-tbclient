@@ -10,22 +10,22 @@ public abstract class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11879a;
+    public String f11887a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11880b;
+    public long f11888b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f11881c;
+    public long f11889c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f11882d;
+    public long f11890d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11883e;
+    public int f11891e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f11884f;
+    public long f11892f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public abstract class c {
                 return;
             }
         }
-        this.f11879a = "";
-        this.f11880b = 0L;
-        this.f11881c = 0L;
-        this.f11882d = 0L;
-        this.f11883e = 0;
+        this.f11887a = "";
+        this.f11888b = 0L;
+        this.f11889c = 0L;
+        this.f11890d = 0L;
+        this.f11891e = 0;
     }
 }

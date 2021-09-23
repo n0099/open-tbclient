@@ -864,7 +864,7 @@ public class bj {
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
             String a2 = ay.a().a(str);
             if (TextUtils.isEmpty(a2)) {
-                a2 = au.a().a(str, au.a.f43307a);
+                a2 = au.a().a(str, au.a.f43369a);
             }
             return a2 == null ? "" : a2;
         }
@@ -1233,7 +1233,7 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            String a2 = au.a().a(str, au.a.f43308b);
+            String a2 = au.a().a(str, au.a.f43370b);
             return a2 == null ? "" : a2;
         }
         return (String) invokeL.objValue;

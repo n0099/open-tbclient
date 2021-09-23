@@ -21,7 +21,7 @@ public class a extends c.a.p0.g.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.u0.b f10927e;
+        public final /* synthetic */ c.a.p0.a.u0.b f10935e;
 
         public C0547a(a aVar, c.a.p0.a.u0.b bVar) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a extends c.a.p0.g.f.a {
                     return;
                 }
             }
-            this.f10927e = bVar;
+            this.f10935e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,10 +48,10 @@ public class a extends c.a.p0.g.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
                 boolean z = true;
-                if ((fVar == null || fVar.f5541d || fVar.f5547j != 1) ? false : false) {
-                    this.f10927e.a(null);
+                if ((fVar == null || fVar.f5549d || fVar.f5555j != 1) ? false : false) {
+                    this.f10935e.a(null);
                 } else {
-                    this.f10927e.onFail(10001, "authorize fail.");
+                    this.f10935e.onFail(10001, "authorize fail.");
                 }
             }
         }
@@ -80,7 +80,7 @@ public class a extends c.a.p0.g.f.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
-            if (c.a.p0.g.f.a.f10932b && jSONObject.optBoolean("debug", false)) {
+            if (c.a.p0.g.f.a.f10940b && jSONObject.optBoolean("debug", false)) {
                 bVar.a(null);
                 return null;
             }

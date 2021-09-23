@@ -22,7 +22,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9849a;
+    public static final boolean f9857a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -31,7 +31,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0474b f9850a;
+        public final /* synthetic */ InterfaceC0474b f9858a;
 
         public a(InterfaceC0474b interfaceC0474b) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class b {
                     return;
                 }
             }
-            this.f9850a = interfaceC0474b;
+            this.f9858a = interfaceC0474b;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -57,7 +57,7 @@ public class b {
         public void onSuccess(c.a.p0.a.y1.a aVar, int i2) {
             InterfaceC0474b interfaceC0474b;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || (interfaceC0474b = this.f9850a) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || (interfaceC0474b = this.f9858a) == null) {
                 return;
             }
             if (aVar == null) {
@@ -78,7 +78,7 @@ public class b {
                 if (response == null || response.body() == null || (optJSONObject = new JSONObject(response.body().string()).optJSONObject("data")) == null) {
                     return null;
                 }
-                if (b.f9849a) {
+                if (b.f9857a) {
                     String str = "parseResponse: RelateSwanData" + optJSONObject.toString();
                 }
                 return c.a.p0.a.y1.a.a(optJSONObject);
@@ -90,7 +90,7 @@ public class b {
         public void onFail(Exception exc) {
             InterfaceC0474b interfaceC0474b;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (interfaceC0474b = this.f9850a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (interfaceC0474b = this.f9858a) == null) {
                 return;
             }
             interfaceC0474b.a(null);
@@ -116,7 +116,7 @@ public class b {
                 return;
             }
         }
-        f9849a = k.f7077a;
+        f9857a = k.f7085a;
     }
 
     public static String b() {
@@ -140,9 +140,9 @@ public class b {
         if (interceptable == null || interceptable.invokeL(65539, null, interfaceC0474b) == null) {
             c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(b(), new a(interfaceC0474b));
             if (c.a.p0.m.e.a.g().c()) {
-                aVar.f11845f = true;
+                aVar.f11853f = true;
             }
-            aVar.f11846g = true;
+            aVar.f11854g = true;
             c.a.p0.m.e.a.g().d(aVar);
         }
     }

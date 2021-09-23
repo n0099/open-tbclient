@@ -17,7 +17,6 @@ import com.baidu.apollon.utils.BussinessUtils;
 import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.apollon.utils.ResUtils;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,6 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.AccountManager;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
+import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.PayUtils;
 import com.baidu.wallet.utils.BdWalletUtils;
@@ -58,6 +58,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public static final String PARAM_UA = "ua";
     public static final String TAG = "NetworkBean";
     public transient /* synthetic */ FieldHolder $fh;
+    public Boolean[] tag;
 
     /* renamed from: com.baidu.wallet.core.beans.NetworkBean$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -139,7 +140,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final SessionCache f60943a;
+            public static final SessionCache f61060a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -155,7 +156,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
                         return;
                     }
                 }
-                f60943a = new SessionCache(null);
+                f61060a = new SessionCache(null);
             }
 
             public a() {
@@ -180,7 +181,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         public static SessionCache getInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60943a : (SessionCache) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61060a : (SessionCache) invokeV.objValue;
         }
 
         public static synchronized void sync(SessionCache sessionCache) {
@@ -188,7 +189,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
             if (interceptable == null || interceptable.invokeL(65539, null, sessionCache) == null) {
                 synchronized (SessionCache.class) {
                     if (sessionCache != null) {
-                        a.f60943a.mCache = sessionCache.mCache;
+                        a.f61060a.mCache = sessionCache.mCache;
                     }
                 }
             }
@@ -284,6 +285,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
                 return;
             }
         }
+        this.tag = new Boolean[]{Boolean.FALSE};
     }
 
     private void appendCertification(Context context, List<RestNameValuePair> list) {
@@ -322,13 +324,6 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
             }
             if (!z) {
                 list.add(new RestNameValuePair("key", str));
-            }
-            String cookie = PayUtils.getCookie(context);
-            LogUtil.w("TEST", "appendCertification(" + context + "|" + cookie + SmallTailInfo.EMOTION_SUFFIX);
-            if (!TextUtils.isEmpty(cookie)) {
-                list.add(new RestNameValuePair(PARAM_COOKIE, SafePay.getInstance().encryptProxy(cookie)));
-            } else {
-                list.add(new RestNameValuePair(PARAM_COOKIE, ""));
             }
             String newCookie = PayUtils.getNewCookie(context);
             if (!TextUtils.isEmpty(newCookie)) {
@@ -380,19 +375,40 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         return invokeLL.booleanValue;
     }
 
+    public boolean checkSignSame(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.apollon.beans.ApollonBean
+    public <T> void execBean(Class<T> cls) throws RuntimeException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls) == null) {
+            getUrl();
+            if (!this.tag[0].booleanValue()) {
+                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.UNSUPPORT_DOMAIN_EXCHANGE, Arrays.asList(getUrl()));
+            }
+            super.execBean(cls);
+        }
+    }
+
     public abstract List<RestNameValuePair> generateRequestParam();
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public List<RestNameValuePair> getRequestParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? appendUriParameter(this.mContext, generateRequestParam()) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? appendUriParameter(this.mContext, generateRequestParam()) : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void handleCommonErrors(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
             LogUtil.d("NetworkBean", "execBean. exception = " + exc);
             if (exc instanceof RestRuntimeException) {
                 if (this.mRspCallback != null) {
@@ -436,7 +452,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public void handleNetworkFailureError() {
         IBeanResponseCallback iBeanResponseCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (iBeanResponseCallback = this.mRspCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (iBeanResponseCallback = this.mRspCallback) == null) {
             return;
         }
         iBeanResponseCallback.onBeanExecFailure(getBeanId(), -8, ResUtils.getString(this.mContext, "ebpay_no_network"));
@@ -445,7 +461,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     @Override // com.baidu.apollon.beans.ApollonBean
     public <T> void handleResponseHeaders(RestResponseEntity<T> restResponseEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, restResponseEntity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, restResponseEntity) == null) {
             String a2 = restResponseEntity.a("token");
             if (!TextUtils.isEmpty(a2)) {
                 AccountManager.getInstance(this.mContext).setBfbToken(a2);
@@ -470,7 +486,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public boolean isLbsPayBean() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -479,7 +495,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public boolean isSign() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -490,7 +506,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public boolean needVerifySignature() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;

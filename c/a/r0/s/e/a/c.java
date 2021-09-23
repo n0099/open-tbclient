@@ -32,28 +32,28 @@ public class c extends d<NewFriendsActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NewFriendsActivity f24529a;
+    public NewFriendsActivity f24545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f24530b;
+    public View f24546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f24531c;
+    public NavigationBar f24547c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f24532d;
+    public ImageView f24548d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f24533e;
+    public BdListView f24549e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f24534f;
+    public a f24550f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f24535g;
+    public g f24551g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoDataView f24536h;
+    public NoDataView f24552h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(NewFriendsActivity newFriendsActivity) {
@@ -73,96 +73,96 @@ public class c extends d<NewFriendsActivity> {
                 return;
             }
         }
-        this.f24529a = newFriendsActivity;
-        this.f24530b = newFriendsActivity.findViewById(R.id.new_friend_activity);
-        NavigationBar navigationBar = (NavigationBar) this.f24529a.findViewById(R.id.view_navigation_bar);
-        this.f24531c = navigationBar;
-        navigationBar.setTitleText(this.f24529a.getPageContext().getString(R.string.new_friends));
-        this.f24531c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        ImageView imageView = (ImageView) this.f24531c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, this.f24529a).findViewById(R.id.new_friend_search);
-        this.f24532d = imageView;
+        this.f24545a = newFriendsActivity;
+        this.f24546b = newFriendsActivity.findViewById(R.id.new_friend_activity);
+        NavigationBar navigationBar = (NavigationBar) this.f24545a.findViewById(R.id.view_navigation_bar);
+        this.f24547c = navigationBar;
+        navigationBar.setTitleText(this.f24545a.getPageContext().getString(R.string.new_friends));
+        this.f24547c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        ImageView imageView = (ImageView) this.f24547c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.add_new_friend_text, this.f24545a).findViewById(R.id.new_friend_search);
+        this.f24548d = imageView;
         imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-        this.f24533e = (BdListView) this.f24529a.findViewById(R.id.new_friend_listview);
-        a aVar = new a(this.f24529a);
-        this.f24534f = aVar;
-        this.f24533e.setAdapter((ListAdapter) aVar);
-        this.f24533e.setOnItemClickListener(this.f24529a);
-        this.f24533e.setOnItemLongClickListener(this.f24529a);
+        this.f24549e = (BdListView) this.f24545a.findViewById(R.id.new_friend_listview);
+        a aVar = new a(this.f24545a);
+        this.f24550f = aVar;
+        this.f24549e.setAdapter((ListAdapter) aVar);
+        this.f24549e.setOnItemClickListener(this.f24545a);
+        this.f24549e.setOnItemLongClickListener(this.f24545a);
         g gVar = new g(newFriendsActivity.getPageContext());
-        this.f24535g = gVar;
-        this.f24533e.setPullRefresh(gVar);
-        BdListViewHelper.d(this.f24529a.getActivity(), this.f24533e, BdListViewHelper.HeadType.DEFAULT);
-        this.f24536h = NoDataViewFactory.a(this.f24529a.getPageContext().getPageActivity(), this.f24530b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f24529a.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.no_new_friend_hint), null);
+        this.f24551g = gVar;
+        this.f24549e.setPullRefresh(gVar);
+        BdListViewHelper.d(this.f24545a.getActivity(), this.f24549e, BdListViewHelper.HeadType.DEFAULT);
+        this.f24552h = NoDataViewFactory.a(this.f24545a.getPageContext().getPageActivity(), this.f24546b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f24545a.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(R.string.no_new_friend_hint), null);
     }
 
     public void c(c.a.q0.s.c cVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, cVar, i2) == null) {
             cVar.k(i2 == 1);
-            this.f24531c.onChangeSkinType(this.f24529a.getPageContext(), i2);
-            this.f24535g.D(i2);
-            cVar.j(this.f24530b);
-            this.f24536h.onChangeSkinType(this.f24529a.getPageContext(), i2);
-            this.f24532d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.f24547c.onChangeSkinType(this.f24545a.getPageContext(), i2);
+            this.f24551g.D(i2);
+            cVar.j(this.f24546b);
+            this.f24552h.onChangeSkinType(this.f24545a.getPageContext(), i2);
+            this.f24548d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24533e.completePullRefreshPostDelayed(0L);
+            this.f24549e.completePullRefreshPostDelayed(0L);
         }
     }
 
     public a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24534f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24550f : (a) invokeV.objValue;
     }
 
     public void f(c.a.r0.k1.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f24534f.d(aVar);
-            this.f24534f.notifyDataSetChanged();
+            this.f24550f.d(aVar);
+            this.f24550f.notifyDataSetChanged();
         }
     }
 
     public void g(List<c.a.r0.k1.g.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f24533e.setEmptyView(this.f24536h);
-            this.f24534f.e(list);
-            this.f24534f.notifyDataSetChanged();
+            this.f24549e.setEmptyView(this.f24552h);
+            this.f24550f.e(list);
+            this.f24550f.notifyDataSetChanged();
         }
     }
 
     public void h(f.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
-            this.f24535g.a(gVar);
+            this.f24551g.a(gVar);
         }
     }
 
     public void i(a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.f24534f.f(cVar);
+            this.f24550f.f(cVar);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f24533e.startPullRefresh();
+            this.f24549e.startPullRefresh();
         }
     }
 
     public void k(List<c.a.r0.k1.g.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.f24534f.h(list);
-            this.f24534f.notifyDataSetChanged();
+            this.f24550f.h(list);
+            this.f24550f.notifyDataSetChanged();
         }
     }
 }

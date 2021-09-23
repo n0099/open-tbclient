@@ -18,23 +18,23 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final FrameLayout.LayoutParams f5995f;
+    public static final FrameLayout.LayoutParams f6003f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f5996a;
+    public Context f6004a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f5997b;
+    public View f6005b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f5998c;
+    public FrameLayout f6006c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f5999d;
+    public int f6007d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f6000e;
+    public a f6008e;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -91,7 +91,7 @@ public class c {
                 return;
             }
         }
-        f5995f = new FrameLayout.LayoutParams(-1, -1);
+        f6003f = new FrameLayout.LayoutParams(-1, -1);
     }
 
     public c(Context context) {
@@ -109,23 +109,23 @@ public class c {
                 return;
             }
         }
-        this.f5996a = context;
+        this.f6004a = context;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5997b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f6005b == null) {
             return;
         }
-        Context context = this.f5996a;
+        Context context = this.f6004a;
         Activity activity = context instanceof Activity ? (Activity) context : null;
         if (activity != null) {
             b(activity, false);
-            ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.f5998c);
-            this.f5998c = null;
-            this.f5997b = null;
-            this.f6000e.onCustomViewHidden();
-            activity.setRequestedOrientation(this.f5999d);
+            ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.f6006c);
+            this.f6006c = null;
+            this.f6005b = null;
+            this.f6008e.onCustomViewHidden();
+            activity.setRequestedOrientation(this.f6007d);
         }
     }
 
@@ -139,21 +139,21 @@ public class c {
     public void c(View view, int i2, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i2, aVar) == null) {
-            Context context = this.f5996a;
+            Context context = this.f6004a;
             Activity activity = context instanceof Activity ? (Activity) context : null;
             if (activity != null) {
-                if (this.f5997b != null) {
+                if (this.f6005b != null) {
                     aVar.onCustomViewHidden();
                     return;
                 }
-                this.f5999d = activity.getRequestedOrientation();
+                this.f6007d = activity.getRequestedOrientation();
                 b bVar = new b(activity);
-                this.f5998c = bVar;
-                bVar.addView(view, f5995f);
-                ((FrameLayout) activity.getWindow().getDecorView()).addView(this.f5998c, f5995f);
-                this.f5997b = view;
+                this.f6006c = bVar;
+                bVar.addView(view, f6003f);
+                ((FrameLayout) activity.getWindow().getDecorView()).addView(this.f6006c, f6003f);
+                this.f6005b = view;
                 b(activity, true);
-                this.f6000e = aVar;
+                this.f6008e = aVar;
                 activity.setRequestedOrientation(i2);
             }
         }

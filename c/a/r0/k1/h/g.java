@@ -19,13 +19,13 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f21358a;
+    public static String f21372a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SQLiteDatabase f21359b;
+    public static volatile SQLiteDatabase f21373b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, SQLiteDatabase> f21360c;
+    public static HashMap<String, SQLiteDatabase> f21374c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class g {
                 return;
             }
         }
-        f21360c = new HashMap<>();
+        f21374c = new HashMap<>();
     }
 
     public static void a(String str) {
@@ -118,19 +118,19 @@ public class g {
                     return null;
                 }
                 String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-                if (f21360c.containsKey(str)) {
-                    return f21360c.get(str);
+                if (f21374c.containsKey(str)) {
+                    return f21374c.get(str);
                 }
-                if (f21359b != null && str.equals(f21358a) && f21359b.isOpen()) {
-                    return f21359b;
+                if (f21373b != null && str.equals(f21372a) && f21373b.isOpen()) {
+                    return f21373b;
                 }
-                if (f21359b != null) {
-                    c.a.e.e.p.m.b(f21359b);
+                if (f21373b != null) {
+                    c.a.e.e.p.m.b(f21373b);
                 }
                 f fVar = new f(TbadkCoreApplication.getInst().getApp(), str);
-                f21358a = str;
-                f21359b = fVar.getWritableDatabase();
-                return f21359b;
+                f21372a = str;
+                f21373b = fVar.getWritableDatabase();
+                return f21373b;
             }
         }
         return (SQLiteDatabase) invokeV.objValue;

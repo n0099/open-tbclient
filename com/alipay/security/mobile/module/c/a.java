@@ -34,16 +34,20 @@ public class a {
             synchronized (a.class) {
                 String str3 = null;
                 if (context != null) {
-                    if (!com.alipay.security.mobile.module.a.a.a(str) && !com.alipay.security.mobile.module.a.a.a(str2)) {
-                        try {
-                            a2 = e.a(context, str, str2, "");
-                        } catch (Throwable unused) {
+                    try {
+                        if (!com.alipay.security.mobile.module.a.a.a(str) && !com.alipay.security.mobile.module.a.a.a(str2)) {
+                            try {
+                                a2 = e.a(context, str, str2, "");
+                            } catch (Throwable unused) {
+                            }
+                            if (com.alipay.security.mobile.module.a.a.a(a2)) {
+                                return null;
+                            }
+                            str3 = com.alipay.security.mobile.module.a.a.c.b(com.alipay.security.mobile.module.a.a.c.a(), a2);
+                            return str3;
                         }
-                        if (com.alipay.security.mobile.module.a.a.a(a2)) {
-                            return null;
-                        }
-                        str3 = com.alipay.security.mobile.module.a.a.c.b(com.alipay.security.mobile.module.a.a.c.a(), a2);
-                        return str3;
+                    } catch (Throwable th) {
+                        throw th;
                     }
                 }
                 return null;

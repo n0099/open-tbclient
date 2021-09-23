@@ -31,28 +31,28 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f79035b;
+    public static OkHttpClient f79354b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f79036c;
+    public static volatile a f79355c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f79037d;
+    public static String f79356d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, List<Cookie>> f79038a;
+    public final HashMap<String, List<Cookie>> f79357a;
 
     /* renamed from: j.a.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C2143a implements CookieJar {
+    public class C2147a implements CookieJar {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f79039a;
+        public final /* synthetic */ a f79358a;
 
-        public C2143a(a aVar) {
+        public C2147a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class a {
                     return;
                 }
             }
-            this.f79039a = aVar;
+            this.f79358a = aVar;
         }
 
         @Override // okhttp3.CookieJar
@@ -75,7 +75,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
-                List<Cookie> list = (List) this.f79039a.f79038a.get(httpUrl.host());
+                List<Cookie> list = (List) this.f79358a.f79357a.get(httpUrl.host());
                 return list != null ? list : new ArrayList();
             }
             return (List) invokeL.objValue;
@@ -85,7 +85,7 @@ public class a {
         public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) {
-                this.f79039a.f79038a.put(httpUrl.host(), list);
+                this.f79358a.f79357a.put(httpUrl.host(), list);
             }
         }
     }
@@ -96,10 +96,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.c.b.a f79040a;
+        public final /* synthetic */ j.a.a.c.b.a f79359a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Request f79041b;
+        public final /* synthetic */ Request f79360b;
 
         public b(a aVar, j.a.a.c.b.a aVar2, Request request) {
             Interceptable interceptable = $ic;
@@ -116,8 +116,8 @@ public class a {
                     return;
                 }
             }
-            this.f79040a = aVar2;
-            this.f79041b = request;
+            this.f79359a = aVar2;
+            this.f79360b = request;
         }
 
         @Override // okhttp3.Callback
@@ -126,7 +126,7 @@ public class a {
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
                 boolean isCanceled = call.isCanceled();
                 RLog.error("HttpCore", "onFailure isCanceled:" + isCanceled, new Object[0]);
-                this.f79040a.a(this.f79041b, isCanceled, iOException);
+                this.f79359a.a(this.f79360b, isCanceled, iOException);
                 RLog.error("HttpCore", "HttpCore -- enqueuePost--1-onFailure:" + iOException.getMessage(), new Object[0]);
             }
         }
@@ -135,10 +135,10 @@ public class a {
         public void onResponse(Call call, Response response) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                String unused = a.f79037d = response.body().string();
+                String unused = a.f79356d = response.body().string();
                 try {
-                    this.f79040a.b(a.f79037d);
-                    RLog.debug("HttpCore", "HttpCore -- enqueuePost-onResponse:" + a.f79037d);
+                    this.f79359a.b(a.f79356d);
+                    RLog.debug("HttpCore", "HttpCore -- enqueuePost-onResponse:" + a.f79356d);
                 } catch (Exception e2) {
                     RLog.error("HttpCore", "HttpCore -- enqueuePost--2-onFailure:" + e2.getMessage(), new Object[0]);
                     e2.printStackTrace();
@@ -178,10 +178,10 @@ public class a {
                 return;
             }
         }
-        this.f79038a = new HashMap<>();
-        OkHttpClient.Builder cookieJar = new OkHttpClient.Builder().addInterceptor(new j.a.a.c.d.a(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new C2143a(this));
+        this.f79357a = new HashMap<>();
+        OkHttpClient.Builder cookieJar = new OkHttpClient.Builder().addInterceptor(new j.a.a.c.d.a(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new C2147a(this));
         cookieJar.dns(j.a.a.c.c.a.b());
-        f79035b = cookieJar.build();
+        f79354b = cookieJar.build();
         RLog.info("HttpCore", "HttpCore -- init");
     }
 
@@ -189,14 +189,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f79036c == null) {
+            if (f79355c == null) {
                 synchronized (a.class) {
-                    if (f79036c == null) {
-                        f79036c = new a();
+                    if (f79355c == null) {
+                        f79355c = new a();
                     }
                 }
             }
-            return f79036c;
+            return f79355c;
         }
         return (a) invokeV.objValue;
     }
@@ -236,17 +236,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             RLog.info("HttpCore", "cancelAllRequest appId:" + i2 + " useChannel:" + i3);
-            OkHttpClient okHttpClient = f79035b;
+            OkHttpClient okHttpClient = f79354b;
             if (okHttpClient != null && okHttpClient.dispatcher() != null) {
                 String g2 = g(i2, i3);
                 RLog.info("HttpCore", "cancelAllRequest requestTag=" + g2);
-                for (Call call : f79035b.dispatcher().queuedCalls()) {
+                for (Call call : f79354b.dispatcher().queuedCalls()) {
                     if (g2.equals(call.request().tag())) {
                         RLog.info("HttpCore", "cancel queued call:" + call);
                         call.cancel();
                     }
                 }
-                for (Call call2 : f79035b.dispatcher().runningCalls()) {
+                for (Call call2 : f79354b.dispatcher().runningCalls()) {
                     if (g2.equals(call2.request().tag())) {
                         RLog.info("HttpCore", "cancel running call:" + call2);
                         call2.cancel();
@@ -275,12 +275,12 @@ public class a {
             Request.Builder url = new Request.Builder().url(i5);
             Request build2 = url.addHeader("X-AppId", i2 + "").addHeader("traceid", str2).addHeader("version", str3).addHeader("pakagename", str4).addHeader("X-HostId", str5).addHeader("X-AuthType", String.valueOf(i4)).tag(g2).post(build).build();
             try {
-                f79035b.newCall(build2).enqueue(new b(this, aVar, build2));
+                f79354b.newCall(build2).enqueue(new b(this, aVar, build2));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 RLog.error("HttpCore", "HttpCore -- enqueuePost--3-onFailure:" + e2.getMessage(), new Object[0]);
             }
-            return f79037d;
+            return f79356d;
         }
         return (String) invokeCommon.objValue;
     }

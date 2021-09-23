@@ -185,9 +185,9 @@ public class d {
         if (optJSONObject5 != null) {
             String optString = optJSONObject5.optString("os_type2_iadex_url");
             this.r = optString;
-            c.a.q0.d1.d.i(optString);
+            c.a.q0.d1.f.i(optString);
             return;
         }
-        c.a.q0.d1.d.i(null);
+        c.a.q0.d1.f.i(null);
     }
 }

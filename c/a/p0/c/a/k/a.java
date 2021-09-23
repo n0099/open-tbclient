@@ -17,19 +17,19 @@ public class a<T> extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10356d;
+    public String f10364d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10357e;
+    public String f10365e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.c f10358f;
+    public a.c f10366f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10359g;
+    public String f10367g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f10360h;
+    public int f10368h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class a<T> extends c {
                 return;
             }
         }
-        this.f10356d = null;
-        this.f10357e = null;
-        this.f10358f = null;
+        this.f10364d = null;
+        this.f10365e = null;
+        this.f10366f = null;
     }
 
     @Override // c.a.p0.c.a.k.c
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10359g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10367g : (String) invokeV.objValue;
     }
 
     @Override // c.a.p0.c.a.k.c
@@ -76,19 +76,19 @@ public class a<T> extends c {
         if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/json");
-            if (this.f10368a) {
+            if (this.f10376a) {
                 hashMap.put("Bdtls", TextUtils.equals(b(), "GET") ? Base64.encodeToString(bArr, 2) : "Bdtls");
             } else {
                 hashMap.put("Bdtls-Downgrade", "1");
             }
-            this.f10358f.a(hashMap, bArr, this.f10356d);
+            this.f10366f.a(hashMap, bArr, this.f10364d);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            k(this.f10356d, this.f10357e, this.f10358f);
+            k(this.f10364d, this.f10365e, this.f10366f);
         }
     }
 
@@ -97,18 +97,18 @@ public class a<T> extends c {
         if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, cVar) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f10356d = str;
-        this.f10357e = str2;
-        this.f10358f = cVar;
+        this.f10364d = str;
+        this.f10365e = str2;
+        this.f10366f = cVar;
         if (str2 == null) {
-            this.f10359g = "GET";
+            this.f10367g = "GET";
         } else {
-            this.f10359g = "POST";
+            this.f10367g = "POST";
         }
-        if (c.a.p0.c.a.a.f10311a) {
+        if (c.a.p0.c.a.a.f10319a) {
             String str3 = "requestPost url=" + str;
             String str4 = "requestPost body=" + str2;
         }
-        a(this.f10357e);
+        a(this.f10365e);
     }
 }

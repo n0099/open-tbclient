@@ -9,6 +9,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
 import com.baidu.searchbox.pms.bean.PackageInfo;
@@ -29,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class LocalVideoActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -79,7 +80,16 @@ public class LocalVideoActivityStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f57646a;
+            public String f57763a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public String f57764b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public String f57765c;
+
+            /* renamed from: d  reason: collision with root package name */
+            public final /* synthetic */ CustomResponsedMessage f57766d;
 
             public a(b bVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
@@ -96,13 +106,13 @@ public class LocalVideoActivityStatic {
                         return;
                     }
                 }
-                this.f57646a = customResponsedMessage;
+                this.f57766d = customResponsedMessage;
             }
 
             @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
             public void onDownloadCancel(PackageInfo packageInfo) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) && packageInfo != null && "libnama.so".equals(packageInfo.name)) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
                     l.L(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
                 }
@@ -111,7 +121,7 @@ public class LocalVideoActivityStatic {
             @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
             public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) && packageInfo != null && "libnama.so".equals(packageInfo.name)) {
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
                     l.L(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
                 }
@@ -120,10 +130,22 @@ public class LocalVideoActivityStatic {
             @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
             public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) && packageInfo != null && "libnama.so".equals(packageInfo.name)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f57646a.getData()));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
+                if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) || packageInfo == null) {
+                    return;
                 }
+                if ("libnama.so".equals(packageInfo.name)) {
+                    this.f57763a = BdBaseApplication.getInst().getResHashMap().get("libnama.so");
+                }
+                if ("face_beautification.mp3".equals(packageInfo.name)) {
+                    this.f57764b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
+                }
+                if ("v3.mp3".equals(packageInfo.name)) {
+                    this.f57765c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
+                }
+                if (!StringUtils.isNull(this.f57763a) && !StringUtils.isNull(this.f57764b) && !StringUtils.isNull(this.f57765c)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f57766d.getData()));
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
             }
         }
 
@@ -152,15 +174,21 @@ public class LocalVideoActivityStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921615 && (customResponsedMessage.getData() instanceof IntentConfig)) {
-                if (new File(BdBaseApplication.getInst().getFilesDir() + File.separator + "so_cache" + File.separator + "libnama.so").exists()) {
+                String str = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
+                String str2 = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
+                if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libnama.so")) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) customResponsedMessage.getData()));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
                     return;
                 }
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("com.baidu.tieba.soloader.libnama");
+                arrayList.add("com.baidu.tieba.resloader.face_beautification.mp3");
+                arrayList.add("com.baidu.tieba.resloader.v3.mp3");
                 RequestParams requestParams = new RequestParams();
                 requestParams.setRunType(d.f2895a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new c(new a(this, customResponsedMessage)));
+                requestParams.addChannel(new c(arrayList, new a(this, customResponsedMessage)));
                 PmsManager.getInstance().execute(requestParams);
             }
         }

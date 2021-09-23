@@ -19,22 +19,22 @@ public class c implements d.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f10585a;
+    public final ExecutorService f10593a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f10586b;
+    public final e f10594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final DownloadInfo f10587c;
+    public final DownloadInfo f10595c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final a f10588d;
+    public final a f10596d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f10589e;
+    public long f10597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile AtomicBoolean f10590f;
+    public volatile AtomicBoolean f10598f;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -56,24 +56,24 @@ public class c implements d.a {
                 return;
             }
         }
-        this.f10589e = System.currentTimeMillis();
-        this.f10590f = new AtomicBoolean(false);
-        this.f10585a = executorService;
-        this.f10586b = eVar;
-        this.f10587c = downloadInfo;
-        this.f10588d = aVar;
+        this.f10597e = System.currentTimeMillis();
+        this.f10598f = new AtomicBoolean(false);
+        this.f10593a = executorService;
+        this.f10594b = eVar;
+        this.f10595c = downloadInfo;
+        this.f10596d = aVar;
     }
 
     @Override // c.a.p0.f.i.k.d.d.a
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f10587c.getProgress() == this.f10587c.getSize()) {
-            this.f10587c.setPackageName(g.d(AppRuntime.getAppContext(), this.f10587c.getPath()));
-            this.f10587c.setStatus(DownloadState.DOWNLOADED.value());
-            this.f10586b.b(this.f10587c);
-            a aVar = this.f10588d;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f10595c.getProgress() == this.f10595c.getSize()) {
+            this.f10595c.setPackageName(g.d(AppRuntime.getAppContext(), this.f10595c.getPath()));
+            this.f10595c.setStatus(DownloadState.DOWNLOADED.value());
+            this.f10594b.b(this.f10595c);
+            a aVar = this.f10596d;
             if (aVar != null) {
-                aVar.e(this.f10587c);
+                aVar.e(this.f10595c);
             }
         }
     }
@@ -81,18 +81,18 @@ public class c implements d.a {
     @Override // c.a.p0.f.i.k.d.d.a
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f10590f.get()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f10598f.get()) {
             return;
         }
         synchronized (this) {
-            if (!this.f10590f.get()) {
-                this.f10590f.set(true);
+            if (!this.f10598f.get()) {
+                this.f10598f.set(true);
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f10589e > 1000) {
-                    this.f10586b.b(this.f10587c);
-                    this.f10589e = currentTimeMillis;
+                if (currentTimeMillis - this.f10597e > 1000) {
+                    this.f10594b.b(this.f10595c);
+                    this.f10597e = currentTimeMillis;
                 }
-                this.f10590f.set(false);
+                this.f10598f.set(false);
             }
         }
     }
@@ -100,7 +100,7 @@ public class c implements d.a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f10585a.submit(new d(this.f10586b, this.f10587c, this));
+            this.f10593a.submit(new d(this.f10594b, this.f10595c, this));
         }
     }
 }

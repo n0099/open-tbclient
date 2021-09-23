@@ -83,7 +83,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f5911e;
+        public final /* synthetic */ f f5919e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -100,16 +100,16 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                     return;
                 }
             }
-            this.f5911e = fVar;
+            this.f5919e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5911e.O0 = c.a.p0.a.c1.a.L();
-                q0 q0Var = this.f5911e.O0;
-                f fVar = this.f5911e;
+                this.f5919e.O0 = c.a.p0.a.c1.a.L();
+                q0 q0Var = this.f5919e.O0;
+                f fVar = this.f5919e;
                 q0Var.a(fVar.l0, fVar.q());
             }
         }
@@ -121,7 +121,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f5912a;
+        public final /* synthetic */ f f5920a;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                     return;
                 }
             }
-            this.f5912a = fVar;
+            this.f5920a = fVar;
         }
 
         /* JADX WARN: Type inference failed for: r1v1, types: [org.json.JSONObject, T] */
@@ -146,9 +146,9 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         public void a(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String c2 = this.f5912a.H0.c();
+                String c2 = this.f5920a.H0.c();
                 c.a.p0.a.o0.d.g gVar = new c.a.p0.a.o0.d.g();
-                gVar.f7814c = c.a.p0.a.w2.g.c.a.a(c2, "scrollViewBackToTop");
+                gVar.f7822c = c.a.p0.a.w2.g.c.a.a(c2, "scrollViewBackToTop");
                 c.a.p0.a.g1.f.V().m(c2, gVar);
             }
         }
@@ -160,7 +160,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f5913e;
+        public final /* synthetic */ f f5921e;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -177,14 +177,14 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                     return;
                 }
             }
-            this.f5913e = fVar;
+            this.f5921e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5913e.U2();
+                this.f5921e.U2();
             }
         }
     }
@@ -195,22 +195,22 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.d f5914a;
+        public final /* synthetic */ a.d f5922a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f5915b;
+        public final /* synthetic */ String f5923b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5916c;
+        public final /* synthetic */ String f5924c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f5917d;
+        public final /* synthetic */ String f5925d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5918e;
+        public final /* synthetic */ String f5926e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f5919f;
+        public final /* synthetic */ f f5927f;
 
         public d(f fVar, a.d dVar, String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -227,12 +227,12 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                     return;
                 }
             }
-            this.f5919f = fVar;
-            this.f5914a = dVar;
-            this.f5915b = str;
-            this.f5916c = str2;
-            this.f5917d = str3;
-            this.f5918e = str4;
+            this.f5927f = fVar;
+            this.f5922a = dVar;
+            this.f5923b = str;
+            this.f5924c = str2;
+            this.f5925d = str3;
+            this.f5926e = str4;
         }
 
         /* JADX WARN: Type inference failed for: r1v19, types: [c.a.p0.a.p.e.c] */
@@ -242,44 +242,44 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.a.h0.u.d dVar = new c.a.p0.a.h0.u.d();
-                dVar.f6478i = this.f5914a.f6437a.K();
-                if (!TextUtils.isEmpty(this.f5915b)) {
-                    c.a.p0.a.r1.i.e(this.f5914a, this.f5915b);
+                dVar.f6486i = this.f5922a.f6445a.K();
+                if (!TextUtils.isEmpty(this.f5923b)) {
+                    c.a.p0.a.r1.i.e(this.f5922a, this.f5923b);
                 }
-                String b2 = c.a.p0.a.c2.f.p0.j.b(this.f5916c);
-                dVar.f6470a = this.f5917d;
-                if (TextUtils.isEmpty(this.f5918e)) {
-                    str = this.f5916c;
+                String b2 = c.a.p0.a.c2.f.p0.j.b(this.f5924c);
+                dVar.f6478a = this.f5925d;
+                if (TextUtils.isEmpty(this.f5926e)) {
+                    str = this.f5924c;
                 } else {
-                    str = this.f5916c + "?" + this.f5918e;
+                    str = this.f5924c + "?" + this.f5926e;
                 }
-                dVar.f6471b = str;
+                dVar.f6479b = str;
                 if (c.a.p0.a.a2.e.Q() != null) {
-                    dVar.f6472c = c.a.p0.a.a2.e.Q().S(b2);
-                    dVar.f6475f = c.a.p0.a.a2.e.Q().M(b2);
+                    dVar.f6480c = c.a.p0.a.a2.e.Q().S(b2);
+                    dVar.f6483f = c.a.p0.a.a2.e.Q().M(b2);
                 }
-                dVar.k = c.a.p0.a.h0.u.a.c(c.a.p0.a.a2.e.i(), dVar.f6471b);
-                dVar.f6473d = c.a.p0.a.g1.f.V().e(b2).f4609g;
-                dVar.f6474e = String.valueOf(c.a.p0.a.e0.a.a());
-                dVar.f6476g = f.R0 || c.a.p0.a.g1.f.V().O();
+                dVar.k = c.a.p0.a.h0.u.a.c(c.a.p0.a.a2.e.i(), dVar.f6479b);
+                dVar.f6481d = c.a.p0.a.g1.f.V().e(b2).f4617g;
+                dVar.f6482e = String.valueOf(c.a.p0.a.e0.a.a());
+                dVar.f6484g = f.R0 || c.a.p0.a.g1.f.V().O();
                 if (c.a.p0.a.u1.a.a.G()) {
-                    dVar.f6479j = c.a.p0.a.e0.f.b.d();
+                    dVar.f6487j = c.a.p0.a.e0.f.b.d();
                 }
-                if (!TextUtils.isEmpty(this.f5915b)) {
-                    String str2 = this.f5915b;
-                    dVar.f6477h = str2;
+                if (!TextUtils.isEmpty(this.f5923b)) {
+                    String str2 = this.f5923b;
+                    dVar.f6485h = str2;
                     c.a.p0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str2).C(new UbcFlowEvent("slave_dispatch_start"));
                 }
                 d0.d();
-                this.f5914a.f6437a.t().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, this.f5916c);
-                this.f5914a.f6437a.R(dVar.f6471b);
-                c.a.p0.a.g1.f.V().m(this.f5914a.f6437a.c(), c.a.p0.a.h0.u.d.a(dVar));
+                this.f5922a.f6445a.t().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, this.f5924c);
+                this.f5922a.f6445a.R(dVar.f6479b);
+                c.a.p0.a.g1.f.V().m(this.f5922a.f6445a.c(), c.a.p0.a.h0.u.d.a(dVar));
                 if (c.a.p0.a.h0.u.e.b()) {
                     c.a.p0.a.h0.u.e eVar = new c.a.p0.a.h0.u.e();
-                    eVar.f6482a = this.f5914a.f6437a.c();
+                    eVar.f6490a = this.f5922a.f6445a.c();
                     c.a.p0.a.g1.f.V().v(c.a.p0.a.h0.u.e.a(eVar));
                 }
-                c.a.p0.a.j2.e.F(this.f5914a.f6437a.c(), dVar.f6471b);
+                c.a.p0.a.j2.e.F(this.f5922a.f6445a.c(), dVar.f6479b);
                 if (f.R0) {
                     String str3 = "createSlaveAndLoad onReady. pageEvent: " + dVar.toString();
                 }
@@ -293,7 +293,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f5920e;
+        public final /* synthetic */ f f5928e;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -301,7 +301,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f5921e;
+            public final /* synthetic */ e f5929e;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -318,15 +318,15 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                         return;
                     }
                 }
-                this.f5921e = eVar;
+                this.f5929e = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f5921e.f5920e.Q0 = false;
-                    this.f5921e.f5920e.q2(true, false);
+                    this.f5929e.f5928e.Q0 = false;
+                    this.f5929e.f5928e.q2(true, false);
                 }
             }
         }
@@ -346,7 +346,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                     return;
                 }
             }
-            this.f5920e = fVar;
+            this.f5928e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -354,7 +354,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         /* renamed from: a */
         public void onCallback(c.a.p0.a.e2.c.f fVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) || fVar == null || fVar.f5541d || fVar.f5547j != 1) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) || fVar == null || fVar.f5549d || fVar.f5555j != 1) {
                 return;
             }
             c.a.p0.a.v2.q0.b0(new a(this));
@@ -368,7 +368,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f5922a;
+        public final /* synthetic */ f f5930a;
 
         public C0214f(f fVar) {
             Interceptable interceptable = $ic;
@@ -385,14 +385,14 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                     return;
                 }
             }
-            this.f5922a = fVar;
+            this.f5930a = fVar;
         }
 
         @Override // c.a.p0.a.h0.j.c
         public void onScrollChanged(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
-                this.f5922a.H3(i3);
+                this.f5930a.H3(i3);
             }
         }
     }
@@ -403,7 +403,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f5923a;
+        public final /* synthetic */ f f5931a;
 
         public g(f fVar) {
             Interceptable interceptable = $ic;
@@ -420,7 +420,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                     return;
                 }
             }
-            this.f5923a = fVar;
+            this.f5931a = fVar;
         }
 
         @Override // c.a.p0.a.h0.j.e
@@ -429,8 +429,8 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null) {
                 return;
             }
-            eVar.u(this.f5923a.N0);
-            eVar.Y(this.f5923a.j3());
+            eVar.u(this.f5931a.N0);
+            eVar.Y(this.f5931a.j3());
             c.a.p0.a.m1.g.f().a(eVar);
         }
 
@@ -440,7 +440,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) || eVar == null) {
                 return;
             }
-            eVar.U(this.f5923a.N0);
+            eVar.U(this.f5931a.N0);
             c.a.p0.a.m1.g.f().b(eVar);
         }
     }
@@ -451,7 +451,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ f f5924c;
+        public final /* synthetic */ f f5932c;
 
         public h(f fVar) {
             Interceptable interceptable = $ic;
@@ -468,14 +468,14 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                     return;
                 }
             }
-            this.f5924c = fVar;
+            this.f5932c = fVar;
         }
 
         @Override // c.a.p0.a.h0.j.a, c.a.p0.a.h0.j.d
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f5924c.l2(str);
+                this.f5932c.l2(str);
             }
         }
     }
@@ -485,7 +485,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f5925a = -1;
+        public static int f5933a = -1;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -507,14 +507,14 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (f5925a < 0) {
+                if (f5933a < 0) {
                     c.a.p0.a.c1.a.Z().getSwitch("swan_app_fragment_destroy_switch", 1);
-                    f5925a = 1;
+                    f5933a = 1;
                 }
                 if (f.R0) {
-                    String str = "getFragmentDestroySwitch:" + f5925a;
+                    String str = "getFragmentDestroySwitch:" + f5933a;
                 }
-                return f5925a;
+                return f5933a;
             }
             return invokeV.intValue;
         }
@@ -539,7 +539,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                 return;
             }
         }
-        R0 = c.a.p0.a.k.f7077a;
+        R0 = c.a.p0.a.k.f7085a;
         S0 = n0.g(149.0f);
         T0 = "-1";
         V0 = "-1";
@@ -705,14 +705,14 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
             if (!TextUtils.equals(V0, this.H0.c()) || TextUtils.equals(W0, "switchTab")) {
                 int o = this.I0.o(X2().j());
                 c.a.p0.a.o0.d.e eVar = new c.a.p0.a.o0.d.e();
-                eVar.f7807c = V0;
-                eVar.f7808d = this.H0.c();
-                eVar.f7809e = W0;
-                eVar.f7810f = this.D0.f7236e;
-                eVar.f7811g = String.valueOf(o);
+                eVar.f7815c = V0;
+                eVar.f7816d = this.H0.c();
+                eVar.f7817e = W0;
+                eVar.f7818f = this.D0.f7244e;
+                eVar.f7819g = String.valueOf(o);
                 W0 = "";
                 if (R0) {
-                    String str = "sendRouteMessage fromId: " + eVar.f7807c + " ,toId: " + eVar.f7808d + " ,RouteType: " + eVar.f7809e + " page:" + eVar.f7810f + ",TabIndex: " + eVar.f7811g;
+                    String str = "sendRouteMessage fromId: " + eVar.f7815c + " ,toId: " + eVar.f7816d + " ,RouteType: " + eVar.f7817e + " page:" + eVar.f7818f + ",TabIndex: " + eVar.f7819g;
                 }
                 c.a.p0.a.g1.f.V().v(eVar);
                 V0 = this.H0.c();
@@ -806,7 +806,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                 background2.setAlpha(i4);
             }
             c.a.p0.a.a2.n.g gVar = this.L0;
-            if (gVar != null && gVar.f4611i && (centerTitleView = this.n0.getCenterTitleView()) != null) {
+            if (gVar != null && gVar.f4619i && (centerTitleView = this.n0.getCenterTitleView()) != null) {
                 centerTitleView.setAlpha(f2);
             }
             Drawable background3 = this.q0.getBackground();
@@ -934,14 +934,14 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
             if (!TextUtils.isEmpty(str4)) {
                 HybridUbcFlow q = c.a.p0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str4);
                 q.C(new UbcFlowEvent("na_pre_load_slave_check"));
-                q.A("preload", f2.f6438b ? "1" : "0");
+                q.A("preload", f2.f6446b ? "1" : "0");
             }
             if (R0) {
                 String str5 = "createSlaveAndLoad preloadManager: " + f2;
             }
             c.a.p0.a.h0.t.a.n(f2, new d(this, f2, str4, str2, str, str3));
             boolean z2 = R0;
-            return f2.f6437a;
+            return f2.f6445a;
         }
         return (c.a.p0.a.p.e.b) invokeLLLL.objValue;
     }
@@ -987,20 +987,20 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
 
     public final void T2(c.a.p0.a.l1.b bVar, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048595, this, bVar, str) == null) && this.F0.get(bVar.f7239h) == null) {
-            String a2 = c.a.p0.a.v2.q0.a(bVar.f7238g, bVar.f7236e, bVar.f7237f);
+        if ((interceptable == null || interceptable.invokeLL(1048595, this, bVar, str) == null) && this.F0.get(bVar.f7247h) == null) {
+            String a2 = c.a.p0.a.v2.q0.a(bVar.f7246g, bVar.f7244e, bVar.f7245f);
             c.a.p0.a.p.e.b h2 = c.a.p0.a.h0.t.a.h(a2);
             if (h2 != null) {
                 if (R0) {
                     String str2 = "createTabSlaveWebView loaded manager pageUrl: " + a2;
                 }
-                this.F0.put(bVar.f7236e, h2);
+                this.F0.put(bVar.f7244e, h2);
             } else {
                 boolean z = R0;
-                h2 = R2(bVar.f7238g, bVar.f7236e, bVar.f7237f, str);
-                this.F0.put(bVar.f7236e, h2);
+                h2 = R2(bVar.f7246g, bVar.f7244e, bVar.f7245f, str);
+                this.F0.put(bVar.f7244e, h2);
             }
-            m3(bVar.f7236e);
+            m3(bVar.f7244e);
             O2(h2);
         }
     }
@@ -1048,7 +1048,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
     public void V2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.L0.f4612j = "default";
+            this.L0.f4620j = "default";
             r1();
             y3();
         }
@@ -1062,13 +1062,13 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
             if (R0) {
                 String str2 = "doSwitchTab mPrePageParams=" + this.E0;
             }
-            String str3 = bVar.f7236e;
-            String str4 = bVar.f7239h;
+            String str3 = bVar.f7244e;
+            String str4 = bVar.f7247h;
             c.a.p0.a.a2.n.g e2 = c.a.p0.a.g1.f.V().e(TextUtils.isEmpty(str4) ? "" : str4);
             c.a.p0.a.l1.b bVar2 = this.D0;
-            bVar2.f7236e = str3;
-            bVar2.f7237f = bVar != null ? bVar.i() : "";
-            this.D0.f7239h = str4;
+            bVar2.f7244e = str3;
+            bVar2.f7245f = bVar != null ? bVar.i() : "";
+            this.D0.f7247h = str4;
             this.L0 = e2;
             boolean z = !v3(str4);
             if (!TextUtils.isEmpty(str)) {
@@ -1088,12 +1088,12 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                 c.a.p0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str).C(new UbcFlowEvent("na_push_page_end"));
                 c.a.p0.a.r1.i.a(str, bVar);
             }
-            l2(e2.f4604b);
-            r2(SwanAppConfigData.s(e2.f4605c));
-            j2(e2.f4603a);
+            l2(e2.f4612b);
+            r2(SwanAppConfigData.s(e2.f4613c));
+            j2(e2.f4611a);
             y3();
             I3();
-            c.a.p0.a.e0.d.g("SwanAppFragment", "switch tab title: " + e2.f4604b + " page:" + str3);
+            c.a.p0.a.e0.d.g("SwanAppFragment", "switch tab title: " + e2.f4612b + " page:" + str3);
         }
     }
 
@@ -1154,8 +1154,8 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             J1();
             c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-            fVar.f7067e = "gohome";
-            fVar.f7065c = "bar";
+            fVar.f7075e = "gohome";
+            fVar.f7073c = "bar";
             f J = c.a.p0.a.g1.f.V().J();
             c.a.p0.a.l1.c I1 = J == null ? null : J.I1();
             if (I1 != null && !TextUtils.isEmpty(I1.g())) {
@@ -1373,7 +1373,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        if (V.e(str).f4610h && this.N0 == null) {
+        if (V.e(str).f4618h && this.N0 == null) {
             this.N0 = new C0214f(this);
         }
     }
@@ -1465,7 +1465,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
             if (s == null) {
                 return false;
             }
-            return !((TextUtils.equals(s.e(), this.D0.f7236e) || s.q(this.D0.f7236e)) ? true : true);
+            return !((TextUtils.equals(s.e(), this.D0.f7244e) || s.q(this.D0.f7244e)) ? true : true);
         }
         return invokeV.booleanValue;
     }
@@ -1501,7 +1501,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
             c.a.p0.a.a2.n.g gVar = this.L0;
-            return gVar != null && gVar.f4610h;
+            return gVar != null && gVar.f4618h;
         }
         return invokeV.booleanValue;
     }
@@ -1512,7 +1512,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
             c.a.p0.a.a2.n.g gVar = this.L0;
             if (gVar != null) {
-                return TextUtils.equals(gVar.f4612j, SchedulerSupport.CUSTOM);
+                return TextUtils.equals(gVar.f4620j, SchedulerSupport.CUSTOM);
             }
             return false;
         }
@@ -1658,7 +1658,7 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
                 if (cVar != null) {
                     i2 = cVar.getWebViewScrollY();
                     gVar = this.L0;
-                    if (gVar != null && gVar.f4611i) {
+                    if (gVar != null && gVar.f4619i) {
                         i3 = 0;
                     }
                 }
@@ -1724,12 +1724,12 @@ public class f extends c.a.p0.a.h0.g.d implements a.InterfaceC0483a {
         }
         c.a.p0.a.l1.c e2 = c.a.p0.a.l1.c.e(o.getString("ai_apps_param"));
         this.l0 = e2;
-        this.D0.f7236e = e2 != null ? e2.g() : "";
+        this.D0.f7244e = e2 != null ? e2.g() : "";
         c.a.p0.a.l1.b bVar = this.D0;
         c.a.p0.a.l1.c cVar = this.l0;
-        bVar.f7237f = cVar != null ? cVar.h() : "";
+        bVar.f7245f = cVar != null ? cVar.h() : "";
         c.a.p0.a.l1.b bVar2 = this.D0;
-        bVar2.f7239h = c.a.p0.a.c2.f.p0.j.b(bVar2.h());
+        bVar2.f7247h = c.a.p0.a.c2.f.p0.j.b(bVar2.h());
         c.a.p0.a.a2.n.g e3 = c.a.p0.a.g1.f.V().e(this.D0.j());
         this.L0 = e3;
         if (e3.p) {

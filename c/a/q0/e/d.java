@@ -31,7 +31,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static View.OnClickListener f13032a;
+    public static View.OnClickListener f13049a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -64,7 +64,7 @@ public class d {
                 return;
             }
             b bVar = (b) view.getTag();
-            AlaUserInfoData alaUserInfoData = bVar.f13027a;
+            AlaUserInfoData alaUserInfoData = bVar.f13044a;
             if (alaUserInfoData == null) {
                 return;
             }
@@ -84,7 +84,7 @@ public class d {
                     alaLiveInfoCoreData.liveID = j4;
                 }
             }
-            int i2 = bVar.f13028b;
+            int i2 = bVar.f13045b;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (i2 == 1) {
                 TiebaStatic.log(new StatisticItem("c11850").param("uid", currentAccount));
@@ -97,12 +97,12 @@ public class d {
                     TiebaStatic.log(new StatisticItem("c11855").param("uid", currentAccount).param("click_uid", alaUserInfoData.ala_id).param(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS, alaUserInfoData.live_status));
                 }
                 TiebaStatic.log(new StatisticItem("c12542"));
-                if (bVar.f13029c && !StringUtils.isNull(alaUserInfoData.sex)) {
+                if (bVar.f13046c && !StringUtils.isNull(alaUserInfoData.sex)) {
                     BdToast.i(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake40_svg, true).q();
                     return;
                 }
             }
-            int i3 = bVar.f13028b;
+            int i3 = bVar.f13045b;
             MessageManager.getInstance().sendMessage(new CustomMessage(2911003, new AlaLiveRoomActivityConfig(view.getContext(), alaLiveInfoCoreData, i3 == 5 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION : i3 == 7 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY : AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT, null, false, "")));
         }
     }
@@ -120,7 +120,7 @@ public class d {
                 return;
             }
         }
-        f13032a = new a();
+        f13049a = new a();
     }
 
     public static TextView a(Context context) {
@@ -131,7 +131,7 @@ public class d {
                 return null;
             }
             TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.ala_tail_view_layout, (ViewGroup) null);
-            textView.setOnClickListener(f13032a);
+            textView.setOnClickListener(f13049a);
             return textView;
         }
         return (TextView) invokeL.objValue;

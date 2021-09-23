@@ -16,7 +16,7 @@ public class a implements b<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f12391a;
+    public Context f12399a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a implements b<String> {
                 return;
             }
         }
-        this.f12391a = context.getApplicationContext();
+        this.f12399a = context.getApplicationContext();
     }
 
     @Override // c.a.p0.u.c.b
@@ -41,7 +41,7 @@ public class a implements b<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && c.a.p0.u.d.c.a(this.f12391a, "android.permission.READ_EXTERNAL_STORAGE")) {
+            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && c.a.p0.u.d.c.a(this.f12399a, "android.permission.READ_EXTERNAL_STORAGE")) {
                 return !new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists();
             }
             return true;
@@ -62,7 +62,7 @@ public class a implements b<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && c.a.p0.u.d.c.a(this.f12391a, "android.permission.READ_EXTERNAL_STORAGE")) {
+            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && c.a.p0.u.d.c.a(this.f12399a, "android.permission.READ_EXTERNAL_STORAGE")) {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
                 if (file.exists()) {
                     return c.a.p0.u.d.a.c(file);
@@ -86,7 +86,7 @@ public class a implements b<String> {
 
     public final void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && TextUtils.equals("mounted", Environment.getExternalStorageState()) && c.a.p0.u.d.c.a(this.f12391a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && TextUtils.equals("mounted", Environment.getExternalStorageState()) && c.a.p0.u.d.c.a(this.f12399a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             c.a.p0.u.d.a.d(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
         }
     }

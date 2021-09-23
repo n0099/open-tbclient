@@ -59,12 +59,12 @@ public class g extends c.a.e.l.e.a<c.a.r0.i1.c.i, HotTopicPkItemHolder> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hotTopicPkItemHolder, iVar) == null) || hotTopicPkItemHolder == null || iVar == null) {
             return;
         }
-        hotTopicPkItemHolder.moduleName.setText(StringUtils.isNull(iVar.f19288e) ? this.n.getResources().getString(R.string.pk_topic_default) : iVar.f19288e.trim());
-        hotTopicPkItemHolder.pkQuesDesc.setText(StringHelper.cutStringWithSuffix(iVar.f19289f.trim(), 32, "..."));
-        hotTopicPkItemHolder.pkQuesDesc.setText(iVar.f19289f.trim());
+        hotTopicPkItemHolder.moduleName.setText(StringUtils.isNull(iVar.f19303e) ? this.n.getResources().getString(R.string.pk_topic_default) : iVar.f19303e.trim());
+        hotTopicPkItemHolder.pkQuesDesc.setText(StringHelper.cutStringWithSuffix(iVar.f19304f.trim(), 32, "..."));
+        hotTopicPkItemHolder.pkQuesDesc.setText(iVar.f19304f.trim());
         hotTopicPkItemHolder.pkView.setData(iVar, this.n);
-        hotTopicPkItemHolder.pkPositive.setText(iVar.f19290g.trim());
-        hotTopicPkItemHolder.pkOpposing.setText(iVar.f19292i.trim());
+        hotTopicPkItemHolder.pkPositive.setText(iVar.f19305g.trim());
+        hotTopicPkItemHolder.pkOpposing.setText(iVar.f19307i.trim());
     }
 
     public final void i0(HotTopicPkItemHolder hotTopicPkItemHolder, View view) {
@@ -89,7 +89,7 @@ public class g extends c.a.e.l.e.a<c.a.r0.i1.c.i, HotTopicPkItemHolder> {
     public HotTopicPkItemHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotTopicPkItemHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.hot_topic_pk_item, viewGroup, false)) : (HotTopicPkItemHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new HotTopicPkItemHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.hot_topic_pk_item, viewGroup, false)) : (HotTopicPkItemHolder) invokeL.objValue;
     }
 
     public View k0(int i2, View view, ViewGroup viewGroup, c.a.r0.i1.c.i iVar, HotTopicPkItemHolder hotTopicPkItemHolder) {

@@ -14,7 +14,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ObservableTimer extends Observable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public final class ObservableTimer extends Observable<Long> {
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class TimerObserver extends AtomicReference<Disposable> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2809475196591179431L;

@@ -19,16 +19,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f27910a;
+    public f f27930a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f27911b;
+    public BdTypeListView f27931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<c.a.e.l.e.a> f27912c;
+    public final List<c.a.e.l.e.a> f27932c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f27913d;
+    public a f27933d;
 
     public b(f fVar, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -45,33 +45,33 @@ public class b {
                 return;
             }
         }
-        this.f27912c = new ArrayList();
-        this.f27910a = fVar;
-        this.f27911b = bdTypeListView;
+        this.f27932c = new ArrayList();
+        this.f27930a = fVar;
+        this.f27931b = bdTypeListView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a aVar = new a((TbPageContext) this.f27910a, d.l);
-            this.f27913d = aVar;
-            this.f27912c.add(aVar);
-            this.f27911b.addAdapters(this.f27912c);
+            a aVar = new a((TbPageContext) this.f27930a, d.l);
+            this.f27933d = aVar;
+            this.f27932c.add(aVar);
+            this.f27931b.addAdapters(this.f27932c);
         }
     }
 
-    public void b(a.InterfaceC1314a interfaceC1314a) {
+    public void b(a.InterfaceC1312a interfaceC1312a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1314a) == null) {
-            this.f27913d.j0(interfaceC1314a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1312a) == null) {
+            this.f27933d.j0(interfaceC1312a);
         }
     }
 
     public void c(List<n> list) {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.f27911b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.f27931b) == null) {
             return;
         }
         bdTypeListView.setData(list);

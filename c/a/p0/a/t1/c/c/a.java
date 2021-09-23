@@ -18,19 +18,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8675a;
+    public String f8683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8676b;
+    public String f8684b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f8677c;
+    public Object f8685c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f8678d;
+    public boolean f8686d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8679e;
+    public String f8687e;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class a {
                 return;
             }
         }
-        this.f8678d = false;
-        this.f8676b = str;
+        this.f8686d = false;
+        this.f8684b = str;
     }
 
     public static String a(c.a.p0.a.t1.c.b.b bVar) {
@@ -60,10 +60,10 @@ public class a {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("componentId", bVar.f8671f);
-                jSONObject.put("pluginProvider", bVar.f8667b);
-                jSONObject.put("args", bVar.f8672g);
-                jSONObject.put("slaveId", bVar.f8670e);
+                jSONObject.put("componentId", bVar.f8679f);
+                jSONObject.put("pluginProvider", bVar.f8675b);
+                jSONObject.put("args", bVar.f8680g);
+                jSONObject.put("slaveId", bVar.f8678e);
             } catch (JSONException e2) {
                 c.a.p0.a.t1.d.a.a(Log.getStackTraceString(e2));
             }
@@ -80,18 +80,18 @@ public class a {
             ?? jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", "functionPageFinished");
-                jSONObject.put("componentId", this.f8676b);
-                jSONObject.put("isSuccess", this.f8678d);
-                jSONObject.put("data", this.f8679e);
-                if (this.f8677c != null) {
-                    jSONObject.put("error", this.f8677c.toString());
+                jSONObject.put("componentId", this.f8684b);
+                jSONObject.put("isSuccess", this.f8686d);
+                jSONObject.put("data", this.f8687e);
+                if (this.f8685c != null) {
+                    jSONObject.put("error", this.f8685c.toString());
                 }
             } catch (JSONException e2) {
                 c.a.p0.a.t1.d.a.a(Log.getStackTraceString(e2));
             }
-            gVar.f7814c = jSONObject;
-            f.V().m(this.f8675a, gVar);
-            c.a.p0.a.t1.d.a.a("finish event, isSuccess = " + this.f8678d);
+            gVar.f7822c = jSONObject;
+            f.V().m(this.f8683a, gVar);
+            c.a.p0.a.t1.d.a.a("finish event, isSuccess = " + this.f8686d);
         }
     }
 
@@ -99,7 +99,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.f8676b + ExtendedMessageFormat.QUOTE + ", error=" + this.f8677c + ", isSuccess=" + this.f8678d + ", resultData='" + this.f8679e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.f8684b + ExtendedMessageFormat.QUOTE + ", error=" + this.f8685c + ", isSuccess=" + this.f8686d + ", resultData='" + this.f8687e + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

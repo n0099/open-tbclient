@@ -15,25 +15,25 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f21083a;
+    public long f21095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f21084b;
+    public long f21096b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21085c;
+    public String f21097c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f21086d;
+    public int f21098d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21087e;
+    public String f21099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21088f;
+    public String f21100f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f21089g;
+    public long f21101g;
 
     public f(@NonNull String str) {
         Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public class f {
                 return;
             }
         }
-        this.f21083a = System.currentTimeMillis();
-        this.f21085c = str;
+        this.f21095a = System.currentTimeMillis();
+        this.f21097c = str;
     }
 
     public JSONObject a() throws JSONException {
@@ -59,13 +59,13 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("startTime", this.f21083a);
-            jSONObject.put("endTime", this.f21084b);
-            jSONObject.put("errorCode", this.f21086d);
-            jSONObject.put("errorMessage", this.f21087e);
-            jSONObject.put(PackageTable.MD5, this.f21088f);
-            jSONObject.put("id", this.f21085c);
-            jSONObject.put("size", this.f21089g);
+            jSONObject.put("startTime", this.f21095a);
+            jSONObject.put("endTime", this.f21096b);
+            jSONObject.put("errorCode", this.f21098d);
+            jSONObject.put("errorMessage", this.f21099e);
+            jSONObject.put(PackageTable.MD5, this.f21100f);
+            jSONObject.put("id", this.f21097c);
+            jSONObject.put("size", this.f21101g);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

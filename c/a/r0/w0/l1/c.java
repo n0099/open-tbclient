@@ -1,5 +1,6 @@
 package c.a.r0.w0.l1;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
 import c.a.e.l.e.n;
@@ -9,8 +10,11 @@ import c.a.q0.s.q.o0;
 import c.a.q0.s.q.p0;
 import c.a.q0.s.q.y0;
 import c.a.r0.w0.s;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbImageHelper;
@@ -28,6 +32,7 @@ import com.baidu.tieba.frs.commontab.FrsCommonTabRequestData;
 import com.baidu.tieba.frs.dynamic.FrsDynamicModel;
 import com.baidu.tieba.frs.dynamic.FrsDynamicRequestData;
 import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,22 +50,22 @@ public class c implements NetModel.k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsCommonTabFragment f26985e;
+    public FrsCommonTabFragment f27005e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f26986f;
+    public d f27006f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsCommonTabRequestData f26987g;
+    public FrsCommonTabRequestData f27007g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrsCommonTabNetModel f26988h;
+    public FrsCommonTabNetModel f27008h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f26989i;
+    public boolean f27009i;
 
     /* renamed from: j  reason: collision with root package name */
-    public FrsDynamicRequestData f26990j;
+    public FrsDynamicRequestData f27010j;
     public FrsDynamicModel k;
     public boolean l;
     public HashSet<String> m;
@@ -92,55 +97,55 @@ public class c implements NetModel.k {
         if (frsCommonTabFragment == null) {
             return;
         }
-        this.f26985e = frsCommonTabFragment;
+        this.f27005e = frsCommonTabFragment;
         this.r = "FRS_GENERAL_TAB" + i3;
         if (i3 == 89) {
-            this.f26989i = true;
+            this.f27009i = true;
             FrsDynamicRequestData frsDynamicRequestData = new FrsDynamicRequestData();
-            this.f26990j = frsDynamicRequestData;
+            this.f27010j = frsDynamicRequestData;
             frsDynamicRequestData.forumId = i2;
             frsDynamicRequestData.scrH = l.i(TbadkCoreApplication.getInst());
-            this.f26990j.scrW = l.k(TbadkCoreApplication.getInst());
-            this.f26990j.scrDip = l.h(TbadkCoreApplication.getInst());
-            FrsDynamicModel frsDynamicModel = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.f26990j);
+            this.f27010j.scrW = l.k(TbadkCoreApplication.getInst());
+            this.f27010j.scrDip = l.h(TbadkCoreApplication.getInst());
+            FrsDynamicModel frsDynamicModel = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.f27010j);
             this.k = frsDynamicModel;
             frsDynamicModel.Z(this);
             this.k.setUniqueId(frsCommonTabFragment.getUniqueId());
             return;
         }
-        this.f26989i = false;
+        this.f27009i = false;
         FrsCommonTabRequestData frsCommonTabRequestData = new FrsCommonTabRequestData();
-        this.f26987g = frsCommonTabRequestData;
+        this.f27007g = frsCommonTabRequestData;
         frsCommonTabRequestData.fid = i2;
         frsCommonTabRequestData.tabId = i3;
-        frsCommonTabRequestData.isDefaultNavTab = h(i3) ? 1 : 0;
-        FrsCommonTabRequestData frsCommonTabRequestData2 = this.f26987g;
+        frsCommonTabRequestData.isDefaultNavTab = i(i3) ? 1 : 0;
+        FrsCommonTabRequestData frsCommonTabRequestData2 = this.f27007g;
         frsCommonTabRequestData2.tabName = str;
         frsCommonTabRequestData2.isGeneralTab = i4;
-        FrsCommonTabNetModel frsCommonTabNetModel = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.f26987g);
-        this.f26988h = frsCommonTabNetModel;
+        FrsCommonTabNetModel frsCommonTabNetModel = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.f27007g);
+        this.f27008h = frsCommonTabNetModel;
         frsCommonTabNetModel.Z(this);
-        this.f26988h.setUniqueId(frsCommonTabFragment.getUniqueId());
+        this.f27008h.setUniqueId(frsCommonTabFragment.getUniqueId());
     }
 
     public void a(d2 d2Var) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, d2Var) == null) || d2Var == null || (dVar = this.f26986f) == null || dVar.f26993g == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, d2Var) == null) || d2Var == null || (dVar = this.f27006f) == null || dVar.f27013g == null) {
             return;
         }
         ArrayList<n> arrayList = new ArrayList<>();
         arrayList.add(d2Var);
-        ArrayList<n> s = s(arrayList);
-        if (ListUtils.isEmpty(this.f26986f.f26993g)) {
-            this.f26986f.f26993g.addAll(s);
+        ArrayList<n> t = t(arrayList);
+        if (ListUtils.isEmpty(this.f27006f.f27013g)) {
+            this.f27006f.f27013g.addAll(t);
         } else {
-            if (this.f26986f.f26993g.size() == 1 && (this.f26986f.f26993g.get(0) instanceof s)) {
-                this.f26986f.f26993g.remove(0);
+            if (this.f27006f.f27013g.size() == 1 && (this.f27006f.f27013g.get(0) instanceof s)) {
+                this.f27006f.f27013g.remove(0);
             }
-            this.f26986f.f26993g.addAll(0, s);
+            this.f27006f.f27013g.addAll(0, t);
         }
-        this.f26985e.onViewDataChange(this.f26986f);
+        this.f27005e.onViewDataChange(this.f27006f);
     }
 
     public final void b(List<n> list) {
@@ -162,94 +167,79 @@ public class c implements NetModel.k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int b2 = this.l ? 0 : c.a.r0.y2.a.b(this.f26986f.f26993g);
+            int b2 = this.l ? 0 : c.a.r0.y2.a.b(this.f27006f.f27013g);
             String d2 = this.l ? "" : c.a.r0.y2.l0.b.f().d(this.r);
-            d dVar = this.f26986f;
-            String e2 = c.a.r0.y2.a.e(dVar == null ? null : dVar.f26993g, this.l);
+            d dVar = this.f27006f;
+            String e2 = c.a.r0.y2.a.e(dVar == null ? null : dVar.f27013g, this.l);
             AdExtParam.a b3 = AdExtParam.a.b();
             b3.g(b2);
             b3.e(e2);
             b3.c(d2);
-            b3.f(this.f26985e.forumName);
+            b3.f(this.f27005e.forumName);
             return b3.a();
         }
         return (String) invokeV.objValue;
     }
 
-    public int d() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.n : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            d dVar = this.f27006f;
+            if (dVar == null) {
+                return true;
+            }
+            return dVar.f27011e;
+        }
+        return invokeV.booleanValue;
     }
 
-    public d e() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26986f : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : invokeV.intValue;
     }
 
-    public final void f(List<App> list, List<n> list2) {
+    public d f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, list, list2) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27006f : (d) invokeV.objValue;
+    }
+
+    public final void g(List<App> list, List<n> list2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) {
             b(list2);
             c.a.r0.y2.a.k(c.a.r0.y2.a.h(list, "FRS_GENERAL_TAB"), list2, 0);
             c.a.r0.y2.a.a(list2, this.n, "FRS_GENERAL_TAB");
         }
     }
 
-    public boolean g() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            d dVar = this.f26986f;
-            return (dVar == null || ListUtils.isEmpty(dVar.f26993g)) ? false : true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            d dVar = this.f27006f;
+            return (dVar == null || ListUtils.isEmpty(dVar.f27013g)) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean h(int i2) {
+    public final boolean i(int i2) {
         InterceptResult invokeI;
         FrsViewData frsViewData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            FrsCommonTabFragment frsCommonTabFragment = this.f26985e;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+            FrsCommonTabFragment frsCommonTabFragment = this.f27005e;
             return (frsCommonTabFragment == null || (frsViewData = frsCommonTabFragment.viewData) == null || frsViewData.mHeadLineDefaultNavTabId != i2) ? false : true;
         }
         return invokeI.booleanValue;
     }
 
-    public boolean i() {
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.l : invokeV.booleanValue;
-    }
-
-    public void j(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.l = false;
-            if (!this.f26989i) {
-                if (this.f26988h.Q()) {
-                    return;
-                }
-                int i3 = this.n + 1;
-                this.n = i3;
-                FrsCommonTabRequestData frsCommonTabRequestData = this.f26987g;
-                frsCommonTabRequestData.pn = i3;
-                frsCommonTabRequestData.sortType = i2;
-                frsCommonTabRequestData.lastThreadId = -1L;
-                frsCommonTabRequestData.adExtParams = c();
-                this.f26988h.R();
-            } else if (this.k.Q()) {
-            } else {
-                if (TbImageHelper.getInstance().isShowBigImage()) {
-                    this.f26990j.qType = 2;
-                } else {
-                    this.f26990j.qType = 1;
-                }
-                this.k.R();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.l : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
@@ -265,140 +255,181 @@ public class c implements NetModel.k {
             } else if (mvcSocketResponsedMessage.getData() instanceof c.a.r0.w0.m1.a) {
                 c.a.r0.w0.m1.a aVar = (c.a.r0.w0.m1.a) mvcSocketResponsedMessage.getData();
                 d dVar2 = new d();
-                ArrayList<n> arrayList = aVar.f27048e;
-                dVar2.f26993g = arrayList;
-                dVar2.f26991e = aVar.f27050g;
-                dVar2.f26992f = aVar.f27049f;
+                ArrayList<n> arrayList = aVar.f27068e;
+                dVar2.f27013g = arrayList;
+                dVar2.f27011e = aVar.f27070g;
+                dVar2.f27012f = aVar.f27069f;
                 if (!ListUtils.isEmpty(arrayList)) {
-                    ArrayList<n> arrayList2 = dVar2.f26993g;
+                    ArrayList<n> arrayList2 = dVar2.f27013g;
                     n nVar = (n) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
                     if (nVar instanceof d2) {
-                        this.f26990j.lastThreadId = c.a.e.e.m.b.g(((d2) nVar).f0(), 0L);
+                        this.f27010j.lastThreadId = c.a.e.e.m.b.g(((d2) nVar).f0(), 0L);
                     }
                 }
                 dVar = dVar2;
             }
         }
-        if (dVar == null || !m(dVar)) {
+        if (dVar == null || !n(dVar)) {
             this.p = mvcSocketResponsedMessage.getError();
             this.q = mvcSocketResponsedMessage.getErrorString();
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.p);
             errorData.setError_msg(this.q);
             if (this.p != 0) {
-                this.f26985e.onServerError(errorData);
+                this.f27005e.onServerError(errorData);
             }
         }
     }
 
-    public void l(String str) {
-        d dVar;
+    public void l(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (dVar = this.f26986f) == null || c.a.r0.p1.o.k.a.e(dVar.f26993g)) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.l = false;
+            if (!this.f27009i) {
+                if (this.f27008h.Q()) {
+                    return;
+                }
+                int i3 = this.n + 1;
+                this.n = i3;
+                FrsCommonTabRequestData frsCommonTabRequestData = this.f27007g;
+                frsCommonTabRequestData.pn = i3;
+                frsCommonTabRequestData.sortType = i2;
+                frsCommonTabRequestData.lastThreadId = -1L;
+                frsCommonTabRequestData.adExtParams = c();
+                this.f27008h.R();
+            } else if (this.k.Q()) {
+            } else {
+                if (TbImageHelper.getInstance().isShowBigImage()) {
+                    this.f27010j.qType = 2;
+                } else {
+                    this.f27010j.qType = 1;
+                }
+                this.k.R();
+            }
         }
-        c.a.r0.y2.a.d(str, this.f26986f.f26993g);
-        this.f26985e.onViewDataChange(this.f26986f);
     }
 
-    public final boolean m(d dVar) {
+    public void m(String str) {
+        d dVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || (dVar = this.f27006f) == null || c.a.r0.p1.o.k.a.e(dVar.f27013g)) {
+            return;
+        }
+        c.a.r0.y2.a.d(str, this.f27006f.f27013g);
+        this.f27005e.onViewDataChange(this.f27006f);
+    }
+
+    public final boolean n(d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, dVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, dVar)) == null) {
             if (dVar == null) {
                 return false;
             }
+            boolean z = this.f27005e.tabType == 100;
+            ArrayList arrayList = new ArrayList();
             if (this.l) {
                 this.m.clear();
-                Iterator<n> it = dVar.f26993g.iterator();
+                Iterator<n> it = dVar.f27013g.iterator();
                 while (it.hasNext()) {
                     n next = it.next();
                     if (next instanceof d2) {
-                        String s1 = ((d2) next).s1();
+                        d2 d2Var = (d2) next;
+                        String s1 = d2Var.s1();
                         if (!this.m.contains(s1)) {
                             this.m.add(s1);
                         }
+                        if (z && d2Var.q1() != null && !TextUtils.isEmpty(d2Var.q1().video_url)) {
+                            VideoItemData videoItemData = new VideoItemData();
+                            videoItemData.buildWithThreadData(d2Var);
+                            arrayList.add(videoItemData);
+                        }
                     }
+                }
+                if (z && !arrayList.isEmpty()) {
+                    FrsVideoTabPlayActivityConfig.putVideoTabListByFid(((VideoItemData) arrayList.get(0)).forum_id, arrayList);
                 }
                 if (c.a.r0.y0.a.d()) {
                     c.a.r0.y0.a aVar = this.s;
                     if (aVar != null) {
-                        aVar.b(dVar.f26993g, this.l, this.f26985e.getFid());
+                        aVar.b(dVar.f27013g, this.l, this.f27005e.getFid());
                     }
                 } else {
-                    f(dVar.o, dVar.f26993g);
+                    g(dVar.o, dVar.f27013g);
                 }
-                this.f26986f = dVar;
-                dVar.f26993g = s(dVar.f26993g);
+                this.f27006f = dVar;
+                dVar.f27013g = t(dVar.f27013g);
             } else {
-                d dVar2 = this.f26986f;
-                dVar2.f26991e = dVar.f26991e;
-                dVar2.f26992f.putAll(dVar.f26992f);
-                ArrayList<n> arrayList = new ArrayList<>();
-                Iterator<n> it2 = dVar.f26993g.iterator();
+                d dVar2 = this.f27006f;
+                dVar2.f27011e = dVar.f27011e;
+                dVar2.f27012f.putAll(dVar.f27012f);
+                ArrayList<n> arrayList2 = new ArrayList<>();
+                Iterator<n> it2 = dVar.f27013g.iterator();
                 while (it2.hasNext()) {
                     n next2 = it2.next();
                     if (next2 instanceof d2) {
-                        d2 d2Var = (d2) next2;
-                        String s12 = d2Var.s1();
+                        d2 d2Var2 = (d2) next2;
+                        String s12 = d2Var2.s1();
                         if (!this.m.contains(s12)) {
-                            d2Var.J1 = this.f26985e.isBrandForum;
-                            arrayList.add(next2);
+                            d2Var2.K1 = this.f27005e.isBrandForum;
+                            arrayList2.add(d2Var2);
                             this.m.add(s12);
+                            if (z && d2Var2.q1() != null && !TextUtils.isEmpty(d2Var2.q1().video_url)) {
+                                VideoItemData videoItemData2 = new VideoItemData();
+                                videoItemData2.buildWithThreadData(d2Var2);
+                                arrayList.add(videoItemData2);
+                            }
                         }
                     }
+                }
+                if (z && !arrayList.isEmpty()) {
+                    FrsVideoTabPlayActivityConfig.getVideoTabListByFid(((VideoItemData) arrayList.get(0)).forum_id).addAll(arrayList);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921628));
                 }
                 if (c.a.r0.y0.a.d()) {
                     c.a.r0.y0.a aVar2 = this.s;
                     if (aVar2 != null) {
-                        aVar2.b(arrayList, this.l, this.f26985e.getFid());
+                        aVar2.b(arrayList2, this.l, this.f27005e.getFid());
                     }
                 } else {
-                    f(dVar.o, arrayList);
+                    g(dVar.o, arrayList2);
                 }
-                this.f26986f.f26993g.addAll(s(arrayList));
+                this.f27006f.f27013g.addAll(t(arrayList2));
             }
-            this.f26985e.onViewDataChange(this.f26986f);
+            this.f27005e.onViewDataChange(this.f27006f);
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void n(int i2) {
+    public void o(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             this.l = true;
-            if (!this.f26989i) {
-                if (this.f26988h.Q()) {
+            if (!this.f27009i) {
+                if (this.f27008h.Q()) {
                     return;
                 }
                 this.n = 1;
-                FrsCommonTabRequestData frsCommonTabRequestData = this.f26987g;
+                FrsCommonTabRequestData frsCommonTabRequestData = this.f27007g;
                 frsCommonTabRequestData.pn = 1;
                 frsCommonTabRequestData.sortType = i2;
                 long j2 = this.o;
                 if (j2 >= 0) {
                     frsCommonTabRequestData.lastThreadId = j2;
                 }
-                this.f26987g.adExtParams = c();
-                this.f26988h.R();
+                this.f27007g.adExtParams = c();
+                this.f27008h.R();
             } else if (this.k.Q()) {
             } else {
                 if (TbImageHelper.getInstance().isShowBigImage()) {
-                    this.f26990j.qType = 2;
+                    this.f27010j.qType = 2;
                 } else {
-                    this.f26990j.qType = 1;
+                    this.f27010j.qType = 1;
                 }
-                this.f26990j.lastThreadId = 0L;
+                this.f27010j.lastThreadId = 0L;
                 this.k.R();
             }
-        }
-    }
-
-    public void o(c.a.r0.y0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
-            this.s = aVar;
         }
     }
 
@@ -415,53 +446,61 @@ public class c implements NetModel.k {
             } else if (mvcHttpResponsedMessage.getData() instanceof c.a.r0.w0.m1.a) {
                 c.a.r0.w0.m1.a aVar = (c.a.r0.w0.m1.a) mvcHttpResponsedMessage.getData();
                 d dVar2 = new d();
-                ArrayList<n> arrayList = aVar.f27048e;
-                dVar2.f26993g = arrayList;
-                dVar2.f26991e = aVar.f27050g;
-                dVar2.f26992f = aVar.f27049f;
+                ArrayList<n> arrayList = aVar.f27068e;
+                dVar2.f27013g = arrayList;
+                dVar2.f27011e = aVar.f27070g;
+                dVar2.f27012f = aVar.f27069f;
                 if (!ListUtils.isEmpty(arrayList)) {
-                    ArrayList<n> arrayList2 = dVar2.f26993g;
+                    ArrayList<n> arrayList2 = dVar2.f27013g;
                     n nVar = (n) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
                     if (nVar instanceof d2) {
-                        this.f26990j.lastThreadId = c.a.e.e.m.b.g(((d2) nVar).f0(), 0L);
+                        this.f27010j.lastThreadId = c.a.e.e.m.b.g(((d2) nVar).f0(), 0L);
                     }
                 }
                 dVar = dVar2;
             }
         }
-        if (dVar == null || !m(dVar)) {
+        if (dVar == null || !n(dVar)) {
             this.p = mvcHttpResponsedMessage.getError();
             this.q = mvcHttpResponsedMessage.getErrorString();
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.p);
             errorData.setError_msg(this.q);
             if (this.p != 0) {
-                this.f26985e.onServerError(errorData);
+                this.f27005e.onServerError(errorData);
             }
         }
     }
 
-    public void q(long j2) {
+    public void q(c.a.r0.y0.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, aVar) == null) {
+            this.s = aVar;
+        }
+    }
+
+    public void r(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
             this.o = j2;
         }
     }
 
-    public void r(int i2) {
+    public void s(int i2) {
         FrsCommonTabRequestData frsCommonTabRequestData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || (frsCommonTabRequestData = this.f26987g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || (frsCommonTabRequestData = this.f27007g) == null) {
             return;
         }
         frsCommonTabRequestData.tabType = i2;
     }
 
-    public final ArrayList<n> s(ArrayList<n> arrayList) {
+    public final ArrayList<n> t(ArrayList<n> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, arrayList)) == null) {
-            boolean z = this.f26985e.tabType == 16;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, arrayList)) == null) {
+            boolean z = this.f27005e.tabType == 16;
+            boolean z2 = this.f27005e.tabType == 100;
             ArrayList<n> arrayList2 = new ArrayList<>();
             Iterator<n> it = arrayList.iterator();
             int i2 = 0;
@@ -477,26 +516,26 @@ public class c implements NetModel.k {
                     d2 d2Var = (d2) next;
                     c.a.q0.b.f.a.e(d2Var);
                     int[] g0 = d2Var.g0();
-                    if (d2Var.getType() == d2.Z2 && !d2Var.A2()) {
+                    if (d2Var.getType() == d2.a3 && !d2Var.A2()) {
                         c2 c2Var = new c2();
                         c2Var.w = d2Var;
                         c2Var.position = i2;
-                        c2Var.f14122e = true;
+                        c2Var.f14119e = true;
                         c2Var.setSupportType(BaseCardInfo.SupportType.TOP);
                         arrayList2.add(c2Var);
                         c2 c2Var2 = new c2();
                         c2Var2.w = d2Var;
                         c2Var2.position = i2;
                         if (d2Var.N1()) {
-                            c2Var2.f14127j = true;
+                            c2Var2.f14124j = true;
                         } else if (d2Var.d3() == 1) {
-                            c2Var2.f14125h = true;
+                            c2Var2.f14122h = true;
                             c2Var2.x = g0[0];
                             c2Var2.y = g0[1];
                         } else if (d2Var.d3() >= 2) {
-                            c2Var2.f14126i = true;
+                            c2Var2.f14123i = true;
                         } else {
-                            c2Var2.f14123f = true;
+                            c2Var2.f14120f = true;
                         }
                         c2Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                         arrayList2.add(c2Var2);
@@ -549,11 +588,12 @@ public class c implements NetModel.k {
                         c2Var8.position = i2;
                         c2Var8.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                         arrayList2.add(c2Var8);
-                    } else if ((d2Var.getType() == d2.w3 || d2Var.getType() == d2.P3) && !d2Var.A2()) {
+                    } else if ((d2Var.getType() == d2.x3 || d2Var.getType() == d2.Q3) && !d2Var.A2()) {
                         c2 c2Var9 = new c2();
                         c2Var9.w = d2Var;
                         c2Var9.position = i2;
-                        c2Var9.f14122e = true;
+                        c2Var9.f14119e = true;
+                        d2Var.n = z2;
                         c2Var9.setSupportType(BaseCardInfo.SupportType.TOP);
                         arrayList2.add(c2Var9);
                         c2 c2Var10 = new c2();
@@ -564,6 +604,7 @@ public class c implements NetModel.k {
                         } else {
                             c2Var10.m = true;
                         }
+                        c2Var10.w.n = z2;
                         c2Var10.setSupportType(BaseCardInfo.SupportType.CONTENT);
                         arrayList2.add(c2Var10);
                         if (d2Var.I0() != null) {
@@ -571,6 +612,7 @@ public class c implements NetModel.k {
                             c2Var11.s = true;
                             c2Var11.w = d2Var;
                             c2Var11.position = i2;
+                            d2Var.n = z2;
                             c2Var11.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             arrayList2.add(c2Var11);
                         }
@@ -579,6 +621,7 @@ public class c implements NetModel.k {
                             c2Var12.p = true;
                             c2Var12.w = d2Var;
                             c2Var12.position = i2;
+                            d2Var.n = z2;
                             c2Var12.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             arrayList2.add(c2Var12);
                         }
@@ -587,6 +630,7 @@ public class c implements NetModel.k {
                             c2Var13.l = true;
                             c2Var13.w = d2Var;
                             c2Var13.position = i2;
+                            d2Var.n = z2;
                             c2Var13.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             arrayList2.add(c2Var13);
                         }
@@ -594,6 +638,7 @@ public class c implements NetModel.k {
                             c2 c2Var14 = new c2();
                             c2Var14.r = true;
                             c2Var14.w = d2Var;
+                            d2Var.n = z2;
                             c2Var14.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             arrayList2.add(c2Var14);
                         }
@@ -601,19 +646,22 @@ public class c implements NetModel.k {
                         c2Var15.k = true;
                         c2Var15.w = d2Var;
                         c2Var15.position = i2;
+                        d2Var.n = z2;
                         c2Var15.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                         arrayList2.add(c2Var15);
                     } else if (d2Var.q1() != null && !d2Var.f2() && d2Var.Z1()) {
                         c2 c2Var16 = new c2();
                         c2Var16.w = d2Var;
                         c2Var16.position = i2;
-                        c2Var16.f14122e = true;
+                        c2Var16.f14119e = true;
+                        d2Var.n = z2;
                         c2Var16.setSupportType(BaseCardInfo.SupportType.TOP);
                         arrayList2.add(c2Var16);
                         c2 c2Var17 = new c2();
                         c2Var17.w = d2Var;
                         c2Var17.position = i2;
                         c2Var17.o = true;
+                        d2Var.n = z2;
                         c2Var17.setSupportType(BaseCardInfo.SupportType.CONTENT);
                         arrayList2.add(c2Var17);
                         if (d2Var.I0() != null) {
@@ -621,6 +669,7 @@ public class c implements NetModel.k {
                             c2Var18.s = true;
                             c2Var18.w = d2Var;
                             c2Var18.position = i2;
+                            d2Var.n = z2;
                             c2Var18.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             arrayList2.add(c2Var18);
                         }
@@ -629,6 +678,7 @@ public class c implements NetModel.k {
                             c2Var19.p = true;
                             c2Var19.w = d2Var;
                             c2Var19.position = i2;
+                            d2Var.n = z2;
                             c2Var19.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             arrayList2.add(c2Var19);
                         }
@@ -637,6 +687,7 @@ public class c implements NetModel.k {
                             c2Var20.l = true;
                             c2Var20.w = d2Var;
                             c2Var20.position = i2;
+                            d2Var.n = z2;
                             c2Var20.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             arrayList2.add(c2Var20);
                         }
@@ -644,6 +695,7 @@ public class c implements NetModel.k {
                             c2 c2Var21 = new c2();
                             c2Var21.r = true;
                             c2Var21.w = d2Var;
+                            d2Var.n = z2;
                             c2Var21.setSupportType(BaseCardInfo.SupportType.EXTEND);
                             arrayList2.add(c2Var21);
                         }
@@ -651,9 +703,10 @@ public class c implements NetModel.k {
                         c2Var22.k = true;
                         c2Var22.w = d2Var;
                         c2Var22.position = i2;
+                        d2Var.n = z2;
                         c2Var22.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                         arrayList2.add(c2Var22);
-                    } else if (d2Var.getType() == d2.o3 && d2Var.M1()) {
+                    } else if (d2Var.getType() == d2.p3 && d2Var.M1()) {
                         d2Var.position = i2;
                         arrayList2.add(d2Var);
                     } else {

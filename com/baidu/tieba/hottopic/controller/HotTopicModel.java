@@ -27,13 +27,13 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f52686e;
+    public BaseActivity<?> f52799e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f52687f;
+    public b f52800f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.e.c.g.a f52688g;
+    public c.a.e.c.g.a f52801g;
 
     /* loaded from: classes7.dex */
     public class a extends c.a.e.c.g.a {
@@ -41,7 +41,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicModel f52689a;
+        public final /* synthetic */ HotTopicModel f52802a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotTopicModel hotTopicModel, int i2, int i3) {
@@ -62,7 +62,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                     return;
                 }
             }
-            this.f52689a = hotTopicModel;
+            this.f52802a = hotTopicModel;
         }
 
         @Override // c.a.e.c.g.a
@@ -71,15 +71,15 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            if (((responsedMessage instanceof ResponseHttpHotTopicMessage) || (responsedMessage instanceof ResponseSocketHotTopicMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f52689a.getUniqueId()) {
+            if (((responsedMessage instanceof ResponseHttpHotTopicMessage) || (responsedMessage instanceof ResponseSocketHotTopicMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f52802a.getUniqueId()) {
                 if (!responsedMessage.hasError()) {
-                    this.f52689a.A(responsedMessage);
+                    this.f52802a.A(responsedMessage);
                     return;
                 }
                 if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                    this.f52689a.f52686e.showToast(responsedMessage.getErrorString());
+                    this.f52802a.f52799e.showToast(responsedMessage.getErrorString());
                 }
-                this.f52689a.f52687f.hotTopicDataCallback(false, null);
+                this.f52802a.f52800f.hotTopicDataCallback(false, null);
             }
         }
     }
@@ -107,10 +107,10 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                 return;
             }
         }
-        this.f52687f = null;
+        this.f52800f = null;
         a aVar = new a(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
-        this.f52688g = aVar;
-        this.f52686e = baseActivity;
+        this.f52801g = aVar;
+        this.f52799e = baseActivity;
         registerListener(aVar);
     }
 
@@ -135,7 +135,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
             eVar.s = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
         }
-        this.f52687f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
+        this.f52800f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
     }
 
     public final void B(long j2, String str, int i2, long j3, String str2, String str3, String str4, long j4) {
@@ -171,7 +171,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public void C(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f52687f = bVar;
+            this.f52800f = bVar;
         }
     }
 

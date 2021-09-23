@@ -12,22 +12,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6336a;
+    public int f6344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6337b;
+    public String f6345b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f6338c;
+    public Map<String, String> f6346c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6339d;
+    public String f6347d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f6340e;
+    public String f6348e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f6341f;
+    public InputStream f6349f;
 
     public b(int i2, String str, InputStream inputStream, Map<String, String> map, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -44,11 +44,11 @@ public class b {
                 return;
             }
         }
-        this.f6336a = i2;
-        this.f6337b = str;
-        this.f6341f = inputStream;
-        this.f6338c = map;
-        this.f6339d = str2;
-        this.f6340e = str3;
+        this.f6344a = i2;
+        this.f6345b = str;
+        this.f6349f = inputStream;
+        this.f6346c = map;
+        this.f6347d = str2;
+        this.f6348e = str3;
     }
 }

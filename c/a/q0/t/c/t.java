@@ -50,34 +50,34 @@ public class t {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BannerData f14735a;
+    public final BannerData f14737a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14736b;
+    public String f14738b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14737c;
+    public String f14739c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14738d;
+    public String f14740d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14739e;
+    public String f14741e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14740f;
+    public boolean f14742f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14741g;
+    public boolean f14743g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14742h;
+    public int f14744h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f14743i;
+    public long f14745i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f14744j;
+    public int f14746j;
     public HashMap<String, Integer> k;
     public c.a.q0.s.q.s l;
     public boolean m;
@@ -98,18 +98,18 @@ public class t {
                 return;
             }
         }
-        this.f14740f = true;
-        this.f14741g = true;
-        this.f14742h = 100000;
-        this.f14744j = 100;
+        this.f14742f = true;
+        this.f14743g = true;
+        this.f14744h = 100000;
+        this.f14746j = 100;
         this.k = null;
         this.m = false;
         this.o = 1;
-        this.f14736b = null;
-        this.f14737c = null;
-        this.f14738d = null;
-        this.f14739e = null;
-        this.f14735a = new BannerData();
+        this.f14738b = null;
+        this.f14739c = null;
+        this.f14740d = null;
+        this.f14741e = null;
+        this.f14737a = new BannerData();
         this.k = new HashMap<>();
         this.l = new c.a.q0.s.q.s();
         this.n = new j0();
@@ -138,19 +138,19 @@ public class t {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14744j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14746j : invokeV.intValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14743i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14745i : invokeV.longValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14742h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14744h : invokeV.intValue;
     }
 
     public j0 e() {
@@ -166,14 +166,14 @@ public class t {
             return;
         }
         try {
-            this.f14735a.parserJson(jSONObject.optJSONObject("banner"));
-            this.f14736b = jSONObject.optString("big_head_image_host");
-            this.f14737c = jSONObject.optString("small_head_image_host");
-            this.f14738d = jSONObject.optString("yijianfankui_fname");
-            this.f14739e = jSONObject.optString("yijianfankui_fid");
-            this.f14744j = jSONObject.optInt("crash_limit_count", 100);
+            this.f14737a.parserJson(jSONObject.optJSONObject("banner"));
+            this.f14738b = jSONObject.optString("big_head_image_host");
+            this.f14739c = jSONObject.optString("small_head_image_host");
+            this.f14740d = jSONObject.optString("yijianfankui_fname");
+            this.f14741e = jSONObject.optString("yijianfankui_fid");
+            this.f14746j = jSONObject.optInt("crash_limit_count", 100);
             int optInt = jSONObject.optInt("app_recommend", -1);
-            this.f14743i = jSONObject.optLong("vip_new_task", 0L);
+            this.f14745i = jSONObject.optLong("vip_new_task", 0L);
             this.n.b(jSONObject.optJSONObject("webview_checkurl"));
             JSONObject optJSONObject = jSONObject.optJSONObject("log_together");
             if (optJSONObject != null) {
@@ -181,7 +181,7 @@ public class t {
                 c.a.q0.v.a.k().v(optJSONObject.optInt("items_num", 10));
                 c.a.q0.v.a.k().w(1 == optJSONObject.optInt("ad_show", 1));
             }
-            TbadkCoreApplication.getInst().setYijianfankuiFname(this.f14738d);
+            TbadkCoreApplication.getInst().setYijianfankuiFname(this.f14740d);
             if (this.l == null) {
                 this.l = new c.a.q0.s.q.s();
             }
@@ -317,14 +317,14 @@ public class t {
             }
             c.a.q0.s.d0.b.j().v("force_update_auto_play_video", optInt2);
             CustomPlayerSwitch.setSwitchStatus(SwitchManager.getInstance().findType(CustomPlayerSwitch.CUSTOM_PLAYER_SWITCH));
-            this.f14741g = jSONObject.optInt("is_pushservice_open", 1) == 1;
-            TbadkCoreApplication.getInst().setIsPushServiceOpen(this.f14741g);
-            if (!this.f14741g) {
+            this.f14743g = jSONObject.optInt("is_pushservice_open", 1) == 1;
+            TbadkCoreApplication.getInst().setIsPushServiceOpen(this.f14743g);
+            if (!this.f14743g) {
                 UtilHelper.stopPushService(TbadkCoreApplication.getInst().getApp().getApplicationContext());
             }
             TbadkCoreApplication.getInst().setFeatureCrashAutoCloseLimit(jSONObject.optInt("feature_crash_auto_close_limit", 3));
-            this.f14740f = jSONObject.optInt("gpu_open", 1) == 1;
-            TbadkCoreApplication.getInst().setGpuOpen(this.f14740f);
+            this.f14742f = jSONObject.optInt("gpu_open", 1) == 1;
+            TbadkCoreApplication.getInst().setGpuOpen(this.f14742f);
             TbadkCoreApplication.getInst().setHttpClientOpen(jSONObject.optInt("http_client", 1) == 1);
             TbadkCoreApplication.getInst().setHttpAutoSwitch(jSONObject.optInt("http_client_auto", 1) == 1);
             boolean z = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
@@ -342,7 +342,7 @@ public class t {
             } else if (optInt == 0) {
                 TbadkCoreApplication.getInst().setIsAppOn(false);
             }
-            this.f14742h = jSONObject.optInt("perform_sample_param", 100000);
+            this.f14744h = jSONObject.optInt("perform_sample_param", 100000);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("keepalive");
             if (optJSONObject3 != null) {
                 JSONObject optJSONObject4 = optJSONObject3.optJSONObject("wifi");
@@ -380,9 +380,9 @@ public class t {
                 TbSingleton.getInstance().setAnimAverageFpsThreshold(optInt5);
             }
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008017));
-            TbConfig.setBigPhotoAdress(this.f14736b);
-            TbConfig.setSmallPhotoAdress(this.f14737c);
-            TbConfig.setFeedBack(this.f14738d, this.f14739e);
+            TbConfig.setBigPhotoAdress(this.f14738b);
+            TbConfig.setSmallPhotoAdress(this.f14739c);
+            TbConfig.setFeedBack(this.f14740d, this.f14741e);
             PreLoadVideoSwitchManager.getInstance().setSyncSwitchJson(jSONObject.optString("android_preload_conf"));
             JSONObject optJSONObject10 = jSONObject.optJSONObject("duxiaoman_url");
             if (optJSONObject10 != null) {

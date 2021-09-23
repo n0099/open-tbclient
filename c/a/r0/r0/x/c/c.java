@@ -17,7 +17,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<c.a.q0.s.w.b.a> f24411a;
+    public List<c.a.q0.s.w.b.a> f24427a;
 
     /* loaded from: classes3.dex */
     public class a implements c.a.q0.s.w.b.a {
@@ -25,10 +25,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f24412a;
+        public String f24428a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24413b;
+        public String f24429b;
 
         public a(c cVar, d2 d2Var, String str, String str2, String str3, String str4, int i2) {
             Interceptable interceptable = $ic;
@@ -45,22 +45,22 @@ public class c {
                     return;
                 }
             }
-            this.f24412a = str;
-            this.f24413b = str2;
+            this.f24428a = str;
+            this.f24429b = str2;
         }
 
         @Override // c.a.q0.s.w.b.a
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24412a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24428a : (String) invokeV.objValue;
         }
 
         @Override // c.a.q0.s.w.b.a
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24413b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24429b : (String) invokeV.objValue;
         }
     }
 
@@ -79,14 +79,14 @@ public class c {
                 return;
             }
         }
-        this.f24411a = new ArrayList();
+        this.f24427a = new ArrayList();
         if (list == null || ListUtils.isEmpty(list)) {
             return;
         }
         for (int i4 = 0; i4 < list.size(); i4++) {
             EmotionCenterData.BannerData bannerData = list.get(i4);
             if (bannerData != null) {
-                this.f24411a.add(new a(this, null, bannerData.url, bannerData.action, null, null, 0));
+                this.f24427a.add(new a(this, null, bannerData.url, bannerData.action, null, null, 0));
             }
         }
     }
@@ -94,6 +94,6 @@ public class c {
     public List<c.a.q0.s.w.b.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24411a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24427a : (List) invokeV.objValue;
     }
 }

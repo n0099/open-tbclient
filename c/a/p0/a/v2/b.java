@@ -20,7 +20,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9292a;
+    public static final boolean f9300a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class b {
                 return;
             }
         }
-        f9292a = c.a.p0.a.k.f7077a;
+        f9300a = c.a.p0.a.k.f7085a;
     }
 
     public static void a(@NonNull BdSailorWebView bdSailorWebView) {
@@ -78,7 +78,7 @@ public class b {
             declaredMethod2.setAccessible(true);
             declaredMethod2.invoke(obj2, drawable2);
         } catch (Throwable th) {
-            if (f9292a) {
+            if (f9300a) {
                 th.printStackTrace();
             }
         }

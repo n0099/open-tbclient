@@ -65,18 +65,18 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserAlbumActivity f50541e;
+        public final /* synthetic */ UserAlbumActivity f50654e;
 
         /* renamed from: com.baidu.tieba.faceshop.UserAlbumActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1753a implements c.a.q0.f.c {
+        public class C1756a implements c.a.q0.f.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f50542a;
+            public final /* synthetic */ a f50655a;
 
-            public C1753a(a aVar) {
+            public C1756a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +91,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                         return;
                     }
                 }
-                this.f50542a = aVar;
+                this.f50655a = aVar;
             }
 
             @Override // c.a.q0.f.c
@@ -100,14 +100,14 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
                     return;
                 }
-                if (this.f50542a.f50541e.mAddData != null) {
-                    list.add(0, this.f50542a.f50541e.mAddData);
+                if (this.f50655a.f50654e.mAddData != null) {
+                    list.add(0, this.f50655a.f50654e.mAddData);
                 }
-                if (this.f50542a.f50541e.mUserCollectAlbumListPopupWindow.isShowing()) {
+                if (this.f50655a.f50654e.mUserCollectAlbumListPopupWindow.isShowing()) {
                     return;
                 }
-                this.f50542a.f50541e.mUserCollectAlbumListPopupWindow.i(list, this.f50542a.f50541e.mAlbumId);
-                this.f50542a.f50541e.mUserCollectAlbumListPopupWindow.l(this.f50542a.f50541e.mNavigationBar);
+                this.f50655a.f50654e.mUserCollectAlbumListPopupWindow.i(list, this.f50655a.f50654e.mAlbumId);
+                this.f50655a.f50654e.mUserCollectAlbumListPopupWindow.l(this.f50655a.f50654e.mNavigationBar);
             }
 
             @Override // c.a.q0.f.c
@@ -133,7 +133,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                     return;
                 }
             }
-            this.f50541e = userAlbumActivity;
+            this.f50654e = userAlbumActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -142,8 +142,8 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_albumarrow_up);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                this.f50541e.mSelectAlbumTv.setCompoundDrawables(null, null, drawable, null);
-                this.f50541e.mLoadModel.g(new C1753a(this));
+                this.f50654e.mSelectAlbumTv.setCompoundDrawables(null, null, drawable, null);
+                this.f50654e.mLoadModel.g(new C1756a(this));
             }
         }
     }
@@ -154,7 +154,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserAlbumActivity f50543e;
+        public final /* synthetic */ UserAlbumActivity f50656e;
 
         public b(UserAlbumActivity userAlbumActivity) {
             Interceptable interceptable = $ic;
@@ -171,14 +171,14 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                     return;
                 }
             }
-            this.f50543e = userAlbumActivity;
+            this.f50656e = userAlbumActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f50543e.finish();
+                this.f50656e.finish();
             }
         }
     }
@@ -189,7 +189,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserAlbumActivity f50544e;
+        public final /* synthetic */ UserAlbumActivity f50657e;
 
         public c(UserAlbumActivity userAlbumActivity) {
             Interceptable interceptable = $ic;
@@ -206,23 +206,23 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                     return;
                 }
             }
-            this.f50544e = userAlbumActivity;
+            this.f50657e = userAlbumActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UserAlbumActivity userAlbumActivity = this.f50544e;
+                UserAlbumActivity userAlbumActivity = this.f50657e;
                 userAlbumActivity.mChooseList = userAlbumActivity.mAdapter.f();
                 ArrayList arrayList = new ArrayList();
-                for (Map.Entry entry : this.f50544e.mChooseList.entrySet()) {
+                for (Map.Entry entry : this.f50657e.mChooseList.entrySet()) {
                     arrayList.add(entry.getValue());
                 }
                 Intent intent = new Intent();
                 intent.putExtra("selected_album_list", arrayList);
-                this.f50544e.setResult(-1, intent);
-                this.f50544e.finish();
+                this.f50657e.setResult(-1, intent);
+                this.f50657e.finish();
             }
         }
     }
@@ -233,7 +233,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserAlbumActivity f50545a;
+        public final /* synthetic */ UserAlbumActivity f50658a;
 
         public d(UserAlbumActivity userAlbumActivity) {
             Interceptable interceptable = $ic;
@@ -250,7 +250,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                     return;
                 }
             }
-            this.f50545a = userAlbumActivity;
+            this.f50658a = userAlbumActivity;
         }
 
         @Override // c.a.q0.f.d
@@ -258,22 +258,22 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, str) == null) {
                 if (!ListUtils.isEmpty(list2)) {
-                    this.f50545a.mGridView.setVisibility(0);
-                    this.f50545a.mNoDataView.setVisibility(8);
-                    this.f50545a.mAllImageList.clear();
-                    this.f50545a.mAllImageList.addAll(list2);
-                    this.f50545a.mImageList.addAll(list2);
-                    this.f50545a.mAddData = new c.a.q0.f.a();
-                    this.f50545a.mAddData.h(c.a.q0.f.a.f13033f);
-                    c.a.q0.f.a aVar = this.f50545a.mAddData;
+                    this.f50658a.mGridView.setVisibility(0);
+                    this.f50658a.mNoDataView.setVisibility(8);
+                    this.f50658a.mAllImageList.clear();
+                    this.f50658a.mAllImageList.addAll(list2);
+                    this.f50658a.mImageList.addAll(list2);
+                    this.f50658a.mAddData = new c.a.q0.f.a();
+                    this.f50658a.mAddData.h(c.a.q0.f.a.f13050f);
+                    c.a.q0.f.a aVar = this.f50658a.mAddData;
                     aVar.i(list2.size() + "");
-                    this.f50545a.mAddData.l(this.f50545a.getPageContext().getString(R.string.album_all));
-                    this.f50545a.mAddData.k(list2.get(0));
-                    this.f50545a.mAdapter.notifyDataSetChanged();
+                    this.f50658a.mAddData.l(this.f50658a.getPageContext().getString(R.string.album_all));
+                    this.f50658a.mAddData.k(list2.get(0));
+                    this.f50658a.mAdapter.notifyDataSetChanged();
                     return;
                 }
-                this.f50545a.mGridView.setVisibility(8);
-                this.f50545a.mNoDataView.setVisibility(0);
+                this.f50658a.mGridView.setVisibility(8);
+                this.f50658a.mNoDataView.setVisibility(0);
             }
         }
 
@@ -291,7 +291,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserAlbumActivity f50546e;
+        public final /* synthetic */ UserAlbumActivity f50659e;
 
         public e(UserAlbumActivity userAlbumActivity) {
             Interceptable interceptable = $ic;
@@ -308,14 +308,14 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                     return;
                 }
             }
-            this.f50546e = userAlbumActivity;
+            this.f50659e = userAlbumActivity;
         }
 
         @Override // c.a.q0.c0.b
         public void imageLoaded(c.a.e.l.d.a aVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f50546e.mGridView.findViewWithTag(str)) == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f50659e.mGridView.findViewWithTag(str)) == null || aVar == null) {
                 return;
             }
             tbImageView.invalidate();
@@ -328,7 +328,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserAlbumActivity f50547a;
+        public final /* synthetic */ UserAlbumActivity f50660a;
 
         public f(UserAlbumActivity userAlbumActivity) {
             Interceptable interceptable = $ic;
@@ -345,18 +345,18 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                     return;
                 }
             }
-            this.f50547a = userAlbumActivity;
+            this.f50660a = userAlbumActivity;
         }
 
         @Override // c.a.q0.f.d
         public void a(List<c.a.q0.f.a> list, List<ImageFileInfo> list2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, str) == null) {
-                this.f50547a.mImageList.clear();
+                this.f50660a.mImageList.clear();
                 if (!ListUtils.isEmpty(list2)) {
-                    this.f50547a.mImageList.addAll(list2);
+                    this.f50660a.mImageList.addAll(list2);
                 }
-                this.f50547a.mAdapter.notifyDataSetChanged();
+                this.f50660a.mAdapter.notifyDataSetChanged();
             }
         }
 
@@ -399,7 +399,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         this.mImageList = new ArrayList();
         this.mAllImageList = new ArrayList();
         this.mChooseList = new LinkedHashMap<>();
-        this.mAlbumId = c.a.q0.f.a.f13033f;
+        this.mAlbumId = c.a.q0.f.a.f13050f;
     }
 
     private void initSetting() {
@@ -452,7 +452,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     private void loadAlbumData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            this.mLoadModel.i(c.a.q0.f.a.f13033f, new d(this));
+            this.mLoadModel.i(c.a.q0.f.a.f13050f, new d(this));
         }
     }
 

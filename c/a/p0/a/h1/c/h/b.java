@@ -18,16 +18,16 @@ public class b implements c.a.p0.a.l1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f6529e;
+    public String f6537e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6530f;
+    public String f6538f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f6531g;
+    public boolean f6539g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f6532h;
+    public g f6540h;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class b implements c.a.p0.a.l1.a {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public b() {
@@ -58,8 +58,8 @@ public class b implements c.a.p0.a.l1.a {
                 return;
             }
         }
-        this.f6530f = "";
-        this.f6531g = false;
+        this.f6538f = "";
+        this.f6539g = false;
     }
 
     @Override // c.a.p0.a.l1.a
@@ -67,15 +67,15 @@ public class b implements c.a.p0.a.l1.a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("position") && jSONObject.has("iconPath")) {
             String optString = jSONObject.optString("controlId");
-            this.f6529e = optString;
+            this.f6537e = optString;
             if (TextUtils.isEmpty(optString)) {
-                this.f6529e = jSONObject.optString("id");
+                this.f6537e = jSONObject.optString("id");
             }
             g gVar = new g();
-            this.f6532h = gVar;
+            this.f6540h = gVar;
             gVar.a(jSONObject.optJSONObject("position"));
-            this.f6530f = jSONObject.optString("iconPath");
-            this.f6531g = jSONObject.optBoolean("clickable");
+            this.f6538f = jSONObject.optString("iconPath");
+            this.f6539g = jSONObject.optBoolean("clickable");
         }
     }
 
@@ -84,8 +84,8 @@ public class b implements c.a.p0.a.l1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            g gVar = this.f6532h;
-            return (gVar == null || !gVar.isValid() || TextUtils.isEmpty(this.f6530f)) ? false : true;
+            g gVar = this.f6540h;
+            return (gVar == null || !gVar.isValid() || TextUtils.isEmpty(this.f6538f)) ? false : true;
         }
         return invokeV.booleanValue;
     }

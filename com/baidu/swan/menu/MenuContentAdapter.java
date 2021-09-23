@@ -26,16 +26,16 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<o> f47182a;
+    public List<o> f47284a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<o> f47183b;
+    public List<o> f47285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f47184c;
+    public int f47286c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f47185d;
+    public Context f47287d;
 
     /* loaded from: classes6.dex */
     public static class a extends RecyclerView.ViewHolder {
@@ -43,10 +43,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public SwanAppMenuItemView f47186a;
+        public SwanAppMenuItemView f47288a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SwanAppMenuItemView f47187b;
+        public SwanAppMenuItemView f47289b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(View view) {
@@ -66,8 +66,8 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.f47186a = (SwanAppMenuItemView) view.findViewById(i.first_line_menu_item_view);
-            this.f47187b = (SwanAppMenuItemView) view.findViewById(i.second_line_menu_item_view);
+            this.f47288a = (SwanAppMenuItemView) view.findViewById(i.first_line_menu_item_view);
+            this.f47289b = (SwanAppMenuItemView) view.findViewById(i.second_line_menu_item_view);
         }
     }
 
@@ -86,22 +86,22 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                 return;
             }
         }
-        this.f47182a = new ArrayList();
-        this.f47183b = new ArrayList();
-        this.f47185d = context;
+        this.f47284a = new ArrayList();
+        this.f47285b = new ArrayList();
+        this.f47287d = context;
     }
 
     public final boolean a(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? z || this.f47182a.size() > 5 || this.f47183b.size() > 5 : invokeZ.booleanValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? z || this.f47284a.size() > 5 || this.f47285b.size() > 5 : invokeZ.booleanValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Math.max(this.f47182a.size(), this.f47183b.size()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Math.max(this.f47284a.size(), this.f47285b.size()) : invokeV.intValue;
     }
 
     public void updateData(List<List<o>> list, boolean z, int i2) {
@@ -110,18 +110,18 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         List<o> list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            this.f47182a.clear();
-            this.f47183b.clear();
+            this.f47284a.clear();
+            this.f47285b.clear();
             if (list == null) {
                 return;
             }
             if (list.size() > 0 && (list3 = list.get(0)) != null) {
-                this.f47182a.addAll(list3);
+                this.f47284a.addAll(list3);
             }
             if (list.size() > 1 && (list2 = list.get(1)) != null) {
-                this.f47183b.addAll(list2);
+                this.f47285b.addAll(list2);
             }
-            DisplayMetrics displayMetrics = this.f47185d.getResources().getDisplayMetrics();
+            DisplayMetrics displayMetrics = this.f47287d.getResources().getDisplayMetrics();
             if (i2 == 0) {
                 max = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
             } else {
@@ -129,12 +129,12 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
             }
             float f2 = a(z) ? 5.5f : 5.0f;
             if (e.d()) {
-                Context context = this.f47185d;
+                Context context = this.f47287d;
                 if ((context instanceof Activity) && e.e((Activity) context)) {
-                    max = e.a((Activity) this.f47185d);
+                    max = e.a((Activity) this.f47287d);
                 }
             }
-            this.f47184c = (int) (max / f2);
+            this.f47286c = (int) (max / f2);
             notifyDataSetChanged();
         }
     }
@@ -147,28 +147,28 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
             ViewGroup.LayoutParams layoutParams = aVar.itemView.getLayoutParams();
             if (layoutParams != null) {
                 int i3 = layoutParams.width;
-                int i4 = this.f47184c;
+                int i4 = this.f47286c;
                 if (i3 != i4) {
                     layoutParams.width = i4;
                     aVar.itemView.setLayoutParams(layoutParams);
                 }
             }
-            if (i2 < this.f47182a.size()) {
-                aVar.f47186a.setVisibility(0);
-                aVar.f47186a.h(this.f47182a.get(i2), this.f47184c);
-                aVar.f47186a.setOnClickListener(null);
+            if (i2 < this.f47284a.size()) {
+                aVar.f47288a.setVisibility(0);
+                aVar.f47288a.h(this.f47284a.get(i2), this.f47286c);
+                aVar.f47288a.setOnClickListener(null);
             } else {
-                aVar.f47186a.setVisibility(this.f47182a.size() == 0 ? 8 : 4);
-                aVar.f47186a.setOnClickListener(null);
+                aVar.f47288a.setVisibility(this.f47284a.size() == 0 ? 8 : 4);
+                aVar.f47288a.setOnClickListener(null);
             }
-            if (i2 < this.f47183b.size()) {
-                aVar.f47187b.setVisibility(0);
-                aVar.f47187b.h(this.f47183b.get(i2), this.f47184c);
-                aVar.f47187b.setOnClickListener(null);
+            if (i2 < this.f47285b.size()) {
+                aVar.f47289b.setVisibility(0);
+                aVar.f47289b.h(this.f47285b.get(i2), this.f47286c);
+                aVar.f47289b.setOnClickListener(null);
                 return;
             }
-            aVar.f47187b.setVisibility(this.f47183b.size() != 0 ? 4 : 8);
-            aVar.f47187b.setOnClickListener(null);
+            aVar.f47289b.setVisibility(this.f47285b.size() != 0 ? 4 : 8);
+            aVar.f47289b.setOnClickListener(null);
         }
     }
 
@@ -178,12 +178,12 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) {
-            View inflate = LayoutInflater.from(this.f47185d).inflate(j.swan_app_menu_item_layout, viewGroup, false);
+            View inflate = LayoutInflater.from(this.f47287d).inflate(j.swan_app_menu_item_layout, viewGroup, false);
             ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(this.f47184c, -2);
+                layoutParams = new ViewGroup.LayoutParams(this.f47286c, -2);
             } else {
-                layoutParams.width = this.f47184c;
+                layoutParams.width = this.f47286c;
             }
             inflate.setLayoutParams(layoutParams);
             return new a(inflate);

@@ -15,34 +15,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f17064a;
+    public String f17074a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f17065b;
+    public long f17075b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17066c;
+    public int f17076c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f17067d;
+    public long f17077d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f17068e;
+    public long f17078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f17069f;
+    public String f17079f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f17070g;
+    public long f17080g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17071h;
+    public String f17081h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f17072i;
+    public String f17082i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f17073j;
+    public String f17083j;
     public String k;
     public String l;
     public int m;
@@ -65,25 +65,25 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17073j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17083j : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17071h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17081h : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17072i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17082i : (String) invokeV.objValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17067d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17077d : invokeV.longValue;
     }
 
     public int e() {
@@ -95,19 +95,19 @@ public class a {
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17068e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17078e : invokeV.longValue;
     }
 
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17070g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17080g : invokeV.longValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17064a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f17074a : (String) invokeV.objValue;
     }
 
     public double i() {
@@ -125,19 +125,19 @@ public class a {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f17066c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f17076c : invokeV.intValue;
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f17069f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f17079f : (String) invokeV.objValue;
     }
 
     public long m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f17065b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f17075b : invokeV.longValue;
     }
 
     public void n(JSONObject jSONObject) {
@@ -145,20 +145,20 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f17064a = jSONObject.optString("order_id");
+        this.f17074a = jSONObject.optString("order_id");
         jSONObject.optLong("scene_id");
-        this.f17065b = jSONObject.optLong("scores");
-        this.f17066c = jSONObject.optInt("status");
-        this.f17067d = jSONObject.optLong("create_time");
-        this.f17068e = jSONObject.optLong("finish_time");
-        this.f17069f = jSONObject.optString("title");
-        this.f17070g = jSONObject.optLong("money");
+        this.f17075b = jSONObject.optLong("scores");
+        this.f17076c = jSONObject.optInt("status");
+        this.f17077d = jSONObject.optLong("create_time");
+        this.f17078e = jSONObject.optLong("finish_time");
+        this.f17079f = jSONObject.optString("title");
+        this.f17080g = jSONObject.optLong("money");
         jSONObject.optString("preg_field");
         this.k = jSONObject.optString("user_name");
         this.l = jSONObject.optString("user_nickname");
-        this.f17071h = jSONObject.optString("activity_desc");
-        this.f17072i = jSONObject.optString("activity_url");
-        this.f17073j = jSONObject.optString("button_name");
+        this.f17081h = jSONObject.optString("activity_desc");
+        this.f17082i = jSONObject.optString("activity_url");
+        this.f17083j = jSONObject.optString("button_name");
         this.m = jSONObject.optInt("price_type", 0);
         this.n = jSONObject.optDouble("order_yy_amount", 0.0d);
         jSONObject.optDouble("order_amount", 0.0d);

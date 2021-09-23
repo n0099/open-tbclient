@@ -25,22 +25,22 @@ public class x implements c.a.e.l.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f20330e;
+    public String f20345e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20331f;
+    public int f20346f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20332g;
+    public String f20347g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f20333h;
+    public String f20348h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20334i;
+    public int f20349i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f20335j;
+    public long f20350j;
     public MetaData k;
     public HashMap<String, MetaData> l;
     public boolean m;
@@ -91,16 +91,16 @@ public class x implements c.a.e.l.e.n {
         MetaData metaData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) && alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.live_status.intValue() == 1 && alaLiveInfo.pb_display_type.intValue() == 1) {
-            this.f20330e = alaLiveInfo.user_info.user_name;
-            this.f20332g = alaLiveInfo.description;
+            this.f20345e = alaLiveInfo.user_info.user_name;
+            this.f20347g = alaLiveInfo.description;
             String str = alaLiveInfo.cover_wide;
-            this.f20333h = str;
+            this.f20348h = str;
             if (str == null || TextUtils.isEmpty(str)) {
-                this.f20333h = alaLiveInfo.cover;
+                this.f20348h = alaLiveInfo.cover;
             }
-            this.f20331f = alaLiveInfo.audience_count.intValue();
-            this.f20334i = alaLiveInfo.live_status.intValue();
-            this.f20335j = alaLiveInfo.live_id.longValue();
+            this.f20346f = alaLiveInfo.audience_count.intValue();
+            this.f20349i = alaLiveInfo.live_status.intValue();
+            this.f20350j = alaLiveInfo.live_id.longValue();
             this.m = alaLiveInfo.live_from.intValue() == 1;
             this.n = alaLiveInfo.third_live_type;
             this.o = alaLiveInfo.third_room_id;
@@ -137,12 +137,12 @@ public class x implements c.a.e.l.e.n {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f20330e = null;
-            this.f20331f = 0;
-            this.f20332g = null;
-            this.f20333h = null;
-            this.f20334i = 0;
-            this.f20335j = 0L;
+            this.f20345e = null;
+            this.f20346f = 0;
+            this.f20347g = null;
+            this.f20348h = null;
+            this.f20349i = 0;
+            this.f20350j = 0L;
             this.k = null;
             this.l = null;
             this.m = false;

@@ -35,13 +35,13 @@ public class e extends m {
             a2.b("action", "time_t");
             f(a2, hVar);
             a2.b("ishttp", hVar.s ? "1" : "0");
-            a2.b("issuccess", hVar.f13688b ? "1" : "0");
+            a2.b("issuccess", hVar.f13684b ? "1" : "0");
             a2.b("nettype", k.d().f());
-            a2.b("ct", String.valueOf(hVar.f13691e));
+            a2.b("ct", String.valueOf(hVar.f13687e));
             a2.b("wt", String.valueOf(hVar.p));
-            a2.b("qt", String.valueOf(hVar.f13692f));
-            a2.b("connt", String.valueOf(hVar.f13693g));
-            a2.b("rwt", String.valueOf(hVar.f13694h));
+            a2.b("qt", String.valueOf(hVar.f13688f));
+            a2.b("connt", String.valueOf(hVar.f13689g));
+            a2.b("rwt", String.valueOf(hVar.f13690h));
             a2.b("dect", String.valueOf(hVar.k));
             a2.b("parset", String.valueOf(hVar.l));
             a2.b("rendert", String.valueOf(hVar.o));
@@ -63,7 +63,7 @@ public class e extends m {
             } else {
                 a2.b("seq_id", String.valueOf(hVar.z & 4294967295L));
             }
-            BdStatisticsManager.getInstance().performance(this.f13709a, a2);
+            BdStatisticsManager.getInstance().performance(this.f13705a, a2);
         }
     }
 
@@ -82,7 +82,7 @@ public class e extends m {
             } else {
                 a2.b("pct_type", String.valueOf(101));
             }
-            BdStatisticsManager.getInstance().performance(this.f13709a, a2);
+            BdStatisticsManager.getInstance().performance(this.f13705a, a2);
         }
     }
 
@@ -99,14 +99,14 @@ public class e extends m {
                     if (z) {
                         a2.b("put", String.valueOf(hVar.B));
                     } else {
-                        a2.b(b.InterfaceC1615b.f38079c, String.valueOf(hVar.C));
+                        a2.b(b.c.f38130c, String.valueOf(hVar.C));
                     }
                     a2.b("ishttp", hVar.s ? "1" : "0");
-                    a2.b("issuccess", hVar.f13688b ? "1" : "0");
+                    a2.b("issuccess", hVar.f13684b ? "1" : "0");
                     a2.b("nettype", k.d().f());
-                    a2.b("qt", String.valueOf(hVar.f13692f));
-                    a2.b("connt", String.valueOf(hVar.f13693g));
-                    a2.b("rwt", String.valueOf(hVar.f13694h));
+                    a2.b("qt", String.valueOf(hVar.f13688f));
+                    a2.b("connt", String.valueOf(hVar.f13689g));
+                    a2.b("rwt", String.valueOf(hVar.f13690h));
                     a2.b("dect", String.valueOf(hVar.k));
                     a2.b("parset", String.valueOf(hVar.l));
                     a2.b("rendert", String.valueOf(hVar.o));
@@ -123,7 +123,7 @@ public class e extends m {
                     if (i3 != 0) {
                         a2.c("errcode", Integer.valueOf(i3));
                     }
-                    BdStatisticsManager.getInstance().performance(this.f13709a, a2);
+                    BdStatisticsManager.getInstance().performance(this.f13705a, a2);
                 }
             }
         }

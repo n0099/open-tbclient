@@ -25,10 +25,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9687a;
+    public static final boolean f9695a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f9688b;
+    public static final byte[] f9696b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,8 +44,8 @@ public class b {
                 return;
             }
         }
-        f9687a = k.f7077a;
-        f9688b = new byte[]{31, -117};
+        f9695a = k.f7085a;
+        f9696b = new byte[]{31, -117};
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
@@ -56,7 +56,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, file)) == null) {
             if (bArr != null && bArr.length >= 2 && file != null && file.exists()) {
-                byte[] bArr2 = f9688b;
+                byte[] bArr2 = f9696b;
                 bArr[0] = bArr2[0];
                 bArr[1] = bArr2[1];
                 try {
@@ -73,15 +73,15 @@ public class b {
                             }
                             sb.append(readLine);
                         }
-                        if (f9687a) {
+                        if (f9695a) {
                             String str = "first char:" + sb.charAt(0);
                         }
                         String string = new JSONObject(sb.toString()).getString(c.a.p0.a.x0.a.d.a.l);
-                        boolean z = f9687a;
+                        boolean z = f9695a;
                         byte[] doFinal = b(2).doFinal(Base64.decode(string, 0));
                         File file2 = new File(file, c.a.p0.a.x0.a.d.a.l);
                         new FileOutputStream(file2).write(doFinal);
-                        if (f9687a) {
+                        if (f9695a) {
                             file2.getAbsolutePath();
                         }
                         bufferedReader.close();
@@ -92,7 +92,7 @@ public class b {
                     } finally {
                     }
                 } catch (Exception e2) {
-                    if (f9687a) {
+                    if (f9695a) {
                         e2.printStackTrace();
                     }
                 }
@@ -123,7 +123,7 @@ public class b {
                 messageDigest.update(bArr);
                 return d.S(messageDigest.digest(), "", false);
             } catch (NoSuchAlgorithmException e2) {
-                if (f9687a) {
+                if (f9695a) {
                     e2.printStackTrace();
                     return null;
                 }

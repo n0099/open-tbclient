@@ -10,16 +10,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f20925a;
+    public long f20937a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f20926b;
+    public long f20938b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f20927c;
+    public long f20939c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f20928d;
+    public long f20940d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -34,19 +34,19 @@ public class d {
                 return;
             }
         }
-        this.f20925a = 0L;
-        this.f20926b = 0L;
-        this.f20927c = 0L;
-        this.f20928d = 0L;
+        this.f20937a = 0L;
+        this.f20938b = 0L;
+        this.f20939c = 0L;
+        this.f20940d = 0L;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f20925a = 0L;
-            this.f20926b = 0L;
-            this.f20927c = 0L;
-            this.f20928d = 0L;
+            this.f20937a = 0L;
+            this.f20938b = 0L;
+            this.f20939c = 0L;
+            this.f20940d = 0L;
         }
     }
 }

@@ -34,10 +34,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String[] f10950a;
+        public final /* synthetic */ String[] f10958a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f10951b;
+        public final /* synthetic */ a f10959b;
 
         public C0551a(a aVar, String[] strArr) {
             Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class a {
                     return;
                 }
             }
-            this.f10951b = aVar;
-            this.f10950a = strArr;
+            this.f10959b = aVar;
+            this.f10958a = strArr;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,7 +68,7 @@ public class a {
             }
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(list);
-            ArrayList arrayList2 = new ArrayList(Arrays.asList(this.f10950a));
+            ArrayList arrayList2 = new ArrayList(Arrays.asList(this.f10958a));
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
                 ReservationGameInfo reservationGameInfo = (ReservationGameInfo) it.next();
@@ -78,14 +78,14 @@ public class a {
                     String str2 = reservationGameInfo.download_url;
                     String str3 = reservationGameInfo.package_id;
                     if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
-                        this.f10951b.e(str2, str3, str);
+                        this.f10959b.e(str2, str3, str);
                         c.a.p0.g.h.a.b().c(str);
                         if (arrayList2.remove(str)) {
-                            this.f10951b.f(arrayList2);
+                            this.f10959b.f(arrayList2);
                         }
                     }
                 } else if (arrayList2.remove(str)) {
-                    this.f10951b.f(arrayList2);
+                    this.f10959b.f(arrayList2);
                 }
             }
         }
@@ -103,7 +103,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f10952a;
+        public static final a f10960a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -119,7 +119,7 @@ public class a {
                     return;
                 }
             }
-            f10952a = new a();
+            f10960a = new a();
         }
     }
 
@@ -169,7 +169,7 @@ public class a {
     public static final a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f10952a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f10960a : (a) invokeV.objValue;
     }
 
     public void d() {

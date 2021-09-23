@@ -35,7 +35,7 @@ public class MoreDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreDeskView f48280a;
+        public final /* synthetic */ MoreDeskView f48388a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MoreDeskView moreDeskView, int i2) {
@@ -55,7 +55,7 @@ public class MoreDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f48280a = moreDeskView;
+            this.f48388a = moreDeskView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class MoreDeskView extends CommonTabHost {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
-            this.f48280a.o();
+            this.f48388a.o();
         }
     }
 
@@ -75,7 +75,7 @@ public class MoreDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreDeskView f48281a;
+        public final /* synthetic */ MoreDeskView f48389a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MoreDeskView moreDeskView, int i2) {
@@ -95,7 +95,7 @@ public class MoreDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f48281a = moreDeskView;
+            this.f48389a = moreDeskView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public class MoreDeskView extends CommonTabHost {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                this.f48281a.o();
+                this.f48389a.o();
             }
         }
     }
@@ -191,9 +191,9 @@ public class MoreDeskView extends CommonTabHost {
     public final void n(c.a.q0.x.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            Integer valueOf = Integer.valueOf(this.r.get(aVar.f15080b));
+            Integer valueOf = Integer.valueOf(this.r.get(aVar.f15087b));
             int intValue = valueOf != null ? valueOf.intValue() : 0;
-            Object obj = aVar.f15081c;
+            Object obj = aVar.f15088c;
             if (obj != null) {
                 if (obj instanceof String) {
                     String str = (String) obj;
@@ -201,10 +201,10 @@ public class MoreDeskView extends CommonTabHost {
                         intValue = TextUtils.isEmpty(str.trim()) ? 1 : c.a.e.e.m.b.e(str, 1);
                     }
                 }
-                this.r.put(aVar.f15080b, intValue >= 0 ? intValue : 0);
+                this.r.put(aVar.f15087b, intValue >= 0 ? intValue : 0);
             }
             intValue = 0;
-            this.r.put(aVar.f15080b, intValue >= 0 ? intValue : 0);
+            this.r.put(aVar.f15087b, intValue >= 0 ? intValue : 0);
         }
     }
 
@@ -239,7 +239,7 @@ public class MoreDeskView extends CommonTabHost {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             super.onAction(aVar);
-            if (aVar == null || aVar.f15079a != 2 || aVar.f15080b == 5) {
+            if (aVar == null || aVar.f15086a != 2 || aVar.f15087b == 5) {
                 return;
             }
             n(aVar);

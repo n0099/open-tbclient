@@ -51,7 +51,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLL(65538, null, fVar, list, list2) == null) || fVar == null || ListUtils.getCount(list) <= 0 || ListUtils.getCount(list2) <= 0) {
             return;
         }
-        for (int i2 : c.a.r0.j3.i0.f.f20845f) {
+        for (int i2 : c.a.r0.j3.i0.f.f20857f) {
             c.a.e.l.e.n nVar = (c.a.e.l.e.n) ListUtils.getItem(list, i2);
             if (nVar != null && (indexOf = list2.indexOf(nVar)) >= 0) {
                 fVar.a(i2, indexOf);

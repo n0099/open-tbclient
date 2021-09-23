@@ -10,7 +10,7 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ l f77075a;
+    public final /* synthetic */ l f77394a;
 
     public k(l lVar) {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class k {
                 return;
             }
         }
-        this.f77075a = lVar;
+        this.f77394a = lVar;
     }
 }

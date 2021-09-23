@@ -24,6 +24,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
     public Map<String, String> cashdesk;
     public ChannelInfo channel_info;
     public ProtocolInfo protocol_info;
+    public ProtocolPlatformInfo protocol_platform_info;
     public SpInfo sp_info;
 
     /* loaded from: classes8.dex */
@@ -104,6 +105,8 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         public int card_type;
         public String desc;
         public String easypay_amount;
+        public String front_bank_code;
+        public String type_name;
 
         public CardInfo() {
             Interceptable interceptable = $ic;
@@ -303,6 +306,65 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         public String url;
 
         public ProtocolItem() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class ProtocolPlatformInfo implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final long serialVersionUID = -4330766379370170338L;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String is_agreement_checked;
+        public ProtocolPlatformItem[] list;
+        public String main_title;
+        public String prefix;
+        public String prompt;
+        public String snapshotId;
+        public String sub_title;
+
+        public ProtocolPlatformInfo() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public boolean isProtocolCheckedDefault() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1".equals(this.is_agreement_checked) : invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class ProtocolPlatformItem implements Serializable {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final long serialVersionUID = -1246105472340646254L;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String accessPartyId;
+        public String protocolType;
+        public String templateCode;
+        public String templateName;
+
+        public ProtocolPlatformItem() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

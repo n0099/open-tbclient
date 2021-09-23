@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.sofire.utility.j;
+import com.baidu.sofire.utility.l;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public final class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f45432a = "";
+    public static String f45535a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -73,39 +73,39 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             synchronized (e.class) {
                 try {
-                    if (!TextUtils.isEmpty(f45432a)) {
-                        return f45432a;
+                    if (!TextUtils.isEmpty(f45535a)) {
+                        return f45535a;
                     }
                     com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                     String l = a2.l();
                     if (!TextUtils.isEmpty(l)) {
                         String e2 = c.e(l);
                         if (!TextUtils.isEmpty(e2)) {
-                            f45432a = e2;
+                            f45535a = e2;
                             return e2;
                         }
                     }
                     String k = a2.k();
                     if (!TextUtils.isEmpty(k)) {
-                        a2.c(new String(Base64.encode(g.a("30212102dicudiab".getBytes(), k.getBytes("UTF-8"), true), 10), "UTF-8"));
-                        f45432a = k;
+                        a2.c(new String(Base64.encode(h.a("30212102dicudiab".getBytes(), k.getBytes("UTF-8"), true), 10), "UTF-8"));
+                        f45535a = k;
                         return k;
                     }
                     String g2 = g(context);
-                    String h2 = s.h(context);
+                    String h2 = u.h(context);
                     if (TextUtils.isEmpty(h2)) {
                         h2 = "0";
                     }
                     String str = g2 + "|" + new StringBuffer(h2).reverse().toString();
-                    String str2 = new String(Base64.encode(g.a("30212102dicudiab".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8");
+                    String str2 = new String(Base64.encode(h.a("30212102dicudiab".getBytes(), str.getBytes("UTF-8"), true), 10), "UTF-8");
                     String k2 = a2.k();
                     if (TextUtils.isEmpty(k2)) {
                         a2.b(str);
                         a2.c(str2);
-                        f45432a = str;
+                        f45535a = str;
                         return str;
                     }
-                    f45432a = k2;
+                    f45535a = k2;
                     return k2;
                 } catch (Throwable unused) {
                     c.a();
@@ -122,13 +122,13 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                String string = a2.f45341c.getString("sgud", "");
+                String string = a2.f45430c.getString("sgud", "");
                 if (TextUtils.isEmpty(string)) {
                     if (Build.VERSION.SDK_INT > 25) {
                         return "";
                     }
-                    String h2 = s.h(context);
-                    String i2 = s.i(context);
+                    String h2 = u.h(context);
+                    String i2 = u.i(context);
                     if (TextUtils.isEmpty(h2) && TextUtils.isEmpty(i2)) {
                         return "";
                     }
@@ -136,12 +136,12 @@ public final class e {
                     for (int i3 = 0; i3 < bytes.length; i3++) {
                         bytes[i3] = (byte) (bytes[i3] ^ 246);
                     }
-                    String a3 = o.a(bytes);
+                    String a3 = q.a(bytes);
                     if (TextUtils.isEmpty(a3)) {
                         return "";
                     }
-                    a2.f45342d.putString("sgud", a3);
-                    a2.f45342d.commit();
+                    a2.f45431d.putString("sgud", a3);
+                    a2.f45431d.commit();
                     return a3;
                 }
                 return string;
@@ -166,7 +166,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             try {
-                String i2 = s.i(context);
+                String i2 = u.i(context);
                 try {
                     str = Settings.System.getString(context.getContentResolver(), c.e("ARQJ8IArCy4jLSUJ6i4PbDdNue2ww1CwfUTDQn8F4ug="));
                 } catch (Throwable unused) {
@@ -174,7 +174,7 @@ public final class e {
                 }
                 try {
                     if (TextUtils.isEmpty(str)) {
-                        str = s.h(context);
+                        str = u.h(context);
                     }
                 } catch (Throwable unused2) {
                     c.a();
@@ -191,7 +191,7 @@ public final class e {
                 if (string != null) {
                     return "";
                 }
-                String h2 = s.h(context);
+                String h2 = u.h(context);
                 if (TextUtils.isEmpty(h2)) {
                     h2 = "0";
                 }
@@ -210,11 +210,11 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             try {
                 try {
-                    String string = s.b(context) ? Settings.System.getString(context.getContentResolver(), c.e("ARQJ8IArCy4jLSUJ6i4PbDdNue2ww1CwfUTDQn8F4ug=")) : "";
+                    String string = u.b(context) ? Settings.System.getString(context.getContentResolver(), c.e("ARQJ8IArCy4jLSUJ6i4PbDdNue2ww1CwfUTDQn8F4ug=")) : "";
                     if (TextUtils.isEmpty(string)) {
-                        string = s.h(context);
+                        string = u.h(context);
                     }
-                    String h2 = s.h(context);
+                    String h2 = u.h(context);
                     if (TextUtils.isEmpty(h2)) {
                         h2 = "0";
                     }
@@ -261,9 +261,9 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             String str2 = "";
             try {
-                str = s.h(context);
+                str = u.h(context);
                 try {
-                    str2 = s.i(context);
+                    str2 = u.i(context);
                 } catch (Throwable unused) {
                     c.a();
                     String uuid = UUID.randomUUID().toString();
@@ -327,7 +327,7 @@ public final class e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (!TextUtils.isEmpty(str) && s.c(context)) {
+            if (!TextUtils.isEmpty(str) && u.c(context)) {
                 File externalStorageDirectory = Environment.getExternalStorageDirectory();
                 try {
                     BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(externalStorageDirectory, c.e("u_lhldj5Nkwulw6YvIU2wr_ieZRcYQnQZ7zSlbUYnYY=") + "/" + c.e("u2fjUEpcZJL7IE6RlBqIRmFJW_FjZrNApjdMKDgt7FM="))));
@@ -341,7 +341,7 @@ public final class e {
                         sb.append(Part.CRLF);
                     }
                     bufferedReader.close();
-                    Object[] split = new String(j.a.a("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes(), 0))).split("=");
+                    Object[] split = new String(l.a.a("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes(), 0))).split("=");
                     return (split != null && split.length == 2 && str.equals(split[0])) ? split[1] : "";
                 } catch (Exception unused) {
                     c.a();

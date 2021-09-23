@@ -32,10 +32,10 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8022a;
+        public final /* synthetic */ CallbackHandler f8030a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f8023b;
+        public final /* synthetic */ b f8031b;
 
         public a(b bVar, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -52,15 +52,15 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f8023b = bVar;
-            this.f8022a = callbackHandler;
+            this.f8031b = bVar;
+            this.f8030a = callbackHandler;
         }
 
         @Override // c.a.p0.a.c0.c.g.a.h
         public void a(String str, String str2, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                this.f8023b.k(str, str2, this.f8022a, 0, jSONObject);
+                this.f8031b.k(str, str2, this.f8030a, 0, jSONObject);
             }
         }
     }
@@ -91,7 +91,7 @@ public class b extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -127,7 +127,7 @@ public class b extends a0 {
             }
             c.a.p0.a.c0.b.c w = new c.a.p0.a.c0.c.g.a(context, bVar, activity, o, new a(this, callbackHandler)).w();
             if (!w.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f4663b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f4671b);
                 return false;
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

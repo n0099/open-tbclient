@@ -18,14 +18,14 @@ public class d extends g.f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f4489j;
+    public static final boolean f4497j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f4490h;
+    public final String f4498h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.p0.n.f.d f4491i;
+    public final c.a.p0.n.f.d f4499i;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class d extends g.f {
                 return;
             }
         }
-        f4489j = k.f7077a;
+        f4497j = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,8 +61,8 @@ public class d extends g.f {
                 return;
             }
         }
-        this.f4490h = str;
-        this.f4491i = dVar;
+        this.f4498h = str;
+        this.f4499i = dVar;
     }
 
     @Override // c.a.p0.a.a1.g.f
@@ -78,9 +78,9 @@ public class d extends g.f {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 try {
-                    aVar = c.a.p0.a.h0.m.r.a.a(sourceChannel, this.f4490h, this.f4491i);
+                    aVar = c.a.p0.a.h0.m.r.a.a(sourceChannel, this.f4498h, this.f4499i);
                 } catch (IOException e3) {
-                    if (f4489j) {
+                    if (f4497j) {
                         e3.printStackTrace();
                     }
                     c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();

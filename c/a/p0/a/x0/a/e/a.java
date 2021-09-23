@@ -30,10 +30,10 @@ public class a extends UnitedSchemeBaseInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f9700e;
+        public final /* synthetic */ Context f9708e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9701f;
+        public final /* synthetic */ String f9709f;
 
         public RunnableC0456a(a aVar, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -50,15 +50,15 @@ public class a extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
-            this.f9700e = context;
-            this.f9701f = str;
+            this.f9708e = context;
+            this.f9709f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.x0.a.a.n().f(this.f9700e, this.f9701f);
+                c.a.p0.a.x0.a.a.n().f(this.f9708e, this.f9709f);
             }
         }
     }
@@ -69,7 +69,7 @@ public class a extends UnitedSchemeBaseInterceptor {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9702e;
+        public final /* synthetic */ String f9710e;
 
         public b(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -86,14 +86,14 @@ public class a extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
-            this.f9702e = str;
+            this.f9710e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean i2 = c.c().i(this.f9702e);
+                boolean i2 = c.c().i(this.f9710e);
                 c.a.p0.a.x0.a.a n = c.a.p0.a.x0.a.a.n();
                 n.p("cloneResult = " + i2);
             }

@@ -17,7 +17,7 @@ public class d implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<b> f8643a;
+    public List<b> f8651a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,17 +32,17 @@ public class d implements b {
                 return;
             }
         }
-        this.f8643a = new CopyOnWriteArrayList();
+        this.f8651a = new CopyOnWriteArrayList();
     }
 
     @Override // c.a.p0.a.t0.b
     public void a() {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f8643a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f8651a) == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f8643a) {
+        for (b bVar : this.f8651a) {
             if (bVar != null) {
                 bVar.a();
             }
@@ -53,10 +53,10 @@ public class d implements b {
     public void b() {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.f8643a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.f8651a) == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f8643a) {
+        for (b bVar : this.f8651a) {
             bVar.b();
         }
     }
@@ -65,10 +65,10 @@ public class d implements b {
     public void c() {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (list = this.f8643a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (list = this.f8651a) == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f8643a) {
+        for (b bVar : this.f8651a) {
             bVar.c();
         }
     }
@@ -77,10 +77,10 @@ public class d implements b {
     public void d() {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (list = this.f8643a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (list = this.f8651a) == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f8643a) {
+        for (b bVar : this.f8651a) {
             bVar.d();
         }
     }
@@ -89,10 +89,10 @@ public class d implements b {
     public void e() {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.f8643a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.f8651a) == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f8643a) {
+        for (b bVar : this.f8651a) {
             bVar.e();
         }
     }
@@ -101,10 +101,10 @@ public class d implements b {
     public void f() {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (list = this.f8643a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (list = this.f8651a) == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f8643a) {
+        for (b bVar : this.f8651a) {
             bVar.f();
         }
     }
@@ -113,10 +113,10 @@ public class d implements b {
     public void g() {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (list = this.f8643a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (list = this.f8651a) == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f8643a) {
+        for (b bVar : this.f8651a) {
             bVar.g();
         }
     }
@@ -124,14 +124,14 @@ public class d implements b {
     public void h(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f8643a.add(bVar);
+            this.f8651a.add(bVar);
         }
     }
 
     public void i(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f8643a.remove(bVar);
+            this.f8651a.remove(bVar);
         }
     }
 
@@ -141,12 +141,12 @@ public class d implements b {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i2, keyEvent)) == null) {
-            List<b> list = this.f8643a;
+            List<b> list = this.f8651a;
             if (list == null || list.size() <= 0) {
                 return false;
             }
             while (true) {
-                for (b bVar : this.f8643a) {
+                for (b bVar : this.f8651a) {
                     z = z || bVar.onKeyDown(i2, keyEvent);
                 }
                 return z;

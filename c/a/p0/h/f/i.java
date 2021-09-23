@@ -17,13 +17,13 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f11223a;
+    public static volatile boolean f11231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f11224b;
+    public static volatile boolean f11232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile List<c.a.p0.a.o0.d.b> f11225c;
+    public static volatile List<c.a.p0.a.o0.d.b> f11233c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class i {
                 return;
             }
         }
-        f11225c = new ArrayList();
+        f11233c = new ArrayList();
     }
 
     public i() {
@@ -58,17 +58,17 @@ public class i {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && f11223a && !f11224b) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && f11231a && !f11232b) {
             synchronized (i.class) {
-                if (f11225c != null) {
-                    for (int i2 = 0; i2 < f11225c.size(); i2++) {
-                        c.a.p0.a.g1.f.V().m("console", f11225c.get(i2));
+                if (f11233c != null) {
+                    for (int i2 = 0; i2 < f11233c.size(); i2++) {
+                        c.a.p0.a.g1.f.V().m("console", f11233c.get(i2));
                     }
-                    f11225c.clear();
-                    f11225c = null;
+                    f11233c.clear();
+                    f11233c = null;
                 }
             }
-            f11224b = true;
+            f11232b = true;
         }
     }
 
@@ -82,9 +82,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             synchronized (i.class) {
-                f11225c = new ArrayList();
+                f11233c = new ArrayList();
             }
-            f11224b = false;
+            f11232b = false;
         }
     }
 
@@ -97,7 +97,7 @@ public class i {
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && f11223a) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && f11231a) {
             f(c.h(str, str2));
         }
     }
@@ -105,10 +105,10 @@ public class i {
     public static void f(c.a.p0.a.o0.d.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, bVar) == null) {
-            if (!f11224b) {
+            if (!f11232b) {
                 synchronized (i.class) {
-                    if (f11225c != null) {
-                        f11225c.add(bVar);
+                    if (f11233c != null) {
+                        f11233c.add(bVar);
                         return;
                     }
                 }
@@ -119,7 +119,7 @@ public class i {
 
     public static void g(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && f11223a) {
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && f11231a) {
             f(c.j(str, str2));
         }
     }
@@ -127,7 +127,7 @@ public class i {
     public static void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            f11223a = z;
+            f11231a = z;
             c.a.p0.a.e0.d.k(z);
         }
     }

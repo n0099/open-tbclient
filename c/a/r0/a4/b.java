@@ -19,17 +19,17 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f15851d;
+    public static final String f15861d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f15852a;
+    public String f15862a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15853b;
+    public String f15863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f15854c;
+    public a f15864c;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -49,7 +49,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
                 return;
             }
         }
-        f15851d = File.separator;
+        f15861d = File.separator;
     }
 
     public b(String str, String str2, a aVar) {
@@ -67,18 +67,18 @@ public class b extends BdAsyncTask<Void, Void, String> {
                 return;
             }
         }
-        this.f15852a = str;
-        this.f15853b = str2;
-        this.f15854c = aVar;
+        this.f15862a = str;
+        this.f15863b = str2;
+        this.f15864c = aVar;
     }
 
     public final void b(File file) {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, file) == null) || k.isEmpty(this.f15852a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, file) == null) || k.isEmpty(this.f15862a)) {
             return;
         }
-        File file2 = new File(this.f15852a);
+        File file2 = new File(this.f15862a);
         if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
             return;
         }
@@ -96,15 +96,15 @@ public class b extends BdAsyncTask<Void, Void, String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (!k.isEmpty(this.f15852a) && !k.isEmpty(this.f15853b)) {
-                new File(this.f15852a).mkdirs();
-                String str = this.f15852a + f15851d + "videosplash.temp";
+            if (!k.isEmpty(this.f15862a) && !k.isEmpty(this.f15863b)) {
+                new File(this.f15862a).mkdirs();
+                String str = this.f15862a + f15861d + "videosplash.temp";
                 File file = new File(str);
                 if (file.exists()) {
                     file.delete();
                 }
                 e eVar = new e();
-                eVar.b().s(this.f15853b);
+                eVar.b().s(this.f15863b);
                 if (new c.a.e.e.j.a.c(eVar).c(str, null, 3, 3000, -1, -1, true, true)) {
                     return d();
                 }
@@ -118,12 +118,12 @@ public class b extends BdAsyncTask<Void, Void, String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            File file = new File(this.f15852a + f15851d + "videosplash.temp");
+            File file = new File(this.f15862a + f15861d + "videosplash.temp");
             StringBuilder sb = new StringBuilder();
-            sb.append(q.c(this.f15853b));
+            sb.append(q.c(this.f15863b));
             sb.append(".mp4");
             String sb2 = sb.toString();
-            File file2 = new File(this.f15852a + f15851d + sb2);
+            File file2 = new File(this.f15862a + f15861d + sb2);
             if (file2.exists()) {
                 file2.delete();
             }
@@ -140,13 +140,13 @@ public class b extends BdAsyncTask<Void, Void, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f15854c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f15864c == null) {
             return;
         }
         if (!k.isEmpty(str)) {
-            this.f15854c.a(true, str, this.f15853b);
+            this.f15864c.a(true, str, this.f15863b);
         } else {
-            this.f15854c.a(false, null, null);
+            this.f15864c.a(false, null, null);
         }
     }
 }

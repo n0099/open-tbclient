@@ -38,8 +38,8 @@ public class g {
                 return null;
             }
             c cVar = new c();
-            String str = advertAppInfo.g4;
-            if (advertAppInfo.b4) {
+            String str = advertAppInfo.h4;
+            if (advertAppInfo.c4) {
                 if (i2 == 3) {
                     i2 = 103;
                 } else if (i2 == 2) {
@@ -49,8 +49,8 @@ public class g {
             }
             cVar.h(str);
             cVar.i(i2);
-            cVar.t(advertAppInfo.d4);
-            if ("PB_BANNER".equals(advertAppInfo.g4)) {
+            cVar.t(advertAppInfo.e4);
+            if ("PB_BANNER".equals(advertAppInfo.h4)) {
                 cVar.d(-1);
                 cVar.v(-1);
             } else {
@@ -70,8 +70,8 @@ public class g {
                 return null;
             }
             c cVar = new c();
-            String str = advertAppInfo.g4;
-            if (advertAppInfo.b4) {
+            String str = advertAppInfo.h4;
+            if (advertAppInfo.c4) {
                 if (i2 == 3) {
                     i2 = 103;
                 } else if (i2 == 2) {
@@ -81,8 +81,8 @@ public class g {
             }
             cVar.h(str);
             cVar.i(i2);
-            cVar.t(advertAppInfo.d4);
-            if ("PB_BANNER".equals(advertAppInfo.g4)) {
+            cVar.t(advertAppInfo.e4);
+            if ("PB_BANNER".equals(advertAppInfo.h4)) {
                 cVar.d(-1);
                 cVar.v(-1);
             } else {
@@ -118,17 +118,17 @@ public class g {
                 return null;
             }
             AdvertAppInfo advertAppInfo = pVar.getAdvertAppInfo();
-            String E0 = pVar.E0();
+            String G0 = pVar.G0();
             if (pVar.M0) {
                 if (i2 == 3) {
                     i2 = 103;
                 } else if (i2 == 2) {
                     i2 = 102;
                 }
-                E0 = "RETARGET";
+                G0 = "RETARGET";
             }
             c cVar = new c();
-            cVar.t(advertAppInfo.d4);
+            cVar.t(advertAppInfo.e4);
             if (pVar.E0) {
                 cVar.d(-1);
                 cVar.v(-1);
@@ -140,7 +140,7 @@ public class g {
             cVar.e(pVar.G0);
             cVar.f(pVar.H0);
             cVar.g(pVar.F0);
-            cVar.h(E0);
+            cVar.h(G0);
             return cVar;
         }
         return (c) invokeLI.objValue;
@@ -151,10 +151,10 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, aVar)) == null) {
             c cVar = new c();
-            cVar.i(aVar.f3325a);
-            cVar.d(aVar.f3327c);
-            cVar.h(aVar.f3326b);
-            cVar.t(aVar.f3328d);
+            cVar.i(aVar.f3326a);
+            cVar.d(aVar.f3328c);
+            cVar.h(aVar.f3327b);
+            cVar.t(aVar.f3329d);
             return cVar;
         }
         return (c) invokeL.objValue;
@@ -227,7 +227,7 @@ public class g {
             if (i7 != -1 && i2 == 32) {
                 b2.p(i7);
             }
-            b2.h(advertAppInfo.g4);
+            b2.h(advertAppInfo.h4);
             if (i2 == 2) {
                 b2.u("video");
             }
@@ -262,7 +262,7 @@ public class g {
                 a2.p(i7);
             }
             if (dVar != null) {
-                a2.h(dVar.w().g4);
+                a2.h(dVar.w().h4);
             }
             if (i2 == 2) {
                 a2.u("video");
@@ -277,10 +277,10 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, aVar)) == null) {
             c cVar = new c();
-            cVar.i(aVar.f3325a);
-            cVar.d(aVar.f3327c);
-            cVar.h(aVar.f3326b);
-            cVar.t(aVar.f3328d);
+            cVar.i(aVar.f3326a);
+            cVar.d(aVar.f3328c);
+            cVar.h(aVar.f3327b);
+            cVar.t(aVar.f3329d);
             return cVar;
         }
         return (c) invokeL.objValue;
@@ -305,13 +305,13 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, aVar)) == null) {
             c cVar = new c();
-            cVar.i(aVar.f3325a);
-            cVar.d(aVar.f3327c);
-            cVar.h(aVar.f3326b);
-            cVar.t(aVar.f3328d);
+            cVar.i(aVar.f3326a);
+            cVar.d(aVar.f3328c);
+            cVar.h(aVar.f3327b);
+            cVar.t(aVar.f3329d);
             cVar.j(aVar.k);
-            if (!TextUtils.isEmpty(aVar.f3334j)) {
-                cVar.s(aVar.f3334j);
+            if (!TextUtils.isEmpty(aVar.f3335j)) {
+                cVar.s(aVar.f3335j);
             }
             cVar.m(aVar.l);
             return cVar;
@@ -324,14 +324,14 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, aVar)) == null) {
             c cVar = new c();
-            cVar.i(aVar.f3325a);
-            cVar.d(aVar.f3327c);
-            cVar.h(aVar.f3326b);
-            cVar.t(aVar.f3328d);
+            cVar.i(aVar.f3326a);
+            cVar.d(aVar.f3328c);
+            cVar.h(aVar.f3327b);
+            cVar.t(aVar.f3329d);
             cVar.j(0);
-            cVar.l(aVar.f3330f);
-            cVar.m(aVar.f3329e);
-            cVar.n(aVar.f3331g);
+            cVar.l(aVar.f3331f);
+            cVar.m(aVar.f3330e);
+            cVar.n(aVar.f3332g);
             return cVar;
         }
         return (c) invokeL.objValue;

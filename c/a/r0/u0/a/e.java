@@ -31,22 +31,22 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BawuTeam f25187a;
+    public BawuTeam f25208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f25188b;
+    public boolean f25209b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ManagerApplyInfo f25189c;
+    public ManagerApplyInfo f25210c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f25190d;
+    public c f25211d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.e.c.g.a f25191e;
+    public c.a.e.c.g.a f25212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f25192f;
+    public CustomMessageListener f25213f;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -54,7 +54,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f25193a;
+        public final /* synthetic */ e f25214a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(e eVar, int i2, int i3) {
@@ -75,7 +75,7 @@ public class e {
                     return;
                 }
             }
-            this.f25193a = eVar;
+            this.f25214a = eVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -88,26 +88,26 @@ public class e {
             if (z || (responsedMessage instanceof BawuTeamSocketResponseMessage)) {
                 if (z) {
                     BawuTeamHttpResponseMessage bawuTeamHttpResponseMessage = (BawuTeamHttpResponseMessage) responsedMessage;
-                    this.f25193a.f25187a = bawuTeamHttpResponseMessage.getBawuTeamInfo();
-                    this.f25193a.f25188b = bawuTeamHttpResponseMessage.isPrivateForum() != 0;
-                    this.f25193a.f25189c = bawuTeamHttpResponseMessage.getManagerApplyInfo();
+                    this.f25214a.f25208a = bawuTeamHttpResponseMessage.getBawuTeamInfo();
+                    this.f25214a.f25209b = bawuTeamHttpResponseMessage.isPrivateForum() != 0;
+                    this.f25214a.f25210c = bawuTeamHttpResponseMessage.getManagerApplyInfo();
                 } else if (responsedMessage instanceof BawuTeamSocketResponseMessage) {
                     BawuTeamSocketResponseMessage bawuTeamSocketResponseMessage = (BawuTeamSocketResponseMessage) responsedMessage;
-                    this.f25193a.f25187a = bawuTeamSocketResponseMessage.getBawuTeamInfo();
-                    this.f25193a.f25188b = bawuTeamSocketResponseMessage.isPrivateForum() != 0;
-                    this.f25193a.f25189c = bawuTeamSocketResponseMessage.getManagerApplyInfo();
+                    this.f25214a.f25208a = bawuTeamSocketResponseMessage.getBawuTeamInfo();
+                    this.f25214a.f25209b = bawuTeamSocketResponseMessage.isPrivateForum() != 0;
+                    this.f25214a.f25210c = bawuTeamSocketResponseMessage.getManagerApplyInfo();
                 }
                 l lVar = new l();
-                if (this.f25193a.f25189c != null) {
-                    lVar.l(this.f25193a.f25189c.manager_left_num.intValue());
-                    lVar.k(this.f25193a.f25189c.manager_apply_url);
-                    lVar.h(this.f25193a.f25189c.assist_left_num.intValue());
-                    lVar.g(this.f25193a.f25189c.assist_apply_url);
+                if (this.f25214a.f25210c != null) {
+                    lVar.l(this.f25214a.f25210c.manager_left_num.intValue());
+                    lVar.k(this.f25214a.f25210c.manager_apply_url);
+                    lVar.h(this.f25214a.f25210c.assist_left_num.intValue());
+                    lVar.g(this.f25214a.f25210c.assist_apply_url);
                 }
-                if (this.f25193a.f25190d != null) {
-                    c cVar = this.f25193a.f25190d;
-                    e eVar = this.f25193a;
-                    cVar.a(eVar.j(eVar.f25187a), lVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
+                if (this.f25214a.f25211d != null) {
+                    c cVar = this.f25214a.f25211d;
+                    e eVar = this.f25214a;
+                    cVar.a(eVar.j(eVar.f25208a), lVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
         }
@@ -119,7 +119,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f25194a;
+        public final /* synthetic */ e f25215a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(e eVar, int i2) {
@@ -139,7 +139,7 @@ public class e {
                     return;
                 }
             }
-            this.f25194a = eVar;
+            this.f25215a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,20 +148,20 @@ public class e {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BawuTeamReadCacheResponseMessage)) {
                 BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = (BawuTeamReadCacheResponseMessage) customResponsedMessage;
-                this.f25194a.f25187a = bawuTeamReadCacheResponseMessage.getBawuTeamInfo();
-                this.f25194a.f25188b = bawuTeamReadCacheResponseMessage.isPrivateForum() != 0;
-                this.f25194a.f25189c = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
+                this.f25215a.f25208a = bawuTeamReadCacheResponseMessage.getBawuTeamInfo();
+                this.f25215a.f25209b = bawuTeamReadCacheResponseMessage.isPrivateForum() != 0;
+                this.f25215a.f25210c = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
                 l lVar = new l();
-                if (this.f25194a.f25189c != null) {
-                    lVar.l(this.f25194a.f25189c.manager_left_num.intValue());
-                    lVar.k(this.f25194a.f25189c.manager_apply_url);
-                    lVar.h(this.f25194a.f25189c.assist_left_num.intValue());
-                    lVar.g(this.f25194a.f25189c.assist_apply_url);
+                if (this.f25215a.f25210c != null) {
+                    lVar.l(this.f25215a.f25210c.manager_left_num.intValue());
+                    lVar.k(this.f25215a.f25210c.manager_apply_url);
+                    lVar.h(this.f25215a.f25210c.assist_left_num.intValue());
+                    lVar.g(this.f25215a.f25210c.assist_apply_url);
                 }
-                if (this.f25194a.f25190d != null) {
-                    c cVar = this.f25194a.f25190d;
-                    e eVar = this.f25194a;
-                    cVar.a(eVar.j(eVar.f25187a), lVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
+                if (this.f25215a.f25211d != null) {
+                    c cVar = this.f25215a.f25211d;
+                    e eVar = this.f25215a;
+                    cVar.a(eVar.j(eVar.f25208a), lVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
                 }
             }
         }
@@ -185,18 +185,18 @@ public class e {
                 return;
             }
         }
-        this.f25190d = null;
-        this.f25191e = new a(this, CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007);
-        this.f25192f = new b(this, 2003005);
-        MessageManager.getInstance().registerListener(this.f25192f);
-        MessageManager.getInstance().registerListener(this.f25191e);
+        this.f25211d = null;
+        this.f25212e = new a(this, CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007);
+        this.f25213f = new b(this, 2003005);
+        MessageManager.getInstance().registerListener(this.f25213f);
+        MessageManager.getInstance().registerListener(this.f25212e);
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f25191e);
-            MessageManager.getInstance().unRegisterListener(this.f25192f);
+            MessageManager.getInstance().unRegisterListener(this.f25212e);
+            MessageManager.getInstance().unRegisterListener(this.f25213f);
         }
     }
 
@@ -248,7 +248,7 @@ public class e {
                         }
                         i3 += 2;
                         if (i3 >= size2) {
-                            if (this.f25188b) {
+                            if (this.f25209b) {
                                 bVar.f(false);
                             } else {
                                 bVar.f(true);
@@ -273,7 +273,7 @@ public class e {
     public void k(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f25190d = cVar;
+            this.f25211d = cVar;
         }
     }
 }

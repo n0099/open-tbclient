@@ -19,19 +19,19 @@ public class a implements c.a.p0.a.i1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c1 f6879a;
+    public c1 f6887a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6880b;
+    public String f6888b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f6881c;
+    public c f6889c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f6882d;
+    public boolean f6890d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f6883e;
+    public Context f6891e;
 
     public a(Context context, @NonNull c cVar) {
         Interceptable interceptable = $ic;
@@ -48,16 +48,16 @@ public class a implements c.a.p0.a.i1.a {
                 return;
             }
         }
-        this.f6883e = context;
-        this.f6881c = cVar;
-        this.f6880b = cVar.n;
+        this.f6891e = context;
+        this.f6889c = cVar;
+        this.f6888b = cVar.n;
         e();
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f6880b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f6888b)) {
             return;
         }
         c.a.p0.a.i1.b.a(this);
@@ -67,31 +67,31 @@ public class a implements c.a.p0.a.i1.a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6881c.f4658g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6889c.f4666g : (String) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.i1.a
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6880b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6888b : (String) invokeV.objValue;
     }
 
     public c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6881c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6889c : (c) invokeV.objValue;
     }
 
     public c1 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f6879a == null) {
+            if (this.f6887a == null) {
                 d.g("VrVideo", "create player");
-                this.f6879a = c.a.p0.a.c1.a.s0().create();
+                this.f6887a = c.a.p0.a.c1.a.s0().create();
             }
-            return this.f6879a;
+            return this.f6887a;
         }
         return (c1) invokeV.objValue;
     }
@@ -101,7 +101,7 @@ public class a implements c.a.p0.a.i1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c cVar = this.f6881c;
+            c cVar = this.f6889c;
             return cVar != null ? cVar.x : "";
         }
         return (String) invokeV.objValue;
@@ -111,11 +111,11 @@ public class a implements c.a.p0.a.i1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
             d.g("VrVideo", "Open Player " + cVar.n);
-            c1 c1Var = this.f6879a;
+            c1 c1Var = this.f6887a;
             if (c1Var != null) {
-                c1Var.e(cVar, this.f6883e);
+                c1Var.e(cVar, this.f6891e);
             }
-            this.f6881c = cVar;
+            this.f6889c = cVar;
         }
     }
 
@@ -123,11 +123,11 @@ public class a implements c.a.p0.a.i1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
             d.a("VrVideo", "update 接口");
-            c1 c1Var = this.f6879a;
+            c1 c1Var = this.f6887a;
             if (c1Var != null) {
                 c1Var.d(cVar, true);
             }
-            this.f6881c = cVar;
+            this.f6889c = cVar;
         }
     }
 
@@ -150,12 +150,12 @@ public class a implements c.a.p0.a.i1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             if (z) {
-                if (this.f6882d) {
+                if (this.f6890d) {
                     e().resume();
                 }
                 e().b();
-            } else if (this.f6879a != null) {
-                this.f6882d = e().isPlaying();
+            } else if (this.f6887a != null) {
+                this.f6890d = e().isPlaying();
                 e().pause();
                 e().c();
             }
@@ -168,7 +168,7 @@ public class a implements c.a.p0.a.i1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             d.g("VrVideo", "onBackPressed");
-            c1 c1Var = this.f6879a;
+            c1 c1Var = this.f6887a;
             return c1Var != null && c1Var.onBackPressed();
         }
         return invokeV.booleanValue;
@@ -179,10 +179,10 @@ public class a implements c.a.p0.a.i1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             d.g("VrVideo", MissionEvent.MESSAGE_DESTROY);
-            c1 c1Var = this.f6879a;
+            c1 c1Var = this.f6887a;
             if (c1Var != null) {
                 c1Var.stop();
-                this.f6879a = null;
+                this.f6887a = null;
             }
             c.a.p0.a.i1.b.j(this);
         }

@@ -33,10 +33,10 @@ public class l implements n.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ZipFile f79288a;
+        public ZipFile f79607a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ZipEntry f79289b;
+        public ZipEntry f79608b;
 
         public a(ZipFile zipFile, ZipEntry zipEntry) {
             Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public class l implements n.a {
                     return;
                 }
             }
-            this.f79288a = zipFile;
-            this.f79289b = zipEntry;
+            this.f79607a = zipFile;
+            this.f79608b = zipEntry;
         }
     }
 
@@ -171,7 +171,7 @@ public class l implements n.a {
                 if (i2 >= 5) {
                     oVar.d("FATAL! Couldn't extract the library from the APK!");
                     try {
-                        ZipFile zipFile = a2.f79288a;
+                        ZipFile zipFile = a2.f79607a;
                         if (zipFile != null) {
                             zipFile.close();
                             return;
@@ -185,7 +185,7 @@ public class l implements n.a {
                 try {
                     if (file.exists() || file.createNewFile()) {
                         try {
-                            inputStream = a2.f79288a.getInputStream(a2.f79289b);
+                            inputStream = a2.f79607a.getInputStream(a2.f79608b);
                         } catch (FileNotFoundException | IOException unused2) {
                             inputStream = null;
                         } catch (Throwable th3) {
@@ -222,7 +222,7 @@ public class l implements n.a {
                                 file.setExecutable(true, false);
                                 file.setWritable(true);
                                 try {
-                                    ZipFile zipFile2 = a2.f79288a;
+                                    ZipFile zipFile2 = a2.f79607a;
                                     if (zipFile2 != null) {
                                         zipFile2.close();
                                         return;
@@ -252,7 +252,7 @@ public class l implements n.a {
             aVar = a2;
             if (aVar != null) {
                 try {
-                    ZipFile zipFile3 = aVar.f79288a;
+                    ZipFile zipFile3 = aVar.f79607a;
                     if (zipFile3 != null) {
                         zipFile3.close();
                     }

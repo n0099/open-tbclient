@@ -29,11 +29,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11015b;
+    public static final boolean f11023b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SwanAppAlertDialog f11016a;
+    public SwanAppAlertDialog f11024a;
 
     /* renamed from: c.a.p0.h.b0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -42,19 +42,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f11017e;
+        public final /* synthetic */ SwanAppActivity f11025e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f11018f;
+        public final /* synthetic */ String f11026f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11019g;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11027g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f11020h;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f11028h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f11021i;
+        public final /* synthetic */ a f11029i;
 
         public RunnableC0557a(a aVar, SwanAppActivity swanAppActivity, String str, c.a.p0.a.y.b.a aVar2, c.a.p0.a.f1.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -71,18 +71,18 @@ public class a {
                     return;
                 }
             }
-            this.f11021i = aVar;
-            this.f11017e = swanAppActivity;
-            this.f11018f = str;
-            this.f11019g = aVar2;
-            this.f11020h = bVar;
+            this.f11029i = aVar;
+            this.f11025e = swanAppActivity;
+            this.f11026f = str;
+            this.f11027g = aVar2;
+            this.f11028h = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11021i.f(this.f11017e, this.f11018f, this.f11019g, this.f11020h);
+                this.f11029i.f(this.f11025e, this.f11026f, this.f11027g, this.f11028h);
             }
         }
     }
@@ -93,7 +93,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11022e;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11030e;
 
         public b(a aVar, c.a.p0.a.y.b.a aVar2) {
             Interceptable interceptable = $ic;
@@ -110,14 +110,14 @@ public class a {
                     return;
                 }
             }
-            this.f11022e = aVar2;
+            this.f11030e = aVar2;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                c.a.p0.h.m0.c.a(this.f11022e, true, new c.a.p0.h.b0.c(false));
+                c.a.p0.h.m0.c.a(this.f11030e, true, new c.a.p0.h.b0.c(false));
             }
         }
     }
@@ -128,13 +128,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11023e;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11031e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f11024f;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f11032f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f11025g;
+        public final /* synthetic */ a f11033g;
 
         public c(a aVar, c.a.p0.a.y.b.a aVar2, c.a.p0.a.f1.e.b bVar) {
             Interceptable interceptable = $ic;
@@ -151,17 +151,17 @@ public class a {
                     return;
                 }
             }
-            this.f11025g = aVar;
-            this.f11023e = aVar2;
-            this.f11024f = bVar;
+            this.f11033g = aVar;
+            this.f11031e = aVar2;
+            this.f11032f = bVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                c.a.p0.h.m0.c.a(this.f11023e, true, new c.a.p0.h.b0.c(true));
-                this.f11025g.e(this.f11024f);
+                c.a.p0.h.m0.c.a(this.f11031e, true, new c.a.p0.h.b0.c(true));
+                this.f11033g.e(this.f11032f);
             }
         }
     }
@@ -179,7 +179,7 @@ public class a {
                 return;
             }
         }
-        f11015b = k.f7077a;
+        f11023b = k.f7085a;
     }
 
     public a() {
@@ -241,7 +241,7 @@ public class a {
             bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, H);
             bundle.putString("scheme", e1);
             bundle.putInt("target", SwanAppProcessInfo.current().index);
-            if (f11015b) {
+            if (f11023b) {
                 String str = "reload-appid:" + bVar.H();
             }
             c.a.p0.a.v1.c.e.a.E().K(bundle, c.a.p0.h.b0.b.class);
@@ -251,7 +251,7 @@ public class a {
     public final void f(@NonNull Activity activity, @NonNull String str, @NonNull c.a.p0.a.y.b.a aVar, @NonNull c.a.p0.a.f1.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, str, aVar, bVar) == null) {
-            SwanAppAlertDialog swanAppAlertDialog = this.f11016a;
+            SwanAppAlertDialog swanAppAlertDialog = this.f11024a;
             if (swanAppAlertDialog != null && swanAppAlertDialog.isShowing()) {
                 c(aVar, "reload failed, the reload dialog has been displayed.");
                 return;
@@ -264,7 +264,7 @@ public class a {
             aVar2.m(false);
             aVar2.B(g.aiapps_cancel, new b(this, aVar));
             aVar2.O(g.aiapps_ok, new c(this, aVar, bVar));
-            this.f11016a = aVar2.X();
+            this.f11024a = aVar2.X();
         }
     }
 }

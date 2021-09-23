@@ -12,13 +12,13 @@ public final class k extends u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76515a;
+    public String f76834a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f76516b;
+    public String f76835b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f76517c;
+    public String f76836c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(int i2) {
@@ -45,22 +45,22 @@ public final class k extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("app_id", this.f76515a);
-            aVar.a("client_id", this.f76516b);
-            aVar.a("client_token", this.f76517c);
+            aVar.a("app_id", this.f76834a);
+            aVar.a("client_id", this.f76835b);
+            aVar.a("client_token", this.f76836c);
         }
     }
 
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76515a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76834a : (String) invokeV.objValue;
     }
 
     public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76517c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76836c : (String) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -75,9 +75,9 @@ public final class k extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            this.f76515a = aVar.a("app_id");
-            this.f76516b = aVar.a("client_id");
-            this.f76517c = aVar.a("client_token");
+            this.f76834a = aVar.a("app_id");
+            this.f76835b = aVar.a("client_id");
+            this.f76836c = aVar.a("client_token");
         }
     }
 }

@@ -18,13 +18,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f36027a;
+    public a f36061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36028b;
+    public String f36062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f36029c;
+    public String[] f36063c;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class b {
                 return;
             }
         }
-        this.f36028b = str;
+        this.f36062b = str;
     }
 
     public static void a(b bVar) {
@@ -49,7 +49,7 @@ public class b {
         if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
             String[] c2 = bVar.c();
             if (c2.length == 3 && TextUtils.equals("tid", c2[0])) {
-                com.alipay.sdk.tid.a a2 = com.alipay.sdk.tid.a.a(com.alipay.sdk.sys.b.a().b());
+                com.alipay.sdk.tid.a a2 = com.alipay.sdk.tid.a.a(com.alipay.sdk.sys.b.d().b());
                 if (TextUtils.isEmpty(c2[1]) || TextUtils.isEmpty(c2[2])) {
                     return;
                 }
@@ -62,10 +62,16 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+            ArrayList arrayList = new ArrayList();
+            int indexOf = str.indexOf(40);
+            int lastIndexOf = str.lastIndexOf(41);
+            if (indexOf == -1 || lastIndexOf == -1 || lastIndexOf <= indexOf) {
                 return null;
             }
-            return str.split(";");
+            for (String str2 : str.substring(indexOf + 1, lastIndexOf).split("' *, *'", -1)) {
+                arrayList.add(str2.trim().replaceAll("'", "").replaceAll("\"", ""));
+            }
+            return (String[]) arrayList.toArray(new String[0]);
         }
         return (String[]) invokeL.objValue;
     }
@@ -73,7 +79,7 @@ public class b {
     public String[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36029c : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36063c : (String[]) invokeV.objValue;
     }
 
     public b(String str, a aVar) {
@@ -91,14 +97,8 @@ public class b {
                 return;
             }
         }
-        this.f36028b = str;
-        this.f36027a = aVar;
-    }
-
-    public a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36027a : (a) invokeV.objValue;
+        this.f36062b = str;
+        this.f36061a = aVar;
     }
 
     public static List<b> a(JSONObject jSONObject) {
@@ -109,12 +109,12 @@ public class b {
             if (jSONObject == null) {
                 return arrayList;
             }
-            String[] b2 = b(jSONObject.optString("name", ""));
-            for (int i2 = 0; i2 < b2.length; i2++) {
-                a a2 = a.a(b2[i2]);
-                if (a2 != a.f36019a) {
-                    b bVar = new b(b2[i2], a2);
-                    bVar.f36029c = a(b2[i2]);
+            String[] a2 = a(jSONObject.optString("name", ""));
+            for (int i2 = 0; i2 < a2.length; i2++) {
+                a a3 = a.a(a2[i2]);
+                if (a3 != a.f36053b) {
+                    b bVar = new b(a2[i2], a3);
+                    bVar.f36063c = b(a2[i2]);
                     arrayList.add(bVar);
                 }
             }
@@ -123,27 +123,27 @@ public class b {
         return (List) invokeL.objValue;
     }
 
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36062b : (String) invokeV.objValue;
+    }
+
     public static String[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int indexOf = str.indexOf(40);
-            int lastIndexOf = str.lastIndexOf(41);
-            if (indexOf == -1 || lastIndexOf == -1 || lastIndexOf <= indexOf) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            for (String str2 : str.substring(indexOf + 1, lastIndexOf).split("' *, *'", -1)) {
-                arrayList.add(str2.trim().replaceAll("'", "").replaceAll("\"", ""));
-            }
-            return (String[]) arrayList.toArray(new String[0]);
+            return str.split(";");
         }
         return (String[]) invokeL.objValue;
     }
 
-    public String a() {
+    public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36028b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36061a : (a) invokeV.objValue;
     }
 }

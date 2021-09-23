@@ -14,16 +14,16 @@ public final class ht {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ht f77854a;
+    public static final ht f78173a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ ht[] f558a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ht f77855b;
+    public static final ht f78174b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ht f77856c;
+    public static final ht f78175c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -42,11 +42,11 @@ public final class ht {
                 return;
             }
         }
-        f77854a = new ht("RegIdExpired", 0, 0);
-        f77855b = new ht("PackageUnregistered", 1, 1);
+        f78173a = new ht("RegIdExpired", 0, 0);
+        f78174b = new ht("PackageUnregistered", 1, 1);
         ht htVar = new ht("Init", 2, 2);
-        f77856c = htVar;
-        f558a = new ht[]{f77854a, f77855b, htVar};
+        f78175c = htVar;
+        f558a = new ht[]{f78173a, f78174b, htVar};
     }
 
     public ht(String str, int i2, int i3) {
@@ -79,11 +79,11 @@ public final class ht {
                     if (i2 != 2) {
                         return null;
                     }
-                    return f77856c;
+                    return f78175c;
                 }
-                return f77855b;
+                return f78174b;
             }
-            return f77854a;
+            return f78173a;
         }
         return (ht) invokeI.objValue;
     }

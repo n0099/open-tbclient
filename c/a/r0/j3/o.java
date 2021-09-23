@@ -1,30 +1,31 @@
 package c.a.r0.j3;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.NavTabInfo;
+import tbclient.FrsTabInfo;
 /* loaded from: classes3.dex */
-public class o implements c.a.e.l.e.n {
+public class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final boolean f20983e;
+    /* renamed from: a  reason: collision with root package name */
+    public List<FrsTabInfo> f20995a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public ForumData f20984f;
+    /* renamed from: b  reason: collision with root package name */
+    public List<FrsTabInfo> f20996b;
 
-    public o(ForumData forumData, boolean z) {
+    /* renamed from: c  reason: collision with root package name */
+    public List<FrsTabInfo> f20997c;
+
+    public o() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {forumData, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -34,29 +35,18 @@ public class o implements c.a.e.l.e.n {
                 return;
             }
         }
-        this.f20984f = forumData;
-        this.f20983e = z;
+        this.f20995a = new ArrayList();
+        this.f20996b = new ArrayList();
+        this.f20997c = new ArrayList();
     }
 
-    public ForumData b() {
-        InterceptResult invokeV;
+    public void a(NavTabInfo navTabInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20984f : (ForumData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20983e : invokeV.booleanValue;
-    }
-
-    @Override // c.a.e.l.e.n
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, navTabInfo) == null) || navTabInfo == null) {
+            return;
         }
-        return (BdUniqueId) invokeV.objValue;
+        this.f20995a = new ArrayList(navTabInfo.tab);
+        this.f20996b = new ArrayList(navTabInfo.menu);
+        this.f20997c = new ArrayList(navTabInfo.head);
     }
 }

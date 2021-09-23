@@ -17,7 +17,7 @@ public class b implements PerfSampleManager.IPerfSampleCallback {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4371a = "1";
+    public static String f4378a = "1";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +55,7 @@ public class b implements PerfSampleManager.IPerfSampleCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            return uBCManager != null ? f4371a.equals(uBCManager.getUploadType("2301")) ? "2301" : "" : "";
+            return uBCManager != null ? f4378a.equals(uBCManager.getUploadType("2301")) ? "2301" : "" : "";
         }
         return (String) invokeV.objValue;
     }

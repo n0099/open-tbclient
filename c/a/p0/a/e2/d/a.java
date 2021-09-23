@@ -33,34 +33,34 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Activity f5612a;
+    public final Activity f5620a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f5613b;
+    public final String f5621b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f5614c;
+    public final String f5622c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5615d;
+    public boolean f5623d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Set<c.a.p0.a.v2.e1.b<a>> f5616e;
+    public final Set<c.a.p0.a.v2.e1.b<a>> f5624e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TaskState f5617f;
+    public TaskState f5625f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f5618g;
+    public JSONObject f5626g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f5619h;
+    public boolean f5627h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.p0.a.a2.e f5620i;
+    public c.a.p0.a.a2.e f5628i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.a.p0.a.q2.a f5621j;
+    public final c.a.p0.a.q2.a f5629j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -74,7 +74,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5622e;
+        public final /* synthetic */ a f5630e;
 
         public RunnableC0177a(a aVar) {
             Interceptable interceptable = $ic;
@@ -91,18 +91,18 @@ public final class a {
                     return;
                 }
             }
-            this.f5622e = aVar;
+            this.f5630e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f5622e.f5616e) {
-                    for (c.a.p0.a.v2.e1.b bVar : this.f5622e.f5616e) {
-                        bVar.onCallback(this.f5622e);
+                synchronized (this.f5630e.f5624e) {
+                    for (c.a.p0.a.v2.e1.b bVar : this.f5630e.f5624e) {
+                        bVar.onCallback(this.f5630e);
                     }
-                    this.f5622e.f5616e.clear();
+                    this.f5630e.f5624e.clear();
                 }
             }
         }
@@ -114,7 +114,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f5623f;
+        public final /* synthetic */ a f5631f;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -131,14 +131,14 @@ public final class a {
                     return;
                 }
             }
-            this.f5623f = aVar;
+            this.f5631f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5623f.I();
+                this.f5631f.I();
             }
         }
     }
@@ -149,7 +149,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5624e;
+        public final /* synthetic */ a f5632e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public final class a {
                     return;
                 }
             }
-            this.f5624e = aVar;
+            this.f5632e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,78 +178,78 @@ public final class a {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                if (iVar != null && iVar.c() && (jSONObject = iVar.f5582a) != null) {
+                if (iVar != null && iVar.c() && (jSONObject = iVar.f5590a) != null) {
                     c.a.p0.a.e0.d.a("OpenData", "opendata=", jSONObject);
-                    this.f5624e.f5621j.b(iVar.f5582a.optInt("errno", 10001));
-                    this.f5624e.f5621j.e(iVar.f5582a.optString("errmsg", "internal error"));
-                    if (0 != this.f5624e.f5621j.g()) {
+                    this.f5632e.f5629j.b(iVar.f5590a.optInt("errno", 10001));
+                    this.f5632e.f5629j.e(iVar.f5590a.optString("errmsg", "internal error"));
+                    if (0 != this.f5632e.f5629j.g()) {
                         c.a.p0.a.e2.c.d.j("by errno", Boolean.TRUE);
-                        this.f5624e.f5621j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
-                        this.f5624e.B();
-                        this.f5624e.z(10001);
+                        this.f5632e.f5629j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
+                        this.f5632e.B();
+                        this.f5632e.z(10001);
                         return;
                     }
-                    JSONObject optJSONObject = iVar.f5582a.optJSONObject("data");
+                    JSONObject optJSONObject = iVar.f5590a.optJSONObject("data");
                     if (optJSONObject == null) {
                         c.a.p0.a.e2.c.d.j("by data parse", Boolean.TRUE);
-                        this.f5624e.f5621j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
-                        this.f5624e.B();
-                        this.f5624e.z(10001);
+                        this.f5632e.f5629j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
+                        this.f5632e.B();
+                        this.f5632e.z(10001);
                         return;
                     }
                     c.a.p0.a.e2.c.f e2 = c.a.p0.a.e2.c.f.e(optJSONObject.optJSONObject("scope"));
                     if (e2 == null) {
                         c.a.p0.a.e2.c.d.j("illegal scope", Boolean.TRUE);
-                        this.f5624e.f5621j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
-                        this.f5624e.B();
-                        this.f5624e.z(10001);
+                        this.f5632e.f5629j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
+                        this.f5632e.B();
+                        this.f5632e.z(10001);
                         return;
                     }
-                    this.f5624e.f5618g = optJSONObject.optJSONObject("opendata");
-                    if (!this.f5624e.f5615d && (i2 = e2.f5547j) < 0) {
+                    this.f5632e.f5626g = optJSONObject.optJSONObject("opendata");
+                    if (!this.f5632e.f5623d && (i2 = e2.f5555j) < 0) {
                         if (i2 == -2) {
-                            this.f5624e.f5621j.b(LightappBusinessClient.SVC_ID_H5_SECURITCENTER);
+                            this.f5632e.f5629j.b(LightappBusinessClient.SVC_ID_H5_SECURITCENTER);
                         } else {
-                            this.f5624e.f5621j.b(LightappBusinessClient.SVC_ID_H5_MYBANKCARD);
-                            this.f5624e.A(10005, e2);
+                            this.f5632e.f5629j.b(LightappBusinessClient.SVC_ID_H5_MYBANKCARD);
+                            this.f5632e.A(10005, e2);
                         }
-                        this.f5624e.B();
+                        this.f5632e.B();
                         return;
-                    } else if (e2.f5547j > 0) {
-                        if (!this.f5624e.f5619h || !TextUtils.equals(e2.f5539b, "mobile") || (jSONObject2 = this.f5624e.f5618g) == null || jSONObject2.optInt("errno") != 1129) {
-                            this.f5624e.B();
+                    } else if (e2.f5555j > 0) {
+                        if (!this.f5632e.f5627h || !TextUtils.equals(e2.f5547b, "mobile") || (jSONObject2 = this.f5632e.f5626g) == null || jSONObject2.optInt("errno") != 1129) {
+                            this.f5632e.B();
                             return;
                         } else {
-                            this.f5624e.w(e2, false);
+                            this.f5632e.w(e2, false);
                             return;
                         }
-                    } else if (!this.f5624e.f5620i.d0()) {
-                        if (!this.f5624e.f5619h && e2.c()) {
-                            if (!TextUtils.equals(e2.f5539b, "mobile") || c.a.p0.a.s.a.f.f8492d.f()) {
-                                this.f5624e.G();
+                    } else if (!this.f5632e.f5628i.d0()) {
+                        if (!this.f5632e.f5627h && e2.c()) {
+                            if (!TextUtils.equals(e2.f5547b, "mobile") || c.a.p0.a.s.a.f.f8500d.f()) {
+                                this.f5632e.G();
                             } else {
-                                this.f5624e.H();
+                                this.f5632e.H();
                             }
-                            k.N(this.f5624e.n, "phoneNumberLogin");
+                            k.N(this.f5632e.n, "phoneNumberLogin");
                             return;
-                        } else if (TextUtils.equals(e2.f5539b, "mobile")) {
-                            this.f5624e.v(e2);
+                        } else if (TextUtils.equals(e2.f5547b, "mobile")) {
+                            this.f5632e.v(e2);
                             return;
                         } else {
-                            this.f5624e.L(e2);
+                            this.f5632e.L(e2);
                             return;
                         }
                     } else {
-                        this.f5624e.f5621j.b(LightappBusinessClient.SVC_ID_H5_MYBANKCARD);
-                        this.f5624e.B();
-                        this.f5624e.A(10005, e2);
+                        this.f5632e.f5629j.b(LightappBusinessClient.SVC_ID_H5_MYBANKCARD);
+                        this.f5632e.B();
+                        this.f5632e.A(10005, e2);
                         return;
                     }
                 }
                 c.a.p0.a.e2.c.d.j("bad MaOpenData response", Boolean.TRUE);
-                this.f5624e.f5621j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
-                this.f5624e.B();
-                this.f5624e.z(10001);
+                this.f5632e.f5629j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
+                this.f5632e.B();
+                this.f5632e.z(10001);
             }
         }
     }
@@ -260,10 +260,10 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.e2.c.f f5625a;
+        public final /* synthetic */ c.a.p0.a.e2.c.f f5633a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f5626b;
+        public final /* synthetic */ a f5634b;
 
         public d(a aVar, c.a.p0.a.e2.c.f fVar) {
             Interceptable interceptable = $ic;
@@ -280,8 +280,8 @@ public final class a {
                     return;
                 }
             }
-            this.f5626b = aVar;
-            this.f5625a = fVar;
+            this.f5634b = aVar;
+            this.f5633a = fVar;
         }
 
         @Override // c.a.p0.a.p.d.n.c
@@ -290,9 +290,9 @@ public final class a {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 c.a.p0.a.e0.d.g("OpenData", "checkPhoneNumberStatus onSuccess isBind = " + z + ". needAuth = true");
                 if (z) {
-                    this.f5626b.L(this.f5625a);
+                    this.f5634b.L(this.f5633a);
                 } else {
-                    this.f5626b.w(this.f5625a, true);
+                    this.f5634b.w(this.f5633a, true);
                 }
             }
         }
@@ -302,7 +302,7 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 c.a.p0.a.e0.d.g("OpenData", "checkPhoneNumberStatus onFail. needAuth = true");
-                this.f5626b.L(this.f5625a);
+                this.f5634b.L(this.f5633a);
             }
         }
     }
@@ -313,13 +313,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f5627a;
+        public final /* synthetic */ boolean f5635a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.e2.c.f f5628b;
+        public final /* synthetic */ c.a.p0.a.e2.c.f f5636b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f5629c;
+        public final /* synthetic */ a f5637c;
 
         /* renamed from: c.a.p0.a.e2.d.a$e$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -328,7 +328,7 @@ public final class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e f5630a;
+            public final /* synthetic */ e f5638a;
 
             public C0178a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -345,21 +345,21 @@ public final class a {
                         return;
                     }
                 }
-                this.f5630a = eVar;
+                this.f5638a = eVar;
             }
 
             @Override // c.a.p0.a.p.d.n.c
             public void a(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    c.a.p0.a.e0.d.g("OpenData", "bindPhoneNumber check onSuccess isBind =" + z + ". needAuth = " + this.f5630a.f5627a);
+                    c.a.p0.a.e0.d.g("OpenData", "bindPhoneNumber check onSuccess isBind =" + z + ". needAuth = " + this.f5638a.f5635a);
                     if (z) {
-                        this.f5630a.f5629c.m = true;
-                        this.f5630a.f5629c.K();
+                        this.f5638a.f5637c.m = true;
+                        this.f5638a.f5637c.K();
                         return;
                     }
-                    this.f5630a.f5629c.f5621j.b(LightappBusinessClient.SVC_ID_H5_SECURITCENTER);
-                    this.f5630a.f5629c.B();
+                    this.f5638a.f5637c.f5629j.b(LightappBusinessClient.SVC_ID_H5_SECURITCENTER);
+                    this.f5638a.f5637c.B();
                 }
             }
 
@@ -367,12 +367,12 @@ public final class a {
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    c.a.p0.a.e0.d.g("OpenData", "bindPhoneNumber check onFail. needAuth = " + this.f5630a.f5627a);
-                    e eVar = this.f5630a;
-                    if (eVar.f5627a) {
-                        eVar.f5629c.L(eVar.f5628b);
+                    c.a.p0.a.e0.d.g("OpenData", "bindPhoneNumber check onFail. needAuth = " + this.f5638a.f5635a);
+                    e eVar = this.f5638a;
+                    if (eVar.f5635a) {
+                        eVar.f5637c.L(eVar.f5636b);
                     } else {
-                        eVar.f5629c.B();
+                        eVar.f5637c.B();
                     }
                 }
             }
@@ -393,16 +393,16 @@ public final class a {
                     return;
                 }
             }
-            this.f5629c = aVar;
-            this.f5627a = z;
-            this.f5628b = fVar;
+            this.f5637c = aVar;
+            this.f5635a = z;
+            this.f5636b = fVar;
         }
 
         @Override // c.a.p0.a.p.d.n.a
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.e0.d.g("OpenData", "bindPhoneNumber onFinish. needAuth = " + this.f5627a);
+                c.a.p0.a.e0.d.g("OpenData", "bindPhoneNumber onFinish. needAuth = " + this.f5635a);
                 c.a.p0.a.c1.a.a0().g(new C0178a(this));
             }
         }
@@ -414,7 +414,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f5631a;
+        public final /* synthetic */ a f5639a;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -431,7 +431,7 @@ public final class a {
                     return;
                 }
             }
-            this.f5631a = aVar;
+            this.f5639a = aVar;
         }
 
         @Override // c.a.p0.a.e2.c.a
@@ -439,9 +439,9 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (!z) {
-                    this.f5631a.f5621j.b(LightappBusinessClient.SVC_ID_H5_TRANSERECORD);
+                    this.f5639a.f5629j.b(LightappBusinessClient.SVC_ID_H5_TRANSERECORD);
                 }
-                this.f5631a.J(z);
+                this.f5639a.J(z);
             }
         }
     }
@@ -452,7 +452,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5632e;
+        public final /* synthetic */ a f5640e;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -469,7 +469,7 @@ public final class a {
                     return;
                 }
             }
-            this.f5632e = aVar;
+            this.f5640e = aVar;
         }
 
         @Override // c.a.p0.a.m.a
@@ -479,17 +479,17 @@ public final class a {
                 c.a.p0.a.e2.c.d.j("onResult :: " + i2, Boolean.FALSE);
                 if (i2 == -2) {
                     c.a.p0.a.e2.c.d.j("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
-                    this.f5632e.f5621j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
-                    this.f5632e.B();
+                    this.f5640e.f5629j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
+                    this.f5640e.B();
                 } else if (i2 != 0) {
                     c.a.p0.a.e2.c.d.j("login error ERR_BY_LOGIN", Boolean.TRUE);
-                    this.f5632e.f5621j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
-                    this.f5632e.B();
+                    this.f5640e.f5629j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
+                    this.f5640e.B();
                 } else {
                     c.a.p0.a.e2.c.d.j("Login Preparation ok, is already login", Boolean.FALSE);
-                    this.f5632e.f5619h = true;
-                    this.f5632e.l = true;
-                    this.f5632e.K();
+                    this.f5640e.f5627h = true;
+                    this.f5640e.l = true;
+                    this.f5640e.K();
                 }
             }
         }
@@ -501,7 +501,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5633e;
+        public final /* synthetic */ a f5641e;
 
         public h(a aVar) {
             Interceptable interceptable = $ic;
@@ -518,7 +518,7 @@ public final class a {
                     return;
                 }
             }
-            this.f5633e = aVar;
+            this.f5641e = aVar;
         }
 
         @Override // c.a.p0.a.m.a
@@ -528,16 +528,16 @@ public final class a {
                 c.a.p0.a.e2.c.d.j("onResult :: " + i2, Boolean.FALSE);
                 if (i2 == -2) {
                     c.a.p0.a.e2.c.d.j("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
-                    this.f5633e.f5621j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
-                    this.f5633e.B();
+                    this.f5641e.f5629j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
+                    this.f5641e.B();
                 } else if (i2 != 0) {
                     c.a.p0.a.e2.c.d.j("login error ERR_BY_LOGIN", Boolean.TRUE);
-                    this.f5633e.f5621j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
-                    this.f5633e.B();
+                    this.f5641e.f5629j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
+                    this.f5641e.B();
                 } else {
                     c.a.p0.a.e2.c.d.j("Login Preparation ok, is already login", Boolean.FALSE);
-                    this.f5633e.f5619h = true;
-                    this.f5633e.K();
+                    this.f5641e.f5627h = true;
+                    this.f5641e.K();
                 }
             }
         }
@@ -549,10 +549,10 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f5634e;
+        public final /* synthetic */ boolean f5642e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f5635f;
+        public final /* synthetic */ a f5643f;
 
         public i(a aVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -569,8 +569,8 @@ public final class a {
                     return;
                 }
             }
-            this.f5635f = aVar;
-            this.f5634e = z;
+            this.f5643f = aVar;
+            this.f5642e = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -580,18 +580,18 @@ public final class a {
             a.b bVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                if (!this.f5634e && !this.f5635f.k) {
-                    this.f5635f.B();
-                } else if (iVar != null && iVar.c() && (bVar = iVar.f5582a) != null && bVar.f5587c != null) {
-                    a aVar = this.f5635f;
-                    aVar.f5618g = bVar.f5587c;
+                if (!this.f5642e && !this.f5643f.k) {
+                    this.f5643f.B();
+                } else if (iVar != null && iVar.c() && (bVar = iVar.f5590a) != null && bVar.f5595c != null) {
+                    a aVar = this.f5643f;
+                    aVar.f5626g = bVar.f5595c;
                     aVar.B();
                 } else {
-                    c.a.p0.a.q2.a aVar2 = this.f5635f.f5621j;
+                    c.a.p0.a.q2.a aVar2 = this.f5643f.f5629j;
                     aVar2.b(LightappBusinessClient.SVC_ID_H5_BALANCE);
                     aVar2.e("bad Accredit response");
-                    this.f5635f.B();
-                    this.f5635f.z(10002);
+                    this.f5643f.B();
+                    this.f5643f.z(10002);
                 }
             }
         }
@@ -603,7 +603,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5636e;
+        public final /* synthetic */ a f5644e;
 
         public j(a aVar) {
             Interceptable interceptable = $ic;
@@ -620,7 +620,7 @@ public final class a {
                     return;
                 }
             }
-            this.f5636e = aVar;
+            this.f5644e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -630,12 +630,12 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (iVar == null || !iVar.c()) {
-                    c.a.p0.a.q2.a aVar = this.f5636e.f5621j;
+                    c.a.p0.a.q2.a aVar = this.f5644e.f5629j;
                     aVar.b(LightappBusinessClient.SVC_ID_H5_BALANCE);
                     aVar.e("bad authorize response");
-                    this.f5636e.z(10002);
+                    this.f5644e.z(10002);
                 }
-                this.f5636e.B();
+                this.f5644e.B();
             }
         }
     }
@@ -653,7 +653,7 @@ public final class a {
                 return;
             }
         }
-        p = c.a.p0.a.k.f7077a;
+        p = c.a.p0.a.k.f7085a;
         q = new HashMap();
     }
 
@@ -672,21 +672,21 @@ public final class a {
                 return;
             }
         }
-        this.f5616e = new HashSet();
-        this.f5617f = TaskState.INIT;
-        this.f5619h = false;
+        this.f5624e = new HashSet();
+        this.f5625f = TaskState.INIT;
+        this.f5627h = false;
         c.a.p0.a.q2.a aVar = new c.a.p0.a.q2.a();
         aVar.j(8L);
         aVar.e("OpenData");
-        this.f5621j = aVar;
+        this.f5629j = aVar;
         this.k = false;
         this.l = false;
         this.m = false;
         this.o = new b(this);
-        this.f5612a = activity;
-        this.f5613b = str;
-        this.f5614c = str2;
-        this.f5615d = z;
+        this.f5620a = activity;
+        this.f5621b = str;
+        this.f5622c = str2;
+        this.f5623d = z;
         this.n = str3;
     }
 
@@ -748,8 +748,8 @@ public final class a {
                 jSONObject.put("appid", Q.getAppId());
                 jSONObject.put("msg", c.a.p0.a.e2.c.d.f(i2));
                 if (fVar != null) {
-                    jSONObject.put("scope", fVar.f5539b);
-                    jSONObject.put("scopeData", fVar.f5538a);
+                    jSONObject.put("scope", fVar.f5547b);
+                    jSONObject.put("scopeData", fVar.f5546a);
                 }
             } catch (JSONException e2) {
                 if (p) {
@@ -766,14 +766,14 @@ public final class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.o.a();
             synchronized (q) {
-                q.remove(D(this.f5613b, this.f5615d));
+                q.remove(D(this.f5621b, this.f5623d));
             }
-            this.f5617f = TaskState.FINISHED;
-            if (this.f5618g == null && 0 == this.f5621j.a()) {
-                if (this.f5619h) {
-                    this.f5621j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
+            this.f5625f = TaskState.FINISHED;
+            if (this.f5626g == null && 0 == this.f5629j.a()) {
+                if (this.f5627h) {
+                    this.f5629j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
                 } else {
-                    this.f5621j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
+                    this.f5629j.b(LightappBusinessClient.SVC_ID_H5_COUPON);
                 }
             }
             c.a.p0.a.e0.d.g("OpenData", "onFinish" + toString());
@@ -784,19 +784,19 @@ public final class a {
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.FINISHED == this.f5617f && 0 == this.f5621j.a() && this.f5618g != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.FINISHED == this.f5625f && 0 == this.f5629j.a() && this.f5626g != null : invokeV.booleanValue;
     }
 
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TaskState.FINISHED == this.f5617f && this.f5618g != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TaskState.FINISHED == this.f5625f && this.f5626g != null : invokeV.booleanValue;
     }
 
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f5620i.j().f(this.f5612a, null, new h(this));
+            this.f5628i.j().f(this.f5620a, null, new h(this));
         }
     }
 
@@ -810,7 +810,7 @@ public final class a {
     public final void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f5619h = this.f5620i.j().e(this.f5612a);
+            this.f5627h = this.f5628i.j().e(this.f5620a);
             K();
         }
     }
@@ -818,14 +818,14 @@ public final class a {
     public final void J(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            if (TextUtils.isEmpty(this.f5614c)) {
-                c.a.p0.a.e2.c.j.a a2 = c.a.p0.a.a2.d.g().y().a().b().a(this.f5612a, z, this.f5613b, this.f5614c);
+            if (TextUtils.isEmpty(this.f5622c)) {
+                c.a.p0.a.e2.c.j.a a2 = c.a.p0.a.a2.d.g().y().a().b().a(this.f5620a, z, this.f5621b, this.f5622c);
                 a2.r(this.n);
                 a2.p(new i(this, z));
                 a2.a();
                 return;
             }
-            c.a.p0.a.e2.c.j.b d2 = c.a.p0.a.a2.d.g().y().a().b().d(this.f5612a, true, z, new String[]{this.f5613b}, this.f5614c, true);
+            c.a.p0.a.e2.c.j.b d2 = c.a.p0.a.a2.d.g().y().a().b().d(this.f5620a, true, z, new String[]{this.f5621b}, this.f5622c, true);
             d2.r(this.n);
             d2.p(new j(this));
             d2.a();
@@ -836,7 +836,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             k.N(this.n, "requestOpenData");
-            c.a.p0.a.e2.c.j.g c2 = c.a.p0.a.a2.d.g().y().a().b().c(this.f5612a, this.f5613b, this.f5614c, this.f5615d, this.f5619h);
+            c.a.p0.a.e2.c.j.g c2 = c.a.p0.a.a2.d.g().y().a().b().c(this.f5620a, this.f5621b, this.f5622c, this.f5623d, this.f5627h);
             c2.r(this.n);
             c2.p(new c(this));
             c2.a();
@@ -846,27 +846,27 @@ public final class a {
     public final void L(@NonNull c.a.p0.a.e2.c.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, fVar) == null) {
-            c.a.p0.a.e2.c.d.t(this.f5612a, this.f5620i, fVar, this.f5618g, new f(this));
+            c.a.p0.a.e2.c.d.t(this.f5620a, this.f5628i, fVar, this.f5626g, new f(this));
         }
     }
 
     public final void M(c.a.p0.a.v2.e1.b<a> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            c.a.p0.a.e0.d.g("OpenData", "start session : " + this.f5613b);
-            this.f5617f = TaskState.CALLING;
-            this.k = TextUtils.equals(this.f5613b, "snsapi_userinfo");
+            c.a.p0.a.e0.d.g("OpenData", "start session : " + this.f5621b);
+            this.f5625f = TaskState.CALLING;
+            this.k = TextUtils.equals(this.f5621b, "snsapi_userinfo");
             u(bVar);
             c.a.p0.a.a2.e i2 = c.a.p0.a.a2.e.i();
-            this.f5620i = i2;
+            this.f5628i = i2;
             if (i2 == null) {
                 c.a.p0.a.e2.c.d.j("SwanApp is null", Boolean.TRUE);
-                this.f5621j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
+                this.f5629j.b(LightappBusinessClient.SVC_ID_H5_HOMEPAGE);
                 B();
                 z(10001);
                 return;
             }
-            i2.T().f5406f.d(this.o);
+            i2.T().f5414f.d(this.o);
         }
     }
 
@@ -875,12 +875,12 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(String.format(Locale.getDefault(), "%s(%s) isResultOK(%s) %s\n", "OpenData", this.f5613b, Boolean.valueOf(E()), super.toString()));
-            sb.append(String.format(Locale.getDefault(), "Err(%s)\n", this.f5621j));
-            if (this.f5618g != null) {
-                sb.append(String.format(Locale.getDefault(), "Data(%s)\n", this.f5618g));
+            sb.append(String.format(Locale.getDefault(), "%s(%s) isResultOK(%s) %s\n", "OpenData", this.f5621b, Boolean.valueOf(E()), super.toString()));
+            sb.append(String.format(Locale.getDefault(), "Err(%s)\n", this.f5629j));
+            if (this.f5626g != null) {
+                sb.append(String.format(Locale.getDefault(), "Data(%s)\n", this.f5626g));
             }
-            sb.append(String.format(Locale.getDefault(), "state=%s\n", this.f5617f));
+            sb.append(String.format(Locale.getDefault(), "state=%s\n", this.f5625f));
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -893,8 +893,8 @@ public final class a {
             if (bVar == null) {
                 return this;
             }
-            synchronized (this.f5616e) {
-                this.f5616e.add(bVar);
+            synchronized (this.f5624e) {
+                this.f5624e.add(bVar);
             }
             return this;
         }
@@ -931,7 +931,7 @@ public final class a {
     public final void z(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            A(i2, c.a.p0.a.e2.c.f.d(this.f5613b, new JSONObject()));
+            A(i2, c.a.p0.a.e2.c.f.d(this.f5621b, new JSONObject()));
         }
     }
 }

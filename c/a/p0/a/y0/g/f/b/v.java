@@ -47,7 +47,7 @@ public class v extends c.a.p0.a.y0.a<c.a.p0.a.y0.g.h.b> {
             Object obj = command.obj;
             if (obj instanceof String) {
                 String str2 = (String) obj;
-                if (TextUtils.equals(str2, com.alipay.sdk.widget.d.l)) {
+                if (TextUtils.equals(str2, com.alipay.sdk.widget.d.u)) {
                     bVar.setCameraFace(false);
                 } else if (TextUtils.equals(str2, "front")) {
                     bVar.setCameraFace(true);

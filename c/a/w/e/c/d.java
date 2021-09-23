@@ -15,14 +15,14 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f30507b;
+    public static d f30528b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static WeakHashMap<Object, List<c.a.w.e.c.b>> f30508c;
+    public static WeakHashMap<Object, List<c.a.w.e.c.b>> f30529c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f30509a;
+    public e f30530a;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -35,7 +35,7 @@ public class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f30510a;
+        public static final d f30531a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,7 +51,7 @@ public class d {
                     return;
                 }
             }
-            f30510a = new d(null);
+            f30531a = new d(null);
         }
     }
 
@@ -63,20 +63,20 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f30507b == null) {
-                f30507b = b.f30510a;
+            if (f30528b == null) {
+                f30528b = b.f30531a;
             }
-            return f30507b;
+            return f30528b;
         }
         return (d) invokeV.objValue;
     }
 
     public void b(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null || f30508c.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null || f30529c.isEmpty()) {
             return;
         }
-        this.f30509a.c(f30508c, obj);
+        this.f30530a.c(f30529c, obj);
     }
 
     public void c(Object obj, Class<?> cls, int i2, c.a.w.e.c.a aVar) {
@@ -84,7 +84,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, cls, i2, aVar) == null) || obj == null || cls == null || aVar == null || !f.a(i2)) {
             return;
         }
-        this.f30509a.d(f30508c, obj, cls, i2, aVar);
+        this.f30530a.d(f30529c, obj, cls, i2, aVar);
     }
 
     public synchronized void d(Object obj, Class<?> cls, c.a.w.e.c.a aVar) {
@@ -98,10 +98,10 @@ public class d {
 
     public void e(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, obj) == null) || obj == null || f30508c.isEmpty() || !f30508c.containsKey(obj)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, obj) == null) || obj == null || f30529c.isEmpty() || !f30529c.containsKey(obj)) {
             return;
         }
-        this.f30509a.e(f30508c, obj);
+        this.f30530a.e(f30529c, obj);
     }
 
     public d() {
@@ -117,7 +117,7 @@ public class d {
                 return;
             }
         }
-        f30508c = new WeakHashMap<>();
-        this.f30509a = new e();
+        f30529c = new WeakHashMap<>();
+        this.f30530a = new e();
     }
 }

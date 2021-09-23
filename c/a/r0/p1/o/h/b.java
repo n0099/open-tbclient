@@ -17,16 +17,16 @@ public interface b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f23542a;
+        public String f23558a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f23543b;
+        public String f23559b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<String> f23544c;
+        public ArrayList<String> f23560c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ArrayList<String> f23545d;
+        public ArrayList<String> f23561d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public interface b {
                     return;
                 }
             }
-            this.f23544c = new ArrayList<>();
-            this.f23545d = new ArrayList<>();
+            this.f23560c = new ArrayList<>();
+            this.f23561d = new ArrayList<>();
         }
 
         public void a(JSONObject jSONObject) {
@@ -56,11 +56,11 @@ public interface b {
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("show_url");
                     if (!TextUtils.isEmpty(optString)) {
-                        this.f23544c.add(optString);
+                        this.f23560c.add(optString);
                     }
                     String optString2 = optJSONObject.optString("click_url");
                     if (!TextUtils.isEmpty(optString2)) {
-                        this.f23545d.add(optString2);
+                        this.f23561d.add(optString2);
                     }
                 }
             }

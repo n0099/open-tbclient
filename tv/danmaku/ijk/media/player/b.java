@@ -9,7 +9,7 @@ public interface b {
 
     /* renamed from: tv.danmaku.ijk.media.player.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC2156b {
+    public interface InterfaceC2160b {
         void b(b bVar);
     }
 

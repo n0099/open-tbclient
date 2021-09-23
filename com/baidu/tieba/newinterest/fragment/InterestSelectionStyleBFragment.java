@@ -22,27 +22,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class InterestSelectionStyleBFragment extends BaseInterestSelectionFragment implements a.InterfaceC0861a {
+public class InterestSelectionStyleBFragment extends BaseInterestSelectionFragment implements a.InterfaceC0859a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f54778e;
+    public View f54893e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f54779f;
+    public View f54894f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f54780g;
+    public LinearLayout f54895g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f54781h;
+    public TextView f54896h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f54782i;
+    public TextView f54897i;
 
     /* renamed from: j  reason: collision with root package name */
-    public NoScrollGridView f54783j;
+    public NoScrollGridView f54898j;
     public c k;
 
     public InterestSelectionStyleBFragment() {
@@ -75,13 +75,13 @@ public class InterestSelectionStyleBFragment extends BaseInterestSelectionFragme
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f54778e = this.mRootView.findViewById(R.id.interest_selected_btn_shade);
-            this.f54779f = this.mRootView.findViewById(R.id.interest_selected_title_shade);
-            this.f54780g = (LinearLayout) this.mRootView.findViewById(R.id.interest_selected_next_ll);
-            this.f54783j = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
+            this.f54893e = this.mRootView.findViewById(R.id.interest_selected_btn_shade);
+            this.f54894f = this.mRootView.findViewById(R.id.interest_selected_title_shade);
+            this.f54895g = (LinearLayout) this.mRootView.findViewById(R.id.interest_selected_next_ll);
+            this.f54898j = (NoScrollGridView) this.mRootView.findViewById(R.id.interest_selection_grid_view);
             this.mInterestSelectedButton = (TBSpecificationBtn) this.mRootView.findViewById(R.id.interest_selected_btn);
-            this.f54781h = (TextView) this.mRootView.findViewById(R.id.interest_selection_title);
-            this.f54782i = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
+            this.f54896h = (TextView) this.mRootView.findViewById(R.id.interest_selection_title);
+            this.f54897i = (TextView) this.mRootView.findViewById(R.id.interest_selection_desc);
             c.a.q0.s.f0.n.a aVar = new c.a.q0.s.f0.n.a();
             this.mInterestSelectedButton.setTextSize(R.dimen.T_X06);
             this.mInterestSelectedButton.setConfig(aVar);
@@ -91,9 +91,9 @@ public class InterestSelectionStyleBFragment extends BaseInterestSelectionFragme
             int k = l.k(getContext());
             int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
             int g3 = l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X006);
-            this.f54783j.setColumnWidth((k / 4) + g2);
-            this.f54783j.setVerticalSpacing(g3);
-            this.f54783j.setAdapter((ListAdapter) this.mInterestSelectionAdapter);
+            this.f54898j.setColumnWidth((k / 4) + g2);
+            this.f54898j.setVerticalSpacing(g3);
+            this.f54898j.setAdapter((ListAdapter) this.mInterestSelectionAdapter);
         }
     }
 
@@ -103,17 +103,17 @@ public class InterestSelectionStyleBFragment extends BaseInterestSelectionFragme
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
             c.a.q0.s.u.c.d(this.mRootView).f(R.color.CAM_X0206);
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f54781h);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f54896h);
             d2.w(R.color.CAM_X0105);
             d2.A(R.dimen.T_X03);
             d2.B(R.string.F_X02);
-            c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(this.f54782i);
+            c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(this.f54897i);
             d3.w(R.color.CAM_X0108);
             d3.A(R.dimen.T_X07);
             d3.B(R.string.F_X01);
-            c.a.q0.s.u.c.d(this.f54780g).f(R.color.CAM_X0206);
-            c.a.q0.s.u.c.d(this.f54778e).p(new int[]{R.color.CAM_X0206, R.color.CAM_X0612});
-            c.a.q0.s.u.c.d(this.f54779f).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0206});
+            c.a.q0.s.u.c.d(this.f54895g).f(R.color.CAM_X0206);
+            c.a.q0.s.u.c.d(this.f54893e).p(new int[]{R.color.CAM_X0206, R.color.CAM_X0612});
+            c.a.q0.s.u.c.d(this.f54894f).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0206});
             this.mInterestSelectionAdapter.notifyDataSetChanged();
         }
     }

@@ -41,19 +41,19 @@ public class b extends c.a.p0.h.y.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f11600a;
+        public final /* synthetic */ String f11608a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.h.y.b f11601b;
+        public final /* synthetic */ c.a.p0.h.y.b f11609b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f11602c;
+        public final /* synthetic */ boolean f11610c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.k2.f.d f11603d;
+        public final /* synthetic */ c.a.p0.a.k2.f.d f11611d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f11604e;
+        public final /* synthetic */ b f11612e;
 
         public a(b bVar, String str, c.a.p0.h.y.b bVar2, boolean z, c.a.p0.a.k2.f.d dVar) {
             Interceptable interceptable = $ic;
@@ -70,26 +70,26 @@ public class b extends c.a.p0.h.y.a {
                     return;
                 }
             }
-            this.f11604e = bVar;
-            this.f11600a = str;
-            this.f11601b = bVar2;
-            this.f11602c = z;
-            this.f11603d = dVar;
+            this.f11612e = bVar;
+            this.f11608a = str;
+            this.f11609b = bVar2;
+            this.f11610c = z;
+            this.f11611d = dVar;
         }
 
         @Override // c.a.p0.a.n1.o.a.b
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.f11604e.C(this.f11600a, -1, "downloadFile:fail exceed max file size");
-                this.f11601b.cancelTag(this.f11604e.f11590g);
+                this.f11612e.C(this.f11608a, -1, "downloadFile:fail exceed max file size");
+                this.f11609b.cancelTag(this.f11612e.f11598g);
             }
         }
 
         @Override // c.a.p0.a.n1.o.a.b
         public void b(int i2, long j2, long j3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || System.currentTimeMillis() - this.f11604e.l <= 500) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || System.currentTimeMillis() - this.f11612e.l <= 500) {
                 return;
             }
             if (j3 <= 52428800 && j2 <= 52428800) {
@@ -97,25 +97,25 @@ public class b extends c.a.p0.h.y.a {
                     c.a.p0.h.y.d.a aVar = new c.a.p0.h.y.d.a(i2, j3, j2);
                     JSEvent jSEvent = new JSEvent("progressUpdate");
                     jSEvent.data = aVar;
-                    this.f11604e.dispatchEvent(jSEvent);
+                    this.f11612e.dispatchEvent(jSEvent);
                 }
-                if (this.f11602c && this.f11603d.d().a(j2)) {
-                    this.f11604e.C(this.f11600a, -1, "downloadFile:fail exceed max file size");
-                    this.f11601b.cancelTag(this.f11604e.f11590g);
+                if (this.f11610c && this.f11611d.d().a(j2)) {
+                    this.f11612e.C(this.f11608a, -1, "downloadFile:fail exceed max file size");
+                    this.f11609b.cancelTag(this.f11612e.f11598g);
                 }
             } else {
-                this.f11604e.C(this.f11600a, -1, "downloadFile:fail exceed max file size");
-                this.f11601b.cancelTag(this.f11604e.f11590g);
+                this.f11612e.C(this.f11608a, -1, "downloadFile:fail exceed max file size");
+                this.f11609b.cancelTag(this.f11612e.f11598g);
             }
-            this.f11604e.l = System.currentTimeMillis();
+            this.f11612e.l = System.currentTimeMillis();
         }
 
         @Override // c.a.p0.a.n1.o.a.b
         public void c(long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                this.f11604e.C(this.f11600a, 0, "progress callback fail()");
-                this.f11601b.cancelTag(this.f11604e.f11590g);
+                this.f11612e.C(this.f11608a, 0, "progress callback fail()");
+                this.f11609b.cancelTag(this.f11612e.f11598g);
             }
         }
     }
@@ -127,22 +127,22 @@ public class b extends c.a.p0.h.y.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f11605a;
+        public final /* synthetic */ String f11613a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f11606b;
+        public final /* synthetic */ String f11614b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f11607c;
+        public final /* synthetic */ String f11615c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.k2.f.d f11608d;
+        public final /* synthetic */ c.a.p0.a.k2.f.d f11616d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f11609e;
+        public final /* synthetic */ boolean f11617e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f11610f;
+        public final /* synthetic */ b f11618f;
 
         public C0603b(b bVar, String str, String str2, String str3, c.a.p0.a.k2.f.d dVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -159,21 +159,21 @@ public class b extends c.a.p0.h.y.a {
                     return;
                 }
             }
-            this.f11610f = bVar;
-            this.f11605a = str;
-            this.f11606b = str2;
-            this.f11607c = str3;
-            this.f11608d = dVar;
-            this.f11609e = z;
+            this.f11618f = bVar;
+            this.f11613a = str;
+            this.f11614b = str2;
+            this.f11615c = str3;
+            this.f11616d = dVar;
+            this.f11617e = z;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                this.f11610f.C(this.f11605a, 0, iOException.getMessage());
+                this.f11618f.C(this.f11613a, 0, iOException.getMessage());
                 if (SwanAppNetworkUtils.i(null)) {
-                    k.r(0, this.f11605a, 1, iOException.getMessage());
+                    k.r(0, this.f11613a, 1, iOException.getMessage());
                 }
             }
         }
@@ -186,36 +186,36 @@ public class b extends c.a.p0.h.y.a {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
                 try {
                     JSEvent jSEvent = new JSEvent("headersReceived");
-                    jSEvent.data = new e(this.f11610f.I(response.headers()));
-                    this.f11610f.dispatchEvent(jSEvent);
+                    jSEvent.data = new e(this.f11618f.I(response.headers()));
+                    this.f11618f.dispatchEvent(jSEvent);
                 } catch (JSONException e2) {
                     if (b.m) {
                         e2.printStackTrace();
                     }
                 }
-                if (TextUtils.isEmpty(this.f11606b)) {
-                    T = f.A(response, this.f11607c);
+                if (TextUtils.isEmpty(this.f11614b)) {
+                    T = f.A(response, this.f11615c);
                 } else {
-                    T = this.f11610f.T(this.f11606b);
+                    T = this.f11618f.T(this.f11614b);
                 }
                 if (!TextUtils.isEmpty(T)) {
                     if (b.m) {
                         String str2 = "the real file path is " + T;
                     }
-                    if (TextUtils.isEmpty(this.f11606b)) {
-                        str = this.f11608d.g(T);
+                    if (TextUtils.isEmpty(this.f11614b)) {
+                        str = this.f11616d.g(T);
                     } else {
-                        str = this.f11606b;
+                        str = this.f11614b;
                     }
                     if (TextUtils.isEmpty(str)) {
-                        this.f11610f.C(this.f11605a, -1, "parse tmpFilePath from realFilePath fail");
+                        this.f11618f.C(this.f11613a, -1, "parse tmpFilePath from realFilePath fail");
                         return;
                     }
                     int code = response.code();
                     String message = response.message();
                     c cVar = new c();
                     cVar.statusCode = code;
-                    if (TextUtils.isEmpty(this.f11606b)) {
+                    if (TextUtils.isEmpty(this.f11614b)) {
                         cVar.tempFilePath = str;
                     } else {
                         cVar.filePath = str;
@@ -225,27 +225,27 @@ public class b extends c.a.p0.h.y.a {
                     if (file.exists()) {
                         long length = file.length();
                         file.delete();
-                        if (this.f11609e) {
-                            this.f11608d.d().b(-length);
+                        if (this.f11617e) {
+                            this.f11616d.d().b(-length);
                         }
                     }
-                    if (this.f11610f.U(byteStream, file)) {
-                        if (this.f11609e) {
-                            this.f11608d.d().b(file.length());
+                    if (this.f11618f.U(byteStream, file)) {
+                        if (this.f11617e) {
+                            this.f11616d.d().b(file.length());
                         }
-                        this.f11610f.D(cVar);
+                        this.f11618f.D(cVar);
                     } else {
-                        this.f11610f.C(this.f11605a, -1, "downloadFile:fail abort");
+                        this.f11618f.C(this.f11613a, -1, "downloadFile:fail abort");
                     }
                     c.a.p0.t.d.d(byteStream);
                     c.a.p0.t.d.d(response);
                     if (b.m) {
-                        String str3 = "onResponse: respCode: " + code + ", url=" + this.f11605a + ", msg=" + message;
+                        String str3 = "onResponse: respCode: " + code + ", url=" + this.f11613a + ", msg=" + message;
                     }
-                    k.r(code, this.f11605a, 1, message);
+                    k.r(code, this.f11613a, 1, message);
                     return;
                 }
-                this.f11610f.C(this.f11605a, -1, "downloadFile:filePath is invalid");
+                this.f11618f.C(this.f11613a, -1, "downloadFile:filePath is invalid");
             }
         }
     }
@@ -263,7 +263,7 @@ public class b extends c.a.p0.h.y.a {
                 return;
             }
         }
-        m = c.a.p0.a.k.f7077a;
+        m = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -285,7 +285,7 @@ public class b extends c.a.p0.h.y.a {
                 return;
             }
         }
-        this.f11588e = 2;
+        this.f11596e = 2;
     }
 
     @Override // c.a.p0.h.y.a
@@ -383,7 +383,7 @@ public class b extends c.a.p0.h.y.a {
 
     public void start() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f11589f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f11597f == null) {
             return;
         }
         String z = z();
@@ -395,7 +395,7 @@ public class b extends c.a.p0.h.y.a {
             return;
         }
         c.a.p0.h.y.b bVar = (c.a.p0.h.y.b) c.a.p0.a.a2.e.i().X();
-        String C = this.f11589f.C("filePath");
+        String C = this.f11597f.C("filePath");
         if (!TextUtils.isEmpty(C)) {
             if (c.a.p0.t.d.w(C)) {
                 C(z, -1, "downloadFile:filePath is invalid");
@@ -415,8 +415,8 @@ public class b extends c.a.p0.h.y.a {
         }
         HashMap hashMap = new HashMap();
         Request.Builder builder = new Request.Builder();
-        G(builder, this.f11589f.x("header"), hashMap, false);
-        builder.url(z).tag(this.f11590g).build();
+        G(builder, this.f11597f.x("header"), hashMap, false);
+        builder.url(z).tag(this.f11598g).build();
         String s = c.a.p0.t.d.s(z);
         this.l = 0L;
         d dVar = new d();

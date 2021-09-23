@@ -29,32 +29,32 @@ public class DefaultSwanAppBgMusicPlayer implements s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f45526h;
+    public static final boolean f45628h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile DefaultSwanAppBgMusicPlayer f45527i;
+    public static volatile DefaultSwanAppBgMusicPlayer f45629i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaPlayer f45528a;
+    public MediaPlayer f45630a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PlayerStatus f45529b;
+    public PlayerStatus f45631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.a.i1.c.f.a f45530c;
+    public c.a.p0.a.i1.c.f.a f45632c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AudioManager f45531d;
+    public AudioManager f45633d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45532e;
+    public boolean f45634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f45533f;
+    public b f45635f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f45534g;
+    public d f45636g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -132,7 +132,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DefaultSwanAppBgMusicPlayer f45535a;
+        public final /* synthetic */ DefaultSwanAppBgMusicPlayer f45637a;
 
         /* loaded from: classes6.dex */
         public class a implements Runnable {
@@ -140,10 +140,10 @@ public class DefaultSwanAppBgMusicPlayer implements s {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f45536e;
+            public final /* synthetic */ int f45638e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f45537f;
+            public final /* synthetic */ b f45639f;
 
             public a(b bVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -160,19 +160,19 @@ public class DefaultSwanAppBgMusicPlayer implements s {
                         return;
                     }
                 }
-                this.f45537f = bVar;
-                this.f45536e = i2;
+                this.f45639f = bVar;
+                this.f45638e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int i2 = this.f45536e;
+                    int i2 = this.f45638e;
                     if (i2 == -2 || i2 == -1) {
-                        boolean unused = DefaultSwanAppBgMusicPlayer.f45526h;
-                        this.f45537f.f45535a.b();
-                        this.f45537f.f45535a.pause();
+                        boolean unused = DefaultSwanAppBgMusicPlayer.f45628h;
+                        this.f45639f.f45637a.b();
+                        this.f45639f.f45637a.pause();
                     }
                 }
             }
@@ -193,7 +193,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
                     return;
                 }
             }
-            this.f45535a = defaultSwanAppBgMusicPlayer;
+            this.f45637a = defaultSwanAppBgMusicPlayer;
         }
 
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
@@ -215,7 +215,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DefaultSwanAppBgMusicPlayer f45538e;
+        public final /* synthetic */ DefaultSwanAppBgMusicPlayer f45640e;
 
         public c(DefaultSwanAppBgMusicPlayer defaultSwanAppBgMusicPlayer) {
             Interceptable interceptable = $ic;
@@ -232,21 +232,21 @@ public class DefaultSwanAppBgMusicPlayer implements s {
                     return;
                 }
             }
-            this.f45538e = defaultSwanAppBgMusicPlayer;
+            this.f45640e = defaultSwanAppBgMusicPlayer;
         }
 
         @Override // android.media.MediaPlayer.OnBufferingUpdateListener
         public void onBufferingUpdate(MediaPlayer mediaPlayer, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, mediaPlayer, i2) == null) {
-                if (DefaultSwanAppBgMusicPlayer.f45526h) {
+                if (DefaultSwanAppBgMusicPlayer.f45628h) {
                     String str = "--onBufferUpdate -> " + i2 + "%";
                 }
-                this.f45538e.f45530c.onGetDownloadProgress(i2);
-                if (this.f45538e.f45529b != PlayerStatus.PREPARED || (i2 * this.f45538e.k().getDuration()) / 100 > this.f45538e.k().getCurrentPosition()) {
+                this.f45640e.f45632c.onGetDownloadProgress(i2);
+                if (this.f45640e.f45631b != PlayerStatus.PREPARED || (i2 * this.f45640e.k().getDuration()) / 100 > this.f45640e.k().getCurrentPosition()) {
                     return;
                 }
-                this.f45538e.f45530c.onStateChanged(BgMusicPlayState.LOADING);
+                this.f45640e.f45632c.onStateChanged(BgMusicPlayState.LOADING);
             }
         }
 
@@ -254,11 +254,11 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaPlayer) == null) {
-                boolean unused = DefaultSwanAppBgMusicPlayer.f45526h;
-                this.f45538e.f45529b = PlayerStatus.PREPARED;
-                this.f45538e.f45530c.onStateChanged(BgMusicPlayState.END);
-                if (this.f45538e.f45534g != null) {
-                    this.f45538e.f45534g.removeMessages(0);
+                boolean unused = DefaultSwanAppBgMusicPlayer.f45628h;
+                this.f45640e.f45631b = PlayerStatus.PREPARED;
+                this.f45640e.f45632c.onStateChanged(BgMusicPlayState.END);
+                if (this.f45640e.f45636g != null) {
+                    this.f45640e.f45636g.removeMessages(0);
                 }
             }
         }
@@ -268,7 +268,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, mediaPlayer, i2, i3)) == null) {
-                if (DefaultSwanAppBgMusicPlayer.f45526h) {
+                if (DefaultSwanAppBgMusicPlayer.f45628h) {
                     String str = "--onError -> what: " + i2 + " extra: " + i3;
                     return true;
                 }
@@ -281,10 +281,10 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) {
-                boolean unused = DefaultSwanAppBgMusicPlayer.f45526h;
-                this.f45538e.f45529b = PlayerStatus.PREPARED;
-                this.f45538e.f45530c.onStateChanged(BgMusicPlayState.READY);
-                this.f45538e.play();
+                boolean unused = DefaultSwanAppBgMusicPlayer.f45628h;
+                this.f45640e.f45631b = PlayerStatus.PREPARED;
+                this.f45640e.f45632c.onStateChanged(BgMusicPlayState.READY);
+                this.f45640e.play();
             }
         }
 
@@ -300,7 +300,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DefaultSwanAppBgMusicPlayer f45539a;
+        public final /* synthetic */ DefaultSwanAppBgMusicPlayer f45641a;
 
         public d(DefaultSwanAppBgMusicPlayer defaultSwanAppBgMusicPlayer) {
             Interceptable interceptable = $ic;
@@ -317,7 +317,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
                     return;
                 }
             }
-            this.f45539a = defaultSwanAppBgMusicPlayer;
+            this.f45641a = defaultSwanAppBgMusicPlayer;
         }
 
         public final int a(int i2, int i3) {
@@ -339,10 +339,10 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && message.what == 0) {
-                int duration = this.f45539a.k().getDuration();
-                int currentPosition = this.f45539a.k().getCurrentPosition();
-                this.f45539a.f45530c.onGetDuration(duration);
-                this.f45539a.f45530c.onGetPosition(currentPosition, a(duration, currentPosition));
+                int duration = this.f45641a.k().getDuration();
+                int currentPosition = this.f45641a.k().getCurrentPosition();
+                this.f45641a.f45632c.onGetDuration(duration);
+                this.f45641a.f45632c.onGetPosition(currentPosition, a(duration, currentPosition));
                 sendEmptyMessageDelayed(0, 200L);
             }
         }
@@ -365,7 +365,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
                 return;
             }
         }
-        f45526h = k.f7077a;
+        f45628h = k.f7085a;
     }
 
     public DefaultSwanAppBgMusicPlayer() {
@@ -381,21 +381,21 @@ public class DefaultSwanAppBgMusicPlayer implements s {
                 return;
             }
         }
-        this.f45529b = PlayerStatus.NONE;
+        this.f45631b = PlayerStatus.NONE;
     }
 
     public static DefaultSwanAppBgMusicPlayer j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f45527i == null) {
+            if (f45629i == null) {
                 synchronized (DefaultSwanAppBgMusicPlayer.class) {
-                    if (f45527i == null) {
-                        f45527i = new DefaultSwanAppBgMusicPlayer();
+                    if (f45629i == null) {
+                        f45629i = new DefaultSwanAppBgMusicPlayer();
                     }
                 }
             }
-            return f45527i;
+            return f45629i;
         }
         return (DefaultSwanAppBgMusicPlayer) invokeV.objValue;
     }
@@ -406,34 +406,34 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f45530c = aVar;
+        this.f45632c = aVar;
         try {
             c.a.p0.a.i1.c.a b2 = c.a.p0.a.i1.c.a.b(new JSONObject(str), new c.a.p0.a.i1.c.a());
-            if (this.f45529b != PlayerStatus.NONE) {
+            if (this.f45631b != PlayerStatus.NONE) {
                 k().reset();
             }
-            k().setDataSource(b2.f6575c);
-            this.f45529b = PlayerStatus.IDLE;
-            this.f45530c.onGetCurrentSong(b2.f6575c);
+            k().setDataSource(b2.f6583c);
+            this.f45631b = PlayerStatus.IDLE;
+            this.f45632c.onGetCurrentSong(b2.f6583c);
             play();
         } catch (IOException | JSONException e2) {
             e2.printStackTrace();
-            this.f45530c.onInvokeFailed();
+            this.f45632c.onInvokeFailed();
         }
     }
 
     public final void b() {
         b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f45532e) {
-            AudioManager audioManager = this.f45531d;
-            if (audioManager != null && (bVar = this.f45533f) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f45634e) {
+            AudioManager audioManager = this.f45633d;
+            if (audioManager != null && (bVar = this.f45635f) != null) {
                 audioManager.abandonAudioFocus(bVar);
-                this.f45531d = null;
-                this.f45533f = null;
+                this.f45633d = null;
+                this.f45635f = null;
             }
-            this.f45532e = false;
-            boolean z = f45526h;
+            this.f45634e = false;
+            boolean z = f45628h;
         }
     }
 
@@ -455,17 +455,17 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f45528a == null) {
-                this.f45528a = new MediaPlayer();
+            if (this.f45630a == null) {
+                this.f45630a = new MediaPlayer();
                 c cVar = new c(this, null);
-                this.f45528a.setOnPreparedListener(cVar);
-                this.f45528a.setOnCompletionListener(cVar);
-                this.f45528a.setOnErrorListener(cVar);
-                this.f45528a.setOnBufferingUpdateListener(cVar);
-                this.f45528a.setAudioStreamType(3);
-                this.f45534g = new d(this, null);
+                this.f45630a.setOnPreparedListener(cVar);
+                this.f45630a.setOnCompletionListener(cVar);
+                this.f45630a.setOnErrorListener(cVar);
+                this.f45630a.setOnBufferingUpdateListener(cVar);
+                this.f45630a.setAudioStreamType(3);
+                this.f45636g = new d(this, null);
             }
-            return this.f45528a;
+            return this.f45630a;
         }
         return (MediaPlayer) invokeV.objValue;
     }
@@ -475,10 +475,10 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
                 k().prepareAsync();
-                this.f45529b = PlayerStatus.PREPARING;
+                this.f45631b = PlayerStatus.PREPARING;
             } catch (IllegalStateException e2) {
                 e2.printStackTrace();
-                this.f45530c.onInvokeFailed();
+                this.f45632c.onInvokeFailed();
                 onRelease();
             }
         }
@@ -486,21 +486,21 @@ public class DefaultSwanAppBgMusicPlayer implements s {
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f45532e) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f45634e) {
             return;
         }
-        if (this.f45531d == null) {
+        if (this.f45633d == null) {
             AudioManager audioManager = (AudioManager) AppRuntime.getAppContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-            this.f45531d = audioManager;
+            this.f45633d = audioManager;
             if (audioManager == null) {
                 return;
             }
         }
-        if (this.f45533f == null) {
-            this.f45533f = new b(this, null);
+        if (this.f45635f == null) {
+            this.f45635f = new b(this, null);
         }
-        this.f45532e = this.f45531d.requestAudioFocus(this.f45533f, 3, 1) == 1;
-        boolean z = f45526h;
+        this.f45634e = this.f45633d.requestAudioFocus(this.f45635f, 3, 1) == 1;
+        boolean z = f45628h;
     }
 
     @Override // c.a.p0.a.p.d.s
@@ -509,12 +509,12 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             b();
             k().release();
-            this.f45528a = null;
-            this.f45529b = PlayerStatus.NONE;
-            d dVar = this.f45534g;
+            this.f45630a = null;
+            this.f45631b = PlayerStatus.NONE;
+            d dVar = this.f45636g;
             if (dVar != null) {
                 dVar.removeMessages(0);
-                this.f45534g = null;
+                this.f45636g = null;
             }
         }
     }
@@ -524,8 +524,8 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && k().isPlaying()) {
             k().pause();
-            this.f45530c.onStateChanged(BgMusicPlayState.PAUSE);
-            d dVar = this.f45534g;
+            this.f45632c.onStateChanged(BgMusicPlayState.PAUSE);
+            d dVar = this.f45636g;
             if (dVar != null) {
                 dVar.removeMessages(0);
             }
@@ -536,12 +536,12 @@ public class DefaultSwanAppBgMusicPlayer implements s {
     public void play() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            PlayerStatus playerStatus = this.f45529b;
+            PlayerStatus playerStatus = this.f45631b;
             if (playerStatus == PlayerStatus.PREPARED) {
                 m();
                 k().start();
-                this.f45530c.onStateChanged(BgMusicPlayState.PLAY);
-                d dVar = this.f45534g;
+                this.f45632c.onStateChanged(BgMusicPlayState.PLAY);
+                d dVar = this.f45636g;
                 if (dVar != null) {
                     dVar.sendEmptyMessage(0);
                 }
@@ -562,12 +562,12 @@ public class DefaultSwanAppBgMusicPlayer implements s {
     @Override // c.a.p0.a.p.d.s
     public void stop() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.f45529b == PlayerStatus.PREPARED) {
-            boolean z = f45526h;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.f45631b == PlayerStatus.PREPARED) {
+            boolean z = f45628h;
             k().stop();
-            this.f45529b = PlayerStatus.IDLE;
-            this.f45530c.onStateChanged(BgMusicPlayState.STOP);
-            d dVar = this.f45534g;
+            this.f45631b = PlayerStatus.IDLE;
+            this.f45632c.onStateChanged(BgMusicPlayState.STOP);
+            d dVar = this.f45636g;
             if (dVar != null) {
                 dVar.removeMessages(0);
             }

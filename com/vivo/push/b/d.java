@@ -12,7 +12,7 @@ public final class d extends com.vivo.push.y {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f76512a;
+    public boolean f76831a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(boolean z) {
@@ -32,7 +32,7 @@ public final class d extends com.vivo.push.y {
                 return;
             }
         }
-        this.f76512a = z;
+        this.f76831a = z;
     }
 
     @Override // com.vivo.push.y
@@ -52,7 +52,7 @@ public final class d extends com.vivo.push.y {
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f76512a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f76831a : invokeV.booleanValue;
     }
 
     @Override // com.vivo.push.y

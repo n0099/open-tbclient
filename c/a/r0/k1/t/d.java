@@ -2,9 +2,9 @@ package c.a.r0.k1.t;
 
 import android.text.TextUtils;
 import c.a.e.e.d.l;
-import c.a.q0.d1.i0;
-import c.a.q0.d1.l0;
-import c.a.q0.d1.o;
+import c.a.q0.d1.j0;
+import c.a.q0.d1.m0;
+import c.a.q0.d1.r;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -24,22 +24,22 @@ public class d extends c.a.r0.k1.t.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f21631b;
+    public static d f21645b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a extends i0<Void> {
+    public class a extends j0<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialSettingItemData f21632a;
+        public final /* synthetic */ OfficialSettingItemData f21646a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f21633b;
+        public final /* synthetic */ String f21647b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f21634c;
+        public final /* synthetic */ d f21648c;
 
         public a(d dVar, OfficialSettingItemData officialSettingItemData, String str) {
             Interceptable interceptable = $ic;
@@ -56,19 +56,19 @@ public class d extends c.a.r0.k1.t.a {
                     return;
                 }
             }
-            this.f21634c = dVar;
-            this.f21632a = officialSettingItemData;
-            this.f21633b = str;
+            this.f21648c = dVar;
+            this.f21646a = officialSettingItemData;
+            this.f21647b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.i0
+        @Override // c.a.q0.d1.j0
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f21634c.b().g(this.f21633b, OrmObject.jsonStrWithObject(this.f21632a));
+                this.f21648c.b().g(this.f21647b, OrmObject.jsonStrWithObject(this.f21646a));
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -88,7 +88,7 @@ public class d extends c.a.r0.k1.t.a {
                 return;
             }
         }
-        f21631b = new d();
+        f21645b = new d();
     }
 
     public d() {
@@ -108,7 +108,7 @@ public class d extends c.a.r0.k1.t.a {
     public static d j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f21631b : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f21645b : (d) invokeV.objValue;
     }
 
     @Override // c.a.r0.k1.t.a
@@ -133,8 +133,8 @@ public class d extends c.a.r0.k1.t.a {
                 l<String> b2 = b();
                 String str = myUid + TNCManager.TNC_PROBE_HEADER_SECEPTOR + toUid;
                 String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-                synchronized (this.f21615a) {
-                    this.f21615a.put(str, officialSettingItemData);
+                synchronized (this.f21629a) {
+                    this.f21629a.put(str, officialSettingItemData);
                 }
                 b2.g(str, jsonStrWithObject);
             } else if (TbConfig.getDebugSwitch()) {
@@ -144,18 +144,18 @@ public class d extends c.a.r0.k1.t.a {
     }
 
     @Override // c.a.r0.k1.t.a
-    public void i(ChatSetting chatSetting, o<Void> oVar) {
+    public void i(ChatSetting chatSetting, r<Void> rVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, oVar) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, rVar) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
             OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
             String myUid = officialSettingItemData.getMyUid();
             String toUid = officialSettingItemData.getToUid();
             if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
                 String str = myUid + TNCManager.TNC_PROBE_HEADER_SECEPTOR + toUid;
-                synchronized (this.f21615a) {
-                    this.f21615a.put(str, officialSettingItemData);
+                synchronized (this.f21629a) {
+                    this.f21629a.put(str, officialSettingItemData);
                 }
-                l0.c(new a(this, officialSettingItemData, str), oVar);
+                m0.c(new a(this, officialSettingItemData, str), rVar);
             } else if (TbConfig.getDebugSwitch()) {
                 throw new RuntimeException("key param is null");
             }
@@ -174,8 +174,8 @@ public class d extends c.a.r0.k1.t.a {
                 return null;
             }
             String str3 = str + TNCManager.TNC_PROBE_HEADER_SECEPTOR + str2;
-            synchronized (this.f21615a) {
-                ChatSetting chatSetting = this.f21615a.get(str3);
+            synchronized (this.f21629a) {
+                ChatSetting chatSetting = this.f21629a.get(str3);
                 if (chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
                     officialSettingItemData = (OfficialSettingItemData) chatSetting;
                 }

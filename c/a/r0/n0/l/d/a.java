@@ -22,19 +22,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<n> f22726a;
+    public ArrayList<n> f22742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<x1> f22727b;
+    public ArrayList<x1> f22743b;
 
     /* renamed from: c  reason: collision with root package name */
-    public r1 f22728c;
+    public r1 f22744c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f22729d;
+    public c f22745d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22730e;
+    public boolean f22746e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -57,11 +57,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             a aVar = new a();
-            aVar.f22726a = this.f22726a;
-            aVar.f22727b = this.f22727b;
-            aVar.f22728c = this.f22728c;
-            aVar.f22729d = this.f22729d;
-            aVar.f22730e = this.f22730e;
+            aVar.f22742a = this.f22742a;
+            aVar.f22743b = this.f22743b;
+            aVar.f22744c = this.f22744c;
+            aVar.f22745d = this.f22745d;
+            aVar.f22746e = this.f22746e;
             return aVar;
         }
         return (a) invokeV.objValue;
@@ -70,31 +70,31 @@ public class a {
     public c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22729d : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22745d : (c) invokeV.objValue;
     }
 
     public r1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22728c : (r1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22744c : (r1) invokeV.objValue;
     }
 
     public ArrayList<x1> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22727b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22743b : (ArrayList) invokeV.objValue;
     }
 
     public ArrayList<n> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22726a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22742a : (ArrayList) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22730e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22746e : invokeV.booleanValue;
     }
 
     public void g(DataRes dataRes) {
@@ -102,32 +102,32 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f22726a = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
+        this.f22742a = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
         for (ThreadInfo threadInfo : dataRes.thread_list) {
             d2 d2Var = new d2();
             d2Var.Y2(threadInfo);
             d2Var.G1();
-            this.f22726a.add(d2Var);
+            this.f22742a.add(d2Var);
         }
-        this.f22727b = new ArrayList<>();
+        this.f22743b = new ArrayList<>();
         if (!ListUtils.isEmpty(dataRes.resource_list)) {
             for (GeneralResource generalResource : dataRes.resource_list) {
                 x1 x1Var = new x1();
                 x1Var.g(generalResource);
-                this.f22727b.add(x1Var);
+                this.f22743b.add(x1Var);
             }
         }
         r1 r1Var = new r1();
-        this.f22728c = r1Var;
+        this.f22744c = r1Var;
         r1Var.o(dataRes.recommend_forum_info);
         if (dataRes.hot_userrank_entry != null) {
             c cVar = new c();
-            this.f22729d = cVar;
+            this.f22745d = cVar;
             HotUserRankEntry hotUserRankEntry = dataRes.hot_userrank_entry;
-            cVar.f22739a = hotUserRankEntry.hot_user;
-            cVar.f22740b = hotUserRankEntry.module_name;
-            cVar.f22741c = hotUserRankEntry.module_icon;
+            cVar.f22755a = hotUserRankEntry.hot_user;
+            cVar.f22756b = hotUserRankEntry.module_name;
+            cVar.f22757c = hotUserRankEntry.module_icon;
         }
-        this.f22730e = dataRes.is_new_url.intValue() == 1;
+        this.f22746e = dataRes.is_new_url.intValue() == 1;
     }
 }

@@ -14,13 +14,13 @@ public class ContractInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f61039a;
+    public String f61152a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61040b;
+    public String f61153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61041c;
+    public int f61154c;
 
     public ContractInfo() {
         Interceptable interceptable = $ic;
@@ -35,9 +35,9 @@ public class ContractInfo {
                 return;
             }
         }
-        this.f61039a = "";
-        this.f61040b = "";
-        this.f61041c = -1;
+        this.f61152a = "";
+        this.f61153b = "";
+        this.f61154c = -1;
     }
 
     public boolean equals(Object obj) {
@@ -49,20 +49,20 @@ public class ContractInfo {
             }
             if (obj != null && ContractInfo.class == obj.getClass()) {
                 ContractInfo contractInfo = (ContractInfo) obj;
-                String str = this.f61040b;
+                String str = this.f61153b;
                 if (str == null) {
-                    if (contractInfo.f61040b != null) {
+                    if (contractInfo.f61153b != null) {
                         return false;
                     }
-                } else if (!str.equals(contractInfo.f61040b)) {
+                } else if (!str.equals(contractInfo.f61153b)) {
                     return false;
                 }
-                String str2 = this.f61039a;
+                String str2 = this.f61152a;
                 if (str2 == null) {
-                    if (contractInfo.f61039a != null) {
+                    if (contractInfo.f61152a != null) {
                         return false;
                     }
-                } else if (!str2.equals(contractInfo.f61039a)) {
+                } else if (!str2.equals(contractInfo.f61152a)) {
                     return false;
                 }
                 return true;
@@ -75,28 +75,28 @@ public class ContractInfo {
     public int getErrordigit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61041c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61154c : invokeV.intValue;
     }
 
     public String getMobile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61040b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61153b : (String) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61039a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61152a : (String) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String str = this.f61040b;
+            String str = this.f61153b;
             int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
-            String str2 = this.f61039a;
+            String str2 = this.f61152a;
             return hashCode + (str2 != null ? str2.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -105,21 +105,21 @@ public class ContractInfo {
     public void setErrordigit(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f61041c = i2;
+            this.f61154c = i2;
         }
     }
 
     public void setMobile(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f61040b = str;
+            this.f61153b = str;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f61039a = str;
+            this.f61152a = str;
         }
     }
 
@@ -127,7 +127,7 @@ public class ContractInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "通讯录 [name=" + this.f61039a + ", mobile=" + this.f61040b + PreferencesUtil.RIGHT_MOUNT;
+            return "通讯录 [name=" + this.f61152a + ", mobile=" + this.f61153b + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }
@@ -147,11 +147,11 @@ public class ContractInfo {
                 return;
             }
         }
-        this.f61039a = "";
-        this.f61040b = "";
-        this.f61041c = -1;
-        this.f61040b = str;
-        this.f61039a = "";
+        this.f61152a = "";
+        this.f61153b = "";
+        this.f61154c = -1;
+        this.f61153b = str;
+        this.f61152a = "";
     }
 
     public ContractInfo(String str, String str2) {
@@ -169,10 +169,10 @@ public class ContractInfo {
                 return;
             }
         }
-        this.f61039a = "";
-        this.f61040b = "";
-        this.f61041c = -1;
-        this.f61040b = str;
-        this.f61039a = str2;
+        this.f61152a = "";
+        this.f61153b = "";
+        this.f61154c = -1;
+        this.f61153b = str;
+        this.f61152a = str2;
     }
 }

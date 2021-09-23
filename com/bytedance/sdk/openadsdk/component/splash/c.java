@@ -174,19 +174,19 @@ public class c {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ boolean f66106a;
+                    public final /* synthetic */ boolean f66417a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ File f66107b;
+                    public final /* synthetic */ File f66418b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f66108c;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f66419c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ m f66109d;
+                    public final /* synthetic */ m f66420d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ long f66110e;
+                    public final /* synthetic */ long f66421e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -203,18 +203,18 @@ public class c {
                                 return;
                             }
                         }
-                        this.f66106a = aN;
-                        this.f66107b = a2;
-                        this.f66108c = aVar;
-                        this.f66109d = mVar;
-                        this.f66110e = elapsedRealtime;
+                        this.f66417a = aN;
+                        this.f66418b = a2;
+                        this.f66419c = aVar;
+                        this.f66420d = mVar;
+                        this.f66421e = elapsedRealtime;
                     }
 
                     @Override // com.bytedance.sdk.component.net.callback.NetCallback
                     public void onFailure(NetExecutor netExecutor, IOException iOException) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netExecutor, iOException) == null) {
-                            c.a(this.f66110e, true, false, this.f66109d, -2L, new NetResponse(false, -2, iOException.getMessage(), null, null, this.f66110e, SystemClock.elapsedRealtime()));
+                            c.a(this.f66421e, true, false, this.f66420d, -2L, new NetResponse(false, -2, iOException.getMessage(), null, null, this.f66421e, SystemClock.elapsedRealtime()));
                         }
                     }
 
@@ -223,16 +223,16 @@ public class c {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netExecutor, netResponse) == null) {
                             if (netResponse.isSuccess() && netResponse.getFile() != null && netResponse.getFile().exists()) {
-                                if (!this.f66106a) {
-                                    c.a(this.f66107b);
-                                    a.a(o.a()).a(this.f66107b);
+                                if (!this.f66417a) {
+                                    c.a(this.f66418b);
+                                    a.a(o.a()).a(this.f66418b);
                                 }
-                                a.a(o.a()).b(new q(this.f66108c, this.f66109d, null));
-                                a.a(o.a()).a(new q(this.f66108c, this.f66109d, null));
-                                c.a(this.f66110e, true, true, this.f66109d, 0L, netResponse);
+                                a.a(o.a()).b(new q(this.f66419c, this.f66420d, null));
+                                a.a(o.a()).a(new q(this.f66419c, this.f66420d, null));
+                                c.a(this.f66421e, true, true, this.f66420d, 0L, netResponse);
                                 return;
                             }
-                            c.a(this.f66110e, true, false, this.f66109d, netResponse.getCode(), netResponse);
+                            c.a(this.f66421e, true, false, this.f66420d, netResponse.getCode(), netResponse);
                         }
                     }
                 });

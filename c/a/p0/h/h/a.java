@@ -30,7 +30,7 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11256a;
+        public final /* synthetic */ a f11264a;
 
         public C0571a(a aVar) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f11256a = aVar;
+            this.f11264a = aVar;
         }
 
         @Override // c.a.p0.a.a1.e.c
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11256a.l(g.aiapps_game_dashboard_download_failed);
+                this.f11264a.l(g.aiapps_game_dashboard_download_failed);
             }
         }
 
@@ -72,9 +72,9 @@ public class a extends a0 {
                 File c2 = b.c();
                 File b2 = b.b();
                 if (!c2.exists() || !d.T(c2.getPath(), b2.getPath())) {
-                    this.f11256a.l(g.aiapps_game_dashboard_download_failed);
+                    this.f11264a.l(g.aiapps_game_dashboard_download_failed);
                 } else {
-                    this.f11256a.l(g.aiapps_game_dashboard_download_success);
+                    this.f11264a.l(g.aiapps_game_dashboard_download_success);
                 }
             }
         }
@@ -106,7 +106,7 @@ public class a extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 JSONObject a2 = a0.a(unitedSchemeEntity, "params");
                 if (a2 == null) {
                     l(g.aiapps_debug_game_core_params_empty);
@@ -119,7 +119,7 @@ public class a extends a0 {
                 }
                 b.a();
                 e.d dVar = new e.d();
-                dVar.f4497a = k(context, optString);
+                dVar.f4505a = k(context, optString);
                 new c.a.p0.a.k0.a().e(dVar, b.c().getPath(), new C0571a(this));
                 return false;
             }

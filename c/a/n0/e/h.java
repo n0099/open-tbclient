@@ -12,16 +12,16 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4202a;
+    public int f4209a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4203b;
+    public int f4210b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4204c;
+    public int f4211c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4205d;
+    public String f4212d;
 
     public h(int i2, int i3, int i4, String str) {
         Interceptable interceptable = $ic;
@@ -38,18 +38,18 @@ public class h {
                 return;
             }
         }
-        this.f4202a = -1;
-        this.f4202a = i2;
-        this.f4203b = i3;
-        this.f4204c = i4;
-        this.f4205d = str;
+        this.f4209a = -1;
+        this.f4209a = i2;
+        this.f4210b = i3;
+        this.f4211c = i4;
+        this.f4212d = str;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CallBackMsg{status=" + this.f4202a + ", subStatus=" + this.f4203b + ", op='" + this.f4204c + ExtendedMessageFormat.QUOTE + ", data='" + this.f4205d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "CallBackMsg{status=" + this.f4209a + ", subStatus=" + this.f4210b + ", op='" + this.f4211c + ExtendedMessageFormat.QUOTE + ", data='" + this.f4212d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

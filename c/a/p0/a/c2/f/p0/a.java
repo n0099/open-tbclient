@@ -34,7 +34,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4972a;
+    public static final boolean f4980a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.c2.f.p0.a$a  reason: collision with other inner class name */
@@ -44,7 +44,7 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f4973e;
+        public final /* synthetic */ String f4981e;
 
         public RunnableC0140a(String str) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public final class a {
                     return;
                 }
             }
-            this.f4973e = str;
+            this.f4981e = str;
         }
 
         @Override // java.lang.Runnable
@@ -71,7 +71,7 @@ public final class a {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (W = c.a.p0.a.g1.f.V().W()) == null) {
                 return;
             }
-            g.b i2 = W.i(this.f4973e);
+            g.b i2 = W.i(this.f4981e);
             i2.f();
             i2.b();
             c.a.p0.a.e0.d.h("ActionUtils", "popAllFragment: finish");
@@ -91,42 +91,42 @@ public final class a {
                 return;
             }
         }
-        f4972a = c.a.p0.a.k.f7077a;
+        f4980a = c.a.p0.a.k.f7085a;
     }
 
     public static c.a.p0.a.h0.u.d a(c.a.p0.a.p.e.b<?> bVar, c.a.p0.a.l1.b bVar2, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bVar, bVar2, str)) == null) {
-            c.a.p0.a.a2.n.g e2 = c.a.p0.a.g1.f.V().e(bVar2.f7239h);
+            c.a.p0.a.a2.n.g e2 = c.a.p0.a.g1.f.V().e(bVar2.f7247h);
             c.a.p0.a.h0.u.d dVar = new c.a.p0.a.h0.u.d();
-            dVar.f6478i = bVar.K();
-            dVar.f6470a = bVar2.f7238g;
+            dVar.f6486i = bVar.K();
+            dVar.f6478a = bVar2.f7246g;
             if (c.a.p0.a.a2.e.i() != null) {
-                dVar.f6472c = c.a.p0.a.a2.e.i().S(bVar2.f7239h);
+                dVar.f6480c = c.a.p0.a.a2.e.i().S(bVar2.f7247h);
             }
-            dVar.k = c.a.p0.a.h0.u.a.c(c.a.p0.a.a2.e.i(), bVar2.f7236e);
-            dVar.f6471b = c.a.p0.a.l1.b.e(bVar2);
-            dVar.f6473d = e2.f4609g;
-            dVar.f6474e = String.valueOf(c.a.p0.a.e0.a.a());
+            dVar.k = c.a.p0.a.h0.u.a.c(c.a.p0.a.a2.e.i(), bVar2.f7244e);
+            dVar.f6479b = c.a.p0.a.l1.b.e(bVar2);
+            dVar.f6481d = e2.f4617g;
+            dVar.f6482e = String.valueOf(c.a.p0.a.e0.a.a());
             if (c.a.p0.a.a2.e.i() != null) {
-                String M = c.a.p0.a.a2.e.i().M(bVar2.f7239h);
+                String M = c.a.p0.a.a2.e.i().M(bVar2.f7247h);
                 if (!TextUtils.isEmpty(M)) {
-                    if (f4972a) {
+                    if (f4980a) {
                         String str2 = "add initData: " + M;
                     }
-                    dVar.f6475f = M;
+                    dVar.f6483f = M;
                 }
             }
-            dVar.f6476g = f4972a || c.a.p0.a.g1.f.V().O();
-            dVar.f6477h = str;
+            dVar.f6484g = f4980a || c.a.p0.a.g1.f.V().O();
+            dVar.f6485h = str;
             if (c.a.p0.a.u1.a.a.G()) {
-                dVar.f6479j = c.a.p0.a.e0.f.b.d();
+                dVar.f6487j = c.a.p0.a.e0.f.b.d();
             }
-            if (f4972a) {
+            if (f4980a) {
                 String str3 = "buildPageEvent: " + Arrays.toString(new Exception().getStackTrace());
             }
-            c.a.p0.a.n2.g.a.b(dVar.f6470a, dVar.f6471b);
+            c.a.p0.a.n2.g.a.b(dVar.f6478a, dVar.f6479b);
             return dVar;
         }
         return (c.a.p0.a.h0.u.d) invokeLLL.objValue;
@@ -163,7 +163,7 @@ public final class a {
                     jSONObject.put("removedSlaveIDs", jSONArray);
                 }
             } catch (JSONException e2) {
-                if (f4972a) {
+                if (f4980a) {
                     e2.printStackTrace();
                 }
             }
@@ -189,7 +189,7 @@ public final class a {
                     jSONObject.put("pageUrl", str2);
                 }
             } catch (JSONException e2) {
-                if (f4972a) {
+                if (f4980a) {
                     e2.printStackTrace();
                 }
             }
@@ -203,19 +203,19 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, bVar, bVar2, str) == null) {
             c.a.p0.a.r1.g.a(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, "createAndLoadPage start.");
-            String a2 = q0.a(bVar2.f7238g, bVar2.f7236e, bVar2.f7237f);
+            String a2 = q0.a(bVar2.f7246g, bVar2.f7244e, bVar2.f7245f);
             c.a.p0.a.h0.u.d a3 = a(bVar, bVar2, str);
             c.a.p0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str).C(new UbcFlowEvent("slave_dispatch_start"));
             d0.d();
             bVar.t().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, bVar2.h());
-            bVar.R(a3.f6471b);
+            bVar.R(a3.f6479b);
             c.a.p0.a.g1.f.V().m(bVar.c(), c.a.p0.a.h0.u.d.a(a3));
             if (c.a.p0.a.h0.u.e.b()) {
                 c.a.p0.a.h0.u.e eVar = new c.a.p0.a.h0.u.e();
-                eVar.f6482a = bVar.c();
+                eVar.f6490a = bVar.c();
                 c.a.p0.a.g1.f.V().v(c.a.p0.a.h0.u.e.a(eVar));
             }
-            c.a.p0.a.j2.e.F(bVar.c(), a3.f6471b);
+            c.a.p0.a.j2.e.F(bVar.c(), a3.f6479b);
             c.a.p0.a.h0.t.a.m(a2, bVar);
             c.a.p0.a.r1.g.a(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, "createAndLoadPage end.");
         }
@@ -247,7 +247,7 @@ public final class a {
         c.a.p0.a.h0.g.d j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, gVar)) == null) {
-            if (gVar != null && gVar.k() >= c.a.p0.a.u.e.k.b.f9002d && (j2 = gVar.j(0)) != null && (j2 instanceof c.a.p0.a.h0.g.f)) {
+            if (gVar != null && gVar.k() >= c.a.p0.a.u.e.k.b.f9010d && (j2 = gVar.j(0)) != null && (j2 instanceof c.a.p0.a.h0.g.f)) {
                 return ((c.a.p0.a.h0.g.f) j2).f3();
             }
             return null;
@@ -274,7 +274,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             String h2 = h();
-            if (f4972a) {
+            if (f4980a) {
                 String str2 = "lastPageUrl: " + h2 + "\ncurPageUrl: " + str;
             }
             if (h2 != null && str != null) {
@@ -332,7 +332,7 @@ public final class a {
             try {
                 return new JSONObject(str3).optString(str2);
             } catch (JSONException e2) {
-                if (f4972a) {
+                if (f4980a) {
                     e2.printStackTrace();
                 }
                 return null;

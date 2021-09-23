@@ -28,13 +28,13 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f9117e;
+        public final /* synthetic */ JSONArray f9125e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9118f;
+        public final /* synthetic */ String f9126f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f9119g;
+        public final /* synthetic */ a f9127g;
 
         public RunnableC0419a(a aVar, JSONArray jSONArray, String str) {
             Interceptable interceptable = $ic;
@@ -51,16 +51,16 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9119g = aVar;
-            this.f9117e = jSONArray;
-            this.f9118f = str;
+            this.f9127g = aVar;
+            this.f9125e = jSONArray;
+            this.f9126f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9119g.d(this.f9118f, this.f9119g.x(this.f9117e));
+                this.f9127g.d(this.f9126f, this.f9127g.x(this.f9125e));
             }
         }
     }
@@ -71,13 +71,13 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9120e;
+        public final /* synthetic */ String f9128e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9121f;
+        public final /* synthetic */ String f9129f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f9122g;
+        public final /* synthetic */ a f9130g;
 
         public b(a aVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -94,16 +94,16 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f9122g = aVar;
-            this.f9120e = str;
-            this.f9121f = str2;
+            this.f9130g = aVar;
+            this.f9128e = str;
+            this.f9129f = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9122g.d(this.f9121f, this.f9122g.v(this.f9120e));
+                this.f9130g.d(this.f9129f, this.f9130g.v(this.f9128e));
             }
         }
     }
@@ -139,11 +139,11 @@ public class a extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-CheckAppInstall", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-CheckAppInstall", "parse fail");
                 }
                 return bVar;

@@ -22,17 +22,17 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f64244d;
+    public static final Object f64555d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f64245a;
+    public Context f64556a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f64246b;
+    public d f64557b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f64247c;
+    public boolean f64558c;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class e {
                 return;
             }
         }
-        f64244d = new Object();
+        f64555d = new Object();
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -55,7 +55,7 @@ public class e {
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            if (!this.f64247c) {
+            if (!this.f64558c) {
                 com.bytedance.sdk.component.adnet.d.c.b(TNCConfigHandler.TAG, "handleConfigChanged: no mainProc");
                 return;
             }
@@ -100,30 +100,30 @@ public class e {
                 sb.append(b2 == null ? StringUtil.NULL_STRING : b2.toString());
                 com.bytedance.sdk.component.adnet.d.c.b(TNCConfigHandler.TAG, sb.toString());
                 if (b2 == null) {
-                    synchronized (f64244d) {
-                        this.f64245a.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", "").apply();
-                        com.bytedance.sdk.component.adnet.d.d.a(this.f64245a, 1, "");
+                    synchronized (f64555d) {
+                        this.f64556a.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", "").apply();
+                        com.bytedance.sdk.component.adnet.d.d.a(this.f64556a, 1, "");
                     }
                     return;
                 }
-                this.f64246b = b2;
+                this.f64557b = b2;
                 String jSONObject5 = optJSONObject.toString();
-                synchronized (f64244d) {
-                    this.f64245a.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", jSONObject5).apply();
-                    com.bytedance.sdk.component.adnet.d.d.a(this.f64245a, 1, jSONObject5);
+                synchronized (f64555d) {
+                    this.f64556a.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", jSONObject5).apply();
+                    com.bytedance.sdk.component.adnet.d.d.a(this.f64556a, 1, jSONObject5);
                 }
             } catch (Throwable th) {
                 try {
                     th.printStackTrace();
-                    this.f64246b = new d();
-                    synchronized (f64244d) {
-                        this.f64245a.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", "").apply();
-                        com.bytedance.sdk.component.adnet.d.d.a(this.f64245a, 1, "");
+                    this.f64557b = new d();
+                    synchronized (f64555d) {
+                        this.f64556a.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", "").apply();
+                        com.bytedance.sdk.component.adnet.d.d.a(this.f64556a, 1, "");
                     }
                 } catch (Throwable th2) {
-                    synchronized (f64244d) {
-                        this.f64245a.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", "").apply();
-                        com.bytedance.sdk.component.adnet.d.d.a(this.f64245a, 1, "");
+                    synchronized (f64555d) {
+                        this.f64556a.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).edit().putString("tnc_config_str", "").apply();
+                        com.bytedance.sdk.component.adnet.d.d.a(this.f64556a, 1, "");
                         throw th2;
                     }
                 }
@@ -135,7 +135,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                String a2 = com.bytedance.sdk.component.adnet.d.d.a(this.f64245a, 1);
+                String a2 = com.bytedance.sdk.component.adnet.d.d.a(this.f64556a, 1);
                 if (TextUtils.isEmpty(a2)) {
                     com.bytedance.sdk.component.adnet.d.c.b(TNCConfigHandler.TAG, "loadLocalConfigForOtherProcess, data empty");
                     return;
@@ -146,7 +146,7 @@ public class e {
                 sb.append(b2 == null ? StringUtil.NULL_STRING : b2.toString());
                 com.bytedance.sdk.component.adnet.d.c.b(TNCConfigHandler.TAG, sb.toString());
                 if (b2 != null) {
-                    this.f64246b = b2;
+                    this.f64557b = b2;
                 }
             } catch (Throwable th) {
                 com.bytedance.sdk.component.adnet.d.c.b(TNCConfigHandler.TAG, "loadLocalConfigForOtherProcess, except: " + th.getMessage());
@@ -157,7 +157,7 @@ public class e {
     public d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64246b : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64557b : (d) invokeV.objValue;
     }
 
     private d b(JSONObject jSONObject) {
@@ -167,10 +167,10 @@ public class e {
             try {
                 d dVar = new d();
                 if (jSONObject.has("local_enable")) {
-                    dVar.f64234a = jSONObject.getInt("local_enable") != 0;
+                    dVar.f64545a = jSONObject.getInt("local_enable") != 0;
                 }
                 if (jSONObject.has("probe_enable")) {
-                    dVar.f64235b = jSONObject.getInt("probe_enable") != 0;
+                    dVar.f64546b = jSONObject.getInt("probe_enable") != 0;
                 }
                 if (jSONObject.has("local_host_filter")) {
                     JSONArray jSONArray = jSONObject.getJSONArray("local_host_filter");
@@ -183,9 +183,9 @@ public class e {
                             }
                         }
                     }
-                    dVar.f64236c = hashMap;
+                    dVar.f64547c = hashMap;
                 } else {
-                    dVar.f64236c = null;
+                    dVar.f64547c = null;
                 }
                 if (jSONObject.has("host_replace_map")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("host_replace_map");
@@ -200,16 +200,16 @@ public class e {
                             }
                         }
                     }
-                    dVar.f64237d = hashMap2;
+                    dVar.f64548d = hashMap2;
                 } else {
-                    dVar.f64237d = null;
+                    dVar.f64548d = null;
                 }
-                dVar.f64238e = jSONObject.optInt("req_to_cnt", dVar.f64238e);
-                dVar.f64239f = jSONObject.optInt("req_to_api_cnt", dVar.f64239f);
-                dVar.f64240g = jSONObject.optInt("req_to_ip_cnt", dVar.f64240g);
-                dVar.f64241h = jSONObject.optInt("req_err_cnt", dVar.f64241h);
-                dVar.f64242i = jSONObject.optInt("req_err_api_cnt", dVar.f64242i);
-                dVar.f64243j = jSONObject.optInt("req_err_ip_cnt", dVar.f64243j);
+                dVar.f64549e = jSONObject.optInt("req_to_cnt", dVar.f64549e);
+                dVar.f64550f = jSONObject.optInt("req_to_api_cnt", dVar.f64550f);
+                dVar.f64551g = jSONObject.optInt("req_to_ip_cnt", dVar.f64551g);
+                dVar.f64552h = jSONObject.optInt("req_err_cnt", dVar.f64552h);
+                dVar.f64553i = jSONObject.optInt("req_err_api_cnt", dVar.f64553i);
+                dVar.f64554j = jSONObject.optInt("req_err_ip_cnt", dVar.f64554j);
                 dVar.k = jSONObject.optInt("update_interval", dVar.k);
                 dVar.l = jSONObject.optInt("update_random_range", dVar.l);
                 dVar.m = jSONObject.optString("http_code_black", dVar.m);
@@ -224,8 +224,8 @@ public class e {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f64247c) {
-            String string = this.f64245a.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).getString("tnc_config_str", null);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f64558c) {
+            String string = this.f64556a.getSharedPreferences(TNCManager.TNC_SP_NAME, 0).getString("tnc_config_str", null);
             if (TextUtils.isEmpty(string)) {
                 com.bytedance.sdk.component.adnet.d.c.b(TNCConfigHandler.TAG, "loadLocalConfig: no existed");
                 return;
@@ -233,7 +233,7 @@ public class e {
             try {
                 d b2 = b(new JSONObject(string));
                 if (b2 != null) {
-                    this.f64246b = b2;
+                    this.f64557b = b2;
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append("loadLocalConfig: ");

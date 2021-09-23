@@ -22,27 +22,27 @@ public abstract class a implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.r0.p0.a.g.c f23411a;
+    public c.a.r0.p0.a.g.c f23427a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f23412b;
+    public e f23428b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Thread f23413c;
+    public Thread f23429c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f23414d;
+    public boolean f23430d;
 
     /* renamed from: c.a.r0.p0.a.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1092a implements Runnable {
+    public class RunnableC1090a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f23415e;
+        public final /* synthetic */ a f23431e;
 
-        public RunnableC1092a(a aVar) {
+        public RunnableC1090a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,14 +57,14 @@ public abstract class a implements d {
                     return;
                 }
             }
-            this.f23415e = aVar;
+            this.f23431e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f23415e.f();
+                this.f23431e.f();
             }
         }
     }
@@ -82,7 +82,7 @@ public abstract class a implements d {
                 return;
             }
         }
-        this.f23414d = false;
+        this.f23430d = false;
     }
 
     @Override // c.a.r0.p0.a.f.d
@@ -91,38 +91,38 @@ public abstract class a implements d {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, cVar, eVar) == null) || eVar == null) {
             return;
         }
-        this.f23412b = eVar;
+        this.f23428b = eVar;
         if (cVar == null) {
             eVar.onError(StringUtil.NULL_STRING, "cover config is null !!");
             return;
         }
-        this.f23411a = cVar;
-        this.f23413c = new Thread(new RunnableC1092a(this));
-        ThreadPool.b().e(this.f23413c);
+        this.f23427a = cVar;
+        this.f23429c = new Thread(new RunnableC1090a(this));
+        ThreadPool.b().e(this.f23429c);
     }
 
     public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.r0.p0.a.g.c cVar = this.f23411a;
-            int[] iArr = {cVar.f23426a, cVar.f23427b};
-            if (!cVar.f23432g && !cVar.f23430e) {
-                float f2 = cVar.f23429d;
+            c.a.r0.p0.a.g.c cVar = this.f23427a;
+            int[] iArr = {cVar.f23442a, cVar.f23443b};
+            if (!cVar.f23448g && !cVar.f23446e) {
+                float f2 = cVar.f23445d;
                 if (f2 != 0.0f) {
-                    a.C1426a e2 = c.a.x0.l.a.e(f2, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                    a.C1424a e2 = c.a.x0.l.a.e(f2, RecordConstants.VIDEO_CONSTANT_WIDTH);
                     iArr[0] = e2.b();
                     iArr[1] = e2.a();
                 }
             } else {
-                a.C1426a e3 = e();
-                float f3 = this.f23411a.f23429d;
+                a.C1424a e3 = e();
+                float f3 = this.f23427a.f23445d;
                 if (f3 != 0.0f) {
-                    a.C1426a f4 = c.a.x0.l.a.f(f3, e3.b(), e3.a());
+                    a.C1424a f4 = c.a.x0.l.a.f(f3, e3.b(), e3.a());
                     iArr[0] = f4.b();
                     iArr[1] = f4.a();
                 }
-                a.C1426a d2 = c.a.x0.l.a.d(iArr[0], iArr[1]);
+                a.C1424a d2 = c.a.x0.l.a.d(iArr[0], iArr[1]);
                 iArr[0] = d2.b();
                 iArr[1] = d2.a();
             }
@@ -173,7 +173,7 @@ public abstract class a implements d {
                 return "";
             }
             Bitmap h2 = c.a.x0.t.d.h(bitmap, i2, i3, z);
-            String b2 = this.f23414d ? c.a.r0.b4.l.d.b.b() : c.a.r0.b4.l.d.b.a();
+            String b2 = this.f23430d ? c.a.r0.b4.l.d.b.b() : c.a.r0.b4.l.d.b.a();
             String c2 = c.a.r0.b4.l.d.b.c(b2, h2, System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX);
             if (h2 != null) {
                 h2.recycle();
@@ -184,15 +184,15 @@ public abstract class a implements d {
         return (String) invokeCommon.objValue;
     }
 
-    public a.C1426a e() {
+    public a.C1424a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MultiMediaData multiMediaData = this.f23411a.f23428c;
+            MultiMediaData multiMediaData = this.f23427a.f23444c;
             int i2 = RecordConstants.VIDEO_CONSTANT_WIDTH;
             int i3 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
             if (multiMediaData == null) {
-                return new a.C1426a(i2, i3);
+                return new a.C1424a(i2, i3);
             }
             if (multiMediaData.type == 1) {
                 float f2 = multiMediaData.angle;
@@ -205,9 +205,9 @@ public abstract class a implements d {
                     i3 = multiMediaData.width;
                 }
             }
-            return new a.C1426a(i2, i3);
+            return new a.C1424a(i2, i3);
         }
-        return (a.C1426a) invokeV.objValue;
+        return (a.C1424a) invokeV.objValue;
     }
 
     public abstract void f();
@@ -219,8 +219,8 @@ public abstract class a implements d {
                 bVar = new c.a.r0.p0.a.g.b();
             }
             int[] b2 = b();
-            bVar.f23425a = d(b2[0], b2[1], bitmap, true);
-            this.f23412b.a(this.f23411a.f23431f, bVar);
+            bVar.f23441a = d(b2[0], b2[1], bitmap, true);
+            this.f23428b.a(this.f23427a.f23447f, bVar);
         }
     }
 }

@@ -25,9 +25,9 @@ public final class g extends e {
                 return;
             }
         }
-        this.f3904a = 32;
-        this.f3905b = i2;
-        this.f3906c = i3;
+        this.f3905a = 32;
+        this.f3906b = i2;
+        this.f3907c = i3;
     }
 
     @Override // c.a.m.a.e

@@ -40,7 +40,7 @@ public class MsgrightView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgrightView f52883e;
+        public final /* synthetic */ MsgrightView f52996e;
 
         public a(MsgrightView msgrightView) {
             Interceptable interceptable = $ic;
@@ -57,15 +57,15 @@ public class MsgrightView extends e {
                     return;
                 }
             }
-            this.f52883e = msgrightView;
+            this.f52996e = msgrightView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MsgrightView msgrightView = this.f52883e;
-                msgrightView.f21198b.onItemViewClick(view, 6, msgrightView.f21202f, 0L);
+                MsgrightView msgrightView = this.f52996e;
+                msgrightView.f21212b.onItemViewClick(view, 6, msgrightView.f21216f, 0L);
             }
         }
     }
@@ -76,7 +76,7 @@ public class MsgrightView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgrightView f52884e;
+        public final /* synthetic */ MsgrightView f52997e;
 
         public b(MsgrightView msgrightView) {
             Interceptable interceptable = $ic;
@@ -93,15 +93,15 @@ public class MsgrightView extends e {
                     return;
                 }
             }
-            this.f52884e = msgrightView;
+            this.f52997e = msgrightView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MsgrightView msgrightView = this.f52884e;
-                msgrightView.f21198b.onItemViewClick(view, 1, msgrightView.f21202f, 0L);
+                MsgrightView msgrightView = this.f52997e;
+                msgrightView.f21212b.onItemViewClick(view, 1, msgrightView.f21216f, 0L);
             }
         }
     }
@@ -167,17 +167,17 @@ public class MsgrightView extends e {
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, chatMessage) == null) {
             super.i(view, chatMessage);
             if (chatMessage == null) {
-                this.f21204h.setVisibility(8);
+                this.f21218h.setVisibility(8);
                 this.t.setVisibility(8);
                 this.u.setVisibility(8);
                 this.x.setVisibility(8);
                 this.y.setVisibility(8);
-                this.f21205i.setVisibility(0);
-                this.f21205i.setText(null);
+                this.f21219i.setVisibility(0);
+                this.f21219i.setText(null);
                 j(8);
                 this.p.getImage().setTag(null);
-                this.f21206j.setVisibility(8);
-                this.f21206j.setTag(null);
+                this.f21220j.setVisibility(8);
+                this.f21220j.setTag(null);
                 this.m.setVisibility(8);
                 this.n.setVisibility(8);
                 this.o.setVisibility(8);
@@ -220,9 +220,9 @@ public class MsgrightView extends e {
                 if (this.u.getVisibility() == 0) {
                     this.u.setOnClickListener(new b(this));
                 }
-                this.f21205i.setVisibility(8);
+                this.f21219i.setVisibility(8);
                 j(8);
-                this.f21206j.setVisibility(8);
+                this.f21220j.setVisibility(8);
                 this.k.setVisibility(8);
                 this.n.setVisibility(8);
                 this.m.setVisibility(8);
@@ -234,7 +234,7 @@ public class MsgrightView extends e {
                     w(view, chatMessage, z);
                 } else if (msgType == 3) {
                     y(chatMessage, z);
-                    this.f21206j.setVisibility(0);
+                    this.f21220j.setVisibility(0);
                 } else if (msgType == 4) {
                     s(chatMessage, true);
                 } else if (msgType != 9) {

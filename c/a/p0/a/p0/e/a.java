@@ -17,10 +17,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7908a;
+    public static final boolean f7916a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f7909b;
+    public static volatile a f7917b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.p0.e.a$a  reason: collision with other inner class name */
@@ -30,10 +30,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f7910e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f7918e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f7911f;
+        public final /* synthetic */ int f7919f;
 
         /* renamed from: c.a.p0.a.p0.e.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -42,7 +42,7 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0345a f7912e;
+            public final /* synthetic */ C0345a f7920e;
 
             public C0346a(C0345a c0345a) {
                 Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class a {
                         return;
                     }
                 }
-                this.f7912e = c0345a;
+                this.f7920e = c0345a;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                     d.i("SwanAppCoresManager", "ensureSwanCore: update swan-js finish. ", exc);
-                    c.a.p0.a.v2.e1.b bVar = this.f7912e.f7910e;
+                    c.a.p0.a.v2.e1.b bVar = this.f7920e.f7918e;
                     if (bVar != null) {
                         bVar.onCallback(exc);
                     }
@@ -92,8 +92,8 @@ public class a {
                     return;
                 }
             }
-            this.f7910e = bVar;
-            this.f7911f = i2;
+            this.f7918e = bVar;
+            this.f7919f = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -104,7 +104,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                 if (exc == null) {
                     d.h("SwanAppCoresManager", "ensureSwanCore: done by update preset ");
-                    c.a.p0.a.v2.e1.b bVar = this.f7910e;
+                    c.a.p0.a.v2.e1.b bVar = this.f7918e;
                     if (bVar != null) {
                         bVar.onCallback(null);
                         return;
@@ -112,7 +112,7 @@ public class a {
                     return;
                 }
                 d.h("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                c.a.p0.a.m2.b.o(this.f7911f, new C0346a(this));
+                c.a.p0.a.m2.b.o(this.f7919f, new C0346a(this));
             }
         }
     }
@@ -123,10 +123,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f7913e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f7921e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f7914f;
+        public final /* synthetic */ int f7922f;
 
         /* renamed from: c.a.p0.a.p0.e.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -135,7 +135,7 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f7915e;
+            public final /* synthetic */ b f7923e;
 
             public C0347a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -152,7 +152,7 @@ public class a {
                         return;
                     }
                 }
-                this.f7915e = bVar;
+                this.f7923e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -161,7 +161,7 @@ public class a {
             public void onCallback(Exception exc) {
                 c.a.p0.a.v2.e1.b bVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, exc) == null) || (bVar = this.f7915e.f7913e) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, exc) == null) || (bVar = this.f7923e.f7921e) == null) {
                     return;
                 }
                 bVar.onCallback(exc);
@@ -183,8 +183,8 @@ public class a {
                     return;
                 }
             }
-            this.f7913e = bVar;
-            this.f7914f = i2;
+            this.f7921e = bVar;
+            this.f7922f = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -194,14 +194,14 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                 if (exc != null) {
-                    c.a.p0.a.v2.e1.b bVar = this.f7913e;
+                    c.a.p0.a.v2.e1.b bVar = this.f7921e;
                     if (bVar != null) {
                         bVar.onCallback(exc);
                         return;
                     }
                     return;
                 }
-                c.a.p0.a.p0.b.h(this.f7914f, new C0347a(this));
+                c.a.p0.a.p0.b.h(this.f7922f, new C0347a(this));
             }
         }
     }
@@ -212,7 +212,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f7916e;
+        public final /* synthetic */ a f7924e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -229,14 +229,14 @@ public class a {
                     return;
                 }
             }
-            this.f7916e = aVar;
+            this.f7924e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7916e.b();
+                this.f7924e.b();
             }
         }
     }
@@ -254,7 +254,7 @@ public class a {
                 return;
             }
         }
-        f7908a = k.f7077a;
+        f7916a = k.f7085a;
     }
 
     public a() {
@@ -275,14 +275,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f7909b == null) {
+            if (f7917b == null) {
                 synchronized (a.class) {
-                    if (f7909b == null) {
-                        f7909b = new a();
+                    if (f7917b == null) {
+                        f7917b = new a();
                     }
                 }
             }
-            return f7909b;
+            return f7917b;
         }
         return (a) invokeV.objValue;
     }
@@ -308,7 +308,7 @@ public class a {
     public void e(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            if (f7908a) {
+            if (f7916a) {
                 String str = "onAppUpgrade oldVersion: " + i2 + " ,newVersion: " + i3;
             }
             c.a.p0.a.m2.b.l(i2, i3);

@@ -35,7 +35,7 @@ public class a1 implements m0 {
     public c.a.e.l.e.a<? extends c2, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) ? new c.a.r0.w0.n1.d.b0(tbPageContext, d2.S3, bdUniqueId, z) : (c.a.e.l.e.a) invokeLLZ.objValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) ? new c.a.r0.w0.n1.d.b0(tbPageContext, d2.T3, bdUniqueId, z) : (c.a.e.l.e.a) invokeLLZ.objValue;
     }
 
     @Override // c.a.r0.w0.m0
@@ -50,10 +50,10 @@ public class a1 implements m0 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            if (bdUniqueId == c.a.r0.j3.x.Z3) {
+            if (bdUniqueId == c.a.r0.j3.y.a4) {
                 return new c.a.r0.w0.n1.d.d(tbPageContext, bdUniqueId, z);
             }
-            if (bdUniqueId == d2.S3) {
+            if (bdUniqueId == d2.T3) {
                 return new c.a.r0.w0.n1.d.c0(tbPageContext, bdUniqueId, bdUniqueId2, z);
             }
             throw new IllegalArgumentException("Unsupported adapter type.");
@@ -66,7 +66,7 @@ public class a1 implements m0 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            if (bdUniqueId == d2.T3) {
+            if (bdUniqueId == d2.U3) {
                 return new c.a.r0.w0.n1.d.f(tbPageContext, bdUniqueId, bdUniqueId2);
             }
             throw new IllegalArgumentException("Unsupported adapter type.");

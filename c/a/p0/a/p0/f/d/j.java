@@ -99,7 +99,7 @@ public class j extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 JSONObject a2 = a0.a(unitedSchemeEntity, "params");
                 if (a2 == null) {
                     Toast.makeText(context, c.a.p0.a.h.aiapps_debug_params_empty, 1).show();

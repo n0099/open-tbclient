@@ -43,7 +43,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f56707a;
+        public final /* synthetic */ MsgRemindActivity f56824a;
 
         public a(MsgRemindActivity msgRemindActivity) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f56707a = msgRemindActivity;
+            this.f56824a = msgRemindActivity;
         }
 
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.e
@@ -72,38 +72,38 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                         return;
                     }
                     if (z2) {
-                        this.f56707a.mView.m().turnOffNoCallback();
-                        this.f56707a.mView.b0(false);
-                        this.f56707a.mView.g0(false);
+                        this.f56824a.mView.m().turnOffNoCallback();
+                        this.f56824a.mView.b0(false);
+                        this.f56824a.mView.g0(false);
                         return;
                     }
-                    this.f56707a.mView.m().turnOnNoCallback();
-                    this.f56707a.mView.b0(true);
-                    this.f56707a.mView.g0(true);
+                    this.f56824a.mView.m().turnOnNoCallback();
+                    this.f56824a.mView.b0(true);
+                    this.f56824a.mView.g0(true);
                 } else if (i2 == 9) {
                     if (z) {
                         return;
                     }
                     if (z2) {
-                        this.f56707a.mView.K().turnOffNoCallback();
+                        this.f56824a.mView.K().turnOffNoCallback();
                     } else {
-                        this.f56707a.mView.K().turnOnNoCallback();
+                        this.f56824a.mView.K().turnOnNoCallback();
                     }
                 } else if (i2 == 7) {
                     if (z) {
                         c.a.q0.t.d.d.d().P(z2);
                     } else if (z2) {
-                        this.f56707a.mView.l().turnOffNoCallback();
+                        this.f56824a.mView.l().turnOffNoCallback();
                     } else {
-                        this.f56707a.mView.l().turnOnNoCallback();
+                        this.f56824a.mView.l().turnOnNoCallback();
                     }
                 } else if (i2 == 6) {
                     if (z) {
                         c.a.q0.t.d.d.d().O(z2);
                     } else if (z2) {
-                        this.f56707a.mView.w().turnOffNoCallback();
+                        this.f56824a.mView.w().turnOffNoCallback();
                     } else {
-                        this.f56707a.mView.w().turnOnNoCallback();
+                        this.f56824a.mView.w().turnOnNoCallback();
                     }
                 }
             }
@@ -116,7 +116,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f56708e;
+        public final /* synthetic */ MsgRemindActivity f56825e;
 
         public b(MsgRemindActivity msgRemindActivity) {
             Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f56708e = msgRemindActivity;
+            this.f56825e = msgRemindActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -151,7 +151,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f56709e;
+        public final /* synthetic */ MsgRemindActivity f56826e;
 
         public c(MsgRemindActivity msgRemindActivity) {
             Interceptable interceptable = $ic;
@@ -168,14 +168,14 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f56709e = msgRemindActivity;
+            this.f56826e = msgRemindActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                c.a.q0.t.h.a.c(this.f56709e.getPageContext());
+                c.a.q0.t.h.a.c(this.f56826e.getPageContext());
                 aVar.dismiss();
             }
         }
@@ -187,7 +187,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f56710e;
+        public final /* synthetic */ MsgRemindActivity f56827e;
 
         public d(MsgRemindActivity msgRemindActivity) {
             Interceptable interceptable = $ic;
@@ -204,7 +204,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f56710e = msgRemindActivity;
+            this.f56827e = msgRemindActivity;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
@@ -224,7 +224,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f56711a;
+        public final /* synthetic */ MsgRemindActivity f56828a;
 
         public e(MsgRemindActivity msgRemindActivity) {
             Interceptable interceptable = $ic;
@@ -241,18 +241,18 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f56711a = msgRemindActivity;
+            this.f56828a = msgRemindActivity;
         }
 
         @Override // c.a.q0.f1.p.a.d.f
         public void a(Date date, View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, date, view) == null) || this.f56711a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, date, view) == null) || this.f56828a.mView == null) {
                 return;
             }
             c.a.q0.t.d.d.d().S(date.getHours(), date.getMinutes());
-            this.f56711a.mView.j0();
-            this.f56711a.mView.h0();
+            this.f56828a.mView.j0();
+            this.f56828a.mView.h0();
         }
     }
 
@@ -262,10 +262,10 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f56712a;
+        public final /* synthetic */ int f56829a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f56713b;
+        public final /* synthetic */ MsgRemindActivity f56830b;
 
         public f(MsgRemindActivity msgRemindActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -282,8 +282,8 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f56713b = msgRemindActivity;
-            this.f56712a = i2;
+            this.f56830b = msgRemindActivity;
+            this.f56829a = i2;
         }
 
         @Override // android.app.TimePickerDialog.OnTimeSetListener
@@ -293,7 +293,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                 return;
             }
             timePicker.clearFocus();
-            boolean z = this.f56712a == R.id.no_disturb_start_time;
+            boolean z = this.f56829a == R.id.no_disturb_start_time;
             StringBuilder sb = new StringBuilder();
             sb.append(timePicker.getCurrentHour().intValue() < 10 ? "0" : "");
             sb.append(timePicker.getCurrentHour());
@@ -307,7 +307,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             } else {
                 c.a.q0.t.d.d.d().L(str);
             }
-            this.f56713b.mView.i0();
+            this.f56830b.mView.i0();
         }
     }
 
@@ -317,7 +317,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f56714a;
+        public final /* synthetic */ MsgRemindActivity f56831a;
 
         /* loaded from: classes7.dex */
         public class a implements Runnable {
@@ -325,10 +325,10 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f56715e;
+            public final /* synthetic */ boolean f56832e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ BdSwitchView f56716f;
+            public final /* synthetic */ BdSwitchView f56833f;
 
             public a(g gVar, boolean z, BdSwitchView bdSwitchView) {
                 Interceptable interceptable = $ic;
@@ -345,18 +345,18 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                         return;
                     }
                 }
-                this.f56715e = z;
-                this.f56716f = bdSwitchView;
+                this.f56832e = z;
+                this.f56833f = bdSwitchView;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f56715e) {
-                        this.f56716f.turnOnNoCallback();
+                    if (this.f56832e) {
+                        this.f56833f.turnOnNoCallback();
                     } else {
-                        this.f56716f.turnOffNoCallback();
+                        this.f56833f.turnOffNoCallback();
                     }
                 }
             }
@@ -368,10 +368,10 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f56717e;
+            public final /* synthetic */ boolean f56834e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ BdSwitchView f56718f;
+            public final /* synthetic */ BdSwitchView f56835f;
 
             public b(g gVar, boolean z, BdSwitchView bdSwitchView) {
                 Interceptable interceptable = $ic;
@@ -388,18 +388,18 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                         return;
                     }
                 }
-                this.f56717e = z;
-                this.f56718f = bdSwitchView;
+                this.f56834e = z;
+                this.f56835f = bdSwitchView;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f56717e) {
-                        this.f56718f.turnOffNoCallback();
+                    if (this.f56834e) {
+                        this.f56835f.turnOffNoCallback();
                     } else {
-                        this.f56718f.turnOnNoCallback();
+                        this.f56835f.turnOnNoCallback();
                     }
                 }
             }
@@ -420,7 +420,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f56714a = msgRemindActivity;
+            this.f56831a = msgRemindActivity;
         }
 
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.e
@@ -428,7 +428,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 if (i2 == 14) {
-                    BdSwitchView o = this.f56714a.mView.o();
+                    BdSwitchView o = this.f56831a.mView.o();
                     if (!z) {
                         if (o != null) {
                             c.a.e.e.m.e.a().postDelayed(new b(this, z2, o), 500L);
@@ -438,10 +438,10 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     }
                     if (z2) {
                         c.a.q0.t.d.d.d().E(300);
-                        this.f56714a.mView.d0(true);
+                        this.f56831a.mView.d0(true);
                     } else {
                         c.a.q0.t.d.d.d().E(0);
-                        this.f56714a.mView.d0(false);
+                        this.f56831a.mView.d0(false);
                     }
                     if (o != null) {
                         c.a.e.e.m.e.a().postDelayed(new a(this, z2, o), 500L);
@@ -450,35 +450,35 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     if (z) {
                         c.a.q0.t.d.d.d().C(z2);
                     }
-                    this.f56714a.mView.k0();
+                    this.f56831a.mView.k0();
                 } else if (i2 == 3) {
                     if (z) {
                         c.a.q0.t.d.d.d().G(z2);
                     }
-                    this.f56714a.mView.n0();
+                    this.f56831a.mView.n0();
                 } else if (i2 == 4) {
                     if (z) {
                         c.a.q0.t.d.d.d().B(z2);
                         if (!z2) {
-                            TiebaStatic.eventStat(this.f56714a.getPageContext().getPageActivity(), "group_message_remind", "check_click", 1, new Object[0]);
+                            TiebaStatic.eventStat(this.f56831a.getPageContext().getPageActivity(), "group_message_remind", "check_click", 1, new Object[0]);
                         }
                     }
-                    this.f56714a.mView.m0();
+                    this.f56831a.mView.m0();
                 } else if (i2 == 5) {
                     if (z) {
                         c.a.q0.t.d.d.d().D(z2);
                     }
-                    this.f56714a.mView.l0();
+                    this.f56831a.mView.l0();
                 } else if (i2 == 1) {
                     if (z) {
                         c.a.q0.t.d.d.d().H(z2);
                     }
-                    this.f56714a.mView.o0();
+                    this.f56831a.mView.o0();
                 } else if (i2 == 20) {
                     if (z) {
                         c.a.q0.t.d.d.d().K(z2);
                     }
-                    this.f56714a.mView.p0();
+                    this.f56831a.mView.p0();
                 }
             }
         }

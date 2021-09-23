@@ -16,10 +16,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9173a;
+    public static final boolean f9181a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f9174b;
+    public static final String[] f9182b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +35,8 @@ public class a {
                 return;
             }
         }
-        f9173a = k.f7077a;
-        f9174b = new String[]{"swan", "swanAPI", "utils"};
+        f9181a = k.f7085a;
+        f9182b = new String[]{"swan", "swanAPI", "utils"};
     }
 
     @NonNull
@@ -47,7 +47,7 @@ public class a {
             c.a.p0.a.u.h.b bVar = new c.a.p0.a.u.h.b();
             boolean b2 = b(str, aVar.a().h());
             if (b2) {
-                bVar.f9169b = 402;
+                bVar.f9177b = 402;
             }
             return new Pair<>(Boolean.valueOf(b2), bVar);
         }
@@ -60,10 +60,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
             if (!(callbackHandler instanceof d)) {
-                boolean z2 = f9173a;
+                boolean z2 = f9181a;
                 return false;
             } else if (TextUtils.isEmpty(str)) {
-                if (f9173a) {
+                if (f9181a) {
                     throw new RuntimeException("whitelistName is empty");
                 }
                 return false;
@@ -76,10 +76,10 @@ public class a {
                 } else if ("swan_app_alliance_login_widget".equals(b0) || "swan_app_alliance_choose_address_widget".equals(b0)) {
                     return false;
                 } else {
-                    boolean z3 = f9173a;
+                    boolean z3 = f9181a;
                     return false;
                 }
-                if (f9173a) {
+                if (f9181a) {
                     String str2 = "intercept: result=" + z + ", path=" + str;
                 }
                 return z;
@@ -99,7 +99,7 @@ public class a {
             }
             if (str.startsWith("swan")) {
                 String substring = str.substring(indexOf + 1);
-                for (String str2 : f9174b) {
+                for (String str2 : f9182b) {
                     if (c.a.p0.a.b2.a.b.g(str2 + "/" + substring)) {
                         return false;
                     }

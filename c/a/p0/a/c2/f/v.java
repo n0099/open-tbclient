@@ -27,13 +27,13 @@ public class v extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5101a;
+        public final /* synthetic */ CallbackHandler f5109a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5102b;
+        public final /* synthetic */ UnitedSchemeEntity f5110b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5103c;
+        public final /* synthetic */ String f5111c;
 
         public a(v vVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class v extends a0 {
                     return;
                 }
             }
-            this.f5101a = callbackHandler;
-            this.f5102b = unitedSchemeEntity;
-            this.f5103c = str;
+            this.f5109a = callbackHandler;
+            this.f5110b = unitedSchemeEntity;
+            this.f5111c = str;
         }
 
         @Override // c.a.p0.a.c2.f.p0.g.d
@@ -60,7 +60,7 @@ public class v extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 c.a.p0.a.e0.d.g("PreloadSubPackage", "preload subPackage success");
-                UnitedSchemeUtility.safeCallback(this.f5101a, this.f5102b, UnitedSchemeUtility.wrapCallbackParams(0, "preload subPackage success").toString(), this.f5103c);
+                UnitedSchemeUtility.safeCallback(this.f5109a, this.f5110b, UnitedSchemeUtility.wrapCallbackParams(0, "preload subPackage success").toString(), this.f5111c);
             }
         }
 
@@ -69,7 +69,7 @@ public class v extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 c.a.p0.a.e0.d.b("PreloadSubPackage", "preload subPackage failed");
-                UnitedSchemeUtility.safeCallback(this.f5101a, this.f5102b, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), this.f5103c);
+                UnitedSchemeUtility.safeCallback(this.f5109a, this.f5110b, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), this.f5111c);
             }
         }
     }
@@ -114,7 +114,7 @@ public class v extends a0 {
             String optString = optParamsAsJo.optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 c.a.p0.a.e0.d.b("PreloadSubPackage", "none cb");
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
@@ -134,7 +134,7 @@ public class v extends a0 {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                c.a.p0.a.c2.f.p0.g.k(eVar.f4558f, eVar.Z(), "1", optString2, G, null, new a(this, callbackHandler, unitedSchemeEntity, optString));
+                c.a.p0.a.c2.f.p0.g.k(eVar.f4566f, eVar.Z(), "1", optString2, G, null, new a(this, callbackHandler, unitedSchemeEntity, optString));
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }

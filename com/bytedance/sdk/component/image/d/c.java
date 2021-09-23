@@ -38,10 +38,10 @@ public class c extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             com.bytedance.sdk.component.image.c.a.b b2 = aVar.b();
             if (b2 != null) {
-                if (b2.f65178a) {
+                if (b2.f65489a) {
                     aVar.a(new i());
                     return;
-                } else if (b2.f65179b) {
+                } else if (b2.f65490b) {
                     aVar.a(new e());
                     return;
                 }

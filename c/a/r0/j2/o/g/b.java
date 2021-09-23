@@ -50,22 +50,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseVideoPBReplyFragment f20682a;
+    public BaseVideoPBReplyFragment f20697a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AbsVideoPbFragment f20683b;
+    public AbsVideoPbFragment f20698b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20684c;
+    public int f20699c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f20685d;
+    public boolean f20700d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TbRichTextView.z f20686e;
+    public final TbRichTextView.z f20701e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f20687f;
+    public c f20702f;
 
     /* loaded from: classes3.dex */
     public class a implements TbRichTextView.z {
@@ -73,7 +73,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f20688a;
+        public final /* synthetic */ b f20703a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class b {
                     return;
                 }
             }
-            this.f20688a = bVar;
+            this.f20703a = bVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r9v14, resolved type: com.baidu.tbadk.core.atomData.ImageViewerConfig$b */
@@ -102,25 +102,25 @@ public class b {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 try {
                     StatisticItem statisticItem = new StatisticItem("c13398");
-                    statisticItem.param("tid", this.f20688a.f20682a.getPbModel().e1());
-                    statisticItem.param("fid", this.f20688a.f20682a.getPbModel().getForumId());
+                    statisticItem.param("tid", this.f20703a.f20697a.getPbModel().f1());
+                    statisticItem.param("fid", this.f20703a.f20697a.getPbModel().getForumId());
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                     statisticItem.param("obj_locate", 3);
                     statisticItem.param("obj_type", z2 ? 1 : 2);
                     TiebaStatic.log(statisticItem);
-                    if (this.f20688a.f20683b.isCommentFloatPage()) {
+                    if (this.f20703a.f20698b.isCommentFloatPage()) {
                         StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                        statisticItem2.param("fid", this.f20688a.f20682a.getPbModel().getForumId());
-                        statisticItem2.param("tid", this.f20688a.f20682a.getPbModel().e1());
+                        statisticItem2.param("fid", this.f20703a.f20697a.getPbModel().getForumId());
+                        statisticItem2.param("tid", this.f20703a.f20697a.getPbModel().f1());
                         statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-                        statisticItem2.param("post_id", this.f20688a.f20682a.getPbModel().o0());
+                        statisticItem2.param("post_id", this.f20703a.f20697a.getPbModel().p0());
                         statisticItem2.param("obj_source", 1);
                         statisticItem2.param("obj_type", 10);
-                        statisticItem2.param("obj_locate", this.f20688a.f20683b.getFromVideoPageType());
+                        statisticItem2.param("obj_locate", this.f20703a.f20698b.getFromVideoPageType());
                         TiebaStatic.log(statisticItem2);
                     }
-                    TiebaStatic.eventStat(this.f20688a.f20682a.getPageContext().getPageActivity(), "pic_pb", "");
-                    if (this.f20688a.f20682a.getPbModel().O0().f0()) {
+                    TiebaStatic.eventStat(this.f20703a.f20697a.getPageContext().getPageActivity(), "pic_pb", "");
+                    if (this.f20703a.f20697a.getPbModel().P0().f0()) {
                         ArrayList<String> arrayList = new ArrayList<>();
                         ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
                         int i3 = -1;
@@ -149,43 +149,43 @@ public class b {
                         bVar.x(arrayList);
                         bVar.B(i3);
                         bVar.C(false);
-                        bVar.F(this.f20688a.f20682a.getPbModel().Z0());
+                        bVar.F(this.f20703a.f20697a.getPbModel().a1());
                         bVar.w(concurrentHashMap);
                         bVar.H(true);
                         bVar.K(false);
-                        if (this.f20688a.f20682a.getPbModel() != null) {
-                            bVar.G(this.f20688a.f20682a.getPbModel().s0());
-                            bVar.A(this.f20688a.f20682a.getPbModel().getFromForumId());
-                            if (this.f20688a.f20682a.getPbModel().O0() != null) {
-                                bVar.N(this.f20688a.f20682a.getPbModel().O0().O());
+                        if (this.f20703a.f20697a.getPbModel() != null) {
+                            bVar.G(this.f20703a.f20697a.getPbModel().t0());
+                            bVar.A(this.f20703a.f20697a.getPbModel().getFromForumId());
+                            if (this.f20703a.f20697a.getPbModel().P0() != null) {
+                                bVar.N(this.f20703a.f20697a.getPbModel().P0().O());
                             }
                         }
-                        ImageViewerConfig v = bVar.v(this.f20688a.f20682a.getPageContext().getPageActivity());
+                        ImageViewerConfig v = bVar.v(this.f20703a.f20697a.getPageContext().getPageActivity());
                         v.getIntent().putExtra("from", "pb");
-                        this.f20688a.f20682a.sendMessage(new CustomMessage(2010000, v));
+                        this.f20703a.f20697a.sendMessage(new CustomMessage(2010000, v));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
                         return;
                     }
                     AbsPbActivity.e eVar = new AbsPbActivity.e();
-                    this.f20688a.m(str, i2, eVar);
-                    if (eVar.f54945h) {
-                        TbRichText p = this.f20688a.p(str, i2);
-                        if (p != null && this.f20688a.f20684c >= 0 && this.f20688a.f20684c < p.y().size()) {
+                    this.f20703a.m(str, i2, eVar);
+                    if (eVar.f55060h) {
+                        TbRichText p = this.f20703a.p(str, i2);
+                        if (p != null && this.f20703a.f20699c >= 0 && this.f20703a.f20699c < p.y().size()) {
                             ArrayList<String> arrayList2 = new ArrayList<>();
-                            String a2 = f.a(p.y().get(this.f20688a.f20684c));
+                            String a2 = f.a(p.y().get(this.f20703a.f20699c));
                             int i6 = 0;
                             while (true) {
-                                if (i6 >= eVar.f54938a.size()) {
+                                if (i6 >= eVar.f55053a.size()) {
                                     break;
-                                } else if (eVar.f54938a.get(i6).equals(a2)) {
-                                    eVar.f54947j = i6;
+                                } else if (eVar.f55053a.get(i6).equals(a2)) {
+                                    eVar.f55062j = i6;
                                     arrayList2.add(a2);
                                     break;
                                 } else {
                                     i6++;
                                 }
                             }
-                            if (p.getPostId() != 0 && (adapterManager = this.f20688a.f20682a.getAdapterManager()) != null) {
+                            if (p.getPostId() != 0 && (adapterManager = this.f20703a.f20697a.getAdapterManager()) != null) {
                                 ArrayList<n> a3 = adapterManager.a();
                                 if (ListUtils.getCount(a3) > 0) {
                                     Iterator<n> it = a3.iterator();
@@ -195,7 +195,7 @@ public class b {
                                         }
                                         n next = it.next();
                                         if ((next instanceof PostData) && p.getPostId() == c.a.e.e.m.b.g(((PostData) next).E(), 0L)) {
-                                            c.a.r0.j2.m.a.b(this.f20688a.f20682a.getPbModel().O0(), (PostData) next, ((PostData) next).i0, 8, 3);
+                                            c.a.r0.j2.m.a.b(this.f20703a.f20697a.getPbModel().P0(), (PostData) next, ((PostData) next).i0, 8, 3);
                                             break;
                                         }
                                     }
@@ -204,65 +204,65 @@ public class b {
                             ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = new ConcurrentHashMap<>();
                             if (!ListUtils.isEmpty(arrayList2)) {
                                 String str2 = arrayList2.get(0);
-                                concurrentHashMap2.put(str2, eVar.f54939b.get(str2));
+                                concurrentHashMap2.put(str2, eVar.f55054b.get(str2));
                             }
                             ImageViewerConfig.b bVar2 = new ImageViewerConfig.b();
                             bVar2.x(arrayList2);
-                            bVar2.z(eVar.f54940c);
-                            bVar2.y(eVar.f54941d);
-                            bVar2.O(eVar.f54942e);
-                            bVar2.C(eVar.f54944g);
+                            bVar2.z(eVar.f55055c);
+                            bVar2.y(eVar.f55056d);
+                            bVar2.O(eVar.f55057e);
+                            bVar2.C(eVar.f55059g);
                             bVar2.H(true);
-                            bVar2.J(eVar.f54946i);
+                            bVar2.J(eVar.f55061i);
                             bVar2.w(concurrentHashMap2);
                             bVar2.K(false);
-                            bVar2.F(this.f20688a.f20682a.getPbModel().Z0());
-                            bVar2.L(eVar.f54943f);
-                            if (this.f20688a.f20682a.getPbModel() != null) {
-                                bVar2.G(this.f20688a.f20682a.getPbModel().s0());
-                                bVar2.A(this.f20688a.f20682a.getPbModel().getFromForumId());
-                                if (this.f20688a.f20682a.getPbModel().O0() != null) {
-                                    bVar2.N(this.f20688a.f20682a.getPbModel().O0().O());
+                            bVar2.F(this.f20703a.f20697a.getPbModel().a1());
+                            bVar2.L(eVar.f55058f);
+                            if (this.f20703a.f20697a.getPbModel() != null) {
+                                bVar2.G(this.f20703a.f20697a.getPbModel().t0());
+                                bVar2.A(this.f20703a.f20697a.getPbModel().getFromForumId());
+                                if (this.f20703a.f20697a.getPbModel().P0() != null) {
+                                    bVar2.N(this.f20703a.f20697a.getPbModel().P0().O());
                                 }
                             }
-                            ImageViewerConfig v2 = bVar2.v(this.f20688a.f20682a.getPageContext().getPageActivity());
+                            ImageViewerConfig v2 = bVar2.v(this.f20703a.f20697a.getPageContext().getPageActivity());
                             v2.getIntent().putExtra("from", "pb");
-                            this.f20688a.f20682a.sendMessage(new CustomMessage(2010000, v2));
+                            this.f20703a.f20697a.sendMessage(new CustomMessage(2010000, v2));
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
                             return;
                         }
                         return;
                     }
                     ArrayList arrayList3 = new ArrayList();
-                    arrayList3.add(ListUtils.getItem(eVar.f54938a, 0));
+                    arrayList3.add(ListUtils.getItem(eVar.f55053a, 0));
                     ConcurrentHashMap concurrentHashMap3 = new ConcurrentHashMap();
                     if (!ListUtils.isEmpty(arrayList3)) {
                         String str3 = (String) arrayList3.get(0);
-                        concurrentHashMap3.put(str3, eVar.f54939b.get(str3));
+                        concurrentHashMap3.put(str3, eVar.f55054b.get(str3));
                     }
                     ImageViewerConfig.b bVar3 = new ImageViewerConfig.b();
                     bVar3.x(arrayList3);
-                    bVar3.z(eVar.f54940c);
-                    bVar3.y(eVar.f54941d);
-                    bVar3.O(eVar.f54942e);
-                    bVar3.C(eVar.f54944g);
+                    bVar3.z(eVar.f55055c);
+                    bVar3.y(eVar.f55056d);
+                    bVar3.O(eVar.f55057e);
+                    bVar3.C(eVar.f55059g);
                     bVar3.H(true);
-                    bVar3.J(eVar.f54938a.get(0));
+                    bVar3.J(eVar.f55053a.get(0));
                     bVar3.w(concurrentHashMap3);
-                    bVar3.F(this.f20688a.f20682a.getPbModel().Z0());
+                    bVar3.F(this.f20703a.f20697a.getPbModel().a1());
                     bVar3.K(false);
-                    bVar3.L(eVar.f54943f);
+                    bVar3.L(eVar.f55058f);
                     bVar3.D(false);
-                    if (this.f20688a.f20682a.getPbModel() != null) {
-                        bVar3.G(this.f20688a.f20682a.getPbModel().s0());
-                        bVar3.A(this.f20688a.f20682a.getPbModel().getFromForumId());
-                        if (this.f20688a.f20682a.getPbModel().O0() != null) {
-                            bVar3.N(this.f20688a.f20682a.getPbModel().O0().O());
+                    if (this.f20703a.f20697a.getPbModel() != null) {
+                        bVar3.G(this.f20703a.f20697a.getPbModel().t0());
+                        bVar3.A(this.f20703a.f20697a.getPbModel().getFromForumId());
+                        if (this.f20703a.f20697a.getPbModel().P0() != null) {
+                            bVar3.N(this.f20703a.f20697a.getPbModel().P0().O());
                         }
                     }
-                    ImageViewerConfig v3 = bVar3.v(this.f20688a.f20682a.getPageContext().getPageActivity());
+                    ImageViewerConfig v3 = bVar3.v(this.f20703a.f20697a.getPageContext().getPageActivity());
                     v3.getIntent().putExtra("from", "pb");
-                    this.f20688a.f20682a.sendMessage(new CustomMessage(2010000, v3));
+                    this.f20703a.f20697a.sendMessage(new CustomMessage(2010000, v3));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
@@ -273,14 +273,14 @@ public class b {
 
     /* renamed from: c.a.r0.j2.o.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0979b implements c.a {
+    public class C0977b implements c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f20689a;
+        public final /* synthetic */ b f20704a;
 
-        public C0979b(b bVar) {
+        public C0977b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -295,7 +295,7 @@ public class b {
                     return;
                 }
             }
-            this.f20689a = bVar;
+            this.f20704a = bVar;
         }
 
         @Override // c.a.r0.j2.i.c.a
@@ -313,27 +313,27 @@ public class b {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-                AbsVideoPbFragment absVideoPbFragment = this.f20689a.f20683b;
+                AbsVideoPbFragment absVideoPbFragment = this.f20704a.f20698b;
                 if (absVideoPbFragment != null && absVideoPbFragment.isAdded()) {
                     if (view != null) {
                         if (view.getId() == R.id.richText) {
-                            AbsVideoPbFragment absVideoPbFragment2 = this.f20689a.f20683b;
+                            AbsVideoPbFragment absVideoPbFragment2 = this.f20704a.f20698b;
                             if (absVideoPbFragment2 != null && absVideoPbFragment2.richTextHandleSingleTap(view)) {
                                 return true;
                             }
                         } else if (view.getId() == R.id.pb_floor_item_layout) {
                             if (view.getTag(R.id.tag_from) instanceof SparseArray) {
-                                this.f20689a.o((SparseArray) view.getTag(R.id.tag_from));
+                                this.f20704a.o((SparseArray) view.getTag(R.id.tag_from));
                             }
                         } else if ((view instanceof TbRichTextView) || view.getId() == R.id.pb_post_header_layout) {
                             SparseArray sparseArray = view.getTag() instanceof SparseArray ? (SparseArray) view.getTag() : null;
                             if (sparseArray == null) {
                                 return false;
                             }
-                            this.f20689a.o(sparseArray);
+                            this.f20704a.o(sparseArray);
                         }
                     }
-                    AbsVideoPbFragment absVideoPbFragment3 = this.f20689a.f20683b;
+                    AbsVideoPbFragment absVideoPbFragment3 = this.f20704a.f20698b;
                     if (absVideoPbFragment3 != null) {
                         absVideoPbFragment3.tapResetEditor();
                     }
@@ -369,18 +369,18 @@ public class b {
                 return;
             }
         }
-        this.f20684c = 0;
-        this.f20685d = false;
-        this.f20686e = new a(this);
-        this.f20687f = new c(new C0979b(this));
-        this.f20682a = baseVideoPBReplyFragment;
-        this.f20683b = baseVideoPBReplyFragment.getVideoPbFragment();
+        this.f20699c = 0;
+        this.f20700d = false;
+        this.f20701e = new a(this);
+        this.f20702f = new c(new C0977b(this));
+        this.f20697a = baseVideoPBReplyFragment;
+        this.f20698b = baseVideoPBReplyFragment.getVideoPbFragment();
     }
 
     public final void d(e eVar, ArrayList<PostData> arrayList) {
         List<PostData> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, eVar, arrayList) == null) || eVar == null || eVar.T() == null || eVar.T().f19679a == null || (list = eVar.T().f19679a) == null || arrayList == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, eVar, arrayList) == null) || eVar == null || eVar.T() == null || eVar.T().f19694a == null || (list = eVar.T().f19694a) == null || arrayList == null) {
             return;
         }
         ArrayList arrayList2 = new ArrayList();
@@ -431,7 +431,7 @@ public class b {
                                     if (width < 80 || height < 80 || width * height < 10000) {
                                         return null;
                                     }
-                                    this.f20684c = i5;
+                                    this.f20699c = i5;
                                     return K;
                                 } else if (i4 > i2) {
                                     break;
@@ -453,7 +453,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbRichText, tbRichText2, Integer.valueOf(i2), Integer.valueOf(i3), arrayList, concurrentHashMap})) == null) {
             if (tbRichText == tbRichText2) {
-                this.f20685d = true;
+                this.f20700d = true;
             }
             if (tbRichText != null) {
                 int size = tbRichText.y().size();
@@ -483,7 +483,7 @@ public class b {
                                         imageUrlData.urlType = 38;
                                         y = C.z();
                                     } else {
-                                        imageUrlData.urlType = ((VideoPbViewModel) ViewModelProviders.of(this.f20682a.getPbActivity()).get(VideoPbViewModel.class)).isFromCDN() ? 17 : 18;
+                                        imageUrlData.urlType = ((VideoPbViewModel) ViewModelProviders.of(this.f20697a.getPbActivity()).get(VideoPbViewModel.class)).isFromCDN() ? 17 : 18;
                                     }
                                     imageUrlData.imageUrl = y;
                                     imageUrlData.originalUrl = j(tbRichTextData);
@@ -491,15 +491,15 @@ public class b {
                                     imageUrlData.mIsShowOrigonButton = h(tbRichTextData);
                                     imageUrlData.isLongPic = g(tbRichTextData);
                                     imageUrlData.postId = tbRichText.getPostId();
-                                    imageUrlData.threadId = c.a.e.e.m.b.g(this.f20682a.getPbModel().e1(), -1L);
-                                    imageUrlData.mIsReserver = this.f20682a.getPbModel().Z0();
-                                    imageUrlData.mIsSeeHost = this.f20682a.getPbModel().s0();
+                                    imageUrlData.threadId = c.a.e.e.m.b.g(this.f20697a.getPbModel().f1(), -1L);
+                                    imageUrlData.mIsReserver = this.f20697a.getPbModel().a1();
+                                    imageUrlData.mIsSeeHost = this.f20697a.getPbModel().t0();
                                     if (concurrentHashMap != null) {
                                         concurrentHashMap.put(a2, imageUrlData);
                                     }
                                 }
                             }
-                            if (!this.f20685d) {
+                            if (!this.f20700d) {
                                 i4++;
                             }
                         }
@@ -539,7 +539,7 @@ public class b {
     public TbRichTextView.z i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20686e : (TbRichTextView.z) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20701e : (TbRichTextView.z) invokeV.objValue;
     }
 
     public final String j(TbRichTextData tbRichTextData) {
@@ -569,7 +569,7 @@ public class b {
     public c l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20687f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20702f : (c) invokeV.objValue;
     }
 
     public void m(String str, int i2, AbsPbActivity.e eVar) {
@@ -578,24 +578,24 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLIL(1048585, this, str, i2, eVar) == null) || eVar == null) {
             return;
         }
-        e O0 = this.f20682a.getPbModel().O0();
+        e P0 = this.f20697a.getPbModel().P0();
         TbRichText p = p(str, i2);
-        if (p == null || (tbRichTextData = p.y().get(this.f20684c)) == null) {
+        if (p == null || (tbRichTextData = p.y().get(this.f20699c)) == null) {
             return;
         }
-        eVar.f54943f = String.valueOf(p.getPostId());
-        eVar.f54938a = new ArrayList<>();
-        eVar.f54939b = new ConcurrentHashMap<>();
+        eVar.f55058f = String.valueOf(p.getPostId());
+        eVar.f55053a = new ArrayList<>();
+        eVar.f55054b = new ConcurrentHashMap<>();
         if (!tbRichTextData.C().D()) {
-            eVar.f54945h = false;
+            eVar.f55060h = false;
             String a2 = f.a(tbRichTextData);
-            eVar.f54938a.add(a2);
+            eVar.f55053a.add(a2);
             ImageUrlData imageUrlData = new ImageUrlData();
             imageUrlData.imageUrl = str;
             if (TbadkCoreApplication.getInst().isGifAutoPlay()) {
                 imageUrlData.urlType = 38;
             } else {
-                imageUrlData.urlType = ((VideoPbViewModel) ViewModelProviders.of(this.f20682a.getPbActivity()).get(VideoPbViewModel.class)).isFromCDN() ? 17 : 18;
+                imageUrlData.urlType = ((VideoPbViewModel) ViewModelProviders.of(this.f20697a.getPbActivity()).get(VideoPbViewModel.class)).isFromCDN() ? 17 : 18;
             }
             imageUrlData.originalUrl = j(tbRichTextData);
             imageUrlData.originalUrl = j(tbRichTextData);
@@ -603,48 +603,48 @@ public class b {
             imageUrlData.mIsShowOrigonButton = h(tbRichTextData);
             imageUrlData.isLongPic = g(tbRichTextData);
             imageUrlData.postId = p.getPostId();
-            imageUrlData.mIsReserver = this.f20682a.getPbModel().Z0();
-            imageUrlData.mIsSeeHost = this.f20682a.getPbModel().s0();
-            eVar.f54939b.put(a2, imageUrlData);
-            if (O0 != null) {
-                if (O0.m() != null) {
-                    eVar.f54940c = O0.m().getName();
-                    eVar.f54941d = O0.m().getId();
+            imageUrlData.mIsReserver = this.f20697a.getPbModel().a1();
+            imageUrlData.mIsSeeHost = this.f20697a.getPbModel().t0();
+            eVar.f55054b.put(a2, imageUrlData);
+            if (P0 != null) {
+                if (P0.m() != null) {
+                    eVar.f55055c = P0.m().getName();
+                    eVar.f55056d = P0.m().getId();
                 }
-                if (O0.O() != null) {
-                    eVar.f54942e = O0.O().f0();
+                if (P0.O() != null) {
+                    eVar.f55057e = P0.O().f0();
                 }
-                eVar.f54944g = O0.t() == 1;
+                eVar.f55059g = P0.t() == 1;
             }
-            imageUrlData.threadId = c.a.e.e.m.b.g(eVar.f54942e, -1L);
+            imageUrlData.threadId = c.a.e.e.m.b.g(eVar.f55057e, -1L);
             return;
         }
-        eVar.f54945h = true;
-        int size = O0.F().size();
-        this.f20685d = false;
-        eVar.f54947j = -1;
-        int f2 = O0.j() != null ? f(O0.j().K(), p, i2, i2, eVar.f54938a, eVar.f54939b) : i2;
+        eVar.f55060h = true;
+        int size = P0.F().size();
+        this.f20700d = false;
+        eVar.f55062j = -1;
+        int f2 = P0.j() != null ? f(P0.j().K(), p, i2, i2, eVar.f55053a, eVar.f55054b) : i2;
         for (int i3 = 0; i3 < size; i3++) {
-            PostData postData = O0.F().get(i3);
-            if (postData.E() == null || O0.j() == null || O0.j().E() == null || !postData.E().equals(O0.j().E())) {
-                f2 = f(postData.K(), p, f2, i2, eVar.f54938a, eVar.f54939b);
+            PostData postData = P0.F().get(i3);
+            if (postData.E() == null || P0.j() == null || P0.j().E() == null || !postData.E().equals(P0.j().E())) {
+                f2 = f(postData.K(), p, f2, i2, eVar.f55053a, eVar.f55054b);
             }
         }
-        if (eVar.f54938a.size() > 0) {
-            ArrayList<String> arrayList = eVar.f54938a;
-            eVar.f54946i = arrayList.get(arrayList.size() - 1);
+        if (eVar.f55053a.size() > 0) {
+            ArrayList<String> arrayList = eVar.f55053a;
+            eVar.f55061i = arrayList.get(arrayList.size() - 1);
         }
-        if (O0 != null) {
-            if (O0.m() != null) {
-                eVar.f54940c = O0.m().getName();
-                eVar.f54941d = O0.m().getId();
+        if (P0 != null) {
+            if (P0.m() != null) {
+                eVar.f55055c = P0.m().getName();
+                eVar.f55056d = P0.m().getId();
             }
-            if (O0.O() != null) {
-                eVar.f54942e = O0.O().f0();
+            if (P0.O() != null) {
+                eVar.f55057e = P0.O().f0();
             }
-            eVar.f54944g = O0.t() == 1;
+            eVar.f55059g = P0.t() == 1;
         }
-        eVar.f54947j = f2;
+        eVar.f55062j = f2;
     }
 
     public AbsPbActivity.e n(String str) {
@@ -652,20 +652,20 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             String str2 = null;
-            if (this.f20682a.getPbModel() != null && this.f20682a.getPbModel().O0() != null && this.f20682a.getPbModel().O0().F() != null && this.f20682a.getPbModel().O0().F().size() != 0 && !StringUtils.isNull(str)) {
+            if (this.f20697a.getPbModel() != null && this.f20697a.getPbModel().P0() != null && this.f20697a.getPbModel().P0().F() != null && this.f20697a.getPbModel().P0().F().size() != 0 && !StringUtils.isNull(str)) {
                 AbsPbActivity.e eVar = new AbsPbActivity.e();
                 int i2 = 0;
                 while (true) {
-                    if (i2 >= this.f20682a.getPbModel().O0().F().size()) {
+                    if (i2 >= this.f20697a.getPbModel().P0().F().size()) {
                         i2 = 0;
                         break;
-                    } else if (str.equals(this.f20682a.getPbModel().O0().F().get(i2).E())) {
+                    } else if (str.equals(this.f20697a.getPbModel().P0().F().get(i2).E())) {
                         break;
                     } else {
                         i2++;
                     }
                 }
-                PostData postData = this.f20682a.getPbModel().O0().F().get(i2);
+                PostData postData = this.f20697a.getPbModel().P0().F().get(i2);
                 if (postData.K() != null && postData.K().y() != null) {
                     Iterator<TbRichTextData> it = postData.K().y().iterator();
                     while (true) {
@@ -692,23 +692,23 @@ public class b {
     public final void o(SparseArray<Object> sparseArray) {
         PostData postData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, sparseArray) == null) || !this.f20682a.checkUpIsLogin() || sparseArray == null || !(sparseArray.get(R.id.tag_clip_board) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.tag_clip_board)) == null || this.f20682a.getPbModel() == null || this.f20682a.getPbModel().O0() == null || postData.A() == 1) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, sparseArray) == null) || !this.f20697a.checkUpIsLogin() || sparseArray == null || !(sparseArray.get(R.id.tag_clip_board) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.tag_clip_board)) == null || this.f20697a.getPbModel() == null || this.f20697a.getPbModel().P0() == null || postData.A() == 1) {
             return;
         }
-        String e1 = this.f20682a.getPbModel().e1();
+        String f1 = this.f20697a.getPbModel().f1();
         String E = postData.E();
-        int V = this.f20682a.getPbModel().O0() != null ? this.f20682a.getPbModel().O0().V() : 0;
+        int V = this.f20697a.getPbModel().P0() != null ? this.f20697a.getPbModel().P0().V() : 0;
         AbsPbActivity.e n = n(E);
         if (n == null) {
             return;
         }
-        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.f20682a.getPageContext().getPageActivity()).createSubPbActivityConfig(e1, E, "pb", true, this.f20683b.isCommentFloatPage(), null, false, null, V, postData.O(), this.f20682a.getPbModel().O0().d(), false, postData.t() != null ? postData.t().getIconInfo() : null, 0).addBigImageData(n.f54938a, n.f54939b, n.f54944g, n.f54947j);
-        addBigImageData.setKeyPageStartFrom(this.f20682a.getPbModel().N0());
-        addBigImageData.setFromFrsForumId(this.f20682a.getPbModel().getFromForumId());
-        addBigImageData.setWorksInfoData(this.f20682a.getPbModel().i1());
-        addBigImageData.setKeyFromForumId(this.f20682a.getPbModel().getForumId());
-        addBigImageData.setBjhData(this.f20682a.getPbModel().i0());
-        this.f20682a.sendMessage(new CustomMessage(2002001, addBigImageData));
+        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.f20697a.getPageContext().getPageActivity()).createSubPbActivityConfig(f1, E, "pb", true, this.f20698b.isCommentFloatPage(), null, false, null, V, postData.P(), this.f20697a.getPbModel().P0().d(), false, postData.t() != null ? postData.t().getIconInfo() : null, 0).addBigImageData(n.f55053a, n.f55054b, n.f55059g, n.f55062j);
+        addBigImageData.setKeyPageStartFrom(this.f20697a.getPbModel().O0());
+        addBigImageData.setFromFrsForumId(this.f20697a.getPbModel().getFromForumId());
+        addBigImageData.setWorksInfoData(this.f20697a.getPbModel().j1());
+        addBigImageData.setKeyFromForumId(this.f20697a.getPbModel().getForumId());
+        addBigImageData.setBjhData(this.f20697a.getPbModel().j0());
+        this.f20697a.sendMessage(new CustomMessage(2002001, addBigImageData));
     }
 
     public final TbRichText p(String str, int i2) {
@@ -716,18 +716,18 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i2)) == null) {
             TbRichText tbRichText = null;
-            if (this.f20682a.getPbModel() == null || this.f20682a.getPbModel().O0() == null || str == null || i2 < 0) {
+            if (this.f20697a.getPbModel() == null || this.f20697a.getPbModel().P0() == null || str == null || i2 < 0) {
                 return null;
             }
-            e O0 = this.f20682a.getPbModel().O0();
-            if (O0.j() != null) {
+            e P0 = this.f20697a.getPbModel().P0();
+            if (P0.j() != null) {
                 ArrayList<PostData> arrayList = new ArrayList<>();
-                arrayList.add(O0.j());
+                arrayList.add(P0.j());
                 tbRichText = e(arrayList, str, i2);
             }
             if (tbRichText == null) {
-                ArrayList<PostData> F = O0.F();
-                d(O0, F);
+                ArrayList<PostData> F = P0.F();
+                d(P0, F);
                 return e(F, str, i2);
             }
             return tbRichText;

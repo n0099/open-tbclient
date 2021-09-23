@@ -62,34 +62,34 @@ public class c {
     public int Q;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f22182a;
+    public ArrayList<String> f22196a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f22183b;
+    public HashMap<String, String> f22197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, ImageUrlData> f22184c;
+    public Map<String, ImageUrlData> f22198c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<AlaInfoData> f22185d;
+    public ArrayList<AlaInfoData> f22199d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22186e;
+    public String f22200e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22187f;
+    public String f22201f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22188g;
+    public String f22202g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22189h;
+    public String f22203h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f22190i;
+    public String f22204i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f22191j;
+    public String f22205j;
     public String k;
     public boolean l;
     public boolean m;
@@ -113,22 +113,22 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f22192a;
+        public NetWork f22206a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f22193b;
+        public String f22207b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f22194c;
+        public String f22208c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f22195d;
+        public int f22209d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f22196e;
+        public int f22210e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f22197f;
+        public final /* synthetic */ c f22211f;
 
         public a(c cVar, String str, String str2, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -145,30 +145,30 @@ public class c {
                     return;
                 }
             }
-            this.f22197f = cVar;
-            this.f22192a = null;
-            this.f22193b = null;
-            this.f22194c = null;
-            this.f22195d = 0;
-            this.f22196e = 0;
-            this.f22194c = str2;
-            this.f22193b = str;
-            this.f22195d = i2;
-            this.f22196e = i3;
+            this.f22211f = cVar;
+            this.f22206a = null;
+            this.f22207b = null;
+            this.f22208c = null;
+            this.f22209d = 0;
+            this.f22210e = 0;
+            this.f22208c = str2;
+            this.f22207b = str;
+            this.f22209d = i2;
+            this.f22210e = i3;
         }
 
         public final void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f22192a.addPostData("forum_id", this.f22197f.f22189h);
-                this.f22192a.addPostData("user_id", this.f22197f.t == null ? "0" : this.f22197f.t);
-                this.f22192a.addPostData(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
-                this.f22192a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
-                this.f22192a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
-                this.f22192a.addPostData("q_type", String.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
-                this.f22192a.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
-                this.f22192a.addPostData("page_name", "PB");
-                this.f22192a.addPostData("pic_index", String.valueOf(this.f22197f.f22182a.size()));
+                this.f22206a.addPostData("forum_id", this.f22211f.f22203h);
+                this.f22206a.addPostData("user_id", this.f22211f.t == null ? "0" : this.f22211f.t);
+                this.f22206a.addPostData(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
+                this.f22206a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
+                this.f22206a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
+                this.f22206a.addPostData("q_type", String.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
+                this.f22206a.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
+                this.f22206a.addPostData("page_name", "PB");
+                this.f22206a.addPostData("pic_index", String.valueOf(this.f22211f.f22196a.size()));
             }
         }
 
@@ -180,45 +180,46 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.IMAGE_PB_ADDRESS);
-                this.f22192a = netWork;
-                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f22197f.f22190i);
-                this.f22192a.addPostData("tid", this.f22193b);
-                String str = this.f22194c;
+                this.f22206a = netWork;
+                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f22211f.f22204i);
+                this.f22206a.addPostData("tid", this.f22207b);
+                String str = this.f22208c;
                 if (str != null) {
-                    this.f22192a.addPostData(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, str);
+                    this.f22206a.addPostData(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, str);
                 }
-                if (!TextUtils.isEmpty(this.f22197f.f22186e) && !"0".equals(this.f22197f.f22186e)) {
-                    this.f22192a.addPostData("post_id", this.f22197f.f22186e);
+                if (!TextUtils.isEmpty(this.f22211f.f22200e) && !"0".equals(this.f22211f.f22200e)) {
+                    this.f22206a.addPostData("post_id", this.f22211f.f22200e);
                 }
-                this.f22192a.addPostData("source", String.valueOf(this.f22197f.q ? 1 : 2));
-                this.f22197f.q = false;
-                this.f22192a.addPostData(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.f22195d));
-                this.f22192a.addPostData("prev", String.valueOf(this.f22196e));
-                this.f22192a.addPostData("not_see_lz", String.valueOf(!this.f22197f.p ? 1 : 0));
-                this.f22192a.addPostData("is_top_agree", String.valueOf(this.f22197f.B ? 1 : 2));
-                if (!this.f22197f.m) {
-                    this.f22192a.addPostData(r.f42280a, String.valueOf(1));
+                this.f22206a.addPostData("source", String.valueOf(this.f22211f.q ? 1 : 2));
+                this.f22211f.q = false;
+                this.f22206a.addPostData(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.f22209d));
+                this.f22206a.addPostData("prev", String.valueOf(this.f22210e));
+                this.f22206a.addPostData("not_see_lz", String.valueOf(!this.f22211f.p ? 1 : 0));
+                this.f22206a.addPostData("is_top_agree", String.valueOf(this.f22211f.B ? 1 : 2));
+                if (!this.f22211f.m) {
+                    this.f22206a.addPostData(r.f42342a, String.valueOf(1));
                 }
-                if (!StringUtils.isNull(this.f22197f.u, true)) {
-                    this.f22192a.addPostData("obj_type", this.f22197f.u);
+                if (!StringUtils.isNull(this.f22211f.u, true)) {
+                    this.f22206a.addPostData("obj_type", this.f22211f.u);
                 } else {
-                    this.f22192a.addPostData("obj_type", "other");
+                    this.f22206a.addPostData("obj_type", "other");
                 }
-                if (TextUtils.isEmpty(this.f22197f.x)) {
+                if (TextUtils.isEmpty(this.f22211f.x)) {
                     if (System.currentTimeMillis() - c.a.q0.s.d0.b.j().l("applist_intalled_apk_ids_timestamp", 0L) < 86400000) {
-                        this.f22197f.x = c.a.q0.s.d0.b.j().p("applist_intalled_apk_ids", "");
+                        this.f22211f.x = c.a.q0.s.d0.b.j().p("applist_intalled_apk_ids", "");
                     }
                 }
-                this.f22192a.addPostData("applist", this.f22197f.x);
+                this.f22206a.addPostData("applist", this.f22211f.x);
                 String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
                 if (!TextUtils.isEmpty(lastCachedOid)) {
-                    this.f22192a.addPostData("oaid", lastCachedOid);
+                    this.f22206a.addPostData("oaid", lastCachedOid);
                 }
-                this.f22192a.addPostData("ad_ext_params", AdExtParam.a.b().a());
+                this.f22206a.addPostData("app_transmit_data", c.a.q0.d1.g.a());
+                this.f22206a.addPostData("ad_ext_params", AdExtParam.a.b().a());
                 b();
-                this.f22192a.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                String postNetData = this.f22192a.postNetData();
-                if (this.f22192a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f22206a.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                String postNetData = this.f22206a.postNetData();
+                if (this.f22206a.getNetContext().getResponse().isRequestSuccess()) {
                     f fVar = new f();
                     fVar.l(postNetData, true);
                     return fVar;
@@ -232,11 +233,11 @@ public class c {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                NetWork netWork = this.f22192a;
+                NetWork netWork = this.f22206a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f22197f.n = null;
+                this.f22211f.n = null;
                 super.cancel(true);
             }
         }
@@ -244,7 +245,7 @@ public class c {
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22194c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22208c : (String) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -264,65 +265,65 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
                 super.onPostExecute(fVar);
-                if (this.f22197f.f22184c == null) {
+                if (this.f22211f.f22198c == null) {
                     return;
                 }
                 String str2 = null;
-                this.f22197f.n = null;
+                this.f22211f.n = null;
                 if (fVar == null) {
-                    if (this.f22197f.r != null) {
-                        NetWork netWork = this.f22192a;
+                    if (this.f22211f.r != null) {
+                        NetWork netWork = this.f22206a;
                         if (netWork != null) {
                             i3 = netWork.getServerErrorCode();
-                            if (this.f22194c == null) {
-                                str2 = this.f22192a.getErrorString();
+                            if (this.f22208c == null) {
+                                str2 = this.f22206a.getErrorString();
                             }
                         } else {
                             i3 = -1;
                         }
-                        this.f22197f.r.b(i3, str2);
+                        this.f22211f.r.b(i3, str2);
                         return;
                     }
                     return;
                 }
                 boolean isEmpty = ListUtils.isEmpty(fVar.g());
-                if (this.f22197f.z && !isEmpty) {
-                    this.f22197f.f22182a.clear();
-                    this.f22197f.f22184c.clear();
-                    this.f22197f.f22183b.clear();
+                if (this.f22211f.z && !isEmpty) {
+                    this.f22211f.f22196a.clear();
+                    this.f22211f.f22198c.clear();
+                    this.f22211f.f22197b.clear();
                 }
                 if (fVar.h() != 0) {
-                    this.f22197f.o = fVar.h();
+                    this.f22211f.o = fVar.h();
                 }
-                this.f22197f.s = fVar.a();
-                this.f22197f.Q = fVar.m;
-                c cVar = this.f22197f;
-                cVar.K = fVar.f22216i;
+                this.f22211f.s = fVar.a();
+                this.f22211f.Q = fVar.m;
+                c cVar = this.f22211f;
+                cVar.K = fVar.f22230i;
                 cVar.L = fVar.i();
-                c cVar2 = this.f22197f;
+                c cVar2 = this.f22211f;
                 cVar2.M = fVar.k;
-                cVar2.N = fVar.f22217j;
+                cVar2.N = fVar.f22231j;
                 cVar2.O = fVar.l == 1;
-                if (this.f22194c == null) {
-                    this.f22197f.f22182a.clear();
-                    this.f22197f.f22183b.clear();
+                if (this.f22208c == null) {
+                    this.f22211f.f22196a.clear();
+                    this.f22211f.f22197b.clear();
                 }
                 LinkedList<d> g2 = fVar.g();
                 int size = g2.size();
                 if (size <= 0) {
                     imageUrlData = null;
                     z = isEmpty;
-                    this.f22197f.l = true;
+                    this.f22211f.l = true;
                 } else {
                     int i4 = 0;
                     while (i4 < size) {
                         d dVar = g2.get(i4);
-                        String S = this.f22197f.S(dVar);
+                        String S = this.f22211f.S(dVar);
                         ImageUrlData imageUrlData2 = new ImageUrlData();
                         String f2 = dVar.f();
                         imageUrlData2.id = f2;
-                        if (StringHelper.equals(f2, this.f22197f.A)) {
-                            imageUrlData2.setSourceImageRectInScreen(this.f22197f.y);
+                        if (StringHelper.equals(f2, this.f22211f.A)) {
+                            imageUrlData2.setSourceImageRectInScreen(this.f22211f.y);
                         }
                         imageUrlData2.imageUrl = S;
                         String str3 = S + "*" + dVar.k();
@@ -332,23 +333,23 @@ public class c {
                         imageUrlData2.originalUrl = dVar.i();
                         boolean z3 = isEmpty;
                         imageUrlData2.originalSize = dVar.j();
-                        imageUrlData2.forumId = this.f22197f.f22189h;
-                        imageUrlData2.forumName = this.f22197f.f22190i;
-                        imageUrlData2.threadId = c.a.e.e.m.b.g(this.f22193b, -1L);
-                        imageUrlData2.nid = this.f22197f.f22188g;
+                        imageUrlData2.forumId = this.f22211f.f22203h;
+                        imageUrlData2.forumName = this.f22211f.f22204i;
+                        imageUrlData2.threadId = c.a.e.e.m.b.g(this.f22207b, -1L);
+                        imageUrlData2.nid = this.f22211f.f22202g;
                         imageUrlData2.postId = c.a.e.e.m.b.g(dVar.c(), -1L);
                         imageUrlData2.userId = dVar.o();
                         imageUrlData2.userNameShow = StringUtils.isNull(dVar.q()) ? dVar.p() : dVar.q();
-                        imageUrlData2.mIsReserver = this.f22197f.m;
-                        imageUrlData2.mIsSeeHost = this.f22197f.p;
+                        imageUrlData2.mIsReserver = this.f22211f.m;
+                        imageUrlData2.mIsSeeHost = this.f22211f.p;
                         imageUrlData2.overAllIndex = dVar.k();
-                        imageUrlData2.mThreadType = this.f22197f.v;
+                        imageUrlData2.mThreadType = this.f22211f.v;
                         imageUrlData2.mPicType = dVar.l();
                         imageUrlData2.mTagName = dVar.n();
                         imageUrlData2.mIsShowOrigonButton = dVar.v();
                         imageUrlData2.isLongPic = dVar.u();
                         imageUrlData2.isBlockedPic = dVar.s();
-                        imageUrlData2.from = this.f22197f.u;
+                        imageUrlData2.from = this.f22211f.u;
                         if (dVar.m() != null) {
                             imageUrlData2.richTextArray = dVar.m().toString();
                         }
@@ -357,8 +358,8 @@ public class c {
                             AgreeData a2 = dVar.a();
                             imageUrlData2.agreeData = a2;
                             a2.isFromImageViewer = true;
-                            a2.mImageViewerFromPage = this.f22197f.u;
-                            imageUrlData2.agreeData.forumId = this.f22197f.f22189h;
+                            a2.mImageViewerFromPage = this.f22211f.u;
+                            imageUrlData2.agreeData.forumId = this.f22211f.f22203h;
                             imageUrlData2.agreeData.threadId = String.valueOf(imageUrlData2.threadId);
                             AgreeData agreeData2 = imageUrlData2.agreeData;
                             agreeData2.nid = imageUrlData2.nid;
@@ -376,17 +377,17 @@ public class c {
                                 agreeData4.isInThread = false;
                                 agreeData4.isInPost = true;
                             }
-                            imageUrlData2.agreeData.cardType = this.f22197f.F;
-                            imageUrlData2.agreeData.recomSource = this.f22197f.G;
-                            imageUrlData2.agreeData.recomAbTag = this.f22197f.H;
-                            imageUrlData2.agreeData.recomExtra = this.f22197f.J;
-                            imageUrlData2.agreeData.recomWeight = this.f22197f.I;
+                            imageUrlData2.agreeData.cardType = this.f22211f.F;
+                            imageUrlData2.agreeData.recomSource = this.f22211f.G;
+                            imageUrlData2.agreeData.recomAbTag = this.f22211f.H;
+                            imageUrlData2.agreeData.recomExtra = this.f22211f.J;
+                            imageUrlData2.agreeData.recomWeight = this.f22211f.I;
                         }
-                        if (this.f22197f.f22183b.containsKey(imageUrlData2.id)) {
-                            String str4 = (String) this.f22197f.f22183b.get(imageUrlData2.id);
-                            ImageUrlData imageUrlData3 = (ImageUrlData) this.f22197f.f22184c.get(str4);
+                        if (this.f22211f.f22197b.containsKey(imageUrlData2.id)) {
+                            String str4 = (String) this.f22211f.f22197b.get(imageUrlData2.id);
+                            ImageUrlData imageUrlData3 = (ImageUrlData) this.f22211f.f22198c.get(str4);
                             if (imageUrlData3 == null) {
-                                this.f22197f.f22184c.put(str4, imageUrlData2);
+                                this.f22211f.f22198c.put(str4, imageUrlData2);
                             } else {
                                 imageUrlData3.imageUrl = imageUrlData2.imageUrl;
                                 imageUrlData3.overAllIndex = imageUrlData2.overAllIndex;
@@ -398,29 +399,29 @@ public class c {
                                 imageUrlData3.isFirstPost = imageUrlData2.isFirstPost;
                                 imageUrlData3.userId = imageUrlData2.userId;
                                 imageUrlData3.userNameShow = imageUrlData2.userNameShow;
-                                imageUrlData3.forumId = this.f22197f.f22189h;
-                                imageUrlData3.forumName = this.f22197f.f22190i;
+                                imageUrlData3.forumId = this.f22211f.f22203h;
+                                imageUrlData3.forumName = this.f22211f.f22204i;
                                 imageUrlData3.mHeigth = imageUrlData2.mHeigth;
                                 imageUrlData3.mWidth = imageUrlData2.mWidth;
-                                if (StringHelper.equals(imageUrlData2.id, this.f22197f.A)) {
-                                    imageUrlData3.setSourceImageRectInScreen(this.f22197f.y);
+                                if (StringHelper.equals(imageUrlData2.id, this.f22211f.A)) {
+                                    imageUrlData3.setSourceImageRectInScreen(this.f22211f.y);
                                 }
                             }
                             str = null;
-                        } else if (!this.f22197f.C) {
+                        } else if (!this.f22211f.C) {
                             str = null;
-                            this.f22197f.f22184c.put(str3, imageUrlData2);
-                            if (this.f22197f.w) {
-                                this.f22197f.f22182a.add(i4, str3);
+                            this.f22211f.f22198c.put(str3, imageUrlData2);
+                            if (this.f22211f.w) {
+                                this.f22211f.f22196a.add(i4, str3);
                             } else {
-                                this.f22197f.f22182a.add(str3);
+                                this.f22211f.f22196a.add(str3);
                             }
-                            this.f22197f.f22183b.put(imageUrlData2.id, str3);
+                            this.f22211f.f22197b.put(imageUrlData2.id, str3);
                         } else {
-                            c cVar3 = this.f22197f;
-                            cVar3.o = cVar3.f22184c.size();
+                            c cVar3 = this.f22211f;
+                            cVar3.o = cVar3.f22198c.size();
                             str = null;
-                            this.f22197f.s = null;
+                            this.f22211f.s = null;
                         }
                         i4++;
                         isEmpty = z3;
@@ -430,30 +431,30 @@ public class c {
                     z = isEmpty;
                     d dVar2 = (d) ListUtils.getItem(g2, 0);
                     if (dVar2 != null) {
-                        this.f22197f.f22191j = dVar2.f();
+                        this.f22211f.f22205j = dVar2.f();
                     }
                     d dVar3 = (d) ListUtils.getItem(g2, size - 1);
                     imageUrlData = str5;
                     if (dVar3 != null) {
-                        this.f22197f.k = dVar3.f();
-                        c cVar4 = this.f22197f;
+                        this.f22211f.k = dVar3.f();
+                        c cVar4 = this.f22211f;
                         cVar4.l = ((long) cVar4.o) == dVar3.k();
                         imageUrlData = str5;
                     }
                 }
-                for (ImageUrlData imageUrlData4 : this.f22197f.f22184c.values()) {
+                for (ImageUrlData imageUrlData4 : this.f22211f.f22198c.values()) {
                     if (imageUrlData4.agreeData == null) {
                         long j2 = imageUrlData4.postId;
                         if (imageUrlData == null) {
-                            for (ImageUrlData imageUrlData5 : this.f22197f.f22184c.values()) {
+                            for (ImageUrlData imageUrlData5 : this.f22211f.f22198c.values()) {
                                 if (imageUrlData5.postId == j2 && (agreeData = imageUrlData5.agreeData) != null) {
                                     imageUrlData4.agreeData = agreeData;
                                     imageUrlData4.richTextArray = imageUrlData5.richTextArray;
                                     imageUrlData4.commentNum = imageUrlData5.commentNum;
                                     imageUrlData4.userId = imageUrlData5.userId;
                                     imageUrlData4.userNameShow = imageUrlData5.userNameShow;
-                                    imageUrlData4.forumId = this.f22197f.f22189h;
-                                    imageUrlData4.forumName = this.f22197f.f22190i;
+                                    imageUrlData4.forumId = this.f22211f.f22203h;
+                                    imageUrlData4.forumName = this.f22211f.f22204i;
                                     imageUrlData = imageUrlData5;
                                 }
                             }
@@ -463,33 +464,33 @@ public class c {
                             imageUrlData4.commentNum = imageUrlData.commentNum;
                             imageUrlData4.userId = imageUrlData.userId;
                             imageUrlData4.userNameShow = imageUrlData.userNameShow;
-                            imageUrlData4.forumId = this.f22197f.f22189h;
-                            imageUrlData4.forumName = this.f22197f.f22190i;
+                            imageUrlData4.forumId = this.f22211f.f22203h;
+                            imageUrlData4.forumName = this.f22211f.f22204i;
                         }
                     }
                 }
-                if (this.f22194c == null) {
-                    this.f22197f.f22187f = this.f22193b;
+                if (this.f22208c == null) {
+                    this.f22211f.f22201f = this.f22207b;
                     i2 = 0;
                     z2 = true;
                 } else {
                     i2 = -1;
                     z2 = false;
                 }
-                int position = this.f22197f.w ? ListUtils.getPosition(this.f22197f.f22182a, (String) this.f22197f.f22183b.get(this.f22194c)) - 1 : i2;
-                this.f22197f.D = fVar.e();
-                this.f22197f.E = fVar.j();
-                this.f22197f.P = fVar.f();
-                if (this.f22197f.f22185d == null) {
-                    this.f22197f.f22185d = new ArrayList();
+                int position = this.f22211f.w ? ListUtils.getPosition(this.f22211f.f22196a, (String) this.f22211f.f22197b.get(this.f22208c)) - 1 : i2;
+                this.f22211f.D = fVar.e();
+                this.f22211f.E = fVar.j();
+                this.f22211f.P = fVar.f();
+                if (this.f22211f.f22199d == null) {
+                    this.f22211f.f22199d = new ArrayList();
                     if (fVar.d() != null && fVar.g().size() > 0) {
-                        this.f22197f.f22185d.addAll(fVar.d());
+                        this.f22211f.f22199d.addAll(fVar.d());
                     }
                 }
-                if (this.f22197f.r != null) {
-                    this.f22197f.r.a(this.f22197f.f22182a, position, this.f22197f.o, false, null, z2, this.f22197f.s, z);
+                if (this.f22211f.r != null) {
+                    this.f22211f.r.a(this.f22211f.f22196a, position, this.f22211f.o, false, null, z2, this.f22211f.s, z);
                 }
-                this.f22197f.z = false;
+                this.f22211f.z = false;
             }
         }
     }
@@ -516,7 +517,7 @@ public class c {
                 return;
             }
         }
-        this.f22183b = new HashMap<>();
+        this.f22197b = new HashMap<>();
         this.l = false;
         this.m = true;
         this.n = null;
@@ -527,20 +528,20 @@ public class c {
         this.s = null;
         this.w = false;
         this.C = false;
-        this.f22182a = arrayList;
-        this.f22184c = map;
+        this.f22196a = arrayList;
+        this.f22198c = map;
         if (arrayList == null) {
-            this.f22182a = new ArrayList<>();
+            this.f22196a = new ArrayList<>();
         }
-        Iterator<String> it = this.f22182a.iterator();
+        Iterator<String> it = this.f22196a.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            this.f22183b.put(c.a.r0.m1.a.a(next), next);
+            this.f22197b.put(c.a.r0.m1.a.a(next), next);
         }
-        this.f22187f = str3;
-        this.f22188g = str4;
-        this.f22190i = str2;
-        this.f22189h = str;
+        this.f22201f = str3;
+        this.f22202g = str4;
+        this.f22204i = str2;
+        this.f22203h = str;
         this.k = str5;
         this.v = i2;
         this.l = str5 == null;
@@ -587,7 +588,7 @@ public class c {
     public ArrayList<AlaInfoData> T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22185d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22199d : (ArrayList) invokeV.objValue;
     }
 
     public String U() {
@@ -603,7 +604,7 @@ public class c {
             if (this.l) {
                 return;
             }
-            i0(this.f22187f, this.k, 10, 0);
+            i0(this.f22201f, this.k, 10, 0);
         }
     }
 
@@ -611,11 +612,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.w = true;
-            String str = this.f22182a.get(0);
-            if (StringUtils.isNull(this.f22191j)) {
-                this.f22191j = c.a.r0.m1.a.a(str);
+            String str = this.f22196a.get(0);
+            if (StringUtils.isNull(this.f22205j)) {
+                this.f22205j = c.a.r0.m1.a.a(str);
             }
-            i0(this.f22187f, this.f22191j, 0, 10);
+            i0(this.f22201f, this.f22205j, 0, 10);
         }
     }
 
@@ -669,7 +670,7 @@ public class c {
     public void e0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f22186e = str;
+            this.f22200e = str;
         }
     }
 

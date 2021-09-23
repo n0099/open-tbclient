@@ -20,25 +20,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6778a;
+    public int f6786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6779b;
+    public String f6787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6780c;
+    public int f6788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6781d;
+    public int f6789d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6782e;
+    public int f6790e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6783f;
+    public int f6791f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f6784g;
+    public String f6792g;
 
     static {
         InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public class a {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public a() {
@@ -69,12 +69,12 @@ public class a {
                 return;
             }
         }
-        this.f6778a = 60000;
-        this.f6779b = "aac";
-        this.f6780c = 1;
-        this.f6781d = 8000;
-        this.f6782e = 16000;
-        this.f6783f = 1;
+        this.f6786a = 60000;
+        this.f6787b = "aac";
+        this.f6788c = 1;
+        this.f6789d = 8000;
+        this.f6790e = 16000;
+        this.f6791f = 1;
     }
 
     public static a a(JSONObject jSONObject, a aVar) {
@@ -83,28 +83,28 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, aVar)) == null) {
             if (jSONObject != null && jSONObject.length() > 0) {
                 aVar = new a();
-                aVar.f6778a = jSONObject.optInt("duration", 60000);
+                aVar.f6786a = jSONObject.optInt("duration", 60000);
                 String optString = jSONObject.optString("format");
-                aVar.f6779b = optString;
+                aVar.f6787b = optString;
                 if (TextUtils.isEmpty(optString)) {
-                    aVar.f6779b = "aac";
+                    aVar.f6787b = "aac";
                 }
-                aVar.f6780c = jSONObject.optInt("numberOfChannels", 1);
-                aVar.f6781d = jSONObject.optInt("sampleRate", 8000);
+                aVar.f6788c = jSONObject.optInt("numberOfChannels", 1);
+                aVar.f6789d = jSONObject.optInt("sampleRate", 8000);
                 int optInt = jSONObject.optInt("encodeBitRate");
-                aVar.f6782e = optInt;
+                aVar.f6790e = optInt;
                 if (optInt == 0) {
-                    int i2 = aVar.f6781d;
+                    int i2 = aVar.f6789d;
                     if (i2 == 8000) {
-                        aVar.f6782e = 16000;
+                        aVar.f6790e = 16000;
                     } else if (i2 == 16000) {
-                        aVar.f6782e = 24000;
+                        aVar.f6790e = 24000;
                     } else if (i2 == 44100) {
-                        aVar.f6782e = 64000;
+                        aVar.f6790e = 64000;
                     }
                 }
-                aVar.f6783f = b(jSONObject.optString("audioSource", DebugKt.DEBUG_PROPERTY_VALUE_AUTO));
-                aVar.f6784g = jSONObject.optString("cb");
+                aVar.f6791f = b(jSONObject.optString("audioSource", DebugKt.DEBUG_PROPERTY_VALUE_AUTO));
+                aVar.f6792g = jSONObject.optString("cb");
             }
             return aVar;
         }
@@ -182,29 +182,29 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f6778a;
+            int i2 = this.f6786a;
             if (i2 <= 600000 && i2 >= 0) {
-                int i3 = this.f6780c;
+                int i3 = this.f6788c;
                 boolean z = true;
                 if (i3 != 1 && i3 != 2) {
                     return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
                 }
-                if (!TextUtils.equals(this.f6779b, "aac") && !TextUtils.equals(this.f6779b, "pcm")) {
+                if (!TextUtils.equals(this.f6787b, "aac") && !TextUtils.equals(this.f6787b, "pcm")) {
                     return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
                 }
-                int i4 = this.f6781d;
+                int i4 = this.f6789d;
                 if (i4 != 8000 && i4 != 16000 && i4 != 44100) {
                     return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
                 }
-                if (!TextUtils.equals(this.f6779b, "pcm")) {
-                    if ((r3 = this.f6781d) != 8000) {
+                if (!TextUtils.equals(this.f6787b, "pcm")) {
+                    if ((r3 = this.f6789d) != 8000) {
                         if (z) {
                             return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
                         }
                     } else if (z) {
                     }
                 }
-                if (this.f6783f < 0) {
+                if (this.f6791f < 0) {
                     return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
                 }
                 return null;
@@ -218,7 +218,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "recordTime : " + this.f6778a + "; channel : " + this.f6780c + "; audioFormat : " + this.f6779b + "; sampleRate : " + this.f6781d + "; bitRate : " + this.f6782e + "; callbacks : " + this.f6784g;
+            return "recordTime : " + this.f6786a + "; channel : " + this.f6788c + "; audioFormat : " + this.f6787b + "; sampleRate : " + this.f6789d + "; bitRate : " + this.f6790e + "; callbacks : " + this.f6792g;
         }
         return (String) invokeV.objValue;
     }

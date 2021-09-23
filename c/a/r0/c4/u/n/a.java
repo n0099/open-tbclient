@@ -15,10 +15,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Matrix f17008a;
+    public Matrix f17018a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f17009b;
+    public Bitmap f17019b;
 
     public a(Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class a {
                 return;
             }
         }
-        this.f17009b = bitmap;
-        this.f17008a = new Matrix();
+        this.f17019b = bitmap;
+        this.f17018a = new Matrix();
     }
 
     public void a(Canvas canvas) {
@@ -44,26 +44,26 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || canvas == null) {
             return;
         }
-        canvas.drawBitmap(this.f17009b, this.f17008a, null);
+        canvas.drawBitmap(this.f17019b, this.f17018a, null);
     }
 
     public Matrix b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17008a : (Matrix) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17018a : (Matrix) invokeV.objValue;
     }
 
     public Bitmap c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17009b : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17019b : (Bitmap) invokeV.objValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Bitmap bitmap = this.f17009b;
+            Bitmap bitmap = this.f17019b;
             if (bitmap == null) {
                 return 0;
             }
@@ -76,7 +76,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Bitmap bitmap = this.f17009b;
+            Bitmap bitmap = this.f17019b;
             if (bitmap == null) {
                 return 0;
             }
@@ -88,7 +88,7 @@ public class a {
     public void f(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
-            this.f17009b = bitmap;
+            this.f17019b = bitmap;
         }
     }
 }

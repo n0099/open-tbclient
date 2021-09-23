@@ -15,10 +15,10 @@ import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes3.dex */
 public class t1 extends d2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId Y3;
+    public static final BdUniqueId Z3;
     public transient /* synthetic */ FieldHolder $fh;
-    public String W3;
-    public ArrayList<u1> X3;
+    public String X3;
+    public ArrayList<u1> Y3;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class t1 extends d2 {
                 return;
             }
         }
-        Y3 = BdUniqueId.gen();
+        Z3 = BdUniqueId.gen();
     }
 
     public t1() {
@@ -49,27 +49,27 @@ public class t1 extends d2 {
                 return;
             }
         }
-        this.W3 = "";
-        this.X3 = new ArrayList<>();
+        this.X3 = "";
+        this.Y3 = new ArrayList<>();
     }
 
-    public ArrayList<u1> O4() {
+    public ArrayList<u1> N4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.X3 : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.Y3 : (ArrayList) invokeV.objValue;
     }
 
-    public void P4(RecommendInfo recommendInfo) {
+    public void O4(RecommendInfo recommendInfo) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendInfo) == null) || recommendInfo == null) {
             return;
         }
-        this.W3 = recommendInfo.title;
+        this.X3 = recommendInfo.title;
         for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
             if (schoolRecomUserInfo != null) {
                 u1 u1Var = new u1();
                 u1Var.f(schoolRecomUserInfo);
-                this.X3.add(u1Var);
+                this.Y3.add(u1Var);
             }
         }
     }
@@ -78,13 +78,13 @@ public class t1 extends d2 {
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.W3 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.X3 : (String) invokeV.objValue;
     }
 
     @Override // c.a.q0.s.q.d2, com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Y3 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Z3 : (BdUniqueId) invokeV.objValue;
     }
 }

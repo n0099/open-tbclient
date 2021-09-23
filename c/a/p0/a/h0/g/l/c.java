@@ -14,7 +14,7 @@ public class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<b> f5954a;
+    public List<b> f5962a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -29,17 +29,17 @@ public class c implements b {
                 return;
             }
         }
-        this.f5954a = new CopyOnWriteArrayList();
+        this.f5962a = new CopyOnWriteArrayList();
     }
 
     @Override // c.a.p0.a.h0.g.l.b
     public void a() {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f5954a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f5962a) == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f5954a) {
+        for (b bVar : this.f5962a) {
             bVar.a();
         }
     }
@@ -48,10 +48,10 @@ public class c implements b {
     public void b() {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.f5954a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.f5962a) == null || list.size() <= 0) {
             return;
         }
-        for (b bVar : this.f5954a) {
+        for (b bVar : this.f5962a) {
             bVar.b();
         }
     }
@@ -59,14 +59,14 @@ public class c implements b {
     public void c(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f5954a.add(bVar);
+            this.f5962a.add(bVar);
         }
     }
 
     public void d(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f5954a.remove(bVar);
+            this.f5962a.remove(bVar);
         }
     }
 }

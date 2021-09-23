@@ -13,7 +13,7 @@ public class a extends BasePendingOperation {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public InterfaceC0423a f9154e;
+    public InterfaceC0423a f9162e;
 
     /* renamed from: c.a.p0.a.u.f.b.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -36,7 +36,7 @@ public class a extends BasePendingOperation {
                 return;
             }
         }
-        this.f9154e = interfaceC0423a;
+        this.f9162e = interfaceC0423a;
     }
 
     @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
@@ -60,7 +60,7 @@ public class a extends BasePendingOperation {
     public void run() {
         InterfaceC0423a interfaceC0423a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interfaceC0423a = this.f9154e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interfaceC0423a = this.f9162e) == null) {
             return;
         }
         interfaceC0423a.a();

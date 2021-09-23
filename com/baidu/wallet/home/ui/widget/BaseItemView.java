@@ -21,13 +21,13 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HomeCfgResponse.DataItem f61278a;
+    public HomeCfgResponse.DataItem f61391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f61279b;
+    public b f61392b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f61280c;
+    public Context f61393c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseItemView(Context context) {
@@ -47,7 +47,7 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
                 return;
             }
         }
-        this.f61280c = context;
+        this.f61393c = context;
         a();
     }
 
@@ -61,8 +61,8 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
 
     public void forceShowPoint(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(this.f61278a.link_addr) && this.f61278a.link_addr.equalsIgnoreCase(str)) {
-            com.baidu.wallet.home.storage.a.a(this.f61280c, this.f61278a.link_addr, "-1");
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(this.f61391a.link_addr) && this.f61391a.link_addr.equalsIgnoreCase(str)) {
+            com.baidu.wallet.home.storage.a.a(this.f61393c, this.f61391a.link_addr, "-1");
             handlePoint();
             getWalletInterface().onPointShowChanged();
         }
@@ -71,13 +71,13 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
     public HomeCfgResponse.DataItem getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61278a : (HomeCfgResponse.DataItem) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61391a : (HomeCfgResponse.DataItem) invokeV.objValue;
     }
 
     public b getWalletInterface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61279b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61392b : (b) invokeV.objValue;
     }
 
     public abstract boolean handlePoint();
@@ -86,7 +86,7 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HomeCfgResponse.DataItem dataItem = this.f61278a;
+            HomeCfgResponse.DataItem dataItem = this.f61391a;
             return dataItem != null && dataItem.hasCornor();
         }
         return invokeV.booleanValue;
@@ -96,7 +96,7 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HomeCfgResponse.DataItem dataItem = this.f61278a;
+            HomeCfgResponse.DataItem dataItem = this.f61391a;
             return dataItem != null && dataItem.isShoudShowPoint(getContext());
         }
         return invokeV.booleanValue;
@@ -106,8 +106,8 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            HomeCfgResponse.DataItem dataItem = this.f61278a;
-            return dataItem != null && "3".equalsIgnoreCase(dataItem.timestamp_icon) && this.f61278a.isShoudShowPoint(getContext());
+            HomeCfgResponse.DataItem dataItem = this.f61391a;
+            return dataItem != null && "3".equalsIgnoreCase(dataItem.timestamp_icon) && this.f61391a.isShoudShowPoint(getContext());
         }
         return invokeV.booleanValue;
     }
@@ -116,8 +116,8 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            HomeCfgResponse.DataItem dataItem = this.f61278a;
-            return dataItem != null && "2".equalsIgnoreCase(dataItem.timestamp_icon) && this.f61278a.isShoudShowPoint(getContext());
+            HomeCfgResponse.DataItem dataItem = this.f61391a;
+            return dataItem != null && "2".equalsIgnoreCase(dataItem.timestamp_icon) && this.f61391a.isShoudShowPoint(getContext());
         }
         return invokeV.booleanValue;
     }
@@ -126,8 +126,8 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HomeCfgResponse.DataItem dataItem = this.f61278a;
-            return dataItem != null && "1".equalsIgnoreCase(dataItem.timestamp_icon) && this.f61278a.isShoudShowPoint(getContext());
+            HomeCfgResponse.DataItem dataItem = this.f61391a;
+            return dataItem != null && "1".equalsIgnoreCase(dataItem.timestamp_icon) && this.f61391a.isShoudShowPoint(getContext());
         }
         return invokeV.booleanValue;
     }
@@ -135,22 +135,22 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, view) == null) || CheckUtils.isFastDoubleClick() || this.f61278a == null || getWalletInterface() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, view) == null) || CheckUtils.isFastDoubleClick() || this.f61391a == null || getWalletInterface() == null) {
             return;
         }
         if (isShoudShowPoint()) {
-            if (!TextUtils.isEmpty(this.f61278a.link_addr)) {
-                Context context = this.f61280c;
-                HomeCfgResponse.DataItem dataItem = this.f61278a;
-                com.baidu.wallet.home.storage.a.a(context, dataItem.link_addr, TextUtils.isEmpty(dataItem.timestamp) ? "0" : this.f61278a.timestamp);
+            if (!TextUtils.isEmpty(this.f61391a.link_addr)) {
+                Context context = this.f61393c;
+                HomeCfgResponse.DataItem dataItem = this.f61391a;
+                com.baidu.wallet.home.storage.a.a(context, dataItem.link_addr, TextUtils.isEmpty(dataItem.timestamp) ? "0" : this.f61391a.timestamp);
             }
             handlePoint();
             getWalletInterface().onPointShowChanged();
         }
         b walletInterface = getWalletInterface();
-        HomeCfgResponse.DataItem dataItem2 = this.f61278a;
+        HomeCfgResponse.DataItem dataItem2 = this.f61391a;
         HomeCfgResponse.Stat stat = dataItem2.stat;
-        walletInterface.jump(stat != null ? stat.getName() : dataItem2.getName(), this.f61278a.getType(), this.f61278a.getLinkAddr(), this.f61278a.getPrevlogin());
+        walletInterface.jump(stat != null ? stat.getName() : dataItem2.getName(), this.f61391a.getType(), this.f61391a.getLinkAddr(), this.f61391a.getPrevlogin());
     }
 
     public void onEyeMaskChanged() {
@@ -162,8 +162,8 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
     public void setData(HomeCfgResponse.DataItem dataItem, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, dataItem, bVar) == null) {
-            this.f61278a = dataItem;
-            this.f61279b = bVar;
+            this.f61391a = dataItem;
+            this.f61392b = bVar;
         }
     }
 
@@ -194,7 +194,7 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
                 return;
             }
         }
-        this.f61280c = context;
+        this.f61393c = context;
         a();
     }
 }

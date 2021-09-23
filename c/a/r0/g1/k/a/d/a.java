@@ -31,25 +31,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f18507a;
+    public BdUniqueId f18516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TopicDetailView f18508b;
+    public TopicDetailView f18517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.e.c.g.a f18509c;
+    public final c.a.e.c.g.a f18518c;
 
     /* renamed from: c.a.r0.g1.k.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0894a extends c.a.e.c.g.a {
+    public class C0892a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f18510a;
+        public final /* synthetic */ a f18519a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0894a(a aVar, int i2, int i3) {
+        public C0892a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -67,7 +67,7 @@ public class a {
                     return;
                 }
             }
-            this.f18510a = aVar;
+            this.f18519a = aVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -76,10 +76,10 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                     GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-                    this.f18510a.d(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
+                    this.f18519a.d(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
                 } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                     GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-                    this.f18510a.d(getMyPostSocketResponseMessage.getError(), getMyPostSocketResponseMessage.getResponseData());
+                    this.f18519a.d(getMyPostSocketResponseMessage.getError(), getMyPostSocketResponseMessage.getResponseData());
                 }
             }
         }
@@ -91,13 +91,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f18511e;
+        public long f18520e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f18512f;
+        public long f18521f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f18513g;
+        public final /* synthetic */ a f18522g;
 
         public b(a aVar, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -114,9 +114,9 @@ public class a {
                     return;
                 }
             }
-            this.f18513g = aVar;
-            this.f18511e = j2;
-            this.f18512f = j3;
+            this.f18522g = aVar;
+            this.f18520e = j2;
+            this.f18521f = j3;
         }
 
         @Override // java.lang.Runnable
@@ -128,8 +128,8 @@ public class a {
                 float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                 int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                requestGetMyPostNetMessage.setTag(this.f18513g.f18507a);
-                requestGetMyPostNetMessage.setParams(this.f18511e, this.f18512f, 0L, k, i2, f2, i3);
+                requestGetMyPostNetMessage.setTag(this.f18522g.f18516a);
+                requestGetMyPostNetMessage.setParams(this.f18520e, this.f18521f, 0L, k, i2, f2, i3);
                 MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             }
         }
@@ -150,8 +150,8 @@ public class a {
                 return;
             }
         }
-        this.f18509c = new C0894a(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
-        this.f18508b = topicDetailView;
+        this.f18518c = new C0892a(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
+        this.f18517b = topicDetailView;
     }
 
     public b c(long j2, long j3) {
@@ -175,9 +175,9 @@ public class a {
         ThreadInfo build = builder.build(true);
         d2 d2Var = new d2();
         d2Var.Y2(build);
-        d2Var.J4(new Date().getTime());
+        d2Var.I4(new Date().getTime());
         if (k.Y(d2Var)) {
-            this.f18508b.sendThreadFakeUpdateList(d2Var);
+            this.f18517b.sendThreadFakeUpdateList(d2Var);
         }
     }
 
@@ -199,11 +199,11 @@ public class a {
     public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.f18507a = bdUniqueId;
-            this.f18509c.setTag(bdUniqueId);
-            this.f18509c.getHttpMessageListener().setSelfListener(true);
-            this.f18509c.getSocketMessageListener().setSelfListener(true);
-            MessageManager.getInstance().registerListener(this.f18509c);
+            this.f18516a = bdUniqueId;
+            this.f18518c.setTag(bdUniqueId);
+            this.f18518c.getHttpMessageListener().setSelfListener(true);
+            this.f18518c.getSocketMessageListener().setSelfListener(true);
+            MessageManager.getInstance().registerListener(this.f18518c);
         }
     }
 }

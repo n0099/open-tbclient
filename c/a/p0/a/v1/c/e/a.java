@@ -65,19 +65,19 @@ public final class a extends c.a.p0.a.v1.c.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f9243f;
+    public final e f9251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IProcessBridge f9244g;
+    public IProcessBridge f9252g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f9245h;
+    public d f9253h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ServiceConnection f9246i;
+    public ServiceConnection f9254i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Deque<Long> f9247j;
+    public final Deque<Long> f9255j;
     public List<Runnable> k;
 
     /* renamed from: c.a.p0.a.v1.c.e.a$a  reason: collision with other inner class name */
@@ -93,7 +93,7 @@ public final class a extends c.a.p0.a.v1.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9248e;
+        public final /* synthetic */ a f9256e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public final class a extends c.a.p0.a.v1.c.b {
                     return;
                 }
             }
-            this.f9248e = aVar;
+            this.f9256e = aVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -120,18 +120,18 @@ public final class a extends c.a.p0.a.v1.c.b {
                 if (a.l) {
                     String.format("onServiceConnected: name(%s) service(%s)", componentName, iBinder);
                 }
-                if (this.f9248e.k() || !SwanAppProcessInfo.current().isSwanAppProcess()) {
+                if (this.f9256e.k() || !SwanAppProcessInfo.current().isSwanAppProcess()) {
                     if (a.l) {
-                        String.format("onServiceConnected: return by connected(%b) isSwanAppProcess(%s)", Boolean.valueOf(this.f9248e.k()), Boolean.valueOf(SwanAppProcessInfo.current().isSwanAppProcess()));
+                        String.format("onServiceConnected: return by connected(%b) isSwanAppProcess(%s)", Boolean.valueOf(this.f9256e.k()), Boolean.valueOf(SwanAppProcessInfo.current().isSwanAppProcess()));
                         return;
                     }
                     return;
                 }
-                this.f9248e.f9244g = IProcessBridge.Stub.asInterface(iBinder);
-                a aVar = this.f9248e;
+                this.f9256e.f9252g = IProcessBridge.Stub.asInterface(iBinder);
+                a aVar = this.f9256e;
                 aVar.N(13, aVar.D());
-                if (this.f9248e.f9245h != null) {
-                    this.f9248e.f9245h.a();
+                if (this.f9256e.f9253h != null) {
+                    this.f9256e.f9253h.a();
                 }
                 c.a.p0.a.v1.c.a.e().c();
             }
@@ -142,7 +142,7 @@ public final class a extends c.a.p0.a.v1.c.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
                 boolean unused = a.l;
-                this.f9248e.I();
+                this.f9256e.I();
             }
         }
 
@@ -169,7 +169,7 @@ public final class a extends c.a.p0.a.v1.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<c> f9249a;
+        public WeakReference<c> f9257a;
 
         /* renamed from: c.a.p0.a.v1.c.e.a$e$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -225,7 +225,7 @@ public final class a extends c.a.p0.a.v1.c.b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                WeakReference<c> weakReference = this.f9249a;
+                WeakReference<c> weakReference = this.f9257a;
                 c cVar = weakReference != null ? weakReference.get() : null;
                 if ((cVar == null || !cVar.a(message)) && !e(message)) {
                     return c.a.p0.a.c1.a.h0().a(message);
@@ -246,8 +246,8 @@ public final class a extends c.a.p0.a.v1.c.b {
                 }
                 String l1 = c.a.p0.a.f1.e.b.l1(prefetchEvent.schema, F);
                 if (TextUtils.isEmpty(l1)) {
-                    if (aVar.f6365b) {
-                        return F.f(aVar.f6366c);
+                    if (aVar.f6373b) {
+                        return F.f(aVar.f6374c);
                     }
                     return F.e();
                 }
@@ -513,8 +513,8 @@ public final class a extends c.a.p0.a.v1.c.b {
                     if (a2 == null || !a2.a()) {
                         return;
                     }
-                    File file = new File(a2.f6364a, "app.json");
-                    if ((r.F() == null || z) && !c.a.p0.a.a1.e.N(r, a2.f6364a)) {
+                    File file = new File(a2.f6372a, "app.json");
+                    if ((r.F() == null || z) && !c.a.p0.a.a1.e.N(r, a2.f6372a)) {
                         boolean unused = a.l;
                         return;
                     } else if (r.F() == null) {
@@ -631,7 +631,7 @@ public final class a extends c.a.p0.a.v1.c.b {
             Bundle bundle;
             c.a.d0.e.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048590, this, message) == null) || message == null || (bundle = (Bundle) message.obj) == null || (aVar = c.a.p0.a.q1.a.b().f8065d) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048590, this, message) == null) || message == null || (bundle = (Bundle) message.obj) == null || (aVar = c.a.p0.a.q1.a.b().f8073d) == null) {
                 return;
             }
             aVar.onPayResult(c.a.p0.a.q1.a.a(bundle.getInt(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_CODE)), bundle.getString(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_STR));
@@ -640,7 +640,7 @@ public final class a extends c.a.p0.a.v1.c.b {
         public void o(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048591, this, cVar) == null) {
-                this.f9249a = new WeakReference<>(cVar);
+                this.f9257a = new WeakReference<>(cVar);
             }
         }
 
@@ -694,7 +694,7 @@ public final class a extends c.a.p0.a.v1.c.b {
                 return;
             }
         }
-        l = k.f7077a;
+        l = k.f7085a;
         m = TimeUnit.MINUTES.toMillis(5L);
         n = new Object();
     }
@@ -717,8 +717,8 @@ public final class a extends c.a.p0.a.v1.c.b {
                 return;
             }
         }
-        this.f9243f = new e();
-        this.f9247j = new ArrayDeque();
+        this.f9251f = new e();
+        this.f9255j = new ArrayDeque();
     }
 
     @Deprecated
@@ -744,13 +744,13 @@ public final class a extends c.a.p0.a.v1.c.b {
     public Handler F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9243f : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9251f : (Handler) invokeV.objValue;
     }
 
     public IProcessBridge G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9244g : (IProcessBridge) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9252g : (IProcessBridge) invokeV.objValue;
     }
 
     public final void H(String str) {
@@ -759,7 +759,7 @@ public final class a extends c.a.p0.a.v1.c.b {
         if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && l) {
             String str2 = "SwanRebind:: status => " + str;
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault());
-            while (this.f9247j.iterator().hasNext()) {
+            while (this.f9255j.iterator().hasNext()) {
                 String str3 = "SwanRebind::   >>>  record @ " + simpleDateFormat.format(new Date(it.next().longValue()));
             }
         }
@@ -769,10 +769,10 @@ public final class a extends c.a.p0.a.v1.c.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                this.f9246i = null;
-                this.f9244g = null;
-                if (this.f9245h != null) {
-                    this.f9245h.b();
+                this.f9254i = null;
+                this.f9252g = null;
+                if (this.f9253h != null) {
+                    this.f9253h.b();
                 }
                 R();
                 if (this.k != null) {
@@ -900,11 +900,11 @@ public final class a extends c.a.p0.a.v1.c.b {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             synchronized (this) {
                 boolean z = l;
-                if (this.f9246i == null) {
-                    this.f9246i = new b(this, null);
+                if (this.f9254i == null) {
+                    this.f9254i = new b(this, null);
                     Application b2 = c.a.p0.a.c1.a.b();
                     try {
-                        b2.bindService(new Intent(b2, SwanAppMessengerService.class), this.f9246i, 1);
+                        b2.bindService(new Intent(b2, SwanAppMessengerService.class), this.f9254i, 1);
                     } catch (Exception e2) {
                         if (l) {
                             e2.printStackTrace();
@@ -918,9 +918,9 @@ public final class a extends c.a.p0.a.v1.c.b {
     public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            synchronized (this.f9247j) {
+            synchronized (this.f9255j) {
                 if (j()) {
-                    this.f9247j.offer(Long.valueOf(System.currentTimeMillis()));
+                    this.f9255j.offer(Long.valueOf(System.currentTimeMillis()));
                     Q();
                 }
             }
@@ -937,13 +937,13 @@ public final class a extends c.a.p0.a.v1.c.b {
     public void i(d dVar, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, dVar, cVar) == null) {
-            this.f9245h = dVar;
-            this.f9243f.o(cVar);
+            this.f9253h = dVar;
+            this.f9251f.o(cVar);
             N(1, D());
-            if (this.f9245h == null || !k()) {
+            if (this.f9253h == null || !k()) {
                 return;
             }
-            this.f9245h.a();
+            this.f9253h.a();
         }
     }
 
@@ -951,21 +951,21 @@ public final class a extends c.a.p0.a.v1.c.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            synchronized (this.f9247j) {
+            synchronized (this.f9255j) {
                 H("checkRebindable ===>");
-                if (this.f9247j.size() < 3) {
-                    H(String.format(Locale.getDefault(), "allowRebind by size(%d) < max(%d)", Integer.valueOf(this.f9247j.size()), 3));
+                if (this.f9255j.size() < 3) {
+                    H(String.format(Locale.getDefault(), "allowRebind by size(%d) < max(%d)", Integer.valueOf(this.f9255j.size()), 3));
                     return true;
                 }
-                int size = this.f9247j.size() - 3;
+                int size = this.f9255j.size() - 3;
                 H("after offer purgeCount=" + size);
                 if (size > 0) {
                     for (int i2 = 0; i2 < size; i2++) {
-                        H("purge: " + this.f9247j.poll());
+                        H("purge: " + this.f9255j.poll());
                     }
                 }
                 H("after purge");
-                Long peek = this.f9247j.peek();
+                Long peek = this.f9255j.peek();
                 if (peek == null) {
                     H("allowRebind by null oldestRecord is should not happen");
                     return true;
@@ -982,6 +982,6 @@ public final class a extends c.a.p0.a.v1.c.b {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f9244g != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f9252g != null : invokeV.booleanValue;
     }
 }

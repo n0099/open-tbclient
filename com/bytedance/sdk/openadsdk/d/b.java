@@ -17,13 +17,13 @@ public class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67505a;
+    public int f67816a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67506b;
+    public int f67817b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f67507c;
+    public volatile boolean f67818c;
 
     public b(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -40,11 +40,11 @@ public class b extends a {
                 return;
             }
         }
-        this.f67505a = 15;
-        this.f67506b = 3;
+        this.f67816a = 15;
+        this.f67817b = 3;
         if (i2 > 0) {
-            this.f67505a = i2;
-            this.f67506b = i3;
+            this.f67816a = i2;
+            this.f67817b = i3;
             return;
         }
         throw new IllegalArgumentException("Max count must be positive number!");
@@ -107,7 +107,7 @@ public class b extends a {
                         k.f("splashLoadAd", "Error deleting file " + file2 + " for trimming cache");
                     }
                     if (a(file2, b2, size)) {
-                        k.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + size + " 最大值存储上限个数 maxCount " + this.f67505a + " 最小个数 " + this.f67506b);
+                        k.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + size + " 最大值存储上限个数 maxCount " + this.f67816a + " 最小个数 " + this.f67817b);
                         return;
                     }
                 }
@@ -120,23 +120,23 @@ public class b extends a {
     public boolean a(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? i2 <= this.f67505a : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? i2 <= this.f67816a : invokeCommon.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.a
     public boolean a(File file, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{file, Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? i2 <= this.f67506b : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{file, Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? i2 <= this.f67817b : invokeCommon.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.a
     public void a(List<File> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (this.f67507c) {
+            if (this.f67818c) {
                 d(list);
-                this.f67507c = false;
+                this.f67818c = false;
                 return;
             }
             c(list);
@@ -158,12 +158,12 @@ public class b extends a {
                 return;
             }
         }
-        this.f67505a = 15;
-        this.f67506b = 3;
+        this.f67816a = 15;
+        this.f67817b = 3;
         if (i2 > 0) {
-            this.f67505a = i2;
-            this.f67506b = i3;
-            this.f67507c = z;
+            this.f67816a = i2;
+            this.f67817b = i3;
+            this.f67818c = z;
             return;
         }
         throw new IllegalArgumentException("Max count must be positive number!");

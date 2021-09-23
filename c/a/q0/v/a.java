@@ -50,34 +50,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f15049a;
+    public boolean f15056a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<AdReq> f15050b;
+    public ArrayList<AdReq> f15057b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f15051c;
+    public boolean f15058c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f15052d;
+    public long f15059d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15053e;
+    public int f15060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f15054f;
+    public Handler f15061f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.e.c.g.a f15055g;
+    public c.a.e.c.g.a f15062g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f15056h;
+    public CustomMessageListener f15063h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CustomMessageListener f15057i;
+    public final CustomMessageListener f15064i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ArrayList<AdvertAppInfo> f15058j;
+    public ArrayList<AdvertAppInfo> f15065j;
     public ArrayList<AdvertAppInfo> k;
     public HashMap<String, AdvertAppInfo> l;
     public HashMap<String, AdvertAppInfo> m;
@@ -85,15 +85,15 @@ public class a {
 
     /* renamed from: c.a.q0.v.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class HandlerC0714a extends Handler {
+    public class HandlerC0712a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f15059a;
+        public final /* synthetic */ a f15066a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0714a(a aVar, Looper looper) {
+        public HandlerC0712a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -110,14 +110,14 @@ public class a {
                     return;
                 }
             }
-            this.f15059a = aVar;
+            this.f15066a = aVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                this.f15059a.i(true);
+                this.f15066a.i(true);
             }
         }
     }
@@ -128,7 +128,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f15060a;
+        public final /* synthetic */ a f15067a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2, int i3) {
@@ -149,7 +149,7 @@ public class a {
                     return;
                 }
             }
-            this.f15060a = aVar;
+            this.f15067a = aVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -158,7 +158,7 @@ public class a {
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.hasError()) {
                 Object extra = responsedMessage.getOrginalMessage().getExtra();
                 if (extra instanceof DistributeRequest) {
-                    this.f15060a.g(((DistributeRequest) extra).getAdReqList());
+                    this.f15067a.g(((DistributeRequest) extra).getAdReqList());
                 }
             }
         }
@@ -170,7 +170,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f15061a;
+        public final /* synthetic */ a f15068a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, int i2) {
@@ -190,7 +190,7 @@ public class a {
                     return;
                 }
             }
-            this.f15061a = aVar;
+            this.f15068a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -199,9 +199,9 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
                 if (j.H() || j.x()) {
-                    this.f15061a.t(true);
+                    this.f15068a.t(true);
                 } else {
-                    this.f15061a.t(false);
+                    this.f15068a.t(false);
                 }
             }
         }
@@ -213,7 +213,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f15062a;
+        public final /* synthetic */ a f15069a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(a aVar, int i2) {
@@ -233,7 +233,7 @@ public class a {
                     return;
                 }
             }
-            this.f15062a = aVar;
+            this.f15069a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -250,14 +250,14 @@ public class a {
                     int status = downloadData.getStatus();
                     if (status != 0) {
                         if (status == 1) {
-                            this.f15062a.q(downloadData.getId(), downloadData.getDownloadStaticsData());
+                            this.f15069a.q(downloadData.getId(), downloadData.getDownloadStaticsData());
                         } else if (status != 2 && status != 4) {
                             if (status == 5) {
-                                this.f15062a.p(downloadData.getDownloadStaticsData());
+                                this.f15069a.p(downloadData.getDownloadStaticsData());
                             }
                         }
                     }
-                    this.f15062a.r(downloadData.getId(), downloadData.getStatus());
+                    this.f15069a.r(downloadData.getId(), downloadData.getStatus());
                 }
             }
         }
@@ -292,20 +292,20 @@ public class a {
                 return;
             }
         }
-        this.f15054f = new HandlerC0714a(this, Looper.getMainLooper());
-        this.f15055g = new b(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
-        this.f15056h = new c(this, 2000994);
-        this.f15057i = new d(this, 2001118);
+        this.f15061f = new HandlerC0712a(this, Looper.getMainLooper());
+        this.f15062g = new b(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+        this.f15063h = new c(this, 2000994);
+        this.f15064i = new d(this, 2001118);
         this.l = new HashMap<>();
         this.m = new HashMap<>();
         this.n = new HashMap<>();
-        this.f15050b = new ArrayList<>();
-        this.f15058j = new ArrayList<>();
+        this.f15057b = new ArrayList<>();
+        this.f15065j = new ArrayList<>();
         this.k = new ArrayList<>();
-        this.f15051c = true;
-        this.f15052d = 60000L;
-        this.f15053e = 10;
-        this.f15049a = j.z();
+        this.f15058c = true;
+        this.f15059d = 60000L;
+        this.f15060e = 10;
+        this.f15056a = j.z();
     }
 
     public static a k() {
@@ -318,8 +318,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             synchronized (this) {
-                if (this.f15050b != null) {
-                    this.f15050b.addAll(list);
+                if (this.f15057b != null) {
+                    this.f15057b.addAll(list);
                 }
             }
         }
@@ -328,13 +328,13 @@ public class a {
     public void h(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo) == null) {
-            this.l.put(advertAppInfo.o4, advertAppInfo);
+            this.l.put(advertAppInfo.p4, advertAppInfo);
         }
     }
 
     public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.f15049a && this.f15051c) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.f15056a && this.f15058c) {
             List<AdReq> l = l(z);
             if (z || !o()) {
                 s();
@@ -366,16 +366,16 @@ public class a {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             synchronized (this) {
                 if (!z) {
-                    if (this.f15050b.size() < this.f15053e) {
+                    if (this.f15057b.size() < this.f15060e) {
                         return null;
                     }
                 }
-                if (this.f15050b.size() <= 0) {
+                if (this.f15057b.size() <= 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                arrayList.addAll(this.f15050b);
-                this.f15050b.clear();
+                arrayList.addAll(this.f15057b);
+                this.f15057b.clear();
                 return arrayList;
             }
         }
@@ -402,16 +402,16 @@ public class a {
                 messageManager.registerTask(m());
             }
             messageManager.registerTask(j());
-            messageManager.registerListener(this.f15055g);
-            messageManager.registerListener(this.f15056h);
-            messageManager.registerListener(this.f15057i);
+            messageManager.registerListener(this.f15062g);
+            messageManager.registerListener(this.f15063h);
+            messageManager.registerListener(this.f15064i);
         }
     }
 
     public final boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15054f.hasMessages(1) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f15061f.hasMessages(1) : invokeV.booleanValue;
     }
 
     public final void p(DownloadStaticsData downloadStaticsData) {
@@ -483,17 +483,17 @@ public class a {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f15054f.removeMessages(1);
-            this.f15054f.sendEmptyMessageDelayed(1, this.f15052d);
+            this.f15061f.removeMessages(1);
+            this.f15061f.sendEmptyMessageDelayed(1, this.f15059d);
         }
     }
 
     public final void t(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || this.f15049a == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || this.f15056a == z) {
             return;
         }
-        this.f15049a = z;
+        this.f15056a = z;
         if (z) {
             i(true);
         } else {
@@ -505,11 +505,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             if (i2 > 3600) {
-                this.f15052d = 300000L;
+                this.f15059d = 300000L;
             } else if (i2 <= 0) {
-                this.f15052d = 60000L;
+                this.f15059d = 60000L;
             } else {
-                this.f15052d = i2 * 1000;
+                this.f15059d = i2 * 1000;
             }
         }
     }
@@ -518,11 +518,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             if (i2 > 20) {
-                this.f15053e = 10;
+                this.f15060e = 10;
             } else if (i2 <= 0) {
-                this.f15053e = 5;
+                this.f15060e = 5;
             } else {
-                this.f15053e = i2;
+                this.f15060e = i2;
             }
         }
     }
@@ -530,14 +530,14 @@ public class a {
     public void w(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f15051c = z;
+            this.f15058c = z;
         }
     }
 
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f15054f.removeMessages(1);
+            this.f15061f.removeMessages(1);
         }
     }
 
@@ -545,7 +545,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{context, str, str2, Long.valueOf(j2)}) == null) {
             if (TextUtils.equals(str, "frs")) {
-                z(context, this.f15058j, str, str2, j2);
+                z(context, this.f15065j, str, str2, j2);
             } else if (TextUtils.equals(str, "pb")) {
                 z(context, this.k, str, str2, j2);
             }
@@ -575,18 +575,18 @@ public class a {
             AdvertAppInfo advertAppInfo = arrayList2.get(i2);
             if (advertAppInfo != null) {
                 if (i2 == size - 1) {
-                    sb2.append(advertAppInfo.c4);
-                    sb3.append(advertAppInfo.W3);
-                    sb5.append(advertAppInfo.d4);
-                    sb7.append(advertAppInfo.j4);
+                    sb2.append(advertAppInfo.d4);
+                    sb3.append(advertAppInfo.X3);
+                    sb5.append(advertAppInfo.e4);
+                    sb7.append(advertAppInfo.k4);
                 } else {
-                    sb2.append(advertAppInfo.c4);
+                    sb2.append(advertAppInfo.d4);
                     sb2.append("|");
-                    sb3.append(advertAppInfo.W3);
+                    sb3.append(advertAppInfo.X3);
                     sb3.append("|");
-                    sb5.append(advertAppInfo.d4);
+                    sb5.append(advertAppInfo.e4);
                     sb5.append("|");
-                    sb7.append(advertAppInfo.j4);
+                    sb7.append(advertAppInfo.k4);
                     sb7.append("|");
                 }
             }

@@ -16,7 +16,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9175a;
+    public static final boolean f9183a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class b {
                 return;
             }
         }
-        f9175a = k.f7077a;
+        f9183a = k.f7085a;
     }
 
     @NonNull
@@ -49,13 +49,13 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             TextUtils.isEmpty(str);
             if (TextUtils.isEmpty(str2)) {
-                boolean z = f9175a;
+                boolean z = f9183a;
                 return new Pair<>(new c.a.p0.a.u.h.b(202, "parseJson: json str is empty"), new JSONObject());
             }
             try {
                 return new Pair<>(new c.a.p0.a.u.h.b(0), new JSONObject(str2));
             } catch (JSONException e2) {
-                if (f9175a) {
+                if (f9183a) {
                     e2.printStackTrace();
                 }
                 return new Pair<>(new c.a.p0.a.u.h.b(202, "parseJson: with exception "), new JSONObject());

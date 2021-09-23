@@ -6,5 +6,5 @@ import com.alipay.security.mobile.module.http.model.d;
 public interface a {
     c a(d dVar);
 
-    boolean a(String str);
+    boolean logCollect(String str);
 }

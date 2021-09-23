@@ -49,8 +49,8 @@ public class c extends b {
                 return false;
             }
             try {
-                String D = this.f4808d ? eVar.D() : new JSONObject(param).optString("appid");
-                this.f4807c = D;
+                String D = this.f4816d ? eVar.D() : new JSONObject(param).optString("appid");
+                this.f4815c = D;
                 return !TextUtils.isEmpty(D);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -66,7 +66,7 @@ public class c extends b {
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, unitedSchemeEntity, callbackHandler, str) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("isFavor", c.a.p0.a.j0.b.a.n(this.f4807c) ? 1 : 0);
+                jSONObject.put("isFavor", c.a.p0.a.j0.b.a.n(this.f4815c) ? 1 : 0);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

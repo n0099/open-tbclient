@@ -77,10 +77,10 @@ public class PassManagerStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f54840a;
+    public static boolean f54955a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SapiConfiguration f54841b;
+    public static SapiConfiguration f54956b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -90,43 +90,43 @@ public class PassManagerStatic {
 
         /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1779a implements ShareModelCallback {
+        public class C1782a implements ShareModelCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f54842a;
+            public final /* synthetic */ Context f54957a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ t0 f54843b;
+            public final /* synthetic */ t0 f54958b;
 
             /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C1780a extends OneKeyLoginCallback {
+            public class C1783a extends OneKeyLoginCallback {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ C1779a f54844a;
+                public final /* synthetic */ C1782a f54959a;
 
                 /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$a$a$a$a  reason: collision with other inner class name */
                 /* loaded from: classes7.dex */
-                public class RunnableC1781a implements Runnable {
+                public class RunnableC1784a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ OneKeyLoginResult f54845e;
+                    public final /* synthetic */ OneKeyLoginResult f54960e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ C1780a f54846f;
+                    public final /* synthetic */ C1783a f54961f;
 
-                    public RunnableC1781a(C1780a c1780a, OneKeyLoginResult oneKeyLoginResult) {
+                    public RunnableC1784a(C1783a c1783a, OneKeyLoginResult oneKeyLoginResult) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c1780a, oneKeyLoginResult};
+                            Object[] objArr = {c1783a, oneKeyLoginResult};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -136,28 +136,28 @@ public class PassManagerStatic {
                                 return;
                             }
                         }
-                        this.f54846f = c1780a;
-                        this.f54845e = oneKeyLoginResult;
+                        this.f54961f = c1783a;
+                        this.f54960e = oneKeyLoginResult;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            OneKeyLoginResult oneKeyLoginResult = this.f54845e;
-                            if (oneKeyLoginResult.enable && !TextUtils.isEmpty(oneKeyLoginResult.sign) && !TextUtils.isEmpty(this.f54845e.encryptPhoneNum) && !TextUtils.isEmpty(this.f54845e.operator)) {
-                                if (PassManagerStatic.h(this.f54846f.f54844a.f54842a)) {
-                                    DialogLoginHelper.addLoginDialogInvokeLog(this.f54846f.f54844a.f54843b.b(), DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
-                                    t0 t0Var = this.f54846f.f54844a.f54843b;
-                                    OneKeyLoginResult oneKeyLoginResult2 = this.f54845e;
+                            OneKeyLoginResult oneKeyLoginResult = this.f54960e;
+                            if (oneKeyLoginResult.enable && !TextUtils.isEmpty(oneKeyLoginResult.sign) && !TextUtils.isEmpty(this.f54960e.encryptPhoneNum) && !TextUtils.isEmpty(this.f54960e.operator)) {
+                                if (PassManagerStatic.h(this.f54961f.f54959a.f54957a)) {
+                                    DialogLoginHelper.addLoginDialogInvokeLog(this.f54961f.f54959a.f54958b.b(), DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
+                                    t0 t0Var = this.f54961f.f54959a.f54958b;
+                                    OneKeyLoginResult oneKeyLoginResult2 = this.f54960e;
                                     new LoginDialogActivityConfig(t0Var, oneKeyLoginResult2.encryptPhoneNum, oneKeyLoginResult2.operator, oneKeyLoginResult2.sign).start();
                                 }
-                            } else if ("first_login_abtest".equals(this.f54846f.f54844a.f54843b.b())) {
+                            } else if ("first_login_abtest".equals(this.f54961f.f54959a.f54958b.b())) {
                             } else {
-                                C1779a c1779a = this.f54846f.f54844a;
-                                if (!PassManagerStatic.i(c1779a.f54842a, c1779a.f54843b) && PassManagerStatic.h(this.f54846f.f54844a.f54842a)) {
-                                    LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.f54846f.f54844a.f54842a, true);
-                                    loginActivityConfig.setLoginListener(this.f54846f.f54844a.f54843b.c());
+                                C1782a c1782a = this.f54961f.f54959a;
+                                if (!PassManagerStatic.i(c1782a.f54957a, c1782a.f54958b) && PassManagerStatic.h(this.f54961f.f54959a.f54957a)) {
+                                    LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.f54961f.f54959a.f54957a, true);
+                                    loginActivityConfig.setLoginListener(this.f54961f.f54959a.f54958b.c());
                                     loginActivityConfig.start();
                                 }
                             }
@@ -172,14 +172,14 @@ public class PassManagerStatic {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ C1780a f54847e;
+                    public final /* synthetic */ C1783a f54962e;
 
-                    public b(C1780a c1780a) {
+                    public b(C1783a c1783a) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c1780a};
+                            Object[] objArr = {c1783a};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -189,30 +189,30 @@ public class PassManagerStatic {
                                 return;
                             }
                         }
-                        this.f54847e = c1780a;
+                        this.f54962e = c1783a;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
-                        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || "first_login_abtest".equals(this.f54847e.f54844a.f54843b.b())) {
+                        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || "first_login_abtest".equals(this.f54962e.f54959a.f54958b.b())) {
                             return;
                         }
-                        C1779a c1779a = this.f54847e.f54844a;
-                        if (!PassManagerStatic.i(c1779a.f54842a, c1779a.f54843b) && PassManagerStatic.h(this.f54847e.f54844a.f54842a)) {
-                            LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.f54847e.f54844a.f54842a, true);
-                            loginActivityConfig.setLoginListener(this.f54847e.f54844a.f54843b.c());
+                        C1782a c1782a = this.f54962e.f54959a;
+                        if (!PassManagerStatic.i(c1782a.f54957a, c1782a.f54958b) && PassManagerStatic.h(this.f54962e.f54959a.f54957a)) {
+                            LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.f54962e.f54959a.f54957a, true);
+                            loginActivityConfig.setLoginListener(this.f54962e.f54959a.f54958b.c());
                             loginActivityConfig.start();
                         }
                     }
                 }
 
-                public C1780a(C1779a c1779a) {
+                public C1783a(C1782a c1782a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c1779a};
+                        Object[] objArr = {c1782a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -222,14 +222,14 @@ public class PassManagerStatic {
                             return;
                         }
                     }
-                    this.f54844a = c1779a;
+                    this.f54959a = c1782a;
                 }
 
                 @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
                 public void available(OneKeyLoginResult oneKeyLoginResult) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                        c.a.e.e.m.e.a().post(new RunnableC1781a(this, oneKeyLoginResult));
+                        c.a.e.e.m.e.a().post(new RunnableC1784a(this, oneKeyLoginResult));
                     }
                 }
 
@@ -242,7 +242,7 @@ public class PassManagerStatic {
                 }
             }
 
-            public C1779a(a aVar, Context context, t0 t0Var) {
+            public C1782a(a aVar, Context context, t0 t0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -257,8 +257,8 @@ public class PassManagerStatic {
                         return;
                     }
                 }
-                this.f54842a = context;
-                this.f54843b = t0Var;
+                this.f54957a = context;
+                this.f54958b = t0Var;
             }
 
             @Override // com.baidu.sapi2.callback.ShareModelCallback
@@ -267,12 +267,12 @@ public class PassManagerStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                     if (list.size() == 0) {
-                        SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new C1780a(this));
-                    } else if (ListUtils.isEmpty(list) || (storageModel = list.get(0)) == null || !PassManagerStatic.h(this.f54842a)) {
+                        SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new C1783a(this));
+                    } else if (ListUtils.isEmpty(list) || (storageModel = list.get(0)) == null || !PassManagerStatic.h(this.f54957a)) {
                     } else {
                         String json = new Gson().toJson(storageModel);
-                        DialogLoginHelper.addLoginDialogInvokeLog(this.f54843b.b(), DialogLoginHelper.DIALOG_TYPE_SHARE);
-                        new LoginDialogActivityConfig(this.f54843b, json).start();
+                        DialogLoginHelper.addLoginDialogInvokeLog(this.f54958b.b(), DialogLoginHelper.DIALOG_TYPE_SHARE);
+                        new LoginDialogActivityConfig(this.f54958b, json).start();
                     }
                 }
             }
@@ -306,7 +306,7 @@ public class PassManagerStatic {
                 if (confignation != null && !confignation.isAgreeDangerousProtocol()) {
                     SapiAccountManager.getInstance().setAgreeDangerousProtocol(PermissionUtil.isAgreePrivacyPolicy());
                 }
-                SapiAccountManager.getInstance().getShareModels(1500L, new C1779a(this, a2, data));
+                SapiAccountManager.getInstance().getShareModels(1500L, new C1782a(this, a2, data));
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -344,9 +344,9 @@ public class PassManagerStatic {
         public void onNeedInitPassSdk() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (PassManagerStatic.f54841b != null) {
+                if (PassManagerStatic.f54956b != null) {
                     try {
-                        SapiAccountManager.getInstance().init(PassManagerStatic.f54841b);
+                        SapiAccountManager.getInstance().init(PassManagerStatic.f54956b);
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     }
@@ -362,7 +362,7 @@ public class PassManagerStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f54848a;
+        public final /* synthetic */ Context f54963a;
 
         public c(Context context) {
             Interceptable interceptable = $ic;
@@ -379,7 +379,7 @@ public class PassManagerStatic {
                     return;
                 }
             }
-            this.f54848a = context;
+            this.f54963a = context;
         }
 
         @Override // com.baidu.sapi2.callback.AccountCenterCallback
@@ -387,7 +387,7 @@ public class PassManagerStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.onBdussChange();
-                MessageManager.getInstance().runTask(2921330, null, this.f54848a);
+                MessageManager.getInstance().runTask(2921330, null, this.f54963a);
             }
         }
 
@@ -395,7 +395,7 @@ public class PassManagerStatic {
         public void onFinish(AccountCenterResult accountCenterResult) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountCenterResult) == null) && accountCenterResult != null && accountCenterResult.isAccountDestory) {
-                MessageManager.getInstance().runTask(2921330, null, this.f54848a);
+                MessageManager.getInstance().runTask(2921330, null, this.f54963a);
             }
         }
 
@@ -403,7 +403,7 @@ public class PassManagerStatic {
         public void onSocialBind(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WXEntryActivityConfig(this.f54848a, 230016)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WXEntryActivityConfig(this.f54963a, 230016)));
             }
         }
     }
@@ -435,8 +435,8 @@ public class PassManagerStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof c.a.r0.h2.a)) {
                     c.a.r0.h2.a data = customMessage.getData();
-                    if (data.f18948a != null && (baseResp = data.f18949b) != null && (baseResp instanceof SendAuth.Resp)) {
-                        PassportSDK.getInstance().handleWXLoginResp(data.f18948a, ((SendAuth.Resp) baseResp).state, ((SendAuth.Resp) baseResp).code, data.f18949b.errCode);
+                    if (data.f18957a != null && (baseResp = data.f18958b) != null && (baseResp instanceof SendAuth.Resp)) {
+                        PassportSDK.getInstance().handleWXLoginResp(data.f18957a, ((SendAuth.Resp) baseResp).state, ((SendAuth.Resp) baseResp).code, data.f18958b.errCode);
                     }
                 }
                 return null;
@@ -491,11 +491,11 @@ public class PassManagerStatic {
 
             /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$f$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC1782a implements Runnable {
+            public class RunnableC1785a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                public RunnableC1782a(a aVar) {
+                public RunnableC1785a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -541,7 +541,7 @@ public class PassManagerStatic {
             public void onFinish(QrLoginResult qrLoginResult) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, qrLoginResult) == null) && qrLoginResult != null && qrLoginResult.getResultCode() == 0) {
-                    c.a.e.e.m.e.a().postDelayed(new RunnableC1782a(this), 200L);
+                    c.a.e.e.m.e.a().postDelayed(new RunnableC1785a(this), 200L);
                 }
             }
 
@@ -649,35 +649,35 @@ public class PassManagerStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f54849a;
+            public final /* synthetic */ Context f54964a;
 
             /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$h$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C1783a extends OneKeyLoginCallback {
+            public class C1786a extends OneKeyLoginCallback {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f54850a;
+                public final /* synthetic */ a f54965a;
 
                 /* renamed from: com.baidu.tieba.passaccount.framework.PassManagerStatic$h$a$a$a  reason: collision with other inner class name */
                 /* loaded from: classes7.dex */
-                public class RunnableC1784a implements Runnable {
+                public class RunnableC1787a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ OneKeyLoginResult f54851e;
+                    public final /* synthetic */ OneKeyLoginResult f54966e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ C1783a f54852f;
+                    public final /* synthetic */ C1786a f54967f;
 
-                    public RunnableC1784a(C1783a c1783a, OneKeyLoginResult oneKeyLoginResult) {
+                    public RunnableC1787a(C1786a c1786a, OneKeyLoginResult oneKeyLoginResult) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c1783a, oneKeyLoginResult};
+                            Object[] objArr = {c1786a, oneKeyLoginResult};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -687,27 +687,27 @@ public class PassManagerStatic {
                                 return;
                             }
                         }
-                        this.f54852f = c1783a;
-                        this.f54851e = oneKeyLoginResult;
+                        this.f54967f = c1786a;
+                        this.f54966e = oneKeyLoginResult;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            OneKeyLoginResult oneKeyLoginResult = this.f54851e;
-                            if (!oneKeyLoginResult.enable || TextUtils.isEmpty(oneKeyLoginResult.sign) || TextUtils.isEmpty(this.f54851e.encryptPhoneNum) || TextUtils.isEmpty(this.f54851e.operator) || !PassManagerStatic.h(this.f54852f.f54850a.f54849a)) {
+                            OneKeyLoginResult oneKeyLoginResult = this.f54966e;
+                            if (!oneKeyLoginResult.enable || TextUtils.isEmpty(oneKeyLoginResult.sign) || TextUtils.isEmpty(this.f54966e.encryptPhoneNum) || TextUtils.isEmpty(this.f54966e.operator) || !PassManagerStatic.h(this.f54967f.f54965a.f54964a)) {
                                 return;
                             }
                             DialogLoginHelper.addLoginDialogInvokeLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
-                            Context context = this.f54852f.f54850a.f54849a;
-                            OneKeyLoginResult oneKeyLoginResult2 = this.f54851e;
+                            Context context = this.f54967f.f54965a.f54964a;
+                            OneKeyLoginResult oneKeyLoginResult2 = this.f54966e;
                             new OneKeyLoginActivityConfig(context, oneKeyLoginResult2.encryptPhoneNum, oneKeyLoginResult2.operator, oneKeyLoginResult2.sign).start();
                         }
                     }
                 }
 
-                public C1783a(a aVar) {
+                public C1786a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -722,14 +722,14 @@ public class PassManagerStatic {
                             return;
                         }
                     }
-                    this.f54850a = aVar;
+                    this.f54965a = aVar;
                 }
 
                 @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
                 public void available(OneKeyLoginResult oneKeyLoginResult) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                        c.a.e.e.m.e.a().post(new RunnableC1784a(this, oneKeyLoginResult));
+                        c.a.e.e.m.e.a().post(new RunnableC1787a(this, oneKeyLoginResult));
                     }
                 }
 
@@ -757,7 +757,7 @@ public class PassManagerStatic {
                         return;
                     }
                 }
-                this.f54849a = context;
+                this.f54964a = context;
             }
 
             @Override // com.baidu.sapi2.callback.ShareModelCallback
@@ -766,12 +766,12 @@ public class PassManagerStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                     if (list.size() == 0) {
-                        SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new C1783a(this));
-                    } else if (ListUtils.isEmpty(list) || (storageModel = list.get(0)) == null || !PassManagerStatic.h(this.f54849a)) {
+                        SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new C1786a(this));
+                    } else if (ListUtils.isEmpty(list) || (storageModel = list.get(0)) == null || !PassManagerStatic.h(this.f54964a)) {
                     } else {
                         String json = new Gson().toJson(storageModel);
                         DialogLoginHelper.addLoginDialogInvokeLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
-                        new OneKeyLoginActivityConfig(this.f54849a, json).start();
+                        new OneKeyLoginActivityConfig(this.f54964a, json).start();
                     }
                 }
             }
@@ -963,10 +963,10 @@ public class PassManagerStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && PermissionUtil.isAgreePrivacyPolicy()) {
                     Application data = customMessage.getData();
-                    if (!PassManagerStatic.f54840a) {
+                    if (!PassManagerStatic.f54955a) {
                         try {
                             WbSdk.install(data, new AuthInfo(data, "1511099634", PassBioEnv.PASSPORT_DOMAIN, "invitation_write"));
-                            boolean unused = PassManagerStatic.f54840a = true;
+                            boolean unused = PassManagerStatic.f54955a = true;
                         } catch (Exception unused2) {
                         }
                     }
@@ -1173,9 +1173,9 @@ public class PassManagerStatic {
                 builder.setRuntimeEnvironment(domain2.forceHttps(true));
                 builder.debug(true);
             }
-            f54841b = builder.build();
+            f54956b = builder.build();
             try {
-                SapiAccountManager.getInstance().init(f54841b);
+                SapiAccountManager.getInstance().init(f54956b);
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
@@ -1306,13 +1306,13 @@ public class PassManagerStatic {
 
     public static void z() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65563, null) == null) || f54841b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65563, null) == null) || f54956b == null) {
             return;
         }
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            f54841b.isNightMode = true;
+            f54956b.isNightMode = true;
         } else {
-            f54841b.isNightMode = false;
+            f54956b.isNightMode = false;
         }
     }
 }

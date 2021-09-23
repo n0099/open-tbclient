@@ -18,20 +18,20 @@ public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a.InterfaceC1482a f32454c;
+    public static final a.InterfaceC1481a f32477c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f32455d;
+    public static final Pattern f32478d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f32456a;
+    public int f32479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32457b;
+    public int f32480b;
 
     /* loaded from: classes4.dex */
-    public static class a implements a.InterfaceC1482a {
+    public static class a implements a.InterfaceC1481a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,7 +49,7 @@ public final class i {
             }
         }
 
-        @Override // c.i.b.a.c0.g.a.InterfaceC1482a
+        @Override // c.i.b.a.c0.g.a.InterfaceC1481a
         public boolean a(int i2, int i3, int i4, int i5, int i6) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -70,8 +70,8 @@ public final class i {
                 return;
             }
         }
-        f32454c = new a();
-        f32455d = Pattern.compile("^ [0-9a-fA-F]{8} ([0-9a-fA-F]{8}) ([0-9a-fA-F]{8})");
+        f32477c = new a();
+        f32478d = Pattern.compile("^ [0-9a-fA-F]{8} ([0-9a-fA-F]{8}) ([0-9a-fA-F]{8})");
     }
 
     public i() {
@@ -87,14 +87,14 @@ public final class i {
                 return;
             }
         }
-        this.f32456a = -1;
-        this.f32457b = -1;
+        this.f32479a = -1;
+        this.f32480b = -1;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f32456a == -1 || this.f32457b == -1) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f32479a == -1 || this.f32480b == -1) ? false : true : invokeV.booleanValue;
     }
 
     public final boolean b(String str, String str2) {
@@ -102,14 +102,14 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             if ("iTunSMPB".equals(str)) {
-                Matcher matcher = f32455d.matcher(str2);
+                Matcher matcher = f32478d.matcher(str2);
                 if (matcher.find()) {
                     try {
                         int parseInt = Integer.parseInt(matcher.group(1), 16);
                         int parseInt2 = Integer.parseInt(matcher.group(2), 16);
                         if (parseInt > 0 || parseInt2 > 0) {
-                            this.f32456a = parseInt;
-                            this.f32457b = parseInt2;
+                            this.f32479a = parseInt;
+                            this.f32480b = parseInt2;
                             return true;
                         }
                     } catch (NumberFormatException unused) {
@@ -147,8 +147,8 @@ public final class i {
             int i3 = i2 >> 12;
             int i4 = i2 & 4095;
             if (i3 > 0 || i4 > 0) {
-                this.f32456a = i3;
-                this.f32457b = i4;
+                this.f32479a = i3;
+                this.f32480b = i4;
                 return true;
             }
             return false;

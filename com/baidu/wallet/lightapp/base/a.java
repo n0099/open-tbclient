@@ -24,7 +24,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61742a;
+    public int f61855a;
 
     /* renamed from: com.baidu.wallet.lightapp.base.a$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -35,11 +35,11 @@ public class a {
 
     /* renamed from: com.baidu.wallet.lightapp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1836a {
+    public static class C1839a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f61743a;
+        public static a f61856a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -55,7 +55,7 @@ public class a {
                     return;
                 }
             }
-            f61743a = new a(null);
+            f61856a = new a(null);
         }
     }
 
@@ -66,7 +66,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1836a.f61743a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1839a.f61856a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -82,7 +82,7 @@ public class a {
                 return;
             }
         }
-        this.f61742a = -1;
+        this.f61855a = -1;
     }
 
     public void a(Context context) {
@@ -110,11 +110,11 @@ public class a {
                 String sb4 = sb3.toString();
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append(sb4);
-                sb5.append(";domain=" + DomainConfig.getInstance().getAppHost().substring(8));
+                sb5.append(";domain=" + DomainConfig.getInstance().getAppHost(new Boolean[]{Boolean.FALSE}).substring(8));
                 sb5.append(";path=/walletapp/misc/");
                 sb5.append(";secure");
                 sb5.append(";httponly");
-                cookieManager.setCookie(DomainConfig.getInstance().getAppHost() + "/walletapp/misc/jump", sb5.toString());
+                cookieManager.setCookie(DomainConfig.getInstance().getAppHost(new Boolean[]{Boolean.FALSE}) + "/walletapp/misc/jump", sb5.toString());
                 CookieSyncManager.getInstance().sync();
             } catch (Exception unused) {
             }

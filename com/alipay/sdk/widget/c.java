@@ -17,18 +17,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class c extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f36122b = "v1";
-
     /* renamed from: c  reason: collision with root package name */
-    public static final String f36123c = "v2";
+    public static final String f36160c = "v1";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f36161d = "v2";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f36124a;
+    public Activity f36162a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public final String f36125d;
+    /* renamed from: b  reason: collision with root package name */
+    public final String f36163b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Activity activity, String str) {
@@ -48,30 +48,30 @@ public abstract class c extends FrameLayout {
                 return;
             }
         }
-        this.f36124a = activity;
-        this.f36125d = str;
+        this.f36162a = activity;
+        this.f36163b = str;
     }
-
-    public abstract void a();
 
     public abstract void a(String str);
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        CookieSyncManager.createInstance(this.f36124a.getApplicationContext()).sync();
+        CookieSyncManager.createInstance(this.f36162a.getApplicationContext()).sync();
         CookieManager.getInstance().setCookie(str, str2);
         CookieSyncManager.getInstance().sync();
     }
 
     public abstract boolean b();
 
-    public boolean c() {
+    public abstract void c();
+
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "v1".equals(this.f36125d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "v1".equals(this.f36163b) : invokeV.booleanValue;
     }
 
     public static void a(WebView webView) {

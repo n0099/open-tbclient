@@ -15,7 +15,7 @@ public class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LruCache<String, Bitmap> f16367a;
+    public LruCache<String, Bitmap> f16377a;
 
     /* loaded from: classes3.dex */
     public class a extends LruCache<String, Bitmap> {
@@ -79,7 +79,7 @@ public class l {
             }
         }
         if (i2 > 0) {
-            this.f16367a = new a(this, i2);
+            this.f16377a = new a(this, i2);
             return;
         }
         throw new IllegalArgumentException("maxSize <= 0");
@@ -92,7 +92,7 @@ public class l {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return this.f16367a.get(str);
+            return this.f16377a.get(str);
         }
         return (Bitmap) invokeL.objValue;
     }
@@ -102,6 +102,6 @@ public class l {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap) == null) || TextUtils.isEmpty(str) || bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        this.f16367a.put(str, bitmap);
+        this.f16377a.put(str, bitmap);
     }
 }

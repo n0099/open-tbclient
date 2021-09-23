@@ -14,13 +14,13 @@ public final class a implements c.a.p0.n.l.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7518a;
+    public String f7526a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7519b;
+    public boolean f7527b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.n.l.b f7520c;
+    public c.a.p0.n.l.b f7528c;
 
     /* renamed from: c.a.p0.a.n0.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -35,7 +35,7 @@ public final class a implements c.a.p0.n.l.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f7521a;
+        public a f7529a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public final class a implements c.a.p0.n.l.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                a aVar = this.f7521a;
-                this.f7521a = null;
+                a aVar = this.f7529a;
+                this.f7529a = null;
                 return aVar;
             }
             return (a) invokeV.objValue;
@@ -66,7 +66,7 @@ public final class a implements c.a.p0.n.l.b {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                c().f7519b = z;
+                c().f7527b = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -76,10 +76,10 @@ public final class a implements c.a.p0.n.l.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.f7521a == null) {
-                    this.f7521a = new a(null);
+                if (this.f7529a == null) {
+                    this.f7529a = new a(null);
                 }
-                return this.f7521a;
+                return this.f7529a;
             }
             return (a) invokeV.objValue;
         }
@@ -88,7 +88,7 @@ public final class a implements c.a.p0.n.l.b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                c().f7518a = str;
+                c().f7526a = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -98,7 +98,7 @@ public final class a implements c.a.p0.n.l.b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-                c().f7520c = bVar;
+                c().f7528c = bVar;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -113,7 +113,7 @@ public final class a implements c.a.p0.n.l.b {
     public void a(String str, b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            c.a.p0.n.l.b bVar = this.f7520c;
+            c.a.p0.n.l.b bVar = this.f7528c;
             if (bVar != null) {
                 bVar.a(str, aVar);
             } else if (aVar != null) {
@@ -125,13 +125,13 @@ public final class a implements c.a.p0.n.l.b {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7518a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7526a : (String) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7519b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7527b : invokeV.booleanValue;
     }
 
     @NonNull
@@ -139,7 +139,7 @@ public final class a implements c.a.p0.n.l.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "SoLib:: libName=" + this.f7518a + " buildin=" + this.f7519b;
+            return "SoLib:: libName=" + this.f7526a + " buildin=" + this.f7527b;
         }
         return (String) invokeV.objValue;
     }

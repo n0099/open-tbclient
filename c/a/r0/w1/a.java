@@ -42,24 +42,24 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<NpsPluginLoadingDialogActivity> f28048a;
+    public WeakReference<NpsPluginLoadingDialogActivity> f28068a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28049b;
+    public int f28069b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28050c;
+    public boolean f28070c;
 
     /* renamed from: c.a.r0.w1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1319a implements LiveNpsLoadingCallback {
+    public class C1317a implements LiveNpsLoadingCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28051a;
+        public final /* synthetic */ a f28071a;
 
-        public C1319a(a aVar) {
+        public C1317a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,15 +74,15 @@ public class a {
                     return;
                 }
             }
-            this.f28051a = aVar;
+            this.f28071a = aVar;
         }
 
         @Override // com.baidu.searchbox.live.nps.LiveNpsLoadingCallback
         public void onLoadingEnd(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f28051a.f28050c = false;
-                this.f28051a.f();
+                this.f28071a.f28070c = false;
+                this.f28071a.f();
             }
         }
 
@@ -91,8 +91,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                 BdLog.d("[onDownloadUpdate] package:, current:" + j2 + ",total:" + j3);
-                this.f28051a.f28049b = (int) (j3 <= 0 ? 0.0f : (((float) j2) * 100.0f) / ((float) j3));
-                a aVar = this.f28051a;
+                this.f28071a.f28069b = (int) (j3 <= 0 ? 0.0f : (((float) j2) * 100.0f) / ((float) j3));
+                a aVar = this.f28071a;
                 aVar.I(aVar.i());
             }
         }
@@ -101,8 +101,8 @@ public class a {
         public void onLoadingStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f28051a.f28050c = true;
-                this.f28051a.p(TbadkCoreApplication.getInst());
+                this.f28071a.f28070c = true;
+                this.f28071a.p(TbadkCoreApplication.getInst());
             }
         }
     }
@@ -113,7 +113,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f28052a;
+        public final /* synthetic */ f f28072a;
 
         public b(a aVar, f fVar) {
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class a {
                     return;
                 }
             }
-            this.f28052a = fVar;
+            this.f28072a = fVar;
         }
 
         @Override // com.baidu.searchbox.live.impl.IMasterSwitchCallback
@@ -140,13 +140,13 @@ public class a {
                 if (!k.isEmpty(str)) {
                     TbSingleton.getInstance().setYyCloudSwitch(str);
                 }
-                if (this.f28052a != null) {
+                if (this.f28072a != null) {
                     if (FastLoginFeature.SSOLoginType.YY.equals(str)) {
-                        this.f28052a.onSwitchGet(true);
+                        this.f28072a.onSwitchGet(true);
                     } else if (PathUtils.DIRCTORY_BAIDU.equals(str)) {
-                        this.f28052a.onSwitchGet(false);
+                        this.f28072a.onSwitchGet(false);
                     } else {
-                        this.f28052a.onFail();
+                        this.f28072a.onFail();
                     }
                 }
             }
@@ -159,7 +159,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long[] f28053a;
+        public final /* synthetic */ long[] f28073a;
 
         public c(a aVar, long[] jArr) {
             Interceptable interceptable = $ic;
@@ -176,14 +176,14 @@ public class a {
                     return;
                 }
             }
-            this.f28053a = jArr;
+            this.f28073a = jArr;
         }
 
         @Override // com.baidu.searchbox.live.interfaces.callback.ILiveFileSizeCallback
         public void getFileSize(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.f28053a[0] = j2;
+                this.f28073a[0] = j2;
             }
         }
     }
@@ -193,7 +193,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f28054a;
+        public static final a f28074a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -209,18 +209,18 @@ public class a {
                     return;
                 }
             }
-            f28054a = new a(null);
+            f28074a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C1319a c1319a) {
+    public /* synthetic */ a(C1317a c1317a) {
         this();
     }
 
     public static a j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? d.f28054a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? d.f28074a : (a) invokeV.objValue;
     }
 
     public void A(@NonNull Context context, @NonNull String str) {
@@ -357,7 +357,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, npsPluginLoadingDialogActivity) == null) || npsPluginLoadingDialogActivity == null) {
             return;
         }
-        npsPluginLoadingDialogActivity.setRoundProgress(this.f28049b);
+        npsPluginLoadingDialogActivity.setRoundProgress(this.f28069b);
     }
 
     public void e(Context context) {
@@ -374,7 +374,7 @@ public class a {
             return;
         }
         i2.finish();
-        this.f28048a = null;
+        this.f28068a = null;
     }
 
     public void g(Context context, String str, Map<String, Object> map) {
@@ -403,7 +403,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<NpsPluginLoadingDialogActivity> weakReference = this.f28048a;
+            WeakReference<NpsPluginLoadingDialogActivity> weakReference = this.f28068a;
             if (weakReference != null) {
                 return weakReference.get();
             }
@@ -433,13 +433,13 @@ public class a {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f28050c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f28070c : invokeV.booleanValue;
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f28048a = null;
+            this.f28068a = null;
             LiveNPSPluginManager.getInstance().cancelLoading();
         }
     }
@@ -447,7 +447,7 @@ public class a {
     public void o(NpsPluginLoadingDialogActivity npsPluginLoadingDialogActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, npsPluginLoadingDialogActivity) == null) {
-            this.f28048a = new WeakReference<>(npsPluginLoadingDialogActivity);
+            this.f28068a = new WeakReference<>(npsPluginLoadingDialogActivity);
             I(npsPluginLoadingDialogActivity);
         }
     }
@@ -585,9 +585,9 @@ public class a {
                 return;
             }
         }
-        this.f28049b = 0;
-        this.f28050c = false;
-        LiveNPSPluginManager.getInstance().setLoadingCallback(new C1319a(this));
+        this.f28069b = 0;
+        this.f28070c = false;
+        LiveNPSPluginManager.getInstance().setLoadingCallback(new C1317a(this));
         c.a.r0.s1.i.a.c(TbadkCoreApplication.getInst());
     }
 }

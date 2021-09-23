@@ -19,7 +19,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f11315a;
+    public b f11323a;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -27,7 +27,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f11316e;
+        public final /* synthetic */ SwanAppActivity f11324e;
 
         public a(d dVar, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class d {
                     return;
                 }
             }
-            this.f11316e = swanAppActivity;
+            this.f11324e = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e0.a(this.f11316e);
+                e0.a(this.f11324e);
             }
         }
     }
@@ -71,7 +71,7 @@ public class d {
                 return;
             }
         }
-        this.f11315a = b.d(c.a.p0.a.y.b.a.G(jsObject));
+        this.f11323a = b.d(c.a.p0.a.y.b.a.G(jsObject));
         c.a.p0.h.l0.a.a().f(this);
     }
 
@@ -83,7 +83,7 @@ public class d {
     */
     public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && this.f11315a != null && JSEvent.isValid(cVar)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && this.f11323a != null && JSEvent.isValid(cVar)) {
             char c2 = 0;
             c.a.p0.a.e0.d.g("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
@@ -100,12 +100,12 @@ public class d {
                 c2 = 65535;
             }
             if (c2 == 0) {
-                this.f11315a.a(cVar);
+                this.f11323a.a(cVar);
             } else if (c2 == 1) {
-                this.f11315a.c();
+                this.f11323a.c();
             } else if (c2 != 2) {
             } else {
-                this.f11315a.b();
+                this.f11323a.b();
             }
         }
     }

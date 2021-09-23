@@ -25,13 +25,13 @@ public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f59253a;
+    public static CustomMessageListener f59384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f59254b;
+    public static CustomMessageListener f59385b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static CustomMessageListener f59255c;
+    public static CustomMessageListener f59386c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -41,11 +41,11 @@ public class PushStatic {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC1809a implements Runnable {
+        public class RunnableC1812a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC1809a(a aVar) {
+            public RunnableC1812a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class PushStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                new Thread(new RunnableC1809a(this)).start();
+                new Thread(new RunnableC1812a(this)).start();
             }
         }
     }
@@ -210,12 +210,12 @@ public class PushStatic {
                 return;
             }
         }
-        f59253a = new a(0);
-        f59254b = new b(2921613);
-        f59255c = new c(2005016);
-        MessageManager.getInstance().registerListener(2007015, f59253a);
-        MessageManager.getInstance().registerListener(f59254b);
-        MessageManager.getInstance().registerListener(f59255c);
+        f59384a = new a(0);
+        f59385b = new b(2921613);
+        f59386c = new c(2005016);
+        MessageManager.getInstance().registerListener(2007015, f59384a);
+        MessageManager.getInstance().registerListener(f59385b);
+        MessageManager.getInstance().registerListener(f59386c);
     }
 
     public PushStatic() {

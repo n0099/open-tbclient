@@ -12,10 +12,10 @@ public class b implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9978a;
+    public int f9986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9979b;
+    public int f9987b;
 
     public b(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -32,15 +32,15 @@ public class b implements c {
                 return;
             }
         }
-        this.f9978a = i2;
-        this.f9979b = i3;
+        this.f9986a = i2;
+        this.f9987b = i3;
     }
 
     @Override // c.a.p0.a.z1.a.e.a.c
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f9979b - this.f9978a) + 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f9987b - this.f9986a) + 1 : invokeV.intValue;
     }
 
     @Override // c.a.p0.a.z1.a.e.a.c
@@ -49,7 +49,7 @@ public class b implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             if (i2 >= 0 && i2 < a()) {
-                return Integer.valueOf(this.f9978a + i2);
+                return Integer.valueOf(this.f9986a + i2);
             }
             return 0;
         }

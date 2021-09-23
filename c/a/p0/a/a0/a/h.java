@@ -31,22 +31,22 @@ public class h extends c.a.p0.a.a0.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a0.b.f f4384e;
+        public final /* synthetic */ c.a.p0.a.a0.b.f f4392e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CanvasView f4385f;
+        public final /* synthetic */ CanvasView f4393f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f4386g;
+        public final /* synthetic */ String f4394g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f4387h;
+        public final /* synthetic */ UnitedSchemeEntity f4395h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f4388i;
+        public final /* synthetic */ c.a.p0.a.a2.e f4396i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4389j;
+        public final /* synthetic */ CallbackHandler f4397j;
 
         public a(h hVar, c.a.p0.a.a0.b.f fVar, CanvasView canvasView, String str, UnitedSchemeEntity unitedSchemeEntity, c.a.p0.a.a2.e eVar, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -63,20 +63,20 @@ public class h extends c.a.p0.a.a0.a.a {
                     return;
                 }
             }
-            this.f4384e = fVar;
-            this.f4385f = canvasView;
-            this.f4386g = str;
-            this.f4387h = unitedSchemeEntity;
-            this.f4388i = eVar;
-            this.f4389j = callbackHandler;
+            this.f4392e = fVar;
+            this.f4393f = canvasView;
+            this.f4394g = str;
+            this.f4395h = unitedSchemeEntity;
+            this.f4396i = eVar;
+            this.f4397j = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean k = this.f4384e.k(this.f4385f, this.f4386g);
-                HashMap<String, String> params = this.f4387h.getParams();
+                boolean k = this.f4392e.k(this.f4393f, this.f4394g);
+                HashMap<String, String> params = this.f4395h.getParams();
                 if (params == null || params.isEmpty()) {
                     return;
                 }
@@ -86,7 +86,7 @@ public class h extends c.a.p0.a.a0.a.a {
                 if (str != null) {
                     try {
                         str2 = new JSONObject(str).optString("cb");
-                        jSONObject.putOpt("tempFilePath", c.a.p0.a.k2.b.J(this.f4386g, this.f4388i.f4558f));
+                        jSONObject.putOpt("tempFilePath", c.a.p0.a.k2.b.J(this.f4394g, this.f4396i.f4566f));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -94,7 +94,7 @@ public class h extends c.a.p0.a.a0.a.a {
                 if (TextUtils.isEmpty(str2)) {
                     return;
                 }
-                this.f4389j.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, k ? 0 : 1001).toString());
+                this.f4397j.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, k ? 0 : 1001).toString());
             }
         }
     }
@@ -133,7 +133,7 @@ public class h extends c.a.p0.a.a0.a.a {
                 unitedSchemeEntity.result = l(201);
                 return false;
             }
-            String x = c.a.p0.a.k2.b.x(eVar.f4558f);
+            String x = c.a.p0.a.k2.b.x(eVar.f4566f);
             if (TextUtils.isEmpty(x)) {
                 c.a.p0.a.e0.d.b("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
                 unitedSchemeEntity.result = l(201);
@@ -146,10 +146,10 @@ public class h extends c.a.p0.a.a0.a.a {
                 str = str2 + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
             }
             String str3 = str;
-            if (TextUtils.isEmpty(m.f4658g) && (J = c.a.p0.a.g1.f.V().J()) != null) {
-                m.f4658g = J.e3();
+            if (TextUtils.isEmpty(m.f4666g) && (J = c.a.p0.a.g1.f.V().J()) != null) {
+                m.f4666g = J.e3();
             }
-            if (!TextUtils.isEmpty(m.f4658g) && !TextUtils.isEmpty(m.f4657f)) {
+            if (!TextUtils.isEmpty(m.f4666g) && !TextUtils.isEmpty(m.f4665f)) {
                 CanvasView a2 = c.a.p0.a.c0.c.d.b.a.a(m);
                 if (a2 == null) {
                     c.a.p0.a.e0.d.b("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
@@ -160,7 +160,7 @@ public class h extends c.a.p0.a.a0.a.a {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            c.a.p0.a.e0.d.b("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.f4658g + " ; canvas id = " + m.f4657f);
+            c.a.p0.a.e0.d.b("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.f4666g + " ; canvas id = " + m.f4665f);
             unitedSchemeEntity.result = l(201);
             return false;
         }

@@ -74,7 +74,7 @@ public class a extends d implements c.a.p0.j.o.b, OnGetPoiSearchResultListener, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11789a;
+        public final /* synthetic */ a f11797a;
 
         public C0617a(a aVar) {
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class a extends d implements c.a.p0.j.o.b, OnGetPoiSearchResultListener, 
                     return;
                 }
             }
-            this.f11789a = aVar;
+            this.f11797a = aVar;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -100,8 +100,8 @@ public class a extends d implements c.a.p0.j.o.b, OnGetPoiSearchResultListener, 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) {
                 super.onScrollStateChanged(recyclerView, i2);
-                if (i2 == 0 && (K2 = this.f11789a.K2()) >= 0 && K2 + 1 == this.f11789a.G0.getItemCount()) {
-                    this.f11789a.L2();
+                if (i2 == 0 && (K2 = this.f11797a.K2()) >= 0 && K2 + 1 == this.f11797a.G0.getItemCount()) {
+                    this.f11797a.L2();
                 }
             }
         }
@@ -113,7 +113,7 @@ public class a extends d implements c.a.p0.j.o.b, OnGetPoiSearchResultListener, 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11790e;
+        public final /* synthetic */ a f11798e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -130,14 +130,14 @@ public class a extends d implements c.a.p0.j.o.b, OnGetPoiSearchResultListener, 
                     return;
                 }
             }
-            this.f11790e = aVar;
+            this.f11798e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f11790e;
+                a aVar = this.f11798e;
                 aVar.R2(aVar.C0, true);
             }
         }
@@ -339,7 +339,7 @@ public class a extends d implements c.a.p0.j.o.b, OnGetPoiSearchResultListener, 
             return;
         }
         g.b i2 = W.i("navigateTo");
-        i2.n(g.f5928g, g.f5930i);
+        i2.n(g.f5936g, g.f5938i);
         i2.j(this);
         i2.b();
     }
@@ -405,7 +405,7 @@ public class a extends d implements c.a.p0.j.o.b, OnGetPoiSearchResultListener, 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, cVar) == null) {
             Intent intent = new Intent();
-            PoiInfo poiInfo = cVar.f11763a;
+            PoiInfo poiInfo = cVar.f11771a;
             if (poiInfo != null && poiInfo.location != null) {
                 intent.putExtra(SelectedLocationInfo.LOCATION_KEY, new SelectedLocationInfo(poiInfo.name, poiInfo.address, poiInfo.location));
             }

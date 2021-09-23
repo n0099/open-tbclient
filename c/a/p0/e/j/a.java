@@ -17,7 +17,7 @@ public final class a implements RequestListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f10403a;
+    public d f10411a;
 
     public a(d dVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class a implements RequestListener {
                 return;
             }
         }
-        this.f10403a = dVar;
+        this.f10411a = dVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener
@@ -76,7 +76,7 @@ public final class a implements RequestListener {
     public void onRequestCancellation(String str) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (dVar = this.f10403a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (dVar = this.f10411a) == null) {
             return;
         }
         dVar.onCancel(str);
@@ -86,7 +86,7 @@ public final class a implements RequestListener {
     public void onRequestFailure(ImageRequest imageRequest, String str, Throwable th, boolean z) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{imageRequest, str, th, Boolean.valueOf(z)}) == null) || (dVar = this.f10403a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{imageRequest, str, th, Boolean.valueOf(z)}) == null) || (dVar = this.f10411a) == null) {
             return;
         }
         dVar.c(imageRequest, th);
@@ -96,7 +96,7 @@ public final class a implements RequestListener {
     public void onRequestStart(ImageRequest imageRequest, Object obj, String str, boolean z) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{imageRequest, obj, str, Boolean.valueOf(z)}) == null) || (dVar = this.f10403a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{imageRequest, obj, str, Boolean.valueOf(z)}) == null) || (dVar = this.f10411a) == null) {
             return;
         }
         dVar.a(imageRequest);
@@ -106,7 +106,7 @@ public final class a implements RequestListener {
     public void onRequestSuccess(ImageRequest imageRequest, String str, boolean z) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageRequest, str, z) == null) || (dVar = this.f10403a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageRequest, str, z) == null) || (dVar = this.f10411a) == null) {
             return;
         }
         dVar.b(imageRequest);

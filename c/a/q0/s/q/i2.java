@@ -51,19 +51,19 @@ public class i2 extends PostData {
         }
     }
 
-    public String C0() {
+    public String E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.D0 : (String) invokeV.objValue;
     }
 
-    public String D0() {
+    public String F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.E0 : (String) invokeV.objValue;
     }
 
-    public void E0(JSONObject jSONObject) {
+    public void G0(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
@@ -77,7 +77,7 @@ public class i2 extends PostData {
         }
     }
 
-    public void F0(TopNews topNews) {
+    public void H0(TopNews topNews) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, topNews) == null) || topNews == null) {
             return;

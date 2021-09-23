@@ -44,10 +44,10 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5528a;
+    public static final boolean f5536a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, C0172d> f5529b;
+    public static final Map<String, C0172d> f5537b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -56,7 +56,7 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5530e;
+        public final /* synthetic */ String f5538e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public final class d {
                     return;
                 }
             }
-            this.f5530e = str;
+            this.f5538e = str;
         }
 
         @Override // java.lang.Runnable
@@ -81,7 +81,7 @@ public final class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Context e2 = d.e();
-                Toast.makeText(e2, "aiapps-oauth :: " + this.f5530e, 0).show();
+                Toast.makeText(e2, "aiapps-oauth :: " + this.f5538e, 0).show();
             }
         }
     }
@@ -92,7 +92,7 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f5531e;
+        public final /* synthetic */ f f5539e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public final class d {
                     return;
                 }
             }
-            this.f5531e = fVar;
+            this.f5539e = fVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -118,12 +118,12 @@ public final class d {
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                 if (i2 == -2) {
                     d.j("onNegBtn", Boolean.FALSE);
-                    k.o(PrefetchEvent.STATE_CLICK, this.f5531e.f5539b, false);
-                    d.d(this.f5531e.f5539b, false);
+                    k.o(PrefetchEvent.STATE_CLICK, this.f5539e.f5547b, false);
+                    d.d(this.f5539e.f5547b, false);
                 } else if (i2 == -1) {
                     d.j("onPosBtn", Boolean.FALSE);
-                    k.o(PrefetchEvent.STATE_CLICK, this.f5531e.f5539b, true);
-                    d.d(this.f5531e.f5539b, true);
+                    k.o(PrefetchEvent.STATE_CLICK, this.f5539e.f5547b, true);
+                    d.d(this.f5539e.f5547b, true);
                 }
                 c.a.p0.a.c1.b.n().a("na_authorize_end");
             }
@@ -136,7 +136,7 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f5532e;
+        public final /* synthetic */ f f5540e;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public final class d {
                     return;
                 }
             }
-            this.f5532e = fVar;
+            this.f5540e = fVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
@@ -161,8 +161,8 @@ public final class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
                 d.j("onCancel", Boolean.FALSE);
-                k.o(PrefetchEvent.STATE_CLICK, this.f5532e.f5539b, false);
-                d.d(this.f5532e.f5539b, false);
+                k.o(PrefetchEvent.STATE_CLICK, this.f5540e.f5547b, false);
+                d.d(this.f5540e.f5547b, false);
             }
         }
     }
@@ -174,7 +174,7 @@ public final class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Set<c.a.p0.a.e2.c.a> f5533a;
+        public final Set<c.a.p0.a.e2.c.a> f5541a;
 
         public C0172d(String str) {
             Interceptable interceptable = $ic;
@@ -191,7 +191,7 @@ public final class d {
                     return;
                 }
             }
-            this.f5533a = new HashSet();
+            this.f5541a = new HashSet();
         }
     }
 
@@ -208,8 +208,8 @@ public final class d {
                 return;
             }
         }
-        f5528a = c.a.p0.a.k.f7077a;
-        f5529b = new HashMap();
+        f5536a = c.a.p0.a.k.f7085a;
+        f5537b = new HashMap();
     }
 
     public static RequestBody b(Map<String, String> map) {
@@ -226,7 +226,7 @@ public final class d {
                 if (TextUtils.isEmpty(value)) {
                     value = "";
                 }
-                if (f5528a) {
+                if (f5536a) {
                     j("query :: " + key + " = " + value, Boolean.FALSE);
                 }
                 builder.add(key, value);
@@ -250,13 +250,13 @@ public final class d {
         C0172d remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z) == null) {
-            synchronized (f5529b) {
-                remove = f5529b.remove(str);
+            synchronized (f5537b) {
+                remove = f5537b.remove(str);
             }
-            if (remove == null || remove.f5533a.isEmpty()) {
+            if (remove == null || remove.f5541a.isEmpty()) {
                 return;
             }
-            for (c.a.p0.a.e2.c.a aVar : remove.f5533a) {
+            for (c.a.p0.a.e2.c.a aVar : remove.f5541a) {
                 if (aVar != null) {
                     aVar.onResult(z);
                 }
@@ -298,7 +298,7 @@ public final class d {
                     str = "Permission denied";
                     break;
             }
-            if (f5528a) {
+            if (f5536a) {
                 String str2 = i2 + " " + str;
             }
             return str;
@@ -326,7 +326,7 @@ public final class d {
     public static boolean h(i<b.e> iVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, iVar)) == null) ? iVar != null && iVar.c() && iVar.f5582a.f5597b : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, iVar)) == null) ? iVar != null && iVar.c() && iVar.f5590a.f5605b : invokeL.booleanValue;
     }
 
     public static boolean i(JSONObject jSONObject) {
@@ -345,7 +345,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, str, bool) == null) {
             c.a.p0.a.e0.d.h("aiapps-oauth", str);
-            if (f5528a && bool.booleanValue()) {
+            if (f5536a && bool.booleanValue()) {
                 q0.X(new a(str));
             }
         }
@@ -370,7 +370,7 @@ public final class d {
                         jSONObject2.put("code", 1);
                         jSONObject.put("data", jSONObject2);
                     } catch (JSONException e2) {
-                        if (f5528a) {
+                        if (f5536a) {
                             e2.printStackTrace();
                         }
                     }
@@ -382,14 +382,14 @@ public final class d {
     public static void m(c.a.p0.a.e2.d.a aVar, CallbackHandler callbackHandler, String str) {
         c.a.p0.a.q2.a aVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65549, null, aVar, callbackHandler, str) == null) || aVar == null || (aVar2 = aVar.f5621j) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65549, null, aVar, callbackHandler, str) == null) || aVar == null || (aVar2 = aVar.f5629j) == null) {
             return;
         }
         int i2 = -1;
         try {
             i2 = (int) aVar2.a();
         } catch (ClassCastException e2) {
-            if (f5528a) {
+            if (f5536a) {
                 e2.toString();
             }
         }
@@ -437,7 +437,7 @@ public final class d {
     public static void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            f5529b.clear();
+            f5537b.clear();
         }
     }
 
@@ -462,7 +462,7 @@ public final class d {
                 bVar.m();
                 c.a.p0.a.e0.d.h("OAuthUtils", "error reported: " + i2 + " ,content: " + str3);
             } catch (Exception e2) {
-                if (f5528a) {
+                if (f5536a) {
                     e2.printStackTrace();
                 }
             }
@@ -481,19 +481,19 @@ public final class d {
     public static void t(Context context, c.a.p0.a.a2.e eVar, f fVar, JSONObject jSONObject, c.a.p0.a.e2.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65556, null, context, eVar, fVar, jSONObject, aVar) == null) {
-            if (fVar != null && !TextUtils.isEmpty(fVar.f5539b)) {
-                synchronized (f5529b) {
-                    C0172d c0172d = f5529b.get(fVar.f5539b);
+            if (fVar != null && !TextUtils.isEmpty(fVar.f5547b)) {
+                synchronized (f5537b) {
+                    C0172d c0172d = f5537b.get(fVar.f5547b);
                     if (c0172d != null) {
-                        c0172d.f5533a.add(aVar);
+                        c0172d.f5541a.add(aVar);
                         return;
                     }
-                    C0172d c0172d2 = new C0172d(fVar.f5539b);
-                    c0172d2.f5533a.add(aVar);
-                    f5529b.put(fVar.f5539b, c0172d2);
+                    C0172d c0172d2 = new C0172d(fVar.f5547b);
+                    c0172d2.f5541a.add(aVar);
+                    f5537b.put(fVar.f5547b, c0172d2);
                     b bVar = new b(fVar);
                     c cVar = new c(fVar);
-                    k.o("show", fVar.f5539b, false);
+                    k.o("show", fVar.f5547b, false);
                     c.a.p0.a.c1.b.n().a("na_authorize_start");
                     u(context, eVar, fVar, jSONObject, bVar, cVar);
                     return;
@@ -508,7 +508,7 @@ public final class d {
         if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{context, eVar, fVar, jSONObject, onClickListener, onCancelListener}) == null) {
             SwanAppAlertDialog.a a2 = c.a.p0.a.c1.a.b0().a(context, eVar, fVar, jSONObject, onClickListener);
             if (a2 == null) {
-                if (f5528a) {
+                if (f5536a) {
                     throw new RuntimeException("auth dialog builder is null");
                 }
                 return;

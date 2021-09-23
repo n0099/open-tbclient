@@ -20,14 +20,14 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile i f16360c;
+    public static volatile i f16370c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f16361a;
+    public g f16371a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<n> f16362b;
+    public List<n> f16372b;
 
     /* loaded from: classes3.dex */
     public class a implements m {
@@ -35,7 +35,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f16363a;
+        public final /* synthetic */ i f16373a;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class i {
                     return;
                 }
             }
-            this.f16363a = iVar;
+            this.f16373a = iVar;
         }
 
         @Override // c.a.r0.b4.l.c.d.m
@@ -60,12 +60,12 @@ public class i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 e.a().c(bVar);
-                if (c.a.x0.t.h.e(this.f16363a.f16362b)) {
+                if (c.a.x0.t.h.e(this.f16373a.f16372b)) {
                     return;
                 }
-                i iVar = this.f16363a;
-                iVar.h((n) c.a.x0.t.h.c(iVar.f16362b, 0));
-                c.a.x0.t.h.g(this.f16363a.f16362b, 0);
+                i iVar = this.f16373a;
+                iVar.h((n) c.a.x0.t.h.c(iVar.f16372b, 0));
+                c.a.x0.t.h.g(this.f16373a.f16372b, 0);
             }
         }
     }
@@ -83,29 +83,29 @@ public class i {
                 return;
             }
         }
-        this.f16362b = new Vector();
-        this.f16361a = new g.b().d();
+        this.f16372b = new Vector();
+        this.f16371a = new g.b().d();
     }
 
     public static i f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f16360c == null) {
+            if (f16370c == null) {
                 synchronized (i.class) {
-                    if (f16360c == null) {
-                        f16360c = new i();
+                    if (f16370c == null) {
+                        f16370c = new i();
                     }
                 }
             }
-            return f16360c;
+            return f16370c;
         }
         return (i) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f16361a == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f16371a == null) {
             throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
         }
     }
@@ -136,10 +136,10 @@ public class i {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             c();
             String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-            if (!TextUtils.equals(this.f16361a.f16343c.b(), str)) {
-                this.f16361a.f16343c.d(str);
+            if (!TextUtils.equals(this.f16371a.f16353c.b(), str)) {
+                this.f16371a.f16353c.d(str);
             }
-            return this.f16361a.f16343c;
+            return this.f16371a.f16353c;
         }
         return (b) invokeV.objValue;
     }
@@ -149,7 +149,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             c();
-            return this.f16361a.f16342b;
+            return this.f16371a.f16352b;
         }
         return (l) invokeV.objValue;
     }
@@ -160,12 +160,12 @@ public class i {
             c();
             e.b b2 = e.a().b();
             if (b2 != null) {
-                b2.t(this.f16361a.f16341a);
-                b2.setDataSource(nVar.f16368a);
+                b2.t(this.f16371a.f16351a);
+                b2.setDataSource(nVar.f16378a);
                 b2.o(nVar, new a(this));
                 return;
             }
-            this.f16362b.add(nVar);
+            this.f16372b.add(nVar);
         }
     }
 

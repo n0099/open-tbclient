@@ -20,16 +20,16 @@ public class c implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<c.a.p0.a.w2.c> f11412a;
+    public ArrayList<c.a.p0.a.w2.c> f11420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f11413b;
+    public FrameLayout f11421b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11414c;
+    public boolean f11422c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f11415d;
+    public boolean f11423d;
 
     public c(@NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class c implements n {
                 return;
             }
         }
-        this.f11412a = new ArrayList<>();
-        this.f11415d = false;
-        this.f11413b = frameLayout;
+        this.f11420a = new ArrayList<>();
+        this.f11423d = false;
+        this.f11421b = frameLayout;
     }
 
     @Override // c.a.p0.a.p.b.a.n
@@ -60,7 +60,7 @@ public class c implements n {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.i(), aVar.f());
                 layoutParams.leftMargin = aVar.g();
                 layoutParams.topMargin = aVar.h();
-                this.f11413b.updateViewLayout(view, layoutParams);
+                this.f11421b.updateViewLayout(view, layoutParams);
                 return true;
             }
             return false;
@@ -72,7 +72,7 @@ public class c implements n {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11414c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11422c : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.a.p.b.a.n
@@ -86,7 +86,7 @@ public class c implements n {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.i(), aVar.f());
             layoutParams.leftMargin = aVar.g();
             layoutParams.topMargin = aVar.h();
-            this.f11413b.addView(view, layoutParams);
+            this.f11421b.addView(view, layoutParams);
             return true;
         }
         return invokeLL.booleanValue;
@@ -101,7 +101,7 @@ public class c implements n {
                 return false;
             }
             ViewParent parent = view.getParent();
-            FrameLayout frameLayout = this.f11413b;
+            FrameLayout frameLayout = this.f11421b;
             return parent == frameLayout && frameLayout.indexOfChild(view) >= 0;
         }
         return invokeL.booleanValue;
@@ -115,8 +115,8 @@ public class c implements n {
                 if (cVar == null) {
                     return;
                 }
-                if (!this.f11412a.contains(cVar)) {
-                    this.f11412a.add(cVar);
+                if (!this.f11420a.contains(cVar)) {
+                    this.f11420a.add(cVar);
                 }
             }
         }
@@ -130,7 +130,7 @@ public class c implements n {
                 if (cVar == null) {
                     return;
                 }
-                this.f11412a.remove(cVar);
+                this.f11420a.remove(cVar);
             }
         }
     }
@@ -139,7 +139,7 @@ public class c implements n {
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f11415d = z;
+            this.f11423d = z;
         }
     }
 
@@ -147,28 +147,28 @@ public class c implements n {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f11413b.getContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f11421b.getContext() : (Context) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.p.b.a.n
     public FrameLayout getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11413b : (FrameLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f11421b : (FrameLayout) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.p.b.a.n
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11415d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f11423d : invokeV.booleanValue;
     }
 
     public final synchronized void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this) {
-                this.f11412a.clear();
+                this.f11420a.clear();
             }
         }
     }
@@ -178,11 +178,11 @@ public class c implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             synchronized (this) {
-                if (this.f11412a.isEmpty()) {
+                if (this.f11420a.isEmpty()) {
                     return null;
                 }
-                c.a.p0.a.w2.c[] cVarArr = new c.a.p0.a.w2.c[this.f11412a.size()];
-                this.f11412a.toArray(cVarArr);
+                c.a.p0.a.w2.c[] cVarArr = new c.a.p0.a.w2.c[this.f11420a.size()];
+                this.f11420a.toArray(cVarArr);
                 return cVarArr;
             }
         }
@@ -227,7 +227,7 @@ public class c implements n {
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f11414c = z;
+            this.f11422c = z;
         }
     }
 
@@ -237,7 +237,7 @@ public class c implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view)) == null) {
             if (d(view)) {
-                this.f11413b.removeView(view);
+                this.f11421b.removeView(view);
                 return true;
             }
             return false;

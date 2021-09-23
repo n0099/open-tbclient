@@ -55,10 +55,10 @@ public class f extends c.a.r0.a0.b<c.a.r0.o2.e.h> {
     @Override // c.a.r0.a0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f15548e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f15557e == i2) {
             return;
         }
-        this.f15548e = i2;
+        this.f15557e = i2;
         SkinManager.setImageResource(this.m, R.drawable.icon_mine_more);
         SkinManager.setBackgroundResource(this.n, R.drawable.btn_look_more_selector);
     }
@@ -82,15 +82,15 @@ public class f extends c.a.r0.a0.b<c.a.r0.o2.e.h> {
             ViewGroup.LayoutParams layoutParams = this.o.getLayoutParams();
             if (layoutParams != null) {
                 if (layoutParams.width > 0) {
-                    layoutParams.width = hVar.f23215e;
+                    layoutParams.width = hVar.f23231e;
                 }
                 if (layoutParams.height > 0) {
-                    layoutParams.height = hVar.f23216f;
+                    layoutParams.height = hVar.f23232f;
                 }
             }
             this.o.setLayoutParams(layoutParams);
             this.n.setVisibility(0);
-            l(this.f15549f, TbadkCoreApplication.getInst().getSkinType());
+            l(this.f15558f, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

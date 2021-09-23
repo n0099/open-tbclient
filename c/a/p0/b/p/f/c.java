@@ -30,16 +30,16 @@ public class c extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f10245a;
+        public final /* synthetic */ Context f10253a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f10246b;
+        public final /* synthetic */ JSONObject f10254b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10247c;
+        public final /* synthetic */ CallbackHandler f10255c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f10248d;
+        public final /* synthetic */ String f10256d;
 
         public a(c cVar, Context context, JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -56,10 +56,10 @@ public class c extends a0 {
                     return;
                 }
             }
-            this.f10245a = context;
-            this.f10246b = jSONObject;
-            this.f10247c = callbackHandler;
-            this.f10248d = str;
+            this.f10253a = context;
+            this.f10254b = jSONObject;
+            this.f10255c = callbackHandler;
+            this.f10256d = str;
         }
 
         @Override // c.a.p0.b.p.f.b.InterfaceC0503b
@@ -67,16 +67,16 @@ public class c extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    b.d(this.f10245a);
+                    b.d(this.f10253a);
                 }
                 try {
-                    this.f10246b.put("canceled", z);
+                    this.f10254b.put("canceled", z);
                 } catch (JSONException e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                 }
-                this.f10247c.handleSchemeDispatchCallback(this.f10248d, UnitedSchemeUtility.wrapCallbackParams(this.f10246b, 0).toString());
+                this.f10255c.handleSchemeDispatchCallback(this.f10256d, UnitedSchemeUtility.wrapCallbackParams(this.f10254b, 0).toString());
             }
         }
     }
@@ -136,7 +136,7 @@ public class c extends a0 {
                 try {
                     jSONObject.put("authorized", b2);
                 } catch (JSONException e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                 }
@@ -151,7 +151,7 @@ public class c extends a0 {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
                     return true;
                 } catch (JSONException e3) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e3.printStackTrace();
                     }
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

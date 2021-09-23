@@ -21,17 +21,17 @@ public final class b extends FileObserver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f7705d;
+    public static final boolean f7713d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f7706a;
+    public final String f7714a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7707b;
+    public int f7715b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7708c;
+    public int f7716c;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -39,10 +39,10 @@ public final class b extends FileObserver {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f7709e;
+        public final /* synthetic */ String f7717e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f7710f;
+        public final /* synthetic */ b f7718f;
 
         public a(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -59,8 +59,8 @@ public final class b extends FileObserver {
                     return;
                 }
             }
-            this.f7710f = bVar;
-            this.f7709e = str;
+            this.f7718f = bVar;
+            this.f7717e = str;
         }
 
         @Override // java.lang.Runnable
@@ -68,8 +68,8 @@ public final class b extends FileObserver {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.b bVar = new c.b(10019);
-                bVar.l(String.valueOf(this.f7710f.f7708c));
-                bVar.j(this.f7709e);
+                bVar.l(String.valueOf(this.f7718f.f7716c));
+                bVar.j(this.f7717e);
                 bVar.h(d.g().getAppId());
                 bVar.m();
             }
@@ -89,7 +89,7 @@ public final class b extends FileObserver {
                 return;
             }
         }
-        f7705d = k.f7077a;
+        f7713d = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -111,15 +111,15 @@ public final class b extends FileObserver {
                 return;
             }
         }
-        this.f7708c = 0;
-        this.f7707b = 0;
-        this.f7706a = str;
+        this.f7716c = 0;
+        this.f7715b = 0;
+        this.f7714a = str;
     }
 
     public void b(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            q.e().execute(new a(this, this.f7706a + File.separator + str));
+            q.e().execute(new a(this, this.f7714a + File.separator + str));
         }
     }
 
@@ -128,16 +128,16 @@ public final class b extends FileObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
             if ((i2 & 256) == 256) {
-                this.f7707b++;
-                if (f7705d) {
-                    String str2 = "onEvent: create " + this.f7707b + " " + str;
+                this.f7715b++;
+                if (f7713d) {
+                    String str2 = "onEvent: create " + this.f7715b + " " + str;
                     return;
                 }
                 return;
             }
-            this.f7708c++;
-            if (f7705d) {
-                String str3 = "onEvent: delete " + this.f7707b + " " + str;
+            this.f7716c++;
+            if (f7713d) {
+                String str3 = "onEvent: delete " + this.f7715b + " " + str;
             }
             b(str);
         }

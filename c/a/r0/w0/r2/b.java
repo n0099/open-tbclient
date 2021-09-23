@@ -77,43 +77,43 @@ public abstract class b {
     public int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f27717a;
+    public TbPageContext f27737a;
     public int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrsFragment f27718b;
+    public FrsFragment f27738b;
     public int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f27719c;
+    public Handler f27739c;
     public int c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f27720d;
+    public View f27740d;
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f27721e;
+    public TextView f27741e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f27722f;
+    public TextView f27742f;
     public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f27723g;
+    public TextView f27743g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f27724h;
+    public TBSpecificationBtn f27744h;
     public boolean h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f27725i;
+    public TBSpecificationBtn f27745i;
     public boolean i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f27726j;
+    public TextView f27746j;
     public float j0;
     public ImageView k;
     public boolean k0;
@@ -140,7 +140,7 @@ public abstract class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f27727e;
+        public final /* synthetic */ b f27747e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -157,34 +157,34 @@ public abstract class b {
                     return;
                 }
             }
-            this.f27727e = bVar;
+            this.f27747e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             PopupWindow popupWindow;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (popupWindow = this.f27727e.G) != null && popupWindow.isShowing()) {
-                b bVar = this.f27727e;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (popupWindow = this.f27747e.G) != null && popupWindow.isShowing()) {
+                b bVar = this.f27747e;
                 if (bVar.f0) {
                     return;
                 }
-                c.a.e.e.m.g.d(bVar.G, bVar.f27717a.getPageActivity());
+                c.a.e.e.m.g.d(bVar.G, bVar.f27737a.getPageActivity());
             }
         }
     }
 
     /* renamed from: c.a.r0.w0.r2.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1306b implements Animator.AnimatorListener {
+    public class C1304b implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f27728e;
+        public final /* synthetic */ View f27748e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float f27729f;
+        public final /* synthetic */ float f27749f;
 
         /* renamed from: c.a.r0.w0.r2.b$b$a */
         /* loaded from: classes4.dex */
@@ -193,14 +193,14 @@ public abstract class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C1306b f27730e;
+            public final /* synthetic */ C1304b f27750e;
 
-            public a(C1306b c1306b) {
+            public a(C1304b c1304b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1306b};
+                    Object[] objArr = {c1304b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -210,7 +210,7 @@ public abstract class b {
                         return;
                     }
                 }
-                this.f27730e = c1306b;
+                this.f27750e = c1304b;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -224,8 +224,8 @@ public abstract class b {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    C1306b c1306b = this.f27730e;
-                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(c1306b.f27728e, "scaleX", 0.0f, c1306b.f27729f);
+                    C1304b c1304b = this.f27750e;
+                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(c1304b.f27748e, "scaleX", 0.0f, c1304b.f27749f);
                     ofFloat.setDuration(300L);
                     ofFloat.start();
                 }
@@ -246,7 +246,7 @@ public abstract class b {
             }
         }
 
-        public C1306b(b bVar, View view, float f2) {
+        public C1304b(b bVar, View view, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -261,8 +261,8 @@ public abstract class b {
                     return;
                 }
             }
-            this.f27728e = view;
-            this.f27729f = f2;
+            this.f27748e = view;
+            this.f27749f = f2;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -277,7 +277,7 @@ public abstract class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 a aVar = new a(this);
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f27728e, "scaleX", 1.0f, 0.0f);
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f27748e, "scaleX", 1.0f, 0.0f);
                 ofFloat.setDuration(300L);
                 ofFloat.addListener(aVar);
                 ofFloat.start();
@@ -346,8 +346,8 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, textView2) == null) {
             textView.setText(String.valueOf(this.b0));
-            String string = this.f27717a.getString(R.string.experience_divider);
-            String string2 = this.f27717a.getString(R.string.member_count_unit);
+            String string = this.f27737a.getString(R.string.experience_divider);
+            String string2 = this.f27737a.getString(R.string.member_count_unit);
             int i2 = this.c0;
             if (i2 >= 10000) {
                 if (i2 % 10000 == 0) {
@@ -369,15 +369,15 @@ public abstract class b {
                 this.k0 = false;
                 this.p.setVisibility(0);
                 this.q.setVisibility(8);
-                this.f27724h.setVisibility(0);
-                this.f27725i.setVisibility(8);
+                this.f27744h.setVisibility(0);
+                this.f27745i.setVisibility(8);
                 return;
             }
             this.e0 = true;
             this.p.setVisibility(8);
             this.q.setVisibility(0);
-            this.f27724h.setVisibility(8);
-            this.f27725i.setVisibility(0);
+            this.f27744h.setVisibility(8);
+            this.f27745i.setVisibility(0);
         }
     }
 
@@ -391,15 +391,15 @@ public abstract class b {
                 this.k0 = false;
                 this.p.setVisibility(0);
                 this.q.setVisibility(8);
-                this.f27724h.setVisibility(0);
-                this.f27725i.setVisibility(8);
+                this.f27744h.setVisibility(0);
+                this.f27745i.setVisibility(8);
                 return;
             }
             this.e0 = true;
             this.p.setVisibility(8);
             this.q.setVisibility(0);
-            this.f27724h.setVisibility(8);
-            this.f27725i.setVisibility(0);
+            this.f27744h.setVisibility(8);
+            this.f27745i.setVisibility(0);
             if (!z || this.k0) {
                 return;
             }
@@ -413,12 +413,12 @@ public abstract class b {
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             if (i2 == 0) {
                 this.g0 = false;
-                this.f27725i.setText(this.f27717a.getString(R.string.sign));
+                this.f27745i.setText(this.f27737a.getString(R.string.sign));
                 z();
                 return;
             }
             this.g0 = true;
-            this.f27725i.setText(this.f27717a.getString(R.string.signed));
+            this.f27745i.setText(this.f27737a.getString(R.string.signed));
             y();
         }
     }
@@ -449,7 +449,7 @@ public abstract class b {
             return;
         }
         this.Q = fVar;
-        fVar.g(this.f27724h);
+        fVar.g(this.f27744h);
     }
 
     public void J(int i2) {
@@ -465,7 +465,7 @@ public abstract class b {
             return;
         }
         this.P = gVar;
-        gVar.i(this.f27725i);
+        gVar.i(this.f27745i);
     }
 
     public void L(w wVar) {
@@ -484,10 +484,10 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             view.setPivotX(0.0f);
-            C1306b c1306b = new C1306b(this, view, f3);
+            C1304b c1304b = new C1304b(this, view, f3);
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "scaleX", f2, 1.0f);
             ofFloat.setDuration(400L);
-            ofFloat.addListener(c1306b);
+            ofFloat.addListener(c1304b);
             ofFloat.start();
         }
     }
@@ -531,7 +531,7 @@ public abstract class b {
     public TextView f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f27723g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f27743g : (TextView) invokeV.objValue;
     }
 
     public View g() {
@@ -557,7 +557,7 @@ public abstract class b {
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f27720d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f27740d : (View) invokeV.objValue;
     }
 
     public boolean l() {

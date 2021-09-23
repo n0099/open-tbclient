@@ -19,7 +19,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29214a;
+    public int f29234a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -93,9 +93,9 @@ public class a {
                     }
                 }
             } else {
-                i2 = this.f29214a;
+                i2 = this.f29234a;
             }
-            this.f29214a = c(i2, e2, list, str);
+            this.f29234a = c(i2, e2, list, str);
         }
     }
 
@@ -110,7 +110,7 @@ public class a {
                 d2 d2Var = new d2();
                 o oVar = new o();
                 oVar.k(true);
-                d2Var.J2 = oVar;
+                d2Var.K2 = oVar;
                 oVar.j(str);
                 list.add(i2, d2Var);
                 i2 = i2 + i3 + 1;

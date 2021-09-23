@@ -13,7 +13,7 @@ public class p extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBDrawVideo f77127a;
+    public final /* synthetic */ PBDrawVideo f77446a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(PBDrawVideo pBDrawVideo, Looper looper) {
@@ -33,7 +33,7 @@ public class p extends Handler {
                 return;
             }
         }
-        this.f77127a = pBDrawVideo;
+        this.f77446a = pBDrawVideo;
     }
 
     @Override // android.os.Handler
@@ -41,10 +41,10 @@ public class p extends Handler {
         PBDrawVideo pBDrawVideo;
         PBDrawVideoListener pBDrawVideoListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBDrawVideoListener = (pBDrawVideo = this.f77127a).f76837c) == null || pBDrawVideo.f76838d) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBDrawVideoListener = (pBDrawVideo = this.f77446a).f77156c) == null || pBDrawVideo.f77157d) {
             return;
         }
         pBDrawVideoListener.onFail(PBError.LOAD_TIME_OUT);
-        this.f77127a.f76839e = true;
+        this.f77446a.f77158e = true;
     }
 }

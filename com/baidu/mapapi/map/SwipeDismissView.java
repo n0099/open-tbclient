@@ -16,7 +16,7 @@ public class SwipeDismissView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WearMapView.OnDismissCallback f41591a;
+    public WearMapView.OnDismissCallback f41653a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwipeDismissView(Context context, AttributeSet attributeSet, int i2, View view) {
@@ -37,7 +37,7 @@ public class SwipeDismissView extends RelativeLayout {
                 return;
             }
         }
-        this.f41591a = null;
+        this.f41653a = null;
         a(context, view);
     }
 
@@ -60,7 +60,7 @@ public class SwipeDismissView extends RelativeLayout {
                 return;
             }
         }
-        this.f41591a = null;
+        this.f41653a = null;
         a(context, view);
     }
 
@@ -82,7 +82,7 @@ public class SwipeDismissView extends RelativeLayout {
                 return;
             }
         }
-        this.f41591a = null;
+        this.f41653a = null;
         a(context, view);
     }
 
@@ -96,7 +96,7 @@ public class SwipeDismissView extends RelativeLayout {
     public void setCallback(WearMapView.OnDismissCallback onDismissCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onDismissCallback) == null) {
-            this.f41591a = onDismissCallback;
+            this.f41653a = onDismissCallback;
         }
     }
 }

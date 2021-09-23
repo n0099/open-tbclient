@@ -81,7 +81,7 @@ public abstract class b<V extends TextView, M extends c> extends c.a.p0.a.c0.a.d
     public void W(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            boolean z = c.a.p0.a.c0.b.a.f4644h;
+            boolean z = c.a.p0.a.c0.b.a.f4652h;
             boolean z2 = !TextUtils.isEmpty(m.x) && m.B >= 0;
             String str = m.x;
             if (z2) {
@@ -99,7 +99,7 @@ public abstract class b<V extends TextView, M extends c> extends c.a.p0.a.c0.a.d
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, v, m) == null) || m.n == null) {
             return;
         }
-        boolean z = c.a.p0.a.c0.b.a.f4644h;
+        boolean z = c.a.p0.a.c0.b.a.f4652h;
         if (m.z) {
             v.setTextColor(m.y);
         }
@@ -134,7 +134,7 @@ public abstract class b<V extends TextView, M extends c> extends c.a.p0.a.c0.a.d
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, v, m) == null) || m.n == null) {
             return;
         }
-        boolean z = c.a.p0.a.c0.b.a.f4644h;
+        boolean z = c.a.p0.a.c0.b.a.f4652h;
         String str = m.D;
         char c2 = 65535;
         int hashCode = str.hashCode();
@@ -168,7 +168,7 @@ public abstract class b<V extends TextView, M extends c> extends c.a.p0.a.c0.a.d
         if (!(interceptable == null || interceptable.invokeLLI(1048585, this, v, m, i2) == null) || m.n == null) {
             return;
         }
-        boolean z = c.a.p0.a.c0.b.a.f4644h;
+        boolean z = c.a.p0.a.c0.b.a.f4652h;
         String str = m.C;
         char c2 = 65535;
         int hashCode = str.hashCode();

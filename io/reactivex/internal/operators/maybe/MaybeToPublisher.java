@@ -13,7 +13,7 @@ import io.reactivex.MaybeSource;
 import io.reactivex.functions.Function;
 import org.reactivestreams.Publisher;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class MaybeToPublisher implements Function<MaybeSource<Object>, Publisher<Object>> {
     public static final /* synthetic */ MaybeToPublisher[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

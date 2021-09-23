@@ -30,10 +30,10 @@ public class d extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f9937a;
+        public final /* synthetic */ CallbackHandler f9945a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f9938b;
+        public final /* synthetic */ d f9946b;
 
         public a(d dVar, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -50,15 +50,15 @@ public class d extends a0 {
                     return;
                 }
             }
-            this.f9938b = dVar;
-            this.f9937a = callbackHandler;
+            this.f9946b = dVar;
+            this.f9945a = callbackHandler;
         }
 
         @Override // c.a.p0.a.c0.c.f.a.g
         public void a(String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-                this.f9938b.k(this.f9937a, 0, str, jSONObject);
+                this.f9946b.k(this.f9945a, 0, str, jSONObject);
             }
         }
     }
@@ -89,7 +89,7 @@ public class d extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -134,7 +134,7 @@ public class d extends a0 {
     public final void k(CallbackHandler callbackHandler, int i2, String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, i2, str, jSONObject) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str2 = "sendAsyncCallback, arg0: " + i2 + ", arg1: " + jSONObject;
             }
             if (TextUtils.isEmpty(str)) {

@@ -8,7 +8,7 @@ import io.reactivex.Flowable;
 import io.reactivex.internal.operators.flowable.FlowableTake;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class FlowableTakePublisher<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

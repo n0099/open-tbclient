@@ -26,23 +26,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f11075e;
+    public static final boolean f11083e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f11076f;
+    public static volatile a f11084f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, ArrayList<b>> f11077a;
+    public HashMap<String, ArrayList<b>> f11085a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ExecutorService f11078b;
+    public final ExecutorService f11086b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11079c;
+    public String f11087c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f11080d;
+    public Object f11088d;
 
     /* renamed from: c.a.p0.h.c.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -51,13 +51,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JsArrayBuffer f11081e;
+        public final /* synthetic */ JsArrayBuffer f11089e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f11082f;
+        public final /* synthetic */ b f11090f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f11083g;
+        public final /* synthetic */ a f11091g;
 
         public RunnableC0559a(a aVar, JsArrayBuffer jsArrayBuffer, b bVar) {
             Interceptable interceptable = $ic;
@@ -74,26 +74,26 @@ public class a {
                     return;
                 }
             }
-            this.f11083g = aVar;
-            this.f11081e = jsArrayBuffer;
-            this.f11082f = bVar;
+            this.f11091g = aVar;
+            this.f11089e = jsArrayBuffer;
+            this.f11090f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String g2 = this.f11083g.g(this.f11081e.buffer());
+                String g2 = this.f11091g.g(this.f11089e.buffer());
                 File file = new File(g2);
                 if (!file.exists()) {
-                    if (this.f11083g.e(g2, this.f11082f)) {
+                    if (this.f11091g.e(g2, this.f11090f)) {
                         return;
                     }
-                    this.f11083g.i(g2, this.f11081e.buffer());
+                    this.f11091g.i(g2, this.f11089e.buffer());
                 } else if (!file.isDirectory()) {
-                    this.f11082f.a(g2);
+                    this.f11090f.a(g2);
                 } else {
-                    this.f11082f.b();
+                    this.f11090f.b();
                 }
             }
         }
@@ -119,7 +119,7 @@ public class a {
                 return;
             }
         }
-        f11075e = k.f7077a;
+        f11083e = k.f7085a;
     }
 
     public a() {
@@ -135,24 +135,24 @@ public class a {
                 return;
             }
         }
-        this.f11077a = new HashMap<>();
-        this.f11078b = Executors.newCachedThreadPool();
-        this.f11080d = new Object();
-        this.f11079c = f.g() + f.f();
+        this.f11085a = new HashMap<>();
+        this.f11086b = Executors.newCachedThreadPool();
+        this.f11088d = new Object();
+        this.f11087c = f.g() + f.f();
     }
 
     public static a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f11076f == null) {
+            if (f11084f == null) {
                 synchronized (a.class) {
-                    if (f11076f == null) {
-                        f11076f = new a();
+                    if (f11084f == null) {
+                        f11084f = new a();
                     }
                 }
             }
-            return f11076f;
+            return f11084f;
         }
         return (a) invokeV.objValue;
     }
@@ -160,8 +160,8 @@ public class a {
     public final void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this.f11080d) {
-                ArrayList<b> arrayList = this.f11077a.get(str);
+            synchronized (this.f11088d) {
+                ArrayList<b> arrayList = this.f11085a.get(str);
                 if (arrayList == null) {
                     return;
                 }
@@ -170,7 +170,7 @@ public class a {
                 while (it.hasNext()) {
                     b next = it.next();
                     if (!isEmpty) {
-                        if (f11075e) {
+                        if (f11083e) {
                             String str2 = "save success path: " + str;
                         }
                         next.a(str);
@@ -178,7 +178,7 @@ public class a {
                         next.b();
                     }
                 }
-                this.f11077a.remove(str);
+                this.f11085a.remove(str);
             }
         }
     }
@@ -188,12 +188,12 @@ public class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar)) == null) {
-            synchronized (this.f11080d) {
-                ArrayList<b> arrayList = this.f11077a.get(str);
+            synchronized (this.f11088d) {
+                ArrayList<b> arrayList = this.f11085a.get(str);
                 z = true;
                 if (arrayList == null) {
                     arrayList = new ArrayList<>();
-                    this.f11077a.put(str, arrayList);
+                    this.f11085a.put(str, arrayList);
                     z = false;
                 }
                 arrayList.add(bVar);
@@ -209,7 +209,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
             String h2 = f.h(bArr);
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f11079c);
+            sb.append(this.f11087c);
             sb.append(bArr.length);
             if (TextUtils.isEmpty(h2)) {
                 h2 = "";
@@ -223,7 +223,7 @@ public class a {
     public void h(JsArrayBuffer jsArrayBuffer, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, jsArrayBuffer, bVar) == null) {
-            this.f11078b.execute(new RunnableC0559a(this, jsArrayBuffer, bVar));
+            this.f11086b.execute(new RunnableC0559a(this, jsArrayBuffer, bVar));
         }
     }
 
@@ -231,7 +231,7 @@ public class a {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) {
-            File file = new File(this.f11079c);
+            File file = new File(this.f11087c);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -248,12 +248,12 @@ public class a {
                             file3.delete();
                         }
                         if (file2.renameTo(file3)) {
-                            if (f11075e) {
+                            if (f11083e) {
                                 String str2 = "buffer load rename success path = " + str;
                             }
                             d(str);
                         } else {
-                            if (f11075e) {
+                            if (f11083e) {
                                 String str3 = "buffer load rename error path = " + str;
                             }
                             file2.delete();
@@ -261,7 +261,7 @@ public class a {
                         }
                     } catch (Exception e2) {
                         e = e2;
-                        if (f11075e) {
+                        if (f11083e) {
                             e.printStackTrace();
                         }
                         if (file2.exists()) {

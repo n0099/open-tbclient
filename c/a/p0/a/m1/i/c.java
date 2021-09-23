@@ -36,7 +36,7 @@ public class c extends a {
         Set<Integer> set;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            boolean z = a.f7371c;
+            boolean z = a.f7379c;
             if (bitmap == null) {
                 return false;
             }
@@ -46,7 +46,7 @@ public class c extends a {
             try {
                 int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
                 boolean z2 = pixel == -1 || pixel == -657931;
-                if (!z2 && (set = this.f7373b) != null) {
+                if (!z2 && (set = this.f7381b) != null) {
                     Iterator<Integer> it = set.iterator();
                     while (true) {
                         if (it.hasNext()) {
@@ -63,21 +63,21 @@ public class c extends a {
                     for (int i2 = rect.left + 1; i2 < rect.right - 1; i2++) {
                         for (int i3 = rect.top + 1; i3 < rect.bottom - 1; i3++) {
                             if (pixel != bitmap.getPixel(i2, i3)) {
-                                if (k.f7077a) {
+                                if (k.f7085a) {
                                     String str = "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + SmallTailInfo.EMOTION_SUFFIX;
                                 }
                                 return false;
                             }
                         }
                     }
-                    if (a.f7371c) {
+                    if (a.f7379c) {
                         String str2 = "白屏, 图片大小 " + rect.width() + " x " + rect.height();
                     }
                     return true;
                 }
                 return false;
             } catch (IllegalArgumentException e2) {
-                if (a.f7371c) {
+                if (a.f7379c) {
                     String str3 = "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight();
                     e2.printStackTrace();
                 }

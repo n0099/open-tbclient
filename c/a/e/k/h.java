@@ -26,20 +26,20 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f2911d;
+    public static final boolean f2912d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile h f2912e;
+    public static volatile h f2913e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2913a;
+    public long f2914a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2914b;
+    public long f2915b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2915c;
+    public int f2916c;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class h {
                 return;
             }
         }
-        f2911d = a.f2898a;
+        f2912d = a.f2899a;
     }
 
     public h() {
@@ -70,9 +70,9 @@ public class h {
                 return;
             }
         }
-        this.f2913a = -1L;
-        this.f2914b = 0L;
-        this.f2915c = 0;
+        this.f2914a = -1L;
+        this.f2915b = 0L;
+        this.f2916c = 0;
     }
 
     public static synchronized h d() {
@@ -81,10 +81,10 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (h.class) {
-                if (f2912e == null) {
-                    f2912e = new h();
+                if (f2913e == null) {
+                    f2913e = new h();
                 }
-                hVar = f2912e;
+                hVar = f2913e;
             }
             return hVar;
         }
@@ -99,7 +99,7 @@ public class h {
                 Context appContext = AppRuntime.getAppContext();
                 PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
                 if (packageInfo != null) {
-                    if (f2911d) {
+                    if (f2912d) {
                         String str = "cur host version code = " + packageInfo.versionCode;
                     }
                     return packageInfo.versionCode;
@@ -119,7 +119,7 @@ public class h {
             if (a() > c()) {
                 return -1L;
             }
-            return this.f2913a;
+            return this.f2914a;
         }
         return invokeV.longValue;
     }
@@ -127,13 +127,13 @@ public class h {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2915c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2916c : invokeV.intValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2914b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2915b : invokeV.longValue;
     }
 
     public final File f() {
@@ -164,9 +164,9 @@ public class h {
                     th = th;
                 }
                 try {
-                    this.f2913a = dataInputStream.readLong();
-                    this.f2914b = dataInputStream.readLong();
-                    this.f2915c = dataInputStream.readInt();
+                    this.f2914a = dataInputStream.readLong();
+                    this.f2915b = dataInputStream.readLong();
+                    this.f2916c = dataInputStream.readInt();
                     Closeables.closeSafely(dataInputStream);
                 } catch (IOException e3) {
                     e = e3;
@@ -186,21 +186,21 @@ public class h {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f2915c = i2;
+            this.f2916c = i2;
         }
     }
 
     public void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f2914b = j2;
+            this.f2915b = j2;
         }
     }
 
     public void j(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.f2913a = j2;
+            this.f2914a = j2;
         }
     }
 
@@ -209,7 +209,7 @@ public class h {
         DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (f2911d) {
+            if (f2912d) {
                 String str = "updateToFile value = " + toString();
             }
             File f2 = f();
@@ -233,9 +233,9 @@ public class h {
                 file = null;
             }
             try {
-                dataOutputStream.writeLong(this.f2913a);
-                dataOutputStream.writeLong(this.f2914b);
-                dataOutputStream.writeInt(this.f2915c);
+                dataOutputStream.writeLong(this.f2914a);
+                dataOutputStream.writeLong(this.f2915b);
+                dataOutputStream.writeInt(this.f2916c);
                 dataOutputStream.close();
                 f2.delete();
                 file.renameTo(f2);
@@ -269,7 +269,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "[updateVersion = " + this.f2913a + ", lastUpdateTime = " + this.f2914b + ", hostVersionCode = " + this.f2915c + PreferencesUtil.RIGHT_MOUNT;
+            return "[updateVersion = " + this.f2914a + ", lastUpdateTime = " + this.f2915b + ", hostVersionCode = " + this.f2916c + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

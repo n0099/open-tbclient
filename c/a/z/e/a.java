@@ -17,11 +17,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Integer, Integer> f31286b;
+    public static Map<Integer, Integer> f31307b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f31287a;
+    public int f31308a;
 
     static {
         InterceptResult invokeClinit;
@@ -37,15 +37,15 @@ public class a {
             }
         }
         HashMap hashMap = new HashMap();
-        f31286b = hashMap;
+        f31307b = hashMap;
         hashMap.put(2, 256);
-        f31286b.put(4, 8);
-        f31286b.put(8, 286);
-        f31286b.put(16, Integer.valueOf((int) QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY));
-        f31286b.put(32, 326);
-        f31286b.put(64, Integer.valueOf((int) HttpStatus.SC_UNPROCESSABLE_ENTITY));
-        f31286b.put(128, 326);
-        f31286b.put(256, 20);
+        f31307b.put(4, 8);
+        f31307b.put(8, 286);
+        f31307b.put(16, Integer.valueOf((int) QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY));
+        f31307b.put(32, 326);
+        f31307b.put(64, Integer.valueOf((int) HttpStatus.SC_UNPROCESSABLE_ENTITY));
+        f31307b.put(128, 326);
+        f31307b.put(256, 20);
     }
 
     public a() {
@@ -61,27 +61,27 @@ public class a {
                 return;
             }
         }
-        this.f31287a = 4;
+        this.f31308a = 4;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31287a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31308a : invokeV.intValue;
     }
 
     public int b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            int i3 = this.f31287a;
+            int i3 = this.f31308a;
             if (i3 == i2) {
                 return 0;
             }
-            if (i2 != (f31286b.get(Integer.valueOf(i3)).intValue() & i2)) {
+            if (i2 != (f31307b.get(Integer.valueOf(i3)).intValue() & i2)) {
                 return -1;
             }
-            this.f31287a = i2;
+            this.f31308a = i2;
             return 1;
         }
         return invokeI.intValue;

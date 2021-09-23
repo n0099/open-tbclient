@@ -93,7 +93,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f35988h);
+                sb.append(a.f36022h);
                 sb.append(obj == null ? StringUtil.NULL_STRING : obj.toString());
                 return this;
             }
@@ -121,7 +121,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f35988h);
+                sb.append(a.f36022h);
                 sb.append(Integer.toString(i2));
                 return this;
             }
@@ -136,7 +136,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f35988h);
+                sb.append(a.f36022h);
                 sb.append(Long.toString(j2));
                 return this;
             }
@@ -151,7 +151,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f35988h);
+                sb.append(a.f36022h);
                 sb.append(Double.toString(d2));
                 return this;
             }

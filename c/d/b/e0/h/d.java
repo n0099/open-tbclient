@@ -15,7 +15,7 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<d0> f31802a;
+    public final Set<d0> f31823a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public final class d {
                 return;
             }
         }
-        this.f31802a = new LinkedHashSet();
+        this.f31823a = new LinkedHashSet();
     }
 
     public synchronized void a(d0 d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, d0Var) == null) {
             synchronized (this) {
-                this.f31802a.remove(d0Var);
+                this.f31823a.remove(d0Var);
             }
         }
     }
@@ -46,7 +46,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d0Var) == null) {
             synchronized (this) {
-                this.f31802a.add(d0Var);
+                this.f31823a.add(d0Var);
             }
         }
     }
@@ -57,7 +57,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d0Var)) == null) {
             synchronized (this) {
-                contains = this.f31802a.contains(d0Var);
+                contains = this.f31823a.contains(d0Var);
             }
             return contains;
         }

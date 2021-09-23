@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.util.HashMap;
 import java.util.Map;
@@ -70,10 +71,10 @@ public class LivenessManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IvoiceListener f63742a;
+                public final /* synthetic */ IvoiceListener f64053a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessManager f63743b;
+                public final /* synthetic */ LivenessManager f64054b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -90,8 +91,8 @@ public class LivenessManager {
                             return;
                         }
                     }
-                    this.f63743b = this;
-                    this.f63742a = ivoiceListener;
+                    this.f64054b = this;
+                    this.f64053a = ivoiceListener;
                 }
 
                 @Override // com.baidu.fsg.api.RimServiceCallback
@@ -100,11 +101,11 @@ public class LivenessManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, map2) == null) {
                         if (i2 == 0) {
-                            IvoiceListener ivoiceListener3 = this.f63742a;
+                            IvoiceListener ivoiceListener3 = this.f64053a;
                             if (ivoiceListener3 != null) {
-                                ivoiceListener3.onResult(0, 0, "ok", this.f63743b.toJSONObject(map2));
+                                ivoiceListener3.onResult(0, 0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, this.f64054b.toJSONObject(map2));
                             }
-                        } else if (map2 == null || (ivoiceListener2 = this.f63742a) == null) {
+                        } else if (map2 == null || (ivoiceListener2 = this.f64053a) == null) {
                         } else {
                             ivoiceListener2.onResult(1, ((Integer) map2.get(BaiduRimConstants.RETCODE_KEY)).intValue(), (String) map2.get("retMsg"), null);
                         }
@@ -115,10 +116,10 @@ public class LivenessManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IvoiceListener f63744a;
+                public final /* synthetic */ IvoiceListener f64055a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessManager f63745b;
+                public final /* synthetic */ LivenessManager f64056b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -135,8 +136,8 @@ public class LivenessManager {
                             return;
                         }
                     }
-                    this.f63745b = this;
-                    this.f63744a = ivoiceListener;
+                    this.f64056b = this;
+                    this.f64055a = ivoiceListener;
                 }
 
                 @Override // com.baidu.sapi2.openbduss.PASSMethodCallTransfer.DynamicCallbak
@@ -155,7 +156,7 @@ public class LivenessManager {
                             i3 = 10003;
                             str2 = "内部错误";
                         }
-                        this.f63744a.onResult(1, i3, str2, null);
+                        this.f64055a.onResult(1, i3, str2, null);
                     }
                 }
             }, Context.class, Map.class, RimServiceCallback.class);

@@ -34,7 +34,7 @@ public class l extends ProviderDelegation {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             c.a.p0.a.v1.b.f b2 = c.a.p0.a.v1.b.d.b(l.class, null);
             if (b2.a()) {
-                return b2.f9229a.getInt("net_quality", -1);
+                return b2.f9237a.getInt("net_quality", -1);
             }
             return -1;
         }

@@ -32,45 +32,45 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TextView f16436a;
+    public final TextView f16446a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FragmentTabHost f16437b;
+    public final FragmentTabHost f16447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f16438c;
+    public int f16448c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Fragment f16439d;
+    public Fragment f16449d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final NavigationBar f16440e;
+    public final NavigationBar f16450e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final NoNetworkView f16441f;
+    public final NoNetworkView f16451f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CollectTabActivity f16442g;
+    public CollectTabActivity f16452g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16443h;
+    public boolean f16453h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List f16444i;
+    public List f16454i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ViewPager.OnPageChangeListener f16445j;
+    public ViewPager.OnPageChangeListener f16455j;
 
     /* renamed from: c.a.r0.c2.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0790a implements ViewPager.OnPageChangeListener {
+    public class C0788a implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f16446e;
+        public final /* synthetic */ a f16456e;
 
-        public C0790a(a aVar) {
+        public C0788a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +85,7 @@ public class a {
                     return;
                 }
             }
-            this.f16446e = aVar;
+            this.f16456e = aVar;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -106,8 +106,8 @@ public class a {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f16446e.l(i2);
-                this.f16446e.b(false);
+                this.f16456e.l(i2);
+                this.f16456e.b(false);
             }
         }
     }
@@ -128,23 +128,23 @@ public class a {
                 return;
             }
         }
-        this.f16438c = -1;
-        this.f16443h = false;
-        this.f16445j = new C0790a(this);
-        this.f16442g = collectTabActivity;
+        this.f16448c = -1;
+        this.f16453h = false;
+        this.f16455j = new C0788a(this);
+        this.f16452g = collectTabActivity;
         FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.tab_host);
-        this.f16437b = fragmentTabHost;
-        fragmentTabHost.setup(this.f16442g.getSupportFragmentManager());
-        this.f16437b.setOnPageChangeListener(this.f16445j);
-        this.f16440e = (NavigationBar) this.f16442g.findViewById(R.id.navigation_bar);
-        this.f16441f = (NoNetworkView) this.f16442g.findViewById(R.id.view_no_network);
-        this.f16440e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f16440e.setCenterTextTitle(this.f16442g.getPageContext().getString(R.string.my_mark));
-        TextView textView = (TextView) this.f16440e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, this.f16442g).findViewById(R.id.right_textview);
-        this.f16436a = textView;
+        this.f16447b = fragmentTabHost;
+        fragmentTabHost.setup(this.f16452g.getSupportFragmentManager());
+        this.f16447b.setOnPageChangeListener(this.f16455j);
+        this.f16450e = (NavigationBar) this.f16452g.findViewById(R.id.navigation_bar);
+        this.f16451f = (NoNetworkView) this.f16452g.findViewById(R.id.view_no_network);
+        this.f16450e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f16450e.setCenterTextTitle(this.f16452g.getPageContext().getString(R.string.my_mark));
+        TextView textView = (TextView) this.f16450e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, this.f16452g).findViewById(R.id.right_textview);
+        this.f16446a = textView;
         textView.setText(R.string.edit);
-        this.f16436a.setOnClickListener(this.f16442g);
-        this.f16440e.onChangeSkinType(this.f16442g.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.f16446a.setOnClickListener(this.f16452g);
+        this.f16450e.onChangeSkinType(this.f16452g.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         j(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -153,7 +153,7 @@ public class a {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            Fragment fragment = this.f16439d;
+            Fragment fragment = this.f16449d;
             if (fragment instanceof CollectFragment) {
                 CollectFragment collectFragment = (CollectFragment) fragment;
                 if (!collectFragment.isEnableEdit()) {
@@ -164,15 +164,15 @@ public class a {
             } else {
                 i2 = -1;
             }
-            this.f16443h = z;
-            this.f16436a.setText(z ? R.string.done : R.string.edit);
+            this.f16453h = z;
+            this.f16446a.setText(z ? R.string.done : R.string.edit);
             if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-                SkinManager.setNavbarTitleColor(this.f16436a, R.color.navi_op_text, R.color.navi_op_text_skin);
+                SkinManager.setNavbarTitleColor(this.f16446a, R.color.navi_op_text, R.color.navi_op_text_skin);
             } else {
-                SkinManager.setNavbarTitleColor(this.f16436a, this.f16443h ? R.color.CAM_X0302 : R.color.navi_op_text, R.color.navi_op_text_skin);
+                SkinManager.setNavbarTitleColor(this.f16446a, this.f16453h ? R.color.CAM_X0302 : R.color.navi_op_text, R.color.navi_op_text_skin);
             }
             Bundle bundle = new Bundle();
-            bundle.putBoolean(CollectFragment.EDITOR_STATE_EXTRA, this.f16443h);
+            bundle.putBoolean(CollectFragment.EDITOR_STATE_EXTRA, this.f16453h);
             bundle.putInt(CollectFragment.FRAGMENT_TYPE, i2);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022208, bundle));
         }
@@ -185,40 +185,40 @@ public class a {
             return;
         }
         FragmentTabHost.b bVar2 = new FragmentTabHost.b();
-        bVar2.f47569c = fragmentTabStructure.f13467a;
-        bVar2.f47567a = fragmentTabStructure.f13471e;
-        fragmentTabIndicator.setText(fragmentTabStructure.f13468b);
-        fragmentTabIndicator.setTextSize(0, this.f16442g.getResources().getDimension(R.dimen.fontsize32));
+        bVar2.f47671c = fragmentTabStructure.f13463a;
+        bVar2.f47669a = fragmentTabStructure.f13467e;
+        fragmentTabIndicator.setText(fragmentTabStructure.f13464b);
+        fragmentTabIndicator.setTextSize(0, this.f16452g.getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setTextColorResId(R.color.s_actionbar_text_color);
         fragmentTabIndicator.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
         fragmentTabIndicator.setTipPosType(1);
-        bVar2.f47568b = fragmentTabIndicator;
-        bVar2.f47570d = bVar;
-        this.f16437b.addTabSpec(bVar2);
+        bVar2.f47670b = fragmentTabIndicator;
+        bVar2.f47672d = bVar;
+        this.f16447b.addTabSpec(bVar2);
     }
 
     public TextView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16436a : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16446a : (TextView) invokeV.objValue;
     }
 
     public Fragment e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16439d : (Fragment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16449d : (Fragment) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16438c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16448c : invokeV.intValue;
     }
 
     public final int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ListUtils.getCount(this.f16444i) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ListUtils.getCount(this.f16454i) : invokeV.intValue;
     }
 
     public void h(ArrayList<c.a.q0.h0.b> arrayList) {
@@ -226,18 +226,18 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) || arrayList == null || arrayList.isEmpty()) {
             return;
         }
-        this.f16444i = arrayList;
-        this.f16437b.reset();
+        this.f16454i = arrayList;
+        this.f16447b.reset();
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
             c.a.q0.h0.b bVar = arrayList.get(i2);
             if (bVar != null && bVar.isAvailable()) {
-                c(bVar, (FragmentTabIndicator) bVar.getTabIndicator(this.f16442g.getPageContext().getPageActivity()));
+                c(bVar, (FragmentTabIndicator) bVar.getTabIndicator(this.f16452g.getPageContext().getPageActivity()));
             }
         }
-        this.f16437b.initViewPager(0);
-        this.f16437b.setCurrentTab(0);
+        this.f16447b.initViewPager(0);
+        this.f16447b.setCurrentTab(0);
         if (arrayList.size() == 1) {
-            this.f16437b.getFragmentTabWidget().setVisibility(8);
+            this.f16447b.getFragmentTabWidget().setVisibility(8);
         }
         l(0);
     }
@@ -245,23 +245,23 @@ public class a {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16443h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16453h : invokeV.booleanValue;
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f16437b.onChangeSkinType(i2);
-            if (this.f16437b.getTabWrapper() != null) {
+            this.f16447b.onChangeSkinType(i2);
+            if (this.f16447b.getTabWrapper() != null) {
                 if (g() <= 1) {
-                    this.f16437b.getTabWrapper().setVisibility(8);
+                    this.f16447b.getTabWrapper().setVisibility(8);
                 } else {
-                    this.f16437b.getTabWrapper().setVisibility(0);
+                    this.f16447b.getTabWrapper().setVisibility(0);
                 }
             }
-            SkinManager.setNavbarTitleColor(this.f16436a, R.color.navi_op_text, R.color.navi_op_text_skin);
-            this.f16440e.onChangeSkinType(this.f16442g.getPageContext(), i2);
-            this.f16441f.onChangeSkinType(this.f16442g.getPageContext(), i2);
+            SkinManager.setNavbarTitleColor(this.f16446a, R.color.navi_op_text, R.color.navi_op_text_skin);
+            this.f16450e.onChangeSkinType(this.f16452g.getPageContext(), i2);
+            this.f16451f.onChangeSkinType(this.f16452g.getPageContext(), i2);
         }
     }
 
@@ -269,21 +269,21 @@ public class a {
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f16436a.setEnabled(z);
+            this.f16446a.setEnabled(z);
             if (z) {
                 return;
             }
-            this.f16436a.setText(R.string.edit);
-            SkinManager.setNavbarTitleColor(this.f16436a, R.color.navi_op_text, R.color.navi_op_text_skin);
+            this.f16446a.setText(R.string.edit);
+            SkinManager.setNavbarTitleColor(this.f16446a, R.color.navi_op_text, R.color.navi_op_text_skin);
         }
     }
 
     public final void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            FragmentTabHost.b tabSpec = this.f16437b.getTabSpec(i2);
-            this.f16438c = tabSpec.f47567a;
-            this.f16439d = tabSpec.f47569c;
+            FragmentTabHost.b tabSpec = this.f16447b.getTabSpec(i2);
+            this.f16448c = tabSpec.f47669a;
+            this.f16449d = tabSpec.f47671c;
         }
     }
 }

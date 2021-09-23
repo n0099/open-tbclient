@@ -145,7 +145,7 @@ public class ReplyEditorParams implements Parcelable {
             try {
                 i2 = SwanAppConfigData.s(b.c(jSONObject, "sendTextColor", "#FFFFFF"));
             } catch (Exception e2) {
-                if (k.f7077a) {
+                if (k.f7085a) {
                     e2.printStackTrace();
                 }
                 i2 = -1;
@@ -156,7 +156,7 @@ public class ReplyEditorParams implements Parcelable {
             try {
                 i3 = SwanAppConfigData.s(c3);
             } catch (Exception e3) {
-                if (k.f7077a) {
+                if (k.f7085a) {
                     e3.printStackTrace();
                 }
                 i3 = color;

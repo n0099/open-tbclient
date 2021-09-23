@@ -17,11 +17,11 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5675b;
+    public static final boolean f5683b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LruCache<String, Object> f5676a;
+    public final LruCache<String, Object> f5684a;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -35,7 +35,7 @@ public final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f5677a;
+        public static final b f5685a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,7 +51,7 @@ public final class b {
                     return;
                 }
             }
-            f5677a = new b(null);
+            f5685a = new b(null);
         }
     }
 
@@ -68,7 +68,7 @@ public final class b {
                 return;
             }
         }
-        f5675b = k.f7077a;
+        f5683b = k.f7085a;
     }
 
     public /* synthetic */ b(a aVar) {
@@ -78,15 +78,15 @@ public final class b {
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0182b.f5677a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0182b.f5685a : (b) invokeV.objValue;
     }
 
     public synchronized void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (this.f5676a != null) {
-                    this.f5676a.evictAll();
+                if (this.f5684a != null) {
+                    this.f5684a.evictAll();
                 }
             }
         }
@@ -100,20 +100,20 @@ public final class b {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                RESULT result = (RESULT) this.f5676a.get(str);
+                RESULT result = (RESULT) this.f5684a.get(str);
                 if (result == null) {
-                    if (f5675b) {
+                    if (f5683b) {
                         String str2 = "doesn't hit the cache result, key = " + str;
                     }
                     return null;
                 }
                 try {
-                    if (f5675b) {
+                    if (f5683b) {
                         String str3 = "hit the cache result, key = " + str;
                     }
                     return result;
                 } catch (Exception e2) {
-                    if (f5675b) {
+                    if (f5683b) {
                         Log.getStackTraceString(e2);
                     }
                     return null;
@@ -128,10 +128,10 @@ public final class b {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
             synchronized (this) {
                 if (!TextUtils.isEmpty(str) && result != null) {
-                    if (f5675b) {
+                    if (f5683b) {
                         String str2 = "putConfig key: " + str;
                     }
-                    this.f5676a.put(str, result);
+                    this.f5684a.put(str, result);
                 }
             }
         }
@@ -144,10 +144,10 @@ public final class b {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                if (f5675b) {
+                if (f5683b) {
                     String str2 = "removeConfig key: " + str;
                 }
-                this.f5676a.remove(str);
+                this.f5684a.remove(str);
             }
         }
     }
@@ -165,6 +165,6 @@ public final class b {
                 return;
             }
         }
-        this.f5676a = new LruCache<>(10);
+        this.f5684a = new LruCache<>(10);
     }
 }

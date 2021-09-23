@@ -24,7 +24,7 @@ public class b extends HttpManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f11599a;
+    public static volatile b f11607a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,14 +49,14 @@ public class b extends HttpManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11599a == null) {
+            if (f11607a == null) {
                 synchronized (b.class) {
-                    if (f11599a == null) {
-                        f11599a = new b();
+                    if (f11607a == null) {
+                        f11607a = new b();
                     }
                 }
             }
-            return f11599a;
+            return f11607a;
         }
         return (b) invokeV.objValue;
     }
@@ -108,9 +108,9 @@ public class b extends HttpManager {
             c.a.p0.h.c0.a.a aVar2 = (c.a.p0.h.c0.a.a) e.i().I();
             OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
             int i2 = 60000;
-            if (aVar2 != null && (aVar = aVar2.f4590a) != null) {
-                i2 = aVar.f4596a;
-                newBuilder.connectTimeout(aVar.f4597b, TimeUnit.MILLISECONDS);
+            if (aVar2 != null && (aVar = aVar2.f4598a) != null) {
+                i2 = aVar.f4604a;
+                newBuilder.connectTimeout(aVar.f4605b, TimeUnit.MILLISECONDS);
                 newBuilder.addNetworkInterceptor(new d());
             }
             long j2 = i2;

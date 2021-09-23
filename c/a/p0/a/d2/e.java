@@ -43,34 +43,34 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5158a;
+    public static final boolean f5166a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f5159b;
+    public static long f5167b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ContentObserver f5160c;
+    public static ContentObserver f5168c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ContentResolver f5161d;
+    public static ContentResolver f5169d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static PackageManager f5162e;
+    public static PackageManager f5170e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f5163f;
+    public static boolean f5171f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f5164g;
+    public static long f5172g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static List<c.a.p0.a.d2.c> f5165h;
+    public static List<c.a.p0.a.d2.c> f5173h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Runnable f5166i;
+    public static Runnable f5174i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f5167j;
+    public static int f5175j;
     public static Uri k;
     public static String l;
     public static String m;
@@ -82,7 +82,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Handler f5168a;
+        public final /* synthetic */ Handler f5176a;
 
         /* renamed from: c.a.p0.a.d2.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -91,10 +91,10 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Uri f5169e;
+            public final /* synthetic */ Uri f5177e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f5170f;
+            public final /* synthetic */ a f5178f;
 
             public RunnableC0147a(a aVar, Uri uri) {
                 Interceptable interceptable = $ic;
@@ -111,15 +111,15 @@ public class e {
                         return;
                     }
                 }
-                this.f5170f = aVar;
-                this.f5169e = uri;
+                this.f5178f = aVar;
+                this.f5177e = uri;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    e.q(this.f5170f.f5168a, this.f5169e);
+                    e.q(this.f5178f.f5176a, this.f5177e);
                 }
             }
         }
@@ -142,7 +142,7 @@ public class e {
                     return;
                 }
             }
-            this.f5168a = handler2;
+            this.f5176a = handler2;
         }
 
         @Override // android.database.ContentObserver
@@ -150,7 +150,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, uri) == null) {
                 super.onChange(z, uri);
-                if (e.f5158a) {
+                if (e.f5166a) {
                     String str = "onChange(), uri: " + uri;
                 }
                 ExecutorUtilsExt.postOnElastic(new RunnableC0147a(this, uri), "systemScreenShot", 1);
@@ -192,13 +192,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5171e;
+        public final /* synthetic */ String f5179e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Handler f5172f;
+        public final /* synthetic */ Handler f5180f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ C0148e f5173g;
+        public final /* synthetic */ C0148e f5181g;
 
         public c(String str, Handler handler, C0148e c0148e) {
             Interceptable interceptable = $ic;
@@ -215,9 +215,9 @@ public class e {
                     return;
                 }
             }
-            this.f5171e = str;
-            this.f5172f = handler;
-            this.f5173g = c0148e;
+            this.f5179e = str;
+            this.f5180f = handler;
+            this.f5181g = c0148e;
         }
 
         @Override // java.lang.Runnable
@@ -225,22 +225,22 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 e.e();
-                if (e.f5158a) {
-                    String str = "mCount: " + e.f5167j;
+                if (e.f5166a) {
+                    String str = "mCount: " + e.f5175j;
                 }
                 long j2 = c.a.p0.a.v2.d.a() ? 500L : 100L;
-                if (e.m(this.f5171e, e.k) || e.f5167j > 10) {
-                    if (e.m(this.f5171e, e.k) && e.l() && !e.o(this.f5171e, e.k)) {
-                        for (c.a.p0.a.d2.c cVar : e.f5165h) {
+                if (e.m(this.f5179e, e.k) || e.f5175j > 10) {
+                    if (e.m(this.f5179e, e.k) && e.l() && !e.o(this.f5179e, e.k)) {
+                        for (c.a.p0.a.d2.c cVar : e.f5173h) {
                             if (cVar != null) {
-                                cVar.a(this.f5173g);
+                                cVar.a(this.f5181g);
                             }
                         }
                         return;
                     }
                     return;
                 }
-                this.f5172f.postDelayed(e.f5166i, j2);
+                this.f5180f.postDelayed(e.f5174i, j2);
             }
         }
     }
@@ -250,10 +250,10 @@ public class e {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static String f5174a;
+        public static String f5182a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static String[] f5175b;
+        public static String[] f5183b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -269,8 +269,8 @@ public class e {
                     return;
                 }
             }
-            f5174a = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
-            f5175b = new String[]{"_display_name", "_data", "date_added", "_id"};
+            f5182a = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            f5183b = new String[]{"_display_name", "_data", "date_added", "_id"};
         }
 
         public static boolean e(String str) {
@@ -293,10 +293,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5176a;
+        public String f5184a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Uri f5177b;
+        public Uri f5185b;
 
         public /* synthetic */ C0148e(String str, Long l, Uri uri, a aVar) {
             this(str, l, uri);
@@ -317,9 +317,9 @@ public class e {
                     return;
                 }
             }
-            this.f5176a = str;
+            this.f5184a = str;
             l.longValue();
-            this.f5177b = uri;
+            this.f5185b = uri;
         }
     }
 
@@ -336,17 +336,17 @@ public class e {
                 return;
             }
         }
-        f5158a = k.f7077a;
-        f5164g = System.currentTimeMillis() - 10000;
-        f5165h = new ArrayList();
-        f5167j = 0;
+        f5166a = k.f7085a;
+        f5172g = System.currentTimeMillis() - 10000;
+        f5173h = new ArrayList();
+        f5175j = 0;
         l = null;
         m = null;
     }
 
     public static /* synthetic */ int e() {
-        int i2 = f5167j;
-        f5167j = i2 + 1;
+        int i2 = f5175j;
+        f5175j = i2 + 1;
         return i2;
     }
 
@@ -355,7 +355,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
             try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(f5161d, uri);
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(f5169d, uri);
                 if (bitmap == null) {
                     return 0.0d;
                 }
@@ -404,7 +404,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return g.a().b() && System.currentTimeMillis() - f5159b > 2000;
+            return g.a().b() && System.currentTimeMillis() - f5167b > 2000;
         }
         return invokeV.booleanValue;
     }
@@ -430,7 +430,7 @@ public class e {
                 return false;
             }
             try {
-                return MediaStore.Images.Media.getBitmap(f5161d, uri) != null;
+                return MediaStore.Images.Media.getBitmap(f5169d, uri) != null;
             } catch (Exception unused) {
                 return false;
             }
@@ -476,17 +476,17 @@ public class e {
         Closeable closeable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, handler, uri) == null) {
-            if (uri.toString().matches(d.f5174a + ".*")) {
-                if (t() && f5163f) {
-                    f5164g = System.currentTimeMillis();
+            if (uri.toString().matches(d.f5182a + ".*")) {
+                if (t() && f5171f) {
+                    f5172g = System.currentTimeMillis();
                     return;
                 }
-                f5167j = 0;
-                f5164g = System.currentTimeMillis();
+                f5175j = 0;
+                f5172g = System.currentTimeMillis();
                 Closeable closeable2 = null;
                 try {
                     try {
-                        cursor = f5161d.query(uri, d.f5175b, null, null, "date_added DESC");
+                        cursor = f5169d.query(uri, d.f5183b, null, null, "date_added DESC");
                         if (cursor != null) {
                             try {
                                 if (cursor.moveToFirst()) {
@@ -497,7 +497,7 @@ public class e {
                                     if (c.a.p0.a.v2.d.a()) {
                                         k = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex("_id")));
                                     }
-                                    if (f5158a) {
+                                    if (f5166a) {
                                         String str = "imagepath: " + string;
                                         String str2 = "dateAdded: " + j2;
                                         String str3 = "nowSecs: " + currentTimeMillis;
@@ -510,17 +510,17 @@ public class e {
                                     l = k.toString();
                                     m = string;
                                     if (d.e(string) && d.f(currentTimeMillis, j2)) {
-                                        f5163f = true;
+                                        f5171f = true;
                                         c cVar = new c(string, handler, new C0148e(string, Long.valueOf(j2), k, null));
-                                        f5166i = cVar;
+                                        f5174i = cVar;
                                         handler.post(cVar);
                                     } else {
-                                        f5163f = false;
+                                        f5171f = false;
                                     }
                                 }
                             } catch (RuntimeException unused) {
-                                if (f5162e != null) {
-                                    List<ProviderInfo> queryContentProviders = f5162e.queryContentProviders(null, 0, 131072);
+                                if (f5170e != null) {
+                                    List<ProviderInfo> queryContentProviders = f5170e.queryContentProviders(null, 0, 131072);
                                     HashMap hashMap = new HashMap();
                                     hashMap.put("from", "SystemScreenshot");
                                     hashMap.put("page", "SystemScreenshot");
@@ -553,19 +553,19 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65554, null, cVar) == null) || cVar == null) {
             return;
         }
-        f5165h.add(cVar);
+        f5173h.add(cVar);
     }
 
     public static void s(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
-            f5162e = context.getPackageManager();
+            f5170e = context.getPackageManager();
             Handler handler = new Handler(Looper.getMainLooper());
-            f5161d = context.getContentResolver();
-            f5160c = new a(handler, handler);
+            f5169d = context.getContentResolver();
+            f5168c = new a(handler, handler);
             if (p(context)) {
-                f5161d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, f5160c);
-            } else if (f5158a && q0.G()) {
+                f5169d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, f5168c);
+            } else if (f5166a && q0.G()) {
                 q0.b0(new b());
             }
         }
@@ -574,7 +574,7 @@ public class e {
     public static boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? System.currentTimeMillis() - f5164g <= 1000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? System.currentTimeMillis() - f5172g <= 1000 : invokeV.booleanValue;
     }
 
     public static void u(c.a.p0.a.d2.c cVar) {
@@ -582,6 +582,6 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65557, null, cVar) == null) || cVar == null) {
             return;
         }
-        f5165h.remove(cVar);
+        f5173h.remove(cVar);
     }
 }

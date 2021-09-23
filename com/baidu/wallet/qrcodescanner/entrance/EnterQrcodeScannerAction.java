@@ -94,10 +94,10 @@ public class EnterQrcodeScannerAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f63661a;
+                public final /* synthetic */ RouterCallback f63972a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterQrcodeScannerAction f63662b;
+                public final /* synthetic */ EnterQrcodeScannerAction f63973b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -114,8 +114,8 @@ public class EnterQrcodeScannerAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f63662b = this;
-                    this.f63661a = routerCallback;
+                    this.f63973b = this;
+                    this.f63972a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.qrcodescanner.IScanCodeListener
@@ -128,7 +128,7 @@ public class EnterQrcodeScannerAction implements RouterAction {
                         }
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put("value", str);
-                        RouterCallback routerCallback2 = this.f63661a;
+                        RouterCallback routerCallback2 = this.f63972a;
                         if (routerCallback2 != null) {
                             routerCallback2.onResult(0, hashMap3);
                         }
@@ -140,12 +140,12 @@ public class EnterQrcodeScannerAction implements RouterAction {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                         QRScanCodeActivity.mLightAppListener = null;
-                        if (this.f63661a != null) {
+                        if (this.f63972a != null) {
                             LogUtil.i("zxing", "needQRCodeResult" + i2);
                             HashMap hashMap3 = new HashMap();
                             hashMap3.put("errCode", Integer.valueOf(i2));
                             hashMap3.put("errorMsg", str);
-                            this.f63661a.onResult(1, hashMap3);
+                            this.f63972a.onResult(1, hashMap3);
                         }
                     }
                 }

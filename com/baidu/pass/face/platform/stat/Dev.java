@@ -6,6 +6,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.fsg.base.a;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +53,7 @@ public class Dev {
         this.brand = "";
         this.sysVersion = "";
         this.packagename = "";
-        this.sdkVersion = "2.1.0.0";
+        this.sdkVersion = a.k;
         this.firstRun = false;
     }
 
@@ -109,7 +110,7 @@ public class Dev {
             RandomAccessFile randomAccessFile3 = null;
             try {
                 try {
-                    randomAccessFile = new RandomAccessFile(file, r.f42280a);
+                    randomAccessFile = new RandomAccessFile(file, r.f42342a);
                 } catch (Throwable th) {
                     th = th;
                 }

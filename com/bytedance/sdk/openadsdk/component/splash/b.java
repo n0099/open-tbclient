@@ -65,34 +65,34 @@ public class b implements w.a {
     public a H;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdSlot f66045a;
+    public AdSlot f66356a;
 
     /* renamed from: b  reason: collision with root package name */
-    public n f66046b;
+    public n f66357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TTAdNative.SplashAdListener f66047c;
+    public TTAdNative.SplashAdListener f66358c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final p f66048d;
+    public final p f66359d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f66049e;
+    public Context f66360e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final w f66050f;
+    public final w f66361f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicBoolean f66051g;
+    public final AtomicBoolean f66362g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f66052h;
+    public e f66363h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f66053i;
+    public e f66364i;
 
     /* renamed from: j  reason: collision with root package name */
-    public e f66054j;
+    public e f66365j;
     public com.bytedance.sdk.openadsdk.component.splash.a l;
     public AtomicBoolean m;
     public AtomicBoolean n;
@@ -115,22 +115,22 @@ public class b implements w.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66100a;
+        public int f66411a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f66101b;
+        public int f66412b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f66102c;
+        public String f66413c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TTSplashAd f66103d;
+        public TTSplashAd f66414d;
 
         /* renamed from: e  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.j.a.c f66104e;
+        public com.bytedance.sdk.openadsdk.j.a.c f66415e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f66105f;
+        public final /* synthetic */ b f66416f;
 
         public a(b bVar, int i2, int i3, String str, TTSplashAd tTSplashAd, com.bytedance.sdk.openadsdk.j.a.c cVar) {
             Interceptable interceptable = $ic;
@@ -147,12 +147,12 @@ public class b implements w.a {
                     return;
                 }
             }
-            this.f66105f = bVar;
-            this.f66100a = i2;
-            this.f66101b = i3;
-            this.f66102c = str;
-            this.f66103d = tTSplashAd;
-            this.f66104e = cVar;
+            this.f66416f = bVar;
+            this.f66411a = i2;
+            this.f66412b = i3;
+            this.f66413c = str;
+            this.f66414d = tTSplashAd;
+            this.f66415e = cVar;
         }
     }
 
@@ -187,8 +187,8 @@ public class b implements w.a {
                 return;
             }
         }
-        this.f66047c = null;
-        this.f66051g = new AtomicBoolean(false);
+        this.f66358c = null;
+        this.f66362g = new AtomicBoolean(false);
         this.m = new AtomicBoolean(false);
         this.n = new AtomicBoolean(false);
         this.o = new AtomicBoolean(false);
@@ -201,11 +201,11 @@ public class b implements w.a {
         this.F = new AtomicBoolean(false);
         this.G = new AtomicBoolean(false);
         if (context != null) {
-            this.f66049e = context.getApplicationContext();
+            this.f66360e = context.getApplicationContext();
         }
-        this.f66048d = o.f();
-        this.f66050f = new w(Looper.getMainLooper(), this);
-        Context context2 = this.f66049e;
+        this.f66359d = o.f();
+        this.f66361f = new w(Looper.getMainLooper(), this);
+        Context context2 = this.f66360e;
         this.l = com.bytedance.sdk.openadsdk.component.splash.a.a(context2 == null ? o.a() : context2);
         this.p = o.h().t();
         k.add(this);
@@ -218,14 +218,14 @@ public class b implements w.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65592, this)) == null) {
             k.f("splashLoadAd", "try checkSpashAdCacheIsValidAndTryShowAd......");
             com.bytedance.sdk.openadsdk.j.a.c a2 = a(15001, (q) null);
-            if (!this.l.b(this.f66045a.getCodeId()) && !this.l.a(this.f66045a.getCodeId())) {
+            if (!this.l.b(this.f66356a.getCodeId()) && !this.l.a(this.f66356a.getCodeId())) {
                 k.f("splashLoadAd", "没有缓存数据..........");
                 if (this.t.get() || this.u.get()) {
                     a(15001, new a(this, 2, -12, g.a(-12), null, a2), (q) null, (e) null, (String) null);
                 }
                 this.y = 0;
                 return false;
-            } else if (this.l.a(this.f66045a, true)) {
+            } else if (this.l.a(this.f66356a, true)) {
                 k.b("splashLoadAd", "======== 缓存过期 ========");
                 if (this.t.get() || this.u.get()) {
                     a(15001, new a(this, 2, -11, g.a(-11), null, a2), (q) null, (e) null, (String) null);
@@ -256,9 +256,9 @@ public class b implements w.a {
             t tVar = new t();
             this.z = tVar;
             tVar.k(System.currentTimeMillis());
-            if (l.f66744f.get()) {
+            if (l.f67055f.get()) {
                 this.z.b(0);
-                l.f66744f.set(false);
+                l.f67055f.set(false);
                 return;
             }
             this.z.b(1);
@@ -277,7 +277,7 @@ public class b implements w.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65600, this) == null) || this.f66049e == null || this.B == null || this.z == null || !o.h().v()) {
+        if (!(interceptable == null || interceptable.invokeV(65600, this) == null) || this.f66360e == null || this.B == null || this.z == null || !o.h().v()) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -291,7 +291,7 @@ public class b implements w.a {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        com.bytedance.sdk.openadsdk.e.d.a(this.f66049e, this.B, "splash_ad", "download_image_duration", this.z.f(), jSONObject);
+        com.bytedance.sdk.openadsdk.e.d.a(this.f66360e, this.B, "splash_ad", "download_image_duration", this.z.f(), jSONObject);
     }
 
     private void i() {
@@ -300,7 +300,7 @@ public class b implements w.a {
         if (!(interceptable == null || interceptable.invokeV(65601, this) == null) || (aVar = this.l) == null) {
             return;
         }
-        aVar.a(this.f66045a, this.f66046b);
+        aVar.a(this.f66356a, this.f66357b);
     }
 
     private void j() {
@@ -328,7 +328,7 @@ public class b implements w.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65605, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             n nVar = new n();
-            nVar.f66494f = currentTimeMillis;
+            nVar.f66805f = currentTimeMillis;
             return nVar;
         }
         return (n) invokeV.objValue;
@@ -339,7 +339,7 @@ public class b implements w.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65588, this)) == null) {
             if (d()) {
-                a(15001, this.f66045a.getCodeId());
+                a(15001, this.f66356a.getCodeId());
                 return true;
             }
             return false;
@@ -358,7 +358,7 @@ public class b implements w.a {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65576, this) == null) || this.f66047c == null) {
+        if (!(interceptable == null || interceptable.invokeV(65576, this) == null) || this.f66358c == null) {
             return;
         }
         int f2 = o.h().f(this.C);
@@ -367,14 +367,14 @@ public class b implements w.a {
             this.t.set(false);
             this.u.set(false);
             k.b("splashLoadAd", "splash_type_real_time=====只走实时");
-            a(this.f66045a);
+            a(this.f66356a);
         } else if (f2 == 1) {
             this.t.set(false);
             this.u.set(false);
             k.b("splashLoadAd", "splash_type_priorrity_cache_defualt=====优先缓存");
             if (!c()) {
                 k.c("splashLoadAd", "splash_type_priorrity_cache_defualt=====优先缓存--->执行缓存失败，进行网络请求");
-                a(this.f66045a);
+                a(this.f66356a);
                 return;
             }
             k.c("splashLoadAd", "splash_type_priorrity_cache_defualt=====优先缓存--->执行缓存成功！！");
@@ -382,14 +382,14 @@ public class b implements w.a {
             k.b("splashLoadAd", "splash_type_concurrent_priority_real_time=====并发请求广告和check缓存，优先使用实时");
             this.t.set(true);
             this.u.set(false);
-            a(this.f66045a);
+            a(this.f66356a);
             c();
         } else if (f2 != 3) {
         } else {
             this.t.set(false);
             this.u.set(true);
             k.b("splashLoadAd", "splash_type_concurrent_first_come_first_use=====并发请求广告和check缓存，谁先到用谁");
-            a(this.f66045a);
+            a(this.f66356a);
             c();
         }
     }
@@ -409,7 +409,7 @@ public class b implements w.a {
             } else {
                 i2 = this.y;
                 if (i2 == 2) {
-                    c.a(this.f66049e, this.f66045a);
+                    c.a(this.f66360e, this.f66356a);
                 }
             }
             k.f("splashLoadAd", "reportMarkAtRespFail cacheStatus " + i2);
@@ -424,7 +424,7 @@ public class b implements w.a {
 
     private void d(m mVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65590, this, mVar) == null) || this.f66049e == null || mVar == null || this.z == null || !o.h().v()) {
+        if (!(interceptable == null || interceptable.invokeL(65590, this, mVar) == null) || this.f66360e == null || mVar == null || this.z == null || !o.h().v()) {
             return;
         }
         boolean L = o.h().L();
@@ -440,7 +440,7 @@ public class b implements w.a {
         JSONObject jSONObject = new JSONObject();
         if (L) {
             try {
-                jSONObject.put("pre_connect_status", l.f66742d);
+                jSONObject.put("pre_connect_status", l.f67053d);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -468,7 +468,7 @@ public class b implements w.a {
             jSONObject.put("download_write_time", this.z.r());
             jSONObject.put("download_client_end_time", this.z.s());
         }
-        com.bytedance.sdk.openadsdk.e.d.a(this.f66049e, mVar, "splash_ad", "splash_ad_loadtime", currentTimeMillis - this.z.u(), jSONObject);
+        com.bytedance.sdk.openadsdk.e.d.a(this.f66360e, mVar, "splash_ad", "splash_ad_loadtime", currentTimeMillis - this.z.u(), jSONObject);
     }
 
     public static b a(Context context) {
@@ -480,13 +480,13 @@ public class b implements w.a {
     public void a(AdSlot adSlot, @NonNull TTAdNative.SplashAdListener splashAdListener, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adSlot, splashAdListener, i2) == null) {
-            this.f66046b = k();
-            this.f66045a = adSlot;
-            this.f66047c = splashAdListener;
-            this.f66051g.set(false);
-            this.f66052h = null;
-            this.f66053i = null;
-            this.f66054j = null;
+            this.f66357b = k();
+            this.f66356a = adSlot;
+            this.f66358c = splashAdListener;
+            this.f66362g.set(false);
+            this.f66363h = null;
+            this.f66364i = null;
+            this.f66365j = null;
             k.b("splashLoadAd", "开发者传入的超时时长 timeOut " + i2);
             this.C = com.bytedance.sdk.openadsdk.q.q.a(adSlot);
             long j2 = (long) i2;
@@ -502,25 +502,25 @@ public class b implements w.a {
             }
             k.f("splashLoadAd", "getSplashAd 实际 timeOut " + i2);
             long j3 = (long) i2;
-            this.f66050f.sendEmptyMessageDelayed(2, j3);
+            this.f66361f.sendEmptyMessageDelayed(2, j3);
             int i3 = i2 + (-300);
             if (i3 > 0) {
-                this.f66050f.sendEmptyMessageDelayed(5, i3);
+                this.f66361f.sendEmptyMessageDelayed(5, i3);
             }
             a(i2);
-            n nVar = this.f66046b;
-            nVar.f66495g = j2;
-            nVar.f66496h = c2;
-            nVar.f66497i = j3;
+            n nVar = this.f66357b;
+            nVar.f66806g = j2;
+            nVar.f66807h = c2;
+            nVar.f66808i = j3;
             com.bytedance.sdk.component.d.e.b(new com.bytedance.sdk.component.d.g(this, "getSplashAd", j2) { // from class: com.bytedance.sdk.openadsdk.component.splash.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ long f66055a;
+                public final /* synthetic */ long f66366a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f66056b;
+                public final /* synthetic */ b f66367b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -540,8 +540,8 @@ public class b implements w.a {
                             return;
                         }
                     }
-                    this.f66056b = this;
-                    this.f66055a = j2;
+                    this.f66367b = this;
+                    this.f66366a = j2;
                 }
 
                 @Override // java.lang.Runnable
@@ -550,10 +550,10 @@ public class b implements w.a {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("publisher_timeout_control", this.f66055a);
+                            jSONObject.put("publisher_timeout_control", this.f66366a);
                         } catch (Throwable unused) {
                         }
-                        com.bytedance.sdk.openadsdk.j.a.a().b(com.bytedance.sdk.openadsdk.j.a.c.b().a(3).c(this.f66056b.f66045a.getCodeId()).f(this.f66056b.f66046b.f66489a).b(jSONObject.toString()));
+                        com.bytedance.sdk.openadsdk.j.a.a().b(com.bytedance.sdk.openadsdk.j.a.c.b().a(3).c(this.f66367b.f66356a.getCodeId()).f(this.f66367b.f66357b.f66800a).b(jSONObject.toString()));
                     }
                 }
             });
@@ -609,28 +609,28 @@ public class b implements w.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ boolean f66057a;
+                    public final /* synthetic */ boolean f66368a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ File f66058b;
+                    public final /* synthetic */ File f66369b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f66059c;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f66370c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ m f66060d;
+                    public final /* synthetic */ m f66371d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ int f66061e;
+                    public final /* synthetic */ int f66372e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ long f66062f;
+                    public final /* synthetic */ long f66373f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66063g;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66374g;
 
                     /* renamed from: h  reason: collision with root package name */
-                    public final /* synthetic */ b f66064h;
+                    public final /* synthetic */ b f66375h;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -647,26 +647,26 @@ public class b implements w.a {
                                 return;
                             }
                         }
-                        this.f66064h = this;
-                        this.f66057a = aN;
-                        this.f66058b = a2;
-                        this.f66059c = aVar;
-                        this.f66060d = mVar;
-                        this.f66061e = d2;
-                        this.f66062f = elapsedRealtime;
-                        this.f66063g = cVar;
+                        this.f66375h = this;
+                        this.f66368a = aN;
+                        this.f66369b = a2;
+                        this.f66370c = aVar;
+                        this.f66371d = mVar;
+                        this.f66372e = d2;
+                        this.f66373f = elapsedRealtime;
+                        this.f66374g = cVar;
                     }
 
                     @Override // com.bytedance.sdk.component.net.callback.NetCallback
                     public void onFailure(NetExecutor netExecutor, IOException iOException) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netExecutor, iOException) == null) {
-                            this.f66064h.E = 3;
-                            c.a(this.f66062f, true, false, this.f66060d, -2L, new NetResponse(false, -2, iOException.getMessage(), null, null, this.f66062f, SystemClock.elapsedRealtime()));
-                            this.f66063g.b(-14).g(g.a(-14));
-                            a aVar2 = new a(this.f66064h, 2, -14, g.a(-14), null, this.f66063g);
+                            this.f66375h.E = 3;
+                            c.a(this.f66373f, true, false, this.f66371d, -2L, new NetResponse(false, -2, iOException.getMessage(), null, null, this.f66373f, SystemClock.elapsedRealtime()));
+                            this.f66374g.b(-14).g(g.a(-14));
+                            a aVar2 = new a(this.f66375h, 2, -14, g.a(-14), null, this.f66374g);
                             k.f("splashLoadAd", "视频文件缓存失败 onErrorResponse REQUEST_TYPE_REAL_NETWORK");
-                            this.f66064h.a(15000, aVar2, (q) null, (e) null, (String) null);
+                            this.f66375h.a(15000, aVar2, (q) null, (e) null, (String) null);
                         }
                     }
 
@@ -675,26 +675,26 @@ public class b implements w.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netExecutor, netResponse) == null) {
                             if (!netResponse.isSuccess() || netResponse.getFile() == null || !netResponse.getFile().exists()) {
-                                this.f66064h.E = 3;
-                                this.f66063g.b(-14).g(g.a(-14));
-                                a aVar2 = new a(this.f66064h, 2, -14, g.a(-14), null, this.f66063g);
+                                this.f66375h.E = 3;
+                                this.f66374g.b(-14).g(g.a(-14));
+                                a aVar2 = new a(this.f66375h, 2, -14, g.a(-14), null, this.f66374g);
                                 k.f("splashLoadAd", "视频文件缓存失败 response == null REQUEST_TYPE_REAL_NETWORK");
-                                this.f66064h.a(15000, aVar2, (q) null, (e) null, (String) null);
-                                c.a(this.f66062f, true, false, this.f66060d, netResponse.getCode(), netResponse);
+                                this.f66375h.a(15000, aVar2, (q) null, (e) null, (String) null);
+                                c.a(this.f66373f, true, false, this.f66371d, netResponse.getCode(), netResponse);
                                 return;
                             }
-                            if (!this.f66057a) {
-                                c.a(this.f66058b);
-                                com.bytedance.sdk.openadsdk.component.splash.a.a(o.a()).a(this.f66058b);
+                            if (!this.f66368a) {
+                                c.a(this.f66369b);
+                                com.bytedance.sdk.openadsdk.component.splash.a.a(o.a()).a(this.f66369b);
                             }
-                            com.bytedance.sdk.openadsdk.component.splash.a.a(o.a()).b(new q(this.f66059c, this.f66060d, null));
+                            com.bytedance.sdk.openadsdk.component.splash.a.a(o.a()).b(new q(this.f66370c, this.f66371d, null));
                             k.f("splashLoadAd", "视频文件获取成功, 尝试加载视频开屏");
-                            com.bytedance.sdk.openadsdk.component.splash.a.a(o.a()).a(new q(this.f66059c, this.f66060d, null), new a.d(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.b.10.1
+                            com.bytedance.sdk.openadsdk.component.splash.a.a(o.a()).a(new q(this.f66370c, this.f66371d, null), new a.d(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.b.10.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass10 f66065a;
+                                public final /* synthetic */ AnonymousClass10 f66376a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -711,19 +711,19 @@ public class b implements w.a {
                                             return;
                                         }
                                     }
-                                    this.f66065a = this;
+                                    this.f66376a = this;
                                 }
 
                                 @Override // com.bytedance.sdk.openadsdk.component.splash.a.d
                                 public void a() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        b bVar = this.f66065a.f66064h;
-                                        bVar.a(15000, this.f66065a.f66061e + "");
+                                        b bVar = this.f66376a.f66375h;
+                                        bVar.a(15000, this.f66376a.f66372e + "");
                                     }
                                 }
                             });
-                            c.a(this.f66062f, true, true, this.f66060d, 0L, netResponse);
+                            c.a(this.f66373f, true, true, this.f66371d, 0L, netResponse);
                         }
                     }
                 });
@@ -737,17 +737,17 @@ public class b implements w.a {
     private void a() {
         AdSlot adSlot;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || this.l == null || (adSlot = this.f66045a) == null || !TextUtils.isEmpty(adSlot.getBidAdm())) {
+        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || this.l == null || (adSlot = this.f66356a) == null || !TextUtils.isEmpty(adSlot.getBidAdm())) {
             return;
         }
-        this.l.b(this.f66045a, this.f66046b);
+        this.l.b(this.f66356a, this.f66357b);
     }
 
     private void a(int i2) {
         int g2;
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65550, this, i2) == null) || (g2 = o.h().g(this.C)) >= i2 || g2 <= 0 || o.h().f(this.C) != 2 || (wVar = this.f66050f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65550, this, i2) == null) || (g2 = o.h().g(this.C)) >= i2 || g2 <= 0 || o.h().f(this.C) != 2 || (wVar = this.f66361f) == null) {
             return;
         }
         wVar.sendEmptyMessageDelayed(4, i2 - g2);
@@ -764,13 +764,13 @@ public class b implements w.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f66086a;
+                    public final /* synthetic */ String f66397a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f66087b;
+                    public final /* synthetic */ int f66398b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ b f66088c;
+                    public final /* synthetic */ b f66399c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -787,51 +787,51 @@ public class b implements w.a {
                                 return;
                             }
                         }
-                        this.f66088c = this;
-                        this.f66086a = str;
-                        this.f66087b = i2;
+                        this.f66399c = this;
+                        this.f66397a = str;
+                        this.f66398b = i2;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.component.splash.a.c
                     public void a(@NonNull q qVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                            this.f66088c.B = qVar.a();
-                            b bVar = this.f66088c;
+                            this.f66399c.B = qVar.a();
+                            b bVar = this.f66399c;
                             bVar.b(bVar.B);
                             if (qVar.a() != null && qVar.a().V() != null && qVar.a().V().i() != null) {
-                                String a2 = this.f66088c.l.a(qVar.a());
+                                String a2 = this.f66399c.l.a(qVar.a());
                                 if (a2 == null) {
                                     k.f("splashLoadAd", "tryDisplaySplashAdFromCache onSuccess videoPath == null tryDisplaySplashImageFromCache");
-                                    this.f66088c.a(this.f66086a);
+                                    this.f66399c.a(this.f66397a);
                                     return;
                                 }
                                 k.f("splashLoadAd", "tryDisplaySplashAdFromCache onSuccess videoPath " + a2);
-                                com.bytedance.sdk.openadsdk.j.a.c a3 = this.f66088c.a(4, qVar);
-                                e a4 = this.f66088c.a(qVar, a2);
-                                if (this.f66087b == 15000) {
-                                    this.f66088c.n.set(!this.f66088c.a(qVar.a()));
+                                com.bytedance.sdk.openadsdk.j.a.c a3 = this.f66399c.a(4, qVar);
+                                e a4 = this.f66399c.a(qVar, a2);
+                                if (this.f66398b == 15000) {
+                                    this.f66399c.n.set(!this.f66399c.a(qVar.a()));
                                 } else {
-                                    this.f66088c.f66054j = a4;
+                                    this.f66399c.f66365j = a4;
                                 }
-                                this.f66088c.o.set(!this.f66088c.a(qVar.a()));
-                                if (this.f66087b == 15000 || !this.f66088c.p) {
-                                    this.f66088c.m.set(true);
+                                this.f66399c.o.set(!this.f66399c.a(qVar.a()));
+                                if (this.f66398b == 15000 || !this.f66399c.p) {
+                                    this.f66399c.m.set(true);
                                     k.c("splashLoadAd", "不检测直接返回缓存....splashAd=" + a4);
                                     k.f("splashLoadAd", "tryDisplaySplashAdFromCache onSuccess 加载视频缓存");
-                                    b bVar2 = this.f66088c;
-                                    bVar2.a(this.f66087b, new a(bVar2, 1, 0, null, a4, a3), qVar, a4, a2);
+                                    b bVar2 = this.f66399c;
+                                    bVar2.a(this.f66398b, new a(bVar2, 1, 0, null, a4, a3), qVar, a4, a2);
                                 } else {
-                                    this.f66088c.a(qVar, a4, a2);
+                                    this.f66399c.a(qVar, a4, a2);
                                 }
-                                if (this.f66088c.a(qVar.a())) {
-                                    this.f66088c.a(qVar, a4, a2, a3, this.f66087b);
+                                if (this.f66399c.a(qVar.a())) {
+                                    this.f66399c.a(qVar, a4, a2, a3, this.f66398b);
                                     return;
                                 }
                                 return;
                             }
                             k.f("splashLoadAd", "tryDisplaySplashAdFromCache videoPath == null tryDisplaySplashImageFromCache");
-                            this.f66088c.a(this.f66086a);
+                            this.f66399c.a(this.f66397a);
                         }
                     }
 
@@ -839,7 +839,7 @@ public class b implements w.a {
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f66088c.a(this.f66086a);
+                            this.f66399c.a(this.f66397a);
                         }
                     }
                 });
@@ -857,9 +857,9 @@ public class b implements w.a {
                 return;
             }
             JSONObject jSONObject = new JSONObject();
-            k.f("splashLoadAd", "reportMarkAtRespSucc sSplashLoadImageSource " + com.bytedance.sdk.openadsdk.k.a.c.f67970a);
+            k.f("splashLoadAd", "reportMarkAtRespSucc sSplashLoadImageSource " + com.bytedance.sdk.openadsdk.k.a.c.f68281a);
             try {
-                jSONObject.put("image_CacheType", com.bytedance.sdk.openadsdk.k.a.c.f67970a);
+                jSONObject.put("image_CacheType", com.bytedance.sdk.openadsdk.k.a.c.f68281a);
             } catch (Throwable unused) {
             }
             com.bytedance.sdk.openadsdk.j.a.a().c(cVar.b(jSONObject.toString()));
@@ -894,9 +894,9 @@ public class b implements w.a {
                 }
             }
             if (str3 == null) {
-                str3 = this.f66046b.f66489a;
+                str3 = this.f66357b.f66800a;
             }
-            com.bytedance.sdk.openadsdk.j.a.c c2 = com.bytedance.sdk.openadsdk.j.a.c.b().f(str3).a(i2).c(this.f66045a.getCodeId());
+            com.bytedance.sdk.openadsdk.j.a.c c2 = com.bytedance.sdk.openadsdk.j.a.c.b().f(str3).a(i2).c(this.f66356a.getCodeId());
             if (str2 != null) {
                 c2.d(str2);
             }
@@ -942,7 +942,7 @@ public class b implements w.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f66089a;
+                public final /* synthetic */ b f66400a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -959,42 +959,42 @@ public class b implements w.a {
                             return;
                         }
                     }
-                    this.f66089a = this;
+                    this.f66400a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.component.splash.a.c
                 public void a(@NonNull q qVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                        com.bytedance.sdk.openadsdk.j.a.c a2 = this.f66089a.a(4, qVar);
-                        this.f66089a.B = qVar.a();
-                        b bVar = this.f66089a;
+                        com.bytedance.sdk.openadsdk.j.a.c a2 = this.f66400a.a(4, qVar);
+                        this.f66400a.B = qVar.a();
+                        b bVar = this.f66400a;
                         bVar.b(bVar.B);
                         if (!c.b(qVar)) {
-                            if (this.f66089a.e()) {
+                            if (this.f66400a.e()) {
                                 k.b("splashLoadAd", "缓存广告素材解析出错");
-                                b bVar2 = this.f66089a;
-                                bVar2.a(bVar2.f66045a);
+                                b bVar2 = this.f66400a;
+                                bVar2.a(bVar2.f66356a);
                                 return;
                             }
-                            b bVar3 = this.f66089a;
+                            b bVar3 = this.f66400a;
                             bVar3.a(15001, new a(bVar3, 2, 0, null, null, a2), qVar, (e) null, (String) null);
                             return;
                         }
                         qVar.a().b(true);
                         qVar.a().c(false);
-                        this.f66089a.o.set(!this.f66089a.a(qVar.a()));
-                        e a3 = this.f66089a.a(qVar, (String) null);
-                        if (!this.f66089a.p) {
+                        this.f66400a.o.set(!this.f66400a.a(qVar.a()));
+                        e a3 = this.f66400a.a(qVar, (String) null);
+                        if (!this.f66400a.p) {
                             k.c("splashLoadAd", ".....不检测直接返回缓存....");
-                            this.f66089a.m.set(true);
-                            b bVar4 = this.f66089a;
+                            this.f66400a.m.set(true);
+                            b bVar4 = this.f66400a;
                             bVar4.a(15001, new a(bVar4, 1, 0, null, a3, a2), qVar, a3, (String) null);
                         } else {
-                            this.f66089a.a(qVar, a3, (String) null);
+                            this.f66400a.a(qVar, a3, (String) null);
                         }
-                        if (this.f66089a.a(qVar.a())) {
-                            this.f66089a.a(qVar, a3, (String) null, a2, 15001);
+                        if (this.f66400a.a(qVar.a())) {
+                            this.f66400a.a(qVar, a3, (String) null, a2, 15001);
                         }
                     }
                 }
@@ -1004,14 +1004,14 @@ public class b implements w.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         k.b("splashLoadAd", "缓存广告对象解析出错");
-                        if (!this.f66089a.e()) {
-                            com.bytedance.sdk.openadsdk.j.a.c a2 = this.f66089a.a(4, (q) null);
-                            b bVar = this.f66089a;
+                        if (!this.f66400a.e()) {
+                            com.bytedance.sdk.openadsdk.j.a.c a2 = this.f66400a.a(4, (q) null);
+                            b bVar = this.f66400a;
                             bVar.a(15001, new a(bVar, 2, 0, null, null, a2), (q) null, (e) null, (String) null);
                             return;
                         }
-                        b bVar2 = this.f66089a;
-                        bVar2.a(bVar2.f66045a);
+                        b bVar2 = this.f66400a;
+                        bVar2.a(bVar2.f66356a);
                     }
                 }
             });
@@ -1025,21 +1025,21 @@ public class b implements w.a {
             k.f("splashLoadAd", "try LoadSplashAdFromNetwork......");
             com.bytedance.sdk.openadsdk.j.a.c a2 = a(3, (q) null);
             if (o.h().i(adSlot.getCodeId()) || adSlot.getExpressViewAcceptedWidth() > 0.0f) {
-                this.f66046b.f66493e = 2;
+                this.f66357b.f66804e = 2;
             }
-            p pVar = this.f66048d;
+            p pVar = this.f66359d;
             if (pVar instanceof com.bytedance.sdk.openadsdk.core.q) {
                 ((com.bytedance.sdk.openadsdk.core.q) pVar).a(this.z);
             }
-            this.f66048d.a(adSlot, this.f66046b, 3, new p.b(this, a2) { // from class: com.bytedance.sdk.openadsdk.component.splash.b.7
+            this.f66359d.a(adSlot, this.f66357b, 3, new p.b(this, a2) { // from class: com.bytedance.sdk.openadsdk.component.splash.b.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66090a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66401a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f66091b;
+                public final /* synthetic */ b f66402b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1056,23 +1056,23 @@ public class b implements w.a {
                             return;
                         }
                     }
-                    this.f66091b = this;
-                    this.f66090a = a2;
+                    this.f66402b = this;
+                    this.f66401a = a2;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.p.b
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.f66090a.b(i2).g(str);
+                        this.f66401a.b(i2).g(str);
                         if (i2 == 20001) {
-                            this.f66091b.E = 1;
+                            this.f66402b.E = 1;
                         } else {
-                            this.f66091b.E = 0;
+                            this.f66402b.E = 0;
                         }
                         k.b("splashLoadAd", "tryLoadSplashAdFromNetwork REQUEST_TYPE_REAL_NETWORK onError" + i2 + ",msg=" + g.a(i2));
-                        b bVar = this.f66091b;
-                        bVar.a(15000, new a(bVar, 2, i2, str, null, this.f66090a), (q) null, (e) null, (String) null);
+                        b bVar = this.f66402b;
+                        bVar.a(15000, new a(bVar, 2, i2, str, null, this.f66401a), (q) null, (e) null, (String) null);
                         k.b("splashLoadAd", str + i2);
                     }
                 }
@@ -1081,48 +1081,48 @@ public class b implements w.a {
                 public void a(com.bytedance.sdk.openadsdk.core.e.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                        this.f66091b.g();
-                        this.f66091b.z.j(System.currentTimeMillis());
+                        this.f66402b.g();
+                        this.f66402b.z.j(System.currentTimeMillis());
                         if (aVar != null) {
-                            this.f66090a.f(aVar.a());
+                            this.f66401a.f(aVar.a());
                         }
                         if (c.b(aVar)) {
                             m mVar = aVar.c().get(0);
                             String ao = mVar.ao();
                             String ak = mVar.ak();
-                            this.f66091b.w = aVar;
+                            this.f66402b.w = aVar;
                             if (!TextUtils.isEmpty(ao)) {
-                                this.f66090a.h(ao).d(ak);
+                                this.f66401a.h(ao).d(ak);
                                 try {
-                                    this.f66090a.f(new JSONObject(ao).optString(IAdRequestParam.REQ_ID));
+                                    this.f66401a.f(new JSONObject(ao).optString(IAdRequestParam.REQ_ID));
                                 } catch (JSONException e2) {
                                     e2.printStackTrace();
                                 }
                             }
                             k.f("splashLoadAd", "tryLoadSplashAdFromNetwork splashAdMeta.isValid() " + mVar.aK());
                             if (mVar.aK()) {
-                                this.f66091b.q = 0L;
-                                this.f66091b.B = mVar;
-                                this.f66091b.b(mVar);
-                                this.f66091b.c(mVar);
+                                this.f66402b.q = 0L;
+                                this.f66402b.B = mVar;
+                                this.f66402b.b(mVar);
+                                this.f66402b.c(mVar);
                                 int u = mVar.u();
                                 int v = mVar.v();
                                 com.bytedance.sdk.openadsdk.q.e.a(v);
                                 k.f("splashLoadAd", " 开屏素材存储是否是内部存储还是外部存储 storageFrom " + v);
                                 k.f("splashLoadAd", "tryLoadSplashAdFromNetwork cacheSort " + u);
                                 if (u == 1) {
-                                    b bVar = this.f66091b;
-                                    bVar.a(aVar, bVar.f66049e, this.f66090a);
+                                    b bVar = this.f66402b;
+                                    bVar.a(aVar, bVar.f66360e, this.f66401a);
                                     return;
                                 }
-                                b bVar2 = this.f66091b;
-                                bVar2.b(aVar, bVar2.f66049e, this.f66090a);
+                                b bVar2 = this.f66402b;
+                                bVar2.b(aVar, bVar2.f66360e, this.f66401a);
                                 return;
                             }
-                            this.f66091b.a(this.f66090a);
+                            this.f66402b.a(this.f66401a);
                             return;
                         }
-                        this.f66091b.a(this.f66090a);
+                        this.f66402b.a(this.f66401a);
                     }
                 }
             });
@@ -1138,10 +1138,10 @@ public class b implements w.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66084a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66395a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f66085b;
+                public final /* synthetic */ b f66396b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -1161,16 +1161,16 @@ public class b implements w.a {
                             return;
                         }
                     }
-                    this.f66085b = this;
-                    this.f66084a = cVar;
+                    this.f66396b = this;
+                    this.f66395a = cVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f66085b.c(this.f66084a);
-                        com.bytedance.sdk.openadsdk.j.a.a().g(this.f66084a);
+                        this.f66396b.c(this.f66395a);
+                        com.bytedance.sdk.openadsdk.j.a.a().g(this.f66395a);
                     }
                 }
             });
@@ -1215,22 +1215,22 @@ public class b implements w.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f66092a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f66403a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f66093b;
+                public final /* synthetic */ boolean f66404b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ m f66094c;
+                public final /* synthetic */ m f66405c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66095d;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66406d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f66096e;
+                public final /* synthetic */ String f66407e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ b f66097f;
+                public final /* synthetic */ b f66408f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1247,12 +1247,12 @@ public class b implements w.a {
                             return;
                         }
                     }
-                    this.f66097f = this;
-                    this.f66092a = aVar;
-                    this.f66093b = z;
-                    this.f66094c = mVar;
-                    this.f66095d = cVar;
-                    this.f66096e = a2;
+                    this.f66408f = this;
+                    this.f66403a = aVar;
+                    this.f66404b = z;
+                    this.f66405c = mVar;
+                    this.f66406d = cVar;
+                    this.f66407e = a2;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.q.g.a
@@ -1260,17 +1260,17 @@ public class b implements w.a {
                 public void a(@NonNull com.bytedance.sdk.openadsdk.k.a.b bVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                        this.f66097f.a(bVar);
+                        this.f66408f.a(bVar);
                         k.f("splashLoadAd", "图片加载成功");
-                        c.a(this.f66092a);
-                        this.f66097f.z.d(com.bytedance.sdk.openadsdk.k.a.c.f67970a);
-                        if (!this.f66093b) {
+                        c.a(this.f66403a);
+                        this.f66408f.z.d(com.bytedance.sdk.openadsdk.k.a.c.f68281a);
+                        if (!this.f66404b) {
                             com.bytedance.sdk.component.d.e.a(new com.bytedance.sdk.component.d.g(this, "preLoadImage") { // from class: com.bytedance.sdk.openadsdk.component.splash.b.8.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass8 f66098a;
+                                public final /* synthetic */ AnonymousClass8 f66409a;
 
                                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                                 {
@@ -1290,46 +1290,46 @@ public class b implements w.a {
                                             return;
                                         }
                                     }
-                                    this.f66098a = this;
+                                    this.f66409a = this;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        com.bytedance.sdk.openadsdk.e.d.a(this.f66098a.f66094c, "splash_ad", System.currentTimeMillis() - this.f66098a.f66097f.r);
+                                        com.bytedance.sdk.openadsdk.e.d.a(this.f66409a.f66405c, "splash_ad", System.currentTimeMillis() - this.f66409a.f66408f.r);
                                     }
                                 }
                             }, 5);
                         }
                         if (!bVar.c()) {
-                            this.f66097f.E = 3;
-                            c.a(this.f66095d, this.f66096e);
-                            this.f66095d.b(-7).g(com.bytedance.sdk.openadsdk.core.g.a(-7));
-                            a aVar2 = new a(this.f66097f, 2, -7, com.bytedance.sdk.openadsdk.core.g.a(-7), null, this.f66095d);
+                            this.f66408f.E = 3;
+                            c.a(this.f66406d, this.f66407e);
+                            this.f66406d.b(-7).g(com.bytedance.sdk.openadsdk.core.g.a(-7));
+                            a aVar2 = new a(this.f66408f, 2, -7, com.bytedance.sdk.openadsdk.core.g.a(-7), null, this.f66406d);
                             k.b("splashLoadAd", "preLoadImage  data == null REQUEST_TYPE_REAL_NETWORK");
-                            this.f66097f.E = 3;
-                            this.f66097f.a(15000, aVar2, (q) null, (e) null, (String) null);
-                            if (this.f66093b) {
-                                c.a(this.f66097f.s, false, false, this.f66094c, -7, null);
+                            this.f66408f.E = 3;
+                            this.f66408f.a(15000, aVar2, (q) null, (e) null, (String) null);
+                            if (this.f66404b) {
+                                c.a(this.f66408f.s, false, false, this.f66405c, -7, null);
                             }
                             k.b("SplashAdLoadManager", "图片加载失败");
                             return;
                         }
-                        this.f66094c.c(false);
-                        e eVar = new e(this.f66097f.f66049e, this.f66094c, this.f66097f.f66045a, "splash_ad");
-                        this.f66097f.f66053i = eVar;
-                        if (this.f66097f.D != null) {
-                            this.f66097f.f66053i.c(this.f66097f.D);
+                        this.f66405c.c(false);
+                        e eVar = new e(this.f66408f.f66360e, this.f66405c, this.f66408f.f66356a, "splash_ad");
+                        this.f66408f.f66364i = eVar;
+                        if (this.f66408f.D != null) {
+                            this.f66408f.f66364i.c(this.f66408f.D);
                         }
                         eVar.a(bVar);
-                        this.f66097f.n.set(this.f66094c.d() == 1);
-                        this.f66097f.a(15000, new a(this.f66097f, 1, 0, null, eVar, this.f66095d), (q) null, eVar, (String) null);
-                        if (this.f66097f.a(this.f66094c)) {
-                            this.f66097f.a((q) null, eVar, (String) null, this.f66095d);
+                        this.f66408f.n.set(this.f66405c.d() == 1);
+                        this.f66408f.a(15000, new a(this.f66408f, 1, 0, null, eVar, this.f66406d), (q) null, eVar, (String) null);
+                        if (this.f66408f.a(this.f66405c)) {
+                            this.f66408f.a((q) null, eVar, (String) null, this.f66406d);
                         }
-                        if (this.f66093b) {
-                            c.a(this.f66097f.s, false, true, this.f66094c, 0L, null);
+                        if (this.f66404b) {
+                            c.a(this.f66408f.s, false, true, this.f66405c, 0L, null);
                         }
                     }
                 }
@@ -1338,7 +1338,7 @@ public class b implements w.a {
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f66097f.h();
+                        this.f66408f.h();
                     }
                 }
 
@@ -1347,15 +1347,15 @@ public class b implements w.a {
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        c.a(this.f66092a);
-                        this.f66097f.E = 3;
-                        c.a(this.f66095d, this.f66096e);
-                        this.f66095d.b(-7).g(com.bytedance.sdk.openadsdk.core.g.a(-7));
+                        c.a(this.f66403a);
+                        this.f66408f.E = 3;
+                        c.a(this.f66406d, this.f66407e);
+                        this.f66406d.b(-7).g(com.bytedance.sdk.openadsdk.core.g.a(-7));
                         k.b("splashLoadAd", "splashLoad----5-LoadImageBytes-onFailed-code=-7,msg=" + com.bytedance.sdk.openadsdk.core.g.a(-7));
-                        b bVar = this.f66097f;
-                        bVar.a(15000, new a(bVar, 2, -7, com.bytedance.sdk.openadsdk.core.g.a(-7), null, this.f66095d), (q) null, (e) null, (String) null);
-                        if (this.f66093b) {
-                            c.a(this.f66097f.s, false, false, this.f66094c, -7L, null);
+                        b bVar = this.f66408f;
+                        bVar.a(15000, new a(bVar, 2, -7, com.bytedance.sdk.openadsdk.core.g.a(-7), null, this.f66406d), (q) null, (e) null, (String) null);
+                        if (this.f66404b) {
+                            c.a(this.f66408f.s, false, false, this.f66405c, -7L, null);
                         }
                         k.b("SplashAdLoadManager", "图片加载失败");
                     }
@@ -1379,7 +1379,7 @@ public class b implements w.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f66099a;
+            public final /* synthetic */ b f66410a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1396,7 +1396,7 @@ public class b implements w.a {
                         return;
                     }
                 }
-                this.f66099a = this;
+                this.f66410a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.q.g.a
@@ -1410,9 +1410,9 @@ public class b implements w.a {
             public void a(@NonNull com.bytedance.sdk.openadsdk.k.a.b bVar) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && bVar.c()) {
-                    this.f66099a.D = bVar;
-                    if (this.f66099a.f66053i != null) {
-                        this.f66099a.f66053i.c(bVar);
+                    this.f66410a.D = bVar;
+                    if (this.f66410a.f66364i != null) {
+                        this.f66410a.f66364i.c(bVar);
                     }
                 }
             }
@@ -1439,22 +1439,22 @@ public class b implements w.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ int f66066a;
+                    public final /* synthetic */ int f66377a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ e f66067b;
+                    public final /* synthetic */ e f66378b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66068c;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66379c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ q f66069d;
+                    public final /* synthetic */ q f66380d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f66070e;
+                    public final /* synthetic */ String f66381e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ b f66071f;
+                    public final /* synthetic */ b f66382f;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1471,12 +1471,12 @@ public class b implements w.a {
                                 return;
                             }
                         }
-                        this.f66071f = this;
-                        this.f66066a = i2;
-                        this.f66067b = eVar;
-                        this.f66068c = cVar;
-                        this.f66069d = qVar;
-                        this.f66070e = str;
+                        this.f66382f = this;
+                        this.f66377a = i2;
+                        this.f66378b = eVar;
+                        this.f66379c = cVar;
+                        this.f66380d = qVar;
+                        this.f66381e = str;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -1497,15 +1497,15 @@ public class b implements w.a {
                     public void onRenderFail(View view, String str2, int i3) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str2, i3) == null) {
-                            if (this.f66066a == 15000) {
-                                this.f66071f.n.set(true);
+                            if (this.f66377a == 15000) {
+                                this.f66382f.n.set(true);
                                 k.b("splashLoadAd", "模版渲染--》onRenderFail msg: " + str2 + " code " + i3);
                             } else {
-                                this.f66071f.o.set(true);
+                                this.f66382f.o.set(true);
                                 k.b("splashLoadAd", "缓存模版渲染--》onRenderFail msg: " + str2 + " code " + i3);
                             }
-                            b bVar = this.f66071f;
-                            bVar.a(this.f66066a, new a(bVar, 1, 0, null, this.f66067b, this.f66068c), this.f66069d, this.f66067b, this.f66070e);
+                            b bVar = this.f66382f;
+                            bVar.a(this.f66377a, new a(bVar, 1, 0, null, this.f66378b, this.f66379c), this.f66380d, this.f66378b, this.f66381e);
                         }
                     }
 
@@ -1513,15 +1513,15 @@ public class b implements w.a {
                     public void onRenderSuccess(View view, float f2, float f3) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                            if (this.f66066a == 15000) {
-                                this.f66071f.n.set(true);
+                            if (this.f66377a == 15000) {
+                                this.f66382f.n.set(true);
                                 k.b("splashLoadAd", "模版渲染--》onRenderSuccess start....= 实时 ");
                             } else {
-                                this.f66071f.o.set(true);
+                                this.f66382f.o.set(true);
                                 k.b("splashLoadAd", "缓存模版渲染--》onRenderSuccess start....=缓存");
                             }
-                            b bVar = this.f66071f;
-                            bVar.a(this.f66066a, new a(bVar, 1, 0, null, this.f66067b, this.f66068c), this.f66069d, this.f66067b, this.f66070e);
+                            b bVar = this.f66382f;
+                            bVar.a(this.f66377a, new a(bVar, 1, 0, null, this.f66378b, this.f66379c), this.f66380d, this.f66378b, this.f66381e);
                         }
                     }
                 });
@@ -1542,19 +1542,19 @@ public class b implements w.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ q f66072a;
+                    public final /* synthetic */ q f66383a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ e f66073b;
+                    public final /* synthetic */ e f66384b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66074c;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66385c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f66075d;
+                    public final /* synthetic */ String f66386d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ b f66076e;
+                    public final /* synthetic */ b f66387e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1571,11 +1571,11 @@ public class b implements w.a {
                                 return;
                             }
                         }
-                        this.f66076e = this;
-                        this.f66072a = qVar;
-                        this.f66073b = eVar;
-                        this.f66074c = cVar;
-                        this.f66075d = str;
+                        this.f66387e = this;
+                        this.f66383a = qVar;
+                        this.f66384b = eVar;
+                        this.f66385c = cVar;
+                        this.f66386d = str;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -1596,11 +1596,11 @@ public class b implements w.a {
                     public void onRenderFail(View view, String str2, int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str2, i2) == null) {
-                            this.f66076e.n.set(true);
+                            this.f66387e.n.set(true);
                             k.b("splashLoadAd", "实时模版渲染--》onRenderFail msg: " + str2 + " code " + i2);
-                            int i3 = this.f66072a == null ? 15000 : 15001;
-                            b bVar = this.f66076e;
-                            bVar.a(i3, new a(bVar, 1, 0, null, this.f66073b, this.f66074c), this.f66072a, this.f66073b, this.f66075d);
+                            int i3 = this.f66383a == null ? 15000 : 15001;
+                            b bVar = this.f66387e;
+                            bVar.a(i3, new a(bVar, 1, 0, null, this.f66384b, this.f66385c), this.f66383a, this.f66384b, this.f66386d);
                         }
                     }
 
@@ -1608,14 +1608,14 @@ public class b implements w.a {
                     public void onRenderSuccess(View view, float f2, float f3) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                            this.f66076e.n.set(true);
-                            int i2 = this.f66072a == null ? 15000 : 15001;
+                            this.f66387e.n.set(true);
+                            int i2 = this.f66383a == null ? 15000 : 15001;
                             StringBuilder sb = new StringBuilder();
                             sb.append("实时模版渲染--》onRenderSuccess start....=");
                             sb.append(i2 == 15000 ? "实时" : "缓存");
                             k.b("splashLoadAd", sb.toString());
-                            b bVar = this.f66076e;
-                            bVar.a(i2, new a(bVar, 1, 0, null, this.f66073b, this.f66074c), this.f66072a, this.f66073b, this.f66075d);
+                            b bVar = this.f66387e;
+                            bVar.a(i2, new a(bVar, 1, 0, null, this.f66384b, this.f66385c), this.f66383a, this.f66384b, this.f66386d);
                         }
                     }
                 });
@@ -1635,19 +1635,19 @@ public class b implements w.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ e f66077a;
+                    public final /* synthetic */ e f66388a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66078b;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f66389b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ q f66079c;
+                    public final /* synthetic */ q f66390c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f66080d;
+                    public final /* synthetic */ String f66391d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ b f66081e;
+                    public final /* synthetic */ b f66392e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1664,36 +1664,36 @@ public class b implements w.a {
                                 return;
                             }
                         }
-                        this.f66081e = this;
-                        this.f66077a = eVar;
-                        this.f66078b = r8;
-                        this.f66079c = qVar;
-                        this.f66080d = str;
+                        this.f66392e = this;
+                        this.f66388a = eVar;
+                        this.f66389b = r8;
+                        this.f66390c = qVar;
+                        this.f66391d = str;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.core.p.a
                     public void a(boolean z, long j2, long j3) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                            c.a(this.f66081e.f66045a, z, j2, j3);
-                            if (!z || this.f66081e.f66051g.get()) {
-                                if (this.f66081e.e() && !this.f66081e.f66051g.get()) {
+                            c.a(this.f66392e.f66356a, z, j2, j3);
+                            if (!z || this.f66392e.f66362g.get()) {
+                                if (this.f66392e.e() && !this.f66392e.f66362g.get()) {
                                     k.b("splashLoadAd", "开屏视频缓存广告不在投放期并且开屏广告没有回调出去则加载");
-                                    b bVar = this.f66081e;
-                                    bVar.a(bVar.f66045a);
+                                    b bVar = this.f66392e;
+                                    bVar.a(bVar.f66356a);
                                     return;
                                 }
                                 k.b("splashLoadAd", "并发请求开屏视频check 失败 无需再网络请求");
                                 int i2 = (int) j2;
-                                this.f66078b.b(i2).g(com.bytedance.sdk.openadsdk.core.g.a(i2));
-                                b bVar2 = this.f66081e;
-                                bVar2.a(15001, new a(bVar2, 2, 0, null, null, this.f66078b), this.f66079c, (e) null, (String) null);
+                                this.f66389b.b(i2).g(com.bytedance.sdk.openadsdk.core.g.a(i2));
+                                b bVar2 = this.f66392e;
+                                bVar2.a(15001, new a(bVar2, 2, 0, null, null, this.f66389b), this.f66390c, (e) null, (String) null);
                                 return;
                             }
                             k.b("splashLoadAd", "check 成功回调.......");
-                            this.f66081e.m.set(true);
-                            b bVar3 = this.f66081e;
-                            bVar3.a(15001, new a(bVar3, 1, 0, null, this.f66077a, this.f66078b), this.f66079c, this.f66077a, this.f66080d);
+                            this.f66392e.m.set(true);
+                            b bVar3 = this.f66392e;
+                            bVar3.a(15001, new a(bVar3, 1, 0, null, this.f66388a, this.f66389b), this.f66390c, this.f66388a, this.f66391d);
                         }
                     }
                 });
@@ -1702,7 +1702,7 @@ public class b implements w.a {
             k.b("splashLoadAd", "checkAdFromServer check fail !!!!");
             if (e()) {
                 k.b("splashLoadAd", "checkAdFromServer check fail !!!! ---> tryLoadSplashAdFromNetwork !!!");
-                a(this.f66045a);
+                a(this.f66356a);
                 return;
             }
             com.bytedance.sdk.openadsdk.j.a.c a3 = a(4, (q) null);
@@ -1777,7 +1777,7 @@ public class b implements w.a {
                     } else if (i2 == 15003) {
                         k.f("splashLoadAd", "splashAdTryCallback start....渲染超时请求来了！=" + eVar);
                     }
-                    if (this.f66051g.get()) {
+                    if (this.f66362g.get()) {
                         k.f("splashLoadAd", "splashAdTryCallback mSplashAdHasLoad==true 已成功回调，不再执行回调操作！！！");
                     } else if (eVar == null) {
                         if (!this.t.get() && !this.u.get()) {
@@ -1824,7 +1824,7 @@ public class b implements w.a {
                                     return;
                                 }
                             }
-                            if (this.F.get() && this.f66053i != null && this.f66053i.b()) {
+                            if (this.F.get() && this.f66364i != null && this.f66364i.b()) {
                                 k.d("splashLoadAd", "此时实时可能在渲染，避免缓存的渲染成功后直接被回调");
                                 return;
                             }
@@ -1904,9 +1904,9 @@ public class b implements w.a {
                 if (!TextUtils.isEmpty(str)) {
                     qVar.a().c(true);
                 }
-                e eVar = new e(this.f66049e, qVar.a(), str, this.f66045a, "splash_ad");
+                e eVar = new e(this.f66360e, qVar.a(), str, this.f66356a, "splash_ad");
                 if (TextUtils.isEmpty(str)) {
-                    this.f66052h = eVar;
+                    this.f66363h = eVar;
                 }
                 return eVar;
             }
@@ -1924,18 +1924,18 @@ public class b implements w.a {
                 if (aVar == null) {
                     k.a("splashAdListener is null, then return");
                     k.remove(this);
-                } else if (this.f66047c == null) {
+                } else if (this.f66358c == null) {
                     k.a("splashAdListener is null, then return");
-                    if (aVar.f66100a == 3) {
-                        b(aVar.f66104e);
+                    if (aVar.f66411a == 3) {
+                        b(aVar.f66415e);
                     }
                     k.remove(this);
-                } else if (!this.f66051g.get()) {
-                    this.f66051g.set(true);
-                    int i2 = aVar.f66100a;
+                } else if (!this.f66362g.get()) {
+                    this.f66362g.set(true);
+                    int i2 = aVar.f66411a;
                     if (i2 == 1) {
-                        d(aVar.f66104e);
-                        this.f66047c.onSplashAdLoad(aVar.f66103d);
+                        d(aVar.f66415e);
+                        this.f66358c.onSplashAdLoad(aVar.f66414d);
                         d(this.B);
                     } else if (i2 == 2) {
                         k.f("splashLoadAd", "onCallback CALLBACK_RESULT_FAILED");
@@ -1944,10 +1944,10 @@ public class b implements w.a {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ a f66082a;
+                            public final /* synthetic */ a f66393a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ b f66083b;
+                            public final /* synthetic */ b f66394b;
 
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
@@ -1967,36 +1967,36 @@ public class b implements w.a {
                                         return;
                                     }
                                 }
-                                this.f66083b = this;
-                                this.f66082a = aVar;
+                                this.f66394b = this;
+                                this.f66393a = aVar;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.f66083b.c(this.f66082a.f66104e);
+                                    this.f66394b.c(this.f66393a.f66415e);
                                 }
                             }
                         });
-                        this.f66047c.onError(aVar.f66101b, aVar.f66102c);
+                        this.f66358c.onError(aVar.f66412b, aVar.f66413c);
                     } else if (i2 != 3) {
-                        this.f66047c.onError(-2, com.bytedance.sdk.openadsdk.core.g.a(-2));
+                        this.f66358c.onError(-2, com.bytedance.sdk.openadsdk.core.g.a(-2));
                     } else {
                         k.f("splashLoadAd", "onCallback CALLBACK_RESULT_TIMEOUT");
-                        b(aVar.f66104e);
-                        this.f66047c.onTimeout();
+                        b(aVar.f66415e);
+                        this.f66358c.onTimeout();
                     }
-                    if (this.f66050f != null) {
-                        this.f66050f.removeMessages(2);
-                        this.f66050f.removeMessages(4);
+                    if (this.f66361f != null) {
+                        this.f66361f.removeMessages(2);
+                        this.f66361f.removeMessages(4);
                     }
-                    this.f66047c = null;
+                    this.f66358c = null;
                     k.remove(this);
                 } else {
-                    this.f66047c = null;
-                    if (aVar.f66100a == 3) {
-                        b(aVar.f66104e);
+                    this.f66358c = null;
+                    if (aVar.f66411a == 3) {
+                        b(aVar.f66415e);
                     }
                     k.remove(this);
                 }
@@ -2009,19 +2009,19 @@ public class b implements w.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             if (message.what == 1) {
-                if (!this.f66051g.get()) {
-                    this.f66051g.set(true);
+                if (!this.f66362g.get()) {
+                    this.f66362g.set(true);
                     b();
                     k.b("SplashAdLoadManager", "尝试从缓存中取");
                 } else {
                     i();
                     k.b("SplashAdLoadManager", "开始预加载");
                 }
-                this.f66050f.removeCallbacksAndMessages(null);
+                this.f66361f.removeCallbacksAndMessages(null);
             }
             if (message.what == 2) {
-                this.f66050f.removeCallbacksAndMessages(null);
-                if (this.f66051g.get()) {
+                this.f66361f.removeCallbacksAndMessages(null);
+                if (this.f66362g.get()) {
                     return;
                 }
                 k.b("splashLoadAd", "MSG_USER_TIME_OUT----7-");
@@ -2029,8 +2029,8 @@ public class b implements w.a {
             }
             if (message.what == 4) {
                 k.b("splashLoadAd", "handleMsg MSG_SPLASH_TIME_OUT ");
-                this.f66050f.removeMessages(4);
-                if (this.f66051g.get()) {
+                this.f66361f.removeMessages(4);
+                if (this.f66362g.get()) {
                     return;
                 }
                 this.n.set(true);
@@ -2042,7 +2042,7 @@ public class b implements w.a {
                 boolean au = mVar.au();
                 com.bytedance.sdk.openadsdk.j.a.c a2 = a(3, (q) null);
                 if (au) {
-                    e eVar = this.f66054j;
+                    e eVar = this.f66365j;
                     if (eVar == null) {
                         return;
                     }
@@ -2050,7 +2050,7 @@ public class b implements w.a {
                     k.b("splashLoadAd", "MSG_SPLASH_TIME_OUT videoCachePath " + a3);
                     a(15003, new a(this, 1, 0, null, eVar, a2), (q) null, eVar, a3);
                 } else {
-                    e eVar2 = this.f66052h;
+                    e eVar2 = this.f66363h;
                     if (eVar2 == null) {
                         return;
                     }

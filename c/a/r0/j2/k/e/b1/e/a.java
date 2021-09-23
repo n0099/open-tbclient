@@ -15,13 +15,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<EmotionImageData> f19901a;
+    public List<EmotionImageData> f19916a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f19902b;
+    public List<String> f19917b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SingleBarEmotionRecommendData f19903c;
+    public SingleBarEmotionRecommendData f19918c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,39 +40,39 @@ public class a {
     public List<EmotionImageData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19901a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19916a : (List) invokeV.objValue;
     }
 
     public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19902b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19917b : (List) invokeV.objValue;
     }
 
     public SingleBarEmotionRecommendData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19903c : (SingleBarEmotionRecommendData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19918c : (SingleBarEmotionRecommendData) invokeV.objValue;
     }
 
     public void d(List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f19901a = list;
+            this.f19916a = list;
         }
     }
 
     public void e(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f19902b = list;
+            this.f19917b = list;
         }
     }
 
     public void f(SingleBarEmotionRecommendData singleBarEmotionRecommendData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, singleBarEmotionRecommendData) == null) {
-            this.f19903c = singleBarEmotionRecommendData;
+            this.f19918c = singleBarEmotionRecommendData;
         }
     }
 }

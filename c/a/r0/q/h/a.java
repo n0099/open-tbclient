@@ -16,7 +16,7 @@ public class a implements c.a.r0.h3.a {
 
     /* renamed from: c.a.r0.q.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C1126a {
+    public static /* synthetic */ class C1124a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -26,7 +26,7 @@ public class a implements c.a.r0.h3.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f24157a;
+        public static a f24173a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,18 +42,18 @@ public class a implements c.a.r0.h3.a {
                     return;
                 }
             }
-            f24157a = new a(null);
+            f24173a = new a(null);
         }
     }
 
-    public /* synthetic */ a(C1126a c1126a) {
+    public /* synthetic */ a(C1124a c1124a) {
         this();
     }
 
     public static a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f24157a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f24173a : (a) invokeV.objValue;
     }
 
     @Override // c.a.r0.h3.a

@@ -11,7 +11,7 @@ public final class t {
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || v.f33838a < 18) {
+        if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || v.f33861a < 18) {
             return;
         }
         b(str);
@@ -27,7 +27,7 @@ public final class t {
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || v.f33838a < 18) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || v.f33861a < 18) {
             return;
         }
         d();

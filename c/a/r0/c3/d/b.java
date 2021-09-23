@@ -33,13 +33,13 @@ public class b extends c.a.r0.c3.d.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public Tencent f16525h;
+    public Tencent f16535h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f16526i;
+    public int f16536i;
 
     /* renamed from: j  reason: collision with root package name */
-    public IUiListener f16527j;
+    public IUiListener f16537j;
     public ShareEntity k;
     public final c.a.e.e.l.c<EmotionShareLoaderProc.EmotionShare> l;
     public c.a.e.e.l.c<c.a.e.l.d.a> m;
@@ -50,7 +50,7 @@ public class b extends c.a.r0.c3.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f16528a;
+        public final /* synthetic */ b f16538a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class b extends c.a.r0.c3.d.a {
                     return;
                 }
             }
-            this.f16528a = bVar;
+            this.f16538a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,12 +78,12 @@ public class b extends c.a.r0.c3.d.a {
             if (interceptable == null || interceptable.invokeLLI(1048576, this, emotionShare, str, i2) == null) {
                 super.onLoaded(emotionShare, str, i2);
                 if (emotionShare != null && emotionShare.image != null && !TextUtils.isEmpty(emotionShare.path)) {
-                    b bVar = this.f16528a;
-                    bVar.D(emotionShare.path, bVar.f16527j);
+                    b bVar = this.f16538a;
+                    bVar.D(emotionShare.path, bVar.f16537j);
                     return;
                 }
-                b bVar2 = this.f16528a;
-                bVar2.w(2, bVar2.f16526i);
+                b bVar2 = this.f16538a;
+                bVar2.w(2, bVar2.f16536i);
             }
         }
 
@@ -92,20 +92,20 @@ public class b extends c.a.r0.c3.d.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 super.onCancelled(str);
-                b bVar = this.f16528a;
-                bVar.w(3, bVar.f16526i);
+                b bVar = this.f16538a;
+                bVar.w(3, bVar.f16536i);
             }
         }
     }
 
     /* renamed from: c.a.r0.c3.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0795b extends c.a.e.e.l.c<c.a.e.l.d.a> {
+    public class C0793b extends c.a.e.e.l.c<c.a.e.l.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f16529a;
+        public final /* synthetic */ b f16539a;
 
         /* renamed from: c.a.r0.c3.d.b$b$a */
         /* loaded from: classes3.dex */
@@ -114,14 +114,14 @@ public class b extends c.a.r0.c3.d.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ C0795b f16530a;
+            public final /* synthetic */ C0793b f16540a;
 
-            public a(C0795b c0795b) {
+            public a(C0793b c0793b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0795b};
+                    Object[] objArr = {c0793b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -131,7 +131,7 @@ public class b extends c.a.r0.c3.d.a {
                         return;
                     }
                 }
-                this.f16530a = c0795b;
+                this.f16540a = c0793b;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -145,7 +145,7 @@ public class b extends c.a.r0.c3.d.a {
                         return null;
                     }
                     Bitmap p = aVarArr[0].p();
-                    b bVar = this.f16530a.f16529a;
+                    b bVar = this.f16540a.f16539a;
                     return bVar.r(p, bVar.k, true);
                 }
                 return (Bitmap) invokeL.objValue;
@@ -157,13 +157,13 @@ public class b extends c.a.r0.c3.d.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
                     super.onPostExecute((a) bitmap);
-                    b bVar = this.f16530a.f16529a;
-                    bVar.C(bVar.k, bVar.f16527j);
+                    b bVar = this.f16540a.f16539a;
+                    bVar.C(bVar.k, bVar.f16537j);
                 }
             }
         }
 
-        public C0795b(b bVar) {
+        public C0793b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,7 +178,7 @@ public class b extends c.a.r0.c3.d.a {
                     return;
                 }
             }
-            this.f16529a = bVar;
+            this.f16539a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -186,7 +186,7 @@ public class b extends c.a.r0.c3.d.a {
         public void onLoaded(c.a.e.l.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
-                super.onLoaded((C0795b) aVar, str, i2);
+                super.onLoaded((C0793b) aVar, str, i2);
                 if (aVar != null) {
                     a aVar2 = new a(this);
                     aVar2.setPriority(3);
@@ -202,10 +202,10 @@ public class b extends c.a.r0.c3.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.r0.c3.e.b f16531a;
+        public c.a.r0.c3.e.b f16541a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f16532b;
+        public final /* synthetic */ b f16542b;
 
         public c(b bVar, c.a.r0.c3.e.b bVar2) {
             Interceptable interceptable = $ic;
@@ -222,14 +222,14 @@ public class b extends c.a.r0.c3.d.a {
                     return;
                 }
             }
-            this.f16532b = bVar;
-            this.f16531a = bVar2;
+            this.f16542b = bVar;
+            this.f16541a = bVar2;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                FileHelper.deleteFile(new File(c.a.r0.c3.d.a.f16518e + c.a.r0.c3.d.a.f16519f));
+                FileHelper.deleteFile(new File(c.a.r0.c3.d.a.f16528e + c.a.r0.c3.d.a.f16529f));
             }
         }
 
@@ -237,11 +237,11 @@ public class b extends c.a.r0.c3.d.a {
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c.a.r0.c3.e.b bVar = this.f16531a;
+                c.a.r0.c3.e.b bVar = this.f16541a;
                 if (bVar != null) {
-                    bVar.onShare(this.f16532b.f16526i, 3);
+                    bVar.onShare(this.f16542b.f16536i, 3);
                 }
-                int i2 = this.f16532b.f16526i;
+                int i2 = this.f16542b.f16536i;
                 a();
             }
         }
@@ -250,12 +250,12 @@ public class b extends c.a.r0.c3.d.a {
         public void onComplete(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                c.a.r0.c3.e.b bVar = this.f16531a;
+                c.a.r0.c3.e.b bVar = this.f16541a;
                 if (bVar != null) {
-                    bVar.onShare(this.f16532b.f16526i, 1);
+                    bVar.onShare(this.f16542b.f16536i, 1);
                 }
-                b bVar2 = this.f16532b;
-                bVar2.w(1, bVar2.f16526i);
+                b bVar2 = this.f16542b;
+                bVar2.w(1, bVar2.f16536i);
                 a();
             }
         }
@@ -264,13 +264,13 @@ public class b extends c.a.r0.c3.d.a {
         public void onError(UiError uiError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, uiError) == null) {
-                c.a.r0.c3.e.b bVar = this.f16531a;
+                c.a.r0.c3.e.b bVar = this.f16541a;
                 if (bVar != null) {
-                    bVar.onShare(this.f16532b.f16526i, 2);
+                    bVar.onShare(this.f16542b.f16536i, 2);
                 }
                 String str = uiError != null ? uiError.errorMessage : null;
-                b bVar2 = this.f16532b;
-                bVar2.x(2, str, bVar2.f16526i);
+                b bVar2 = this.f16542b;
+                bVar2.x(2, str, bVar2.f16536i);
                 a();
             }
         }
@@ -301,10 +301,10 @@ public class b extends c.a.r0.c3.d.a {
                 return;
             }
         }
-        this.f16526i = 8;
+        this.f16536i = 8;
         this.l = new a(this);
-        this.m = new C0795b(this);
-        this.f16525h = Tencent.createInstance("101462192", context.getApplicationContext());
+        this.m = new C0793b(this);
+        this.f16535h = Tencent.createInstance("101462192", context.getApplicationContext());
     }
 
     public final void B(ShareEntity shareEntity, c.a.r0.c3.e.b bVar) {
@@ -315,7 +315,7 @@ public class b extends c.a.r0.c3.d.a {
         }
         Intent intent = new Intent("android.intent.action.SEND");
         intent.setType("text/plain");
-        Iterator<ResolveInfo> it = this.f16522b.getPackageManager().queryIntentActivities(intent, 0).iterator();
+        Iterator<ResolveInfo> it = this.f16532b.getPackageManager().queryIntentActivities(intent, 0).iterator();
         while (true) {
             if (!it.hasNext()) {
                 str = "";
@@ -333,17 +333,17 @@ public class b extends c.a.r0.c3.d.a {
         intent2.putExtra("android.intent.extra.TEXT", shareEntity.getContent());
         intent2.setClassName("com.tencent.mobileqq", str);
         intent2.setFlags(268435456);
-        if (c.a.r0.c3.f.a.b(this.f16522b, intent2)) {
+        if (c.a.r0.c3.f.a.b(this.f16532b, intent2)) {
             if (bVar != null) {
-                bVar.onShare(this.f16526i, 1);
+                bVar.onShare(this.f16536i, 1);
                 return;
             }
             return;
         }
         if (bVar != null) {
-            bVar.onShare(this.f16526i, 2);
+            bVar.onShare(this.f16536i, 2);
         }
-        w(2, this.f16526i);
+        w(2, this.f16536i);
     }
 
     public final void C(ShareEntity shareEntity, IUiListener iUiListener) {
@@ -355,9 +355,9 @@ public class b extends c.a.r0.c3.d.a {
         bundle.putString("title", shareEntity.getTitle());
         if (shareEntity.getReadCount() >= 0) {
             if (shareEntity.getReadCount() < 10000) {
-                bundle.putString("summary", this.f16522b.getString(R.string.share_qq_default_content));
+                bundle.putString("summary", this.f16532b.getString(R.string.share_qq_default_content));
             } else {
-                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.getReadCount()) + this.f16522b.getString(R.string.share_qq_content));
+                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.getReadCount()) + this.f16532b.getString(R.string.share_qq_content));
             }
         } else {
             bundle.putString("summary", shareEntity.getContent());
@@ -369,7 +369,7 @@ public class b extends c.a.r0.c3.d.a {
         } else {
             bundle.putString("imageUrl", shareEntity.getImgUrl());
         }
-        this.f16525h.shareToQQ((Activity) this.f16522b, bundle, iUiListener);
+        this.f16535h.shareToQQ((Activity) this.f16532b, bundle, iUiListener);
     }
 
     public final void D(String str, IUiListener iUiListener) {
@@ -381,7 +381,7 @@ public class b extends c.a.r0.c3.d.a {
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 2);
-        this.f16525h.shareToQQ((Activity) this.f16522b, bundle, iUiListener);
+        this.f16535h.shareToQQ((Activity) this.f16532b, bundle, iUiListener);
     }
 
     public final void E(ShareEntity shareEntity, IUiListener iUiListener) {
@@ -390,13 +390,13 @@ public class b extends c.a.r0.c3.d.a {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putString("title", c.a.r0.c3.f.a.a(this.f16522b));
+        bundle.putString("title", c.a.r0.c3.f.a.a(this.f16532b));
         if (!StringUtils.isNull(shareEntity.getTitle())) {
             bundle.putString("summary", shareEntity.getTitle());
         } else if (!StringUtils.isNull(shareEntity.getContent())) {
             bundle.putString("summary", shareEntity.getContent());
         } else {
-            bundle.putString("summary", this.f16522b.getString(R.string.share_qq_default_content));
+            bundle.putString("summary", this.f16532b.getString(R.string.share_qq_default_content));
         }
         bundle.putString("targetUrl", shareEntity.getLinkUrl());
         if (!StringUtils.isNull(shareEntity.getImgUrl())) {
@@ -408,24 +408,24 @@ public class b extends c.a.r0.c3.d.a {
         bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_TYPE, "3");
         bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH, "pages/pb/pb?tid=" + shareEntity.getTid());
         bundle.putInt("req_type", 7);
-        this.f16525h.shareToQQ((Activity) this.f16522b, bundle, iUiListener);
+        this.f16535h.shareToQQ((Activity) this.f16532b, bundle, iUiListener);
     }
 
     @Override // c.a.r0.c3.e.a
     public void a(ShareEntity shareEntity, c.a.r0.c3.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, shareEntity, bVar) == null) {
-            if (shareEntity != null && this.f16525h != null) {
-                Context context = this.f16522b;
+            if (shareEntity != null && this.f16535h != null) {
+                Context context = this.f16532b;
                 if (context != null && (context instanceof Activity)) {
-                    this.f16527j = new c(this, bVar);
+                    this.f16537j = new c(this, bVar);
                     if (!QqShareH5Switch.isOn() && !StringUtils.isNull(shareEntity.getTid()) && !"0".equals(shareEntity.getTid())) {
-                        E(shareEntity, this.f16527j);
+                        E(shareEntity, this.f16537j);
                         return;
                     }
                     String imgUrl = shareEntity.getImgUrl();
                     if (n(shareEntity.getLocalFile())) {
-                        D(shareEntity.getLocalFile(), this.f16527j);
+                        D(shareEntity.getLocalFile(), this.f16537j);
                         return;
                     } else if (shareEntity.getShareType() != 0 && !TextUtils.isEmpty(imgUrl) && (imgUrl.startsWith("http://") || imgUrl.startsWith("https://"))) {
                         c.a.e.e.l.d.h().k(imgUrl, 34, this.l, 0, 0, h(), new Object[0]);
@@ -436,25 +436,25 @@ public class b extends c.a.r0.c3.d.a {
                             c.a.e.e.l.d.h().k(shareEntity.getImgUrl(), 10, this.m, 0, 0, h(), new Object[0]);
                             return;
                         } else {
-                            C(shareEntity, this.f16527j);
+                            C(shareEntity, this.f16537j);
                             return;
                         }
                     } else if (m(shareEntity.getImageUri())) {
-                        D(shareEntity.getImageUri().getPath(), this.f16527j);
+                        D(shareEntity.getImageUri().getPath(), this.f16537j);
                         return;
                     } else {
                         B(shareEntity, bVar);
                         return;
                     }
                 }
-                w(2, this.f16526i);
+                w(2, this.f16536i);
                 if (bVar != null) {
                     bVar.onShare(0, 2);
                     return;
                 }
                 return;
             }
-            w(2, this.f16526i);
+            w(2, this.f16536i);
             if (bVar != null) {
                 bVar.onShare(0, 2);
             }

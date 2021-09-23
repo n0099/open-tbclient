@@ -22,19 +22,19 @@ public abstract class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.tea.crash.c f31545a;
+    public com.bytedance.tea.crash.c f31566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f31546b;
+    public Context f31567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.b.c.b.g f31547c;
+    public c.b.c.b.g f31568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f31548d;
+    public b f31569d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f31549e;
+    public d f31570e;
 
     public c(com.bytedance.tea.crash.c cVar, Context context, b bVar, d dVar) {
         Interceptable interceptable = $ic;
@@ -51,11 +51,11 @@ public abstract class c {
                 return;
             }
         }
-        this.f31545a = cVar;
-        this.f31546b = context;
-        this.f31548d = bVar;
-        this.f31549e = dVar;
-        this.f31547c = m.a().d();
+        this.f31566a = cVar;
+        this.f31567b = context;
+        this.f31569d = bVar;
+        this.f31570e = dVar;
+        this.f31568c = m.a().d();
     }
 
     public c.b.c.b.e.a a(c.b.c.b.e.a aVar) {
@@ -85,22 +85,22 @@ public abstract class c {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (d() && (bVar = this.f31548d) != null) {
+            if (d() && (bVar = this.f31569d) != null) {
                 aVar.e(bVar);
             }
             aVar.b(m.g());
-            aVar.k("is_background", Boolean.valueOf(!l.b.g(this.f31546b)));
+            aVar.k("is_background", Boolean.valueOf(!l.b.g(this.f31567b)));
             aVar.k("pid", Integer.valueOf(Process.myPid()));
-            aVar.k("battery", Integer.valueOf(this.f31549e.a()));
-            aVar.h(this.f31547c.e());
+            aVar.k("battery", Integer.valueOf(this.f31570e.a()));
+            aVar.h(this.f31568c.e());
             aVar.m(m.j());
             aVar.a(m.k(), m.l());
-            aVar.g(this.f31547c.f());
-            aVar.i(l.o.b(this.f31546b));
+            aVar.g(this.f31568c.f());
+            aVar.i(l.o.b(this.f31567b));
             if (b()) {
                 f(aVar);
             }
-            aVar.f(this.f31547c.d());
+            aVar.f(this.f31568c.d());
             String h2 = m.h();
             if (h2 != null) {
                 aVar.k(Constant.KEY_BUSINESS, h2);
@@ -160,12 +160,12 @@ public abstract class c {
     public final void g(c.b.c.b.e.a aVar) {
         List<c.b.c.b.b> a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || (a2 = m.c().a(this.f31545a)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || (a2 = m.c().a(this.f31566a)) == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         for (c.b.c.b.b bVar : a2) {
-            Map<? extends String, ? extends String> a3 = bVar.a(this.f31545a);
+            Map<? extends String, ? extends String> a3 = bVar.a(this.f31566a);
             if (a3 != null) {
                 try {
                     for (String str : a3.keySet()) {

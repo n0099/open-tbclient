@@ -23,7 +23,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f24528a;
+    public static b f24544a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public b() {
@@ -46,10 +46,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                if (f24528a == null) {
-                    f24528a = new b();
+                if (f24544a == null) {
+                    f24544a = new b();
                 }
-                bVar = f24528a;
+                bVar = f24544a;
             }
             return bVar;
         }
@@ -178,22 +178,24 @@ public class b {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = h.e().h("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            c.a.r0.k1.g.a aVar = new c.a.r0.k1.g.a();
-                            aVar.h(cursor.getLong(cursor.getColumnIndex("uid")));
-                            aVar.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                            aVar.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                            aVar.j(cursor.getString(cursor.getColumnIndex("uname")));
-                            aVar.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                            aVar.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                            arrayList.add(aVar);
+                    try {
+                        cursor = h.e().h("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
+                        if (cursor != null) {
+                            while (cursor.moveToNext()) {
+                                c.a.r0.k1.g.a aVar = new c.a.r0.k1.g.a();
+                                aVar.h(cursor.getLong(cursor.getColumnIndex("uid")));
+                                aVar.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                                aVar.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                                aVar.j(cursor.getString(cursor.getColumnIndex("uname")));
+                                aVar.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                                aVar.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                                arrayList.add(aVar);
+                            }
+                            p();
                         }
-                        p();
+                    } catch (SQLiteException e2) {
+                        e2.printStackTrace();
                     }
-                } catch (SQLiteException e2) {
-                    e2.printStackTrace();
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }

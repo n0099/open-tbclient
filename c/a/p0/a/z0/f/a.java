@@ -23,10 +23,10 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f9939e;
+    public Context f9947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f9940f;
+    public String[] f9948f;
 
     /* renamed from: c.a.p0.a.z0.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -41,7 +41,7 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f9941a;
+        public ImageView f9949a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f9942a;
+        public TextView f9950a;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -104,22 +104,22 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f9939e = context;
-        this.f9940f = strArr;
+        this.f9947e = context;
+        this.f9948f = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9940f.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f9948f.length : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f9940f[i2] : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f9948f[i2] : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -141,18 +141,18 @@ public class a extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
                 if (i2 == 11) {
-                    inflate = View.inflate(this.f9939e, g.aiapps_keyboard_img_item, null);
+                    inflate = View.inflate(this.f9947e, g.aiapps_keyboard_img_item, null);
                     b bVar = new b(null);
-                    bVar.f9941a = (ImageView) inflate.findViewById(f.delete_key_img_view);
+                    bVar.f9949a = (ImageView) inflate.findViewById(f.delete_key_img_view);
                     cVar2 = bVar;
                 } else {
-                    inflate = View.inflate(this.f9939e, g.aiapps_keyboard_text_item, null);
+                    inflate = View.inflate(this.f9947e, g.aiapps_keyboard_text_item, null);
                     c cVar3 = new c(null);
-                    cVar3.f9942a = (TextView) inflate.findViewById(f.key_text_view);
+                    cVar3.f9950a = (TextView) inflate.findViewById(f.key_text_view);
                     cVar2 = cVar3;
                     if (i2 == 9) {
-                        if (TextUtils.isEmpty(this.f9940f[9])) {
-                            inflate.setBackgroundColor(this.f9939e.getResources().getColor(c.a.p0.a.c.aiapps_keyboard_non_number_item_background_normal));
+                        if (TextUtils.isEmpty(this.f9948f[9])) {
+                            inflate.setBackgroundColor(this.f9947e.getResources().getColor(c.a.p0.a.c.aiapps_keyboard_non_number_item_background_normal));
                             cVar2 = cVar3;
                         } else {
                             inflate.setBackgroundResource(e.aiapps_keyboard_non_number_item_selector);
@@ -167,7 +167,7 @@ public class a extends BaseAdapter {
                 cVar = view.getTag();
             }
             if (i2 != 11 && (cVar instanceof c)) {
-                ((c) cVar).f9942a.setText(this.f9940f[i2]);
+                ((c) cVar).f9950a.setText(this.f9948f[i2]);
             }
             return view;
         }

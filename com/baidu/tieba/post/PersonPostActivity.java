@@ -83,7 +83,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f56182e;
+        public final /* synthetic */ PersonPostActivity f56299e;
 
         public a(PersonPostActivity personPostActivity) {
             Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f56182e = personPostActivity;
+            this.f56299e = personPostActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56182e.finish();
+                this.f56299e.finish();
             }
         }
     }
@@ -118,7 +118,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f56183e;
+        public final /* synthetic */ PersonPostActivity f56300e;
 
         public b(PersonPostActivity personPostActivity) {
             Interceptable interceptable = $ic;
@@ -135,16 +135,16 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f56183e = personPostActivity;
+            this.f56300e = personPostActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f56183e.mRecycleBinRedTip.getVisibility() == 0 ? "1" : "2").param("obj_locate", 1));
-                this.f56183e.showRecycleBinRedTip(false);
-                UrlManager.getInstance().dealOneLink(this.f56183e.getPageContext(), new String[]{PersonPostActivity.THREAD_RECYCLE_BIN_URL});
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f56300e.mRecycleBinRedTip.getVisibility() == 0 ? "1" : "2").param("obj_locate", 1));
+                this.f56300e.showRecycleBinRedTip(false);
+                UrlManager.getInstance().dealOneLink(this.f56300e.getPageContext(), new String[]{PersonPostActivity.THREAD_RECYCLE_BIN_URL});
             }
         }
     }
@@ -155,7 +155,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonPostActivity f56184a;
+        public final /* synthetic */ PersonPostActivity f56301a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PersonPostActivity personPostActivity, int i2) {
@@ -175,7 +175,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                     return;
                 }
             }
-            this.f56184a = personPostActivity;
+            this.f56301a = personPostActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -189,7 +189,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(this.f56184a.getPageContext(), new String[]{str});
+            UrlManager.getInstance().dealOneLink(this.f56301a.getPageContext(), new String[]{str});
         }
     }
 
@@ -219,20 +219,20 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f47569c = fragment;
-        bVar.f47567a = i2;
+        bVar.f47671c = fragment;
+        bVar.f47669a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f47568b = fragmentTabIndicator;
+        bVar.f47670b = fragmentTabIndicator;
         this.mTabHost.addTabSpec(bVar);
     }
 
     private void initPersonPostTasks() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            c.a.r0.j3.d0.a.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, c.a.r0.j3.d0.a.a("c/u/feed/userpost", 303002));
+            c.a.r0.j3.e0.a.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, c.a.r0.j3.e0.a.a("c/u/feed/userpost", 303002));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

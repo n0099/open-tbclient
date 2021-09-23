@@ -36,32 +36,32 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f9308i;
+    public static final boolean f9316i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<c.a.p0.a.v2.e1.b<Pipe.SourceChannel>> f9309a;
+    public final Set<c.a.p0.a.v2.e1.b<Pipe.SourceChannel>> f9317a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f9310b;
+    public ExecutorService f9318b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9311c;
+    public int f9319c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f9312d;
+    public long f9320d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TimeUnit f9313e;
+    public TimeUnit f9321e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.p0.a.v2.e1.b<String> f9314f;
+    public c.a.p0.a.v2.e1.b<String> f9322f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a f9315g;
+    public final c.a f9323g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f9316h;
+    public float f9324h;
 
     /* renamed from: c.a.p0.a.v2.c1.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -70,10 +70,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f9317e;
+        public final /* synthetic */ List f9325e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9318f;
+        public final /* synthetic */ a f9326f;
 
         public C0436a(a aVar, List list) {
             Interceptable interceptable = $ic;
@@ -90,8 +90,8 @@ public class a {
                     return;
                 }
             }
-            this.f9318f = aVar;
-            this.f9317e = list;
+            this.f9326f = aVar;
+            this.f9325e = list;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -101,9 +101,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 try {
-                    this.f9317e.add(new e(this.f9318f, bVar));
+                    this.f9325e.add(new e(this.f9326f, bVar));
                 } catch (IOException e2) {
-                    if (a.f9308i) {
+                    if (a.f9316i) {
                         e2.printStackTrace();
                     }
                 }
@@ -117,10 +117,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f9319e;
+        public final /* synthetic */ CountDownLatch f9327e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ExecutorService f9320f;
+        public final /* synthetic */ ExecutorService f9328f;
 
         public b(a aVar, CountDownLatch countDownLatch, ExecutorService executorService) {
             Interceptable interceptable = $ic;
@@ -137,8 +137,8 @@ public class a {
                     return;
                 }
             }
-            this.f9319e = countDownLatch;
-            this.f9320f = executorService;
+            this.f9327e = countDownLatch;
+            this.f9328f = executorService;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -147,8 +147,8 @@ public class a {
         public void onCallback(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                eVar.f(this.f9319e);
-                this.f9320f.submit(eVar);
+                eVar.f(this.f9327e);
+                this.f9328f.submit(eVar);
             }
         }
     }
@@ -159,7 +159,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ByteBuffer f9321e;
+        public final /* synthetic */ ByteBuffer f9329e;
 
         public c(a aVar, ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
@@ -176,7 +176,7 @@ public class a {
                     return;
                 }
             }
-            this.f9321e = byteBuffer;
+            this.f9329e = byteBuffer;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -186,12 +186,12 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
                 try {
-                    if (eVar.f9325h.isOpen() && eVar.f9324g.isOpen()) {
-                        this.f9321e.rewind();
-                        eVar.f9325h.write(this.f9321e);
+                    if (eVar.f9333h.isOpen() && eVar.f9332g.isOpen()) {
+                        this.f9329e.rewind();
+                        eVar.f9333h.write(this.f9329e);
                     }
                 } catch (IOException e2) {
-                    if (a.f9308i) {
+                    if (a.f9316i) {
                         a.m("connect e:" + e2 + " line: " + eVar);
                         e2.printStackTrace();
                     }
@@ -227,7 +227,7 @@ public class a {
         public void onCallback(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                Pipe.SinkChannel sinkChannel = eVar.f9325h;
+                Pipe.SinkChannel sinkChannel = eVar.f9333h;
                 a.f(sinkChannel, eVar.toString() + " by[PumpingFinish]");
             }
         }
@@ -239,22 +239,22 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final c.a.p0.a.v2.e1.b<Pipe.SourceChannel> f9322e;
+        public final c.a.p0.a.v2.e1.b<Pipe.SourceChannel> f9330e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Pipe f9323f;
+        public final Pipe f9331f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Pipe.SourceChannel f9324g;
+        public final Pipe.SourceChannel f9332g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Pipe.SinkChannel f9325h;
+        public final Pipe.SinkChannel f9333h;
 
         /* renamed from: i  reason: collision with root package name */
-        public CountDownLatch f9326i;
+        public CountDownLatch f9334i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f9327j;
+        public String f9335j;
 
         public e(a aVar, c.a.p0.a.v2.e1.b<Pipe.SourceChannel> bVar) throws IOException {
             Interceptable interceptable = $ic;
@@ -271,19 +271,19 @@ public class a {
                     return;
                 }
             }
-            this.f9322e = bVar;
+            this.f9330e = bVar;
             Pipe open = Pipe.open();
-            this.f9323f = open;
-            this.f9325h = open.sink();
-            this.f9324g = this.f9323f.source();
+            this.f9331f = open;
+            this.f9333h = open.sink();
+            this.f9332g = this.f9331f.source();
         }
 
         public final void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Pipe.SinkChannel sinkChannel = this.f9325h;
+                Pipe.SinkChannel sinkChannel = this.f9333h;
                 a.f(sinkChannel, "sink for " + toString());
-                Pipe.SourceChannel sourceChannel = this.f9324g;
+                Pipe.SourceChannel sourceChannel = this.f9332g;
                 a.f(sourceChannel, "source for " + toString());
             }
         }
@@ -291,7 +291,7 @@ public class a {
         public final void e() {
             CountDownLatch countDownLatch;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (countDownLatch = this.f9326i) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (countDownLatch = this.f9334i) == null) {
                 return;
             }
             countDownLatch.countDown();
@@ -300,7 +300,7 @@ public class a {
         public final void f(CountDownLatch countDownLatch) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, countDownLatch) == null) {
-                this.f9326i = countDownLatch;
+                this.f9334i = countDownLatch;
             }
         }
 
@@ -308,20 +308,20 @@ public class a {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f9327j = Thread.currentThread().toString();
-                if (a.f9308i) {
+                this.f9335j = Thread.currentThread().toString();
+                if (a.f9316i) {
                     a.m(" >> run on " + toString());
                 }
                 try {
                     try {
-                        this.f9322e.onCallback(this.f9324g);
+                        this.f9330e.onCallback(this.f9332g);
                     } catch (Exception e2) {
-                        if (a.f9308i) {
+                        if (a.f9316i) {
                             e2.printStackTrace();
                             a.m("catch Exception on " + toString() + " :\n  " + e2.toString());
                         }
                     }
-                    if (a.f9308i) {
+                    if (a.f9316i) {
                         a.m("countdown by end -> " + toString());
                     }
                     e();
@@ -335,7 +335,7 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "PipeLine: " + this.f9327j + " consumer=" + this.f9322e.toString();
+                return "PipeLine: " + this.f9335j + " consumer=" + this.f9330e.toString();
             }
             return (String) invokeV.objValue;
         }
@@ -354,7 +354,7 @@ public class a {
                 return;
             }
         }
-        f9308i = k.f7077a;
+        f9316i = k.f7085a;
     }
 
     public a() {
@@ -370,12 +370,12 @@ public class a {
                 return;
             }
         }
-        this.f9309a = new HashSet();
-        this.f9311c = 8192;
-        this.f9312d = -1L;
-        this.f9313e = TimeUnit.NANOSECONDS;
-        this.f9315g = new c.a();
-        this.f9316h = 0.0f;
+        this.f9317a = new HashSet();
+        this.f9319c = 8192;
+        this.f9320d = -1L;
+        this.f9321e = TimeUnit.NANOSECONDS;
+        this.f9323g = new c.a();
+        this.f9324h = 0.0f;
     }
 
     public static void f(Channel channel, String str) {
@@ -388,7 +388,7 @@ public class a {
     public static void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
-            boolean z = f9308i;
+            boolean z = f9316i;
         }
     }
 
@@ -397,7 +397,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVarArr)) == null) {
-            this.f9309a.addAll(Arrays.asList(bVarArr));
+            this.f9317a.addAll(Arrays.asList(bVarArr));
             return this;
         }
         return (a) invokeL.objValue;
@@ -406,7 +406,7 @@ public class a {
     public final void e(String str) {
         c.a.p0.a.v2.e1.b<String> bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (bVar = this.f9314f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (bVar = this.f9322f) == null) {
             return;
         }
         bVar.onCallback(str);
@@ -416,7 +416,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
-            this.f9315g.D(bundle);
+            this.f9323g.D(bundle);
             return this;
         }
         return (a) invokeL.objValue;
@@ -433,34 +433,34 @@ public class a {
                 ExecutorService l = l(i2, countDownLatch);
                 n(readableByteChannel, i2);
                 e("pump_finish");
-                if (f9308i) {
+                if (f9316i) {
                     m("pumping: cost=" + (System.currentTimeMillis() - currentTimeMillis));
                 }
                 try {
-                    if (f9308i) {
-                        m("main await for timeout: " + this.f9313e.toMillis(this.f9312d));
+                    if (f9316i) {
+                        m("main await for timeout: " + this.f9321e.toMillis(this.f9320d));
                     }
                     boolean z = false;
-                    if (this.f9312d < 0) {
+                    if (this.f9320d < 0) {
                         countDownLatch.await();
                     } else {
-                        z = !countDownLatch.await(this.f9312d, this.f9313e);
+                        z = !countDownLatch.await(this.f9320d, this.f9321e);
                     }
-                    if (f9308i) {
+                    if (f9316i) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("main await finish by ");
                         sb.append(z ? "time's up" : "count down");
                         m(sb.toString());
                     }
-                    if (f9308i) {
+                    if (f9316i) {
                         m("all done: " + (System.currentTimeMillis() - currentTimeMillis));
                     }
                 } catch (InterruptedException e2) {
-                    if (f9308i) {
+                    if (f9316i) {
                         m("main await finish by InterruptedException " + e2);
                         e2.printStackTrace();
                     }
-                    if (f9308i) {
+                    if (f9316i) {
                         m("all done: " + (System.currentTimeMillis() - currentTimeMillis));
                     }
                 }
@@ -475,7 +475,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            c.a.p0.a.v2.e1.a.c(new C0436a(this, arrayList), this.f9309a);
+            c.a.p0.a.v2.e1.a.c(new C0436a(this, arrayList), this.f9317a);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -484,14 +484,14 @@ public class a {
     public float j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9316h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9324h : invokeV.floatValue;
     }
 
     public final float k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            float h2 = this.f9315g.h("progress_granularity", 0.01f);
+            float h2 = this.f9323g.h("progress_granularity", 0.01f);
             if (h2 < 0.0f) {
                 h2 = 0.0f;
             }
@@ -508,11 +508,11 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, list, countDownLatch)) == null) {
-            ExecutorService executorService = this.f9310b;
-            if (executorService == null || executorService.isShutdown() || this.f9310b.isTerminated()) {
-                this.f9310b = null;
+            ExecutorService executorService = this.f9318b;
+            if (executorService == null || executorService.isShutdown() || this.f9318b.isTerminated()) {
+                this.f9318b = null;
             }
-            ExecutorService executorService2 = this.f9310b;
+            ExecutorService executorService2 = this.f9318b;
             if (executorService2 == null) {
                 executorService2 = Executors.newCachedThreadPool();
             }
@@ -533,8 +533,8 @@ public class a {
             float f2 = 0.0f;
             s(0.0f);
             float k = k();
-            long k2 = this.f9315g.k(CloudStabilityUBCUtils.KEY_LENGTH);
-            ByteBuffer allocate = ByteBuffer.allocate(this.f9311c);
+            long k2 = this.f9323g.k(CloudStabilityUBCUtils.KEY_LENGTH);
+            ByteBuffer allocate = ByteBuffer.allocate(this.f9319c);
             long j3 = 0;
             int i3 = 0;
             while (true) {
@@ -557,7 +557,7 @@ public class a {
                                 if (f3 > 1.0f) {
                                     f3 = 1.0f;
                                 }
-                                float f4 = f3 - this.f9316h;
+                                float f4 = f3 - this.f9324h;
                                 int round = Math.round(100.0f * f3);
                                 i2 = i4;
                                 StringBuilder sb = new StringBuilder();
@@ -566,14 +566,14 @@ public class a {
                                     sb.append(i5 > round ? "=" : "#");
                                     i5++;
                                 }
-                                if (f9308i) {
+                                if (f9316i) {
                                     j2 = k2;
                                     m(String.format("pumping: %4s [%s] read/at:[%7d/%-7d]", NumberFormat.getPercentInstance().format(f3), sb, Long.valueOf(read), Long.valueOf(j3)));
                                 } else {
                                     j2 = k2;
                                 }
                                 if (f4 > k) {
-                                    if (f9308i) {
+                                    if (f9316i) {
                                         NumberFormat percentInstance = NumberFormat.getPercentInstance();
                                         m("pumping: updateProgress granularity:" + percentInstance.format(k) + " step:" + percentInstance.format(f4));
                                     }
@@ -593,7 +593,7 @@ public class a {
                             e = e2;
                             readableByteChannel2 = readableByteChannel;
                             list2 = list;
-                            if (f9308i) {
+                            if (f9316i) {
                                 e.printStackTrace();
                             }
                             f(readableByteChannel2, "connected source");
@@ -616,7 +616,7 @@ public class a {
                 }
             }
             long j4 = k2;
-            if (f9308i) {
+            if (f9316i) {
                 m("pumping done: writeCount=" + i3 + " length: " + j4);
             }
             f(readableByteChannel, "connected source");
@@ -635,7 +635,7 @@ public class a {
             if (i2 < 1) {
                 i2 = 8192;
             }
-            this.f9311c = i2;
+            this.f9319c = i2;
             return this;
         }
         return (a) invokeI.objValue;
@@ -645,7 +645,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bVar)) == null) {
-            this.f9314f = bVar;
+            this.f9322f = bVar;
             return this;
         }
         return (a) invokeL.objValue;
@@ -659,8 +659,8 @@ public class a {
             if (j2 < 0) {
                 j2 = -1;
             }
-            this.f9312d = j2;
-            this.f9313e = timeUnit;
+            this.f9320d = j2;
+            this.f9321e = timeUnit;
             return this;
         }
         return (a) invokeJL.objValue;
@@ -669,20 +669,20 @@ public class a {
     public final void r(@NonNull ExecutorService executorService) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, executorService) == null) {
-            if (executorService != this.f9310b && !executorService.isShutdown()) {
+            if (executorService != this.f9318b && !executorService.isShutdown()) {
                 executorService.shutdown();
             }
-            this.f9310b = null;
+            this.f9318b = null;
         }
     }
 
     public final void s(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-            if (f9308i) {
+            if (f9316i) {
                 m("updateProgress: progress=" + f2);
             }
-            this.f9316h = f2;
+            this.f9324h = f2;
             e("on_progress");
         }
     }

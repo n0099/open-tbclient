@@ -3,7 +3,7 @@ package com.baidu.tieba.personPolymeric.view;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
-import c.a.q0.d1.i;
+import c.a.q0.d1.l;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f56074i;
+    public a f56191i;
 
     /* loaded from: classes7.dex */
     public class a extends BdAsyncTask<Bitmap, String, Bitmap> {
@@ -25,7 +25,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonGaussianBlurView f56075a;
+        public final /* synthetic */ PersonGaussianBlurView f56192a;
 
         public a(PersonGaussianBlurView personGaussianBlurView) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
                     return;
                 }
             }
-            this.f56075a = personGaussianBlurView;
+            this.f56192a = personGaussianBlurView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
                                 }
                                 return null;
                             }
-                            return i.a(Bitmap.createBitmap(bitmap, 0, (int) (bitmap.getHeight() * 0.2f), bitmap.getWidth(), (int) (bitmap.getHeight() * 0.6f)), 15, false);
+                            return l.a(Bitmap.createBitmap(bitmap, 0, (int) (bitmap.getHeight() * 0.2f), bitmap.getWidth(), (int) (bitmap.getHeight() * 0.6f)), 15, false);
                         }
                         return null;
                     } catch (Exception e2) {
@@ -96,7 +96,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
             if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
                 super.onPostExecute((a) bitmap);
                 if (c(bitmap)) {
-                    this.f56075a.setImageBitmap(bitmap);
+                    this.f56192a.setImageBitmap(bitmap);
                 }
             }
         }
@@ -128,12 +128,12 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) || bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        a aVar = this.f56074i;
+        a aVar = this.f56191i;
         if (aVar != null) {
             aVar.cancel();
         }
         a aVar2 = new a(this);
-        this.f56074i = aVar2;
+        this.f56191i = aVar2;
         aVar2.execute(bitmap);
     }
 }

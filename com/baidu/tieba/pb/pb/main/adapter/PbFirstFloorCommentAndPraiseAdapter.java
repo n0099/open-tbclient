@@ -41,11 +41,11 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<p, PbFirstFloorCommen
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f55227a;
+        public int f55342a;
         @NonNull
 
         /* renamed from: b  reason: collision with root package name */
-        public f f55228b;
+        public f f55343b;
         public View mBottomDividerLine;
         public PbThreadCommentAndPraiseInfoLayout mCommentAndPraiseLayout;
 
@@ -67,17 +67,17 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<p, PbFirstFloorCommen
                     return;
                 }
             }
-            this.f55228b = new f();
+            this.f55343b = new f();
             if (view == null) {
                 return;
             }
             this.mCommentAndPraiseLayout = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
-            f fVar = this.f55228b;
+            f fVar = this.f55343b;
             fVar.f14167b = 4;
             fVar.f14173h = 7;
-            fVar.f14168c = this.f55227a;
+            fVar.f14168c = this.f55342a;
             fVar.f14171f = PbFirstFloorCommentAndPraiseAdapter.w;
-            this.mCommentAndPraiseLayout.setAgreeStatisticData(this.f55228b);
+            this.mCommentAndPraiseLayout.setAgreeStatisticData(this.f55343b);
             View findViewById = view.findViewById(R.id.bottom_divider_line);
             this.mBottomDividerLine = findViewById;
             findViewById.setVisibility(0);
@@ -94,11 +94,11 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<p, PbFirstFloorCommen
                     this.mCommentAndPraiseLayout.setData(d2, pVar.c());
                     this.mBottomDividerLine.setVisibility(pVar.h() ? 0 : 8);
                     if (d2.E2() && d2.q1() != null) {
-                        this.f55227a = 2;
+                        this.f55342a = 2;
                     } else {
-                        this.f55227a = 1;
+                        this.f55342a = 1;
                     }
-                    if (pVar.f19658f) {
+                    if (pVar.f19673f) {
                         getView().setPadding(0, 0, 0, l.g(getView().getContext(), R.dimen.tbds32));
                     }
                     this.mCommentAndPraiseLayout.showOperationMaskView(pVar.i());
@@ -118,7 +118,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<p, PbFirstFloorCommen
         public void setFromForumId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f55228b.f14175j = str;
+                this.f55343b.f14175j = str;
             }
         }
     }
@@ -145,7 +145,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<p, PbFirstFloorCommen
         this.u = new LinkedList<>();
         this.v = false;
         if (bVar != null && bVar.getPbModel() != null) {
-            w = bVar.getPbModel().N0();
+            w = bVar.getPbModel().O0();
         }
         this.t = new c(bVar);
     }
@@ -191,10 +191,10 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<p, PbFirstFloorCommen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.m.getPbModel() == null || this.m.getPbModel().O0() == null) {
+            if (this.m.getPbModel() == null || this.m.getPbModel().P0() == null) {
                 return null;
             }
-            return this.m.getPbModel().O0().O();
+            return this.m.getPbModel().P0().O();
         }
         return (d2) invokeV.objValue;
     }
@@ -227,7 +227,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<p, PbFirstFloorCommen
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
+            PbFirstFloorCommentAndPraiseViewHolder pbFirstFloorCommentAndPraiseViewHolder = new PbFirstFloorCommentAndPraiseViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
             this.u.add(pbFirstFloorCommentAndPraiseViewHolder);
             return pbFirstFloorCommentAndPraiseViewHolder;
         }
@@ -254,7 +254,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends n<p, PbFirstFloorCommen
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), view, viewGroup, pVar, pbFirstFloorCommentAndPraiseViewHolder})) == null) {
             super.a0(i2, view, viewGroup, pVar, pbFirstFloorCommentAndPraiseViewHolder);
             if (pVar != null && pbFirstFloorCommentAndPraiseViewHolder != null) {
-                pVar.d().S1 = D(i2) + 1;
+                pVar.d().T1 = D(i2) + 1;
                 pbFirstFloorCommentAndPraiseViewHolder.mCommentAndPraiseLayout.setOnClickOutListener(this.s);
                 pbFirstFloorCommentAndPraiseViewHolder.mCommentAndPraiseLayout.setPostId(o0());
                 pbFirstFloorCommentAndPraiseViewHolder.mCommentAndPraiseLayout.setForumId(l0());

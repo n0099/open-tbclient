@@ -12,7 +12,7 @@ public class l1 extends o1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31369g;
+    public boolean f31390g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l1(j1 j1Var) {
@@ -38,7 +38,7 @@ public class l1 extends o1 {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31369g ? Long.MAX_VALUE : 0L : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31390g ? Long.MAX_VALUE : 0L : invokeV.longValue;
     }
 
     @Override // c.b.a.o1, c.b.a.h1
@@ -47,7 +47,7 @@ public class l1 extends o1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             boolean d2 = super.d();
-            this.f31369g = d2;
+            this.f31390g = d2;
             return d2;
         }
         return invokeV.booleanValue;

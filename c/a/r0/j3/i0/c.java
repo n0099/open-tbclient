@@ -15,10 +15,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<a> f20836a;
+    public ArrayList<a> f20848a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<b> f20837b;
+    public ArrayList<b> f20849b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class c {
                 return;
             }
         }
-        this.f20836a = new ArrayList<>();
-        this.f20837b = new ArrayList<>();
+        this.f20848a = new ArrayList<>();
+        this.f20849b = new ArrayList<>();
     }
 
     public void a(ActPost actPost) {
@@ -47,7 +47,7 @@ public class c {
             if (actHot != null) {
                 a aVar = new a();
                 aVar.g(actHot);
-                this.f20836a.add(aVar);
+                this.f20848a.add(aVar);
             }
         }
         List<LinkInfo> list = actPost.link_info;
@@ -55,7 +55,7 @@ public class c {
             if (list != null) {
                 b bVar = new b();
                 bVar.a(linkInfo);
-                this.f20837b.add(bVar);
+                this.f20849b.add(bVar);
             }
         }
     }

@@ -79,7 +79,7 @@ public class r extends t0 {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3862j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3863j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -107,7 +107,7 @@ public class r extends t0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c.a.r0.p2.q.b bVar = new c.a.r0.p2.q.b(this.f3782f, this.m);
+            c.a.r0.p2.q.b bVar = new c.a.r0.p2.q.b(this.f3783f, this.m);
             bVar.setStageType("2003");
             return bVar;
         }
@@ -144,12 +144,12 @@ public class r extends t0 {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            View inflate = LayoutInflater.from(this.f3782f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
-            this.f3862j = inflate;
+            View inflate = LayoutInflater.from(this.f3783f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+            this.f3863j = inflate;
             this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
-            this.E = (TextView) this.f3862j.findViewById(R.id.video_seg_abstract);
-            this.m = (RoundCornerFrameLayout) this.f3862j.findViewById(R.id.frame_video);
-            this.C = (InterviewLiveLayout) this.f3862j.findViewById(R.id.frame_interview_no_video);
+            this.E = (TextView) this.f3863j.findViewById(R.id.video_seg_abstract);
+            this.m = (RoundCornerFrameLayout) this.f3863j.findViewById(R.id.frame_video);
+            this.C = (InterviewLiveLayout) this.f3863j.findViewById(R.id.frame_interview_no_video);
             c.a.r0.p2.q.a p = p();
             this.n = p;
             p.getMainView().setBackgroundResource(R.color.transparent);

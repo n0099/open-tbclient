@@ -1,6 +1,6 @@
 package com.baidu.tbadk.BdToken;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -44,7 +44,7 @@ public class DecryptCodeReqMsg extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.tieba_code = this.code;
-                x.c(builder, true, true, true);
+                a0.c(builder, true, true, true);
                 DecryptCodeReqIdl.Builder builder2 = new DecryptCodeReqIdl.Builder();
                 builder2.data = builder.build(true);
                 return builder2.build(true);

@@ -45,7 +45,7 @@ public class c extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -67,7 +67,7 @@ public class c extends a0 {
             bVar.i(optParamsAsJo);
             c.a.p0.a.c0.b.c G = aVar.G(bVar);
             if (!G.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f4663b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f4671b);
                 return false;
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

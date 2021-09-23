@@ -26,6 +26,8 @@ public class CommonStatisticKey {
     public static final int FUNCTION_STATISTIC_LOCATION_MESSAGE = 1;
     public static final int FUNCTION_STATISTIC_LOCATION_SHELF = 9;
     public static final String HOME_PUBLISH_ALA_CLICK = "c13619";
+    public static final String KEY_AT_PANEL_COMMIT = "c14377";
+    public static final String KEY_AT_PANEL_SHOW = "c14376";
     public static final String KEY_BAWU_FRS_MUSK_CLICK = "c14324";
     public static final String KEY_BAWU_MULTI_MUSK_CLICK = "c14325";
     public static final String KEY_BAWU_TIP_DIALOG_CANCEL = "c14323";
@@ -41,6 +43,7 @@ public class CommonStatisticKey {
     public static final String KEY_CURRENCY_SWITCH_DIALOG_CLICK_SUCCESS = "c14143";
     public static final String KEY_CURRENCY_SWITCH_DIALOG_SHOW = "c14141";
     public static final String KEY_DOWNLOAD_MANAGER_DOWNLOADING_CLICK = "c14361";
+    public static final String KEY_DOWNLOAD_MANAGER_INSTALLED_CLICK = "c14373";
     public static final String KEY_DOWNLOAD_MANAGER_ORDERED_CLICK = "c14360";
     public static final String KEY_DOWNLOAD_MANAGER_SHOW = "c14359";
     public static final String KEY_ENTER_FORUM_SUG_SHOW = "c13371";
@@ -105,6 +108,7 @@ public class CommonStatisticKey {
     public static final String KEY_NEW_SCHEME_PULL_UP = "c13321";
     public static final String KEY_PB_MORE_DIALOG_MUSK_CLICK = "c14338";
     public static final String KEY_PERSON_LIVE_TAB_CLICK = "c14123";
+    public static final String KEY_POST_THREAD_AT_USE_CONDITION = "c14380";
     public static final String KEY_PUSH_PERMISSIION_DIALOG_SHOW = "c13674";
     public static final String KEY_PUSH_PERMISSION_DIALOG_click = "c13673";
     public static final String KEY_RECOMMEND_GAMECENTER = "c14119";

@@ -15,10 +15,10 @@ public class c implements c.a.p0.a.l1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f6533e;
+    public double f6541e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f6534f;
+    public double f6542f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -33,16 +33,16 @@ public class c implements c.a.p0.a.l1.a {
                 return;
             }
         }
-        this.f6533e = -200.0d;
-        this.f6534f = -200.0d;
+        this.f6541e = -200.0d;
+        this.f6542f = -200.0d;
     }
 
     @Override // c.a.p0.a.l1.a
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("longitude") && jSONObject.has("latitude")) {
-            this.f6533e = jSONObject.optDouble("latitude", this.f6533e);
-            this.f6534f = jSONObject.optDouble("longitude", this.f6534f);
+            this.f6541e = jSONObject.optDouble("latitude", this.f6541e);
+            this.f6542f = jSONObject.optDouble("longitude", this.f6542f);
         }
     }
 
@@ -51,9 +51,9 @@ public class c implements c.a.p0.a.l1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            double d2 = this.f6533e;
+            double d2 = this.f6541e;
             if (d2 >= -90.0d && d2 <= 90.0d) {
-                double d3 = this.f6534f;
+                double d3 = this.f6542f;
                 if (d3 >= -180.0d && d3 <= 180.0d) {
                     return true;
                 }
@@ -67,7 +67,7 @@ public class c implements c.a.p0.a.l1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "[latitude：" + this.f6533e + "longitude：" + this.f6534f + PreferencesUtil.RIGHT_MOUNT;
+            return "[latitude：" + this.f6541e + "longitude：" + this.f6542f + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

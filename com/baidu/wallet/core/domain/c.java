@@ -1,6 +1,7 @@
 package com.baidu.wallet.core.domain;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.activity.WapPayActivity;
@@ -17,25 +18,25 @@ import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public class c implements a {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Pattern H;
-    public static c I = null;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final String f60960i = "life_host";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final String f60961j = "my_host";
-    public static final String k = "credit_card_host";
-    public static final String l = "app_host";
-    public static final String m = "nfc_host";
-    public static final String n = "app_pay_host";
-    public static final String o = "m_host";
-    public static final String p = "co_host";
-    public static final String q = "qianbao_host";
-    public static final String r = "zhifuhost";
-    public static final String s = "comet_host";
-    public static final String t = "wallet_web_cache_host";
-    public static final String u = "https://www.baifubao.com";
+    public static final String M = "https://bi-sensors.duxiaoman.com";
+    public static final String N = "https://jin.baidu.com";
+    public static final String O = "https://qianbao.baidu.com";
+    public static final Pattern P;
+    public static c Q = null;
+    public static final String m = "life_host";
+    public static final String n = "my_host";
+    public static final String o = "credit_card_host";
+    public static final String p = "app_host";
+    public static final String q = "nfc_host";
+    public static final String r = "app_pay_host";
+    public static final String s = "m_host";
+    public static final String t = "co_host";
+    public static final String u = "qianbao_host";
+    public static final String v = "zhifuhost";
+    public static final String w = "comet_host";
+    public static final String x = "wallet_web_cache_host";
+    public static final String y = "https://www.baifubao.com";
+    public static final String z = "https://app.duxiaomanFintec.com";
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
@@ -44,23 +45,27 @@ public class c implements a {
     public String E;
     public String F;
     public String G;
+    public String H;
+    public String I;
     public String J;
     public String K;
     public String L;
-    public String M;
-    public String N;
-    public String O;
-    public String P;
-    public String Q;
     public String R;
     public String S;
     public String T;
     public String U;
-    public String v;
-    public String w;
-    public String x;
-    public String y;
-    public String z;
+    public String V;
+    public String W;
+    public String X;
+    public String Y;
+    public String Z;
+    public String aa;
+    public String ab;
+    public String ac;
+    public String ad;
+    public String ae;
+    public String af;
+    public String ag;
 
     static {
         InterceptResult invokeClinit;
@@ -75,7 +80,7 @@ public class c implements a {
                 return;
             }
         }
-        H = Pattern.compile("^https://.*\\.com");
+        P = Pattern.compile("^https://.*\\.com");
     }
 
     public c() {
@@ -91,28 +96,28 @@ public class c implements a {
                 return;
             }
         }
-        this.v = "https://www.baifubao.com";
-        this.w = "https://www.baifubao.com";
-        this.x = b.k;
-        this.y = "https://www.baifubao.com";
-        this.z = "https://chong.baidu.com";
-        this.A = "https://www.dxmpay.com";
-        this.B = b.m;
-        this.C = "https://www.dxmpay.com";
-        this.D = "https://www.dxmpay.com";
-        this.E = "https://www.dxmpay.com";
-        this.F = "https://cp01-ocean-1481.epc.baidu.com:8443";
-        this.G = b.l;
+        this.A = "https://www.baifubao.com";
+        this.B = "https://www.baifubao.com";
+        this.C = b.o;
+        this.D = "https://www.baifubao.com";
+        this.E = "https://chong.baidu.com";
+        this.F = "https://www.dxmpay.com";
+        this.G = b.q;
+        this.H = "https://www.dxmpay.com";
+        this.I = "https://www.dxmpay.com";
+        this.J = "https://www.dxmpay.com";
+        this.K = "https://cp01-ocean-1481.epc.baidu.com:8443";
+        this.L = b.p;
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (I == null) {
-                I = new c();
+            if (Q == null) {
+                Q = new c();
             }
-            return I;
+            return Q;
         }
         return (c) invokeV.objValue;
     }
@@ -120,312 +125,385 @@ public class c implements a {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.K = str;
+            this.S = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.L = str;
+            this.T = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.M = str;
+            this.U = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.N = str;
+            this.V = str;
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.O = str;
+            this.W = str;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.P = str;
+            this.X = str;
         }
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getAppHost() {
-        InterceptResult invokeV;
+    public String getAppHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!TextUtils.isEmpty(this.M)) {
-                return this.M;
-            }
-            return this.y;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.domain.a
-    public String getAppPayHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!TextUtils.isEmpty(this.O)) {
-                return this.O;
-            }
-            return this.A;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.domain.a
-    public String getCOHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!TextUtils.isEmpty(this.Q)) {
-                return this.Q;
-            }
-            return this.E;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.domain.a
-    public String getCometHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (!TextUtils.isEmpty(this.T)) {
-                return this.T;
-            }
-            return this.B;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.domain.a
-    public String getCreditCardHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (!TextUtils.isEmpty(this.L)) {
-                return this.L;
-            }
-            return this.x;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.domain.a
-    public String getInitHost(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            if (TextUtils.isEmpty(this.M)) {
-                return z ? this.y : "https://www.baifubao.com";
-            }
-            return this.M;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.domain.a
-    public String getLifeHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (!TextUtils.isEmpty(this.J)) {
-                return this.J;
-            }
-            return this.v;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.domain.a
-    public String getMHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (!TextUtils.isEmpty(this.P)) {
-                return this.P;
-            }
-            return this.C;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.domain.a
-    public String getMyHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (!TextUtils.isEmpty(this.K)) {
-                return this.K;
-            }
-            return this.w;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.domain.a
-    public String getNfcHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (!TextUtils.isEmpty(this.N)) {
-                return this.N;
-            }
-            return this.z;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.domain.a
-    public String getQianbaoHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (!TextUtils.isEmpty(this.R)) {
-                return this.R;
-            }
-            return this.D;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.domain.a
-    public String getWebCacheHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
             if (!TextUtils.isEmpty(this.U)) {
                 return this.U;
             }
-            return this.F;
+            return this.D;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
-    public String getZhiFuHost() {
-        InterceptResult invokeV;
+    public String getAppPayHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (!TextUtils.isEmpty(this.S)) {
-                return this.S;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.W)) {
+                return this.W;
+            }
+            return this.F;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getCOHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.Y)) {
+                return this.Y;
+            }
+            return this.J;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getCometHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.ab)) {
+                return this.ab;
             }
             return this.G;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getCreditCardHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.T)) {
+                return this.T;
+            }
+            return this.C;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getHawkinghost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            return !TextUtils.isEmpty(this.af) ? this.af : "https://www.baifubao.com";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getInitHost(int i2, Boolean[] boolArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i2, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (TextUtils.isEmpty(this.U)) {
+                if (i2 != 2) {
+                    return i2 != 3 ? "https://www.baifubao.com" : z;
+                }
+                return this.D;
+            }
+            return this.U;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getLifeHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.R)) {
+                return this.R;
+            }
+            return this.A;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getMHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.X)) {
+                return this.X;
+            }
+            return this.H;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getMyHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.S)) {
+                return this.S;
+            }
+            return this.B;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getNetcheckhost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getNfcHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.V)) {
+                return this.V;
+            }
+            return this.E;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getQianbaoHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.Z)) {
+                return this.Z;
+            }
+            return this.I;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getSensorhost(@NonNull Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getWebCacheHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.ac)) {
+                return this.ac;
+            }
+            return this.K;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.wallet.core.domain.a
+    public String getZhiFuHost(Boolean[] boolArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, boolArr)) == null) {
+            boolArr[0] = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.aa)) {
+                return this.aa;
+            }
+            return this.L;
+        }
+        return (String) invokeL.objValue;
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.Q = str;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            this.Y = str;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.R = str;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            this.Z = str;
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.S = str;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            this.aa = str;
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.T = str;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            this.ab = str;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            this.U = str;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.ac = str;
         }
     }
 
     @Override // com.baidu.wallet.core.domain.a
     public void setDomainConfig(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("life_host");
-            if (!TextUtils.isEmpty(optString) && H.matcher(optString).matches()) {
-                this.v = optString;
-            } else {
-                this.v = "https://www.baifubao.com";
-            }
-            String optString2 = jSONObject.optString(a.f60951b);
-            if (!TextUtils.isEmpty(optString2) && H.matcher(optString2).matches()) {
-                this.x = optString2;
-            } else {
-                this.x = b.k;
-            }
-            String optString3 = jSONObject.optString("nfc_host");
-            if (!TextUtils.isEmpty(optString3) && H.matcher(optString3).matches()) {
-                this.z = optString3;
-            } else {
-                this.z = "https://chong.baidu.com";
-            }
-            String optString4 = jSONObject.optString("app_host");
-            if (!TextUtils.isEmpty(optString4) && H.matcher(optString4).matches()) {
-                this.y = optString4;
-                com.baidu.apollon.heartbeat.a.c().a(this.M);
-            } else {
-                this.y = "https://www.baifubao.com";
-                com.baidu.apollon.heartbeat.a.c().a(this.y);
-            }
-            String optString5 = jSONObject.optString(a.f60954e);
-            if (!TextUtils.isEmpty(optString5) && H.matcher(optString5).matches()) {
-                this.A = optString5;
-                this.C = optString5;
-                this.E = optString5;
-                this.D = optString5;
+            if (!TextUtils.isEmpty(optString) && P.matcher(optString).matches()) {
+                this.A = optString;
             } else {
                 this.A = "https://www.baifubao.com";
-                this.C = "https://m.baifubao.com";
-                this.E = "https://co.baifubao.com";
-                this.D = "https://qianbao.baidu.com";
             }
-            String optString6 = jSONObject.optString(a.f60955f);
-            if (!TextUtils.isEmpty(optString6) && H.matcher(optString6).matches()) {
-                this.G = optString6;
+            String optString2 = jSONObject.optString(a.f61068b);
+            if (!TextUtils.isEmpty(optString2) && P.matcher(optString2).matches()) {
+                this.C = optString2;
             } else {
-                this.G = WapPayActivity.HOST;
+                this.C = b.o;
+            }
+            String optString3 = jSONObject.optString("nfc_host");
+            if (!TextUtils.isEmpty(optString3) && P.matcher(optString3).matches()) {
+                this.E = optString3;
+            } else {
+                this.E = "https://chong.baidu.com";
+            }
+            String optString4 = jSONObject.optString("app_host");
+            if (!TextUtils.isEmpty(optString4) && P.matcher(optString4).matches()) {
+                this.D = optString4;
+                com.baidu.apollon.heartbeat.a.c().b(this.U);
+            } else {
+                this.D = "https://www.baifubao.com";
+                com.baidu.apollon.heartbeat.a.c().b(this.D);
+            }
+            String optString5 = jSONObject.optString(a.f61071e);
+            if (!TextUtils.isEmpty(optString5) && P.matcher(optString5).matches()) {
+                this.F = optString5;
+                this.H = optString5;
+                this.J = optString5;
+                this.I = optString5;
+            } else {
+                this.F = "https://www.baifubao.com";
+                this.H = "https://m.baifubao.com";
+                this.J = "https://co.baifubao.com";
+                this.I = "https://qianbao.baidu.com";
+            }
+            String optString6 = jSONObject.optString(a.f61072f);
+            if (!TextUtils.isEmpty(optString6) && P.matcher(optString6).matches()) {
+                this.L = optString6;
+            } else {
+                this.L = WapPayActivity.HOST;
             }
             String optString7 = jSONObject.optString("comet_host");
-            if (!TextUtils.isEmpty(optString7) && H.matcher(optString7).matches()) {
-                this.B = optString7;
+            if (!TextUtils.isEmpty(optString7) && P.matcher(optString7).matches()) {
+                this.G = optString7;
             } else {
-                this.B = b.m;
+                this.G = b.q;
             }
             String optString8 = jSONObject.optString("my_host");
-            if (!TextUtils.isEmpty(optString8) && H.matcher(optString8).matches()) {
-                this.w = optString8;
+            if (!TextUtils.isEmpty(optString8) && P.matcher(optString8).matches()) {
+                this.B = optString8;
             } else {
-                this.w = "https://www.baifubao.com";
+                this.B = "https://www.baifubao.com";
+            }
+            String optString9 = jSONObject.optString(a.f61075i);
+            if (!TextUtils.isEmpty(optString9) && P.matcher(optString9).matches()) {
+                this.ad = optString9;
+            } else {
+                this.ad = "https://www.baifubao.com";
+            }
+            String optString10 = jSONObject.optString(a.f61076j);
+            if (TextUtils.isEmpty(optString10) && P.matcher(optString10).matches()) {
+                this.ae = optString10;
+            } else {
+                this.ae = "https://bi-sensors.duxiaoman.com";
+            }
+            String optString11 = jSONObject.optString(a.k);
+            if (TextUtils.isEmpty(optString11) && P.matcher(optString11).matches()) {
+                this.af = optString11;
+            } else {
+                this.af = "https://qianbao.baidu.com";
+            }
+            String optString12 = jSONObject.optString(a.l);
+            if (TextUtils.isEmpty(optString12) && P.matcher(optString12).matches()) {
+                this.ag = optString12;
+            } else {
+                this.ag = a.l;
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -435,7 +513,7 @@ public class c implements a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.J = str;
+            this.R = str;
         }
     }
 }

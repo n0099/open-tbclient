@@ -97,43 +97,43 @@ public class e {
     public int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public final UserData f19611a;
+    public final UserData f19626a;
     public boolean a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f19612b;
+    public String f19627b;
     public int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public CardHListViewData f19613c;
+    public CardHListViewData f19628c;
     public List<c.a.r0.j3.i0.p> c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f19614d;
+    public int f19629d;
     public x d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19615e;
+    public int f19630e;
     public z e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PbSortType> f19616f;
+    public List<PbSortType> f19631f;
     public String f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19617g;
+    public int f19632g;
     public String g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f19618h;
+    public k f19633h;
     public List<ThreadInfo> h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19619i;
+    public boolean f19634i;
     public ForumRuleStatus i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f19620j;
+    public boolean f19635j;
     public BusinessAccountData j0;
     public boolean k;
     public boolean k0;
@@ -173,8 +173,8 @@ public class e {
                 return;
             }
         }
-        this.f19619i = false;
-        this.f19620j = false;
+        this.f19634i = false;
+        this.f19635j = false;
         this.k = false;
         this.m = false;
         this.w = 0;
@@ -199,7 +199,7 @@ public class e {
         this.u = new c.a.q0.u.f();
         this.v = 0;
         this.w = 0;
-        this.f19611a = new UserData();
+        this.f19626a = new UserData();
         this.B = new ArrayList();
         this.z = new e1();
         this.C = new f1();
@@ -243,7 +243,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (d2Var = this.p) == null) {
             return;
         }
-        d2Var.f4(str);
+        d2Var.e4(str);
     }
 
     public z C() {
@@ -382,7 +382,7 @@ public class e {
     public void K0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f19612b = str;
+            this.f19627b = str;
         }
     }
 
@@ -420,7 +420,7 @@ public class e {
                     if (i2 != null && i2.t() != null && !c.a.e.e.p.k.isEmpty(i2.t().getUserId())) {
                         r2 = StringHelper.equals(userId, i2.t().getUserId()) ? i2.z() : null;
                         if (c.a.e.e.p.k.isEmpty("")) {
-                            str = i2.P();
+                            str = i2.Q();
                         }
                     }
                     if (c.a.e.e.p.k.isEmpty(str) && c.a.e.e.p.k.isEmpty(r2)) {
@@ -431,7 +431,7 @@ public class e {
                                     r2 = postData.z();
                                 }
                                 if (c.a.e.e.p.k.isEmpty(str)) {
-                                    str = postData.P();
+                                    str = postData.Q();
                                 }
                                 if (!c.a.e.e.p.k.isEmpty(r2) && !c.a.e.e.p.k.isEmpty(str)) {
                                     break;
@@ -451,7 +451,7 @@ public class e {
                         r2 = this.p.q1().thumbnail_url;
                     }
                     d2 d2Var3 = this.p;
-                    if (d2Var3 != null && !d2Var3.y1 && r2 == null && (originalThreadInfo = d2Var3.x1) != null && (arrayList = originalThreadInfo.f47424h) != null) {
+                    if (d2Var3 != null && !d2Var3.z1 && r2 == null && (originalThreadInfo = d2Var3.y1) != null && (arrayList = originalThreadInfo.f47526h) != null) {
                         int size2 = arrayList.size();
                         int i4 = 0;
                         while (true) {
@@ -523,7 +523,7 @@ public class e {
     public UserData U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f19611a : (UserData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f19626a : (UserData) invokeV.objValue;
     }
 
     public int V() {
@@ -541,7 +541,7 @@ public class e {
     public String X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f19612b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f19627b : (String) invokeV.objValue;
     }
 
     public List<c.a.r0.j3.i0.p> Y() {
@@ -584,8 +584,8 @@ public class e {
                 alaLiveInfoCoreData.parserProtoBuf(alaLiveInfo);
             }
             this.P = dataRes.fold_tip;
-            this.f19614d = dataRes.exp_news_today.intValue();
-            this.f19615e = dataRes.exp_guide_today.intValue();
+            this.f19629d = dataRes.exp_news_today.intValue();
+            this.f19630e = dataRes.exp_guide_today.intValue();
             if (!ListUtils.isEmpty(dataRes.thread_topic)) {
                 for (int i2 = 0; i2 < dataRes.thread_topic.size(); i2++) {
                     RecommendTopicData.RecommendTopicListData recommendTopicListData = new RecommendTopicData.RecommendTopicListData();
@@ -593,11 +593,11 @@ public class e {
                     this.R.add(recommendTopicListData);
                 }
             }
-            this.f19616f = dataRes.pb_sort_info;
-            this.f19617g = dataRes.sort_type.intValue();
+            this.f19631f = dataRes.pb_sort_info;
+            this.f19632g = dataRes.sort_type.intValue();
             ManagerElection managerElection = dataRes.manager_election;
             if (managerElection != null) {
-                this.f19618h = k.i(managerElection);
+                this.f19633h = k.i(managerElection);
             }
         }
     }
@@ -606,7 +606,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
             if (this.G.getAdvertAppInfo() != null) {
-                this.G.getAdvertAppInfo().e4 = null;
+                this.G.getAdvertAppInfo().f4 = null;
             }
             this.G = null;
         }
@@ -623,27 +623,27 @@ public class e {
         for (Post post : dataRes.post_list) {
             if (!this.S.contains(String.valueOf(post.id))) {
                 PostData postData = new PostData();
-                postData.y0(this.r);
-                postData.j0(this.n.isBrandForum);
-                postData.d0(post, context, O());
-                postData.s0(O().L0());
+                postData.A0(this.r);
+                postData.l0(this.n.isBrandForum);
+                postData.f0(post, context, O());
+                postData.u0(O().L0());
                 if (postData.q() != null && postData.q().baijiahaoData == null && O() != null && O().L() != null) {
                     postData.q().baijiahaoData = O().L();
                 }
                 this.S.add(postData.E());
                 if (postData.A() == 1 && this.p.I1()) {
                     if (l0()) {
-                        postData.r0(0);
+                        postData.t0(0);
                     } else {
-                        postData.r0(this.p.w());
+                        postData.t0(this.p.w());
                     }
                 } else if (postData.A() == 1 && this.p.c2()) {
-                    postData.r0(41);
+                    postData.t0(41);
                 } else if (postData.A() == 1 && (d2Var = this.p) != null && d2Var.E2()) {
-                    postData.r0(0);
-                    postData.U();
+                    postData.t0(0);
+                    postData.V();
                     if (this.p.W0() != null && this.p.W0().size() != 0) {
-                        postData.t0(new TbRichText(TbadkCoreApplication.getInst(), this.p.W0(), this.p.s1(), true));
+                        postData.v0(new TbRichText(TbadkCoreApplication.getInst(), this.p.W0(), this.p.s1(), true));
                     } else {
                         JSONArray jSONArray = new JSONArray();
                         JSONObject jSONObject = new JSONObject();
@@ -654,12 +654,12 @@ public class e {
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
-                        postData.t0(TbRichTextView.parse(context, jSONArray, false));
+                        postData.v0(TbRichTextView.parse(context, jSONArray, false));
                     }
                     this.L = postData;
                 }
-                if (postData.A() == 1 && (d2Var2 = this.p) != null && d2Var2.y1) {
-                    postData.q0(d2Var2.x1);
+                if (postData.A() == 1 && (d2Var2 = this.p) != null && d2Var2.z1) {
+                    postData.s0(d2Var2.y1);
                 }
                 if (postData.A() == 1) {
                     this.Y = postData;
@@ -677,13 +677,13 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            List<PbSortType> list = this.f19616f;
-            if (list == null || list.size() <= this.f19617g) {
+            List<PbSortType> list = this.f19631f;
+            if (list == null || list.size() <= this.f19632g) {
                 return "";
             }
-            for (int i2 = 0; i2 < this.f19616f.size(); i2++) {
-                if (this.f19616f.get(i2).sort_type.intValue() == this.f19617g) {
-                    return this.f19616f.get(i2).sort_name;
+            for (int i2 = 0; i2 < this.f19631f.size(); i2++) {
+                if (this.f19631f.get(i2).sort_type.intValue() == this.f19632g) {
+                    return this.f19631f.get(i2).sort_name;
                 }
             }
             return "";
@@ -918,13 +918,13 @@ public class e {
     public boolean q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? (O() == null || O().L2 == null || !O().L2.isWorks) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? (O() == null || O().M2 == null || !O().M2.isWorks) ? false : true : invokeV.booleanValue;
     }
 
     public CardHListViewData r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) ? this.f19613c : (CardHListViewData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) ? this.f19628c : (CardHListViewData) invokeV.objValue;
     }
 
     public final void r0(@NonNull DataRes dataRes) {
@@ -953,7 +953,7 @@ public class e {
                 this.l0 = true;
                 app = c2;
             }
-            pVar.H0(app);
+            pVar.J0(app);
             this.G = pVar;
         }
     }
@@ -975,7 +975,7 @@ public class e {
             for (App app : list) {
                 c.a.r0.j3.i0.p pVar = new c.a.r0.j3.i0.p();
                 pVar.K0 = p0();
-                pVar.H0(app);
+                pVar.J0(app);
                 if (!this.c0.contains(pVar)) {
                     this.c0.add(pVar);
                 }
@@ -1021,10 +1021,10 @@ public class e {
             r0(dataRes);
             this.n.parserProtobuf(dataRes.forum);
             this.o.f(dataRes.display_forum);
-            this.p.E4(this.r);
+            this.p.D4(this.r);
             this.p.Y2(dataRes.thread);
             if (this.p.T() == 0) {
-                this.p.E3(dataRes.forum.id.longValue());
+                this.p.D3(dataRes.forum.id.longValue());
             }
             if (this.p.J() != null && this.p.J().getBusinessAccountData() == null) {
                 this.p.J().setBusinessAccountData(this.j0);
@@ -1040,19 +1040,19 @@ public class e {
             } else {
                 this.A.F0 = this.z;
             }
-            this.C.D0(dataRes.recommend_book);
+            this.C.F0(dataRes.recommend_book);
             b0(dataRes, context);
             PostData postData = new PostData();
             this.W = postData;
-            postData.i0(1);
-            this.W.y0(this.r);
-            this.W.j0(this.n.isBrandForum);
-            this.W.w0(this.p.P());
+            postData.k0(1);
+            this.W.A0(this.r);
+            this.W.l0(this.n.isBrandForum);
+            this.W.y0(this.p.P());
             if (dataRes.first_floor_post != null) {
-                this.W.c0(dataRes.first_floor_post, context);
+                this.W.e0(dataRes.first_floor_post, context);
             }
-            if (this.p != null && this.p.y1) {
-                this.W.q0(this.p.x1);
+            if (this.p != null && this.p.z1) {
+                this.W.s0(this.p.y1);
             }
             if (this.Y == null) {
                 this.Y = this.W;
@@ -1067,7 +1067,7 @@ public class e {
             if (dataRes.user != null) {
                 this.v = dataRes.user.is_manager.intValue();
             }
-            this.f19611a.parserProtobuf(dataRes.user);
+            this.f19626a.parserProtobuf(dataRes.user);
             if (dataRes.user != null && dataRes.user.mute_user != null) {
                 for (SimpleUser simpleUser : dataRes.user.mute_user) {
                     if (simpleUser != null) {
@@ -1077,7 +1077,7 @@ public class e {
                     }
                 }
             }
-            this.p.n4(this.p.U0() > 0 ? this.p.U0() - 1 : 0);
+            this.p.m4(this.p.U0() > 0 ? this.p.U0() - 1 : 0);
             List<AdvertAppInfo> h2 = y.o().h();
             if (h2 != null) {
                 h2.clear();
@@ -1097,7 +1097,7 @@ public class e {
                         this.l0 = true;
                         app = c2;
                     }
-                    pVar.H0(app);
+                    pVar.J0(app);
                     if (!this.F.contains(pVar)) {
                         this.F.add(pVar);
                         if (h2 != null) {
@@ -1110,7 +1110,7 @@ public class e {
             y.o().g();
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                currentAccountObj.setIsSelectTail(this.f19611a.getIsSelectTail());
+                currentAccountObj.setIsSelectTail(this.f19626a.getIsSelectTail());
             }
             this.H.parserProtobuf(dataRes.twzhibo_anti);
             AppealInfo appealInfo = dataRes.appeal_info;
@@ -1121,7 +1121,7 @@ public class e {
             }
             if (dataRes.guess_like != null) {
                 CardHListViewData cardHListViewData = new CardHListViewData();
-                this.f19613c = cardHListViewData;
+                this.f19628c = cardHListViewData;
                 cardHListViewData.parseProtobuf(dataRes.guess_like);
             }
             c0(dataRes);
@@ -1161,7 +1161,7 @@ public class e {
                 for (ThreadInfo threadInfo : dataRes.bjh_recommend) {
                     if (threadInfo != null && !n0(threadInfo) && !e0(threadInfo)) {
                         c.a.q0.s.q.q qVar = new c.a.q0.s.q.q();
-                        qVar.S4(i4);
+                        qVar.R4(i4);
                         qVar.Y2(threadInfo);
                         this.T.add(qVar);
                         i4++;
@@ -1183,8 +1183,8 @@ public class e {
                 aVar2.w(dataRes.promotion);
             }
             if (dataRes.business_promot_info != null) {
-                this.f19619i = dataRes.business_promot_info.is_promot.longValue() == 1;
-                this.f19620j = dataRes.business_promot_info.is_headlinepost.intValue() == 1;
+                this.f19634i = dataRes.business_promot_info.is_promot.longValue() == 1;
+                this.f19635j = dataRes.business_promot_info.is_headlinepost.intValue() == 1;
                 this.k = dataRes.business_promot_info.is_s_card.intValue() == 1;
                 if (dataRes.business_promot_info.send_card_info != null) {
                     b bVar = new b();
@@ -1296,9 +1296,9 @@ public class e {
             return;
         }
         if (z) {
-            d2Var.T3(1);
+            d2Var.S3(1);
         } else {
-            d2Var.T3(0);
+            d2Var.S3(0);
         }
     }
 }

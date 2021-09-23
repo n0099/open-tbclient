@@ -8,14 +8,14 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f20783a;
+    public int f20791a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20784b;
+    public String f20792b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20785c;
+    public int f20793c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20786d;
+    public int f20794d;
 }

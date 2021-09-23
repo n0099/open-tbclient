@@ -7,7 +7,7 @@ import c.a.r0.a0.b0;
 import c.a.r0.a0.z;
 import c.a.r0.o.e;
 import c.a.r0.o.f;
-import c.a.r0.v.i.e.c;
+import c.a.r0.v.k.e.c;
 import c.a.r0.w0.j;
 import c.a.r0.w0.k;
 import com.baidu.adp.BdUniqueId;
@@ -65,7 +65,7 @@ public class FrsAlaShareItemAdapter extends k<d2, FrsPageAlaShareHolder> impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FrsAlaShareItemAdapter f49688b;
+        public final /* synthetic */ FrsAlaShareItemAdapter f49799b;
 
         public a(FrsAlaShareItemAdapter frsAlaShareItemAdapter) {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class FrsAlaShareItemAdapter extends k<d2, FrsPageAlaShareHolder> impleme
                     return;
                 }
             }
-            this.f49688b = frsAlaShareItemAdapter;
+            this.f49799b = frsAlaShareItemAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -99,11 +99,11 @@ public class FrsAlaShareItemAdapter extends k<d2, FrsPageAlaShareHolder> impleme
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
-                if (customMessage == null || this.f49688b.o == null) {
+                if (customMessage == null || this.f49799b.o == null) {
                     return;
                 }
                 customMessage.setData(d2Var);
-                this.f49688b.o.sendMessage(customMessage);
+                this.f49799b.o.sendMessage(customMessage);
             }
         }
     }
@@ -164,9 +164,9 @@ public class FrsAlaShareItemAdapter extends k<d2, FrsPageAlaShareHolder> impleme
             if (tbPageContext == null) {
                 return null;
             }
-            c cVar = new c(tbPageContext, this.f2961i);
+            c cVar = new c(tbPageContext, this.f2962i);
             this.y = cVar;
-            cVar.V(this.f2961i);
+            cVar.X(this.f2962i);
             this.y.a(this.x);
             this.y.m(this.A);
             return new FrsPageAlaShareHolder(this.y);
@@ -183,7 +183,7 @@ public class FrsAlaShareItemAdapter extends k<d2, FrsPageAlaShareHolder> impleme
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), view, viewGroup, d2Var, frsPageAlaShareHolder})) == null) {
             CustomMessage customMessage = new CustomMessage(2921017);
             FrsViewData frsViewData = this.n;
-            d2Var.S1 = (i2 + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
+            d2Var.T1 = (i2 + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
             customMessage.setData(d2Var);
             this.o.sendMessage(customMessage);
             if (d2Var != null) {
@@ -192,10 +192,10 @@ public class FrsAlaShareItemAdapter extends k<d2, FrsPageAlaShareHolder> impleme
                     cVar.setPage(this.z);
                 }
                 frsPageAlaShareHolder.mView.a(this.x);
-                j.j(frsPageAlaShareHolder.mView.O(), this.n);
                 j.j(frsPageAlaShareHolder.mView.Q(), this.n);
+                j.j(frsPageAlaShareHolder.mView.S(), this.n);
                 frsPageAlaShareHolder.mView.k(d2Var);
-                d2Var.N4();
+                d2Var.M4();
             }
             return frsPageAlaShareHolder.getView();
         }

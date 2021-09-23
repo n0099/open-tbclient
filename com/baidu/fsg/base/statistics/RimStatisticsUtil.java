@@ -26,21 +26,14 @@ public final class RimStatisticsUtil {
     public static Context sAppContext;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasInit;
-    public k mHttpImpl;
-
-    /* renamed from: com.baidu.fsg.base.statistics.RimStatisticsUtil$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public r mHttpImpl;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static RimStatisticsUtil f39461a;
+        public static RimStatisticsUtil f39518a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +49,7 @@ public final class RimStatisticsUtil {
                     return;
                 }
             }
-            f39461a = new RimStatisticsUtil(null);
+            f39518a = new RimStatisticsUtil(null);
         }
 
         public a() {
@@ -103,7 +96,7 @@ public final class RimStatisticsUtil {
         }
     }
 
-    public /* synthetic */ RimStatisticsUtil(AnonymousClass1 anonymousClass1) {
+    public /* synthetic */ RimStatisticsUtil(p pVar) {
         this();
     }
 
@@ -128,13 +121,13 @@ public final class RimStatisticsUtil {
     public static RimStatisticsUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f39461a : (RimStatisticsUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f39518a : (RimStatisticsUtil) invokeV.objValue;
     }
 
     private String getSignKey1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? com.baidu.fsg.base.a.f39302h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? com.baidu.fsg.base.a.f39360h : (String) invokeV.objValue;
     }
 
     private String getSignKey2() {
@@ -157,7 +150,7 @@ public final class RimStatisticsUtil {
                 return false;
             }
             mInited = true;
-            e.a().b();
+            g.b().d();
             return true;
         }
         return invokeV.booleanValue;
@@ -172,7 +165,7 @@ public final class RimStatisticsUtil {
                     return;
                 }
                 rimStatisticsUtil.hasInit = true;
-                d.a().a(context);
+                e.a().a(context);
                 initData();
             } catch (Exception unused) {
             }
@@ -321,8 +314,8 @@ public final class RimStatisticsUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogUtil.d("logsender", "=====triggerSending====");
-            i.a().a("normal_log");
-            i.a().a(b.o);
+            n.a().b("normal_log");
+            n.a().b(b.o);
         }
     }
 }

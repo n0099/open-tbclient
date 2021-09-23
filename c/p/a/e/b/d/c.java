@@ -12,25 +12,25 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f35079a = "";
+    public static volatile String f35102a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f35080b = "";
+    public static volatile String f35103b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile String f35081c = "";
+    public static volatile String f35104c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f35082d = 512000;
+    public static long f35105d = 512000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f35083e = 50;
+    public static long f35106e = 50;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f35084f = 5242880;
+    public static long f35107f = 5242880;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final JSONObject f35085g;
+    public static final JSONObject f35108g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class c {
                 return;
             }
         }
-        f35085g = new JSONObject();
+        f35108g = new JSONObject();
     }
 
     public static void a(String str) {
@@ -54,6 +54,6 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        f35079a = str;
+        f35102a = str;
     }
 }

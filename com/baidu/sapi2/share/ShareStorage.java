@@ -486,6 +486,7 @@ public class ShareStorage {
 
     public String getSd(String str) {
         InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             try {
@@ -496,7 +497,11 @@ public class ShareStorage {
                 Log.d(ShareUtils.TAG, "getSd is not has READ_EXTERNAL_STORAGE permission");
                 return null;
             }
-            String str2 = Environment.getExternalStorageDirectory().getAbsolutePath().toString() + File.separator + SD_FILE_NAME + str;
+            if (Build.VERSION.SDK_INT >= 30) {
+                str2 = this.context.getExternalCacheDir().getAbsolutePath() + File.separator + SD_FILE_NAME + str;
+            } else {
+                str2 = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + SD_FILE_NAME + str;
+            }
             if (FileUtil.isFileExist(str2)) {
                 Log.d(ShareUtils.TAG, "getSd filePath=" + str2);
                 return FileUtil.read(str2);
@@ -514,12 +519,18 @@ public class ShareStorage {
 
     public boolean setSd(String str, String str2) {
         InterceptResult invokeLL;
+        File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
             try {
                 if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.context)) {
-                    File externalStorageDirectory = Environment.getExternalStorageDirectory();
-                    File file = new File(externalStorageDirectory, SD_FILE_NAME + str);
+                    if (Build.VERSION.SDK_INT >= 30) {
+                        File externalCacheDir = this.context.getExternalCacheDir();
+                        file = new File(externalCacheDir, SD_FILE_NAME + str);
+                    } else {
+                        File externalStorageDirectory = Environment.getExternalStorageDirectory();
+                        file = new File(externalStorageDirectory, SD_FILE_NAME + str);
+                    }
                     if (TextUtils.isEmpty(str2)) {
                         FileUtil.deleteFile(file);
                         return true;

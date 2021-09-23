@@ -14,7 +14,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, Integer> f14013a;
+    public static HashMap<String, Integer> f14010a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class f {
                 return;
             }
         }
-        f14013a = new HashMap<>();
+        f14010a = new HashMap<>();
     }
 
     public static int a(int i2) {
@@ -38,10 +38,10 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
             String str = TbadkCoreApplication.getCurrentAccount() + TNCManager.TNC_PROBE_HEADER_SECEPTOR + i2;
-            if (f14013a.containsKey(str)) {
-                return f14013a.get(str).intValue();
+            if (f14010a.containsKey(str)) {
+                return f14010a.get(str).intValue();
             }
-            f14013a.put(str, 1);
+            f14010a.put(str, 1);
             return 1;
         }
         return invokeI.intValue;
@@ -54,16 +54,16 @@ public class f {
         }
         String str = TbadkCoreApplication.getCurrentAccount() + TNCManager.TNC_PROBE_HEADER_SECEPTOR + 2;
         int w = personPrivateData.w();
-        if (f14013a.containsKey(str)) {
+        if (f14010a.containsKey(str)) {
             return;
         }
-        f14013a.put(str, Integer.valueOf(w));
+        f14010a.put(str, Integer.valueOf(w));
     }
 
     public static void c(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65539, null, i2, i3) == null) {
-            f14013a.put(TbadkCoreApplication.getCurrentAccount() + TNCManager.TNC_PROBE_HEADER_SECEPTOR + i2, Integer.valueOf(i3));
+            f14010a.put(TbadkCoreApplication.getCurrentAccount() + TNCManager.TNC_PROBE_HEADER_SECEPTOR + i2, Integer.valueOf(i3));
         }
     }
 }

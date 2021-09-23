@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
 import c.a.q0.a.w;
-import c.a.q0.d1.u0;
 import c.a.q0.d1.v0;
+import c.a.q0.d1.w0;
 import c.a.r0.j2.k.e.m0;
 import c.a.r0.j2.k.e.o;
 import c.a.r0.j2.k.e.q0;
@@ -72,7 +72,7 @@ public class PbActivityStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static BdAsyncTaskParallel f54948a;
+    public static BdAsyncTaskParallel f55063a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -289,7 +289,7 @@ public class PbActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                v0.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
+                w0.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -302,7 +302,7 @@ public class PbActivityStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Pattern f54949a;
+        public Pattern f55064a;
 
         public g() {
             Interceptable interceptable = $ic;
@@ -317,7 +317,7 @@ public class PbActivityStatic {
                     return;
                 }
             }
-            this.f54949a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+            this.f55064a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
         }
 
         /* JADX WARN: Removed duplicated region for block: B:198:0x039e  */
@@ -349,7 +349,7 @@ public class PbActivityStatic {
             }
             boolean z7 = strArr.length > 1 && !StringUtils.isNull(strArr[1]) && strArr[1].toLowerCase().contains("n/video/opersquare");
             String lowerCase = strArr[0].toLowerCase();
-            Matcher matcher = this.f54949a.matcher(lowerCase);
+            Matcher matcher = this.f55064a.matcher(lowerCase);
             String str3 = "push";
             if (!Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1").matcher(lowerCase).find() && !lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_BAIJIAHAO_PB)) {
                 if (lowerCase.contains("unidispatch/pb")) {
@@ -420,7 +420,7 @@ public class PbActivityStatic {
                                 }
                             }
                         }
-                        z6 = c.a.e.e.m.b.b(u0.c(lowerCase, "is_from_push="), false);
+                        z6 = c.a.e.e.m.b.b(v0.c(lowerCase, "is_from_push="), false);
                     } else {
                         z6 = false;
                     }
@@ -441,7 +441,7 @@ public class PbActivityStatic {
                     }
                     str2 = group;
                     if (lowerCase != null) {
-                        String c3 = u0.c(lowerCase, "sttype=");
+                        String c3 = v0.c(lowerCase, "sttype=");
                         if (!StringUtils.isNull(c3)) {
                             str7 = c3;
                         }
@@ -505,7 +505,7 @@ public class PbActivityStatic {
                             } else if (!lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) || !lowerCase.contains("kz=")) {
                                 return 3;
                             } else {
-                                c2 = u0.c(lowerCase, "kz=");
+                                c2 = v0.c(lowerCase, "kz=");
                                 z = false;
                             }
                             z2 = false;
@@ -520,8 +520,8 @@ public class PbActivityStatic {
                             } else {
                                 createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(c2, str4, str7);
                             }
-                            if (lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(u0.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
-                                createNormalCfg.setUserName(u0.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
+                            if (lowerCase.contains(BigImgPbActivityConfig.OPEN_COMMON) && "1".equals(v0.c(lowerCase, BigImgPbActivityConfig.OPEN_COMMON))) {
+                                createNormalCfg.setUserName(v0.c(lowerCase, BigImgPbActivityConfig.BIG_PB_USER_NAME));
                             }
                             createNormalCfg.setVideo_source(str3);
                             if (z3) {
@@ -619,7 +619,7 @@ public class PbActivityStatic {
                 return;
             }
         }
-        f54948a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        f55063a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
         a();
         j();
         i();
@@ -639,9 +639,9 @@ public class PbActivityStatic {
         fVar.setSelfExecute(true);
         fVar.setPriority(4);
         fVar.execute(new Void[0]);
-        ItemCardHelper.t();
         ItemCardHelper.s();
-        c.a.q0.i0.b.a(c.a.q0.i0.c.b.f13494a, new m0());
+        ItemCardHelper.r();
+        c.a.q0.i0.b.a(c.a.q0.i0.c.b.f13490a, new m0());
     }
 
     public PbActivityStatic() {
@@ -700,10 +700,10 @@ public class PbActivityStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
-            c.a.q0.z0.b h2 = c.a.r0.j3.d0.a.h(302002, SubPbSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = c.a.r0.j3.d0.a.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
-            h2.setParallel(f54948a);
-            c2.setParallel(f54948a);
+            c.a.q0.z0.b h2 = c.a.r0.j3.e0.a.h(302002, SubPbSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = c.a.r0.j3.e0.a.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
+            h2.setParallel(f55063a);
+            c2.setParallel(f55063a);
         }
     }
 
@@ -727,15 +727,15 @@ public class PbActivityStatic {
     public static void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            c.a.r0.j3.d0.a.b(2004003, c.a.r0.j2.k.e.v0.class);
+            c.a.r0.j3.e0.a.b(2004003, c.a.r0.j2.k.e.v0.class);
         }
     }
 
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            c.a.r0.j3.d0.a.h(302001, pbPageSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, c.a.r0.j3.d0.a.a("c/f/pb/page", 302001));
+            c.a.r0.j3.e0.a.h(302001, pbPageSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, c.a.r0.j3.e0.a.a("c/f/pb/page", 302001));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

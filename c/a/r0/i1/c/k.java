@@ -10,10 +10,10 @@ public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f19302a = 1;
+    public static int f19317a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f19303b = 2;
+    public static int f19318b = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

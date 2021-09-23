@@ -25,16 +25,16 @@ public class a extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public b<Boolean> f8648g;
+    public b<Boolean> f8656g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f8649h;
+    public String f8657h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f8650i;
+    public String f8658i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f8651j;
+    public long f8659j;
     public c<h> k;
 
     /* renamed from: c.a.p0.a.t1.a.a$a  reason: collision with other inner class name */
@@ -44,7 +44,7 @@ public class a extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f8652e;
+        public final /* synthetic */ a f8660e;
 
         public C0376a(a aVar) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class a extends j {
                     return;
                 }
             }
-            this.f8652e = aVar;
+            this.f8660e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class a extends j {
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.f8652e.m(bundle, set) : (Bundle) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.f8660e.m(bundle, set) : (Bundle) invokeLL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -91,7 +91,7 @@ public class a extends j {
                 if (aVar != null) {
                     c.a.p0.a.t1.d.a.a("plugin download error: " + aVar.toString());
                 }
-                this.f8652e.f8648g.a(Boolean.FALSE);
+                this.f8660e.f8656g.a(Boolean.FALSE);
             }
         }
 
@@ -104,25 +104,25 @@ public class a extends j {
                 super.i(hVar);
                 if (hVar == null) {
                     c.a.p0.a.t1.d.a.a("download finish, plugin is null");
-                    this.f8652e.f8648g.a(Boolean.FALSE);
-                } else if (!j0.a(new File(hVar.f11879a), hVar.m)) {
+                    this.f8660e.f8656g.a(Boolean.FALSE);
+                } else if (!j0.a(new File(hVar.f11887a), hVar.m)) {
                     c.a.p0.a.t1.d.a.a("download finish, check zip sign failure");
-                    this.f8652e.f8648g.a(Boolean.FALSE);
+                    this.f8660e.f8656g.a(Boolean.FALSE);
                 } else {
-                    File t = e.t(hVar.f11885g, String.valueOf(hVar.f11887i));
+                    File t = e.t(hVar.f11893g, String.valueOf(hVar.f11895i));
                     d.k(t);
                     if (t != null && t.exists()) {
-                        boolean T = d.T(hVar.f11879a, t.getAbsolutePath());
-                        hVar.f11881c = hVar.b();
-                        hVar.f11882d = hVar.b();
+                        boolean T = d.T(hVar.f11887a, t.getAbsolutePath());
+                        hVar.f11889c = hVar.b();
+                        hVar.f11890d = hVar.b();
                         c.a.p0.n.g.a.h().l(hVar);
-                        d.j(hVar.f11879a);
+                        d.j(hVar.f11887a);
                         c.a.p0.a.t1.d.a.a("download finish, unZipSuccess = " + T);
-                        this.f8652e.f8648g.a(Boolean.valueOf(T));
+                        this.f8660e.f8656g.a(Boolean.valueOf(T));
                         return;
                     }
-                    c.a.p0.a.t1.d.a.a("download finish, create file failure, name = " + hVar.f11885g + " ; version = " + hVar.f11887i);
-                    this.f8652e.f8648g.a(Boolean.FALSE);
+                    c.a.p0.a.t1.d.a.a("download finish, create file failure, name = " + hVar.f11893g + " ; version = " + hVar.f11895i);
+                    this.f8660e.f8656g.a(Boolean.FALSE);
                 }
             }
         }
@@ -135,7 +135,7 @@ public class a extends j {
             if (interceptable == null || interceptable.invokeL(1048585, this, hVar) == null) {
                 super.c(hVar);
                 if (hVar != null) {
-                    c.a.p0.a.t1.d.a.a("plugin download start: bundleId = " + hVar.f11885g);
+                    c.a.p0.a.t1.d.a.a("plugin download start: bundleId = " + hVar.f11893g);
                 }
             }
         }
@@ -167,10 +167,10 @@ public class a extends j {
             }
         }
         this.k = new C0376a(this);
-        this.f8648g = bVar;
-        this.f8649h = str;
-        this.f8650i = str2;
-        this.f8651j = j2;
+        this.f8656g = bVar;
+        this.f8657h = str;
+        this.f8658i = str2;
+        this.f8659j = j2;
     }
 
     @Override // c.a.p0.n.f.g
@@ -180,15 +180,15 @@ public class a extends j {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.B(aVar);
             if (aVar != null) {
-                if (aVar.f11875a == 1010 && (i2 = c.a.p0.a.t1.b.a.i(this.f8649h, this.f8650i, this.f8651j)) != null) {
-                    i2.f11882d = i2.b();
+                if (aVar.f11883a == 1010 && (i2 = c.a.p0.a.t1.b.a.i(this.f8657h, this.f8658i, this.f8659j)) != null) {
+                    i2.f11890d = i2.b();
                     c.a.p0.n.g.a.h().v(i2);
                 }
                 c.a.p0.a.t1.d.a.a("fetch plugin error: " + aVar.toString());
             } else {
                 c.a.p0.a.t1.d.a.a("fetch plugin error");
             }
-            this.f8648g.a(Boolean.FALSE);
+            this.f8656g.a(Boolean.FALSE);
         }
     }
 
@@ -207,7 +207,7 @@ public class a extends j {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.E();
             c.a.p0.a.t1.d.a.a("no package");
-            this.f8648g.a(Boolean.FALSE);
+            this.f8656g.a(Boolean.FALSE);
         }
     }
 

@@ -19,7 +19,7 @@ public class c {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f32230a;
+    public final String f32251a;
 
     public c(@NonNull Certificate certificate) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c {
             }
         }
         try {
-            this.f32230a = Base64.encodeToString(MessageDigest.getInstance("SHA-256").digest(certificate.getPublicKey().getEncoded()), 0).trim();
+            this.f32251a = Base64.encodeToString(MessageDigest.getInstance("SHA-256").digest(certificate.getPublicKey().getEncoded()), 0).trim();
         } catch (NoSuchAlgorithmException unused) {
             throw new IllegalStateException("Should never happen");
         }
@@ -53,7 +53,7 @@ public class c {
             if (obj == null || c.class != obj.getClass()) {
                 return false;
             }
-            return this.f32230a.equals(((c) obj).f32230a);
+            return this.f32251a.equals(((c) obj).f32251a);
         }
         return invokeL.booleanValue;
     }
@@ -61,14 +61,14 @@ public class c {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32230a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32251a.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "pin='" + this.f32230a + ExtendedMessageFormat.QUOTE;
+            return "pin='" + this.f32251a + ExtendedMessageFormat.QUOTE;
         }
         return (String) invokeV.objValue;
     }

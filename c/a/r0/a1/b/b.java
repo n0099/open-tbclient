@@ -23,13 +23,13 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15713e;
+    public Context f15723e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<j0> f15714f;
+    public List<j0> f15724f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15715g;
+    public int f15725g;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -39,26 +39,26 @@ public class b extends BaseAdapter {
 
     /* renamed from: c.a.r0.a1.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0752b {
+    public static class C0750b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f15716a;
+        public TbImageView f15726a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f15717b;
+        public TbImageView f15727b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f15718c;
+        public View f15728c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f15719d;
+        public TextView f15729d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f15720e;
+        public TextView f15730e;
 
-        public C0752b() {
+        public C0750b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public class b extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ C0752b(a aVar) {
+        public /* synthetic */ C0750b(a aVar) {
             this();
         }
     }
@@ -92,8 +92,8 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f15715g = -1;
-        this.f15713e = context;
+        this.f15725g = -1;
+        this.f15723e = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,7 +106,7 @@ public class b extends BaseAdapter {
             if (i2 < 0 || i2 >= getCount()) {
                 return null;
             }
-            return this.f15714f.get(i2);
+            return this.f15724f.get(i2);
         }
         return (j0) invokeI.objValue;
     }
@@ -114,13 +114,13 @@ public class b extends BaseAdapter {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15715g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15725g : invokeV.intValue;
     }
 
     public void c(List<j0> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f15714f = list;
+            this.f15724f = list;
             notifyDataSetChanged();
         }
     }
@@ -128,7 +128,7 @@ public class b extends BaseAdapter {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f15715g = i2;
+            this.f15725g = i2;
         }
     }
 
@@ -137,7 +137,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<j0> list = this.f15714f;
+            List<j0> list = this.f15724f;
             if (list == null) {
                 return 0;
             }
@@ -156,46 +156,46 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C0752b c0752b;
+        C0750b c0750b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
             if (view != null && view.getTag() != null) {
-                c0752b = (C0752b) view.getTag();
+                c0750b = (C0750b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f15713e).inflate(R.layout.gift_list_item, (ViewGroup) null);
-                c0752b = new C0752b(null);
+                view = LayoutInflater.from(this.f15723e).inflate(R.layout.gift_list_item, (ViewGroup) null);
+                c0750b = new C0750b(null);
                 TbImageView tbImageView = (TbImageView) view.findViewById(R.id.image);
-                c0752b.f15716a = tbImageView;
+                c0750b.f15726a = tbImageView;
                 tbImageView.setDefaultBgResource(R.drawable.transparent_bg);
                 TbImageView tbImageView2 = (TbImageView) view.findViewById(R.id.mark_icon_iamge);
-                c0752b.f15717b = tbImageView2;
+                c0750b.f15727b = tbImageView2;
                 tbImageView2.setDefaultBgResource(R.drawable.transparent_bg);
-                c0752b.f15717b.setDefaultResource(R.drawable.transparent_bg);
-                c0752b.f15718c = view.findViewById(R.id.mask);
-                c0752b.f15719d = (TextView) view.findViewById(R.id.name);
-                c0752b.f15720e = (TextView) view.findViewById(R.id.price);
-                view.setTag(c0752b);
+                c0750b.f15727b.setDefaultResource(R.drawable.transparent_bg);
+                c0750b.f15728c = view.findViewById(R.id.mask);
+                c0750b.f15729d = (TextView) view.findViewById(R.id.name);
+                c0750b.f15730e = (TextView) view.findViewById(R.id.price);
+                view.setTag(c0750b);
             }
-            SkinManager.setViewTextColor(c0752b.f15719d, R.color.CAM_X0105, 1);
-            if (i2 == this.f15715g) {
-                SkinManager.setBackgroundResource(c0752b.f15718c, R.drawable.chx_box_gift_s);
+            SkinManager.setViewTextColor(c0750b.f15729d, R.color.CAM_X0105, 1);
+            if (i2 == this.f15725g) {
+                SkinManager.setBackgroundResource(c0750b.f15728c, R.drawable.chx_box_gift_s);
             } else {
-                c0752b.f15718c.setBackgroundResource(R.color.common_color_10022);
+                c0750b.f15728c.setBackgroundResource(R.color.common_color_10022);
             }
             j0 item = getItem(i2);
             if (item != null) {
-                c0752b.f15719d.setText(item.f14221b);
-                c0752b.f15716a.startLoad(item.f14223d, 10, false);
-                c0752b.f15717b.startLoad(item.f14226g, 10, false);
+                c0750b.f15729d.setText(item.f14221b);
+                c0750b.f15726a.startLoad(item.f14223d, 10, false);
+                c0750b.f15727b.startLoad(item.f14226g, 10, false);
                 int i3 = item.f14225f;
                 if (i3 == 5) {
-                    c0752b.f15720e.setVisibility(8);
+                    c0750b.f15730e.setVisibility(8);
                 } else if (i3 == 3) {
-                    c0752b.f15720e.setVisibility(0);
-                    c0752b.f15720e.setText(g.b(item.a(), false, item.s));
+                    c0750b.f15730e.setVisibility(0);
+                    c0750b.f15730e.setText(g.b(item.a(), false, item.s));
                 } else {
-                    c0752b.f15720e.setVisibility(0);
-                    c0752b.f15720e.setText(g.b(item.b(), false, item.s));
+                    c0750b.f15730e.setVisibility(0);
+                    c0750b.f15730e.setText(g.b(item.b(), false, item.s));
                 }
             }
             return view;

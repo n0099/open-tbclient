@@ -26,7 +26,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f24214a;
+    public static a f24230a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class a {
                 return;
             }
         }
-        f24214a = new a();
+        f24230a = new a();
     }
 
     public a() {
@@ -62,7 +62,7 @@ public class a {
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f24214a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f24230a : (a) invokeV.objValue;
     }
 
     public final boolean a(String str) {
@@ -152,29 +152,29 @@ public class a {
         List<c.a.r0.e2.f.b> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            if (aVar == null || (list = aVar.f17281e) == null || list.size() == 0) {
+            if (aVar == null || (list = aVar.f17291e) == null || list.size() == 0) {
                 return 0;
             }
-            String str = ".emotions/" + aVar.f17277a;
+            String str = ".emotions/" + aVar.f17287a;
             g k = g.k();
-            List<c.a.r0.e2.f.b> list2 = aVar.f17281e;
+            List<c.a.r0.e2.f.b> list2 = aVar.f17291e;
             int i2 = 0;
             for (int i3 = 0; i3 < list2.size(); i3++) {
                 c.a.r0.e2.f.b bVar = list2.get(i3);
-                if (a(str + "/" + bVar.f17284g)) {
-                    if (a(str + "/" + bVar.f17285h)) {
+                if (a(str + "/" + bVar.f17294g)) {
+                    if (a(str + "/" + bVar.f17295h)) {
                         StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-                        sb.append(aVar.f17277a + "_" + bVar.f17283f);
+                        sb.append(aVar.f17287a + "_" + bVar.f17293f);
                         sb.append(",");
-                        sb.append(bVar.f17287j);
+                        sb.append(bVar.f17297j);
                         sb.append(",");
-                        sb.append(bVar.f17286i);
+                        sb.append(bVar.f17296i);
                         sb.append(",");
                         String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + c.a.e.e.p.q.c(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                        boolean isGif = FileHelper.isGif(str, bVar.f17284g);
-                        b.g(aVar.f17277a, bVar.f17285h, b.c(str2, true, false));
-                        b.g(aVar.f17277a, bVar.f17284g, b.c(str2, false, isGif));
-                        if (k.d(str2, aVar.f17277a, i3 + 1)) {
+                        boolean isGif = FileHelper.isGif(str, bVar.f17294g);
+                        b.g(aVar.f17287a, bVar.f17295h, b.c(str2, true, false));
+                        b.g(aVar.f17287a, bVar.f17294g, b.c(str2, false, isGif));
+                        if (k.d(str2, aVar.f17287a, i3 + 1)) {
                             i2++;
                         }
                     }

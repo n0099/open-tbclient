@@ -6,6 +6,7 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
 import android.view.View;
+import c.a.q0.d1.v;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,34 +29,34 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f20858f;
+    public static final Pattern f20870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Pattern f20859g;
+    public static final Pattern f20871g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f20860a;
+    public int f20872a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20861b;
+    public String f20873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f20862c;
+    public String f20874c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f20863d;
+    public String f20875d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SpannableStringBuilder f20864e;
+    public SpannableStringBuilder f20876e;
 
     /* loaded from: classes3.dex */
-    public class a extends c.a.q0.d1.s {
+    public class a extends v {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f20865f;
+        public final /* synthetic */ m f20877f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(m mVar, Context context) {
@@ -75,25 +76,25 @@ public class m {
                     return;
                 }
             }
-            this.f20865f = mVar;
+            this.f20877f = mVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c(this.f20865f.f20861b);
+                c(this.f20877f.f20873b);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends c.a.q0.d1.s {
+    public class b extends v {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f20866f;
+        public final /* synthetic */ m f20878f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(m mVar, Context context) {
@@ -113,14 +114,14 @@ public class m {
                     return;
                 }
             }
-            this.f20866f = mVar;
+            this.f20878f = mVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                Matcher matcher = m.f20858f.matcher(this.f20866f.f20863d);
+                Matcher matcher = m.f20870f.matcher(this.f20878f.f20875d);
                 if (matcher.find()) {
                     try {
                         String group = matcher.group();
@@ -130,7 +131,7 @@ public class m {
                         e2.printStackTrace();
                     }
                 }
-                Matcher matcher2 = m.f20859g.matcher(this.f20866f.f20863d);
+                Matcher matcher2 = m.f20871g.matcher(this.f20878f.f20875d);
                 if (matcher2.find()) {
                     try {
                         String group2 = matcher2.group();
@@ -140,18 +141,18 @@ public class m {
                         e3.printStackTrace();
                     }
                 }
-                c(this.f20866f.f20863d);
+                c(this.f20878f.f20875d);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c extends c.a.q0.d1.s {
+    public class c extends v {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f20867f;
+        public final /* synthetic */ m f20879f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(m mVar, Context context) {
@@ -171,17 +172,17 @@ public class m {
                     return;
                 }
             }
-            this.f20867f = mVar;
+            this.f20879f = mVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f20867f.f20861b != null) {
-                    this.f20867f.f20861b.replace(TNCManager.TNC_PROBE_HEADER_SECEPTOR, "").replace(" ", "");
+                if (this.f20879f.f20873b != null) {
+                    this.f20879f.f20873b.replace(TNCManager.TNC_PROBE_HEADER_SECEPTOR, "").replace(" ", "");
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(a()).createNormalConfig(c.a.e.e.m.b.g(this.f20867f.f20863d, 0L), false, false)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(a()).createNormalConfig(c.a.e.e.m.b.g(this.f20879f.f20875d, 0L), false, false)));
             }
         }
     }
@@ -199,8 +200,8 @@ public class m {
                 return;
             }
         }
-        f20858f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-        f20859g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+        f20870f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
+        f20871g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     }
 
     public m() {
@@ -216,10 +217,10 @@ public class m {
                 return;
             }
         }
-        this.f20860a = 0;
-        this.f20861b = null;
-        this.f20863d = null;
-        this.f20864e = null;
+        this.f20872a = 0;
+        this.f20873b = null;
+        this.f20875d = null;
+        this.f20876e = null;
     }
 
     public static boolean l(int i2, int i3) {
@@ -232,11 +233,11 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, spannableString)) == null) {
-            if (this.f20864e == null) {
-                this.f20864e = new SpannableStringBuilder();
+            if (this.f20876e == null) {
+                this.f20876e = new SpannableStringBuilder();
             }
-            this.f20864e.append((CharSequence) spannableString);
-            return this.f20864e;
+            this.f20876e.append((CharSequence) spannableString);
+            return this.f20876e;
         }
         return (SpannableStringBuilder) invokeL.objValue;
     }
@@ -244,58 +245,58 @@ public class m {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20862c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20874c : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20863d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20875d : (String) invokeV.objValue;
     }
 
     public SpannableString h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            int i2 = this.f20860a;
+            int i2 = this.f20872a;
             if (i2 != 0) {
                 if (i2 == 1) {
-                    if (!this.f20861b.endsWith(" ")) {
-                        this.f20861b += " ";
+                    if (!this.f20873b.endsWith(" ")) {
+                        this.f20873b += " ";
                     }
-                    SpannableString spannableString = new SpannableString(this.f20861b);
-                    spannableString.setSpan(new b(this, context), 0, this.f20861b.length() - 1, 33);
+                    SpannableString spannableString = new SpannableString(this.f20873b);
+                    spannableString.setSpan(new b(this, context), 0, this.f20873b.length() - 1, 33);
                     return spannableString;
                 } else if (i2 == 2) {
-                    SpannableString spannableString2 = new SpannableString(this.f20861b + " ");
-                    c.a.e.l.d.a face = TbadkCoreApplication.getInst().getFace(this.f20861b);
+                    SpannableString spannableString2 = new SpannableString(this.f20873b + " ");
+                    c.a.e.l.d.a face = TbadkCoreApplication.getInst().getFace(this.f20873b);
                     if (face != null) {
                         BitmapDrawable j2 = face.j();
                         j2.setBounds(0, 0, face.r(), face.m());
-                        spannableString2.setSpan(new ImageSpan(j2, 1), 0, this.f20861b.length(), 33);
+                        spannableString2.setSpan(new ImageSpan(j2, 1), 0, this.f20873b.length(), 33);
                     }
                     return spannableString2;
                 } else if (i2 == 4) {
-                    if (!this.f20861b.endsWith(" ")) {
-                        this.f20861b += " ";
+                    if (!this.f20873b.endsWith(" ")) {
+                        this.f20873b += " ";
                     }
-                    SpannableString spannableString3 = new SpannableString(this.f20861b);
-                    spannableString3.setSpan(new c(this, context), 0, this.f20861b.length() - 1, 33);
+                    SpannableString spannableString3 = new SpannableString(this.f20873b);
+                    spannableString3.setSpan(new c(this, context), 0, this.f20873b.length() - 1, 33);
                     return spannableString3;
                 } else if (i2 != 5) {
                     return null;
                 } else {
-                    if (!this.f20861b.endsWith(" ")) {
-                        this.f20861b += " ";
+                    if (!this.f20873b.endsWith(" ")) {
+                        this.f20873b += " ";
                     }
                     String string = context.getString(R.string.video);
-                    String str = string + this.f20861b;
+                    String str = string + this.f20873b;
                     SpannableString spannableString4 = new SpannableString(str);
                     spannableString4.setSpan(new a(this, context), string.length(), str.length() - 1, 33);
                     return spannableString4;
                 }
             }
-            return new SpannableString(this.f20861b);
+            return new SpannableString(this.f20873b);
         }
         return (SpannableString) invokeL.objValue;
     }
@@ -303,25 +304,25 @@ public class m {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20861b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f20873b : (String) invokeV.objValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20860a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20872a : invokeV.intValue;
     }
 
     public SpannableStringBuilder k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20864e : (SpannableStringBuilder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f20876e : (SpannableStringBuilder) invokeV.objValue;
     }
 
     public void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f20860a = i2;
+            this.f20872a = i2;
         }
     }
 }

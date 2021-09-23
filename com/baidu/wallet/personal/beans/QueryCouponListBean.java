@@ -22,13 +22,13 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CouponStatus f63430a;
+    public CouponStatus f63741a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63431b;
+    public String f63742b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63432c;
+    public String f63743c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
@@ -119,22 +119,22 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
                 return;
             }
         }
-        this.f63430a = CouponStatus.UNUSE;
-        this.f63431b = "0";
-        this.f63432c = "";
+        this.f63741a = CouponStatus.UNUSE;
+        this.f63742b = "0";
+        this.f63743c = "";
     }
 
     public void a(CouponStatus couponStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, couponStatus) == null) {
-            this.f63430a = couponStatus;
+            this.f63741a = couponStatus;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f63431b = str;
+            this.f63742b = str;
         }
     }
 
@@ -151,12 +151,12 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f63431b)) {
+            if (TextUtils.isEmpty(this.f63742b)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("page_index", this.f63431b));
-            arrayList.add(new RestNameValuePair("filter_status_new", this.f63430a.getVal()));
+            arrayList.add(new RestNameValuePair("page_index", this.f63742b));
+            arrayList.add(new RestNameValuePair("filter_status_new", this.f63741a.getVal()));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -187,7 +187,7 @@ public class QueryCouponListBean extends BaseBean<CouponListResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return DomainConfig.getInstance().getMyHost() + "/jcardweb/getcouponlistv2";
+            return DomainConfig.getInstance().getMyHost(this.tag) + "/jcardweb/getcouponlistv2";
         }
         return (String) invokeV.objValue;
     }

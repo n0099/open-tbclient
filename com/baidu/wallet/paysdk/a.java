@@ -17,7 +17,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<InterfaceC1845a> f62301a;
+    public final List<InterfaceC1848a> f62564a;
 
     /* renamed from: com.baidu.wallet.paysdk.a$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -28,16 +28,16 @@ public class a {
 
     /* renamed from: com.baidu.wallet.paysdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC1845a {
+    public interface InterfaceC1848a {
         boolean a(CharSequence charSequence);
     }
 
     /* loaded from: classes8.dex */
-    public static class b implements InterfaceC1845a {
+    public static class b implements InterfaceC1848a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f62303a;
+        public static final Pattern f62566a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public class a {
                     return;
                 }
             }
-            f62303a = Pattern.compile("^[A-z0-9*]{1,50}$");
+            f62566a = Pattern.compile("^[A-z0-9*]{1,50}$");
         }
 
         public b() {
@@ -70,11 +70,11 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC1845a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1848a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f62303a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f62566a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ b(AnonymousClass1 anonymousClass1) {
@@ -83,11 +83,11 @@ public class a {
     }
 
     /* loaded from: classes8.dex */
-    public static class c implements InterfaceC1845a {
+    public static class c implements InterfaceC1848a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f62304a;
+        public static final Pattern f62567a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -103,7 +103,7 @@ public class a {
                     return;
                 }
             }
-            f62304a = Pattern.compile("^[HM]\\d{8,10}$");
+            f62567a = Pattern.compile("^[HM]\\d{8,10}$");
         }
 
         public c() {
@@ -120,11 +120,11 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC1845a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1848a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f62304a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f62567a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ c(AnonymousClass1 anonymousClass1) {
@@ -133,11 +133,11 @@ public class a {
     }
 
     /* loaded from: classes8.dex */
-    public static class d implements InterfaceC1845a {
+    public static class d implements InterfaceC1848a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f62305a;
+        public static final Pattern f62568a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -153,7 +153,7 @@ public class a {
                     return;
                 }
             }
-            f62305a = Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$");
+            f62568a = Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$");
         }
 
         public d() {
@@ -170,11 +170,11 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC1845a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1848a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f62305a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f62568a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ d(AnonymousClass1 anonymousClass1) {
@@ -183,7 +183,7 @@ public class a {
     }
 
     /* loaded from: classes8.dex */
-    public static class e implements InterfaceC1845a {
+    public static class e implements InterfaceC1848a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -201,7 +201,7 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC1845a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1848a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -217,11 +217,11 @@ public class a {
     }
 
     /* loaded from: classes8.dex */
-    public static class f implements InterfaceC1845a {
+    public static class f implements InterfaceC1848a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Pattern f62306a;
+        public static final Pattern f62569a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -237,7 +237,7 @@ public class a {
                     return;
                 }
             }
-            f62306a = Pattern.compile("^[A-Za-z0-9]{1,18}$");
+            f62569a = Pattern.compile("^[A-Za-z0-9]{1,18}$");
         }
 
         public f() {
@@ -254,11 +254,11 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC1845a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1848a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f62306a.matcher(charSequence).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) ? f62569a.matcher(charSequence).matches() : invokeL.booleanValue;
         }
 
         public /* synthetic */ f(AnonymousClass1 anonymousClass1) {
@@ -297,8 +297,8 @@ public class a {
             if (TextUtils.isEmpty(charSequence)) {
                 return false;
             }
-            for (InterfaceC1845a interfaceC1845a : this.f62301a) {
-                if (interfaceC1845a.a(charSequence)) {
+            for (InterfaceC1848a interfaceC1848a : this.f62564a) {
+                if (interfaceC1848a.a(charSequence)) {
                     return true;
                 }
             }
@@ -322,21 +322,21 @@ public class a {
                 return;
             }
         }
-        this.f62301a = new ArrayList();
+        this.f62564a = new ArrayList();
         if (a(j2, 2L)) {
-            this.f62301a.add(new d(null));
+            this.f62564a.add(new d(null));
         }
         if (a(j2, 4L)) {
-            this.f62301a.add(new f(null));
+            this.f62564a.add(new f(null));
         }
         if (a(j2, 8L)) {
-            this.f62301a.add(new c(null));
+            this.f62564a.add(new c(null));
         }
         if (a(j2, 16L)) {
-            this.f62301a.add(new e(null));
+            this.f62564a.add(new e(null));
         }
         if (a(j2, 1L)) {
-            this.f62301a.add(new b(null));
+            this.f62564a.add(new b(null));
         }
     }
 }

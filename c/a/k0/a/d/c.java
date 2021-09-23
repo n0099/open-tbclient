@@ -12,10 +12,10 @@ public abstract class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f3779a;
+    public long f3780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f3780b;
+    public a f3781b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public abstract class c {
                 return;
             }
         }
-        this.f3779a = 2000L;
+        this.f3780a = 2000L;
     }
 
     public abstract void a(int i2, V8ExceptionInfo v8ExceptionInfo);
@@ -38,14 +38,14 @@ public abstract class c {
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f3780b = aVar;
+            this.f3781b = aVar;
         }
     }
 
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f3779a = j2;
+            this.f3780a = j2;
         }
     }
 }

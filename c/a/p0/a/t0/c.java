@@ -45,19 +45,19 @@ public abstract class c extends m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SwanAppActivity f8629f;
+    public final SwanAppActivity f8637f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f8630g;
+    public g f8638g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.c f8631h;
+    public a.c f8639h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.p0.a.n2.h.d f8632i;
+    public final c.a.p0.a.n2.h.d f8640i;
 
     /* renamed from: j  reason: collision with root package name */
-    public FrameLayout f8633j;
+    public FrameLayout f8641j;
     public c.a.p0.a.j2.a k;
     public c.a.p0.a.t0.d l;
     public boolean m;
@@ -75,13 +75,13 @@ public abstract class c extends m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f8634e;
+        public final /* synthetic */ boolean f8642e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f8635f;
+        public final /* synthetic */ boolean f8643f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f8636g;
+        public final /* synthetic */ c f8644g;
 
         public a(c cVar, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
@@ -98,9 +98,9 @@ public abstract class c extends m {
                     return;
                 }
             }
-            this.f8636g = cVar;
-            this.f8634e = z;
-            this.f8635f = z2;
+            this.f8644g = cVar;
+            this.f8642e = z;
+            this.f8643f = z2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,9 +109,9 @@ public abstract class c extends m {
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && c.a.p0.a.a2.d.g().C()) {
-                this.f8636g.s.f("event_first_action_launched");
-                this.f8636g.w0(this.f8634e, this.f8635f);
-                this.f8636g.D0();
+                this.f8644g.s.f("event_first_action_launched");
+                this.f8644g.w0(this.f8642e, this.f8643f);
+                this.f8644g.D0();
             }
         }
     }
@@ -122,7 +122,7 @@ public abstract class c extends m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f8637e;
+        public final /* synthetic */ c f8645e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -139,14 +139,14 @@ public abstract class c extends m {
                     return;
                 }
             }
-            this.f8637e = cVar;
+            this.f8645e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8637e.D0();
+                this.f8645e.D0();
             }
         }
     }
@@ -158,7 +158,7 @@ public abstract class c extends m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f8638e;
+        public final /* synthetic */ c f8646e;
 
         public RunnableC0374c(c cVar) {
             Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public abstract class c extends m {
                     return;
                 }
             }
-            this.f8638e = cVar;
+            this.f8646e = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -184,14 +184,14 @@ public abstract class c extends m {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.a.n1.q.a.g().y();
                 boolean unused = c.u;
-                if (this.f8638e.f8629f != null && c.a.p0.a.a2.e.i() != null) {
+                if (this.f8646e.f8637f != null && c.a.p0.a.a2.e.i() != null) {
                     c.a.p0.a.a2.e i2 = c.a.p0.a.a2.e.i();
                     c.a.p0.a.n0.l.c l = c.a.p0.a.n0.l.c.l();
                     l.n(10);
                     c.a.p0.a.w0.c.c(i2, l.k());
                 }
                 if (c.a.p0.a.r1.l.e.l()) {
-                    p.i(this.f8638e.f8629f);
+                    p.i(this.f8646e.f8637f);
                 }
             }
         }
@@ -203,7 +203,7 @@ public abstract class c extends m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f8639e;
+        public final /* synthetic */ c f8647e;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -211,10 +211,10 @@ public abstract class c extends m {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f8640e;
+            public final /* synthetic */ Bitmap f8648e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f8641f;
+            public final /* synthetic */ d f8649f;
 
             public a(d dVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
@@ -231,17 +231,17 @@ public abstract class c extends m {
                         return;
                     }
                 }
-                this.f8641f = dVar;
-                this.f8640e = bitmap;
+                this.f8649f = dVar;
+                this.f8648e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8641f.f8639e.f8629f == null || c.a.p0.a.a2.e.Q() == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8649f.f8647e.f8637f == null || c.a.p0.a.a2.e.Q() == null) {
                     return;
                 }
-                this.f8641f.f8639e.G(this.f8640e);
+                this.f8649f.f8647e.G(this.f8648e);
             }
         }
 
@@ -260,14 +260,14 @@ public abstract class c extends m {
                     return;
                 }
             }
-            this.f8639e = cVar;
+            this.f8647e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                q0.b0(new a(this, q0.i(this.f8639e.O(), "SwanActivityFrame", true)));
+                q0.b0(new a(this, q0.i(this.f8647e.O(), "SwanActivityFrame", true)));
             }
         }
     }
@@ -277,7 +277,7 @@ public abstract class c extends m {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f8642a;
+        public static final /* synthetic */ int[] f8650a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -294,21 +294,21 @@ public abstract class c extends m {
                 }
             }
             int[] iArr = new int[FrameLifeState.values().length];
-            f8642a = iArr;
+            f8650a = iArr;
             try {
                 iArr[FrameLifeState.JUST_CREATED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f8642a[FrameLifeState.JUST_STARTED.ordinal()] = 2;
+                f8650a[FrameLifeState.JUST_STARTED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f8642a[FrameLifeState.JUST_RESUMED.ordinal()] = 3;
+                f8650a[FrameLifeState.JUST_RESUMED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f8642a[FrameLifeState.INACTIVATED.ordinal()] = 4;
+                f8650a[FrameLifeState.INACTIVATED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -327,7 +327,7 @@ public abstract class c extends m {
                 return;
             }
         }
-        u = k.f7077a;
+        u = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -348,15 +348,15 @@ public abstract class c extends m {
                 return;
             }
         }
-        this.f8631h = null;
-        this.f8632i = new c.a.p0.a.n2.h.d();
+        this.f8639h = null;
+        this.f8640i = new c.a.p0.a.n2.h.d();
         this.o = FrameLifeState.INACTIVATED;
         this.p = null;
         this.q = false;
         this.r = false;
         this.s = new c.a.p0.a.a2.b();
         this.t = true;
-        this.f8629f = swanAppActivity;
+        this.f8637f = swanAppActivity;
         this.n = str;
         this.l = new c.a.p0.a.t0.d();
         v(this.s);
@@ -377,16 +377,16 @@ public abstract class c extends m {
     public void A0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.p0.a.z1.b.d.a.c(this.f8633j);
+            c.a.p0.a.z1.b.d.a.c(this.f8641j);
         }
     }
 
     public void C0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            FrameLayout frameLayout = (FrameLayout) this.f8629f.findViewById(f.ai_apps_activity_root);
-            this.f8633j = frameLayout;
-            c.a.p0.a.z1.b.d.a.e(this.f8629f, frameLayout);
+            FrameLayout frameLayout = (FrameLayout) this.f8637f.findViewById(f.ai_apps_activity_root);
+            this.f8641j = frameLayout;
+            c.a.p0.a.z1.b.d.a.e(this.f8637f, frameLayout);
         }
     }
 
@@ -394,7 +394,7 @@ public abstract class c extends m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.m || !c.a.p0.a.v0.c.c().a(new WeakReference<>(this.f8629f))) {
+            if (this.m || !c.a.p0.a.v0.c.c().a(new WeakReference<>(this.f8637f))) {
                 return false;
             }
             this.m = true;
@@ -413,7 +413,7 @@ public abstract class c extends m {
                     FrameLifeState j2 = j(this.p);
                     Y("syncLifeState: pendingTarget=" + this.p + " fixedTarget=" + j2);
                     this.p = null;
-                    int i2 = e.f8642a[j2.ordinal()];
+                    int i2 = e.f8650a[j2.ordinal()];
                     if (i2 == 1) {
                         M();
                         H();
@@ -439,7 +439,7 @@ public abstract class c extends m {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f8630g = new g(this.f8629f);
+            this.f8638g = new g(this.f8637f);
             f0();
         }
     }
@@ -450,22 +450,22 @@ public abstract class c extends m {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (a2 = y().a().a()) == null) {
             return;
         }
-        a2.a(this.f8629f);
+        a2.a(this.f8637f);
     }
 
     public final void F(c.a.p0.a.j2.p.f fVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) && fVar != null && C()) {
             b.a O = O();
-            fVar.f7063a = c.a.p0.a.j2.k.m(l());
-            fVar.f7068f = O.H();
-            fVar.f7065c = O.T();
+            fVar.f7071a = c.a.p0.a.j2.k.m(l());
+            fVar.f7076f = O.H();
+            fVar.f7073c = O.T();
             fVar.b(c.a.p0.a.j2.k.k(O.W()));
-            if (TextUtils.isEmpty(fVar.f7064b)) {
-                fVar.f7064b = PrefetchEvent.STATE_CLICK;
+            if (TextUtils.isEmpty(fVar.f7072b)) {
+                fVar.f7072b = PrefetchEvent.STATE_CLICK;
             }
             fVar.d(O.r0().getString(UBCCloudControlProcessor.UBC_KEY));
-            if (TextUtils.equals(fVar.f7064b, PrefetchEvent.STATE_CLICK)) {
+            if (TextUtils.equals(fVar.f7072b, PrefetchEvent.STATE_CLICK)) {
                 c.a.p0.a.j2.d.b(fVar);
             } else {
                 c.a.p0.a.j2.k.onEvent(fVar);
@@ -487,7 +487,7 @@ public abstract class c extends m {
     public final void G(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap) == null) && r().e()) {
-            B0(this.f8629f, O().K(), bitmap, (int) O().b0());
+            B0(this.f8637f, O().K(), bitmap, (int) O().b0());
         }
     }
 
@@ -548,7 +548,7 @@ public abstract class c extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             z().S();
-            this.f8631h = null;
+            this.f8639h = null;
         }
     }
 
@@ -588,7 +588,7 @@ public abstract class c extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048593, this, frameLifeState, z) == null) {
             synchronized (this) {
-                if (!this.f8629f.isDestroyed()) {
+                if (!this.f8637f.isDestroyed()) {
                     boolean z2 = false;
                     boolean z3 = z | (!this.o.hasCreated());
                     if (this.o.hasCreated() && z3) {
@@ -679,10 +679,10 @@ public abstract class c extends m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            if (this.f8630g == null) {
+            if (this.f8638g == null) {
                 E();
             }
-            return this.f8630g;
+            return this.f8638g;
         }
         return (g) invokeV.objValue;
     }
@@ -691,18 +691,18 @@ public abstract class c extends m {
     public c.a.p0.a.n2.h.d S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f8632i : (c.a.p0.a.n2.h.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f8640i : (c.a.p0.a.n2.h.d) invokeV.objValue;
     }
 
     public boolean T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            if (this.f8630g.k() != 1) {
+            if (this.f8638g.k() != 1) {
                 return false;
             }
-            this.f8629f.moveTaskToBack(true);
-            this.f8629f.handleSwanAppExit(2);
+            this.f8637f.moveTaskToBack(true);
+            this.f8637f.handleSwanAppExit(2);
             x0.b().e(1);
             return true;
         }
@@ -781,7 +781,7 @@ public abstract class c extends m {
                     UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("onCreateEnd");
                     ubcFlowEvent3.a(true);
                     p.C(ubcFlowEvent3);
-                    c.a.p0.a.v2.e slideHelper = this.f8629f.getSlideHelper();
+                    c.a.p0.a.v2.e slideHelper = this.f8637f.getSlideHelper();
                     if (slideHelper != null) {
                         slideHelper.q();
                     }
@@ -801,7 +801,7 @@ public abstract class c extends m {
                 dVar.r(O());
                 c.a.p0.a.j2.k.L(dVar);
                 c.a.p0.a.r1.h.k(aVar);
-                c.a.p0.a.v2.f.j(this.f8629f);
+                c.a.p0.a.v2.f.j(this.f8637f);
             }
         }
     }
@@ -872,10 +872,10 @@ public abstract class c extends m {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            if (this.f8631h == null) {
-                this.f8631h = Q();
+            if (this.f8639h == null) {
+                this.f8639h = Q();
             }
-            z().i(null, this.f8631h);
+            z().i(null, this.f8639h);
         }
     }
 
@@ -891,9 +891,9 @@ public abstract class c extends m {
                 if (this.k != null && C()) {
                     c.a.p0.a.j2.p.a aVar = new c.a.p0.a.j2.p.a();
                     b.a O = O();
-                    aVar.f7063a = c.a.p0.a.j2.k.m(l());
-                    aVar.f7068f = O.H();
-                    aVar.f7065c = O.T();
+                    aVar.f7071a = c.a.p0.a.j2.k.m(l());
+                    aVar.f7076f = O.H();
+                    aVar.f7073c = O.T();
                     aVar.i(O);
                     aVar.d(O.r0().getString(UBCCloudControlProcessor.UBC_KEY));
                     aVar.b(c.a.p0.a.j2.k.k(O.W()));
@@ -935,7 +935,7 @@ public abstract class c extends m {
                 this.k = c.a.p0.a.j2.k.c("607");
                 L0();
                 if (C()) {
-                    r().o0(this.f8629f);
+                    r().o0(this.f8637f);
                 }
                 c.a.p0.a.r1.k.i.b.e().f(new RunnableC0374c(this), "tryUpdateAndInsertHistory");
                 HybridUbcFlow p2 = c.a.p0.a.r1.h.p("startup");
@@ -1017,7 +1017,7 @@ public abstract class c extends m {
                         c.a.p0.a.e0.f.e.e.g(O.g0());
                     }
                 }
-                c.a.p0.a.g1.f.V().l(this.f8629f);
+                c.a.p0.a.g1.f.V().l(this.f8637f);
                 UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("onUpdateStart");
                 ubcFlowEvent2.a(true);
                 p.C(ubcFlowEvent2);
@@ -1049,8 +1049,8 @@ public abstract class c extends m {
     public final void z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
-            c.a.p0.a.c2.f.p0.c.f4975b = null;
-            c.a.p0.a.r1.h.f8349e = null;
+            c.a.p0.a.c2.f.p0.c.f4983b = null;
+            c.a.p0.a.r1.h.f8357e = null;
         }
     }
 }

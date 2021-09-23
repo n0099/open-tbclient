@@ -15,17 +15,17 @@ public class a {
 
     /* renamed from: c.a.r0.v3.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class animation.Animation$AnimationListenerC1237a implements Animation.AnimationListener {
+    public static class animation.Animation$AnimationListenerC1235a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Animation.AnimationListener f26363a;
+        public final /* synthetic */ Animation.AnimationListener f26386a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f26364b;
+        public final /* synthetic */ View f26387b;
 
-        public animation.Animation$AnimationListenerC1237a(Animation.AnimationListener animationListener, View view) {
+        public animation.Animation$AnimationListenerC1235a(Animation.AnimationListener animationListener, View view) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,22 +40,22 @@ public class a {
                     return;
                 }
             }
-            this.f26363a = animationListener;
-            this.f26364b = view;
+            this.f26386a = animationListener;
+            this.f26387b = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                Animation.AnimationListener animationListener = this.f26363a;
+                Animation.AnimationListener animationListener = this.f26386a;
                 if (animationListener != null) {
                     animationListener.onAnimationEnd(animation);
                 }
-                View view = this.f26364b;
+                View view = this.f26387b;
                 if (view != null) {
                     view.clearAnimation();
-                    this.f26364b.setVisibility(0);
+                    this.f26387b.setVisibility(0);
                 }
             }
         }
@@ -64,7 +64,7 @@ public class a {
         public void onAnimationRepeat(Animation animation) {
             Animation.AnimationListener animationListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) || (animationListener = this.f26363a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) || (animationListener = this.f26386a) == null) {
                 return;
             }
             animationListener.onAnimationRepeat(animation);
@@ -74,7 +74,7 @@ public class a {
         public void onAnimationStart(Animation animation) {
             Animation.AnimationListener animationListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (animationListener = this.f26363a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (animationListener = this.f26386a) == null) {
                 return;
             }
             animationListener.onAnimationStart(animation);
@@ -87,10 +87,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Animation.AnimationListener f26365a;
+        public final /* synthetic */ Animation.AnimationListener f26388a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f26366b;
+        public final /* synthetic */ View f26389b;
 
         public b(Animation.AnimationListener animationListener, View view) {
             Interceptable interceptable = $ic;
@@ -107,22 +107,22 @@ public class a {
                     return;
                 }
             }
-            this.f26365a = animationListener;
-            this.f26366b = view;
+            this.f26388a = animationListener;
+            this.f26389b = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                Animation.AnimationListener animationListener = this.f26365a;
+                Animation.AnimationListener animationListener = this.f26388a;
                 if (animationListener != null) {
                     animationListener.onAnimationEnd(animation);
                 }
-                View view = this.f26366b;
+                View view = this.f26389b;
                 if (view != null) {
                     view.clearAnimation();
-                    this.f26366b.setVisibility(8);
+                    this.f26389b.setVisibility(8);
                 }
             }
         }
@@ -131,7 +131,7 @@ public class a {
         public void onAnimationRepeat(Animation animation) {
             Animation.AnimationListener animationListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) || (animationListener = this.f26365a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) || (animationListener = this.f26388a) == null) {
                 return;
             }
             animationListener.onAnimationRepeat(animation);
@@ -141,7 +141,7 @@ public class a {
         public void onAnimationStart(Animation animation) {
             Animation.AnimationListener animationListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (animationListener = this.f26365a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (animationListener = this.f26388a) == null) {
                 return;
             }
             animationListener.onAnimationStart(animation);
@@ -185,7 +185,7 @@ public class a {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(i2);
         alphaAnimation.setFillAfter(true);
-        alphaAnimation.setAnimationListener(new animation.Animation$AnimationListenerC1237a(animationListener, view));
+        alphaAnimation.setAnimationListener(new animation.Animation$AnimationListenerC1235a(animationListener, view));
         view.setVisibility(0);
         view.startAnimation(alphaAnimation);
     }

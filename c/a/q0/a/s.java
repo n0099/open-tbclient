@@ -25,7 +25,7 @@ public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static View.OnClickListener f12669a;
+    public static View.OnClickListener f12677a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -78,7 +78,7 @@ public class s {
                 return;
             }
         }
-        f12669a = new a();
+        f12677a = new a();
     }
 
     public static void a(MotionEvent motionEvent, int i2, long j2) {
@@ -176,7 +176,7 @@ public class s {
             }
             c.a.q0.s.s.e f2 = c.a.q0.s.s.e.f(d2.getPageActivity(), completeTaskToastData.message);
             f2.g(completeTaskToastData.duration);
-            f2.h(f12669a);
+            f2.h(f12677a);
             f2.i(completeTaskToastData);
             f2.j();
             return f2;

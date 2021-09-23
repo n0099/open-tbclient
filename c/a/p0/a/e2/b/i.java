@@ -25,13 +25,13 @@ public class i extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.e2.a f5514a;
+        public final /* synthetic */ c.a.p0.a.e2.a f5522a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5515b;
+        public final /* synthetic */ CallbackHandler f5523b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5516c;
+        public final /* synthetic */ String f5524c;
 
         public a(i iVar, c.a.p0.a.e2.a aVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -48,17 +48,17 @@ public class i extends a0 {
                     return;
                 }
             }
-            this.f5514a = aVar;
-            this.f5515b = callbackHandler;
-            this.f5516c = str;
+            this.f5522a = aVar;
+            this.f5523b = callbackHandler;
+            this.f5524c = str;
         }
 
         @Override // c.a.p0.a.e2.a.j
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5514a.F(this);
-                c.a.p0.a.u.e.l.b.F(this.f5515b, this.f5516c);
+                this.f5522a.F(this);
+                c.a.p0.a.u.e.l.b.F(this.f5523b, this.f5524c);
             }
         }
     }
@@ -93,7 +93,7 @@ public class i extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             } else if (eVar.d0()) {
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {

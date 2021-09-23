@@ -13,10 +13,10 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20888a;
+    public String f20900a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f20889b;
+    public int f20901b;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public class j {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20888a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20900a : (String) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20889b == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20901b == 1 : invokeV.booleanValue;
     }
 
     public void c(BusinessPromotCommentList businessPromotCommentList) {
@@ -49,9 +49,9 @@ public class j {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromotCommentList) == null) || businessPromotCommentList == null) {
             return;
         }
-        this.f20888a = businessPromotCommentList.title;
+        this.f20900a = businessPromotCommentList.title;
         String str = businessPromotCommentList.username;
         businessPromotCommentList.uid.longValue();
-        this.f20889b = businessPromotCommentList.is_lz.intValue();
+        this.f20901b = businessPromotCommentList.is_lz.intValue();
     }
 }

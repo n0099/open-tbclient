@@ -17,13 +17,13 @@ public class e extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.b f16632h;
+    public a.b f16642h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f16633i;
+    public Animation f16643i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Animation f16634j;
+    public Animation f16644j;
 
     /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
@@ -31,7 +31,7 @@ public class e extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f16635a;
+        public final /* synthetic */ e f16645a;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -48,14 +48,14 @@ public class e extends g {
                     return;
                 }
             }
-            this.f16635a = eVar;
+            this.f16645a = eVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f16635a.m();
+                this.f16645a.m();
             }
         }
 
@@ -80,7 +80,7 @@ public class e extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f16636a;
+        public final /* synthetic */ e f16646a;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -97,14 +97,14 @@ public class e extends g {
                     return;
                 }
             }
-            this.f16636a = eVar;
+            this.f16646a = eVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f16636a.l();
+                this.f16646a.l();
             }
         }
 
@@ -142,11 +142,11 @@ public class e extends g {
                 return;
             }
         }
-        this.f16632h = bVar;
-        this.f16633i = AnimationUtils.loadAnimation(this.f16654a, R.anim.ubs_test_in_anim);
-        this.f16634j = AnimationUtils.loadAnimation(this.f16654a, R.anim.ubs_test_out_anim);
-        this.f16633i.setAnimationListener(new a(this));
-        this.f16634j.setAnimationListener(new b(this));
+        this.f16642h = bVar;
+        this.f16643i = AnimationUtils.loadAnimation(this.f16664a, R.anim.ubs_test_in_anim);
+        this.f16644j = AnimationUtils.loadAnimation(this.f16664a, R.anim.ubs_test_out_anim);
+        this.f16643i.setAnimationListener(new a(this));
+        this.f16644j.setAnimationListener(new b(this));
     }
 
     @Override // c.a.r0.c4.g
@@ -168,46 +168,46 @@ public class e extends g {
     @Override // c.a.r0.c4.g
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f16658e == 4) {
-            this.f16658e = 1;
-            g.a aVar = this.f16657d;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f16668e == 4) {
+            this.f16668e = 1;
+            g.a aVar = this.f16667d;
             if (aVar != null) {
                 aVar.a(1);
             }
             k();
-            this.f16632h.f16575f.startAnimation(this.f16633i);
+            this.f16642h.f16585f.startAnimation(this.f16643i);
         }
     }
 
     @Override // c.a.r0.c4.g
     public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f16658e == 2) {
-            this.f16658e = 3;
-            g.a aVar = this.f16657d;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f16668e == 2) {
+            this.f16668e = 3;
+            g.a aVar = this.f16667d;
             if (aVar != null) {
                 aVar.a(3);
             }
             k();
-            this.f16632h.f16575f.startAnimation(this.f16634j);
+            this.f16642h.f16585f.startAnimation(this.f16644j);
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f16633i.cancel();
-            this.f16634j.cancel();
-            this.f16632h.f16575f.clearAnimation();
+            this.f16643i.cancel();
+            this.f16644j.cancel();
+            this.f16642h.f16585f.clearAnimation();
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f16632h.f16574e.setClickable(false);
-            this.f16658e = 4;
-            g.a aVar = this.f16657d;
+            this.f16642h.f16584e.setClickable(false);
+            this.f16668e = 4;
+            g.a aVar = this.f16667d;
             if (aVar != null) {
                 aVar.a(4);
             }
@@ -217,9 +217,9 @@ public class e extends g {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f16632h.f16574e.setClickable(true);
-            this.f16658e = 2;
-            g.a aVar = this.f16657d;
+            this.f16642h.f16584e.setClickable(true);
+            this.f16668e = 2;
+            g.a aVar = this.f16667d;
             if (aVar != null) {
                 aVar.a(2);
             }

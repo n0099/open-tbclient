@@ -19,10 +19,10 @@ public final class BitmapDescriptor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f41384a;
+    public Bitmap f41446a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bundle f41385b;
+    public Bundle f41447b;
 
     public BitmapDescriptor(Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class BitmapDescriptor {
             }
         }
         if (bitmap != null) {
-            this.f41384a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
+            this.f41446a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
         }
     }
 
@@ -63,8 +63,8 @@ public final class BitmapDescriptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(this.f41384a.getWidth() * this.f41384a.getHeight() * 4);
-            this.f41384a.copyPixelsToBuffer(allocate);
+            ByteBuffer allocate = ByteBuffer.allocate(this.f41446a.getWidth() * this.f41446a.getHeight() * 4);
+            this.f41446a.copyPixelsToBuffer(allocate);
             return allocate.array();
         }
         return (byte[]) invokeV.objValue;
@@ -74,11 +74,11 @@ public final class BitmapDescriptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f41384a != null) {
-                if (this.f41385b == null) {
+            if (this.f41446a != null) {
+                if (this.f41447b == null) {
                     Bundle bundle = new Bundle();
-                    bundle.putInt("image_width", this.f41384a.getWidth());
-                    bundle.putInt("image_height", this.f41384a.getHeight());
+                    bundle.putInt("image_width", this.f41446a.getWidth());
+                    bundle.putInt("image_height", this.f41446a.getHeight());
                     byte[] a2 = a();
                     bundle.putByteArray("image_data", a2);
                     MessageDigest messageDigest = null;
@@ -96,9 +96,9 @@ public final class BitmapDescriptor {
                         }
                         bundle.putString("image_hashcode", sb.toString());
                     }
-                    this.f41385b = bundle;
+                    this.f41447b = bundle;
                 }
-                return this.f41385b;
+                return this.f41447b;
             }
             throw new IllegalStateException("BDMapSDKException: the bitmap has been recycled! you can not use it again");
         }
@@ -108,16 +108,16 @@ public final class BitmapDescriptor {
     public Bitmap getBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41384a : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41446a : (Bitmap) invokeV.objValue;
     }
 
     public void recycle() {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bitmap = this.f41384a) == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bitmap = this.f41446a) == null || bitmap.isRecycled()) {
             return;
         }
-        this.f41384a.recycle();
-        this.f41384a = null;
+        this.f41446a.recycle();
+        this.f41446a = null;
     }
 }

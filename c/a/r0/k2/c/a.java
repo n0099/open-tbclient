@@ -12,19 +12,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f21711a;
+    public String f21725a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21712b;
+    public String f21726b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21713c;
+    public String f21727c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21714d;
+    public String f21728d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f21715e;
+    public long f21729e;
 
     public a(String str, String str2, String str3, String str4, long j2) {
         Interceptable interceptable = $ic;
@@ -41,45 +41,45 @@ public class a {
                 return;
             }
         }
-        this.f21711a = null;
-        this.f21712b = null;
-        this.f21713c = null;
-        this.f21714d = null;
-        this.f21715e = 0L;
-        this.f21711a = str;
-        this.f21712b = str2;
-        this.f21713c = str3;
-        this.f21714d = str4;
-        this.f21715e = j2;
+        this.f21725a = null;
+        this.f21726b = null;
+        this.f21727c = null;
+        this.f21728d = null;
+        this.f21729e = 0L;
+        this.f21725a = str;
+        this.f21726b = str2;
+        this.f21727c = str3;
+        this.f21728d = str4;
+        this.f21729e = j2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21713c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21727c : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21714d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21728d : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21711a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21725a : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21712b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21726b : (String) invokeV.objValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21715e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21729e : invokeV.longValue;
     }
 }

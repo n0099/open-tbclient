@@ -20,13 +20,13 @@ public class b implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SpannableString f20476e;
+    public SpannableString f20491e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f20477f;
+    public String f20492f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f20478g;
+    public TbPageContext<?> f20493g;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -36,14 +36,14 @@ public class b implements c {
 
     /* renamed from: c.a.r0.j2.l.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0971b extends ClickableSpan {
+    public class C0969b extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f20479e;
+        public final /* synthetic */ b f20494e;
 
-        public C0971b(b bVar) {
+        public C0969b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,14 +58,14 @@ public class b implements c {
                     return;
                 }
             }
-            this.f20479e = bVar;
+            this.f20494e = bVar;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f20479e.f20478g, new String[]{this.f20479e.f20477f});
+                UrlManager.getInstance().dealOneLink(this.f20494e.f20493g, new String[]{this.f20494e.f20492f});
             }
         }
 
@@ -78,7 +78,7 @@ public class b implements c {
             }
         }
 
-        public /* synthetic */ C0971b(b bVar, a aVar) {
+        public /* synthetic */ C0969b(b bVar, a aVar) {
             this(bVar);
         }
     }
@@ -101,10 +101,10 @@ public class b implements c {
         if (excContent == null || excContent.type.longValue() != 1 || StringUtils.isNull(excContent.text)) {
             return;
         }
-        this.f20478g = tbPageContext;
-        this.f20476e = new SpannableString(excContent.text);
-        this.f20476e.setSpan(new C0971b(this, null), 0, excContent.text.length(), 17);
-        this.f20477f = excContent.link;
+        this.f20493g = tbPageContext;
+        this.f20491e = new SpannableString(excContent.text);
+        this.f20491e.setSpan(new C0969b(this, null), 0, excContent.text.length(), 17);
+        this.f20492f = excContent.link;
     }
 
     @Override // c.a.r0.j2.l.b.c
@@ -121,7 +121,7 @@ public class b implements c {
     public CharSequence b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20476e : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20491e : (CharSequence) invokeV.objValue;
     }
 
     @Override // c.a.r0.j2.l.b.d

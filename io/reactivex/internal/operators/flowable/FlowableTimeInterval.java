@@ -13,14 +13,14 @@ import io.reactivex.schedulers.Timed;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class FlowableTimeInterval<T> extends AbstractFlowableWithUpstream<T, Timed<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class TimeIntervalSubscriber<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

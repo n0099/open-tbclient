@@ -7,6 +7,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    @Deprecated
+    public static final String APPLICATION_ID = "com.baidu.walletfacesdk";
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
     public static final String FLAVOR = "standard";

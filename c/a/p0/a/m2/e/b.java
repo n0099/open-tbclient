@@ -18,14 +18,14 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f7389c;
+    public static volatile b f7397c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<c.a.p0.a.v2.e1.b<Exception>> f7390a;
+    public ArrayList<c.a.p0.a.v2.e1.b<Exception>> f7398a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<c.a.p0.a.v2.e1.b<Exception>> f7391b;
+    public ArrayList<c.a.p0.a.v2.e1.b<Exception>> f7399b;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -33,7 +33,7 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f7392e;
+        public final /* synthetic */ int f7400e;
 
         public a(b bVar, int i2) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public final class b {
                     return;
                 }
             }
-            this.f7392e = i2;
+            this.f7400e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -58,7 +58,7 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 d.h("PresetSwanCoreUpdater", "onPresetCheck start.");
-                c.a.p0.a.m2.e.a.s(this.f7392e);
+                c.a.p0.a.m2.e.a.s(this.f7400e);
                 d.h("PresetSwanCoreUpdater", "onPresetCheck end.");
             }
         }
@@ -71,10 +71,10 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f7393e;
+        public final /* synthetic */ int f7401e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f7394f;
+        public final /* synthetic */ b f7402f;
 
         public RunnableC0299b(b bVar, int i2) {
             Interceptable interceptable = $ic;
@@ -91,8 +91,8 @@ public final class b {
                     return;
                 }
             }
-            this.f7394f = bVar;
-            this.f7393e = i2;
+            this.f7402f = bVar;
+            this.f7401e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -100,8 +100,8 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 d.h("PresetSwanCoreUpdater", "onPresetUpdate start.");
-                b bVar = this.f7394f;
-                int i2 = this.f7393e;
+                b bVar = this.f7402f;
+                int i2 = this.f7401e;
                 bVar.c(i2, c.a.p0.a.m2.e.a.t(i2));
                 d.h("PresetSwanCoreUpdater", "onPresetUpdate end.");
             }
@@ -114,10 +114,10 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f7395e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f7403e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Exception f7396f;
+        public final /* synthetic */ Exception f7404f;
 
         public c(b bVar, c.a.p0.a.v2.e1.b bVar2, Exception exc) {
             Interceptable interceptable = $ic;
@@ -134,15 +134,15 @@ public final class b {
                     return;
                 }
             }
-            this.f7395e = bVar2;
-            this.f7396f = exc;
+            this.f7403e = bVar2;
+            this.f7404f = exc;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7395e.onCallback(this.f7396f);
+                this.f7403e.onCallback(this.f7404f);
             }
         }
     }
@@ -160,7 +160,7 @@ public final class b {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public b() {
@@ -176,22 +176,22 @@ public final class b {
                 return;
             }
         }
-        this.f7390a = new ArrayList<>();
-        this.f7391b = new ArrayList<>();
+        this.f7398a = new ArrayList<>();
+        this.f7399b = new ArrayList<>();
     }
 
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f7389c == null) {
+            if (f7397c == null) {
                 synchronized (b.class) {
-                    if (f7389c == null) {
-                        f7389c = new b();
+                    if (f7397c == null) {
+                        f7397c = new b();
                     }
                 }
             }
-            return f7389c;
+            return f7397c;
         }
         return (b) invokeV.objValue;
     }
@@ -202,17 +202,17 @@ public final class b {
             synchronized (b.class) {
                 try {
                     if (i2 == 0) {
-                        Iterator<c.a.p0.a.v2.e1.b<Exception>> it = this.f7390a.iterator();
+                        Iterator<c.a.p0.a.v2.e1.b<Exception>> it = this.f7398a.iterator();
                         while (it.hasNext()) {
                             d(it.next(), exc);
                         }
-                        this.f7390a.clear();
+                        this.f7398a.clear();
                     } else if (i2 == 1) {
-                        Iterator<c.a.p0.a.v2.e1.b<Exception>> it2 = this.f7391b.iterator();
+                        Iterator<c.a.p0.a.v2.e1.b<Exception>> it2 = this.f7399b.iterator();
                         while (it2.hasNext()) {
                             d(it2.next(), exc);
                         }
-                        this.f7391b.clear();
+                        this.f7399b.clear();
                     }
                 } catch (Throwable th) {
                     throw th;
@@ -246,9 +246,9 @@ public final class b {
                     return;
                 }
                 if (i2 == 1) {
-                    arrayList = this.f7391b;
+                    arrayList = this.f7399b;
                 } else {
-                    arrayList = this.f7390a;
+                    arrayList = this.f7398a;
                 }
                 if (arrayList.isEmpty()) {
                     new Thread(new RunnableC0299b(this, i2), "updateSwanCoreAsync").start();

@@ -13,19 +13,19 @@ public class r extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f4476a;
+    public float f4484a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f4477b;
+    public float f4485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f4478c;
+    public float f4486c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f4479d;
+    public float f4487d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f4480e;
+    public boolean f4488e;
 
     public r() {
         Interceptable interceptable = $ic;
@@ -40,14 +40,14 @@ public class r extends a {
                 return;
             }
         }
-        this.f4480e = false;
+        this.f4488e = false;
     }
 
     @Override // c.a.p0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && this.f4480e) {
-            bVar.f4396j.quadTo(this.f4476a, this.f4477b, this.f4478c, this.f4479d);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && this.f4488e) {
+            bVar.f4404j.quadTo(this.f4484a, this.f4485b, this.f4486c, this.f4487d);
         }
     }
 
@@ -57,10 +57,10 @@ public class r extends a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 3) {
             return;
         }
-        this.f4476a = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
-        this.f4477b = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
-        this.f4478c = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2));
-        this.f4479d = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(3));
-        this.f4480e = true;
+        this.f4484a = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
+        this.f4485b = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
+        this.f4486c = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2));
+        this.f4487d = c.a.p0.a.v2.n0.g((float) jSONArray.optDouble(3));
+        this.f4488e = true;
     }
 }

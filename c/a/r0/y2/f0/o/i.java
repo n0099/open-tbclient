@@ -13,28 +13,28 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f29454a;
+    public volatile boolean f29474a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29455b;
+    public int f29475b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29456c;
+    public int f29476c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29457d;
+    public String f29477d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29458e;
+    public String f29478e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, List<String>> f29459f;
+    public Map<String, List<String>> f29479f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f29460g;
+    public byte[] f29480g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29461h;
+    public int f29481h;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -49,10 +49,10 @@ public class i {
                 return;
             }
         }
-        this.f29454a = false;
-        this.f29455b = -1;
-        this.f29457d = "";
-        this.f29458e = "";
+        this.f29474a = false;
+        this.f29475b = -1;
+        this.f29477d = "";
+        this.f29478e = "";
     }
 
     public void a(HttpURLConnection httpURLConnection) throws Exception {
@@ -60,10 +60,10 @@ public class i {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, httpURLConnection) == null) || httpURLConnection == null) {
             return;
         }
-        this.f29455b = httpURLConnection.getResponseCode();
-        this.f29457d = httpURLConnection.getContentEncoding();
+        this.f29475b = httpURLConnection.getResponseCode();
+        this.f29477d = httpURLConnection.getContentEncoding();
         httpURLConnection.getContentType();
-        this.f29458e = httpURLConnection.getContentLength() + "";
-        this.f29459f = httpURLConnection.getHeaderFields();
+        this.f29478e = httpURLConnection.getContentLength() + "";
+        this.f29479f = httpURLConnection.getHeaderFields();
     }
 }

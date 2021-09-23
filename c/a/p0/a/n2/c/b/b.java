@@ -51,12 +51,12 @@ public abstract class b extends a0 {
             if (eVar == null) {
                 d.b("battery", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 return false;
             } else if (context == null) {
                 d.b("battery", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = a0.f4766b;
+                boolean z2 = a0.f4774b;
                 return false;
             } else {
                 return true;
@@ -73,11 +73,11 @@ public abstract class b extends a0 {
             JSONObject jSONObject = new JSONObject();
             try {
                 int i2 = 100;
-                if (c0322a.f7678a <= 100) {
-                    i2 = c0322a.f7678a;
+                if (c0322a.f7686a <= 100) {
+                    i2 = c0322a.f7686a;
                 }
                 jSONObject.put("level", String.valueOf(i2));
-                jSONObject.put("isCharging", c0322a.f7679b);
+                jSONObject.put("isCharging", c0322a.f7687b);
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;

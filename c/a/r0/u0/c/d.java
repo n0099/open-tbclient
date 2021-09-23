@@ -1,7 +1,7 @@
 package c.a.r0.u0.c;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.j3.w;
+import c.a.r0.j3.x;
 import c.a.r0.w0.b1;
 import c.a.r0.w0.o0;
 import c.a.r0.w0.s0;
@@ -42,22 +42,22 @@ public class d implements o0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f25235e;
+    public BdUniqueId f25256e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25236f;
+    public String f25257f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f25237g;
+    public String f25258g;
 
     /* renamed from: h  reason: collision with root package name */
-    public w f25238h;
+    public x f25259h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<MemberGroupInfo> f25239i;
+    public List<MemberGroupInfo> f25260i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MemberGodInfo f25240j;
+    public MemberGodInfo f25261j;
     public ManagerApplyInfo k;
     public boolean l;
     public boolean m;
@@ -76,7 +76,7 @@ public class d implements o0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f25241a;
+        public final /* synthetic */ d f25262a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2, int i3) {
@@ -97,7 +97,7 @@ public class d implements o0 {
                     return;
                 }
             }
-            this.f25241a = dVar;
+            this.f25262a = dVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -111,40 +111,40 @@ public class d implements o0 {
                 if (responsedMessage.getError() == 0) {
                     if (z) {
                         ForumMemberHttpResponseMessage forumMemberHttpResponseMessage = (ForumMemberHttpResponseMessage) responsedMessage;
-                        this.f25241a.f25238h = forumMemberHttpResponseMessage.getUserInfo();
-                        this.f25241a.f25239i = forumMemberHttpResponseMessage.getMemberGroupInfoList();
-                        this.f25241a.f25240j = forumMemberHttpResponseMessage.getMemberGodInfo();
-                        this.f25241a.k = forumMemberHttpResponseMessage.getManagerApplyInfo();
-                        this.f25241a.m = forumMemberHttpResponseMessage.isBawuShow();
-                        this.f25241a.l = forumMemberHttpResponseMessage.isPrivateForum();
-                        this.f25241a.n = forumMemberHttpResponseMessage.getPrivateMgrApplyInfo();
+                        this.f25262a.f25259h = forumMemberHttpResponseMessage.getUserInfo();
+                        this.f25262a.f25260i = forumMemberHttpResponseMessage.getMemberGroupInfoList();
+                        this.f25262a.f25261j = forumMemberHttpResponseMessage.getMemberGodInfo();
+                        this.f25262a.k = forumMemberHttpResponseMessage.getManagerApplyInfo();
+                        this.f25262a.m = forumMemberHttpResponseMessage.isBawuShow();
+                        this.f25262a.l = forumMemberHttpResponseMessage.isPrivateForum();
+                        this.f25262a.n = forumMemberHttpResponseMessage.getPrivateMgrApplyInfo();
                     } else if (responsedMessage instanceof ForumMemberSocketResponseMessage) {
                         ForumMemberSocketResponseMessage forumMemberSocketResponseMessage = (ForumMemberSocketResponseMessage) responsedMessage;
-                        this.f25241a.f25238h = forumMemberSocketResponseMessage.getUserInfo();
-                        this.f25241a.f25239i = forumMemberSocketResponseMessage.getMemberGroupInfoList();
-                        this.f25241a.f25240j = forumMemberSocketResponseMessage.getMemberGodInfo();
-                        this.f25241a.k = forumMemberSocketResponseMessage.getManagerApplyInfo();
-                        this.f25241a.m = forumMemberSocketResponseMessage.isBawuShow();
-                        this.f25241a.l = forumMemberSocketResponseMessage.isPrivateForum();
-                        this.f25241a.n = forumMemberSocketResponseMessage.getPrivateMgrApplyInfo();
+                        this.f25262a.f25259h = forumMemberSocketResponseMessage.getUserInfo();
+                        this.f25262a.f25260i = forumMemberSocketResponseMessage.getMemberGroupInfoList();
+                        this.f25262a.f25261j = forumMemberSocketResponseMessage.getMemberGodInfo();
+                        this.f25262a.k = forumMemberSocketResponseMessage.getManagerApplyInfo();
+                        this.f25262a.m = forumMemberSocketResponseMessage.isBawuShow();
+                        this.f25262a.l = forumMemberSocketResponseMessage.isPrivateForum();
+                        this.f25262a.n = forumMemberSocketResponseMessage.getPrivateMgrApplyInfo();
                     }
                 }
-                this.f25241a.p = false;
-                this.f25241a.q.f26459e = responsedMessage.getError();
-                this.f25241a.q.f26460f = responsedMessage.getErrorString();
-                this.f25241a.q.f26461g = false;
-                this.f25241a.q.f26463i = false;
-                this.f25241a.q.f26462h = false;
-                this.f25241a.q.f28026b = this.f25241a.f25236f;
-                this.f25241a.q.f28025a = this.f25241a.f25237g;
-                this.f25241a.q.f28027c = 1;
-                if (this.f25241a.o != null) {
-                    s0 s0Var = this.f25241a.o;
-                    b1 b1Var = this.f25241a.q;
-                    d dVar = this.f25241a;
-                    s0Var.a(3, 0, b1Var, dVar.A(dVar.f25238h, this.f25241a.f25239i, this.f25241a.f25240j, this.f25241a.k, this.f25241a.m, this.f25241a.l, this.f25241a.n));
+                this.f25262a.p = false;
+                this.f25262a.q.f26482e = responsedMessage.getError();
+                this.f25262a.q.f26483f = responsedMessage.getErrorString();
+                this.f25262a.q.f26484g = false;
+                this.f25262a.q.f26486i = false;
+                this.f25262a.q.f26485h = false;
+                this.f25262a.q.f28046b = this.f25262a.f25257f;
+                this.f25262a.q.f28045a = this.f25262a.f25258g;
+                this.f25262a.q.f28047c = 1;
+                if (this.f25262a.o != null) {
+                    s0 s0Var = this.f25262a.o;
+                    b1 b1Var = this.f25262a.q;
+                    d dVar = this.f25262a;
+                    s0Var.a(3, 0, b1Var, dVar.A(dVar.f25259h, this.f25262a.f25260i, this.f25262a.f25261j, this.f25262a.k, this.f25262a.m, this.f25262a.l, this.f25262a.n));
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001352, this.f25241a.f25238h));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001352, this.f25262a.f25259h));
             }
         }
     }
@@ -155,7 +155,7 @@ public class d implements o0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f25242a;
+        public final /* synthetic */ d f25263a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, int i2) {
@@ -175,7 +175,7 @@ public class d implements o0 {
                     return;
                 }
             }
-            this.f25242a = dVar;
+            this.f25263a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -185,36 +185,36 @@ public class d implements o0 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ForumMemberReadCacheResponseMessage)) {
                 ForumMemberReadCacheResponseMessage forumMemberReadCacheResponseMessage = (ForumMemberReadCacheResponseMessage) customResponsedMessage;
                 if (customResponsedMessage.getError() == 0) {
-                    this.f25242a.f25238h = forumMemberReadCacheResponseMessage.getUserInfo();
-                    this.f25242a.f25239i = forumMemberReadCacheResponseMessage.getMemberGroupInfoList();
-                    this.f25242a.f25240j = forumMemberReadCacheResponseMessage.getMemberGodInfo();
-                    this.f25242a.k = forumMemberReadCacheResponseMessage.getManagerApplyInfo();
-                    this.f25242a.m = forumMemberReadCacheResponseMessage.isBawuShow();
-                    this.f25242a.l = forumMemberReadCacheResponseMessage.isPrivateForum();
-                    this.f25242a.n = forumMemberReadCacheResponseMessage.getPrivateMgrApplyInfo();
+                    this.f25263a.f25259h = forumMemberReadCacheResponseMessage.getUserInfo();
+                    this.f25263a.f25260i = forumMemberReadCacheResponseMessage.getMemberGroupInfoList();
+                    this.f25263a.f25261j = forumMemberReadCacheResponseMessage.getMemberGodInfo();
+                    this.f25263a.k = forumMemberReadCacheResponseMessage.getManagerApplyInfo();
+                    this.f25263a.m = forumMemberReadCacheResponseMessage.isBawuShow();
+                    this.f25263a.l = forumMemberReadCacheResponseMessage.isPrivateForum();
+                    this.f25263a.n = forumMemberReadCacheResponseMessage.getPrivateMgrApplyInfo();
                 }
-                this.f25242a.q.f26459e = customResponsedMessage.getError();
-                this.f25242a.q.f26460f = customResponsedMessage.getErrorString();
-                this.f25242a.q.f26461g = false;
-                this.f25242a.q.f26463i = false;
-                this.f25242a.q.f26462h = false;
-                this.f25242a.q.f28026b = this.f25242a.f25236f;
-                this.f25242a.q.f28025a = this.f25242a.f25237g;
-                this.f25242a.q.f28027c = 1;
-                if (this.f25242a.o != null) {
-                    d dVar = this.f25242a;
-                    ArrayList<c.a.e.l.e.n> A = dVar.A(dVar.f25238h, this.f25242a.f25239i, this.f25242a.f25240j, this.f25242a.k, this.f25242a.m, this.f25242a.l, this.f25242a.n);
+                this.f25263a.q.f26482e = customResponsedMessage.getError();
+                this.f25263a.q.f26483f = customResponsedMessage.getErrorString();
+                this.f25263a.q.f26484g = false;
+                this.f25263a.q.f26486i = false;
+                this.f25263a.q.f26485h = false;
+                this.f25263a.q.f28046b = this.f25263a.f25257f;
+                this.f25263a.q.f28045a = this.f25263a.f25258g;
+                this.f25263a.q.f28047c = 1;
+                if (this.f25263a.o != null) {
+                    d dVar = this.f25263a;
+                    ArrayList<c.a.e.l.e.n> A = dVar.A(dVar.f25259h, this.f25263a.f25260i, this.f25263a.f25261j, this.f25263a.k, this.f25263a.m, this.f25263a.l, this.f25263a.n);
                     if (A == null || A.size() <= 0) {
-                        if (!this.f25242a.p) {
-                            this.f25242a.o.a(3, 0, this.f25242a.q, A);
+                        if (!this.f25263a.p) {
+                            this.f25263a.o.a(3, 0, this.f25263a.q, A);
                         }
                     } else {
-                        this.f25242a.o.a(3, 0, this.f25242a.q, A);
+                        this.f25263a.o.a(3, 0, this.f25263a.q, A);
                     }
                 }
-                if (this.f25242a.p) {
-                    d dVar2 = this.f25242a;
-                    dVar2.z(c.a.e.e.m.b.g(dVar2.f25236f, 0L), this.f25242a.f25237g);
+                if (this.f25263a.p) {
+                    d dVar2 = this.f25263a;
+                    dVar2.z(c.a.e.e.m.b.g(dVar2.f25257f, 0L), this.f25263a.f25258g);
                 }
             }
         }
@@ -226,7 +226,7 @@ public class d implements o0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f25243a;
+        public final /* synthetic */ d f25264a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(d dVar, int i2) {
@@ -246,33 +246,33 @@ public class d implements o0 {
                     return;
                 }
             }
-            this.f25243a = dVar;
+            this.f25264a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof w)) {
-                this.f25243a.q.f26459e = customResponsedMessage.getError();
-                this.f25243a.q.f26460f = customResponsedMessage.getErrorString();
-                this.f25243a.q.f26461g = false;
-                this.f25243a.q.f26463i = false;
-                this.f25243a.q.f26462h = false;
-                this.f25243a.q.f28026b = this.f25243a.f25236f;
-                this.f25243a.q.f28025a = this.f25243a.f25237g;
-                this.f25243a.q.f28027c = 1;
-                w wVar = (w) customResponsedMessage.getData();
-                if (wVar != null && wVar.l() == 0 && this.f25243a.f25238h != null) {
-                    wVar.r(this.f25243a.f25238h.c());
-                    wVar.u(this.f25243a.f25238h.i());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof x)) {
+                this.f25264a.q.f26482e = customResponsedMessage.getError();
+                this.f25264a.q.f26483f = customResponsedMessage.getErrorString();
+                this.f25264a.q.f26484g = false;
+                this.f25264a.q.f26486i = false;
+                this.f25264a.q.f26485h = false;
+                this.f25264a.q.f28046b = this.f25264a.f25257f;
+                this.f25264a.q.f28045a = this.f25264a.f25258g;
+                this.f25264a.q.f28047c = 1;
+                x xVar = (x) customResponsedMessage.getData();
+                if (xVar != null && xVar.l() == 0 && this.f25264a.f25259h != null) {
+                    xVar.r(this.f25264a.f25259h.c());
+                    xVar.u(this.f25264a.f25259h.i());
                 }
-                this.f25243a.f25238h = wVar;
-                if (this.f25243a.o != null) {
-                    s0 s0Var = this.f25243a.o;
-                    b1 b1Var = this.f25243a.q;
-                    d dVar = this.f25243a;
-                    s0Var.a(3, 0, b1Var, dVar.A(dVar.f25238h, this.f25243a.f25239i, this.f25243a.f25240j, this.f25243a.k, this.f25243a.m, this.f25243a.l, this.f25243a.n));
+                this.f25264a.f25259h = xVar;
+                if (this.f25264a.o != null) {
+                    s0 s0Var = this.f25264a.o;
+                    b1 b1Var = this.f25264a.q;
+                    d dVar = this.f25264a;
+                    s0Var.a(3, 0, b1Var, dVar.A(dVar.f25259h, this.f25264a.f25260i, this.f25264a.f25261j, this.f25264a.k, this.f25264a.m, this.f25264a.l, this.f25264a.n));
                 }
             }
         }
@@ -280,15 +280,15 @@ public class d implements o0 {
 
     /* renamed from: c.a.r0.u0.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1179d extends CustomMessageListener {
+    public class C1177d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f25244a;
+        public final /* synthetic */ d f25265a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1179d(d dVar, int i2) {
+        public C1177d(d dVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -305,7 +305,7 @@ public class d implements o0 {
                     return;
                 }
             }
-            this.f25244a = dVar;
+            this.f25265a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -313,8 +313,8 @@ public class d implements o0 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData)) {
-                d dVar = this.f25244a;
-                dVar.z(c.a.e.e.m.b.g(dVar.f25236f, 0L), this.f25244a.f25237g);
+                d dVar = this.f25265a;
+                dVar.z(c.a.e.e.m.b.g(dVar.f25257f, 0L), this.f25265a.f25258g);
             }
         }
     }
@@ -339,22 +339,22 @@ public class d implements o0 {
         this.r = new a(this, CmdConfigHttp.FRS_MEMBER_TAB_CMD, 301004);
         this.s = new b(this, 2003009);
         this.t = new c(this, 2001266);
-        this.u = new C1179d(this, 2001222);
+        this.u = new C1177d(this, 2001222);
     }
 
-    public ArrayList<c.a.e.l.e.n> A(w wVar, List<MemberGroupInfo> list, MemberGodInfo memberGodInfo, ManagerApplyInfo managerApplyInfo, boolean z, boolean z2, PriManagerApplyInfo priManagerApplyInfo) {
+    public ArrayList<c.a.e.l.e.n> A(x xVar, List<MemberGroupInfo> list, MemberGodInfo memberGodInfo, ManagerApplyInfo managerApplyInfo, boolean z, boolean z2, PriManagerApplyInfo priManagerApplyInfo) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{wVar, list, memberGodInfo, managerApplyInfo, Boolean.valueOf(z), Boolean.valueOf(z2), priManagerApplyInfo})) == null) {
-            if (wVar == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{xVar, list, memberGodInfo, managerApplyInfo, Boolean.valueOf(z), Boolean.valueOf(z2), priManagerApplyInfo})) == null) {
+            if (xVar == null) {
                 return null;
             }
             ArrayList<c.a.e.l.e.n> arrayList = new ArrayList<>();
-            if (wVar.l() == 1) {
+            if (xVar.l() == 1) {
                 h hVar = new h();
-                hVar.i(wVar);
-                hVar.g(this.f25236f);
-                hVar.h(this.f25237g);
+                hVar.i(xVar);
+                hVar.g(this.f25257f);
+                hVar.h(this.f25258g);
                 arrayList.add(hVar);
             }
             if (list != null && list.size() > 0) {
@@ -362,8 +362,8 @@ public class d implements o0 {
                 for (int i2 = 0; i2 < size; i2++) {
                     if (list.get(i2) != null && list.get(i2).member_group_num != null && list.get(i2).member_group_num.intValue() > 0 && ListUtils.getCount(list.get(i2).member_group_list) > 0) {
                         j jVar = new j();
-                        jVar.d(this.f25236f);
-                        jVar.g(this.f25237g);
+                        jVar.d(this.f25257f);
+                        jVar.g(this.f25258g);
                         jVar.h(list.get(i2));
                         if (i2 == size - 1) {
                             jVar.i(true);
@@ -393,8 +393,8 @@ public class d implements o0 {
                 }
                 arrayList.add(lVar);
                 c.a.r0.u0.c.b bVar = new c.a.r0.u0.c.b();
-                bVar.f25232e = R.string.complaint_bar_lord;
-                bVar.f25233f = "https://tieba.baidu.com/tb/cms/redpacket/page/complain.html?id=" + this.f25236f;
+                bVar.f25253e = R.string.complaint_bar_lord;
+                bVar.f25254f = "https://tieba.baidu.com/tb/cms/redpacket/page/complain.html?id=" + this.f25257f;
                 arrayList.add(bVar);
             }
             B(memberGodInfo, arrayList);
@@ -442,16 +442,16 @@ public class d implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             b1 b1Var = this.q;
-            b1Var.f26459e = 0;
-            b1Var.f26461g = false;
-            b1Var.f26463i = false;
-            b1Var.f26462h = false;
-            b1Var.f28026b = this.f25236f;
-            b1Var.f28025a = this.f25237g;
-            b1Var.f28027c = 1;
+            b1Var.f26482e = 0;
+            b1Var.f26484g = false;
+            b1Var.f26486i = false;
+            b1Var.f26485h = false;
+            b1Var.f28046b = this.f25257f;
+            b1Var.f28045a = this.f25258g;
+            b1Var.f28047c = 1;
             s0 s0Var = this.o;
             if (s0Var != null) {
-                s0Var.a(3, 0, b1Var, A(this.f25238h, this.f25239i, this.f25240j, this.k, this.m, this.l, this.n));
+                s0Var.a(3, 0, b1Var, A(this.f25259h, this.f25260i, this.f25261j, this.k, this.m, this.l, this.n));
             }
         }
     }
@@ -459,9 +459,9 @@ public class d implements o0 {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.r0.j3.d0.a.h(301004, ForumMemberSocketResponseMessage.class, false, false);
-            c.a.r0.j3.d0.a.c(301004, CmdConfigHttp.FRS_MEMBER_TAB_CMD, TbConfig.GET_MEMBER_INFO, ForumMemberHttpResponseMessage.class, false, false, false, false);
-            c.a.r0.j3.d0.a.b(2003009, e.class);
+            c.a.r0.j3.e0.a.h(301004, ForumMemberSocketResponseMessage.class, false, false);
+            c.a.r0.j3.e0.a.c(301004, CmdConfigHttp.FRS_MEMBER_TAB_CMD, TbConfig.GET_MEMBER_INFO, ForumMemberHttpResponseMessage.class, false, false, false, false);
+            c.a.r0.j3.e0.a.b(2003009, e.class);
         }
     }
 
@@ -470,7 +470,7 @@ public class d implements o0 {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null) {
             return;
         }
-        this.f25235e = bdUniqueId;
+        this.f25256e = bdUniqueId;
     }
 
     @Override // c.a.r0.w0.o0
@@ -489,10 +489,10 @@ public class d implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             D();
-            BdUniqueId bdUniqueId = this.f25235e;
+            BdUniqueId bdUniqueId = this.f25256e;
             if (bdUniqueId != null) {
                 this.s.setTag(bdUniqueId);
-                this.r.setTag(this.f25235e);
+                this.r.setTag(this.f25256e);
                 this.s.setSelfListener(true);
                 if (this.r.getHttpMessageListener() != null) {
                     this.r.getHttpMessageListener().setSelfListener(true);
@@ -512,14 +512,14 @@ public class d implements o0 {
     public void q(int i2, int i3, y0 y0Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, y0Var) == null) && i2 == 3 && y0Var != null) {
-            String str = y0Var.f28026b;
-            this.f25236f = str;
-            String str2 = y0Var.f28025a;
-            this.f25237g = str2;
+            String str = y0Var.f28046b;
+            this.f25257f = str;
+            String str2 = y0Var.f28045a;
+            this.f25258g = str2;
             if (this.p) {
                 y(str2);
-            } else if (y0Var.f28027c == -1) {
-                z(c.a.e.e.m.b.g(str, 0L), y0Var.f28025a);
+            } else if (y0Var.f28047c == -1) {
+                z(c.a.e.e.m.b.g(str, 0L), y0Var.f28045a);
             } else {
                 C();
             }
@@ -539,7 +539,7 @@ public class d implements o0 {
         int g2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            List<MemberGroupInfo> list = this.f25239i;
+            List<MemberGroupInfo> list = this.f25260i;
             if (list == null || list.size() <= 0) {
                 return null;
             }
@@ -548,7 +548,7 @@ public class d implements o0 {
             int g3 = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds100);
             int g4 = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds90);
             int g5 = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
-            int size = this.f25239i.size();
+            int size = this.f25260i.size();
             if (TbadkCoreApplication.isLogin()) {
                 g2 = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds300);
             } else {
@@ -565,7 +565,7 @@ public class d implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             ForumMemberReadCacheRequestMessage forumMemberReadCacheRequestMessage = new ForumMemberReadCacheRequestMessage();
-            BdUniqueId bdUniqueId = this.f25235e;
+            BdUniqueId bdUniqueId = this.f25256e;
             if (bdUniqueId != null) {
                 forumMemberReadCacheRequestMessage.setTag(bdUniqueId);
             }
@@ -580,7 +580,7 @@ public class d implements o0 {
             return;
         }
         ForumMemberRequestMessage forumMemberRequestMessage = new ForumMemberRequestMessage();
-        BdUniqueId bdUniqueId = this.f25235e;
+        BdUniqueId bdUniqueId = this.f25256e;
         if (bdUniqueId != null) {
             forumMemberRequestMessage.setTag(bdUniqueId);
         }

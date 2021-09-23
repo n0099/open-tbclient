@@ -22,7 +22,7 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static j f21368a;
+    public static j f21382a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public j() {
@@ -45,14 +45,14 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (j.class) {
-                if (f21368a == null) {
+                if (f21382a == null) {
                     synchronized (j.class) {
-                        if (f21368a == null) {
-                            f21368a = new j();
+                        if (f21382a == null) {
+                            f21382a = new j();
                         }
                     }
                 }
-                jVar = f21368a;
+                jVar = f21382a;
             }
             return jVar;
         }

@@ -204,7 +204,7 @@ public class a extends c.a.r0.a0.b<c.a.r0.g1.k.b.c.a> {
             if (aVar.Y == 0) {
                 this.r.setText("NEW");
             } else {
-                this.r.setText(String.format(this.f15549f.getString(R.string.topic_partake_default), StringHelper.numberUniformFormat(aVar.Y)));
+                this.r.setText(String.format(this.f15558f.getString(R.string.topic_partake_default), StringHelper.numberUniformFormat(aVar.Y)));
             }
             if (aVar.b0 == null) {
                 this.x.setVisibility(8);
@@ -222,7 +222,7 @@ public class a extends c.a.r0.a0.b<c.a.r0.g1.k.b.c.a> {
             int g4 = l.g(d(), R.dimen.tbds16);
             layoutParams2.addRule(1, R.id.cell_topic_icon);
             layoutParams2.setMargins(g3, 0, g4, 0);
-            this.q.setTextSize(0, l.g(this.f15550g, R.dimen.tbds40));
+            this.q.setTextSize(0, l.g(this.f15559g, R.dimen.tbds40));
             c d2 = c.d(this.q);
             d2.w(R.color.CAM_X0105);
             d2.B(R.string.F_X01);
@@ -239,7 +239,7 @@ public class a extends c.a.r0.a0.b<c.a.r0.g1.k.b.c.a> {
         if (str.length() > 14) {
             str = str.substring(0, 13) + "...";
         }
-        this.q.setText(String.format(this.f15549f.getString(R.string.daily_topic_name), str));
+        this.q.setText(String.format(this.f15558f.getString(R.string.daily_topic_name), str));
         if (StringUtils.isNull(aVar.Z)) {
             this.t.setVisibility(8);
             this.w.setUserColor(R.color.CAM_X0109);

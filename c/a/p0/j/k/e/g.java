@@ -26,10 +26,10 @@ public class g extends c.a.p0.j.k.a<c.a.p0.a.h1.c.f> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h1.c.f f11714a;
+        public final /* synthetic */ c.a.p0.a.h1.c.f f11722a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h1.b f11715b;
+        public final /* synthetic */ c.a.p0.a.h1.b f11723b;
 
         public a(g gVar, c.a.p0.a.h1.c.f fVar, c.a.p0.a.h1.b bVar) {
             Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class g extends c.a.p0.j.k.a<c.a.p0.a.h1.c.f> {
                     return;
                 }
             }
-            this.f11714a = fVar;
-            this.f11715b = bVar;
+            this.f11722a = fVar;
+            this.f11723b = bVar;
         }
 
         @Override // c.a.p0.j.n.b.InterfaceC0614b
         public void onAnimationEnd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!TextUtils.isEmpty(this.f11714a.C)) {
-                    this.f11715b.c(this.f11714a.C, null);
+                if (!TextUtils.isEmpty(this.f11722a.C)) {
+                    this.f11723b.c(this.f11722a.C, null);
                 }
                 c.a.p0.a.e0.d.g("map", "TranslateMarkerAction animation end");
             }
@@ -75,7 +75,7 @@ public class g extends c.a.p0.j.k.a<c.a.p0.a.h1.c.f> {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public g() {
@@ -112,14 +112,14 @@ public class g extends c.a.p0.j.k.a<c.a.p0.a.h1.c.f> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, fVar, bVar, eVar)) == null) {
             c.a.p0.a.e0.d.g("map", "TranslateMarkerAction start");
-            c.a.p0.a.p.e.d B = c.a.p0.a.g1.f.V().B(fVar.f4658g);
+            c.a.p0.a.p.e.d B = c.a.p0.a.g1.f.V().B(fVar.f4666g);
             if (!(B instanceof c.a.p0.a.p.e.b)) {
                 c.a.p0.a.e0.d.b("map", "WebViewManager is null");
                 return false;
             }
-            c.a.p0.j.n.c d2 = c.a.p0.j.c.b().c((c.a.p0.a.p.e.b) B).d(fVar.f4657f);
+            c.a.p0.j.n.c d2 = c.a.p0.j.c.b().c((c.a.p0.a.p.e.b) B).d(fVar.f4665f);
             if (d2 == null) {
-                c.a.p0.a.e0.d.b("map", "can not find map by id " + fVar.f4657f);
+                c.a.p0.a.e0.d.b("map", "can not find map by id " + fVar.f4665f);
                 return false;
             }
             return g(fVar, d2, bVar);
@@ -133,7 +133,7 @@ public class g extends c.a.p0.j.k.a<c.a.p0.a.h1.c.f> {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, fVar, cVar, bVar)) == null) {
             if (fVar.isValid()) {
                 c.a.p0.a.h1.c.h.c cVar2 = fVar.E;
-                LatLng latLng = new LatLng(cVar2.f6533e, cVar2.f6534f);
+                LatLng latLng = new LatLng(cVar2.f6541e, cVar2.f6542f);
                 List<c.a.p0.j.n.b> K = cVar.K(fVar.D);
                 c.a.p0.a.e0.d.g("map", "TranslateMarkerAction animation start");
                 if (K != null) {

@@ -48,6 +48,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.heytap.mcssdk.mode.CommandMessage;
 import h.c.i0;
@@ -2435,7 +2436,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         if (interceptable == null || interceptable.invokeL(1048631, this, bigInteger) == null) {
             BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.mBaiduRtcRoomDelegate;
             if (baiduRtcRoomDelegate != null) {
-                baiduRtcRoomDelegate.onRoomEventUpdate(100, 0L, "ok");
+                baiduRtcRoomDelegate.onRoomEventUpdate(100, 0L, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
             }
             this.mPublisherHandle = bigInteger;
             ErrorInfoReport.getInstance().setPublishHandleId(this.mPublisherHandle.longValue());

@@ -13,7 +13,7 @@ public class g implements c.a.q0.s.w.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a2 f18809a;
+    public a2 f18818a;
 
     public g(a2 a2Var) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class g implements c.a.q0.s.w.b.a {
                 return;
             }
         }
-        this.f18809a = a2Var;
+        this.f18818a = a2Var;
     }
 
     @Override // c.a.q0.s.w.b.a
@@ -38,7 +38,7 @@ public class g implements c.a.q0.s.w.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a2 a2Var = this.f18809a;
+            a2 a2Var = this.f18818a;
             if (a2Var == null) {
                 return null;
             }
@@ -52,7 +52,7 @@ public class g implements c.a.q0.s.w.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a2 a2Var = this.f18809a;
+            a2 a2Var = this.f18818a;
             if (a2Var == null) {
                 return null;
             }
@@ -65,7 +65,7 @@ public class g implements c.a.q0.s.w.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a2 a2Var = this.f18809a;
+            a2 a2Var = this.f18818a;
             if (a2Var == null) {
                 return null;
             }

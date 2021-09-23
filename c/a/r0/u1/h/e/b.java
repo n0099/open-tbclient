@@ -18,22 +18,22 @@ public class b implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Long f25349e;
+    public Long f25370e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25350f;
+    public String f25371f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f25351g;
+    public String f25372g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Integer f25352h;
+    public Integer f25373h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Integer f25353i;
+    public Integer f25374i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f25354j;
+    public String f25375j;
 
     static {
         InterceptResult invokeClinit;
@@ -68,25 +68,25 @@ public class b implements n {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25351g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25372g : (String) invokeV.objValue;
     }
 
     public Long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25349e : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25370e : (Long) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25350f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25371f : (String) invokeV.objValue;
     }
 
     public Integer g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25353i : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25374i : (Integer) invokeV.objValue;
     }
 
     @Override // c.a.e.l.e.n
@@ -99,24 +99,24 @@ public class b implements n {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f25354j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f25375j : (String) invokeV.objValue;
     }
 
     public Integer i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f25352h : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f25373h : (Integer) invokeV.objValue;
     }
 
     public void k(RecommendForumInfo recommendForumInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, recommendForumInfo) == null) {
-            this.f25351g = recommendForumInfo.avatar;
-            this.f25349e = recommendForumInfo.forum_id;
-            this.f25350f = recommendForumInfo.forum_name;
-            this.f25352h = recommendForumInfo.thread_count;
-            this.f25353i = recommendForumInfo.member_count;
-            this.f25354j = recommendForumInfo.slogan;
+            this.f25372g = recommendForumInfo.avatar;
+            this.f25370e = recommendForumInfo.forum_id;
+            this.f25371f = recommendForumInfo.forum_name;
+            this.f25373h = recommendForumInfo.thread_count;
+            this.f25374i = recommendForumInfo.member_count;
+            this.f25375j = recommendForumInfo.slogan;
         }
     }
 }

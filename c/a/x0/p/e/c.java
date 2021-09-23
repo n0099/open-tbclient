@@ -22,32 +22,32 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f31074i = 500;
+    public static int f31095i = 500;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f31075a;
+    public volatile int f31096a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f31076b;
+    public volatile int f31097b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f31077c;
+    public volatile boolean f31098c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31078d;
+    public int f31099d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f31079e;
+    public int f31100e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31080f;
+    public String f31101f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile String f31081g;
+    public volatile String f31102g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f31082h;
+    public Context f31103h;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -55,10 +55,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ byte[] f31083e;
+        public final /* synthetic */ byte[] f31104e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f31084f;
+        public final /* synthetic */ c f31105f;
 
         public a(c cVar, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -75,8 +75,8 @@ public class c {
                     return;
                 }
             }
-            this.f31084f = cVar;
-            this.f31083e = bArr;
+            this.f31105f = cVar;
+            this.f31104e = bArr;
         }
 
         @Override // java.lang.Runnable
@@ -84,8 +84,8 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    Bitmap a2 = new p(this.f31084f.f31082h).a(this.f31084f.j(this.f31083e, this.f31084f.f31079e, this.f31084f.f31078d), this.f31084f.f31078d, this.f31084f.f31079e);
-                    this.f31084f.f31081g = this.f31084f.b(a2);
+                    Bitmap a2 = new p(this.f31105f.f31103h).a(this.f31105f.j(this.f31104e, this.f31105f.f31100e, this.f31105f.f31099d), this.f31105f.f31099d, this.f31105f.f31100e);
+                    this.f31105f.f31102g = this.f31105f.b(a2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -123,16 +123,16 @@ public class c {
                 return;
             }
         }
-        this.f31075a = 0;
-        this.f31076b = -1;
-        this.f31082h = context;
+        this.f31096a = 0;
+        this.f31097b = -1;
+        this.f31103h = context;
     }
 
     public final String b(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            File file = new File(new File(this.f31080f), "samplecover.dat");
+            File file = new File(new File(this.f31101f), "samplecover.dat");
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
                 if (bitmap != null) {
@@ -152,10 +152,10 @@ public class c {
     public void e(int i2, int i3, int i4, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
-            this.f31078d = i2;
-            this.f31079e = i3;
-            this.f31080f = str;
-            this.f31077c = z;
+            this.f31099d = i2;
+            this.f31100e = i3;
+            this.f31101f = str;
+            this.f31098c = z;
         }
     }
 
@@ -186,11 +186,11 @@ public class c {
                 th = th;
             }
             try {
-                byte[] bArr = new byte[f31074i];
-                randomAccessFile.read(bArr, 0, f31074i);
+                byte[] bArr = new byte[f31095i];
+                randomAccessFile.read(bArr, 0, f31095i);
                 byte[] m = m(bArr);
                 randomAccessFile.seek(0L);
-                randomAccessFile.write(m, 0, f31074i);
+                randomAccessFile.write(m, 0, f31095i);
                 f(randomAccessFile);
             } catch (Exception e3) {
                 e = e3;
@@ -209,14 +209,14 @@ public class c {
     public void h(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
-            if (this.f31076b > 0 && this.f31077c && this.f31075a == this.f31076b) {
+            if (this.f31097b > 0 && this.f31098c && this.f31096a == this.f31097b) {
                 byte[] bArr2 = new byte[bArr.length];
                 for (int i2 = 0; i2 < bArr.length; i2++) {
                     bArr2[i2] = bArr[i2];
                 }
                 new Thread(new a(this, bArr2), "yuvtobitmap").start();
             }
-            this.f31075a++;
+            this.f31096a++;
         }
     }
 
@@ -253,17 +253,17 @@ public class c {
 
     public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f31076b >= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f31097b >= 0) {
             return;
         }
-        this.f31076b = new Random().nextInt(240);
+        this.f31097b = new Random().nextInt(240);
     }
 
     public final byte[] m(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
-            int i2 = f31074i;
+            int i2 = f31095i;
             int i3 = i2 / 2;
             byte[] bArr2 = new byte[i2];
             int i4 = 0;

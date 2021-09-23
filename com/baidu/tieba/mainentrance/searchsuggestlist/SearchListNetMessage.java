@@ -1,6 +1,6 @@
 package com.baidu.tieba.mainentrance.searchsuggestlist;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class SearchListNetMessage extends NetMessage {
             builder.word = this.mKey;
             builder.isforum = String.valueOf(this.isForum);
             if (z) {
-                x.a(builder, true);
+                a0.a(builder, true);
             }
             SearchSugReqIdl.Builder builder2 = new SearchSugReqIdl.Builder();
             builder2.data = builder.build(false);

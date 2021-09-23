@@ -16,16 +16,16 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static PaysSettingInfo f79162a = null;
+    public static PaysSettingInfo f79481a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f79163b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+    public static String f79482b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f79164c = "https://web.yy.com/yy_wallet/wallet.html?";
+    public static String f79483c = "https://web.yy.com/yy_wallet/wallet.html?";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f79165d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+    public static String f79484d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -74,9 +74,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
             if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(f79165d, payUIKitConfig);
+                return a(f79484d, payUIKitConfig);
             }
-            return f79165d;
+            return f79484d;
         }
         return (String) invokeL.objValue;
     }
@@ -86,9 +86,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
             if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(f79164c, payUIKitConfig);
+                return a(f79483c, payUIKitConfig);
             }
-            return f79164c;
+            return f79483c;
         }
         return (String) invokeL.objValue;
     }
@@ -98,9 +98,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, payUIKitConfig)) == null) {
             if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
-                return f79163b;
+                return f79482b;
             }
-            return a(f79163b, payUIKitConfig);
+            return a(f79482b, payUIKitConfig);
         }
         return (String) invokeL.objValue;
     }
@@ -109,14 +109,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
             if (z) {
-                f79163b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
-                f79164c = "https://webtest.yy.com/yy_wallet/wallet.html?";
-                f79165d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+                f79482b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
+                f79483c = "https://webtest.yy.com/yy_wallet/wallet.html?";
+                f79484d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
                 return;
             }
-            f79163b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-            f79164c = "https://web.yy.com/yy_wallet/wallet.html?";
-            f79165d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+            f79482b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+            f79483c = "https://web.yy.com/yy_wallet/wallet.html?";
+            f79484d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
         }
     }
 }

@@ -14,31 +14,31 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28496a;
+    public String f28516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28497b;
+    public String f28517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28498c;
+    public String f28518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28499d;
+    public String f28519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28500e;
+    public boolean f28520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28501f;
+    public boolean f28521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28502g;
+    public String f28522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28503h;
+    public int f28523h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28504i;
+    public int f28524i;
 
     public f(VipSpecialItem vipSpecialItem) {
         Interceptable interceptable = $ic;
@@ -55,70 +55,70 @@ public class f {
                 return;
             }
         }
-        this.f28500e = false;
-        this.f28501f = false;
-        this.f28496a = vipSpecialItem.title;
-        this.f28497b = vipSpecialItem.desc;
-        this.f28498c = vipSpecialItem.img_url;
-        this.f28499d = vipSpecialItem.link;
-        this.f28502g = vipSpecialItem.update_time;
-        this.f28503h = vipSpecialItem.id.intValue();
-        this.f28504i = vipSpecialItem.type.intValue();
-        this.f28500e = false;
+        this.f28520e = false;
+        this.f28521f = false;
+        this.f28516a = vipSpecialItem.title;
+        this.f28517b = vipSpecialItem.desc;
+        this.f28518c = vipSpecialItem.img_url;
+        this.f28519d = vipSpecialItem.link;
+        this.f28522g = vipSpecialItem.update_time;
+        this.f28523h = vipSpecialItem.id.intValue();
+        this.f28524i = vipSpecialItem.type.intValue();
+        this.f28520e = false;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28497b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28517b : (String) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28501f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28521f : invokeV.booleanValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28498c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28518c : (String) invokeV.objValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28503h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28523h : invokeV.intValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28499d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28519d : (String) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28500e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28520e : invokeV.booleanValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28496a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28516a : (String) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28502g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28522g : (String) invokeV.objValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28504i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28524i : invokeV.intValue;
     }
 
     public f(boolean z, boolean z2) {
@@ -136,9 +136,9 @@ public class f {
                 return;
             }
         }
-        this.f28500e = false;
-        this.f28501f = false;
-        this.f28500e = z;
-        this.f28501f = z2;
+        this.f28520e = false;
+        this.f28521f = false;
+        this.f28520e = z;
+        this.f28521f = z2;
     }
 }

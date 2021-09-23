@@ -15,7 +15,7 @@ public class b implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ResponseBody f11919a;
+    public final ResponseBody f11927a;
 
     public b(@NonNull ResponseBody responseBody) {
         Interceptable interceptable = $ic;
@@ -32,20 +32,20 @@ public class b implements d {
                 return;
             }
         }
-        this.f11919a = responseBody;
+        this.f11927a = responseBody;
     }
 
     @Override // c.a.p0.n.i.i.f.d
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11919a.contentLength() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11927a.contentLength() : invokeV.longValue;
     }
 
     @Override // c.a.p0.n.i.i.f.d
     public ReadableByteChannel source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11919a.source() : (ReadableByteChannel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11927a.source() : (ReadableByteChannel) invokeV.objValue;
     }
 }

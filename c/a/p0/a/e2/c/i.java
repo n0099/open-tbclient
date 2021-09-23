@@ -14,13 +14,13 @@ public class i<ResultDataT> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ResultDataT f5582a;
+    public ResultDataT f5590a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TaskState f5583b;
+    public TaskState f5591b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OAuthException f5584c;
+    public OAuthException f5592c;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -35,20 +35,20 @@ public class i<ResultDataT> {
                 return;
             }
         }
-        this.f5583b = TaskState.INIT;
+        this.f5591b = TaskState.INIT;
     }
 
     public OAuthException a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5584c : (OAuthException) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5592c : (OAuthException) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            OAuthException oAuthException = this.f5584c;
+            OAuthException oAuthException = this.f5592c;
             if (oAuthException == null) {
                 return 0;
             }
@@ -60,21 +60,21 @@ public class i<ResultDataT> {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.FINISHED == this.f5583b && this.f5584c == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.FINISHED == this.f5591b && this.f5592c == null : invokeV.booleanValue;
     }
 
     public void d(OAuthException oAuthException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, oAuthException) == null) {
-            this.f5584c = oAuthException;
+            this.f5592c = oAuthException;
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f5583b = TaskState.FINISHED;
-            this.f5584c = null;
+            this.f5591b = TaskState.FINISHED;
+            this.f5592c = null;
         }
     }
 }

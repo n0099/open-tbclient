@@ -79,34 +79,34 @@ public class a implements TabLayout.OnTabSelectedListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrsGoodFragment f26419a;
+    public FrsGoodFragment f26442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f26420b;
+    public RelativeLayout f26443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f26421c;
+    public BdTypeRecyclerView f26444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameLayout f26422d;
+    public FrameLayout f26445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TabLayout f26423e;
+    public TabLayout f26446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TabLayout f26424f;
+    public TabLayout f26447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PbListView f26425g;
+    public PbListView f26448g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.w0.a2.b f26426h;
+    public c.a.r0.w0.a2.b f26449h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BannerView f26427i;
+    public BannerView f26450i;
 
     /* renamed from: j  reason: collision with root package name */
-    public g0 f26428j;
+    public g0 f26451j;
     public ThemeColorInfo k;
     public String l;
     public boolean m;
@@ -120,14 +120,14 @@ public class a implements TabLayout.OnTabSelectedListener {
 
     /* renamed from: c.a.r0.w0.a2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1243a implements View.OnClickListener {
+    public class View$OnClickListenerC1241a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f26429e;
+        public final /* synthetic */ a f26452e;
 
-        public View$OnClickListenerC1243a(a aVar) {
+        public View$OnClickListenerC1241a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,16 +142,16 @@ public class a implements TabLayout.OnTabSelectedListener {
                     return;
                 }
             }
-            this.f26429e = aVar;
+            this.f26452e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26429e.f26419a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26452e.f26442a == null) {
                 return;
             }
-            this.f26429e.f26419a.onScrollToBottom();
+            this.f26452e.f26442a.onScrollToBottom();
         }
     }
 
@@ -203,7 +203,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26430a;
+        public final /* synthetic */ a f26453a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -220,15 +220,15 @@ public class a implements TabLayout.OnTabSelectedListener {
                     return;
                 }
             }
-            this.f26430a = aVar;
+            this.f26453a = aVar;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.f26430a.f26427i.isBannerViewShowing() && !this.f26430a.m && this.f26430a.f26421c != null) {
-                this.f26430a.m = true;
-                this.f26430a.f26421c.addHeaderView(this.f26430a.f26427i, 1);
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.f26453a.f26450i.isBannerViewShowing() && !this.f26453a.m && this.f26453a.f26444c != null) {
+                this.f26453a.m = true;
+                this.f26453a.f26444c.addHeaderView(this.f26453a.f26450i, 1);
             }
         }
 
@@ -246,7 +246,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26431a;
+        public final /* synthetic */ a f26454a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -263,14 +263,14 @@ public class a implements TabLayout.OnTabSelectedListener {
                     return;
                 }
             }
-            this.f26431a = aVar;
+            this.f26454a = aVar;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f26431a.C();
+                this.f26454a.C();
             }
         }
 
@@ -278,7 +278,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f26431a.l();
+                this.f26454a.l();
             }
         }
     }
@@ -289,7 +289,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26432a;
+        public final /* synthetic */ a f26455a;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -306,7 +306,7 @@ public class a implements TabLayout.OnTabSelectedListener {
                     return;
                 }
             }
-            this.f26432a = aVar;
+            this.f26455a = aVar;
         }
 
         @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
@@ -324,18 +324,18 @@ public class a implements TabLayout.OnTabSelectedListener {
             }
             if (tab.getTag() instanceof Integer) {
                 int intValue = ((Integer) tab.getTag()).intValue();
-                a aVar = this.f26432a;
-                aVar.G(intValue, aVar.f26423e, true);
+                a aVar = this.f26455a;
+                aVar.G(intValue, aVar.f26446e, true);
             }
-            this.f26432a.P(tab);
+            this.f26455a.P(tab);
         }
 
         @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
         public void onTabUnselected(TabLayout.Tab tab) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tab) == null) {
-                this.f26432a.a0();
-                this.f26432a.Q(tab);
+                this.f26455a.a0();
+                this.f26455a.Q(tab);
             }
         }
     }
@@ -346,7 +346,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f26433e;
+        public final /* synthetic */ a f26456e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -363,14 +363,14 @@ public class a implements TabLayout.OnTabSelectedListener {
                     return;
                 }
             }
-            this.f26433e = aVar;
+            this.f26456e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f26433e.m().p();
+                this.f26456e.m().p();
             }
         }
     }
@@ -381,7 +381,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26434a;
+        public final /* synthetic */ a f26457a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(a aVar, int i2) {
@@ -401,7 +401,7 @@ public class a implements TabLayout.OnTabSelectedListener {
                     return;
                 }
             }
-            this.f26434a = aVar;
+            this.f26457a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -410,9 +410,9 @@ public class a implements TabLayout.OnTabSelectedListener {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                this.f26434a.E(str);
-                this.f26434a.D(str);
-                this.f26434a.f26426h.t();
+                this.f26457a.E(str);
+                this.f26457a.D(str);
+                this.f26457a.f26449h.t();
             }
         }
     }
@@ -422,7 +422,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f26435a;
+        public static final /* synthetic */ int[] f26458a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -439,13 +439,13 @@ public class a implements TabLayout.OnTabSelectedListener {
                 }
             }
             int[] iArr = new int[UtilHelper.NativePageType.values().length];
-            f26435a = iArr;
+            f26458a = iArr;
             try {
                 iArr[UtilHelper.NativePageType.FRS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f26435a[UtilHelper.NativePageType.PB.ordinal()] = 2;
+                f26458a[UtilHelper.NativePageType.PB.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -482,26 +482,26 @@ public class a implements TabLayout.OnTabSelectedListener {
                 return;
             }
         }
-        this.f26419a = null;
-        this.f26420b = null;
-        this.f26421c = null;
-        this.f26427i = null;
+        this.f26442a = null;
+        this.f26443b = null;
+        this.f26444c = null;
+        this.f26450i = null;
         this.m = false;
         this.n = false;
         this.o = 0;
-        this.r = new View$OnClickListenerC1243a(this);
+        this.r = new View$OnClickListenerC1241a(this);
         this.s = new d(this);
         this.t = new g(this, 2016331);
-        this.f26419a = frsGoodFragment;
+        this.f26442a = frsGoodFragment;
         u(view, z);
-        this.p = l.g(this.f26419a.getPageContext().getPageActivity(), R.dimen.tbds75);
-        this.q = l.g(this.f26419a.getPageContext().getPageActivity(), R.dimen.M_W_X006);
+        this.p = l.g(this.f26442a.getPageContext().getPageActivity(), R.dimen.tbds75);
+        this.q = l.g(this.f26442a.getPageContext().getPageActivity(), R.dimen.M_W_X006);
     }
 
     public void A() {
         c.a.r0.w0.a2.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f26426h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f26449h) == null) {
             return;
         }
         bVar.p();
@@ -518,32 +518,32 @@ public class a implements TabLayout.OnTabSelectedListener {
     public void C() {
         BannerView bannerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bannerView = this.f26427i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bannerView = this.f26450i) == null) {
             return;
         }
         this.m = false;
-        this.f26421c.removeHeaderView(bannerView);
+        this.f26444c.removeHeaderView(bannerView);
     }
 
     public void D(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f26419a.getLoadMoreModel() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f26442a.getLoadMoreModel() == null) {
             return;
         }
-        this.f26419a.getLoadMoreModel().I(str);
+        this.f26442a.getLoadMoreModel().I(str);
     }
 
     public void E(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || StringUtils.isNull(str) || ListUtils.isEmpty(this.f26426h.l())) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || StringUtils.isNull(str) || ListUtils.isEmpty(this.f26449h.l())) {
             return;
         }
-        Iterator<n> it = this.f26426h.m().iterator();
+        Iterator<n> it = this.f26449h.m().iterator();
         while (it.hasNext()) {
             n next = it.next();
             if (next instanceof c.a.r0.f.c) {
                 c.a.r0.f.c cVar = (c.a.r0.f.c) next;
-                if ((cVar.b() instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) cVar.b()).W3)) {
+                if ((cVar.b() instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) cVar.b()).X3)) {
                     it.remove();
                 }
             }
@@ -554,8 +554,8 @@ public class a implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             t tVar = new t();
-            tVar.f27822a = 301;
-            tVar.f27823b = false;
+            tVar.f27842a = 301;
+            tVar.f27843b = false;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
         }
     }
@@ -585,7 +585,7 @@ public class a implements TabLayout.OnTabSelectedListener {
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f26426h.q();
+            this.f26449h.q();
         }
     }
 
@@ -595,15 +595,15 @@ public class a implements TabLayout.OnTabSelectedListener {
             return;
         }
         t tVar = new t();
-        tVar.f27822a = 301;
-        tVar.f27823b = false;
+        tVar.f27842a = 301;
+        tVar.f27843b = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
     }
 
     public void J(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f26422d.setVisibility(z ? 0 : 8);
+            this.f26445d.setVisibility(z ? 0 : 8);
             V(z);
         }
     }
@@ -611,21 +611,21 @@ public class a implements TabLayout.OnTabSelectedListener {
     public void K(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f26421c.setSelection(i2);
+            this.f26444c.setSelection(i2);
         }
     }
 
     public void L(w wVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, wVar) == null) {
-            this.f26426h.B(wVar);
+            this.f26449h.B(wVar);
         }
     }
 
     public void M(RecyclerView.OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onScrollListener) == null) {
-            this.f26421c.setOnScrollListener(onScrollListener);
+            this.f26444c.setOnScrollListener(onScrollListener);
         }
     }
 
@@ -633,8 +633,8 @@ public class a implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             z zVar = new z();
-            zVar.f28044a = 301;
-            zVar.f28046c = z;
+            zVar.f28064a = 301;
+            zVar.f28066c = z;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(9205410, zVar));
         }
     }
@@ -647,14 +647,14 @@ public class a implements TabLayout.OnTabSelectedListener {
         ArrayList<m0> good_classify = frsViewData.getForum().getGood_classify();
         TabData tabData = new TabData();
         c.a.r0.w0.l2.e eVar = new c.a.r0.w0.l2.e();
-        eVar.f27001b = 0;
-        eVar.f27000a = this.f26419a.getPageContext().getResources().getString(R.string.all);
+        eVar.f27021b = 0;
+        eVar.f27020a = this.f26442a.getPageContext().getResources().getString(R.string.all);
         tabData.add(eVar);
         for (m0 m0Var : good_classify) {
             if (m0Var != null && m0Var.a() > 0 && !TextUtils.isEmpty(m0Var.b()) && !TextUtils.isEmpty(m0Var.b().trim())) {
                 c.a.r0.w0.l2.e eVar2 = new c.a.r0.w0.l2.e();
-                eVar2.f27001b = m0Var.a();
-                eVar2.f27000a = m0Var.b();
+                eVar2.f27021b = m0Var.a();
+                eVar2.f27020a = m0Var.b();
                 tabData.add(eVar2);
             }
         }
@@ -663,8 +663,8 @@ public class a implements TabLayout.OnTabSelectedListener {
         }
         t();
         this.n = true;
-        R(tabData, this.f26423e);
-        R(tabData, this.f26424f);
+        R(tabData, this.f26446e);
+        R(tabData, this.f26447f);
     }
 
     public final void P(TabLayout.Tab tab) {
@@ -712,7 +712,7 @@ public class a implements TabLayout.OnTabSelectedListener {
                     }
                 }
                 if (!(tabAt.getCustomView() instanceof TBSpecificationBtn)) {
-                    TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(this.f26419a.getContext());
+                    TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(this.f26442a.getContext());
                     c.a.q0.s.f0.n.c cVar = new c.a.q0.s.f0.n.c();
                     cVar.q(R.color.CAM_X0108);
                     tBSpecificationBtn.setConfig(cVar);
@@ -722,9 +722,9 @@ public class a implements TabLayout.OnTabSelectedListener {
                     tBSpecificationBtn.setLayoutParams(layoutParams);
                     tabAt.setCustomView(tBSpecificationBtn);
                 }
-                ((TBSpecificationBtn) tabAt.getCustomView()).setText(StringHelper.cutForumNameWithSuffix(tabData.get(i3).f27000a, 10, "..."));
-                tabAt.setTag(Integer.valueOf(tabData.get(i3).f27001b));
-                if (tabData.get(i3).f27001b == this.o) {
+                ((TBSpecificationBtn) tabAt.getCustomView()).setText(StringHelper.cutForumNameWithSuffix(tabData.get(i3).f27020a, 10, "..."));
+                tabAt.setTag(Integer.valueOf(tabData.get(i3).f27021b));
+                if (tabData.get(i3).f27021b == this.o) {
                     tabAt.select();
                 }
             }
@@ -761,7 +761,7 @@ public class a implements TabLayout.OnTabSelectedListener {
                 arrayList2.add(sVar);
                 arrayList = arrayList2;
             }
-            this.f26426h.w(arrayList, frsViewData);
+            this.f26449h.w(arrayList, frsViewData);
             this.n = false;
         }
     }
@@ -769,11 +769,11 @@ public class a implements TabLayout.OnTabSelectedListener {
     public void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.f26421c.setNextPage(this.f26425g);
-            this.f26425g.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f26425g.z(this.r);
-            this.f26425g.f();
-            this.f26425g.A(this.f26419a.getResources().getString(R.string.list_click_load_more));
+            this.f26444c.setNextPage(this.f26448g);
+            this.f26448g.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.f26448g.z(this.r);
+            this.f26448g.f();
+            this.f26448g.A(this.f26442a.getResources().getString(R.string.list_click_load_more));
         }
     }
 
@@ -781,9 +781,9 @@ public class a implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             if (z) {
-                this.f26424f.setVisibility(8);
-            } else if (this.f26424f.getTabCount() > 1) {
-                this.f26424f.setVisibility(0);
+                this.f26447f.setVisibility(8);
+            } else if (this.f26447f.getTabCount() > 1) {
+                this.f26447f.setVisibility(0);
             }
         }
     }
@@ -791,28 +791,28 @@ public class a implements TabLayout.OnTabSelectedListener {
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.f26421c.setVisibility(0);
+            this.f26444c.setVisibility(0);
         }
     }
 
     public void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f26421c.setNextPage(this.f26425g);
-            this.f26425g.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f26425g.z(null);
-            this.f26425g.O();
+            this.f26444c.setNextPage(this.f26448g);
+            this.f26448g.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.f26448g.z(null);
+            this.f26448g.O();
         }
     }
 
     public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.f26421c.setNextPage(this.f26425g);
-            this.f26425g.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.f26425g.z(null);
-            this.f26425g.f();
-            this.f26425g.A(this.f26419a.getResources().getString(R.string.list_has_no_more));
+            this.f26444c.setNextPage(this.f26448g);
+            this.f26448g.J(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.f26448g.z(null);
+            this.f26448g.f();
+            this.f26448g.A(this.f26442a.getResources().getString(R.string.list_has_no_more));
         }
     }
 
@@ -820,8 +820,8 @@ public class a implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             t tVar = new t();
-            tVar.f27822a = 301;
-            tVar.f27823b = true;
+            tVar.f27842a = 301;
+            tVar.f27843b = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
         }
     }
@@ -830,8 +830,8 @@ public class a implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             t tVar = new t();
-            tVar.f27822a = 301;
-            tVar.f27823b = false;
+            tVar.f27842a = 301;
+            tVar.f27843b = false;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
         }
     }
@@ -839,72 +839,72 @@ public class a implements TabLayout.OnTabSelectedListener {
     public final void l() {
         g0 g0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (g0Var = this.f26428j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (g0Var = this.f26451j) == null) {
             return;
         }
         String e2 = g0Var.e();
-        if (this.f26428j.a() == 1) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2902014, new FacePackageDetailActivityConfig(this.f26419a.getPageContext().getPageActivity(), e2, false, BannerView.FRS_BANNER)));
-        } else if (this.f26428j.a() == 2) {
+        if (this.f26451j.a() == 1) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2902014, new FacePackageDetailActivityConfig(this.f26442a.getPageContext().getPageActivity(), e2, false, BannerView.FRS_BANNER)));
+        } else if (this.f26451j.a() == 2) {
             if (e2.contains(TbPatternsCompat.TB_DOMAIN_NAME)) {
                 Matcher matcher = u.matcher(e2);
                 if (matcher.find()) {
                     try {
                         String group = matcher.group(2);
-                        PbActivityConfig createNormalCfg = new PbActivityConfig(this.f26419a.getPageContext().getPageActivity()).createNormalCfg(group, null, BannerView.FRS_BANNER);
+                        PbActivityConfig createNormalCfg = new PbActivityConfig(this.f26442a.getPageContext().getPageActivity()).createNormalCfg(group, null, BannerView.FRS_BANNER);
                         createNormalCfg.setForumId(group);
                         createNormalCfg.setStartFrom(3);
-                        this.f26419a.sendMessage(new CustomMessage(2004001, createNormalCfg));
+                        this.f26442a.sendMessage(new CustomMessage(2004001, createNormalCfg));
                     } catch (Exception e3) {
                         BdLog.e(e3.toString());
                     }
                 }
             }
-        } else if (this.f26428j.a() == 3) {
+        } else if (this.f26451j.a() == 3) {
             new UtilHelper.NativePage();
             UtilHelper.NativePage isNativeAddress = UtilHelper.isNativeAddress(e2);
             UtilHelper.NativePageType nativePageType = isNativeAddress.type;
             if (nativePageType != UtilHelper.NativePageType.NONE) {
-                int i2 = h.f26435a[nativePageType.ordinal()];
+                int i2 = h.f26458a[nativePageType.ordinal()];
                 if (i2 == 1) {
-                    this.f26419a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f26419a.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, BannerView.FRS_BANNER)));
+                    this.f26442a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f26442a.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, BannerView.FRS_BANNER)));
                     return;
                 } else if (i2 != 2) {
                     return;
                 } else {
-                    PbActivityConfig createNormalCfg2 = new PbActivityConfig(this.f26419a.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, null, BannerView.FRS_BANNER);
+                    PbActivityConfig createNormalCfg2 = new PbActivityConfig(this.f26442a.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, null, BannerView.FRS_BANNER);
                     createNormalCfg2.setForumId(isNativeAddress.id);
                     createNormalCfg2.setStartFrom(3);
-                    this.f26419a.sendMessage(new CustomMessage(2004001, createNormalCfg2));
+                    this.f26442a.sendMessage(new CustomMessage(2004001, createNormalCfg2));
                     return;
                 }
             }
-            UrlManager.getInstance().dealOneLink(this.f26419a.getPageContext(), new String[]{e2});
+            UrlManager.getInstance().dealOneLink(this.f26442a.getPageContext(), new String[]{e2});
             if (StringUtils.isNull(e2) || !e2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
                 return;
             }
-            TiebaStatic.eventStat(this.f26419a.getPageContext().getPageActivity(), BannerView.FRS_BANNER, PrefetchEvent.STATE_CLICK, 1, "ref_id", "4000601", "ref_type", "603");
-        } else if (this.f26428j.a() == 4) {
-            this.f26419a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f26419a.getPageContext().getPageActivity()).createNormalCfg(e2, BannerView.FRS_BANNER)));
+            TiebaStatic.eventStat(this.f26442a.getPageContext().getPageActivity(), BannerView.FRS_BANNER, PrefetchEvent.STATE_CLICK, 1, "ref_id", "4000601", "ref_type", "603");
+        } else if (this.f26451j.a() == 4) {
+            this.f26442a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f26442a.getPageContext().getPageActivity()).createNormalCfg(e2, BannerView.FRS_BANNER)));
         }
     }
 
     public c.a.r0.w0.a2.b m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f26426h : (c.a.r0.w0.a2.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f26449h : (c.a.r0.w0.a2.b) invokeV.objValue;
     }
 
     public BdTypeRecyclerView n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f26421c : (BdTypeRecyclerView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f26444c : (BdTypeRecyclerView) invokeV.objValue;
     }
 
     public RelativeLayout o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f26420b : (RelativeLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f26443b : (RelativeLayout) invokeV.objValue;
     }
 
     @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
@@ -916,7 +916,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         if (!this.n && (tab.getTag() instanceof Integer)) {
             int intValue = ((Integer) tab.getTag()).intValue();
             this.o = intValue;
-            this.f26419a.loadTabData(intValue);
+            this.f26442a.loadTabData(intValue);
         }
         P(tab);
     }
@@ -929,13 +929,13 @@ public class a implements TabLayout.OnTabSelectedListener {
         }
         if (tab.getTag() instanceof Integer) {
             int intValue = ((Integer) tab.getTag()).intValue();
-            c.a.r0.w0.k2.d.h0.f26943e = intValue;
+            c.a.r0.w0.k2.d.h0.f26963e = intValue;
             if (!this.n) {
                 this.o = intValue;
-                G(intValue, this.f26424f, false);
-                this.f26419a.loadTabData(this.o);
+                G(intValue, this.f26447f, false);
+                this.f26442a.loadTabData(this.o);
                 c.a.r0.a0.t.b().e(false);
-                c.a.r0.i3.c.g().h(this.f26419a.getUniqueId(), false);
+                c.a.r0.i3.c.g().h(this.f26442a.getUniqueId(), false);
             }
         }
         P(tab);
@@ -953,19 +953,19 @@ public class a implements TabLayout.OnTabSelectedListener {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            this.f26421c.setNextPage(null);
+            this.f26444c.setNextPage(null);
         }
     }
 
     public final void q(g0 g0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048611, this, g0Var) == null) && this.f26427i == null) {
-            this.f26427i = new BannerView(this.f26419a.getPageContext().getPageActivity());
-            this.f26427i.setLayoutParams(new AbsListView.LayoutParams(-1, this.f26419a.getResources().getDimensionPixelSize(R.dimen.ds100)));
-            this.f26427i.setVisibility(8);
-            this.f26427i.setBannerViewClickListener(this.s);
-            this.f26427i.setBannerData(g0Var);
-            this.f26427i.setBannerViewEvent(new c(this));
+        if ((interceptable == null || interceptable.invokeL(1048611, this, g0Var) == null) && this.f26450i == null) {
+            this.f26450i = new BannerView(this.f26442a.getPageContext().getPageActivity());
+            this.f26450i.setLayoutParams(new AbsListView.LayoutParams(-1, this.f26442a.getResources().getDimensionPixelSize(R.dimen.ds100)));
+            this.f26450i.setVisibility(8);
+            this.f26450i.setBannerViewClickListener(this.s);
+            this.f26450i.setBannerData(g0Var);
+            this.f26450i.setBannerViewEvent(new c(this));
         }
     }
 
@@ -973,9 +973,9 @@ public class a implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, view) == null) {
             TabLayout tabLayout = (TabLayout) view.findViewById(R.id.frs_good_fake_tabview);
-            this.f26424f = tabLayout;
+            this.f26447f = tabLayout;
             tabLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) - (this.q / 2), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) - (this.q / 2), 0);
-            this.f26424f.setOnTabSelectedListener((TabLayout.OnTabSelectedListener) new e(this));
+            this.f26447f.setOnTabSelectedListener((TabLayout.OnTabSelectedListener) new e(this));
         }
     }
 
@@ -1001,52 +1001,52 @@ public class a implements TabLayout.OnTabSelectedListener {
 
     public final void t() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048614, this) == null) && this.f26423e == null) {
-            TabLayout tabLayout = (TabLayout) LayoutInflater.from(this.f26419a.getContext()).inflate(R.layout.frs_good_second_layout, (ViewGroup) null);
-            this.f26423e = tabLayout;
+        if ((interceptable == null || interceptable.invokeV(1048614, this) == null) && this.f26446e == null) {
+            TabLayout tabLayout = (TabLayout) LayoutInflater.from(this.f26442a.getContext()).inflate(R.layout.frs_good_second_layout, (ViewGroup) null);
+            this.f26446e = tabLayout;
             tabLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) - (this.q / 2), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) - (this.q / 2), 0);
-            this.f26423e.setLayoutParams(new RecyclerView.LayoutParams(-1, l.g(this.f26419a.getContext(), R.dimen.tbds126)));
-            this.f26423e.setOnTabSelectedListener((TabLayout.OnTabSelectedListener) this);
-            s(this.f26423e);
-            this.f26421c.addHeaderView(this.f26423e);
+            this.f26446e.setLayoutParams(new RecyclerView.LayoutParams(-1, l.g(this.f26442a.getContext(), R.dimen.tbds126)));
+            this.f26446e.setOnTabSelectedListener((TabLayout.OnTabSelectedListener) this);
+            s(this.f26446e);
+            this.f26444c.addHeaderView(this.f26446e);
         }
     }
 
     public final void u(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048615, this, view, z) == null) {
-            this.f26420b = (RelativeLayout) view.findViewById(R.id.frs_good_container);
+            this.f26443b = (RelativeLayout) view.findViewById(R.id.frs_good_container);
             r(view);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view.findViewById(R.id.frs_good_lv_thread);
-            this.f26421c = bdTypeRecyclerView;
+            this.f26444c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
-            this.f26421c.setFadingEdgeLength(0);
-            this.f26421c.setOverScrollMode(2);
-            this.f26421c.setRecyclerListener(new b(this));
+            this.f26444c.setFadingEdgeLength(0);
+            this.f26444c.setOverScrollMode(2);
+            this.f26444c.setRecyclerListener(new b(this));
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-            BdTypeRecyclerView bdTypeRecyclerView2 = this.f26421c;
-            bdTypeRecyclerView2.setPadding(dimenPixelSize, bdTypeRecyclerView2.getPaddingTop(), dimenPixelSize, this.f26421c.getPaddingBottom());
-            PbListView pbListView = new PbListView(this.f26419a.getPageContext().getPageActivity());
-            this.f26425g = pbListView;
+            BdTypeRecyclerView bdTypeRecyclerView2 = this.f26444c;
+            bdTypeRecyclerView2.setPadding(dimenPixelSize, bdTypeRecyclerView2.getPaddingTop(), dimenPixelSize, this.f26444c.getPaddingBottom());
+            PbListView pbListView = new PbListView(this.f26442a.getPageContext().getPageActivity());
+            this.f26448g = pbListView;
             pbListView.a();
-            this.f26425g.o(R.color.transparent);
-            this.f26425g.r(l.g(this.f26419a.getActivity(), R.dimen.tbds182));
-            this.f26425g.v();
-            this.f26425g.E(R.dimen.tbfontsize33);
-            this.f26425g.C(SkinManager.getColor(R.color.CAM_X0107));
-            this.f26425g.y(R.color.CAM_X0110);
-            this.f26421c.setOnSrollToBottomListener(this.f26419a);
-            this.f26422d = (FrameLayout) view.findViewById(R.id.frs_list_content);
-            this.f26426h = new c.a.r0.w0.a2.b(this.f26419a, this.f26421c);
+            this.f26448g.o(R.color.transparent);
+            this.f26448g.r(l.g(this.f26442a.getActivity(), R.dimen.tbds182));
+            this.f26448g.v();
+            this.f26448g.E(R.dimen.tbfontsize33);
+            this.f26448g.C(SkinManager.getColor(R.color.CAM_X0107));
+            this.f26448g.y(R.color.CAM_X0110);
+            this.f26444c.setOnSrollToBottomListener(this.f26442a);
+            this.f26445d = (FrameLayout) view.findViewById(R.id.frs_list_content);
+            this.f26449h = new c.a.r0.w0.a2.b(this.f26442a, this.f26444c);
             I(false);
-            this.f26419a.registerListener(this.t);
+            this.f26442a.registerListener(this.t);
         }
     }
 
     public void v() {
         c.a.r0.w0.a2.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048616, this) == null) || (bVar = this.f26426h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048616, this) == null) || (bVar = this.f26449h) == null) {
             return;
         }
         bVar.p();
@@ -1055,38 +1055,38 @@ public class a implements TabLayout.OnTabSelectedListener {
     public void w(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
-            c.a.r0.w0.a2.b bVar = this.f26426h;
+            c.a.r0.w0.a2.b bVar = this.f26449h;
             if (bVar != null) {
                 bVar.D();
-                this.f26426h.p();
-                this.f26426h.r(i2);
+                this.f26449h.p();
+                this.f26449h.r(i2);
             }
-            FrsGoodFragment frsGoodFragment = this.f26419a;
-            if (frsGoodFragment != null && frsGoodFragment.getBaseFragmentActivity() == null && this.f26419a.getBaseFragmentActivity().getLayoutMode() != null) {
-                this.f26419a.getBaseFragmentActivity().getLayoutMode().k(i2 == 1);
-                this.f26419a.getBaseFragmentActivity().getLayoutMode().j(this.f26420b);
+            FrsGoodFragment frsGoodFragment = this.f26442a;
+            if (frsGoodFragment != null && frsGoodFragment.getBaseFragmentActivity() == null && this.f26442a.getBaseFragmentActivity().getLayoutMode() != null) {
+                this.f26442a.getBaseFragmentActivity().getLayoutMode().k(i2 == 1);
+                this.f26442a.getBaseFragmentActivity().getLayoutMode().j(this.f26443b);
             }
-            BannerView bannerView = this.f26427i;
+            BannerView bannerView = this.f26450i;
             if (bannerView != null) {
                 bannerView.onChangeSkin();
             }
-            PbListView pbListView = this.f26425g;
+            PbListView pbListView = this.f26448g;
             if (pbListView != null) {
                 pbListView.C(SkinManager.getColor(R.color.CAM_X0107));
-                this.f26425g.d(i2);
+                this.f26448g.d(i2);
             }
-            s(this.f26423e);
-            s(this.f26424f);
+            s(this.f26446e);
+            s(this.f26447f);
         }
     }
 
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            this.f26426h.s();
-            this.f26421c.setOnSrollToBottomListener(null);
-            B(this.f26423e);
-            B(this.f26424f);
+            this.f26449h.s();
+            this.f26444c.setOnSrollToBottomListener(null);
+            B(this.f26446e);
+            B(this.f26447f);
         }
     }
 
@@ -1119,16 +1119,16 @@ public class a implements TabLayout.OnTabSelectedListener {
             return;
         }
         g0 frsBannerData = forumData.getFrsBannerData();
-        this.f26428j = frsBannerData;
+        this.f26451j = frsBannerData;
         q(frsBannerData);
-        this.f26427i.reset();
-        this.f26421c.removeHeaderView(this.f26427i);
-        if (this.f26428j.d() != 1 || TextUtils.isEmpty(this.f26428j.b())) {
+        this.f26450i.reset();
+        this.f26444c.removeHeaderView(this.f26450i);
+        if (this.f26451j.d() != 1 || TextUtils.isEmpty(this.f26451j.b())) {
             return;
         }
-        this.f26427i.setData(this.f26419a.getPageContext(), this.f26428j.b());
-        if (this.f26428j.e().startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
-            TiebaStatic.eventStat(this.f26419a.getPageContext().getPageActivity(), "game_show", "show", 1, "ref_id", "4000601", "ref_type", "603");
+        this.f26450i.setData(this.f26442a.getPageContext(), this.f26451j.b());
+        if (this.f26451j.e().startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
+            TiebaStatic.eventStat(this.f26442a.getPageContext().getPageActivity(), "game_show", "show", 1, "ref_id", "4000601", "ref_type", "603");
         }
     }
 }

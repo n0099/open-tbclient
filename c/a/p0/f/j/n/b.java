@@ -18,7 +18,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadManager f10743a;
+    public DownloadManager f10751a;
 
     /* loaded from: classes3.dex */
     public class a implements DownloadManager.DownloadItemFilter {
@@ -56,7 +56,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f10744a;
+        public final /* synthetic */ String f10752a;
 
         public C0537b(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -73,14 +73,14 @@ public class b {
                     return;
                 }
             }
-            this.f10744a = str;
+            this.f10752a = str;
         }
 
         @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
         public boolean filter(Download download) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) ? download != null && TextUtils.equals(download.getKeyByUser(), this.f10744a) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) ? download != null && TextUtils.equals(download.getKeyByUser(), this.f10752a) : invokeL.booleanValue;
         }
     }
 
@@ -99,7 +99,7 @@ public class b {
                 return;
             }
         }
-        this.f10743a = downloadManager;
+        this.f10751a = downloadManager;
     }
 
     public static boolean c(Download download) {
@@ -124,7 +124,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                Collection<Download> downloadListByFilter = this.f10743a.getDownloadListByFilter(new a(this));
+                Collection<Download> downloadListByFilter = this.f10751a.getDownloadListByFilter(new a(this));
                 if (downloadListByFilter == null) {
                     return;
                 }
@@ -138,7 +138,7 @@ public class b {
                         return;
                     }
                     if (download != null) {
-                        this.f10743a.cancel(download.getId().longValue());
+                        this.f10751a.cancel(download.getId().longValue());
                     }
                     i2++;
                 }
@@ -152,7 +152,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str) || (d2 = d(str)) == null) {
             return;
         }
-        this.f10743a.cancel(d2.getId().longValue());
+        this.f10751a.cancel(d2.getId().longValue());
     }
 
     public Download d(String str) {
@@ -160,7 +160,7 @@ public class b {
         Collection<Download> downloadListByFilter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (downloadListByFilter = this.f10743a.getDownloadListByFilter(new C0537b(this, str))) == null) {
+            if (TextUtils.isEmpty(str) || (downloadListByFilter = this.f10751a.getDownloadListByFilter(new C0537b(this, str))) == null) {
                 return null;
             }
             for (Download download : downloadListByFilter) {

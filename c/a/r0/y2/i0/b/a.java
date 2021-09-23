@@ -14,13 +14,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29484a;
+    public String f29504a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29485b;
+    public String f29505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29486c;
+    public String f29506c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class a {
                 return null;
             }
             a aVar = new a();
-            aVar.f29484a = jSONObject.optString("brand_name");
-            aVar.f29485b = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-            aVar.f29486c = jSONObject.optString("button_scheme");
+            aVar.f29504a = jSONObject.optString("brand_name");
+            aVar.f29505b = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            aVar.f29506c = jSONObject.optString("button_scheme");
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -58,9 +58,9 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("brand_name", this.f29484a);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f29485b);
-                jSONObject.put("button_scheme", this.f29486c);
+                jSONObject.put("brand_name", this.f29504a);
+                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.f29505b);
+                jSONObject.put("button_scheme", this.f29506c);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

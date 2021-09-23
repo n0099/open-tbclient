@@ -46,7 +46,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseFragmentActivity f36230e;
+        public final /* synthetic */ BdBaseFragmentActivity f36273e;
 
         public a(BdBaseFragmentActivity bdBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
                     return;
                 }
             }
-            this.f36230e = bdBaseFragmentActivity;
+            this.f36273e = bdBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseFragmentActivity bdBaseFragmentActivity = this.f36230e;
+                BdBaseFragmentActivity bdBaseFragmentActivity = this.f36273e;
                 bdBaseFragmentActivity.onPreLoad(bdBaseFragmentActivity.onGetPreLoadListView());
             }
         }
@@ -176,7 +176,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
             if (this.mId == null) {
                 this.mId = BdUniqueId.gen();
             }
-            b.f().o(getPageContext().getPageActivity());
+            b.f().n(getPageContext().getPageActivity());
         }
     }
 
@@ -189,7 +189,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
             MessageManager.getInstance().removeMessage(this.mId);
             d.h().b(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
-            b.f().m(getPageContext().getPageActivity());
+            b.f().l(getPageContext().getPageActivity());
         }
     }
 

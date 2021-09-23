@@ -1,6 +1,6 @@
 package c.a.q0.j0.m;
 
-import c.a.q0.d1.e;
+import c.a.q0.d1.h;
 import c.a.q0.j0.b;
 import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class a implements b<BackBaiduBoxViewEvent> {
             if (backBaiduBoxViewEvent == null) {
                 return false;
             }
-            e.m().v(backBaiduBoxViewEvent.isShow);
+            h.m().v(backBaiduBoxViewEvent.isShow);
             return true;
         }
         return invokeL.booleanValue;

@@ -12,7 +12,7 @@ public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f73973a = -1;
+    public static long f74292a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +35,8 @@ public class j {
         if (!(interceptable == null || interceptable.invokeL(65537, null, adTemplate) == null) || adTemplate == null) {
             return;
         }
-        adTemplate.mVisibleTimeParam = f73973a;
-        adTemplate.mOutClickTimeParam = f73973a;
+        adTemplate.mVisibleTimeParam = f74292a;
+        adTemplate.mOutClickTimeParam = f74292a;
     }
 
     public static void b(AdTemplate adTemplate) {

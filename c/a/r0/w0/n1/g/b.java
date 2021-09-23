@@ -44,7 +44,7 @@ public class b extends c.a.r0.w0.n1.g.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f27283a;
+        public final /* synthetic */ b f27303a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -61,28 +61,28 @@ public class b extends c.a.r0.w0.n1.g.a {
                     return;
                 }
             }
-            this.f27283a = bVar;
+            this.f27303a = bVar;
         }
 
         @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f27283a.n0(i2);
+                this.f27303a.n0(i2);
             }
         }
     }
 
     /* renamed from: c.a.r0.w0.n1.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC1280b implements View.OnClickListener {
+    public class View$OnClickListenerC1278b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f27284e;
+        public final /* synthetic */ b f27304e;
 
-        public View$OnClickListenerC1280b(b bVar) {
+        public View$OnClickListenerC1278b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,17 +97,17 @@ public class b extends c.a.r0.w0.n1.g.a {
                     return;
                 }
             }
-            this.f27284e = bVar;
+            this.f27304e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27284e.D0 == null || this.f27284e.D0.J() == null || StringUtils.isNull(this.f27284e.D0.J().getName_show()) || StringUtils.isNull(this.f27284e.D0.J().getUserId()) || this.f27284e.D0.Z() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f27304e.D0 == null || this.f27304e.D0.J() == null || StringUtils.isNull(this.f27304e.D0.J().getName_show()) || StringUtils.isNull(this.f27304e.D0.J().getUserId()) || this.f27304e.D0.Z() == null) {
                 return;
             }
-            PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f27284e.y0.getPageActivity(), this.f27284e.D0.J().getUserId(), this.f27284e.D0.J().getName_show(), this.f27284e.D0.Z(), AddFriendActivityConfig.TYPE_FRS_HEAD);
-            personInfoActivityConfig.setIsVideoThread(this.f27284e.D0.q1() != null);
+            PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f27304e.y0.getPageActivity(), this.f27304e.D0.J().getUserId(), this.f27304e.D0.J().getName_show(), this.f27304e.D0.Z(), AddFriendActivityConfig.TYPE_FRS_HEAD);
+            personInfoActivityConfig.setIsVideoThread(this.f27304e.D0.q1() != null);
             personInfoActivityConfig.setVideoPersonFrom("frs");
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
         }
@@ -134,7 +134,7 @@ public class b extends c.a.r0.w0.n1.g.a {
         }
         this.C0 = 3;
         this.E0 = new a(this);
-        this.F0 = new View$OnClickListenerC1280b(this);
+        this.F0 = new View$OnClickListenerC1278b(this);
         this.y0 = tbPageContext;
         TextView textView = new TextView(tbPageContext.getPageActivity());
         this.z0 = textView;

@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.idl.license.License;
+import com.baidu.pass.main.facesdk.FaceAuth;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +33,7 @@ public class CheckDefaultSoExist {
                 return;
             }
         }
-        FACE_SO_NAME_ARRAY = new String[]{License.LICENSE_ASSETS_FILE, "FaceSDK"};
+        FACE_SO_NAME_ARRAY = new String[]{License.LICENSE_ASSETS_FILE, FaceAuth.TAG};
     }
 
     public CheckDefaultSoExist() {

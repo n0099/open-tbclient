@@ -17,13 +17,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f16323a;
+    public String f16333a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f16324b;
+    public Handler f16334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HandlerThread f16325c;
+    public final HandlerThread f16335c;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class b {
                 return;
             }
         }
-        this.f16323a = str;
+        this.f16333a = str;
         HandlerThread handlerThread = new HandlerThread("VideoFrameDiskCacheSaveTask");
-        this.f16325c = handlerThread;
+        this.f16335c = handlerThread;
         handlerThread.start();
     }
 
@@ -53,7 +53,7 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String c2 = a.c(this.f16323a, str);
+            String c2 = a.c(this.f16333a, str);
             if (FileUtils.isExists(c2)) {
                 Bitmap f2 = c.a.x0.t.d.f(c2);
                 if (f2 != null) {
@@ -69,23 +69,23 @@ public class b {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16323a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16333a : (String) invokeV.objValue;
     }
 
     public void c(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
-            if (this.f16324b == null) {
-                this.f16324b = new Handler(this.f16325c.getLooper());
+            if (this.f16334b == null) {
+                this.f16334b = new Handler(this.f16335c.getLooper());
             }
-            this.f16324b.post(new j(this.f16323a, str, bitmap));
+            this.f16334b.post(new j(this.f16333a, str, bitmap));
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f16323a = str;
+            this.f16333a = str;
         }
     }
 }

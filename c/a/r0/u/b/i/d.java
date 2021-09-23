@@ -41,11 +41,11 @@ public class d extends a0 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f25158d = "com.baidu.tieba://";
+    public static String f25179d = "com.baidu.tieba://";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25159c;
+    public String f25180c;
 
     /* loaded from: classes3.dex */
     public class a implements c.a.p0.a.v2.e1.b<i<b.e>> {
@@ -53,22 +53,22 @@ public class d extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f25160e;
+        public final /* synthetic */ CallbackHandler f25181e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f25161f;
+        public final /* synthetic */ Context f25182f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f25162g;
+        public final /* synthetic */ String f25183g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f25163h;
+        public final /* synthetic */ String f25184h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f25164i;
+        public final /* synthetic */ String f25185i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f25165j;
+        public final /* synthetic */ String f25186j;
         public final /* synthetic */ String k;
         public final /* synthetic */ d l;
 
@@ -88,12 +88,12 @@ public class d extends a0 {
                 }
             }
             this.l = dVar;
-            this.f25160e = callbackHandler;
-            this.f25161f = context;
-            this.f25162g = str;
-            this.f25163h = str2;
-            this.f25164i = str3;
-            this.f25165j = str4;
+            this.f25181e = callbackHandler;
+            this.f25182f = context;
+            this.f25183g = str;
+            this.f25184h = str2;
+            this.f25185i = str3;
+            this.f25186j = str4;
             this.k = str5;
         }
 
@@ -104,13 +104,13 @@ public class d extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
-                    c.a.p0.a.e2.c.d.p(iVar, this.f25160e, this.l.f25159c);
-                } else if (!this.l.l(this.f25161f, this.f25162g, this.f25163h, this.f25164i, this.f25165j, this.k)) {
+                    c.a.p0.a.e2.c.d.p(iVar, this.f25181e, this.l.f25180c);
+                } else if (!this.l.l(this.f25182f, this.f25183g, this.f25184h, this.f25185i, this.f25186j, this.k)) {
                     c.a.p0.a.e0.d.b("PageTransitionAction", "page transition fail");
-                    this.f25160e.handleSchemeDispatchCallback(this.l.f25159c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    this.f25181e.handleSchemeDispatchCallback(this.l.f25180c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 } else {
                     c.a.p0.a.e0.d.g("PageTransitionAction", "page transition success");
-                    this.f25160e.handleSchemeDispatchCallback(this.l.f25159c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    this.f25181e.handleSchemeDispatchCallback(this.l.f25180c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             }
         }
@@ -122,7 +122,7 @@ public class d extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f25166a;
+        public final /* synthetic */ Context f25187a;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -139,14 +139,14 @@ public class d extends a0 {
                     return;
                 }
             }
-            this.f25166a = context;
+            this.f25187a = context;
         }
 
         @Override // c.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(c.a.q0.a.g.w) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f25166a, null, (String) hashMap.get(c.a.q0.a.g.w), true);
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f25187a, null, (String) hashMap.get(c.a.q0.a.g.w), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
@@ -221,7 +221,7 @@ public class d extends a0 {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = str6 + str4;
                 }
-                String str8 = f25158d;
+                String str8 = f25179d;
                 if (TextUtils.isEmpty(str2)) {
                     if (!TextUtils.isEmpty(str)) {
                         str8 = str8 + str;
@@ -237,12 +237,12 @@ public class d extends a0 {
                 }
                 StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
                 String str9 = str8 + "?" + ((Object) sb2);
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str10 = "encodeParams: " + ((Object) sb2);
                 }
                 return str9;
             } catch (JSONException e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -297,7 +297,7 @@ public class d extends a0 {
             }
             JSONObject d2 = w.d(param);
             String optString = d2.optString("cb");
-            this.f25159c = optString;
+            this.f25180c = optString;
             if (TextUtils.isEmpty(optString)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
@@ -310,7 +310,7 @@ public class d extends a0 {
             try {
                 optJSONObject.put("launchMode", "standard");
             } catch (JSONException e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.printStackTrace();
                 }
             }
@@ -347,7 +347,7 @@ public class d extends a0 {
                     str6 = m(str, str2, str3, str4, str5);
                     z = n(context, str6);
                 }
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str7 = "result = " + z + org.apache.commons.lang3.StringUtils.LF + "拼接后的uri is: " + str6;
                 }
             }

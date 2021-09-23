@@ -42,22 +42,22 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final InterfaceC0311d f7460e;
+    public final InterfaceC0311d f7468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f7461f;
+    public final String f7469f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f7462g;
+    public g f7470g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.p0.a.n0.c f7463h;
+    public c.a.p0.a.n0.c f7471h;
 
     /* renamed from: i  reason: collision with root package name */
-    public l f7464i;
+    public l f7472i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AtomicInteger f7465j;
+    public AtomicInteger f7473j;
     public CopyOnWriteArrayList<String> k;
     public c.a.p0.a.n0.h.e l;
 
@@ -67,7 +67,7 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f7466e;
+        public final /* synthetic */ d f7474e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
                     return;
                 }
             }
-            this.f7466e = dVar;
+            this.f7474e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.c1.a.a0().c(this.f7466e);
+                c.a.p0.a.c1.a.a0().c(this.f7474e);
             }
         }
     }
@@ -102,16 +102,16 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f7467e;
+        public final /* synthetic */ List f7475e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f7468f;
+        public final /* synthetic */ boolean f7476f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b.C0315b f7469g;
+        public final /* synthetic */ b.C0315b f7477g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f7470h;
+        public final /* synthetic */ d f7478h;
 
         public b(d dVar, List list, boolean z, b.C0315b c0315b) {
             Interceptable interceptable = $ic;
@@ -128,17 +128,17 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
                     return;
                 }
             }
-            this.f7470h = dVar;
-            this.f7467e = list;
-            this.f7468f = z;
-            this.f7469g = c0315b;
+            this.f7478h = dVar;
+            this.f7475e = list;
+            this.f7476f = z;
+            this.f7477g = c0315b;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7470h.h(this.f7467e, this.f7468f, this.f7469g);
+                this.f7478h.h(this.f7475e, this.f7476f, this.f7477g);
             }
         }
     }
@@ -207,7 +207,7 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
                 return;
             }
         }
-        m = k.f7077a;
+        m = k.f7085a;
     }
 
     public d(InterfaceC0311d interfaceC0311d) {
@@ -225,16 +225,16 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
                 return;
             }
         }
-        this.f7461f = ProcessUtils.getCurProcessName();
-        this.f7460e = interfaceC0311d;
+        this.f7469f = ProcessUtils.getCurProcessName();
+        this.f7468e = interfaceC0311d;
         ExecutorUtilsExt.postOnElastic(new a(this), "addLoginStatusChangedListener", 2);
-        this.f7465j = new AtomicInteger(0);
+        this.f7473j = new AtomicInteger(0);
         this.k = new CopyOnWriteArrayList<>();
-        this.f7464i = c.a.p0.a.c1.b.m();
-        this.f7462g = new g();
-        l lVar = this.f7464i;
+        this.f7472i = c.a.p0.a.c1.b.m();
+        this.f7470g = new g();
+        l lVar = this.f7472i;
         if (lVar != null) {
-            this.f7463h = lVar.b();
+            this.f7471h = lVar.b();
         }
         this.l = new c.a.p0.a.n0.h.e();
         if (m) {
@@ -246,7 +246,7 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            String h2 = c.a.p0.a.c1.a.a0().h(this.f7460e.a());
+            String h2 = c.a.p0.a.c1.a.a0().h(this.f7468e.a());
             if (m) {
                 String str = "onLoginStatusChanged : " + toString();
                 String str2 = "onLoginStatusChanged : uid(" + h2 + ")  -> " + z;
@@ -286,7 +286,7 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
                     }
                     c.a.p0.a.v1.c.a e2 = c.a.p0.a.v1.c.a.e();
                     c.a.p0.a.v1.c.c cVar = new c.a.p0.a.v1.c.c(i2);
-                    cVar.b(next.f9264f);
+                    cVar.b(next.f9272f);
                     e2.h(cVar);
                 }
             }
@@ -299,8 +299,8 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, c0315b) == null) {
             c.a.p0.a.n0.l.c.m(c0315b).b(str);
-            this.f7462g.a(str);
-            c.a.p0.a.n0.c cVar = this.f7463h;
+            this.f7470g.a(str);
+            c.a.p0.a.n0.c cVar = this.f7471h;
             if (cVar != null) {
                 cVar.a(str);
             }
@@ -353,10 +353,10 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
                 boolean z2 = m;
                 return;
             }
-            this.f7465j.incrementAndGet();
+            this.f7473j.incrementAndGet();
             if (z) {
                 c.a.p0.a.e0.d.h("SwanAppPurger", "删除小程序==>开始重置小程序授权");
-                this.f7462g.g(list);
+                this.f7470g.g(list);
                 int size = list.size();
                 String[] strArr = new String[size];
                 for (int i2 = 0; i2 < size; i2++) {
@@ -365,7 +365,7 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
                 c.a.p0.a.j0.d.a.b(strArr);
             }
             c.a.p0.a.e0.d.h("SwanAppPurger", "删除小程序==>清除小程序数据、杀进程");
-            this.f7462g.e(list);
+            this.f7470g.e(list);
             for (String str : list) {
                 if (this.k.contains(str) || TextUtils.isEmpty(str)) {
                     c.a.p0.a.e0.d.h("SwanAppPurger", "删除小程序==>删除忽略: " + str);
@@ -377,8 +377,8 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
                     p(str, c0315b);
                 }
             }
-            if (this.f7465j.decrementAndGet() <= 0) {
-                this.f7465j.set(0);
+            if (this.f7473j.decrementAndGet() <= 0) {
+                this.f7473j.set(0);
                 this.k.clear();
                 c.a.p0.a.n0.h.b.a();
             }
@@ -403,11 +403,11 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
             boolean contains = h2.contains(next);
             boolean containsKey = hashMap.containsKey(next);
             if (!contains && !containsKey) {
-                if (k.f7077a) {
+                if (k.f7085a) {
                     String str = "清理过滤-不过滤： " + next;
                 }
             } else {
-                if (k.f7077a) {
+                if (k.f7085a) {
                     String str2 = "清理过滤-过滤此App：" + next + "； 历史：" + contains + "； 我的小程序：" + containsKey;
                 }
                 it.remove();
@@ -444,10 +444,10 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
             if (!TextUtils.isEmpty(n)) {
                 c.a.p0.t.d.j(n);
             }
-            l lVar = this.f7464i;
+            l lVar = this.f7472i;
             if (lVar != null) {
                 lVar.g();
-                this.f7464i.c();
+                this.f7472i.c();
             }
         }
     }
@@ -455,7 +455,7 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f7465j.get() > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f7473j.get() > 0 : invokeV.booleanValue;
     }
 
     public boolean n(Map<String, PMSAppInfo> map) {
@@ -492,9 +492,9 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
             } else {
                 d(str, c0315b);
                 c.a.p0.a.e0.d.h("SwanAppPurger", "删除小程序==>删除小程序数据库数据: " + str);
-                this.f7462g.f(str);
+                this.f7470g.f(str);
                 c.a.p0.a.e0.d.h("SwanAppPurger", "删除小程序==>清空小程序分包记录: " + str);
-                this.f7462g.d(str);
+                this.f7470g.d(str);
             }
         }
     }
@@ -532,7 +532,7 @@ public class d implements c.a.p0.a.m.c, c.a.p0.a.n0.l.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return "Process<" + this.f7461f + "> " + super.toString();
+            return "Process<" + this.f7469f + "> " + super.toString();
         }
         return (String) invokeV.objValue;
     }

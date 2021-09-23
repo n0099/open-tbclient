@@ -23,8 +23,10 @@ public class LivenessRecogResult extends a {
     public static final int ERROR_CODE_LIVENESS_VIDEO_TOOLARGE = -402;
     public static final int ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION = -307;
     public static final int ERROR_CODE_MAY_BE_NO_RECORD_AUDIO_PERMISSION = -308;
+    public static final int ERROR_CODE_MML_FRAMEWORK_NOT_FIND = -403;
     public static final int ERROR_CODE_OPEN_CAMERA_FAILURE = -305;
     public static final int ERROR_CODE_RECORD_AUDIO_FAILED = -304;
+    public static final int ERROR_CODE_SAFE_MODULE_LOAD_FAIL = -404;
     public static final int ERROR_CODE_VIDEO_IS_REVIEWING = -309;
     public static final String ERROR_MSG_CONTRAST_FAIL;
     public static final String ERROR_MSG_FACE_SDK_INIT_FAIL;
@@ -33,8 +35,10 @@ public class LivenessRecogResult extends a {
     public static final String ERROR_MSG_LIVENESS_VIDEO_TOOLARGE;
     public static final String ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION;
     public static final String ERROR_MSG_MAY_BE_NO_RECORD_AUDIO_PERMISSION;
+    public static final String ERROR_MSG_MML_FRAMEWORK_NOT_FIND = "人脸模块未下发成功";
     public static final String ERROR_MSG_NO_PERMISSION;
     public static final String ERROR_MSG_OPEN_CAMERA_FAILURE;
+    public static final String ERROR_MSG_SAFE_MODULE_LOAD_FAIL = "安全模块未下发成功";
     public static final String ERROR_MSG_VIDEO_IS_REVIEWING;
     public transient /* synthetic */ FieldHolder $fh;
     public String authSid;
@@ -92,6 +96,8 @@ public class LivenessRecogResult extends a {
         this.msgMap.put(ERROR_CODE_MAY_BE_NO_RECORD_AUDIO_PERMISSION, ERROR_MSG_MAY_BE_NO_RECORD_AUDIO_PERMISSION);
         this.msgMap.put(ERROR_CODE_VIDEO_IS_REVIEWING, ERROR_MSG_VIDEO_IS_REVIEWING);
         this.msgMap.put(-401, ERROR_MSG_LIVENESS_VIDEO_TIMEOUT);
+        this.msgMap.put(-403, ERROR_MSG_MML_FRAMEWORK_NOT_FIND);
+        this.msgMap.put(-404, ERROR_MSG_SAFE_MODULE_LOAD_FAIL);
     }
 
     public JSONObject toJSONObject() {

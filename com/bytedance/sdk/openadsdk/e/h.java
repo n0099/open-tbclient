@@ -10,16 +10,16 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f67794a;
+    public final boolean f68105a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f67795b;
+    public final int f68106b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f67796c;
+    public final String f68107c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f67797d;
+    public final boolean f68108d;
 
     public h(boolean z, int i2, String str, boolean z2) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class h {
                 return;
             }
         }
-        this.f67794a = z;
-        this.f67795b = i2;
-        this.f67796c = str;
-        this.f67797d = z2;
+        this.f68105a = z;
+        this.f68106b = i2;
+        this.f68107c = str;
+        this.f68108d = z2;
     }
 }

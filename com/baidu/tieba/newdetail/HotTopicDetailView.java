@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import c.a.e.e.p.l;
 import c.a.e.l.e.n;
 import c.a.l0.a;
-import c.a.q0.d1.m0;
+import c.a.q0.d1.n0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -89,22 +89,22 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
     public ClickableSpan O;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54507e;
+    public int f54622e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54508f;
+    public int f54623f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f54509g;
+    public TbPageContext<?> f54624g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.d2.a f54510h;
+    public c.a.r0.d2.a f54625h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f54511i;
+    public View f54626i;
 
     /* renamed from: j  reason: collision with root package name */
-    public NavigationBar f54512j;
+    public NavigationBar f54627j;
     public ImageView k;
     public boolean l;
     public ViewGroup m;
@@ -128,7 +128,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailView f54513e;
+        public final /* synthetic */ HotTopicDetailView f54628e;
 
         public a(HotTopicDetailView hotTopicDetailView) {
             Interceptable interceptable = $ic;
@@ -145,15 +145,15 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                     return;
                 }
             }
-            this.f54513e = hotTopicDetailView;
+            this.f54628e = hotTopicDetailView;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54513e.s.setText(this.f54513e.t);
-                this.f54513e.w();
+                this.f54628e.s.setText(this.f54628e.t);
+                this.f54628e.w();
             }
         }
 
@@ -161,7 +161,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                textPaint.setColor(this.f54513e.getResources().getColor(R.color.CAM_X0304));
+                textPaint.setColor(this.f54628e.getResources().getColor(R.color.CAM_X0304));
             }
         }
     }
@@ -172,7 +172,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailView f54514a;
+        public final /* synthetic */ HotTopicDetailView f54629a;
 
         public b(HotTopicDetailView hotTopicDetailView) {
             Interceptable interceptable = $ic;
@@ -189,14 +189,14 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                     return;
                 }
             }
-            this.f54514a = hotTopicDetailView;
+            this.f54629a = hotTopicDetailView;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, recyclerView, i2, i3) == null) {
-                this.f54514a.y();
+                this.f54629a.y();
             }
         }
     }
@@ -207,7 +207,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailView f54515e;
+        public final /* synthetic */ HotTopicDetailView f54630e;
 
         public c(HotTopicDetailView hotTopicDetailView) {
             Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                     return;
                 }
             }
-            this.f54515e = hotTopicDetailView;
+            this.f54630e = hotTopicDetailView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -232,12 +232,12 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (!c.a.e.e.p.j.z()) {
-                    this.f54515e.f54509g.showToast(R.string.topic_share_no_network);
+                    this.f54630e.f54624g.showToast(R.string.topic_share_no_network);
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                if (ShareSwitch.isOn() || ViewHelper.checkUpIsLogin(this.f54515e.k.getContext())) {
-                    this.f54515e.f54510h.shareTopic(this.f54515e.I);
+                if (ShareSwitch.isOn() || ViewHelper.checkUpIsLogin(this.f54630e.k.getContext())) {
+                    this.f54630e.f54625h.shareTopic(this.f54630e.I);
                 }
             }
         }
@@ -249,7 +249,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailView f54516e;
+        public final /* synthetic */ HotTopicDetailView f54631e;
 
         public d(HotTopicDetailView hotTopicDetailView) {
             Interceptable interceptable = $ic;
@@ -266,14 +266,14 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                     return;
                 }
             }
-            this.f54516e = hotTopicDetailView;
+            this.f54631e = hotTopicDetailView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54516e.x.setMinimumHeight(this.f54516e.f54512j.getHeight() + this.f54516e.f54508f);
+                this.f54631e.x.setMinimumHeight(this.f54631e.f54627j.getHeight() + this.f54631e.f54623f);
             }
         }
     }
@@ -284,7 +284,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailView f54517a;
+        public final /* synthetic */ HotTopicDetailView f54632a;
 
         public e(HotTopicDetailView hotTopicDetailView) {
             Interceptable interceptable = $ic;
@@ -301,17 +301,17 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                     return;
                 }
             }
-            this.f54517a = hotTopicDetailView;
+            this.f54632a = hotTopicDetailView;
         }
 
         @Override // com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener, com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         public void onOffsetChanged(AppBarLayout appBarLayout, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, appBarLayout, i2) == null) {
-                if (this.f54517a.p != null) {
-                    this.f54517a.p.setEnableSlideLoading(i2 == 0);
+                if (this.f54632a.p != null) {
+                    this.f54632a.p.setEnableSlideLoading(i2 == 0);
                 }
-                this.f54517a.A(i2);
+                this.f54632a.A(i2);
             }
         }
     }
@@ -322,7 +322,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailView f54518a;
+        public final /* synthetic */ HotTopicDetailView f54633a;
 
         public f(HotTopicDetailView hotTopicDetailView) {
             Interceptable interceptable = $ic;
@@ -339,7 +339,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                     return;
                 }
             }
-            this.f54518a = hotTopicDetailView;
+            this.f54633a = hotTopicDetailView;
         }
 
         @Override // c.a.q0.s.f0.q.b
@@ -353,7 +353,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public void onLoadingStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f54518a.v();
+                this.f54633a.v();
             }
         }
     }
@@ -364,7 +364,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailView f54519a;
+        public final /* synthetic */ HotTopicDetailView f54634a;
 
         public g(HotTopicDetailView hotTopicDetailView) {
             Interceptable interceptable = $ic;
@@ -381,7 +381,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                     return;
                 }
             }
-            this.f54519a = hotTopicDetailView;
+            this.f54634a = hotTopicDetailView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -394,7 +394,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((g) aVar, str, i2);
-                if (aVar == null || !aVar.w() || (p = aVar.p()) == null || (u = this.f54519a.u(p, Bitmap.CompressFormat.JPEG, 100)) == null) {
+                if (aVar == null || !aVar.w() || (p = aVar.p()) == null || (u = this.f54634a.u(p, Bitmap.CompressFormat.JPEG, 100)) == null) {
                     return;
                 }
                 a.C0096a c0096a = new a.C0096a();
@@ -407,8 +407,8 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                     z = false;
                 } else {
                     z = true;
-                    if (this.f54519a.r != null) {
-                        this.f54519a.r.setStartAndEndColor(c2, c2);
+                    if (this.f54634a.r != null) {
+                        this.f54634a.r.setStartAndEndColor(c2, c2);
                     }
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMART_COLOR_FETCH_COLOR);
@@ -431,7 +431,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailView f54520e;
+        public final /* synthetic */ HotTopicDetailView f54635e;
 
         public h(HotTopicDetailView hotTopicDetailView) {
             Interceptable interceptable = $ic;
@@ -448,14 +448,14 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                     return;
                 }
             }
-            this.f54520e = hotTopicDetailView;
+            this.f54635e = hotTopicDetailView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && c.a.e.e.p.j.A() && this.f54520e.f54510h != null) {
-                this.f54520e.f54510h.refreshFullData(1);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && c.a.e.e.p.j.A() && this.f54635e.f54625h != null) {
+                this.f54635e.f54625h.refreshFullData(1);
             }
         }
     }
@@ -466,7 +466,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailView f54521e;
+        public final /* synthetic */ HotTopicDetailView f54636e;
 
         public i(HotTopicDetailView hotTopicDetailView) {
             Interceptable interceptable = $ic;
@@ -483,14 +483,14 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                     return;
                 }
             }
-            this.f54521e = hotTopicDetailView;
+            this.f54636e = hotTopicDetailView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f54521e.G) {
-                this.f54521e.D();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f54636e.G) {
+                this.f54636e.D();
             }
         }
     }
@@ -501,7 +501,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicDetailView f54522e;
+        public final /* synthetic */ HotTopicDetailView f54637e;
 
         public j(HotTopicDetailView hotTopicDetailView) {
             Interceptable interceptable = $ic;
@@ -518,7 +518,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                     return;
                 }
             }
-            this.f54522e = hotTopicDetailView;
+            this.f54637e = hotTopicDetailView;
         }
 
         @Override // android.text.style.ClickableSpan
@@ -526,21 +526,21 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) this.f54522e.t);
-                if (this.f54522e.t.length() > 500) {
+                spannableStringBuilder.append((CharSequence) this.f54637e.t);
+                if (this.f54637e.t.length() > 500) {
                     spannableStringBuilder.append((CharSequence) "...  ");
                 }
-                String str = this.f54522e.getResources().getString(R.string.hot_topic_coll) + GlideException.IndentedAppendable.INDENT;
+                String str = this.f54637e.getResources().getString(R.string.hot_topic_coll) + GlideException.IndentedAppendable.INDENT;
                 spannableStringBuilder.append((CharSequence) str);
                 SpannableString spannableString = new SpannableString(spannableStringBuilder);
-                spannableString.setSpan(this.f54522e.O, spannableString.length() - str.length(), spannableString.length(), 33);
-                this.f54522e.s.setText(spannableString);
-                this.f54522e.s.setHeight(this.f54522e.u * this.f54522e.s.getLineHeight());
-                int lineCount = this.f54522e.s.getLineCount() * this.f54522e.s.getLineHeight();
-                if (lineCount > this.f54522e.u * this.f54522e.s.getLineHeight()) {
-                    this.f54522e.s.scrollTo(0, lineCount - (this.f54522e.u * this.f54522e.s.getLineHeight()));
+                spannableString.setSpan(this.f54637e.O, spannableString.length() - str.length(), spannableString.length(), 33);
+                this.f54637e.s.setText(spannableString);
+                this.f54637e.s.setHeight(this.f54637e.u * this.f54637e.s.getLineHeight());
+                int lineCount = this.f54637e.s.getLineCount() * this.f54637e.s.getLineHeight();
+                if (lineCount > this.f54637e.u * this.f54637e.s.getLineHeight()) {
+                    this.f54637e.s.scrollTo(0, lineCount - (this.f54637e.u * this.f54637e.s.getLineHeight()));
                 }
-                this.f54522e.s.requestLayout();
+                this.f54637e.s.requestLayout();
             }
         }
 
@@ -548,7 +548,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                textPaint.setColor(this.f54522e.getResources().getColor(R.color.CAM_X0304));
+                textPaint.setColor(this.f54637e.getResources().getColor(R.color.CAM_X0304));
             }
         }
     }
@@ -587,8 +587,8 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                 return;
             }
         }
-        this.f54507e = 3;
-        this.f54508f = UtilHelper.getStatusBarHeight();
+        this.f54622e = 3;
+        this.f54623f = UtilHelper.getStatusBarHeight();
         this.l = false;
         this.t = "";
         this.F = new b(this);
@@ -599,8 +599,8 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         this.M = new i(this);
         this.N = new j(this);
         this.O = new a(this);
-        this.f54509g = tbPageContext;
-        this.f54510h = aVar;
+        this.f54624g = tbPageContext;
+        this.f54625h = aVar;
         B(bundle);
         onChangeSkinType();
     }
@@ -613,21 +613,21 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                 i3 = 0;
             }
             float f2 = 1.0f - ((i3 * 1.0f) / P);
-            this.f54511i.setAlpha(f2);
-            this.f54512j.getCenterText().setAlpha(f2);
+            this.f54626i.setAlpha(f2);
+            this.f54627j.getCenterText().setAlpha(f2);
             y();
             double d2 = f2;
             if (d2 > 0.1d) {
-                StatusbarColorUtils.setStatusBarDarkIcon(this.f54509g.getPageActivity().getWindow(), true);
+                StatusbarColorUtils.setStatusBarDarkIcon(this.f54624g.getPageActivity().getWindow(), true);
             } else {
-                StatusbarColorUtils.setStatusBarDarkIcon(this.f54509g.getPageActivity().getWindow(), false);
+                StatusbarColorUtils.setStatusBarDarkIcon(this.f54624g.getPageActivity().getWindow(), false);
             }
-            if ((d2 > 0.3d && this.f54507e == 0) || this.I == null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f54512j.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            if ((d2 > 0.3d && this.f54622e == 0) || this.I == null) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f54627j.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f54512j.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f54627j.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
@@ -637,18 +637,18 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.activity_hot_topic_detail_layout, (ViewGroup) this, true);
             View findViewById = findViewById(R.id.topBgView);
-            this.f54511i = findViewById;
+            this.f54626i = findViewById;
             findViewById.setAlpha(0.0f);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.viewNavigationBar);
-            this.f54512j = navigationBar;
+            this.f54627j = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f54512j.getCenterText().setAlpha(0.0f);
-            ImageView imageView = (ImageView) this.f54512j.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new c(this));
+            this.f54627j.getCenterText().setAlpha(0.0f);
+            ImageView imageView = (ImageView) this.f54627j.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.hot_topic_share, new c(this));
             this.k = imageView;
             imageView.setVisibility(4);
             View findViewById2 = findViewById(R.id.statusBarViewHolder);
             ViewGroup.LayoutParams layoutParams = findViewById2.getLayoutParams();
-            layoutParams.height = this.f54508f;
+            layoutParams.height = this.f54623f;
             findViewById2.setLayoutParams(layoutParams);
             this.m = (ViewGroup) findViewById(R.id.contentRootLayout);
             LottieSlideLoadingLayout lottieSlideLoadingLayout = (LottieSlideLoadingLayout) findViewById(R.id.contentLayout);
@@ -659,12 +659,12 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
             this.q = hotTopicDetailHeadView;
             this.p.addSyncHeightView(hotTopicDetailHeadView);
             this.x = findViewById(R.id.headerContainerLayout);
-            this.f54512j.post(new d(this));
+            this.f54627j.post(new d(this));
             this.s = (TextView) findViewById(R.id.hotTopicInfoAbstract);
             this.y = (HotTopicDetailPkLayout) findViewById(R.id.hotTopicDetailPkView);
             HotTopicDetailSpecialLayout hotTopicDetailSpecialLayout = (HotTopicDetailSpecialLayout) findViewById(R.id.hotTopicDetailSpecialLayout);
             this.z = hotTopicDetailSpecialLayout;
-            hotTopicDetailSpecialLayout.initAdapters(this.f54509g);
+            hotTopicDetailSpecialLayout.initAdapters(this.f54624g);
             this.v = findViewById(R.id.contentContainer);
             AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
             this.w = appBarLayout;
@@ -683,7 +683,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
             this.E = findViewById(R.id.dividerShadow);
             OvalActionButton ovalActionButton = (OvalActionButton) findViewById(R.id.topic_post_forum_button);
             this.r = ovalActionButton;
-            this.A = new c.a.r0.i1.b.c(ovalActionButton, this.f54509g);
+            this.A = new c.a.r0.i1.b.c(ovalActionButton, this.f54624g);
         }
     }
 
@@ -694,10 +694,10 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         }
         this.l = true;
         this.k.setVisibility(0);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f54512j.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f54627j.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SkinManager.setNavbarTitleColor(this.f54512j.getCenterText(), R.color.CAM_X0105, R.color.s_navbar_title_color);
-        c.a.r0.d2.a aVar = this.f54510h;
+        SkinManager.setNavbarTitleColor(this.f54627j.getCenterText(), R.color.CAM_X0105, R.color.s_navbar_title_color);
+        c.a.r0.d2.a aVar = this.f54625h;
         if (aVar instanceof Activity) {
             UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) aVar);
         }
@@ -813,14 +813,14 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f54507e) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f54622e) {
             return;
         }
         this.q.onChangeSkinType(skinType);
         SkinManager.setViewTextColor(this.s, R.color.CAM_X0105, 1);
         SkinManager.setBackgroundColor(this.x, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.f54511i, R.color.CAM_X0207);
-        SkinManager.setNavbarTitleColor(this.f54512j.getCenterText(), R.color.CAM_X0105, R.color.s_navbar_title_color);
+        SkinManager.setBackgroundColor(this.f54626i, R.color.CAM_X0207);
+        SkinManager.setNavbarTitleColor(this.f54627j.getCenterText(), R.color.CAM_X0105, R.color.s_navbar_title_color);
         c.a.q0.g0.g gVar = this.n;
         if (gVar != null) {
             gVar.n(SkinManager.getColor(R.color.CAM_X0201));
@@ -829,7 +829,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         this.D.setTabTextColors(SkinManager.getColor(R.color.CAM_X0107), SkinManager.getColor(R.color.CAM_X0105));
         this.z.onChangeSkinType(skinType);
         this.C.onChangeSkinType(skinType);
-        this.f54507e = skinType;
+        this.f54622e = skinType;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -858,13 +858,13 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         if (interceptable == null || interceptable.invokeL(1048593, this, eVar) == null) {
             if (eVar.c() != null) {
                 aVar = eVar.c();
-                aVar.f19256i = 3;
+                aVar.f19271i = 3;
             } else if (eVar.d() != null) {
                 aVar = eVar.d();
-                aVar.f19256i = 2;
+                aVar.f19271i = 2;
             } else if (eVar.m() != null) {
                 aVar = eVar.m();
-                aVar.f19256i = 1;
+                aVar.f19271i = 1;
             } else {
                 aVar = null;
             }
@@ -933,7 +933,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                 if (this.o == null) {
                     this.o = new c.a.q0.g0.h(getContext(), new h(this));
                 }
-                this.o.j(this.f54509g.getResources().getDimensionPixelSize(R.dimen.ds360));
+                this.o.j(this.f54624g.getResources().getDimensionPixelSize(R.dimen.ds360));
                 this.o.attachView(this.m, false);
                 this.o.f(R.color.CAM_X0201);
                 this.o.o();
@@ -965,16 +965,16 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
             }
             this.r.setVisibility(8);
             if (this.o == null) {
-                this.o = new c.a.q0.g0.h(this.f54509g.getPageActivity(), null);
+                this.o = new c.a.q0.g0.h(this.f54624g.getPageActivity(), null);
             }
-            this.o.j(this.f54509g.getResources().getDimensionPixelSize(R.dimen.ds360));
+            this.o.j(this.f54624g.getResources().getDimensionPixelSize(R.dimen.ds360));
             this.o.e();
             this.o.f(R.color.CAM_X0201);
             this.o.i(R.drawable.new_pic_emotion_06);
-            this.o.n(this.f54509g.getString(R.string.hot_topic_deleted_empty_title));
+            this.o.n(this.f54624g.getString(R.string.hot_topic_deleted_empty_title));
             this.o.attachView(this.m, false);
-            c.a.r0.d2.a aVar = this.f54510h;
-            if (!(aVar instanceof Activity) || (i2 = this.f54507e) == 1 || i2 == 4) {
+            c.a.r0.d2.a aVar = this.f54625h;
+            if (!(aVar instanceof Activity) || (i2 = this.f54622e) == 1 || i2 == 4) {
                 return;
             }
             UtilHelper.changeStatusBarIconAndTextColor(false, (Activity) aVar);
@@ -987,8 +987,8 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         if (interceptable == null || interceptable.invokeL(1048602, this, eVar) == null) {
             this.I = eVar;
             if (eVar.h() != null) {
-                this.A.d(this.I.h().f19279e);
-                this.A.c(this.I.h().f19280f);
+                this.A.d(this.I.h().f19294e);
+                this.A.c(this.I.h().f19295f);
             }
             z(eVar);
         }
@@ -1026,7 +1026,7 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             c.a.e.e.m.e.a().postDelayed(this.M, 5000L);
             this.G = true;
-            this.f54510h.refreshFullData(curFeedType());
+            this.f54625h.refreshFullData(curFeedType());
         }
     }
 
@@ -1053,10 +1053,10 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
     public final void x(c.a.r0.i1.c.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, fVar) == null) {
-            if (StringUtils.isNull(fVar.f19281g)) {
+            if (StringUtils.isNull(fVar.f19296g)) {
                 this.s.setVisibility(8);
             } else {
-                this.s.setText(fVar.f19281g);
+                this.s.setText(fVar.f19296g);
             }
         }
     }
@@ -1064,9 +1064,9 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            if (this.f54508f + this.f54512j.getHeight() >= this.v.getY()) {
+            if (this.f54623f + this.f54627j.getHeight() >= this.v.getY()) {
                 SkinManager.setBackgroundColor(this.D, R.color.CAM_X0207);
-                if (this.f54507e == 0) {
+                if (this.f54622e == 0) {
                     this.E.setVisibility(0);
                     return;
                 }
@@ -1082,8 +1082,8 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
         if (interceptable == null || interceptable.invokeL(1048609, this, eVar) == null) {
             C();
             this.q.setTopicInfo(eVar.h());
-            if (SwitchManager.getInstance().findType(IColorSDKSwitch.KEY) == 1 && eVar.h() != null && !TextUtils.isEmpty(eVar.h().f19283i)) {
-                c.a.e.e.l.d.h().m(eVar.h().f19283i, 39, this.L, this.f54509g.getUniqueId());
+            if (SwitchManager.getInstance().findType(IColorSDKSwitch.KEY) == 1 && eVar.h() != null && !TextUtils.isEmpty(eVar.h().f19298i)) {
+                c.a.e.e.l.d.h().m(eVar.h().f19298i, 39, this.L, this.f54624g.getUniqueId());
             }
             x(eVar.h());
             refreshPkAndBless(eVar);
@@ -1095,11 +1095,11 @@ public class HotTopicDetailView extends RelativeLayout implements c.a.r0.d2.b {
                 this.z.setVisibility(0);
             }
             if (eVar.h() != null) {
-                String str = eVar.h().f19280f;
-                if (m0.d(str) > 15) {
-                    str = m0.m(str, 15) + "...";
+                String str = eVar.h().f19295f;
+                if (n0.d(str) > 15) {
+                    str = n0.m(str, 15) + "...";
                 }
-                this.f54512j.setCenterTextTitle(String.format(getContext().getString(R.string.hot_topic_detail_write_name), str));
+                this.f54627j.setCenterTextTitle(String.format(getContext().getString(R.string.hot_topic_detail_write_name), str));
             }
         }
     }

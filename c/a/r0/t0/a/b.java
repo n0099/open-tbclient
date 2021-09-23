@@ -22,16 +22,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b1 f24923a;
+    public b1 f24944a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<c.a.r0.t0.a.a> f24924b;
+    public ArrayList<c.a.r0.t0.a.a> f24945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InterfaceC1157b f24925c;
+    public InterfaceC1155b f24946c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f24926d;
+    public HttpMessageListener f24947d;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -39,7 +39,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f24927a;
+        public final /* synthetic */ b f24948a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -59,7 +59,7 @@ public class b {
                     return;
                 }
             }
-            this.f24927a = bVar;
+            this.f24948a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,20 +68,20 @@ public class b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetForbiddenFansResponse)) {
                 GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                this.f24927a.f24923a = getForbiddenFansResponse.getPageData();
-                if (this.f24927a.f24924b == null) {
-                    this.f24927a.f24924b = new ArrayList();
+                this.f24948a.f24944a = getForbiddenFansResponse.getPageData();
+                if (this.f24948a.f24945b == null) {
+                    this.f24948a.f24945b = new ArrayList();
                 }
-                if (this.f24927a.f24923a != null) {
-                    if (this.f24927a.f24923a.a() == 1) {
-                        this.f24927a.f24924b.clear();
+                if (this.f24948a.f24944a != null) {
+                    if (this.f24948a.f24944a.a() == 1) {
+                        this.f24948a.f24945b.clear();
                     }
                     if (getForbiddenFansResponse.getFansList() != null) {
-                        this.f24927a.f24924b.addAll(getForbiddenFansResponse.getFansList());
+                        this.f24948a.f24945b.addAll(getForbiddenFansResponse.getFansList());
                     }
                 }
-                if (this.f24927a.f24925c != null) {
-                    this.f24927a.f24925c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.f24927a.f24924b);
+                if (this.f24948a.f24946c != null) {
+                    this.f24948a.f24946c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.f24948a.f24945b);
                 }
             }
         }
@@ -89,7 +89,7 @@ public class b {
 
     /* renamed from: c.a.r0.t0.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1157b {
+    public interface InterfaceC1155b {
         void a(int i2, String str, ArrayList<c.a.r0.t0.a.a> arrayList);
     }
 
@@ -106,21 +106,21 @@ public class b {
                 return;
             }
         }
-        this.f24926d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+        this.f24947d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.f24926d);
+        MessageManager.getInstance().registerListener(this.f24947d);
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b1 b1Var = this.f24923a;
+            b1 b1Var = this.f24944a;
             return b1Var != null && b1Var.b() == 1;
         }
         return invokeV.booleanValue;
@@ -139,9 +139,9 @@ public class b {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b1 b1Var = this.f24923a;
+            b1 b1Var = this.f24944a;
             if (b1Var == null || b1Var.b() == 1) {
-                b1 b1Var2 = this.f24923a;
+                b1 b1Var2 = this.f24944a;
                 int a2 = b1Var2 != null ? 1 + b1Var2.a() : 1;
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
                 httpMessage.addParam("rn", 20);
@@ -154,14 +154,14 @@ public class b {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f24926d);
+            MessageManager.getInstance().unRegisterListener(this.f24947d);
         }
     }
 
-    public void j(InterfaceC1157b interfaceC1157b) {
+    public void j(InterfaceC1155b interfaceC1155b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1157b) == null) {
-            this.f24925c = interfaceC1157b;
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1155b) == null) {
+            this.f24946c = interfaceC1155b;
         }
     }
 }

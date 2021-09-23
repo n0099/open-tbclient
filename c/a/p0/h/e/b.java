@@ -12,10 +12,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11172a;
+    public static final boolean f11180a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f11173b;
+    public static int f11181b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,8 +31,8 @@ public class b {
                 return;
             }
         }
-        f11172a = k.f7077a;
-        f11173b = -1;
+        f11180a = k.f7085a;
+        f11181b = -1;
     }
 
     public static a a() {
@@ -40,11 +40,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             a aVar = new a();
-            aVar.f11169a = b();
-            aVar.f11170b = c();
-            aVar.f11171c = d();
-            if (f11172a) {
-                String str = "getCodeCacheConfig() maxCount: " + aVar.f11169a + " ,sizeLimit: " + aVar.f11170b;
+            aVar.f11177a = b();
+            aVar.f11178b = c();
+            aVar.f11179c = d();
+            if (f11180a) {
+                String str = "getCodeCacheConfig() maxCount: " + aVar.f11177a + " ,sizeLimit: " + aVar.f11178b;
             }
             return aVar;
         }
@@ -55,11 +55,11 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f11173b < 0) {
+            if (f11181b < 0) {
                 c.a.p0.a.c1.a.Z().getSwitch("minigame_code_cache_max_count", 20);
-                f11173b = 20;
+                f11181b = 20;
             }
-            return f11173b;
+            return f11181b;
         }
         return invokeV.intValue;
     }

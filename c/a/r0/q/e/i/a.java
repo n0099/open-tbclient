@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<a> f24134a = new AtomicReference<>();
+    public static final AtomicReference<a> f24150a = new AtomicReference<>();
 
     void a(String str);
 

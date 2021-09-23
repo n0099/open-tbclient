@@ -18,17 +18,17 @@ public class c implements c.a.p0.a.f1.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f8415e;
+    public static final int f8423e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8416b;
+    public boolean f8424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Runnable, String> f8417c;
+    public Map<Runnable, String> f8425c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.a.r1.r.c.a f8418d;
+    public c.a.p0.a.r1.r.c.a f8426d;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.r1.r.c.a {
@@ -36,7 +36,7 @@ public class c implements c.a.p0.a.f1.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f8419b;
+        public final /* synthetic */ c f8427b;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class c implements c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            this.f8419b = cVar;
+            this.f8427b = cVar;
         }
 
         @Override // c.a.p0.a.r1.r.c.a
@@ -67,8 +67,8 @@ public class c implements c.a.p0.a.f1.f.a {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f8419b.f8416b = false;
-                this.f8419b.d();
+                this.f8427b.f8424b = false;
+                this.f8427b.d();
             }
         }
 
@@ -76,11 +76,11 @@ public class c implements c.a.p0.a.f1.f.a {
         public void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.f8419b.f8416b = false;
+                this.f8427b.f8424b = false;
                 long currentTimeMillis = System.currentTimeMillis();
-                int size = this.f8419b.f8417c.size();
-                this.f8419b.d();
-                if (c.a.p0.a.f1.f.a.f5702a) {
+                int size = this.f8427b.f8425c.size();
+                this.f8427b.d();
+                if (c.a.p0.a.f1.f.a.f5710a) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     String str = "thread dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; thread num = " + size;
                 }
@@ -91,7 +91,7 @@ public class c implements c.a.p0.a.f1.f.a {
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f8419b.f8416b = true;
+                this.f8427b.f8424b = true;
             }
         }
 
@@ -108,7 +108,7 @@ public class c implements c.a.p0.a.f1.f.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f8420a;
+        public static final c f8428a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -124,7 +124,7 @@ public class c implements c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            f8420a = new c(null);
+            f8428a = new c(null);
         }
     }
 
@@ -141,7 +141,7 @@ public class c implements c.a.p0.a.f1.f.a {
                 return;
             }
         }
-        f8415e = e.k();
+        f8423e = e.k();
     }
 
     public /* synthetic */ c(a aVar) {
@@ -151,20 +151,20 @@ public class c implements c.a.p0.a.f1.f.a {
     public static c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? b.f8420a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? b.f8428a : (c) invokeV.objValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8417c.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8425c.isEmpty()) {
             return;
         }
-        for (Map.Entry<Runnable, String> entry : this.f8417c.entrySet()) {
+        for (Map.Entry<Runnable, String> entry : this.f8425c.entrySet()) {
             if (entry != null) {
                 q.k(entry.getKey(), entry.getValue());
             }
         }
-        this.f8417c.clear();
+        this.f8425c.clear();
     }
 
     public boolean e(Runnable runnable, String str) {
@@ -174,8 +174,8 @@ public class c implements c.a.p0.a.f1.f.a {
             if (runnable == null) {
                 return false;
             }
-            if (f8415e > 0 && this.f8416b) {
-                this.f8417c.put(runnable, str);
+            if (f8423e > 0 && this.f8424b) {
+                this.f8425c.put(runnable, str);
                 return true;
             }
             q.k(runnable, str);
@@ -187,10 +187,10 @@ public class c implements c.a.p0.a.f1.f.a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (f8415e <= 0) {
-                boolean z = c.a.p0.a.f1.f.a.f5702a;
+            if (f8423e <= 0) {
+                boolean z = c.a.p0.a.f1.f.a.f5710a;
             } else {
-                c.a.p0.a.r1.r.a.f().h(this.f8418d, f8415e);
+                c.a.p0.a.r1.r.a.f().h(this.f8426d, f8423e);
             }
         }
     }
@@ -208,8 +208,8 @@ public class c implements c.a.p0.a.f1.f.a {
                 return;
             }
         }
-        this.f8416b = false;
-        this.f8417c = new ConcurrentHashMap();
-        this.f8418d = new a(this);
+        this.f8424b = false;
+        this.f8425c = new ConcurrentHashMap();
+        this.f8426d = new a(this);
     }
 }

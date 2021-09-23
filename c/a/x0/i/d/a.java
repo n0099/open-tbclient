@@ -15,13 +15,13 @@ public class a implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.x0.g.a f30804a;
+    public c.a.x0.g.a f30825a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f30805b;
+    public float f30826b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30806c;
+    public boolean f30827c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class a implements h {
                 return;
             }
         }
-        this.f30805b = 1.0f;
-        this.f30806c = true;
+        this.f30826b = 1.0f;
+        this.f30827c = true;
     }
 
     @Override // c.a.x0.i.h
@@ -45,7 +45,7 @@ public class a implements h {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i2)) == null) {
-            c.a.x0.g.a aVar = this.f30804a;
+            c.a.x0.g.a aVar = this.f30825a;
             if (aVar == null || !aVar.putBytes(bArr, i2)) {
                 return 0;
             }
@@ -58,7 +58,7 @@ public class a implements h {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.f30806c && this.f30805b != 1.0f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.f30827c && this.f30826b != 1.0f : invokeV.booleanValue;
     }
 
     @Override // c.a.x0.i.h
@@ -66,13 +66,13 @@ public class a implements h {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5)) == null) {
-            if (this.f30804a == null) {
-                this.f30804a = (c.a.x0.g.a) s.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
+            if (this.f30825a == null) {
+                this.f30825a = (c.a.x0.g.a) s.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
             }
-            c.a.x0.g.a aVar = this.f30804a;
+            c.a.x0.g.a aVar = this.f30825a;
             if (aVar != null) {
                 aVar.init(i4, i3);
-                this.f30804a.setSpeed(1.0f);
+                this.f30825a.setSpeed(1.0f);
                 return false;
             }
             return false;
@@ -85,7 +85,7 @@ public class a implements h {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            c.a.x0.g.a aVar = this.f30804a;
+            c.a.x0.g.a aVar = this.f30825a;
             return aVar != null ? aVar.getOutPutBytes() : new byte[0];
         }
         return (byte[]) invokeI.objValue;
@@ -94,8 +94,8 @@ public class a implements h {
     public void b(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            this.f30805b = f2;
-            c.a.x0.g.a aVar = this.f30804a;
+            this.f30826b = f2;
+            c.a.x0.g.a aVar = this.f30825a;
             if (aVar != null) {
                 aVar.setSpeed(f2);
             }
@@ -106,14 +106,14 @@ public class a implements h {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30804a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30825a != null : invokeV.booleanValue;
     }
 
     @Override // c.a.x0.i.h
     public void c() {
         c.a.x0.g.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f30804a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f30825a) == null) {
             return;
         }
         aVar.flush();
@@ -123,11 +123,11 @@ public class a implements h {
     public void d() {
         c.a.x0.g.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f30804a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f30825a) == null) {
             return;
         }
         aVar.close();
-        this.f30804a = null;
+        this.f30825a = null;
     }
 
     @Override // c.a.x0.i.h

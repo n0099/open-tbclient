@@ -32,10 +32,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.i1.d.d.b f6726a;
+        public final /* synthetic */ c.a.p0.a.i1.d.d.b f6734a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f6727b;
+        public final /* synthetic */ File f6735b;
 
         public a(c.a.p0.a.i1.d.d.b bVar, File file) {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class b {
                     return;
                 }
             }
-            this.f6726a = bVar;
-            this.f6727b = file;
+            this.f6734a = bVar;
+            this.f6735b = file;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
@@ -62,10 +62,10 @@ public class b {
             c.a.p0.a.i1.d.d.b bVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i2, intent)) == null) {
-                if (i2 != -1 || (bVar = this.f6726a) == null) {
+                if (i2 != -1 || (bVar = this.f6734a) == null) {
                     return true;
                 }
-                bVar.a(this.f6727b);
+                bVar.a(this.f6735b);
                 return true;
             }
             return invokeLIL.booleanValue;
@@ -79,10 +79,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.i1.d.d.b f6728a;
+        public final /* synthetic */ c.a.p0.a.i1.d.d.b f6736a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ File f6729b;
+        public final /* synthetic */ File f6737b;
 
         public C0264b(c.a.p0.a.i1.d.d.b bVar, File file) {
             Interceptable interceptable = $ic;
@@ -99,8 +99,8 @@ public class b {
                     return;
                 }
             }
-            this.f6728a = bVar;
-            this.f6729b = file;
+            this.f6736a = bVar;
+            this.f6737b = file;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
@@ -109,10 +109,10 @@ public class b {
             c.a.p0.a.i1.d.d.b bVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i2, intent)) == null) {
-                if (i2 != -1 || (bVar = this.f6728a) == null) {
+                if (i2 != -1 || (bVar = this.f6736a) == null) {
                     return true;
                 }
-                bVar.a(this.f6729b);
+                bVar.a(this.f6737b);
                 return true;
             }
             return invokeLIL.booleanValue;
@@ -173,7 +173,7 @@ public class b {
             } catch (Exception e3) {
                 e = e3;
                 mediaMetadataRetriever2 = mediaMetadataRetriever;
-                if (c.f6730a) {
+                if (c.f6738a) {
                     e.printStackTrace();
                 }
                 if (mediaMetadataRetriever2 != null) {

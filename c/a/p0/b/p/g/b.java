@@ -19,7 +19,7 @@ public class b extends c.a.p0.a.v1.a.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f10256e;
+        public final /* synthetic */ b f10264e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class b extends c.a.p0.a.v1.a.a.a {
                     return;
                 }
             }
-            this.f10256e = bVar;
+            this.f10264e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,9 +46,9 @@ public class b extends c.a.p0.a.v1.a.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                 if (bundle != null) {
-                    this.f10256e.f9203d.putParcelable("quick_login_info", bundle.getParcelable("quick_login_info_result"));
+                    this.f10264e.f9211d.putParcelable("quick_login_info", bundle.getParcelable("quick_login_info_result"));
                 }
-                this.f10256e.c();
+                this.f10264e.c();
             }
         }
     }
@@ -60,10 +60,10 @@ public class b extends c.a.p0.a.v1.a.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f10257a;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f10265a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f10258b;
+        public final /* synthetic */ b f10266b;
 
         public C0504b(b bVar, c.a.p0.a.v2.e1.b bVar2) {
             Interceptable interceptable = $ic;
@@ -80,8 +80,8 @@ public class b extends c.a.p0.a.v1.a.a.a {
                     return;
                 }
             }
-            this.f10258b = bVar;
-            this.f10257a = bVar2;
+            this.f10266b = bVar;
+            this.f10265a = bVar2;
         }
 
         @Override // c.a.p0.b.p.g.c
@@ -89,11 +89,11 @@ public class b extends c.a.p0.a.v1.a.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
                 if (quickLoginInfo == null) {
-                    this.f10257a.onCallback(null);
+                    this.f10265a.onCallback(null);
                     return;
                 }
-                this.f10258b.f9203d.putParcelable("quick_login_info_result", quickLoginInfo);
-                this.f10257a.onCallback(this.f10258b.f9203d);
+                this.f10266b.f9211d.putParcelable("quick_login_info_result", quickLoginInfo);
+                this.f10265a.onCallback(this.f10266b.f9211d);
             }
         }
     }

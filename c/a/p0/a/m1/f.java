@@ -23,13 +23,13 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7349a;
+    public static final boolean f7357a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f7350b;
+    public static volatile String f7358b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f7351c;
+    public static volatile boolean f7359c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -38,7 +38,7 @@ public final class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f7352e;
+        public final /* synthetic */ String f7360e;
 
         /* renamed from: c.a.p0.a.m1.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -47,13 +47,13 @@ public final class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f7353e;
+            public final /* synthetic */ int f7361e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f7354f;
+            public final /* synthetic */ Bitmap f7362f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Rect f7355g;
+            public final /* synthetic */ Rect f7363g;
 
             public RunnableC0294a(a aVar, int i2, Bitmap bitmap, Rect rect) {
                 Interceptable interceptable = $ic;
@@ -70,9 +70,9 @@ public final class f {
                         return;
                     }
                 }
-                this.f7353e = i2;
-                this.f7354f = bitmap;
-                this.f7355g = rect;
+                this.f7361e = i2;
+                this.f7362f = bitmap;
+                this.f7363g = rect;
             }
 
             @Override // java.lang.Runnable
@@ -80,8 +80,8 @@ public final class f {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     c.a.p0.a.m1.i.a a2 = a.C0295a.a("simple_parser");
-                    a2.c(this.f7353e);
-                    if (a2.a(this.f7354f, this.f7355g)) {
+                    a2.c(this.f7361e);
+                    if (a2.a(this.f7362f, this.f7363g)) {
                         return;
                     }
                     f.h();
@@ -104,7 +104,7 @@ public final class f {
                     return;
                 }
             }
-            this.f7352e = str;
+            this.f7360e = str;
         }
 
         @Override // java.lang.Runnable
@@ -117,7 +117,7 @@ public final class f {
                 return;
             }
             Bitmap p = n0.p();
-            q.e().execute(new RunnableC0294a(this, c.d(o), p, c.b(p, o, c.a.p0.a.g1.f.V().C(this.f7352e))), "SwanNAArrivalCheck");
+            q.e().execute(new RunnableC0294a(this, c.d(o), p, c.b(p, o, c.a.p0.a.g1.f.V().C(this.f7360e))), "SwanNAArrivalCheck");
         }
     }
 
@@ -134,9 +134,9 @@ public final class f {
                 return;
             }
         }
-        f7349a = k.f7077a;
-        f7350b = "";
-        f7351c = true;
+        f7357a = k.f7085a;
+        f7358b = "";
+        f7359c = true;
     }
 
     public static void b(String str) {
@@ -150,7 +150,7 @@ public final class f {
         c.a.p0.a.h0.g.g W;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            boolean z = f7349a;
+            boolean z = f7357a;
             if (c.a.p0.a.j2.e.f() || (W = c.a.p0.a.g1.f.V().W()) == null) {
                 return;
             }
@@ -168,7 +168,7 @@ public final class f {
                     dVar = Z2.N();
                 }
             }
-            if (dVar == null || dVar.f7892b <= 0) {
+            if (dVar == null || dVar.f7900b <= 0) {
                 return;
             }
             c.a.p0.a.j2.e.a(dVar);
@@ -182,12 +182,12 @@ public final class f {
         }
         c.a.p0.a.h0.g.f J = c.a.p0.a.g1.f.V().J();
         if (J == null) {
-            boolean z = f7349a;
+            boolean z = f7357a;
         } else if (!f(J)) {
-            boolean z2 = f7349a;
+            boolean z2 = f7357a;
             h();
         } else {
-            boolean z3 = f7349a;
+            boolean z3 = f7357a;
             b(J.e3());
         }
     }
@@ -195,7 +195,7 @@ public final class f {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            f7350b = str;
+            f7358b = str;
         }
     }
 
@@ -206,8 +206,8 @@ public final class f {
             if (fVar == null) {
                 return false;
             }
-            boolean equals = TextUtils.equals(f7350b, fVar.e3());
-            if (f7349a) {
+            boolean equals = TextUtils.equals(f7358b, fVar.e3());
+            if (f7357a) {
                 String str = "FirstPage: " + equals;
             }
             return equals;
@@ -218,7 +218,7 @@ public final class f {
     public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f7351c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f7359c : invokeV.booleanValue;
     }
 
     public static void h() {
@@ -237,15 +237,15 @@ public final class f {
     public static void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            if (f7349a) {
+            if (f7357a) {
                 String str = "on swan page change, isFromRoute : " + z;
             }
             if (z && c.a.p0.a.j2.e.j()) {
-                boolean z2 = f7349a;
+                boolean z2 = f7357a;
                 return;
             }
             if (z) {
-                f7351c = false;
+                f7359c = false;
             }
             if (!z) {
                 d();
@@ -263,8 +263,8 @@ public final class f {
     public static void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            f7350b = "";
-            f7351c = true;
+            f7358b = "";
+            f7359c = true;
         }
     }
 }

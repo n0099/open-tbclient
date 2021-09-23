@@ -16,10 +16,10 @@ public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f47160a;
+    public TextView f47262a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f47161b;
+    public ProgressBar f47263b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationFooterViewHolder(View view) {
@@ -45,22 +45,22 @@ public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
     public final void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f47160a = (TextView) view.findViewById(e.loading_text);
-            this.f47161b = (ProgressBar) view.findViewById(e.loading_progress);
+            this.f47262a = (TextView) view.findViewById(e.loading_text);
+            this.f47263b = (ProgressBar) view.findViewById(e.loading_progress);
         }
     }
 
     public void setLoadIconVisibility(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f47161b.setVisibility(z ? 0 : 8);
+            this.f47263b.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f47160a.setText(str);
+            this.f47262a.setText(str);
         }
     }
 

@@ -47,7 +47,7 @@ public class f extends k {
                 return;
             }
         }
-        this.f15562e = d2Var;
+        this.f15571e = d2Var;
     }
 
     public static boolean b0(d2 d2Var) {
@@ -66,7 +66,7 @@ public class f extends k {
     public d2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15562e : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15571e : (d2) invokeV.objValue;
     }
 
     @Override // c.a.r0.a0.d0.k, com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n

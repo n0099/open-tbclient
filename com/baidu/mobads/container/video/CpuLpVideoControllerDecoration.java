@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.core.view.GravityCompat;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.landingpage.JsWithPlayerData;
 import com.baidu.mobads.container.util.CommonUtils;
@@ -895,7 +896,7 @@ public class CpuLpVideoControllerDecoration {
                         }
                     }
                 }
-            }, 4000L);
+            }, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
             this.mBottomControlView.postDelayed(new Runnable(this) { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -929,7 +930,7 @@ public class CpuLpVideoControllerDecoration {
                         }
                     }
                 }
-            }, 4000L);
+            }, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
         }
     }
 

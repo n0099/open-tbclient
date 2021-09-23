@@ -19,13 +19,13 @@ public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f13943a;
+    public Context f13940a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a<T, V> f13944b;
+    public a<T, V> f13941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f13945c;
+    public BdUniqueId f13942c;
 
     /* loaded from: classes3.dex */
     public interface a<T extends n, V extends BdBaseViewPagerAdapter.a> {
@@ -47,20 +47,20 @@ public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
                 return;
             }
         }
-        this.f13943a = context;
-        this.f13945c = bdUniqueId;
+        this.f13940a = context;
+        this.f13942c = bdUniqueId;
     }
 
     public a<T, V> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13944b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13941b : (a) invokeV.objValue;
     }
 
     public BdUniqueId b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13945c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13942c : (BdUniqueId) invokeV.objValue;
     }
 
     public abstract V c(ViewGroup viewGroup);
@@ -78,7 +78,7 @@ public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
     public void g(a<T, V> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f13944b = aVar;
+            this.f13941b = aVar;
         }
     }
 }

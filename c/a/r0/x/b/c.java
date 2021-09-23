@@ -19,7 +19,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f28239a;
+    public TbPageContext f28259a;
 
     public c(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -36,11 +36,11 @@ public class c {
                 return;
             }
         }
-        this.f28239a = tbPageContext;
+        this.f28259a = tbPageContext;
         SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
         socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, c.a.r0.j3.d0.a.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, c.a.r0.j3.e0.a.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
         tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
@@ -52,7 +52,7 @@ public class c {
             commitCardInfoReqMsg.resource_id = str;
             commitCardInfoReqMsg.card_type = i2;
             commitCardInfoReqMsg.image_info = str2;
-            commitCardInfoReqMsg.setTag(this.f28239a.getUniqueId());
+            commitCardInfoReqMsg.setTag(this.f28259a.getUniqueId());
             MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
         }
     }

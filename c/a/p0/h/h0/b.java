@@ -22,7 +22,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11257a;
+    public static final boolean f11265a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -31,7 +31,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.h.h0.a f11258c;
+        public final /* synthetic */ c.a.p0.h.h0.a f11266c;
 
         public a(c.a.p0.h.h0.a aVar) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class b {
                     return;
                 }
             }
-            this.f11258c = aVar;
+            this.f11266c = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,10 +62,10 @@ public class b {
                 } else {
                     i2 = -2;
                 }
-                if (b.f11257a) {
+                if (b.f11265a) {
                     String str = "get NetworkQuality: " + i2;
                 }
-                c.a.p0.h.h0.a aVar = this.f11258c;
+                c.a.p0.h.h0.a aVar = this.f11266c;
                 aVar.m = i2;
                 k.u("976", aVar);
             }
@@ -85,7 +85,7 @@ public class b {
                 return;
             }
         }
-        f11257a = c.a.p0.a.k.f7077a;
+        f11265a = c.a.p0.a.k.f7085a;
     }
 
     public static void b(c.a.p0.h.h0.a aVar) {
@@ -107,20 +107,20 @@ public class b {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return;
         }
-        if (f11257a) {
+        if (f11265a) {
             String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(c.a.p0.h.q.c.b.a()), TimeUtils.logTimeOfDay(a2.exceptionTime));
         }
         if (a2.exceptionTime >= c.a.p0.h.q.c.b.a()) {
             return;
         }
         c.a.p0.h.h0.a aVar = new c.a.p0.h.h0.a();
-        aVar.f7064b = "stuck";
-        aVar.f7067e = "jserror";
-        aVar.f7068f = e.V();
+        aVar.f7072b = "stuck";
+        aVar.f7075e = "jserror";
+        aVar.f7076f = e.V();
         if (e.i() != null && e.i().N() != null) {
             b.a N = e.i().N();
-            aVar.f7065c = N.T();
-            aVar.f7063a = k.m(N.G());
+            aVar.f7073c = N.T();
+            aVar.f7071a = k.m(N.G());
         }
         aVar.l = str + ";" + str2;
         aVar.k = h.d() ? 20 : 10;

@@ -31,11 +31,11 @@ public class e extends a0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f4986d;
+    public static final int f4994d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f4987c;
+    public Context f4995c;
 
     /* loaded from: classes.dex */
     public class a implements g.d {
@@ -43,34 +43,34 @@ public class e extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f4988a;
+        public final /* synthetic */ String f4996a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f4989b;
+        public final /* synthetic */ c.a.p0.a.a2.e f4997b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.g1.f f4990c;
+        public final /* synthetic */ c.a.p0.a.g1.f f4998c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.g.g f4991d;
+        public final /* synthetic */ c.a.p0.a.h0.g.g f4999d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f4992e;
+        public final /* synthetic */ UnitedSchemeEntity f5000e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4993f;
+        public final /* synthetic */ CallbackHandler f5001f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f4994g;
+        public final /* synthetic */ String f5002g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.l1.b f4995h;
+        public final /* synthetic */ c.a.p0.a.l1.b f5003h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f4996i;
+        public final /* synthetic */ String f5004i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ a.d f4997j;
+        public final /* synthetic */ a.d f5005j;
         public final /* synthetic */ Context k;
         public final /* synthetic */ e l;
 
@@ -90,16 +90,16 @@ public class e extends a0 {
                 }
             }
             this.l = eVar;
-            this.f4988a = str;
-            this.f4989b = eVar2;
-            this.f4990c = fVar;
-            this.f4991d = gVar;
-            this.f4992e = unitedSchemeEntity;
-            this.f4993f = callbackHandler;
-            this.f4994g = str2;
-            this.f4995h = bVar;
-            this.f4996i = str3;
-            this.f4997j = dVar;
+            this.f4996a = str;
+            this.f4997b = eVar2;
+            this.f4998c = fVar;
+            this.f4999d = gVar;
+            this.f5000e = unitedSchemeEntity;
+            this.f5001f = callbackHandler;
+            this.f5002g = str2;
+            this.f5003h = bVar;
+            this.f5004i = str3;
+            this.f5005j = dVar;
             this.k = context;
         }
 
@@ -107,12 +107,12 @@ public class e extends a0 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                c.a.p0.a.r1.i.d(this.f4988a);
+                c.a.p0.a.r1.i.d(this.f4996a);
                 c.a.p0.a.e0.d.g("navigateTo", "check pages success");
-                c.a.p0.a.j2.k.B(true, this.f4989b.N().T());
-                this.f4990c.o();
-                c.a.p0.a.c2.f.p0.a.l(this.f4992e, this.f4993f, this.f4989b, this.f4994g, this.f4995h.f7236e, c.a.p0.a.c2.f.p0.a.g(this.f4991d), this.f4996i);
-                this.l.p(this.f4997j, this.f4995h, this.f4991d, this.f4988a);
+                c.a.p0.a.j2.k.B(true, this.f4997b.N().T());
+                this.f4998c.o();
+                c.a.p0.a.c2.f.p0.a.l(this.f5000e, this.f5001f, this.f4997b, this.f5002g, this.f5003h.f7244e, c.a.p0.a.c2.f.p0.a.g(this.f4999d), this.f5004i);
+                this.l.p(this.f5005j, this.f5003h, this.f4999d, this.f4996a);
             }
         }
 
@@ -121,13 +121,13 @@ public class e extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 c.a.p0.a.e0.d.b("navigateTo", "check pages failed");
-                c.a.p0.a.j2.k.B(false, this.f4989b.N().T());
-                this.f4990c.o();
-                if (a0.f4766b) {
+                c.a.p0.a.j2.k.B(false, this.f4997b.N().T());
+                this.f4998c.o();
+                if (a0.f4774b) {
                     Context context = this.k;
                     c.a.p0.a.z1.b.f.e.g(context, this.k.getString(c.a.p0.a.h.aiapps_open_pages_failed) + i2).F();
                 }
-                c.a.p0.a.c2.f.p0.a.j(this.f4992e, this.f4993f, this.f4996i);
+                c.a.p0.a.c2.f.p0.a.j(this.f5000e, this.f5001f, this.f5004i);
             }
         }
     }
@@ -138,19 +138,19 @@ public class e extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.d f4998a;
+        public final /* synthetic */ a.d f5006a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f4999b;
+        public final /* synthetic */ String f5007b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.l1.b f5000c;
+        public final /* synthetic */ c.a.p0.a.l1.b f5008c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.g.g f5001d;
+        public final /* synthetic */ c.a.p0.a.h0.g.g f5009d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f5002e;
+        public final /* synthetic */ e f5010e;
 
         public b(e eVar, a.d dVar, String str, c.a.p0.a.l1.b bVar, c.a.p0.a.h0.g.g gVar) {
             Interceptable interceptable = $ic;
@@ -167,21 +167,21 @@ public class e extends a0 {
                     return;
                 }
             }
-            this.f5002e = eVar;
-            this.f4998a = dVar;
-            this.f4999b = str;
-            this.f5000c = bVar;
-            this.f5001d = gVar;
+            this.f5010e = eVar;
+            this.f5006a = dVar;
+            this.f5007b = str;
+            this.f5008c = bVar;
+            this.f5009d = gVar;
         }
 
         @Override // c.a.p0.a.h0.t.a.e
         public void onReady() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = a0.f4766b;
-                c.a.p0.a.r1.i.e(this.f4998a, this.f4999b);
-                this.f5002e.o(this.f4998a.f6437a, this.f5000c, this.f5001d, this.f4999b);
-                boolean unused2 = a0.f4766b;
+                boolean unused = a0.f4774b;
+                c.a.p0.a.r1.i.e(this.f5006a, this.f5007b);
+                this.f5010e.o(this.f5006a.f6445a, this.f5008c, this.f5009d, this.f5007b);
+                boolean unused2 = a0.f4774b;
             }
         }
     }
@@ -199,9 +199,9 @@ public class e extends a0 {
                 return;
             }
         }
-        f4986d = c.a.p0.a.c1.a.Z().s();
-        if (a0.f4766b) {
-            String str = "NavigateToAction max count: " + f4986d;
+        f4994d = c.a.p0.a.c1.a.Z().s();
+        if (a0.f4774b) {
+            String str = "NavigateToAction max count: " + f4994d;
         }
     }
 
@@ -231,10 +231,10 @@ public class e extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 r0 = "handle entity: " + unitedSchemeEntity.toString();
             }
-            this.f4987c = context;
+            this.f4995c = context;
             String uuid = UUID.randomUUID().toString();
             c.a.p0.a.r1.i.b(uuid);
             String o = c.a.p0.a.c2.f.p0.a.o(unitedSchemeEntity, "params");
@@ -251,15 +251,15 @@ public class e extends a0 {
                 return false;
             }
             c.a.p0.a.l1.b g2 = c.a.p0.a.l1.b.g(o, V.A());
-            c.a.p0.a.j2.h.f(g2.f7236e, "0");
+            c.a.p0.a.j2.h.f(g2.f7244e, "0");
             if (!q0.b(V.s(), g2, false)) {
-                c.a.p0.a.e0.d.b("navigateTo", "page params error : path=" + g2.f7236e + " ; routePath=" + g2.f7239h);
+                c.a.p0.a.e0.d.b("navigateTo", "page params error : path=" + g2.f7244e + " ; routePath=" + g2.f7247h);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
             String n = c.a.p0.a.c2.f.p0.a.n(unitedSchemeEntity, "params", "initData");
-            if (!TextUtils.isEmpty(n) && g2 != null && !TextUtils.isEmpty(g2.f7239h) && c.a.p0.a.a2.e.i() != null) {
-                c.a.p0.a.a2.e.i().x0(n, g2.f7239h);
+            if (!TextUtils.isEmpty(n) && g2 != null && !TextUtils.isEmpty(g2.f7247h) && c.a.p0.a.a2.e.i() != null) {
+                c.a.p0.a.a2.e.i().x0(n, g2.f7247h);
             }
             String n2 = c.a.p0.a.c2.f.p0.a.n(unitedSchemeEntity, "params", "startTime");
             if (!TextUtils.isEmpty(n2)) {
@@ -268,10 +268,10 @@ public class e extends a0 {
                 ubcFlowEvent.h(Long.valueOf(n2).longValue());
                 q.C(ubcFlowEvent);
             }
-            boolean z = a0.f4766b;
+            boolean z = a0.f4774b;
             a.d f2 = c.a.p0.a.h0.t.a.f(V.getActivity());
-            String c2 = f2.f6437a.c();
-            if (a0.f4766b) {
+            String c2 = f2.f6445a.c();
+            if (a0.f4774b) {
                 String str = "slave webView id: " + c2;
             }
             String optString = w.d(unitedSchemeEntity.getParam("params")).optString("cb");
@@ -302,12 +302,12 @@ public class e extends a0 {
         }
         c.a.p0.a.c2.f.p0.a.e(bVar, bVar2, str);
         c.a.p0.a.r1.i.c(0, str);
-        if (gVar.k() < f4986d) {
+        if (gVar.k() < f4994d) {
             c.a.p0.a.h0.g.f.C3(q0.n());
             g.b i2 = gVar.i("navigateTo");
-            i2.n(c.a.p0.a.h0.g.g.f5928g, c.a.p0.a.h0.g.g.f5930i);
+            i2.n(c.a.p0.a.h0.g.g.f5936g, c.a.p0.a.h0.g.g.f5938i);
             i2.k("normal", bVar2).b();
-            c.a.p0.a.v2.g.c(gVar, this.f4987c);
+            c.a.p0.a.v2.g.c(gVar, this.f4995c);
             c.a.p0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str).C(new UbcFlowEvent("na_push_page_end"));
             c.a.p0.a.r1.i.a(str, bVar2);
             return;
@@ -318,15 +318,15 @@ public class e extends a0 {
     public final void p(a.d dVar, c.a.p0.a.l1.b bVar, c.a.p0.a.h0.g.g gVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, dVar, bVar, gVar, str) == null) {
-            boolean z = dVar != null && dVar.f6438b;
+            boolean z = dVar != null && dVar.f6446b;
             HybridUbcFlow q = c.a.p0.a.r1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
             q.C(new UbcFlowEvent("na_pre_load_slave_check"));
             q.A("preload", z ? "1" : "0");
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str2 = "tryToExecutePageRoute start. isReady : " + z;
             }
             c.a.p0.a.h0.t.a.n(dVar, new b(this, dVar, str, bVar, gVar));
-            boolean z2 = a0.f4766b;
+            boolean z2 = a0.f4774b;
         }
     }
 }

@@ -14,13 +14,13 @@ public class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f20868a;
+    public Context f20880a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20869b;
+    public String f20881b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap f20870c;
+    public HashMap f20882c;
 
     public n(Context context, String str, HashMap hashMap) {
         Interceptable interceptable = $ic;
@@ -37,29 +37,29 @@ public class n {
                 return;
             }
         }
-        this.f20868a = null;
-        this.f20869b = null;
-        this.f20870c = null;
-        this.f20868a = context;
-        this.f20869b = str;
-        this.f20870c = hashMap;
+        this.f20880a = null;
+        this.f20881b = null;
+        this.f20882c = null;
+        this.f20880a = context;
+        this.f20881b = str;
+        this.f20882c = hashMap;
     }
 
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20868a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20880a : (Context) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20869b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20881b : (String) invokeV.objValue;
     }
 
     public HashMap c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20870c : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20882c : (HashMap) invokeV.objValue;
     }
 }

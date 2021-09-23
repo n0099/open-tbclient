@@ -21,17 +21,17 @@ public class f implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f3384g;
+    public static final boolean f3385g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f3385h;
+    public static int f3386h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3386e;
+    public int f3387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f3387f;
+    public boolean f3388f;
 
     static {
         InterceptResult invokeClinit;
@@ -46,8 +46,8 @@ public class f implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        f3384g = c.a.f0.a.b.a.f3337a.get() == null || c.a.f0.a.b.a.f3337a.get().t();
-        f3385h = 0;
+        f3385g = c.a.f0.a.b.a.f3338a.get() == null || c.a.f0.a.b.a.f3338a.get().t();
+        f3386h = 0;
     }
 
     public f() {
@@ -63,34 +63,34 @@ public class f implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f3387f = true;
+        this.f3388f = true;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3385h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3386h : invokeV.intValue;
     }
 
     public void b(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            if (f3384g) {
-                String str = "进前台--启动类型： " + f3385h;
+            if (f3385g) {
+                String str = "进前台--启动类型： " + f3386h;
             }
-            if (this.f3387f) {
-                f3385h = 0;
-                this.f3387f = false;
+            if (this.f3388f) {
+                f3386h = 0;
+                this.f3388f = false;
             }
-            c.a.b.f().i(f3385h);
+            c.a.b.f().i(f3386h);
         }
     }
 
     public void c(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            boolean z = f3384g;
-            f3385h = 1;
+            boolean z = f3385g;
+            f3386h = 1;
         }
     }
 
@@ -133,8 +133,8 @@ public class f implements Application.ActivityLifecycleCallbacks {
     public void onActivityStarted(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            int i2 = this.f3386e + 1;
-            this.f3386e = i2;
+            int i2 = this.f3387e + 1;
+            this.f3387e = i2;
             if (i2 == 1) {
                 b(activity);
             }
@@ -145,8 +145,8 @@ public class f implements Application.ActivityLifecycleCallbacks {
     public void onActivityStopped(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-            int i2 = this.f3386e - 1;
-            this.f3386e = i2;
+            int i2 = this.f3387e - 1;
+            this.f3387e = i2;
             if (i2 == 0) {
                 c(activity);
             }

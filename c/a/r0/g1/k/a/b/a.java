@@ -30,14 +30,14 @@ public class a extends c.a.e.l.e.a<c.a.r0.g1.k.a.c.c, CardViewHolder<d>> {
 
     /* renamed from: c.a.r0.g1.k.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0893a implements c.a.e.e.k.c<ConstrainImageLayout> {
+    public class C0891a implements c.a.e.e.k.c<ConstrainImageLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f18464a;
+        public final /* synthetic */ a f18473a;
 
-        public C0893a(a aVar) {
+        public C0891a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.g1.k.a.c.c, CardViewHolder<d>> {
                     return;
                 }
             }
-            this.f18464a = aVar;
+            this.f18473a = aVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -95,7 +95,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.g1.k.a.c.c, CardViewHolder<d>> {
         public ConstrainImageLayout d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f18464a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f18473a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
         }
 
         public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
@@ -111,7 +111,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.g1.k.a.c.c, CardViewHolder<d>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f18465a;
+        public final /* synthetic */ a f18474a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.g1.k.a.c.c, CardViewHolder<d>> {
                     return;
                 }
             }
-            this.f18465a = aVar;
+            this.f18474a = aVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -173,7 +173,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.g1.k.a.c.c, CardViewHolder<d>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.f18465a.m.getPageActivity());
+                TbImageView tbImageView = new TbImageView(this.f18474a.m.getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
@@ -244,7 +244,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.g1.k.a.c.c, CardViewHolder<d>> {
                 return;
             }
         }
-        this.n = new c.a.e.e.k.b<>(new C0893a(this), 6, 0);
+        this.n = new c.a.e.e.k.b<>(new C0891a(this), 6, 0);
         this.o = new c.a.e.e.k.b<>(new b(this), 12, 0);
         this.m = tbPageContext;
         d0(new c(this));
@@ -260,7 +260,7 @@ public class a extends c.a.e.l.e.a<c.a.r0.g1.k.a.c.c, CardViewHolder<d>> {
             d dVar = new d(this.m);
             dVar.A(this.n);
             dVar.z(this.o);
-            dVar.n(this.f2961i);
+            dVar.n(this.f2962i);
             return new CardViewHolder<>(dVar);
         }
         return (CardViewHolder) invokeL.objValue;

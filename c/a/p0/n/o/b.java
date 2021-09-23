@@ -67,21 +67,21 @@ public class b {
                     }
                 } catch (FileNotFoundException e2) {
                     e = e2;
-                    if (c.a.p0.n.c.f11856a) {
+                    if (c.a.p0.n.c.f11864a) {
                         e.printStackTrace();
                     }
                     c.a.p0.t.d.d(fileInputStream);
                     return null;
                 } catch (IOException e3) {
                     e = e3;
-                    if (c.a.p0.n.c.f11856a) {
+                    if (c.a.p0.n.c.f11864a) {
                         e.printStackTrace();
                     }
                     c.a.p0.t.d.d(fileInputStream);
                     return null;
                 } catch (NoSuchAlgorithmException e4) {
                     e = e4;
-                    if (c.a.p0.n.c.f11856a) {
+                    if (c.a.p0.n.c.f11864a) {
                         e.printStackTrace();
                     }
                     c.a.p0.t.d.d(fileInputStream);

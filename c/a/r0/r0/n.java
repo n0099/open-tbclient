@@ -28,13 +28,13 @@ public class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicInteger f24313a;
+        public final /* synthetic */ AtomicInteger f24329a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f24314b;
+        public final /* synthetic */ List f24330b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f24315c;
+        public final /* synthetic */ c f24331c;
 
         public a(n nVar, AtomicInteger atomicInteger, List list, c cVar) {
             Interceptable interceptable = $ic;
@@ -51,9 +51,9 @@ public class n {
                     return;
                 }
             }
-            this.f24313a = atomicInteger;
-            this.f24314b = list;
-            this.f24315c = cVar;
+            this.f24329a = atomicInteger;
+            this.f24330b = list;
+            this.f24331c = cVar;
         }
 
         @Override // c.a.r0.r0.n.d
@@ -62,15 +62,15 @@ public class n {
             ImageUploadResult.PicDetailedInfo picDetailedInfo;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
-                this.f24313a.decrementAndGet();
+                this.f24329a.decrementAndGet();
                 if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
-                    this.f24314b.add(imageUploadResult.picInfo.bigPic.picUrl);
+                    this.f24330b.add(imageUploadResult.picInfo.bigPic.picUrl);
                 }
-                if (this.f24313a.get() == 0) {
-                    if (!ListUtils.isEmpty(this.f24314b)) {
-                        this.f24315c.c(this.f24314b);
+                if (this.f24329a.get() == 0) {
+                    if (!ListUtils.isEmpty(this.f24330b)) {
+                        this.f24331c.c(this.f24330b);
                     } else {
-                        this.f24315c.d();
+                        this.f24331c.d();
                     }
                 }
             }
@@ -83,10 +83,10 @@ public class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageFileInfo f24316e;
+        public final /* synthetic */ ImageFileInfo f24332e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f24317f;
+        public final /* synthetic */ d f24333f;
 
         public b(n nVar, ImageFileInfo imageFileInfo, d dVar) {
             Interceptable interceptable = $ic;
@@ -103,34 +103,34 @@ public class n {
                     return;
                 }
             }
-            this.f24316e = imageFileInfo;
-            this.f24317f = dVar;
+            this.f24332e = imageFileInfo;
+            this.f24333f = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String filePath = this.f24316e.getFilePath();
+                String filePath = this.f24332e.getFilePath();
                 c.a.q0.d0.f fVar = new c.a.q0.d0.f("from_user_collect");
-                if (this.f24316e.isGif()) {
-                    this.f24317f.a(fVar.m(filePath, true, false));
+                if (this.f24332e.isGif()) {
+                    this.f24333f.a(fVar.m(filePath, true, false));
                     return;
                 }
-                Bitmap b2 = c.a.r0.e2.g.b.b(this.f24316e);
+                Bitmap b2 = c.a.r0.e2.g.b.b(this.f24332e);
                 if (b2 == null) {
-                    this.f24317f.a(null);
+                    this.f24333f.a(null);
                     return;
                 }
                 String saveFile = FileHelper.saveFile(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b2, 60);
                 b2.recycle();
                 if (TextUtils.isEmpty(saveFile)) {
-                    this.f24317f.a(null);
+                    this.f24333f.a(null);
                     return;
                 }
                 ImageUploadResult m = fVar.m(saveFile, false, false);
                 FileHelper.deleteFile(new File(saveFile));
-                this.f24317f.a(m);
+                this.f24333f.a(m);
             }
         }
     }

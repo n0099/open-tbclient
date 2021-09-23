@@ -31,6 +31,7 @@ import c.a.p0.a.v2.q0;
 import c.a.p0.a.v2.r0;
 import c.a.p0.a.y1.a;
 import c.a.p0.a.y1.b;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
@@ -89,13 +90,13 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.k2.g.g f5828a;
+        public final /* synthetic */ c.a.p0.a.k2.g.g f5836a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f5829b;
+        public final /* synthetic */ String f5837b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f5830c;
+        public final /* synthetic */ a f5838c;
 
         /* renamed from: c.a.p0.a.h0.g.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -147,9 +148,9 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5830c = aVar;
-            this.f5828a = gVar;
-            this.f5829b = str;
+            this.f5838c = aVar;
+            this.f5836a = gVar;
+            this.f5837b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -159,11 +160,11 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                 if (bool != null && bool.booleanValue()) {
-                    this.f5828a.putInt(this.f5829b, 1);
+                    this.f5836a.putInt(this.f5837b, 1);
                 } else {
-                    this.f5828a.putInt(this.f5829b, 0);
+                    this.f5836a.putInt(this.f5837b, 0);
                 }
-                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5830c.k0);
+                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5838c.k0);
                 aVar.U(c.a.p0.a.h.swan_offline_perf_tool_tip);
                 aVar.v(c.a.p0.a.h.swan_offline_perf_tool_message);
                 aVar.n(new c.a.p0.a.w2.h.a());
@@ -179,16 +180,16 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.k2.g.g f5831e;
+        public final /* synthetic */ c.a.p0.a.k2.g.g f5839e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5832f;
+        public final /* synthetic */ String f5840f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.d.i.a f5833g;
+        public final /* synthetic */ c.a.p0.d.i.a f5841g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f5834h;
+        public final /* synthetic */ a f5842h;
 
         /* renamed from: c.a.p0.a.h0.g.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -197,7 +198,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f5835a;
+            public final /* synthetic */ b f5843a;
 
             public C0202a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -214,7 +215,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f5835a = bVar;
+                this.f5843a = bVar;
             }
 
             @Override // c.a.p0.a.h0.e.c.b
@@ -222,14 +223,14 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
                     if (z) {
-                        this.f5835a.f5833g.run(Boolean.TRUE);
+                        this.f5843a.f5841g.run(Boolean.TRUE);
                         return;
                     }
-                    Activity activity = this.f5835a.f5834h.k0;
+                    Activity activity = this.f5843a.f5842h.k0;
                     if (activity == null || activity.isDestroyed()) {
                         return;
                     }
-                    c.a.p0.a.h0.e.c.b(this.f5835a.f5834h.k0, c.a.p0.a.h.swan_offline_perf_tool_tip, str);
+                    c.a.p0.a.h0.e.c.b(this.f5843a.f5842h.k0, c.a.p0.a.h.swan_offline_perf_tool_tip, str);
                 }
             }
         }
@@ -249,27 +250,27 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5834h = aVar;
-            this.f5831e = gVar;
-            this.f5832f = str;
-            this.f5833g = aVar2;
+            this.f5842h = aVar;
+            this.f5839e = gVar;
+            this.f5840f = str;
+            this.f5841g = aVar2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int i2 = this.f5831e.getInt(this.f5832f, -1);
+                int i2 = this.f5839e.getInt(this.f5840f, -1);
                 if (i2 == 1) {
-                    this.f5833g.run(Boolean.FALSE);
+                    this.f5841g.run(Boolean.FALSE);
                 } else if (i2 == 0) {
-                    this.f5833g.run(Boolean.TRUE);
+                    this.f5841g.run(Boolean.TRUE);
                 } else {
                     c.a.p0.a.a2.e Q = c.a.p0.a.a2.e.Q();
                     if (Q == null) {
                         return;
                     }
-                    c.a.p0.a.h0.e.c.a(Q, this.f5834h.k0, new C0202a(this));
+                    c.a.p0.a.h0.e.c.a(Q, this.f5842h.k0, new C0202a(this));
                 }
             }
         }
@@ -281,13 +282,13 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnLongClickListener f5836e;
+        public final /* synthetic */ View.OnLongClickListener f5844e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f5837f;
+        public final /* synthetic */ View f5845f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f5838g;
+        public final /* synthetic */ a f5846g;
 
         public c(a aVar, View.OnLongClickListener onLongClickListener, View view) {
             Interceptable interceptable = $ic;
@@ -304,9 +305,9 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5838g = aVar;
-            this.f5836e = onLongClickListener;
-            this.f5837f = view;
+            this.f5846g = aVar;
+            this.f5844e = onLongClickListener;
+            this.f5845f = view;
         }
 
         @Override // java.lang.Runnable
@@ -314,7 +315,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.a.n2.l.b.a.d().g();
-                this.f5836e.onLongClick(this.f5837f);
+                this.f5844e.onLongClick(this.f5845f);
             }
         }
     }
@@ -325,13 +326,13 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f5839e;
+        public final /* synthetic */ Runnable f5847e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f5840f;
+        public final /* synthetic */ long f5848f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f5841g;
+        public final /* synthetic */ a f5849g;
 
         public d(a aVar, Runnable runnable, long j2) {
             Interceptable interceptable = $ic;
@@ -348,9 +349,9 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5841g = aVar;
-            this.f5839e = runnable;
-            this.f5840f = j2;
+            this.f5849g = aVar;
+            this.f5847e = runnable;
+            this.f5848f = j2;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -360,10 +361,10 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    view.postDelayed(this.f5839e, this.f5840f);
+                    view.postDelayed(this.f5847e, this.f5848f);
                     return false;
                 } else if (action == 1 || action == 3) {
-                    view.removeCallbacks(this.f5839e);
+                    view.removeCallbacks(this.f5847e);
                     return false;
                 } else {
                     return false;
@@ -379,10 +380,10 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppRelatedSwanListAdapter f5842a;
+        public final /* synthetic */ SwanAppRelatedSwanListAdapter f5850a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f5843b;
+        public final /* synthetic */ a f5851b;
 
         /* renamed from: c.a.p0.a.h0.g.a$e$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -391,10 +392,10 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.p0.a.y1.a f5844e;
+            public final /* synthetic */ c.a.p0.a.y1.a f5852e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ e f5845f;
+            public final /* synthetic */ e f5853f;
 
             public RunnableC0203a(e eVar, c.a.p0.a.y1.a aVar) {
                 Interceptable interceptable = $ic;
@@ -411,16 +412,16 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f5845f = eVar;
-                this.f5844e = aVar;
+                this.f5853f = eVar;
+                this.f5852e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f5845f.f5843b.L0.setVisibility(0);
-                    this.f5845f.f5842a.updateData(this.f5844e);
+                    this.f5853f.f5851b.L0.setVisibility(0);
+                    this.f5853f.f5850a.updateData(this.f5852e);
                 }
             }
         }
@@ -440,15 +441,15 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5843b = aVar;
-            this.f5842a = swanAppRelatedSwanListAdapter;
+            this.f5851b = aVar;
+            this.f5850a = swanAppRelatedSwanListAdapter;
         }
 
         @Override // c.a.p0.a.y1.b.InterfaceC0474b
         public void a(c.a.p0.a.y1.a aVar) {
             List<a.C0473a> list;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || (list = aVar.f9844a) == null || list.size() <= 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || (list = aVar.f9852a) == null || list.size() <= 0) {
                 return;
             }
             q0.b0(new RunnableC0203a(this, aVar));
@@ -462,7 +463,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f5846a;
+        public final /* synthetic */ a f5854a;
 
         /* renamed from: c.a.p0.a.h0.g.a$f$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -471,7 +472,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ f f5847e;
+            public final /* synthetic */ f f5855e;
 
             public C0204a(f fVar) {
                 Interceptable interceptable = $ic;
@@ -488,7 +489,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f5847e = fVar;
+                this.f5855e = fVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -498,9 +499,9 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                     if (bool.booleanValue()) {
-                        c.a.p0.a.e0.a.d(this.f5847e.f5846a.q());
+                        c.a.p0.a.e0.a.d(this.f5855e.f5854a.q());
                     } else {
-                        c.a.p0.a.c1.b.h().a(this.f5847e.f5846a.k0, null);
+                        c.a.p0.a.c1.b.h().a(this.f5855e.f5854a.k0, null);
                     }
                 }
             }
@@ -521,7 +522,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5846a = aVar;
+            this.f5854a = aVar;
         }
 
         @Override // c.a.p0.a.h0.e.c.b
@@ -529,9 +530,9 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
                 if (!z) {
-                    c.a.p0.a.h0.e.c.c(this.f5846a.k0, str);
+                    c.a.p0.a.h0.e.c.c(this.f5854a.k0, str);
                 } else if (c.a.p0.a.e0.a.a()) {
-                    c.a.p0.a.e0.a.d(this.f5846a.q());
+                    c.a.p0.a.e0.a.d(this.f5854a.q());
                 } else {
                     c.a.p0.a.c1.b.h().f(new C0204a(this));
                 }
@@ -545,7 +546,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f5848a;
+        public final /* synthetic */ a f5856a;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -562,14 +563,14 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5848a = aVar;
+            this.f5856a = aVar;
         }
 
         @Override // c.a.p0.a.q0.b.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f5848a.q(), c.a.p0.a.h.swanapp_tip_net_unavailable);
+                c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f5856a.q(), c.a.p0.a.h.swanapp_tip_net_unavailable);
                 f2.l(2);
                 f2.F();
             }
@@ -579,7 +580,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f5848a.q(), c.a.p0.a.h.aiapps_cancel_fav_fail);
+                c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f5856a.q(), c.a.p0.a.h.aiapps_cancel_fav_fail);
                 f2.l(2);
                 f2.F();
             }
@@ -589,7 +590,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f5848a.q(), c.a.p0.a.h.aiapps_cancel_fav_success);
+                c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f5856a.q(), c.a.p0.a.h.aiapps_cancel_fav_success);
                 f2.l(2);
                 f2.F();
             }
@@ -602,10 +603,10 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f5849a;
+        public final /* synthetic */ String f5857a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f5850b;
+        public final /* synthetic */ a f5858b;
 
         public h(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -622,15 +623,15 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5850b = aVar;
-            this.f5849a = str;
+            this.f5858b = aVar;
+            this.f5857a = str;
         }
 
         @Override // c.a.p0.a.q0.b.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f5850b.q(), c.a.p0.a.h.swanapp_tip_net_unavailable);
+                c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f5858b.q(), c.a.p0.a.h.swanapp_tip_net_unavailable);
                 f2.l(2);
                 f2.F();
             }
@@ -640,7 +641,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f5850b.q(), c.a.p0.a.h.aiapps_fav_fail);
+                c.a.p0.a.z1.b.f.e f2 = c.a.p0.a.z1.b.f.e.f(this.f5858b.q(), c.a.p0.a.h.aiapps_fav_fail);
                 f2.l(2);
                 f2.F();
             }
@@ -651,11 +652,11 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 c.a.p0.a.j0.b.a.t();
-                if (c.a.p0.a.j1.a.k(this.f5850b.h())) {
-                    c.a.p0.a.j1.a.p("aboutconcern", this.f5849a);
+                if (c.a.p0.a.j1.a.k(this.f5858b.h())) {
+                    c.a.p0.a.j1.a.p("aboutconcern", this.f5857a);
                     return;
                 }
-                Context q = this.f5850b.q();
+                Context q = this.f5858b.q();
                 c.a.p0.a.z1.b.f.e g2 = c.a.p0.a.z1.b.f.e.g(q, c.a.p0.a.c1.a.e0().f(q));
                 g2.l(2);
                 g2.p(2);
@@ -670,7 +671,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5851e;
+        public final /* synthetic */ a f5859e;
 
         public i(a aVar) {
             Interceptable interceptable = $ic;
@@ -687,14 +688,14 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5851e = aVar;
+            this.f5859e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5851e.i3();
+                this.f5859e.i3();
             }
         }
     }
@@ -705,10 +706,10 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public FullScreenFloatView f5852e;
+        public FullScreenFloatView f5860e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f5853f;
+        public final /* synthetic */ a f5861f;
 
         /* renamed from: c.a.p0.a.h0.g.a$j$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -717,7 +718,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ j f5854e;
+            public final /* synthetic */ j f5862e;
 
             public C0205a(j jVar) {
                 Interceptable interceptable = $ic;
@@ -734,7 +735,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f5854e = jVar;
+                this.f5862e = jVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -744,9 +745,9 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                     if (bool.booleanValue()) {
-                        c.a.p0.a.e0.a.c(this.f5854e.f5853f.q(), true);
+                        c.a.p0.a.e0.a.c(this.f5862e.f5861f.q(), true);
                     } else {
-                        c.a.p0.a.c1.b.h().a(this.f5854e.f5853f.k0, null);
+                        c.a.p0.a.c1.b.h().a(this.f5862e.f5861f.k0, null);
                     }
                 }
             }
@@ -767,37 +768,37 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5853f = aVar;
+            this.f5861f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f5853f.k0 == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f5861f.k0 == null) {
                 return;
             }
             if (a.N0) {
                 if (c.a.p0.a.h0.o.e.a.k(null)) {
-                    c.a.p0.a.e0.a.d(this.f5853f.q());
+                    c.a.p0.a.e0.a.d(this.f5861f.q());
                     return;
                 }
-                if (this.f5852e == null) {
-                    this.f5852e = c.a.p0.a.g1.f.V().n(this.f5853f.k0);
+                if (this.f5860e == null) {
+                    this.f5860e = c.a.p0.a.g1.f.V().n(this.f5861f.k0);
                 }
-                if (this.f5853f.S1()) {
+                if (this.f5861f.S1()) {
                     if (c.a.p0.a.e0.a.a()) {
-                        c.a.p0.a.e0.a.c(this.f5853f.q(), false);
+                        c.a.p0.a.e0.a.c(this.f5861f.q(), false);
                         return;
                     } else {
                         c.a.p0.a.c1.b.h().f(new C0205a(this));
                         return;
                     }
                 }
-                this.f5852e.setVisibility(this.f5852e.getVisibility() == 0 ? 8 : 0);
-            } else if (this.f5853f.S1()) {
-                this.f5853f.j3();
+                this.f5860e.setVisibility(this.f5860e.getVisibility() == 0 ? 8 : 0);
+            } else if (this.f5861f.S1()) {
+                this.f5861f.j3();
             } else {
-                c.a.p0.a.e0.a.d(this.f5853f.q());
+                c.a.p0.a.e0.a.d(this.f5861f.q());
             }
         }
     }
@@ -808,10 +809,10 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public SwanAppPropertyWindow f5855e;
+        public SwanAppPropertyWindow f5863e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f5856f;
+        public final /* synthetic */ a f5864f;
 
         public k(a aVar) {
             Interceptable interceptable = $ic;
@@ -828,17 +829,17 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5856f = aVar;
+            this.f5864f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f5855e == null) {
-                    this.f5855e = c.a.p0.a.g1.f.V().L(this.f5856f.k0);
+                if (this.f5863e == null) {
+                    this.f5863e = c.a.p0.a.g1.f.V().L(this.f5864f.k0);
                 }
-                this.f5855e.setVisibility(this.f5855e.getVisibility() == 0 ? 8 : 0);
+                this.f5863e.setVisibility(this.f5863e.getVisibility() == 0 ? 8 : 0);
             }
         }
     }
@@ -849,13 +850,13 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f5857e;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f5865e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f5858f;
+        public final /* synthetic */ c.a.p0.a.a2.e f5866f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f5859g;
+        public final /* synthetic */ a f5867g;
 
         /* renamed from: c.a.p0.a.h0.g.a$l$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -902,15 +903,15 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5859g = aVar;
-            this.f5857e = bVar;
-            this.f5858f = eVar;
+            this.f5867g = aVar;
+            this.f5865e = bVar;
+            this.f5866f = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f5859g.k0 == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f5867g.k0 == null) {
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -918,20 +919,20 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             sb.append(c.a.p0.a.h0.u.g.N().h0());
             sb.append(StringUtils.LF);
             sb.append("APS VERSION: ");
-            sb.append(TextUtils.isEmpty(this.f5857e.u1()) ? "" : this.f5857e.u1());
+            sb.append(TextUtils.isEmpty(this.f5865e.u1()) ? "" : this.f5865e.u1());
             sb.append(StringUtils.LF);
             sb.append("APPID VERSION: ");
-            sb.append(c.a.p0.a.v.a.c(this.f5858f.f4558f));
+            sb.append(c.a.p0.a.v.a.c(this.f5866f.f4566f));
             sb.append(StringUtils.LF);
-            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), this.f5857e.g1());
+            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), this.f5865e.g1());
             sb.append("小程序包大小: ");
             sb.append(TextUtils.isEmpty(formatFileSize) ? "" : formatFileSize);
             sb.append("(");
-            sb.append(this.f5857e.g1());
+            sb.append(this.f5865e.g1());
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             sb.append(StringUtils.LF);
-            SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5859g.k0);
-            aVar.V(this.f5859g.k0.getResources().getString(c.a.p0.a.h.aiapps_show_ext_info_title));
+            SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5867g.k0);
+            aVar.V(this.f5867g.k0.getResources().getString(c.a.p0.a.h.aiapps_show_ext_info_title));
             aVar.x(sb.toString());
             aVar.n(new c.a.p0.a.w2.h.a());
             aVar.m(false);
@@ -946,7 +947,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5860e;
+        public final /* synthetic */ a f5868e;
 
         /* renamed from: c.a.p0.a.h0.g.a$m$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -993,18 +994,18 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5860e = aVar;
+            this.f5868e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f5860e.k0 == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f5868e.k0 == null) {
                 return;
             }
             String e2 = c.a.p0.a.m2.a.c().e(1);
-            String string = this.f5860e.k0.getResources().getString(c.a.p0.a.h.ai_games_debug_game_core_version);
-            SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5860e.k0);
+            String string = this.f5868e.k0.getResources().getString(c.a.p0.a.h.ai_games_debug_game_core_version);
+            SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5868e.k0);
             aVar.V(string);
             aVar.x(e2);
             aVar.n(new c.a.p0.a.w2.h.a());
@@ -1020,7 +1021,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5861e;
+        public final /* synthetic */ a f5869e;
 
         /* renamed from: c.a.p0.a.h0.g.a$n$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -1029,7 +1030,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ n f5862a;
+            public final /* synthetic */ n f5870a;
 
             /* renamed from: c.a.p0.a.h0.g.a$n$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
@@ -1038,10 +1039,10 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f5863e;
+                public final /* synthetic */ String f5871e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ C0208a f5864f;
+                public final /* synthetic */ C0208a f5872f;
 
                 public RunnableC0209a(C0208a c0208a, String str) {
                     Interceptable interceptable = $ic;
@@ -1058,17 +1059,17 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.f5864f = c0208a;
-                    this.f5863e = str;
+                    this.f5872f = c0208a;
+                    this.f5871e = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5864f.f5862a.f5861e.k0);
+                        SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5872f.f5870a.f5869e.k0);
                         aVar.U(c.a.p0.a.h.aiapps_debug_report_performance);
-                        aVar.x(this.f5863e);
+                        aVar.x(this.f5871e);
                         aVar.n(new c.a.p0.a.w2.h.a());
                         aVar.m(false);
                         aVar.O(c.a.p0.a.h.aiapps_confirm, null);
@@ -1092,14 +1093,14 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f5862a = nVar;
+                this.f5870a = nVar;
             }
 
             @Override // c.a.p0.a.r1.j.a
             public void c(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    this.f5862a.f5861e.k0.runOnUiThread(new RunnableC0209a(this, str));
+                    this.f5870a.f5869e.k0.runOnUiThread(new RunnableC0209a(this, str));
                 }
             }
         }
@@ -1119,13 +1120,13 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5861e = aVar;
+            this.f5869e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f5861e.k0 == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f5869e.k0 == null) {
                 return;
             }
             c.a.p0.a.r1.j.e().g(new C0208a(this));
@@ -1138,10 +1139,10 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.p0.a.e0.h.a f5865e;
+        public c.a.p0.a.e0.h.a f5873e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f5866f;
+        public final /* synthetic */ a f5874f;
 
         /* renamed from: c.a.p0.a.h0.g.a$o$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -1150,7 +1151,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ o f5867e;
+            public final /* synthetic */ o f5875e;
 
             public DialogInterface$OnClickListenerC0210a(o oVar) {
                 Interceptable interceptable = $ic;
@@ -1167,7 +1168,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f5867e = oVar;
+                this.f5875e = oVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
@@ -1175,8 +1176,8 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                     c.a.p0.a.e0.h.a.g(1);
-                    this.f5867e.f5865e = new c.a.p0.a.e0.h.a(c.a.p0.a.c1.a.b());
-                    this.f5867e.f5865e.h();
+                    this.f5875e.f5873e = new c.a.p0.a.e0.h.a(c.a.p0.a.c1.a.b());
+                    this.f5875e.f5873e.h();
                 }
             }
         }
@@ -1187,7 +1188,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ o f5868e;
+            public final /* synthetic */ o f5876e;
 
             public b(o oVar) {
                 Interceptable interceptable = $ic;
@@ -1204,14 +1205,14 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f5868e = oVar;
+                this.f5876e = oVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                    this.f5868e.b();
+                    this.f5876e.b();
                     c.a.p0.a.e0.h.a.g(2);
                     System.exit(0);
                 }
@@ -1224,7 +1225,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ o f5869e;
+            public final /* synthetic */ o f5877e;
 
             public c(o oVar) {
                 Interceptable interceptable = $ic;
@@ -1241,14 +1242,14 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                         return;
                     }
                 }
-                this.f5869e = oVar;
+                this.f5877e = oVar;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                    this.f5869e.b();
+                    this.f5877e.b();
                     c.a.p0.a.e0.h.a.g(0);
                 }
             }
@@ -1269,24 +1270,24 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5866f = aVar;
+            this.f5874f = aVar;
         }
 
         public final void b() {
             c.a.p0.a.e0.h.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f5865e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f5873e) == null) {
                 return;
             }
             aVar.i();
-            this.f5865e = null;
+            this.f5873e = null;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5866f.k0);
+                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f5874f.k0);
                 aVar.U(c.a.p0.a.h.aiapps_debug_start_inspect);
                 aVar.v(c.a.p0.a.h.aiapps_debug_inspect_message);
                 aVar.n(new c.a.p0.a.w2.h.a());
@@ -1311,7 +1312,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5870e;
+        public final /* synthetic */ a f5878e;
 
         public p(a aVar) {
             Interceptable interceptable = $ic;
@@ -1328,15 +1329,15 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5870e = aVar;
+            this.f5878e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f5870e.N2();
-                this.f5870e.U2(PrefetchEvent.STATE_CLICK, "baozhang");
+                this.f5878e.N2();
+                this.f5878e.U2(PrefetchEvent.STATE_CLICK, "baozhang");
             }
         }
     }
@@ -1347,7 +1348,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5871e;
+        public final /* synthetic */ a f5879e;
 
         public q(a aVar) {
             Interceptable interceptable = $ic;
@@ -1364,7 +1365,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                     return;
                 }
             }
-            this.f5871e = aVar;
+            this.f5879e = aVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -1372,7 +1373,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                this.f5871e.Q2();
+                this.f5879e.Q2();
                 return true;
             }
             return invokeL.booleanValue;
@@ -1392,7 +1393,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                 return;
             }
         }
-        N0 = c.a.p0.a.k.f7077a;
+        N0 = c.a.p0.a.k.f7085a;
     }
 
     public a() {
@@ -1549,7 +1550,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         }
         String M2 = M2(str, c.a.p0.a.l1.b.e(q0.n()));
         int i2 = c.a.p0.a.h.swanapp_web_url_copy_success;
-        if (M2.length() > 4000) {
+        if (M2.length() > PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL) {
             i2 = c.a.p0.a.h.swanapp_web_url_param_to_long;
         } else {
             str = M2;
@@ -1597,10 +1598,10 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
             c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
             if (!TextUtils.isEmpty(str)) {
-                fVar.f7064b = str;
+                fVar.f7072b = str;
             }
             if (!TextUtils.isEmpty(str2)) {
-                fVar.f7067e = str2;
+                fVar.f7075e = str2;
             }
             w1(fVar);
         }
@@ -1895,7 +1896,7 @@ public class a extends c.a.p0.a.h0.g.d implements View.OnClickListener {
                 return;
             }
             g.b i2 = W.i("navigateTo");
-            i2.n(c.a.p0.a.h0.g.g.f5928g, c.a.p0.a.h0.g.g.f5930i);
+            i2.n(c.a.p0.a.h0.g.g.f5936g, c.a.p0.a.h0.g.g.f5938i);
             i2.k("running_info", null).a();
         }
     }

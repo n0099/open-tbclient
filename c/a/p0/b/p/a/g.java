@@ -28,7 +28,7 @@ public class g extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10205c;
+    public int f10213c;
 
     /* loaded from: classes.dex */
     public class a implements c {
@@ -36,16 +36,16 @@ public class g extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10206a;
+        public final /* synthetic */ CallbackHandler f10214a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10207b;
+        public final /* synthetic */ String f10215b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f10208c;
+        public final /* synthetic */ JSONObject f10216c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ g f10209d;
+        public final /* synthetic */ g f10217d;
 
         public a(g gVar, CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -62,10 +62,10 @@ public class g extends a0 {
                     return;
                 }
             }
-            this.f10209d = gVar;
-            this.f10206a = callbackHandler;
-            this.f10207b = str;
-            this.f10208c = jSONObject;
+            this.f10217d = gVar;
+            this.f10214a = callbackHandler;
+            this.f10215b = str;
+            this.f10216c = jSONObject;
         }
 
         @Override // c.a.p0.b.p.a.g.c
@@ -73,12 +73,12 @@ public class g extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 if (jSONObject == null) {
-                    this.f10209d.p(this.f10206a, this.f10207b, this.f10208c);
+                    this.f10217d.p(this.f10214a, this.f10215b, this.f10216c);
                     return;
                 }
-                g gVar = this.f10209d;
-                gVar.f10205c = gVar.m(jSONObject);
-                this.f10209d.p(this.f10206a, this.f10207b, this.f10208c);
+                g gVar = this.f10217d;
+                gVar.f10213c = gVar.m(jSONObject);
+                this.f10217d.p(this.f10214a, this.f10215b, this.f10216c);
             }
         }
     }
@@ -89,7 +89,7 @@ public class g extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f10210a;
+        public final /* synthetic */ c f10218a;
 
         public b(g gVar, c cVar) {
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class g extends a0 {
                     return;
                 }
             }
-            this.f10210a = cVar;
+            this.f10218a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -116,10 +116,10 @@ public class g extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
                 try {
-                    this.f10210a.a(new JSONObject(str));
+                    this.f10218a.a(new JSONObject(str));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
-                    this.f10210a.a(null);
+                    this.f10218a.a(null);
                 }
             }
         }
@@ -128,7 +128,7 @@ public class g extends a0 {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                this.f10210a.a(null);
+                this.f10218a.a(null);
             }
         }
     }
@@ -157,7 +157,7 @@ public class g extends a0 {
                 return;
             }
         }
-        this.f10205c = -1;
+        this.f10213c = -1;
     }
 
     @Override // c.a.p0.a.c2.f.a0
@@ -204,7 +204,7 @@ public class g extends a0 {
                     if (optJSONArray != null && optJSONArray.length() > 0) {
                         optJSONObject = optJSONArray.getJSONObject(0);
                     } else {
-                        boolean z = a0.f4766b;
+                        boolean z = a0.f4774b;
                         optJSONObject = null;
                     }
                 }
@@ -240,9 +240,9 @@ public class g extends a0 {
             if (!TextUtils.isEmpty(c.a.p0.b.l.a.i(context)) && !TextUtils.isEmpty(y)) {
                 JSONObject jSONObject = new JSONObject();
                 c.a.p0.b.l.a0 g2 = c.a.p0.b.l.a.g(context);
-                jSONObject.put("displayname", g2.f10108a);
-                jSONObject.put("portrait", g2.f10109b);
-                if (this.f10205c != -1) {
+                jSONObject.put("displayname", g2.f10116a);
+                jSONObject.put("portrait", g2.f10117b);
+                if (this.f10213c != -1) {
                     p(callbackHandler, str, jSONObject);
                     return;
                 } else {
@@ -257,7 +257,7 @@ public class g extends a0 {
     public final void p(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, callbackHandler, str, jSONObject) == null) {
-            int i2 = this.f10205c;
+            int i2 = this.f10213c;
             if (i2 != -1) {
                 try {
                     jSONObject.put("gender", String.valueOf(i2));

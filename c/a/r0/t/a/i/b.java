@@ -23,14 +23,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f24904c;
+    public static b f24925c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1155b f24905a;
+    public InterfaceC1153b f24926a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f24906b;
+    public final HttpMessageListener f24927b;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -38,7 +38,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f24907a;
+        public final /* synthetic */ b f24928a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -58,7 +58,7 @@ public class b {
                     return;
                 }
             }
-            this.f24907a = bVar;
+            this.f24928a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,15 +69,15 @@ public class b {
                 if (httpResponsedMessage instanceof SplashHttpResponse) {
                     SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
                     if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
-                        if (this.f24907a.f24905a != null) {
-                            this.f24907a.f24905a.b(splashHttpResponse.getResultMsg());
+                        if (this.f24928a.f24926a != null) {
+                            this.f24928a.f24926a.b(splashHttpResponse.getResultMsg());
                             return;
                         }
                         return;
                     }
                     BdLog.e("Response of splash has error");
-                    if (this.f24907a.f24905a != null) {
-                        this.f24907a.f24905a.a(splashHttpResponse.getResultMsg());
+                    if (this.f24928a.f24926a != null) {
+                        this.f24928a.f24926a.a(splashHttpResponse.getResultMsg());
                         return;
                     }
                     return;
@@ -89,7 +89,7 @@ public class b {
 
     /* renamed from: c.a.r0.t.a.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1155b {
+    public interface InterfaceC1153b {
         void a(String str);
 
         void b(String str);
@@ -108,7 +108,7 @@ public class b {
                 return;
             }
         }
-        f24904c = new b();
+        f24925c = new b();
     }
 
     public b() {
@@ -124,7 +124,7 @@ public class b {
                 return;
             }
         }
-        this.f24906b = new a(this, CmdConfigHttp.CMD_GET_SPLASH_INFO);
+        this.f24927b = new a(this, CmdConfigHttp.CMD_GET_SPLASH_INFO);
     }
 
     public static String b() {
@@ -142,15 +142,15 @@ public class b {
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f24904c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f24925c : (b) invokeV.objValue;
     }
 
-    public void e(TbPageContext<?> tbPageContext, InterfaceC1155b interfaceC1155b, AdInfo adInfo) {
+    public void e(TbPageContext<?> tbPageContext, InterfaceC1153b interfaceC1153b, AdInfo adInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, interfaceC1155b, adInfo) == null) {
-            this.f24905a = interfaceC1155b;
-            this.f24906b.setTag(tbPageContext.getUniqueId());
-            MessageManager.getInstance().registerListener(this.f24906b);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, interfaceC1153b, adInfo) == null) {
+            this.f24926a = interfaceC1153b;
+            this.f24927b.setTag(tbPageContext.getUniqueId());
+            MessageManager.getInstance().registerListener(this.f24927b);
             SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
         }
     }

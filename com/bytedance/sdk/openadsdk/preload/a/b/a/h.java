@@ -17,11 +17,11 @@ public final class h extends v<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f68381a;
+    public static final w f68692a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.f f68382b;
+    public final com.bytedance.sdk.openadsdk.preload.a.f f68693b;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.a.h$2  reason: invalid class name */
     /* loaded from: classes9.dex */
@@ -29,7 +29,7 @@ public final class h extends v<Object> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f68383a;
+        public static final /* synthetic */ int[] f68694a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,29 +46,29 @@ public final class h extends v<Object> {
                 }
             }
             int[] iArr = new int[com.bytedance.sdk.openadsdk.preload.a.d.b.values().length];
-            f68383a = iArr;
+            f68694a = iArr;
             try {
-                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.f68556a.ordinal()] = 1;
+                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.f68867a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f68383a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68558c.ordinal()] = 2;
+                f68694a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68869c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f68383a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68561f.ordinal()] = 3;
+                f68694a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68872f.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f68383a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68562g.ordinal()] = 4;
+                f68694a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68873g.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f68383a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68563h.ordinal()] = 5;
+                f68694a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68874h.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f68383a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68564i.ordinal()] = 6;
+                f68694a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68875i.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -87,7 +87,7 @@ public final class h extends v<Object> {
                 return;
             }
         }
-        f68381a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.h.1
+        f68692a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.h.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -135,7 +135,7 @@ public final class h extends v<Object> {
                 return;
             }
         }
-        this.f68382b = fVar;
+        this.f68693b = fVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -146,7 +146,7 @@ public final class h extends v<Object> {
                 cVar.f();
                 return;
             }
-            v a2 = this.f68382b.a((Class) obj.getClass());
+            v a2 = this.f68693b.a((Class) obj.getClass());
             if (a2 instanceof h) {
                 cVar.d();
                 cVar.e();
@@ -161,7 +161,7 @@ public final class h extends v<Object> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            switch (AnonymousClass2.f68383a[aVar.f().ordinal()]) {
+            switch (AnonymousClass2.f68694a[aVar.f().ordinal()]) {
                 case 1:
                     ArrayList arrayList = new ArrayList();
                     aVar.a();

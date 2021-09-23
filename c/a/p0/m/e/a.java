@@ -38,14 +38,14 @@ public class a extends HttpManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11853b;
+    public static final boolean f11861b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f11854c;
+    public static volatile a f11862c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f11855a;
+    public boolean f11863a;
 
     /* renamed from: c.a.p0.m.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -104,7 +104,7 @@ public class a extends HttpManager {
                 return;
             }
         }
-        f11853b = c.a.p0.m.b.c();
+        f11861b = c.a.p0.m.b.c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -123,23 +123,23 @@ public class a extends HttpManager {
                 return;
             }
         }
-        this.f11855a = true;
-        this.f11855a = c.a.p0.m.b.a();
+        this.f11863a = true;
+        this.f11863a = c.a.p0.m.b.a();
     }
 
     public static a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f11854c == null) {
+            if (f11862c == null) {
                 synchronized (a.class) {
-                    if (f11854c == null) {
-                        f11854c = new a();
-                        f11854c.setNetworkStat(HttpRuntime.getHttpContext().getNewNetworkStat());
+                    if (f11862c == null) {
+                        f11862c = new a();
+                        f11862c.setNetworkStat(HttpRuntime.getHttpContext().getNewNetworkStat());
                     }
                 }
             }
-            return f11854c;
+            return f11862c;
         }
         return (a) invokeV.objValue;
     }
@@ -168,13 +168,13 @@ public class a extends HttpManager {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11855a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11863a : invokeV.booleanValue;
     }
 
     public void d(c.a.p0.m.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            aVar.f11841b = "GET";
+            aVar.f11849b = "GET";
             s(aVar);
         }
     }
@@ -182,7 +182,7 @@ public class a extends HttpManager {
     public void e(c.a.p0.m.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            aVar.f11841b = "POST";
+            aVar.f11849b = "POST";
             s(aVar);
         }
     }
@@ -190,7 +190,7 @@ public class a extends HttpManager {
     public void f(c.a.p0.m.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            aVar.f11841b = HttpPut.METHOD_NAME;
+            aVar.f11849b = HttpPut.METHOD_NAME;
             s(aVar);
         }
     }
@@ -249,7 +249,7 @@ public class a extends HttpManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                boolean z = f11853b;
+                boolean z = f11861b;
                 return true;
             }
             return false;
@@ -302,16 +302,16 @@ public class a extends HttpManager {
     public void s(@NonNull c.a.p0.m.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, aVar) == null) {
-            if (aVar.f11844e == null) {
-                aVar.f11844e = k();
+            if (aVar.f11852e == null) {
+                aVar.f11852e = k();
             }
-            if (m(aVar.f11840a)) {
-                aVar.f11844e.onFail(new Exception("url is invalid"));
+            if (m(aVar.f11848a)) {
+                aVar.f11852e.onFail(new Exception("url is invalid"));
                 return;
             }
             HttpRequestBuilder a2 = b.a(aVar);
             t(a2, aVar);
-            a2.build().executeAsync(aVar.f11844e);
+            a2.build().executeAsync(aVar.f11852e);
         }
     }
 
@@ -319,18 +319,18 @@ public class a extends HttpManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, httpRequestBuilder, aVar) == null) {
             if (httpRequestBuilder != null && aVar != null) {
-                httpRequestBuilder.url(aVar.f11840a);
-                Map<String, String> map = aVar.f11842c;
+                httpRequestBuilder.url(aVar.f11848a);
+                Map<String, String> map = aVar.f11850c;
                 if (map != null && map.size() > 0) {
-                    httpRequestBuilder.headers(aVar.f11842c);
+                    httpRequestBuilder.headers(aVar.f11850c);
                 }
-                if (aVar.f11845f) {
+                if (aVar.f11853f) {
                     httpRequestBuilder.userAgent(c.a.p0.m.b.b().a());
                 }
-                if (aVar.f11846g) {
+                if (aVar.f11854g) {
                     httpRequestBuilder.cookieManager(c.a.p0.m.b.b().g());
                 }
-                if (aVar.f11847h) {
+                if (aVar.f11855h) {
                     a.C0618a b2 = aVar.b();
                     if (b2 == null) {
                         u(httpRequestBuilder);
@@ -338,19 +338,19 @@ public class a extends HttpManager {
                         w(httpRequestBuilder, b2);
                     }
                 }
-                Object obj = aVar.f11848i;
+                Object obj = aVar.f11856i;
                 if (obj != null) {
                     httpRequestBuilder.tag(obj);
                 }
                 if (aVar.k != 0) {
                     httpRequestBuilder.enableStat(true);
-                    httpRequestBuilder.requestFrom(aVar.f11849j);
+                    httpRequestBuilder.requestFrom(aVar.f11857j);
                     httpRequestBuilder.requestSubFrom(aVar.k);
                     return;
                 }
                 return;
             }
-            boolean z = f11853b;
+            boolean z = f11861b;
         }
     }
 
@@ -393,21 +393,21 @@ public class a extends HttpManager {
     public final void w(HttpRequestBuilder httpRequestBuilder, @NonNull a.C0618a c0618a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048604, this, httpRequestBuilder, c0618a) == null) {
-            int i2 = c0618a.f11850a;
+            int i2 = c0618a.f11858a;
             if (i2 <= 0) {
                 i2 = c.a.p0.m.b.b().l();
             }
             if (i2 > 0) {
                 httpRequestBuilder.connectionTimeout(i2);
             }
-            int i3 = c0618a.f11851b;
+            int i3 = c0618a.f11859b;
             if (i3 <= 0) {
                 i3 = c.a.p0.m.b.b().getReadTimeout();
             }
             if (i3 > 0) {
                 httpRequestBuilder.readTimeout(i3);
             }
-            int i4 = c0618a.f11852c;
+            int i4 = c0618a.f11860c;
             if (i4 <= 0) {
                 i4 = c.a.p0.m.b.b().h();
             }

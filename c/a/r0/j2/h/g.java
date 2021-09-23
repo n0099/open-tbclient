@@ -17,22 +17,22 @@ public class g implements c.a.e.l.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19621e;
+    public String f19636e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19622f;
+    public String f19637f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19623g;
+    public int f19638g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19624h;
+    public int f19639h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19625i;
+    public boolean f19640i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f19626j;
+    public String f19641j;
     public String k;
     public boolean l;
 
@@ -67,15 +67,15 @@ public class g implements c.a.e.l.e.n {
                 return;
             }
         }
-        this.f19625i = false;
+        this.f19640i = false;
         if (forumData == null) {
             return;
         }
-        this.f19621e = forumData.getName();
-        this.f19622f = forumData.getImage_url();
-        this.f19623g = forumData.getPost_num();
-        this.f19624h = forumData.getMember_num();
-        this.f19626j = forumData.getId();
+        this.f19636e = forumData.getName();
+        this.f19637f = forumData.getImage_url();
+        this.f19638g = forumData.getPost_num();
+        this.f19639h = forumData.getMember_num();
+        this.f19641j = forumData.getId();
         this.l = forumData.isLike() == 1;
     }
 
@@ -101,15 +101,15 @@ public class g implements c.a.e.l.e.n {
                 return;
             }
         }
-        this.f19625i = false;
+        this.f19640i = false;
         if (z1Var == null) {
             return;
         }
-        this.f19621e = z1Var.f14374b;
-        this.f19622f = z1Var.f14375c;
-        this.f19623g = z1Var.f14380h;
-        this.f19624h = z1Var.f14381i;
-        this.f19626j = z1Var.f14373a;
+        this.f19636e = z1Var.f14374b;
+        this.f19637f = z1Var.f14375c;
+        this.f19638g = z1Var.f14380h;
+        this.f19639h = z1Var.f14381i;
+        this.f19641j = z1Var.f14373a;
         this.l = z1Var.getIsLike();
     }
 }

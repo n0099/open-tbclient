@@ -62,7 +62,7 @@ public class a {
         BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
         StatisticItem param = new StatisticItem("c13271").param("obj_type", fVar.f14172g).param("obj_locate", fVar.f14173h).param("obj_id", fVar.f14174i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
         if (d2Var != null) {
-            param.param("tid", d2Var.f0()).param("nid", d2Var.F0()).param("fid", d2Var.T()).param("ab_tag", d2Var.Y0).param("recom_source", d2Var.W0).param("weight", d2Var.X0).param("extra", d2Var.Z0);
+            param.param("tid", d2Var.f0()).param("nid", d2Var.F0()).param("fid", d2Var.T()).param("ab_tag", d2Var.Z0).param("recom_source", d2Var.X0).param("weight", d2Var.Y0).param("extra", d2Var.a1);
             if (d2Var.L() != null) {
                 param.param(TiebaStatic.Params.OBJ_PARAM4, d2Var.L().oriUgcNid);
                 if (d2Var.P1() || d2Var.O1()) {
@@ -72,7 +72,7 @@ public class a {
             if (d2Var.R1()) {
                 param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
             } else if (!d2Var.M1() && !d2Var.P1()) {
-                int i2 = d2Var.c0;
+                int i2 = d2Var.i0;
                 if (i2 == 0 || i2 == 40) {
                     param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
                 }
@@ -132,7 +132,7 @@ public class a {
         httpMessage.addHeader("needSig", "1");
         if (z) {
             if (!TextUtils.isEmpty(c.a.q0.j0.f.b())) {
-                httpMessage.addParam("BDUSS", c.a.q0.j0.f.b());
+                httpMessage.addParam(HttpRequest.BDUSS, c.a.q0.j0.f.b());
             }
             if (!TextUtils.isEmpty(c.a.q0.j0.f.f())) {
                 httpMessage.addParam(HttpRequest.TBS, c.a.q0.j0.f.f());
@@ -147,7 +147,7 @@ public class a {
     public void d(AgreeData agreeData, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, eVar) == null) {
-            eVar.f20841b = agreeData;
+            eVar.f20853b = agreeData;
             if (agreeData.isInThread) {
                 BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
                 if (baijiahaoData != null) {

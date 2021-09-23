@@ -41,8 +41,8 @@ public class c extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, mVar, adSlot) == null) {
             BannerExpressVideoView bannerExpressVideoView = new BannerExpressVideoView(context, mVar, adSlot);
-            this.f66247a = bannerExpressVideoView;
-            a(bannerExpressVideoView.getCurView(), this.f66249c);
+            this.f66558a = bannerExpressVideoView;
+            a(bannerExpressVideoView.getCurView(), this.f66560c);
         }
     }
 
@@ -51,7 +51,7 @@ public class c extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a aVar = this.f66247a;
+            a aVar = this.f66558a;
             if (aVar != null) {
                 return ((BannerExpressVideoView) aVar).getVideoModel();
             }
@@ -64,7 +64,7 @@ public class c extends b {
     public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, expressVideoAdListener) == null) || (aVar = this.f66247a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, expressVideoAdListener) == null) || (aVar = this.f66558a) == null) {
             return;
         }
         aVar.setVideoAdListener(expressVideoAdListener);

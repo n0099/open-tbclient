@@ -63,7 +63,7 @@ public class m {
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                View.OnClickListener onClickListener = this.f14480e.f47486c;
+                View.OnClickListener onClickListener = this.f14480e.f47588c;
                 if (onClickListener != null) {
                     onClickListener.onClick(view);
                 }
@@ -259,7 +259,7 @@ public class m {
         TextView f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, aVar, onClickListener, Boolean.valueOf(z)})) == null) {
-            int i2 = b.f14483b[aVar.f47485b.ordinal()];
+            int i2 = b.f14483b[aVar.f47587b.ordinal()];
             if (i2 == 1) {
                 f2 = f(context);
             } else if (i2 == 2) {
@@ -269,7 +269,7 @@ public class m {
             } else {
                 f2 = e(context);
             }
-            f2.setText(aVar.f47484a);
+            f2.setText(aVar.f47586a);
             if (z) {
                 c.a.q0.s.u.c.d(f2).A(R.dimen.T_X08);
             }
@@ -286,41 +286,41 @@ public class m {
             LinearLayout linearLayout = new LinearLayout(context);
             linearLayout.setPadding(0, c.a.e.e.p.l.g(context, R.dimen.M_H_X008), 0, c.a.e.e.p.l.g(context, R.dimen.M_H_X008));
             linearLayout.setGravity(17);
-            int i2 = b.f14482a[bVar.f47487a.ordinal()];
+            int i2 = b.f14482a[bVar.f47589a.ordinal()];
             boolean z = true;
             if (i2 == 1) {
                 linearLayout.setOrientation(0);
                 linearLayout.setWeightSum(837.0f);
-                View g2 = g(context, bVar.f47488b, onClickListener);
+                View g2 = g(context, bVar.f47590b, onClickListener);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, f14479a);
                 layoutParams.weight = 494.0f;
                 linearLayout.addView(g2, layoutParams);
             } else if (i2 == 2) {
                 linearLayout.setOrientation(0);
-                if (bVar.f47488b.f47484a.length() <= 6 && bVar.f47489c.f47484a.length() <= 6) {
+                if (bVar.f47590b.f47586a.length() <= 6 && bVar.f47591c.f47586a.length() <= 6) {
                     z = false;
                 }
-                View h2 = h(context, bVar.f47488b, onClickListener, z);
+                View h2 = h(context, bVar.f47590b, onClickListener, z);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, f14479a);
                 layoutParams2.setMargins(c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0, c.a.e.e.p.l.g(context, R.dimen.M_W_X006) / 2, 0);
                 layoutParams2.weight = 1.0f;
                 linearLayout.addView(h2, layoutParams2);
-                View h3 = h(context, bVar.f47489c, onClickListener, z);
+                View h3 = h(context, bVar.f47591c, onClickListener, z);
                 LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, f14479a);
                 layoutParams3.setMargins(c.a.e.e.p.l.g(context, R.dimen.M_W_X006) / 2, 0, c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0);
                 layoutParams3.weight = 1.0f;
                 linearLayout.addView(h3, layoutParams3);
             } else if (i2 == 3) {
                 linearLayout.setOrientation(1);
-                View g3 = g(context, bVar.f47488b, onClickListener);
+                View g3 = g(context, bVar.f47590b, onClickListener);
                 LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, f14479a);
                 layoutParams4.setMargins(c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0, c.a.e.e.p.l.g(context, R.dimen.M_W_X012), c.a.e.e.p.l.g(context, R.dimen.M_H_X005));
                 linearLayout.addView(g3, layoutParams4);
-                View g4 = g(context, bVar.f47489c, onClickListener);
+                View g4 = g(context, bVar.f47591c, onClickListener);
                 LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(-1, f14479a);
                 layoutParams5.setMargins(c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0, c.a.e.e.p.l.g(context, R.dimen.M_W_X012), c.a.e.e.p.l.g(context, R.dimen.M_H_X005));
                 linearLayout.addView(g4, layoutParams5);
-                View g5 = g(context, bVar.f47490d, onClickListener);
+                View g5 = g(context, bVar.f47592d, onClickListener);
                 LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(-1, f14479a);
                 layoutParams6.setMargins(c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0, c.a.e.e.p.l.g(context, R.dimen.M_W_X012), 0);
                 linearLayout.addView(g5, layoutParams6);

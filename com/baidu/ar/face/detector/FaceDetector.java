@@ -249,14 +249,14 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         }
     }
 
-    public void a(a.C1630a c1630a, int i2, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
+    public void a(a.C1634a c1634a, int i2, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{c1630a, Integer.valueOf(i2), bVar, bVar2, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{c1634a, Integer.valueOf(i2), bVar, bVar2, str}) == null) {
             this.oA.G(i2);
-            if (c1630a != null) {
-                this.oA.a(Float.parseFloat(c1630a.pR), Float.parseFloat(c1630a.pS));
-                this.oA.d(Float.parseFloat(c1630a.pT));
+            if (c1634a != null) {
+                this.oA.a(Float.parseFloat(c1634a.pR), Float.parseFloat(c1634a.pS));
+                this.oA.d(Float.parseFloat(c1634a.pT));
             }
             this.oA.z(bVar.dy());
             this.oA.B(bVar.dz());

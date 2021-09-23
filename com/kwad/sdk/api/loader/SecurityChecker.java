@@ -16,7 +16,7 @@ public class SecurityChecker {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile State f71086a;
+    public static volatile State f71405a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -46,7 +46,7 @@ public class SecurityChecker {
             INIT = new State("INIT", 0);
             DATA_VALID = new State("DATA_VALID", 1);
             MD5 = new State("MD5", 2);
-            State state = new State(com.alipay.security.mobile.module.http.model.c.f36199g, 3);
+            State state = new State(com.alipay.security.mobile.module.http.model.c.p, 3);
             SUCCESS = state;
             $VALUES = new State[]{INIT, DATA_VALID, MD5, state};
         }
@@ -90,28 +90,28 @@ public class SecurityChecker {
         void a(boolean z, State state);
     }
 
-    public static void a(File file, a.C1972a c1972a, a aVar) {
+    public static void a(File file, a.C1976a c1976a, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, file, c1972a, aVar) == null) {
-            i.a(new Runnable(c1972a, file, aVar) { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
+        if (interceptable == null || interceptable.invokeLLL(65538, null, file, c1976a, aVar) == null) {
+            i.a(new Runnable(c1976a, file, aVar) { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a.C1972a f71087a;
+                public final /* synthetic */ a.C1976a f71406a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f71088b;
+                public final /* synthetic */ File f71407b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f71089c;
+                public final /* synthetic */ a f71408c;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c1972a, file, aVar};
+                        Object[] objArr = {c1976a, file, aVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -121,27 +121,27 @@ public class SecurityChecker {
                             return;
                         }
                     }
-                    this.f71087a = c1972a;
-                    this.f71088b = file;
-                    this.f71089c = aVar;
+                    this.f71406a = c1976a;
+                    this.f71407b = file;
+                    this.f71408c = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        State unused = SecurityChecker.f71086a = State.INIT;
+                        State unused = SecurityChecker.f71405a = State.INIT;
                         try {
-                            boolean z = this.f71087a != null && SecurityChecker.b(this.f71088b) && SecurityChecker.b(this.f71088b, this.f71087a.f71092c);
+                            boolean z = this.f71406a != null && SecurityChecker.b(this.f71407b) && SecurityChecker.b(this.f71407b, this.f71406a.f71411c);
                             if (z) {
-                                State unused2 = SecurityChecker.f71086a = State.SUCCESS;
+                                State unused2 = SecurityChecker.f71405a = State.SUCCESS;
                             }
-                            a aVar2 = this.f71089c;
+                            a aVar2 = this.f71408c;
                             if (aVar2 != null) {
-                                aVar2.a(z, SecurityChecker.f71086a);
+                                aVar2.a(z, SecurityChecker.f71405a);
                             }
                         } catch (Exception e2) {
-                            a aVar3 = this.f71089c;
+                            a aVar3 = this.f71408c;
                             if (aVar3 != null) {
                                 aVar3.a(e2);
                             }
@@ -156,7 +156,7 @@ public class SecurityChecker {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
-            f71086a = State.DATA_VALID;
+            f71405a = State.DATA_VALID;
             return file != null && file.exists() && file.getName().endsWith(".apk") && file.length() > 0;
         }
         return invokeL.booleanValue;
@@ -166,7 +166,7 @@ public class SecurityChecker {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, file, str)) == null) {
-            f71086a = State.MD5;
+            f71405a = State.MD5;
             if (TextUtils.isEmpty(str)) {
                 return false;
             }

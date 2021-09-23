@@ -13,15 +13,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f35071a = 4;
+    public static int f35094a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AbstractC1548a f35072b;
+    public static AbstractC1547a f35095b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.p.a.e.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static abstract class AbstractC1548a {
+    public static abstract class AbstractC1547a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,7 +56,7 @@ public class a {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, null, i2) == null) {
-            f35071a = i2;
+            f35094a = i2;
         }
     }
 
@@ -72,10 +72,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || str2 == null) {
             return;
         }
-        int i2 = f35071a;
-        AbstractC1548a abstractC1548a = f35072b;
-        if (abstractC1548a != null) {
-            abstractC1548a.a(f(str), str2);
+        int i2 = f35094a;
+        AbstractC1547a abstractC1547a = f35095b;
+        if (abstractC1547a != null) {
+            abstractC1547a.a(f(str), str2);
         }
     }
 
@@ -85,12 +85,12 @@ public class a {
             if (str2 == null && th == null) {
                 return;
             }
-            if (f35071a <= 6) {
+            if (f35094a <= 6) {
                 f(str);
             }
-            AbstractC1548a abstractC1548a = f35072b;
-            if (abstractC1548a != null) {
-                abstractC1548a.b(f(str), str2, th);
+            AbstractC1547a abstractC1547a = f35095b;
+            if (abstractC1547a != null) {
+                abstractC1547a.b(f(str), str2, th);
             }
         }
     }
@@ -98,7 +98,7 @@ public class a {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f35071a <= 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f35094a <= 3 : invokeV.booleanValue;
     }
 
     public static String f(String str) {
@@ -118,12 +118,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f35071a <= 3) {
+        if (f35094a <= 3) {
             f(str);
         }
-        AbstractC1548a abstractC1548a = f35072b;
-        if (abstractC1548a != null) {
-            abstractC1548a.c(f(str), str2);
+        AbstractC1547a abstractC1547a = f35095b;
+        if (abstractC1547a != null) {
+            abstractC1547a.c(f(str), str2);
         }
     }
 
@@ -139,12 +139,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f35071a <= 4) {
+        if (f35094a <= 4) {
             f(str);
         }
-        AbstractC1548a abstractC1548a = f35072b;
-        if (abstractC1548a != null) {
-            abstractC1548a.d(f(str), str2);
+        AbstractC1547a abstractC1547a = f35095b;
+        if (abstractC1547a != null) {
+            abstractC1547a.d(f(str), str2);
         }
     }
 
@@ -153,12 +153,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f35071a <= 5) {
+        if (f35094a <= 5) {
             f(str);
         }
-        AbstractC1548a abstractC1548a = f35072b;
-        if (abstractC1548a != null) {
-            abstractC1548a.f(f(str), str2);
+        AbstractC1547a abstractC1547a = f35095b;
+        if (abstractC1547a != null) {
+            abstractC1547a.f(f(str), str2);
         }
     }
 
@@ -167,12 +167,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f35071a <= 6) {
+        if (f35094a <= 6) {
             f(str);
         }
-        AbstractC1548a abstractC1548a = f35072b;
-        if (abstractC1548a != null) {
-            abstractC1548a.e(f(str), str2);
+        AbstractC1547a abstractC1547a = f35095b;
+        if (abstractC1547a != null) {
+            abstractC1547a.e(f(str), str2);
         }
     }
 }

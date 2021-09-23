@@ -39,7 +39,7 @@ public class d extends f {
                 return;
             }
         }
-        x = k.f7077a;
+        x = k.f7085a;
         y = 35;
     }
 
@@ -57,7 +57,7 @@ public class d extends f {
             }
         }
         this.v = false;
-        this.f7065c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
+        this.f7073c = AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
     }
 
     @Override // c.a.p0.a.j2.p.f, c.a.p0.a.j2.p.e
@@ -65,8 +65,8 @@ public class d extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f7070h == null) {
-                this.f7070h = new JSONObject();
+            if (this.f7078h == null) {
+                this.f7078h = new JSONObject();
             }
             try {
                 if (this.w != null) {
@@ -77,12 +77,12 @@ public class d extends f {
                         }
                     }
                     if (this.w.length() != 0) {
-                        this.f7070h.put("info", this.w);
+                        this.f7078h.put("info", this.w);
                     }
                 }
                 ExtensionCore M = c.a.p0.a.h0.u.g.N().M();
                 if (M != null) {
-                    this.f7070h.put("extension_ver", M.extensionCoreVersionName);
+                    this.f7078h.put("extension_ver", M.extensionCoreVersionName);
                 }
             } catch (JSONException e2) {
                 if (x) {
@@ -119,7 +119,7 @@ public class d extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f7068f = str;
+            this.f7076f = str;
             return this;
         }
         return (d) invokeL.objValue;
@@ -139,7 +139,7 @@ public class d extends f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.f7064b = String.valueOf(i2);
+            this.f7072b = String.valueOf(i2);
             return this;
         }
         return (d) invokeI.objValue;
@@ -149,7 +149,7 @@ public class d extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
-            this.f7064b = String.valueOf(aVar.a());
+            this.f7072b = String.valueOf(aVar.a());
             String sb = aVar.f().toString();
             if (!TextUtils.isEmpty(sb)) {
                 l("detail", sb);
@@ -163,7 +163,7 @@ public class d extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f7063a = str;
+            this.f7071a = str;
             return this;
         }
         return (d) invokeL.objValue;
@@ -177,10 +177,10 @@ public class d extends f {
                 return this;
             }
             if (!TextUtils.isEmpty(eVar.T())) {
-                this.f7065c = eVar.T();
+                this.f7073c = eVar.T();
             }
             if (!TextUtils.isEmpty(eVar.H())) {
-                this.f7068f = eVar.H();
+                this.f7076f = eVar.H();
             }
             if (!TextUtils.isEmpty(eVar.W())) {
                 this.p = eVar.W();
@@ -197,7 +197,7 @@ public class d extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.f7069g = str;
+            this.f7077g = str;
             return this;
         }
         return (d) invokeL.objValue;
@@ -207,7 +207,7 @@ public class d extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            this.f7065c = str;
+            this.f7073c = str;
             return this;
         }
         return (d) invokeL.objValue;

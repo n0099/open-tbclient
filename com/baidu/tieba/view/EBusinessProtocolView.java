@@ -35,22 +35,22 @@ public class EBusinessProtocolView extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f58167e;
+    public Context f58297e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f58168f;
+    public View f58298f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f58169g;
+    public TextView f58299g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WebView f58170h;
+    public WebView f58300h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f58171i;
+    public TBSpecificationBtn f58301i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TBSpecificationBtn f58172j;
+    public TBSpecificationBtn f58302j;
     public TextView k;
     public TBSpecificationBtn l;
     public boolean m;
@@ -128,7 +128,7 @@ public class EBusinessProtocolView extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EBusinessProtocolView f58173a;
+        public final /* synthetic */ EBusinessProtocolView f58303a;
 
         public a(EBusinessProtocolView eBusinessProtocolView) {
             Interceptable interceptable = $ic;
@@ -145,16 +145,16 @@ public class EBusinessProtocolView extends Dialog {
                     return;
                 }
             }
-            this.f58173a = eBusinessProtocolView;
+            this.f58303a = eBusinessProtocolView;
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                String str2 = "javascript:setContentTextColor(" + this.f58173a.r + SmallTailInfo.EMOTION_SUFFIX;
-                if (this.f58173a.f58170h != null) {
-                    this.f58173a.f58170h.loadUrl(str2);
+                String str2 = "javascript:setContentTextColor(" + this.f58303a.r + SmallTailInfo.EMOTION_SUFFIX;
+                if (this.f58303a.f58300h != null) {
+                    this.f58303a.f58300h.loadUrl(str2);
                 }
             }
         }
@@ -166,7 +166,7 @@ public class EBusinessProtocolView extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EBusinessProtocolView f58174e;
+        public final /* synthetic */ EBusinessProtocolView f58304e;
 
         public b(EBusinessProtocolView eBusinessProtocolView) {
             Interceptable interceptable = $ic;
@@ -183,18 +183,18 @@ public class EBusinessProtocolView extends Dialog {
                     return;
                 }
             }
-            this.f58174e = eBusinessProtocolView;
+            this.f58304e = eBusinessProtocolView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f58174e.m = true;
-                if (this.f58174e.s != null) {
-                    this.f58174e.s.a(this.f58174e.m);
+                this.f58304e.m = true;
+                if (this.f58304e.s != null) {
+                    this.f58304e.s.a(this.f58304e.m);
                 }
-                this.f58174e.dismiss();
+                this.f58304e.dismiss();
             }
         }
     }
@@ -205,7 +205,7 @@ public class EBusinessProtocolView extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EBusinessProtocolView f58175e;
+        public final /* synthetic */ EBusinessProtocolView f58305e;
 
         public c(EBusinessProtocolView eBusinessProtocolView) {
             Interceptable interceptable = $ic;
@@ -222,18 +222,18 @@ public class EBusinessProtocolView extends Dialog {
                     return;
                 }
             }
-            this.f58175e = eBusinessProtocolView;
+            this.f58305e = eBusinessProtocolView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f58175e.m = false;
-                if (this.f58175e.s != null) {
-                    this.f58175e.s.a(this.f58175e.m);
+                this.f58305e.m = false;
+                if (this.f58305e.s != null) {
+                    this.f58305e.s.a(this.f58305e.m);
                 }
-                this.f58175e.dismiss();
+                this.f58305e.dismiss();
             }
         }
     }
@@ -244,7 +244,7 @@ public class EBusinessProtocolView extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EBusinessProtocolView f58176e;
+        public final /* synthetic */ EBusinessProtocolView f58306e;
 
         public d(EBusinessProtocolView eBusinessProtocolView) {
             Interceptable interceptable = $ic;
@@ -261,14 +261,14 @@ public class EBusinessProtocolView extends Dialog {
                     return;
                 }
             }
-            this.f58176e = eBusinessProtocolView;
+            this.f58306e = eBusinessProtocolView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f58176e.dismiss();
+                this.f58306e.dismiss();
             }
         }
     }
@@ -278,7 +278,7 @@ public class EBusinessProtocolView extends Dialog {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f58177a;
+        public static final /* synthetic */ int[] f58307a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -295,13 +295,13 @@ public class EBusinessProtocolView extends Dialog {
                 }
             }
             int[] iArr = new int[WindowType.values().length];
-            f58177a = iArr;
+            f58307a = iArr;
             try {
                 iArr[WindowType.TIP.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f58177a[WindowType.PROTOCOL.ordinal()] = 2;
+                f58307a[WindowType.PROTOCOL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -334,20 +334,20 @@ public class EBusinessProtocolView extends Dialog {
         this.m = false;
         this.r = 0;
         this.t = new a(this);
-        this.f58167e = context;
+        this.f58297e = context;
         this.q = windowType;
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = -1;
         attributes.height = -2;
         getWindow().setAttributes(attributes);
-        this.f58168f = LayoutInflater.from(getContext()).inflate(R.layout.e_business_protocol_dialog, (ViewGroup) null);
+        this.f58298f = LayoutInflater.from(getContext()).inflate(R.layout.e_business_protocol_dialog, (ViewGroup) null);
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f58172j.setOnClickListener(new b(this));
-            this.f58171i.setOnClickListener(new c(this));
+            this.f58302j.setOnClickListener(new b(this));
+            this.f58301i.setOnClickListener(new c(this));
             this.l.setOnClickListener(new d(this));
         }
     }
@@ -355,11 +355,11 @@ public class EBusinessProtocolView extends Dialog {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f58169g = (TextView) this.f58168f.findViewById(R.id.protocol_title);
-            this.f58170h = (WebView) this.f58168f.findViewById(R.id.protocol_content);
-            this.f58172j = (TBSpecificationBtn) this.f58168f.findViewById(R.id.agree_protocol);
-            this.f58171i = (TBSpecificationBtn) this.f58168f.findViewById(R.id.cancel_protocol);
-            this.k = (TextView) this.f58168f.findViewById(R.id.tip_content);
+            this.f58299g = (TextView) this.f58298f.findViewById(R.id.protocol_title);
+            this.f58300h = (WebView) this.f58298f.findViewById(R.id.protocol_content);
+            this.f58302j = (TBSpecificationBtn) this.f58298f.findViewById(R.id.agree_protocol);
+            this.f58301i = (TBSpecificationBtn) this.f58298f.findViewById(R.id.cancel_protocol);
+            this.k = (TextView) this.f58298f.findViewById(R.id.tip_content);
             this.l = (TBSpecificationBtn) findViewById(R.id.tip_known);
             h();
             f();
@@ -369,14 +369,14 @@ public class EBusinessProtocolView extends Dialog {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f58169g.setText(this.n);
-            int i2 = e.f58177a[this.q.ordinal()];
+            this.f58299g.setText(this.n);
+            int i2 = e.f58307a[this.q.ordinal()];
             if (i2 == 1) {
                 this.k.setVisibility(0);
                 this.l.setVisibility(0);
                 setCanceledOnTouchOutside(true);
                 this.k.setText(this.o);
-                this.l.setText(this.f58167e.getResources().getString(R.string.tip_known));
+                this.l.setText(this.f58297e.getResources().getString(R.string.tip_known));
                 c.a.q0.s.f0.n.c cVar = new c.a.q0.s.f0.n.c();
                 cVar.o(R.color.CAM_X0302);
                 this.l.setTextSize(R.dimen.T_X08);
@@ -384,21 +384,21 @@ public class EBusinessProtocolView extends Dialog {
             } else if (i2 != 2) {
             } else {
                 j();
-                this.f58170h.setVisibility(0);
-                this.f58172j.setVisibility(0);
-                this.f58171i.setVisibility(0);
-                this.f58170h.loadUrl(this.p);
+                this.f58300h.setVisibility(0);
+                this.f58302j.setVisibility(0);
+                this.f58301i.setVisibility(0);
+                this.f58300h.loadUrl(this.p);
                 c.a.q0.s.f0.n.c cVar2 = new c.a.q0.s.f0.n.c();
                 cVar2.o(R.color.CAM_X0107);
-                this.f58171i.setConfig(cVar2);
-                this.f58171i.setTextSize(R.dimen.tbds42);
-                this.f58171i.setText(this.f58167e.getResources().getString(R.string.protocol_cancel));
-                this.f58172j.setTextSize(R.dimen.tbds42);
+                this.f58301i.setConfig(cVar2);
+                this.f58301i.setTextSize(R.dimen.tbds42);
+                this.f58301i.setText(this.f58297e.getResources().getString(R.string.protocol_cancel));
+                this.f58302j.setTextSize(R.dimen.tbds42);
                 c.a.q0.s.f0.n.c cVar3 = new c.a.q0.s.f0.n.c();
                 cVar3.o(R.color.CAM_X0302);
-                this.f58172j.setConfig(cVar3);
-                this.f58172j.setTextSize(R.dimen.tbds42);
-                this.f58172j.setText(this.f58167e.getResources().getString(R.string.protocol_agree));
+                this.f58302j.setConfig(cVar3);
+                this.f58302j.setTextSize(R.dimen.tbds42);
+                this.f58302j.setText(this.f58297e.getResources().getString(R.string.protocol_agree));
             }
         }
     }
@@ -410,7 +410,7 @@ public class EBusinessProtocolView extends Dialog {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadius(dimensionPixelSize);
             gradientDrawable.setColor(SkinManager.getColor(i2, R.color.CAM_X0211));
-            this.f58168f.setBackgroundDrawable(gradientDrawable);
+            this.f58298f.setBackgroundDrawable(gradientDrawable);
         }
     }
 
@@ -423,11 +423,11 @@ public class EBusinessProtocolView extends Dialog {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            WebSettings settings = this.f58170h.getSettings();
+            WebSettings settings = this.f58300h.getSettings();
             settings.setUseWideViewPort(true);
             settings.setLoadWithOverviewMode(true);
             settings.setJavaScriptEnabled(true);
-            this.f58170h.setWebViewClient(this.t);
+            this.f58300h.setWebViewClient(this.t);
             settings.setTextZoom(115);
         }
     }
@@ -444,10 +444,10 @@ public class EBusinessProtocolView extends Dialog {
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             i(i2);
             this.r = i2;
-            SkinManager.setViewTextColor(this.f58169g, R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f58170h, R.color.CAM_X0211);
-            SkinManager.setViewTextColor(this.f58171i, R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.f58172j, R.color.CAM_X0303);
+            SkinManager.setViewTextColor(this.f58299g, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f58300h, R.color.CAM_X0211);
+            SkinManager.setViewTextColor(this.f58301i, R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.f58302j, R.color.CAM_X0303);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0105);
         }
     }
@@ -458,9 +458,9 @@ public class EBusinessProtocolView extends Dialog {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            layoutParams.width = this.f58167e.getResources().getDisplayMetrics().widthPixels - l.g(this.f58167e, R.dimen.tbds90);
-            layoutParams.height = l.g(this.f58167e, R.dimen.tbds879);
-            setContentView(this.f58168f, layoutParams);
+            layoutParams.width = this.f58297e.getResources().getDisplayMetrics().widthPixels - l.g(this.f58297e, R.dimen.tbds90);
+            layoutParams.height = l.g(this.f58297e, R.dimen.tbds879);
+            setContentView(this.f58298f, layoutParams);
             setCanceledOnTouchOutside(true);
             g();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

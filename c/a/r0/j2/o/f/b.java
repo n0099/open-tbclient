@@ -88,22 +88,22 @@ public class b extends a {
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.q = new j(this.f20590b.getVideoPbFragment(), PostData.u0);
-            this.n = new a0(this.f20590b.getVideoPbFragment(), c.a.r0.j2.h.j.f19632g, this.f20590b.getUniqueId());
-            this.m = new h0(this.f20590b.getVideoPbFragment(), l.J0);
-            y0 y0Var = new y0(this.f20590b.getVideoPbFragment(), PostData.v0);
+            this.q = new j(this.f20605b.getVideoPbFragment(), PostData.u0);
+            this.n = new a0(this.f20605b.getVideoPbFragment(), c.a.r0.j2.h.j.f19647g, this.f20605b.getUniqueId());
+            this.m = new h0(this.f20605b.getVideoPbFragment(), l.J0);
+            y0 y0Var = new y0(this.f20605b.getVideoPbFragment(), PostData.v0);
             this.o = y0Var;
-            y0Var.Y0(this.f20590b.getVideoPbFragment());
-            this.o.U0(this.f20590b.getVideoPbFragment().getFromVideoPageType());
-            this.p = new PbReplyLoadMoreAdapter(this.f20590b.getVideoPbFragment(), PostData.B0);
-            this.r = new i(this.f20590b.getContext(), v.f19683f, this.f20590b.getVideoPbFragment());
-            this.f20593e.add(this.q);
-            this.f20593e.add(this.r);
-            this.f20593e.add(this.m);
-            this.f20593e.add(this.n);
-            this.f20593e.add(this.o);
-            this.f20593e.add(this.p);
-            this.f20591c.addAdapters(this.f20593e);
+            y0Var.Y0(this.f20605b.getVideoPbFragment());
+            this.o.U0(this.f20605b.getVideoPbFragment().getFromVideoPageType());
+            this.p = new PbReplyLoadMoreAdapter(this.f20605b.getVideoPbFragment(), PostData.B0);
+            this.r = new i(this.f20605b.getContext(), v.f19698f, this.f20605b.getVideoPbFragment());
+            this.f20608e.add(this.q);
+            this.f20608e.add(this.r);
+            this.f20608e.add(this.m);
+            this.f20608e.add(this.n);
+            this.f20608e.add(this.o);
+            this.f20608e.add(this.p);
+            this.f20606c.addAdapters(this.f20608e);
         }
     }
 
@@ -141,10 +141,10 @@ public class b extends a {
     public void k() {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (bdTypeRecyclerView = this.f20591c) == null || bdTypeRecyclerView.getAdapter() == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (bdTypeRecyclerView = this.f20606c) == null || bdTypeRecyclerView.getAdapter() == null) {
             return;
         }
-        this.f20591c.getListAdapter().notifyDataSetChanged();
+        this.f20606c.getListAdapter().notifyDataSetChanged();
     }
 
     @Override // c.a.r0.j2.o.f.a

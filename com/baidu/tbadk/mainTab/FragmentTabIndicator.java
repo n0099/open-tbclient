@@ -43,22 +43,22 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public int dayTextColorResId;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48396e;
+    public int f48504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48397f;
+    public int f48505f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48398g;
+    public int f48506g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48399h;
+    public int f48507h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f48400i;
+    public boolean f48508i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f48401j;
+    public int f48509j;
     public String k;
     public String l;
     public BdUniqueId m;
@@ -76,7 +76,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FragmentTabIndicator f48402a;
+        public final /* synthetic */ FragmentTabIndicator f48510a;
 
         public a(FragmentTabIndicator fragmentTabIndicator) {
             Interceptable interceptable = $ic;
@@ -93,14 +93,14 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                     return;
                 }
             }
-            this.f48402a = fragmentTabIndicator;
+            this.f48510a = fragmentTabIndicator;
         }
 
         @Override // c.a.e.e.m.d
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f48402a.f48400i = true;
+                this.f48510a.f48508i = true;
             }
         }
     }
@@ -111,7 +111,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FragmentTabIndicator f48403a;
+        public final /* synthetic */ FragmentTabIndicator f48511a;
 
         public b(FragmentTabIndicator fragmentTabIndicator) {
             Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                     return;
                 }
             }
-            this.f48403a = fragmentTabIndicator;
+            this.f48511a = fragmentTabIndicator;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,13 +137,13 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((b) aVar, str, i2);
-                if (this.f48403a.n == null || aVar == null || !aVar.w()) {
-                    this.f48403a.f();
+                if (this.f48511a.n == null || aVar == null || !aVar.w()) {
+                    this.f48511a.f();
                     return;
                 }
-                this.f48403a.n.setBackgroundResource(0);
-                this.f48403a.n.setImageDrawable(null);
-                aVar.h(this.f48403a.n);
+                this.f48511a.n.setBackgroundResource(0);
+                this.f48511a.n.setImageDrawable(null);
+                aVar.h(this.f48511a.n);
             }
         }
     }
@@ -166,9 +166,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 return;
             }
         }
-        this.f48396e = 0;
-        this.f48399h = 0;
-        this.f48400i = true;
+        this.f48504e = 0;
+        this.f48507h = 0;
+        this.f48508i = true;
         this.r = true;
         this.s = new HashMap<>();
         this.t = new b(this);
@@ -196,7 +196,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void addTip(String str, TbFragmentTabIndicator.a aVar) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || (view = aVar.f48413a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || (view = aVar.f48521a) == null) {
             return;
         }
         addView(view);
@@ -206,14 +206,14 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void checkAndStartAnimation() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f48399h > 0 && this.f48400i) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f48507h > 0 && this.f48508i) {
             try {
-                this.f48400i = false;
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.n.getContext(), this.f48399h);
+                this.f48508i = false;
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.n.getContext(), this.f48507h);
                 loadAnimation.setAnimationListener(new a(this));
                 this.n.startAnimation(loadAnimation);
             } catch (Exception unused) {
-                this.f48400i = true;
+                this.f48508i = true;
             }
         }
     }
@@ -234,7 +234,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f48397f > 0 || this.f48398g > 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f48505f > 0 || this.f48506g > 0) {
             return;
         }
         if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.l)) {
@@ -249,7 +249,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public final void f() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (i2 = this.f48401j) <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (i2 = this.f48509j) <= 0) {
             return;
         }
         SkinManager.setImageResource(this.n, i2);
@@ -288,7 +288,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 SkinManager.setViewTextColor(this.o, this.dayTextColorResId, 1, 0);
             }
             if (this.o != null) {
-                this.o.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getSkinDrawable(null, this.f48397f), SkinManager.getSkinDrawable(null, this.f48398g), (Drawable) null);
+                this.o.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getSkinDrawable(null, this.f48505f), SkinManager.getSkinDrawable(null, this.f48506g), (Drawable) null);
             }
             e();
             for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.s.entrySet()) {
@@ -307,21 +307,21 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it = this.s.entrySet().iterator();
             while (it.hasNext() && this.o.getText() != null) {
                 TbFragmentTabIndicator.a value = it.next().getValue();
-                int measuredWidth2 = value.f48413a.getMeasuredWidth();
-                int measuredHeight2 = value.f48413a.getMeasuredHeight();
+                int measuredWidth2 = value.f48521a.getMeasuredWidth();
+                int measuredHeight2 = value.f48521a.getMeasuredHeight();
                 int measureText = (int) this.o.getPaint().measureText(this.o.getText().toString());
-                if (value.f48414b) {
-                    measuredWidth = (getMeasuredWidth() / 2) + value.f48415c + (measureText / 2);
+                if (value.f48522b) {
+                    measuredWidth = (getMeasuredWidth() / 2) + value.f48523c + (measureText / 2);
                 } else {
-                    measuredWidth = ((getMeasuredWidth() / 2) - value.f48415c) - (measureText / 2);
+                    measuredWidth = ((getMeasuredWidth() / 2) - value.f48523c) - (measureText / 2);
                 }
-                if (this.f48396e == 1) {
+                if (this.f48504e == 1) {
                     measuredWidth -= this.q;
                     measuredHeight = this.p;
                 } else {
-                    measuredHeight = (getMeasuredHeight() / 2) - (value.f48413a.getMeasuredHeight() / 2);
+                    measuredHeight = (getMeasuredHeight() / 2) - (value.f48521a.getMeasuredHeight() / 2);
                 }
-                value.f48413a.layout(measuredWidth, measuredHeight, measuredWidth2 + measuredWidth, measuredHeight2 + measuredHeight);
+                value.f48521a.layout(measuredWidth, measuredHeight, measuredWidth2 + measuredWidth, measuredHeight2 + measuredHeight);
             }
         }
     }
@@ -335,10 +335,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             int size2 = View.MeasureSpec.getSize(i3);
             for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.s.entrySet()) {
                 TbFragmentTabIndicator.a value = entry.getValue();
-                ViewGroup.LayoutParams layoutParams = value.f48413a.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = value.f48521a.getLayoutParams();
                 int i4 = layoutParams.width;
                 if (i4 == -2) {
-                    value.f48413a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
+                    value.f48521a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
                 } else {
                     if (i4 > size) {
                         i4 = size;
@@ -347,7 +347,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                     if (i5 > size2) {
                         i5 = size2;
                     }
-                    value.f48413a.measure(View.MeasureSpec.makeMeasureSpec(i4, 1073741824), View.MeasureSpec.makeMeasureSpec(i5, 1073741824));
+                    value.f48521a.measure(View.MeasureSpec.makeMeasureSpec(i4, 1073741824), View.MeasureSpec.makeMeasureSpec(i5, 1073741824));
                 }
             }
         }
@@ -377,7 +377,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             if (this.s.containsKey(str)) {
-                removeView(this.s.get(str).f48413a);
+                removeView(this.s.get(str).f48521a);
                 return this.s.remove(str);
             }
             return null;
@@ -389,7 +389,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setAnimationResId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f48399h = i2;
+            this.f48507h = i2;
         }
     }
 
@@ -416,7 +416,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setCompoundDrawablesRightResId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f48398g = i2;
+            this.f48506g = i2;
         }
     }
 
@@ -424,7 +424,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setCompoundDrawablesTopResId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f48397f = i2;
+            this.f48505f = i2;
         }
     }
 
@@ -460,7 +460,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setIconResourceId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f48401j = i2;
+            this.f48509j = i2;
             f();
         }
     }
@@ -607,7 +607,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public void setTipPosType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.f48396e = i2;
+            this.f48504e = i2;
         }
     }
 
@@ -663,9 +663,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 return;
             }
         }
-        this.f48396e = 0;
-        this.f48399h = 0;
-        this.f48400i = true;
+        this.f48504e = 0;
+        this.f48507h = 0;
+        this.f48508i = true;
         this.r = true;
         this.s = new HashMap<>();
         this.t = new b(this);

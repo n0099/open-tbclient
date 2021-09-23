@@ -6,7 +6,6 @@ import c.a.p0.a.k;
 import c.a.p0.t.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.task.item.StrictModeTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,11 +25,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6898b;
+    public static final boolean f6906b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f6899a;
+    public final String f6907a;
 
     /* renamed from: c.a.p0.a.i2.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -85,7 +84,7 @@ public class a {
                 return;
             }
         }
-        f6898b = k.f7077a;
+        f6906b = k.f7085a;
     }
 
     public a() {
@@ -105,16 +104,16 @@ public class a {
         try {
             str = AppRuntime.getAppContext().getFilesDir().getPath();
         } catch (Exception e2) {
-            if (f6898b) {
+            if (f6906b) {
                 throw e2;
             }
             str = "";
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f6899a = str + File.separator + "aiapps_folder/stability";
+            this.f6907a = str + File.separator + "aiapps_folder/stability";
             return;
         }
-        this.f6899a = "";
+        this.f6907a = "";
     }
 
     public final void a(int i2) {
@@ -129,7 +128,7 @@ public class a {
         int i3 = 0;
         for (File file : c2) {
             if (i3 < i2) {
-                if (file.lastModified() - currentTimeMillis > StrictModeTask.CLEAN_FILE_INTERVAL) {
+                if (file.lastModified() - currentTimeMillis > 172800000) {
                     arrayList.add(file);
                 }
             } else {
@@ -146,11 +145,11 @@ public class a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            if (TextUtils.isEmpty(this.f6899a)) {
+            if (TextUtils.isEmpty(this.f6907a)) {
                 return null;
             }
             String V = e.V() == null ? "" : e.V();
-            return new File(this.f6899a + File.separator + V + "_" + j2 + "_swan_stability_traces.log");
+            return new File(this.f6907a + File.separator + V + "_" + j2 + "_swan_stability_traces.log");
         }
         return (File) invokeJ.objValue;
     }
@@ -159,13 +158,13 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f6899a)) {
+            if (TextUtils.isEmpty(this.f6907a)) {
                 return null;
             }
             try {
-                return new File(this.f6899a).listFiles();
+                return new File(this.f6907a).listFiles();
             } catch (Exception unused) {
-                boolean z = f6898b;
+                boolean z = f6906b;
                 return null;
             }
         }
@@ -192,7 +191,7 @@ public class a {
                 }
                 return null;
             } catch (Exception unused) {
-                boolean z = f6898b;
+                boolean z = f6906b;
                 return null;
             }
         }

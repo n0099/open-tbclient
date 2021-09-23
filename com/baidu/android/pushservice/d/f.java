@@ -13,10 +13,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37160a;
+    public String f37208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37161b;
+    public String f37209b;
 
     public f(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -33,27 +33,27 @@ public class f {
                 return;
             }
         }
-        this.f37160a = str;
-        this.f37161b = str2;
+        this.f37208a = str;
+        this.f37209b = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37160a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37208a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37161b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37209b : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "BindCache [mApiKey=" + this.f37160a + ", mContent=" + this.f37161b + PreferencesUtil.RIGHT_MOUNT;
+            return "BindCache [mApiKey=" + this.f37208a + ", mContent=" + this.f37209b + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

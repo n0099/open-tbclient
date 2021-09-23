@@ -11,7 +11,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f76045a;
+    public static final Pattern f76364a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class g {
                 return;
             }
         }
-        f76045a = Pattern.compile("([\t\r\n])+");
+        f76364a = Pattern.compile("([\t\r\n])+");
     }
 
     /* renamed from: a  reason: collision with other method in class */

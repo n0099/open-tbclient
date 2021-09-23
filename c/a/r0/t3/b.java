@@ -32,34 +32,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f25069a;
+    public TbPageContext f25090a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f25070b;
+    public BdUniqueId f25091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.q0.s.f0.a f25071c;
+    public c.a.q0.s.f0.a f25092c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.q0.s.s.d f25072d;
+    public c.a.q0.s.s.d f25093d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<k> f25073e;
+    public ArrayList<k> f25094e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f25074f;
+    public long f25095f;
 
     /* renamed from: g  reason: collision with root package name */
-    public UserBlockSetModel f25075g;
+    public UserBlockSetModel f25096g;
 
     /* renamed from: h  reason: collision with root package name */
-    public UserBlockInfoModel f25076h;
+    public UserBlockInfoModel f25097h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f25077i;
+    public AdapterView.OnItemClickListener f25098i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f25078j;
+    public View.OnClickListener f25099j;
     public View.OnClickListener k;
 
     /* loaded from: classes3.dex */
@@ -68,7 +68,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f25079a;
+        public final /* synthetic */ b f25100a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class b {
                     return;
                 }
             }
-            this.f25079a = bVar;
+            this.f25100a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -94,8 +94,8 @@ public class b {
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f25079a.k();
-                c.a.r0.t3.a.f((ViewGroup) this.f25079a.f25069a.getPageActivity().findViewById(16908290), str, true);
+                this.f25100a.k();
+                c.a.r0.t3.a.f((ViewGroup) this.f25100a.f25090a.getPageActivity().findViewById(16908290), str, true);
             }
         }
 
@@ -103,22 +103,22 @@ public class b {
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f25079a.k();
-                c.a.r0.t3.a.f((ViewGroup) this.f25079a.f25069a.getPageActivity().findViewById(16908290), str, false);
+                this.f25100a.k();
+                c.a.r0.t3.a.f((ViewGroup) this.f25100a.f25090a.getPageActivity().findViewById(16908290), str, false);
             }
         }
     }
 
     /* renamed from: c.a.r0.t3.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1166b implements c.a.q0.n.a {
+    public class C1164b implements c.a.q0.n.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f25080a;
+        public final /* synthetic */ b f25101a;
 
-        public C1166b(b bVar) {
+        public C1164b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,16 +133,16 @@ public class b {
                     return;
                 }
             }
-            this.f25080a = bVar;
+            this.f25101a = bVar;
         }
 
         @Override // c.a.q0.n.a
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || this.f25080a.f25069a == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || this.f25101a.f25090a == null) {
                 return;
             }
-            this.f25080a.f25069a.showToast(str);
+            this.f25101a.f25090a.showToast(str);
         }
 
         @Override // c.a.q0.n.a
@@ -160,9 +160,9 @@ public class b {
                     permissionList = null;
                 }
                 if (permissionList != null) {
-                    this.f25080a.m(i2, permissionList);
-                } else if (this.f25080a.f25069a != null) {
-                    this.f25080a.f25069a.showToast(R.string.error_unkown_try_again);
+                    this.f25101a.m(i2, permissionList);
+                } else if (this.f25101a.f25090a != null) {
+                    this.f25101a.f25090a.showToast(R.string.error_unkown_try_again);
                 }
             }
         }
@@ -174,7 +174,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f25081e;
+        public final /* synthetic */ b f25102e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -191,17 +191,17 @@ public class b {
                     return;
                 }
             }
-            this.f25081e = bVar;
+            this.f25102e = bVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                if (((k) ListUtils.getItem(this.f25081e.f25073e, i2)) != null) {
-                    this.f25081e.f25072d.r(true);
+                if (((k) ListUtils.getItem(this.f25102e.f25094e, i2)) != null) {
+                    this.f25102e.f25093d.r(true);
                 }
-                this.f25081e.f25072d.h(i2);
+                this.f25102e.f25093d.h(i2);
             }
         }
     }
@@ -212,7 +212,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f25082e;
+        public final /* synthetic */ b f25103e;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -229,14 +229,14 @@ public class b {
                     return;
                 }
             }
-            this.f25082e = bVar;
+            this.f25103e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25082e.f25072d.d();
+                this.f25103e.f25093d.d();
             }
         }
     }
@@ -247,7 +247,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f25083e;
+        public final /* synthetic */ b f25104e;
 
         public e(b bVar) {
             Interceptable interceptable = $ic;
@@ -264,18 +264,18 @@ public class b {
                     return;
                 }
             }
-            this.f25083e = bVar;
+            this.f25104e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25083e.f25072d.d();
-                if (this.f25083e.f25073e == null || !j.z() || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                this.f25104e.f25093d.d();
+                if (this.f25104e.f25094e == null || !j.z() || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     return;
                 }
-                Iterator it = this.f25083e.f25073e.iterator();
+                Iterator it = this.f25104e.f25094e.iterator();
                 int i2 = 0;
                 int i3 = 0;
                 int i4 = 0;
@@ -289,8 +289,8 @@ public class b {
                         i4 = 1;
                     }
                 }
-                this.f25083e.o();
-                this.f25083e.f25075g.C(this.f25083e.f25074f, i2, i3, i4);
+                this.f25104e.o();
+                this.f25104e.f25096g.C(this.f25104e.f25095f, i2, i3, i4);
             }
         }
     }
@@ -301,7 +301,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f25084e;
+        public final /* synthetic */ b f25105e;
 
         public f(b bVar) {
             Interceptable interceptable = $ic;
@@ -318,14 +318,14 @@ public class b {
                     return;
                 }
             }
-            this.f25084e = bVar;
+            this.f25105e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.f25084e.f25070b);
+                MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.f25105e.f25091b);
             }
         }
     }
@@ -345,17 +345,17 @@ public class b {
                 return;
             }
         }
-        this.f25077i = new c(this);
-        this.f25078j = new d(this);
+        this.f25098i = new c(this);
+        this.f25099j = new d(this);
         this.k = new e(this);
-        this.f25069a = tbPageContext;
-        this.f25070b = bdUniqueId;
+        this.f25090a = tbPageContext;
+        this.f25091b = bdUniqueId;
         UserBlockSetModel userBlockSetModel = new UserBlockSetModel(tbPageContext, bdUniqueId);
-        this.f25075g = userBlockSetModel;
+        this.f25096g = userBlockSetModel;
         userBlockSetModel.D(new a(this));
         UserBlockInfoModel userBlockInfoModel = new UserBlockInfoModel(tbPageContext, bdUniqueId);
-        this.f25076h = userBlockInfoModel;
-        userBlockInfoModel.D(new C1166b(this));
+        this.f25097h = userBlockInfoModel;
+        userBlockInfoModel.D(new C1164b(this));
     }
 
     public final String j(int i2) {
@@ -367,7 +367,7 @@ public class b {
     public final void k() {
         c.a.q0.s.f0.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f25071c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f25092c) == null) {
             return;
         }
         aVar.h(false);
@@ -376,25 +376,25 @@ public class b {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f25074f = -1L;
-            c.a.q0.s.f0.a aVar = this.f25071c;
+            this.f25095f = -1L;
+            c.a.q0.s.f0.a aVar = this.f25092c;
             if (aVar != null) {
                 aVar.h(false);
             }
-            c.a.q0.s.s.d dVar = this.f25072d;
+            c.a.q0.s.s.d dVar = this.f25093d;
             if (dVar != null) {
                 dVar.d();
             }
-            UserBlockInfoModel userBlockInfoModel = this.f25076h;
+            UserBlockInfoModel userBlockInfoModel = this.f25097h;
             if (userBlockInfoModel != null) {
                 userBlockInfoModel.onDestroy();
             }
-            UserBlockSetModel userBlockSetModel = this.f25075g;
+            UserBlockSetModel userBlockSetModel = this.f25096g;
             if (userBlockSetModel != null) {
                 userBlockSetModel.onDestroy();
             }
-            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, this.f25070b);
-            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.f25070b);
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, this.f25091b);
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.f25091b);
         }
     }
 
@@ -408,22 +408,22 @@ public class b {
                 z = true;
             }
             ArrayList<k> arrayList = new ArrayList<>();
-            this.f25073e = arrayList;
+            this.f25094e = arrayList;
             if (i2 == 1) {
                 arrayList.add(new k(j(R.string.block_follow), z2, "1"));
-                this.f25073e.add(new k(j(R.string.block_action), z3, "2"));
-                this.f25073e.add(new k(j(R.string.block_message), z, "3"));
+                this.f25094e.add(new k(j(R.string.block_action), z3, "2"));
+                this.f25094e.add(new k(j(R.string.block_message), z, "3"));
             } else {
                 arrayList.add(new k(j(R.string.block_commit), z3, "2"));
-                this.f25073e.add(new k(j(R.string.block_message), z, "3"));
+                this.f25094e.add(new k(j(R.string.block_message), z, "3"));
             }
-            c.a.q0.s.s.d dVar = new c.a.q0.s.s.d(this.f25069a);
-            this.f25072d = dVar;
+            c.a.q0.s.s.d dVar = new c.a.q0.s.s.d(this.f25090a);
+            this.f25093d = dVar;
             dVar.l(R.string.block_user_title);
-            this.f25072d.k(this.f25073e, this.f25077i);
-            this.f25072d.q(R.string.done, this.k);
-            this.f25072d.p(R.string.cancel, this.f25078j);
-            c.a.q0.s.s.d dVar2 = this.f25072d;
+            this.f25093d.k(this.f25094e, this.f25098i);
+            this.f25093d.q(R.string.done, this.k);
+            this.f25093d.p(R.string.cancel, this.f25099j);
+            c.a.q0.s.s.d dVar2 = this.f25093d;
             dVar2.c();
             dVar2.n();
         }
@@ -432,20 +432,20 @@ public class b {
     public void n(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f25074f = j2;
-            this.f25076h.C(j2);
+            this.f25095f = j2;
+            this.f25097h.C(j2);
         }
     }
 
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f25071c == null) {
-                c.a.q0.s.f0.a aVar = new c.a.q0.s.f0.a(this.f25069a);
-                this.f25071c = aVar;
+            if (this.f25092c == null) {
+                c.a.q0.s.f0.a aVar = new c.a.q0.s.f0.a(this.f25090a);
+                this.f25092c = aVar;
                 aVar.e(new f(this));
             }
-            this.f25071c.h(true);
+            this.f25092c.h(true);
         }
     }
 }

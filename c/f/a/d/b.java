@@ -17,14 +17,14 @@ public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f32269b = "b";
+    public static final String f32290b = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.f.a.a.a f32270a;
+    public c.f.a.a.a f32291a;
 
     /* loaded from: classes4.dex */
-    public class a implements a.InterfaceC1463a {
+    public class a implements a.InterfaceC1461a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,12 +44,12 @@ public final class b {
             }
         }
 
-        @Override // c.f.a.a.a.InterfaceC1463a
+        @Override // c.f.a.a.a.InterfaceC1461a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = b.f32269b;
-                LogUtil.i(str, b.f32269b + " Idle ---> Active.");
+                String str = b.f32290b;
+                LogUtil.i(str, b.f32290b + " Idle ---> Active.");
                 HeartBeatManager.getInstance().c(0L);
                 HeartBeatManager.getInstance().startHeartBeat();
             }
@@ -58,11 +58,11 @@ public final class b {
 
     /* renamed from: c.f.a.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1467b implements a.InterfaceC1463a {
+    public class C1465b implements a.InterfaceC1461a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1467b(b bVar) {
+        public C1465b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,19 +78,19 @@ public final class b {
             }
         }
 
-        @Override // c.f.a.a.a.InterfaceC1463a
+        @Override // c.f.a.a.a.InterfaceC1461a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = b.f32269b;
-                LogUtil.i(str, b.f32269b + " Active ---> Idle.");
+                String str = b.f32290b;
+                LogUtil.i(str, b.f32290b + " Active ---> Idle.");
                 HeartBeatManager.getInstance().stopHeartBeat();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements a.InterfaceC1463a {
+    public class c implements a.InterfaceC1461a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,19 +110,19 @@ public final class b {
             }
         }
 
-        @Override // c.f.a.a.a.InterfaceC1463a
+        @Override // c.f.a.a.a.InterfaceC1461a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = b.f32269b;
-                LogUtil.i(str, b.f32269b + " Active ---> HalfActive.");
+                String str = b.f32290b;
+                LogUtil.i(str, b.f32290b + " Active ---> HalfActive.");
                 HeartBeatManager.getInstance().c(Calendar.getInstance().getTimeInMillis() / 1000);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements a.InterfaceC1463a {
+    public class d implements a.InterfaceC1461a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -142,12 +142,12 @@ public final class b {
             }
         }
 
-        @Override // c.f.a.a.a.InterfaceC1463a
+        @Override // c.f.a.a.a.InterfaceC1461a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = b.f32269b;
-                LogUtil.i(str, b.f32269b + " HalfActive ---> Active.");
+                String str = b.f32290b;
+                LogUtil.i(str, b.f32290b + " HalfActive ---> Active.");
                 HeartBeatManager.getInstance().c(0L);
                 HeartBeatManager.getInstance().startHeartBeat();
             }
@@ -155,7 +155,7 @@ public final class b {
     }
 
     /* loaded from: classes4.dex */
-    public class e implements a.InterfaceC1463a {
+    public class e implements a.InterfaceC1461a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -175,12 +175,12 @@ public final class b {
             }
         }
 
-        @Override // c.f.a.a.a.InterfaceC1463a
+        @Override // c.f.a.a.a.InterfaceC1461a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = b.f32269b;
-                LogUtil.i(str, b.f32269b + " HalfActive ---> Idle.");
+                String str = b.f32290b;
+                LogUtil.i(str, b.f32290b + " HalfActive ---> Idle.");
                 HeartBeatManager.getInstance().stopHeartBeat();
             }
         }
@@ -214,7 +214,7 @@ public final class b {
                 return;
             }
         }
-        this.f32270a = null;
+        this.f32291a = null;
         c();
     }
 
@@ -222,14 +222,14 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 >= 1 && i2 <= 4) {
-                c.f.a.a.a aVar = this.f32270a;
+                c.f.a.a.a aVar = this.f32291a;
                 if (aVar != null) {
                     aVar.a(i2);
                     return;
                 }
-                throw new RuntimeException(f32269b + " sendEvent but the mStateMachine is null.");
+                throw new RuntimeException(f32290b + " sendEvent but the mStateMachine is null.");
             }
-            throw new IllegalArgumentException(f32269b + " invalid params eventId:" + i2);
+            throw new IllegalArgumentException(f32290b + " invalid params eventId:" + i2);
         }
     }
 
@@ -237,19 +237,19 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c.f.a.a.a aVar = new c.f.a.a.a(1);
-            this.f32270a = aVar;
+            this.f32291a = aVar;
             aVar.getClass();
             aVar.b(new a.b(aVar, 1, 3, 1, new a(this)));
-            c.f.a.a.a aVar2 = this.f32270a;
+            c.f.a.a.a aVar2 = this.f32291a;
             aVar2.getClass();
-            aVar2.b(new a.b(aVar2, 3, 1, 2, new C1467b(this)));
-            c.f.a.a.a aVar3 = this.f32270a;
+            aVar2.b(new a.b(aVar2, 3, 1, 2, new C1465b(this)));
+            c.f.a.a.a aVar3 = this.f32291a;
             aVar3.getClass();
             aVar3.b(new a.b(aVar3, 3, 2, 3, new c(this)));
-            c.f.a.a.a aVar4 = this.f32270a;
+            c.f.a.a.a aVar4 = this.f32291a;
             aVar4.getClass();
             aVar4.b(new a.b(aVar4, 2, 3, 4, new d(this)));
-            c.f.a.a.a aVar5 = this.f32270a;
+            c.f.a.a.a aVar5 = this.f32291a;
             aVar5.getClass();
             aVar5.b(new a.b(aVar5, 2, 1, 2, new e(this)));
         }

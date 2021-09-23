@@ -261,7 +261,10 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
                 a aVar = a.getInstance();
                 aVar.setFlutterPath("onActivityResult" + getContainerUrl());
             }
-            this.mSyncer.onActivityResult(i2, i3, intent);
+            IOperateSyncer iOperateSyncer = this.mSyncer;
+            if (iOperateSyncer != null) {
+                iOperateSyncer.onActivityResult(i2, i3, intent);
+            }
             HashMap hashMap = new HashMap();
             if (intent != null) {
                 Serializable serializableExtra = intent.getSerializableExtra("_flutter_result_");
@@ -279,7 +282,10 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
                     BdLog.e(th);
                 }
             }
-            this.mSyncer.onContainerResult(i2, i3, hashMap);
+            IOperateSyncer iOperateSyncer2 = this.mSyncer;
+            if (iOperateSyncer2 != null) {
+                iOperateSyncer2.onContainerResult(i2, i3, hashMap);
+            }
             ensureAlive();
             if (this.flutterEngine != null) {
                 Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onActivityResult() to FlutterEngine:\nrequestCode: " + i2 + StringUtils.LF + "resultCode: " + i3 + StringUtils.LF + "data: " + intent);

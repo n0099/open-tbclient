@@ -26,16 +26,16 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.f2.a.a f54796e;
+    public c.a.r0.f2.a.a f54911e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b> f54797f;
+    public List<b> f54912f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.f2.f.a f54798g;
+    public c.a.r0.f2.f.a f54913g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f54799h;
+    public HttpMessageListener f54914h;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -43,7 +43,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InterestSelectionStyleAModel f54800a;
+        public final /* synthetic */ InterestSelectionStyleAModel f54915a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(InterestSelectionStyleAModel interestSelectionStyleAModel, int i2, boolean z) {
@@ -64,7 +64,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54800a = interestSelectionStyleAModel;
+            this.f54915a = interestSelectionStyleAModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,23 +72,23 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003509 && (httpResponsedMessage instanceof GetInterestClassListResponseMessage)) {
-                this.f54800a.f54797f = ((GetInterestClassListResponseMessage) httpResponsedMessage).getInterestSelectionInfoList();
+                this.f54915a.f54912f = ((GetInterestClassListResponseMessage) httpResponsedMessage).getInterestSelectionInfoList();
                 if (httpResponsedMessage.getError() == 0) {
-                    if (this.f54800a.f54797f == null || this.f54800a.f54797f.size() <= 0) {
-                        if (this.f54800a.f54798g != null) {
-                            this.f54800a.f54798g.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    if (this.f54915a.f54912f == null || this.f54915a.f54912f.size() <= 0) {
+                        if (this.f54915a.f54913g != null) {
+                            this.f54915a.f54913g.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                             return;
                         }
                         return;
                     }
-                    InterestSelectionStyleAModel interestSelectionStyleAModel = this.f54800a;
-                    interestSelectionStyleAModel.f54796e.c(interestSelectionStyleAModel.f54797f);
-                    this.f54800a.f54796e.notifyDataSetChanged();
-                    if (this.f54800a.f54798g != null) {
-                        this.f54800a.f54798g.a(this.f54800a.f54797f);
+                    InterestSelectionStyleAModel interestSelectionStyleAModel = this.f54915a;
+                    interestSelectionStyleAModel.f54911e.c(interestSelectionStyleAModel.f54912f);
+                    this.f54915a.f54911e.notifyDataSetChanged();
+                    if (this.f54915a.f54913g != null) {
+                        this.f54915a.f54913g.a(this.f54915a.f54912f);
                     }
-                } else if (this.f54800a.f54798g != null) {
-                    this.f54800a.f54798g.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (this.f54915a.f54913g != null) {
+                    this.f54915a.f54913g.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -109,10 +109,10 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
                 return;
             }
         }
-        this.f54797f = new ArrayList();
-        this.f54799h = new a(this, CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST, true);
-        this.f54798g = aVar2;
-        this.f54796e = aVar;
+        this.f54912f = new ArrayList();
+        this.f54914h = new a(this, CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST, true);
+        this.f54913g = aVar2;
+        this.f54911e = aVar;
         A();
         registerListener();
         B();
@@ -138,7 +138,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST);
-            MessageManager.getInstance().unRegisterListener(this.f54799h);
+            MessageManager.getInstance().unRegisterListener(this.f54914h);
         }
     }
 
@@ -172,7 +172,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().registerListener(this.f54799h);
+            MessageManager.getInstance().registerListener(this.f54914h);
         }
     }
 

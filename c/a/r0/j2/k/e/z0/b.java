@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.e.e.p.l;
-import c.a.q0.d1.m;
+import c.a.q0.d1.p;
 import c.a.q0.s.s.a;
-import c.a.r0.j3.w;
+import c.a.r0.j3.x;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -50,25 +50,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PbFragment f20368a;
+    public PbFragment f20383a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.j2.h.a f20369b;
+    public c.a.r0.j2.h.a f20384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LikeModel f20370c;
+    public LikeModel f20385c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.j2.h.e f20371d;
+    public c.a.r0.j2.h.e f20386d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlertDialog f20372e;
+    public AlertDialog f20387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.a.e f20373f;
+    public c.a.e.a.e f20388f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AntiHelper.k f20374g;
+    public AntiHelper.k f20389g;
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -76,7 +76,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f20375a;
+        public final /* synthetic */ b f20390a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -96,7 +96,7 @@ public class b {
                     return;
                 }
             }
-            this.f20375a = bVar;
+            this.f20390a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -106,11 +106,11 @@ public class b {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof PbAdCardGiftItemResponseMessage)) {
                 PbAdCardGiftItemResponseMessage pbAdCardGiftItemResponseMessage = (PbAdCardGiftItemResponseMessage) httpResponsedMessage;
                 if (pbAdCardGiftItemResponseMessage.getError() == 0 && pbAdCardGiftItemResponseMessage.getData() != null) {
-                    this.f20375a.x(pbAdCardGiftItemResponseMessage.getData());
+                    this.f20390a.x(pbAdCardGiftItemResponseMessage.getData());
                 } else if (pbAdCardGiftItemResponseMessage.getError() == 502014 || pbAdCardGiftItemResponseMessage.getError() == 502015) {
-                    this.f20375a.w(pbAdCardGiftItemResponseMessage.getError(), pbAdCardGiftItemResponseMessage.getErrorString());
+                    this.f20390a.w(pbAdCardGiftItemResponseMessage.getError(), pbAdCardGiftItemResponseMessage.getErrorString());
                 } else {
-                    this.f20375a.f20368a.showToast(pbAdCardGiftItemResponseMessage.getErrorString());
+                    this.f20390a.f20383a.showToast(pbAdCardGiftItemResponseMessage.getErrorString());
                 }
             }
         }
@@ -118,17 +118,17 @@ public class b {
 
     /* renamed from: c.a.r0.j2.k.e.z0.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0966b implements a.e {
+    public class C0964b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f20376e;
+        public final /* synthetic */ int f20391e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f20377f;
+        public final /* synthetic */ b f20392f;
 
-        public C0966b(b bVar, int i2) {
+        public C0964b(b bVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,30 +143,30 @@ public class b {
                     return;
                 }
             }
-            this.f20377f = bVar;
-            this.f20376e = i2;
+            this.f20392f = bVar;
+            this.f20391e = i2;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || m.a()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || p.a()) {
                 return;
             }
-            if (this.f20376e == 502014) {
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f20377f.f20368a.getActivity()).createNormalCfg(this.f20377f.f20371d.m().getName(), FrsActivityConfig.FRS_PB_CARD_GIFT);
+            if (this.f20391e == 502014) {
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f20392f.f20383a.getActivity()).createNormalCfg(this.f20392f.f20386d.m().getName(), FrsActivityConfig.FRS_PB_CARD_GIFT);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
-            } else if (!this.f20377f.f20368a.checkUpIsLogin()) {
+            } else if (!this.f20392f.f20383a.checkUpIsLogin()) {
                 return;
             } else {
-                if (this.f20377f.f20370c == null) {
-                    b bVar = this.f20377f;
-                    bVar.f20370c = new LikeModel(bVar.f20368a.getPageContext());
-                    this.f20377f.f20370c.setLoadDataCallBack(this.f20377f.f20373f);
+                if (this.f20392f.f20385c == null) {
+                    b bVar = this.f20392f;
+                    bVar.f20385c = new LikeModel(bVar.f20383a.getPageContext());
+                    this.f20392f.f20385c.setLoadDataCallBack(this.f20392f.f20388f);
                 }
-                this.f20377f.f20370c.setFrom(FrsActivityConfig.FRS_PB_CARD_GIFT);
-                this.f20377f.f20370c.L(this.f20377f.f20371d.m().getName(), String.valueOf(this.f20377f.f20371d.m().getId()));
+                this.f20392f.f20385c.setFrom(FrsActivityConfig.FRS_PB_CARD_GIFT);
+                this.f20392f.f20385c.L(this.f20392f.f20386d.m().getName(), String.valueOf(this.f20392f.f20386d.m().getId()));
             }
             aVar.dismiss();
         }
@@ -208,7 +208,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f20378e;
+        public final /* synthetic */ b f20393e;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -225,14 +225,14 @@ public class b {
                     return;
                 }
             }
-            this.f20378e = bVar;
+            this.f20393e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f20378e.p();
+                this.f20393e.p();
             }
         }
     }
@@ -243,7 +243,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f20379a;
+        public final /* synthetic */ b f20394a;
 
         public e(b bVar) {
             Interceptable interceptable = $ic;
@@ -260,45 +260,45 @@ public class b {
                     return;
                 }
             }
-            this.f20379a = bVar;
+            this.f20394a = bVar;
         }
 
         @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || this.f20379a.f20371d == null || this.f20379a.f20371d.m() == null || obj == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || this.f20394a.f20386d == null || this.f20394a.f20386d.m() == null || obj == null) {
                 return;
             }
-            if (AntiHelper.m(this.f20379a.f20370c.getErrorCode(), this.f20379a.f20370c.getErrorString())) {
-                if (AntiHelper.t(this.f20379a.f20368a.getContext(), this.f20379a.f20370c.J(), this.f20379a.f20374g) != null) {
+            if (AntiHelper.m(this.f20394a.f20385c.getErrorCode(), this.f20394a.f20385c.getErrorString())) {
+                if (AntiHelper.t(this.f20394a.f20383a.getContext(), this.f20394a.f20385c.J(), this.f20394a.f20389g) != null) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
                     return;
                 }
                 return;
             }
-            this.f20379a.f20371d.m().getName();
-            String id = this.f20379a.f20371d.m().getId();
-            w wVar = obj instanceof w ? (w) obj : null;
+            this.f20394a.f20386d.m().getName();
+            String id = this.f20394a.f20386d.m().getId();
+            x xVar = obj instanceof x ? (x) obj : null;
             boolean z = false;
-            boolean z2 = wVar != null && this.f20379a.f20370c.getErrorCode() == 0;
-            if (wVar == null || wVar.d() != 3250013) {
+            boolean z2 = xVar != null && this.f20394a.f20385c.getErrorCode() == 0;
+            if (xVar == null || xVar.d() != 3250013) {
                 z = z2;
             } else {
-                BdToast.h(TbadkCoreApplication.getInst().getContext(), wVar.e(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).q();
+                BdToast.h(TbadkCoreApplication.getInst().getContext(), xVar.e(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).q();
             }
-            if (wVar == null || !z) {
-                if (this.f20379a.f20370c.getErrorCode() != 22) {
-                    this.f20379a.f20368a.showToast(this.f20379a.f20370c.getErrorString());
+            if (xVar == null || !z) {
+                if (this.f20394a.f20385c.getErrorCode() != 22) {
+                    this.f20394a.f20383a.showToast(this.f20394a.f20385c.getErrorString());
                     return;
                 } else {
-                    this.f20379a.f20368a.showToast(this.f20379a.f20368a.getPageContext().getPageActivity().getString(R.string.had_liked_forum));
+                    this.f20394a.f20383a.showToast(this.f20394a.f20383a.getPageContext().getPageActivity().getString(R.string.had_liked_forum));
                     return;
                 }
             }
-            wVar.v(1);
-            this.f20379a.f20368a.showToast(this.f20379a.f20368a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_success));
-            this.f20379a.t(true, id);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
+            xVar.v(1);
+            this.f20394a.f20383a.showToast(this.f20394a.f20383a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_success));
+            this.f20394a.t(true, id);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, xVar));
         }
     }
 
@@ -346,7 +346,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f20380e;
+        public final /* synthetic */ b f20395e;
 
         public g(b bVar) {
             Interceptable interceptable = $ic;
@@ -363,17 +363,17 @@ public class b {
                     return;
                 }
             }
-            this.f20380e = bVar;
+            this.f20395e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20380e.f20372e.dismiss();
-                b bVar = this.f20380e;
-                bVar.n(bVar.f20369b);
-                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f20380e.f20368a.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                this.f20395e.f20387e.dismiss();
+                b bVar = this.f20395e;
+                bVar.n(bVar.f20384b);
+                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f20395e.f20383a.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
             }
         }
     }
@@ -384,7 +384,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f20381e;
+        public final /* synthetic */ b f20396e;
 
         public h(b bVar) {
             Interceptable interceptable = $ic;
@@ -401,14 +401,14 @@ public class b {
                     return;
                 }
             }
-            this.f20381e = bVar;
+            this.f20396e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20381e.f20372e.dismiss();
+                this.f20396e.f20387e.dismiss();
             }
         }
     }
@@ -419,7 +419,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f20382e;
+        public final /* synthetic */ b f20397e;
 
         public i(b bVar) {
             Interceptable interceptable = $ic;
@@ -436,14 +436,14 @@ public class b {
                     return;
                 }
             }
-            this.f20382e = bVar;
+            this.f20397e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f20382e.p();
+                this.f20397e.p();
             }
         }
     }
@@ -463,9 +463,9 @@ public class b {
                 return;
             }
         }
-        this.f20373f = new e(this);
-        this.f20374g = new f(this);
-        this.f20368a = pbFragment;
+        this.f20388f = new e(this);
+        this.f20389g = new f(this);
+        this.f20383a = pbFragment;
         r();
         s();
     }
@@ -475,7 +475,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
             return;
         }
-        c.a.r0.i3.c.g().c(this.f20368a.getUniqueId(), c.a.r0.i3.a.e(this.f20371d.O(), "a005", "common_click", 1, aVar.f19598f, true, aVar.f19597e.f19599a + "", "", 19));
+        c.a.r0.i3.c.g().c(this.f20383a.getUniqueId(), c.a.r0.i3.a.e(this.f20386d.O(), "a005", "common_click", 1, aVar.f19613f, true, aVar.f19612e.f19614a + "", "", 19));
     }
 
     public final void o(c.a.r0.j2.h.a aVar) {
@@ -484,8 +484,8 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
-        String s1 = this.f20371d.O().s1();
-        c.a.r0.i3.c.g().d(this.f20368a.getUniqueId(), c.a.r0.i3.a.c(s1, str, "", null) + "_dialog", c.a.r0.i3.a.g(this.f20371d.O(), "a005", "common_exp", aVar.f19598f, true, aVar.f19597e.f19599a + "", "", 19));
+        String s1 = this.f20386d.O().s1();
+        c.a.r0.i3.c.g().d(this.f20383a.getUniqueId(), c.a.r0.i3.a.c(s1, str, "", null) + "_dialog", c.a.r0.i3.a.g(this.f20386d.O(), "a005", "common_exp", aVar.f19613f, true, aVar.f19612e.f19614a + "", "", 19));
     }
 
     public final void p() {
@@ -498,11 +498,11 @@ public class b {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LikeModel likeModel = this.f20370c;
+            LikeModel likeModel = this.f20385c;
             if (likeModel != null) {
                 likeModel.I();
             }
-            AlertDialog alertDialog = this.f20372e;
+            AlertDialog alertDialog = this.f20387e;
             if (alertDialog != null) {
                 alertDialog.dismiss();
             }
@@ -513,7 +513,7 @@ public class b {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f20368a.registerListener(new a(this, CmdConfigHttp.CMD_GET_CARD_GIFT_REQ));
+            this.f20383a.registerListener(new a(this, CmdConfigHttp.CMD_GET_CARD_GIFT_REQ));
         }
     }
 
@@ -541,20 +541,20 @@ public class b {
     public void u(c.a.r0.j2.h.a aVar) {
         c.a.r0.j2.h.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || aVar == null || aVar.f19597e == null || (eVar = this.f20371d) == null || eVar.O() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || aVar == null || aVar.f19612e == null || (eVar = this.f20386d) == null || eVar.O() == null) {
             return;
         }
-        this.f20369b = aVar;
+        this.f20384b = aVar;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_CARD_GIFT_REQ);
-        httpMessage.addParam("tid", this.f20371d.O().s1());
-        httpMessage.addParam(CardBoxMemberPayActivityConfig.PACKET_ID, aVar.f19597e.f19599a);
+        httpMessage.addParam("tid", this.f20386d.O().s1());
+        httpMessage.addParam(CardBoxMemberPayActivityConfig.PACKET_ID, aVar.f19612e.f19614a);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void v(c.a.r0.j2.h.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar) == null) {
-            this.f20371d = eVar;
+            this.f20386d = eVar;
         }
     }
 
@@ -567,23 +567,23 @@ public class b {
             if (i2 == 502014) {
                 i3 = R.string.pb_ad_card_gift_fail_guide_update_level;
                 i4 = R.string.cancel;
-                string = this.f20368a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_update_level_message);
+                string = this.f20383a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_update_level_message);
             } else {
                 i3 = R.string.pb_ad_card_gift_fail_guide_attention_bar;
                 i4 = R.string.pb_ad_card_gift_fail_guide_attention_bar_cancel;
-                string = this.f20368a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_title, this.f20371d.m().getName());
+                string = this.f20383a.getPageContext().getPageActivity().getResources().getString(R.string.pb_ad_card_gift_fail_guide_attention_title, this.f20386d.m().getName());
                 str = "";
             }
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f20368a.getPageContext().getPageActivity());
+            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f20383a.getPageContext().getPageActivity());
             aVar.setTitle(str);
             aVar.setMessage(string);
-            aVar.setPositiveButton(i3, new C0966b(this, i2));
+            aVar.setPositiveButton(i3, new C0964b(this, i2));
             aVar.setNegativeButton(i4, new c(this));
             aVar.setOnDismissListener(new d(this));
             aVar.setTitleShowCenter(true);
             aVar.setNegativeTextColor(R.color.CAM_X0105);
             aVar.setCanceledOnTouchOutside(true);
-            aVar.create(this.f20368a.getPageContext()).show();
+            aVar.create(this.f20383a.getPageContext()).show();
         }
     }
 
@@ -591,20 +591,20 @@ public class b {
         c.a.r0.j2.h.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            c.a.r0.j2.h.a aVar2 = this.f20369b;
+            c.a.r0.j2.h.a aVar2 = this.f20384b;
             if (aVar2 != null) {
-                aVar2.f19597e = bVar;
+                aVar2.f19612e = bVar;
             }
-            c.a.r0.j2.h.e eVar = this.f20371d;
+            c.a.r0.j2.h.e eVar = this.f20386d;
             if (eVar != null && (aVar = eVar.l) != null) {
-                aVar.f19597e = bVar;
+                aVar.f19612e = bVar;
             }
-            o(this.f20369b);
-            AlertDialog create = new AlertDialog.Builder(this.f20368a.getPageContext().getPageActivity()).create();
-            this.f20372e = create;
+            o(this.f20384b);
+            AlertDialog create = new AlertDialog.Builder(this.f20383a.getPageContext().getPageActivity()).create();
+            this.f20387e = create;
             create.setCanceledOnTouchOutside(false);
-            c.a.e.e.m.g.i(this.f20372e, this.f20368a.getPageContext().getPageActivity());
-            View inflate = LayoutInflater.from(this.f20368a.getPageContext().getPageActivity()).inflate(R.layout.pb_ad_card_gift_success_dialog, (ViewGroup) null);
+            c.a.e.e.m.g.i(this.f20387e, this.f20383a.getPageContext().getPageActivity());
+            View inflate = LayoutInflater.from(this.f20383a.getPageContext().getPageActivity()).inflate(R.layout.pb_ad_card_gift_success_dialog, (ViewGroup) null);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.bg_ad_card_gift_success);
             tbImageView.setRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30));
             tbImageView.setConrers(3);
@@ -616,16 +616,16 @@ public class b {
             imageView.setOnClickListener(new h(this));
             TextView textView2 = (TextView) inflate.findViewById(R.id.txt_ad_card_gift_success_card_id);
             TextView textView3 = (TextView) inflate.findViewById(R.id.txt_ad_card_gift_success_title);
-            textView3.setText(this.f20368a.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_title, new Object[]{bVar.f19601c}));
-            textView2.setText(this.f20368a.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_id, new Object[]{bVar.f19604f}));
+            textView3.setText(this.f20383a.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_title, new Object[]{bVar.f19616c}));
+            textView2.setText(this.f20383a.getPageContext().getPageActivity().getString(R.string.pb_ad_card_gift_success_dialog_card_id, new Object[]{bVar.f19619f}));
             SkinManager.setImageResource(imageView, R.drawable.icon_use_close_n);
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0107);
             SkinManager.setViewTextColor(textView3, R.color.CAM_X0105);
             SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.txt_ad_card_gift_success_tip), R.color.CAM_X0107);
             SkinManager.setBackgroundResource(textView, R.drawable.btn_pb_ad_card_gift_get);
             SkinManager.setViewTextColor(textView, R.color.CAM_X0112);
-            this.f20372e.setOnDismissListener(new i(this));
-            Window window = this.f20372e.getWindow();
+            this.f20387e.setOnDismissListener(new i(this));
+            Window window = this.f20387e.getWindow();
             window.setWindowAnimations(R.style.normal_dialog_style);
             window.setGravity(17);
             window.setLayout(-2, -2);

@@ -30,27 +30,27 @@ public class c extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public EMTextView f26499a;
+        public EMTextView f26522a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f26500b;
+        public ImageView f26523b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f26501c;
+        public int f26524c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f26502d;
+        public int f26525d;
 
         /* renamed from: c.a.r0.w0.b2.e.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC1248a implements View.OnClickListener {
+        public class View$OnClickListenerC1246a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f26503e;
+            public final /* synthetic */ a f26526e;
 
-            public View$OnClickListenerC1248a(a aVar, c cVar) {
+            public View$OnClickListenerC1246a(a aVar, c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,19 +65,19 @@ public class c extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
                         return;
                     }
                 }
-                this.f26503e = aVar;
+                this.f26526e = aVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26503e.f26501c <= 0) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26526e.f26524c <= 0) {
                     return;
                 }
                 c.a.r0.w0.l2.e eVar = new c.a.r0.w0.l2.e();
-                eVar.f27004e = 16;
+                eVar.f27024e = 16;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, eVar));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c.a.q0.s.f0.p.b(4, this.f26503e.f26502d, 2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c.a.q0.s.f0.p.b(4, this.f26526e.f26525d, 2)));
             }
         }
 
@@ -100,27 +100,27 @@ public class c extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
                 }
             }
             view.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f26499a = (EMTextView) view.findViewById(R.id.frs_item_comment_bottom_text);
-            this.f26500b = (ImageView) view.findViewById(R.id.frs_item_comment_bottom_icon);
-            this.f26499a.setOnClickListener(new View$OnClickListenerC1248a(this, cVar));
+            this.f26522a = (EMTextView) view.findViewById(R.id.frs_item_comment_bottom_text);
+            this.f26523b = (ImageView) view.findViewById(R.id.frs_item_comment_bottom_icon);
+            this.f26522a.setOnClickListener(new View$OnClickListenerC1246a(this, cVar));
         }
 
         public void d(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f26501c = i2;
+                this.f26524c = i2;
             }
         }
 
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c.a.q0.s.u.c.d(this.f26499a).w(R.color.CAM_X0304);
+                c.a.q0.s.u.c.d(this.f26522a).w(R.color.CAM_X0304);
                 c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.itemView);
                 d2.n(2);
                 d2.o(R.string.J_X06);
                 d2.f(R.color.CAM_X0205);
-                WebPManager.setPureDrawable(this.f26500b, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0304, null);
+                WebPManager.setPureDrawable(this.f26523b, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0304, null);
             }
         }
     }
@@ -144,7 +144,7 @@ public class c extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
                 return;
             }
         }
-        this.f2961i = bdUniqueId2;
+        this.f2962i = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -153,7 +153,7 @@ public class c extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
     public a U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(this, LayoutInflater.from(this.f2957e).inflate(R.layout.frs_item_comment_bottom_view, (ViewGroup) null)) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(this, LayoutInflater.from(this.f2958e).inflate(R.layout.frs_item_comment_bottom_view, (ViewGroup) null)) : (a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -164,7 +164,7 @@ public class c extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, aVar2})) == null) {
             aVar2.d(aVar.g());
-            aVar2.f26502d = aVar.i();
+            aVar2.f26525d = aVar.i();
             aVar2.onChangeSkinType();
             return aVar2.getView();
         }

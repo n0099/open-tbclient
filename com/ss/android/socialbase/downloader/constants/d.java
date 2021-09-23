@@ -13,16 +13,16 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f75836a;
+    public static final d f76155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f75837b;
+    public static final d f76156b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final d f75838c;
+    public static final d f76157c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ d[] f75839d;
+    public static final /* synthetic */ d[] f76158d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,11 +38,11 @@ public final class d {
                 return;
             }
         }
-        f75836a = new d("SYNC_NONE", 0);
-        f75837b = new d("SYNC_START", 1);
+        f76155a = new d("SYNC_NONE", 0);
+        f76156b = new d("SYNC_START", 1);
         d dVar = new d("SYNC_SUCCESS", 2);
-        f75838c = dVar;
-        f75839d = new d[]{f75836a, f75837b, dVar};
+        f76157c = dVar;
+        f76158d = new d[]{f76155a, f76156b, dVar};
     }
 
     public d(String str, int i2) {
@@ -73,6 +73,6 @@ public final class d {
     public static d[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (d[]) f75839d.clone() : (d[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (d[]) f76158d.clone() : (d[]) invokeV.objValue;
     }
 }

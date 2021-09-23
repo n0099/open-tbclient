@@ -28,16 +28,16 @@ public class a implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f23242a;
+    public TbPageContext f23258a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23243b;
+    public int f23259b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23244c;
+    public int f23260c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f23245d;
+    public boolean f23261d;
 
     public a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class a implements e {
                 return;
             }
         }
-        this.f23243b = 1;
-        this.f23244c = 2;
-        this.f23245d = false;
-        this.f23242a = tbPageContext;
+        this.f23259b = 1;
+        this.f23260c = 2;
+        this.f23261d = false;
+        this.f23258a = tbPageContext;
     }
 
     @Override // c.a.r0.b4.e
@@ -67,16 +67,16 @@ public class a implements e {
             return;
         }
         UserData userData = null;
-        Bundle bundle = aVar.f23033b;
+        Bundle bundle = aVar.f23049b;
         if (bundle != null && (userData = (UserData) bundle.getSerializable(UserData.TYPE_USER)) != null) {
-            this.f23243b = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
-            this.f23244c = userData.isGod() ? 1 : 2;
-            this.f23245d = this.f23243b == 1;
+            this.f23259b = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
+            this.f23260c = userData.isGod() ? 1 : 2;
+            this.f23261d = this.f23259b == 1;
         }
-        switch (aVar.f23032a) {
+        switch (aVar.f23048a) {
             case 2:
-                if (ViewHelper.checkUpIsLogin(this.f23242a.getPageActivity())) {
-                    UrlManager.getInstance().dealOneLink(this.f23242a, new String[]{TbConfig.URL_MEMBER_BUY});
+                if (ViewHelper.checkUpIsLogin(this.f23258a.getPageActivity())) {
+                    UrlManager.getInstance().dealOneLink(this.f23258a, new String[]{TbConfig.URL_MEMBER_BUY});
                     return;
                 }
                 return;
@@ -84,7 +84,7 @@ public class a implements e {
                 if (userData == null) {
                     return;
                 }
-                c.a.q0.m.a.o(this.f23242a.getPageActivity(), this.f23242a.getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId(), true, true, true);
+                c.a.q0.m.a.o(this.f23258a.getPageActivity(), this.f23258a.getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId(), true, true, true);
                 return;
             case 4:
                 if (userData == null) {
@@ -93,31 +93,31 @@ public class a implements e {
                 if (aVar instanceof c.a.r0.m2.f.a) {
                     TiebaStatic.log(new StatisticItem("c11586"));
                 } else {
-                    TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 2).param("obj_type", this.f23243b).param("obj_source", this.f23244c));
+                    TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 2).param("obj_type", this.f23259b).param("obj_source", this.f23260c));
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f23242a.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f23258a.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
                 return;
             case 5:
-                c.a.r0.z2.a.v().L(2, false, this.f23245d);
+                c.a.r0.z2.a.v().L(2, false, this.f23261d);
                 if (userData == null) {
                     return;
                 }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 3).param("obj_type", this.f23243b).param("obj_source", this.f23244c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f23242a.getPageActivity(), false, userData.getUserId(), userData.getSex())));
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 3).param("obj_type", this.f23259b).param("obj_source", this.f23260c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.f23258a.getPageActivity(), false, userData.getUserId(), userData.getSex())));
                 return;
             case 6:
                 if (userData == null) {
                     return;
                 }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 1).param("obj_type", this.f23243b).param("obj_source", this.f23244c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.f23242a.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 1).param("obj_type", this.f23259b).param("obj_source", this.f23260c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.f23258a.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
                 return;
             case 7:
                 if (userData == null) {
                     return;
                 }
-                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 4).param("obj_type", this.f23243b).param("obj_source", this.f23244c));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.f23242a.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 4).param("obj_type", this.f23259b).param("obj_source", this.f23260c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.f23258a.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
                 return;
             default:
                 return;

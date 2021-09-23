@@ -32,34 +32,34 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67798a;
+    public int f68109a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f67799b;
+    public volatile boolean f68110b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67800c;
+    public int f68111c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67801d;
+    public String f68112d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f67802e;
+    public String f68113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f67803f;
+    public final Context f68114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.core.e.m f67804g;
+    public final com.bytedance.sdk.openadsdk.core.e.m f68115g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f67805h;
+    public String f68116h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f67806i;
+    public long f68117i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f67807j;
+    public long f68118j;
     public long k;
     public long l;
     public long m;
@@ -90,7 +90,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ j f67808a;
+        public final /* synthetic */ j f68119a;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -107,14 +107,14 @@ public class j {
                     return;
                 }
             }
-            this.f67808a = jVar;
+            this.f68119a = jVar;
         }
 
         @JavascriptInterface
         public String getUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67808a.v : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68119a.v : (String) invokeV.objValue;
         }
 
         @JavascriptInterface
@@ -124,22 +124,22 @@ public class j {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            if (this.f67808a.u == null) {
-                this.f67808a.u = new ConcurrentHashMap();
+            if (this.f68119a.u == null) {
+                this.f68119a.u = new ConcurrentHashMap();
             }
-            if (this.f67808a.u.containsKey(str)) {
-                dVar = (com.bytedance.sdk.openadsdk.core.e.d) this.f67808a.u.get(str);
+            if (this.f68119a.u.containsKey(str)) {
+                dVar = (com.bytedance.sdk.openadsdk.core.e.d) this.f68119a.u.get(str);
             } else {
                 com.bytedance.sdk.openadsdk.core.e.d dVar2 = new com.bytedance.sdk.openadsdk.core.e.d();
-                this.f67808a.u.put(str, dVar2);
+                this.f68119a.u.put(str, dVar2);
                 dVar2.a(str);
                 dVar = dVar2;
             }
             dVar.b(str2);
-            if (this.f67808a.t == null) {
-                this.f67808a.t = new ArrayList();
+            if (this.f68119a.t == null) {
+                this.f68119a.t = new ArrayList();
             }
-            this.f67808a.t.add(dVar);
+            this.f68119a.t.add(dVar);
         }
 
         @JavascriptInterface
@@ -149,7 +149,7 @@ public class j {
                 StringBuilder sb = new StringBuilder();
                 sb.append("measure height: ");
                 int i2 = 0;
-                sb.append(this.f67808a.q == null ? 0 : this.f67808a.q.getMeasuredHeight());
+                sb.append(this.f68119a.q == null ? 0 : this.f68119a.q.getMeasuredHeight());
                 com.bytedance.sdk.component.utils.k.b("LandingPageLog", sb.toString());
                 com.bytedance.sdk.component.utils.k.b("LandingPageLog", "read percent: " + String.valueOf(str));
                 try {
@@ -161,7 +161,7 @@ public class j {
                     }
                 } catch (Throwable unused) {
                 }
-                this.f67808a.p.set(i2);
+                this.f68119a.p.set(i2);
             }
         }
 
@@ -185,12 +185,12 @@ public class j {
                 return;
             }
         }
-        this.f67798a = 1;
-        this.f67799b = false;
-        this.f67800c = -1;
-        this.f67805h = "landingpage";
-        this.f67806i = 0L;
-        this.f67807j = 0L;
+        this.f68109a = 1;
+        this.f68110b = false;
+        this.f68111c = -1;
+        this.f68116h = "landingpage";
+        this.f68117i = 0L;
+        this.f68118j = 0L;
         this.k = 0L;
         this.l = 0L;
         this.m = 0L;
@@ -202,8 +202,8 @@ public class j {
         this.v = "";
         this.y = new AtomicBoolean(false);
         this.z = false;
-        this.f67803f = com.bytedance.sdk.openadsdk.core.o.a();
-        this.f67804g = mVar;
+        this.f68114f = com.bytedance.sdk.openadsdk.core.o.a();
+        this.f68115g = mVar;
         this.q = webView;
         this.t = new ArrayList();
         this.u = new ConcurrentHashMap<>();
@@ -219,7 +219,7 @@ public class j {
             return;
         }
         if (!com.bytedance.sdk.openadsdk.core.o.h().u() || com.bytedance.sdk.component.utils.n.c(com.bytedance.sdk.openadsdk.core.o.a()) == 4) {
-            com.bytedance.sdk.openadsdk.j.a.a().a(this.t, this.f67804g, this.w);
+            com.bytedance.sdk.openadsdk.j.a.a().a(this.t, this.f68115g, this.w);
         }
     }
 
@@ -233,7 +233,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             com.bytedance.sdk.component.utils.k.b("LandingPageLog", "onResume");
-            this.f67806i = System.currentTimeMillis();
+            this.f68117i = System.currentTimeMillis();
         }
     }
 
@@ -241,14 +241,14 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             com.bytedance.sdk.component.utils.k.b("LandingPageLog", MissionEvent.MESSAGE_STOP);
-            if (this.f67798a == 2) {
+            if (this.f68109a == 2) {
                 if (this.k > 0 || !a()) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    this.f67807j = currentTimeMillis;
-                    long max = currentTimeMillis - Math.max(this.f67806i, this.k);
+                    this.f68118j = currentTimeMillis;
+                    long max = currentTimeMillis - Math.max(this.f68117i, this.k);
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("load_status", this.f67798a);
+                        jSONObject.put("load_status", this.f68109a);
                         jSONObject.put("max_scroll_percent", this.p.get());
                         jSONObject.putOpt("render_type", "h5");
                         jSONObject.putOpt("render_type_2", 0);
@@ -266,10 +266,10 @@ public class j {
             com.bytedance.sdk.component.utils.k.b("LandingPageLog", MissionEvent.MESSAGE_DESTROY);
             f();
             this.q = null;
-            if (this.y.get() || !this.f67799b) {
+            if (this.y.get() || !this.f68110b) {
                 return;
             }
-            d.b(this.f67803f, this.f67804g, this.f67805h, System.currentTimeMillis() - this.n);
+            d.b(this.f68114f, this.f68115g, this.f68116h, System.currentTimeMillis() - this.n);
         }
     }
 
@@ -288,7 +288,7 @@ public class j {
         com.bytedance.sdk.openadsdk.core.e.m mVar;
         com.bytedance.sdk.openadsdk.core.j.h h2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) ? (TextUtils.isEmpty(str) || (mVar = this.f67804g) == null || mVar.s() == 0 || com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str) != e.a.f67445a || (h2 = com.bytedance.sdk.openadsdk.core.o.h()) == null || h2.n() <= this.s.get()) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, this, str)) == null) ? (TextUtils.isEmpty(str) || (mVar = this.f68115g) == null || mVar.s() == 0 || com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str) != e.a.f67756a || (h2 = com.bytedance.sdk.openadsdk.core.o.h()) == null || h2.n() <= this.s.get()) ? false : true : invokeL.booleanValue;
     }
 
     public void a(String str) {
@@ -296,7 +296,7 @@ public class j {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f67805h = str;
+        this.f68116h = str;
     }
 
     public void a(long j2) {
@@ -353,11 +353,11 @@ public class j {
             if (qVar != null) {
                 qVar.j();
             }
-            if (this.f67799b) {
+            if (this.f68110b) {
                 return;
             }
             this.n = System.currentTimeMillis();
-            this.f67799b = true;
+            this.f68110b = true;
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("render_type", "h5");
@@ -388,18 +388,18 @@ public class j {
             if (this.y.get()) {
                 return;
             }
-            if (this.f67798a != 3) {
-                this.f67798a = 2;
+            if (this.f68109a != 3) {
+                this.f68109a = 2;
             }
             this.y.set(true);
-            this.f67806i = System.currentTimeMillis();
-            if (this.f67798a == 2) {
+            this.f68117i = System.currentTimeMillis();
+            if (this.f68109a == 2) {
                 long j2 = this.m - this.l;
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("error_code", this.f67800c);
-                    jSONObject.put("error_msg", this.f67801d);
-                    jSONObject.put("error_url", this.f67802e);
+                    jSONObject.put("error_code", this.f68111c);
+                    jSONObject.put("error_msg", this.f68112d);
+                    jSONObject.put("error_url", this.f68113e);
                     jSONObject.putOpt("render_type", "h5");
                     jSONObject.putOpt("render_type_2", 0);
                 } catch (Exception unused) {
@@ -409,9 +409,9 @@ public class j {
             }
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("error_code", this.f67800c);
-                jSONObject2.put("error_msg", this.f67801d);
-                jSONObject2.put("error_url", this.f67802e);
+                jSONObject2.put("error_code", this.f68111c);
+                jSONObject2.put("error_msg", this.f68112d);
+                jSONObject2.put("error_url", this.f68113e);
                 jSONObject2.putOpt("render_type", "h5");
                 jSONObject2.putOpt("render_type_2", 0);
             } catch (Exception unused2) {
@@ -428,12 +428,12 @@ public class j {
             if (qVar != null) {
                 qVar.l();
             }
-            if (!(str3 != null && str3.startsWith("image")) && this.f67798a != 2) {
-                this.f67798a = 3;
+            if (!(str3 != null && str3.startsWith("image")) && this.f68109a != 2) {
+                this.f68109a = 3;
             }
-            this.f67800c = i2;
-            this.f67801d = str;
-            this.f67802e = str2;
+            this.f68111c = i2;
+            this.f68112d = str;
+            this.f68113e = str2;
         }
     }
 
@@ -470,15 +470,15 @@ public class j {
 
     private void a(String str, JSONObject jSONObject, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{str, jSONObject, Long.valueOf(j2)}) == null) || !this.r || this.f67804g == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{str, jSONObject, Long.valueOf(j2)}) == null) || !this.r || this.f68115g == null || TextUtils.isEmpty(str)) {
             return;
         }
         JSONObject jSONObject2 = null;
         if (jSONObject != null) {
             try {
                 int i2 = 1;
-                jSONObject.put("is_playable", com.bytedance.sdk.openadsdk.core.e.o.a(this.f67804g) ? 1 : 0);
-                if (!com.bytedance.sdk.openadsdk.core.h.a.a().a(this.f67804g)) {
+                jSONObject.put("is_playable", com.bytedance.sdk.openadsdk.core.e.o.a(this.f68115g) ? 1 : 0);
+                if (!com.bytedance.sdk.openadsdk.core.h.a.a().a(this.f68115g)) {
                     i2 = 0;
                 }
                 jSONObject.put("usecache", i2);
@@ -497,7 +497,7 @@ public class j {
             } catch (JSONException unused3) {
             }
         }
-        com.bytedance.sdk.component.utils.k.b("LandingPageLog", "sendEvent: " + String.valueOf(this.f67805h) + StringUtil.ARRAY_ELEMENT_SEPARATOR + String.valueOf(str) + ", ext=" + String.valueOf(jSONObject2));
-        d.d(this.f67803f, this.f67804g, this.f67805h, str, jSONObject2);
+        com.bytedance.sdk.component.utils.k.b("LandingPageLog", "sendEvent: " + String.valueOf(this.f68116h) + StringUtil.ARRAY_ELEMENT_SEPARATOR + String.valueOf(str) + ", ext=" + String.valueOf(jSONObject2));
+        d.d(this.f68114f, this.f68115g, this.f68116h, str, jSONObject2);
     }
 }

@@ -39,34 +39,34 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<MediaModel> f6734a = null;
+    public static ArrayList<MediaModel> f6742a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6735b = "album";
+    public static String f6743b = "album";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f6736c = 9;
+    public static int f6744c = 9;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f6737d = "single";
+    public static String f6745d = "single";
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f6738e = false;
+    public static boolean f6746e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f6739f = null;
+    public static String f6747f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6740g = 0;
+    public static int f6748g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f6741h = true;
+    public static boolean f6749h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f6742i;
+    public static boolean f6750i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f6743j;
+    public static String f6751j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -75,7 +75,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.i1.d.d.c f6744a;
+        public final /* synthetic */ c.a.p0.a.i1.d.d.c f6752a;
 
         public a(c.a.p0.a.i1.d.d.c cVar) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class d {
                     return;
                 }
             }
-            this.f6744a = cVar;
+            this.f6752a = cVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
@@ -103,15 +103,15 @@ public class d {
                 c.a.p0.a.g1.f.V().b();
                 if (i2 != -1) {
                     if (i2 == 0) {
-                        this.f6744a.d("选择文件失败：用户取消操作");
+                        this.f6752a.d("选择文件失败：用户取消操作");
                         return true;
                     }
                     return true;
                 } else if (intent == null) {
-                    this.f6744a.d("choose: Selected data is null");
+                    this.f6752a.d("choose: Selected data is null");
                     return true;
                 } else {
-                    this.f6744a.f(intent.getParcelableArrayListExtra("mediaModels"));
+                    this.f6752a.f(intent.getParcelableArrayListExtra("mediaModels"));
                     return true;
                 }
             }
@@ -125,7 +125,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f6745a;
+        public final /* synthetic */ Activity f6753a;
 
         public b(Activity activity) {
             Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class d {
                     return;
                 }
             }
-            this.f6745a = activity;
+            this.f6753a = activity;
         }
 
         @Override // c.a.p0.a.i1.d.d.d
@@ -151,15 +151,15 @@ public class d {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, obj}) == null) && z && (obj instanceof ArrayList)) {
                 ArrayList<? extends Parcelable> arrayList = (ArrayList) obj;
-                if (c.f6730a) {
+                if (c.f6738a) {
                     while (arrayList.iterator().hasNext()) {
                         String str2 = "tempPath = " + ((MediaModel) it.next()).getTempPath();
                     }
                 }
                 Intent intent = new Intent();
                 intent.putParcelableArrayListExtra("mediaModels", arrayList);
-                this.f6745a.setResult(-1, intent);
-                this.f6745a.finish();
+                this.f6753a.setResult(-1, intent);
+                this.f6753a.finish();
             }
         }
     }
@@ -182,11 +182,11 @@ public class d {
     public static void a() {
         ArrayList<MediaModel> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (arrayList = f6734a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (arrayList = f6742a) == null) {
             return;
         }
         arrayList.clear();
-        f6734a = null;
+        f6742a = null;
     }
 
     public static String b(Context context, String str) {
@@ -229,7 +229,7 @@ public class d {
     public static ArrayList<MediaModel> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f6734a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f6742a : (ArrayList) invokeV.objValue;
     }
 
     public static boolean d(String str) {
@@ -255,10 +255,10 @@ public class d {
             float f2 = options.outWidth;
             float f3 = options.outHeight;
             if (!d(str)) {
-                float f4 = c.f6732c;
+                float f4 = c.f6740c;
                 if (f2 > f4 && f3 > f4) {
                     float f5 = f2 / f3;
-                    float f6 = c.f6731b;
+                    float f6 = c.f6739b;
                     return f5 > f6 || 1.0f / f5 > f6;
                 }
             }
@@ -271,7 +271,7 @@ public class d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, mediaModel)) == null) {
-            if (e.d() < f6736c || e.g(mediaModel)) {
+            if (e.d() < f6744c || e.g(mediaModel)) {
                 return TextUtils.equals(str, "single") && e.d() > 0 && !TextUtils.equals(e.b(), mediaModel.getType());
             }
             return true;
@@ -282,7 +282,7 @@ public class d {
     public static void g(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, activity, bundle) == null) {
-            boolean z = c.f6730a;
+            boolean z = c.f6738a;
             if (e.d() <= 0) {
                 return;
             }
@@ -293,7 +293,7 @@ public class d {
     public static void h(Activity activity, Bundle bundle, c.a.p0.a.i1.d.d.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, null, activity, bundle, dVar) == null) {
-            boolean z = c.f6730a;
+            boolean z = c.f6738a;
             if (e.d() <= 0) {
                 return;
             }
@@ -304,11 +304,11 @@ public class d {
     public static void i(ArrayList<MediaModel> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, arrayList) == null) {
-            if (f6734a == null) {
-                f6734a = new ArrayList<>();
+            if (f6742a == null) {
+                f6742a = new ArrayList<>();
             }
-            f6734a.clear();
-            f6734a.addAll(arrayList);
+            f6742a.clear();
+            f6742a.addAll(arrayList);
         }
     }
 
@@ -318,15 +318,15 @@ public class d {
             return;
         }
         Context appContext = AppRuntime.getAppContext();
-        String string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f6736c));
+        String string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f6744c));
         if (TextUtils.equals(str, "single")) {
             if (e.e().get(0) instanceof ImageModel) {
-                string = appContext.getString(h.swanapp_album_selected_max_photos, Integer.valueOf(f6736c));
+                string = appContext.getString(h.swanapp_album_selected_max_photos, Integer.valueOf(f6744c));
             } else {
-                string = appContext.getString(h.swanapp_album_selected_max_videos, Integer.valueOf(f6736c));
+                string = appContext.getString(h.swanapp_album_selected_max_videos, Integer.valueOf(f6744c));
             }
         } else if (TextUtils.equals(str, ShareDirectionType.BOTH)) {
-            string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f6736c));
+            string = appContext.getString(h.swanapp_album_selected_max_files, Integer.valueOf(f6744c));
         }
         c.a.p0.a.z1.b.f.e.g(appContext, string).F();
     }
@@ -379,7 +379,7 @@ public class d {
                                 str2 = m.h(mediaModel.getTempPath());
                             }
                         } else {
-                            str2 = c.a.p0.a.k2.b.J(mediaModel.getTempPath(), eVar.f4558f);
+                            str2 = c.a.p0.a.k2.b.J(mediaModel.getTempPath(), eVar.f4566f);
                         }
                         jSONArray.put(str2);
                         JSONObject jSONObject2 = new JSONObject();
@@ -400,11 +400,11 @@ public class d {
                 jSONObject.put("tempFilePaths", jSONArray);
                 jSONObject.put("tempFiles", jSONArray2);
             } catch (JSONException e2) {
-                if (c.f6730a) {
+                if (c.f6738a) {
                     e2.printStackTrace();
                 }
             }
-            if (c.f6730a) {
+            if (c.f6738a) {
                 jSONObject.toString();
             }
             return jSONObject;
@@ -427,7 +427,7 @@ public class d {
                     str = m.h(videoModel.getTempPath());
                 }
             } else {
-                str = c.a.p0.a.k2.b.J(videoModel.getTempPath(), eVar.f4558f);
+                str = c.a.p0.a.k2.b.J(videoModel.getTempPath(), eVar.f4566f);
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -437,11 +437,11 @@ public class d {
                 jSONObject.put("width", videoModel.getWidth());
                 jSONObject.put("size", videoModel.getSize());
             } catch (JSONException e2) {
-                if (c.f6730a) {
+                if (c.f6738a) {
                     e2.printStackTrace();
                 }
             }
-            if (c.f6730a) {
+            if (c.f6738a) {
                 jSONObject.toString();
             }
             return jSONObject;

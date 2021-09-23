@@ -50,13 +50,13 @@ public class c extends b {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                     return false;
                 }
-                if (a0.f4766b) {
-                    String str = "/swanAPI/getBatteryInfoSync = level: " + a2.f7678a + " ; plugged: " + a2.f7679b;
+                if (a0.f4774b) {
+                    String str = "/swanAPI/getBatteryInfoSync = level: " + a2.f7686a + " ; plugged: " + a2.f7687b;
                 }
                 JSONObject k = k(a2);
                 if (k == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
-                    boolean z = a0.f4766b;
+                    boolean z = a0.f4774b;
                     return false;
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(k, 0);

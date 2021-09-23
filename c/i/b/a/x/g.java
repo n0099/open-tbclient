@@ -56,7 +56,7 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f34031a;
+        public final /* synthetic */ g f34054a;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -73,15 +73,15 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
                     return;
                 }
             }
-            this.f34031a = gVar;
+            this.f34054a = gVar;
         }
 
         @Override // com.google.android.exoplayer2.audio.AudioSink.a
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f34031a.Z.b(i2);
-                this.f34031a.r0(i2);
+                this.f34054a.Z.b(i2);
+                this.f34054a.r0(i2);
             }
         }
 
@@ -89,8 +89,8 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
         public void b(int i2, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                this.f34031a.Z.c(i2, j2, j3);
-                this.f34031a.t0(i2, j2, j3);
+                this.f34054a.Z.c(i2, j2, j3);
+                this.f34054a.t0(i2, j2, j3);
             }
         }
 
@@ -98,8 +98,8 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f34031a.s0();
-                this.f34031a.o0 = true;
+                this.f34054a.s0();
+                this.f34054a.o0 = true;
             }
         }
 
@@ -132,7 +132,7 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
     public static boolean q0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? v.f33838a < 24 && "OMX.SEC.aac.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f33840c) && (v.f33839b.startsWith("zeroflte") || v.f33839b.startsWith("herolte") || v.f33839b.startsWith("heroqlte")) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? v.f33861a < 24 && "OMX.SEC.aac.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f33863c) && (v.f33862b.startsWith("zeroflte") || v.f33862b.startsWith("herolte") || v.f33862b.startsWith("heroqlte")) : invokeL.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, c.i.b.a.a
@@ -148,7 +148,7 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
     public void N(c.i.b.a.b0.a aVar, MediaCodec mediaCodec, Format format, MediaCrypto mediaCrypto) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, mediaCodec, format, mediaCrypto) == null) {
-            this.c0 = q0(aVar.f32974a);
+            this.c0 = q0(aVar.f32997a);
             if (this.b0) {
                 MediaFormat frameworkMediaFormatV16 = format.getFrameworkMediaFormatV16();
                 this.i0 = frameworkMediaFormatV16;
@@ -264,14 +264,14 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
                 return true;
             } else if (z) {
                 mediaCodec.releaseOutputBuffer(i2, false);
-                this.X.f34084f++;
+                this.X.f34107f++;
                 this.a0.m();
                 return true;
             } else {
                 try {
                     if (this.a0.f(byteBuffer, j4)) {
                         mediaCodec.releaseOutputBuffer(i2, false);
-                        this.X.f34083e++;
+                        this.X.f34106e++;
                         return true;
                     }
                     return false;
@@ -327,7 +327,7 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
             String str = format.sampleMimeType;
             boolean z2 = false;
             if (c.i.b.a.i0.i.g(str)) {
-                int i4 = v.f33838a >= 21 ? 32 : 0;
+                int i4 = v.f33861a >= 21 ? 32 : 0;
                 boolean E = c.i.b.a.a.E(aVar, format.drmInitData);
                 if (E && p0(str) && bVar.b() != null) {
                     return i4 | 8 | 4;
@@ -345,7 +345,7 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
                 if (a2 == null) {
                     return (!z || bVar.a(str, false) == null) ? 1 : 2;
                 } else if (E) {
-                    if (v.f33838a < 21 || (((i2 = format.sampleRate) == -1 || a2.h(i2)) && ((i3 = format.channelCount) == -1 || a2.g(i3)))) {
+                    if (v.f33861a < 21 || (((i2 = format.sampleRate) == -1 || a2.h(i2)) && ((i3 = format.channelCount) == -1 || a2.g(i3)))) {
                         z2 = true;
                     }
                     return i4 | 8 | (z2 ? 4 : 3);
@@ -434,7 +434,7 @@ public class g extends MediaCodecRenderer implements c.i.b.a.i0.h {
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             super.x(z);
             this.Z.f(this.X);
-            int i2 = t().f33947a;
+            int i2 = t().f33970a;
             if (i2 != 0) {
                 this.a0.g(i2);
             } else {

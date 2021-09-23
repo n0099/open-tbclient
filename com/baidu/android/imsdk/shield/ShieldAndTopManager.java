@@ -32,6 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -228,7 +229,7 @@ public class ShieldAndTopManager {
         if (interceptable == null || interceptable.invokeIL(1048581, this, i2, iGetUserShieldListener) == null) {
             String addListener = iGetUserShieldListener != null ? ListenerManager.getInstance().addListener(iGetUserShieldListener) : "";
             if (!Utility.isNeedSync(this.mContext, Constants.KEY_SYNC_MSG_TAB_TIME)) {
-                onCallBack(0, "ok", getShieldListFromDB(i2), addListener);
+                onCallBack(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, getShieldListFromDB(i2), addListener);
             } else {
                 requestSubbusinessContacterList(i2, 1, addListener);
             }

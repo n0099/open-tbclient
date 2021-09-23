@@ -1,67 +1,47 @@
 package com.baidu.sofire.n;
 
-import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public final class a {
+public final class a extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f45399a;
+    public c f45495a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Class<?> f45400b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Method f45401c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Method f45402d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Method f45403e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f45404f;
-
-    public a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(c cVar) {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f45495a = cVar;
     }
 
-    public final String a(Context context, Method method) {
-        InterceptResult invokeLL;
+    @Override // android.database.ContentObserver
+    public final void onChange(boolean z) {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
-            Object obj = this.f45399a;
-            if (obj == null || method == null) {
-                return null;
-            }
-            try {
-                Object invoke = method.invoke(obj, context);
-                if (invoke != null) {
-                    return (String) invoke;
-                }
-                return null;
-            } catch (Exception unused) {
-                return null;
-            }
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (cVar = this.f45495a) == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        cVar.f45498b = cVar.f45497a.a();
     }
 }

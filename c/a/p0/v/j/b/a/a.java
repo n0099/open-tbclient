@@ -21,7 +21,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f12446a;
+    public static final boolean f12454a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.v.j.b.a.a$a  reason: collision with other inner class name */
@@ -31,16 +31,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppComponentContainerView f12447e;
+        public final /* synthetic */ SwanAppComponentContainerView f12455e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f12448f;
+        public final /* synthetic */ boolean f12456f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f12449g;
+        public final /* synthetic */ String f12457g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f12450h;
+        public final /* synthetic */ String f12458h;
 
         public RunnableC0636a(SwanAppComponentContainerView swanAppComponentContainerView, boolean z, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -57,10 +57,10 @@ public class a {
                     return;
                 }
             }
-            this.f12447e = swanAppComponentContainerView;
-            this.f12448f = z;
-            this.f12449g = str;
-            this.f12450h = str2;
+            this.f12455e = swanAppComponentContainerView;
+            this.f12456f = z;
+            this.f12457g = str;
+            this.f12458h = str2;
         }
 
         @Override // java.lang.Runnable
@@ -69,17 +69,17 @@ public class a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    int L = n0.L(this.f12447e.getWidth());
-                    int L2 = n0.L(this.f12447e.getHeight());
-                    jSONObject.putOpt("fullscreen", this.f12448f ? "1" : "0");
+                    int L = n0.L(this.f12455e.getWidth());
+                    int L2 = n0.L(this.f12455e.getHeight());
+                    jSONObject.putOpt("fullscreen", this.f12456f ? "1" : "0");
                     jSONObject.putOpt("width", String.valueOf(L));
                     jSONObject.putOpt("height", String.valueOf(L2));
                 } catch (JSONException e2) {
-                    if (a.f12446a) {
+                    if (a.f12454a) {
                         e2.printStackTrace();
                     }
                 }
-                a.b(this.f12449g, this.f12450h, "fullscreenchange", jSONObject);
+                a.b(this.f12457g, this.f12458h, "fullscreenchange", jSONObject);
             }
         }
     }
@@ -97,7 +97,7 @@ public class a {
                 return;
             }
         }
-        f12446a = k.f7077a;
+        f12454a = k.f7085a;
     }
 
     public static void b(String str, String str2, String str3, JSONObject jSONObject) {
@@ -111,13 +111,13 @@ public class a {
                     jSONObject.putOpt("videoId", str);
                     jSONObject2.put("data", jSONObject.toString());
                 } catch (JSONException e2) {
-                    if (f12446a) {
+                    if (f12454a) {
                         e2.printStackTrace();
                     }
                 }
                 d.a("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
                 c.a.p0.a.w2.g.c.a.d(str2, str, "video", str3, jSONObject2);
-            } else if (f12446a) {
+            } else if (f12454a) {
                 String str4 = "dispatchNetStatusEvent failed slaveId: " + str2 + " ,videoId: " + str;
             }
         }

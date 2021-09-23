@@ -20,27 +20,27 @@ public abstract class b<W extends d> implements ZeusPlugin {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f9715g;
+    public static final boolean f9723g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c<W> f9716a;
+    public c<W> f9724a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ZeusPlugin.Callback f9717b;
+    public ZeusPlugin.Callback f9725b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public W f9718c;
+    public W f9726c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9719d;
+    public boolean f9727d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<ZeusPlugin.Command> f9720e;
+    public final List<ZeusPlugin.Command> f9728e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a f9721f;
+    public d.a f9729f;
 
     /* loaded from: classes.dex */
     public class a implements d.a {
@@ -48,7 +48,7 @@ public abstract class b<W extends d> implements ZeusPlugin {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f9722a;
+        public final /* synthetic */ b f9730a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -65,18 +65,18 @@ public abstract class b<W extends d> implements ZeusPlugin {
                     return;
                 }
             }
-            this.f9722a = bVar;
+            this.f9730a = bVar;
         }
 
         @Override // c.a.p0.a.y0.d.a
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                synchronized (this.f9722a) {
-                    boolean unused = b.f9715g;
-                    this.f9722a.d();
-                    this.f9722a.f9719d = true;
-                    boolean unused2 = b.f9715g;
+                synchronized (this.f9730a) {
+                    boolean unused = b.f9723g;
+                    this.f9730a.d();
+                    this.f9730a.f9727d = true;
+                    boolean unused2 = b.f9723g;
                 }
             }
         }
@@ -95,7 +95,7 @@ public abstract class b<W extends d> implements ZeusPlugin {
                 return;
             }
         }
-        f9715g = k.f7077a;
+        f9723g = k.f7085a;
     }
 
     public b(@NonNull W w) {
@@ -113,27 +113,27 @@ public abstract class b<W extends d> implements ZeusPlugin {
                 return;
             }
         }
-        this.f9719d = false;
-        this.f9720e = new ArrayList();
-        this.f9721f = new a(this);
-        this.f9716a = new c<>();
-        this.f9718c = w;
-        boolean z = f9715g;
-        this.f9718c.A(this.f9721f);
+        this.f9727d = false;
+        this.f9728e = new ArrayList();
+        this.f9729f = new a(this);
+        this.f9724a = new c<>();
+        this.f9726c = w;
+        boolean z = f9723g;
+        this.f9726c.A(this.f9729f);
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9720e.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9728e.size() == 0) {
             return;
         }
-        Iterator<ZeusPlugin.Command> it = this.f9720e.iterator();
+        Iterator<ZeusPlugin.Command> it = this.f9728e.iterator();
         while (it.hasNext()) {
             ZeusPlugin.Command next = it.next();
-            if (f9715g) {
+            if (f9723g) {
                 String str = "flush-尝试分发Command: + " + next.what;
             }
-            this.f9716a.b(next, this.f9718c);
+            this.f9724a.b(next, this.f9726c);
             it.remove();
         }
     }
@@ -146,11 +146,11 @@ public abstract class b<W extends d> implements ZeusPlugin {
                 if (command == null) {
                     return;
                 }
-                if (this.f9719d) {
-                    if (f9715g) {
+                if (this.f9727d) {
+                    if (f9723g) {
                         String str = "组件已初始化，直接尝试分发Command: + " + command.what;
                     }
-                    this.f9716a.b(command, this.f9718c);
+                    this.f9724a.b(command, this.f9726c);
                 } else {
                     ZeusPlugin.Command command2 = new ZeusPlugin.Command();
                     command2.what = command.what;
@@ -160,11 +160,11 @@ public abstract class b<W extends d> implements ZeusPlugin {
                     command2.arg4 = command.arg4;
                     command2.arg5 = command.arg5;
                     command2.obj = command.obj;
-                    this.f9720e.add(command2);
-                    if (f9715g) {
+                    this.f9728e.add(command2);
+                    if (f9723g) {
                         String str2 = "组件未初始化，加入Pending队列： " + command2.what;
                     }
-                    this.f9716a.c(command);
+                    this.f9724a.c(command);
                 }
             }
         }
@@ -174,7 +174,7 @@ public abstract class b<W extends d> implements ZeusPlugin {
     public void setCallback(ZeusPlugin.Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callback) == null) {
-            this.f9717b = callback;
+            this.f9725b = callback;
         }
     }
 }

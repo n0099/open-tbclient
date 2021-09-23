@@ -12,16 +12,16 @@ public final class c extends TimerTask {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13358e;
+    public int f13375e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13359f;
+    public int f13376f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13360g;
+    public int f13377g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final WheelView f13361h;
+    public final WheelView f13378h;
 
     public c(WheelView wheelView, int i2) {
         Interceptable interceptable = $ic;
@@ -38,49 +38,49 @@ public final class c extends TimerTask {
                 return;
             }
         }
-        this.f13361h = wheelView;
-        this.f13360g = i2;
-        this.f13358e = Integer.MAX_VALUE;
-        this.f13359f = 0;
+        this.f13378h = wheelView;
+        this.f13377g = i2;
+        this.f13375e = Integer.MAX_VALUE;
+        this.f13376f = 0;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f13358e == Integer.MAX_VALUE) {
-                this.f13358e = this.f13360g;
+            if (this.f13375e == Integer.MAX_VALUE) {
+                this.f13375e = this.f13377g;
             }
-            int i2 = this.f13358e;
+            int i2 = this.f13375e;
             int i3 = (int) (i2 * 0.1f);
-            this.f13359f = i3;
+            this.f13376f = i3;
             if (i3 == 0) {
                 if (i2 < 0) {
-                    this.f13359f = -1;
+                    this.f13376f = -1;
                 } else {
-                    this.f13359f = 1;
+                    this.f13376f = 1;
                 }
             }
-            if (Math.abs(this.f13358e) <= 1) {
-                this.f13361h.cancelFuture();
-                this.f13361h.getHandler().sendEmptyMessage(3000);
+            if (Math.abs(this.f13375e) <= 1) {
+                this.f13378h.cancelFuture();
+                this.f13378h.getHandler().sendEmptyMessage(3000);
                 return;
             }
-            WheelView wheelView = this.f13361h;
-            wheelView.setTotalScrollY(wheelView.getTotalScrollY() + this.f13359f);
-            if (!this.f13361h.isLoop()) {
-                float itemHeight = this.f13361h.getItemHeight();
-                float itemsCount = ((this.f13361h.getItemsCount() - 1) - this.f13361h.getInitPosition()) * itemHeight;
-                if (this.f13361h.getTotalScrollY() <= (-this.f13361h.getInitPosition()) * itemHeight || this.f13361h.getTotalScrollY() >= itemsCount) {
-                    WheelView wheelView2 = this.f13361h;
-                    wheelView2.setTotalScrollY(wheelView2.getTotalScrollY() - this.f13359f);
-                    this.f13361h.cancelFuture();
-                    this.f13361h.getHandler().sendEmptyMessage(3000);
+            WheelView wheelView = this.f13378h;
+            wheelView.setTotalScrollY(wheelView.getTotalScrollY() + this.f13376f);
+            if (!this.f13378h.isLoop()) {
+                float itemHeight = this.f13378h.getItemHeight();
+                float itemsCount = ((this.f13378h.getItemsCount() - 1) - this.f13378h.getInitPosition()) * itemHeight;
+                if (this.f13378h.getTotalScrollY() <= (-this.f13378h.getInitPosition()) * itemHeight || this.f13378h.getTotalScrollY() >= itemsCount) {
+                    WheelView wheelView2 = this.f13378h;
+                    wheelView2.setTotalScrollY(wheelView2.getTotalScrollY() - this.f13376f);
+                    this.f13378h.cancelFuture();
+                    this.f13378h.getHandler().sendEmptyMessage(3000);
                     return;
                 }
             }
-            this.f13361h.getHandler().sendEmptyMessage(1000);
-            this.f13358e -= this.f13359f;
+            this.f13378h.getHandler().sendEmptyMessage(1000);
+            this.f13375e -= this.f13376f;
         }
     }
 }

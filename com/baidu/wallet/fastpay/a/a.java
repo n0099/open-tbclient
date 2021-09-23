@@ -15,7 +15,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f61057a;
+    public List<String> f61170a;
 
     /* renamed from: com.baidu.wallet.fastpay.a.a$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -26,11 +26,11 @@ public class a {
 
     /* renamed from: com.baidu.wallet.fastpay.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1823a {
+    public static class C1826a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f61058a;
+        public static a f61171a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public class a {
                     return;
                 }
             }
-            f61058a = new a(null);
+            f61171a = new a(null);
         }
     }
 
@@ -57,13 +57,13 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1823a.f61058a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1826a.f61171a : (a) invokeV.objValue;
     }
 
     public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61057a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61170a : (List) invokeV.objValue;
     }
 
     public a() {
@@ -79,13 +79,13 @@ public class a {
                 return;
             }
         }
-        this.f61057a = null;
+        this.f61170a = null;
     }
 
     public void a(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f61057a = list;
+            this.f61170a = list;
         }
     }
 }

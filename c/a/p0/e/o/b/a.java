@@ -19,7 +19,7 @@ public class a extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10431a;
+    public static final boolean f10439a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class a extends h {
                 return;
             }
         }
-        f10431a = k.f7077a;
+        f10439a = k.f7085a;
     }
 
     public a() {
@@ -56,7 +56,7 @@ public class a extends h {
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (f10431a && c.a.p0.a.u1.a.a.F().booleanValue()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (f10439a && c.a.p0.a.u1.a.a.F().booleanValue()) ? false : true : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.a.p.d.m

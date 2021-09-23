@@ -43,7 +43,7 @@ public class a implements c.a.p0.a.u2.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10482a;
+    public static final boolean f10490a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.e.r.a$a  reason: collision with other inner class name */
@@ -53,10 +53,10 @@ public class a implements c.a.p0.a.u2.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0425a f10483a;
+        public final /* synthetic */ a.InterfaceC0425a f10491a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10484b;
+        public final /* synthetic */ String f10492b;
 
         public C0521a(a aVar, a.InterfaceC0425a interfaceC0425a, String str) {
             Interceptable interceptable = $ic;
@@ -73,8 +73,8 @@ public class a implements c.a.p0.a.u2.a {
                     return;
                 }
             }
-            this.f10483a = interfaceC0425a;
-            this.f10484b = str;
+            this.f10491a = interfaceC0425a;
+            this.f10492b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -83,10 +83,10 @@ public class a implements c.a.p0.a.u2.a {
         public void onSuccess(JSONObject jSONObject, int i2) {
             a.InterfaceC0425a interfaceC0425a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) || (interfaceC0425a = this.f10483a) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) || (interfaceC0425a = this.f10491a) == null) {
                 return;
             }
-            interfaceC0425a.c(jSONObject, this.f10484b);
+            interfaceC0425a.c(jSONObject, this.f10492b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -110,7 +110,7 @@ public class a implements c.a.p0.a.u2.a {
         public void onFail(Exception exc) {
             a.InterfaceC0425a interfaceC0425a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (interfaceC0425a = this.f10483a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (interfaceC0425a = this.f10491a) == null) {
                 return;
             }
             interfaceC0425a.c(null, null);
@@ -130,7 +130,7 @@ public class a implements c.a.p0.a.u2.a {
                 return;
             }
         }
-        f10482a = k.f7077a;
+        f10490a = k.f7085a;
     }
 
     public a() {
@@ -174,9 +174,9 @@ public class a implements c.a.p0.a.u2.a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("oname_list", jSONArray);
-                return RequestBody.create(c.a.p0.a.n1.f.f7580a, jSONObject.toString());
+                return RequestBody.create(c.a.p0.a.n1.f.f7588a, jSONObject.toString());
             } catch (JSONException e2) {
-                if (f10482a) {
+                if (f10490a) {
                     e2.printStackTrace();
                     return null;
                 }
@@ -198,7 +198,7 @@ public class a implements c.a.p0.a.u2.a {
             if (time >= 1) {
                 long j3 = j2 - time;
                 h.a().putLong("server_time_delta", j3);
-                if (f10482a) {
+                if (f10490a) {
                     String str = "deltaTime sDate:" + parse + "  sTime:" + time + "   diff:" + j3;
                 }
             }
@@ -211,20 +211,20 @@ public class a implements c.a.p0.a.u2.a {
         PutObjectResponse putObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, aVar)) == null) {
-            if (!TextUtils.isEmpty(str) && aVar != null && !TextUtils.isEmpty(aVar.f6959a) && !TextUtils.isEmpty(aVar.f6960b) && !TextUtils.isEmpty(aVar.f6961c) && !TextUtils.isEmpty(aVar.f6964f)) {
+            if (!TextUtils.isEmpty(str) && aVar != null && !TextUtils.isEmpty(aVar.f6967a) && !TextUtils.isEmpty(aVar.f6968b) && !TextUtils.isEmpty(aVar.f6969c) && !TextUtils.isEmpty(aVar.f6972f)) {
                 try {
                     BosClientConfiguration bosClientConfiguration = new BosClientConfiguration();
-                    bosClientConfiguration.setCredentials(new DefaultBceSessionCredentials(aVar.f6959a, aVar.f6960b, aVar.f6961c));
+                    bosClientConfiguration.setCredentials(new DefaultBceSessionCredentials(aVar.f6967a, aVar.f6968b, aVar.f6969c));
                     bosClientConfiguration.setEndpoint("bj.bcebos.com");
                     BosClient bosClient = new BosClient(bosClientConfiguration);
                     File file = new File(str);
-                    if (file.exists() && (putObject = bosClient.putObject(new PutObjectRequest(aVar.f6962d, aVar.f6964f, file))) != null) {
+                    if (file.exists() && (putObject = bosClient.putObject(new PutObjectRequest(aVar.f6970d, aVar.f6972f, file))) != null) {
                         if (!TextUtils.isEmpty(putObject.getETag())) {
                             return true;
                         }
                     }
                 } catch (Exception e2) {
-                    if (f10482a) {
+                    if (f10490a) {
                         e2.printStackTrace();
                     }
                 }
@@ -243,7 +243,7 @@ public class a implements c.a.p0.a.u2.a {
         String v = c.v(c.a.p0.a.c1.a.n().e());
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
-        for (Map.Entry<String, String> entry : c.a.p0.a.d0.b.b().f5139d.entrySet()) {
+        for (Map.Entry<String, String> entry : c.a.p0.a.d0.b.b().f5147d.entrySet()) {
             v = o0.a(v, entry.getKey(), entry.getValue());
         }
         String c2 = c(d(context), str.substring(str.lastIndexOf(".")));
@@ -253,10 +253,10 @@ public class a implements c.a.p0.a.u2.a {
         }
         c.a.p0.m.d.a aVar = new c.a.p0.m.d.a(v, e2, new C0521a(this, interfaceC0425a, c2));
         if (c.a.p0.m.e.a.g().c()) {
-            aVar.f11845f = true;
+            aVar.f11853f = true;
         }
-        aVar.f11846g = false;
-        aVar.f11842c = hashMap;
+        aVar.f11854g = false;
+        aVar.f11850c = hashMap;
         c.a.p0.m.e.a.g().e(aVar);
     }
 }

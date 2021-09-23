@@ -15,11 +15,11 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final AtomicReference<a> f78591b;
+    public static final AtomicReference<a> f78910b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f78592a;
+    public final g f78911a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public final class a {
                 return;
             }
         }
-        f78591b = new AtomicReference<>();
+        f78910b = new AtomicReference<>();
     }
 
     public a() {
@@ -52,9 +52,9 @@ public final class a {
         }
         g b2 = i.l.a.a.a().b().b();
         if (b2 != null) {
-            this.f78592a = b2;
+            this.f78911a = b2;
         } else {
-            this.f78592a = new b(Looper.getMainLooper());
+            this.f78911a = new b(Looper.getMainLooper());
         }
     }
 
@@ -64,12 +64,12 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             do {
-                a aVar2 = f78591b.get();
+                a aVar2 = f78910b.get();
                 if (aVar2 != null) {
                     return aVar2;
                 }
                 aVar = new a();
-            } while (!f78591b.compareAndSet(null, aVar));
+            } while (!f78910b.compareAndSet(null, aVar));
             return aVar;
         }
         return (a) invokeV.objValue;
@@ -78,6 +78,6 @@ public final class a {
     public static g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a().f78592a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a().f78911a : (g) invokeV.objValue;
     }
 }

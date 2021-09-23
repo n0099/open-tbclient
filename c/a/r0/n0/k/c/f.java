@@ -11,19 +11,19 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f22677a;
+    public long f22693a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22678b;
+    public String f22694b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22679c;
+    public String f22695c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f22680d;
+    public boolean f22696d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22681e;
+    public String f22697e;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public class f {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, testInfo) == null) || testInfo == null) {
             return;
         }
-        this.f22677a = testInfo.test_id.longValue();
+        this.f22693a = testInfo.test_id.longValue();
         String str = testInfo.title;
         if (str == null) {
             str = "";
         }
-        this.f22678b = str;
-        this.f22679c = testInfo.image_url;
+        this.f22694b = str;
+        this.f22695c = testInfo.image_url;
         testInfo.create_time.intValue();
-        this.f22680d = testInfo.answered.intValue() == 1;
-        this.f22681e = testInfo.result_img;
+        this.f22696d = testInfo.answered.intValue() == 1;
+        this.f22697e = testInfo.result_img;
     }
 }

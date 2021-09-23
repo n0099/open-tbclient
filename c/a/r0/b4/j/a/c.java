@@ -12,13 +12,13 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f16250a;
+    public static final long f16260a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.r0.w3.i.a f16251b;
+    public static final c.a.r0.w3.i.a f16261b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f16252c;
+    public static boolean f16262c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class c {
                 return;
             }
         }
-        f16250a = TimeUnit.DAYS.toMillis(5L);
-        f16251b = new c.a.r0.w3.i.a("camera_last_api", 0, "camera_last_api_stamp");
-        f16252c = "Lenovo K520".equals(Build.MODEL);
+        f16260a = TimeUnit.DAYS.toMillis(5L);
+        f16261b = new c.a.r0.w3.i.a("camera_last_api", 0, "camera_last_api_stamp");
+        f16262c = "Lenovo K520".equals(Build.MODEL);
     }
 }

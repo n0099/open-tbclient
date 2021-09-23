@@ -21,25 +21,25 @@ public class CDNLogSyncData {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f53637a;
+    public boolean f53752a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f53638b;
+    public int f53753b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f53639c;
+    public int f53754c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f53640d;
+    public int f53755d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53641e;
+    public int f53756e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53642f;
+    public int f53757f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53643g;
+    public int f53758g;
 
     public CDNLogSyncData() {
         Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public class CDNLogSyncData {
                 return;
             }
         }
-        this.f53641e = 25;
-        this.f53642f = 25;
-        this.f53643g = 10;
+        this.f53756e = 25;
+        this.f53757f = 25;
+        this.f53758g = 10;
     }
 
     public final void a(JSONObject jSONObject) {
@@ -66,30 +66,30 @@ public class CDNLogSyncData {
         }
         try {
             if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1) {
-                this.f53637a = true;
+                this.f53752a = true;
             } else {
-                this.f53637a = false;
+                this.f53752a = false;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
             if (optJSONObject != null) {
-                this.f53640d = optJSONObject.optInt("num");
+                this.f53755d = optJSONObject.optInt("num");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
             if (optJSONObject2 != null) {
-                this.f53639c = optJSONObject2.optInt("time");
-                this.f53638b = optJSONObject2.optInt("num");
+                this.f53754c = optJSONObject2.optInt("time");
+                this.f53753b = optJSONObject2.optInt("num");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
             if (optJSONObject3 != null) {
-                this.f53641e = optJSONObject3.optInt("succ");
-                this.f53642f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                this.f53643g = optJSONObject3.optInt("slow");
+                this.f53756e = optJSONObject3.optInt("succ");
+                this.f53757f = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                this.f53758g = optJSONObject3.optInt("slow");
             }
-            if (this.f53639c <= 0 || this.f53638b <= 0 || this.f53640d <= 0) {
-                this.f53637a = false;
+            if (this.f53754c <= 0 || this.f53753b <= 0 || this.f53755d <= 0) {
+                this.f53752a = false;
             }
         } catch (Exception e2) {
-            this.f53637a = false;
+            this.f53752a = false;
             BdLog.e(e2.getMessage());
         }
     }
@@ -97,43 +97,43 @@ public class CDNLogSyncData {
     public int getErrNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53640d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53755d : invokeV.intValue;
     }
 
     public int getErrRank() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53642f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53757f : invokeV.intValue;
     }
 
     public int getSlowNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53638b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53753b : invokeV.intValue;
     }
 
     public int getSlowRank() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53643g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53758g : invokeV.intValue;
     }
 
     public int getSuccRank() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f53641e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f53756e : invokeV.intValue;
     }
 
     public int getTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f53639c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f53754c : invokeV.intValue;
     }
 
     public boolean ismSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f53637a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f53752a : invokeV.booleanValue;
     }
 
     public void parseJson(String str) {
@@ -145,7 +145,7 @@ public class CDNLogSyncData {
                 }
                 a(new JSONObject(str));
             } catch (Exception e2) {
-                this.f53637a = false;
+                this.f53752a = false;
                 BdLog.e(e2.getMessage());
             }
         }
@@ -154,56 +154,56 @@ public class CDNLogSyncData {
     public void setErrNumber(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f53640d = i2;
+            this.f53755d = i2;
         }
     }
 
     public void setErrRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f53642f = i2;
+            this.f53757f = i2;
         }
     }
 
     public void setSlowNumber(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f53638b = i2;
+            this.f53753b = i2;
         }
     }
 
     public void setSlowRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f53643g = i2;
+            this.f53758g = i2;
         }
     }
 
     public void setSuccRank(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f53641e = i2;
+            this.f53756e = i2;
         }
     }
 
     public void setTime(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f53639c = i2;
+            this.f53754c = i2;
         }
     }
 
     public void setmSwitch(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            if (this.f53637a != z) {
+            if (this.f53752a != z) {
                 a logItem = ImageLogger.getLogItem();
                 logItem.b("act", "fallback");
                 logItem.b("result", z ? "1" : "0");
                 logItem.b("type", SetImageWatermarkTypeReqMsg.SWITCH);
                 BdStatisticsManager.getInstance().debug("img", logItem);
             }
-            this.f53637a = z;
+            this.f53752a = z;
         }
     }
 }

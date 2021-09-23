@@ -17,7 +17,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8597a;
+    public static final boolean f8605a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class e {
                 return;
             }
         }
-        f8597a = k.f7077a;
+        f8605a = k.f7085a;
     }
 
     public static boolean a(Context context, @NonNull f fVar) {
@@ -44,7 +44,7 @@ public class e {
                 return true;
             }
             fVar.b(2, "method should be called after setActivityRef");
-            if (f8597a) {
+            if (f8605a) {
                 throw new IllegalStateException("this method should be called after setActivityRef");
             }
             return false;

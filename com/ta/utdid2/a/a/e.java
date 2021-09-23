@@ -76,23 +76,32 @@ public class e {
         return (String) invokeV.objValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:12:0x001c  */
+    /* JADX WARN: Removed duplicated region for block: B:21:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String c(Context context) {
         InterceptResult invokeL;
+        TelephonyManager telephonyManager;
+        String subscriberId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            String str = null;
-            if (context != null) {
-                try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager != null) {
-                        str = telephonyManager.getSubscriberId();
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            return g.m63a(str) ? a() : str;
+        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) != null) {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
+        if (context != null) {
+            try {
+                telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            } catch (Exception unused) {
+            }
+            if (telephonyManager != null) {
+                subscriberId = telephonyManager.getSubscriberId();
+                return !g.m63a(subscriberId) ? a() : subscriberId;
+            }
+        }
+        subscriberId = null;
+        if (!g.m63a(subscriberId)) {
+        }
     }
 
     public static String b() {
@@ -108,28 +117,43 @@ public class e {
         return (String) invokeV.objValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0022  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x002c  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0036  */
+    /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String a(Context context) {
         InterceptResult invokeL;
+        String str;
+        TelephonyManager telephonyManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String str = null;
-            if (!c.a() && context != null) {
-                try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager != null) {
-                        str = telephonyManager.getDeviceId();
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            if (g.m63a(str)) {
-                str = b();
-            }
-            if (g.m63a(str)) {
-                str = b(context);
-            }
-            return g.m63a(str) ? a() : str;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, context)) != null) {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
+        if (!c.a() && context != null) {
+            try {
+                telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            } catch (Exception unused) {
+            }
+            if (telephonyManager != null) {
+                str = telephonyManager.getDeviceId();
+                if (g.m63a(str)) {
+                    str = b();
+                }
+                if (g.m63a(str)) {
+                    str = b(context);
+                }
+                return !g.m63a(str) ? a() : str;
+            }
+        }
+        str = null;
+        if (g.m63a(str)) {
+        }
+        if (g.m63a(str)) {
+        }
+        if (!g.m63a(str)) {
+        }
     }
 }

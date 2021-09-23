@@ -25,17 +25,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f7744d;
+    public static final boolean f7752d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f7745a;
+    public long f7753a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f7746b;
+    public c f7754b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final g.a f7747c;
+    public final g.a f7755c;
 
     /* renamed from: c.a.p0.a.n2.l.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -44,7 +44,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f7748a;
+        public final /* synthetic */ a f7756a;
 
         public C0331a(a aVar) {
             Interceptable interceptable = $ic;
@@ -61,14 +61,14 @@ public class a {
                     return;
                 }
             }
-            this.f7748a = aVar;
+            this.f7756a = aVar;
         }
 
         @Override // c.a.p0.a.s1.g.a
         public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, strArr, iArr) == null) && i2 == 700 && iArr.length > 0 && iArr[0] == 0 && this.f7748a.f7746b != null) {
-                this.f7748a.f7746b.a(this.f7748a.f7745a);
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, strArr, iArr) == null) && i2 == 700 && iArr.length > 0 && iArr[0] == 0 && this.f7756a.f7754b != null) {
+                this.f7756a.f7754b.a(this.f7756a.f7753a);
             }
         }
     }
@@ -78,7 +78,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f7749a;
+        public static final a f7757a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -94,7 +94,7 @@ public class a {
                     return;
                 }
             }
-            f7749a = new a(null);
+            f7757a = new a(null);
         }
     }
 
@@ -104,7 +104,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Vibrator f7750a;
+        public Vibrator f7758a;
 
         public c(@NonNull Vibrator vibrator) {
             Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class a {
                     return;
                 }
             }
-            this.f7750a = vibrator;
+            this.f7758a = vibrator;
         }
 
         @SuppressLint({"MissingPermission"})
@@ -130,10 +130,10 @@ public class a {
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
                 try {
                     if (d.j()) {
-                        this.f7750a.vibrate(VibrationEffect.createOneShot(j2, -1));
+                        this.f7758a.vibrate(VibrationEffect.createOneShot(j2, -1));
                         return;
                     }
-                    this.f7750a.vibrate(j2);
+                    this.f7758a.vibrate(j2);
                 } catch (Exception unused) {
                 }
             }
@@ -153,7 +153,7 @@ public class a {
                 return;
             }
         }
-        f7744d = k.f7077a;
+        f7752d = k.f7085a;
     }
 
     public /* synthetic */ a(C0331a c0331a) {
@@ -163,7 +163,7 @@ public class a {
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f7749a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f7757a : (a) invokeV.objValue;
     }
 
     public final boolean c() {
@@ -182,18 +182,18 @@ public class a {
     public void e(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f7745a = j2;
-            if (this.f7746b == null) {
-                if (f7744d) {
+            this.f7753a = j2;
+            if (this.f7754b == null) {
+                if (f7752d) {
                     throw new RuntimeException("not support vibration");
                 }
             } else if (c()) {
-                this.f7746b.a(this.f7745a);
+                this.f7754b.a(this.f7753a);
             } else {
                 String[] strArr = {"android.permission.VIBRATE"};
                 SwanAppActivity x = c.a.p0.a.a2.d.g().x();
                 if (x != null) {
-                    x.requestPermissionsExt(700, strArr, this.f7747c);
+                    x.requestPermissionsExt(700, strArr, this.f7755c);
                 }
             }
         }
@@ -226,11 +226,11 @@ public class a {
                 return;
             }
         }
-        this.f7745a = 0L;
-        this.f7747c = new C0331a(this);
+        this.f7753a = 0L;
+        this.f7755c = new C0331a(this);
         Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
         if (vibrator != null) {
-            this.f7746b = new c(vibrator);
+            this.f7754b = new c(vibrator);
         }
     }
 }

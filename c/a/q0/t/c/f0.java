@@ -15,13 +15,13 @@ public class f0 extends c.a.q0.s.q.p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f14662a;
+    public long f14664a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f14663b;
+    public long f14665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14664c;
+    public String f14666c;
 
     public f0() {
         Interceptable interceptable = $ic;
@@ -36,27 +36,27 @@ public class f0 extends c.a.q0.s.q.p {
                 return;
             }
         }
-        this.f14662a = Long.MAX_VALUE;
-        this.f14663b = 0L;
-        this.f14664c = null;
+        this.f14664a = Long.MAX_VALUE;
+        this.f14665b = 0L;
+        this.f14666c = null;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14664c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14666c : (String) invokeV.objValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14663b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14665b : invokeV.longValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14662a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14664a : invokeV.longValue;
     }
 
     @Override // c.a.q0.s.q.p
@@ -66,9 +66,9 @@ public class f0 extends c.a.q0.s.q.p {
             return;
         }
         try {
-            this.f14662a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, Long.MAX_VALUE);
-            this.f14663b = jSONObject.optLong("end_time", 0L);
-            this.f14664c = jSONObject.optString("dest_url", "");
+            this.f14664a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, Long.MAX_VALUE);
+            this.f14665b = jSONObject.optLong("end_time", 0L);
+            this.f14666c = jSONObject.optString("dest_url", "");
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

@@ -14,30 +14,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final a f36019a;
-
     /* renamed from: b  reason: collision with root package name */
-    public static final a f36020b;
+    public static final a f36053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f36021c;
+    public static final a f36054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f36022d;
+    public static final a f36055d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f36023e;
+    public static final a f36056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f36024f;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ a[] f36025h;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final a f36057f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f36026g;
+    public static final a f36058g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final /* synthetic */ a[] f36059h;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f36060a;
 
     static {
         InterceptResult invokeClinit;
@@ -52,14 +52,14 @@ public final class a {
                 return;
             }
         }
-        f36019a = new a("None", 0, "none");
-        f36020b = new a("WapPay", 1, "js://wappay");
-        f36021c = new a("Update", 2, "js://update");
-        f36022d = new a("OpenWeb", 3, "loc:openweb");
-        f36023e = new a("SetResult", 4, "loc:setResult");
+        f36053b = new a("None", 0, "none");
+        f36054c = new a("WapPay", 1, "js://wappay");
+        f36055d = new a("Update", 2, "js://update");
+        f36056e = new a("OpenWeb", 3, "loc:openweb");
+        f36057f = new a("SetResult", 4, "loc:setResult");
         a aVar = new a("Exit", 5, "loc:exit");
-        f36024f = aVar;
-        f36025h = new a[]{f36019a, f36020b, f36021c, f36022d, f36023e, aVar};
+        f36058g = aVar;
+        f36059h = new a[]{f36053b, f36054c, f36055d, f36056e, f36057f, aVar};
     }
 
     public a(String str, int i2, String str2) {
@@ -80,7 +80,7 @@ public final class a {
                 return;
             }
         }
-        this.f36026g = str2;
+        this.f36060a = str2;
     }
 
     public static a a(String str) {
@@ -89,11 +89,11 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f36019a;
+                return f36053b;
             }
-            a aVar = f36019a;
+            a aVar = f36053b;
             for (a aVar2 : values()) {
-                if (str.startsWith(aVar2.f36026g)) {
+                if (str.startsWith(aVar2.f36060a)) {
                     return aVar2;
                 }
             }
@@ -111,6 +111,6 @@ public final class a {
     public static a[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (a[]) f36025h.clone() : (a[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (a[]) f36059h.clone() : (a[]) invokeV.objValue;
     }
 }

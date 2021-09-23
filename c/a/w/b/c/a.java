@@ -31,7 +31,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final UBCManager f30394a;
+    public static final UBCManager f30415a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class a {
                 return;
             }
         }
-        f30394a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        f30415a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
     }
 
     public static void a(String str, JSONObject jSONObject) {
@@ -154,7 +154,7 @@ public class a {
             } catch (JSONException e2) {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
-            f30394a.onEvent("4222", jSONObject.toString());
+            f30415a.onEvent("4222", jSONObject.toString());
         }
     }
 
@@ -185,7 +185,7 @@ public class a {
             } catch (JSONException e2) {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
-            f30394a.onEvent("4221", jSONObject.toString());
+            f30415a.onEvent("4221", jSONObject.toString());
         }
     }
 
@@ -219,7 +219,7 @@ public class a {
             } catch (JSONException e2) {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
-            f30394a.onEvent("4358", jSONObject.toString());
+            f30415a.onEvent("4358", jSONObject.toString());
         }
     }
 
@@ -249,7 +249,7 @@ public class a {
             } catch (JSONException e2) {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
-            f30394a.onEvent("4223", jSONObject.toString());
+            f30415a.onEvent("4223", jSONObject.toString());
         }
     }
 
@@ -279,7 +279,7 @@ public class a {
             } catch (JSONException e2) {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
-            f30394a.onEvent("4224", jSONObject.toString());
+            f30415a.onEvent("4224", jSONObject.toString());
         }
     }
 
@@ -301,7 +301,7 @@ public class a {
             } catch (JSONException e2) {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
-            f30394a.onEvent("3326", jSONObject.toString());
+            f30415a.onEvent("3326", jSONObject.toString());
         }
     }
 
@@ -323,7 +323,7 @@ public class a {
             } catch (JSONException e2) {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
-            f30394a.onEvent("3326", jSONObject.toString());
+            f30415a.onEvent("3326", jSONObject.toString());
         }
     }
 
@@ -371,7 +371,7 @@ public class a {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
             LiveFeedPageSdk.l("grLog clk      " + jSONObject.toString());
-            f30394a.onEvent("4384", jSONObject.toString());
+            f30415a.onEvent("4384", jSONObject.toString());
         }
     }
 
@@ -408,14 +408,14 @@ public class a {
             } catch (JSONException e2) {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
-            f30394a.onEvent("4359", jSONObject.toString());
+            f30415a.onEvent("4359", jSONObject.toString());
         }
     }
 
     public static void onEvent(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            f30394a.onEvent(str);
+            f30415a.onEvent(str);
         }
     }
 
@@ -439,10 +439,10 @@ public class a {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
             if (z) {
-                return f30394a.beginFlow("3327", jSONObject.toString());
+                return f30415a.beginFlow("3327", jSONObject.toString());
             }
             if (flow != null) {
-                f30394a.flowEnd(flow);
+                f30415a.flowEnd(flow);
             }
             return flow;
         }
@@ -481,7 +481,7 @@ public class a {
             } catch (JSONException e2) {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
-            f30394a.onEvent("4298", jSONObject.toString());
+            f30415a.onEvent("4298", jSONObject.toString());
         }
     }
 
@@ -498,7 +498,7 @@ public class a {
             } catch (JSONException e2) {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
-            f30394a.onEvent("4261", jSONObject.toString());
+            f30415a.onEvent("4261", jSONObject.toString());
         }
     }
 
@@ -540,7 +540,7 @@ public class a {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
             LiveFeedPageSdk.l("grLog display      " + jSONObject.toString());
-            f30394a.onEvent("4383", jSONObject.toString());
+            f30415a.onEvent("4383", jSONObject.toString());
         }
     }
 
@@ -563,7 +563,7 @@ public class a {
             } catch (JSONException e2) {
                 LiveFeedPageSdk.l(e2.getMessage());
             }
-            f30394a.onEvent("3326", jSONObject.toString());
+            f30415a.onEvent("3326", jSONObject.toString());
         }
     }
 }

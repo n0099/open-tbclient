@@ -20,31 +20,31 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f28383a;
+    public BaseFragmentActivity f28403a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f28384b;
+    public Context f28404b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f28385c;
+    public View f28405c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CategoryView f28386d;
+    public CategoryView f28406d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HListView f28387e;
+    public HListView f28407e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HListView f28388f;
+    public HListView f28408f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f28389g;
+    public View f28409g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.x1.c.j.g f28390h;
+    public c.a.r0.x1.c.j.g f28410h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.x1.c.j.e f28391i;
+    public c.a.r0.x1.c.j.e f28411i;
 
     public e(View view, BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
@@ -61,8 +61,8 @@ public class e {
                 return;
             }
         }
-        this.f28383a = baseFragmentActivity;
-        this.f28384b = baseFragmentActivity.getActivity();
+        this.f28403a = baseFragmentActivity;
+        this.f28404b = baseFragmentActivity.getActivity();
         b(view);
     }
 
@@ -72,10 +72,10 @@ public class e {
             return;
         }
         Boolean bool = Boolean.TRUE;
-        if (iVar.f28514e) {
-            this.f28389g.setVisibility(0);
+        if (iVar.f28534e) {
+            this.f28409g.setVisibility(0);
         } else {
-            this.f28389g.setVisibility(8);
+            this.f28409g.setVisibility(8);
         }
         List<j> c2 = iVar.c();
         if (c2 != null && c2.size() > 0) {
@@ -83,11 +83,11 @@ public class e {
             if (c2.size() > 8) {
                 c2 = c2.subList(0, 7);
             }
-            this.f28387e.setVisibility(0);
-            this.f28390h.d(c2);
-            this.f28390h.notifyDataSetChanged();
+            this.f28407e.setVisibility(0);
+            this.f28410h.d(c2);
+            this.f28410h.notifyDataSetChanged();
         } else {
-            this.f28387e.setVisibility(8);
+            this.f28407e.setVisibility(8);
         }
         List<j> d2 = iVar.d();
         if (d2 != null && d2.size() > 0) {
@@ -95,18 +95,18 @@ public class e {
             if (d2.size() > 8) {
                 d2 = d2.subList(0, 7);
             }
-            this.f28388f.setVisibility(0);
-            this.f28391i.d(d2);
-            this.f28391i.notifyDataSetChanged();
+            this.f28408f.setVisibility(0);
+            this.f28411i.d(d2);
+            this.f28411i.notifyDataSetChanged();
         } else {
-            this.f28388f.setVisibility(8);
+            this.f28408f.setVisibility(8);
         }
         if (bool.booleanValue()) {
-            this.f28386d.setVisibility(8);
+            this.f28406d.setVisibility(8);
             return;
         }
-        this.f28386d.fillView(iVar.b());
-        this.f28386d.findViewById(R.id.divider_line_item).setVisibility(8);
+        this.f28406d.fillView(iVar.b());
+        this.f28406d.findViewById(R.id.divider_line_item).setVisibility(8);
     }
 
     public final void b(View view) {
@@ -114,25 +114,25 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null) {
             return;
         }
-        this.f28385c = view;
-        this.f28386d = (CategoryView) view.findViewById(R.id.category);
-        this.f28387e = (HListView) this.f28385c.findViewById(R.id.listview_skins);
-        this.f28388f = (HListView) this.f28385c.findViewById(R.id.listview_cards);
-        this.f28387e.setSelector(R.drawable.list_selector_transparent);
-        this.f28388f.setSelector(R.drawable.list_selector_transparent);
-        this.f28389g = this.f28385c.findViewById(R.id.divider_sp_line);
-        c.a.r0.x1.c.j.g gVar = new c.a.r0.x1.c.j.g(this.f28384b);
-        this.f28390h = gVar;
-        this.f28387e.setAdapter((ListAdapter) gVar);
-        c.a.r0.x1.c.j.e eVar = new c.a.r0.x1.c.j.e(this.f28384b);
-        this.f28391i = eVar;
-        this.f28388f.setAdapter((ListAdapter) eVar);
+        this.f28405c = view;
+        this.f28406d = (CategoryView) view.findViewById(R.id.category);
+        this.f28407e = (HListView) this.f28405c.findViewById(R.id.listview_skins);
+        this.f28408f = (HListView) this.f28405c.findViewById(R.id.listview_cards);
+        this.f28407e.setSelector(R.drawable.list_selector_transparent);
+        this.f28408f.setSelector(R.drawable.list_selector_transparent);
+        this.f28409g = this.f28405c.findViewById(R.id.divider_sp_line);
+        c.a.r0.x1.c.j.g gVar = new c.a.r0.x1.c.j.g(this.f28404b);
+        this.f28410h = gVar;
+        this.f28407e.setAdapter((ListAdapter) gVar);
+        c.a.r0.x1.c.j.e eVar = new c.a.r0.x1.c.j.e(this.f28404b);
+        this.f28411i = eVar;
+        this.f28408f.setAdapter((ListAdapter) eVar);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.q0.w0.a.a(this.f28383a.getPageContext(), this.f28385c);
+            c.a.q0.w0.a.a(this.f28403a.getPageContext(), this.f28405c);
         }
     }
 }

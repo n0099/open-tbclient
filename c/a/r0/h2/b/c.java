@@ -12,16 +12,16 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f18973a;
+    public String f18982a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18974b;
+    public String f18983b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18975c;
+    public String f18984c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18976d;
+    public String f18985d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class c {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f18974b;
+            String str = this.f18983b;
             int hashCode = str.hashCode();
             if (hashCode == 2154) {
                 if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {

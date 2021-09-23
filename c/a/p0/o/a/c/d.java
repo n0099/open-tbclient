@@ -12,10 +12,10 @@ public class d extends Writer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f12166e;
+    public final String f12174e;
 
     /* renamed from: f  reason: collision with root package name */
-    public StringBuilder f12167f;
+    public StringBuilder f12175f;
 
     public d(String str) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class d extends Writer {
                 return;
             }
         }
-        this.f12167f = new StringBuilder(128);
-        this.f12166e = str;
+        this.f12175f = new StringBuilder(128);
+        this.f12174e = str;
     }
 
     @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
@@ -54,11 +54,11 @@ public class d extends Writer {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f12167f.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f12175f.length() <= 0) {
             return;
         }
-        this.f12167f.toString();
-        StringBuilder sb = this.f12167f;
+        this.f12175f.toString();
+        StringBuilder sb = this.f12175f;
         sb.delete(0, sb.length());
     }
 
@@ -71,7 +71,7 @@ public class d extends Writer {
                 if (c2 == '\n') {
                     g();
                 } else {
-                    this.f12167f.append(c2);
+                    this.f12175f.append(c2);
                 }
             }
         }

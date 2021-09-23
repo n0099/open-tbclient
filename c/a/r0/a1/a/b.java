@@ -23,10 +23,10 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<GiftCommonList.NumInfo> f15706e;
+    public List<GiftCommonList.NumInfo> f15716e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f15707f;
+    public Context f15717f;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -36,17 +36,17 @@ public class b extends BaseAdapter {
 
     /* renamed from: c.a.r0.a1.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0751b {
+    public class C0749b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f15708a;
+        public TextView f15718a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f15709b;
+        public View f15719b;
 
-        public C0751b(b bVar) {
+        public C0749b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +62,7 @@ public class b extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ C0751b(b bVar, a aVar) {
+        public /* synthetic */ C0749b(b bVar, a aVar) {
             this(bVar);
         }
     }
@@ -82,7 +82,7 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f15707f = context;
+        this.f15717f = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -92,10 +92,10 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f15706e == null || i2 < 0 || i2 >= getCount() - 1) {
+            if (this.f15716e == null || i2 < 0 || i2 >= getCount() - 1) {
                 return null;
             }
-            return this.f15706e.get(i2);
+            return this.f15716e.get(i2);
         }
         return (GiftCommonList.NumInfo) invokeI.objValue;
     }
@@ -103,7 +103,7 @@ public class b extends BaseAdapter {
     public void b(List<GiftCommonList.NumInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f15706e = list;
+            this.f15716e = list;
             notifyDataSetChanged();
         }
     }
@@ -113,7 +113,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<GiftCommonList.NumInfo> list = this.f15706e;
+            List<GiftCommonList.NumInfo> list = this.f15716e;
             if (list == null) {
                 return 1;
             }
@@ -139,35 +139,35 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C0751b c0751b;
+        C0749b c0749b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             if (view != null && view.getTag() != null) {
-                c0751b = (C0751b) view.getTag();
+                c0749b = (C0749b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f15707f).inflate(R.layout.gift_num_item, (ViewGroup) null);
-                c0751b = new C0751b(this, null);
-                c0751b.f15708a = (TextView) view.findViewById(R.id.text);
-                c0751b.f15709b = view.findViewById(R.id.divider);
-                view.setTag(c0751b);
+                view = LayoutInflater.from(this.f15717f).inflate(R.layout.gift_num_item, (ViewGroup) null);
+                c0749b = new C0749b(this, null);
+                c0749b.f15718a = (TextView) view.findViewById(R.id.text);
+                c0749b.f15719b = view.findViewById(R.id.divider);
+                view.setTag(c0749b);
             }
             SkinManager.setBackgroundResource(view, R.drawable.list_item_selector);
-            SkinManager.setViewTextColor(c0751b.f15708a, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundColor(c0751b.f15709b, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(c0749b.f15718a, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundColor(c0749b.f15719b, R.color.CAM_X0204);
             GiftCommonList.NumInfo item = getItem(i2);
             if (getItemViewType(i2) == 1) {
-                c0751b.f15708a.setText(R.string.custom_num);
-                c0751b.f15709b.setVisibility(4);
+                c0749b.f15718a.setText(R.string.custom_num);
+                c0749b.f15719b.setVisibility(4);
             } else {
                 if (item != null) {
                     int num = item.getNum() > 0 ? item.getNum() : 1;
                     String name = item.getName() != null ? item.getName() : "";
-                    TextView textView = c0751b.f15708a;
+                    TextView textView = c0749b.f15718a;
                     textView.setText(num + name);
-                    c0751b.f15709b.setVisibility(0);
+                    c0749b.f15719b.setVisibility(0);
                 } else {
-                    c0751b.f15708a.setText("");
-                    c0751b.f15709b.setVisibility(0);
+                    c0749b.f15718a.setText("");
+                    c0749b.f15719b.setVisibility(0);
                 }
             }
             return view;

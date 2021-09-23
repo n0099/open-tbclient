@@ -26,7 +26,7 @@ public class a extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7406c;
+    public String f7414c;
 
     /* renamed from: c.a.p0.a.n.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -35,22 +35,22 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f7407e;
+        public final /* synthetic */ e f7415e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f7408f;
+        public final /* synthetic */ Context f7416f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f7409g;
+        public final /* synthetic */ boolean f7417g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f7410h;
+        public final /* synthetic */ String f7418h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7411i;
+        public final /* synthetic */ CallbackHandler f7419i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7412j;
+        public final /* synthetic */ UnitedSchemeEntity f7420j;
         public final /* synthetic */ a k;
 
         public C0302a(a aVar, e eVar, Context context, boolean z, String str, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
@@ -69,12 +69,12 @@ public class a extends a0 {
                 }
             }
             this.k = aVar;
-            this.f7407e = eVar;
-            this.f7408f = context;
-            this.f7409g = z;
-            this.f7410h = str;
-            this.f7411i = callbackHandler;
-            this.f7412j = unitedSchemeEntity;
+            this.f7415e = eVar;
+            this.f7416f = context;
+            this.f7417g = z;
+            this.f7418h = str;
+            this.f7419i = callbackHandler;
+            this.f7420j = unitedSchemeEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -83,18 +83,18 @@ public class a extends a0 {
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                boolean e2 = this.f7407e.j().e(this.f7408f);
+                boolean e2 = this.f7415e.j().e(this.f7416f);
                 if (!d.h(iVar)) {
-                    if (!e2 && !this.f7409g) {
-                        k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 4, this.f7410h);
+                    if (!e2 && !this.f7417g) {
+                        k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 4, this.f7418h);
                     }
-                    d.p(iVar, this.f7411i, this.k.f7406c);
+                    d.p(iVar, this.f7419i, this.k.f7414c);
                     return;
                 }
-                if (e2 && !this.f7409g) {
-                    k.M("success", 4, this.f7410h);
+                if (e2 && !this.f7417g) {
+                    k.M("success", 4, this.f7418h);
                 }
-                this.k.l(this.f7408f, this.f7412j, this.f7411i, this.f7407e, this.f7410h);
+                this.k.l(this.f7416f, this.f7420j, this.f7419i, this.f7415e, this.f7418h);
             }
         }
     }
@@ -105,13 +105,13 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7413a;
+        public final /* synthetic */ CallbackHandler f7421a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7414b;
+        public final /* synthetic */ UnitedSchemeEntity f7422b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f7415c;
+        public final /* synthetic */ a f7423c;
 
         public b(a aVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -128,9 +128,9 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f7415c = aVar;
-            this.f7413a = callbackHandler;
-            this.f7414b = unitedSchemeEntity;
+            this.f7423c = aVar;
+            this.f7421a = callbackHandler;
+            this.f7422b = unitedSchemeEntity;
         }
 
         @Override // c.a.p0.a.n.a.b
@@ -138,9 +138,9 @@ public class a extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 1) {
-                    UnitedSchemeUtility.safeCallback(this.f7413a, this.f7414b, UnitedSchemeUtility.wrapCallbackParams(1002, "user cancel this operation").toString(), this.f7415c.f7406c);
+                    UnitedSchemeUtility.safeCallback(this.f7421a, this.f7422b, UnitedSchemeUtility.wrapCallbackParams(1002, "user cancel this operation").toString(), this.f7423c.f7414c);
                 } else {
-                    UnitedSchemeUtility.safeCallback(this.f7413a, this.f7414b, UnitedSchemeUtility.wrapCallbackParams(1003, "close failed").toString(), this.f7415c.f7406c);
+                    UnitedSchemeUtility.safeCallback(this.f7421a, this.f7422b, UnitedSchemeUtility.wrapCallbackParams(1003, "close failed").toString(), this.f7423c.f7414c);
                 }
             }
         }
@@ -149,7 +149,7 @@ public class a extends a0 {
         public void b(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                UnitedSchemeUtility.safeCallback(this.f7413a, this.f7414b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), this.f7415c.f7406c);
+                UnitedSchemeUtility.safeCallback(this.f7421a, this.f7422b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), this.f7423c.f7414c);
             }
         }
     }
@@ -185,13 +185,13 @@ public class a extends a0 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
                 return false;
             } else if (eVar.d0()) {
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {
                 JSONObject m = m(unitedSchemeEntity.getParam("params"));
                 String optString = m.optString("cb");
-                this.f7406c = optString;
+                this.f7414c = optString;
                 if (TextUtils.isEmpty(optString)) {
                     c.a.p0.a.e0.d.g("ChooseAddress", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -213,7 +213,7 @@ public class a extends a0 {
     public final void l(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, eVar, str) == null) {
-            c.a.p0.a.c1.a.c0().a(context, eVar.f4558f, eVar.D(), new b(this, callbackHandler, unitedSchemeEntity));
+            c.a.p0.a.c1.a.c0().a(context, eVar.f4566f, eVar.D(), new b(this, callbackHandler, unitedSchemeEntity));
         }
     }
 
@@ -227,7 +227,7 @@ public class a extends a0 {
             try {
                 return new JSONObject(str);
             } catch (JSONException unused) {
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 return new JSONObject();
             }
         }

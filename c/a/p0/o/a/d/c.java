@@ -16,10 +16,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Field f12196a;
+    public static Field f12204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f12197b;
+    public static boolean f12205b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -51,24 +51,24 @@ public class c {
         public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view, str, context, attributeSet)) == null) ? this.f12195e.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
+            return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view, str, context, attributeSet)) == null) ? this.f12203e.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
         }
     }
 
     public static void a(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, factory2) == null) {
-            if (!f12197b) {
+            if (!f12205b) {
                 try {
                     Field declaredField = LayoutInflater.class.getDeclaredField("mFactory2");
-                    f12196a = declaredField;
+                    f12204a = declaredField;
                     declaredField.setAccessible(true);
                 } catch (NoSuchFieldException unused) {
                     String str = "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.";
                 }
-                f12197b = true;
+                f12205b = true;
             }
-            Field field = f12196a;
+            Field field = f12204a;
             if (field != null) {
                 try {
                     field.set(layoutInflater, factory2);

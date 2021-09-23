@@ -18,17 +18,17 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static SoftReference<e> f35576d;
+    public static SoftReference<e> f35599d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.s.b.f.a f35577a;
+    public c.s.b.f.a f35600a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35578b;
+    public String f35601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f35579c;
+    public Context f35602c;
 
     static {
         InterceptResult invokeClinit;
@@ -61,9 +61,9 @@ public final class e {
             }
         }
         c.s.b.g.a.b();
-        this.f35577a = new c.s.b.f.a(context, str);
-        this.f35578b = str;
-        this.f35579c = context;
+        this.f35600a = new c.s.b.f.a(context, str);
+        this.f35601b = str;
+        this.f35602c = context;
     }
 
     public static e b(Context context, String str) {
@@ -72,12 +72,12 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             if (context != null && str != null) {
-                SoftReference<e> softReference = f35576d;
+                SoftReference<e> softReference = f35599d;
                 e eVar2 = softReference == null ? null : softReference.get();
-                if (eVar2 == null || !str.equals(eVar2.f35578b)) {
+                if (eVar2 == null || !str.equals(eVar2.f35601b)) {
                     synchronized (e.class) {
                         eVar = new e(context, str);
-                        f35576d = new SoftReference<>(eVar);
+                        f35599d = new SoftReference<>(eVar);
                     }
                     return eVar;
                 }
@@ -91,14 +91,14 @@ public final class e {
     public final void a(Activity activity, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bVar) == null) {
-            this.f35577a.c(activity, TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT, bVar);
+            this.f35600a.c(activity, TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT, bVar);
         }
     }
 
     public final void c(int i2, int i3, Intent intent, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intent, bVar}) == null) {
-            this.f35577a.d(i2, i3, intent, bVar);
+            this.f35600a.d(i2, i3, intent, bVar);
         }
     }
 }

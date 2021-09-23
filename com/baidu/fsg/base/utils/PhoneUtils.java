@@ -60,34 +60,34 @@ public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39585a = "PhoneUtils";
+    public static final String f39642a = "PhoneUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39586b = "_rim_pay.preferences";
+    public static final String f39643b = "_rim_pay.preferences";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39587c = "cuid_1";
+    public static final String f39644c = "cuid_1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39588d = "cuid_2";
+    public static final String f39645d = "cuid_2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39589e = "wime";
+    public static final String f39646e = "wime";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39590f = "identity_code";
+    public static final String f39647f = "identity_code";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f39591g = "phone_number";
+    public static final String f39648g = "phone_number";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39592h = "card_no";
+    public static final String f39649h = "card_no";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39593i = "valid_date";
+    public static final String f39650i = "valid_date";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f39594j = "cvv2";
+    public static final String f39651j = "cvv2";
     public static final String k = "imei";
     public static final String l = "nettype";
     public static final String m = "wloc";
@@ -107,10 +107,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f39595a = "processor";
+        public static final String f39652a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f39596b = "features";
+        public static final String f39653b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -185,11 +185,17 @@ public final class PhoneUtils {
         return (String) invokeB.objValue;
     }
 
-    public static final String a(Context context) {
+    public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String str = (String) SharedPreferencesUtils.getParam(context, f39586b, "imei", "");
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? DeviceId.getDeviceID(context) : (String) invokeL.objValue;
+    }
+
+    public static final String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            String str = (String) SharedPreferencesUtils.getParam(context, f39643b, "imei", "");
             if (!TextUtils.isEmpty(str)) {
                 if (ApollonConstants.DEBUG) {
                     String str2 = "从文件里面获取imei号=" + str;
@@ -219,16 +225,10 @@ public final class PhoneUtils {
             for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
                 stringBuffer.append((char) (random.nextInt(10) | 48));
             }
-            SharedPreferencesUtils.setParam(context, f39586b, "imei", stringBuffer.toString());
+            SharedPreferencesUtils.setParam(context, f39643b, "imei", stringBuffer.toString());
             return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? DeviceId.getDeviceID(context) : (String) invokeL.objValue;
     }
 
     public static void checkPermission(Context context, String str) {
@@ -342,11 +342,13 @@ public final class PhoneUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             try {
                 BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
-                return defaultAdapter != null ? defaultAdapter.getAddress() : "";
+                if (defaultAdapter != null) {
+                    return defaultAdapter.getAddress();
+                }
             } catch (Exception e2) {
                 String str = "exception is " + e2;
-                return "";
             }
+            return "";
         }
         return (String) invokeV.objValue;
     }
@@ -354,7 +356,7 @@ public final class PhoneUtils {
     public static String getCUID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) ? b(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) ? a(context) : (String) invokeL.objValue;
     }
 
     public static String getCUID2(Context context) {
@@ -378,7 +380,7 @@ public final class PhoneUtils {
     public static final String getImei(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) ? a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) ? b(context) : (String) invokeL.objValue;
     }
 
     public static String getImsi(Context context) {
@@ -559,7 +561,10 @@ public final class PhoneUtils {
                         return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) ? Pattern.matches("cpu[0-9]", file.getName()) : invokeL.booleanValue;
                     }
                 });
-                LogUtil.d("PhoneUtils", "CPU Count: " + listFiles.length);
+                StringBuilder sb = new StringBuilder();
+                sb.append("CPU Count: ");
+                sb.append(listFiles.length);
+                LogUtil.d("PhoneUtils", sb.toString());
                 return listFiles.length;
             } catch (Exception e2) {
                 LogUtil.d("PhoneUtils", "CPU Count: Failed.");
@@ -672,18 +677,25 @@ public final class PhoneUtils {
 
     public static String getTotalMemory(Context context) {
         InterceptResult invokeL;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
-            long j2 = 0;
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
                 String[] split = bufferedReader.readLine().split("\\s+");
                 for (String str : split) {
-                    String str2 = str + TrackUI.SEPERATOR;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(str);
+                    sb.append(TrackUI.SEPERATOR);
+                    sb.toString();
                 }
                 j2 = Long.valueOf(split[1]).longValue() * 1024;
-                bufferedReader.close();
-            } catch (IOException unused) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException unused) {
+                }
+            } catch (IOException unused2) {
+                j2 = 0;
             }
             return Formatter.formatFileSize(context, j2);
         }

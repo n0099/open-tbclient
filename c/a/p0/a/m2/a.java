@@ -68,7 +68,7 @@ public class a {
                 if (cVar2 == null) {
                     return 1;
                 }
-                return String.valueOf(cVar.f7375a).compareTo(String.valueOf(cVar2.f7375a));
+                return String.valueOf(cVar.f7383a).compareTo(String.valueOf(cVar2.f7383a));
             }
             return invokeLL.intValue;
         }
@@ -79,7 +79,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f7374a;
+        public static final a f7382a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -95,7 +95,7 @@ public class a {
                     return;
                 }
             }
-            f7374a = new a(null);
+            f7382a = new a(null);
         }
     }
 
@@ -105,10 +105,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f7375a;
+        public long f7383a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f7376b;
+        public long f7384b;
 
         public c(long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -125,8 +125,8 @@ public class a {
                     return;
                 }
             }
-            this.f7375a = j2;
-            this.f7376b = j3;
+            this.f7383a = j2;
+            this.f7384b = j3;
         }
 
         public String a() {
@@ -135,11 +135,11 @@ public class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("time", this.f7375a);
-                    jSONObject.put("version", this.f7376b);
+                    jSONObject.put("time", this.f7383a);
+                    jSONObject.put("version", this.f7384b);
                     return jSONObject.toString();
                 } catch (JSONException e2) {
-                    if (k.f7077a) {
+                    if (k.f7085a) {
                         e2.printStackTrace();
                     }
                     return null;
@@ -155,14 +155,14 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
-                    str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.f7375a));
+                    str = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(this.f7383a));
                 } catch (Exception e2) {
-                    if (k.f7077a) {
+                    if (k.f7085a) {
                         e2.printStackTrace();
                     }
                     str = null;
                 }
-                return str + " ---> " + this.f7376b;
+                return str + " ---> " + this.f7384b;
             }
             return (String) invokeV.objValue;
         }
@@ -181,7 +181,7 @@ public class a {
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f7374a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f7382a : (a) invokeV.objValue;
     }
 
     public static String d(int i2) {
@@ -211,7 +211,7 @@ public class a {
                     break;
                 }
                 c next = it.next();
-                if (next != null && next.f7376b == j2) {
+                if (next != null && next.f7384b == j2) {
                     z = true;
                     break;
                 }
@@ -260,7 +260,7 @@ public class a {
             } else {
                 SwanCoreVersion N = f.V().N();
                 c cVar2 = f2.get(size - 1);
-                if (cVar2 != null && N != null && N.swanCoreVersionCode > cVar2.f7376b) {
+                if (cVar2 != null && N != null && N.swanCoreVersionCode > cVar2.f7384b) {
                     sb.append(StringUtils.LF);
                     sb.append(new c(System.currentTimeMillis(), N.swanCoreVersionCode).toString());
                 }
@@ -301,7 +301,7 @@ public class a {
                 JSONObject jSONObject = new JSONObject(str);
                 return new c(jSONObject.optLong("time"), jSONObject.optLong("version"));
             } catch (JSONException e2) {
-                if (k.f7077a) {
+                if (k.f7085a) {
                     e2.printStackTrace();
                     return null;
                 }

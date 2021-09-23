@@ -31,16 +31,16 @@ public abstract class d implements c.a.p0.a.u.c.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8727c;
+    public static final boolean f8735c;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.u.c.b f8728a;
+    public c.a.p0.a.u.c.b f8736a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public CallbackHandler f8729b;
+    public CallbackHandler f8737b;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -48,13 +48,13 @@ public abstract class d implements c.a.p0.a.u.c.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8730e;
+        public final /* synthetic */ String f8738e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.u.h.b f8731f;
+        public final /* synthetic */ c.a.p0.a.u.h.b f8739f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f8732g;
+        public final /* synthetic */ d f8740g;
 
         public a(d dVar, String str, c.a.p0.a.u.h.b bVar) {
             Interceptable interceptable = $ic;
@@ -71,16 +71,16 @@ public abstract class d implements c.a.p0.a.u.c.a {
                     return;
                 }
             }
-            this.f8732g = dVar;
-            this.f8730e = str;
-            this.f8731f = bVar;
+            this.f8740g = dVar;
+            this.f8738e = str;
+            this.f8739f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8732g.q(this.f8730e, this.f8731f);
+                this.f8740g.q(this.f8738e, this.f8739f);
             }
         }
     }
@@ -103,7 +103,7 @@ public abstract class d implements c.a.p0.a.u.c.a {
                 return;
             }
         }
-        f8727c = k.f7077a;
+        f8735c = k.f7085a;
     }
 
     public d(@NonNull c.a.p0.a.u.c.b bVar) {
@@ -121,8 +121,8 @@ public abstract class d implements c.a.p0.a.u.c.a {
                 return;
             }
         }
-        this.f8728a = bVar;
-        this.f8729b = bVar.h();
+        this.f8736a = bVar;
+        this.f8737b = bVar.h();
     }
 
     @Nullable
@@ -136,7 +136,7 @@ public abstract class d implements c.a.p0.a.u.c.a {
             try {
                 return new JSONObject(str);
             } catch (JSONException e2) {
-                if (f8727c) {
+                if (f8735c) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -150,9 +150,9 @@ public abstract class d implements c.a.p0.a.u.c.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jsObject)) == null) {
-            boolean z = f8727c;
+            boolean z = f8735c;
             if (jsObject == null) {
-                if (!f8727c) {
+                if (!f8735c) {
                     return new Pair<>(new c.a.p0.a.u.h.b(202, "parseParams(JsObject): jsObject cannot be null"), null);
                 }
                 throw new RuntimeException("parseParams(JsObject): jsObject cannot be null");
@@ -161,7 +161,7 @@ public abstract class d implements c.a.p0.a.u.c.a {
             int length = jsObject.length();
             if (type != 9) {
                 String str = "parseParams(JsObject): jsObject cannot be " + JsObject.typeToString(type) + " ,length " + length;
-                if (!f8727c) {
+                if (!f8735c) {
                     jsObject.release();
                     return new Pair<>(new c.a.p0.a.u.h.b(202, str), null);
                 }
@@ -187,7 +187,7 @@ public abstract class d implements c.a.p0.a.u.c.a {
                                 jSONObject.put(propertyName, jsObject.toDouble(i2));
                                 break;
                             } catch (JSONException e2) {
-                                if (f8727c) {
+                                if (f8735c) {
                                     e2.printStackTrace();
                                     break;
                                 } else {
@@ -197,7 +197,7 @@ public abstract class d implements c.a.p0.a.u.c.a {
                         case 6:
                             JsObject[] objectArray = jsObject.toObjectArray(i2);
                             if (objectArray == null) {
-                                if (f8727c) {
+                                if (f8735c) {
                                     throw new RuntimeException("parseParams(JsObject): jsObjects cannot be null");
                                 }
                                 break;
@@ -221,7 +221,7 @@ public abstract class d implements c.a.p0.a.u.c.a {
                 } catch (Exception e3) {
                     e3.printStackTrace();
                     String str2 = "parseParams(JsObject): with exception " + e3.getMessage();
-                    if (!f8727c) {
+                    if (!f8735c) {
                         jsObject.release();
                         return new Pair<>(new c.a.p0.a.u.h.b(202, str2), null);
                     }
@@ -239,15 +239,15 @@ public abstract class d implements c.a.p0.a.u.c.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
-            boolean z = f8727c;
+            boolean z = f8735c;
             if (TextUtils.isEmpty(str)) {
-                boolean z2 = f8727c;
+                boolean z2 = f8735c;
                 return new Pair<>(new c.a.p0.a.u.h.b(202, "parseParams(String): json string cannot be empty"), null);
             }
             try {
                 return new Pair<>(new c.a.p0.a.u.h.b(0), new JSONObject(str));
             } catch (JSONException e2) {
-                if (f8727c) {
+                if (f8735c) {
                     e2.printStackTrace();
                 }
                 return new Pair<>(new c.a.p0.a.u.h.b(202, "parseParams(String): with json exception "), null);
@@ -267,11 +267,11 @@ public abstract class d implements c.a.p0.a.u.c.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, jsObjectArr)) == null) {
-            boolean z = f8727c;
+            boolean z = f8735c;
             JSONArray jSONArray = new JSONArray();
             for (JsObject jsObject : jsObjectArr) {
                 if (jsObject == null) {
-                    if (!f8727c) {
+                    if (!f8735c) {
                         jSONArray.put((Object) null);
                     } else {
                         throw new RuntimeException("parseParams(JsObject[]): jsObject cannot be null");
@@ -279,7 +279,7 @@ public abstract class d implements c.a.p0.a.u.c.a {
                 } else {
                     switch (jsObject.getType()) {
                         case 0:
-                            if (!f8727c) {
+                            if (!f8735c) {
                                 jSONArray.put((Object) null);
                                 continue;
                             } else {
@@ -299,7 +299,7 @@ public abstract class d implements c.a.p0.a.u.c.a {
                                 jSONArray.put(jsObject.toDouble(0));
                                 continue;
                             } catch (JSONException e2) {
-                                if (f8727c) {
+                                if (f8735c) {
                                     e2.printStackTrace();
                                 }
                                 jSONArray.put((Object) null);
@@ -308,7 +308,7 @@ public abstract class d implements c.a.p0.a.u.c.a {
                         case 6:
                             JsObject[] objectArray = jsObject.toObjectArray(0);
                             if (objectArray == null) {
-                                if (!f8727c) {
+                                if (!f8735c) {
                                     jSONArray.put((Object) null);
                                     continue;
                                 } else {
@@ -349,28 +349,28 @@ public abstract class d implements c.a.p0.a.u.c.a {
     public final c.a.p0.a.u.c.b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8728a : (c.a.p0.a.u.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8736a : (c.a.p0.a.u.c.b) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.u.c.a
     public final void d(String str, c.a.p0.a.u.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar) == null) {
-            if (f8727c) {
+            if (f8735c) {
                 String str2 = "invokeCallback: " + str;
             }
             if (TextUtils.isEmpty(str)) {
-                if (f8727c) {
+                if (f8735c) {
                     throw new RuntimeException("invokeCallback: do callback with a empty callback");
                 }
             } else if (bVar == null) {
-                if (f8727c) {
+                if (f8735c) {
                     throw new RuntimeException("invokeCallback: do callback with a null result");
                 }
             } else if (Looper.myLooper() == Looper.getMainLooper()) {
                 q(str, bVar);
             } else {
-                if (f8727c) {
+                if (f8735c) {
                     String str3 = "invokeCallback: other thread " + Thread.currentThread().getName();
                 }
                 if (c.a.p0.a.r1.l.e.a()) {
@@ -386,7 +386,7 @@ public abstract class d implements c.a.p0.a.u.c.a {
     public final Context i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8728a.getContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8736a.getContext() : (Context) invokeV.objValue;
     }
 
     public c.a.p0.a.u.h.b j(String str, boolean z, b bVar) {
@@ -424,7 +424,7 @@ public abstract class d implements c.a.p0.a.u.c.a {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-Base", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (f8727c) {
+                if (f8735c) {
                     c.a.p0.a.e0.d.b("Api-Base", "parse fail");
                 }
                 return bVar;
@@ -457,17 +457,17 @@ public abstract class d implements c.a.p0.a.u.c.a {
     public final void q(@NonNull String str, @NonNull c.a.p0.a.u.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, bVar) == null) {
-            if (TextUtils.isEmpty(str) && !(this.f8729b instanceof NullableCallbackHandler)) {
-                if (f8727c) {
+            if (TextUtils.isEmpty(str) && !(this.f8737b instanceof NullableCallbackHandler)) {
+                if (f8735c) {
                     String str2 = "realInvokeCallback: callback check fail: " + str;
                     return;
                 }
                 return;
             }
-            if (f8727c) {
+            if (f8735c) {
                 String str3 = "realInvokeCallback: invoke 【" + str + "】 with 【" + bVar + "】";
             }
-            this.f8729b.handleSchemeDispatchCallback(str, bVar.a());
+            this.f8737b.handleSchemeDispatchCallback(str, bVar.a());
         }
     }
 }

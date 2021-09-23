@@ -14,10 +14,10 @@ public abstract class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Exception f5534e;
+    public Exception f5542e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f5535f;
+    public c f5543f;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -25,7 +25,7 @@ public abstract class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f5536e;
+        public final /* synthetic */ e f5544e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public abstract class e {
                     return;
                 }
             }
-            this.f5536e = eVar;
+            this.f5544e = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -50,12 +50,12 @@ public abstract class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f5536e.f()) {
-                        this.f5536e.d();
+                    if (this.f5544e.f()) {
+                        this.f5544e.d();
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    this.f5536e.e(e2);
+                    this.f5544e.e(e2);
                 }
             }
         }
@@ -67,7 +67,7 @@ public abstract class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f5537e;
+        public final /* synthetic */ e f5545e;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public abstract class e {
                     return;
                 }
             }
-            this.f5537e = eVar;
+            this.f5545e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5537e.f5535f.m(this.f5537e);
+                this.f5545e.f5543f.m(this.f5545e);
             }
         }
     }
@@ -113,13 +113,13 @@ public abstract class e {
     public Exception b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5534e : (Exception) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5542e : (Exception) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5534e == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5542e == null : invokeV.booleanValue;
     }
 
     public void d() {
@@ -132,7 +132,7 @@ public abstract class e {
     public void e(@Nullable Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-            this.f5534e = exc;
+            this.f5542e = exc;
             d.k(new b(this));
         }
     }
@@ -153,7 +153,7 @@ public abstract class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cVar)) == null) {
-            this.f5535f = cVar;
+            this.f5543f = cVar;
             return this;
         }
         return (e) invokeL.objValue;

@@ -20,11 +20,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11614b;
+    public static final boolean f11622b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<c.a.p0.a.y.b.a> f11615a;
+    public List<c.a.p0.a.y.b.a> f11623a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class a {
                 return;
             }
         }
-        f11614b = k.f7077a;
+        f11622b = k.f7085a;
     }
 
     public a(JSONArray jSONArray) {
@@ -57,11 +57,11 @@ public class a {
                 return;
             }
         }
-        this.f11615a = new ArrayList();
+        this.f11623a = new ArrayList();
         if (jSONArray == null) {
             return;
         }
-        if (f11614b) {
+        if (f11622b) {
             String str = "jsonArray:" + jSONArray;
         }
         int length = jSONArray.length();
@@ -82,11 +82,11 @@ public class a {
                 }
                 if (c2 != 0) {
                     if (c2 == 1 && i5 < 10) {
-                        this.f11615a.add(a(optJSONObject));
+                        this.f11623a.add(a(optJSONObject));
                         i5++;
                     }
                 } else if (i4 < 3) {
-                    this.f11615a.add(b(optJSONObject));
+                    this.f11623a.add(b(optJSONObject));
                     i4++;
                 }
             }

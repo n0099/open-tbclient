@@ -31,10 +31,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f9989a;
+    public static boolean f9997a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9990b;
+    public static final boolean f9998b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.z1.b.a$a  reason: collision with other inner class name */
@@ -44,7 +44,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.w2.d.b f9991e;
+        public final /* synthetic */ c.a.p0.a.w2.d.b f9999e;
 
         public RunnableC0482a(c.a.p0.a.w2.d.b bVar) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class a {
                     return;
                 }
             }
-            this.f9991e = bVar;
+            this.f9999e = bVar;
         }
 
         @Override // java.lang.Runnable
@@ -69,7 +69,7 @@ public class a {
             c.a.p0.a.w2.d.b bVar;
             View e2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f9991e) == null || (e2 = bVar.e()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f9999e) == null || (e2 = bVar.e()) == null) {
                 return;
             }
             e2.setVisibility(0);
@@ -82,10 +82,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f9992e;
+        public final /* synthetic */ d f10000e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f9993f;
+        public final /* synthetic */ View f10001f;
 
         public b(d dVar, View view) {
             Interceptable interceptable = $ic;
@@ -102,8 +102,8 @@ public class a {
                     return;
                 }
             }
-            this.f9992e = dVar;
-            this.f9993f = view;
+            this.f10000e = dVar;
+            this.f10001f = view;
         }
 
         @Override // java.lang.Runnable
@@ -111,11 +111,11 @@ public class a {
             View e2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.w2.d.b D1 = this.f9992e.D1();
+                c.a.p0.a.w2.d.b D1 = this.f10000e.D1();
                 if (D1 != null && (e2 = D1.e()) != null) {
                     e2.setVisibility(8);
                 }
-                LinearLayout linearLayout = (LinearLayout) this.f9993f.findViewById(f.ai_apps_fragment_base_view);
+                LinearLayout linearLayout = (LinearLayout) this.f10001f.findViewById(f.ai_apps_fragment_base_view);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
                 layoutParams.topMargin = 0;
                 linearLayout.setLayoutParams(layoutParams);
@@ -133,10 +133,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f9994e;
+        public final /* synthetic */ Activity f10002e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f9995f;
+        public final /* synthetic */ boolean f10003f;
 
         public c(Activity activity, boolean z) {
             Interceptable interceptable = $ic;
@@ -153,16 +153,16 @@ public class a {
                     return;
                 }
             }
-            this.f9994e = activity;
-            this.f9995f = z;
+            this.f10002e = activity;
+            this.f10003f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9994e.getWindow().clearFlags(2048);
-                a.l(a.d(this.f9994e), this.f9995f);
+                this.f10002e.getWindow().clearFlags(2048);
+                a.l(a.d(this.f10002e), this.f10003f);
             }
         }
     }
@@ -180,9 +180,9 @@ public class a {
                 return;
             }
         }
-        f9989a = k.f7077a;
+        f9997a = k.f7085a;
         Color.parseColor("#80000000");
-        f9990b = h();
+        f9998b = h();
         if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
             return;
         }
@@ -248,7 +248,7 @@ public class a {
     public static boolean g(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view)) == null) ? (!f9990b || view == null || view.findViewById(f.immersion_custom_statusbar_view) == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view)) == null) ? (!f9998b || view == null || view.findViewById(f.immersion_custom_statusbar_view) == null) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean h() {
@@ -256,7 +256,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             boolean z = Build.VERSION.SDK_INT >= 21;
-            return f9989a ? z & c0.b("sp_key_immersion_switch", z) : z;
+            return f9997a ? z & c0.b("sp_key_immersion_switch", z) : z;
         }
         return invokeV.booleanValue;
     }

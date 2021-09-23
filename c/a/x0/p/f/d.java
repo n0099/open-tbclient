@@ -18,16 +18,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final MediaMuxer f31118a;
+    public final MediaMuxer f31139a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31119b;
+    public int f31140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31120c;
+    public int f31141c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31121d;
+    public boolean f31142d;
 
     public d(String str) throws IOException {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public class d {
                 return;
             }
         }
-        this.f31119b = 2;
-        this.f31120c = 0;
-        this.f31121d = false;
-        this.f31118a = new MediaMuxer(str, 0);
+        this.f31140b = 2;
+        this.f31141c = 0;
+        this.f31142d = false;
+        this.f31139a = new MediaMuxer(str, 0);
     }
 
     public synchronized int a(MediaFormat mediaFormat) {
@@ -56,11 +56,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
             synchronized (this) {
-                if (this.f31121d) {
+                if (this.f31142d) {
                     throw new IllegalStateException("muxer already started");
                 }
-                addTrack = this.f31118a.addTrack(mediaFormat);
-                c.a.x0.t.c.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.f31119b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+                addTrack = this.f31139a.addTrack(mediaFormat);
+                c.a.x0.t.c.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.f31140b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
             }
             return addTrack;
         }
@@ -71,8 +71,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, byteBuffer, bufferInfo) == null) {
             synchronized (this) {
-                if (this.f31120c > 0) {
-                    this.f31118a.writeSampleData(i2, byteBuffer, bufferInfo);
+                if (this.f31141c > 0) {
+                    this.f31139a.writeSampleData(i2, byteBuffer, bufferInfo);
                 }
             }
         }
@@ -85,15 +85,15 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 c.a.x0.t.c.k(MediaMuxerWrapper.TAG, "start:");
-                int i2 = this.f31120c + 1;
-                this.f31120c = i2;
-                if (this.f31119b > 0 && i2 == this.f31119b) {
-                    this.f31118a.start();
-                    this.f31121d = true;
+                int i2 = this.f31141c + 1;
+                this.f31141c = i2;
+                if (this.f31140b > 0 && i2 == this.f31140b) {
+                    this.f31139a.start();
+                    this.f31142d = true;
                     notifyAll();
                     c.a.x0.t.c.k(MediaMuxerWrapper.TAG, "MediaMuxer started:");
                 }
-                z = this.f31121d;
+                z = this.f31142d;
             }
             return z;
         }
@@ -104,15 +104,15 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                c.a.x0.t.c.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.f31120c);
-                int i2 = this.f31120c + (-1);
-                this.f31120c = i2;
-                if (this.f31119b > 0 && i2 <= 0) {
-                    if (this.f31121d) {
-                        this.f31118a.stop();
+                c.a.x0.t.c.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.f31141c);
+                int i2 = this.f31141c + (-1);
+                this.f31141c = i2;
+                if (this.f31140b > 0 && i2 <= 0) {
+                    if (this.f31142d) {
+                        this.f31139a.stop();
                     }
-                    this.f31118a.release();
-                    this.f31121d = false;
+                    this.f31139a.release();
+                    this.f31142d = false;
                     c.a.x0.t.c.k(MediaMuxerWrapper.TAG, "MediaMuxer stopped:");
                 }
             }
@@ -125,7 +125,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                z = this.f31121d;
+                z = this.f31142d;
             }
             return z;
         }

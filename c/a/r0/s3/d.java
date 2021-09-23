@@ -12,10 +12,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f24820a;
+    public final List<String> f24836a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f24821b;
+    public final String f24837b;
 
     public d(List<String> list, String str) {
         Interceptable interceptable = $ic;
@@ -33,10 +33,10 @@ public class d {
             }
         }
         if (list != null) {
-            this.f24820a = new ArrayList(list);
+            this.f24836a = new ArrayList(list);
         } else {
-            this.f24820a = new ArrayList();
+            this.f24836a = new ArrayList();
         }
-        this.f24821b = str;
+        this.f24837b = str;
     }
 }

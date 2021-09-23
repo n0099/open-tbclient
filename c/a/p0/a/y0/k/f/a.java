@@ -25,20 +25,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f9832e;
+    public static final boolean f9840e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, Long> f9833a;
+    public final HashMap<String, Long> f9841a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, String> f9834b;
+    public final HashMap<String, String> f9842b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9835c;
+    public boolean f9843c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9836d;
+    public boolean f9844d;
 
     /* renamed from: c.a.p0.a.y0.k.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -47,10 +47,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a f9837e;
+        public final /* synthetic */ b.a f9845e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9838f;
+        public final /* synthetic */ a f9846f;
 
         public RunnableC0471a(a aVar, b.a aVar2) {
             Interceptable interceptable = $ic;
@@ -67,15 +67,15 @@ public class a {
                     return;
                 }
             }
-            this.f9838f = aVar;
-            this.f9837e = aVar2;
+            this.f9846f = aVar;
+            this.f9845e = aVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9838f.j(this.f9837e);
+                this.f9846f.j(this.f9845e);
             }
         }
     }
@@ -93,7 +93,7 @@ public class a {
                 return;
             }
         }
-        f9832e = k.f7077a;
+        f9840e = k.f7085a;
     }
 
     public a() {
@@ -109,17 +109,17 @@ public class a {
                 return;
             }
         }
-        this.f9833a = new HashMap<>();
-        this.f9834b = new HashMap<>();
-        this.f9835c = false;
-        this.f9836d = false;
+        this.f9841a = new HashMap<>();
+        this.f9842b = new HashMap<>();
+        this.f9843c = false;
+        this.f9844d = false;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f9833a.clear();
-            this.f9834b.clear();
+            this.f9841a.clear();
+            this.f9842b.clear();
         }
     }
 
@@ -127,7 +127,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                this.f9836d = true;
+                this.f9844d = true;
             }
         }
     }
@@ -138,7 +138,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             synchronized (this) {
-                containsKey = this.f9833a.containsKey(str);
+                containsKey = this.f9841a.containsKey(str);
             }
             return containsKey;
         }
@@ -151,7 +151,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             synchronized (this) {
-                containsKey = this.f9834b.containsKey(str);
+                containsKey = this.f9842b.containsKey(str);
             }
             return containsKey;
         }
@@ -164,7 +164,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                z = this.f9836d;
+                z = this.f9844d;
             }
             return z;
         }
@@ -175,8 +175,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
             synchronized (this) {
-                if (!this.f9836d) {
-                    this.f9834b.put(str, str2);
+                if (!this.f9844d) {
+                    this.f9842b.put(str, str2);
                 }
             }
         }
@@ -186,11 +186,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             synchronized (this) {
-                if (f9832e) {
+                if (f9840e) {
                     String str2 = "inline video record: action " + str;
                 }
-                if (!this.f9836d && !this.f9833a.containsKey(str)) {
-                    this.f9833a.put(str, Long.valueOf(System.currentTimeMillis()));
+                if (!this.f9844d && !this.f9841a.containsKey(str)) {
+                    this.f9841a.put(str, Long.valueOf(System.currentTimeMillis()));
                 }
             }
         }
@@ -200,11 +200,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j2) == null) {
             synchronized (this) {
-                if (f9832e) {
+                if (f9840e) {
                     String str2 = "inline video record: action " + str;
                 }
-                if (!this.f9833a.containsKey(str)) {
-                    this.f9833a.put(str, Long.valueOf(j2));
+                if (!this.f9841a.containsKey(str)) {
+                    this.f9841a.put(str, Long.valueOf(j2));
                 }
             }
         }
@@ -214,13 +214,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             synchronized (this) {
-                if (this.f9835c) {
+                if (this.f9843c) {
                     return;
                 }
-                this.f9835c = true;
-                boolean equals = TextUtils.equals("1", this.f9834b.get("autoPlay"));
-                boolean equals2 = TextUtils.equals("1", this.f9834b.get("playMethod"));
-                if (f9832e) {
+                this.f9843c = true;
+                boolean equals = TextUtils.equals("1", this.f9842b.get("autoPlay"));
+                boolean equals2 = TextUtils.equals("1", this.f9842b.get("playMethod"));
+                if (f9840e) {
                     String str = "submit: autoPlay:" + equals + ",apiPlay:" + equals2;
                 }
                 if (!equals && !equals2) {
@@ -229,13 +229,13 @@ public class a {
                 }
                 h.r("video");
                 HybridUbcFlow p = h.p("video");
-                for (Map.Entry<String, Long> entry : this.f9833a.entrySet()) {
+                for (Map.Entry<String, Long> entry : this.f9841a.entrySet()) {
                     d.g("VideoStaticRecorder", "submit: event key: " + entry.getKey() + " value " + entry.getValue());
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(entry.getKey());
                     ubcFlowEvent.h(entry.getValue().longValue());
                     p.C(ubcFlowEvent);
                 }
-                for (Map.Entry<String, String> entry2 : this.f9834b.entrySet()) {
+                for (Map.Entry<String, String> entry2 : this.f9842b.entrySet()) {
                     d.g("VideoStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
                     p.A(entry2.getKey(), entry2.getValue());
                 }

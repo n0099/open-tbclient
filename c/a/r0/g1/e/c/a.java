@@ -15,16 +15,16 @@ public class a extends p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f18018a;
+    public int f18028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18019b;
+    public String f18029b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18020c;
+    public String f18030c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18021d;
+    public int f18031d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class a extends p {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, subClassItem) == null) || subClassItem == null) {
             return;
         }
-        this.f18018a = subClassItem.sub_class_id.intValue();
-        this.f18019b = subClassItem.sub_class_name;
-        this.f18020c = subClassItem.sub_class_icon;
-        this.f18021d = subClassItem.enable.intValue();
+        this.f18028a = subClassItem.sub_class_id.intValue();
+        this.f18029b = subClassItem.sub_class_name;
+        this.f18030c = subClassItem.sub_class_icon;
+        this.f18031d = subClassItem.enable.intValue();
     }
 
     @Override // c.a.q0.s.q.p
@@ -57,9 +57,9 @@ public class a extends p {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f18018a = jSONObject.optInt("sub_class_id");
-        this.f18019b = jSONObject.optString("sub_class_name");
-        this.f18020c = jSONObject.optString("sub_class_icon");
-        this.f18021d = jSONObject.optInt(c.l);
+        this.f18028a = jSONObject.optInt("sub_class_id");
+        this.f18029b = jSONObject.optString("sub_class_name");
+        this.f18030c = jSONObject.optString("sub_class_icon");
+        this.f18031d = jSONObject.optInt(c.l);
     }
 }

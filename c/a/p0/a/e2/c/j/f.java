@@ -49,7 +49,7 @@ public class f extends h<d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f5598g;
+        public final /* synthetic */ f f5606g;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class f extends h<d> {
                     return;
                 }
             }
-            this.f5598g = fVar;
+            this.f5606g = fVar;
         }
 
         @Override // c.a.p0.a.e2.c.e
@@ -74,14 +74,14 @@ public class f extends h<d> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.p0.a.m.b j2 = this.f5598g.N().j();
-                boolean e2 = j2.e(this.f5598g.m);
+                c.a.p0.a.m.b j2 = this.f5606g.N().j();
+                boolean e2 = j2.e(this.f5606g.m);
                 if (f.r) {
                     String str = "LoginPreparation isLogin : " + e2 + " call stack:" + Log.getStackTraceString(new Exception());
                 }
                 if (!e2) {
-                    k.N(this.f5598g.l, "passLogin");
-                    f fVar = this.f5598g;
+                    k.N(this.f5606g.l, "passLogin");
+                    f fVar = this.f5606g;
                     j2.f(fVar.m, fVar.p, this);
                 }
                 return e2;
@@ -118,7 +118,7 @@ public class f extends h<d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<f> f5599a;
+        public WeakReference<f> f5607a;
 
         public /* synthetic */ c(Looper looper, f fVar, a aVar) {
             this(looper, fVar);
@@ -128,7 +128,7 @@ public class f extends h<d> {
         public void handleMessage(Message message) {
             f fVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (fVar = this.f5599a.get()) != null && message.what == 1) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (fVar = this.f5607a.get()) != null && message.what == 1) {
                 boolean unused = f.r;
                 c.a.p0.a.e2.c.d.j("request timeout", Boolean.TRUE);
                 fVar.e(new OAuthException(10002));
@@ -153,7 +153,7 @@ public class f extends h<d> {
                     return;
                 }
             }
-            this.f5599a = new WeakReference<>(fVar);
+            this.f5607a = new WeakReference<>(fVar);
         }
     }
 
@@ -163,7 +163,7 @@ public class f extends h<d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f5600a;
+        public final String f5608a;
 
         public /* synthetic */ d(String str, a aVar) {
             this(str);
@@ -172,7 +172,7 @@ public class f extends h<d> {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("Result code(%s)", this.f5600a) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("Result code(%s)", this.f5608a) : (String) invokeV.objValue;
         }
 
         public d(String str) {
@@ -190,7 +190,7 @@ public class f extends h<d> {
                     return;
                 }
             }
-            this.f5600a = str == null ? "" : str;
+            this.f5608a = str == null ? "" : str;
         }
     }
 
@@ -207,7 +207,7 @@ public class f extends h<d> {
                 return;
             }
         }
-        r = c.a.p0.a.k.f7077a;
+        r = c.a.p0.a.k.f7085a;
     }
 
     public f(Activity activity, c.C0384c c0384c, Bundle bundle) {

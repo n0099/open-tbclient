@@ -11,34 +11,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f15832a;
+    public String f15842a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15833b;
+    public String f15843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f15834c;
+    public String f15844c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f15835d;
+    public String f15845d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f15836e;
+    public String f15846e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15837f;
+    public String f15847f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15838g;
+    public int f15848g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15839h;
+    public int f15849h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15840i;
+    public int f15850i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f15841j;
+    public String f15851j;
     public String k;
     public long l;
     public long m;
@@ -69,9 +69,9 @@ public class d {
     public static void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, dVar) == null) {
-            dVar.f15840i = 0;
-            dVar.f15838g = 4;
-            dVar.f15839h = 4;
+            dVar.f15850i = 0;
+            dVar.f15848g = 4;
+            dVar.f15849h = 4;
             dVar.l = System.currentTimeMillis();
             dVar.n = true;
         }
@@ -93,10 +93,10 @@ public class d {
             }
         }
         this.k = "";
-        this.f15835d = msgContent.title;
+        this.f15845d = msgContent.title;
         this.q = msgContent.url;
-        this.f15837f = msgContent.src;
-        this.f15836e = msgContent.text;
+        this.f15847f = msgContent.src;
+        this.f15846e = msgContent.text;
         a(this);
     }
 }

@@ -78,9 +78,9 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
                 return;
             }
             UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-            aVar.f48082a = true;
-            aVar.f48085d = "1".equals(queryParameter2);
-            aVar.f48084c = queryParameter;
+            aVar.f48190a = true;
+            aVar.f48193d = "1".equals(queryParameter2);
+            aVar.f48192c = queryParameter;
             MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
         }
     }

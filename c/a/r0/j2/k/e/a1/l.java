@@ -24,7 +24,7 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f19854a;
+    public static final int f19869a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -58,7 +58,7 @@ public class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
                 int calculateDtToFit = super.calculateDtToFit(i2, i3, i4, i5, i6);
-                return calculateDtToFit == 0 ? calculateDtToFit : calculateDtToFit - l.f19854a;
+                return calculateDtToFit == 0 ? calculateDtToFit : calculateDtToFit - l.f19869a;
             }
             return invokeCommon.intValue;
         }
@@ -78,13 +78,13 @@ public class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeRecyclerView f19855e;
+        public final /* synthetic */ BdTypeRecyclerView f19870e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f19856f;
+        public final /* synthetic */ String f19871f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ LinearSmoothScroller f19857g;
+        public final /* synthetic */ LinearSmoothScroller f19872g;
 
         public b(BdTypeRecyclerView bdTypeRecyclerView, String str, LinearSmoothScroller linearSmoothScroller) {
             Interceptable interceptable = $ic;
@@ -101,22 +101,22 @@ public class l {
                     return;
                 }
             }
-            this.f19855e = bdTypeRecyclerView;
-            this.f19856f = str;
-            this.f19857g = linearSmoothScroller;
+            this.f19870e = bdTypeRecyclerView;
+            this.f19871f = str;
+            this.f19872g = linearSmoothScroller;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int a2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a2 = l.a(this.f19855e, this.f19856f)) < 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a2 = l.a(this.f19870e, this.f19871f)) < 0) {
                 return;
             }
-            this.f19857g.setTargetPosition(a2);
-            RecyclerView.LayoutManager layoutManager = this.f19855e.getLayoutManager();
+            this.f19872g.setTargetPosition(a2);
+            RecyclerView.LayoutManager layoutManager = this.f19870e.getLayoutManager();
             if (layoutManager != null) {
-                layoutManager.startSmoothScroll(this.f19857g);
+                layoutManager.startSmoothScroll(this.f19872g);
             }
         }
     }
@@ -134,7 +134,7 @@ public class l {
                 return;
             }
         }
-        f19854a = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds120);
+        f19869a = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds120);
     }
 
     public static int a(BdTypeRecyclerView bdTypeRecyclerView, String str) {

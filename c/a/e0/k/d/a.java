@@ -14,20 +14,20 @@ public class a implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f3128b;
+    public static a f3129b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f3129c;
+    public static e f3130c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c.a.e0.k.e.b f3130d;
+    public static c.a.e0.k.e.b f3131d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static c.a.e0.k.e.a f3131e;
+    public static c.a.e0.k.e.a f3132e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3132a;
+    public Context f3133a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -44,20 +44,20 @@ public class a implements c {
                 return;
             }
         }
-        this.f3132a = context.getApplicationContext();
-        f3130d = new c.a.e0.k.e.b();
-        f3131e = new c.a.e0.k.e.a(context);
-        f3129c = new e();
+        this.f3133a = context.getApplicationContext();
+        f3131d = new c.a.e0.k.e.b();
+        f3132e = new c.a.e0.k.e.a(context);
+        f3130c = new e();
     }
 
     public static c.a.e0.k.e.b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f3130d == null) {
-                f3130d = new c.a.e0.k.e.b();
+            if (f3131d == null) {
+                f3131d = new c.a.e0.k.e.b();
             }
-            return f3130d;
+            return f3131d;
         }
         return (c.a.e0.k.e.b) invokeV.objValue;
     }
@@ -66,10 +66,10 @@ public class a implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f3131e == null) {
-                f3131e = new c.a.e0.k.e.a(context);
+            if (f3132e == null) {
+                f3132e = new c.a.e0.k.e.a(context);
             }
-            return f3131e;
+            return f3132e;
         }
         return (c.a.e0.k.e.a) invokeL.objValue;
     }
@@ -78,14 +78,14 @@ public class a implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f3128b == null) {
+            if (f3129b == null) {
                 synchronized (a.class) {
-                    if (f3128b == null) {
-                        f3128b = new a(context);
+                    if (f3129b == null) {
+                        f3129b = new a(context);
                     }
                 }
             }
-            return f3128b;
+            return f3129b;
         }
         return (a) invokeL.objValue;
     }
@@ -102,11 +102,11 @@ public class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, str, i2, i3) == null) {
             imageView.setTag(str);
-            Bitmap b2 = f3130d.b(str);
+            Bitmap b2 = f3131d.b(str);
             if (b2 != null) {
                 imageView.setImageBitmap(b2);
             } else {
-                c.a.e0.m.a.a(new g(this.f3132a, f3129c, str, imageView, i2, i3));
+                c.a.e0.m.a.a(new g(this.f3133a, f3130c, str, imageView, i2, i3));
             }
         }
     }

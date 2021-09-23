@@ -45,37 +45,37 @@ public class Base64 {
     public static final int URL_SAFE = 16;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f39640a;
+    public static final int f39697a = 76;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39641b = 76;
+    public static final byte f39698b = 61;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte f39642c = 61;
+    public static final byte f39699c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte f39643d = 10;
+    public static final String f39700d = "US-ASCII";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f39644e = "US-ASCII";
+    public static final byte f39701e = -5;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final byte f39645f = -5;
+    public static final byte f39702f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final byte f39646g = -1;
+    public static final byte[] f39703g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final byte[] f39647h;
+    public static final byte[] f39704h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final byte[] f39648i;
+    public static final byte[] f39705i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final byte[] f39649j;
+    public static final byte[] f39706j;
     public static final byte[] k;
     public static final byte[] l;
-    public static final byte[] m;
+    public static final /* synthetic */ boolean m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -84,31 +84,31 @@ public class Base64 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f39651a;
+        public final boolean f39708a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f39652b;
+        public final byte[] f39709b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f39653c;
+        public final int f39710c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final boolean f39654d;
+        public final boolean f39711d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f39655e;
+        public final int f39712e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final byte[] f39656f;
+        public final byte[] f39713f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f39657g;
+        public int f39714g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f39658h;
+        public int f39715h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f39659i;
+        public int f39716i;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public InputStream(java.io.InputStream inputStream) {
@@ -149,16 +149,16 @@ public class Base64 {
                     return;
                 }
             }
-            this.f39655e = i2;
-            this.f39654d = (i2 & 8) > 0;
+            this.f39712e = i2;
+            this.f39711d = (i2 & 8) > 0;
             boolean z = (i2 & 1) > 0;
-            this.f39651a = z;
+            this.f39708a = z;
             int i5 = z ? 4 : 3;
-            this.f39653c = i5;
-            this.f39652b = new byte[i5];
-            this.f39657g = -1;
-            this.f39659i = 0;
-            this.f39656f = Base64.c(i2);
+            this.f39710c = i5;
+            this.f39709b = new byte[i5];
+            this.f39714g = -1;
+            this.f39716i = 0;
+            this.f39713f = Base64.c(i2);
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
@@ -167,8 +167,8 @@ public class Base64 {
             int read;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f39657g < 0) {
-                    if (this.f39651a) {
+                if (this.f39714g < 0) {
+                    if (this.f39708a) {
                         byte[] bArr = new byte[3];
                         int i2 = 0;
                         for (int i3 = 0; i3 < 3; i3++) {
@@ -182,9 +182,9 @@ public class Base64 {
                         if (i2 <= 0) {
                             return -1;
                         }
-                        Base64.b(bArr, 0, i2, this.f39652b, 0, this.f39655e);
-                        this.f39657g = 0;
-                        this.f39658h = 4;
+                        Base64.b(bArr, 0, i2, this.f39709b, 0, this.f39712e);
+                        this.f39714g = 0;
+                        this.f39715h = 4;
                     } else {
                         byte[] bArr2 = new byte[4];
                         int i4 = 0;
@@ -194,7 +194,7 @@ public class Base64 {
                                 if (read < 0) {
                                     break;
                                 }
-                            } while (this.f39656f[read & 127] <= -5);
+                            } while (this.f39713f[read & 127] <= -5);
                             if (read < 0) {
                                 break;
                             }
@@ -207,27 +207,27 @@ public class Base64 {
                             }
                             throw new IOException("Improperly padded Base64 input.");
                         }
-                        this.f39658h = Base64.b(bArr2, 0, this.f39652b, 0, this.f39655e);
-                        this.f39657g = 0;
+                        this.f39715h = Base64.b(bArr2, 0, this.f39709b, 0, this.f39712e);
+                        this.f39714g = 0;
                     }
                 }
-                int i5 = this.f39657g;
+                int i5 = this.f39714g;
                 if (i5 >= 0) {
-                    if (i5 >= this.f39658h) {
+                    if (i5 >= this.f39715h) {
                         return -1;
                     }
-                    if (this.f39651a && this.f39654d && this.f39659i >= 76) {
-                        this.f39659i = 0;
+                    if (this.f39708a && this.f39711d && this.f39716i >= 76) {
+                        this.f39716i = 0;
                         return 10;
                     }
-                    this.f39659i++;
-                    byte[] bArr3 = this.f39652b;
-                    int i6 = this.f39657g;
+                    this.f39716i++;
+                    byte[] bArr3 = this.f39709b;
+                    int i6 = this.f39714g;
                     int i7 = i6 + 1;
-                    this.f39657g = i7;
+                    this.f39714g = i7;
                     byte b2 = bArr3[i6];
-                    if (i7 >= this.f39653c) {
-                        this.f39657g = -1;
+                    if (i7 >= this.f39710c) {
+                        this.f39714g = -1;
                     }
                     return b2 & 255;
                 }
@@ -266,34 +266,34 @@ public class Base64 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f39660a;
+        public final boolean f39717a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f39661b;
+        public final int f39718b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f39662c;
+        public final boolean f39719c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final byte[] f39663d;
+        public final byte[] f39720d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f39664e;
+        public final int f39721e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final byte[] f39665f;
+        public final byte[] f39722f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f39666g;
+        public int f39723g;
 
         /* renamed from: h  reason: collision with root package name */
-        public byte[] f39667h;
+        public byte[] f39724h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f39668i;
+        public int f39725i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f39669j;
+        public boolean f39726j;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public OutputStream(java.io.OutputStream outputStream) {
@@ -334,18 +334,18 @@ public class Base64 {
                     return;
                 }
             }
-            this.f39662c = (i2 & 8) != 0;
+            this.f39719c = (i2 & 8) != 0;
             boolean z = (i2 & 1) != 0;
-            this.f39660a = z;
+            this.f39717a = z;
             int i5 = z ? 3 : 4;
-            this.f39661b = i5;
-            this.f39667h = new byte[i5];
-            this.f39666g = 0;
-            this.f39668i = 0;
-            this.f39669j = false;
-            this.f39663d = new byte[4];
-            this.f39664e = i2;
-            this.f39665f = Base64.c(i2);
+            this.f39718b = i5;
+            this.f39724h = new byte[i5];
+            this.f39723g = 0;
+            this.f39725i = 0;
+            this.f39726j = false;
+            this.f39720d = new byte[4];
+            this.f39721e = i2;
+            this.f39722f = Base64.c(i2);
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -354,7 +354,7 @@ public class Base64 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 flushBase64();
                 super.close();
-                this.f39667h = null;
+                this.f39724h = null;
                 ((FilterOutputStream) this).out = null;
             }
         }
@@ -362,20 +362,20 @@ public class Base64 {
         public void flushBase64() throws IOException {
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i2 = this.f39666g) <= 0) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i2 = this.f39723g) <= 0) {
                 return;
             }
-            if (!this.f39660a) {
+            if (!this.f39717a) {
                 throw new IOException("Base64 input not properly padded.");
             }
-            ((FilterOutputStream) this).out.write(Base64.b(this.f39663d, this.f39667h, i2, this.f39664e));
-            this.f39666g = 0;
+            ((FilterOutputStream) this).out.write(Base64.b(this.f39720d, this.f39724h, i2, this.f39721e));
+            this.f39723g = 0;
         }
 
         public void resumeEncoding() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f39669j = false;
+                this.f39726j = false;
             }
         }
 
@@ -383,7 +383,7 @@ public class Base64 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 flushBase64();
-                this.f39669j = true;
+                this.f39726j = true;
             }
         }
 
@@ -391,29 +391,29 @@ public class Base64 {
         public void write(int i2) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                if (this.f39669j) {
+                if (this.f39726j) {
                     ((FilterOutputStream) this).out.write(i2);
                     return;
                 }
-                if (this.f39660a) {
-                    byte[] bArr = this.f39667h;
-                    int i3 = this.f39666g;
+                if (this.f39717a) {
+                    byte[] bArr = this.f39724h;
+                    int i3 = this.f39723g;
                     int i4 = i3 + 1;
-                    this.f39666g = i4;
+                    this.f39723g = i4;
                     bArr[i3] = (byte) i2;
-                    int i5 = this.f39661b;
+                    int i5 = this.f39718b;
                     if (i4 < i5) {
                         return;
                     }
-                    ((FilterOutputStream) this).out.write(Base64.b(this.f39663d, bArr, i5, this.f39664e));
-                    int i6 = this.f39668i + 4;
-                    this.f39668i = i6;
-                    if (this.f39662c && i6 >= 76) {
+                    ((FilterOutputStream) this).out.write(Base64.b(this.f39720d, bArr, i5, this.f39721e));
+                    int i6 = this.f39725i + 4;
+                    this.f39725i = i6;
+                    if (this.f39719c && i6 >= 76) {
                         ((FilterOutputStream) this).out.write(10);
-                        this.f39668i = 0;
+                        this.f39725i = 0;
                     }
                 } else {
-                    byte[] bArr2 = this.f39665f;
+                    byte[] bArr2 = this.f39722f;
                     int i7 = i2 & 127;
                     if (bArr2[i7] <= -5) {
                         if (bArr2[i7] != -5) {
@@ -421,17 +421,17 @@ public class Base64 {
                         }
                         return;
                     }
-                    byte[] bArr3 = this.f39667h;
-                    int i8 = this.f39666g;
+                    byte[] bArr3 = this.f39724h;
+                    int i8 = this.f39723g;
                     int i9 = i8 + 1;
-                    this.f39666g = i9;
+                    this.f39723g = i9;
                     bArr3[i8] = (byte) i2;
-                    if (i9 < this.f39661b) {
+                    if (i9 < this.f39718b) {
                         return;
                     }
-                    ((FilterOutputStream) this).out.write(this.f39663d, 0, Base64.b(bArr3, 0, this.f39663d, 0, this.f39664e));
+                    ((FilterOutputStream) this).out.write(this.f39720d, 0, Base64.b(bArr3, 0, this.f39720d, 0, this.f39721e));
                 }
-                this.f39666g = 0;
+                this.f39723g = 0;
             }
         }
 
@@ -439,7 +439,7 @@ public class Base64 {
         public void write(byte[] bArr, int i2, int i3) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i2, i3) == null) {
-                if (this.f39669j) {
+                if (this.f39726j) {
                     ((FilterOutputStream) this).out.write(bArr, i2, i3);
                     return;
                 }
@@ -463,13 +463,13 @@ public class Base64 {
                 return;
             }
         }
-        f39640a = !Base64.class.desiredAssertionStatus();
-        f39647h = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
-        f39648i = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        f39649j = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
-        k = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        l = new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122};
-        m = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        m = !Base64.class.desiredAssertionStatus();
+        f39703g = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        f39704h = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        f39705i = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
+        f39706j = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        k = new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122};
+        l = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
     }
 
     public Base64() {
@@ -528,7 +528,7 @@ public class Base64 {
     public static final byte[] b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? (i2 & 16) == 16 ? f39649j : (i2 & 32) == 32 ? l : f39647h : (byte[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? (i2 & 16) == 16 ? f39705i : (i2 & 32) == 32 ? k : f39703g : (byte[]) invokeI.objValue;
     }
 
     public static byte[] b(byte[] bArr, int i2, int i3, byte[] bArr2, int i4, int i5) {
@@ -575,7 +575,7 @@ public class Base64 {
     public static final byte[] c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) ? (i2 & 16) == 16 ? k : (i2 & 32) == 32 ? m : f39648i : (byte[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) ? (i2 & 16) == 16 ? f39706j : (i2 & 32) == 32 ? l : f39704h : (byte[]) invokeI.objValue;
     }
 
     public static byte[] decode(String str) throws IOException {
@@ -584,30 +584,26 @@ public class Base64 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? decode(str, 0) : (byte[]) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0064 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0066 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0086 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x005d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:83:0x003d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0064 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0066 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0068 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:67:0x005d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:87:0x003d */
     /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v13 */
     /* JADX WARN: Type inference failed for: r3v1, types: [int] */
-    /* JADX WARN: Type inference failed for: r3v10 */
-    /* JADX WARN: Type inference failed for: r3v11 */
-    /* JADX WARN: Type inference failed for: r3v12, types: [java.io.ByteArrayInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r3v13 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v10, types: [java.io.ByteArrayInputStream] */
+    /* JADX WARN: Type inference failed for: r3v14, types: [java.io.ByteArrayInputStream, java.io.InputStream] */
     /* JADX WARN: Type inference failed for: r3v4 */
-    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.ByteArrayInputStream] */
-    /* JADX WARN: Type inference failed for: r3v6 */
-    /* JADX WARN: Type inference failed for: r3v7, types: [java.io.ByteArrayInputStream] */
-    /* JADX WARN: Type inference failed for: r3v8 */
-    /* JADX WARN: Type inference failed for: r3v9 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:63:0x005d -> B:81:0x005d). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:67:0x005d -> B:85:0x005d). Please submit an issue!!! */
     public static byte[] decode(String str, int i2) throws IOException {
         GZIPInputStream gZIPInputStream;
         byte[] bytes;
-        ?? length;
+        ByteArrayInputStream length;
+        GZIPInputStream gZIPInputStream2;
+        ByteArrayInputStream byteArrayInputStream;
+        ByteArrayInputStream byteArrayInputStream2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             gZIPInputStream = null;
@@ -626,7 +622,7 @@ public class Base64 {
             boolean z = (i2 & 4) != 0;
             if (decode != null && (length = decode.length) >= 4 && !z && 35615 == ((decode[0] & 255) | ((decode[1] << 8) & 65280))) {
                 byte[] bArr = new byte[2048];
-                ByteArrayOutputStream byteArrayOutputStream = null;
+                ByteArrayOutputStream byteArrayOutputStream = 0;
                 try {
                     try {
                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
@@ -653,26 +649,36 @@ public class Base64 {
                                             return decode;
                                         } catch (Throwable th) {
                                             th = th;
+                                            byteArrayOutputStream2 = byteArrayOutputStream;
+                                            byteArrayOutputStream = gZIPInputStream;
+                                            gZIPInputStream2 = byteArrayOutputStream;
+                                            byteArrayInputStream2 = length;
+                                            byteArrayOutputStream = byteArrayOutputStream2;
+                                            byteArrayInputStream = byteArrayInputStream2;
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception unused2) {
                                             }
                                             try {
-                                                gZIPInputStream.close();
+                                                gZIPInputStream2.close();
                                             } catch (Exception unused3) {
                                             }
                                             try {
-                                                length.close();
+                                                byteArrayInputStream.close();
                                             } catch (Exception unused4) {
                                             }
                                             throw th;
                                         }
                                     } catch (Throwable th2) {
                                         th = th2;
+                                        byteArrayOutputStream = gZIPInputStream;
+                                        gZIPInputStream2 = byteArrayOutputStream;
+                                        byteArrayInputStream2 = length;
                                         byteArrayOutputStream = byteArrayOutputStream2;
+                                        byteArrayInputStream = byteArrayInputStream2;
                                         byteArrayOutputStream.close();
-                                        gZIPInputStream.close();
-                                        length.close();
+                                        gZIPInputStream2.close();
+                                        byteArrayInputStream.close();
                                         throw th;
                                     }
                                 }
@@ -683,27 +689,44 @@ public class Base64 {
                                 gZIPInputStream = null;
                             } catch (Throwable th3) {
                                 th = th3;
-                                gZIPInputStream = null;
+                                gZIPInputStream2 = byteArrayOutputStream;
+                                byteArrayInputStream2 = length;
+                                byteArrayOutputStream = byteArrayOutputStream2;
+                                byteArrayInputStream = byteArrayInputStream2;
+                                byteArrayOutputStream.close();
+                                gZIPInputStream2.close();
+                                byteArrayInputStream.close();
+                                throw th;
                             }
                         } catch (IOException e4) {
                             e = e4;
-                            length = 0;
+                            length = null;
                             gZIPInputStream = null;
                         } catch (Throwable th4) {
                             th = th4;
-                            length = 0;
-                            gZIPInputStream = null;
+                            gZIPInputStream2 = null;
+                            byteArrayInputStream2 = null;
+                            byteArrayOutputStream = byteArrayOutputStream2;
+                            byteArrayInputStream = byteArrayInputStream2;
+                            byteArrayOutputStream.close();
+                            gZIPInputStream2.close();
+                            byteArrayInputStream.close();
+                            throw th;
                         }
                     } catch (Exception unused5) {
                     }
                 } catch (IOException e5) {
                     e = e5;
-                    length = 0;
+                    length = null;
                     gZIPInputStream = null;
                 } catch (Throwable th5) {
                     th = th5;
-                    length = 0;
-                    gZIPInputStream = null;
+                    gZIPInputStream2 = null;
+                    byteArrayInputStream = null;
+                    byteArrayOutputStream.close();
+                    gZIPInputStream2.close();
+                    byteArrayInputStream.close();
+                    throw th;
                 }
                 try {
                     gZIPInputStream.close();
@@ -819,7 +842,11 @@ public class Base64 {
             try {
                 File file = new File(str);
                 if (file.length() > 2147483647L) {
-                    throw new IOException("File is too big for this convenience method (" + file.length() + " bytes).");
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("File is too big for this convenience method (");
+                    sb.append(file.length());
+                    sb.append(" bytes).");
+                    throw new IOException(sb.toString());
                 }
                 byte[] bArr = new byte[(int) file.length()];
                 InputStream inputStream2 = new InputStream(new BufferedInputStream(new FileInputStream(file)), 0);
@@ -897,109 +924,106 @@ public class Base64 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) ? decodeToObject(str, 0, null) : invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x003c */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: java.io.ByteArrayInputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v2, resolved type: java.io.ByteArrayInputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: java.io.ByteArrayInputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.Object, java.lang.ClassLoader] */
-    /* JADX WARN: Type inference failed for: r6v1 */
-    /* JADX WARN: Type inference failed for: r6v4, types: [java.io.ObjectInputStream] */
-    /* JADX WARN: Type inference failed for: r6v5 */
     public static Object decodeToObject(String str, int i2, ClassLoader classLoader) throws IOException, ClassNotFoundException {
-        InterceptResult invokeLIL;
-        ByteArrayInputStream byteArrayInputStream;
+        ObjectInputStream objectInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65555, null, str, i2, classLoader)) == null) {
-            byte[] decode = decode(str, i2);
-            ByteArrayInputStream byteArrayInputStream2 = null;
-            r5 = null;
-            r5 = null;
-            ObjectInputStream objectInputStream = null;
-            byteArrayInputStream2 = null;
-            try {
-                try {
-                    byteArrayInputStream = new ByteArrayInputStream(decode);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException e2) {
-                e = e2;
-            } catch (ClassNotFoundException e3) {
-                e = e3;
-            } catch (Throwable th2) {
-                th = th2;
-                classLoader = 0;
+        InterceptResult interceptResult = interceptable;
+        if (interceptable != null) {
+            InterceptResult invokeLIL = interceptable.invokeLIL(65555, null, str, i2, classLoader);
+            interceptResult = invokeLIL;
+            if (invokeLIL != null) {
+                return invokeLIL.objValue;
             }
+        }
+        byte[] decode = decode(str, i2);
+        ByteArrayInputStream byteArrayInputStream = null;
+        try {
             try {
-                objectInputStream = classLoader == 0 ? new ObjectInputStream(byteArrayInputStream) : new ObjectInputStream(byteArrayInputStream, classLoader) { // from class: com.baidu.fsg.base.utils.support.Base64.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+                ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(decode);
+                try {
+                    ObjectInputStream objectInputStream2 = classLoader == null ? new ObjectInputStream(byteArrayInputStream2) : new ObjectInputStream(byteArrayInputStream2, classLoader) { // from class: com.baidu.fsg.base.utils.support.Base64.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
 
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ ClassLoader f39650a;
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ ClassLoader f39707a;
 
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(byteArrayInputStream);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {byteArrayInputStream, classLoader};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
-                                super((java.io.InputStream) newInitContext.callArgs[0]);
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                        {
+                            super(byteArrayInputStream2);
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {byteArrayInputStream2, classLoader};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    super((java.io.InputStream) newInitContext.callArgs[0]);
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
                             }
+                            this.f39707a = classLoader;
                         }
-                        this.f39650a = classLoader;
-                    }
 
-                    @Override // java.io.ObjectInputStream
-                    public Class<?> resolveClass(ObjectStreamClass objectStreamClass) throws IOException, ClassNotFoundException {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectStreamClass)) == null) {
-                            Class<?> cls = Class.forName(objectStreamClass.getName(), false, this.f39650a);
-                            return cls == null ? super.resolveClass(objectStreamClass) : cls;
+                        @Override // java.io.ObjectInputStream
+                        public Class<?> resolveClass(ObjectStreamClass objectStreamClass) throws IOException, ClassNotFoundException {
+                            InterceptResult invokeL;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectStreamClass)) == null) {
+                                Class<?> cls = Class.forName(objectStreamClass.getName(), false, this.f39707a);
+                                return cls == null ? super.resolveClass(objectStreamClass) : cls;
+                            }
+                            return (Class) invokeL.objValue;
                         }
-                        return (Class) invokeL.objValue;
+                    };
+                    Object readObject = objectInputStream2.readObject();
+                    try {
+                        byteArrayInputStream2.close();
+                    } catch (Exception unused) {
                     }
-                };
-                Object readObject = objectInputStream.readObject();
+                    try {
+                        objectInputStream2.close();
+                    } catch (Exception unused2) {
+                    }
+                    return readObject;
+                } catch (IOException e2) {
+                    throw e2;
+                } catch (ClassNotFoundException e3) {
+                    throw e3;
+                }
+            } catch (Throwable th) {
+                th = th;
+                objectInputStream = null;
+                byteArrayInputStream = interceptResult;
                 try {
                     byteArrayInputStream.close();
-                } catch (Exception unused) {
-                }
-                try {
-                    objectInputStream.close();
-                } catch (Exception unused2) {
-                }
-                return readObject;
-            } catch (IOException e4) {
-                e = e4;
-                throw e;
-            } catch (ClassNotFoundException e5) {
-                e = e5;
-                throw e;
-            } catch (Throwable th3) {
-                th = th3;
-                classLoader = objectInputStream;
-                byteArrayInputStream2 = byteArrayInputStream;
-                try {
-                    byteArrayInputStream2.close();
                 } catch (Exception unused3) {
                 }
                 try {
-                    classLoader.close();
+                    objectInputStream.close();
                 } catch (Exception unused4) {
                 }
                 throw th;
             }
+        } catch (IOException e4) {
+            throw e4;
+        } catch (ClassNotFoundException e5) {
+            throw e5;
+        } catch (Throwable th2) {
+            th = th2;
+            objectInputStream = null;
+            byteArrayInputStream.close();
+            objectInputStream.close();
+            throw th;
         }
-        return invokeLIL.objValue;
     }
 
     public static void encode(ByteBuffer byteBuffer, ByteBuffer byteBuffer2) {
@@ -1040,12 +1064,12 @@ public class Base64 {
             try {
                 str = encodeBytes(bArr, 0, bArr.length, 0);
             } catch (IOException e2) {
-                if (!f39640a) {
+                if (!m) {
                     throw new AssertionError(e2.getMessage());
                 }
                 str = null;
             }
-            if (f39640a || str != null) {
+            if (m || str != null) {
                 return str;
             }
             throw new AssertionError();
@@ -1067,12 +1091,12 @@ public class Base64 {
             try {
                 str = encodeBytes(bArr, i2, i3, 0);
             } catch (IOException e2) {
-                if (!f39640a) {
+                if (!m) {
                     throw new AssertionError(e2.getMessage());
                 }
                 str = null;
             }
-            if (f39640a || str != null) {
+            if (m || str != null) {
                 return str;
             }
             throw new AssertionError();
@@ -1101,7 +1125,7 @@ public class Base64 {
             try {
                 return encodeBytesToBytes(bArr, 0, bArr.length, 0);
             } catch (IOException e2) {
-                if (f39640a) {
+                if (m) {
                     return null;
                 }
                 throw new AssertionError("IOExceptions only come from GZipping, which is turned off: " + e2.getMessage());
@@ -1110,19 +1134,15 @@ public class Base64 {
         return (byte[]) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0040 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0044 */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v16, resolved type: java.io.ByteArrayOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v17, resolved type: java.io.ByteArrayOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v18, resolved type: java.io.ByteArrayOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v19, resolved type: java.io.ByteArrayOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v20, resolved type: java.io.ByteArrayOutputStream */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0046 */
     /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v16 */
+    /* JADX WARN: Type inference failed for: r2v18, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r2v19, types: [java.io.OutputStream, java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r2v2, types: [int] */
     public static byte[] encodeBytesToBytes(byte[] bArr, int i2, int i3, int i4) throws IOException {
         InterceptResult invokeLIII;
-        ByteArrayOutputStream byteArrayOutputStream;
         OutputStream outputStream;
-        GZIPOutputStream gZIPOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLIII = interceptable.invokeLIII(65563, null, bArr, i2, i3, i4)) != null) {
             return (byte[]) invokeLIII.objValue;
@@ -1134,82 +1154,82 @@ public class Base64 {
             throw new IllegalArgumentException("Cannot have negative offset: " + i2);
         } else if (i3 < 0) {
             throw new IllegalArgumentException("Cannot have length offset: " + i3);
-        } else if (i2 + i3 > bArr.length) {
-            throw new IllegalArgumentException(String.format("Cannot have offset of %d and length of %d with array of length %d", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(bArr.length)));
         } else {
+            int i5 = i2 + i3;
+            ?? length = bArr.length;
+            if (i5 > length) {
+                throw new IllegalArgumentException(String.format("Cannot have offset of %d and length of %d with array of length %d", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(bArr.length)));
+            }
             if ((i4 & 2) == 0) {
                 boolean z = (i4 & 8) != 0;
-                int i5 = ((i3 / 3) * 4) + (i3 % 3 > 0 ? 4 : 0);
+                int i6 = ((i3 / 3) * 4) + (i3 % 3 > 0 ? 4 : 0);
                 if (z) {
-                    i5 += i5 / 76;
+                    i6 += i6 / 76;
                 }
-                int i6 = i5;
-                byte[] bArr2 = new byte[i6];
-                int i7 = i3 - 2;
-                int i8 = 0;
+                int i7 = i6;
+                byte[] bArr2 = new byte[i7];
+                int i8 = i3 - 2;
                 int i9 = 0;
                 int i10 = 0;
-                while (i8 < i7) {
-                    int i11 = i8;
-                    b(bArr, i8 + i2, 3, bArr2, i9, i4);
-                    int i12 = i10 + 4;
-                    if (!z || i12 < 76) {
-                        i10 = i12;
+                int i11 = 0;
+                while (i9 < i8) {
+                    int i12 = i9;
+                    b(bArr, i9 + i2, 3, bArr2, i10, i4);
+                    int i13 = i11 + 4;
+                    if (!z || i13 < 76) {
+                        i11 = i13;
                     } else {
-                        bArr2[i9 + 4] = 10;
-                        i9++;
-                        i10 = 0;
+                        bArr2[i10 + 4] = 10;
+                        i10++;
+                        i11 = 0;
                     }
-                    i8 = i11 + 3;
-                    i9 += 4;
-                }
-                int i13 = i8;
-                if (i13 < i3) {
-                    b(bArr, i13 + i2, i3 - i13, bArr2, i9, i4);
-                    i9 += 4;
+                    i9 = i12 + 3;
+                    i10 += 4;
                 }
                 int i14 = i9;
-                if (i14 <= i6 - 1) {
-                    byte[] bArr3 = new byte[i14];
-                    System.arraycopy(bArr2, 0, bArr3, 0, i14);
+                if (i14 < i3) {
+                    b(bArr, i14 + i2, i3 - i14, bArr2, i10, i4);
+                    i10 += 4;
+                }
+                int i15 = i10;
+                if (i15 <= i7 - 1) {
+                    byte[] bArr3 = new byte[i15];
+                    System.arraycopy(bArr2, 0, bArr3, 0, i15);
                     return bArr3;
                 }
                 return bArr2;
             }
-            GZIPOutputStream gZIPOutputStream2 = null;
+            GZIPOutputStream gZIPOutputStream = null;
             try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
-                    outputStream = new OutputStream(byteArrayOutputStream, i4 | 1);
+                    length = new ByteArrayOutputStream();
                     try {
-                        gZIPOutputStream = new GZIPOutputStream(outputStream);
+                        outputStream = new OutputStream(length, i4 | 1);
                         try {
-                            gZIPOutputStream.write(bArr, i2, i3);
-                            gZIPOutputStream.close();
+                            GZIPOutputStream gZIPOutputStream2 = new GZIPOutputStream(outputStream);
                             try {
-                                gZIPOutputStream.close();
-                            } catch (Exception unused) {
-                            }
-                            try {
-                                outputStream.close();
-                            } catch (Exception unused2) {
-                            }
-                            try {
-                                byteArrayOutputStream.close();
-                            } catch (Exception unused3) {
-                            }
-                            return byteArrayOutputStream.toByteArray();
-                        } catch (IOException e2) {
-                            e = e2;
-                            gZIPOutputStream2 = byteArrayOutputStream;
-                            try {
-                                throw e;
-                            } catch (Throwable th) {
-                                th = th;
-                                byteArrayOutputStream = gZIPOutputStream2;
-                                gZIPOutputStream2 = gZIPOutputStream;
+                                gZIPOutputStream2.write(bArr, i2, i3);
+                                gZIPOutputStream2.close();
                                 try {
                                     gZIPOutputStream2.close();
+                                } catch (Exception unused) {
+                                }
+                                try {
+                                    outputStream.close();
+                                } catch (Exception unused2) {
+                                }
+                                try {
+                                    length.close();
+                                } catch (Exception unused3) {
+                                }
+                                return length.toByteArray();
+                            } catch (IOException e2) {
+                                throw e2;
+                            } catch (Throwable th) {
+                                th = th;
+                                gZIPOutputStream = gZIPOutputStream2;
+                                try {
+                                    gZIPOutputStream.close();
                                 } catch (Exception unused4) {
                                 }
                                 try {
@@ -1217,44 +1237,28 @@ public class Base64 {
                                 } catch (Exception unused5) {
                                 }
                                 try {
-                                    byteArrayOutputStream.close();
+                                    length.close();
                                 } catch (Exception unused6) {
                                 }
                                 throw th;
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            gZIPOutputStream2 = gZIPOutputStream;
-                            gZIPOutputStream2.close();
-                            outputStream.close();
-                            byteArrayOutputStream.close();
-                            throw th;
+                        } catch (IOException e3) {
+                            throw e3;
                         }
-                    } catch (IOException e3) {
-                        e = e3;
-                        gZIPOutputStream = null;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        gZIPOutputStream2.close();
-                        outputStream.close();
-                        byteArrayOutputStream.close();
-                        throw th;
+                    } catch (IOException e4) {
+                        throw e4;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        outputStream = null;
                     }
-                } catch (IOException e4) {
-                    e = e4;
-                    outputStream = null;
-                    gZIPOutputStream = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    outputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
                 }
             } catch (IOException e5) {
-                e = e5;
-                outputStream = null;
-                gZIPOutputStream = null;
-            } catch (Throwable th5) {
-                th = th5;
-                byteArrayOutputStream = 0;
+                throw e5;
+            } catch (Throwable th4) {
+                th = th4;
+                length = 0;
                 outputStream = null;
             }
         }
@@ -1347,31 +1351,22 @@ public class Base64 {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0023 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:85:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:80:? */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.io.ByteArrayOutputStream] */
-    /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r1v7, types: [java.io.OutputStream, java.io.ByteArrayOutputStream] */
-    /* JADX WARN: Type inference failed for: r6v12 */
-    /* JADX WARN: Type inference failed for: r6v13 */
+    /* JADX WARN: Type inference failed for: r6v11 */
     /* JADX WARN: Type inference failed for: r6v14 */
-    /* JADX WARN: Type inference failed for: r6v15, types: [java.util.zip.GZIPOutputStream] */
-    /* JADX WARN: Type inference failed for: r6v18, types: [java.io.OutputStream, java.util.zip.GZIPOutputStream] */
-    /* JADX WARN: Type inference failed for: r6v19 */
+    /* JADX WARN: Type inference failed for: r6v15 */
+    /* JADX WARN: Type inference failed for: r6v17, types: [java.util.zip.GZIPOutputStream] */
     /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v20 */
-    /* JADX WARN: Type inference failed for: r6v21 */
-    /* JADX WARN: Type inference failed for: r6v3 */
-    /* JADX WARN: Type inference failed for: r6v4, types: [java.util.zip.GZIPOutputStream] */
-    /* JADX WARN: Type inference failed for: r6v5 */
-    /* JADX WARN: Type inference failed for: r6v6 */
+    /* JADX WARN: Type inference failed for: r6v21, types: [java.io.OutputStream, java.util.zip.GZIPOutputStream] */
+    /* JADX WARN: Type inference failed for: r6v22 */
+    /* JADX WARN: Type inference failed for: r6v5, types: [java.util.zip.GZIPOutputStream] */
     /* JADX WARN: Type inference failed for: r6v7 */
-    /* JADX WARN: Type inference failed for: r6v9 */
+    /* JADX WARN: Type inference failed for: r6v8 */
     public static String encodeObject(Serializable serializable, int i2) throws IOException {
         InterceptResult invokeLI;
         ?? r6;
-        ?? r1;
+        ByteArrayOutputStream byteArrayOutputStream;
         OutputStream outputStream;
         ObjectOutputStream objectOutputStream;
         Interceptable interceptable = $ic;
@@ -1383,27 +1378,18 @@ public class Base64 {
         }
         ObjectOutputStream objectOutputStream2 = null;
         try {
-            r1 = new ByteArrayOutputStream();
+            byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                outputStream = new OutputStream(r1, i2 | 1);
+                outputStream = new OutputStream(byteArrayOutputStream, i2 | 1);
                 try {
                     if ((i2 & 2) != 0) {
                         r6 = new GZIPOutputStream(outputStream);
                         try {
-                            objectOutputStream2 = new ObjectOutputStream(r6);
-                            r6 = r6;
-                        } catch (IOException e2) {
-                            e = e2;
-                            objectOutputStream = objectOutputStream2;
-                            objectOutputStream2 = r1;
-                            r6 = r6;
                             try {
-                                throw e;
+                                objectOutputStream2 = new ObjectOutputStream(r6);
+                                r6 = r6;
                             } catch (Throwable th) {
                                 th = th;
-                                ObjectOutputStream objectOutputStream3 = objectOutputStream;
-                                r1 = objectOutputStream2;
-                                objectOutputStream2 = objectOutputStream3;
                                 try {
                                     objectOutputStream2.close();
                                 } catch (Exception unused) {
@@ -1417,75 +1403,96 @@ public class Base64 {
                                 } catch (Exception unused3) {
                                 }
                                 try {
-                                    r1.close();
+                                    byteArrayOutputStream.close();
                                 } catch (Exception unused4) {
                                 }
                                 throw th;
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            objectOutputStream2.close();
-                            r6.close();
-                            outputStream.close();
-                            r1.close();
-                            throw th;
+                        } catch (IOException e2) {
+                            e = e2;
+                            ObjectOutputStream objectOutputStream3 = objectOutputStream2;
+                            objectOutputStream2 = r6;
+                            objectOutputStream = objectOutputStream3;
+                            try {
+                                throw e;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                ObjectOutputStream objectOutputStream4 = objectOutputStream2;
+                                objectOutputStream2 = objectOutputStream;
+                                r6 = objectOutputStream4;
+                                objectOutputStream2.close();
+                                r6.close();
+                                outputStream.close();
+                                byteArrayOutputStream.close();
+                                throw th;
+                            }
                         }
                     } else {
                         objectOutputStream2 = new ObjectOutputStream(outputStream);
                         r6 = 0;
                     }
-                    objectOutputStream2.writeObject(serializable);
                     try {
+                        objectOutputStream2.writeObject(serializable);
+                        try {
+                            objectOutputStream2.close();
+                        } catch (Exception unused5) {
+                        }
+                        try {
+                            r6.close();
+                        } catch (Exception unused6) {
+                        }
+                        try {
+                            outputStream.close();
+                        } catch (Exception unused7) {
+                        }
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (Exception unused8) {
+                        }
+                        try {
+                            return new String(byteArrayOutputStream.toByteArray(), "US-ASCII");
+                        } catch (UnsupportedEncodingException unused9) {
+                            return new String(byteArrayOutputStream.toByteArray());
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        ObjectOutputStream objectOutputStream5 = objectOutputStream2;
+                        objectOutputStream2 = r6;
+                        objectOutputStream = objectOutputStream5;
+                        ObjectOutputStream objectOutputStream42 = objectOutputStream2;
+                        objectOutputStream2 = objectOutputStream;
+                        r6 = objectOutputStream42;
                         objectOutputStream2.close();
-                    } catch (Exception unused5) {
-                    }
-                    try {
                         r6.close();
-                    } catch (Exception unused6) {
-                    }
-                    try {
                         outputStream.close();
-                    } catch (Exception unused7) {
-                    }
-                    try {
-                        r1.close();
-                    } catch (Exception unused8) {
-                    }
-                    try {
-                        return new String(r1.toByteArray(), "US-ASCII");
-                    } catch (UnsupportedEncodingException unused9) {
-                        return new String(r1.toByteArray());
+                        byteArrayOutputStream.close();
+                        throw th;
                     }
                 } catch (IOException e3) {
                     e = e3;
-                    ObjectOutputStream objectOutputStream4 = objectOutputStream2;
-                    objectOutputStream2 = r1;
-                    objectOutputStream = objectOutputStream4;
-                    r6 = objectOutputStream4;
-                } catch (Throwable th3) {
-                    th = th3;
+                    objectOutputStream = objectOutputStream2;
+                } catch (Throwable th4) {
+                    th = th4;
                     r6 = objectOutputStream2;
                 }
             } catch (IOException e4) {
                 e = e4;
-                r6 = 0;
-                outputStream = null;
-                objectOutputStream2 = r1;
                 objectOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
+                outputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
                 r6 = 0;
                 outputStream = null;
             }
         } catch (IOException e5) {
             e = e5;
-            r6 = 0;
             objectOutputStream = null;
+            byteArrayOutputStream = null;
             outputStream = null;
-        } catch (Throwable th5) {
-            th = th5;
+        } catch (Throwable th6) {
+            th = th6;
             r6 = 0;
-            r1 = 0;
+            byteArrayOutputStream = null;
             outputStream = null;
         }
     }

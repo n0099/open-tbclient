@@ -21,10 +21,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f23968a;
+    public TbPageContext<?> f23984a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23969b;
+    public int f23985b;
 
     public a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class a {
                 return;
             }
         }
-        this.f23968a = tbPageContext;
+        this.f23984a = tbPageContext;
     }
 
     public final boolean a(DressItemData dressItemData) {
@@ -63,29 +63,29 @@ public class a {
             a2 = a(dressItemData);
         }
         if (a2) {
-            this.f23969b = dressItemData.getPropsId();
+            this.f23985b = dressItemData.getPropsId();
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
-            httpMessage.setExtra(Integer.valueOf(this.f23969b));
-            httpMessage.addParam("bcode", String.valueOf(this.f23969b));
+            httpMessage.setExtra(Integer.valueOf(this.f23985b));
+            httpMessage.addParam("bcode", String.valueOf(this.f23985b));
             MessageManager.getInstance().sendMessage(httpMessage);
         } else if (dressItemData.getFreeUserLevel() == 100) {
             if (dressItemData.getActivityFinish() == 0) {
-                b.b(this.f23968a, 5, dressItemData.getActivityUrl());
+                b.b(this.f23984a, 5, dressItemData.getActivityUrl());
             }
         } else {
             if (dressItemData.getFreeUserLevel() == 101) {
-                str = this.f23968a.getString(R.string.become_annual_can_use_bubble);
+                str = this.f23984a.getString(R.string.become_annual_can_use_bubble);
                 i2 = 9;
             } else {
                 if (dressItemData.getFreeUserLevel() > 1) {
-                    string = String.format(this.f23968a.getString(R.string.become_vip_can_use_bubble), Integer.valueOf(dressItemData.getFreeUserLevel()));
+                    string = String.format(this.f23984a.getString(R.string.become_vip_can_use_bubble), Integer.valueOf(dressItemData.getFreeUserLevel()));
                 } else {
-                    string = this.f23968a.getString(R.string.become_member_can_use_bubble);
+                    string = this.f23984a.getString(R.string.become_member_can_use_bubble);
                 }
                 str = string;
                 i2 = 0;
             }
-            b.d(this.f23968a, 5, str, i2, z ? MemberPayStatistic.REFER_PAGE_POST_BUBBLE : MemberPayStatistic.REFER_PAGE_ALL_BUBBLE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+            b.d(this.f23984a, 5, str, i2, z ? MemberPayStatistic.REFER_PAGE_POST_BUBBLE : MemberPayStatistic.REFER_PAGE_ALL_BUBBLE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
         }
     }
 }

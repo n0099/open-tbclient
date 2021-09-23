@@ -20,16 +20,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<String> f7535a;
+    public final Set<String> f7543a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, a<Boolean>> f7536b;
+    public final Map<String, a<Boolean>> f7544b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, a<b>> f7537c;
+    public final Map<String, a<b>> f7545c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a<Exception> f7538d;
+    public a<Exception> f7546d;
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -37,7 +37,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Set<c.a.p0.a.v2.e1.b<T>> f7539a;
+        public Set<c.a.p0.a.v2.e1.b<T>> f7547a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -52,13 +52,13 @@ public class d {
                     return;
                 }
             }
-            this.f7539a = new HashSet();
+            this.f7547a = new HashSet();
         }
 
         public void a(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                for (c.a.p0.a.v2.e1.b<T> bVar : this.f7539a) {
+                for (c.a.p0.a.v2.e1.b<T> bVar : this.f7547a) {
                     bVar.onCallback(t);
                 }
             }
@@ -67,7 +67,7 @@ public class d {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f7539a.clear();
+                this.f7547a.clear();
             }
         }
 
@@ -76,7 +76,7 @@ public class d {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || bVar == null) {
                 return;
             }
-            this.f7539a.add(bVar);
+            this.f7547a.add(bVar);
         }
     }
 
@@ -86,10 +86,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f7540a;
+        public final long f7548a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f7541b;
+        public final long f7549b;
 
         public b(long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -106,15 +106,15 @@ public class d {
                     return;
                 }
             }
-            this.f7540a = j2;
-            this.f7541b = j3;
+            this.f7548a = j2;
+            this.f7549b = j3;
             int i4 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7541b > 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7549b > 0 : invokeV.booleanValue;
         }
     }
 
@@ -131,7 +131,7 @@ public class d {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public d() {
@@ -147,10 +147,10 @@ public class d {
                 return;
             }
         }
-        this.f7535a = new HashSet();
-        this.f7536b = new HashMap();
-        this.f7537c = new HashMap();
-        this.f7538d = new a<>();
+        this.f7543a = new HashSet();
+        this.f7544b = new HashMap();
+        this.f7545c = new HashMap();
+        this.f7546d = new a<>();
     }
 
     public static <T> a<T> i(Map<String, a<T>> map, String str) {
@@ -171,21 +171,21 @@ public class d {
     public HashSet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HashSet<>(this.f7535a) : (HashSet) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HashSet<>(this.f7543a) : (HashSet) invokeV.objValue;
     }
 
     public void b(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            this.f7538d.a(exc);
-            this.f7538d.b();
+            this.f7546d.a(exc);
+            this.f7546d.b();
         }
     }
 
     public void c(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            a i2 = i(this.f7536b, str);
+            a i2 = i(this.f7544b, str);
             i2.a(Boolean.valueOf(z));
             i2.b();
         }
@@ -195,7 +195,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
             if (bVar == null || bVar.a()) {
-                i(this.f7537c, str).a(bVar);
+                i(this.f7545c, str).a(bVar);
             }
         }
     }
@@ -204,7 +204,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-            this.f7538d.c(bVar);
+            this.f7546d.c(bVar);
             return this;
         }
         return (d) invokeL.objValue;
@@ -214,7 +214,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
-            this.f7535a.addAll(Arrays.asList(strArr));
+            this.f7543a.addAll(Arrays.asList(strArr));
             return this;
         }
         return (d) invokeL.objValue;
@@ -235,7 +235,7 @@ public class d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, bVar)) == null) {
-            g(this.f7536b, str, bVar);
+            g(this.f7544b, str, bVar);
             return this;
         }
         return (d) invokeLL.objValue;

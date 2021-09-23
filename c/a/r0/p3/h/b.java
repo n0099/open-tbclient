@@ -22,10 +22,10 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d> f24038e;
+    public List<d> f24054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f24039f;
+    public TbPageContext<?> f24055f;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -33,16 +33,16 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HeadImageView f24040a;
+        public HeadImageView f24056a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f24041b;
+        public TextView f24057b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f24042c;
+        public View f24058c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f24043d;
+        public View f24059d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f24039f = tbPageContext;
+        this.f24055f = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -84,11 +84,11 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<d> list = this.f24038e;
-            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f24038e.size()) {
+            List<d> list = this.f24054e;
+            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f24054e.size()) {
                 return null;
             }
-            return this.f24038e.get(i2);
+            return this.f24054e.get(i2);
         }
         return (d) invokeI.objValue;
     }
@@ -96,7 +96,7 @@ public class b extends BaseAdapter {
     public void b(List<d> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f24038e = list;
+            this.f24054e = list;
         }
     }
 
@@ -105,7 +105,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<d> list = this.f24038e;
+            List<d> list = this.f24054e;
             if (list != null) {
                 return list.size();
             }
@@ -134,33 +134,33 @@ public class b extends BaseAdapter {
             if (view != null) {
                 aVar = (a) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f24039f.getPageActivity()).inflate(R.layout.dressup_item_view, viewGroup, false);
+                view = LayoutInflater.from(this.f24055f.getPageActivity()).inflate(R.layout.dressup_item_view, viewGroup, false);
                 aVar = new a();
                 HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.dress_icon);
-                aVar.f24040a = headImageView;
+                aVar.f24056a = headImageView;
                 headImageView.setDefaultResource(R.drawable.img_default_100);
-                aVar.f24040a.setDefaultBgResource(R.color.CAM_X0204);
-                aVar.f24041b = (TextView) view.findViewById(R.id.dress_desc_view);
-                aVar.f24042c = view.findViewById(R.id.tip_view);
-                aVar.f24043d = view.findViewById(R.id.divider_line);
+                aVar.f24056a.setDefaultBgResource(R.color.CAM_X0204);
+                aVar.f24057b = (TextView) view.findViewById(R.id.dress_desc_view);
+                aVar.f24058c = view.findViewById(R.id.tip_view);
+                aVar.f24059d = view.findViewById(R.id.divider_line);
                 view.setTag(aVar);
             }
             if (item != null) {
-                aVar.f24040a.startLoad(item.a(), 10, false);
-                aVar.f24041b.setText(item.b());
+                aVar.f24056a.startLoad(item.a(), 10, false);
+                aVar.f24057b.setText(item.b());
                 c.a.q0.s.d0.b j2 = c.a.q0.s.d0.b.j();
                 if (item.d() - j2.l("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.c(), 0L) > 0) {
-                    aVar.f24042c.setVisibility(0);
+                    aVar.f24058c.setVisibility(0);
                 } else {
-                    aVar.f24042c.setVisibility(4);
+                    aVar.f24058c.setVisibility(4);
                 }
                 if (i2 == getCount() - 1) {
-                    aVar.f24043d.setVisibility(8);
+                    aVar.f24059d.setVisibility(8);
                 } else {
-                    aVar.f24043d.setVisibility(0);
+                    aVar.f24059d.setVisibility(0);
                 }
             }
-            this.f24039f.getLayoutMode().j(view);
+            this.f24055f.getLayoutMode().j(view);
             return view;
         }
         return (View) invokeILL.objValue;

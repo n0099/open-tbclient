@@ -14,13 +14,13 @@ public class a implements KsImage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f73063a;
+    public int f73382a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f73064b;
+    public int f73383b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f73065c;
+    public String f73384c;
 
     public a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
@@ -37,36 +37,36 @@ public class a implements KsImage {
                 return;
             }
         }
-        this.f73063a = i2;
-        this.f73064b = i3;
-        this.f73065c = str;
+        this.f73382a = i2;
+        this.f73383b = i3;
+        this.f73384c = str;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73064b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73383b : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public String getImageUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73065c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73384c : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73063a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73382a : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsImage
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73063a > 0 && this.f73064b > 0 && !TextUtils.isEmpty(this.f73065c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73382a > 0 && this.f73383b > 0 && !TextUtils.isEmpty(this.f73384c) : invokeV.booleanValue;
     }
 }

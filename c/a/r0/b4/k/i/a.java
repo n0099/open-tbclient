@@ -15,11 +15,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f16301b;
+    public static a f16311b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<CloudMusicData.MusicTagList.MusicList> f16302a;
+    public SparseArray<CloudMusicData.MusicTagList.MusicList> f16312a;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class a {
                 return;
             }
         }
-        this.f16302a = new SparseArray<>();
+        this.f16312a = new SparseArray<>();
     }
 
     public static synchronized a b() {
@@ -58,10 +58,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f16301b == null) {
-                    f16301b = new a();
+                if (f16311b == null) {
+                    f16311b = new a();
                 }
-                aVar = f16301b;
+                aVar = f16311b;
             }
             return aVar;
         }
@@ -71,21 +71,21 @@ public class a {
     public CloudMusicData.MusicTagList.MusicList a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16302a.get(4096) : (CloudMusicData.MusicTagList.MusicList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16312a.get(4096) : (CloudMusicData.MusicTagList.MusicList) invokeV.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f16302a = null;
-            f16301b = null;
+            this.f16312a = null;
+            f16311b = null;
         }
     }
 
     public void d(CloudMusicData.MusicTagList.MusicList musicList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicList) == null) {
-            this.f16302a.put(4096, musicList);
+            this.f16312a.put(4096, musicList);
         }
     }
 }

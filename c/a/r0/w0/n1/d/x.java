@@ -54,7 +54,7 @@ public class x extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ x f27238b;
+        public final /* synthetic */ x f27258b;
 
         public a(x xVar) {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class x extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
                     return;
                 }
             }
-            this.f27238b = xVar;
+            this.f27258b = xVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,38 +82,38 @@ public class x extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var) == null) || view == null || d2Var == null) {
                 return;
             }
-            if ("c13010".equals(this.f27238b.A)) {
+            if ("c13010".equals(this.f27258b.A)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 3).param("fid", d2Var.T()).param("tid", d2Var.s1()));
             }
             if (view.getId() != R.id.user_name && view.getId() != R.id.user_avatar) {
                 if (view.getId() == R.id.thread_info_commont_container) {
-                    c.a.r0.w0.k2.a.e(d2Var, 5, this.f27238b.f2961i, this.f27238b.D, this.f27238b.i0());
-                    if (this.f27238b.n != null && this.f27238b.n.getForum() != null) {
-                        c.a.r0.w0.k2.a.c(d2Var, this.f27238b.n.getForum().getId());
+                    c.a.r0.w0.k2.a.e(d2Var, 5, this.f27258b.f2962i, this.f27258b.D, this.f27258b.i0());
+                    if (this.f27258b.n != null && this.f27258b.n.getForum() != null) {
+                        c.a.r0.w0.k2.a.c(d2Var, this.f27258b.n.getForum().getId());
                     }
                 } else if (view.getId() == R.id.share_num_container) {
-                    c.a.r0.w0.k2.a.e(d2Var, 14, this.f27238b.f2961i, this.f27238b.D, this.f27238b.i0());
+                    c.a.r0.w0.k2.a.e(d2Var, 14, this.f27258b.f2962i, this.f27258b.D, this.f27258b.i0());
                 } else if (view.getId() == R.id.img_agree) {
-                    c.a.r0.w0.k2.a.e(d2Var, 12, this.f27238b.f2961i, this.f27238b.D, this.f27238b.i0());
+                    c.a.r0.w0.k2.a.e(d2Var, 12, this.f27258b.f2962i, this.f27258b.D, this.f27258b.i0());
                 } else if (view.getId() == R.id.img_disagree) {
-                    c.a.r0.w0.k2.a.e(d2Var, 13, this.f27238b.f2961i, this.f27238b.D, this.f27238b.i0());
+                    c.a.r0.w0.k2.a.e(d2Var, 13, this.f27258b.f2962i, this.f27258b.D, this.f27258b.i0());
                 } else {
                     if (view instanceof ThreadGodReplyLayout) {
-                        c.a.r0.w0.k2.a.e(d2Var, 15, this.f27238b.f2961i, this.f27238b.D, this.f27238b.i0());
+                        c.a.r0.w0.k2.a.e(d2Var, 15, this.f27258b.f2962i, this.f27258b.D, this.f27258b.i0());
                     } else {
-                        c.a.r0.w0.k2.a.e(d2Var, 1, this.f27238b.f2961i, this.f27238b.D, this.f27238b.i0());
+                        c.a.r0.w0.k2.a.e(d2Var, 1, this.f27258b.f2962i, this.f27258b.D, this.f27258b.i0());
                     }
-                    if (this.f27238b.n != null && this.f27238b.n.getForum() != null) {
-                        c.a.r0.w0.k2.a.c(d2Var, this.f27238b.n.getForum().getId());
+                    if (this.f27258b.n != null && this.f27258b.n.getForum() != null) {
+                        c.a.r0.w0.k2.a.c(d2Var, this.f27258b.n.getForum().getId());
                     }
                 }
             } else {
-                c.a.r0.w0.k2.a.e(d2Var, 2, this.f27238b.f2961i, this.f27238b.D, this.f27238b.i0());
+                c.a.r0.w0.k2.a.e(d2Var, 2, this.f27258b.f2962i, this.f27258b.D, this.f27258b.i0());
             }
             if (view.getId() == R.id.user_name || view.getId() == R.id.user_avatar) {
-                c.a.r0.w0.k2.c.j().g(this.f27238b.D, d2Var, 2);
+                c.a.r0.w0.k2.c.j().g(this.f27258b.D, d2Var, 2);
             } else if (view.getId() != R.id.card_home_page_normal_thread_user_icon) {
-                c.a.r0.w0.k2.c.j().g(this.f27238b.D, d2Var, 1);
+                c.a.r0.w0.k2.c.j().g(this.f27258b.D, d2Var, 1);
             } else {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
@@ -230,7 +230,7 @@ public class x extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ x f27239e;
+        public final /* synthetic */ x f27259e;
 
         public d(x xVar) {
             Interceptable interceptable = $ic;
@@ -247,7 +247,7 @@ public class x extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
                     return;
                 }
             }
-            this.f27239e = xVar;
+            this.f27259e = xVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -257,10 +257,10 @@ public class x extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 d2 d2Var = ((c2) nVar).w;
                 d2Var.objType = 1;
-                if (this.f27239e.E != null) {
-                    this.f27239e.E.a(threadCardViewHolder.getView(), d2Var);
+                if (this.f27259e.E != null) {
+                    this.f27259e.E.a(threadCardViewHolder.getView(), d2Var);
                 }
-                ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var, view.getContext(), this.f27239e.C, false);
+                ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var, view.getContext(), this.f27259e.C, false);
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
             }
         }
@@ -291,7 +291,7 @@ public class x extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
         this.E = new a(this);
         this.F = new b(this);
         this.x = tbPageContext;
-        this.f2961i = bdUniqueId2;
+        this.f2962i = bdUniqueId2;
     }
 
     public final void L0(d2 d2Var) {
@@ -314,7 +314,7 @@ public class x extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             l0.b bVar = new l0.b(this.x.getPageActivity());
             c.a.l.d dVar = new c.a.l.d(this.x.getPageActivity());
             dVar.a(4280);
-            dVar.s(this.f2961i);
+            dVar.s(this.f2962i);
             dVar.r(new c(this));
             bVar.o(dVar);
             q0 q0Var = new q0(this.x.getPageActivity());
@@ -331,23 +331,28 @@ public class x extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             bVar.h(nVar);
             n0 n0Var = new n0(this.x.getPageActivity());
             c.a.q0.s.q.f fVar = new c.a.q0.s.q.f();
-            fVar.f14167b = 2;
+            if (100 == i0().tabType) {
+                fVar.f14167b = 25;
+                n0Var.v(19);
+            } else {
+                fVar.f14167b = 2;
+                n0Var.v(2);
+            }
             fVar.f14173h = 2;
             FrsViewData frsViewData = this.n;
             if (frsViewData != null && frsViewData.getForum() != null && !c.a.e.e.p.k.isEmpty(this.n.getForum().getId())) {
                 fVar.f14175j = this.n.getForum().getId();
             }
             n0Var.u(fVar);
-            n0Var.v(2);
             n0Var.z(3);
             n0Var.w(2);
             n0Var.a(16);
             bVar.m(n0Var);
-            bVar.l().g(c.a.e.e.p.l.g(this.f2957e, R.dimen.tbds28));
+            bVar.l().g(c.a.e.e.p.l.g(this.f2958e, R.dimen.tbds28));
             l0 i2 = bVar.i();
             i2.r(2);
             ThreadCardViewHolder<d2> threadCardViewHolder = new ThreadCardViewHolder<>(i2);
-            threadCardViewHolder.setPageId(this.f2961i);
+            threadCardViewHolder.setPageId(this.f2962i);
             d0(new d(this));
             threadCardViewHolder.showMultiDelDecorItem();
             return threadCardViewHolder;
@@ -372,7 +377,7 @@ public class x extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             c.a.r0.w0.j.i(threadCardViewHolder.getCardView().e(), this.n);
             FrsViewData frsViewData = this.n;
             if (frsViewData != null && frsViewData.getForum() != null && !StringUtils.isNull(this.n.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.n.getForum().getTopic_special_icon_right())) {
-                c2Var.w.w4(this.n.getForum().getTopic_special_icon(), this.n.getForum().getTopic_special_icon_right());
+                c2Var.w.v4(this.n.getForum().getTopic_special_icon(), this.n.getForum().getTopic_special_icon_right());
             }
             boolean z = (c2Var.w.J() == null || c2Var.w.J().getUserId() == null || !c2Var.w.J().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (c2Var.w.x2() && c2Var.w.S() != null && !z) {
@@ -387,19 +392,19 @@ public class x extends c.a.r0.w0.k<c2, ThreadCardViewHolder<d2>> implements c.a.
             threadCardViewHolder.getCardView().p(this.E);
             if (this.D != null) {
                 FrsViewData frsViewData2 = this.n;
-                c2Var.w.S1 = (c2Var.position + 1) - (frsViewData2 != null ? frsViewData2.getTopThreadSize() : 0);
+                c2Var.w.T1 = (c2Var.position + 1) - (frsViewData2 != null ? frsViewData2.getTopThreadSize() : 0);
             }
             c.a.r0.w0.k2.c.j().c(this.D, c2Var.w);
             L0(c2Var.w);
-            c2Var.w.N4();
-            c.a.r0.w0.k2.a.m(c2Var.w, this.f2961i, this.D, i0());
+            c2Var.w.M4();
+            c.a.r0.w0.k2.a.m(c2Var.w, this.f2962i, this.D, i0());
             FrsViewData frsViewData3 = this.n;
             if (frsViewData3 != null && frsViewData3.getForum() != null) {
                 c.a.r0.w0.k2.a.l(c2Var.w, this.n.getForum().getId());
             }
             d2 d2Var = c2Var.w;
             if (d2Var != null) {
-                d2Var.N4();
+                d2Var.M4();
             }
             return threadCardViewHolder.getView();
         }

@@ -18,10 +18,10 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<a> f23692a;
+    public static final AtomicReference<a> f23708a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f23693b;
+    public static final a f23709b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,8 +37,8 @@ public class b implements a {
                 return;
             }
         }
-        f23692a = new AtomicReference<>(null);
-        f23693b = new b();
+        f23708a = new AtomicReference<>(null);
+        f23709b = new b();
     }
 
     public b() {
@@ -59,8 +59,8 @@ public class b implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            a aVar = f23692a.get();
-            return aVar == null ? f23693b : aVar;
+            a aVar = f23708a.get();
+            return aVar == null ? f23709b : aVar;
         }
         return (a) invokeV.objValue;
     }

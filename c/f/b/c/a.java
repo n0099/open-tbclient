@@ -20,16 +20,16 @@ public class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32355e;
+    public String f32376e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32356f;
+    public String f32377f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32357g;
+    public String f32378g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a f32358h;
+    public b.a f32379h;
 
     public a(String str, String str2, String str3, b.a aVar) {
         Interceptable interceptable = $ic;
@@ -46,10 +46,10 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f32355e = str;
-        this.f32356f = str2;
-        this.f32357g = str3;
-        this.f32358h = aVar;
+        this.f32376e = str;
+        this.f32377f = str2;
+        this.f32378g = str3;
+        this.f32379h = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -57,13 +57,13 @@ public class a implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f32355e).openConnection();
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f32376e).openConnection();
                 httpURLConnection.setConnectTimeout(50000);
                 httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.connect();
                 if (httpURLConnection.getResponseCode() == 200) {
                     InputStream inputStream = httpURLConnection.getInputStream();
-                    File file = new File(this.f32357g);
+                    File file = new File(this.f32378g);
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
                     byte[] bArr = new byte[524288];
                     while (true) {
@@ -72,25 +72,25 @@ public class a implements Runnable {
                             break;
                         }
                         fileOutputStream.write(bArr, 0, read);
-                        if (this.f32358h != null) {
-                            this.f32358h.a();
+                        if (this.f32379h != null) {
+                            this.f32379h.a();
                         }
                     }
                     fileOutputStream.flush();
                     inputStream.close();
-                    if (FileUtils.existsFile(file) && TextUtils.equals(Md5Utils.getMd5FromFileV2(this.f32357g), this.f32356f)) {
-                        if (this.f32358h != null) {
-                            this.f32358h.a(this.f32357g);
+                    if (FileUtils.existsFile(file) && TextUtils.equals(Md5Utils.getMd5FromFileV2(this.f32378g), this.f32377f)) {
+                        if (this.f32379h != null) {
+                            this.f32379h.a(this.f32378g);
                         }
-                    } else if (this.f32358h != null) {
-                        this.f32358h.b("md5 not match");
+                    } else if (this.f32379h != null) {
+                        this.f32379h.b("md5 not match");
                     }
-                } else if (this.f32358h != null) {
-                    b.a aVar = this.f32358h;
+                } else if (this.f32379h != null) {
+                    b.a aVar = this.f32379h;
                     aVar.b("Server Response Code is " + httpURLConnection.getResponseCode());
                 }
             } catch (IOException e2) {
-                b.a aVar2 = this.f32358h;
+                b.a aVar2 = this.f32379h;
                 if (aVar2 != null) {
                     aVar2.b(e2.getMessage());
                 }

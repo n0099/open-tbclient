@@ -24,14 +24,14 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f9222h;
+    public static final boolean f9230h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<String, String> f9223f;
+    public final HashMap<String, String> f9231f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HashMap<String, c.a.p0.a.v1.b.b> f9224g;
+    public final HashMap<String, c.a.p0.a.v1.b.b> f9232g;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.v2.e1.b<i.a> {
@@ -39,7 +39,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f9225e;
+        public final /* synthetic */ c f9233e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
                     return;
                 }
             }
-            this.f9225e = cVar;
+            this.f9233e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,11 +65,11 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (c.f9222h) {
-                    c cVar = this.f9225e;
+                if (c.f9230h) {
+                    c cVar = this.f9233e;
                     cVar.H("onEventCallback msg" + aVar);
                 }
-                this.f9225e.J(aVar);
+                this.f9233e.J(aVar);
             }
         }
     }
@@ -80,7 +80,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f9226e;
+        public final /* synthetic */ c f9234e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
                     return;
                 }
             }
-            this.f9226e = cVar;
+            this.f9234e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -106,11 +106,11 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
         public void onCallback(i.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (c.f9222h) {
-                    c cVar = this.f9226e;
+                if (c.f9230h) {
+                    c cVar = this.f9234e;
                     cVar.H("onEventCallback msg" + aVar);
                 }
-                this.f9226e.K(aVar);
+                this.f9234e.K(aVar);
             }
         }
     }
@@ -121,7 +121,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f9227a;
+        public static c f9235a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -137,7 +137,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
                     return;
                 }
             }
-            f9227a = new c(c.a.p0.a.a2.d.g());
+            f9235a = new c(c.a.p0.a.a2.d.g());
         }
     }
 
@@ -154,7 +154,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
                 return;
             }
         }
-        f9222h = k.f7077a;
+        f9230h = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -175,9 +175,9 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
                 return;
             }
         }
-        this.f9223f = new HashMap<>();
-        this.f9224g = new HashMap<>();
-        if (f9222h) {
+        this.f9231f = new HashMap<>();
+        this.f9232g = new HashMap<>();
+        if (f9230h) {
             H("SwanIpc");
         }
         c.a.p0.a.a2.b bVar = new c.a.p0.a.a2.b();
@@ -202,7 +202,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
     public static c F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0429c.f9227a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0429c.f9235a : (c) invokeV.objValue;
     }
 
     public static void G() {
@@ -266,7 +266,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
 
     public final void H(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && f9222h) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && f9230h) {
             String str2 = SwanAppProcessInfo.current() + " >> " + str;
         }
     }
@@ -281,7 +281,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
     public final void J(i.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (f9222h) {
+            if (f9230h) {
                 I("onCallIn", "msg=" + aVar);
             }
             if (aVar != null) {
@@ -299,7 +299,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
     public final void K(i.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (f9222h) {
+            if (f9230h) {
                 I("onCallOut", "msg=" + aVar);
             }
             if (aVar != null) {
@@ -317,7 +317,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
     public String M(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f9223f.get(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f9231f.get(str) : (String) invokeL.objValue;
     }
 
     public c P(c.a.p0.a.v1.b.b bVar, Exception exc) {
@@ -325,9 +325,9 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bVar, exc)) == null) {
             if (bVar != null) {
-                synchronized (this.f9224g) {
+                synchronized (this.f9232g) {
                     bVar.O(exc);
-                    this.f9224g.remove(bVar.R());
+                    this.f9232g.remove(bVar.R());
                 }
             }
             return this;
@@ -354,11 +354,11 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bundle)) == null) {
             synchronized (this) {
-                bVar = TextUtils.isEmpty(str) ? null : this.f9224g.get(str);
+                bVar = TextUtils.isEmpty(str) ? null : this.f9232g.get(str);
                 if (bVar == null || !bVar.Z()) {
                     P(bVar, new IllegalStateException("invalid session"));
                     bVar = new c.a.p0.a.v1.b.b(this, str);
-                    this.f9224g.put(bVar.R(), bVar);
+                    this.f9232g.put(bVar.R(), bVar);
                 }
                 boolean z = bundle != null && e(bVar, bundle);
                 if (z) {
@@ -370,7 +370,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
                     }
                 }
                 bVar.T(z ? bundle.getLong("ipc_session_timeout") : c.a.p0.a.v1.b.a.f0);
-                if (f9222h) {
+                if (f9230h) {
                     I("session", "id=" + str + " session=" + bundle + " session=" + bVar);
                 }
             }
@@ -387,7 +387,7 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
             synchronized (this) {
                 Q = Q(null);
                 h(Q, str);
-                if (f9222h) {
+                if (f9230h) {
                     I("topic", str + " session=" + Q);
                 }
             }
@@ -419,11 +419,11 @@ public final class c extends m implements c.a.p0.a.v1.b.a {
                 boolean z = false;
                 if (bVar.Z()) {
                     String R = bVar.R();
-                    String str2 = this.f9223f.get(R);
+                    String str2 = this.f9231f.get(R);
                     boolean z2 = !TextUtils.isEmpty(str2);
                     z = (!z2 || TextUtils.equals(str2, str)) ? true : true;
                     if (z && !z2 && !TextUtils.isEmpty(str)) {
-                        this.f9223f.put(R, str);
+                        this.f9231f.put(R, str);
                     }
                     return z;
                 }

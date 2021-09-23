@@ -17,6 +17,7 @@ public final class SpeedStatsStampTable {
     public static final int APP_CONFIG_INIT_STAMP_KEY = 2002;
     public static final int APP_CREATE_END_STAMP_KEY = 2006;
     public static final int APP_CREATE_START_STAMP_KEY = 2000;
+    public static final int APP_CREATE_VIRTUAL_START_STAMP_KEY = 2051;
     public static final int APP_START_TIMESTAMP_KEY = 1000;
     public static final int ATTACH_BASE_CONTEXT_END_STAMP_KEY = 1010;
     public static final int ATTACH_BASE_CONTEXT_START_STAMP_KEY = 1002;
@@ -156,6 +157,14 @@ public final class SpeedStatsStampTable {
     public static final int ON_FIRST_DISPATCH_DRAW_END_STAMP_KEY = 5019;
     public static final int ON_FIRST_DISPATCH_DRAW_START_STAMP_KEY = 5018;
     public static final int PERMMISSION_UTIL_STAMP_KEY = 2008;
+    public static final int PERSONALIZE_TAB_END_STAMP_KEY = 5047;
+    public static final int PERSONALIZE_TAB_ON_CREATE_END_STAMP_KEY = 5049;
+    public static final int PERSONALIZE_TAB_ON_CREATE_START_STAMP_KEY = 5048;
+    public static final int PERSONALIZE_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5051;
+    public static final int PERSONALIZE_TAB_ON_CREATE_VIEW_START_STAMP_KEY = 5050;
+    public static final int PERSONALIZE_TAB_ON_RESUME_END_STAMP_KEY = 5053;
+    public static final int PERSONALIZE_TAB_ON_RESUME_START_STAMP_KEY = 5052;
+    public static final int PERSONALIZE_TAB_START_STAMP_KEY = 5046;
     public static final int PROCESS_UPGRADE_STAMP_KEY = 2001;
     public static final int REG_RECEIVER_END_STAMP_KEY = 3009;
     public static final int REG_RECEIVER_START_STAMP_KEY = 3008;
@@ -176,6 +185,9 @@ public final class SpeedStatsStampTable {
     public static final int SPLASHACTIVITY_ONCREATE_END_STAMP_KEY = 3033;
     public static final int SPLASHACTIVITY_TB_ADLOAD_END_STAMP_KEY = 3035;
     public static final int SPLASH_ACTIVITY_END_STAMP_KEY = 3001;
+    public static final int SPLASH_ACTIVITY_FIRST_HANDLER_RUN = 3047;
+    public static final int SPLASH_ACTIVITY_ON_RESUME_END_STAMP_KEY = 3046;
+    public static final int SPLASH_ACTIVITY_ON_RESUME_START_STAMP_KEY = 3045;
     public static final int SPLASH_ACTIVITY_START_STAMP_KEY = 3000;
     public static final int START_TRACK_CONFIG_REQUEST_END_STAMP_KEY = 3019;
     public static final int START_TRACK_CONFIG_REQUEST_START_STAMP_KEY = 3018;

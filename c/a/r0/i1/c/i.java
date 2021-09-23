@@ -18,22 +18,22 @@ public class i implements c.a.e.l.e.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19288e;
+    public String f19303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f19289f;
+    public String f19304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19290g;
+    public String f19305g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f19291h;
+    public long f19306h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f19292i;
+    public String f19307i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f19293j;
+    public long f19308j;
     public int k;
     public long l;
     public long m;
@@ -75,15 +75,15 @@ public class i implements c.a.e.l.e.n {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) || pkModule == null) {
             return;
         }
-        this.f19288e = pkModule.module_name;
-        this.f19289f = pkModule.ques_desc;
+        this.f19303e = pkModule.module_name;
+        this.f19304f = pkModule.ques_desc;
         PkView pkView = pkModule.pk_1;
-        this.f19290g = pkView.pk_desc;
-        this.f19291h = pkView.pk_num.longValue();
+        this.f19305g = pkView.pk_desc;
+        this.f19306h = pkView.pk_num.longValue();
         pkModule.pk_1.pk_index.intValue();
         PkView pkView2 = pkModule.pk_2;
-        this.f19292i = pkView2.pk_desc;
-        this.f19293j = pkView2.pk_num.longValue();
+        this.f19307i = pkView2.pk_desc;
+        this.f19308j = pkView2.pk_num.longValue();
         pkModule.pk_2.pk_index.intValue();
         this.k = pkModule.pk_1.has_clicked.intValue() == 1 ? 1 : pkModule.pk_2.has_clicked.intValue() == 1 ? 2 : 0;
         pkModule.pk_type.intValue();
@@ -91,12 +91,12 @@ public class i implements c.a.e.l.e.n {
         this.l = pkModule.pk_id.longValue();
         this.m = pkModule.user_pk_id.longValue();
         int i2 = this.k;
-        long j2 = this.f19291h;
+        long j2 = this.f19306h;
         if (i2 == 1) {
             j2--;
         }
         this.n = j2;
-        this.o = this.k == 2 ? this.f19293j - 1 : this.f19293j;
+        this.o = this.k == 2 ? this.f19308j - 1 : this.f19308j;
     }
 
     @Override // c.a.e.l.e.n

@@ -24,32 +24,32 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f6764i;
+    public static final boolean f6772i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Uri f6765a;
+    public final Uri f6773a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Bitmap f6766b;
+    public final Bitmap f6774b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Integer f6767c;
+    public final Integer f6775c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f6768d;
+    public boolean f6776d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6769e;
+    public int f6777e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6770f;
+    public int f6778f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f6771g;
+    public Rect f6779g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f6772h;
+    public boolean f6780h;
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +64,7 @@ public final class b {
                 return;
             }
         }
-        f6764i = k.f7077a;
+        f6772i = k.f7085a;
     }
 
     public b(Bitmap bitmap, boolean z) {
@@ -82,13 +82,13 @@ public final class b {
                 return;
             }
         }
-        this.f6766b = bitmap;
-        this.f6765a = null;
-        this.f6767c = null;
-        this.f6768d = false;
-        this.f6769e = bitmap.getWidth();
-        this.f6770f = bitmap.getHeight();
-        this.f6772h = z;
+        this.f6774b = bitmap;
+        this.f6773a = null;
+        this.f6775c = null;
+        this.f6776d = false;
+        this.f6777e = bitmap.getWidth();
+        this.f6778f = bitmap.getHeight();
+        this.f6780h = z;
     }
 
     public static b a(String str) {
@@ -96,7 +96,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str == null) {
-                if (!f6764i) {
+                if (!f6772i) {
                     d.h("ImageSource", "asset name is null");
                     return null;
                 }
@@ -112,7 +112,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bitmap)) == null) {
             if (bitmap == null) {
-                if (!f6764i) {
+                if (!f6772i) {
                     d.h("ImageSource", "bitmap is null");
                     return null;
                 }
@@ -134,7 +134,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             if (str == null) {
-                if (!f6764i) {
+                if (!f6772i) {
                     d.h("ImageSource", "uri is null");
                     return null;
                 }
@@ -154,56 +154,56 @@ public final class b {
     public final Bitmap c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6766b : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6774b : (Bitmap) invokeV.objValue;
     }
 
     public final Integer d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6767c : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6775c : (Integer) invokeV.objValue;
     }
 
     public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6770f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6778f : invokeV.intValue;
     }
 
     public final Rect f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6771g : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6779g : (Rect) invokeV.objValue;
     }
 
     public final int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6769e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6777e : invokeV.intValue;
     }
 
     public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6768d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6776d : invokeV.booleanValue;
     }
 
     public final Uri i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6765a : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6773a : (Uri) invokeV.objValue;
     }
 
     public final boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6772h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6780h : invokeV.booleanValue;
     }
 
     public b l(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.f6768d = z;
+            this.f6776d = z;
             return this;
         }
         return (b) invokeZ.objValue;
@@ -251,10 +251,10 @@ public final class b {
             } catch (UnsupportedEncodingException unused) {
             }
         }
-        this.f6766b = null;
-        this.f6765a = uri;
-        this.f6767c = null;
-        this.f6768d = true;
+        this.f6774b = null;
+        this.f6773a = uri;
+        this.f6775c = null;
+        this.f6776d = true;
     }
 
     public b(int i2) {
@@ -272,9 +272,9 @@ public final class b {
                 return;
             }
         }
-        this.f6766b = null;
-        this.f6765a = null;
-        this.f6767c = Integer.valueOf(i2);
-        this.f6768d = true;
+        this.f6774b = null;
+        this.f6773a = null;
+        this.f6775c = Integer.valueOf(i2);
+        this.f6776d = true;
     }
 }

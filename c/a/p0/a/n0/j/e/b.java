@@ -17,14 +17,14 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Integer, Integer> f7509a;
+    public final Map<Integer, Integer> f7517a;
 
     /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f7510a;
+        public static final b f7518a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,7 +40,7 @@ public class b {
                     return;
                 }
             }
-            f7510a = new b();
+            f7518a = new b();
         }
     }
 
@@ -57,19 +57,19 @@ public class b {
                 return;
             }
         }
-        this.f7509a = new ConcurrentHashMap();
+        this.f7517a = new ConcurrentHashMap();
     }
 
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f7510a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f7518a : (b) invokeV.objValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f7509a.put(Integer.valueOf(i2), Integer.valueOf(c(i2) + 1));
+            this.f7517a.put(Integer.valueOf(i2), Integer.valueOf(c(i2) + 1));
             d.h("SwanRecoveryCounter", "addRecoveryCount level=" + i2);
         }
     }
@@ -78,7 +78,7 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            Integer num = this.f7509a.get(Integer.valueOf(i2));
+            Integer num = this.f7517a.get(Integer.valueOf(i2));
             int intValue = num != null ? num.intValue() : 0;
             d.h("SwanRecoveryCounter", "getRecoveryCount level=" + i2 + ";count=" + intValue);
             return intValue;

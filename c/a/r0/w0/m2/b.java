@@ -17,16 +17,16 @@ public abstract class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f27080a;
+    public g f27100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f27081b;
+    public Intent f27101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27082c;
+    public int f27102c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f27083d;
+    public a f27103d;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -48,27 +48,27 @@ public abstract class b {
                 return;
             }
         }
-        this.f27082c = 0;
-        this.f27080a = gVar;
-        this.f27081b = intent;
-        e c2 = d.d().c(this.f27081b.getStringExtra("info_forum_name_text"));
+        this.f27102c = 0;
+        this.f27100a = gVar;
+        this.f27101b = intent;
+        e c2 = d.d().c(this.f27101b.getStringExtra("info_forum_name_text"));
         c2.b();
         c2.a();
         if (c2.c()) {
-            ((RelativeLayout.LayoutParams) this.f27080a.f27107g.getLayoutParams()).topMargin = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
+            ((RelativeLayout.LayoutParams) this.f27100a.f27127g.getLayoutParams()).topMargin = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27082c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27102c : invokeV.intValue;
     }
 
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f27083d = aVar;
+            this.f27103d = aVar;
         }
     }
 

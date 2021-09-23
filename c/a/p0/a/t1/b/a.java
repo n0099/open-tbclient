@@ -34,7 +34,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8653a;
+    public static final boolean f8661a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.t1.b.a$a  reason: collision with other inner class name */
@@ -44,7 +44,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.t1.f.a f8654a;
+        public final /* synthetic */ c.a.p0.a.t1.f.a f8662a;
 
         public C0377a(c.a.p0.a.t1.f.a aVar) {
             Interceptable interceptable = $ic;
@@ -61,14 +61,14 @@ public class a {
                     return;
                 }
             }
-            this.f8654a = aVar;
+            this.f8662a = aVar;
         }
 
         @Override // c.a.p0.a.u.f.b.g.a.InterfaceC0423a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.k(this.f8654a);
+                a.k(this.f8662a);
             }
         }
     }
@@ -79,7 +79,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.t1.f.a f8655e;
+        public final /* synthetic */ c.a.p0.a.t1.f.a f8663e;
 
         public b(c.a.p0.a.t1.f.a aVar) {
             Interceptable interceptable = $ic;
@@ -96,14 +96,14 @@ public class a {
                     return;
                 }
             }
-            this.f8655e = aVar;
+            this.f8663e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.c(this.f8655e);
+                a.c(this.f8663e);
             }
         }
     }
@@ -114,7 +114,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f8656a;
+        public final /* synthetic */ String f8664a;
 
         public c(String str) {
             Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class a {
                     return;
                 }
             }
-            this.f8656a = str;
+            this.f8664a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -141,7 +141,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
                 c.a.p0.a.t1.d.a.a("download plugin result = " + bool);
-                c.a.p0.a.t1.e.a.b(this.f8656a);
+                c.a.p0.a.t1.e.a.b(this.f8664a);
             }
         }
     }
@@ -159,17 +159,17 @@ public class a {
                 return;
             }
         }
-        f8653a = k.f7077a;
+        f8661a = k.f7085a;
     }
 
     public static void c(c.a.p0.a.t1.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
             if (aVar != null && aVar.d()) {
-                String str = aVar.f8708h;
-                String str2 = aVar.f8706f;
-                long j2 = aVar.f8707g;
-                c.a.p0.n.b.e(new d(str, str2, j2, aVar.f8709i), new c.a.p0.a.t1.a.a(str, str2, j2, new c(str)));
+                String str = aVar.f8716h;
+                String str2 = aVar.f8714f;
+                long j2 = aVar.f8715g;
+                c.a.p0.n.b.e(new d(str, str2, j2, aVar.f8717i), new c.a.p0.a.t1.a.a(str, str2, j2, new c(str)));
                 return;
             }
             c.a.p0.a.t1.d.a.a("plugin is invalid");
@@ -183,8 +183,8 @@ public class a {
             if (hVar == null) {
                 return null;
             }
-            File t = e.t(hVar.f11885g, String.valueOf(hVar.f11887i));
-            return (t == null || !t.exists()) ? e.t(hVar.f11885g, String.valueOf(l0.c(hVar.f11888j))) : t;
+            File t = e.t(hVar.f11893g, String.valueOf(hVar.f11895i));
+            return (t == null || !t.exists()) ? e.t(hVar.f11893g, String.valueOf(l0.c(hVar.f11896j))) : t;
         }
         return (File) invokeL.objValue;
     }
@@ -236,7 +236,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, swanAppConfigData, z) == null) {
             if (swanAppConfigData == null) {
-                if (f8653a) {
+                if (f8661a) {
                     c.a.p0.a.t1.d.a.a("parse app.json is null");
                     return;
                 }
@@ -250,7 +250,7 @@ public class a {
                     Iterator<c.a.p0.a.t1.f.a> it = h2.iterator();
                     while (it.hasNext()) {
                         c.a.p0.a.t1.f.a next = it.next();
-                        Pair<Boolean, File> i2 = c.a.p0.a.p0.f.b.i(next.f8708h);
+                        Pair<Boolean, File> i2 = c.a.p0.a.p0.f.b.i(next.f8716h);
                         if (((Boolean) i2.first).booleanValue()) {
                             c.a.p0.a.e0.d.h("SwanDynamicUtil", "优先使用 Debug 动态库: " + ((File) i2.second).getAbsolutePath());
                             h(jSONObject, jSONObject2, (File) i2.second, next);
@@ -267,7 +267,7 @@ public class a {
             }
             c.a.p0.a.t1.g.b.c("dynamicLibPath", null);
             c.a.p0.a.t1.g.b.c("dynamicLibConfig", null);
-            if (f8653a) {
+            if (f8661a) {
                 c.a.p0.a.t1.d.a.a("this swan app not apply on someone dynamic lib");
             }
         }
@@ -288,7 +288,7 @@ public class a {
             try {
                 aVar = (c.a.p0.a.t1.f.a) aVar2.clone();
             } catch (CloneNotSupportedException e2) {
-                if (f8653a) {
+                if (f8661a) {
                     c.a.p0.a.t1.d.a.a(Log.getStackTraceString(e2));
                 }
                 aVar = aVar2;
@@ -298,22 +298,22 @@ public class a {
                 boolean z3 = true;
                 boolean z4 = false;
                 for (h hVar : u) {
-                    if (aVar2.f8708h.equals(hVar.f11885g)) {
-                        c.a.p0.a.t1.d.a.a("pluginName = " + aVar2.f8708h + " latestPlugin versionCode = " + hVar.f11887i + " cur model versionCode = " + aVar2.f8707g);
-                        long j2 = aVar2.f8707g;
+                    if (aVar2.f8716h.equals(hVar.f11893g)) {
+                        c.a.p0.a.t1.d.a.a("pluginName = " + aVar2.f8716h + " latestPlugin versionCode = " + hVar.f11895i + " cur model versionCode = " + aVar2.f8715g);
+                        long j2 = aVar2.f8715g;
                         if (j2 >= 0) {
-                            c2 = hVar.f11887i;
+                            c2 = hVar.f11895i;
                         } else {
-                            c2 = l0.c(hVar.f11888j);
-                            j2 = l0.c(aVar2.f8706f);
+                            c2 = l0.c(hVar.f11896j);
+                            j2 = l0.c(aVar2.f8714f);
                         }
                         if (c2 > j2) {
                             file = d(hVar);
                             z4 = true;
                         }
                         if (z4) {
-                            aVar.f8706f = hVar.f11888j;
-                            aVar.f8707g = hVar.f11887i;
+                            aVar.f8714f = hVar.f11896j;
+                            aVar.f8715g = hVar.f11895i;
                         }
                         if (!hVar.c()) {
                             c.a.p0.a.t1.d.a.a("plugin is new, not yet expired");
@@ -343,32 +343,32 @@ public class a {
         }
         if (file != null && file.exists()) {
             str = file.getAbsolutePath();
-            if (f8653a) {
-                c.a.p0.a.t1.d.a.a("apply path in workspace, name = " + aVar.f8708h);
+            if (f8661a) {
+                c.a.p0.a.t1.d.a.a("apply path in workspace, name = " + aVar.f8716h);
             }
         } else {
-            str = aVar.f8710j;
-            if (f8653a) {
-                c.a.p0.a.t1.d.a.a("apply path inner swan app, name = " + aVar.f8708h);
+            str = aVar.f8718j;
+            if (f8661a) {
+                c.a.p0.a.t1.d.a.a("apply path inner swan app, name = " + aVar.f8716h);
             }
         }
         try {
-            jSONObject.put(aVar.f8708h, str);
+            jSONObject.put(aVar.f8716h, str);
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(aVar.k)) {
                 return;
             }
             File file2 = new File(str, aVar.k);
             if (file2.exists()) {
                 String D = c.a.p0.t.d.D(file2);
-                if (f8653a) {
+                if (f8661a) {
                     c.a.p0.a.t1.d.a.a("pages info = " + D);
                 }
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("config", new JSONObject(D));
-                jSONObject2.put(aVar.f8708h, jSONObject3);
+                jSONObject2.put(aVar.f8716h, jSONObject3);
             }
         } catch (JSONException e2) {
-            if (f8653a) {
+            if (f8661a) {
                 c.a.p0.a.t1.d.a.a(Log.getStackTraceString(e2));
             }
         }

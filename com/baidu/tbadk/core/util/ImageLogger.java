@@ -10,7 +10,7 @@ import c.a.e.e.n.a;
 import c.a.e.e.p.j;
 import c.a.e.e.p.k;
 import c.a.e.e.p.l;
-import c.a.q0.d1.p;
+import c.a.q0.d1.s;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -224,7 +224,7 @@ public class ImageLogger {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, Boolean.valueOf(z), str2, bool, dVar, str3, Long.valueOf(j2), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) && l.D() && dVar != null) {
             String str4 = "";
-            boolean b2 = p.b(str2);
+            boolean b2 = s.b(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();
@@ -258,13 +258,13 @@ public class ImageLogger {
                 }
             }
             if (z && z3) {
-                if (H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13624d) {
+                if (H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13620d) {
                     return;
                 }
-                if (!H && j.t() && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13626f) {
+                if (!H && j.t() && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13622f) {
                     return;
                 }
-                if (!H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13625e) {
+                if (!H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13621e) {
                     return;
                 }
             }

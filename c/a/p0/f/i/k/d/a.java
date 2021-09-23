@@ -41,34 +41,34 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f10566a;
+    public long f10574a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f10567b;
+    public ExecutorService f10575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ConcurrentHashMap<String, Object> f10568c;
+    public final ConcurrentHashMap<String, Object> f10576c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<DownloadInfo> f10569d;
+    public final List<DownloadInfo> f10577d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f10570e;
+    public final Context f10578e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f10571f;
+    public final e f10579f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a.p0.f.i.k.f.b f10572g;
+    public final c.a.p0.f.i.k.f.b f10580g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.p0.f.i.k.c.a f10573h;
+    public final c.a.p0.f.i.k.c.a f10581h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ConcurrentHashMap<Uri, BroadcastReceiver> f10574i;
+    public ConcurrentHashMap<Uri, BroadcastReceiver> f10582i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ConcurrentHashMap<Uri, Timer> f10575j;
+    public ConcurrentHashMap<Uri, Timer> f10583j;
 
     /* renamed from: c.a.p0.f.i.k.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -118,16 +118,16 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f10576e;
+        public final /* synthetic */ d f10584e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f10577f;
+        public final /* synthetic */ Context f10585f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Uri f10578g;
+        public final /* synthetic */ Uri f10586g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f10579h;
+        public final /* synthetic */ a f10587h;
 
         public b(a aVar, d dVar, Context context, Uri uri) {
             Interceptable interceptable = $ic;
@@ -144,18 +144,18 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
                     return;
                 }
             }
-            this.f10579h = aVar;
-            this.f10576e = dVar;
-            this.f10577f = context;
-            this.f10578g = uri;
+            this.f10587h = aVar;
+            this.f10584e = dVar;
+            this.f10585f = context;
+            this.f10586g = uri;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10576e.a(Boolean.FALSE);
-                this.f10579h.l(this.f10577f, this.f10578g);
+                this.f10584e.a(Boolean.FALSE);
+                this.f10587h.l(this.f10585f, this.f10586g);
             }
         }
     }
@@ -166,10 +166,10 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Timer f10580e;
+        public final /* synthetic */ Timer f10588e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f10581f;
+        public final /* synthetic */ a f10589f;
 
         public c(a aVar, Timer timer) {
             Interceptable interceptable = $ic;
@@ -186,19 +186,19 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
                     return;
                 }
             }
-            this.f10581f = aVar;
-            this.f10580e = timer;
+            this.f10589f = aVar;
+            this.f10588e = timer;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (Map.Entry entry : this.f10581f.f10574i.entrySet()) {
-                    a aVar = this.f10581f;
-                    aVar.l(aVar.f10570e, (Uri) entry.getKey());
+                for (Map.Entry entry : this.f10589f.f10582i.entrySet()) {
+                    a aVar = this.f10589f;
+                    aVar.l(aVar.f10578e, (Uri) entry.getKey());
                 }
-                this.f10580e.cancel();
+                this.f10588e.cancel();
             }
         }
     }
@@ -244,24 +244,24 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
                 return;
             }
         }
-        this.f10574i = new ConcurrentHashMap<>();
-        this.f10575j = new ConcurrentHashMap<>();
-        this.f10570e = context;
+        this.f10582i = new ConcurrentHashMap<>();
+        this.f10583j = new ConcurrentHashMap<>();
+        this.f10578e = context;
         if (aVar == null) {
-            this.f10573h = new c.a.p0.f.i.k.c.a();
+            this.f10581h = new c.a.p0.f.i.k.c.a();
         } else {
-            this.f10573h = aVar;
+            this.f10581h = aVar;
         }
-        if (this.f10573h.a() == null) {
-            this.f10572g = new c.a.p0.f.i.k.e.a(context, this.f10573h);
+        if (this.f10581h.a() == null) {
+            this.f10580g = new c.a.p0.f.i.k.e.a(context, this.f10581h);
         } else {
-            this.f10572g = this.f10573h.a();
+            this.f10580g = this.f10581h.a();
         }
-        this.f10569d = new ArrayList();
-        this.f10568c = new ConcurrentHashMap<>();
-        this.f10572g.b();
-        this.f10567b = Executors.newFixedThreadPool(this.f10573h.b());
-        this.f10571f = new c.a.p0.f.i.k.d.b(this.f10572g);
+        this.f10577d = new ArrayList();
+        this.f10576c = new ConcurrentHashMap<>();
+        this.f10580g.b();
+        this.f10575b = Executors.newFixedThreadPool(this.f10581h.b());
+        this.f10579f = new c.a.p0.f.i.k.d.b(this.f10580g);
     }
 
     public static synchronized c.a.p0.f.i.k.f.d m(Context context, c.a.p0.f.i.k.c.a aVar) {
@@ -301,10 +301,10 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
                     return;
                 }
                 downloadInfo.setStatus(DownloadState.DELETED.value());
-                this.f10568c.remove(downloadInfo.getId());
-                this.f10569d.remove(downloadInfo);
-                this.f10572g.d(downloadInfo);
-                this.f10571f.b(downloadInfo);
+                this.f10576c.remove(downloadInfo.getId());
+                this.f10577d.remove(downloadInfo);
+                this.f10580g.d(downloadInfo);
+                this.f10579f.b(downloadInfo);
                 new File(downloadInfo.getPath()).delete();
             }
         }
@@ -315,7 +315,7 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) {
             synchronized (this) {
-                this.f10569d.add(downloadInfo);
+                this.f10577d.add(downloadInfo);
                 p(downloadInfo);
             }
         }
@@ -339,12 +339,12 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
                 k();
-                if (this.f10572g != null) {
-                    this.f10572g.close();
+                if (this.f10580g != null) {
+                    this.f10580g.close();
                 }
-                if (this.f10567b != null) {
-                    this.f10567b.shutdownNow();
-                    this.f10567b = null;
+                if (this.f10575b != null) {
+                    this.f10575b.shutdownNow();
+                    this.f10575b = null;
                 }
                 k = null;
             }
@@ -357,8 +357,8 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
         if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
             synchronized (this) {
                 g.c(downloadInfo.getPath(), false);
-                this.f10568c.remove(downloadInfo.getId());
-                this.f10569d.remove(downloadInfo);
+                this.f10576c.remove(downloadInfo.getId());
+                this.f10577d.remove(downloadInfo);
                 q();
             }
         }
@@ -381,8 +381,8 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
                 appContext.registerReceiver(c0525a, intentFilter);
                 Timer timer = new Timer();
                 timer.schedule(new b(this, dVar, appContext, uri), 60000L);
-                this.f10574i.put(uri, c0525a);
-                this.f10575j.put(uri, timer);
+                this.f10582i.put(uri, c0525a);
+                this.f10583j.put(uri, timer);
             }
         }
     }
@@ -395,7 +395,7 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             synchronized (this) {
                 downloadInfo = null;
-                Iterator<DownloadInfo> it = this.f10569d.iterator();
+                Iterator<DownloadInfo> it = this.f10577d.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -407,7 +407,7 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
                     }
                 }
                 if (downloadInfo == null) {
-                    downloadInfo = this.f10572g.c(str);
+                    downloadInfo = this.f10580g.c(str);
                 }
             }
             return downloadInfo;
@@ -426,11 +426,11 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
     public final void l(Context context, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, context, uri) == null) {
-            BroadcastReceiver remove = this.f10574i.remove(uri);
+            BroadcastReceiver remove = this.f10582i.remove(uri);
             if (remove != null) {
                 context.unregisterReceiver(remove);
             }
-            Timer remove2 = this.f10575j.remove(uri);
+            Timer remove2 = this.f10583j.remove(uri);
             if (remove2 != null) {
                 remove2.cancel();
             }
@@ -442,8 +442,8 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             synchronized (this) {
-                if (System.currentTimeMillis() - this.f10566a > 500) {
-                    this.f10566a = System.currentTimeMillis();
+                if (System.currentTimeMillis() - this.f10574a > 500) {
+                    this.f10574a = System.currentTimeMillis();
                     return true;
                 }
                 return false;
@@ -456,8 +456,8 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, downloadInfo) == null) {
             downloadInfo.setStatus(DownloadState.DOWNLOAD_PAUSED.value());
-            this.f10568c.remove(downloadInfo.getId());
-            this.f10571f.b(downloadInfo);
+            this.f10576c.remove(downloadInfo.getId());
+            this.f10579f.b(downloadInfo);
             q();
         }
     }
@@ -465,15 +465,15 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
     public final void p(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, downloadInfo) == null) {
-            if (this.f10568c.size() >= this.f10573h.b()) {
+            if (this.f10576c.size() >= this.f10581h.b()) {
                 downloadInfo.setStatus(DownloadState.WAIT.value());
-                this.f10571f.b(downloadInfo);
+                this.f10579f.b(downloadInfo);
                 return;
             }
-            c.a.p0.f.i.k.d.c cVar = new c.a.p0.f.i.k.d.c(this.f10567b, this.f10571f, downloadInfo, this);
-            this.f10568c.put(downloadInfo.getId(), cVar);
+            c.a.p0.f.i.k.d.c cVar = new c.a.p0.f.i.k.d.c(this.f10575b, this.f10579f, downloadInfo, this);
+            this.f10576c.put(downloadInfo.getId(), cVar);
             downloadInfo.setStatus(DownloadState.PREPARE_DOWNLOAD.value());
-            this.f10571f.b(downloadInfo);
+            this.f10579f.b(downloadInfo);
             cVar.c();
         }
     }
@@ -481,7 +481,7 @@ public final class a implements c.a.p0.f.i.k.f.d, c.a {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            for (DownloadInfo downloadInfo : this.f10569d) {
+            for (DownloadInfo downloadInfo : this.f10577d) {
                 if (downloadInfo.getStatus() == DownloadState.WAIT.value()) {
                     p(downloadInfo);
                     return;

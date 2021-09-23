@@ -14,7 +14,7 @@ public class c implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String[] f7504a;
+    public String[] f7512a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class c implements a {
                 return;
             }
         }
-        this.f7504a = new String[]{c.a.p0.a.a1.e.i(), c.a.p0.a.a1.e.l(), c.a.p0.a.a1.e.r(), e.b.f(), c.a.p0.a.e0.f.f.b.f(), c.a.p0.a.e0.f.f.b.d(), c.a.p0.a.e0.f.c.a.c(), e.f.f(), e.f.d(), c.a.p0.a.x0.a.d.a.f9693d};
+        this.f7512a = new String[]{c.a.p0.a.a1.e.i(), c.a.p0.a.a1.e.l(), c.a.p0.a.a1.e.r(), e.b.f(), c.a.p0.a.e0.f.f.b.f(), c.a.p0.a.e0.f.f.b.d(), c.a.p0.a.e0.f.c.a.c(), e.f.f(), e.f.d(), c.a.p0.a.x0.a.d.a.f9701d};
     }
 
     @Override // c.a.p0.a.n0.j.d.a
@@ -38,7 +38,7 @@ public class c implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.f7504a) {
+            for (String str : this.f7512a) {
                 String J = c.a.p0.t.d.J(str);
                 if (!TextUtils.isEmpty(J)) {
                     arraySet.add(J);

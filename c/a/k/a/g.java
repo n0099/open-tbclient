@@ -19,14 +19,14 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static g f3688b;
+    public static g f3689b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, c.a.k.a.q.f<String, Integer>> f3689c;
+    public static HashMap<String, c.a.k.a.q.f<String, Integer>> f3690c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3690a;
+    public Context f3691a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public final class g {
                 return;
             }
         }
-        f3689c = new HashMap<>();
+        f3690c = new HashMap<>();
     }
 
     public g() {
@@ -72,10 +72,10 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (g.class) {
-                if (f3688b == null) {
-                    f3688b = new g();
+                if (f3689b == null) {
+                    f3689b = new g();
                 }
-                gVar = f3688b;
+                gVar = f3689b;
             }
             return gVar;
         }
@@ -88,10 +88,10 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             a(str2, str);
-            c.a.k.a.q.f<String, Integer> fVar = f3689c.get(str);
+            c.a.k.a.q.f<String, Integer> fVar = f3690c.get(str);
             if (fVar == null) {
                 fVar = new c.a.k.a.q.f<>(100);
-                f3689c.put(str, fVar);
+                f3690c.put(str, fVar);
             }
             Integer c2 = fVar.c(str2);
             if (c2 == null) {
@@ -116,10 +116,10 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f3690a == null) {
-                this.f3690a = BdCore.b().a();
+            if (this.f3691a == null) {
+                this.f3691a = BdCore.b().a();
             }
-            Context context = this.f3690a;
+            Context context = this.f3691a;
             if (context != null) {
                 return context;
             }

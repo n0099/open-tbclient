@@ -24,10 +24,10 @@ public class SearchMajorModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f54116e;
+    public b f54231e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f54117f;
+    public HttpMessageListener f54232f;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -35,7 +35,7 @@ public class SearchMajorModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SearchMajorModel f54118a;
+        public final /* synthetic */ SearchMajorModel f54233a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SearchMajorModel searchMajorModel, int i2) {
@@ -55,7 +55,7 @@ public class SearchMajorModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f54118a = searchMajorModel;
+            this.f54233a = searchMajorModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,21 +66,21 @@ public class SearchMajorModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
             }
-            this.f54118a.mErrorCode = httpResponsedMessage.getError();
-            this.f54118a.mErrorString = httpResponsedMessage.getErrorString();
-            if (!StringUtils.isNull(this.f54118a.mErrorString)) {
-                str = this.f54118a.mErrorString;
+            this.f54233a.mErrorCode = httpResponsedMessage.getError();
+            this.f54233a.mErrorString = httpResponsedMessage.getErrorString();
+            if (!StringUtils.isNull(this.f54233a.mErrorString)) {
+                str = this.f54233a.mErrorString;
             } else {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
             }
             ErrorData errorData = new ErrorData();
-            errorData.setError_code(this.f54118a.mErrorCode);
+            errorData.setError_code(this.f54233a.mErrorCode);
             errorData.setError_msg(str);
             SearchMajorHttpResponsedMessage searchMajorHttpResponsedMessage = httpResponsedMessage instanceof SearchMajorHttpResponsedMessage ? (SearchMajorHttpResponsedMessage) httpResponsedMessage : null;
-            if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().f26336a)) {
-                this.f54118a.f54116e.onSuccess(searchMajorHttpResponsedMessage.getData().f26336a);
+            if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().f26359a)) {
+                this.f54233a.f54231e.onSuccess(searchMajorHttpResponsedMessage.getData().f26359a);
             } else {
-                this.f54118a.f54116e.onError(errorData);
+                this.f54233a.f54231e.onError(errorData);
             }
         }
     }
@@ -111,10 +111,10 @@ public class SearchMajorModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_MAJOR);
-        this.f54117f = aVar;
+        this.f54232f = aVar;
         aVar.setSelfListener(true);
-        registerListener(this.f54117f);
-        this.f54116e = bVar;
+        registerListener(this.f54232f);
+        this.f54231e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

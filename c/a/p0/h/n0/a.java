@@ -25,7 +25,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11372a;
+    public static final boolean f11380a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.h.n0.a$a  reason: collision with other inner class name */
@@ -35,10 +35,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11373e;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11381e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f11374f;
+        public final /* synthetic */ String f11382f;
 
         public C0581a(c.a.p0.a.y.b.a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public class a {
                     return;
                 }
             }
-            this.f11373e = aVar;
-            this.f11374f = str;
+            this.f11381e = aVar;
+            this.f11382f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,10 +65,10 @@ public class a {
         public void onCallback(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                if (fVar == null || fVar.f5541d || fVar.f5547j != 1) {
-                    a.c(this.f11373e, "system deny");
+                if (fVar == null || fVar.f5549d || fVar.f5555j != 1) {
+                    a.c(this.f11381e, "system deny");
                 } else {
-                    a.e(this.f11373e, this.f11374f);
+                    a.e(this.f11381e, this.f11382f);
                 }
             }
         }
@@ -87,7 +87,7 @@ public class a {
                 return;
             }
         }
-        f11372a = k.f7077a;
+        f11380a = k.f7085a;
     }
 
     public static void c(c.a.p0.a.y.b.a aVar, String str) {
@@ -111,7 +111,7 @@ public class a {
             return;
         }
         String D = G.D("domain", "baidu.com");
-        if (f11372a) {
+        if (f11380a) {
             String str = "getUUAPInfo-domain: " + D;
         }
         Q.T().e("mapp_uuap_info", new C0581a(G, D));

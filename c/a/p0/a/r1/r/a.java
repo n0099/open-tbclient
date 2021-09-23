@@ -22,13 +22,13 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8476b;
+    public boolean f8484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CopyOnWriteArrayList<c> f8477c;
+    public CopyOnWriteArrayList<c> f8485c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownTimer f8478d;
+    public CountDownTimer f8486d;
 
     /* renamed from: c.a.p0.a.r1.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -37,7 +37,7 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f8479a;
+        public final /* synthetic */ a f8487a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public CountDownTimerC0364a(a aVar, long j2, long j3) {
@@ -58,15 +58,15 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            this.f8479a = aVar;
+            this.f8487a = aVar;
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean z = c.a.p0.a.f1.f.a.f5702a;
-                this.f8479a.c(true);
+                boolean z = c.a.p0.a.f1.f.a.f5710a;
+                this.f8487a.c(true);
             }
         }
 
@@ -74,14 +74,14 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
         public void onTick(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                Iterator it = this.f8479a.f8477c.iterator();
+                Iterator it = this.f8487a.f8485c.iterator();
                 while (it.hasNext()) {
                     c cVar = (c) it.next();
                     boolean z = ((long) (5000 - cVar.e())) >= j2;
                     if (!cVar.g() && z) {
                         cVar.h(true);
                         c.a.p0.a.r1.r.c.a f2 = cVar.f();
-                        if (c.a.p0.a.f1.f.a.f5702a) {
+                        if (c.a.p0.a.f1.f.a.f5710a) {
                             String str = "triggerFmp, timeout = " + cVar.e() + ", trigger = " + f2.getName();
                         }
                         f2.c(true);
@@ -96,7 +96,7 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f8480a;
+        public static final a f8488a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -112,7 +112,7 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            f8480a = new a(null);
+            f8488a = new a(null);
         }
     }
 
@@ -122,13 +122,13 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.p0.a.r1.r.c.a f8481a;
+        public c.a.p0.a.r1.r.c.a f8489a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f8482b;
+        public int f8490b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f8483c;
+        public boolean f8491c;
 
         public /* synthetic */ c(a aVar, c.a.p0.a.r1.r.c.a aVar2, int i2, CountDownTimerC0364a countDownTimerC0364a) {
             this(aVar, aVar2, i2);
@@ -137,26 +137,26 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
         public final int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8482b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8490b : invokeV.intValue;
         }
 
         @NonNull
         public final c.a.p0.a.r1.r.c.a f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8481a : (c.a.p0.a.r1.r.c.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8489a : (c.a.p0.a.r1.r.c.a) invokeV.objValue;
         }
 
         public final boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8483c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8491c : invokeV.booleanValue;
         }
 
         public final void h(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.f8483c = z;
+                this.f8491c = z;
             }
         }
 
@@ -175,9 +175,9 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            this.f8483c = false;
-            this.f8481a = aVar2;
-            this.f8482b = i2;
+            this.f8491c = false;
+            this.f8489a = aVar2;
+            this.f8490b = i2;
         }
     }
 
@@ -188,17 +188,17 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
     public static a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f8480a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f8488a : (a) invokeV.objValue;
     }
 
     @Override // c.a.p0.a.r1.r.c.a
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (c.a.p0.a.f1.f.a.f5702a) {
+            if (c.a.p0.a.f1.f.a.f5710a) {
                 String str2 = "triggerFcp, url = " + str;
             }
-            Iterator<c> it = this.f8477c.iterator();
+            Iterator<c> it = this.f8485c.iterator();
             while (it.hasNext()) {
                 it.next().f().a(str);
             }
@@ -208,33 +208,33 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
     @Override // c.a.p0.a.r1.r.c.a
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f8477c.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f8485c.isEmpty()) {
             return;
         }
-        boolean z = c.a.p0.a.f1.f.a.f5702a;
+        boolean z = c.a.p0.a.f1.f.a.f5710a;
         j();
-        Iterator<c> it = this.f8477c.iterator();
+        Iterator<c> it = this.f8485c.iterator();
         while (it.hasNext()) {
             it.next().f().b();
         }
-        this.f8476b = false;
+        this.f8484b = false;
     }
 
     @Override // c.a.p0.a.r1.r.c.a
     public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f8476b) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f8484b) {
             return;
         }
-        this.f8476b = true;
+        this.f8484b = true;
         j();
-        if (this.f8477c.isEmpty()) {
+        if (this.f8485c.isEmpty()) {
             return;
         }
-        if (c.a.p0.a.f1.f.a.f5702a) {
+        if (c.a.p0.a.f1.f.a.f5710a) {
             String str = "triggerFmp, timeout = " + z;
         }
-        Iterator<c> it = this.f8477c.iterator();
+        Iterator<c> it = this.f8485c.iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (!next.g()) {
@@ -256,14 +256,14 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f8476b = false;
-            if (this.f8477c.isEmpty()) {
+            this.f8484b = false;
+            if (this.f8485c.isEmpty()) {
                 return;
             }
-            if (c.a.p0.a.f1.f.a.f5702a) {
+            if (c.a.p0.a.f1.f.a.f5710a) {
                 String str2 = "triggerLaunch, source = " + str;
             }
-            Iterator<c> it = this.f8477c.iterator();
+            Iterator<c> it = this.f8485c.iterator();
             while (it.hasNext()) {
                 c next = it.next();
                 next.h(false);
@@ -281,7 +281,7 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
             if (aVar == null) {
                 return false;
             }
-            Iterator<c> it = this.f8477c.iterator();
+            Iterator<c> it = this.f8485c.iterator();
             while (it.hasNext()) {
                 if (aVar.equals(it.next().f())) {
                     return true;
@@ -301,7 +301,7 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
 
     public void h(c.a.p0.a.r1.r.c.a aVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048582, this, aVar, i2) == null) || this.f8476b || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, aVar, i2) == null) || this.f8484b || aVar == null) {
             return;
         }
         if (i2 > 5000) {
@@ -310,8 +310,8 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
         if (g(aVar)) {
             return;
         }
-        this.f8477c.add(new c(this, aVar, i2, null));
-        if (c.a.p0.a.f1.f.a.f5702a) {
+        this.f8485c.add(new c(this, aVar, i2, null));
+        if (c.a.p0.a.f1.f.a.f5710a) {
             String str = "register, task name = " + aVar.getName() + " ; timeout = " + i2;
         }
     }
@@ -320,9 +320,9 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             try {
-                this.f8478d.start();
+                this.f8486d.start();
             } catch (Throwable th) {
-                if (c.a.p0.a.f1.f.a.f5702a) {
+                if (c.a.p0.a.f1.f.a.f5710a) {
                     String str = "start timer exception = " + th.getMessage();
                 }
             }
@@ -333,9 +333,9 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
-                this.f8478d.cancel();
+                this.f8486d.cancel();
             } catch (Throwable th) {
-                if (c.a.p0.a.f1.f.a.f5702a) {
+                if (c.a.p0.a.f1.f.a.f5710a) {
                     String str = "stop timer exception = " + th.getMessage();
                 }
             }
@@ -355,8 +355,8 @@ public class a implements c.a.p0.a.r1.r.c.a, c.a.p0.a.f1.f.a {
                 return;
             }
         }
-        this.f8476b = false;
-        this.f8477c = new CopyOnWriteArrayList<>();
-        this.f8478d = new CountDownTimerC0364a(this, 5000L, 500L);
+        this.f8484b = false;
+        this.f8485c = new CopyOnWriteArrayList<>();
+        this.f8486d = new CountDownTimerC0364a(this, 5000L, 500L);
     }
 }

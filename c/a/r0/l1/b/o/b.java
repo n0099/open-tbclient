@@ -31,25 +31,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f22005a;
+    public boolean f22019a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f22006b;
+    public BdUniqueId f22020b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f22007c;
+    public long f22021c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f22008d;
+    public c f22022d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<n> f22009e;
+    public ArrayList<n> f22023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f22010f;
+    public boolean f22024f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.e.c.g.a f22011g;
+    public c.a.e.c.g.a f22025g;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -57,7 +57,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f22012a;
+        public final /* synthetic */ b f22026a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2, int i3) {
@@ -78,7 +78,7 @@ public class b {
                     return;
                 }
             }
-            this.f22012a = bVar;
+            this.f22026a = bVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -88,8 +88,8 @@ public class b {
                 return;
             }
             if (responsedMessage.hasError()) {
-                if (this.f22012a.f22008d != null) {
-                    this.f22012a.f22008d.onFailed(responsedMessage.getErrorString());
+                if (this.f22026a.f22022d != null) {
+                    this.f22026a.f22022d.onFailed(responsedMessage.getErrorString());
                     return;
                 }
                 return;
@@ -100,26 +100,26 @@ public class b {
             }
             if (responsedMessage instanceof AgreeMeHTTPResponseMessage) {
                 AgreeMeHTTPResponseMessage agreeMeHTTPResponseMessage = (AgreeMeHTTPResponseMessage) responsedMessage;
-                this.f22012a.i(agreeMeHTTPResponseMessage.datas, z);
-                this.f22012a.f22010f = agreeMeHTTPResponseMessage.hasMore;
+                this.f22026a.i(agreeMeHTTPResponseMessage.datas, z);
+                this.f22026a.f22024f = agreeMeHTTPResponseMessage.hasMore;
             } else if (responsedMessage instanceof AgreeMeSocketResponseMessage) {
                 AgreeMeSocketResponseMessage agreeMeSocketResponseMessage = (AgreeMeSocketResponseMessage) responsedMessage;
-                this.f22012a.i(agreeMeSocketResponseMessage.datas, z);
-                this.f22012a.f22010f = agreeMeSocketResponseMessage.hasMore;
+                this.f22026a.i(agreeMeSocketResponseMessage.datas, z);
+                this.f22026a.f22024f = agreeMeSocketResponseMessage.hasMore;
             }
         }
     }
 
     /* renamed from: c.a.r0.l1.b.o.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1034b extends BdAsyncTask<Void, Void, ArrayList<c.a.r0.l1.b.p.a>> {
+    public class C1032b extends BdAsyncTask<Void, Void, ArrayList<c.a.r0.l1.b.p.a>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f22013a;
+        public final /* synthetic */ b f22027a;
 
-        public C1034b(b bVar) {
+        public C1032b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class b {
                     return;
                 }
             }
-            this.f22013a = bVar;
+            this.f22027a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -154,7 +154,7 @@ public class b {
                 try {
                     AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
                     if (agreeMeResIdl.data != null) {
-                        this.f22013a.f22010f = agreeMeResIdl.data.has_more.intValue() == 1;
+                        this.f22027a.f22024f = agreeMeResIdl.data.has_more.intValue() == 1;
                         for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                             if (agreeList != null) {
                                 c.a.r0.l1.b.p.a aVar = new c.a.r0.l1.b.p.a();
@@ -180,7 +180,7 @@ public class b {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
                 super.onPostExecute(arrayList);
                 if (arrayList != null) {
-                    this.f22013a.h(arrayList);
+                    this.f22027a.h(arrayList);
                 }
             }
         }
@@ -206,8 +206,8 @@ public class b {
                 return;
             }
         }
-        c.a.r0.j3.d0.a.h(309593, AgreeMeSocketResponseMessage.class, false, false);
-        c.a.r0.j3.d0.a.c(309593, CmdConfigHttp.AGREE_ME_HTTP_CMD, "c/u/feed/agreeme", AgreeMeHTTPResponseMessage.class, false, false, false, false);
+        c.a.r0.j3.e0.a.h(309593, AgreeMeSocketResponseMessage.class, false, false);
+        c.a.r0.j3.e0.a.c(309593, CmdConfigHttp.AGREE_ME_HTTP_CMD, "c/u/feed/agreeme", AgreeMeHTTPResponseMessage.class, false, false, false, false);
     }
 
     public b(TbPageContext tbPageContext, c cVar) {
@@ -225,13 +225,13 @@ public class b {
                 return;
             }
         }
-        this.f22005a = false;
-        this.f22007c = 0L;
-        this.f22011g = new a(this, CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593);
+        this.f22019a = false;
+        this.f22021c = 0L;
+        this.f22025g = new a(this, CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593);
         if (tbPageContext != null) {
-            this.f22006b = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.f22011g);
-            this.f22008d = cVar;
+            this.f22020b = tbPageContext.getUniqueId();
+            tbPageContext.registerListener(this.f22025g);
+            this.f22022d = cVar;
         }
     }
 
@@ -246,7 +246,7 @@ public class b {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            new C1034b(this).execute(new Void[0]);
+            new C1032b(this).execute(new Void[0]);
         }
     }
 
@@ -254,8 +254,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
-            agreeMeRequestMessage.id = this.f22007c;
-            agreeMeRequestMessage.setTag(this.f22006b);
+            agreeMeRequestMessage.id = this.f22021c;
+            agreeMeRequestMessage.setTag(this.f22020b);
             MessageManager.getInstance().sendMessage(agreeMeRequestMessage);
         }
     }
@@ -269,47 +269,47 @@ public class b {
 
     public final void h(ArrayList<c.a.r0.l1.b.p.a> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) || this.f22005a) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) || this.f22019a) {
             return;
         }
-        if (ListUtils.isEmpty(this.f22009e)) {
-            this.f22009e = new ArrayList<>();
+        if (ListUtils.isEmpty(this.f22023e)) {
+            this.f22023e = new ArrayList<>();
         } else {
-            this.f22009e.clear();
+            this.f22023e.clear();
         }
-        this.f22009e.addAll(arrayList);
-        ArrayList<n> arrayList2 = this.f22009e;
+        this.f22023e.addAll(arrayList);
+        ArrayList<n> arrayList2 = this.f22023e;
         n nVar = (n) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
         if (nVar instanceof c.a.r0.l1.b.p.a) {
-            this.f22007c = ((c.a.r0.l1.b.p.a) nVar).k();
+            this.f22021c = ((c.a.r0.l1.b.p.a) nVar).k();
         }
-        if (this.f22008d == null || ListUtils.isEmpty(this.f22009e)) {
+        if (this.f22022d == null || ListUtils.isEmpty(this.f22023e)) {
             return;
         }
-        this.f22008d.onSuccess(this.f22009e);
+        this.f22022d.onSuccess(this.f22023e);
     }
 
     public final void i(ArrayList<c.a.r0.l1.b.p.a> arrayList, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, arrayList, z) == null) {
-            this.f22005a = true;
-            if (ListUtils.isEmpty(this.f22009e)) {
-                this.f22009e = new ArrayList<>();
+            this.f22019a = true;
+            if (ListUtils.isEmpty(this.f22023e)) {
+                this.f22023e = new ArrayList<>();
             }
             if (!z) {
-                this.f22009e.addAll(arrayList);
+                this.f22023e.addAll(arrayList);
             } else {
-                this.f22009e.clear();
-                this.f22009e.addAll(0, arrayList);
+                this.f22023e.clear();
+                this.f22023e.addAll(0, arrayList);
             }
-            ArrayList<n> arrayList2 = this.f22009e;
+            ArrayList<n> arrayList2 = this.f22023e;
             n nVar = (n) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
             if (nVar instanceof c.a.r0.l1.b.p.a) {
-                this.f22007c = ((c.a.r0.l1.b.p.a) nVar).k();
+                this.f22021c = ((c.a.r0.l1.b.p.a) nVar).k();
             }
-            c cVar = this.f22008d;
+            c cVar = this.f22022d;
             if (cVar != null) {
-                cVar.onSuccess(this.f22009e);
+                cVar.onSuccess(this.f22023e);
             }
         }
     }
@@ -317,7 +317,7 @@ public class b {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f22007c = 0L;
+            this.f22021c = 0L;
             f();
         }
     }

@@ -18,13 +18,13 @@ public class a extends BdAsyncTask<Void, String, String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28265a;
+    public int f28285a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.x.b.c f28266b;
+    public c.a.r0.x.b.c f28286b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28267c;
+    public String f28287c;
 
     public a(String str, int i2, c.a.r0.x.b.c cVar) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public class a extends BdAsyncTask<Void, String, String> {
                 return;
             }
         }
-        this.f28265a = i2;
-        this.f28266b = cVar;
-        this.f28267c = str;
+        this.f28285a = i2;
+        this.f28286b = cVar;
+        this.f28287c = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,7 +53,7 @@ public class a extends BdAsyncTask<Void, String, String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            String str = this.f28267c;
+            String str = this.f28287c;
             if (str == null) {
                 return null;
             }
@@ -139,11 +139,11 @@ public class a extends BdAsyncTask<Void, String, String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             super.onPostExecute((a) str);
-            c.a.r0.x.b.c cVar = this.f28266b;
+            c.a.r0.x.b.c cVar = this.f28286b;
             if (cVar == null || str == null) {
                 return;
             }
-            cVar.a("", this.f28265a, str);
+            cVar.a("", this.f28285a, str);
         }
     }
 }

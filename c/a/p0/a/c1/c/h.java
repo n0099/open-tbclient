@@ -88,6 +88,6 @@ public class h implements c.a.p0.d.a {
     public boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? c.a.p0.a.k.f7077a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? c.a.p0.a.k.f7085a : invokeV.booleanValue;
     }
 }

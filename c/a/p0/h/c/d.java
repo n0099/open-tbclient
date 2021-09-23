@@ -14,34 +14,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11034a;
+    public String f11042a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11035b;
+    public String f11043b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11036c;
+    public String f11044c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f11037d;
+    public float f11045d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11038e;
+    public boolean f11046e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f11039f;
+    public boolean f11047f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f11040g;
+    public boolean f11048g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11041h;
+    public int f11049h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f11042i;
+    public float f11050i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f11043j;
+    public String f11051j;
 
     static {
         InterceptResult invokeClinit;
@@ -56,7 +56,7 @@ public class d {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public d() {
@@ -72,22 +72,22 @@ public class d {
                 return;
             }
         }
-        this.f11034a = "";
-        this.f11035b = "";
-        this.f11036c = "";
-        this.f11037d = 0.0f;
-        this.f11038e = false;
-        this.f11039f = false;
-        this.f11040g = true;
-        this.f11041h = 0;
-        this.f11042i = 1.0f;
+        this.f11042a = "";
+        this.f11043b = "";
+        this.f11044c = "";
+        this.f11045d = 0.0f;
+        this.f11046e = false;
+        this.f11047f = false;
+        this.f11048g = true;
+        this.f11049h = 0;
+        this.f11050i = 1.0f;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "url : " + this.f11036c + "; AutoPlay : " + this.f11038e + "; Volume :" + this.f11042i + "; Loop : " + this.f11039f + "; startTime : " + this.f11037d + "; ObeyMute : " + this.f11040g + "; pos : " + this.f11041h;
+            return "url : " + this.f11044c + "; AutoPlay : " + this.f11046e + "; Volume :" + this.f11050i + "; Loop : " + this.f11047f + "; startTime : " + this.f11045d + "; ObeyMute : " + this.f11048g + "; pos : " + this.f11049h;
         }
         return (String) invokeV.objValue;
     }

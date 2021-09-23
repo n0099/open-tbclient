@@ -47,7 +47,7 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ z f27242b;
+        public final /* synthetic */ z f27262b;
 
         public a(z zVar) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
                     return;
                 }
             }
-            this.f27242b = zVar;
+            this.f27262b = zVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,48 +75,48 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var) == null) || view == null || d2Var == null) {
                 return;
             }
-            if (this.f27242b.u != null) {
-                this.f27242b.u.b(view, d2Var, d2.w3);
+            if (this.f27262b.u != null) {
+                this.f27262b.u.b(view, d2Var, d2.x3);
             }
-            if ("c13010".equals(this.f27242b.z)) {
+            if ("c13010".equals(this.f27262b.z)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 2).param("fid", d2Var.T()).param("tid", d2Var.s1()));
             }
             if (view.getId() == R.id.thread_card_root && d2Var.E2()) {
-                c.a.r0.w0.k2.c.j().g(this.f27242b.B, d2Var, 1);
-                this.f27242b.S0(d2Var);
+                c.a.r0.w0.k2.c.j().g(this.f27262b.B, d2Var, 1);
+                this.f27262b.S0(d2Var);
             } else if (view.getId() == R.id.card_home_page_normal_thread_user_icon) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             } else if (view.getId() == R.id.user_name || view.getId() == R.id.user_avatar) {
-                c.a.r0.w0.k2.c.j().g(this.f27242b.B, d2Var, 2);
+                c.a.r0.w0.k2.c.j().g(this.f27262b.B, d2Var, 2);
             } else if (view.getId() == R.id.header_divider) {
-                c.a.r0.w0.n2.l.a(this.f27242b.B, d2Var.getRecomReason());
+                c.a.r0.w0.n2.l.a(this.f27262b.B, d2Var.getRecomReason());
             } else if (view.getId() == R.id.operable_video_container) {
-                c.a.r0.w0.k2.c.j().g(this.f27242b.B, d2Var, 4);
-                this.f27242b.S0(d2Var);
+                c.a.r0.w0.k2.c.j().g(this.f27262b.B, d2Var, 4);
+                this.f27262b.S0(d2Var);
             } else if (view instanceof ThreadGodReplyLayout) {
-                this.f27242b.S0(d2Var);
+                this.f27262b.S0(d2Var);
             }
             if (view.getId() == R.id.operable_video_container) {
-                c.a.r0.w0.k2.a.e(d2Var, 4, this.f27242b.f2961i, this.f27242b.B, this.f27242b.i0());
-                c.a.r0.w0.n2.l.g(d2Var, this.f27242b.n, 2);
+                c.a.r0.w0.k2.a.e(d2Var, 4, this.f27262b.f2962i, this.f27262b.B, this.f27262b.i0());
+                c.a.r0.w0.n2.l.g(d2Var, this.f27262b.n, 2);
             } else if (view.getId() == R.id.video_play) {
-                c.a.r0.w0.k2.a.e(d2Var, 4, this.f27242b.f2961i, this.f27242b.B, this.f27242b.i0());
-                c.a.r0.w0.n2.l.g(d2Var, this.f27242b.n, 1);
+                c.a.r0.w0.k2.a.e(d2Var, 4, this.f27262b.f2962i, this.f27262b.B, this.f27262b.i0());
+                c.a.r0.w0.n2.l.g(d2Var, this.f27262b.n, 1);
             } else if (view.getId() != R.id.user_name && view.getId() != R.id.user_avatar) {
                 if (view.getId() == R.id.thread_info_commont_container) {
-                    c.a.r0.w0.k2.a.e(d2Var, 5, this.f27242b.f2961i, this.f27242b.B, this.f27242b.i0());
-                    c.a.r0.w0.n2.l.g(d2Var, this.f27242b.n, 1);
+                    c.a.r0.w0.k2.a.e(d2Var, 5, this.f27262b.f2962i, this.f27262b.B, this.f27262b.i0());
+                    c.a.r0.w0.n2.l.g(d2Var, this.f27262b.n, 1);
                 } else if (view instanceof ThreadGodReplyLayout) {
-                    c.a.r0.w0.k2.a.e(d2Var, 15, this.f27242b.f2961i, this.f27242b.B, this.f27242b.i0());
-                    c.a.r0.w0.n2.l.g(d2Var, this.f27242b.n, 1);
+                    c.a.r0.w0.k2.a.e(d2Var, 15, this.f27262b.f2962i, this.f27262b.B, this.f27262b.i0());
+                    c.a.r0.w0.n2.l.g(d2Var, this.f27262b.n, 1);
                 } else if (view.getId() != R.id.share_num_container) {
-                    c.a.r0.w0.n2.l.g(d2Var, this.f27242b.n, 1);
-                    c.a.r0.w0.k2.a.e(d2Var, 1, this.f27242b.f2961i, this.f27242b.B, this.f27242b.i0());
+                    c.a.r0.w0.n2.l.g(d2Var, this.f27262b.n, 1);
+                    c.a.r0.w0.k2.a.e(d2Var, 1, this.f27262b.f2962i, this.f27262b.B, this.f27262b.i0());
                 } else {
-                    c.a.r0.w0.k2.a.e(d2Var, 14, this.f27242b.f2961i, this.f27242b.B, this.f27242b.i0());
+                    c.a.r0.w0.k2.a.e(d2Var, 14, this.f27262b.f2962i, this.f27262b.B, this.f27262b.i0());
                 }
             } else {
-                c.a.r0.w0.k2.a.e(d2Var, 2, this.f27242b.f2961i, this.f27242b.B, this.f27242b.i0());
+                c.a.r0.w0.k2.a.e(d2Var, 2, this.f27262b.f2962i, this.f27262b.B, this.f27262b.i0());
             }
         }
     }
@@ -127,10 +127,10 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ t0 f27243a;
+        public final /* synthetic */ t0 f27263a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ z f27244b;
+        public final /* synthetic */ z f27264b;
 
         public b(z zVar, t0 t0Var) {
             Interceptable interceptable = $ic;
@@ -147,8 +147,8 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
                     return;
                 }
             }
-            this.f27244b = zVar;
-            this.f27243a = t0Var;
+            this.f27264b = zVar;
+            this.f27263a = t0Var;
         }
 
         @Override // c.a.l.a.InterfaceC0093a
@@ -157,13 +157,13 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                 return;
             }
-            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f27243a.getVideoContainer());
+            Rect computeViewArea = ThreadCardUtils.computeViewArea(this.f27263a.getVideoContainer());
             if (!(aVar instanceof d2)) {
-                ThreadCardUtils.jumpToPB(aVar, this.f27244b.f2957e, this.f27244b.A, false, computeViewArea);
+                ThreadCardUtils.jumpToPB(aVar, this.f27264b.f2958e, this.f27264b.A, false, computeViewArea);
                 return;
             }
             aVar.objType = 5;
-            ThreadCardUtils.jumpToPB(aVar, this.f27244b.f2957e, this.f27244b.A, false, computeViewArea);
+            ThreadCardUtils.jumpToPB(aVar, this.f27264b.f2958e, this.f27264b.A, false, computeViewArea);
         }
     }
 
@@ -173,7 +173,7 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ z f27245e;
+        public final /* synthetic */ z f27265e;
 
         public c(z zVar) {
             Interceptable interceptable = $ic;
@@ -190,7 +190,7 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
                     return;
                 }
             }
-            this.f27245e = zVar;
+            this.f27265e = zVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -200,10 +200,10 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 d2 d2Var = ((c2) nVar).w;
                 d2Var.objType = 1;
-                if (this.f27245e.C != null) {
-                    this.f27245e.C.a(threadCardViewHolder.getView(), d2Var);
+                if (this.f27265e.C != null) {
+                    this.f27265e.C.a(threadCardViewHolder.getView(), d2Var);
                 }
-                ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var, view.getContext(), this.f27245e.A, false, c.a.l.e.a((c.a.e.l.e.s) viewGroup, view, i2));
+                ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) d2Var, view.getContext(), this.f27265e.A, false, c.a.l.e.a((c.a.e.l.e.s) viewGroup, view, i2));
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
             }
         }
@@ -242,16 +242,20 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
                 return null;
             }
             c.a.r0.p2.o oVar = new c.a.r0.p2.o();
-            oVar.f23806a = d2Var.W1() ? "3" : "2";
-            if (this.B.f26942d == 501) {
-                oVar.f23806a = "frs_tab";
+            if (100 == i0().tabType) {
+                oVar.f23822a = d2Var.W1() ? "3" : "25";
+            } else {
+                oVar.f23822a = d2Var.W1() ? "3" : "2";
             }
-            oVar.f23809d = this.B.f26941c;
-            oVar.f23808c = d2Var.s1();
-            oVar.f23811f = d2Var.W0;
-            oVar.f23812g = d2Var.a1;
-            oVar.f23813h = d2Var.X0;
-            oVar.l = d2Var.Y0;
+            if (this.B.f26962d == 501) {
+                oVar.f23822a = "frs_tab";
+            }
+            oVar.f23825d = this.B.f26961c;
+            oVar.f23824c = d2Var.s1();
+            oVar.f23827f = d2Var.X0;
+            oVar.f23828g = d2Var.b1;
+            oVar.f23829h = d2Var.Y0;
+            oVar.l = d2Var.Z0;
             if (d2Var.q1() != null) {
                 oVar.m = d2Var.q1().video_md5;
             }
@@ -280,7 +284,7 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
             bVar.n(gVar);
             l0 k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.q);
             AutoVideoCardViewHolder autoVideoCardViewHolder = new AutoVideoCardViewHolder(k);
-            autoVideoCardViewHolder.setPageId(this.f2961i);
+            autoVideoCardViewHolder.setPageId(this.f2962i);
             k.p(this.C);
             k.r(this.A);
             d0(new c(this));
@@ -312,24 +316,24 @@ public class z extends c.a.r0.w0.k<c2, AutoVideoCardViewHolder<d2>> implements c
             autoVideoCardViewHolder.getCardView().q(i2);
             FrsViewData frsViewData = this.n;
             if (frsViewData != null && frsViewData.getForum() != null && !StringUtils.isNull(this.n.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.n.getForum().getTopic_special_icon_right())) {
-                c2Var.w.w4(this.n.getForum().getTopic_special_icon(), this.n.getForum().getTopic_special_icon_right());
+                c2Var.w.v4(this.n.getForum().getTopic_special_icon(), this.n.getForum().getTopic_special_icon_right());
             }
             autoVideoCardViewHolder.onBindDataToView(c2Var.w);
             autoVideoCardViewHolder.getCardView().onChangeSkinType(this.x, TbadkCoreApplication.getInst().getSkinType());
             autoVideoCardViewHolder.getCardView().p(this.C);
             if (this.B != null) {
                 FrsViewData frsViewData2 = this.n;
-                c2Var.w.S1 = (c2Var.position + 1) - (frsViewData2 != null ? frsViewData2.getTopThreadSize() : 0);
+                c2Var.w.T1 = (c2Var.position + 1) - (frsViewData2 != null ? frsViewData2.getTopThreadSize() : 0);
             }
             c.a.r0.w0.k2.c.j().c(this.B, c2Var.w);
             c.a.r0.w0.k2.c.j().b(c2Var.w);
             c.a.r0.w0.k2.c.j().e(c2Var.w, j0());
-            c.a.r0.w0.k2.a.m(c2Var.w, this.f2961i, this.B, i0());
+            c.a.r0.w0.k2.a.m(c2Var.w, this.f2962i, this.B, i0());
             FrsViewData frsViewData3 = this.n;
             if (frsViewData3 != null && frsViewData3.getForum() != null) {
                 c.a.r0.w0.k2.a.l(c2Var.w, this.n.getForum().getId());
             }
-            c2Var.w.N4();
+            c2Var.w.M4();
             return autoVideoCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

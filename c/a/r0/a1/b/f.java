@@ -21,34 +21,34 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.e.a.f<GiftTabActivity> f15729a;
+    public c.a.e.a.f<GiftTabActivity> f15739a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DefaultGiftListModel f15730b;
+    public DefaultGiftListModel f15740b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CategoryGiftListModel f15731c;
+    public CategoryGiftListModel f15741c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FreeGiftChanceModel f15732d;
+    public FreeGiftChanceModel f15742d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<c.a.r0.a1.b.c> f15733e;
+    public ArrayList<c.a.r0.a1.b.c> f15743e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<c.a.r0.a1.b.a> f15734f;
+    public ArrayList<c.a.r0.a1.b.a> f15744f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<c.a.r0.a1.b.e> f15735g;
+    public ArrayList<c.a.r0.a1.b.e> f15745g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<Integer, ArrayList<j0>> f15736h;
+    public HashMap<Integer, ArrayList<j0>> f15746h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15737i;
+    public int f15747i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f15738j;
+    public String f15748j;
     public int k;
     public k0 l;
     public e m;
@@ -63,7 +63,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f15739a;
+        public final /* synthetic */ f f15749a;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public class f {
                     return;
                 }
             }
-            this.f15739a = fVar;
+            this.f15749a = fVar;
         }
 
         @Override // com.baidu.tieba.gift.giftTab.DefaultGiftListModel.b
@@ -92,21 +92,21 @@ public class f {
                     if (arrayList != null && arrayList.size() >= 1 && arrayList.get(0) != null) {
                         i5 = arrayList.get(0).a();
                     }
-                    this.f15739a.f15734f = arrayList;
-                    this.f15739a.f15736h.put(Integer.valueOf(i5), arrayList2);
-                    this.f15739a.f15735g = arrayList3;
-                    this.f15739a.f15738j = str2;
-                    this.f15739a.f15737i = i3;
-                    f fVar = this.f15739a;
+                    this.f15749a.f15744f = arrayList;
+                    this.f15749a.f15746h.put(Integer.valueOf(i5), arrayList2);
+                    this.f15749a.f15745g = arrayList3;
+                    this.f15749a.f15748j = str2;
+                    this.f15749a.f15747i = i3;
+                    f fVar = this.f15749a;
                     fVar.k = i4;
                     fVar.l = k0Var;
                     fVar.q();
                 }
-                if (this.f15739a.m != null) {
-                    e eVar = this.f15739a.m;
-                    String str3 = this.f15739a.f15738j;
-                    f fVar2 = this.f15739a;
-                    eVar.a(i2, str, true, str3, fVar2.k, fVar2.l, fVar2.f15733e, this.f15739a.f15734f, this.f15739a.f15735g);
+                if (this.f15749a.m != null) {
+                    e eVar = this.f15749a.m;
+                    String str3 = this.f15749a.f15748j;
+                    f fVar2 = this.f15749a;
+                    eVar.a(i2, str, true, str3, fVar2.k, fVar2.l, fVar2.f15743e, this.f15749a.f15744f, this.f15749a.f15745g);
                 }
             }
         }
@@ -118,7 +118,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f15740a;
+        public final /* synthetic */ f f15750a;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class f {
                     return;
                 }
             }
-            this.f15740a = fVar;
+            this.f15750a = fVar;
         }
 
         @Override // com.baidu.tieba.gift.giftTab.CategoryGiftListModel.b
@@ -143,14 +143,14 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), arrayList}) == null) {
                 if (i2 == 0) {
-                    this.f15740a.f15736h.put(Integer.valueOf(i3), arrayList);
-                    this.f15740a.q();
+                    this.f15750a.f15746h.put(Integer.valueOf(i3), arrayList);
+                    this.f15750a.q();
                 }
-                if (this.f15740a.m != null) {
-                    e eVar = this.f15740a.m;
-                    String str2 = this.f15740a.f15738j;
-                    f fVar = this.f15740a;
-                    eVar.a(i2, str, false, str2, fVar.k, fVar.l, fVar.f15733e, this.f15740a.f15734f, this.f15740a.f15735g);
+                if (this.f15750a.m != null) {
+                    e eVar = this.f15750a.m;
+                    String str2 = this.f15750a.f15748j;
+                    f fVar = this.f15750a;
+                    eVar.a(i2, str, false, str2, fVar.k, fVar.l, fVar.f15743e, this.f15750a.f15744f, this.f15750a.f15745g);
                 }
             }
         }
@@ -162,7 +162,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f15741a;
+        public final /* synthetic */ f f15751a;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -179,16 +179,16 @@ public class f {
                     return;
                 }
             }
-            this.f15741a = fVar;
+            this.f15751a = fVar;
         }
 
         @Override // com.baidu.tieba.gift.giftTab.FreeGiftChanceModel.b
         public void a(int i2, String str, int i3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) && i2 == 0) {
-                this.f15741a.f15737i = i3;
-                if (this.f15741a.n != null) {
-                    this.f15741a.n.a(this.f15741a.f15737i);
+                this.f15751a.f15747i = i3;
+                if (this.f15751a.n != null) {
+                    this.f15751a.n.a(this.f15751a.f15747i);
                 }
             }
         }
@@ -219,55 +219,55 @@ public class f {
                 return;
             }
         }
-        this.f15736h = new HashMap<>();
+        this.f15746h = new HashMap<>();
         this.o = new a(this);
         this.p = new b(this);
         this.q = new c(this);
-        this.f15729a = fVar;
+        this.f15739a = fVar;
         DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(fVar);
-        this.f15730b = defaultGiftListModel;
+        this.f15740b = defaultGiftListModel;
         defaultGiftListModel.I(this.o);
-        CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f15729a);
-        this.f15731c = categoryGiftListModel;
+        CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f15739a);
+        this.f15741c = categoryGiftListModel;
         categoryGiftListModel.A(this.p);
-        FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f15729a);
-        this.f15732d = freeGiftChanceModel;
+        FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f15739a);
+        this.f15742d = freeGiftChanceModel;
         freeGiftChanceModel.A(this.q);
     }
 
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.f15732d == null) {
-                FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f15729a);
-                this.f15732d = freeGiftChanceModel;
+            if (this.f15742d == null) {
+                FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.f15739a);
+                this.f15742d = freeGiftChanceModel;
                 freeGiftChanceModel.A(this.q);
             }
-            this.f15732d.z(str);
+            this.f15742d.z(str);
         }
     }
 
     public void o(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
-            if (this.f15730b == null) {
-                DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(this.f15729a);
-                this.f15730b = defaultGiftListModel;
+            if (this.f15740b == null) {
+                DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(this.f15739a);
+                this.f15740b = defaultGiftListModel;
                 defaultGiftListModel.I(this.o);
             }
-            this.f15730b.H(str, j2);
+            this.f15740b.H(str, j2);
         }
     }
 
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f15731c == null) {
-                CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f15729a);
-                this.f15731c = categoryGiftListModel;
+            if (this.f15741c == null) {
+                CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.f15739a);
+                this.f15741c = categoryGiftListModel;
                 categoryGiftListModel.A(this.p);
             }
-            this.f15731c.z(i2);
+            this.f15741c.z(i2);
         }
     }
 
@@ -275,25 +275,25 @@ public class f {
         HashMap<Integer, ArrayList<j0>> hashMap;
         ArrayList<c.a.r0.a1.b.a> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (hashMap = this.f15736h) == null || hashMap.size() <= 0 || (arrayList = this.f15734f) == null || arrayList.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (hashMap = this.f15746h) == null || hashMap.size() <= 0 || (arrayList = this.f15744f) == null || arrayList.size() <= 0) {
             return;
         }
-        if (this.f15733e == null) {
-            this.f15733e = new ArrayList<>();
+        if (this.f15743e == null) {
+            this.f15743e = new ArrayList<>();
         }
-        this.f15733e.clear();
-        Iterator<c.a.r0.a1.b.a> it = this.f15734f.iterator();
+        this.f15743e.clear();
+        Iterator<c.a.r0.a1.b.a> it = this.f15744f.iterator();
         while (it.hasNext()) {
             c.a.r0.a1.b.a next = it.next();
             if (next != null && !StringUtils.isNull(next.b())) {
                 c.a.r0.a1.b.c cVar = new c.a.r0.a1.b.c();
                 cVar.c(next.a());
                 cVar.d(next.b());
-                ArrayList<j0> arrayList2 = this.f15736h.get(Integer.valueOf(next.a()));
+                ArrayList<j0> arrayList2 = this.f15746h.get(Integer.valueOf(next.a()));
                 if (arrayList2 != null) {
                     cVar.e(arrayList2);
                 }
-                this.f15733e.add(cVar);
+                this.f15743e.add(cVar);
             }
         }
     }

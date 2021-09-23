@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import c.a.q0.s.q.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
+import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

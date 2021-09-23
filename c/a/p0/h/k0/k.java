@@ -15,10 +15,10 @@ public final class k extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedBlockingDeque<b> f11304e;
+    public LinkedBlockingDeque<b> f11312e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f11305f;
+    public volatile boolean f11313f;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -33,25 +33,25 @@ public final class k extends Thread {
                 return;
             }
         }
-        this.f11304e = new LinkedBlockingDeque<>(1024);
+        this.f11312e = new LinkedBlockingDeque<>(1024);
     }
 
     public final LinkedBlockingDeque<b> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11304e : (LinkedBlockingDeque) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11312e : (LinkedBlockingDeque) invokeV.objValue;
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11305f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11313f : invokeV.booleanValue;
     }
 
     public final void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f11305f = z;
+            this.f11313f = z;
         }
     }
 
@@ -59,9 +59,9 @@ public final class k extends Thread {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            while (this.f11305f) {
+            while (this.f11313f) {
                 try {
-                    this.f11304e.take().a();
+                    this.f11312e.take().a();
                 } catch (InterruptedException unused) {
                     return;
                 } catch (Throwable unused2) {

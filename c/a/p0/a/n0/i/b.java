@@ -21,16 +21,16 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7496a;
+    public static final boolean f7504a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f7497b;
+    public static long f7505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7498c;
+    public static String f7506c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f7499d;
+    public static String f7507d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -39,7 +39,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Bundle f7500e;
+        public final /* synthetic */ Bundle f7508e;
 
         public a(Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -56,18 +56,18 @@ public class b {
                     return;
                 }
             }
-            this.f7500e = bundle;
+            this.f7508e = bundle;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a aVar = (c.a) new c.a().r(this.f7500e);
+                c.a aVar = (c.a) new c.a().r(this.f7508e);
                 f fVar = new f();
-                fVar.f7063a = k.m(0);
-                fVar.f7064b = "launch";
-                fVar.f7067e = "repeatlaunch";
+                fVar.f7071a = k.m(0);
+                fVar.f7072b = "launch";
+                fVar.f7075e = "repeatlaunch";
                 fVar.a("launchInterval", Long.valueOf(aVar.l("launch_interval", -1L)));
                 fVar.j(aVar);
                 fVar.d(aVar.r0().getString(UBCCloudControlProcessor.UBC_KEY));
@@ -90,22 +90,22 @@ public class b {
                 return;
             }
         }
-        f7496a = c.a.p0.a.k.f7077a;
+        f7504a = c.a.p0.a.k.f7085a;
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? System.currentTimeMillis() - f7497b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? System.currentTimeMillis() - f7505b : invokeV.longValue;
     }
 
     public static boolean b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - f7497b;
-            boolean z = currentTimeMillis < 800 && TextUtils.equals(f7498c, str) && TextUtils.equals(f7499d, str2);
-            if (f7496a && z) {
+            long currentTimeMillis = System.currentTimeMillis() - f7505b;
+            boolean z = currentTimeMillis < 800 && TextUtils.equals(f7506c, str) && TextUtils.equals(f7507d, str2);
+            if (f7504a && z) {
                 String str3 = "CurrentLaunchInterval:" + currentTimeMillis + ",PreventSeriesLaunchInterval:800";
             }
             return z;
@@ -116,7 +116,7 @@ public class b {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f7497b = System.currentTimeMillis();
+            f7505b = System.currentTimeMillis();
         }
     }
 
@@ -130,8 +130,8 @@ public class b {
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
-            f7498c = str;
-            f7499d = str2;
+            f7506c = str;
+            f7507d = str2;
         }
     }
 }

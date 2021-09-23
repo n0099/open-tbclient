@@ -24,24 +24,24 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public IMBlackListActivity f21823e;
+    public IMBlackListActivity f21837e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<BlackListItemData> f21824f;
+    public ArrayList<BlackListItemData> f21838f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f21825g;
+    public View.OnClickListener f21839g;
 
     /* renamed from: c.a.r0.l1.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1024a implements View.OnClickListener {
+    public class View$OnClickListenerC1022a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21826e;
+        public final /* synthetic */ a f21840e;
 
-        public View$OnClickListenerC1024a(a aVar) {
+        public View$OnClickListenerC1022a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f21826e = aVar;
+            this.f21840e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -64,7 +64,7 @@ public class a extends BaseAdapter {
             Object tag;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (tag = view.getTag()) != null && (tag instanceof BlackListItemData)) {
-                this.f21826e.f21823e.handler(view, (BlackListItemData) tag);
+                this.f21840e.f21837e.handler(view, (BlackListItemData) tag);
             }
         }
     }
@@ -75,16 +75,16 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f21827a;
+        public View f21841a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f21828b;
+        public HeadImageView f21842b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f21829c;
+        public TextView f21843c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Button f21830d;
+        public Button f21844d;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, View$OnClickListenerC1024a view$OnClickListenerC1024a) {
+        public /* synthetic */ b(a aVar, View$OnClickListenerC1022a view$OnClickListenerC1022a) {
             this(aVar);
         }
     }
@@ -122,8 +122,8 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f21825g = new View$OnClickListenerC1024a(this);
-        this.f21823e = iMBlackListActivity;
+        this.f21839g = new View$OnClickListenerC1022a(this);
+        this.f21837e = iMBlackListActivity;
     }
 
     public final b b(Object obj, BlackListItemData blackListItemData) {
@@ -137,9 +137,9 @@ public class a extends BaseAdapter {
                 bVar = (b) obj;
             }
             d(bVar, blackListItemData.w());
-            bVar.f21829c.setText(blackListItemData.x());
-            bVar.f21830d.setTag(blackListItemData);
-            this.f21823e.getLayoutMode().j(bVar.f21827a);
+            bVar.f21843c.setText(blackListItemData.x());
+            bVar.f21844d.setTag(blackListItemData);
+            this.f21837e.getLayoutMode().j(bVar.f21841a);
             return bVar;
         }
         return (b) invokeLL.objValue;
@@ -150,15 +150,15 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b bVar = new b(this, null);
-            View inflate = LayoutInflater.from(this.f21823e.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
-            bVar.f21827a = inflate;
+            View inflate = LayoutInflater.from(this.f21837e.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
+            bVar.f21841a = inflate;
             HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.header_view);
-            bVar.f21828b = headImageView;
+            bVar.f21842b = headImageView;
             headImageView.setIsRound(true);
-            bVar.f21829c = (TextView) bVar.f21827a.findViewById(R.id.user_name);
-            bVar.f21830d = (Button) bVar.f21827a.findViewById(R.id.remove_button);
-            bVar.f21827a.setTag(bVar);
-            bVar.f21830d.setOnClickListener(this.f21825g);
+            bVar.f21843c = (TextView) bVar.f21841a.findViewById(R.id.user_name);
+            bVar.f21844d = (Button) bVar.f21841a.findViewById(R.id.remove_button);
+            bVar.f21841a.setTag(bVar);
+            bVar.f21844d.setOnClickListener(this.f21839g);
             return bVar;
         }
         return (b) invokeV.objValue;
@@ -169,14 +169,14 @@ public class a extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, str) == null) || str == null) {
             return;
         }
-        bVar.f21828b.setTag(str);
-        bVar.f21828b.startLoad(str, 12, false);
+        bVar.f21842b.setTag(str);
+        bVar.f21842b.startLoad(str, 12, false);
     }
 
     public void e(BlackListItemData blackListItemData) {
         ArrayList<BlackListItemData> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, blackListItemData) == null) || (arrayList = this.f21824f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, blackListItemData) == null) || (arrayList = this.f21838f) == null) {
             return;
         }
         arrayList.remove(blackListItemData);
@@ -185,7 +185,7 @@ public class a extends BaseAdapter {
     public void f(ArrayList<BlackListItemData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f21824f = arrayList;
+            this.f21838f = arrayList;
         }
     }
 
@@ -194,7 +194,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<BlackListItemData> arrayList = this.f21824f;
+            ArrayList<BlackListItemData> arrayList = this.f21838f;
             if (arrayList != null) {
                 return arrayList.size();
             }
@@ -208,7 +208,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            ArrayList<BlackListItemData> arrayList = this.f21824f;
+            ArrayList<BlackListItemData> arrayList = this.f21838f;
             if (arrayList != null) {
                 return arrayList.get(i2);
             }
@@ -240,7 +240,7 @@ public class a extends BaseAdapter {
                 bVar = null;
             }
             if (bVar != null) {
-                return bVar.f21827a;
+                return bVar.f21841a;
             }
             return null;
         }

@@ -16,7 +16,7 @@ public class d extends c.a.p0.n.i.d<c.a.p0.n.i.l.d> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f11952h;
+    public final String f11960h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(String str, g gVar, c.a.p0.n.i.m.g gVar2) {
@@ -37,7 +37,7 @@ public class d extends c.a.p0.n.i.d<c.a.p0.n.i.l.d> {
                 return;
             }
         }
-        this.f11952h = str;
+        this.f11960h = str;
     }
 
     @Override // c.a.p0.n.i.d
@@ -55,7 +55,7 @@ public class d extends c.a.p0.n.i.d<c.a.p0.n.i.l.d> {
         List<c.a.p0.n.h.g> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, dVar)) == null) {
-            if (dVar == null || (list = dVar.f11969a) == null) {
+            if (dVar == null || (list = dVar.f11977a) == null) {
                 return false;
             }
             for (c.a.p0.n.h.g gVar : list) {
@@ -75,15 +75,15 @@ public class d extends c.a.p0.n.i.d<c.a.p0.n.i.l.d> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, dVar)) == null) {
-            this.f11902e.D();
+            this.f11910e.D();
             f fVar = new f();
-            j(dVar.f11969a, fVar);
+            j(dVar.f11977a, fVar);
             if (fVar.l() == 0) {
-                this.f11902e.E();
+                this.f11910e.E();
                 return null;
             }
-            this.f11902e.F(fVar);
-            c.a.p0.n.i.i.a.d(dVar, this.f11902e);
+            this.f11910e.F(fVar);
+            c.a.p0.n.i.i.a.d(dVar, this.f11910e);
             return null;
         }
         return (c.a.p0.n.h.a) invokeL.objValue;
@@ -95,6 +95,6 @@ public class d extends c.a.p0.n.i.d<c.a.p0.n.i.l.d> {
     public c.a.p0.n.i.l.d n(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? c.a.p0.n.o.e.h(this.f11952h, jSONObject) : (c.a.p0.n.i.l.d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? c.a.p0.n.o.e.h(this.f11960h, jSONObject) : (c.a.p0.n.i.l.d) invokeL.objValue;
     }
 }

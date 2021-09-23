@@ -12,7 +12,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20848a;
+    public String f20860a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class g {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20848a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20860a : (String) invokeV.objValue;
     }
 
     public void b(int i2) {
@@ -49,7 +49,7 @@ public class g {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f20848a = str;
+            this.f20860a = str;
         }
     }
 }

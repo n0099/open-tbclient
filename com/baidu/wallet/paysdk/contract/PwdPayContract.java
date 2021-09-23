@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-import com.baidu.wallet.paysdk.beans.t;
+import com.baidu.wallet.paysdk.beans.u;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.datamodel.PwdRequest;
 import com.baidu.wallet.paysdk.presenter.NetWorkPresenter;
@@ -98,10 +98,10 @@ public interface PwdPayContract {
                 pwdRequest.mRequestType = 2;
                 pwdRequest.mPayPass = str;
                 PayRequestCache.getInstance().addBeanRequestToCache(pwdRequest.getRequestId(), pwdRequest);
-                t tVar = (t) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 257, this.TAG);
+                u uVar = (u) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 257, this.TAG);
                 this.mActivity.showLoading(-1);
-                tVar.setResponseCallback(this);
-                tVar.execBean();
+                uVar.setResponseCallback(this);
+                uVar.execBean();
             }
         }
 

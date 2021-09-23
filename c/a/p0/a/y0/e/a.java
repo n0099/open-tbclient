@@ -16,7 +16,7 @@ public class a extends c.a.p0.a.y0.b<c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.f f9725h;
+    public final c.f f9733h;
 
     /* renamed from: c.a.p0.a.y0.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -25,7 +25,7 @@ public class a extends c.a.p0.a.y0.b<c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f9726a;
+        public final /* synthetic */ a f9734a;
 
         public C0459a(a aVar) {
             Interceptable interceptable = $ic;
@@ -42,43 +42,43 @@ public class a extends c.a.p0.a.y0.b<c> {
                     return;
                 }
             }
-            this.f9726a = aVar;
+            this.f9734a = aVar;
         }
 
         @Override // c.a.p0.a.y0.e.c.f
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9726a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9734a.f9725b == null) {
                 return;
             }
-            this.f9726a.f9717b.onCallback(this.f9726a, "onCustomKeyboardHide", null);
+            this.f9734a.f9725b.onCallback(this.f9734a, "onCustomKeyboardHide", null);
         }
 
         @Override // c.a.p0.a.y0.e.c.f
         public void b(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f9726a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f9734a.f9725b == null) {
                 return;
             }
-            this.f9726a.f9717b.onCallback(this.f9726a, "onCustomKeyboardShow", Integer.valueOf(i2));
+            this.f9734a.f9725b.onCallback(this.f9734a, "onCustomKeyboardShow", Integer.valueOf(i2));
         }
 
         @Override // c.a.p0.a.y0.e.c.f
         public void c(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f9726a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f9734a.f9725b == null) {
                 return;
             }
-            this.f9726a.f9717b.onCallback(this.f9726a, "committext", str);
+            this.f9734a.f9725b.onCallback(this.f9734a, "committext", str);
         }
 
         @Override // c.a.p0.a.y0.e.c.f
         public void d() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f9726a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f9734a.f9725b == null) {
                 return;
             }
-            this.f9726a.f9717b.onCallback(this.f9726a, "deletebutton", new KeyEvent(0, 67));
+            this.f9734a.f9725b.onCallback(this.f9734a, "deletebutton", new KeyEvent(0, 67));
         }
     }
 
@@ -101,12 +101,12 @@ public class a extends c.a.p0.a.y0.b<c> {
             }
         }
         C0459a c0459a = new C0459a(this);
-        this.f9725h = c0459a;
+        this.f9733h = c0459a;
         cVar.C0(c0459a);
-        this.f9716a.a(new e());
-        this.f9716a.a(new c.a.p0.a.y0.e.d.a());
-        this.f9716a.a(new c.a.p0.a.y0.e.d.d());
-        this.f9716a.a(new c.a.p0.a.y0.e.d.c());
-        this.f9716a.a(new c.a.p0.a.y0.e.d.b());
+        this.f9724a.a(new e());
+        this.f9724a.a(new c.a.p0.a.y0.e.d.a());
+        this.f9724a.a(new c.a.p0.a.y0.e.d.d());
+        this.f9724a.a(new c.a.p0.a.y0.e.d.c());
+        this.f9724a.a(new c.a.p0.a.y0.e.d.b());
     }
 }

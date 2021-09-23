@@ -14,14 +14,14 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile e f7184c;
+    public static volatile e f7192c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Lock f7185a;
+    public final Lock f7193a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<i> f7186b;
+    public ArrayList<i> f7194b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -36,22 +36,22 @@ public final class e {
                 return;
             }
         }
-        this.f7185a = new ReentrantLock();
-        this.f7186b = new ArrayList<>();
+        this.f7193a = new ReentrantLock();
+        this.f7194b = new ArrayList<>();
     }
 
     public static e i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f7184c == null) {
+            if (f7192c == null) {
                 synchronized (e.class) {
-                    if (f7184c == null) {
-                        f7184c = new e();
+                    if (f7192c == null) {
+                        f7192c = new e();
                     }
                 }
             }
-            return f7184c;
+            return f7192c;
         }
         return (e) invokeV.objValue;
     }
@@ -61,10 +61,10 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                this.f7185a.lock();
-                return this.f7186b.size() > 0 ? this.f7186b.toArray() : null;
+                this.f7193a.lock();
+                return this.f7194b.size() > 0 ? this.f7194b.toArray() : null;
             } finally {
-                this.f7185a.unlock();
+                this.f7193a.unlock();
             }
         }
         return (Object[]) invokeV.objValue;

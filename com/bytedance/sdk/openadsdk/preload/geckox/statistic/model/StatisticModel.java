@@ -19,7 +19,7 @@ public class StatisticModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f68795common;
+    public Common f69106common;
     @c(a = "packages")
     public List<PackageStatisticModel> packages;
 

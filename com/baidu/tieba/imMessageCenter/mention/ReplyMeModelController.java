@@ -38,22 +38,22 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ReplyMessageFragment f53540e;
+    public ReplyMessageFragment f53653e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f53541f;
+    public l f53654f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ReplyMeNetModel f53542g;
+    public ReplyMeNetModel f53655g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ReplyMeCacheModel f53543h;
+    public ReplyMeCacheModel f53656h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f53544i;
+    public g f53657i;
 
     /* renamed from: j  reason: collision with root package name */
-    public FeedData f53545j;
+    public FeedData f53658j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ReplyMeModelController(ReplyMessageFragment replyMessageFragment) {
@@ -73,19 +73,19 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
                 return;
             }
         }
-        this.f53540e = replyMessageFragment;
+        this.f53653e = replyMessageFragment;
     }
 
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f53542g.Q() || !w()) {
+            if (this.f53655g.Q() || !w()) {
                 return false;
             }
-            this.f53541f.d(this.f53545j);
-            this.f53542g.setNeedCache(false);
-            this.f53542g.R();
+            this.f53654f.d(this.f53658j);
+            this.f53655g.setNeedCache(false);
+            this.f53655g.R();
             return true;
         }
         return invokeV.booleanValue;
@@ -97,13 +97,13 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, mVar, z)) == null) {
             if (lVar.a() != 4) {
-                this.f53544i.a().clear();
+                this.f53657i.a().clear();
             }
-            this.f53544i.d(mVar);
+            this.f53657i.d(mVar);
             boolean z3 = true;
             if (mVar != null && mVar.a() != null && mVar.a().size() > 0) {
-                this.f53545j = mVar.a().get(mVar.a().size() - 1);
-                z2 = this.f53544i.b() == null || this.f53544i.b().b() == 1;
+                this.f53658j = mVar.a().get(mVar.a().size() - 1);
+                z2 = this.f53657i.b() == null || this.f53657i.b().b() == 1;
                 if (lVar.a() == 1) {
                     b.g0().e0(0);
                 }
@@ -111,13 +111,13 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
                     lVar.e();
                 }
             } else {
-                this.f53545j = null;
+                this.f53658j = null;
                 z2 = false;
                 z3 = false;
             }
             b.g0().p();
             ArrayList<n> arrayList = new ArrayList<>();
-            Iterator<FeedData> it = this.f53544i.f21962e.iterator();
+            Iterator<FeedData> it = this.f53657i.f21976e.iterator();
             while (it.hasNext()) {
                 a aVar = new a();
                 aVar.F(it.next());
@@ -126,7 +126,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
                 }
                 arrayList.add(aVar);
             }
-            this.f53540e.onViewDataChange(z2, arrayList);
+            this.f53653e.onViewDataChange(z2, arrayList);
             return z3;
         }
         return invokeLLZ.booleanValue;
@@ -136,13 +136,13 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f53542g.Q() || !w()) {
+            if (this.f53655g.Q() || !w()) {
                 return false;
             }
-            this.f53545j = null;
-            this.f53541f.b();
-            this.f53542g.setNeedCache(true);
-            this.f53542g.R();
+            this.f53658j = null;
+            this.f53654f.b();
+            this.f53655g.setNeedCache(true);
+            this.f53655g.R();
             return true;
         }
         return invokeV.booleanValue;
@@ -192,7 +192,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.f53540e.onServerError(errorData);
+                    this.f53653e.onServerError(errorData);
                 }
             }
         }
@@ -203,12 +203,12 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, readCacheRespMsg, readCacheMessage) == null) {
             if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-                B(this.f53541f, readCacheRespMsg.getData().get(0), true);
+                B(this.f53654f, readCacheRespMsg.getData().get(0), true);
             }
-            this.f53545j = null;
-            this.f53541f.b();
-            this.f53542g.setNeedCache(true);
-            this.f53542g.R();
+            this.f53658j = null;
+            this.f53654f.b();
+            this.f53655g.setNeedCache(true);
+            this.f53655g.R();
         }
     }
 
@@ -222,11 +222,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ReplyMeNetModel replyMeNetModel = this.f53542g;
+            ReplyMeNetModel replyMeNetModel = this.f53655g;
             if (replyMeNetModel != null) {
                 replyMeNetModel.Z(null);
             }
-            ReplyMeCacheModel replyMeCacheModel = this.f53543h;
+            ReplyMeCacheModel replyMeCacheModel = this.f53656h;
             if (replyMeCacheModel != null) {
                 replyMeCacheModel.O(null);
             }
@@ -257,7 +257,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.f53540e.onServerError(errorData);
+                    this.f53653e.onServerError(errorData);
                 }
             }
         }
@@ -271,12 +271,12 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
             if (TbadkCoreApplication.isLogin()) {
                 return true;
             }
-            g gVar = this.f53544i;
-            if (gVar != null && (arrayList = gVar.f21962e) != null) {
+            g gVar = this.f53657i;
+            if (gVar != null && (arrayList = gVar.f21976e) != null) {
                 arrayList.clear();
             }
-            this.f53540e.interruptRefreshing();
-            this.f53540e.onViewDataChange(false, null);
+            this.f53653e.interruptRefreshing();
+            this.f53653e.onViewDataChange(false, null);
             return false;
         }
         return invokeV.booleanValue;
@@ -285,10 +285,10 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     public void x(int i2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (gVar = this.f53544i) == null || gVar.a() == null || i2 >= this.f53544i.a().size()) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (gVar = this.f53657i) == null || gVar.a() == null || i2 >= this.f53657i.a().size()) {
             return;
         }
-        this.f53544i.a().remove(i2);
+        this.f53657i.a().remove(i2);
     }
 
     public boolean y() {
@@ -296,7 +296,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (w()) {
-                this.f53543h.M(this.f53541f);
+                this.f53656h.M(this.f53654f);
                 return true;
             }
             return true;
@@ -307,16 +307,16 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     public void z(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
-            this.f53541f = new l();
-            ReplyMeNetModel replyMeNetModel = new ReplyMeNetModel(this.f53540e.getPageContext(), this.f53541f);
-            this.f53542g = replyMeNetModel;
+            this.f53654f = new l();
+            ReplyMeNetModel replyMeNetModel = new ReplyMeNetModel(this.f53653e.getPageContext(), this.f53654f);
+            this.f53655g = replyMeNetModel;
             replyMeNetModel.Z(this);
-            this.f53542g.setUniqueId(this.f53540e.getUniqueId());
-            ReplyMeCacheModel replyMeCacheModel = new ReplyMeCacheModel(this.f53540e.getPageContext());
-            this.f53543h = replyMeCacheModel;
+            this.f53655g.setUniqueId(this.f53653e.getUniqueId());
+            ReplyMeCacheModel replyMeCacheModel = new ReplyMeCacheModel(this.f53653e.getPageContext());
+            this.f53656h = replyMeCacheModel;
             replyMeCacheModel.O(this);
-            this.f53543h.setUniqueId(this.f53540e.getUniqueId());
-            this.f53544i = new g();
+            this.f53656h.setUniqueId(this.f53653e.getUniqueId());
+            this.f53657i = new g();
         }
     }
 }

@@ -16,17 +16,17 @@ public class i extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f15582h;
+    public static final BdUniqueId f15591h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.r0.h1.b.c> f15583e;
+    public List<c.a.r0.h1.b.c> f15592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15584f;
+    public String f15593f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15585g;
+    public String f15594g;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class i extends a {
                 return;
             }
         }
-        f15582h = BdUniqueId.gen();
+        f15591h = BdUniqueId.gen();
     }
 
     public i() {
@@ -57,52 +57,52 @@ public class i extends a {
                 return;
             }
         }
-        this.f15583e = new ArrayList();
+        this.f15592e = new ArrayList();
     }
 
     public void g(c.a.r0.h1.b.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f15583e.add(cVar);
+            this.f15592e.add(cVar);
         }
     }
 
     public List<c.a.r0.h1.b.c> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15583e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15592e : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f15582h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f15591h : (BdUniqueId) invokeV.objValue;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15584f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15593f : (String) invokeV.objValue;
     }
 
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15585g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15594g : (String) invokeV.objValue;
     }
 
     public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f15584f = str;
+            this.f15593f = str;
         }
     }
 
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f15585g = str;
+            this.f15594g = str;
         }
     }
 }

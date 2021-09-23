@@ -29,16 +29,16 @@ public class a extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a f11273g;
+    public b.a f11281g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f11274h;
+    public String f11282h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f11275i;
+    public String f11283i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f11276j;
+    public String f11284j;
     public c<g> k;
 
     /* renamed from: c.a.p0.h.i0.e.a$a  reason: collision with other inner class name */
@@ -48,7 +48,7 @@ public class a extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11277e;
+        public final /* synthetic */ a f11285e;
 
         public C0573a(a aVar) {
             Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class a extends j {
                     return;
                 }
             }
-            this.f11277e = aVar;
+            this.f11285e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +74,7 @@ public class a extends j {
         public String d(g gVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, gVar)) == null) ? c.a.p0.a.h0.m.r.b.c(this.f11277e.f11276j) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, gVar)) == null) ? c.a.p0.a.h0.m.r.b.c(this.f11285e.f11284j) : (String) invokeL.objValue;
         }
 
         @Override // c.a.p0.n.f.e
@@ -82,7 +82,7 @@ public class a extends j {
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.f11277e.m(bundle, set) : (Bundle) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.f11285e.m(bundle, set) : (Bundle) invokeLL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,10 +95,10 @@ public class a extends j {
                 if (a.l) {
                     String str = "onDownloadError: " + aVar.toString();
                 }
-                this.f11277e.S(2103);
+                this.f11285e.S(2103);
                 c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
                 aVar2.j(12L);
-                aVar2.h(aVar.f11875a);
+                aVar2.h(aVar.f11883a);
                 aVar2.c("分包下载失败");
                 aVar2.e(aVar.toString());
                 c.a.p0.a.h0.m.c.c().a(gVar, PMSDownloadType.ALONE_SUB, aVar2);
@@ -115,7 +115,7 @@ public class a extends j {
                 if (a.l) {
                     String str = "onDownloadFinish: " + gVar.toString();
                 }
-                this.f11277e.V(gVar);
+                this.f11285e.V(gVar);
             }
         }
 
@@ -127,9 +127,9 @@ public class a extends j {
             if (interceptable == null || interceptable.invokeL(1048585, this, gVar) == null) {
                 super.a(gVar);
                 if (a.l) {
-                    String str = "onDownloadProgress: " + gVar.k + ":" + gVar.f11880b;
+                    String str = "onDownloadProgress: " + gVar.k + ":" + gVar.f11888b;
                 }
-                this.f11277e.T(gVar.f11880b, gVar.k);
+                this.f11285e.T(gVar.f11888b, gVar.k);
             }
         }
 
@@ -141,7 +141,7 @@ public class a extends j {
             if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
                 super.f(gVar);
                 boolean unused = a.l;
-                this.f11277e.W(gVar);
+                this.f11285e.W(gVar);
             }
         }
     }
@@ -152,7 +152,7 @@ public class a extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f11278a;
+        public final /* synthetic */ a f11286a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -169,14 +169,14 @@ public class a extends j {
                     return;
                 }
             }
-            this.f11278a = aVar;
+            this.f11286a = aVar;
         }
 
         @Override // c.a.p0.a.h0.m.c.InterfaceC0228c
         public void a(PMSDownloadType pMSDownloadType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                this.f11278a.U();
+                this.f11286a.U();
             }
         }
 
@@ -184,7 +184,7 @@ public class a extends j {
         public void b(PMSDownloadType pMSDownloadType, c.a.p0.a.q2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, aVar) == null) {
-                this.f11278a.S(2103);
+                this.f11286a.S(2103);
             }
         }
     }
@@ -202,7 +202,7 @@ public class a extends j {
                 return;
             }
         }
-        l = k.f7077a;
+        l = k.f7085a;
     }
 
     public a(String str, String str2, String str3, b.a aVar) {
@@ -221,10 +221,10 @@ public class a extends j {
             }
         }
         this.k = new C0573a(this);
-        this.f11274h = str;
-        this.f11275i = str3;
-        this.f11273g = aVar;
-        this.f11276j = a.d.h(str, str2).getPath();
+        this.f11282h = str;
+        this.f11283i = str3;
+        this.f11281g = aVar;
+        this.f11284j = a.d.h(str, str2).getPath();
     }
 
     @Override // c.a.p0.n.f.g
@@ -252,7 +252,7 @@ public class a extends j {
     public final void S(int i2) {
         b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (aVar = this.f11273g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (aVar = this.f11281g) == null) {
             return;
         }
         aVar.b(i2);
@@ -260,7 +260,7 @@ public class a extends j {
 
     public final void T(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.f11273g == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.f11281g == null) {
             return;
         }
         if (j3 > 0 && j2 <= j3) {
@@ -269,7 +269,7 @@ public class a extends j {
                 if (l) {
                     String str = "callbackProgress: " + floor;
                 }
-                this.f11273g.a(floor, j2, j3);
+                this.f11281g.a(floor, j2, j3);
                 return;
             }
             return;
@@ -280,7 +280,7 @@ public class a extends j {
     public final void U() {
         b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f11273g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f11281g) == null) {
             return;
         }
         aVar.success();
@@ -289,7 +289,7 @@ public class a extends j {
     public final void V(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
-            if (!j0.a(new File(gVar.f11879a), gVar.m)) {
+            if (!j0.a(new File(gVar.f11887a), gVar.m)) {
                 boolean z = l;
                 S(2104);
                 c.a.p0.a.q2.a aVar = new c.a.p0.a.q2.a();
@@ -297,10 +297,10 @@ public class a extends j {
                 aVar.h(2300L);
                 aVar.c("分包签名校验");
                 c.a.p0.a.h0.m.c.c().a(gVar, PMSDownloadType.ALONE_SUB, aVar);
-            } else if (c.a.p0.a.h0.m.r.b.h(new File(gVar.f11879a), new File(this.f11276j, this.f11275i))) {
+            } else if (c.a.p0.a.h0.m.r.b.h(new File(gVar.f11887a), new File(this.f11284j, this.f11283i))) {
                 boolean z2 = l;
                 U();
-                gVar.o = this.f11274h;
+                gVar.o = this.f11282h;
                 c.a.p0.n.g.a.h().l(gVar);
                 c.a.p0.a.h0.m.c.c().b(gVar, PMSDownloadType.ALONE_SUB);
             } else {

@@ -44,7 +44,7 @@ public class bp {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, hfVar, z)) == null) {
-            switch (bq.f78183a[hfVar.ordinal()]) {
+            switch (bq.f78502a[hfVar.ordinal()]) {
                 case 1:
                     return new ig();
                 case 2:

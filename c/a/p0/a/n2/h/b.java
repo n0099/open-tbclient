@@ -28,34 +28,34 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7713a;
+    public static final boolean f7721a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f7714b;
+    public static final long f7722b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f7715c;
+    public static final long f7723c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f7716d;
+    public static final long f7724d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final AtomicBoolean f7717e;
+    public static final AtomicBoolean f7725e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile long f7718f;
+    public static volatile long f7726f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f7719g;
+    public static long f7727g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f7720h;
+    public static long f7728h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static SwanAppAlertDialog f7721i;
+    public static SwanAppAlertDialog f7729i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static ActivityManager f7722j;
+    public static ActivityManager f7730j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -64,10 +64,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f7723e;
+        public final /* synthetic */ long f7731e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f7724f;
+        public final /* synthetic */ long f7732f;
 
         public a(long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -84,15 +84,15 @@ public class b {
                     return;
                 }
             }
-            this.f7723e = j2;
-            this.f7724f = j3;
+            this.f7731e = j2;
+            this.f7732f = j3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.p(this.f7723e, this.f7724f);
+                b.p(this.f7731e, this.f7732f);
             }
         }
     }
@@ -104,7 +104,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f7725e;
+        public final /* synthetic */ Activity f7733e;
 
         public DialogInterface$OnClickListenerC0327b(Activity activity) {
             Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class b {
                     return;
                 }
             }
-            this.f7725e = activity;
+            this.f7733e = activity;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -129,8 +129,8 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                 b.h("memory_alert_exit", null);
-                SwanAppAlertDialog unused = b.f7721i = null;
-                this.f7725e.moveTaskToBack(true);
+                SwanAppAlertDialog unused = b.f7729i = null;
+                this.f7733e.moveTaskToBack(true);
                 c.a.p0.a.a2.d.g().r().o("flag_finish_activity", "flag_remove_task");
             }
         }
@@ -161,7 +161,7 @@ public class b {
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                 b.h("memory_alert_continue", null);
                 dialogInterface.dismiss();
-                SwanAppAlertDialog unused = b.f7721i = null;
+                SwanAppAlertDialog unused = b.f7729i = null;
                 c.a.p0.a.n2.h.a.a();
             }
         }
@@ -190,10 +190,10 @@ public class b {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (b.f7721i != null && b.f7721i.isShowing()) {
-                    b.f7721i.dismiss();
+                if (b.f7729i != null && b.f7729i.isShowing()) {
+                    b.f7729i.dismiss();
                 }
-                SwanAppAlertDialog unused = b.f7721i = null;
+                SwanAppAlertDialog unused = b.f7729i = null;
             }
         }
     }
@@ -224,12 +224,12 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
                 boolean z = !c.a.p0.a.r1.m.c.a(hybridUbcFlow);
-                if (b.f7713a) {
+                if (b.f7721a) {
                     String str = "startUpSuccess:" + z;
                 }
                 if (z) {
-                    b.f7717e.set(true);
-                    long unused = b.f7718f = System.currentTimeMillis();
+                    b.f7725e.set(true);
+                    long unused = b.f7726f = System.currentTimeMillis();
                 }
             }
         }
@@ -248,14 +248,14 @@ public class b {
                 return;
             }
         }
-        f7713a = k.f7077a;
-        f7714b = TimeUnit.SECONDS.toMillis(c.a.p0.a.r1.l.b.f());
-        f7715c = TimeUnit.SECONDS.toMillis(c.a.p0.a.r1.l.b.e());
-        f7716d = TimeUnit.SECONDS.toMillis(c.a.p0.a.r1.l.b.i());
-        f7717e = new AtomicBoolean(false);
-        f7718f = 0L;
-        f7719g = 0L;
-        f7720h = 0L;
+        f7721a = k.f7085a;
+        f7722b = TimeUnit.SECONDS.toMillis(c.a.p0.a.r1.l.b.f());
+        f7723c = TimeUnit.SECONDS.toMillis(c.a.p0.a.r1.l.b.e());
+        f7724d = TimeUnit.SECONDS.toMillis(c.a.p0.a.r1.l.b.i());
+        f7725e = new AtomicBoolean(false);
+        f7726f = 0L;
+        f7727g = 0L;
+        f7728h = 0L;
     }
 
     public static void g(JSONObject jSONObject) {
@@ -274,11 +274,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, jSONObject) == null) {
             c.a.p0.a.j2.p.e eVar = new c.a.p0.a.j2.p.e();
-            eVar.f7063a = "swan";
-            eVar.f7064b = str;
-            eVar.f7068f = c.a.p0.a.a2.d.g().getAppId();
+            eVar.f7071a = "swan";
+            eVar.f7072b = str;
+            eVar.f7076f = c.a.p0.a.a2.d.g().getAppId();
             eVar.e(jSONObject);
-            eVar.a("start_timestamp", Long.valueOf(f7718f));
+            eVar.a("start_timestamp", Long.valueOf(f7726f));
             eVar.a("event_timestamp", Long.valueOf(System.currentTimeMillis()));
             eVar.a("launchid", c.a.p0.a.a2.d.g().r().L().V());
             c.a.p0.a.j2.k.u("1619", eVar);
@@ -298,10 +298,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (f7722j == null) {
-                f7722j = (ActivityManager) c.a.p0.a.a2.d.g().getSystemService("activity");
+            if (f7730j == null) {
+                f7730j = (ActivityManager) c.a.p0.a.a2.d.g().getSystemService("activity");
             }
-            return f7722j;
+            return f7730j;
         }
         return (ActivityManager) invokeV.objValue;
     }
@@ -320,7 +320,7 @@ public class b {
             } else {
                 j2 = 0;
             }
-            if (f7713a) {
+            if (f7721a) {
                 String str = "usedMemoryRatio:" + j2;
             }
             return j2;
@@ -336,25 +336,25 @@ public class b {
 
     public static void m(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65549, null, i2) == null) && c.a.p0.a.r1.l.b.o() && f7717e.get() && l(i2) && g.a().b()) {
+        if ((interceptable == null || interceptable.invokeI(65549, null, i2) == null) && c.a.p0.a.r1.l.b.o() && f7725e.get() && l(i2) && g.a().b()) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = currentTimeMillis - f7719g;
-            long j3 = currentTimeMillis - f7720h;
-            if (j2 < f7716d) {
-                if (f7713a) {
-                    String str = "ReceiveInterval:" + j2 + ",FilterInterval:" + f7716d;
+            long j2 = currentTimeMillis - f7727g;
+            long j3 = currentTimeMillis - f7728h;
+            if (j2 < f7724d) {
+                if (f7721a) {
+                    String str = "ReceiveInterval:" + j2 + ",FilterInterval:" + f7724d;
                     return;
                 }
                 return;
             }
-            boolean z = j2 < f7714b && j3 > f7715c && k() > ((long) c.a.p0.a.r1.l.b.g());
-            if (f7713a) {
-                String str2 = "SwanApp:" + c.a.p0.a.a2.d.g().getAppId() + ",LowMemoryNeedRemind:" + z + ",getMemoryWarningInterval:" + f7714b + ",getMemoryWarningAlterInterval:" + f7715c;
+            boolean z = j2 < f7722b && j3 > f7723c && k() > ((long) c.a.p0.a.r1.l.b.g());
+            if (f7721a) {
+                String str2 = "SwanApp:" + c.a.p0.a.a2.d.g().getAppId() + ",LowMemoryNeedRemind:" + z + ",getMemoryWarningInterval:" + f7722b + ",getMemoryWarningAlterInterval:" + f7723c;
                 String str3 = "ReceiveInterval:" + j2 + ",AlterInterval:" + j3 + ",UsedMemoryRatioLimit:" + c.a.p0.a.r1.l.b.g();
             }
-            f7719g = currentTimeMillis;
+            f7727g = currentTimeMillis;
             if (z) {
-                f7720h = currentTimeMillis;
+                f7728h = currentTimeMillis;
                 q0.b0(new a(j2, j3));
             }
         }
@@ -364,17 +364,17 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
             o();
-            f7720h = 0L;
-            f7722j = null;
+            f7728h = 0L;
+            f7730j = null;
         }
     }
 
     public static void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            f7717e.set(false);
-            f7718f = 0L;
-            f7719g = 0L;
+            f7725e.set(false);
+            f7726f = 0L;
+            f7727g = 0L;
             c.a.p0.a.n2.h.a.c();
             q0.b0(new d());
         }
@@ -388,13 +388,13 @@ public class b {
         if (!(interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (x = c.a.p0.a.a2.d.g().r().x()) == null) {
             return;
         }
-        SwanAppAlertDialog swanAppAlertDialog2 = f7721i;
+        SwanAppAlertDialog swanAppAlertDialog2 = f7729i;
         if (swanAppAlertDialog2 != null && swanAppAlertDialog2.isShowing()) {
-            f7721i.dismiss();
-            f7721i = null;
+            f7729i.dismiss();
+            f7729i = null;
         }
         boolean z = !c.a.p0.a.r1.l.b.n();
-        if (z && f7721i == null) {
+        if (z && f7729i == null) {
             SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(x);
             aVar.n(new c.a.p0.a.w2.h.a());
             aVar.J(c.a.p0.a.c1.a.H().a());
@@ -404,9 +404,9 @@ public class b {
             aVar.v(h.swanapp_low_memory_tip);
             aVar.B(h.swanapp_low_memory_button_continue, new c());
             aVar.O(h.swanapp_low_memory_button_exit, new DialogInterface$OnClickListenerC0327b(x));
-            f7721i = aVar.c();
+            f7729i = aVar.c();
         }
-        if (z && (swanAppAlertDialog = f7721i) != null) {
+        if (z && (swanAppAlertDialog = f7729i) != null) {
             swanAppAlertDialog.show();
         }
         JSONObject jSONObject = new JSONObject();

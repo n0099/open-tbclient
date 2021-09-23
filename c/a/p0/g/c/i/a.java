@@ -17,31 +17,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10917a;
+    public String f10925a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10918b;
+    public String f10926b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10919c;
+    public String f10927c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10920d;
+    public String f10928d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10921e;
+    public String f10929e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10922f;
+    public String f10930f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10923g;
+    public String f10931g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f10924h;
+    public String f10932h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f10925i;
+    public String f10933i;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -56,25 +56,25 @@ public class a {
                 return;
             }
         }
-        this.f10917a = "swan";
-        this.f10920d = "";
-        this.f10921e = "";
-        this.f10922f = "";
-        this.f10923g = "";
-        this.f10924h = "";
+        this.f10925a = "swan";
+        this.f10928d = "";
+        this.f10929e = "";
+        this.f10930f = "";
+        this.f10931g = "";
+        this.f10932h = "";
         if (e.Q() == null) {
             return;
         }
         b.a L = e.Q().L();
-        this.f10917a = k.m(L.G());
-        this.f10919c = L.H();
-        this.f10918b = L.T();
-        this.f10922f = L.r0().getString("aiapp_extra_need_download", "");
-        this.f10923g = L.W();
-        this.f10924h = L.e0();
-        this.f10925i = L.V();
-        this.f10920d = L.u1();
-        this.f10921e = L.v1();
+        this.f10925a = k.m(L.G());
+        this.f10927c = L.H();
+        this.f10926b = L.T();
+        this.f10930f = L.r0().getString("aiapp_extra_need_download", "");
+        this.f10931g = L.W();
+        this.f10932h = L.e0();
+        this.f10933i = L.V();
+        this.f10928d = L.u1();
+        this.f10929e = L.v1();
     }
 
     public String a() {
@@ -83,15 +83,15 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("from", this.f10917a);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f10919c);
-                jSONObject.put("source", this.f10918b);
-                jSONObject.put("needDown", this.f10922f);
-                jSONObject.put("scheme", this.f10923g);
-                jSONObject.put("extPage", this.f10924h);
-                jSONObject.put("launchId", this.f10925i);
-                jSONObject.put("appVersion", this.f10920d);
-                jSONObject.put("thirdVersion", this.f10921e);
+                jSONObject.put("from", this.f10925a);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f10927c);
+                jSONObject.put("source", this.f10926b);
+                jSONObject.put("needDown", this.f10930f);
+                jSONObject.put("scheme", this.f10931g);
+                jSONObject.put("extPage", this.f10932h);
+                jSONObject.put("launchId", this.f10933i);
+                jSONObject.put("appVersion", this.f10928d);
+                jSONObject.put("thirdVersion", this.f10929e);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -115,23 +115,23 @@ public class a {
                 return;
             }
         }
-        this.f10917a = "swan";
-        this.f10920d = "";
-        this.f10921e = "";
-        this.f10922f = "";
-        this.f10923g = "";
-        this.f10924h = "";
+        this.f10925a = "swan";
+        this.f10928d = "";
+        this.f10929e = "";
+        this.f10930f = "";
+        this.f10931g = "";
+        this.f10932h = "";
         if (jSONObject == null || jSONObject.length() == 0) {
             return;
         }
-        this.f10917a = jSONObject.optString("from", "swan");
-        this.f10919c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-        this.f10918b = jSONObject.optString("source");
-        this.f10922f = jSONObject.optString("needDown");
-        this.f10923g = jSONObject.optString("scheme");
-        this.f10924h = jSONObject.optString("extPage");
-        this.f10925i = jSONObject.optString("launchId", null);
-        this.f10920d = jSONObject.optString("appVersion");
-        this.f10921e = jSONObject.optString("thirdVersion");
+        this.f10925a = jSONObject.optString("from", "swan");
+        this.f10927c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+        this.f10926b = jSONObject.optString("source");
+        this.f10930f = jSONObject.optString("needDown");
+        this.f10931g = jSONObject.optString("scheme");
+        this.f10932h = jSONObject.optString("extPage");
+        this.f10933i = jSONObject.optString("launchId", null);
+        this.f10928d = jSONObject.optString("appVersion");
+        this.f10929e = jSONObject.optString("thirdVersion");
     }
 }

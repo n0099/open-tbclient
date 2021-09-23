@@ -42,22 +42,22 @@ public class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f37682a;
+                public final /* synthetic */ Context f37730a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ CrossPushMessage f37683b;
+                public final /* synthetic */ CrossPushMessage f37731b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f37684c;
+                public final /* synthetic */ String f37732c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ byte[] f37685d;
+                public final /* synthetic */ byte[] f37733d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ byte[] f37686e;
+                public final /* synthetic */ byte[] f37734e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ int f37687f;
+                public final /* synthetic */ int f37735f;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -78,12 +78,12 @@ public class f {
                             return;
                         }
                     }
-                    this.f37682a = context;
-                    this.f37683b = crossPushMessage;
-                    this.f37684c = str;
-                    this.f37685d = bArr;
-                    this.f37686e = bArr2;
-                    this.f37687f = i2;
+                    this.f37730a = context;
+                    this.f37731b = crossPushMessage;
+                    this.f37732c = str;
+                    this.f37733d = bArr;
+                    this.f37734e = bArr2;
+                    this.f37735f = i2;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
@@ -92,32 +92,32 @@ public class f {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + this.f37682a.getPackageName() + "&to=" + this.f37683b.f37668a, 0);
-                            parseUri.setPackage(this.f37683b.f37668a);
+                            Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + this.f37730a.getPackageName() + "&to=" + this.f37731b.f37716a, 0);
+                            parseUri.setPackage(this.f37731b.f37716a);
                             parseUri.addFlags(268435456);
-                            parseUri.putExtra("msgid", this.f37683b.mMsgId);
-                            parseUri.putExtra("notification_title", this.f37683b.mTitle);
-                            parseUri.putExtra("notification_content", this.f37683b.mDescription);
-                            parseUri.putExtra("open_type", this.f37683b.mOpenType);
-                            parseUri.putExtra("message_pkg_content", this.f37683b.mPkgContent);
-                            parseUri.putExtra("extra_extra_custom_content", this.f37683b.mCustomContent);
-                            parseUri.putExtra("com.baidu.pushservice.app_id", this.f37684c);
-                            parseUri.putExtra("baidu_message_secur_info", this.f37685d);
-                            parseUri.putExtra("baidu_message_body", this.f37686e);
-                            Notification.Builder autoCancel = new Notification.Builder(this.f37682a).setContentIntent(PendingIntent.getActivity(this.f37682a, (int) (System.currentTimeMillis() / 1000), parseUri, 0)).setAutoCancel(true);
-                            if (m.p(this.f37682a)) {
-                                com.baidu.android.pushservice.j.h.a(this.f37682a, "com.baidu.android.pushservice.push", "云推送");
+                            parseUri.putExtra("msgid", this.f37731b.mMsgId);
+                            parseUri.putExtra("notification_title", this.f37731b.mTitle);
+                            parseUri.putExtra("notification_content", this.f37731b.mDescription);
+                            parseUri.putExtra("open_type", this.f37731b.mOpenType);
+                            parseUri.putExtra("message_pkg_content", this.f37731b.mPkgContent);
+                            parseUri.putExtra("extra_extra_custom_content", this.f37731b.mCustomContent);
+                            parseUri.putExtra("com.baidu.pushservice.app_id", this.f37732c);
+                            parseUri.putExtra("baidu_message_secur_info", this.f37733d);
+                            parseUri.putExtra("baidu_message_body", this.f37734e);
+                            Notification.Builder autoCancel = new Notification.Builder(this.f37730a).setContentIntent(PendingIntent.getActivity(this.f37730a, (int) (System.currentTimeMillis() / 1000), parseUri, 0)).setAutoCancel(true);
+                            if (m.p(this.f37730a)) {
+                                com.baidu.android.pushservice.j.h.a(this.f37730a, "com.baidu.android.pushservice.push", "云推送");
                                 autoCancel.setChannelId("com.baidu.android.pushservice.push");
                             }
-                            String packageName = this.f37682a.getPackageName();
-                            autoCancel.setSmallIcon(this.f37682a.getResources().getIdentifier("stat_sys_third_app_notify", "drawable", packageName));
-                            RemoteViews remoteViews = new RemoteViews(packageName, this.f37682a.getResources().getIdentifier("push_custom_notification", "layout", packageName));
-                            remoteViews.setTextViewText(this.f37682a.getResources().getIdentifier("push_custom_msg_title", "id", packageName), this.f37683b.mTitle);
-                            remoteViews.setTextViewText(this.f37682a.getResources().getIdentifier("push_custom_msg_content", "id", packageName), this.f37683b.mDescription);
-                            if (!TextUtils.isEmpty(this.f37683b.f37669b) && (q = m.q(this.f37682a, this.f37683b.f37669b)) != null) {
-                                remoteViews.setImageViewBitmap(this.f37682a.getResources().getIdentifier("push_custom_msg_icon", "id", packageName), q);
+                            String packageName = this.f37730a.getPackageName();
+                            autoCancel.setSmallIcon(this.f37730a.getResources().getIdentifier("stat_sys_third_app_notify", "drawable", packageName));
+                            RemoteViews remoteViews = new RemoteViews(packageName, this.f37730a.getResources().getIdentifier("push_custom_notification", "layout", packageName));
+                            remoteViews.setTextViewText(this.f37730a.getResources().getIdentifier("push_custom_msg_title", "id", packageName), this.f37731b.mTitle);
+                            remoteViews.setTextViewText(this.f37730a.getResources().getIdentifier("push_custom_msg_content", "id", packageName), this.f37731b.mDescription);
+                            if (!TextUtils.isEmpty(this.f37731b.f37717b) && (q = m.q(this.f37730a, this.f37731b.f37717b)) != null) {
+                                remoteViews.setImageViewBitmap(this.f37730a.getResources().getIdentifier("push_custom_msg_icon", "id", packageName), q);
                             }
-                            remoteViews.setTextViewText(this.f37682a.getResources().getIdentifier("push_custom_msg_time", "id", packageName), DateUtils.formatDateTime(this.f37682a, System.currentTimeMillis(), 1));
+                            remoteViews.setTextViewText(this.f37730a.getResources().getIdentifier("push_custom_msg_time", "id", packageName), DateUtils.formatDateTime(this.f37730a, System.currentTimeMillis(), 1));
                             autoCancel.setContent(remoteViews);
                             Notification build = Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification();
                             int i3 = Build.VERSION.SDK_INT;
@@ -126,12 +126,12 @@ public class f {
                             } else if (i3 >= 16) {
                                 build.bigContentView = remoteViews;
                             }
-                            NotificationManager notificationManager = (NotificationManager) this.f37682a.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+                            NotificationManager notificationManager = (NotificationManager) this.f37730a.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                             if (notificationManager != null) {
-                                notificationManager.notify(this.f37687f, build);
+                                notificationManager.notify(this.f37735f, build);
                             }
                         } catch (Exception e2) {
-                            new b.c(this.f37682a).a(Log.getStackTraceString(e2)).a();
+                            new b.c(this.f37730a).a(Log.getStackTraceString(e2)).a();
                         }
                     }
                 }

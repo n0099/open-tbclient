@@ -14,7 +14,7 @@ public class ax implements ar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ax f77369a;
+    public static volatile ax f77688a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -39,7 +39,7 @@ public class ax implements ar {
             }
         }
         this.f142a = aw.a(context);
-        this.f141a = aw.f77368a;
+        this.f141a = aw.f77687a;
         com.xiaomi.channel.commonutils.logger.b.m73a("create id manager is: " + this.f141a);
     }
 
@@ -47,14 +47,14 @@ public class ax implements ar {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f77369a == null) {
+            if (f77688a == null) {
                 synchronized (ax.class) {
-                    if (f77369a == null) {
-                        f77369a = new ax(context.getApplicationContext());
+                    if (f77688a == null) {
+                        f77688a = new ax(context.getApplicationContext());
                     }
                 }
             }
-            return f77369a;
+            return f77688a;
         }
         return (ax) invokeL.objValue;
     }

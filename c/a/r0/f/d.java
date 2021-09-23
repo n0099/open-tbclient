@@ -13,10 +13,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17465a;
+    public int f17475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f17466b;
+    public View f17476b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public class d {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17466b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17476b : (View) invokeV.objValue;
     }
 
     public void b(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f17466b = view;
+            this.f17476b = view;
         }
     }
 }

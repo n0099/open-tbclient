@@ -15,7 +15,7 @@ public class CooperateViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f54276a;
+    public c f54391a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CooperateViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -35,7 +35,7 @@ public class CooperateViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54276a = new c(baseFragmentActivity, view);
+        this.f54391a = new c(baseFragmentActivity, view);
     }
 
     public void fillView(e eVar) {
@@ -43,7 +43,7 @@ public class CooperateViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null) {
             return;
         }
-        this.f54276a.d(eVar);
-        this.f54276a.f();
+        this.f54391a.d(eVar);
+        this.f54391a.f();
     }
 }

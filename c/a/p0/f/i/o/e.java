@@ -30,34 +30,34 @@ public abstract class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10643a;
+    public String f10651a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f10644b;
+    public Context f10652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10645c;
+    public String f10653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10646d;
+    public String f10654d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10647e;
+    public String f10655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10648f;
+    public String f10656f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f10649g;
+    public String f10657g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f10650h;
+    public String f10658h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f10651i;
+    public c f10659i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f10652j;
+    public String f10660j;
 
     static {
         InterceptResult invokeClinit;
@@ -89,21 +89,21 @@ public abstract class e {
                 return;
             }
         }
-        this.f10643a = "https://mobads.baidu.com/cpro/ui/mads.php";
-        this.f10648f = "1";
-        this.f10649g = "2";
-        this.f10650h = "8.800201";
-        this.f10644b = context;
-        this.f10651i = cVar;
+        this.f10651a = "https://mobads.baidu.com/cpro/ui/mads.php";
+        this.f10656f = "1";
+        this.f10657g = "2";
+        this.f10658h = "8.800201";
+        this.f10652b = context;
+        this.f10659i = cVar;
         if (cVar != null) {
-            this.f10645c = cVar.b();
-            this.f10646d = this.f10651i.e();
-            this.f10647e = this.f10651i.g();
+            this.f10653c = cVar.b();
+            this.f10654d = this.f10659i.e();
+            this.f10655e = this.f10659i.g();
         }
         if (h.o()) {
             return;
         }
-        this.f10652j = h.b();
+        this.f10660j = h.b();
     }
 
     public abstract HashMap<String, String> a();
@@ -116,20 +116,20 @@ public abstract class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
             try {
-                hashMap.put(IAdRequestParam.QUERY_WIDTH, String.valueOf(Math.round(h.i(this.f10644b) / h.d(this.f10644b))));
-                hashMap.put(IAdRequestParam.QUERY_HEIGHT, String.valueOf(Math.round(h.h(this.f10644b) / h.d(this.f10644b))));
+                hashMap.put(IAdRequestParam.QUERY_WIDTH, String.valueOf(Math.round(h.i(this.f10652b) / h.d(this.f10652b))));
+                hashMap.put(IAdRequestParam.QUERY_HEIGHT, String.valueOf(Math.round(h.h(this.f10652b) / h.d(this.f10652b))));
                 StringBuilder sb = new StringBuilder();
                 sb.append("");
                 sb.append(NetworkUtils.c(false));
                 hashMap.put("net", sb.toString());
-                hashMap.put("n", this.f10648f);
-                hashMap.put("pk", this.f10647e);
-                hashMap.put("appid", this.f10646d);
-                hashMap.put("sw", "" + h.i(this.f10644b));
-                hashMap.put(IAdRequestParam.SCREEN_HEIGHT, "" + h.h(this.f10644b));
+                hashMap.put("n", this.f10656f);
+                hashMap.put("pk", this.f10655e);
+                hashMap.put("appid", this.f10654d);
+                hashMap.put("sw", "" + h.i(this.f10652b));
+                hashMap.put(IAdRequestParam.SCREEN_HEIGHT, "" + h.h(this.f10652b));
                 hashMap.put(IAdRequestParam.SN, "" + f());
                 hashMap.put("os", "android");
-                hashMap.put("apid", "" + this.f10645c);
+                hashMap.put("apid", "" + this.f10653c);
                 hashMap.put(IAdRequestParam.CHID, "0");
                 String s = c.a.p0.f.i.m.a.b().s();
                 if (s.equals("0")) {
@@ -142,8 +142,8 @@ public abstract class e {
                 hashMap.put(IAdRequestParam.APV, h.l());
                 String c2 = h.c(d(), "BAIDUID");
                 hashMap.put("baiduid", (TextUtils.isEmpty(c2) || c2.split(":").length <= 0) ? "" : c2.split(":")[0]);
-                hashMap.put("p_ver", this.f10650h);
-                hashMap.put(IAdRequestParam.RPT, this.f10649g);
+                hashMap.put("p_ver", this.f10658h);
+                hashMap.put(IAdRequestParam.RPT, this.f10657g);
                 hashMap.put("tab", "2");
                 hashMap.put(IAdRequestParam.REQ_ID, "");
                 hashMap.put("scene", c.a.p0.f.i.m.a.b().k());
@@ -160,7 +160,7 @@ public abstract class e {
                                 String optString = jSONObject.optString(next, "none");
                                 if (n.equals(next)) {
                                     hashMap.put(m, optString);
-                                    this.f10652j = optString;
+                                    this.f10660j = optString;
                                 } else {
                                     hashMap.put(k + next, optString);
                                 }
@@ -186,8 +186,8 @@ public abstract class e {
                         }
                     }
                 }
-                if (!hashMap.containsKey(n) && !TextUtils.isEmpty(this.f10652j)) {
-                    hashMap.put(n, this.f10652j);
+                if (!hashMap.containsKey(n) && !TextUtils.isEmpty(this.f10660j)) {
+                    hashMap.put(n, this.f10660j);
                 }
                 hashMap.put("con_name", c.a.p0.f.i.m.a.b().a());
             } catch (Exception unused) {
@@ -200,7 +200,7 @@ public abstract class e {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10652j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10660j : (String) invokeV.objValue;
     }
 
     public String d() {
@@ -217,7 +217,7 @@ public abstract class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
                 String s = c.a.p0.f.i.m.a.b().s();
-                return TextUtils.isEmpty(s) ? NetworkUtils.e(this.f10644b) : s;
+                return TextUtils.isEmpty(s) ? NetworkUtils.e(this.f10652b) : s;
             } catch (Exception unused) {
                 return "";
             }
@@ -231,7 +231,7 @@ public abstract class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             HashMap<String, String> b2 = b();
             b2.putAll(a());
-            return c.a.p0.f.i.r.e.a(this.f10643a, b2);
+            return c.a.p0.f.i.r.e.a(this.f10651a, b2);
         }
         return (String) invokeV.objValue;
     }

@@ -38,13 +38,13 @@ public class g extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f4838e;
+        public final /* synthetic */ JSONObject f4846e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4839f;
+        public final /* synthetic */ String f4847f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f4840g;
+        public final /* synthetic */ g f4848g;
 
         public a(g gVar, JSONObject jSONObject, String str) {
             Interceptable interceptable = $ic;
@@ -61,16 +61,16 @@ public class g extends a0 {
                     return;
                 }
             }
-            this.f4840g = gVar;
-            this.f4838e = jSONObject;
-            this.f4839f = str;
+            this.f4848g = gVar;
+            this.f4846e = jSONObject;
+            this.f4847f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4840g.o(this.f4838e, this.f4839f);
+                this.f4848g.o(this.f4846e, this.f4847f);
             }
         }
     }
@@ -81,19 +81,19 @@ public class g extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f4841e;
+        public final /* synthetic */ UnitedSchemeEntity f4849e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4842f;
+        public final /* synthetic */ CallbackHandler f4850f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f4843g;
+        public final /* synthetic */ JSONArray f4851g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f4844h;
+        public final /* synthetic */ String f4852h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f4845i;
+        public final /* synthetic */ g f4853i;
 
         public b(g gVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONArray jSONArray, String str) {
             Interceptable interceptable = $ic;
@@ -110,11 +110,11 @@ public class g extends a0 {
                     return;
                 }
             }
-            this.f4845i = gVar;
-            this.f4841e = unitedSchemeEntity;
-            this.f4842f = callbackHandler;
-            this.f4843g = jSONArray;
-            this.f4844h = str;
+            this.f4853i = gVar;
+            this.f4849e = unitedSchemeEntity;
+            this.f4850f = callbackHandler;
+            this.f4851g = jSONArray;
+            this.f4852h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,7 +123,7 @@ public class g extends a0 {
         public void onCallback(c.a.p0.a.e2.c.i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f4845i.m(iVar, this.f4841e, this.f4842f, this.f4843g, this.f4844h);
+                this.f4853i.m(iVar, this.f4849e, this.f4850f, this.f4851g, this.f4852h);
             }
         }
     }
@@ -134,10 +134,10 @@ public class g extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f4846e;
+        public final /* synthetic */ List f4854e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4847f;
+        public final /* synthetic */ String f4855f;
 
         public c(g gVar, List list, String str) {
             Interceptable interceptable = $ic;
@@ -154,20 +154,20 @@ public class g extends a0 {
                     return;
                 }
             }
-            this.f4846e = list;
-            this.f4847f = str;
+            this.f4854e = list;
+            this.f4855f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<String> h2 = c.a.p0.a.h0.m.p.a.h(this.f4846e);
+                List<String> h2 = c.a.p0.a.h0.m.p.a.h(this.f4854e);
                 if (h2.isEmpty()) {
                     return;
                 }
                 c.a.p0.n.i.m.b bVar = new c.a.p0.n.i.m.b((Collection<String>) h2, (c.a.p0.n.o.a) t0.b());
-                bVar.e(this.f4847f);
+                bVar.e(this.f4855f);
                 bVar.d("1");
                 c.a.p0.a.h0.m.d dVar = new c.a.p0.a.h0.m.d();
                 dVar.K(5);
@@ -297,7 +297,7 @@ public class g extends a0 {
                                         arrayList2.add(o0.n(next, parse, false));
                                     }
                                 } catch (Exception e2) {
-                                    if (a0.f4766b) {
+                                    if (a0.f4774b) {
                                         e2.printStackTrace();
                                     }
                                 }

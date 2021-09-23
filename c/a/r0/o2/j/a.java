@@ -35,7 +35,7 @@ public class a extends c.a.r0.a0.b<c.a.r0.o2.e.c> {
 
     /* renamed from: c.a.r0.o2.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class C1086a {
+    public static /* synthetic */ class C1084a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -46,7 +46,7 @@ public class a extends c.a.r0.a0.b<c.a.r0.o2.e.c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f23322a;
+        public final /* synthetic */ a f23338a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class a extends c.a.r0.a0.b<c.a.r0.o2.e.c> {
                     return;
                 }
             }
-            this.f23322a = aVar;
+            this.f23338a = aVar;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -81,10 +81,10 @@ public class a extends c.a.r0.a0.b<c.a.r0.o2.e.c> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f23322a.o == null || ListUtils.isEmpty(this.f23322a.o.f23191e)) {
+                if (this.f23338a.o == null || ListUtils.isEmpty(this.f23338a.o.f23207e)) {
                     return 0;
                 }
-                return this.f23322a.o.f23191e.size() % 4 == 0 ? this.f23322a.o.f23191e.size() / 4 : (this.f23322a.o.f23191e.size() / 4) + 1;
+                return this.f23338a.o.f23207e.size() % 4 == 0 ? this.f23338a.o.f23207e.size() / 4 : (this.f23338a.o.f23207e.size() / 4) + 1;
             }
             return invokeV.intValue;
         }
@@ -94,12 +94,12 @@ public class a extends c.a.r0.a0.b<c.a.r0.o2.e.c> {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
-                List<c.a.r0.o2.e.f> u = this.f23322a.u(i2);
+                List<c.a.r0.o2.e.f> u = this.f23338a.u(i2);
                 if (ListUtils.isEmpty(u)) {
                     return null;
                 }
-                PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.f23322a.m.getPageActivity());
-                personCommonForumCardView.setForumItemViewBdObjectPool(this.f23322a.q);
+                PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.f23338a.m.getPageActivity());
+                personCommonForumCardView.setForumItemViewBdObjectPool(this.f23338a.q);
                 personCommonForumCardView.setData(u);
                 personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
                 viewGroup.addView(personCommonForumCardView);
@@ -115,7 +115,7 @@ public class a extends c.a.r0.a0.b<c.a.r0.o2.e.c> {
             return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
         }
 
-        public /* synthetic */ b(a aVar, C1086a c1086a) {
+        public /* synthetic */ b(a aVar, C1084a c1084a) {
             this(aVar);
         }
     }
@@ -191,13 +191,13 @@ public class a extends c.a.r0.a0.b<c.a.r0.o2.e.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             c.a.r0.o2.e.c cVar = this.o;
-            if (cVar == null || ListUtils.isEmpty(cVar.f23191e)) {
+            if (cVar == null || ListUtils.isEmpty(cVar.f23207e)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             int i3 = i2 * 4;
             for (int i4 = i3; i4 < i3 + 4; i4++) {
-                c.a.r0.o2.e.f fVar = (c.a.r0.o2.e.f) ListUtils.getItem(this.o.f23191e, i4);
+                c.a.r0.o2.e.f fVar = (c.a.r0.o2.e.f) ListUtils.getItem(this.o.f23207e, i4);
                 if (fVar != null) {
                     arrayList.add(fVar);
                 }
@@ -212,18 +212,18 @@ public class a extends c.a.r0.a0.b<c.a.r0.o2.e.c> {
         c.a.r0.o2.e.c cVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
-            if (cVar == null || ListUtils.isEmpty(cVar.f23191e) || cVar == (cVar2 = this.o)) {
+            if (cVar == null || ListUtils.isEmpty(cVar.f23207e) || cVar == (cVar2 = this.o)) {
                 return false;
             }
-            if (cVar2 == null || ListUtils.isEmpty(cVar2.f23191e)) {
+            if (cVar2 == null || ListUtils.isEmpty(cVar2.f23207e)) {
                 return true;
             }
-            if (!ListUtils.isEmpty(cVar.f23191e)) {
-                if (cVar.f23191e.size() != this.o.f23191e.size()) {
+            if (!ListUtils.isEmpty(cVar.f23207e)) {
+                if (cVar.f23207e.size() != this.o.f23207e.size()) {
                     return true;
                 }
-                for (int i2 = 0; i2 < cVar.f23191e.size(); i2++) {
-                    if (this.o.f23191e.get(i2) == null || cVar.f23191e.get(i2).f23203e != this.o.f23191e.get(i2).f23203e) {
+                for (int i2 = 0; i2 < cVar.f23207e.size(); i2++) {
+                    if (this.o.f23207e.get(i2) == null || cVar.f23207e.get(i2).f23219e != this.o.f23207e.get(i2).f23219e) {
                         return true;
                     }
                 }
@@ -241,7 +241,7 @@ public class a extends c.a.r0.a0.b<c.a.r0.o2.e.c> {
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
             if (v(cVar)) {
                 this.o = cVar;
-                if (ListUtils.getCount(cVar.f23191e) <= 2) {
+                if (ListUtils.getCount(cVar.f23207e) <= 2) {
                     this.s.getLayoutParams().height = c.a.e.e.p.l.g(this.m.getPageActivity(), R.dimen.ds140);
                 }
                 this.s.setAdapter(this.p);

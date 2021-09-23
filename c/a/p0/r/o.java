@@ -18,7 +18,7 @@ public class o extends SQLiteOpenHelper {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12342e;
+    public Context f12350e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(Context context) {
@@ -39,7 +39,7 @@ public class o extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f12342e = context.getApplicationContext();
+        this.f12350e = context.getApplicationContext();
     }
 
     public final void a(SQLiteDatabase sQLiteDatabase) {
@@ -92,7 +92,7 @@ public class o extends SQLiteOpenHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new File(this.f12342e.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
+            return new File(this.f12350e.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
         }
         return invokeV.longValue;
     }
@@ -107,7 +107,7 @@ public class o extends SQLiteOpenHelper {
                 try {
                     sQLiteDatabase = super.getReadableDatabase();
                 } catch (Exception unused) {
-                    new File(this.f12342e.getDatabasePath("OpenStat.db").getPath()).delete();
+                    new File(this.f12350e.getDatabasePath("OpenStat.db").getPath()).delete();
                     sQLiteDatabase = null;
                 }
             }
@@ -128,7 +128,7 @@ public class o extends SQLiteOpenHelper {
                     try {
                         sQLiteDatabase.enableWriteAheadLogging();
                     } catch (Exception unused) {
-                        new File(this.f12342e.getDatabasePath("OpenStat.db").getPath()).delete();
+                        new File(this.f12350e.getDatabasePath("OpenStat.db").getPath()).delete();
                         return sQLiteDatabase;
                     }
                 } catch (Exception unused2) {
@@ -143,7 +143,7 @@ public class o extends SQLiteOpenHelper {
     public long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new File(this.f12342e.getDatabasePath("OpenStat.db").getPath()).length() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new File(this.f12350e.getDatabasePath("OpenStat.db").getPath()).length() : invokeV.longValue;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

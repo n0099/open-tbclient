@@ -16,10 +16,10 @@ public class n0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PbFragment f20176a;
+    public PbFragment f20191a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.e0.e f20177b;
+    public c.a.r0.e0.e f20192b;
 
     public n0(PbFragment pbFragment) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class n0 {
                 return;
             }
         }
-        this.f20176a = pbFragment;
+        this.f20191a = pbFragment;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
         tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -46,7 +46,7 @@ public class n0 {
     public void a() {
         c.a.r0.e0.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f20177b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f20192b) == null) {
             return;
         }
         eVar.I();

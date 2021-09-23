@@ -14,13 +14,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f7306a;
+    public static final Pattern f7314a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f7307b;
+    public static final Pattern f7315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f7308c;
+    public static final Pattern f7316c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,9 +36,9 @@ public class b {
                 return;
             }
         }
-        f7306a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
-        f7307b = Pattern.compile("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$");
-        f7308c = Pattern.compile("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$");
+        f7314a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
+        f7315b = Pattern.compile("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$");
+        f7316c = Pattern.compile("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$");
     }
 
     public static boolean a(String str) {
@@ -73,7 +73,7 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return f7306a.matcher(str).matches();
+            return f7314a.matcher(str).matches();
         }
         return invokeL.booleanValue;
     }
@@ -97,7 +97,7 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return f7308c.matcher(str).matches();
+            return f7316c.matcher(str).matches();
         }
         return invokeL.booleanValue;
     }
@@ -109,7 +109,7 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return f7307b.matcher(str).matches();
+            return f7315b.matcher(str).matches();
         }
         return invokeL.booleanValue;
     }

@@ -28,7 +28,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.f2.c.e, InterestedForumStyleAMoreViewH
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f17597e;
+        public final /* synthetic */ f f17607e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.f2.c.e, InterestedForumStyleAMoreViewH
                     return;
                 }
             }
-            this.f17597e = fVar;
+            this.f17607e = fVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -53,11 +53,11 @@ public class f extends c.a.e.l.e.a<c.a.r0.f2.c.e, InterestedForumStyleAMoreViewH
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof c.a.r0.f2.c.e)) {
                 c.a.r0.f2.c.e eVar = (c.a.r0.f2.c.e) nVar;
-                if (this.f17597e.m != null) {
-                    this.f17597e.m.d(eVar.b(), eVar.c(), i2);
+                if (this.f17607e.m != null) {
+                    this.f17607e.m.d(eVar.b(), eVar.c(), i2);
                 }
-                if (this.f17597e.n != null) {
-                    this.f17597e.n.a();
+                if (this.f17607e.n != null) {
+                    this.f17607e.n.a();
                 }
             }
         }
@@ -82,8 +82,8 @@ public class f extends c.a.e.l.e.a<c.a.r0.f2.c.e, InterestedForumStyleAMoreViewH
                 return;
             }
         }
-        this.f2957e = context;
-        this.f2960h = bdUniqueId;
+        this.f2958e = context;
+        this.f2961h = bdUniqueId;
         d0(new a(this));
     }
 
@@ -103,9 +103,9 @@ public class f extends c.a.e.l.e.a<c.a.r0.f2.c.e, InterestedForumStyleAMoreViewH
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             if (c.a.q0.b.d.z()) {
-                inflate = LayoutInflater.from(this.f2957e).inflate(R.layout.item_interested_forum_style_a_more, viewGroup, false);
+                inflate = LayoutInflater.from(this.f2958e).inflate(R.layout.item_interested_forum_style_a_more, viewGroup, false);
             } else {
-                inflate = c.a.q0.b.d.B() ? LayoutInflater.from(this.f2957e).inflate(R.layout.item_interested_forum_style_b_more, viewGroup, false) : null;
+                inflate = c.a.q0.b.d.B() ? LayoutInflater.from(this.f2958e).inflate(R.layout.item_interested_forum_style_b_more, viewGroup, false) : null;
             }
             return new InterestedForumStyleAMoreViewHolder(inflate);
         }
@@ -126,7 +126,7 @@ public class f extends c.a.e.l.e.a<c.a.r0.f2.c.e, InterestedForumStyleAMoreViewH
     public final void l0(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, c.a.r0.f2.c.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleAMoreViewHolder, eVar) == null) {
-            interestedForumStyleAMoreViewHolder.mInterestedMoreTitle.setText(this.f2957e.getResources().getString(R.string.interested_forum_more_hint));
+            interestedForumStyleAMoreViewHolder.mInterestedMoreTitle.setText(this.f2958e.getResources().getString(R.string.interested_forum_more_hint));
             if (c.a.q0.b.d.z()) {
                 if (eVar.d()) {
                     interestedForumStyleAMoreViewHolder.mInterestedMoreTitleLl.setVisibility(0);

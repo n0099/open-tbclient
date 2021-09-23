@@ -23,22 +23,22 @@ public class FRSRefreshButton extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48537e;
+    public int f48645e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48538f;
+    public int f48646f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f48539g;
+    public Paint f48647g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48540h;
+    public int f48648h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PorterDuffXfermode f48541i;
+    public PorterDuffXfermode f48649i;
 
     /* renamed from: j  reason: collision with root package name */
-    public PorterDuffXfermode f48542j;
+    public PorterDuffXfermode f48650j;
     public Drawable k;
     public int l;
     public boolean m;
@@ -69,9 +69,9 @@ public class FRSRefreshButton extends ImageView {
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f48539g.setXfermode(this.f48541i);
-            canvas.drawPaint(this.f48539g);
-            this.f48539g.setXfermode(this.f48542j);
+            this.f48647g.setXfermode(this.f48649i);
+            canvas.drawPaint(this.f48647g);
+            this.f48647g.setXfermode(this.f48650j);
         }
     }
 
@@ -79,10 +79,10 @@ public class FRSRefreshButton extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Paint paint = new Paint();
-            this.f48539g = paint;
+            this.f48647g = paint;
             paint.setAntiAlias(true);
-            this.f48539g.setStyle(Paint.Style.FILL);
-            this.f48539g.setAntiAlias(true);
+            this.f48647g.setStyle(Paint.Style.FILL);
+            this.f48647g.setAntiAlias(true);
             this.k = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_refresh24_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
             setLayerType(1, null);
         }
@@ -133,17 +133,17 @@ public class FRSRefreshButton extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) || this.f48537e <= 0 || this.f48538f <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) || this.f48645e <= 0 || this.f48646f <= 0) {
             return;
         }
         int saveCount = canvas.getSaveCount();
         canvas.save();
         a(canvas);
-        canvas.rotate(45.0f, this.f48537e / 2, this.f48538f / 2);
-        this.f48539g.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
-        this.f48539g.setColor(SkinManager.getColor(this.f48540h));
-        int i2 = this.f48537e;
-        canvas.drawCircle(i2 / 2, this.f48538f / 2, (i2 / 2) - 20, this.f48539g);
+        canvas.rotate(45.0f, this.f48645e / 2, this.f48646f / 2);
+        this.f48647g.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
+        this.f48647g.setColor(SkinManager.getColor(this.f48648h));
+        int i2 = this.f48645e;
+        canvas.drawCircle(i2 / 2, this.f48646f / 2, (i2 / 2) - 20, this.f48647g);
         c(canvas);
         if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
             return;
@@ -156,8 +156,8 @@ public class FRSRefreshButton extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            this.f48537e = getMeasuredWidth();
-            this.f48538f = getMeasuredHeight();
+            this.f48645e = getMeasuredWidth();
+            this.f48646f = getMeasuredHeight();
         }
     }
 
@@ -220,9 +220,9 @@ public class FRSRefreshButton extends ImageView {
                 return;
             }
         }
-        this.f48540h = R.color.CAM_X0211;
-        this.f48541i = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-        this.f48542j = new PorterDuffXfermode(PorterDuff.Mode.SRC);
+        this.f48648h = R.color.CAM_X0211;
+        this.f48649i = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.f48650j = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.l = 3;
         this.m = false;
         this.n = null;

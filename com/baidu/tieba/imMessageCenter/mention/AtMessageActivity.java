@@ -46,7 +46,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtMessageActivity f53505a;
+        public final /* synthetic */ AtMessageActivity f53618a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AtMessageActivity atMessageActivity, int i2) {
@@ -66,7 +66,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
                     return;
                 }
             }
-            this.f53505a = atMessageActivity;
+            this.f53618a = atMessageActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,8 +75,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (this.f53505a.atMeModelController != null) {
-                    this.f53505a.atMeModelController.y();
+                if (this.f53618a.atMeModelController != null) {
+                    this.f53618a.atMeModelController.y();
                 }
             }
         }
@@ -194,11 +194,11 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.atMeViewController) == null) {
             return;
         }
-        BdListView bdListView = dVar.f21894b;
+        BdListView bdListView = dVar.f21908b;
         if (bdListView != null) {
             bdListView.setVisibility(0);
         }
-        hideNetRefreshView(this.atMeViewController.f21895c);
+        hideNetRefreshView(this.atMeViewController.f21909c);
     }
 
     @Override // c.a.q0.k0.c.a
@@ -310,11 +310,11 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!StringUtils.isNull(errorData.error_msg)) {
             showToast(errorData.error_msg);
         }
-        BdListView bdListView = this.atMeViewController.f21894b;
+        BdListView bdListView = this.atMeViewController.f21908b;
         if (bdListView != null) {
             bdListView.setVisibility(8);
         }
-        showNetRefreshView(this.atMeViewController.f21895c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+        showNetRefreshView(this.atMeViewController.f21909c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
         setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
     }
 

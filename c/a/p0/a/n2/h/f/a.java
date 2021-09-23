@@ -30,10 +30,10 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7727a;
+        public final /* synthetic */ CallbackHandler f7735a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f7728b;
+        public final /* synthetic */ String f7736b;
 
         public C0328a(a aVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f7727a = callbackHandler;
-            this.f7728b = str;
+            this.f7735a = callbackHandler;
+            this.f7736b = str;
         }
 
         @Override // c.a.p0.a.n2.h.c
@@ -66,7 +66,7 @@ public class a extends a0 {
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
-                    this.f7727a.handleSchemeDispatchCallback(this.f7728b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                    this.f7735a.handleSchemeDispatchCallback(this.f7736b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
                 }
             }
         }

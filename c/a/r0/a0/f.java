@@ -154,9 +154,9 @@ public class f extends b<c.a.r0.g0.d> {
             this.o = (LinearLayout) view.findViewById(R.id.frs_game_head_line_container);
             this.v = view.findViewById(R.id.divider_line_1);
             this.w = view.findViewById(R.id.divider_line_2);
-            int dimensionPixelSize = this.f15550g.getResources().getDimensionPixelSize(R.dimen.tbds44);
+            int dimensionPixelSize = this.f15559g.getResources().getDimensionPixelSize(R.dimen.tbds44);
             if (this.p == null) {
-                this.p = new d(this.f15549f, null, null);
+                this.p = new d(this.f15558f, null, null);
             }
             this.p.t(0, 0, 0, 0);
             this.p.u(8);
@@ -168,7 +168,7 @@ public class f extends b<c.a.r0.g0.d> {
             this.p.j().setVisibility(8);
             this.o.addView(this.p.j());
             if (this.q == null) {
-                this.q = new e(this.f15549f);
+                this.q = new e(this.f15558f);
             }
             this.q.t(8);
             this.q.u(0, dimensionPixelSize, 0, 0);
@@ -179,7 +179,7 @@ public class f extends b<c.a.r0.g0.d> {
             this.q.j().setVisibility(8);
             this.o.addView(this.q.j());
             if (this.r == null) {
-                this.r = new e(this.f15549f);
+                this.r = new e(this.f15558f);
             }
             this.r.t(8);
             this.r.u(0, dimensionPixelSize, 0, 0);
@@ -200,10 +200,10 @@ public class f extends b<c.a.r0.g0.d> {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) || dVar == null || dVar.g() == null) {
             return;
         }
-        if (!TextUtils.isEmpty(dVar.g().f27861b)) {
-            this.n.setText(dVar.g().f27861b);
+        if (!TextUtils.isEmpty(dVar.g().f27881b)) {
+            this.n.setText(dVar.g().f27881b);
         }
-        List<d2> list = dVar.g().f27860a;
+        List<d2> list = dVar.g().f27880a;
         if (ListUtils.getCount(list) >= 1) {
             c.a.r0.g0.a aVar = new c.a.r0.g0.a();
             this.s = aVar;

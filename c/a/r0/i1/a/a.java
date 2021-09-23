@@ -17,19 +17,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeListView f19156a;
+    public BdTypeListView f19171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f19157b;
+    public c f19172b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f19158c;
+    public b f19173c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f19159d;
+    public k f19174d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f19160e;
+    public List<c.a.e.l.e.a> f19175e;
 
     public a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -46,21 +46,21 @@ public class a {
                 return;
             }
         }
-        this.f19160e = new ArrayList();
+        this.f19175e = new ArrayList();
         a(hotRanklistActivity, bdTypeListView);
     }
 
     public final void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hotRanklistActivity, bdTypeListView) == null) {
-            this.f19157b = new c(hotRanklistActivity, c.a.r0.i1.c.c.m);
-            this.f19158c = new b(hotRanklistActivity, c.a.r0.i1.c.b.f19257j);
-            this.f19159d = new k(hotRanklistActivity, o.k);
-            this.f19160e.add(this.f19157b);
-            this.f19160e.add(this.f19158c);
-            this.f19160e.add(this.f19159d);
-            this.f19156a = bdTypeListView;
-            bdTypeListView.addAdapters(this.f19160e);
+            this.f19172b = new c(hotRanklistActivity, c.a.r0.i1.c.c.m);
+            this.f19173c = new b(hotRanklistActivity, c.a.r0.i1.c.b.f19272j);
+            this.f19174d = new k(hotRanklistActivity, o.k);
+            this.f19175e.add(this.f19172b);
+            this.f19175e.add(this.f19173c);
+            this.f19175e.add(this.f19174d);
+            this.f19171a = bdTypeListView;
+            bdTypeListView.addAdapters(this.f19175e);
         }
     }
 
@@ -73,15 +73,15 @@ public class a {
             } else {
                 arrayList = new ArrayList<>();
             }
-            k kVar = this.f19159d;
+            k kVar = this.f19174d;
             if (kVar != null) {
                 kVar.B0();
             }
-            c cVar = this.f19157b;
+            c cVar = this.f19172b;
             if (cVar != null) {
                 cVar.o0(str);
             }
-            BdTypeListView bdTypeListView = this.f19156a;
+            BdTypeListView bdTypeListView = this.f19171a;
             if (bdTypeListView != null) {
                 bdTypeListView.setData(arrayList);
             }

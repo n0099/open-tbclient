@@ -15,10 +15,10 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AshmemFileDescriptor f7167a;
+    public final AshmemFileDescriptor f7175a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile SwanKV f7168b;
+    public volatile SwanKV f7176b;
 
     static {
         InterceptResult invokeClinit;
@@ -39,20 +39,20 @@ public class e {
     public AshmemFileDescriptor a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7167a : (AshmemFileDescriptor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7175a : (AshmemFileDescriptor) invokeV.objValue;
     }
 
     @NonNull
     public SwanKV b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7168b : (SwanKV) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7176b : (SwanKV) invokeV.objValue;
     }
 
     public void c(@NonNull SwanKV swanKV) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
-            this.f7168b = swanKV;
+            this.f7176b = swanKV;
         }
     }
 }

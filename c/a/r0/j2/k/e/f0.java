@@ -17,16 +17,16 @@ public class f0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.e.a.f f20052a;
+    public c.a.e.a.f f20067a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBarCoverTip f20053b;
+    public NavigationBarCoverTip f20068b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f20054c;
+    public TextView f20069c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20055d;
+    public int f20070d;
 
     public f0(c.a.e.a.f fVar, NavigationBarCoverTip navigationBarCoverTip) {
         Interceptable interceptable = $ic;
@@ -43,47 +43,47 @@ public class f0 {
                 return;
             }
         }
-        this.f20052a = fVar;
-        this.f20053b = navigationBarCoverTip;
+        this.f20067a = fVar;
+        this.f20068b = navigationBarCoverTip;
         b();
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f20053b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f20068b == null) {
             return;
         }
-        if (!c.a.e.e.p.k.isEmpty(str) && this.f20055d <= 0) {
-            this.f20053b.setVisibility(0);
-            this.f20055d++;
-            this.f20054c.setText(str);
-            SkinManager.setViewTextColor(this.f20054c, R.color.CAM_X0101);
-            this.f20053b.removeAllViews();
-            this.f20053b.addView(this.f20054c);
-            this.f20053b.showTip(this.f20052a.getPageActivity(), 5000);
+        if (!c.a.e.e.p.k.isEmpty(str) && this.f20070d <= 0) {
+            this.f20068b.setVisibility(0);
+            this.f20070d++;
+            this.f20069c.setText(str);
+            SkinManager.setViewTextColor(this.f20069c, R.color.CAM_X0101);
+            this.f20068b.removeAllViews();
+            this.f20068b.addView(this.f20069c);
+            this.f20068b.showTip(this.f20067a.getPageActivity(), 5000);
             return;
         }
         c();
-        this.f20053b.setVisibility(8);
+        this.f20068b.setVisibility(8);
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f20054c = new TextView(this.f20052a.getPageActivity());
-            this.f20054c.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            this.f20054c.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
-            this.f20054c.setPadding(this.f20052a.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.f20052a.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
-            this.f20054c.setGravity(19);
-            this.f20054c.setTextSize(0, this.f20052a.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
-            this.f20054c.setLineSpacing(this.f20052a.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
+            this.f20069c = new TextView(this.f20067a.getPageActivity());
+            this.f20069c.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            this.f20069c.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
+            this.f20069c.setPadding(this.f20067a.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.f20067a.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+            this.f20069c.setGravity(19);
+            this.f20069c.setTextSize(0, this.f20067a.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
+            this.f20069c.setLineSpacing(this.f20067a.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
         }
     }
 
     public void c() {
         NavigationBarCoverTip navigationBarCoverTip;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (navigationBarCoverTip = this.f20053b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (navigationBarCoverTip = this.f20068b) == null) {
             return;
         }
         navigationBarCoverTip.onDestroy();

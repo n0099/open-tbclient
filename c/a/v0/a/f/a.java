@@ -19,31 +19,31 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30342a;
+    public static boolean f30363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f30343b;
+    public static boolean f30364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static StringBuffer f30344c;
+    public static StringBuffer f30365c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.v0.a.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1405a extends c {
+    public static class C1403a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f30345e;
+        public final /* synthetic */ String f30366e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f30346f;
+        public final /* synthetic */ String f30367f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f30347g;
+        public final /* synthetic */ String f30368g;
 
-        public C1405a(String str, String str2, String str3) {
+        public C1403a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,9 +58,9 @@ public final class a {
                     return;
                 }
             }
-            this.f30345e = str;
-            this.f30346f = str2;
-            this.f30347g = str3;
+            this.f30366e = str;
+            this.f30367f = str2;
+            this.f30368g = str3;
         }
 
         @Override // c.a.v0.a.f.c
@@ -72,12 +72,12 @@ public final class a {
                 simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
                 stringBuffer.append(simpleDateFormat.format(new Date()));
                 stringBuffer.append(TrackUI.SEPERATOR);
-                stringBuffer.append(this.f30345e);
+                stringBuffer.append(this.f30366e);
                 stringBuffer.append(TrackUI.SEPERATOR);
-                stringBuffer.append(this.f30346f);
+                stringBuffer.append(this.f30367f);
                 stringBuffer.append(TrackUI.SEPERATOR);
-                stringBuffer.append(this.f30347g);
-                f.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.f59533c, a.f30344c.toString());
+                stringBuffer.append(this.f30368g);
+                f.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.f59664c, a.f30365c.toString());
             }
         }
     }
@@ -95,28 +95,28 @@ public final class a {
                 return;
             }
         }
-        f30344c = new StringBuffer();
+        f30365c = new StringBuffer();
         if (c.a.v0.a.c.i() != null) {
-            f30342a = !com.baidu.ubs.analytics.d.a.a();
-            f30343b = true;
-            f30344c.append("ABsdkLog-");
-            f30344c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            f30344c.append("_");
+            f30363a = !com.baidu.ubs.analytics.d.a.a();
+            f30364b = true;
+            f30365c.append("ABsdkLog-");
+            f30365c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            f30365c.append("_");
             try {
-                f30344c.append(c(c.a.v0.a.e.i.g(c.a.v0.a.c.i().g()).getBytes("UTF-8")));
+                f30365c.append(c(c.a.v0.a.e.i.g(c.a.v0.a.c.i().g()).getBytes("UTF-8")));
             } catch (UnsupportedEncodingException e2) {
                 i.d(e2);
             } catch (Exception e3) {
                 i.d(e3);
             }
-            f30344c.append(".log");
+            f30365c.append(".log");
         }
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            boolean z = f30342a;
+            boolean z = f30363a;
             d("w", "BaiDuUbs", str);
         }
     }
@@ -124,7 +124,7 @@ public final class a {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            boolean z = f30342a;
+            boolean z = f30363a;
             d("e", "BaiDuUbs", str);
         }
     }
@@ -151,14 +151,14 @@ public final class a {
 
     public static void d(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) && f30343b) {
-            b.a(new C1405a(str, str2, str3));
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) && f30364b) {
+            b.a(new C1403a(str, str2, str3));
         }
     }
 
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f30344c.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f30365c.toString() : (String) invokeV.objValue;
     }
 }

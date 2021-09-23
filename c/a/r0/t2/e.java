@@ -34,19 +34,19 @@ public class e extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f25045e;
+    public TbPageContext<?> f25066e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<b.a> f25046f;
+    public final List<b.a> f25067f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f25047g;
+    public int f25068g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f25048h;
+    public String f25069h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f25049i;
+    public String f25070i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -54,10 +54,10 @@ public class e extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a f25050e;
+        public final /* synthetic */ b.a f25071e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f25051f;
+        public final /* synthetic */ e f25072f;
 
         public a(e eVar, b.a aVar) {
             Interceptable interceptable = $ic;
@@ -74,27 +74,27 @@ public class e extends BaseAdapter {
                     return;
                 }
             }
-            this.f25051f = eVar;
-            this.f25050e = aVar;
+            this.f25072f = eVar;
+            this.f25071e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25051f.f25045e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25072f.f25066e == null) {
                 return;
             }
-            this.f25051f.g(this.f25050e);
-            if (this.f25050e.f25016g == 1) {
-                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.f25051f.f25045e.getPageActivity()).createSubPbActivityConfig(this.f25050e.f25015f + "", this.f25050e.f25010a + "", "search_post", true);
+            this.f25072f.g(this.f25071e);
+            if (this.f25071e.f25037g == 1) {
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.f25072f.f25066e.getPageActivity()).createSubPbActivityConfig(this.f25071e.f25036f + "", this.f25071e.f25031a + "", "search_post", true);
                 createSubPbActivityConfig.setKeyPageStartFrom(8);
-                this.f25051f.f25045e.sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+                this.f25072f.f25066e.sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
                 return;
             }
-            PbActivityConfig createNormalCfg = new PbActivityConfig(this.f25051f.f25045e.getPageActivity()).createNormalCfg(this.f25050e.f25015f + "", this.f25050e.f25010a + "", "search_post");
+            PbActivityConfig createNormalCfg = new PbActivityConfig(this.f25072f.f25066e.getPageActivity()).createNormalCfg(this.f25071e.f25036f + "", this.f25071e.f25031a + "", "search_post");
             createNormalCfg.setStartFrom(8);
             createNormalCfg.setSortType(0);
-            this.f25051f.f25045e.sendMessage(new CustomMessage(2004001, createNormalCfg));
+            this.f25072f.f25066e.sendMessage(new CustomMessage(2004001, createNormalCfg));
         }
     }
 
@@ -104,19 +104,19 @@ public class e extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f25052a;
+        public TextView f25073a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f25053b;
+        public TextView f25074b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f25054c;
+        public TextView f25075c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f25055d;
+        public TextView f25076d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f25056e;
+        public TextView f25077e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -168,56 +168,56 @@ public class e extends BaseAdapter {
                 return;
             }
         }
-        this.f25047g = -1;
-        this.f25045e = tbPageContext;
-        this.f25046f = new ArrayList();
+        this.f25068g = -1;
+        this.f25066e = tbPageContext;
+        this.f25067f = new ArrayList();
     }
 
     public void c(List<b.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f25046f.clear();
-            this.f25046f.addAll(list);
+            this.f25067f.clear();
+            this.f25067f.addAll(list);
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f25049i = str;
+            this.f25070i = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f25048h = str;
+            this.f25069h = str;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f25047g = i2;
+            this.f25068g = i2;
         }
     }
 
     public final void g(b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            StatisticItem param = new StatisticItem("c12405").param("fname", aVar.f25014e).param("uid", TbadkCoreApplication.getCurrentAccount());
-            int i2 = this.f25047g;
+            StatisticItem param = new StatisticItem("c12405").param("fname", aVar.f25035e).param("uid", TbadkCoreApplication.getCurrentAccount());
+            int i2 = this.f25068g;
             if (i2 > 0) {
                 param.param("tab_id", i2);
             }
             if (aVar != null) {
-                if (aVar.f25016g != 1 && aVar.f25017h != 1) {
-                    param.param("tid", aVar.f25015f);
+                if (aVar.f25037g != 1 && aVar.f25038h != 1) {
+                    param.param("tid", aVar.f25036f);
                 } else {
-                    param.param("pid", aVar.f25010a);
+                    param.param("pid", aVar.f25031a);
                 }
-                param.param("fid", this.f25049i);
-                param.param("query", this.f25048h);
+                param.param("fid", this.f25070i);
+                param.param("query", this.f25069h);
             }
             TiebaStatic.log(param);
         }
@@ -228,7 +228,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<b.a> list = this.f25046f;
+            List<b.a> list = this.f25067f;
             if (list == null) {
                 return 0;
             }
@@ -242,11 +242,11 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            List<b.a> list = this.f25046f;
-            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f25046f.size()) {
+            List<b.a> list = this.f25067f;
+            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f25067f.size()) {
                 return null;
             }
-            return this.f25046f.get(i2);
+            return this.f25067f.get(i2);
         }
         return invokeI.objValue;
     }
@@ -264,36 +264,36 @@ public class e extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f25045e.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f25066e.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
                 b bVar = new b(null);
-                bVar.f25052a = (TextView) view.findViewById(R.id.title_text);
-                bVar.f25053b = (TextView) view.findViewById(R.id.content_text);
-                bVar.f25054c = (TextView) view.findViewById(R.id.label_text);
-                bVar.f25055d = (TextView) view.findViewById(R.id.user_name);
-                bVar.f25056e = (TextView) view.findViewById(R.id.time_text);
+                bVar.f25073a = (TextView) view.findViewById(R.id.title_text);
+                bVar.f25074b = (TextView) view.findViewById(R.id.content_text);
+                bVar.f25075c = (TextView) view.findViewById(R.id.label_text);
+                bVar.f25076d = (TextView) view.findViewById(R.id.user_name);
+                bVar.f25077e = (TextView) view.findViewById(R.id.time_text);
                 view.setTag(bVar);
             }
             b bVar2 = (b) view.getTag();
-            b.a aVar = this.f25046f.get(i2);
+            b.a aVar = this.f25067f.get(i2);
             if (aVar == null) {
                 return view;
             }
             String str = TbadkCoreApplication.getInst().getSkinType() == 1 ? "#99260f" : "#e53917";
-            bVar2.f25052a.setText(Html.fromHtml(StringHelper.getHighLightString(aVar.f25011b, str)));
-            bVar2.f25053b.setText(Html.fromHtml(StringHelper.getHighLightString(aVar.f25013d, str)));
-            bVar2.f25055d.setText(aVar.f25018i);
-            bVar2.f25056e.setText(StringHelper.getFormatTime(aVar.f25012c));
-            bVar2.f25054c.setVisibility(0);
-            if (aVar.f25016g == 1) {
-                bVar2.f25054c.setText(R.string.floor_text);
-            } else if (aVar.f25017h == 1) {
-                bVar2.f25054c.setText(R.string.reply_post);
+            bVar2.f25073a.setText(Html.fromHtml(StringHelper.getHighLightString(aVar.f25032b, str)));
+            bVar2.f25074b.setText(Html.fromHtml(StringHelper.getHighLightString(aVar.f25034d, str)));
+            bVar2.f25076d.setText(aVar.f25039i);
+            bVar2.f25077e.setText(StringHelper.getFormatTime(aVar.f25033c));
+            bVar2.f25075c.setVisibility(0);
+            if (aVar.f25037g == 1) {
+                bVar2.f25075c.setText(R.string.floor_text);
+            } else if (aVar.f25038h == 1) {
+                bVar2.f25075c.setText(R.string.reply_post);
             } else {
-                bVar2.f25054c.setVisibility(8);
+                bVar2.f25075c.setVisibility(8);
             }
             view.setOnClickListener(new a(this, aVar));
             SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
-            c.a.q0.w0.a.a(this.f25045e, view);
+            c.a.q0.w0.a.a(this.f25066e, view);
             h(aVar);
             return view;
         }
@@ -303,19 +303,19 @@ public class e extends BaseAdapter {
     public final void h(b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            StatisticItem param = new StatisticItem("c14171").param("fname", aVar.f25014e).param("uid", TbadkCoreApplication.getCurrentAccount());
-            int i2 = this.f25047g;
+            StatisticItem param = new StatisticItem("c14171").param("fname", aVar.f25035e).param("uid", TbadkCoreApplication.getCurrentAccount());
+            int i2 = this.f25068g;
             if (i2 > 0) {
                 param.param("tab_id", i2);
             }
             if (aVar != null) {
-                if (aVar.f25016g != 1 && aVar.f25017h != 1) {
-                    param.param("tid", aVar.f25015f);
+                if (aVar.f25037g != 1 && aVar.f25038h != 1) {
+                    param.param("tid", aVar.f25036f);
                 } else {
-                    param.param("pid", aVar.f25010a);
+                    param.param("pid", aVar.f25031a);
                 }
-                param.param("fid", this.f25049i);
-                param.param("query", this.f25048h);
+                param.param("fid", this.f25070i);
+                param.param("query", this.f25069h);
             }
             TiebaStatic.log(param);
         }

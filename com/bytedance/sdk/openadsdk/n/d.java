@@ -31,35 +31,35 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile d f68195e;
+    public static volatile d f68506e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f68196a;
+    public volatile int f68507a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<Map<String, com.bytedance.sdk.openadsdk.n.b>> f68197b;
+    public final SparseArray<Map<String, com.bytedance.sdk.openadsdk.n.b>> f68508b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b<Runnable> f68198c;
+    public final b<Runnable> f68509c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ExecutorService f68199d;
+    public final ExecutorService f68510d;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.n.b.c f68200f;
+    public volatile com.bytedance.sdk.openadsdk.n.b.c f68511f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.n.a.c f68201g;
+    public volatile com.bytedance.sdk.openadsdk.n.a.c f68512g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile com.bytedance.sdk.openadsdk.n.a.b f68202h;
+    public volatile com.bytedance.sdk.openadsdk.n.a.b f68513h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HashSet<a> f68203i;
+    public final HashSet<a> f68514i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final b.InterfaceC1924b f68204j;
+    public final b.InterfaceC1928b f68515j;
     public volatile c k;
     public volatile c l;
     public volatile String m;
@@ -71,22 +71,22 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f68213a;
+        public final boolean f68524a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f68214b;
+        public final boolean f68525b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f68215c;
+        public final int f68526c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f68216d;
+        public final String f68527d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Map<String, String> f68217e;
+        public final Map<String, String> f68528e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String[] f68218f;
+        public final String[] f68529f;
 
         public a(boolean z, boolean z2, int i2, String str, Map<String, String> map, String[] strArr) {
             Interceptable interceptable = $ic;
@@ -103,12 +103,12 @@ public class d {
                     return;
                 }
             }
-            this.f68213a = z;
-            this.f68214b = z2;
-            this.f68215c = i2;
-            this.f68216d = str;
-            this.f68217e = map;
-            this.f68218f = strArr;
+            this.f68524a = z;
+            this.f68525b = z2;
+            this.f68526c = i2;
+            this.f68527d = str;
+            this.f68528e = map;
+            this.f68529f = strArr;
         }
 
         public boolean equals(Object obj) {
@@ -122,8 +122,8 @@ public class d {
                     return false;
                 }
                 a aVar = (a) obj;
-                if (this.f68213a == aVar.f68213a && this.f68214b == aVar.f68214b && this.f68215c == aVar.f68215c) {
-                    return this.f68216d.equals(aVar.f68216d);
+                if (this.f68524a == aVar.f68524a && this.f68525b == aVar.f68525b && this.f68526c == aVar.f68526c) {
+                    return this.f68527d.equals(aVar.f68527d);
                 }
                 return false;
             }
@@ -134,7 +134,7 @@ public class d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return ((((((this.f68213a ? 1 : 0) * 31) + (this.f68214b ? 1 : 0)) * 31) + this.f68215c) * 31) + this.f68216d.hashCode();
+                return ((((((this.f68524a ? 1 : 0) * 31) + (this.f68525b ? 1 : 0)) * 31) + this.f68526c) * 31) + this.f68527d.hashCode();
             }
             return invokeV.intValue;
         }
@@ -146,7 +146,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ThreadPoolExecutor f68219a;
+        public ThreadPoolExecutor f68530a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -166,11 +166,11 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, threadPoolExecutor) == null) {
                 synchronized (this) {
-                    if (this.f68219a != null) {
+                    if (this.f68530a != null) {
                         throw new IllegalStateException("You can only call setExecutor() once!");
                     }
                     if (threadPoolExecutor != null) {
-                        this.f68219a = threadPoolExecutor;
+                        this.f68530a = threadPoolExecutor;
                     } else {
                         throw new NullPointerException("executor argument can't be null!");
                     }
@@ -184,11 +184,11 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
                 synchronized (this) {
-                    int poolSize = this.f68219a.getPoolSize();
-                    int activeCount = this.f68219a.getActiveCount();
-                    int maximumPoolSize = this.f68219a.getMaximumPoolSize();
+                    int poolSize = this.f68530a.getPoolSize();
+                    int activeCount = this.f68530a.getActiveCount();
+                    int maximumPoolSize = this.f68530a.getMaximumPoolSize();
                     if (activeCount >= poolSize && poolSize < maximumPoolSize) {
-                        boolean z = e.f68222c;
+                        boolean z = e.f68533c;
                         return false;
                     }
                     return offerFirst(t);
@@ -211,15 +211,15 @@ public class d {
                 return;
             }
         }
-        this.f68196a = 163840;
-        this.f68197b = new SparseArray<>(2);
-        this.f68203i = new HashSet<>();
-        this.f68204j = new b.InterfaceC1924b(this) { // from class: com.bytedance.sdk.openadsdk.n.d.1
+        this.f68507a = 163840;
+        this.f68508b = new SparseArray<>(2);
+        this.f68514i = new HashSet<>();
+        this.f68515j = new b.InterfaceC1928b(this) { // from class: com.bytedance.sdk.openadsdk.n.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f68205a;
+            public final /* synthetic */ d f68516a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -236,47 +236,47 @@ public class d {
                         return;
                     }
                 }
-                this.f68205a = this;
+                this.f68516a = this;
             }
 
-            @Override // com.bytedance.sdk.openadsdk.n.b.InterfaceC1924b
+            @Override // com.bytedance.sdk.openadsdk.n.b.InterfaceC1928b
             public void a(com.bytedance.sdk.openadsdk.n.b bVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
                     int f2 = bVar.f();
-                    synchronized (this.f68205a.f68197b) {
-                        Map map = (Map) this.f68205a.f68197b.get(f2);
+                    synchronized (this.f68516a.f68508b) {
+                        Map map = (Map) this.f68516a.f68508b.get(f2);
                         if (map != null) {
-                            map.remove(bVar.f68143h);
+                            map.remove(bVar.f68454h);
                         }
                     }
-                    if (e.f68222c) {
-                        String str = "afterExecute, key: " + bVar.f68143h;
+                    if (e.f68533c) {
+                        String str = "afterExecute, key: " + bVar.f68454h;
                     }
                 }
             }
         };
         b<Runnable> bVar = new b<>();
-        this.f68198c = bVar;
+        this.f68509c = bVar;
         ExecutorService a2 = a(bVar);
-        this.f68199d = a2;
-        this.f68198c.a((ThreadPoolExecutor) a2);
-        this.f68197b.put(0, new HashMap());
-        this.f68197b.put(1, new HashMap());
+        this.f68510d = a2;
+        this.f68509c.a((ThreadPoolExecutor) a2);
+        this.f68508b.put(0, new HashMap());
+        this.f68508b.put(1, new HashMap());
     }
 
     public static d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f68195e == null) {
+            if (f68506e == null) {
                 synchronized (d.class) {
-                    if (f68195e == null) {
-                        f68195e = new d();
+                    if (f68506e == null) {
+                        f68506e = new d();
                     }
                 }
             }
-            return f68195e;
+            return f68506e;
         }
         return (d) invokeV.objValue;
     }
@@ -289,7 +289,7 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68210a;
+                public final /* synthetic */ d f68521a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -309,7 +309,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68210a = this;
+                    this.f68521a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -317,20 +317,20 @@ public class d {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         ArrayList<com.bytedance.sdk.openadsdk.n.b> arrayList = new ArrayList();
-                        synchronized (this.f68210a.f68197b) {
-                            int size = this.f68210a.f68197b.size();
+                        synchronized (this.f68521a.f68508b) {
+                            int size = this.f68521a.f68508b.size();
                             for (int i2 = 0; i2 < size; i2++) {
-                                Map map = (Map) this.f68210a.f68197b.get(this.f68210a.f68197b.keyAt(i2));
+                                Map map = (Map) this.f68521a.f68508b.get(this.f68521a.f68508b.keyAt(i2));
                                 if (map != null) {
                                     arrayList.addAll(map.values());
                                     map.clear();
                                 }
                             }
-                            this.f68210a.f68198c.clear();
+                            this.f68521a.f68509c.clear();
                         }
                         for (com.bytedance.sdk.openadsdk.n.b bVar : arrayList) {
                             bVar.a();
-                            if (e.f68222c) {
+                            if (e.f68533c) {
                                 String str = "PreloadTask: " + bVar + ", canceled!!!";
                             }
                         }
@@ -343,7 +343,7 @@ public class d {
     public void a(com.bytedance.sdk.openadsdk.n.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f68201g = cVar;
+            this.f68512g = cVar;
         }
     }
 
@@ -356,7 +356,7 @@ public class d {
     public void a(com.bytedance.sdk.openadsdk.n.b.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f68200f = cVar;
+            this.f68511f = cVar;
         }
     }
 
@@ -364,9 +364,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             if (i2 > 0) {
-                this.f68196a = i2;
+                this.f68507a = i2;
             }
-            if (e.f68222c) {
+            if (e.f68533c) {
                 String str = "MaxPreloadSize: " + i2;
             }
         }
@@ -393,36 +393,36 @@ public class d {
         if (interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) {
             this.m = str;
             this.n = z;
-            if (e.f68222c) {
+            if (e.f68533c) {
                 String str2 = "setCurrentPlayKey, " + str;
             }
             HashSet hashSet = null;
             HashSet hashSet2 = null;
             if (str == null) {
-                synchronized (this.f68203i) {
-                    if (!this.f68203i.isEmpty()) {
-                        hashSet2 = new HashSet(this.f68203i);
-                        this.f68203i.clear();
+                synchronized (this.f68514i) {
+                    if (!this.f68514i.isEmpty()) {
+                        hashSet2 = new HashSet(this.f68514i);
+                        this.f68514i.clear();
                     }
                 }
                 if (hashSet2 != null) {
                     Iterator it = hashSet2.iterator();
                     while (it.hasNext()) {
                         a aVar = (a) it.next();
-                        a(aVar.f68213a, aVar.f68214b, aVar.f68215c, aVar.f68216d, aVar.f68217e, aVar.f68218f);
-                        if (e.f68222c) {
-                            String str3 = "setCurrentPlayKey, resume preload: " + aVar.f68216d;
+                        a(aVar.f68524a, aVar.f68525b, aVar.f68526c, aVar.f68527d, aVar.f68528e, aVar.f68529f);
+                        if (e.f68533c) {
+                            String str3 = "setCurrentPlayKey, resume preload: " + aVar.f68527d;
                         }
                     }
                     return;
                 }
                 return;
             }
-            int i2 = e.f68227h;
+            int i2 = e.f68538h;
             if (i2 != 3 && i2 != 2) {
                 if (i2 == 1) {
-                    synchronized (this.f68197b) {
-                        Map<String, com.bytedance.sdk.openadsdk.n.b> map = this.f68197b.get(com.bytedance.sdk.openadsdk.n.b.b.a(z));
+                    synchronized (this.f68508b) {
+                        Map<String, com.bytedance.sdk.openadsdk.n.b> map = this.f68508b.get(com.bytedance.sdk.openadsdk.n.b.b.a(z));
                         remove = map != null ? map.remove(str) : null;
                     }
                     if (remove != null) {
@@ -433,10 +433,10 @@ public class d {
                 }
                 return;
             }
-            synchronized (this.f68197b) {
-                int size = this.f68197b.size();
+            synchronized (this.f68508b) {
+                int size = this.f68508b.size();
                 for (int i3 = 0; i3 < size; i3++) {
-                    Map<String, com.bytedance.sdk.openadsdk.n.b> map2 = this.f68197b.get(this.f68197b.keyAt(i3));
+                    Map<String, com.bytedance.sdk.openadsdk.n.b> map2 = this.f68508b.get(this.f68508b.keyAt(i3));
                     if (map2 != null) {
                         Collection<com.bytedance.sdk.openadsdk.n.b> values = map2.values();
                         if (values != null && !values.isEmpty()) {
@@ -455,17 +455,17 @@ public class d {
             Iterator it2 = hashSet.iterator();
             while (it2.hasNext()) {
                 ((com.bytedance.sdk.openadsdk.n.b) it2.next()).a();
-                if (e.f68222c) {
-                    String str4 = "setCurrentPlayKey, cancel preload: " + bVar.f68142g;
+                if (e.f68533c) {
+                    String str4 = "setCurrentPlayKey, cancel preload: " + bVar.f68453g;
                 }
             }
             if (i2 == 3) {
-                synchronized (this.f68203i) {
+                synchronized (this.f68514i) {
                     Iterator it3 = hashSet.iterator();
                     while (it3.hasNext()) {
                         a aVar2 = (a) ((com.bytedance.sdk.openadsdk.n.b) it3.next()).n;
                         if (aVar2 != null) {
-                            this.f68203i.add(aVar2);
+                            this.f68514i.add(aVar2);
                         }
                     }
                 }
@@ -483,31 +483,31 @@ public class d {
     public void a(boolean z, boolean z2, int i2, String str, Map<String, String> map, String... strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, map, strArr}) == null) {
-            boolean z3 = e.f68222c;
-            com.bytedance.sdk.openadsdk.n.a.a aVar = z ? this.f68202h : this.f68201g;
-            com.bytedance.sdk.openadsdk.n.b.c cVar = this.f68200f;
+            boolean z3 = e.f68533c;
+            com.bytedance.sdk.openadsdk.n.a.a aVar = z ? this.f68513h : this.f68512g;
+            com.bytedance.sdk.openadsdk.n.b.c cVar = this.f68511f;
             if (aVar != null && cVar != null) {
                 if (TextUtils.isEmpty(str) || strArr == null || strArr.length <= 0) {
                     return;
                 }
-                int i3 = i2 <= 0 ? this.f68196a : i2;
+                int i3 = i2 <= 0 ? this.f68507a : i2;
                 String a2 = z2 ? str : com.bytedance.sdk.openadsdk.n.g.b.a(str);
                 File d2 = aVar.d(a2);
                 if (d2 != null && d2.length() >= i3) {
-                    if (e.f68222c) {
+                    if (e.f68533c) {
                         String str2 = "no need preload, file size: " + d2.length() + ", need preload size: " + i3;
                         return;
                     }
                     return;
                 } else if (f.a().a(com.bytedance.sdk.openadsdk.n.b.b.a(z), a2)) {
-                    if (e.f68222c) {
+                    if (e.f68533c) {
                         String str3 = "has running proxy task, skip preload for key: " + str;
                         return;
                     }
                     return;
                 } else {
-                    synchronized (this.f68197b) {
-                        Map<String, com.bytedance.sdk.openadsdk.n.b> map2 = this.f68197b.get(z ? 1 : 0);
+                    synchronized (this.f68508b) {
+                        Map<String, com.bytedance.sdk.openadsdk.n.b> map2 = this.f68508b.get(z ? 1 : 0);
                         if (map2.containsKey(a2)) {
                             return;
                         }
@@ -515,22 +515,22 @@ public class d {
                         a aVar2 = new a(z, z2, i3, str, map, strArr);
                         String str4 = this.m;
                         if (str4 != null) {
-                            int i5 = e.f68227h;
+                            int i5 = e.f68538h;
                             if (i5 == 3) {
-                                synchronized (this.f68203i) {
-                                    this.f68203i.add(aVar2);
+                                synchronized (this.f68514i) {
+                                    this.f68514i.add(aVar2);
                                 }
-                                if (e.f68222c) {
+                                if (e.f68533c) {
                                     String str5 = "cancel preload: " + str + ", add to pending queue";
                                 }
                                 return;
                             } else if (i5 == 2) {
-                                if (e.f68222c) {
+                                if (e.f68533c) {
                                     String str6 = "cancel preload: " + str;
                                 }
                                 return;
                             } else if (i5 == 1 && this.n == z && str4.equals(a2)) {
-                                if (e.f68222c) {
+                                if (e.f68533c) {
                                     String str7 = "cancel preload: " + str + ", it is playing";
                                 }
                                 return;
@@ -544,18 +544,18 @@ public class d {
                             for (int i6 = 0; i6 < size; i6++) {
                                 i.b bVar = a3.get(i6);
                                 if (bVar != null) {
-                                    arrayList.add(new i.b(bVar.f68316a, bVar.f68317b));
+                                    arrayList.add(new i.b(bVar.f68627a, bVar.f68628b));
                                 }
                             }
                         }
-                        com.bytedance.sdk.openadsdk.n.b a4 = new b.a().a(aVar).a(cVar).a(str).b(a2).a(new l(com.bytedance.sdk.openadsdk.n.g.d.a(strArr))).a((List<i.b>) arrayList).a(i4).a(this.f68204j).a(aVar2).a();
+                        com.bytedance.sdk.openadsdk.n.b a4 = new b.a().a(aVar).a(cVar).a(str).b(a2).a(new l(com.bytedance.sdk.openadsdk.n.g.d.a(strArr))).a((List<i.b>) arrayList).a(i4).a(this.f68515j).a(aVar2).a();
                         map2.put(a2, a4);
-                        this.f68199d.execute(a4);
+                        this.f68510d.execute(a4);
                         return;
                     }
                 }
             }
-            boolean z4 = e.f68222c;
+            boolean z4 = e.f68533c;
         }
     }
 
@@ -576,16 +576,16 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ boolean f68206a;
+            public final /* synthetic */ boolean f68517a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean f68207b;
+            public final /* synthetic */ boolean f68518b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f68208c;
+            public final /* synthetic */ String f68519c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ d f68209d;
+            public final /* synthetic */ d f68520d;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -605,10 +605,10 @@ public class d {
                         return;
                     }
                 }
-                this.f68209d = this;
-                this.f68206a = z;
-                this.f68207b = z2;
-                this.f68208c = str;
+                this.f68520d = this;
+                this.f68517a = z;
+                this.f68518b = z2;
+                this.f68519c = str;
             }
 
             @Override // java.lang.Runnable
@@ -616,10 +616,10 @@ public class d {
                 com.bytedance.sdk.openadsdk.n.b bVar;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    synchronized (this.f68209d.f68197b) {
-                        Map map = (Map) this.f68209d.f68197b.get(com.bytedance.sdk.openadsdk.n.b.b.a(this.f68206a));
+                    synchronized (this.f68520d.f68508b) {
+                        Map map = (Map) this.f68520d.f68508b.get(com.bytedance.sdk.openadsdk.n.b.b.a(this.f68517a));
                         if (map != null) {
-                            bVar = (com.bytedance.sdk.openadsdk.n.b) map.remove(this.f68207b ? this.f68208c : com.bytedance.sdk.openadsdk.n.g.b.a(this.f68208c));
+                            bVar = (com.bytedance.sdk.openadsdk.n.b) map.remove(this.f68518b ? this.f68519c : com.bytedance.sdk.openadsdk.n.g.b.a(this.f68519c));
                         } else {
                             bVar = null;
                         }
@@ -665,7 +665,7 @@ public class d {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass4 f68211a;
+                            public final /* synthetic */ AnonymousClass4 f68522a;
 
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
@@ -685,7 +685,7 @@ public class d {
                                         return;
                                     }
                                 }
-                                this.f68211a = this;
+                                this.f68522a = this;
                             }
 
                             @Override // java.lang.Thread, java.lang.Runnable
@@ -703,7 +703,7 @@ public class d {
                         };
                         thread.setName("tt_pangle_thread_video_preload_" + thread.getId());
                         thread.setDaemon(true);
-                        if (e.f68222c) {
+                        if (e.f68533c) {
                             String str = "new preload thead: " + thread.getName();
                         }
                         return thread;
@@ -715,7 +715,7 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f68212a;
+                public final /* synthetic */ b f68523a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -732,7 +732,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68212a = bVar;
+                    this.f68523a = bVar;
                 }
 
                 @Override // java.util.concurrent.RejectedExecutionHandler
@@ -740,8 +740,8 @@ public class d {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
                         try {
-                            this.f68212a.offerFirst(runnable);
-                            boolean z = e.f68222c;
+                            this.f68523a.offerFirst(runnable);
+                            boolean z = e.f68533c;
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }

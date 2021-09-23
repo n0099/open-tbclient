@@ -320,7 +320,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         this.video = videoAggregationVideoData;
         this.forumId = String.valueOf(d2Var.T());
         this.threadId = d2Var.f0();
-        OriginalForumInfo originalForumInfo = d2Var.I1;
+        OriginalForumInfo originalForumInfo = d2Var.J1;
         if (originalForumInfo != null) {
             this.forumId = originalForumInfo.id;
         }
@@ -344,7 +344,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.mAgreeData.agreeType = d2Var.B().agreeType;
             this.mAgreeData.hasAgree = d2Var.B().hasAgree;
         }
-        this.mWorksInfoData = d2Var.L2;
+        this.mWorksInfoData = d2Var.M2;
     }
 
     public void copyFromTransmitThreadData(d2 d2Var) {
@@ -353,7 +353,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) || d2Var == null) {
             return;
         }
-        OriginalThreadInfo originalThreadInfo = d2Var.x1;
+        OriginalThreadInfo originalThreadInfo = d2Var.y1;
         VideoAggregationAuthorData videoAggregationAuthorData = new VideoAggregationAuthorData();
         User user = originalThreadInfo.x;
         if (user != null) {
@@ -407,13 +407,13 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.playCount = videoInfo2.play_count.intValue();
         }
         this.video = videoAggregationVideoData;
-        OriginalForumInfo originalForumInfo = d2Var.I1;
+        OriginalForumInfo originalForumInfo = d2Var.J1;
         if (originalForumInfo != null) {
             this.forumId = originalForumInfo.id;
         }
         if (originalThreadInfo != null) {
-            this.threadId = originalThreadInfo.f47422f;
-            this.title = originalThreadInfo.f47418b;
+            this.threadId = originalThreadInfo.f47524f;
+            this.title = originalThreadInfo.f47520b;
             this.postNum = originalThreadInfo.z.intValue();
         }
         if (originalThreadInfo != null && (agree = originalThreadInfo.y) != null) {

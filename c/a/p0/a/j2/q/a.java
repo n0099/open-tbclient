@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,19 +29,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f7072e;
+        public final /* synthetic */ int f7080e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7073f;
+        public final /* synthetic */ String f7081f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f7074g;
+        public final /* synthetic */ String f7082g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f7075h;
+        public final /* synthetic */ String f7083h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ SwanInterfaceType f7076i;
+        public final /* synthetic */ SwanInterfaceType f7084i;
 
         public RunnableC0277a(int i2, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
             Interceptable interceptable = $ic;
@@ -57,18 +58,18 @@ public class a {
                     return;
                 }
             }
-            this.f7072e = i2;
-            this.f7073f = str;
-            this.f7074g = str2;
-            this.f7075h = str3;
-            this.f7076i = swanInterfaceType;
+            this.f7080e = i2;
+            this.f7081f = str;
+            this.f7082g = str2;
+            this.f7083h = str3;
+            this.f7084i = swanInterfaceType;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f7072e;
+                int i2 = this.f7080e;
                 boolean z = (i2 == 2000 || i2 == 0) ? false : true;
                 String m = k.m(d.g().l());
                 JSONObject jSONObject = new JSONObject();
@@ -77,11 +78,11 @@ public class a {
                 w.f(jSONObject, "network", c.a.p0.t.a.e());
                 w.f(jSONObject, "launchid", d.g().r().L().V());
                 if (z) {
-                    w.f(jSONObject, "response", this.f7073f);
-                    w.f(jSONObject, "statusCode", this.f7074g);
-                    w.f(jSONObject, "request_url", this.f7075h);
+                    w.f(jSONObject, "response", this.f7081f);
+                    w.f(jSONObject, EnterDxmPayServiceAction.SERVICE_STATUS_CODE, this.f7082g);
+                    w.f(jSONObject, "request_url", this.f7083h);
                 }
-                a.d(m, this.f7076i.getClassify(), this.f7076i.getInterfaceName(), this.f7072e, jSONObject, z);
+                a.d(m, this.f7084i.getClassify(), this.f7084i.getInterfaceName(), this.f7080e, jSONObject, z);
             }
         }
     }

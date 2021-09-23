@@ -15,8 +15,8 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String APP_ATTACH = "appAttach";
     public static final String APP_RUNTIME_INIT = "appRuntimeInit";
-    public static final String BEFORE_ATTACH_BASE_CONTEXT = "beforeAttachBaseContext";
     public static final String INSTALL_CONTENT_PROVIDER = "installContentProvider";
     public static final String MULTIDEX_INSTALL = "multidexInstall";
     public static final String NPS_INIT = "npsInit";
@@ -112,17 +112,19 @@ public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
             long j10 = this.mNpsInitEndTimeStamp;
             long j11 = j10 - j8;
             long j12 = this.mTiTanInitEndTimeStamp - j10;
-            long j13 = j2 - this.mAppAttachContextEndTimeStamp;
-            if (j3 < 0 || j3 > 60000 || j5 < 0 || j5 > 60000 || j7 < 0 || j7 > 60000 || j9 < 0 || j9 > 60000 || j12 < 0 || j12 > 60000 || j11 < 0 || j11 > 60000 || j13 < 0 || j13 > 60000) {
+            long j13 = this.mAppAttachContextEndTimeStamp;
+            long j14 = j13 - j4;
+            long j15 = j2 - j13;
+            if (j3 < 0 || j3 > 60000 || j5 < 0 || j5 > 60000 || j7 < 0 || j7 > 60000 || j9 < 0 || j9 > 60000 || j12 < 0 || j12 > 60000 || j11 < 0 || j11 > 60000 || j15 < 0 || j15 > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(BEFORE_ATTACH_BASE_CONTEXT, String.valueOf(j5));
+            hashMap.put(APP_ATTACH, String.valueOf(j14));
             hashMap.put(MULTIDEX_INSTALL, String.valueOf(j7));
             hashMap.put(APP_RUNTIME_INIT, String.valueOf(j9));
             hashMap.put(TITAN_INIT, String.valueOf(j12));
             hashMap.put(NPS_INIT, String.valueOf(j11));
-            hashMap.put(INSTALL_CONTENT_PROVIDER, String.valueOf(j13));
+            hashMap.put(INSTALL_CONTENT_PROVIDER, String.valueOf(j15));
             JSONObject jsonData = SpeedStatsUtils.getJsonData(j3, hashMap);
             if (jsonData != null) {
                 try {

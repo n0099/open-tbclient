@@ -21,19 +21,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f21716a;
+    public View f21730a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f21717b;
+    public HeadImageView f21731b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f21718c;
+    public TextView f21732c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f21719d;
+    public TextView f21733d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f21720e;
+    public ImageView f21734e;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -50,20 +50,20 @@ public class b {
                 return;
             }
         }
-        this.f21716a = null;
-        this.f21717b = null;
-        this.f21718c = null;
-        this.f21719d = null;
-        this.f21720e = null;
+        this.f21730a = null;
+        this.f21731b = null;
+        this.f21732c = null;
+        this.f21733d = null;
+        this.f21734e = null;
         View inflate = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.f21716a = inflate;
-        this.f21717b = (HeadImageView) inflate.findViewById(R.id.zan_list_item_head);
-        this.f21718c = (TextView) this.f21716a.findViewById(R.id.zan_list_item_name);
-        this.f21719d = (TextView) this.f21716a.findViewById(R.id.zan_list_item_time);
-        ImageView imageView = (ImageView) this.f21716a.findViewById(R.id.zan_list_item_line_bottom);
-        this.f21720e = imageView;
+        this.f21730a = inflate;
+        this.f21731b = (HeadImageView) inflate.findViewById(R.id.zan_list_item_head);
+        this.f21732c = (TextView) this.f21730a.findViewById(R.id.zan_list_item_name);
+        this.f21733d = (TextView) this.f21730a.findViewById(R.id.zan_list_item_time);
+        ImageView imageView = (ImageView) this.f21730a.findViewById(R.id.zan_list_item_line_bottom);
+        this.f21734e = imageView;
         imageView.setVisibility(0);
-        this.f21716a.setTag(this);
+        this.f21730a.setTag(this);
     }
 
     public static b b(Context context, View view) {
@@ -81,16 +81,16 @@ public class b {
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21716a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21730a : (View) invokeV.objValue;
     }
 
     public void c(String str, String str2, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.f21718c.setText(str);
-            this.f21717b.setImageDrawable(null);
-            this.f21719d.setText(StringHelper.getFormatTime(j2));
-            this.f21717b.startLoad(str2, 28, false);
+            this.f21732c.setText(str);
+            this.f21731b.setImageDrawable(null);
+            this.f21733d.setText(StringHelper.getFormatTime(j2));
+            this.f21731b.startLoad(str2, 28, false);
         }
     }
 }

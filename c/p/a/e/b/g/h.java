@@ -32,34 +32,34 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f35135a;
+    public final boolean f35158a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DownloadInfo f35136b;
+    public DownloadInfo f35159b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k f35137c;
+    public final k f35160c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f35138d;
+    public final Handler f35161d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.p.a.e.b.n.a f35139e;
+    public c.p.a.e.b.n.a f35162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArray<c.p.a.e.b.f.c> f35140f;
+    public SparseArray<c.p.a.e.b.f.c> f35163f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SparseArray<c.p.a.e.b.f.c> f35141g;
+    public SparseArray<c.p.a.e.b.f.c> f35164g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SparseArray<c.p.a.e.b.f.c> f35142h;
+    public SparseArray<c.p.a.e.b.f.c> f35165h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f35143i;
+    public boolean f35166i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile long f35144j;
+    public volatile long f35167j;
     public final AtomicLong k;
     public boolean l;
     public int m;
@@ -72,7 +72,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f35145e;
+        public final /* synthetic */ h f35168e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -89,15 +89,15 @@ public class h {
                     return;
                 }
             }
-            this.f35145e = hVar;
+            this.f35168e = hVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f35145e.f35137c.i(this.f35145e.f35136b.getId());
-                this.f35145e.c(1, null);
+                this.f35168e.f35160c.i(this.f35168e.f35159b.getId());
+                this.f35168e.c(1, null);
             }
         }
     }
@@ -108,7 +108,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f35146a;
+        public final /* synthetic */ h f35169a;
 
         public b(h hVar) {
             Interceptable interceptable = $ic;
@@ -125,14 +125,14 @@ public class h {
                     return;
                 }
             }
-            this.f35146a = hVar;
+            this.f35169a = hVar;
         }
 
         @Override // c.p.a.e.b.f.l
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f35146a.C();
+                this.f35169a.C();
             }
         }
 
@@ -145,7 +145,7 @@ public class h {
                 sb.append("saveFileAsTargetName onFailed : ");
                 sb.append(baseException != null ? baseException.getErrorMessage() : "");
                 c.p.a.e.b.c.a.g(str, sb.toString());
-                this.f35146a.g(baseException);
+                this.f35169a.g(baseException);
             }
         }
     }
@@ -180,34 +180,34 @@ public class h {
                 return;
             }
         }
-        this.f35143i = false;
-        this.f35144j = 0L;
+        this.f35166i = false;
+        this.f35167j = 0L;
         this.k = new AtomicLong();
         this.l = false;
-        this.f35139e = aVar;
+        this.f35162e = aVar;
         A();
-        this.f35138d = handler;
-        this.f35137c = e.M0();
+        this.f35161d = handler;
+        this.f35160c = e.M0();
         DownloadInfo J = aVar.J();
         if (J != null) {
-            this.f35135a = c.p.a.e.b.j.a.d(J.getId()).l("fix_start_with_file_exist_update_error");
+            this.f35158a = c.p.a.e.b.j.a.d(J.getId()).l("fix_start_with_file_exist_update_error");
         } else {
-            this.f35135a = false;
+            this.f35158a = false;
         }
     }
 
     public final void A() {
         c.p.a.e.b.n.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f35139e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f35162e) == null) {
             return;
         }
-        this.f35136b = aVar.J();
-        this.f35140f = this.f35139e.M(com.ss.android.socialbase.downloader.constants.f.f75840a);
-        this.f35142h = this.f35139e.M(com.ss.android.socialbase.downloader.constants.f.f75842c);
-        this.f35141g = this.f35139e.M(com.ss.android.socialbase.downloader.constants.f.f75841b);
-        this.f35139e.E();
-        this.o = this.f35139e.R();
+        this.f35159b = aVar.J();
+        this.f35163f = this.f35162e.M(com.ss.android.socialbase.downloader.constants.f.f76159a);
+        this.f35165h = this.f35162e.M(com.ss.android.socialbase.downloader.constants.f.f76161c);
+        this.f35164g = this.f35162e.M(com.ss.android.socialbase.downloader.constants.f.f76160b);
+        this.f35162e.E();
+        this.o = this.f35162e.R();
     }
 
     public final void B() {
@@ -226,12 +226,12 @@ public class h {
                 c.p.a.e.b.c.a.g(p, "saveFileAsTargetName onSuccess");
                 try {
                     D();
-                    this.f35136b.setFirstSuccess(false);
-                    this.f35136b.setSuccessByCache(false);
+                    this.f35159b.setFirstSuccess(false);
+                    this.f35159b.setSuccessByCache(false);
                     c(-3, null);
-                    this.f35137c.c(this.f35136b.getId(), this.f35136b.getTotalBytes());
-                    this.f35137c.d(this.f35136b.getId());
-                    this.f35137c.m(this.f35136b.getId());
+                    this.f35160c.c(this.f35159b.getId(), this.f35159b.getTotalBytes());
+                    this.f35160c.d(this.f35159b.getId());
+                    this.f35160c.m(this.f35159b.getId());
                 } catch (BaseException e2) {
                     g(e2);
                 }
@@ -244,18 +244,18 @@ public class h {
     public final void D() throws BaseException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            List<c.p.a.e.b.f.r> H = this.f35139e.H();
+            List<c.p.a.e.b.f.r> H = this.f35162e.H();
             if (H.isEmpty()) {
                 return;
             }
-            DownloadInfo downloadInfo = this.f35136b;
+            DownloadInfo downloadInfo = this.f35159b;
             c(11, null);
-            this.f35137c.a(downloadInfo);
+            this.f35160c.a(downloadInfo);
             for (c.p.a.e.b.f.r rVar : H) {
                 try {
                     if (rVar.b(downloadInfo)) {
                         rVar.a(downloadInfo);
-                        this.f35137c.a(downloadInfo);
+                        this.f35160c.a(downloadInfo);
                     }
                 } catch (BaseException e2) {
                     throw e2;
@@ -268,10 +268,10 @@ public class h {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f35136b.canSkipStatusHandler()) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f35159b.canSkipStatusHandler()) {
             return;
         }
-        this.f35136b.setStatus(1);
+        this.f35159b.setStatus(1);
         B();
     }
 
@@ -287,49 +287,49 @@ public class h {
         SparseArray<c.p.a.e.b.f.c> sparseArray2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), baseException, Boolean.valueOf(z)}) == null) {
-            int status = this.f35136b.getStatus();
+            int status = this.f35159b.getStatus();
             if (status == -3 && i2 == 4) {
                 return;
             }
             A();
             if (i2 != 4 && c.p.a.e.b.d.a.e(i2)) {
-                this.f35136b.updateRealDownloadTime(false);
+                this.f35159b.updateRealDownloadTime(false);
                 if (c.p.a.e.b.d.a.f(i2)) {
-                    this.f35136b.updateDownloadTime();
+                    this.f35159b.updateDownloadTime();
                 }
             }
-            if (!this.f35136b.isAddListenerToSameTask()) {
-                c.p.a.e.b.e.a.i(this.f35139e, baseException, i2);
+            if (!this.f35159b.isAddListenerToSameTask()) {
+                c.p.a.e.b.e.a.i(this.f35162e, baseException, i2);
             }
             if (i2 == 6) {
-                this.f35136b.setStatus(2);
+                this.f35159b.setStatus(2);
             } else if (i2 == -6) {
-                this.f35136b.setStatus(-3);
+                this.f35159b.setStatus(-3);
             } else {
-                this.f35136b.setStatus(i2);
+                this.f35159b.setStatus(i2);
             }
             if (status == -3 || status == -1) {
-                if (this.f35136b.getRetryDelayStatus() == com.ss.android.socialbase.downloader.constants.g.f75846c) {
-                    this.f35136b.setRetryDelayStatus(com.ss.android.socialbase.downloader.constants.g.f75847d);
+                if (this.f35159b.getRetryDelayStatus() == com.ss.android.socialbase.downloader.constants.g.f76165c) {
+                    this.f35159b.setRetryDelayStatus(com.ss.android.socialbase.downloader.constants.g.f76166d);
                 }
-                if (this.f35136b.getAsyncHandleStatus() == com.ss.android.socialbase.downloader.constants.a.f75828d) {
-                    this.f35136b.setAsyncHandleStatus(com.ss.android.socialbase.downloader.constants.a.f75829e);
+                if (this.f35159b.getAsyncHandleStatus() == com.ss.android.socialbase.downloader.constants.a.f76147d) {
+                    this.f35159b.setAsyncHandleStatus(com.ss.android.socialbase.downloader.constants.a.f76148e);
                 }
-                if (this.f35136b.getByteInvalidRetryStatus() == com.ss.android.socialbase.downloader.constants.b.f75833c) {
-                    this.f35136b.setByteInvalidRetryStatus(com.ss.android.socialbase.downloader.constants.b.f75834d);
+                if (this.f35159b.getByteInvalidRetryStatus() == com.ss.android.socialbase.downloader.constants.b.f76152c) {
+                    this.f35159b.setByteInvalidRetryStatus(com.ss.android.socialbase.downloader.constants.b.f76153d);
                 }
             }
-            c.p.a.e.b.l.c.a(i2, this.f35141g, true, this.f35136b, baseException);
+            c.p.a.e.b.l.c.a(i2, this.f35164g, true, this.f35159b, baseException);
             if (i2 == -4) {
                 return;
             }
-            if (z && this.f35138d != null && (((sparseArray = this.f35140f) != null && sparseArray.size() > 0) || ((sparseArray2 = this.f35142h) != null && sparseArray2.size() > 0 && (this.f35136b.canShowNotification() || this.f35136b.isAutoInstallWithoutNotification())))) {
-                this.f35138d.obtainMessage(i2, this.f35136b.getId(), this.f35139e.P(), baseException).sendToTarget();
+            if (z && this.f35161d != null && (((sparseArray = this.f35163f) != null && sparseArray.size() > 0) || ((sparseArray2 = this.f35165h) != null && sparseArray2.size() > 0 && (this.f35159b.canShowNotification() || this.f35159b.isAutoInstallWithoutNotification())))) {
+                this.f35161d.obtainMessage(i2, this.f35159b.getId(), this.f35162e.P(), baseException).sendToTarget();
                 return;
             }
             c.p.a.e.b.m.a c2 = e.c();
             if (c2 != null) {
-                c2.e(this.f35136b.getId(), this.f35139e.P(), i2);
+                c2.e(this.f35159b.getId(), this.f35162e.P(), i2);
             }
         }
     }
@@ -337,20 +337,20 @@ public class h {
     public void e(long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
-            this.f35136b.setTotalBytes(j2);
-            this.f35136b.seteTag(str);
-            if (!TextUtils.isEmpty(str2) && TextUtils.isEmpty(this.f35136b.getName())) {
-                this.f35136b.setName(str2);
+            this.f35159b.setTotalBytes(j2);
+            this.f35159b.seteTag(str);
+            if (!TextUtils.isEmpty(str2) && TextUtils.isEmpty(this.f35159b.getName())) {
+                this.f35159b.setName(str2);
             }
             try {
-                this.f35137c.a(this.f35136b.getId(), j2, str, str2);
+                this.f35160c.a(this.f35159b.getId(), j2, str, str2);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             c(3, null);
-            this.n = this.f35136b.getMinByteIntervalForPostToMainThread(j2);
-            this.m = this.f35136b.getMinProgressTimeMsInterval();
-            this.f35143i = true;
+            this.n = this.f35159b.getMinByteIntervalForPostToMainThread(j2);
+            this.m = this.f35159b.getMinProgressTimeMsInterval();
+            this.f35166i = true;
             c.p.a.e.b.m.q.d().y();
         }
     }
@@ -358,7 +358,7 @@ public class h {
     public void g(BaseException baseException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, baseException) == null) {
-            this.f35136b.setFirstDownload(false);
+            this.f35159b.setFirstDownload(false);
             o(baseException);
         }
     }
@@ -366,7 +366,7 @@ public class h {
     public void h(BaseException baseException, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048585, this, baseException, z) == null) {
-            this.f35136b.setFirstDownload(false);
+            this.f35159b.setFirstDownload(false);
             this.k.set(0L);
             p(baseException, z);
         }
@@ -375,9 +375,9 @@ public class h {
     public void i(com.ss.android.socialbase.downloader.model.b bVar, BaseException baseException, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048586, this, bVar, baseException, z) == null) {
-            this.f35136b.setFirstDownload(false);
+            this.f35159b.setFirstDownload(false);
             this.k.set(0L);
-            this.f35137c.h(this.f35136b.getId());
+            this.f35160c.h(this.f35159b.getId());
             d(z ? 10 : 9, baseException, true);
         }
     }
@@ -386,18 +386,18 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             String str2 = p;
-            c.p.a.e.b.c.a.g(str2, "onCompleteForFileExist existTargetFileName is " + str + " but curName is " + this.f35136b.getName());
-            if (this.f35135a) {
-                c.p.a.e.b.l.f.y(this.f35136b, str);
+            c.p.a.e.b.c.a.g(str2, "onCompleteForFileExist existTargetFileName is " + str + " but curName is " + this.f35159b.getName());
+            if (this.f35158a) {
+                c.p.a.e.b.l.f.y(this.f35159b, str);
                 D();
-                this.f35136b.setSuccessByCache(true);
+                this.f35159b.setSuccessByCache(true);
                 c(-3, null);
-                this.f35137c.a(this.f35136b);
+                this.f35160c.a(this.f35159b);
                 return;
             }
-            this.f35137c.a(this.f35136b);
-            c.p.a.e.b.l.f.y(this.f35136b, str);
-            this.f35136b.setSuccessByCache(true);
+            this.f35160c.a(this.f35159b);
+            c.p.a.e.b.l.f.y(this.f35159b, str);
+            this.f35159b.setSuccessByCache(true);
             D();
             c(-3, null);
         }
@@ -408,7 +408,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j2)) == null) {
             this.k.addAndGet(j2);
-            this.f35136b.increaseCurBytes(j2);
+            this.f35159b.increaseCurBytes(j2);
             long uptimeMillis = SystemClock.uptimeMillis();
             return l(uptimeMillis, q(uptimeMillis));
         }
@@ -420,19 +420,19 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             boolean z2 = false;
-            if (this.f35136b.getCurBytes() == this.f35136b.getTotalBytes()) {
+            if (this.f35159b.getCurBytes() == this.f35159b.getTotalBytes()) {
                 try {
-                    this.f35137c.a(this.f35136b.getId(), this.f35136b.getCurBytes());
+                    this.f35160c.a(this.f35159b.getId(), this.f35159b.getCurBytes());
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
                 return false;
             }
-            if (this.f35143i) {
-                this.f35143i = false;
-                this.f35136b.setStatus(4);
+            if (this.f35166i) {
+                this.f35166i = false;
+                this.f35159b.setStatus(4);
             }
-            if (this.f35136b.isNeedPostProgress() && z) {
+            if (this.f35159b.isNeedPostProgress() && z) {
                 z2 = true;
             }
             d(4, null, z2);
@@ -444,12 +444,12 @@ public class h {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (this.f35136b.canSkipStatusHandler()) {
-                this.f35136b.changeSkipStatus();
+            if (this.f35159b.canSkipStatusHandler()) {
+                this.f35159b.changeSkipStatus();
                 return;
             }
-            this.f35137c.g(this.f35136b.getId());
-            if (this.f35136b.isFirstDownload()) {
+            this.f35160c.g(this.f35159b.getId());
+            if (this.f35159b.isFirstDownload()) {
                 c(6, null);
             }
             c(2, null);
@@ -462,26 +462,26 @@ public class h {
             String str = "handleError::" + baseException + " \r\n" + Log.getStackTraceString(new Throwable());
             if (baseException != null && baseException.getCause() != null && (baseException.getCause() instanceof SQLiteFullException)) {
                 try {
-                    this.f35137c.f(this.f35136b.getId());
+                    this.f35160c.f(this.f35159b.getId());
                 } catch (SQLiteException e2) {
                     e2.printStackTrace();
                 }
             } else {
                 try {
                     try {
-                        this.f35137c.b(this.f35136b.getId(), this.f35136b.getCurBytes());
+                        this.f35160c.b(this.f35159b.getId(), this.f35159b.getCurBytes());
                     } catch (SQLiteException unused) {
-                        this.f35137c.f(this.f35136b.getId());
+                        this.f35160c.f(this.f35159b.getId());
                     }
                 } catch (SQLiteException e3) {
                     e3.printStackTrace();
                 }
             }
             BaseException r = r(baseException);
-            this.f35136b.setFailedException(r);
+            this.f35159b.setFailedException(r);
             c(r instanceof com.ss.android.socialbase.downloader.exception.e ? -2 : -1, r);
-            if (c.p.a.e.b.j.a.d(this.f35136b.getId()).b("retry_schedule", 0) > 0) {
-                c.p.a.e.b.m.q.d().k(this.f35136b);
+            if (c.p.a.e.b.j.a.d(this.f35159b.getId()).b("retry_schedule", 0) > 0) {
+                c.p.a.e.b.m.q.d().k(this.f35159b);
             }
         }
     }
@@ -489,7 +489,7 @@ public class h {
     public final void p(BaseException baseException, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048592, this, baseException, z) == null) {
-            this.f35137c.h(this.f35136b.getId());
+            this.f35160c.h(this.f35159b.getId());
             c(z ? 7 : 5, baseException);
         }
     }
@@ -503,12 +503,12 @@ public class h {
                 this.l = true;
                 return true;
             }
-            long j3 = j2 - this.f35144j;
+            long j3 = j2 - this.f35167j;
             if (this.k.get() < this.n && j3 < this.m) {
                 z = false;
             }
             if (z) {
-                this.f35144j = j2;
+                this.f35167j = j2;
                 this.k.set(0L);
             }
             return z;
@@ -521,10 +521,10 @@ public class h {
         Context n;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, baseException)) == null) {
-            if (c.p.a.e.b.j.a.d(this.f35136b.getId()).b("download_failed_check_net", 1) != 1 || !c.p.a.e.b.l.f.Y0(baseException) || (n = e.n()) == null || c.p.a.e.b.l.f.r0(n)) {
+            if (c.p.a.e.b.j.a.d(this.f35159b.getId()).b("download_failed_check_net", 1) != 1 || !c.p.a.e.b.l.f.Y0(baseException) || (n = e.n()) == null || c.p.a.e.b.l.f.r0(n)) {
                 return baseException;
             }
-            return new BaseException(this.f35136b.isOnlyWifi() ? 1013 : SDKLogTypeConstants.TYPE_LP_LOAD_URL, baseException.getErrorMessage());
+            return new BaseException(this.f35159b.isOnlyWifi() ? 1013 : SDKLogTypeConstants.TYPE_LP_LOAD_URL, baseException.getErrorMessage());
         }
         return (BaseException) invokeL.objValue;
     }
@@ -539,9 +539,9 @@ public class h {
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.f35136b.setStatus(-2);
+            this.f35159b.setStatus(-2);
             try {
-                this.f35137c.d(this.f35136b.getId(), this.f35136b.getCurBytes());
+                this.f35160c.d(this.f35159b.getId(), this.f35159b.getCurBytes());
             } catch (SQLiteException e2) {
                 e2.printStackTrace();
             }
@@ -552,9 +552,9 @@ public class h {
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f35136b.setStatus(-7);
+            this.f35159b.setStatus(-7);
             try {
-                this.f35137c.j(this.f35136b.getId());
+                this.f35160c.j(this.f35159b.getId());
             } catch (SQLiteException e2) {
                 e2.printStackTrace();
             }
@@ -565,25 +565,25 @@ public class h {
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.f35136b.setFirstDownload(false);
-            if (!this.f35136b.isIgnoreDataVerify() && this.f35136b.getCurBytes() != this.f35136b.getTotalBytes()) {
-                c.p.a.e.b.c.a.g(p, this.f35136b.getErrorBytesLog());
-                g(new com.ss.android.socialbase.downloader.exception.f(1027, "current bytes is not equals to total bytes, bytes changed with process : " + this.f35136b.getByteInvalidRetryStatus()));
-            } else if (this.f35136b.getCurBytes() <= 0) {
-                c.p.a.e.b.c.a.g(p, this.f35136b.getErrorBytesLog());
-                g(new com.ss.android.socialbase.downloader.exception.f(1026, "curBytes is 0, bytes changed with process : " + this.f35136b.getByteInvalidRetryStatus()));
-            } else if (!this.f35136b.isIgnoreDataVerify() && this.f35136b.getTotalBytes() <= 0) {
-                c.p.a.e.b.c.a.g(p, this.f35136b.getErrorBytesLog());
-                g(new com.ss.android.socialbase.downloader.exception.f(1044, "TotalBytes is 0, bytes changed with process : " + this.f35136b.getByteInvalidRetryStatus()));
+            this.f35159b.setFirstDownload(false);
+            if (!this.f35159b.isIgnoreDataVerify() && this.f35159b.getCurBytes() != this.f35159b.getTotalBytes()) {
+                c.p.a.e.b.c.a.g(p, this.f35159b.getErrorBytesLog());
+                g(new com.ss.android.socialbase.downloader.exception.f(1027, "current bytes is not equals to total bytes, bytes changed with process : " + this.f35159b.getByteInvalidRetryStatus()));
+            } else if (this.f35159b.getCurBytes() <= 0) {
+                c.p.a.e.b.c.a.g(p, this.f35159b.getErrorBytesLog());
+                g(new com.ss.android.socialbase.downloader.exception.f(1026, "curBytes is 0, bytes changed with process : " + this.f35159b.getByteInvalidRetryStatus()));
+            } else if (!this.f35159b.isIgnoreDataVerify() && this.f35159b.getTotalBytes() <= 0) {
+                c.p.a.e.b.c.a.g(p, this.f35159b.getErrorBytesLog());
+                g(new com.ss.android.socialbase.downloader.exception.f(1044, "TotalBytes is 0, bytes changed with process : " + this.f35159b.getByteInvalidRetryStatus()));
             } else {
                 String str = p;
-                c.p.a.e.b.c.a.g(str, "" + this.f35136b.getName() + " onCompleted start save file as target name");
+                c.p.a.e.b.c.a.g(str, "" + this.f35159b.getName() + " onCompleted start save file as target name");
                 z zVar = this.o;
-                c.p.a.e.b.n.a aVar = this.f35139e;
+                c.p.a.e.b.n.a aVar = this.f35162e;
                 if (aVar != null) {
                     zVar = aVar.R();
                 }
-                c.p.a.e.b.l.f.x(this.f35136b, zVar, new b(this));
+                c.p.a.e.b.l.f.x(this.f35159b, zVar, new b(this));
             }
         }
     }
@@ -591,35 +591,35 @@ public class h {
     public void x() throws BaseException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            if (this.f35135a) {
+            if (this.f35158a) {
                 D();
                 c.p.a.e.b.c.a.g(p, "onCompleteForFileExist");
-                this.f35136b.setSuccessByCache(true);
+                this.f35159b.setSuccessByCache(true);
                 c(-3, null);
-                this.f35137c.c(this.f35136b.getId(), this.f35136b.getTotalBytes());
-                this.f35137c.d(this.f35136b.getId());
-                this.f35137c.a(this.f35136b);
-                this.f35137c.m(this.f35136b.getId());
+                this.f35160c.c(this.f35159b.getId(), this.f35159b.getTotalBytes());
+                this.f35160c.d(this.f35159b.getId());
+                this.f35160c.a(this.f35159b);
+                this.f35160c.m(this.f35159b.getId());
                 return;
             }
             D();
             c.p.a.e.b.c.a.g(p, "onCompleteForFileExist");
-            this.f35136b.setSuccessByCache(true);
+            this.f35159b.setSuccessByCache(true);
             c(-3, null);
-            this.f35137c.c(this.f35136b.getId(), this.f35136b.getTotalBytes());
-            this.f35137c.d(this.f35136b.getId());
-            this.f35137c.m(this.f35136b.getId());
+            this.f35160c.c(this.f35159b.getId(), this.f35159b.getTotalBytes());
+            this.f35160c.d(this.f35159b.getId());
+            this.f35160c.m(this.f35159b.getId());
         }
     }
 
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.f35136b.setStatus(8);
-            this.f35136b.setAsyncHandleStatus(com.ss.android.socialbase.downloader.constants.a.f75826b);
+            this.f35159b.setStatus(8);
+            this.f35159b.setAsyncHandleStatus(com.ss.android.socialbase.downloader.constants.a.f76145b);
             c.p.a.e.b.m.a c2 = e.c();
             if (c2 != null) {
-                c2.e(this.f35136b.getId(), this.f35139e.P(), 8);
+                c2.e(this.f35159b.getId(), this.f35162e.P(), 8);
             }
         }
     }

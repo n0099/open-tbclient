@@ -72,7 +72,7 @@ public class c extends k<d2, FrsAppEmptyHolder> implements t {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, d2Var, frsAppEmptyHolder})) == null) {
             if (d2Var instanceof AdvertAppInfo) {
                 AdvertAppInfo advertAppInfo = (AdvertAppInfo) d2Var;
-                c.a.q0.s.q.e.c(advertAppInfo.f4, d2Var.position, advertAppInfo.Y3 == -1001);
+                c.a.q0.s.q.e.c(advertAppInfo.g4, d2Var.position, advertAppInfo.Z3 == -1001);
             }
             return frsAppEmptyHolder.getView();
         }

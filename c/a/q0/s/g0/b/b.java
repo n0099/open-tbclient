@@ -37,27 +37,27 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             a aVar = new a();
             if (str == null) {
-                aVar.f13958c = 6;
-                aVar.f13959d = a.a(6);
+                aVar.f13955c = 6;
+                aVar.f13956d = a.a(6);
                 return aVar;
             }
             if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                aVar.f13958c = 7;
-                aVar.f13959d = a.a(7);
+                aVar.f13955c = 7;
+                aVar.f13956d = a.a(7);
                 return aVar;
             }
             String b2 = q.b(FileHelper.GetStreamFromTmpFile(str));
             if (b2 == null) {
-                aVar.f13958c = 5;
-                aVar.f13959d = a.a(5);
+                aVar.f13955c = 5;
+                aVar.f13956d = a.a(5);
             } else {
                 String filePath = FileHelper.getFilePath(b2, 1, true);
                 if (FileHelper.renameTo(str, filePath)) {
-                    aVar.f13957b = filePath;
-                    aVar.f13956a = b2;
+                    aVar.f13954b = filePath;
+                    aVar.f13953a = b2;
                 } else {
-                    aVar.f13958c = 1;
-                    aVar.f13959d = a.a(1);
+                    aVar.f13955c = 1;
+                    aVar.f13956d = a.a(1);
                 }
             }
             return aVar;

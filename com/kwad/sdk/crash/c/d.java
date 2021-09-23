@@ -13,13 +13,13 @@ public class d implements Thread.UncaughtExceptionHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f72659a;
+    public volatile boolean f72978a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f72660b;
+    public Thread.UncaughtExceptionHandler f72979b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f72661c;
+    public Context f72980c;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -36,26 +36,26 @@ public class d implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f72659a = false;
-        this.f72660b = Thread.getDefaultUncaughtExceptionHandler();
-        this.f72661c = context;
+        this.f72978a = false;
+        this.f72979b = Thread.getDefaultUncaughtExceptionHandler();
+        this.f72980c = context;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
-            if (this.f72659a) {
+            if (this.f72978a) {
                 com.kwad.sdk.core.d.a.a("ExceptionCollector", "SDK捕获 uncaughtException 正在处理 ex=" + th.getMessage());
-                this.f72660b.uncaughtException(thread, th);
+                this.f72979b.uncaughtException(thread, th);
                 return;
             }
-            this.f72659a = true;
+            this.f72978a = true;
             com.kwad.sdk.core.d.a.a("ExceptionCollector", "thread=" + thread + " ex=" + th.getMessage());
             if (th != null && com.kwad.sdk.crash.b.a.a(th)) {
-                c.d().a(th, new JavaExceptionMessage(), this.f72661c);
+                c.d().a(th, new JavaExceptionMessage(), this.f72980c);
             }
-            this.f72660b.uncaughtException(thread, th);
+            this.f72979b.uncaughtException(thread, th);
         }
     }
 }

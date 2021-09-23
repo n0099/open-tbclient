@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.e.a.j;
-import c.a.r0.j3.e0;
 import c.a.r0.j3.i;
 import c.a.r0.w0.n2.h;
 import com.baidu.adp.framework.MessageManager;
@@ -18,6 +17,7 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -34,28 +34,31 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26753a;
+    public Context f26772a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f26754b;
+    public i f26773b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ForumData f26755c;
+    public ForumData f26774c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RoundAdapterLinearLayout f26756d;
+    public RoundAdapterLinearLayout f26775d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f26757e;
+    public TextView f26776e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f26758f;
+    public TbImageView f26777f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f26759g;
+    public TextView f26778g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrsAdCommentScrollView f26760h;
+    public FrsAdCommentScrollView f26779h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f26780i;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -63,7 +66,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f26761e;
+        public final /* synthetic */ g f26781e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -80,45 +83,45 @@ public class g {
                     return;
                 }
             }
-            this.f26761e = gVar;
+            this.f26781e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26761e.f26754b == null || StringUtils.isNull(this.f26761e.f26754b.l())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26781e.f26773b == null || StringUtils.isNull(this.f26781e.f26773b.m())) {
                 return;
             }
-            h.b((TbPageContext) j.a(this.f26761e.f26753a), this.f26761e.f26754b.f(), this.f26761e.f26754b.l());
+            h.b((TbPageContext) j.a(this.f26781e.f26772a), this.f26781e.f26773b.g(), this.f26781e.f26773b.m());
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-            httpMessage.addParam("id", this.f26761e.f26754b.b());
+            httpMessage.addParam("id", this.f26781e.f26773b.b());
             MessageManager.getInstance().sendMessage(httpMessage);
             StatisticItem statisticItem = new StatisticItem("common_click");
             statisticItem.param("page_type", "a006");
             statisticItem.param(TiebaStatic.Params.OBJ_ISAD, "1");
             int i2 = 6;
-            if (this.f26761e.f26754b.k() != 1) {
-                if (this.f26761e.f26754b.k() == 2) {
+            if (this.f26781e.f26773b.l() != 1) {
+                if (this.f26781e.f26773b.l() == 2) {
                     i2 = 7;
-                } else if (this.f26761e.f26754b.k() == 3) {
+                } else if (this.f26781e.f26773b.l() == 3) {
                     i2 = 8;
                 }
             }
             statisticItem.param(TiebaStatic.Params.OBJ_AD_LOCATE, i2);
-            statisticItem.param("obj_id", this.f26761e.f26754b.b());
+            statisticItem.param("obj_id", this.f26781e.f26773b.b());
             statisticItem.param("obj_locate", 3);
             statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, 1);
-            if (this.f26761e.f26755c != null) {
-                statisticItem.param("fid", this.f26761e.f26755c.getId());
-                statisticItem.param(TiebaStatic.Params.FIRST_DIR, this.f26761e.f26755c.getFirst_class());
-                statisticItem.param(TiebaStatic.Params.SECOND_DIR, this.f26761e.f26755c.getSecond_class());
+            if (this.f26781e.f26774c != null) {
+                statisticItem.param("fid", this.f26781e.f26774c.getId());
+                statisticItem.param(TiebaStatic.Params.FIRST_DIR, this.f26781e.f26774c.getFirst_class());
+                statisticItem.param(TiebaStatic.Params.SECOND_DIR, this.f26781e.f26774c.getSecond_class());
             }
-            if (this.f26761e.f26754b.k() == 1) {
-                statisticItem.param("tid", this.f26761e.f26754b.h());
-                statisticItem.param("thread_type", this.f26761e.f26754b.i());
+            if (this.f26781e.f26773b.l() == 1) {
+                statisticItem.param("tid", this.f26781e.f26773b.i());
+                statisticItem.param("thread_type", this.f26781e.f26773b.j());
             }
             TiebaStatic.log(statisticItem);
-            e0.a((String) ListUtils.getItem(this.f26761e.f26754b.g(), 1));
+            ThirdStatisticHelper.sendReq((String) ListUtils.getItem(this.f26781e.f26773b.h(), 1));
         }
     }
 
@@ -137,7 +140,7 @@ public class g {
                 return;
             }
         }
-        this.f26753a = context;
+        this.f26772a = context;
         f();
     }
 
@@ -146,57 +149,69 @@ public class g {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, forumData, iVar) == null) || iVar == null) {
             return;
         }
-        this.f26755c = forumData;
-        this.f26754b = iVar;
-        this.f26757e.setText(iVar.j());
-        if (iVar.k() == 3) {
-            this.f26759g.setText(this.f26753a.getString(R.string.frs_top_ad_download_num, Integer.valueOf(this.f26754b.e())));
-        } else if (iVar.k() == 1) {
-            this.f26759g.setText(this.f26753a.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.f26754b.e())));
-        } else if (iVar.k() == 2) {
-            this.f26759g.setText(this.f26753a.getString(R.string.frs_top_ad_appointment_num, Integer.valueOf(this.f26754b.e())));
+        this.f26774c = forumData;
+        this.f26773b = iVar;
+        this.f26776e.setText(iVar.k());
+        if (iVar.l() == 3) {
+            this.f26778g.setText(this.f26772a.getString(R.string.frs_top_ad_download_num, Integer.valueOf(this.f26773b.f())));
+        } else if (iVar.l() == 1) {
+            this.f26778g.setText(this.f26772a.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.f26773b.f())));
+        } else if (iVar.l() == 2) {
+            this.f26778g.setText(this.f26772a.getString(R.string.frs_top_ad_appointment_num, Integer.valueOf(this.f26773b.f())));
         }
-        this.f26758f.startLoad(this.f26754b.c(), 10, false);
-        FrsAdCommentScrollView frsAdCommentScrollView = this.f26760h;
+        this.f26777f.startLoad(this.f26773b.c(), 10, false);
+        i iVar2 = this.f26773b;
+        if (iVar2 != null && iVar2.e()) {
+            this.f26780i.setVisibility(0);
+        } else {
+            this.f26780i.setVisibility(8);
+        }
+        FrsAdCommentScrollView frsAdCommentScrollView = this.f26779h;
         if (frsAdCommentScrollView != null) {
-            frsAdCommentScrollView.bindData(this.f26754b.a());
+            frsAdCommentScrollView.bindData(this.f26773b.a());
         }
-        e0.a((String) ListUtils.getItem(this.f26754b.g(), 0));
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(this.f26773b.h(), 0));
     }
 
     public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26756d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26775d : (View) invokeV.objValue;
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RoundAdapterLinearLayout roundAdapterLinearLayout = (RoundAdapterLinearLayout) LayoutInflater.from(this.f26753a).inflate(R.layout.frs_top_ad_view, (ViewGroup) null);
-            this.f26756d = roundAdapterLinearLayout;
-            roundAdapterLinearLayout.setRadius(this.f26753a.getResources().getDimension(R.dimen.tbds20));
-            this.f26757e = (TextView) this.f26756d.findViewById(R.id.frs_top_ad_title);
-            this.f26759g = (TextView) this.f26756d.findViewById(R.id.frs_top_person_num);
-            TbImageView tbImageView = (TbImageView) this.f26756d.findViewById(R.id.frs_top_ad_img);
-            this.f26758f = tbImageView;
+            RoundAdapterLinearLayout roundAdapterLinearLayout = (RoundAdapterLinearLayout) LayoutInflater.from(this.f26772a).inflate(R.layout.frs_top_ad_view, (ViewGroup) null);
+            this.f26775d = roundAdapterLinearLayout;
+            roundAdapterLinearLayout.setRadius(this.f26772a.getResources().getDimension(R.dimen.tbds20));
+            this.f26776e = (TextView) this.f26775d.findViewById(R.id.frs_top_ad_title);
+            this.f26778g = (TextView) this.f26775d.findViewById(R.id.frs_top_person_num);
+            TbImageView tbImageView = (TbImageView) this.f26775d.findViewById(R.id.frs_top_ad_img);
+            this.f26777f = tbImageView;
             tbImageView.setDefaultBgResource(R.color.white_alpha100);
-            this.f26760h = (FrsAdCommentScrollView) this.f26756d.findViewById(R.id.ad_comment_scroll_view);
-            this.f26756d.setOnClickListener(new a(this));
+            this.f26779h = (FrsAdCommentScrollView) this.f26775d.findViewById(R.id.ad_comment_scroll_view);
+            TextView textView = (TextView) this.f26775d.findViewById(R.id.frs_top_ad_lable_layout);
+            this.f26780i = textView;
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(textView);
+            d2.o(R.string.J_X01);
+            d2.f(R.color.CAM_X0602);
+            c.a.q0.s.u.c.d(this.f26780i).w(R.color.CAM_X0617);
+            this.f26775d.setOnClickListener(new a(this));
         }
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f26758f.invalidate();
+            this.f26777f.invalidate();
         }
     }
 
     public void h() {
         FrsAdCommentScrollView frsAdCommentScrollView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (frsAdCommentScrollView = this.f26760h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (frsAdCommentScrollView = this.f26779h) == null) {
             return;
         }
         frsAdCommentScrollView.onDestroy();
@@ -205,7 +220,7 @@ public class g {
     public void i(boolean z) {
         FrsAdCommentScrollView frsAdCommentScrollView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (frsAdCommentScrollView = this.f26760h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (frsAdCommentScrollView = this.f26779h) == null) {
             return;
         }
         frsAdCommentScrollView.onPrimary(z);

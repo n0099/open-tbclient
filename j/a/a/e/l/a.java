@@ -14,13 +14,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ProductInfo f79159a;
+    public ProductInfo f79478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f79160b;
+    public int f79479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f79161c;
+    public boolean f79480c;
 
     public a(boolean z) {
         Interceptable interceptable = $ic;
@@ -37,15 +37,15 @@ public class a {
                 return;
             }
         }
-        this.f79160b = Integer.MIN_VALUE;
-        this.f79161c = z;
+        this.f79479b = Integer.MIN_VALUE;
+        this.f79480c = z;
     }
 
     public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProductInfo productInfo = this.f79159a;
+            ProductInfo productInfo = this.f79478a;
             if (productInfo != null) {
                 return productInfo.destAmount / 100.0d;
             }
@@ -58,7 +58,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ProductInfo productInfo = this.f79159a;
+            ProductInfo productInfo = this.f79478a;
             if (productInfo != null) {
                 return productInfo.srcAmount;
             }
@@ -73,12 +73,12 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("PayAmount{currencyType=");
-            sb.append(this.f79160b);
+            sb.append(this.f79479b);
             sb.append(", srcAmount=");
-            ProductInfo productInfo = this.f79159a;
+            ProductInfo productInfo = this.f79478a;
             sb.append(productInfo != null ? productInfo.srcAmount.doubleValue() : 0.0d);
             sb.append(", dstAmount=");
-            ProductInfo productInfo2 = this.f79159a;
+            ProductInfo productInfo2 = this.f79478a;
             sb.append(productInfo2 != null ? productInfo2.destAmount : 0L);
             sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
@@ -101,8 +101,8 @@ public class a {
                 return;
             }
         }
-        this.f79160b = Integer.MIN_VALUE;
-        this.f79159a = productInfo;
+        this.f79479b = Integer.MIN_VALUE;
+        this.f79478a = productInfo;
     }
 
     public a(ProductInfo productInfo, int i2) {
@@ -120,8 +120,8 @@ public class a {
                 return;
             }
         }
-        this.f79160b = Integer.MIN_VALUE;
-        this.f79159a = productInfo;
-        this.f79160b = i2;
+        this.f79479b = Integer.MIN_VALUE;
+        this.f79478a = productInfo;
+        this.f79479b = i2;
     }
 }

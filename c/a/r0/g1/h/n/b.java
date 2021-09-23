@@ -39,7 +39,7 @@ public class b extends g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c cVar = new c(this.f3782f, this.m);
+            c cVar = new c(this.f3783f, this.m);
             this.D = cVar;
             cVar.setStageType("2001");
             return this.D;

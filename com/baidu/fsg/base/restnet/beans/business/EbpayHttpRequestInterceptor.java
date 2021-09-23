@@ -43,7 +43,7 @@ public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     public void intercept(Context context, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) {
-            dVar.b().a("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+            dVar.a().set("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
         }
     }
 }

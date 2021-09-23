@@ -16,11 +16,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f11800b;
+    public static a f11808b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RoutePlanSearch f11801a;
+    public RoutePlanSearch f11809a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,14 +40,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11800b == null) {
+            if (f11808b == null) {
                 synchronized (a.class) {
-                    if (f11800b == null) {
-                        f11800b = new a();
+                    if (f11808b == null) {
+                        f11808b = new a();
                     }
                 }
             }
-            return f11800b;
+            return f11808b;
         }
         return (a) invokeV.objValue;
     }
@@ -55,7 +55,7 @@ public class a {
     public void a() {
         RoutePlanSearch routePlanSearch;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (routePlanSearch = this.f11801a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (routePlanSearch = this.f11809a) == null) {
             return;
         }
         routePlanSearch.destroy();
@@ -67,9 +67,9 @@ public class a {
             return;
         }
         RoutePlanSearch newInstance = RoutePlanSearch.newInstance();
-        this.f11801a = newInstance;
+        this.f11809a = newInstance;
         newInstance.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
         PlanNode withLocation = PlanNode.withLocation(latLng);
-        this.f11801a.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
+        this.f11809a.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
     }
 }

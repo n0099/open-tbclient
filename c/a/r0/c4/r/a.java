@@ -5,7 +5,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.q0.b.d;
-import c.a.q0.d1.m0;
+import c.a.q0.d1.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,25 +29,25 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f16842a;
+    public static boolean f16852a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.c4.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0812a implements InputFilter {
+    public static class C0810a implements InputFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public c f16843e;
+        public c f16853e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f16844f;
+        public int f16854f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f16845g;
+        public String f16855g;
 
-        public C0812a(int i2, c cVar) {
+        public C0810a(int i2, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,9 +62,9 @@ public class a {
                     return;
                 }
             }
-            this.f16845g = "[^a-zA-Z0-9一-龥]";
-            this.f16844f = i2;
-            this.f16843e = cVar;
+            this.f16855g = "[^a-zA-Z0-9一-龥]";
+            this.f16854f = i2;
+            this.f16853e = cVar;
         }
 
         public final String a(String str, String str2) {
@@ -81,13 +81,13 @@ public class a {
                 if (spanned == null || charSequence == null) {
                     return charSequence;
                 }
-                String a2 = a(this.f16845g, charSequence.toString());
-                int b2 = m0.b(spanned.toString()) - (i5 - i4);
-                int b3 = m0.b(a2);
-                int i6 = this.f16844f;
+                String a2 = a(this.f16855g, charSequence.toString());
+                int b2 = n0.b(spanned.toString()) - (i5 - i4);
+                int b3 = n0.b(a2);
+                int i6 = this.f16854f;
                 int i7 = i6 - b2;
                 if (b2 + b3 > i6) {
-                    c cVar = this.f16843e;
+                    c cVar = this.f16853e;
                     if (cVar != null) {
                         cVar.a();
                     }
@@ -105,10 +105,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public c f16846e;
+        public c f16856e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f16847f;
+        public int f16857f;
 
         public b(int i2, c cVar) {
             Interceptable interceptable = $ic;
@@ -125,8 +125,8 @@ public class a {
                     return;
                 }
             }
-            this.f16847f = i2;
-            this.f16846e = cVar;
+            this.f16857f = i2;
+            this.f16856e = cVar;
         }
 
         @Override // android.text.InputFilter
@@ -134,10 +134,10 @@ public class a {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), spanned, Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-                if (spanned == null || charSequence == null || (m0.c(spanned.toString()) - (i5 - i4)) + m0.c(charSequence.toString()) <= this.f16847f) {
+                if (spanned == null || charSequence == null || (n0.c(spanned.toString()) - (i5 - i4)) + n0.c(charSequence.toString()) <= this.f16857f) {
                     return charSequence;
                 }
-                c cVar = this.f16846e;
+                c cVar = this.f16856e;
                 if (cVar != null) {
                     cVar.a();
                 }
@@ -214,7 +214,7 @@ public class a {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.O() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.S() : invokeV.booleanValue;
     }
 
     public static void e(int i2, String str) {
@@ -235,7 +235,7 @@ public class a {
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            f16842a = true;
+            f16852a = true;
         }
     }
 
@@ -244,7 +244,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(65544, null, titleTipView) == null) || titleTipView == null) {
             return;
         }
-        if (d() && !f16842a && c() <= 0) {
+        if (d() && !f16852a && c() <= 0) {
             titleTipView.showAndAutoDissmiss();
             g();
             StatisticItem.make("c13996").eventStat();

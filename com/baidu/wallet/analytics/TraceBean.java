@@ -19,12 +19,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.core.beans.BaseBean;
+import com.baidu.wallet.core.domain.DomainConfig;
+import com.baidu.wallet.core.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class TraceBean extends BaseBean {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String DEFAULT_URL = "https://qianbao.baidu.com/tongji/performance/stat.jpg";
+    public static final String DEFAULT_URL = "/tongji/performance/stat.jpg";
+    public static final String TAG = "TraceBean";
     public static String sCUID = "";
     public static String sCUID2 = "";
     public static String sUnionId = "";
@@ -128,6 +131,9 @@ public class TraceBean extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             this.mBaseUrl = str;
+            if (!TextUtils.isEmpty(str)) {
+                this.tag[0] = Boolean.TRUE;
+            }
             return this;
         }
         return (TraceBean) invokeL.objValue;
@@ -214,14 +220,17 @@ public class TraceBean extends BaseBean {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            String str = TextUtils.isEmpty(this.mBaseUrl) ? DEFAULT_URL : this.mBaseUrl;
+            String str = TextUtils.isEmpty(this.mBaseUrl) ? DomainConfig.getInstance().getHawkinghost(this.tag) + DEFAULT_URL : this.mBaseUrl;
             if (this.mQueryParams != null) {
                 Uri.Builder buildUpon = Uri.parse(str).buildUpon();
                 for (int i2 = 0; i2 < this.mQueryParams.size(); i2++) {
                     buildUpon.appendQueryParameter(this.mQueryParams.get(i2).getName(), this.mQueryParams.get(i2).getValue());
                 }
-                return buildUpon.build().toString();
+                String uri = buildUpon.build().toString();
+                LogUtil.i(TAG, "TraceBean getUrl：" + uri);
+                return uri;
             }
+            LogUtil.i(TAG, "TraceBean getUrl：" + str);
             return str;
         }
         return (String) invokeV.objValue;

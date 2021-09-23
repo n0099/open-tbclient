@@ -60,7 +60,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f36168a;
+    public static b f36211a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -76,7 +76,7 @@ public final class b {
                 return;
             }
         }
-        f36168a = new b();
+        f36211a = new b();
     }
 
     public b() {
@@ -93,57 +93,50 @@ public final class b {
         }
     }
 
-    public static b a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36168a : (b) invokeV.objValue;
-    }
-
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0024  */
+    /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String a(Context context) {
         InterceptResult invokeL;
+        TelephonyManager telephonyManager;
+        String deviceId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (a(context, "android.permission.READ_PHONE_STATE")) {
-                return "";
-            }
-            String str = null;
-            if (context != null) {
-                try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager != null) {
-                        str = telephonyManager.getDeviceId();
-                    }
-                } catch (Throwable unused) {
-                }
-            }
-            return str == null ? "" : str;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, context)) != null) {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
+        if (a(context, "android.permission.READ_PHONE_STATE")) {
+            return "";
+        }
+        if (context != null) {
+            try {
+                telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            } catch (Throwable unused) {
+            }
+            if (telephonyManager != null) {
+                deviceId = telephonyManager.getDeviceId();
+                return deviceId != null ? "" : deviceId;
+            }
+        }
+        deviceId = null;
+        if (deviceId != null) {
+        }
     }
 
     public static boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             return !(context.getPackageManager().checkPermission(str, context.getPackageName()) == 0);
         }
         return invokeLL.booleanValue;
     }
 
-    public static String b() {
-        long j2;
+    public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            try {
-                StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                j2 = statFs.getAvailableBlocks() * statFs.getBlockSize();
-            } catch (Throwable unused) {
-                j2 = 0;
-            }
-            return String.valueOf(j2);
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f36211a : (b) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0024  */
@@ -156,7 +149,7 @@ public final class b {
         TelephonyManager telephonyManager;
         String subscriberId;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) != null) {
             return (String) invokeL.objValue;
         }
         if (a(context, "android.permission.READ_PHONE_STATE")) {
@@ -178,16 +171,15 @@ public final class b {
     }
 
     public static String c() {
+        long j2;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            long j2 = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
             try {
-                if ("mounted".equals(Environment.getExternalStorageState())) {
-                    StatFs statFs = new StatFs(com.alipay.security.mobile.module.a.a.a().getPath());
-                    j2 = statFs.getBlockSize() * statFs.getAvailableBlocks();
-                }
+                StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+                j2 = statFs.getAvailableBlocks() * statFs.getBlockSize();
             } catch (Throwable unused) {
+                j2 = 0;
             }
             return String.valueOf(j2);
         }
@@ -197,7 +189,7 @@ public final class b {
     public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             int i2 = 0;
             try {
                 i2 = Settings.System.getInt(context.getContentResolver(), "airplane_mode_on", 0);
@@ -208,18 +200,60 @@ public final class b {
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x006a, code lost:
+    public static String d() {
+        long j2;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if ("mounted".equals(Environment.getExternalStorageState())) {
+                StatFs statFs = new StatFs(com.alipay.security.mobile.module.a.a.a().getPath());
+                j2 = statFs.getBlockSize() * statFs.getAvailableBlocks();
+                return String.valueOf(j2);
+            }
+            j2 = 0;
+            return String.valueOf(j2);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                int i2 = audioManager.getRingerMode() == 0 ? 1 : 0;
+                int streamVolume = audioManager.getStreamVolume(0);
+                int streamVolume2 = audioManager.getStreamVolume(1);
+                int streamVolume3 = audioManager.getStreamVolume(2);
+                int streamVolume4 = audioManager.getStreamVolume(3);
+                int streamVolume5 = audioManager.getStreamVolume(4);
+                jSONObject.put("ringermode", String.valueOf(i2));
+                jSONObject.put(NotificationCompat.CATEGORY_CALL, String.valueOf(streamVolume));
+                jSONObject.put(ConstantHelper.LOG_OS, String.valueOf(streamVolume2));
+                jSONObject.put("ring", String.valueOf(streamVolume3));
+                jSONObject.put(MediaTrackConfig.AE_TEMPLATE_TYPE_MUSIC, String.valueOf(streamVolume4));
+                jSONObject.put(NotificationCompat.CATEGORY_ALARM, String.valueOf(streamVolume5));
+            } catch (Throwable unused) {
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0065, code lost:
         if (r2 == null) goto L26;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String d() {
+    public static String e() {
         InterceptResult invokeV;
         FileInputStream fileInputStream;
         InputStreamReader inputStreamReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             String str = "0000000000000000";
             LineNumberReader lineNumberReader = null;
             try {
@@ -279,49 +313,27 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-                int i2 = audioManager.getRingerMode() == 0 ? 1 : 0;
-                int streamVolume = audioManager.getStreamVolume(0);
-                int streamVolume2 = audioManager.getStreamVolume(1);
-                int streamVolume3 = audioManager.getStreamVolume(2);
-                int streamVolume4 = audioManager.getStreamVolume(3);
-                int streamVolume5 = audioManager.getStreamVolume(4);
-                jSONObject.put("ringermode", String.valueOf(i2));
-                jSONObject.put(NotificationCompat.CATEGORY_CALL, String.valueOf(streamVolume));
-                jSONObject.put(ConstantHelper.LOG_OS, String.valueOf(streamVolume2));
-                jSONObject.put("ring", String.valueOf(streamVolume3));
-                jSONObject.put(MediaTrackConfig.AE_TEMPLATE_TYPE_MUSIC, String.valueOf(streamVolume4));
-                jSONObject.put(NotificationCompat.CATEGORY_ALARM, String.valueOf(streamVolume5));
-            } catch (Throwable unused) {
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String e(Context context) {
         InterceptResult invokeL;
+        TelephonyManager telephonyManager;
+        String networkOperatorName;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            String str = null;
-            if (context != null) {
-                try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager != null) {
-                        str = telephonyManager.getNetworkOperatorName();
-                    }
-                } catch (Throwable unused) {
-                }
-            }
-            return (str == null || StringUtil.NULL_STRING.equals(str)) ? "" : str;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65547, null, context)) != null) {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
+        if (context != null) {
+            try {
+                telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            } catch (Throwable unused) {
+            }
+            if (telephonyManager != null) {
+                networkOperatorName = telephonyManager.getNetworkOperatorName();
+                return (networkOperatorName != null || StringUtil.NULL_STRING.equals(networkOperatorName)) ? "" : networkOperatorName;
+            }
+        }
+        networkOperatorName = null;
+        if (networkOperatorName != null) {
+        }
     }
 
     public static String f() {
@@ -334,88 +346,97 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0054 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String f(Context context) {
         InterceptResult invokeL;
+        SensorManager sensorManager;
         List<Sensor> sensorList;
+        String e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            String str = null;
-            if (context != null) {
-                try {
-                    SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-                    if (sensorManager != null && (sensorList = sensorManager.getSensorList(-1)) != null && sensorList.size() > 0) {
-                        StringBuilder sb = new StringBuilder();
-                        for (Sensor sensor : sensorList) {
-                            sb.append(sensor.getName());
-                            sb.append(sensor.getVersion());
-                            sb.append(sensor.getVendor());
-                        }
-                        str = com.alipay.security.mobile.module.a.a.e(sb.toString());
-                    }
-                } catch (Throwable unused) {
-                }
-            }
-            return str == null ? "" : str;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65549, null, context)) != null) {
+            return (String) invokeL.objValue;
         }
-        return (String) invokeL.objValue;
+        if (context != null) {
+            try {
+                sensorManager = (SensorManager) context.getSystemService("sensor");
+            } catch (Throwable unused) {
+            }
+            if (sensorManager != null && (sensorList = sensorManager.getSensorList(-1)) != null && sensorList.size() > 0) {
+                StringBuilder sb = new StringBuilder();
+                for (Sensor sensor : sensorList) {
+                    sb.append(sensor.getName());
+                    sb.append(sensor.getVersion());
+                    sb.append(sensor.getVendor());
+                }
+                e2 = com.alipay.security.mobile.module.a.a.e(sb.toString());
+                return e2 != null ? "" : e2;
+            }
+        }
+        e2 = null;
+        if (e2 != null) {
+        }
     }
 
     public static String g() {
         InterceptResult invokeV;
         BufferedReader bufferedReader;
-        FileReader fileReader;
-        String[] split;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(65550, null)) != null) {
             return (String) invokeV.objValue;
         }
-        FileReader fileReader2 = null;
+        FileReader fileReader = null;
         try {
-            fileReader = new FileReader("/proc/cpuinfo");
+            FileReader fileReader2 = new FileReader("/proc/cpuinfo");
             try {
-                bufferedReader = new BufferedReader(fileReader);
-            } catch (Throwable unused) {
-                bufferedReader = null;
-            }
-            try {
-                split = bufferedReader.readLine().split(":\\s+", 2);
-            } catch (Throwable unused2) {
-                fileReader2 = fileReader;
-                if (fileReader2 != null) {
+                bufferedReader = new BufferedReader(fileReader2);
+                try {
+                    String[] split = bufferedReader.readLine().split(":\\s+", 2);
+                    if (split != null && split.length > 1) {
+                        String str = split[1];
+                        try {
+                            fileReader2.close();
+                        } catch (Throwable unused) {
+                        }
+                        try {
+                            bufferedReader.close();
+                        } catch (Throwable unused2) {
+                        }
+                        return str;
+                    }
                     try {
                         fileReader2.close();
                     } catch (Throwable unused3) {
+                        try {
+                            bufferedReader.close();
+                            return "";
+                        } catch (Throwable unused4) {
+                            return "";
+                        }
                     }
-                }
-                if (bufferedReader == null) {
-                    return "";
-                }
-                try {
+                } catch (Throwable unused5) {
+                    fileReader = fileReader2;
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (Throwable unused6) {
+                        }
+                    }
+                    if (bufferedReader == null) {
+                        return "";
+                    }
                     bufferedReader.close();
-                } catch (Throwable unused4) {
                     return "";
                 }
+            } catch (Throwable unused7) {
+                bufferedReader = null;
             }
-        } catch (Throwable unused5) {
+        } catch (Throwable unused8) {
             bufferedReader = null;
         }
-        if (split != null && split.length > 1) {
-            String str = split[1];
-            try {
-                fileReader.close();
-            } catch (Throwable unused6) {
-            }
-            try {
-                bufferedReader.close();
-            } catch (Throwable unused7) {
-            }
-            return str;
-        }
-        try {
-            fileReader.close();
-        } catch (Throwable unused8) {
-        }
-        bufferedReader.close();
     }
 
     public static String g(Context context) {
@@ -446,7 +467,7 @@ public final class b {
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x003c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0038, code lost:
         if (r0 == null) goto L22;
      */
     /*
@@ -455,41 +476,42 @@ public final class b {
     public static String h() {
         InterceptResult invokeV;
         BufferedReader bufferedReader;
+        FileReader fileReader;
         String readLine;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(65552, null)) != null) {
             return (String) invokeV.objValue;
         }
-        FileReader fileReader = null;
+        FileReader fileReader2 = null;
         try {
-            FileReader fileReader2 = new FileReader("/proc/meminfo");
+            fileReader = new FileReader("/proc/meminfo");
             try {
-                bufferedReader = new BufferedReader(fileReader2, 8192);
+                bufferedReader = new BufferedReader(fileReader, 8192);
             } catch (Throwable unused) {
                 bufferedReader = null;
             }
-            try {
-                r2 = bufferedReader.readLine() != null ? Integer.parseInt(readLine.split("\\s+")[1]) : 0L;
-                try {
-                    fileReader2.close();
-                } catch (Throwable unused2) {
-                }
-            } catch (Throwable unused3) {
-                fileReader = fileReader2;
-                if (fileReader != null) {
-                    try {
-                        fileReader.close();
-                    } catch (Throwable unused4) {
-                    }
-                }
-            }
-        } catch (Throwable unused5) {
+        } catch (Throwable unused2) {
             bufferedReader = null;
         }
         try {
-            bufferedReader.close();
-        } catch (Throwable unused6) {
-            return String.valueOf(r2);
+            r2 = bufferedReader.readLine() != null ? Integer.parseInt(readLine.split("\\s+")[1]) : 0L;
+            try {
+                fileReader.close();
+            } catch (Throwable unused3) {
+                try {
+                    bufferedReader.close();
+                } catch (Throwable unused4) {
+                }
+                return String.valueOf(r2);
+            }
+        } catch (Throwable unused5) {
+            fileReader2 = fileReader;
+            if (fileReader2 != null) {
+                try {
+                    fileReader2.close();
+                } catch (Throwable unused6) {
+                }
+            }
         }
     }
 
@@ -541,17 +563,16 @@ public final class b {
     }
 
     public static String j() {
+        long j2;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            long j2 = 0;
-            try {
-                if ("mounted".equals(Environment.getExternalStorageState())) {
-                    StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                    j2 = statFs.getBlockSize() * statFs.getBlockCount();
-                }
-            } catch (Throwable unused) {
+            if ("mounted".equals(Environment.getExternalStorageState())) {
+                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+                j2 = statFs.getBlockSize() * statFs.getBlockCount();
+                return String.valueOf(j2);
             }
+            j2 = 0;
             return String.valueOf(j2);
         }
         return (String) invokeV.objValue;
@@ -832,10 +853,9 @@ public final class b {
                 if (com.alipay.security.mobile.module.a.a.b(t) && com.alipay.security.mobile.module.a.a.b(x)) {
                     return t + ":" + x();
                 }
-                return "";
             } catch (Throwable unused) {
-                return "";
             }
+            return "";
         }
         return (String) invokeL.objValue;
     }
@@ -1023,13 +1043,7 @@ public final class b {
                 }
                 if (activeNetworkInfo.getType() == 0) {
                     int subtype = activeNetworkInfo.getSubtype();
-                    if (subtype != 4 && subtype != 1 && subtype != 2 && subtype != 7 && subtype != 11) {
-                        if (subtype != 3 && subtype != 5 && subtype != 6 && subtype != 8 && subtype != 9 && subtype != 10 && subtype != 12 && subtype != 14 && subtype != 15) {
-                            return subtype == 13 ? "4G" : "UNKNOW";
-                        }
-                        return "3G";
-                    }
-                    return "2G";
+                    return (subtype == 4 || subtype == 1 || subtype == 2 || subtype == 7 || subtype == 11) ? "2G" : (subtype == 3 || subtype == 5 || subtype == 6 || subtype == 8 || subtype == 9 || subtype == 10 || subtype == 12 || subtype == 14 || subtype == 15) ? "3G" : subtype == 13 ? "4G" : "UNKNOW";
                 }
                 return null;
             } catch (Throwable unused) {
@@ -1079,65 +1093,64 @@ public final class b {
         BufferedReader bufferedReader;
         String readLine;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65579, null)) != null) {
-            return (String) invokeV.objValue;
-        }
-        BufferedReader bufferedReader2 = null;
-        try {
-            fileReader = new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
+            BufferedReader bufferedReader2 = null;
             try {
-                bufferedReader = new BufferedReader(fileReader, 8192);
-            } catch (Throwable unused) {
-            }
-        } catch (Throwable unused2) {
-            fileReader = null;
-        }
-        try {
-            readLine = bufferedReader.readLine();
-        } catch (Throwable unused3) {
-            bufferedReader2 = bufferedReader;
-            if (bufferedReader2 != null) {
+                fileReader = new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq");
                 try {
-                    bufferedReader2.close();
+                    bufferedReader = new BufferedReader(fileReader, 8192);
+                    try {
+                        readLine = bufferedReader.readLine();
+                    } catch (Throwable unused) {
+                        bufferedReader2 = bufferedReader;
+                        if (bufferedReader2 != null) {
+                            try {
+                                bufferedReader2.close();
+                            } catch (Throwable unused2) {
+                            }
+                        }
+                        if (fileReader == null) {
+                            return "";
+                        }
+                        try {
+                            fileReader.close();
+                            return "";
+                        } catch (Throwable unused3) {
+                            return "";
+                        }
+                    }
                 } catch (Throwable unused4) {
                 }
-            }
-            if (fileReader == null) {
-                return "";
-            }
-            try {
-                fileReader.close();
             } catch (Throwable unused5) {
+                fileReader = null;
+            }
+            if (com.alipay.security.mobile.module.a.a.a(readLine)) {
+                try {
+                    bufferedReader.close();
+                } catch (Throwable unused6) {
+                }
+                fileReader.close();
                 return "";
             }
-        }
-        if (!com.alipay.security.mobile.module.a.a.a(readLine)) {
             String trim = readLine.trim();
             try {
                 bufferedReader.close();
-            } catch (Throwable unused6) {
+            } catch (Throwable unused7) {
             }
             try {
                 fileReader.close();
-            } catch (Throwable unused7) {
+            } catch (Throwable unused8) {
             }
             return trim;
         }
-        try {
-            bufferedReader.close();
-        } catch (Throwable unused8) {
-        }
-        fileReader.close();
+        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0038, code lost:
         r1 = r2[1].trim();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x003e, code lost:
-        r3.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0050, code lost:
-        if (r0 == null) goto L38;
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x004d, code lost:
+        if (r0 == null) goto L37;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1145,17 +1158,18 @@ public final class b {
     public static String w() {
         InterceptResult invokeV;
         BufferedReader bufferedReader;
+        FileReader fileReader;
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(65580, null)) != null) {
             return (String) invokeV.objValue;
         }
         String str = "";
-        FileReader fileReader = null;
+        FileReader fileReader2 = null;
         try {
-            FileReader fileReader2 = new FileReader("/proc/cpuinfo");
+            fileReader = new FileReader("/proc/cpuinfo");
             try {
-                bufferedReader = new BufferedReader(fileReader2, 8192);
+                bufferedReader = new BufferedReader(fileReader, 8192);
                 while (true) {
                     try {
                         String readLine = bufferedReader.readLine();
@@ -1165,10 +1179,10 @@ public final class b {
                             }
                         }
                     } catch (Throwable unused) {
-                        fileReader = fileReader2;
-                        if (fileReader != null) {
+                        fileReader2 = fileReader;
+                        if (fileReader2 != null) {
                             try {
-                                fileReader.close();
+                                fileReader2.close();
                             } catch (Throwable unused2) {
                             }
                         }
@@ -1181,8 +1195,12 @@ public final class b {
             bufferedReader = null;
         }
         try {
-            bufferedReader.close();
+            fileReader.close();
         } catch (Throwable unused5) {
+            try {
+                bufferedReader.close();
+            } catch (Throwable unused6) {
+            }
             return str;
         }
     }
@@ -1210,7 +1228,7 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    public final String e() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

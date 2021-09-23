@@ -17,7 +17,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9204a;
+    public static final boolean f9212a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class b {
                 return;
             }
         }
-        f9204a = k.f7077a;
+        f9212a = k.f7085a;
     }
 
     public static void a(int i2, String str, String str2, @Nullable Bundle bundle) {
@@ -41,21 +41,21 @@ public class b {
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), str, str2, bundle}) == null) {
             a b2 = b(str);
             if (b2 == null) {
-                if (!f9204a) {
+                if (!f9212a) {
                     c(i2, str2, null);
                     return;
                 }
                 throw new RuntimeException("Messenger创建代理类失败");
             }
-            if (f9204a) {
+            if (f9212a) {
                 String str3 = "exec call messenger delegation: " + str;
             }
             if (bundle == null) {
                 bundle = new Bundle();
             }
-            b2.f9200a = bundle;
-            b2.f9201b = i2;
-            b2.f9202c = str2;
+            b2.f9208a = bundle;
+            b2.f9209b = i2;
+            b2.f9210c = str2;
             b2.b(bundle);
         }
     }
@@ -65,13 +65,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                boolean z = f9204a;
+                boolean z = f9212a;
                 return null;
             }
             try {
                 Class<?> cls = Class.forName(str);
                 if (cls == null) {
-                    if (f9204a) {
+                    if (f9212a) {
                         throw new RuntimeException("Messenger代理类不存在：" + str);
                     }
                     return null;
@@ -82,19 +82,19 @@ public class b {
                     declaredConstructor.setAccessible(true);
                     Object newInstance = declaredConstructor.newInstance(new Object[0]);
                     if (!(newInstance instanceof a)) {
-                        if (f9204a) {
+                        if (f9212a) {
                             throw new RuntimeException("Messenger代理类不是:" + a.class.getName());
                         }
                         return null;
                     }
                     return (a) newInstance;
                 }
-                if (f9204a) {
+                if (f9212a) {
                     throw new RuntimeException("Messenger代理类不合法：" + str);
                 }
                 return null;
             } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e2) {
-                if (f9204a) {
+                if (f9212a) {
                     e2.printStackTrace();
                     throw new RuntimeException(e2);
                 }
@@ -109,7 +109,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeILL(65539, null, i2, str, bundle) == null) || c.a.p0.a.v1.a.b.d.a.a(str)) {
             return;
         }
-        if (f9204a) {
+        if (f9212a) {
             String str2 = "send result to client: " + i2 + " observer: " + str;
         }
         Bundle bundle2 = new Bundle();

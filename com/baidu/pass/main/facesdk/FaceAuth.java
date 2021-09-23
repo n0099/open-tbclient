@@ -75,11 +75,16 @@ public class FaceAuth {
 
                 @Override // java.lang.Runnable
                 public void run() {
+                    int i2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int nativeCreatInstance = this.this$0.nativeCreatInstance();
-                        String str = "bdface_create_instance status " + nativeCreatInstance;
-                        this.val$callback.onResponse(nativeCreatInstance, StatHelper.SENSOR_OK);
+                        try {
+                            i2 = this.this$0.nativeCreatInstance();
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                            i2 = -1;
+                        }
+                        this.val$callback.onResponse(i2, StatHelper.SENSOR_OK);
                     }
                 }
             });
@@ -95,14 +100,22 @@ public class FaceAuth {
     public void setActiveLog(BDFaceSDKCommon.BDFaceLogInfo bDFaceLogInfo, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bDFaceLogInfo, i2) == null) {
-            nativeSetActiveLog(bDFaceLogInfo.ordinal(), i2);
+            try {
+                nativeSetActiveLog(bDFaceLogInfo.ordinal(), i2);
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
         }
     }
 
     public void setCoreConfigure(BDFaceSDKCommon.BDFaceCoreRunMode bDFaceCoreRunMode, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, bDFaceCoreRunMode, i2) == null) {
-            nativeSetCoreConfigure(bDFaceCoreRunMode.ordinal(), i2);
+            try {
+                nativeSetCoreConfigure(bDFaceCoreRunMode.ordinal(), i2);
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
         }
     }
 }

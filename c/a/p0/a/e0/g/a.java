@@ -27,19 +27,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f5313a;
+    public final String f5321a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5314b;
+    public int f5322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f5315c;
+    public Map<String, Object> f5323c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f5316d;
+    public b f5324d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BufferedWriter f5317e;
+    public BufferedWriter f5325e;
 
     /* renamed from: c.a.p0.a.e0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -55,7 +55,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f5318a;
+        public final /* synthetic */ a f5326a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -72,28 +72,28 @@ public class a {
                     return;
                 }
             }
-            this.f5318a = aVar;
+            this.f5326a = aVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.f5318a.f5315c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.f5326a.f5323c == null) {
                 return;
             }
-            this.f5318a.f5315c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
+            this.f5326a.f5323c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
             JSONObject jSONObject = new JSONObject();
-            for (Map.Entry entry : this.f5318a.f5315c.entrySet()) {
+            for (Map.Entry entry : this.f5326a.f5323c.entrySet()) {
                 try {
                     jSONObject.putOpt((String) entry.getKey(), entry.getValue());
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
             }
-            this.f5318a.e(jSONObject.toString());
+            this.f5326a.e(jSONObject.toString());
             c.a.p0.a.e0.d.g("PropertyLogcat", jSONObject.toString());
-            if (this.f5318a.f5316d != null) {
-                this.f5318a.f5316d.sendEmptyMessageDelayed(100, this.f5318a.f5314b);
+            if (this.f5326a.f5324d != null) {
+                this.f5326a.f5324d.sendEmptyMessageDelayed(100, this.f5326a.f5322b);
             }
         }
 
@@ -115,7 +115,7 @@ public class a {
                 return;
             }
         }
-        boolean z = k.f7077a;
+        boolean z = k.f7085a;
     }
 
     public a() {
@@ -131,19 +131,19 @@ public class a {
                 return;
             }
         }
-        this.f5313a = "performance_" + System.currentTimeMillis();
-        this.f5314b = 3000;
+        this.f5321a = "performance_" + System.currentTimeMillis();
+        this.f5322b = 3000;
     }
 
     public final void e(String str) {
         BufferedWriter bufferedWriter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bufferedWriter = this.f5317e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bufferedWriter = this.f5325e) == null) {
             return;
         }
         try {
             bufferedWriter.write(str);
-            this.f5317e.write(10);
+            this.f5325e.write(10);
             c.a.p0.a.e0.d.g("PropertyLogcat", "Export logcat success");
         } catch (IOException e2) {
             c.a.p0.a.e0.d.c("PropertyLogcat", "Logcat write fail", e2);
@@ -153,7 +153,7 @@ public class a {
     public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.a.p0.a.k2.b.n(e.V(), this.f5313a, TbConfig.TMP_LOG_DIR_NAME) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.a.p0.a.k2.b.n(e.V(), this.f5321a, TbConfig.TMP_LOG_DIR_NAME) : (String) invokeV.objValue;
     }
 
     public void g(int i2) {
@@ -161,32 +161,32 @@ public class a {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 1000) {
             return;
         }
-        this.f5314b = i2;
+        this.f5322b = i2;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f5315c == null) {
-                this.f5315c = c.a.p0.a.e0.g.b.h().i();
+            if (this.f5323c == null) {
+                this.f5323c = c.a.p0.a.e0.g.b.h().i();
                 c.a.p0.a.e0.d.g("PropertyLogcat", "Start monitor logcat");
             }
-            if (this.f5316d == null) {
-                this.f5316d = new b(this, null);
+            if (this.f5324d == null) {
+                this.f5324d = new b(this, null);
             }
-            if (this.f5317e == null) {
+            if (this.f5325e == null) {
                 File file = new File(f());
                 try {
                     if (!file.exists()) {
                         file.createNewFile();
                     }
-                    this.f5317e = new BufferedWriter(new FileWriter(file, true));
+                    this.f5325e = new BufferedWriter(new FileWriter(file, true));
                 } catch (IOException e2) {
                     c.a.p0.a.e0.d.c("PropertyLogcat", "Create log file fail", e2);
                 }
             }
-            this.f5316d.removeMessages(100);
-            this.f5316d.sendEmptyMessage(100);
+            this.f5324d.removeMessages(100);
+            this.f5324d.sendEmptyMessage(100);
         }
     }
 
@@ -194,13 +194,13 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f5315c != null) {
+            if (this.f5323c != null) {
                 c.a.p0.a.e0.g.b.h().j();
-                this.f5315c = null;
+                this.f5323c = null;
                 c.a.p0.a.e0.d.g("PropertyLogcat", "Stop monitor logcat");
             }
-            c.a.p0.t.d.d(this.f5317e);
-            this.f5317e = null;
+            c.a.p0.t.d.d(this.f5325e);
+            this.f5325e = null;
             return c.a.p0.a.k2.b.I(f(), e.V());
         }
         return (String) invokeV.objValue;

@@ -23,10 +23,10 @@ public class a extends WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f18461a;
+    public f f18470a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f18462b;
+    public c f18471b;
 
     public a(f fVar) {
         Interceptable interceptable = $ic;
@@ -43,13 +43,13 @@ public class a extends WebChromeClient {
                 return;
             }
         }
-        this.f18461a = fVar;
+        this.f18470a = fVar;
     }
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f18462b = cVar;
+            this.f18471b = cVar;
         }
     }
 
@@ -58,7 +58,7 @@ public class a extends WebChromeClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f18461a.getPageActivity());
+            FrameLayout frameLayout = new FrameLayout(this.f18470a.getPageActivity());
             frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             return frameLayout;
         }
@@ -79,7 +79,7 @@ public class a extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            f fVar = this.f18461a;
+            f fVar = this.f18470a;
             if (fVar == null || !g.f(fVar)) {
                 return true;
             }
@@ -93,7 +93,7 @@ public class a extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            f fVar = this.f18461a;
+            f fVar = this.f18470a;
             if (fVar == null || !g.f(fVar)) {
                 return true;
             }
@@ -107,7 +107,7 @@ public class a extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            f fVar = this.f18461a;
+            f fVar = this.f18470a;
             if (fVar == null || !g.f(fVar)) {
                 return true;
             }
@@ -122,8 +122,8 @@ public class a extends WebChromeClient {
         f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            c cVar = this.f18462b;
-            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (fVar = this.f18461a) != null && g.f(fVar)) {
+            c cVar = this.f18471b;
+            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (fVar = this.f18470a) != null && g.f(fVar)) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
             return true;

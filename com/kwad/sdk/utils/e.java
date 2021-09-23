@@ -23,7 +23,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, String> f73943a;
+    public static final Map<String, String> f74262a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,17 +40,17 @@ public class e {
             }
         }
         HashMap hashMap = new HashMap();
-        f73943a = hashMap;
+        f74262a = hashMap;
         hashMap.put("HUAWEI", "com.huawei.appmarket");
-        f73943a.put("OPPO", "com.oppo.market");
-        f73943a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
-        f73943a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
-        f73943a.put("OnePlus", "com.oppo.market");
-        f73943a.put("Meizu", "com.meizu.mstore");
-        f73943a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
-        f73943a.put("SMARTISAN", "com.smartisanos.appstore");
-        f73943a.put("Realme", "com.oppo.market");
-        f73943a.put("HONOR", "com.huawei.appmarket");
+        f74262a.put("OPPO", "com.oppo.market");
+        f74262a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
+        f74262a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
+        f74262a.put("OnePlus", "com.oppo.market");
+        f74262a.put("Meizu", "com.meizu.mstore");
+        f74262a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
+        f74262a.put("SMARTISAN", "com.smartisanos.appstore");
+        f74262a.put("Realme", "com.oppo.market");
+        f74262a.put("HONOR", "com.huawei.appmarket");
     }
 
     public static boolean a(Context context, String str) {
@@ -84,7 +84,7 @@ public class e {
                 str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
             }
             try {
-                String str3 = f73943a.get(Build.BRAND);
+                String str3 = f74262a.get(Build.BRAND);
                 Intent parseUri = Intent.parseUri(str, 1);
                 parseUri.addFlags(268435456);
                 for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(parseUri, 0)) {

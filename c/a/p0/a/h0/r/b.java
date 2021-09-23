@@ -32,7 +32,7 @@ public abstract class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6400a;
+    public static final boolean f6408a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -41,16 +41,16 @@ public abstract class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f6401e;
+        public final /* synthetic */ HybridUbcFlow f6409e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f6402f;
+        public final /* synthetic */ c f6410f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f6403g;
+        public final /* synthetic */ d f6411g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f6404h;
+        public final /* synthetic */ b f6412h;
 
         public a(b bVar, HybridUbcFlow hybridUbcFlow, c cVar, d dVar) {
             Interceptable interceptable = $ic;
@@ -67,64 +67,64 @@ public abstract class b {
                     return;
                 }
             }
-            this.f6404h = bVar;
-            this.f6401e = hybridUbcFlow;
-            this.f6402f = cVar;
-            this.f6403g = dVar;
+            this.f6412h = bVar;
+            this.f6409e = hybridUbcFlow;
+            this.f6410f = cVar;
+            this.f6411g = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HybridUbcFlow hybridUbcFlow = this.f6401e;
+                HybridUbcFlow hybridUbcFlow = this.f6409e;
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("loadPresetApp#run-start");
                 ubcFlowEvent.a(true);
                 hybridUbcFlow.C(ubcFlowEvent);
-                String f2 = this.f6404h.f(this.f6402f.f11885g);
+                String f2 = this.f6412h.f(this.f6410f.f11893g);
                 if (TextUtils.isEmpty(f2)) {
-                    this.f6403g.onFailed(0);
+                    this.f6411g.onFailed(0);
                     return;
                 }
                 JSONObject d2 = w.d(f2);
-                HybridUbcFlow hybridUbcFlow2 = this.f6401e;
+                HybridUbcFlow hybridUbcFlow2 = this.f6409e;
                 UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("loadPresetApp#run-appInfoJson");
                 ubcFlowEvent2.a(true);
                 hybridUbcFlow2.C(ubcFlowEvent2);
-                PMSAppInfo l = this.f6404h.l(this.f6402f, d2);
+                PMSAppInfo l = this.f6412h.l(this.f6410f, d2);
                 if (l == null) {
-                    this.f6403g.onFailed(1);
+                    this.f6411g.onFailed(1);
                     return;
                 }
-                HybridUbcFlow hybridUbcFlow3 = this.f6401e;
+                HybridUbcFlow hybridUbcFlow3 = this.f6409e;
                 UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("loadPresetApp#run-PMSAppInfo");
                 ubcFlowEvent3.a(true);
                 hybridUbcFlow3.C(ubcFlowEvent3);
-                this.f6403g.a(l);
+                this.f6411g.a(l);
                 long currentTimeMillis = System.currentTimeMillis();
-                boolean e2 = this.f6404h.e(this.f6402f);
-                if (b.f6400a) {
+                boolean e2 = this.f6412h.e(this.f6410f);
+                if (b.f6408a) {
                     String str = "签名+解压 耗时：" + (System.currentTimeMillis() - currentTimeMillis);
                 }
-                HybridUbcFlow hybridUbcFlow4 = this.f6401e;
+                HybridUbcFlow hybridUbcFlow4 = this.f6409e;
                 UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("loadPresetApp#run-doUnzipBundle");
                 ubcFlowEvent4.a(true);
                 hybridUbcFlow4.C(ubcFlowEvent4);
                 if (e2) {
-                    b bVar = this.f6404h;
-                    c cVar = this.f6402f;
-                    l.setOrientation(bVar.g(cVar.f11886h, cVar.f11885g, cVar.f11887i));
+                    b bVar = this.f6412h;
+                    c cVar = this.f6410f;
+                    l.setOrientation(bVar.g(cVar.f11894h, cVar.f11893g, cVar.f11895i));
                     l.updateInstallSrc(3);
-                    c.a.p0.n.g.a.h().a(this.f6402f, l);
-                    HybridUbcFlow hybridUbcFlow5 = this.f6401e;
+                    c.a.p0.n.g.a.h().a(this.f6410f, l);
+                    HybridUbcFlow hybridUbcFlow5 = this.f6409e;
                     UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("loadPresetApp#run-bulkInsert");
                     ubcFlowEvent5.a(true);
                     hybridUbcFlow5.C(ubcFlowEvent5);
-                    this.f6403g.b(l);
+                    this.f6411g.b(l);
                 } else {
-                    this.f6403g.onFailed(2);
+                    this.f6411g.onFailed(2);
                 }
-                HybridUbcFlow hybridUbcFlow6 = this.f6401e;
+                HybridUbcFlow hybridUbcFlow6 = this.f6409e;
                 UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("loadPresetApp#run-return");
                 ubcFlowEvent6.a(true);
                 hybridUbcFlow6.C(ubcFlowEvent6);
@@ -145,7 +145,7 @@ public abstract class b {
                 return;
             }
         }
-        f6400a = k.f7077a;
+        f6408a = k.f7085a;
     }
 
     public b() {
@@ -171,13 +171,13 @@ public abstract class b {
                     if (!TextUtils.isEmpty(str)) {
                         long currentTimeMillis = System.currentTimeMillis();
                         boolean c2 = j0.c(readableByteChannel, str);
-                        if (f6400a) {
+                        if (f6408a) {
                             String str2 = "签名校验结果：" + c2 + " ,耗时：" + (System.currentTimeMillis() - currentTimeMillis);
                         }
                         return c2;
                     }
                 } catch (IOException e2) {
-                    if (f6400a) {
+                    if (f6408a) {
                         e2.printStackTrace();
                     }
                     return false;
@@ -219,7 +219,7 @@ public abstract class b {
             for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                 c m = m(optJSONArray.optJSONObject(i3));
                 if (m != null) {
-                    hashMap.put(m.f11885g, m);
+                    hashMap.put(m.f11893g, m);
                 }
             }
             return hashMap;
@@ -306,13 +306,13 @@ public abstract class b {
                 try {
                     if (file != null) {
                         a.b h2 = c.a.p0.a.a1.h.a.h(bufferedInputStream);
-                        if ((h2 == null || h2.f4523b == -1) ? false : true) {
-                            return c.a.p0.a.a1.h.a.c(bufferedInputStream, file, h2.f4523b).f4520a;
+                        if ((h2 == null || h2.f4531b == -1) ? false : true) {
+                            return c.a.p0.a.a1.h.a.c(bufferedInputStream, file, h2.f4531b).f4528a;
                         }
                         return g.d(bufferedInputStream, file.getPath());
                     }
                 } catch (IOException e2) {
-                    if (f6400a) {
+                    if (f6408a) {
                         e2.printStackTrace();
                     }
                     return false;

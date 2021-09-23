@@ -19,7 +19,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3650a;
+    public Context f3651a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        this.f3650a = context;
+        this.f3651a = context;
     }
 
     public final void a(RelativeLayout.LayoutParams layoutParams, int i2, int i3, int i4) {
@@ -95,7 +95,7 @@ public class a {
     public final void e(ViewGroup.MarginLayoutParams marginLayoutParams, int[] iArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, marginLayoutParams, iArr) == null) && iArr != null && iArr.length == 4) {
-            marginLayoutParams.setMargins(h.a(this.f3650a, iArr[0]), h.a(this.f3650a, iArr[1]), h.a(this.f3650a, iArr[2]), h.a(this.f3650a, iArr[3]));
+            marginLayoutParams.setMargins(h.a(this.f3651a, iArr[0]), h.a(this.f3651a, iArr[1]), h.a(this.f3651a, iArr[2]), h.a(this.f3651a, iArr[3]));
         }
     }
 

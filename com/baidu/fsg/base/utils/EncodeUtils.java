@@ -161,21 +161,26 @@ public final class EncodeUtils {
                             i4++;
                             i2 = i6;
                         }
-                        charAt2 = (char) i5;
+                        stringBuffer.append((char) i5);
                     } else if (charAt2 == 't') {
-                        charAt2 = '\t';
+                        i3 = i2;
+                        charAt = '\t';
                     } else if (charAt2 == 'r') {
-                        charAt2 = CharUtils.CR;
+                        i3 = i2;
+                        charAt = CharUtils.CR;
                     } else if (charAt2 == 'n') {
-                        charAt2 = '\n';
+                        i3 = i2;
+                        charAt = '\n';
                     } else if (charAt2 == 'f') {
-                        charAt2 = '\f';
+                        i3 = i2;
+                        charAt = '\f';
+                    } else {
+                        i3 = i2;
+                        charAt = charAt2;
                     }
-                    stringBuffer.append(charAt2);
-                } else {
-                    stringBuffer.append(charAt);
-                    i2 = i3;
                 }
+                stringBuffer.append(charAt);
+                i2 = i3;
             }
             return stringBuffer.toString();
         }

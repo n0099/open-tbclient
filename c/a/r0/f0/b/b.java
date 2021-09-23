@@ -17,25 +17,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbMultiMediaData f17526a;
+    public TbMultiMediaData f17536a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbFilterValue f17527b;
+    public TbFilterValue f17537b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbMediaTrackConfig f17528c;
+    public TbMediaTrackConfig f17538c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f17529d;
+    public float f17539d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbMusicData f17530e;
+    public TbMusicData f17540e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17531f;
+    public int f17541f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17532g;
+    public int f17542g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -54,91 +54,91 @@ public class b {
     public TbFilterValue a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17527b : (TbFilterValue) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17537b : (TbFilterValue) invokeV.objValue;
     }
 
     public TbMediaTrackConfig b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17528c : (TbMediaTrackConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17538c : (TbMediaTrackConfig) invokeV.objValue;
     }
 
     public TbMultiMediaData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17526a : (TbMultiMediaData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17536a : (TbMultiMediaData) invokeV.objValue;
     }
 
     public TbMusicData d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17530e : (TbMusicData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17540e : (TbMusicData) invokeV.objValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17532g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17542g : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17531f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17541f : invokeV.intValue;
     }
 
     public float g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17529d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17539d : invokeV.floatValue;
     }
 
     public void h(TbFilterValue tbFilterValue) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, tbFilterValue) == null) {
-            this.f17527b = tbFilterValue;
+            this.f17537b = tbFilterValue;
         }
     }
 
     public void i(TbMediaTrackConfig tbMediaTrackConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbMediaTrackConfig) == null) {
-            this.f17528c = tbMediaTrackConfig;
+            this.f17538c = tbMediaTrackConfig;
         }
     }
 
     public void j(TbMultiMediaData tbMultiMediaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, tbMultiMediaData) == null) {
-            this.f17526a = tbMultiMediaData;
+            this.f17536a = tbMultiMediaData;
         }
     }
 
     public void k(TbMusicData tbMusicData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, tbMusicData) == null) {
-            this.f17530e = tbMusicData;
+            this.f17540e = tbMusicData;
         }
     }
 
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f17532g = i2;
+            this.f17542g = i2;
         }
     }
 
     public void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f17531f = i2;
+            this.f17541f = i2;
         }
     }
 
     public void n(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-            this.f17529d = f2;
+            this.f17539d = f2;
         }
     }
 }

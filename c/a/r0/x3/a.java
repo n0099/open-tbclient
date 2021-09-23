@@ -11,22 +11,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28866a;
+    public int f28886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f28867b;
+    public float f28887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f28868c;
+    public float f28888c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f28869d;
+    public float f28889d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f28870e;
+    public float f28890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f28871f;
+    public float f28891f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -47,12 +47,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
             a aVar = new a();
-            aVar.f28866a = i2;
-            aVar.f28867b = f2;
-            aVar.f28868c = f3;
-            aVar.f28869d = f4;
-            aVar.f28870e = f5;
-            aVar.f28871f = f6;
+            aVar.f28886a = i2;
+            aVar.f28887b = f2;
+            aVar.f28888c = f3;
+            aVar.f28889d = f4;
+            aVar.f28890e = f5;
+            aVar.f28891f = f6;
             return aVar;
         }
         return (a) invokeCommon.objValue;

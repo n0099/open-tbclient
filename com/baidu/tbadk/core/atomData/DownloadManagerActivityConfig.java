@@ -12,9 +12,11 @@ public class DownloadManagerActivityConfig extends IntentConfig {
     public static final int FROM_GAME_CENTER = 2;
     public static final int FROM_MINE = 1;
     public static final int FROM_OTHER_TAB = 4;
+    public static final int FROM_SCHEME = 5;
     public static final int FROM_TOAST = 3;
     public static final String SOURCE = "source";
     public static final int TAB_DOWNLOADING = 3;
+    public static final int TAB_INSTALLED = 2;
     public static final int TAB_ORDEDED = 1;
     public transient /* synthetic */ FieldHolder $fh;
 

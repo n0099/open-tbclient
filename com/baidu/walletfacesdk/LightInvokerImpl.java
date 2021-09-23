@@ -103,7 +103,7 @@ public class LightInvokerImpl {
             if (!jSONObject.has(START_IDENTIFY)) {
                 try {
                     jSONObject2.put("errCode", 103);
-                    jSONObject2.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                    jSONObject2.put("des", PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
                     iResultListener.onResult(1, jSONObject2);
                     return;
                 } catch (Exception unused) {
@@ -119,7 +119,7 @@ public class LightInvokerImpl {
                 if (!(!TextUtils.isEmpty(jSONObject3.optString(VOICE_ACTIONTYPE)) ? jSONObject3.optString(VOICE_ACTIONTYPE) : "").equals("2")) {
                     try {
                         jSONObject2.put("errCode", 103);
-                        jSONObject2.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                        jSONObject2.put("des", PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
                         iResultListener.onResult(1, jSONObject2);
                         return;
                     } catch (Exception unused2) {
@@ -128,7 +128,7 @@ public class LightInvokerImpl {
                 }
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("stoken", !TextUtils.isEmpty(jSONObject.optString("stoken")) ? jSONObject.optString("stoken") : "stoken");
+            hashMap.put("stoken", jSONObject.optString("stoken"));
             String optString = !TextUtils.isEmpty(jSONObject3.optString("productId")) ? jSONObject3.optString("productId") : "default";
             hashMap.put(LIVENESS_SERVIVETYPE, !TextUtils.isEmpty(jSONObject3.optString(LIVENESS_SERVIVETYPE)) ? jSONObject3.optString(LIVENESS_SERVIVETYPE) : "1008");
             if (!jSONObject3.has(LIVENESS_SHOW_GUIDE_PAGE) || TextUtils.isEmpty(jSONObject3.optString(LIVENESS_SHOW_GUIDE_PAGE))) {
@@ -158,10 +158,10 @@ public class LightInvokerImpl {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f63740a;
+                public final /* synthetic */ JSONObject f64051a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IResultListener f63741b;
+                public final /* synthetic */ IResultListener f64052b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -178,8 +178,8 @@ public class LightInvokerImpl {
                             return;
                         }
                     }
-                    this.f63740a = jSONObject2;
-                    this.f63741b = iResultListener;
+                    this.f64051a = jSONObject2;
+                    this.f64052b = iResultListener;
                 }
 
                 @Override // com.baidu.walletfacesdk.LivenessManager.IvoiceListener
@@ -188,14 +188,14 @@ public class LightInvokerImpl {
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str2, obj}) == null) {
                         if (obj != null) {
                             try {
-                                this.f63740a.put("data", obj);
+                                this.f64051a.put("data", obj);
                             } catch (Exception unused3) {
                                 return;
                             }
                         }
-                        this.f63740a.put("errCode", i3);
-                        this.f63740a.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, str2);
-                        this.f63741b.onResult(i2, this.f63740a);
+                        this.f64051a.put("errCode", i3);
+                        this.f64051a.put("des", str2);
+                        this.f64052b.onResult(i2, this.f64051a);
                     }
                 }
             });
@@ -214,7 +214,7 @@ public class LightInvokerImpl {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LightInvokerCallback f63739a;
+                    public final /* synthetic */ LightInvokerCallback f64050a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -231,7 +231,7 @@ public class LightInvokerImpl {
                                 return;
                             }
                         }
-                        this.f63739a = lightInvokerCallback;
+                        this.f64050a = lightInvokerCallback;
                     }
 
                     @Override // com.baidu.walletfacesdk.LightInvokerImpl.IResultListener
@@ -240,7 +240,7 @@ public class LightInvokerImpl {
                         if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, jSONObject) == null) || jSONObject == null) {
                             return;
                         }
-                        this.f63739a.onResult(i2, LightInvokerImpl.assembleResult(i2, jSONObject));
+                        this.f64050a.onResult(i2, LightInvokerImpl.assembleResult(i2, jSONObject));
                     }
                 });
             }

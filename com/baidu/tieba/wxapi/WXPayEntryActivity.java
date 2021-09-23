@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -78,16 +79,16 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
             String str = null;
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("statusCode", baseResp.errCode);
+                jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, baseResp.errCode);
                 jSONObject.put("responseData", baseResp.errStr);
                 str = jSONObject.toString();
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
             e eVar = new e();
-            eVar.f13652g = true;
-            eVar.f13647b = baseResp.getType();
-            eVar.f13648c = str;
+            eVar.f13648g = true;
+            eVar.f13643b = baseResp.getType();
+            eVar.f13644c = str;
             Intent intent = new Intent("WXPayResult");
             intent.putExtra("errorCode", baseResp.errCode);
             intent.putExtra("errorMsg", baseResp.errStr);

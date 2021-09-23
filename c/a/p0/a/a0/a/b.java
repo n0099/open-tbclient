@@ -24,10 +24,10 @@ public class b extends c.a.p0.a.a0.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f4375a;
+        public final /* synthetic */ String f4383a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4376b;
+        public final /* synthetic */ CallbackHandler f4384b;
 
         public a(b bVar, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -44,18 +44,18 @@ public class b extends c.a.p0.a.a0.a.a {
                     return;
                 }
             }
-            this.f4375a = str;
-            this.f4376b = callbackHandler;
+            this.f4383a = str;
+            this.f4384b = callbackHandler;
         }
 
         @Override // com.baidu.swan.apps.canvas.view.CanvasView.c
         public void a() {
             String str;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (str = this.f4375a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (str = this.f4383a) == null) {
                 return;
             }
-            this.f4376b.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
+            this.f4384b.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
         }
     }
 
@@ -97,16 +97,16 @@ public class b extends c.a.p0.a.a0.a.a {
                 return false;
             }
             String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(m.f4657f)) {
+            if (TextUtils.isEmpty(m.f4665f)) {
                 c.a.p0.a.c0.g.a.a("SwanAppAction", "canvasId is empty ");
                 unitedSchemeEntity.result = l(201);
                 return false;
             }
-            if (TextUtils.isEmpty(m.f4658g)) {
+            if (TextUtils.isEmpty(m.f4666g)) {
                 c.a.p0.a.c0.g.a.a("SwanAppAction", "drawCanvas slaveId is empty");
                 c.a.p0.a.h0.g.f J = c.a.p0.a.g1.f.V().J();
                 if (J != null) {
-                    m.f4658g = J.e3();
+                    m.f4666g = J.e3();
                 }
             }
             c.a.p0.a.c0.c.d.a aVar = (c.a.p0.a.c0.c.d.a) c.a.p0.a.c0.d.a.a(m);

@@ -13,13 +13,13 @@ public class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BDHttpDns.a f3533e;
+    public final /* synthetic */ BDHttpDns.a f3534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ BDHttpDnsResult.ResolveType f3534f;
+    public final /* synthetic */ BDHttpDnsResult.ResolveType f3535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ h.a f3535g;
+    public final /* synthetic */ h.a f3536g;
 
     public c(BDHttpDns bDHttpDns, BDHttpDns.a aVar, BDHttpDnsResult.ResolveType resolveType, h.a aVar2) {
         Interceptable interceptable = $ic;
@@ -36,16 +36,16 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f3533e = aVar;
-        this.f3534f = resolveType;
-        this.f3535g = aVar2;
+        this.f3534e = aVar;
+        this.f3535f = resolveType;
+        this.f3536g = aVar2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f3533e.a(new BDHttpDnsResult(this.f3534f, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f3535g.d(), null));
+            this.f3534e.a(new BDHttpDnsResult(this.f3535f, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f3536g.d(), null));
         }
     }
 }

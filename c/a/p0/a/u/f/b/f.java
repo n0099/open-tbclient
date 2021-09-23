@@ -15,7 +15,7 @@ public class f extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9153b;
+    public static final boolean f9161b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class f extends a {
                 return;
             }
         }
-        f9153b = k.f7077a;
+        f9161b = k.f7085a;
     }
 
     public f() {
@@ -52,13 +52,13 @@ public class f extends a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (BasePendingOperation basePendingOperation : this.f9149a) {
-                if (f9153b) {
+            for (BasePendingOperation basePendingOperation : this.f9157a) {
+                if (f9161b) {
                     String str = "  *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c();
                 }
                 q.i(basePendingOperation, "operation_work");
             }
-            this.f9149a.clear();
+            this.f9157a.clear();
         }
     }
 }

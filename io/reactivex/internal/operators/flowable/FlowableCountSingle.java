@@ -15,13 +15,13 @@ import io.reactivex.internal.fuseable.FuseToFlowable;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class FlowableCountSingle<T> extends Single<Long> implements FuseToFlowable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Flowable<T> source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class CountSubscriber implements FlowableSubscriber<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

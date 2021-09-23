@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f8596a = new a();
+    public static final d f8604a = new a();
 
     /* loaded from: classes.dex */
     public static class a implements d {

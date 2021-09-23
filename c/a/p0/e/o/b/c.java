@@ -45,8 +45,8 @@ public class c implements i1 {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, cVar) == null) || cVar == null) {
             return;
         }
-        if (eVar != null && !TextUtils.isEmpty(eVar.f6428a)) {
-            String str = eVar.f6428a;
+        if (eVar != null && !TextUtils.isEmpty(eVar.f6436a)) {
+            String str = eVar.f6436a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 1195918653) {
@@ -64,7 +64,7 @@ public class c implements i1 {
                     b.b().b(true, cVar);
                     return;
                 }
-            } else if (eVar.f6429b) {
+            } else if (eVar.f6437b) {
                 b.b().b(false, cVar);
                 return;
             } else {
@@ -79,7 +79,7 @@ public class c implements i1 {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d() || c.a.p0.a.n0.k.c.f7530d.w() || (c.a.p0.a.n0.k.c.f7530d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) && g.N().i0()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d() || c.a.p0.a.n0.k.c.f7538d.w() || (c.a.p0.a.n0.k.c.f7538d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) && g.N().i0()) : invokeV.booleanValue;
     }
 
     @Override // c.a.p0.a.p.d.i1

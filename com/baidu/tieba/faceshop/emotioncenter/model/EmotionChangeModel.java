@@ -25,7 +25,7 @@ public class EmotionChangeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f50617e;
+    public final HttpMessageListener f50730e;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -89,11 +89,11 @@ public class EmotionChangeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f50617e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
+        this.f50730e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
         registerTask();
-        this.f50617e.setTag(getUniqueId());
-        this.f50617e.setSelfListener(true);
-        registerListener(this.f50617e);
+        this.f50730e.setTag(getUniqueId());
+        this.f50730e.setSelfListener(true);
+        registerListener(this.f50730e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

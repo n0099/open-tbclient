@@ -27,22 +27,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public i f24809a;
+    public i f24825a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f24810b;
+    public j f24826b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f24811c;
+    public c f24827c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f24812d;
+    public List<c.a.e.l.e.a> f24828d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<n> f24813e;
+    public ArrayList<n> f24829e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeListView f24814f;
+    public BdTypeListView f24830f;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -59,30 +59,30 @@ public class a {
                 return;
             }
         }
-        this.f24812d = new ArrayList();
-        this.f24813e = new ArrayList<>();
-        this.f24814f = bdTypeListView;
+        this.f24828d = new ArrayList();
+        this.f24829e = new ArrayList<>();
+        this.f24830f = bdTypeListView;
         a(tbPageContext);
     }
 
     public final void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.f24809a = new i(tbPageContext);
-            this.f24810b = new j(tbPageContext, c.a.r0.o2.e.j.f23220f);
+            this.f24825a = new i(tbPageContext);
+            this.f24826b = new j(tbPageContext, c.a.r0.o2.e.j.f23236f);
             f fVar = new f(tbPageContext, this, tbPageContext.getUniqueId());
-            this.f24811c = fVar;
-            this.f24810b.j0(fVar);
-            this.f24812d.add(this.f24809a);
-            this.f24812d.add(this.f24810b);
-            this.f24814f.addAdapters(this.f24812d);
+            this.f24827c = fVar;
+            this.f24826b.j0(fVar);
+            this.f24828d.add(this.f24825a);
+            this.f24828d.add(this.f24826b);
+            this.f24830f.addAdapters(this.f24828d);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f24814f.getAdapter2() instanceof e)) {
-            this.f24814f.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f24830f.getAdapter2() instanceof e)) {
+            this.f24830f.getAdapter2().notifyDataSetChanged();
         }
     }
 
@@ -95,23 +95,23 @@ public class a {
             if (k.isEmpty(str)) {
                 return false;
             }
-            if (this.f24814f != null && (arrayList = this.f24813e) != null) {
+            if (this.f24830f != null && (arrayList = this.f24829e) != null) {
                 Iterator<n> it = arrayList.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     n next = it.next();
-                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).f50010f)) {
+                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).f50121f)) {
                         z = true;
                         it.remove();
                         break;
                     }
                 }
                 if (z) {
-                    ArrayList<n> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.f24813e);
-                    this.f24813e = mergeDynamicThreadByTime;
-                    this.f24814f.setData(mergeDynamicThreadByTime);
+                    ArrayList<n> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.f24829e);
+                    this.f24829e = mergeDynamicThreadByTime;
+                    this.f24830f.setData(mergeDynamicThreadByTime);
                     b();
                 }
             }
@@ -122,18 +122,18 @@ public class a {
 
     public void d(ArrayList<n> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || arrayList == null || this.f24814f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || arrayList == null || this.f24830f == null) {
             return;
         }
-        this.f24813e.clear();
-        this.f24813e.addAll(arrayList);
-        this.f24814f.setData(this.f24813e);
+        this.f24829e.clear();
+        this.f24829e.addAll(arrayList);
+        this.f24830f.setData(this.f24829e);
     }
 
     public void e() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bdTypeListView = this.f24814f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bdTypeListView = this.f24830f) == null) {
             return;
         }
         bdTypeListView.startPullRefresh();

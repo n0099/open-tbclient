@@ -44,26 +44,26 @@ public abstract class a implements c.a.r0.c3.e.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f16518e;
+    public static String f16528e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f16519f;
+    public static String f16529f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f16520g;
+    public static String f16530g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f16521a;
+    public BdUniqueId f16531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f16522b;
+    public Context f16532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f16523c;
+    public String f16533c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f16524d;
+    public String f16534d;
 
     static {
         InterceptResult invokeClinit;
@@ -78,9 +78,9 @@ public abstract class a implements c.a.r0.c3.e.a {
                 return;
             }
         }
-        f16518e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share";
-        f16519f = "temp_video_thumb.png";
-        f16520g = "_temp_share_pic.png";
+        f16528e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share";
+        f16529f = "temp_video_thumb.png";
+        f16530g = "_temp_share_pic.png";
     }
 
     public a(Context context) {
@@ -98,7 +98,7 @@ public abstract class a implements c.a.r0.c3.e.a {
                 return;
             }
         }
-        this.f16522b = context;
+        this.f16532b = context;
     }
 
     public void b(int i2, int i3) {
@@ -106,9 +106,9 @@ public abstract class a implements c.a.r0.c3.e.a {
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             ShareEvent shareEvent = new ShareEvent();
             shareEvent.status = i2;
-            shareEvent.tid = this.f16523c;
+            shareEvent.tid = this.f16533c;
             shareEvent.channel = i3;
-            shareEvent.extLiveInfo = this.f16524d;
+            shareEvent.extLiveInfo = this.f16534d;
             h.i(shareEvent);
         }
     }
@@ -148,8 +148,8 @@ public abstract class a implements c.a.r0.c3.e.a {
         i c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            BdUniqueId bdUniqueId = this.f16521a;
-            return (bdUniqueId == null && (c2 = j.c(this.f16522b)) != null) ? c2.getUniqueId() : bdUniqueId;
+            BdUniqueId bdUniqueId = this.f16531a;
+            return (bdUniqueId == null && (c2 = j.c(this.f16532b)) != null) ? c2.getUniqueId() : bdUniqueId;
         }
         return (BdUniqueId) invokeV.objValue;
     }
@@ -253,7 +253,7 @@ public abstract class a implements c.a.r0.c3.e.a {
     public void q(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bdUniqueId) == null) {
-            this.f16521a = bdUniqueId;
+            this.f16531a = bdUniqueId;
         }
     }
 
@@ -264,11 +264,11 @@ public abstract class a implements c.a.r0.c3.e.a {
             if (bitmap == null) {
                 return null;
             }
-            Bitmap i2 = i(bitmap, (l.g(this.f16522b, R.dimen.tbds113) * Math.max(bitmap.getWidth(), bitmap.getHeight())) / Math.min(bitmap.getWidth(), bitmap.getHeight()));
+            Bitmap i2 = i(bitmap, (l.g(this.f16532b, R.dimen.tbds113) * Math.max(bitmap.getWidth(), bitmap.getHeight())) / Math.min(bitmap.getWidth(), bitmap.getHeight()));
             Bitmap createBitmap = Bitmap.createBitmap(i2.getWidth(), i2.getHeight(), Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
             canvas.drawBitmap(i2, 0.0f, 0.0f, (Paint) null);
-            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, i2.getHeight(), this.f16522b.getResources().getColor(R.color.CAM_X0601), this.f16522b.getResources().getColor(R.color.CAM_X0605), Shader.TileMode.CLAMP);
+            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, i2.getHeight(), this.f16532b.getResources().getColor(R.color.CAM_X0601), this.f16532b.getResources().getColor(R.color.CAM_X0605), Shader.TileMode.CLAMP);
             Paint paint = new Paint();
             paint.setShader(linearGradient);
             canvas.drawRect(0.0f, 0.0f, i2.getWidth(), i2.getHeight(), paint);
@@ -281,7 +281,7 @@ public abstract class a implements c.a.r0.c3.e.a {
                 pureDrawable.draw(canvas);
             }
             if (z) {
-                String saveFileAsPNG = FileHelper.saveFileAsPNG(f16518e, f16519f, createBitmap, 100);
+                String saveFileAsPNG = FileHelper.saveFileAsPNG(f16528e, f16529f, createBitmap, 100);
                 if (!StringUtils.isNull(saveFileAsPNG)) {
                     shareEntity.setImageUri(Uri.parse(saveFileAsPNG));
                 }
@@ -294,14 +294,14 @@ public abstract class a implements c.a.r0.c3.e.a {
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f16524d = str;
+            this.f16534d = str;
         }
     }
 
     public void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f16523c = str;
+            this.f16533c = str;
         }
     }
 
@@ -345,9 +345,9 @@ public abstract class a implements c.a.r0.c3.e.a {
                 }
                 u(str);
             }
-            if (!TextUtils.isEmpty(this.f16523c)) {
+            if (!TextUtils.isEmpty(this.f16533c)) {
                 b(i2, i3);
-            } else if (StringUtils.isNull(this.f16524d)) {
+            } else if (StringUtils.isNull(this.f16534d)) {
             } else {
                 b(i2, i3);
             }

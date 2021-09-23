@@ -40,12 +40,12 @@ public class f extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.a(i2, i3);
-            i iVar = this.f67155a;
+            i iVar = this.f67466a;
             if (iVar == null || i2 <= 0 || i3 <= 0) {
                 return;
             }
             iVar.c(i2, i3);
-            this.f67155a.a(i2, i3);
+            this.f67466a.a(i2, i3);
             d();
         }
     }
@@ -55,7 +55,7 @@ public class f extends g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i iVar = this.f67155a;
+            i iVar = this.f67466a;
             if (iVar != null) {
                 return iVar.o();
             }

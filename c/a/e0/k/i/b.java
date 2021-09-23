@@ -22,10 +22,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f3210a;
+    public Activity f3211a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.e0.o.a.c f3211b;
+    public c.a.e0.o.a.c f3212b;
 
     /* loaded from: classes.dex */
     public class a extends c.a.e0.k.a.a<Map<String, String>> {
@@ -33,13 +33,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f3212a;
+        public final /* synthetic */ m f3213a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f3213b;
+        public final /* synthetic */ String f3214b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f3214c;
+        public final /* synthetic */ b f3215c;
 
         public a(b bVar, m mVar, String str) {
             Interceptable interceptable = $ic;
@@ -56,9 +56,9 @@ public class b {
                     return;
                 }
             }
-            this.f3214c = bVar;
-            this.f3212a = mVar;
-            this.f3213b = str;
+            this.f3215c = bVar;
+            this.f3213a = mVar;
+            this.f3214b = str;
         }
 
         @Override // c.a.e0.k.a.a
@@ -71,7 +71,7 @@ public class b {
                 } else {
                     message = th != null ? th.getMessage() : null;
                 }
-                m mVar = this.f3212a;
+                m mVar = this.f3213a;
                 mVar.a("pay_platform error msg is " + message, (String) null);
                 c.a.e0.k.h.b bVar = new c.a.e0.k.h.b("1");
                 bVar.c(new com.baidu.poly.a.i.a("pay_platform error --> " + str, th).U());
@@ -86,8 +86,8 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
                 c.a.e0.k.h.a.g("8");
-                this.f3212a.e();
-                this.f3214c.c(map, this.f3213b, this.f3212a);
+                this.f3213a.e();
+                this.f3215c.c(map, this.f3214b, this.f3213a);
             }
         }
     }
@@ -99,10 +99,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f3215a;
+        public final /* synthetic */ String f3216a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ m f3216b;
+        public final /* synthetic */ m f3217b;
 
         public C0060b(b bVar, String str, m mVar) {
             Interceptable interceptable = $ic;
@@ -119,8 +119,8 @@ public class b {
                     return;
                 }
             }
-            this.f3215a = str;
-            this.f3216b = mVar;
+            this.f3216a = str;
+            this.f3217b = mVar;
         }
 
         @Override // c.a.e0.o.a.a
@@ -128,7 +128,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 c.a.e0.n.d.e("WalletChannel->thirdPay onResult statusCode = " + i2 + " msg = " + str);
-                this.f3216b.a(i2, c.a.e0.n.b.a(i2, this.f3215a, str));
+                this.f3217b.a(i2, c.a.e0.n.b.a(i2, this.f3216a, str));
             }
         }
     }
@@ -148,8 +148,8 @@ public class b {
                 return;
             }
         }
-        this.f3210a = activity;
-        this.f3211b = cVar;
+        this.f3211a = activity;
+        this.f3212b = cVar;
     }
 
     public void a(Bundle bundle, String str, m mVar) {
@@ -176,13 +176,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, map, str, mVar) == null) {
             c.a.e0.o.a.b bVar = new c.a.e0.o.a.b();
-            bVar.f3241b = d(map);
-            bVar.f3240a = str;
+            bVar.f3242b = d(map);
+            bVar.f3241a = str;
             String str2 = map.get("payOrderNo");
-            d.f3184d = str2;
-            if (this.f3211b != null) {
+            d.f3185d = str2;
+            if (this.f3212b != null) {
                 c.a.e0.k.h.a.a();
-                this.f3211b.a(this.f3210a, bVar, new C0060b(this, str2, mVar));
+                this.f3212b.a(this.f3211a, bVar, new C0060b(this, str2, mVar));
                 c.a.e0.n.d.e("WalletChannel->thirdPay setIsPreparePaying()");
                 mVar.setIsPreparePaying(false);
             }

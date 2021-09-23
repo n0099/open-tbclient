@@ -36,7 +36,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ o f10116g;
+        public final /* synthetic */ o f10124g;
 
         /* loaded from: classes.dex */
         public class a implements c.a.p0.a.v2.e1.b<c.a.p0.a.e2.c.f> {
@@ -44,7 +44,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f10117e;
+            public final /* synthetic */ b f10125e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
                         return;
                     }
                 }
-                this.f10117e = bVar;
+                this.f10125e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -70,25 +70,25 @@ public class o extends c.a.p0.a.e2.c.j.b {
             public void onCallback(c.a.p0.a.e2.c.f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                    if (c.a.p0.a.e2.c.c.f5518f) {
+                    if (c.a.p0.a.e2.c.c.f5526f) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("ListPreparation result: ");
                         sb.append(fVar == null ? StringUtil.NULL_STRING : fVar);
                         sb.toString();
                     }
-                    this.f10117e.f10116g.r = fVar;
+                    this.f10125e.f10124g.r = fVar;
                     if (fVar == null) {
-                        this.f10117e.e(new Exception("no such scope"));
+                        this.f10125e.e(new Exception("no such scope"));
                         return;
                     }
-                    if (fVar.c() && !this.f10117e.f10116g.q) {
-                        o oVar = this.f10117e.f10116g;
+                    if (fVar.c() && !this.f10125e.f10124g.q) {
+                        o oVar = this.f10125e.f10124g;
                         oVar.i(new c(oVar, null));
                     } else {
-                        o oVar2 = this.f10117e.f10116g;
+                        o oVar2 = this.f10125e.f10124g;
                         oVar2.i(new b.C0175b(oVar2));
                     }
-                    this.f10117e.d();
+                    this.f10125e.d();
                 }
             }
         }
@@ -108,7 +108,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
                     return;
                 }
             }
-            this.f10116g = oVar;
+            this.f10124g = oVar;
         }
 
         @Override // c.a.p0.a.e2.c.e
@@ -116,9 +116,9 @@ public class o extends c.a.p0.a.e2.c.j.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (TextUtils.isEmpty(this.f10116g.s)) {
-                    if (this.f10116g.m.length <= 1) {
-                        c.a.p0.a.n1.q.c.a.i(this.f10116g.m[0], new a(this));
+                if (TextUtils.isEmpty(this.f10124g.s)) {
+                    if (this.f10124g.m.length <= 1) {
+                        c.a.p0.a.n1.q.c.a.i(this.f10124g.m[0], new a(this));
                         return false;
                     }
                     d();
@@ -141,7 +141,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ o f10118g;
+        public final /* synthetic */ o f10126g;
 
         public c(o oVar) {
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
                     return;
                 }
             }
-            this.f10118g = oVar;
+            this.f10126g = oVar;
         }
 
         @Override // c.a.p0.a.e2.c.e
@@ -166,17 +166,17 @@ public class o extends c.a.p0.a.e2.c.j.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f10118g.q = true;
-                if (this.f10118g.N().j().e(this.f10118g.n)) {
+                this.f10126g.q = true;
+                if (this.f10126g.N().j().e(this.f10126g.n)) {
                     c.a.p0.a.e2.c.d.j("LoginPreparation: isLogin true", Boolean.FALSE);
-                    o oVar = this.f10118g;
+                    o oVar = this.f10126g;
                     oVar.i(new d(oVar, null));
                     return true;
                 }
-                c.a.p0.a.a2.e N = this.f10118g.N();
+                c.a.p0.a.a2.e N = this.f10126g.N();
                 if (!N.d0()) {
-                    if (this.f10118g.n instanceof Activity) {
-                        N.j().f((Activity) this.f10118g.n, null, this);
+                    if (this.f10126g.n instanceof Activity) {
+                        N.j().f((Activity) this.f10126g.n, null, this);
                         return false;
                     }
                     c.a.p0.a.e2.c.d.j("login error context is not activity.", Boolean.TRUE);
@@ -203,7 +203,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
                     e(new OAuthException(10004));
                 } else {
                     c.a.p0.a.e2.c.d.j("Login Preparation ok, is already login", Boolean.FALSE);
-                    o oVar = this.f10118g;
+                    o oVar = this.f10126g;
                     oVar.i(new d(oVar, null));
                     d();
                 }
@@ -221,7 +221,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ o f10119g;
+        public final /* synthetic */ o f10127g;
 
         /* loaded from: classes.dex */
         public class a implements c.a.p0.a.v2.e1.b<Bundle> {
@@ -229,7 +229,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f10120e;
+            public final /* synthetic */ d f10128e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -246,7 +246,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
                         return;
                     }
                 }
-                this.f10120e = dVar;
+                this.f10128e = dVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -256,18 +256,18 @@ public class o extends c.a.p0.a.e2.c.j.b {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                     if (bundle == null) {
-                        this.f10120e.e(new OAuthException("null stoken", 10001));
+                        this.f10128e.e(new OAuthException("null stoken", 10001));
                         return;
                     }
                     String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
                     if (!TextUtils.isEmpty(string)) {
-                        this.f10120e.f10119g.v = string;
-                        o oVar = this.f10120e.f10119g;
+                        this.f10128e.f10127g.v = string;
+                        o oVar = this.f10128e.f10127g;
                         oVar.i(new b(oVar, null));
-                        this.f10120e.d();
+                        this.f10128e.d();
                         return;
                     }
-                    this.f10120e.e(new OAuthException("empty stoken", 10001));
+                    this.f10128e.e(new OAuthException("empty stoken", 10001));
                 }
             }
         }
@@ -287,7 +287,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
                     return;
                 }
             }
-            this.f10119g = oVar;
+            this.f10127g = oVar;
         }
 
         @Override // c.a.p0.a.e2.c.e
@@ -295,7 +295,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.p0.b.l.a.t(this.f10119g.n, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                c.a.p0.b.l.a.t(this.f10127g.n, new a(this), BdZeusUtil.URL_KEY_MACHINE);
                 return false;
             }
             return invokeV.booleanValue;
@@ -348,7 +348,7 @@ public class o extends c.a.p0.a.e2.c.j.b {
             Context context = this.n;
             if (context instanceof Activity) {
                 c.a.p0.b.l.a.E((Activity) context, jSONObject);
-            } else if (c.a.p0.a.e2.c.c.f5518f) {
+            } else if (c.a.p0.a.e2.c.c.f5526f) {
                 Log.getStackTraceString(new Exception("context is not activity."));
             }
             return super.n(jSONObject);

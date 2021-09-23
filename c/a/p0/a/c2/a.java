@@ -23,7 +23,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4763a;
+    public static final boolean f4771a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public final class a {
                 return;
             }
         }
-        f4763a = k.f7077a;
+        f4771a = k.f7085a;
     }
 
     public static e a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
@@ -122,7 +122,7 @@ public final class a {
             eVar.b(new c.a.p0.a.c2.f.j0.d(eVar));
             eVar.b(new c.a.p0.a.c2.f.j0.a(eVar));
             eVar.b(new r(eVar));
-            if (f4763a) {
+            if (f4771a) {
                 eVar.b(new c.a.p0.a.c2.f.q0.a(eVar));
                 eVar.b(new c.a.p0.a.e0.g.c(eVar));
             }

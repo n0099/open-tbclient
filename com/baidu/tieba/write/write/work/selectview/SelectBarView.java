@@ -35,7 +35,7 @@ public class SelectBarView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59221e;
+    public boolean f59352e;
     public View mBottomLine;
     public TextView mCenterContent;
     public TextView mCenterContentPos;
@@ -51,7 +51,7 @@ public class SelectBarView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectBarView f59222e;
+        public final /* synthetic */ SelectBarView f59353e;
 
         public a(SelectBarView selectBarView) {
             Interceptable interceptable = $ic;
@@ -68,15 +68,15 @@ public class SelectBarView extends LinearLayout {
                     return;
                 }
             }
-            this.f59222e = selectBarView;
+            this.f59353e = selectBarView;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f59222e.getMCanChangeBarName()) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.f59222e.getContext())));
+                if (this.f59353e.getMCanChangeBarName()) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.f59353e.getContext())));
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921621, Boolean.TRUE));
@@ -102,7 +102,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f59221e = true;
+        this.f59352e = true;
         init();
     }
 
@@ -110,10 +110,10 @@ public class SelectBarView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
             if (iVar != null) {
-                String str = iVar.f15029a;
+                String str = iVar.f15036a;
                 boolean z = true;
                 if (!(str == null || str.length() == 0)) {
-                    String str2 = iVar.f15031c;
+                    String str2 = iVar.f15038c;
                     if (str2 != null && str2.length() != 0) {
                         z = false;
                     }
@@ -132,7 +132,7 @@ public class SelectBarView extends LinearLayout {
                         if (textView3 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
                         }
-                        textView3.setText(iVar.f15031c + getContext().getString(R.string.forum));
+                        textView3.setText(iVar.f15038c + getContext().getString(R.string.forum));
                         return;
                     }
                 }
@@ -166,7 +166,7 @@ public class SelectBarView extends LinearLayout {
     public final boolean getMCanChangeBarName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59221e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59352e : invokeV.booleanValue;
     }
 
     public final TextView getMCenterContent() {
@@ -419,7 +419,7 @@ public class SelectBarView extends LinearLayout {
     public final void setMCanChangeBarName(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f59221e = z;
+            this.f59352e = z;
         }
     }
 
@@ -491,7 +491,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f59221e = true;
+        this.f59352e = true;
         init();
     }
 
@@ -514,7 +514,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f59221e = true;
+        this.f59352e = true;
         init();
     }
 }

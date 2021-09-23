@@ -34,7 +34,7 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f8756a;
+        public final /* synthetic */ a f8764a;
 
         public C0385a(a aVar) {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8756a = aVar;
+            this.f8764a = aVar;
         }
 
         @Override // c.a.p0.a.u.c.d.b
@@ -61,7 +61,7 @@ public class a extends c.a.p0.a.u.c.d {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, eVar, jSONObject, str)) == null) {
                 String optString = jSONObject.optString(PrefetchEvent.EVENT_DATA_ROOT_PATH);
                 if (!TextUtils.isEmpty(optString)) {
-                    this.f8756a.x(eVar, optString, str);
+                    this.f8764a.x(eVar, optString, str);
                     return new c.a.p0.a.u.h.b(0);
                 }
                 c.a.p0.a.e0.d.b("Api-LoadSubPackage", "subPackage root is null");
@@ -77,7 +77,7 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f8757a;
+        public final /* synthetic */ a f8765a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8757a = aVar;
+            this.f8765a = aVar;
         }
 
         @Override // c.a.p0.a.u.c.d.b
@@ -104,7 +104,7 @@ public class a extends c.a.p0.a.u.c.d {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, eVar, jSONObject, str)) == null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("roots");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.f8757a.v(eVar, str, optJSONArray);
+                    this.f8765a.v(eVar, str, optJSONArray);
                     return new c.a.p0.a.u.h.b(0);
                 }
                 return new c.a.p0.a.u.h.b(202);
@@ -119,16 +119,16 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f8758e;
+        public final /* synthetic */ c.a.p0.a.a2.e f8766e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8759f;
+        public final /* synthetic */ String f8767f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONArray f8760g;
+        public final /* synthetic */ JSONArray f8768g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f8761h;
+        public final /* synthetic */ a f8769h;
 
         /* renamed from: c.a.p0.a.u.e.b.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -137,13 +137,13 @@ public class a extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CountDownLatch f8762a;
+            public final /* synthetic */ CountDownLatch f8770a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ List f8763b;
+            public final /* synthetic */ List f8771b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f8764c;
+            public final /* synthetic */ String f8772c;
 
             public C0386a(c cVar, CountDownLatch countDownLatch, List list, String str) {
                 Interceptable interceptable = $ic;
@@ -160,17 +160,17 @@ public class a extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8762a = countDownLatch;
-                this.f8763b = list;
-                this.f8764c = str;
+                this.f8770a = countDownLatch;
+                this.f8771b = list;
+                this.f8772c = str;
             }
 
             @Override // c.a.p0.a.c2.f.p0.g.d
             public void a(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    this.f8762a.countDown();
-                    this.f8763b.add(this.f8764c);
+                    this.f8770a.countDown();
+                    this.f8771b.add(this.f8772c);
                 }
             }
 
@@ -178,7 +178,7 @@ public class a extends c.a.p0.a.u.c.d {
             public void b(int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                    this.f8762a.countDown();
+                    this.f8770a.countDown();
                     c.a.p0.a.e0.d.l("Api-LoadSubPackage", "downloadSubPackage fail, code=" + i2);
                 }
             }
@@ -199,30 +199,30 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8761h = aVar;
-            this.f8758e = eVar;
-            this.f8759f = str;
-            this.f8760g = jSONArray;
+            this.f8769h = aVar;
+            this.f8766e = eVar;
+            this.f8767f = str;
+            this.f8768g = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String Z = this.f8758e.Z();
+                String Z = this.f8766e.Z();
                 if (!TextUtils.isDigitsOnly(Z)) {
-                    a aVar = this.f8761h;
-                    String str = this.f8759f;
+                    a aVar = this.f8769h;
+                    String str = this.f8767f;
                     aVar.d(str, new c.a.p0.a.u.h.b(202, "current version error:" + Z));
                     return;
                 }
-                List<c.a.p0.n.h.g> j2 = c.a.p0.n.g.a.h().j(this.f8758e.f4558f, Integer.parseInt(Z));
+                List<c.a.p0.n.h.g> j2 = c.a.p0.n.g.a.h().j(this.f8766e.f4566f, Integer.parseInt(Z));
                 ArraySet<String> arraySet = new ArraySet();
                 List synchronizedList = Collections.synchronizedList(new ArrayList());
-                for (int i2 = 0; i2 < this.f8760g.length(); i2++) {
-                    String optString = this.f8760g.optString(i2);
+                for (int i2 = 0; i2 < this.f8768g.length(); i2++) {
+                    String optString = this.f8768g.optString(i2);
                     if (!TextUtils.isEmpty(optString)) {
-                        if (a.y(optString, j2) && this.f8758e.k0(optString)) {
+                        if (a.y(optString, j2) && this.f8766e.k0(optString)) {
                             synchronizedList.add(optString);
                         } else {
                             arraySet.add(optString);
@@ -232,12 +232,12 @@ public class a extends c.a.p0.a.u.c.d {
                 if (!arraySet.isEmpty()) {
                     CountDownLatch countDownLatch = new CountDownLatch(arraySet.size());
                     for (String str2 : arraySet) {
-                        String G = this.f8758e.G(str2);
+                        String G = this.f8766e.G(str2);
                         if (TextUtils.isEmpty(G)) {
                             countDownLatch.countDown();
                         } else {
-                            c.a.p0.a.a2.e eVar = this.f8758e;
-                            g.k(eVar.f4558f, eVar.Z(), "1", str2, G, null, new C0386a(this, countDownLatch, synchronizedList, str2));
+                            c.a.p0.a.a2.e eVar = this.f8766e;
+                            g.k(eVar.f4566f, eVar.Z(), "1", str2, G, null, new C0386a(this, countDownLatch, synchronizedList, str2));
                         }
                     }
                     try {
@@ -247,16 +247,16 @@ public class a extends c.a.p0.a.u.c.d {
                     }
                 }
                 JSONObject jSONObject = new JSONObject();
-                for (int i3 = 0; i3 < this.f8760g.length(); i3++) {
+                for (int i3 = 0; i3 < this.f8768g.length(); i3++) {
                     try {
-                        jSONObject.put(this.f8760g.optString(i3), synchronizedList.contains(this.f8760g.optString(i3)) ? 0 : 1001);
+                        jSONObject.put(this.f8768g.optString(i3), synchronizedList.contains(this.f8768g.optString(i3)) ? 0 : 1001);
                     } catch (Exception e3) {
-                        if (c.a.p0.a.u.c.d.f8727c) {
+                        if (c.a.p0.a.u.c.d.f8735c) {
                             e3.printStackTrace();
                         }
                     }
                 }
-                this.f8761h.d(this.f8759f, new c.a.p0.a.u.h.b(0, jSONObject));
+                this.f8769h.d(this.f8767f, new c.a.p0.a.u.h.b(0, jSONObject));
             }
         }
     }
@@ -267,16 +267,16 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f8765e;
+        public final /* synthetic */ c.a.p0.a.a2.e f8773e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8766f;
+        public final /* synthetic */ String f8774f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8767g;
+        public final /* synthetic */ String f8775g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f8768h;
+        public final /* synthetic */ a f8776h;
 
         public d(a aVar, c.a.p0.a.a2.e eVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -293,28 +293,28 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8768h = aVar;
-            this.f8765e = eVar;
-            this.f8766f = str;
-            this.f8767g = str2;
+            this.f8776h = aVar;
+            this.f8773e = eVar;
+            this.f8774f = str;
+            this.f8775g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f8765e.l0(this.f8766f) && this.f8765e.k0(this.f8766f)) {
+                if (this.f8773e.l0(this.f8774f) && this.f8773e.k0(this.f8774f)) {
                     c.a.p0.a.e0.d.g("Api-LoadSubPackage", "subPackage have existed");
-                    this.f8768h.d(this.f8767g, new c.a.p0.a.u.h.b(1001, "subPackage have existed"));
+                    this.f8776h.d(this.f8775g, new c.a.p0.a.u.h.b(1001, "subPackage have existed"));
                     return;
                 }
-                String G = this.f8765e.G(this.f8766f);
+                String G = this.f8773e.G(this.f8774f);
                 if (!TextUtils.isEmpty(G)) {
-                    this.f8768h.w(this.f8765e, this.f8766f, G, this.f8767g);
+                    this.f8776h.w(this.f8773e, this.f8774f, G, this.f8775g);
                     return;
                 }
                 c.a.p0.a.e0.d.g("Api-LoadSubPackage", "subPackage cannot find aps key");
-                this.f8768h.d(this.f8767g, new c.a.p0.a.u.h.b(202));
+                this.f8776h.d(this.f8775g, new c.a.p0.a.u.h.b(202));
             }
         }
     }
@@ -325,10 +325,10 @@ public class a extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f8769a;
+        public final /* synthetic */ String f8777a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f8770b;
+        public final /* synthetic */ a f8778b;
 
         public e(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -345,8 +345,8 @@ public class a extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8770b = aVar;
-            this.f8769a = str;
+            this.f8778b = aVar;
+            this.f8777a = str;
         }
 
         @Override // c.a.p0.a.c2.f.p0.g.d
@@ -354,7 +354,7 @@ public class a extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 c.a.p0.a.e0.d.g("Api-LoadSubPackage", "preload subPackage success");
-                this.f8770b.d(this.f8769a, new c.a.p0.a.u.h.b(0, "preload subPackage success"));
+                this.f8778b.d(this.f8777a, new c.a.p0.a.u.h.b(0, "preload subPackage success"));
             }
         }
 
@@ -363,7 +363,7 @@ public class a extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 c.a.p0.a.e0.d.b("Api-LoadSubPackage", "preload subPackage failed");
-                this.f8770b.d(this.f8769a, new c.a.p0.a.u.h.b(202, "No SubPackage"));
+                this.f8778b.d(this.f8777a, new c.a.p0.a.u.h.b(202, "No SubPackage"));
             }
         }
     }
@@ -420,7 +420,7 @@ public class a extends c.a.p0.a.u.c.d {
     public final void w(c.a.p0.a.a2.e eVar, String str, String str2, @Nullable String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, str, str2, str3) == null) {
-            g.k(eVar.f4558f, eVar.Z(), "1", str, str2, null, new e(this, str3));
+            g.k(eVar.f4566f, eVar.Z(), "1", str, str2, null, new e(this, str3));
         }
     }
 
@@ -435,7 +435,7 @@ public class a extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             return j(str, true, new C0385a(this));
         }
         return (c.a.p0.a.u.h.b) invokeL.objValue;

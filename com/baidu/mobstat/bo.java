@@ -29,10 +29,10 @@ public final class bo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Proxy f43429a;
+    public static final Proxy f43491a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f43430b;
+    public static final Proxy f43492b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,8 +48,8 @@ public final class bo {
                 return;
             }
         }
-        f43429a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
-        f43430b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+        f43491a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+        f43492b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
     }
 
     public static String a() {
@@ -278,10 +278,10 @@ public final class bo {
                     String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                     if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                         if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                            httpURLConnection = (HttpURLConnection) url.openConnection(f43430b);
+                            httpURLConnection = (HttpURLConnection) url.openConnection(f43492b);
                         }
                     } else {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(f43429a);
+                        httpURLConnection = (HttpURLConnection) url.openConnection(f43491a);
                     }
                 }
                 httpURLConnection = null;

@@ -21,28 +21,28 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f19294a;
+    public String f19309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<p> f19295b;
+    public List<p> f19310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o f19296c;
+    public o f19311c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c> f19297d;
+    public List<c> f19312d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b> f19298e;
+    public List<b> f19313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<TopicList> f19299f;
+    public List<TopicList> f19314f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<c.a.e.l.e.n> f19300g;
+    public ArrayList<c.a.e.l.e.n> f19315g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<NewTopicList> f19301h;
+    public List<NewTopicList> f19316h;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -57,13 +57,13 @@ public class j {
                 return;
             }
         }
-        this.f19300g = null;
+        this.f19315g = null;
     }
 
     public List<TopicList> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19299f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19314f : (List) invokeV.objValue;
     }
 
     public ArrayList<c.a.e.l.e.n> b() {
@@ -81,73 +81,73 @@ public class j {
         }
         List<TabList> list3 = dataRes.tab_list;
         if (list3 != null && !ListUtils.isEmpty(list3)) {
-            this.f19295b = new ArrayList();
+            this.f19310b = new ArrayList();
             for (TabList tabList : dataRes.tab_list) {
                 p pVar = new p();
                 pVar.b(tabList);
-                this.f19295b.add(pVar);
+                this.f19310b.add(pVar);
             }
         }
         if (dataRes.media_topic != null) {
             o oVar = new o();
-            this.f19296c = oVar;
+            this.f19311c = oVar;
             oVar.b(dataRes.media_topic);
         }
         TopicListModule topicListModule = dataRes.topic_manual;
         if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
-            this.f19298e = new ArrayList();
+            this.f19313e = new ArrayList();
             for (int i2 = 0; i2 < dataRes.topic_manual.topic_list.size(); i2++) {
                 b bVar = new b();
                 bVar.k(dataRes.topic_manual);
                 bVar.i(dataRes.topic_manual.topic_list.get(i2));
-                this.f19298e.add(bVar);
+                this.f19313e.add(bVar);
             }
         }
         TopicListModule topicListModule2 = dataRes.topic_bang;
         if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
-            this.f19297d = new ArrayList();
+            this.f19312d = new ArrayList();
             for (int i3 = 0; i3 < dataRes.topic_bang.topic_list.size(); i3++) {
                 c cVar = new c();
                 cVar.o(dataRes.topic_bang);
                 cVar.n(dataRes.topic_bang.topic_list.get(i3));
-                this.f19297d.add(cVar);
+                this.f19312d.add(cVar);
             }
         }
-        this.f19299f = dataRes.frs_tab_topic;
-        this.f19301h = dataRes.topic_list;
+        this.f19314f = dataRes.frs_tab_topic;
+        this.f19316h = dataRes.topic_list;
     }
 
     public final ArrayList<c.a.e.l.e.n> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.f19300g = new ArrayList<>();
-            o oVar = this.f19296c;
-            if (oVar != null && (!StringUtils.isNull(oVar.f19317g) || !StringUtils.isNull(this.f19296c.f19318h))) {
-                this.f19300g.add(this.f19296c);
+            this.f19315g = new ArrayList<>();
+            o oVar = this.f19311c;
+            if (oVar != null && (!StringUtils.isNull(oVar.f19332g) || !StringUtils.isNull(this.f19311c.f19333h))) {
+                this.f19315g.add(this.f19311c);
             }
-            List<b> list = this.f19298e;
+            List<b> list = this.f19313e;
             int i2 = 0;
             if (list != null && list.size() > 0) {
-                int size = this.f19298e.size() == 1 ? this.f19298e.size() : 1;
+                int size = this.f19313e.size() == 1 ? this.f19313e.size() : 1;
                 for (int i3 = 0; i3 < size; i3++) {
-                    b bVar = this.f19298e.get(i3);
+                    b bVar = this.f19313e.get(i3);
                     if (bVar != null && (!StringUtils.isNull(bVar.h()) || !StringUtils.isNull(bVar.g()) || !StringUtils.isNull(bVar.d()))) {
-                        this.f19300g.add(this.f19298e.get(i3));
+                        this.f19315g.add(this.f19313e.get(i3));
                     }
                 }
             }
-            List<c> list2 = this.f19297d;
+            List<c> list2 = this.f19312d;
             if (list2 != null && list2.size() > 0) {
-                int size2 = this.f19297d.size() <= 20 ? this.f19297d.size() : 20;
+                int size2 = this.f19312d.size() <= 20 ? this.f19312d.size() : 20;
                 while (i2 < size2) {
-                    c cVar = this.f19297d.get(i2);
+                    c cVar = this.f19312d.get(i2);
                     i2++;
                     cVar.p(i2);
-                    this.f19300g.add(cVar);
+                    this.f19315g.add(cVar);
                 }
             }
-            return this.f19300g;
+            return this.f19315g;
         }
         return (ArrayList) invokeV.objValue;
     }

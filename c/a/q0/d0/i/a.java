@@ -21,7 +21,7 @@ public class a extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12879a;
+    public String f12893a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class a extends b {
                 return;
             }
         }
-        this.f12879a = "";
+        this.f12893a = "";
     }
 
     @Override // c.a.q0.d0.i.b
@@ -64,7 +64,7 @@ public class a extends b {
                 return null;
             }
             c.a.q0.c0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            if ("normal".equals(this.f12879a)) {
+            if ("normal".equals(this.f12893a)) {
                 return bitmap;
             }
             MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.getInstance().getMotuClassInstance();
@@ -78,7 +78,7 @@ public class a extends b {
                     try {
                         if (motuPlugin != null) {
                             try {
-                                bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst(), this.f12879a, copy);
+                                bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst(), this.f12893a, copy);
                             } catch (IllegalStateException e2) {
                                 BdLog.e(e2.toString());
                                 e2.printStackTrace();
@@ -99,7 +99,7 @@ public class a extends b {
                 }
             } else if (motuPlugin != null) {
                 try {
-                    bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst().getApp(), this.f12879a, bitmap);
+                    bitmap2 = motuPlugin.createOneKeyFilterAndApply(TbadkCoreApplication.getInst().getApp(), this.f12893a, bitmap);
                 } catch (Throwable th2) {
                     TiebaStatic.imgError(-1008, "motou filter failed: " + th2.toString(), "");
                     if (BdLog.isDebugMode()) {
@@ -124,6 +124,6 @@ public class a extends b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null) {
             return;
         }
-        this.f12879a = str;
+        this.f12893a = str;
     }
 }

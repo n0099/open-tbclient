@@ -22,10 +22,10 @@ public class b extends WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdWebViewActivity f24084a;
+    public AdWebViewActivity f24100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.j3.m0.c f24085b;
+    public c.a.r0.j3.m0.c f24101b;
 
     public b(AdWebViewActivity adWebViewActivity) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class b extends WebChromeClient {
                 return;
             }
         }
-        this.f24084a = adWebViewActivity;
+        this.f24100a = adWebViewActivity;
     }
 
     public void a(c.a.r0.j3.m0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f24085b = cVar;
+            this.f24101b = cVar;
         }
     }
 
@@ -57,7 +57,7 @@ public class b extends WebChromeClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f24084a.getPageContext().getPageActivity());
+            FrameLayout frameLayout = new FrameLayout(this.f24100a.getPageContext().getPageActivity());
             frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             return frameLayout;
         }
@@ -78,7 +78,7 @@ public class b extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            AdWebViewActivity adWebViewActivity = this.f24084a;
+            AdWebViewActivity adWebViewActivity = this.f24100a;
             if (adWebViewActivity == null || !g.f(adWebViewActivity.getPageContext())) {
                 return true;
             }
@@ -92,7 +92,7 @@ public class b extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            AdWebViewActivity adWebViewActivity = this.f24084a;
+            AdWebViewActivity adWebViewActivity = this.f24100a;
             if (adWebViewActivity == null || !g.f(adWebViewActivity.getPageContext())) {
                 return true;
             }
@@ -106,7 +106,7 @@ public class b extends WebChromeClient {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            AdWebViewActivity adWebViewActivity = this.f24084a;
+            AdWebViewActivity adWebViewActivity = this.f24100a;
             if (adWebViewActivity == null || !g.f(adWebViewActivity.getPageContext())) {
                 return true;
             }
@@ -121,8 +121,8 @@ public class b extends WebChromeClient {
         AdWebViewActivity adWebViewActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            c.a.r0.j3.m0.c cVar = this.f24085b;
-            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (adWebViewActivity = this.f24084a) != null && g.f(adWebViewActivity.getPageContext())) {
+            c.a.r0.j3.m0.c cVar = this.f24101b;
+            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (adWebViewActivity = this.f24100a) != null && g.f(adWebViewActivity.getPageContext())) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
             return true;

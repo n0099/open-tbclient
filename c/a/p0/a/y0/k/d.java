@@ -17,7 +17,7 @@ public class d implements ZeusPluginFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9827a;
+    public String f9835a;
 
     /* loaded from: classes.dex */
     public static class a implements Runnable {
@@ -48,7 +48,7 @@ public class d implements ZeusPluginFactory {
                 b2.U();
                 b2.C();
                 k.e().s(b2);
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     String str = "pre-create video cost time ：" + (System.currentTimeMillis() - currentTimeMillis);
                 }
             }
@@ -70,7 +70,7 @@ public class d implements ZeusPluginFactory {
                 return;
             }
         }
-        this.f9827a = str;
+        this.f9835a = str;
     }
 
     public static void a() {
@@ -99,10 +99,10 @@ public class d implements ZeusPluginFactory {
                 b2.N(invoker);
             } else {
                 c.a.p0.a.e0.d.g("【InlineFactory】", "handleAppOnLaunch create cache inline video. ");
-                b2 = c.a.p0.a.c1.a.z().b(invoker, this.f9827a);
+                b2 = c.a.p0.a.c1.a.z().b(invoker, this.f9835a);
                 b2.H();
             }
-            if (c.a.p0.a.k.f7077a) {
+            if (c.a.p0.a.k.f7085a) {
                 String str = "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + b2.hashCode() + "」";
             }
             k.e().b(b2);

@@ -28,7 +28,7 @@ public class f extends k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ f f8112c;
+        public final /* synthetic */ f f8120c;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class f extends k {
                     return;
                 }
             }
-            this.f8112c = fVar;
+            this.f8120c = fVar;
         }
 
         @Override // c.a.p0.a.h0.j.a, c.a.p0.a.h0.j.d
@@ -72,8 +72,8 @@ public class f extends k {
                 if (str != null && str.startsWith("weixin://wap/pay")) {
                     c.a.p0.a.e0.d.g("SwanAppWxPayFragment", " weixin  url:   " + str);
                     c.a.p0.a.j2.k.F("wechatH5Action", "intoPayment", 0);
-                    this.f8112c.J0.cancel();
-                    this.f8112c.J0 = null;
+                    this.f8120c.J0.cancel();
+                    this.f8120c.J0 = null;
                     k.J2();
                     return false;
                 }
@@ -115,7 +115,7 @@ public class f extends k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f8113e;
+        public final /* synthetic */ f f8121e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -132,7 +132,7 @@ public class f extends k {
                     return;
                 }
             }
-            this.f8113e = fVar;
+            this.f8121e = fVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable

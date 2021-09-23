@@ -32,14 +32,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f10914c;
+    public static volatile a f10922c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f10915a;
+    public SharedPreferences f10923a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10916b;
+    public String f10924b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -54,22 +54,22 @@ public class a {
                 return;
             }
         }
-        this.f10916b = "com.baidu.gamenow";
-        this.f10915a = KVStorageFactory.getSharedPreferences("gamecenter_install_notification", 0);
+        this.f10924b = "com.baidu.gamenow";
+        this.f10923a = KVStorageFactory.getSharedPreferences("gamecenter_install_notification", 0);
     }
 
     public static a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f10914c == null) {
+            if (f10922c == null) {
                 synchronized (a.class) {
-                    if (f10914c == null) {
-                        f10914c = new a();
+                    if (f10922c == null) {
+                        f10922c = new a();
                     }
                 }
             }
-            return f10914c;
+            return f10922c;
         }
         return (a) invokeV.objValue;
     }
@@ -120,7 +120,7 @@ public class a {
     public final long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f10915a.getLong("key_notification_time", 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f10923a.getLong("key_notification_time", 0L) : invokeV.longValue;
     }
 
     public final long h() {
@@ -156,7 +156,7 @@ public class a {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            SharedPreferences.Editor edit = this.f10915a.edit();
+            SharedPreferences.Editor edit = this.f10923a.edit();
             edit.putLong("key_notification_time", System.currentTimeMillis());
             edit.apply();
         }
@@ -199,10 +199,10 @@ public class a {
                 string = appContext.getString(c.a.p0.g.b.aiapps_content_notification1);
             }
             try {
-                b.c(appContext, Long.valueOf(download.getId().longValue()).intValue(), format, TextUtils.equals(download.getKeyByUser(), this.f10916b) ? appContext.getString(c.a.p0.g.b.aiapps_gamenow_notification) : string, b.b(applicationIcon), System.currentTimeMillis(), broadcast, str, download.getKeyByUser());
+                b.c(appContext, Long.valueOf(download.getId().longValue()).intValue(), format, TextUtils.equals(download.getKeyByUser(), this.f10924b) ? appContext.getString(c.a.p0.g.b.aiapps_gamenow_notification) : string, b.b(applicationIcon), System.currentTimeMillis(), broadcast, str, download.getKeyByUser());
             } catch (Exception e2) {
                 e = e2;
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e.printStackTrace();
                 }
             }
@@ -243,7 +243,7 @@ public class a {
                 b.c(appContext, 0, String.format(appContext.getString(c.a.p0.g.b.aiapps_title_notification2), Integer.valueOf(t.size())), appContext.getString(c.a.p0.g.b.aiapps_content_notification1), b.b(packageManager.getApplicationIcon(applicationInfo)), System.currentTimeMillis(), PendingIntent.getBroadcast(appContext, Integer.MAX_VALUE, InstallNotifyReceiver.createToDownloadPageIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_MULTIPLE).putExtra(InstallNotifyReceiver.OPPORTUNITY, str), 134217728), str, download.getKeyByUser());
             }
         } catch (Exception e2) {
-            if (c.a.p0.a.k.f7077a) {
+            if (c.a.p0.a.k.f7085a) {
                 e2.printStackTrace();
             }
         }

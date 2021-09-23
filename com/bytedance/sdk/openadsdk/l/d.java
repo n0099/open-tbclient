@@ -25,19 +25,19 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f67989a;
+    public Context f68300a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<f> f67990b;
+    public WeakReference<f> f68301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, a> f67991c;
+    public Map<String, a> f68302c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SensorEventListener f67992d;
+    public SensorEventListener f68303d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SensorEventListener f67993e;
+    public SensorEventListener f68304e;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -59,13 +59,13 @@ public class d {
                 return;
             }
         }
-        this.f67991c = new HashMap();
-        this.f67992d = new SensorEventListener(this) { // from class: com.bytedance.sdk.openadsdk.l.d.1
+        this.f68302c = new HashMap();
+        this.f68303d = new SensorEventListener(this) { // from class: com.bytedance.sdk.openadsdk.l.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f67994a;
+            public final /* synthetic */ d f68305a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -82,7 +82,7 @@ public class d {
                         return;
                     }
                 }
-                this.f67994a = this;
+                this.f68305a = this;
             }
 
             @Override // android.hardware.SensorEventListener
@@ -96,7 +96,7 @@ public class d {
             public void onSensorChanged(SensorEvent sensorEvent) {
                 f d2;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 1 && (d2 = this.f67994a.d()) != null) {
+                if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 1 && (d2 = this.f68305a.d()) != null) {
                     float[] fArr = sensorEvent.values;
                     float f2 = fArr[0];
                     float f3 = fArr[1];
@@ -112,12 +112,12 @@ public class d {
                 }
             }
         };
-        this.f67993e = new SensorEventListener(this) { // from class: com.bytedance.sdk.openadsdk.l.d.12
+        this.f68304e = new SensorEventListener(this) { // from class: com.bytedance.sdk.openadsdk.l.d.12
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f67997a;
+            public final /* synthetic */ d f68308a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -134,7 +134,7 @@ public class d {
                         return;
                     }
                 }
-                this.f67997a = this;
+                this.f68308a = this;
             }
 
             @Override // android.hardware.SensorEventListener
@@ -148,7 +148,7 @@ public class d {
             public void onSensorChanged(SensorEvent sensorEvent) {
                 f d2;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 4 && (d2 = this.f67997a.d()) != null) {
+                if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 4 && (d2 = this.f68308a.d()) != null) {
                     float degrees = (float) Math.toDegrees(sensorEvent.values[0]);
                     float degrees2 = (float) Math.toDegrees(sensorEvent.values[1]);
                     float degrees3 = (float) Math.toDegrees(sensorEvent.values[2]);
@@ -163,20 +163,20 @@ public class d {
                 }
             }
         };
-        this.f67989a = fVar.a();
-        this.f67990b = new WeakReference<>(fVar);
+        this.f68300a = fVar.a();
+        this.f68301b = new WeakReference<>(fVar);
         c();
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f67991c.put("adInfo", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.13
+            this.f68302c.put("adInfo", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f67998a;
+                public final /* synthetic */ d f68309a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -193,7 +193,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f67998a = this;
+                    this.f68309a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -201,7 +201,7 @@ public class d {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
-                        f d2 = this.f67998a.d();
+                        f d2 = this.f68309a.d();
                         if (d2 != null) {
                             return d2.n();
                         }
@@ -210,12 +210,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put(DI.APP_INFO_NAME, new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.14
+            this.f68302c.put(DI.APP_INFO_NAME, new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f67999a;
+                public final /* synthetic */ d f68310a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -232,7 +232,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f67999a = this;
+                    this.f68310a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -244,11 +244,11 @@ public class d {
                         jSONObject2.put("appName", "playable_sdk");
                         jSONObject2.put("playableSdkEdition", "1.0.0.0");
                         JSONArray jSONArray = new JSONArray();
-                        for (String str : this.f67999a.a()) {
+                        for (String str : this.f68310a.a()) {
                             jSONArray.put(str);
                         }
                         jSONObject2.put("supportList", jSONArray);
-                        f d2 = this.f67999a.d();
+                        f d2 = this.f68310a.d();
                         if (d2 != null) {
                             jSONObject2.put("deviceId", d2.g());
                             jSONObject2.put("netType", d2.k());
@@ -265,12 +265,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("playableSDKInfo", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.15
+            this.f68302c.put("playableSDKInfo", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.15
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68000a;
+                public final /* synthetic */ d f68311a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -287,7 +287,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68000a = this;
+                    this.f68311a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -303,12 +303,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("subscribe_app_ad", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.16
+            this.f68302c.put("subscribe_app_ad", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.16
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68001a;
+                public final /* synthetic */ d f68312a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -325,7 +325,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68001a = this;
+                    this.f68312a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -333,7 +333,7 @@ public class d {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
-                        com.bytedance.sdk.openadsdk.l.a e2 = this.f68001a.e();
+                        com.bytedance.sdk.openadsdk.l.a e2 = this.f68312a.e();
                         if (e2 == null) {
                             return null;
                         }
@@ -343,12 +343,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("download_app_ad", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.17
+            this.f68302c.put("download_app_ad", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68002a;
+                public final /* synthetic */ d f68313a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -365,7 +365,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68002a = this;
+                    this.f68313a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -373,7 +373,7 @@ public class d {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
-                        com.bytedance.sdk.openadsdk.l.a e2 = this.f68002a.e();
+                        com.bytedance.sdk.openadsdk.l.a e2 = this.f68313a.e();
                         if (e2 == null) {
                             return null;
                         }
@@ -383,12 +383,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("isViewable", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.18
+            this.f68302c.put("isViewable", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68003a;
+                public final /* synthetic */ d f68314a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -405,7 +405,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68003a = this;
+                    this.f68314a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -413,7 +413,7 @@ public class d {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
-                        f d2 = this.f68003a.d();
+                        f d2 = this.f68314a.d();
                         if (d2 == null) {
                             return new JSONObject();
                         }
@@ -424,12 +424,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("getVolume", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.19
+            this.f68302c.put("getVolume", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68004a;
+                public final /* synthetic */ d f68315a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -446,7 +446,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68004a = this;
+                    this.f68315a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -454,7 +454,7 @@ public class d {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
-                        f d2 = this.f68004a.d();
+                        f d2 = this.f68315a.d();
                         if (d2 == null) {
                             return new JSONObject();
                         }
@@ -465,12 +465,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("getScreenSize", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.2
+            this.f68302c.put("getScreenSize", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68005a;
+                public final /* synthetic */ d f68316a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -487,7 +487,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68005a = this;
+                    this.f68316a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -495,7 +495,7 @@ public class d {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
-                        f d2 = this.f68005a.d();
+                        f d2 = this.f68316a.d();
                         if (d2 == null) {
                             return new JSONObject();
                         }
@@ -504,12 +504,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("start_accelerometer_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.3
+            this.f68302c.put("start_accelerometer_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68006a;
+                public final /* synthetic */ d f68317a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -526,7 +526,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68006a = this;
+                    this.f68317a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -546,19 +546,19 @@ public class d {
                                 return jSONObject2;
                             }
                         }
-                        h.a(this.f68006a.f67989a, this.f68006a.f67992d, i2);
+                        h.a(this.f68317a.f68300a, this.f68317a.f68303d, i2);
                         jSONObject2.put("code", 0);
                         return jSONObject2;
                     }
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("close_accelerometer_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.4
+            this.f68302c.put("close_accelerometer_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68007a;
+                public final /* synthetic */ d f68318a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -575,7 +575,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68007a = this;
+                    this.f68318a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -585,7 +585,7 @@ public class d {
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            h.a(this.f68007a.f67989a, this.f68007a.f67992d);
+                            h.a(this.f68318a.f68300a, this.f68318a.f68303d);
                             jSONObject2.put("code", 0);
                             return jSONObject2;
                         } catch (Throwable th) {
@@ -598,12 +598,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("start_gyro_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.5
+            this.f68302c.put("start_gyro_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68008a;
+                public final /* synthetic */ d f68319a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -620,7 +620,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68008a = this;
+                    this.f68319a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -640,19 +640,19 @@ public class d {
                                 return jSONObject2;
                             }
                         }
-                        h.b(this.f68008a.f67989a, this.f68008a.f67993e, i2);
+                        h.b(this.f68319a.f68300a, this.f68319a.f68304e, i2);
                         jSONObject2.put("code", 0);
                         return jSONObject2;
                     }
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("close_gyro_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.6
+            this.f68302c.put("close_gyro_observer", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68009a;
+                public final /* synthetic */ d f68320a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -669,7 +669,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68009a = this;
+                    this.f68320a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -679,7 +679,7 @@ public class d {
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            h.a(this.f68009a.f67989a, this.f68009a.f67993e);
+                            h.a(this.f68320a.f68300a, this.f68320a.f68304e);
                             jSONObject2.put("code", 0);
                             return jSONObject2;
                         } catch (Throwable th) {
@@ -692,12 +692,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("device_shake", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.7
+            this.f68302c.put("device_shake", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68010a;
+                public final /* synthetic */ d f68321a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -714,7 +714,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68010a = this;
+                    this.f68321a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -724,7 +724,7 @@ public class d {
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            h.a(this.f68010a.f67989a);
+                            h.a(this.f68321a.f68300a);
                             jSONObject2.put("code", 0);
                             return jSONObject2;
                         } catch (Throwable th) {
@@ -737,12 +737,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("playable_style", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.8
+            this.f68302c.put("playable_style", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68011a;
+                public final /* synthetic */ d f68322a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -759,7 +759,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68011a = this;
+                    this.f68322a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -767,7 +767,7 @@ public class d {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
-                        f d2 = this.f68011a.d();
+                        f d2 = this.f68322a.d();
                         if (d2 != null) {
                             return d2.c();
                         }
@@ -776,12 +776,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("sendReward", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.9
+            this.f68302c.put("sendReward", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f68012a;
+                public final /* synthetic */ d f68323a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -798,7 +798,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f68012a = this;
+                    this.f68323a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -806,7 +806,7 @@ public class d {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
-                        f d2 = this.f68012a.d();
+                        f d2 = this.f68323a.d();
                         if (d2 != null) {
                             d2.o();
                             return null;
@@ -816,12 +816,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("webview_time_track", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.10
+            this.f68302c.put("webview_time_track", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f67995a;
+                public final /* synthetic */ d f68306a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -838,7 +838,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f67995a = this;
+                    this.f68306a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -851,12 +851,12 @@ public class d {
                     return (JSONObject) invokeL.objValue;
                 }
             });
-            this.f67991c.put("playable_event", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.11
+            this.f68302c.put("playable_event", new a(this) { // from class: com.bytedance.sdk.openadsdk.l.d.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f67996a;
+                public final /* synthetic */ d f68307a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -873,7 +873,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f67996a = this;
+                    this.f68307a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.d.a
@@ -881,7 +881,7 @@ public class d {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, jSONObject)) == null) {
-                        f d2 = this.f67996a.d();
+                        f d2 = this.f68307a.d();
                         if (d2 == null || jSONObject == null) {
                             return null;
                         }
@@ -899,7 +899,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            WeakReference<f> weakReference = this.f67990b;
+            WeakReference<f> weakReference = this.f68301b;
             if (weakReference == null) {
                 return null;
             }
@@ -925,14 +925,14 @@ public class d {
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67991c.keySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68302c.keySet() : (Set) invokeV.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            h.a(this.f67989a, this.f67992d);
-            h.a(this.f67989a, this.f67993e);
+            h.a(this.f68300a, this.f68303d);
+            h.a(this.f68300a, this.f68304e);
         }
     }
 
@@ -941,7 +941,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject)) == null) {
             try {
-                a aVar = this.f67991c.get(str);
+                a aVar = this.f68302c.get(str);
                 if (aVar == null) {
                     return null;
                 }

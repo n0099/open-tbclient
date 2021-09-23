@@ -37,7 +37,7 @@ public class c extends c.a.p0.n.j.b {
                 jSONObject2.put("version", b.c().a());
                 jSONObject.put("base_info", jSONObject2);
             } catch (JSONException e2) {
-                if (c.a.p0.n.c.f11856a) {
+                if (c.a.p0.n.c.f11864a) {
                     e2.printStackTrace();
                 }
             }

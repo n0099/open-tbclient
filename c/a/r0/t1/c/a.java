@@ -16,21 +16,21 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<C1161a> f24970a;
+    public ArrayList<C1159a> f24991a;
 
     /* renamed from: c.a.r0.t1.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1161a {
+    public static class C1159a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f24971a;
+        public String f24992a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24972b;
+        public String f24993b;
 
-        public C1161a() {
+        public C1159a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,13 +47,13 @@ public class a {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24971a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24992a : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24972b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24993b : (String) invokeV.objValue;
         }
 
         public void c(Lbs lbs) {
@@ -61,23 +61,23 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lbs) == null) || lbs == null) {
                 return;
             }
-            this.f24971a = lbs.name;
+            this.f24992a = lbs.name;
             String str = lbs.lat;
             String str2 = lbs.lng;
-            this.f24972b = lbs.sn;
+            this.f24993b = lbs.sn;
         }
 
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f24971a = str;
+                this.f24992a = str;
             }
         }
 
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f24972b = str;
+                this.f24993b = str;
             }
         }
     }
@@ -95,13 +95,13 @@ public class a {
                 return;
             }
         }
-        this.f24970a = new ArrayList<>();
+        this.f24991a = new ArrayList<>();
     }
 
-    public ArrayList<C1161a> a() {
+    public ArrayList<C1159a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24970a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24991a : (ArrayList) invokeV.objValue;
     }
 
     public void b(DataRes dataRes) {
@@ -111,16 +111,16 @@ public class a {
             return;
         }
         for (Lbs lbs : list) {
-            C1161a c1161a = new C1161a();
-            c1161a.c(lbs);
-            this.f24970a.add(c1161a);
+            C1159a c1159a = new C1159a();
+            c1159a.c(lbs);
+            this.f24991a.add(c1159a);
         }
     }
 
-    public void c(ArrayList<C1161a> arrayList) {
+    public void c(ArrayList<C1159a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.f24970a = arrayList;
+            this.f24991a = arrayList;
         }
     }
 }

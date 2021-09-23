@@ -16,13 +16,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, Integer> f6884a;
+    public static final HashMap<String, Integer> f6892a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<String, Integer> f6885b;
+    public static final HashMap<String, Integer> f6893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashMap<String, Integer> f6886c;
+    public static final HashMap<String, Integer> f6894c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,34 +39,34 @@ public class b {
             }
         }
         HashMap<String, Integer> hashMap = new HashMap<>(16);
-        f6884a = hashMap;
+        f6892a = hashMap;
         hashMap.put("VRModeProjectionSphere", 201);
-        f6884a.put("VRModeProjectionDome180", 202);
-        f6884a.put("VRModeProjectionDome230", 203);
-        f6884a.put("VRModeProjectionDome180Upper", 204);
-        f6884a.put("VRModeProjectionDome230Upper", 205);
-        f6884a.put("VRModeProjectionPlaneFit", 207);
-        f6884a.put("VRModeProjectionPlaneCrop", 208);
-        f6884a.put("VRModeProjectionPlaneFull", 209);
-        f6884a.put("VRModeProjectionMultiFishEyeHorizontal", 210);
-        f6884a.put("VRModeProjectionMultiFishEyeVertical", 211);
-        f6884a.put("VRModeProjectionStereoSphereHorizontal", 212);
-        f6884a.put("VRModeProjectionStereoSphereVertical", 213);
-        f6884a.put("VRModeProjectionStereoPlaneFitHorizontal", 214);
-        f6884a.put("VRModeProjectionStereoPlaneFitVertical", Integer.valueOf((int) JfifUtil.MARKER_RST7));
-        f6884a.put("VRModeProjectionPlaneFullHorizontal", Integer.valueOf((int) JfifUtil.MARKER_SOI));
-        f6884a.put("VRModeProjectionPlaneFullVertical", 217);
+        f6892a.put("VRModeProjectionDome180", 202);
+        f6892a.put("VRModeProjectionDome230", 203);
+        f6892a.put("VRModeProjectionDome180Upper", 204);
+        f6892a.put("VRModeProjectionDome230Upper", 205);
+        f6892a.put("VRModeProjectionPlaneFit", 207);
+        f6892a.put("VRModeProjectionPlaneCrop", 208);
+        f6892a.put("VRModeProjectionPlaneFull", 209);
+        f6892a.put("VRModeProjectionMultiFishEyeHorizontal", 210);
+        f6892a.put("VRModeProjectionMultiFishEyeVertical", 211);
+        f6892a.put("VRModeProjectionStereoSphereHorizontal", 212);
+        f6892a.put("VRModeProjectionStereoSphereVertical", 213);
+        f6892a.put("VRModeProjectionStereoPlaneFitHorizontal", 214);
+        f6892a.put("VRModeProjectionStereoPlaneFitVertical", Integer.valueOf((int) JfifUtil.MARKER_RST7));
+        f6892a.put("VRModeProjectionPlaneFullHorizontal", Integer.valueOf((int) JfifUtil.MARKER_SOI));
+        f6892a.put("VRModeProjectionPlaneFullVertical", 217);
         HashMap<String, Integer> hashMap2 = new HashMap<>(2);
-        f6885b = hashMap2;
+        f6893b = hashMap2;
         hashMap2.put("VRModeDisplayNormal", 101);
-        f6885b.put("VRModeDisplayGlass", 102);
+        f6893b.put("VRModeDisplayGlass", 102);
         HashMap<String, Integer> hashMap3 = new HashMap<>(5);
-        f6886c = hashMap3;
+        f6894c = hashMap3;
         hashMap3.put("VRModeInteractiveMotion", 1);
-        f6886c.put("VRModeInteractiveTouch", 2);
-        f6886c.put("VRModeInteractiveMotionWithTouch", 3);
-        f6886c.put("VRModeInteractiveGVRMotion", 4);
-        f6886c.put("VRModeInteractiveGVRMotionWithTouch", 5);
+        f6894c.put("VRModeInteractiveTouch", 2);
+        f6894c.put("VRModeInteractiveMotionWithTouch", 3);
+        f6894c.put("VRModeInteractiveGVRMotion", 4);
+        f6894c.put("VRModeInteractiveGVRMotionWithTouch", 5);
     }
 
     public b() {
@@ -92,16 +92,16 @@ public class b {
                 return bVar;
             }
             String optString = jSONObject.optString("projectionMode");
-            if (!TextUtils.isEmpty(optString) && f6884a.containsKey(optString)) {
-                f6884a.get(optString).intValue();
+            if (!TextUtils.isEmpty(optString) && f6892a.containsKey(optString)) {
+                f6892a.get(optString).intValue();
             }
             String optString2 = jSONObject.optString("displayMode");
-            if (!TextUtils.isEmpty(optString2) && f6885b.containsKey(optString2)) {
-                f6885b.get(optString2).intValue();
+            if (!TextUtils.isEmpty(optString2) && f6893b.containsKey(optString2)) {
+                f6893b.get(optString2).intValue();
             }
             String optString3 = jSONObject.optString("interactiveMode");
-            if (!TextUtils.isEmpty(optString3) && f6886c.containsKey(optString3)) {
-                f6886c.get(optString3).intValue();
+            if (!TextUtils.isEmpty(optString3) && f6894c.containsKey(optString3)) {
+                f6894c.get(optString3).intValue();
             }
             jSONObject.optInt("fov", -1);
             jSONObject.optInt("minFov", -1);

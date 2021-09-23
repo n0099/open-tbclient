@@ -39,22 +39,22 @@ public class g implements Callable<Boolean> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f12870e;
+    public h f12884e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<ImageFileInfo> f12871f;
+    public LinkedList<ImageFileInfo> f12885f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WriteImagesInfo f12872g;
+    public WriteImagesInfo f12886g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12873h;
+    public boolean f12887h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12874i;
+    public int f12888i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f12875j;
+    public int f12889j;
     public int k;
     public int l;
     public int m;
@@ -87,11 +87,11 @@ public class g implements Callable<Boolean> {
             }
         }
         this.w = null;
-        this.f12870e = hVar;
-        this.f12871f = linkedList;
-        this.f12872g = writeImagesInfo;
-        this.f12873h = z;
-        this.f12874i = i2;
+        this.f12884e = hVar;
+        this.f12885f = linkedList;
+        this.f12886g = writeImagesInfo;
+        this.f12887h = z;
+        this.f12888i = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -102,14 +102,14 @@ public class g implements Callable<Boolean> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ErrorData errorData = new ErrorData();
-            ImageFileInfo imageFileInfo = this.f12871f.get(this.f12874i);
+            ImageFileInfo imageFileInfo = this.f12885f.get(this.f12888i);
             if (TextUtils.isEmpty(imageFileInfo.getTempUploadFileName())) {
-                imageFileInfo.setTempUploadFileName("img_upload_temp_file_" + this.f12874i + XAdSimpleImageLoader.TEMP_SUFFIX);
+                imageFileInfo.setTempUploadFileName("img_upload_temp_file_" + this.f12888i + XAdSimpleImageLoader.TEMP_SUFFIX);
             }
-            c.a.r0.j3.r0.h.a("发帖：发送图片 上传图片 = " + this.f12874i + " = " + imageFileInfo.toJson().toString());
-            boolean isOriginalImg = imageFileInfo.getImageType() == 1 ? false : this.f12872g.isOriginalImg();
+            c.a.r0.j3.r0.h.a("发帖：发送图片 上传图片 = " + this.f12888i + " = " + imageFileInfo.toJson().toString());
+            boolean isOriginalImg = imageFileInfo.getImageType() == 1 ? false : this.f12886g.isOriginalImg();
             c.a.r0.j3.r0.d.m(this.y, imageFileInfo);
-            ImageUploadResult e2 = e(imageFileInfo, isOriginalImg, this.f12873h, this.f12874i + 1, this.f12871f.size());
+            ImageUploadResult e2 = e(imageFileInfo, isOriginalImg, this.f12887h, this.f12888i + 1, this.f12885f.size());
             c.a.r0.j3.r0.d.d(this.y, imageFileInfo, e2);
             if (e2 != null) {
                 UploadedImageInfo uploadedPicInfo = e2.getUploadedPicInfo();
@@ -121,14 +121,14 @@ public class g implements Callable<Boolean> {
                 }
                 errorData.setError_code(e2.error_code);
                 errorData.setError_msg(e2.error_msg);
-                c.a.r0.j3.r0.h.a("发帖：发送图片 上传图片 错误 1= " + this.f12874i + " = " + imageFileInfo.toJson().toString());
-                this.f12870e.a(errorData);
+                c.a.r0.j3.r0.h.a("发帖：发送图片 上传图片 错误 1= " + this.f12888i + " = " + imageFileInfo.toJson().toString());
+                this.f12884e.a(errorData);
                 return Boolean.FALSE;
             }
             errorData.setError_code(-52);
             errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
-            c.a.r0.j3.r0.h.a("发帖：发送图片 上传图片 错误 2= " + this.f12874i + " = " + imageFileInfo.toJson().toString());
-            this.f12870e.a(errorData);
+            c.a.r0.j3.r0.h.a("发帖：发送图片 上传图片 错误 2= " + this.f12888i + " = " + imageFileInfo.toJson().toString());
+            this.f12884e.a(errorData);
             return Boolean.FALSE;
         }
         return (Boolean) invokeV.objValue;
@@ -146,7 +146,7 @@ public class g implements Callable<Boolean> {
     public void c(int i2, int i3, int i4, int i5, int i6, boolean z, int i7, String str, f.a aVar, f.b bVar, Object obj, boolean z2, int i8) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z), Integer.valueOf(i7), str, aVar, bVar, obj, Boolean.valueOf(z2), Integer.valueOf(i8)}) == null) {
-            this.f12875j = i2;
+            this.f12889j = i2;
             this.k = i3;
             this.l = i4;
             this.m = i5;
@@ -416,11 +416,11 @@ public class g implements Callable<Boolean> {
                     sb5.append("|md5=");
                     sb5.append(b2);
                     if (length != 0 && b2 != null) {
-                        String str6 = b2 + this.f12875j;
-                        long j8 = length % ((long) this.f12875j) == 0 ? length / this.f12875j : (length / this.f12875j) + 1;
+                        String str6 = b2 + this.f12889j;
+                        long j8 = length % ((long) this.f12889j) == 0 ? length / this.f12889j : (length / this.f12889j) + 1;
                         sb5.append("|chunkNo=");
                         sb5.append(j8);
-                        randomAccessFile = new RandomAccessFile(str5, r.f42280a);
+                        randomAccessFile = new RandomAccessFile(str5, r.f42342a);
                         try {
                             try {
                                 sb5.append("|width=");
@@ -467,7 +467,7 @@ public class g implements Callable<Boolean> {
                                                 try {
                                                     sb3 = sb7;
                                                     str3 = "|startChunk=";
-                                                    i6 = this.f12875j;
+                                                    i6 = this.f12889j;
                                                 } catch (Throwable th3) {
                                                     th = th3;
                                                     th = th;
@@ -511,7 +511,7 @@ public class g implements Callable<Boolean> {
                                         } else if (i10 == 0) {
                                             sb3 = sb7;
                                             str3 = "|startChunk=";
-                                            i6 = (int) (length - (this.f12875j * (j8 - 1)));
+                                            i6 = (int) (length - (this.f12889j * (j8 - 1)));
                                         } else {
                                             sb3 = sb7;
                                             str3 = "|startChunk=";
@@ -556,7 +556,7 @@ public class g implements Callable<Boolean> {
                                         try {
                                             bArr2 = new byte[i6];
                                             j3 = j8;
-                                            randomAccessFile.seek(this.f12875j * (i4 - 1));
+                                            randomAccessFile.seek(this.f12889j * (i4 - 1));
                                             randomAccessFile.read(bArr2, 0, i6);
                                         } catch (Exception e8) {
                                             e = e8;
@@ -834,7 +834,7 @@ public class g implements Callable<Boolean> {
                                                                     j2 += i6;
                                                                     if (i11 > 1) {
                                                                         try {
-                                                                            j4 = j2 + ((i11 - 1) * this.f12875j);
+                                                                            j4 = j2 + ((i11 - 1) * this.f12889j);
                                                                         } catch (Exception e13) {
                                                                             exc = e13;
                                                                             imageUploadResult = parser;
@@ -874,9 +874,9 @@ public class g implements Callable<Boolean> {
                                                                     } else {
                                                                         j4 = j2;
                                                                     }
-                                                                    if (this.f12872g != null) {
+                                                                    if (this.f12886g != null) {
                                                                         i7 = i11;
-                                                                        this.f12872g.hasUploadFileSize += i6;
+                                                                        this.f12886g.hasUploadFileSize += i6;
                                                                     } else {
                                                                         i7 = i11;
                                                                     }

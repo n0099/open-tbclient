@@ -62,15 +62,15 @@ public final class b extends c.a.e.l.e.a<g, CardViewHolder<VideoMiddlePageLightC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, gVar, i2) == null) {
             StatisticItem statisticItem = new StatisticItem("c12590");
-            statisticItem.param("tid", gVar != null ? gVar.f26804f : null);
-            statisticItem.param("nid", gVar != null ? gVar.f26805g : null);
+            statisticItem.param("tid", gVar != null ? gVar.f26824f : null);
+            statisticItem.param("nid", gVar != null ? gVar.f26825g : null);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("obj_locate", i2);
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
             if (gVar == null) {
                 Intrinsics.throwNpe();
             }
-            statisticItem.param("fid", gVar.f26803e);
+            statisticItem.param("fid", gVar.f26823e);
             statisticItem.param("obj_param1", k.isEmpty(gVar.r) ? "0" : gVar.r);
             statisticItem.param("extra", k.isEmpty(gVar.s) ? "0" : gVar.s);
             statisticItem.param("obj_id", this.o.getFromTid());
@@ -95,7 +95,7 @@ public final class b extends c.a.e.l.e.a<g, CardViewHolder<VideoMiddlePageLightC
             if (gVar == null) {
                 Intrinsics.throwNpe();
             }
-            c.g().d(this.n.getUniqueId(), c.a.r0.i3.a.c(gVar.f26804f, "", "", gVar.A), c.a.r0.i3.a.f(d2Var, "a023", "common_exp", i2 + 1, false, null, null));
+            c.g().d(this.n.getUniqueId(), c.a.r0.i3.a.c(gVar.f26824f, "", "", gVar.A), c.a.r0.i3.a.f(d2Var, "a023", "common_exp", i2 + 1, false, null, null));
         }
     }
 

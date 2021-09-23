@@ -19,10 +19,10 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, List<String>> f64377a;
+    public final Map<String, List<String>> f64688a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64378b;
+    public String f64689b;
 
     public g(String str) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class g {
                 return;
             }
         }
-        this.f64377a = new LinkedHashMap();
-        this.f64378b = str;
+        this.f64688a = new LinkedHashMap();
+        this.f64689b = str;
     }
 
     private String b(String str, String str2) {
@@ -62,12 +62,12 @@ public class g {
     public void a(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
-            List<String> list = this.f64377a.get(str);
+            List<String> list = this.f64688a.get(str);
             if (list == null) {
                 list = new LinkedList<>();
             }
             list.add(String.valueOf(i2));
-            this.f64377a.put(str, list);
+            this.f64688a.put(str, list);
         }
     }
 
@@ -90,31 +90,31 @@ public class g {
                 return;
             }
         }
-        this.f64377a = new LinkedHashMap();
-        this.f64378b = null;
+        this.f64688a = new LinkedHashMap();
+        this.f64689b = null;
     }
 
     public void a(String str, double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Double.valueOf(d2)}) == null) {
-            List<String> list = this.f64377a.get(str);
+            List<String> list = this.f64688a.get(str);
             if (list == null) {
                 list = new LinkedList<>();
             }
             list.add(String.valueOf(d2));
-            this.f64377a.put(str, list);
+            this.f64688a.put(str, list);
         }
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            List<String> list = this.f64377a.get(str);
+            List<String> list = this.f64688a.get(str);
             if (list == null) {
                 list = new LinkedList<>();
             }
             list.add(String.valueOf(str2));
-            this.f64377a.put(str, list);
+            this.f64688a.put(str, list);
         }
     }
 
@@ -124,21 +124,21 @@ public class g {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f64377a.isEmpty()) {
-                return this.f64378b;
+            if (this.f64688a.isEmpty()) {
+                return this.f64689b;
             }
-            String a2 = a(this.f64377a, "UTF-8");
-            String str2 = this.f64378b;
+            String a2 = a(this.f64688a, "UTF-8");
+            String str2 = this.f64689b;
             if (str2 == null || str2.length() == 0) {
                 return a2;
             }
-            if (this.f64378b.indexOf(63) >= 0) {
+            if (this.f64689b.indexOf(63) >= 0) {
                 sb = new StringBuilder();
-                sb.append(this.f64378b);
+                sb.append(this.f64689b);
                 str = "&";
             } else {
                 sb = new StringBuilder();
-                sb.append(this.f64378b);
+                sb.append(this.f64689b);
                 str = "?";
             }
             sb.append(str);

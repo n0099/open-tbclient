@@ -26,6 +26,7 @@ public final class NetworkUtils {
     public static final int NETWORK_5G = 5;
     public static final int NETWORK_TYPE_GSM = 16;
     public static final int NETWORK_TYPE_IWLAN = 18;
+    public static final int NETWORK_TYPE_LTE_CA = 19;
     public static final int NETWORK_TYPE_NR = 20;
     public static final int NETWORK_TYPE_TD_SCDMA = 17;
     public static final int NETWORK_UNKNOW = 0;
@@ -117,12 +118,12 @@ public final class NetworkUtils {
                         return 3;
                     case 13:
                     case 18:
-                        return 4;
                     case 19:
-                    default:
-                        return 0;
+                        return 4;
                     case 20:
                         return 5;
+                    default:
+                        return 0;
                 }
             }
             return 0;

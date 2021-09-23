@@ -44,7 +44,7 @@ public class s0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s0 f3859e;
+        public final /* synthetic */ s0 f3860e;
 
         public a(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class s0 extends h {
                     return;
                 }
             }
-            this.f3859e = s0Var;
+            this.f3860e = s0Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -69,7 +69,7 @@ public class s0 extends h {
             s0 s0Var;
             a.InterfaceC0093a interfaceC0093a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (s0Var = this.f3859e).f3785i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0093a = (s0Var = this.f3860e).f3786i) == null) {
                 return;
             }
             interfaceC0093a.a(s0Var.p);
@@ -82,7 +82,7 @@ public class s0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s0 f3860a;
+        public final /* synthetic */ s0 f3861a;
 
         public b(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -99,16 +99,16 @@ public class s0 extends h {
                     return;
                 }
             }
-            this.f3860a = s0Var;
+            this.f3861a = s0Var;
         }
 
         @Override // c.a.l.w0.a
         public void a(c.a.q0.s.q.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f3860a.u == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f3861a.u == null) {
                 return;
             }
-            this.f3860a.u.a(this.f3860a.p);
+            this.f3861a.u.a(this.f3861a.p);
         }
     }
 
@@ -226,7 +226,7 @@ public class s0 extends h {
                 this.r = k;
             }
             this.p = aVar;
-            if (aVar != null && aVar.getThreadData() != null && this.p.getThreadData().x1 != null && !this.p.getThreadData().x1.m) {
+            if (aVar != null && aVar.getThreadData() != null && this.p.getThreadData().y1 != null && !this.p.getThreadData().y1.m) {
                 this.q.setVisibility(0);
                 this.q.onBindDataToView(aVar);
                 ViewGroup.LayoutParams layoutParams = this.q.getLayoutParams();
@@ -234,8 +234,8 @@ public class s0 extends h {
                 int i3 = layoutParams.width;
                 int i4 = layoutParams.height;
                 boolean z = true;
-                if (this.p.getThreadData().x1.r.is_vertical.intValue() == 1) {
-                    VideoInfo videoInfo = this.p.getThreadData().x1.r;
+                if (this.p.getThreadData().y1.r.is_vertical.intValue() == 1) {
+                    VideoInfo videoInfo = this.p.getThreadData().y1.r;
                     if (videoInfo == null) {
                         return;
                     }
@@ -292,7 +292,7 @@ public class s0 extends h {
     public void w(a.InterfaceC0093a interfaceC0093a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0093a) == null) {
-            this.f3785i = interfaceC0093a;
+            this.f3786i = interfaceC0093a;
         }
     }
 

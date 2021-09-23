@@ -40,22 +40,22 @@ public class h extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<ImageFileInfo> f16944e;
+    public List<ImageFileInfo> f16954e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f16945f;
+    public Context f16955f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.q0.d0.b f16946g;
+    public c.a.q0.d0.b f16956g;
 
     /* renamed from: h  reason: collision with root package name */
-    public n f16947h;
+    public n f16957h;
 
     /* renamed from: i  reason: collision with root package name */
-    public f f16948i;
+    public f f16958i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LayoutInflater f16949j;
+    public LayoutInflater f16959j;
     public boolean k;
     public boolean l;
     public int m;
@@ -66,7 +66,7 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f16950e;
+        public final /* synthetic */ h f16960e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -83,17 +83,17 @@ public class h extends BaseAdapter {
                     return;
                 }
             }
-            this.f16950e = hVar;
+            this.f16960e = hVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16950e.f16948i == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16960e.f16958i == null) {
                 return;
             }
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 13));
-            this.f16950e.f16948i.b();
+            this.f16960e.f16958i.b();
         }
     }
 
@@ -103,10 +103,10 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f16951e;
+        public final /* synthetic */ int f16961e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f16952f;
+        public final /* synthetic */ h f16962f;
 
         public b(h hVar, int i2) {
             Interceptable interceptable = $ic;
@@ -123,18 +123,18 @@ public class h extends BaseAdapter {
                     return;
                 }
             }
-            this.f16952f = hVar;
-            this.f16951e = i2;
+            this.f16962f = hVar;
+            this.f16961e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (i2 = this.f16951e) < 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (i2 = this.f16961e) < 0) {
                 return;
             }
-            ImageFileInfo imageFileInfo = (ImageFileInfo) this.f16952f.getItem(i2);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.f16962f.getItem(i2);
             if (imageFileInfo.isFromMoreForum) {
                 return;
             }
@@ -143,14 +143,14 @@ public class h extends BaseAdapter {
                 z = false;
             }
             if (!z) {
-                l.I(this.f16952f.f16945f, R.string.editor_mutiiamge_image_error);
+                l.I(this.f16962f.f16955f, R.string.editor_mutiiamge_image_error);
                 return;
             }
-            if (this.f16952f.f16947h != null) {
-                this.f16952f.f16947h.sendAction(new c.a.q0.x.a(15, 0, Integer.valueOf(this.f16951e)));
+            if (this.f16962f.f16957h != null) {
+                this.f16962f.f16957h.sendAction(new c.a.q0.x.a(15, 0, Integer.valueOf(this.f16961e)));
             }
-            if (this.f16952f.f16948i != null) {
-                this.f16952f.f16948i.c(this.f16951e);
+            if (this.f16962f.f16958i != null) {
+                this.f16962f.f16958i.c(this.f16961e);
             }
         }
     }
@@ -161,10 +161,10 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f16953e;
+        public final /* synthetic */ int f16963e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f16954f;
+        public final /* synthetic */ h f16964f;
 
         public c(h hVar, int i2) {
             Interceptable interceptable = $ic;
@@ -181,17 +181,17 @@ public class h extends BaseAdapter {
                     return;
                 }
             }
-            this.f16954f = hVar;
-            this.f16953e = i2;
+            this.f16964f = hVar;
+            this.f16963e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16954f.f16948i == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16964f.f16958i == null) {
                 return;
             }
-            this.f16954f.f16948i.a(this.f16953e);
+            this.f16964f.f16958i.a(this.f16963e);
         }
     }
 
@@ -201,7 +201,7 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f16955e;
+        public final /* synthetic */ ViewGroup f16965e;
 
         public d(h hVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -218,14 +218,14 @@ public class h extends BaseAdapter {
                     return;
                 }
             }
-            this.f16955e = viewGroup;
+            this.f16965e = viewGroup;
         }
 
         @Override // c.a.q0.c0.b
         public void imageLoaded(c.a.e.l.d.a aVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f16955e.findViewWithTag(str)) == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || (tbImageView = (TbImageView) this.f16965e.findViewWithTag(str)) == null || aVar == null) {
                 return;
             }
             tbImageView.invalidate();
@@ -238,10 +238,10 @@ public class h extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f16956a;
+        public final /* synthetic */ ViewGroup f16966a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f16957b;
+        public final /* synthetic */ String f16967b;
 
         public e(h hVar, ViewGroup viewGroup, String str) {
             Interceptable interceptable = $ic;
@@ -258,8 +258,8 @@ public class h extends BaseAdapter {
                     return;
                 }
             }
-            this.f16956a = viewGroup;
-            this.f16957b = str;
+            this.f16966a = viewGroup;
+            this.f16967b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -267,7 +267,7 @@ public class h extends BaseAdapter {
         public void onLoaded(c.a.e.l.d.a aVar, String str, int i2) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || (tbImageView = (TbImageView) this.f16956a.findViewWithTag(this.f16957b)) == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || (tbImageView = (TbImageView) this.f16966a.findViewWithTag(this.f16967b)) == null || aVar == null) {
                 return;
             }
             tbImageView.invalidate();
@@ -298,20 +298,20 @@ public class h extends BaseAdapter {
                 return;
             }
         }
-        this.f16944e = new ArrayList();
+        this.f16954e = new ArrayList();
         this.k = false;
         this.l = false;
-        this.f16947h = nVar;
-        this.f16945f = context;
-        this.f16949j = LayoutInflater.from(context);
-        this.f16946g = bVar;
-        this.f16948i = fVar;
+        this.f16957h = nVar;
+        this.f16955f = context;
+        this.f16959j = LayoutInflater.from(context);
+        this.f16956g = bVar;
+        this.f16958i = fVar;
     }
 
     public final String d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f16945f.getResources().getString(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f16955f.getResources().getString(i2) : (String) invokeI.objValue;
     }
 
     public final void e(ImageFileInfo imageFileInfo, View view, ViewGroup viewGroup, int i2, int i3) {
@@ -325,14 +325,14 @@ public class h extends BaseAdapter {
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.iv);
         ((FrameLayout) view.findViewById(R.id.item_root)).setForeground(SkinManager.getDrawable(R.drawable.new_frame_add_photo_foreground_selector));
         if (imageFileInfo.getImageType() == 0) {
-            c.a.e.l.d.a c2 = this.f16946g.c(imageFileInfo, true);
+            c.a.e.l.d.a c2 = this.f16956g.c(imageFileInfo, true);
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
             if (c2 != null) {
                 tbImageView.invalidate();
             } else {
-                this.f16946g.d(imageFileInfo, new d(this, viewGroup), true);
+                this.f16956g.d(imageFileInfo, new d(this, viewGroup), true);
             }
-            tbImageView.setTagStr(this.f16945f.getString(R.string.edit));
+            tbImageView.setTagStr(this.f16955f.getString(R.string.edit));
         } else if (imageFileInfo.getImageType() == 1) {
             String filePath = imageFileInfo.getFilePath();
             if (!c.a.e.e.p.k.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
@@ -351,16 +351,16 @@ public class h extends BaseAdapter {
         }
         this.m = writeImagesInfo.getMaxImagesAllowed();
         int count = ListUtils.getCount(writeImagesInfo.getChosedFiles());
-        this.f16944e.clear();
+        this.f16954e.clear();
         if (count > 0) {
-            this.f16944e.addAll(writeImagesInfo.getChosedFiles());
+            this.f16954e.addAll(writeImagesInfo.getChosedFiles());
         }
         if (count >= this.m || !this.k || !this.l || count <= 0) {
             return;
         }
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("FLAG_ADD_ICON");
-        this.f16944e.add(imageFileInfo);
+        this.f16954e.add(imageFileInfo);
     }
 
     public void g(boolean z) {
@@ -374,14 +374,14 @@ public class h extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16944e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16954e.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f16944e.get(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f16954e.get(i2) : invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -397,14 +397,14 @@ public class h extends BaseAdapter {
         AbsListView.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
-            ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.f16944e, i2);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.f16954e, i2);
             if (imageFileInfo == null) {
                 return null;
             }
             if (view == null) {
-                view = this.f16949j.inflate(R.layout.new_frame_editor_muti_image_item, (ViewGroup) null);
+                view = this.f16959j.inflate(R.layout.new_frame_editor_muti_image_item, (ViewGroup) null);
             }
-            int k = (l.k(this.f16945f) - ((l.g(this.f16945f, R.dimen.tbds44) * 2) + (l.g(this.f16945f, R.dimen.tbds10) * 2))) / 3;
+            int k = (l.k(this.f16955f) - ((l.g(this.f16955f, R.dimen.tbds44) * 2) + (l.g(this.f16955f, R.dimen.tbds10) * 2))) / 3;
             if (view.getLayoutParams() instanceof AbsListView.LayoutParams) {
                 layoutParams = (AbsListView.LayoutParams) view.getLayoutParams();
                 layoutParams.width = k;
@@ -414,7 +414,7 @@ public class h extends BaseAdapter {
             }
             view.setLayoutParams(layoutParams);
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.iv);
-            tbImageView.setTagTextSize(l.g(this.f16945f, R.dimen.T_X10));
+            tbImageView.setTagTextSize(l.g(this.f16955f, R.dimen.T_X10));
             tbImageView.setDrawBorder(true);
             tbImageView.setDrawCorner(true);
             tbImageView.setAutoChangeStyle(true);
@@ -439,9 +439,9 @@ public class h extends BaseAdapter {
                 tbImageView.setIsLongPic(imageFileInfo.isLong());
                 tbImageView.setTagStr(d(R.string.edit));
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    tbImageView.setTagColor(this.f16945f.getResources().getColor(R.color.CAM_X0101));
+                    tbImageView.setTagColor(this.f16955f.getResources().getColor(R.color.CAM_X0101));
                 } else {
-                    tbImageView.setTagColor(this.f16945f.getResources().getColor(R.color.CAM_X0101));
+                    tbImageView.setTagColor(this.f16955f.getResources().getColor(R.color.CAM_X0101));
                 }
                 e(imageFileInfo, view, viewGroup, k, k);
                 if (imageFileInfo.isFromMoreForum) {

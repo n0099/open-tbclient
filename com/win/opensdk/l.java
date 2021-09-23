@@ -15,10 +15,10 @@ public class l extends AsyncTask {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f77093a;
+    public final /* synthetic */ String f77412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PBDrawVideo f77094b;
+    public final /* synthetic */ PBDrawVideo f77413b;
 
     public l(PBDrawVideo pBDrawVideo, String str) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class l extends AsyncTask {
                 return;
             }
         }
-        this.f77094b = pBDrawVideo;
-        this.f77093a = str;
+        this.f77413b = pBDrawVideo;
+        this.f77412a = str;
     }
 
     @Override // android.os.AsyncTask
@@ -66,32 +66,32 @@ public class l extends AsyncTask {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             byte[] bArr = (byte[]) obj;
             if (bArr == null) {
-                PBDrawVideo pBDrawVideo = this.f77094b;
-                PBDrawVideoListener pBDrawVideoListener = pBDrawVideo.f76837c;
-                if (pBDrawVideoListener != null && !pBDrawVideo.f76839e) {
+                PBDrawVideo pBDrawVideo = this.f77413b;
+                PBDrawVideoListener pBDrawVideoListener = pBDrawVideo.f77156c;
+                if (pBDrawVideoListener != null && !pBDrawVideo.f77158e) {
                     pBDrawVideoListener.onFail(PBError.NO_RESUOURCE);
-                    this.f77094b.f76838d = true;
+                    this.f77413b.f77157d = true;
                 }
             } else {
-                PBDrawVideo pBDrawVideo2 = this.f77094b;
-                if (pBDrawVideo2.f76837c != null && !pBDrawVideo2.f76839e) {
-                    file = pBDrawVideo2.f76841g;
+                PBDrawVideo pBDrawVideo2 = this.f77413b;
+                if (pBDrawVideo2.f77156c != null && !pBDrawVideo2.f77158e) {
+                    file = pBDrawVideo2.f77160g;
                     N.a(bArr, file.getPath(), new k(this));
                 }
             }
             if (bArr != null) {
-                PBDrawVideo pBDrawVideo3 = this.f77094b;
-                if (pBDrawVideo3.f76839e) {
+                PBDrawVideo pBDrawVideo3 = this.f77413b;
+                if (pBDrawVideo3.f77158e) {
                     StringBuilder sb = new StringBuilder();
-                    context = this.f77094b.f76835a;
+                    context = this.f77413b.f77154a;
                     sb.append(N.a(context));
                     sb.append(File.separator);
                     sb.append("win");
                     sb.append(File.separator);
-                    sb.append(N.c(this.f77093a));
+                    sb.append(N.c(this.f77412a));
                     sb.append(".mp4");
-                    pBDrawVideo3.f76841g = new File(sb.toString());
-                    file2 = this.f77094b.f76841g;
+                    pBDrawVideo3.f77160g = new File(sb.toString());
+                    file2 = this.f77413b.f77160g;
                     N.a(bArr, file2.getPath(), (k) null);
                 }
             }

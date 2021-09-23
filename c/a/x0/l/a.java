@@ -16,17 +16,17 @@ public class a {
 
     /* renamed from: c.a.x0.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1426a {
+    public static class C1424a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f30908a;
+        public final int f30929a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f30909b;
+        public final int f30930b;
 
-        public C1426a(int i2, int i3) {
+        public C1424a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,20 +41,20 @@ public class a {
                     return;
                 }
             }
-            this.f30908a = i2;
-            this.f30909b = i3;
+            this.f30929a = i2;
+            this.f30930b = i3;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30909b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30930b : invokeV.intValue;
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30908a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30929a : invokeV.intValue;
         }
     }
 
@@ -138,43 +138,43 @@ public class a {
         return invokeI.intValue;
     }
 
-    public static C1426a d(int i2, int i3) {
+    public static C1424a d(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
             if (i2 > 1920 || i3 > 1920) {
                 int[] a2 = a(i3 / i2, RecordConstants.VIDEO_CONSTANT_WIDTH);
-                return new C1426a(a2[0], a2[1]);
+                return new C1424a(a2[0], a2[1]);
             }
-            return new C1426a(i2, i3);
+            return new C1424a(i2, i3);
         }
-        return (C1426a) invokeII.objValue;
+        return (C1424a) invokeII.objValue;
     }
 
-    public static C1426a e(float f2, int i2) {
+    public static C1424a e(float f2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)})) == null) {
             if (f2 <= 0.0f) {
-                return new C1426a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+                return new C1424a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
             }
             int[] a2 = a(f2, i2);
-            return new C1426a(a2[0], a2[1]);
+            return new C1424a(a2[0], a2[1]);
         }
-        return (C1426a) invokeCommon.objValue;
+        return (C1424a) invokeCommon.objValue;
     }
 
-    public static C1426a f(float f2, int i2, int i3) {
+    public static C1424a f(float f2, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             if (f2 <= 0.0f) {
-                return new C1426a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+                return new C1424a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
             }
             int[] b2 = b(f2, i2, i3);
-            return new C1426a(b2[0], b2[1]);
+            return new C1424a(b2[0], b2[1]);
         }
-        return (C1426a) invokeCommon.objValue;
+        return (C1424a) invokeCommon.objValue;
     }
 
     public static boolean g(int i2, int i3) {

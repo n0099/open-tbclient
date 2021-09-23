@@ -34,34 +34,34 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumData f22208a;
+    public ForumData f22222a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f22209b;
+    public int f22223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<d> f22210c;
+    public LinkedList<d> f22224c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdvertAppInfo f22211d;
+    public AdvertAppInfo f22225d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22212e;
+    public String f22226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22213f;
+    public String f22227f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<AlaInfoData> f22214g;
+    public LinkedList<AlaInfoData> f22228g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22215h;
+    public int f22229h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f22216i;
+    public String f22230i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f22217j;
+    public String f22231j;
     public MetaData k;
     public int l;
     public int m;
@@ -79,17 +79,17 @@ public class f {
                 return;
             }
         }
-        this.f22209b = 0;
-        this.f22210c = null;
-        this.f22211d = null;
-        this.f22210c = new LinkedList<>();
-        this.f22214g = new LinkedList<>();
+        this.f22223b = 0;
+        this.f22224c = null;
+        this.f22225d = null;
+        this.f22224c = new LinkedList<>();
+        this.f22228g = new LinkedList<>();
     }
 
     public AdvertAppInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22211d : (AdvertAppInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22225d : (AdvertAppInfo) invokeV.objValue;
     }
 
     public final void b(JSONObject jSONObject) {
@@ -128,7 +128,7 @@ public class f {
         builder.plan_id = Integer.valueOf(optJSONObject.optInt("plan_id", 0));
         builder.user_id = optJSONObject.optString("user_id");
         builder.price = optJSONObject.optString("price");
-        builder.verify = optJSONObject.optString(SmsLoginView.f.f44983j);
+        builder.verify = optJSONObject.optString(SmsLoginView.f.f45045j);
         builder.ext_info = optJSONObject.optString("ext_info");
         builder.pos_name = optJSONObject.optString("pos_name");
         GoodsInfo c2 = c(optJSONObject);
@@ -139,14 +139,14 @@ public class f {
         }
         builder.loc_code = optJSONObject.optString("loc_code");
         App build = builder.build(true);
-        this.f22211d = new AdvertAppInfo();
+        this.f22225d = new AdvertAppInfo();
         App c3 = y.o().c(build, Cmatch.PIC_PAGE);
         if (c3 != null) {
-            this.f22211d.b4 = true;
+            this.f22225d.c4 = true;
             build = c3;
         }
-        this.f22211d.V4(build);
-        this.f22211d.c4 = "c0111";
+        this.f22225d.U4(build);
+        this.f22225d.d4 = "c0111";
     }
 
     public final GoodsInfo c(JSONObject jSONObject) {
@@ -186,43 +186,43 @@ public class f {
     public LinkedList<AlaInfoData> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22214g : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22228g : (LinkedList) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22212e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22226e : (String) invokeV.objValue;
     }
 
     public ForumData f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22208a : (ForumData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22222a : (ForumData) invokeV.objValue;
     }
 
     public LinkedList<d> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22210c : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22224c : (LinkedList) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22209b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22223b : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22215h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22229h : invokeV.intValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f22213f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f22227f : (String) invokeV.objValue;
     }
 
     public final void k(JSONObject jSONObject, boolean z) {
@@ -235,14 +235,14 @@ public class f {
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 AlaInfoData alaInfoData = new AlaInfoData();
                 alaInfoData.parserJson(optJSONArray.optJSONObject(i2));
-                this.f22214g.addLast(alaInfoData);
+                this.f22228g.addLast(alaInfoData);
             }
             return;
         }
         for (int length = optJSONArray.length() - 1; length >= 0; length--) {
             AlaInfoData alaInfoData2 = new AlaInfoData();
             alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
-            this.f22214g.addFirst(alaInfoData2);
+            this.f22228g.addFirst(alaInfoData2);
         }
     }
 
@@ -266,11 +266,11 @@ public class f {
             JSONObject optJSONObject = jSONObject.optJSONObject("forum");
             if (optJSONObject != null) {
                 ForumData forumData = new ForumData();
-                this.f22208a = forumData;
+                this.f22222a = forumData;
                 forumData.parserJson(optJSONObject);
                 optJSONObject.optString("id");
-                this.f22212e = optJSONObject.optString("frist_class");
-                this.f22213f = optJSONObject.optString("second_class");
+                this.f22226e = optJSONObject.optString("frist_class");
+                this.f22227f = optJSONObject.optString("second_class");
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("thread");
             if (optJSONObject2 != null) {
@@ -282,16 +282,16 @@ public class f {
                     this.k.setUserName(optJSONObject3.optString("user_name"));
                     this.k.setName_show(optJSONObject3.optString("nickname"));
                 }
-                this.f22217j = optJSONObject2.optString("first_post_id");
+                this.f22231j = optJSONObject2.optString("first_post_id");
                 this.l = optJSONObject2.optInt("is_multiforum_thread");
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
             if (optJSONObject4 != null) {
-                this.f22215h = optJSONObject4.optInt("reply_private_flag");
-                this.f22216i = optJSONObject4.optString("voice_message");
+                this.f22229h = optJSONObject4.optInt("reply_private_flag");
+                this.f22230i = optJSONObject4.optString("voice_message");
             }
             this.m = jSONObject.optInt("show_adsense", 0);
-            this.f22209b = jSONObject.optInt("pic_amount", 0);
+            this.f22223b = jSONObject.optInt("pic_amount", 0);
             JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
             if (optJSONArray != null) {
                 if (bool.booleanValue()) {
@@ -299,8 +299,8 @@ public class f {
                         d dVar = new d();
                         dVar.w(optJSONArray.optJSONObject(i2));
                         int h2 = dVar.h();
-                        if (h2 >= 1 && h2 <= this.f22209b) {
-                            this.f22210c.addLast(dVar);
+                        if (h2 >= 1 && h2 <= this.f22223b) {
+                            this.f22224c.addLast(dVar);
                         }
                     }
                 } else {
@@ -308,8 +308,8 @@ public class f {
                         d dVar2 = new d();
                         dVar2.w(optJSONArray.getJSONObject(length));
                         int h3 = dVar2.h();
-                        if (h3 >= 1 && h3 <= this.f22209b) {
-                            this.f22210c.addFirst(dVar2);
+                        if (h3 >= 1 && h3 <= this.f22223b) {
+                            this.f22224c.addFirst(dVar2);
                         }
                     }
                 }

@@ -16,10 +16,10 @@ public abstract class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f27799e;
+    public e f27819e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27800f;
+    public boolean f27820f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,24 +34,24 @@ public abstract class a extends BaseAdapter {
                 return;
             }
         }
-        this.f27800f = true;
+        this.f27820f = true;
     }
 
     public final View a(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-            e eVar = this.f27799e;
+            e eVar = this.f27819e;
             if (eVar == null) {
                 return view;
             }
             if (view == null || view != eVar.getArrowView()) {
-                view = this.f27799e.getArrowView();
+                view = this.f27819e.getArrowView();
                 if (view.getLayoutParams() == null) {
                     view.setLayoutParams(new AbsListView.LayoutParams(-1, d()));
                 }
             }
-            this.f27799e.configUI(view);
+            this.f27819e.configUI(view);
             return view;
         }
         return (View) invokeL.objValue;
@@ -70,8 +70,8 @@ public abstract class a extends BaseAdapter {
         int arrowIndex;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            e eVar = this.f27799e;
-            if (eVar == null || !eVar.isFoldedMode() || i2 < (arrowIndex = this.f27799e.getArrowIndex())) {
+            e eVar = this.f27819e;
+            if (eVar == null || !eVar.isFoldedMode() || i2 < (arrowIndex = this.f27819e.getArrowIndex())) {
                 return i2;
             }
             if (i2 == arrowIndex) {
@@ -91,10 +91,10 @@ public abstract class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (h()) {
-                if (this.f27800f) {
-                    b2 = this.f27799e.getArrowIndex();
+                if (this.f27820f) {
+                    b2 = this.f27819e.getArrowIndex();
                 } else {
-                    e eVar = this.f27799e;
+                    e eVar = this.f27819e;
                     if (eVar != null && eVar.isFoldedMode()) {
                         b2 = b();
                     } else {
@@ -147,7 +147,7 @@ public abstract class a extends BaseAdapter {
         InterceptResult invokeI;
         int arrowIndex;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? (h() && (arrowIndex = this.f27799e.getArrowIndex()) > 0 && i2 == arrowIndex) ? 1 : 0 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? (h() && (arrowIndex = this.f27819e.getArrowIndex()) > 0 && i2 == arrowIndex) ? 1 : 0 : invokeI.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -174,8 +174,8 @@ public abstract class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            e eVar = this.f27799e;
-            return eVar != null && eVar.isFoldedMode() && b() - 1 > this.f27799e.getArrowIndex();
+            e eVar = this.f27819e;
+            return eVar != null && eVar.isFoldedMode() && b() - 1 > this.f27819e.getArrowIndex();
         }
         return invokeV.booleanValue;
     }
@@ -183,7 +183,7 @@ public abstract class a extends BaseAdapter {
     public void i(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, eVar) == null) {
-            this.f27799e = eVar;
+            this.f27819e = eVar;
         }
     }
 
@@ -192,7 +192,7 @@ public abstract class a extends BaseAdapter {
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.f27800f = z;
+            this.f27820f = z;
         }
     }
 }

@@ -21,10 +21,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f9839a;
+    public static final e f9847a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile e f9840b;
+    public static volatile e f9848b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -71,8 +71,8 @@ public class b {
             }
         }
         f fVar = new f();
-        f9839a = fVar;
-        f9840b = fVar;
+        f9847a = fVar;
+        f9848b = fVar;
     }
 
     public static void a() {
@@ -86,7 +86,7 @@ public class b {
     public static e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f9840b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f9848b : (e) invokeV.objValue;
     }
 
     public static void c(int i2) {
@@ -123,14 +123,14 @@ public class b {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            g(f9839a);
+            g(f9847a);
         }
     }
 
     public static void g(@NonNull e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, eVar) == null) {
-            f9840b = eVar;
+            f9848b = eVar;
         }
     }
 }

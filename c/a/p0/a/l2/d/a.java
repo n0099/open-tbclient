@@ -22,11 +22,11 @@ public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f7282f;
+    public static final boolean f7290f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f7283e;
+    public final String f7291e;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        f7282f = k.f7077a;
+        f7290f = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,7 +63,7 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f7283e = str;
+        this.f7291e = str;
     }
 
     public static String g() {
@@ -108,8 +108,8 @@ public class a extends SQLiteOpenHelper {
                     }
                 } catch (Exception e4) {
                     e2 = e4;
-                    d.h("SwanCookieDBHelper", "getRead fail mAppId =" + this.f7283e + ";" + Log.getStackTraceString(e2));
-                    if (f7282f) {
+                    d.h("SwanCookieDBHelper", "getRead fail mAppId =" + this.f7291e + ";" + Log.getStackTraceString(e2));
+                    if (f7290f) {
                         throw new RuntimeException(e2);
                     }
                     return sQLiteDatabase;
@@ -142,8 +142,8 @@ public class a extends SQLiteOpenHelper {
                     }
                 } catch (Exception e4) {
                     e2 = e4;
-                    d.h("SwanCookieDBHelper", "getWrite fail mAppId =" + this.f7283e + ";" + Log.getStackTraceString(e2));
-                    if (f7282f) {
+                    d.h("SwanCookieDBHelper", "getWrite fail mAppId =" + this.f7291e + ";" + Log.getStackTraceString(e2));
+                    if (f7290f) {
                         throw new RuntimeException(e2);
                     }
                     return sQLiteDatabase;
@@ -158,7 +158,7 @@ public class a extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            boolean z = f7282f;
+            boolean z = f7290f;
             try {
                 sQLiteDatabase.execSQL(g());
             } catch (Exception e2) {
@@ -170,7 +170,7 @@ public class a extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i2, i3) == null) && f7282f) {
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i2, i3) == null) && f7290f) {
             String str = "oldVersion = " + i2 + ";newVersion=" + i3;
         }
     }

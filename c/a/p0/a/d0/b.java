@@ -16,16 +16,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f5136a;
+    public final long f5144a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f5137b;
+    public final long f5145b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f5138c;
+    public final String f5146c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, String> f5139d;
+    public final Map<String, String> f5147d;
 
     public b(long j2) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class b {
                 return;
             }
         }
-        this.f5139d = new HashMap();
-        this.f5137b = TimeUnit.MILLISECONDS.toSeconds(j2);
-        this.f5136a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j2);
-        this.f5138c = Long.toHexString(a(this.f5136a + "#" + this.f5137b));
-        this.f5139d.put("timestamp", Long.toString(this.f5136a));
-        this.f5139d.put("delta", Long.toString(this.f5137b));
-        this.f5139d.put("rasign", this.f5138c);
+        this.f5147d = new HashMap();
+        this.f5145b = TimeUnit.MILLISECONDS.toSeconds(j2);
+        this.f5144a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j2);
+        this.f5146c = Long.toHexString(a(this.f5144a + "#" + this.f5145b));
+        this.f5147d.put("timestamp", Long.toString(this.f5144a));
+        this.f5147d.put("delta", Long.toString(this.f5145b));
+        this.f5147d.put("rasign", this.f5146c);
     }
 
     public static b b() {
@@ -91,7 +91,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return super.toString() + " serverTime:" + this.f5136a + " delta:" + this.f5137b + " rasign:" + this.f5138c;
+            return super.toString() + " serverTime:" + this.f5144a + " delta:" + this.f5145b + " rasign:" + this.f5146c;
         }
         return (String) invokeV.objValue;
     }

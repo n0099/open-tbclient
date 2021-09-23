@@ -27,7 +27,7 @@ public class c extends c.a.o0.a.a implements c.a.p0.t.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f7155e;
+    public static final String f7163e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -54,8 +54,8 @@ public class c extends c.a.o0.a.a implements c.a.p0.t.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if (!q0.G() && "c++_shared".equals(str)) {
-                    c.a.p0.a.h0.s.d.g(AppRuntime.getAppContext(), c.f7155e);
-                    c.a.p0.a.h0.s.d.h("c++_shared", c.f7155e, false);
+                    c.a.p0.a.h0.s.d.g(AppRuntime.getAppContext(), c.f7163e);
+                    c.a.p0.a.h0.s.d.h("c++_shared", c.f7163e, false);
                     return;
                 }
                 SoLoader.load(c.a.p0.a.c1.a.b(), str);
@@ -76,7 +76,7 @@ public class c extends c.a.o0.a.a implements c.a.p0.t.b {
                 return;
             }
         }
-        f7155e = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        f7163e = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
         B();
     }
 

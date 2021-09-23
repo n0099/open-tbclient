@@ -24,7 +24,7 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7046a;
+    public static final boolean f7054a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -33,13 +33,13 @@ public class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HashMap f7047e;
+        public final /* synthetic */ HashMap f7055e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f7048f;
+        public final /* synthetic */ File f7056f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f7049g;
+        public final /* synthetic */ String f7057g;
 
         public a(HashMap hashMap, File file, String str) {
             Interceptable interceptable = $ic;
@@ -56,9 +56,9 @@ public class l {
                     return;
                 }
             }
-            this.f7047e = hashMap;
-            this.f7048f = file;
-            this.f7049g = str;
+            this.f7055e = hashMap;
+            this.f7056f = file;
+            this.f7057g = str;
         }
 
         @Override // java.lang.Runnable
@@ -68,10 +68,10 @@ public class l {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (t = c.a.p0.a.c1.a.t()) == null) {
                 return;
             }
-            t.a(this.f7047e, this.f7048f, null, "error_js");
-            if (l.f7046a) {
-                String str = "extraData :" + this.f7047e.toString();
-                String str2 = "filePath :" + this.f7049g;
+            t.a(this.f7055e, this.f7056f, null, "error_js");
+            if (l.f7054a) {
+                String str = "extraData :" + this.f7055e.toString();
+                String str2 = "filePath :" + this.f7057g;
             }
         }
     }
@@ -89,14 +89,14 @@ public class l {
                 return;
             }
         }
-        f7046a = c.a.p0.a.k.f7077a;
+        f7054a = c.a.p0.a.k.f7085a;
     }
 
     public static void b(V8ExceptionInfo v8ExceptionInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, v8ExceptionInfo) == null) {
             if (v8ExceptionInfo == null) {
-                boolean z = f7046a;
+                boolean z = f7054a;
                 return;
             }
             c(v8ExceptionInfo);
@@ -108,7 +108,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, v8ExceptionInfo) == null) {
             if (!c.a.p0.a.c1.a.Z().C()) {
-                boolean z = f7046a;
+                boolean z = f7054a;
                 return;
             }
             c.a.p0.a.a2.e i2 = c.a.p0.a.a2.e.i();
@@ -134,7 +134,7 @@ public class l {
                 }
                 dVar.e(jSONObject);
             } catch (JSONException e2) {
-                if (f7046a) {
+                if (f7054a) {
                     e2.printStackTrace();
                 }
             }
@@ -146,12 +146,12 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, v8ExceptionInfo) == null) {
             if (!c.a.p0.a.c1.a.Z().J()) {
-                boolean z = f7046a;
+                boolean z = f7054a;
             } else if (TextUtils.isEmpty(v8ExceptionInfo.filePath)) {
             } else {
                 String str = v8ExceptionInfo.filePath;
                 if (str.startsWith("script:")) {
-                    boolean z2 = f7046a;
+                    boolean z2 = f7054a;
                     return;
                 }
                 SwanCoreVersion e2 = c.a.p0.a.m2.b.e(c.a.p0.a.a2.d.g().l());
@@ -159,7 +159,7 @@ public class l {
                     return;
                 }
                 if (!str.startsWith(e2.swanCorePath)) {
-                    boolean z3 = f7046a;
+                    boolean z3 = f7054a;
                     return;
                 }
                 File file = new File(str);

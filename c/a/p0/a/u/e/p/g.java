@@ -30,10 +30,10 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9135a;
+    public static final boolean f9143a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f9136b;
+    public static JSONObject f9144b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,14 +49,14 @@ public class g {
                 return;
             }
         }
-        f9135a = k.f7077a;
+        f9143a = k.f7085a;
     }
 
     public static JSONObject a(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            boolean z = f9135a;
+            boolean z = f9143a;
             WindowManager windowManager = (WindowManager) context.getSystemService("window");
             DisplayMetrics displayMetrics = new DisplayMetrics();
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
@@ -78,10 +78,10 @@ public class g {
                 jSONObject.put("host", c.a.p0.a.c1.a.m().a());
                 jSONObject.put("statusBarHeight", n0.L(n0.u()));
                 jSONObject.put("navigationBarHeight", n0.L(n0.j()));
-                boolean z2 = f9135a;
+                boolean z2 = f9143a;
                 return jSONObject;
             } catch (JSONException e2) {
-                if (f9135a) {
+                if (f9143a) {
                     e2.printStackTrace();
                     return null;
                 }
@@ -98,12 +98,12 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (g.class) {
-                if (f9136b == null && context != null) {
-                    boolean z = f9135a;
-                    f9136b = a(context);
+                if (f9144b == null && context != null) {
+                    boolean z = f9143a;
+                    f9144b = a(context);
                 }
-                boolean z2 = f9135a;
-                jSONObject = f9136b;
+                boolean z2 = f9143a;
+                jSONObject = f9144b;
             }
             return jSONObject;
         }
@@ -132,13 +132,13 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             synchronized (g.class) {
-                boolean z = f9135a;
+                boolean z = f9143a;
                 if (c.a.p0.a.c1.a.Z().v()) {
-                    if (f9136b == null && context != null) {
-                        boolean z2 = f9135a;
-                        f9136b = a(context);
+                    if (f9144b == null && context != null) {
+                        boolean z2 = f9143a;
+                        f9144b = a(context);
                     }
-                    boolean z3 = f9135a;
+                    boolean z3 = f9143a;
                 }
             }
         }
@@ -148,8 +148,8 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
             synchronized (g.class) {
-                boolean z = f9135a;
-                f9136b = null;
+                boolean z = f9143a;
+                f9144b = null;
             }
         }
     }

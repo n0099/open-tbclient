@@ -25,7 +25,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f22446a;
+    public TbPageContext f22462a;
 
     public e(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class e {
                 return;
             }
         }
-        this.f22446a = tbPageContext;
+        this.f22462a = tbPageContext;
         MessageManager.getInstance().registerStickyMode(2921453);
     }
 
@@ -53,7 +53,7 @@ public class e {
         }
         String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
-            String string = this.f22446a.getString(R.string.des_page_home_recommend);
+            String string = this.f22462a.getString(R.string.des_page_home_recommend);
             m1 m1Var = new m1();
             Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME));
             int i2 = 1;
@@ -77,7 +77,7 @@ public class e {
                 dVar.y().setCurrentTabByType(i2);
                 FragmentTabHost.b tabSpecByType = dVar.y().getTabSpecByType(i2);
                 if (tabSpecByType != null) {
-                    Fragment fragment = tabSpecByType.f47569c;
+                    Fragment fragment = tabSpecByType.f47671c;
                     if (fragment instanceof g) {
                         ((g) fragment).setCurrentSubTab(intent);
                     }

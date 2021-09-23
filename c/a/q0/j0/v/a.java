@@ -1,6 +1,6 @@
 package c.a.q0.j0.v;
 
-import c.a.q0.b.c;
+import c.a.q0.d1.c;
 import c.a.q0.j0.b;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
@@ -39,8 +39,8 @@ public class a implements b<SyncDataEvent> {
                 return false;
             }
             TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-            c.a.q0.d1.a.d().f(syncDataEvent.abtestExtraData);
-            c.d().i(syncDataEvent.ubsABTest);
+            c.d().f(syncDataEvent.abtestExtraData);
+            c.a.q0.b.c.d().i(syncDataEvent.ubsABTest);
             return true;
         }
         return invokeL.booleanValue;

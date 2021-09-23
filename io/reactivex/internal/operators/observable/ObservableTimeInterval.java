@@ -13,14 +13,14 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.schedulers.Timed;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ObservableTimeInterval<T> extends AbstractObservableWithUpstream<T, Timed<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class TimeIntervalObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

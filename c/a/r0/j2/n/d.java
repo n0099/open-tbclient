@@ -39,8 +39,8 @@ public class d extends c.a.q0.s.f0.t.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             super.onClick(view);
-            if (this.f13921e != null) {
-                TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f13921e.getUserId()));
+            if (this.f13918e != null) {
+                TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.f13918e.getUserId()));
             }
         }
     }

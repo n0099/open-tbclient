@@ -19,7 +19,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.x.v.c.b f48316e;
+    public c.a.q0.x.v.c.b f48424e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchPanelFrameLayout(Context context) {
@@ -45,7 +45,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
     public final void a(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            this.f48316e = new c.a.q0.x.v.c.b(this, attributeSet);
+            this.f48424e = new c.a.q0.x.v.c.b(this, attributeSet);
         }
     }
 
@@ -53,7 +53,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48316e.handleHide();
+            this.f48424e.handleHide();
         }
     }
 
@@ -69,21 +69,21 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
     public boolean isKeyboardShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48316e.isKeyboardShowing() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48424e.isKeyboardShowing() : invokeV.booleanValue;
     }
 
     @Override // c.a.q0.x.v.a
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48316e.isVisible() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48424e.isVisible() : invokeV.booleanValue;
     }
 
     @Override // c.a.q0.x.v.b
     public void onKeyboardShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f48316e.e(z);
+            this.f48424e.e(z);
         }
     }
 
@@ -91,7 +91,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            int[] b2 = this.f48316e.b(i2, i3);
+            int[] b2 = this.f48424e.b(i2, i3);
             super.onMeasure(b2[0], b2[1]);
         }
     }
@@ -100,21 +100,21 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements b, a {
     public void refreshHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f48316e.c(i2);
+            this.f48424e.c(i2);
         }
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f48316e.d(z);
+            this.f48424e.d(z);
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f48316e.a(i2)) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f48424e.a(i2)) {
             return;
         }
         super.setVisibility(i2);

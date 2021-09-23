@@ -20,16 +20,16 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13219a;
+    public String f13236a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13220b;
+    public String f13237b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetWork f13221c;
+    public NetWork f13238c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f13222d;
+    public a f13239d;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -51,9 +51,9 @@ public class b extends BdAsyncTask<Void, Void, String> {
                 return;
             }
         }
-        this.f13219a = str;
-        this.f13220b = str2;
-        this.f13222d = aVar;
+        this.f13236a = str;
+        this.f13237b = str2;
+        this.f13239d = aVar;
     }
 
     public static boolean b(String str) {
@@ -89,19 +89,19 @@ public class b extends BdAsyncTask<Void, Void, String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (k.isEmpty(this.f13219a) || k.isEmpty(this.f13220b) || !b(this.f13219a)) {
+            if (k.isEmpty(this.f13236a) || k.isEmpty(this.f13237b) || !b(this.f13236a)) {
                 return null;
             }
-            String c2 = q.c(this.f13220b);
-            String str = this.f13219a + c2 + "/";
+            String c2 = q.c(this.f13237b);
+            String str = this.f13236a + c2 + "/";
             if (e(str)) {
                 return c2;
             }
             NetWork netWork = new NetWork();
-            this.f13221c = netWork;
-            netWork.setUrl(this.f13220b);
-            String str2 = this.f13219a + c2 + ".zip";
-            if (this.f13221c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
+            this.f13238c = netWork;
+            netWork.setUrl(this.f13237b);
+            String str2 = this.f13236a + c2 + ".zip";
+            if (this.f13238c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
                 c(str2);
                 return c2;
             }
@@ -133,13 +133,13 @@ public class b extends BdAsyncTask<Void, Void, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f13222d == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f13239d == null) {
             return;
         }
         if (!k.isEmpty(str)) {
-            this.f13222d.a(true, str);
+            this.f13239d.a(true, str);
         } else {
-            this.f13222d.a(false, null);
+            this.f13239d.a(false, null);
         }
     }
 }

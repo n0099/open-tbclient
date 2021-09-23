@@ -21,17 +21,17 @@ public class j extends c.a.p0.a.a2.f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f7603d;
+    public static final boolean f7611d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetworkBroadcastReceiver f7604a;
+    public NetworkBroadcastReceiver f7612a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TelephonyManager f7605b;
+    public TelephonyManager f7613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f7606c;
+    public a f7614c;
 
     /* loaded from: classes.dex */
     public class a extends PhoneStateListener {
@@ -39,16 +39,16 @@ public class j extends c.a.p0.a.a2.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<CallbackHandler> f7607a;
+        public WeakReference<CallbackHandler> f7615a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f7608b;
+        public String f7616b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f7609c;
+        public String f7617c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ j f7610d;
+        public final /* synthetic */ j f7618d;
 
         public a(j jVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -65,17 +65,17 @@ public class j extends c.a.p0.a.a2.f {
                     return;
                 }
             }
-            this.f7610d = jVar;
-            this.f7609c = "";
-            this.f7607a = new WeakReference<>(callbackHandler);
-            this.f7608b = str;
+            this.f7618d = jVar;
+            this.f7617c = "";
+            this.f7615a = new WeakReference<>(callbackHandler);
+            this.f7616b = str;
         }
 
         public void a(CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
-                this.f7607a = new WeakReference<>(callbackHandler);
-                this.f7608b = str;
+                this.f7615a = new WeakReference<>(callbackHandler);
+                this.f7616b = str;
             }
         }
 
@@ -83,16 +83,16 @@ public class j extends c.a.p0.a.a2.f {
         public void onDataConnectionStateChanged(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-                if (j.f7603d) {
+                if (j.f7611d) {
                     String str = "——> onDataConnectionStateChanged: state " + i2 + " networkType " + i3;
                 }
                 if (2 == i2) {
                     String d2 = SwanAppNetworkUtils.d(i3, null);
-                    if (TextUtils.isEmpty(d2) || d2.equals(this.f7609c)) {
+                    if (TextUtils.isEmpty(d2) || d2.equals(this.f7617c)) {
                         return;
                     }
-                    this.f7609c = d2;
-                    SwanAppNetworkUtils.k(this.f7610d, this.f7607a.get(), this.f7608b);
+                    this.f7617c = d2;
+                    SwanAppNetworkUtils.k(this.f7618d, this.f7615a.get(), this.f7616b);
                 }
             }
         }
@@ -111,7 +111,7 @@ public class j extends c.a.p0.a.a2.f {
                 return;
             }
         }
-        f7603d = c.a.p0.a.k.f7077a;
+        f7611d = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,14 +137,14 @@ public class j extends c.a.p0.a.a2.f {
     public void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
-            if (this.f7605b == null) {
-                this.f7605b = (TelephonyManager) getSystemService("phone");
+            if (this.f7613b == null) {
+                this.f7613b = (TelephonyManager) getSystemService("phone");
                 a aVar = new a(this, callbackHandler, str);
-                this.f7606c = aVar;
-                this.f7605b.listen(aVar, 64);
+                this.f7614c = aVar;
+                this.f7613b.listen(aVar, 64);
                 return;
             }
-            a aVar2 = this.f7606c;
+            a aVar2 = this.f7614c;
             if (aVar2 != null) {
                 aVar2.a(callbackHandler, str);
             }
@@ -154,12 +154,12 @@ public class j extends c.a.p0.a.a2.f {
     public void b(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str) == null) {
-            NetworkBroadcastReceiver networkBroadcastReceiver = this.f7604a;
+            NetworkBroadcastReceiver networkBroadcastReceiver = this.f7612a;
             if (networkBroadcastReceiver == null) {
-                this.f7604a = new NetworkBroadcastReceiver(callbackHandler, str);
+                this.f7612a = new NetworkBroadcastReceiver(callbackHandler, str);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                registerReceiver(this.f7604a, intentFilter);
+                registerReceiver(this.f7612a, intentFilter);
             } else if (networkBroadcastReceiver != null) {
                 networkBroadcastReceiver.updateCallback(callbackHandler, str);
             }

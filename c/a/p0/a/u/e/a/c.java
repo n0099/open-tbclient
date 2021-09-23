@@ -29,7 +29,7 @@ public class c extends c.a.p0.a.u.c.d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f8738d;
+    public static final boolean f8746d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -38,22 +38,22 @@ public class c extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f8739e;
+        public final /* synthetic */ boolean f8747e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f8740f;
+        public final /* synthetic */ boolean f8748f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8741g;
+        public final /* synthetic */ JSONObject f8749g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ C0384c f8742h;
+        public final /* synthetic */ C0384c f8750h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8743i;
+        public final /* synthetic */ CallbackHandler f8751i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f8744j;
+        public final /* synthetic */ String f8752j;
         public final /* synthetic */ e k;
         public final /* synthetic */ String l;
 
@@ -72,12 +72,12 @@ public class c extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8739e = z;
-            this.f8740f = z2;
-            this.f8741g = jSONObject;
-            this.f8742h = c0384c;
-            this.f8743i = callbackHandler;
-            this.f8744j = str;
+            this.f8747e = z;
+            this.f8748f = z2;
+            this.f8749g = jSONObject;
+            this.f8750h = c0384c;
+            this.f8751i = callbackHandler;
+            this.f8752j = str;
             this.k = eVar;
             this.l = str2;
         }
@@ -90,44 +90,44 @@ public class c extends c.a.p0.a.u.c.d {
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 c.a.p0.a.e0.d.h("Api-Login", "Info: login request error code is  " + iVar.b() + " error info is " + iVar.a());
                 if (!iVar.c()) {
-                    if (!this.f8739e && this.f8740f) {
-                        k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 1, this.f8741g.optString("invokeFrom"));
+                    if (!this.f8747e && this.f8748f) {
+                        k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 1, this.f8749g.optString("invokeFrom"));
                         c.a.p0.a.e0.d.h("Api-Login", "Error: login failed from api-invoking.");
                     }
                     int b2 = iVar.b();
-                    c.a.p0.a.e0.d.l("Api-Login", b2 + " " + this.f8742h.toString());
+                    c.a.p0.a.e0.d.l("Api-Login", b2 + " " + this.f8750h.toString());
                     String f2 = c.a.p0.a.e2.c.d.f(b2);
-                    this.f8743i.handleSchemeDispatchCallback(this.f8744j, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
-                    c.a.p0.a.c1.b.j().f(this.f8743i, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
+                    this.f8751i.handleSchemeDispatchCallback(this.f8752j, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
+                    c.a.p0.a.c1.b.j().f(this.f8751i, UnitedSchemeUtility.wrapCallbackParams(b2, f2).toString());
                     c.B(this.k, 43, b2, f2);
                     String str = "Error: login failed error code = " + b2 + " error msg = " + f2;
                     c.a.p0.a.e0.d.h("Api-Login", str);
                     k.O(this.l, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
                     return;
                 }
-                if (!this.f8739e && this.f8740f) {
-                    k.M("success", 1, this.f8741g.optString("invokeFrom"));
+                if (!this.f8747e && this.f8748f) {
+                    k.M("success", 1, this.f8749g.optString("invokeFrom"));
                     c.a.p0.a.e0.d.h("Api-Login", "Success: login success from api-invoking.");
                 }
-                if (c.y(this.f8741g)) {
-                    this.f8743i.handleSchemeDispatchCallback(this.f8744j, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                if (c.y(this.f8749g)) {
+                    this.f8751i.handleSchemeDispatchCallback(this.f8752j, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                     c.a.p0.a.e0.d.h("Api-Login", "Success: login success from component-invoking.");
                     k.O(this.l, "success", "Success: login success from component-invoking.");
                     return;
                 }
                 k.N(this.l, "getLoginCodeStart");
-                if (TextUtils.isEmpty(iVar.f5582a.f5600a)) {
-                    this.f8743i.handleSchemeDispatchCallback(this.f8744j, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
-                    c.a.p0.a.c1.b.j().f(this.f8743i, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                if (TextUtils.isEmpty(iVar.f5590a.f5608a)) {
+                    this.f8751i.handleSchemeDispatchCallback(this.f8752j, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
+                    c.a.p0.a.c1.b.j().f(this.f8751i, UnitedSchemeUtility.wrapCallbackParams(1001, "empty code").toString());
                     c.B(this.k, 43, 1001, "empty code");
                     k.O(this.l, com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty code");
                     return;
                 }
-                String optString = this.f8741g.optString("__plugin__");
+                String optString = this.f8749g.optString("__plugin__");
                 if (!TextUtils.isEmpty(optString)) {
-                    c.w(optString, this.k, this.f8743i, this.f8744j, iVar, this.l);
+                    c.w(optString, this.k, this.f8751i, this.f8752j, iVar, this.l);
                 } else {
-                    c.x(this.k, this.f8743i, this.f8744j, iVar, this.l);
+                    c.x(this.k, this.f8751i, this.f8752j, iVar, this.l);
                 }
             }
         }
@@ -139,22 +139,22 @@ public class c extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8745e;
+        public final /* synthetic */ CallbackHandler f8753e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8746f;
+        public final /* synthetic */ String f8754f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8747g;
+        public final /* synthetic */ String f8755g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f8748h;
+        public final /* synthetic */ String f8756h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f8749i;
+        public final /* synthetic */ e f8757i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ i f8750j;
+        public final /* synthetic */ i f8758j;
 
         public b(CallbackHandler callbackHandler, String str, String str2, String str3, e eVar, i iVar) {
             Interceptable interceptable = $ic;
@@ -171,12 +171,12 @@ public class c extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8745e = callbackHandler;
-            this.f8746f = str;
-            this.f8747g = str2;
-            this.f8748h = str3;
-            this.f8749i = eVar;
-            this.f8750j = iVar;
+            this.f8753e = callbackHandler;
+            this.f8754f = str;
+            this.f8755g = str2;
+            this.f8756h = str3;
+            this.f8757i = eVar;
+            this.f8758j = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -186,13 +186,13 @@ public class c extends c.a.p0.a.u.c.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (aVar != null && aVar.E()) {
-                    c.x(this.f8749i, this.f8745e, this.f8746f, this.f8750j, this.f8748h);
+                    c.x(this.f8757i, this.f8753e, this.f8754f, this.f8758j, this.f8756h);
                     return;
                 }
-                this.f8745e.handleSchemeDispatchCallback(this.f8746f, UnitedSchemeUtility.wrapCallbackParams(403, "permission denied").toString());
-                String str = "Error: scope snsapi_userinfopermission denied plugin appkey : " + this.f8747g + " from plugin-invoking.";
+                this.f8753e.handleSchemeDispatchCallback(this.f8754f, UnitedSchemeUtility.wrapCallbackParams(403, "permission denied").toString());
+                String str = "Error: scope snsapi_userinfopermission denied plugin appkey : " + this.f8755g + " from plugin-invoking.";
                 c.a.p0.a.e0.d.h("Api-Login", str);
-                k.O(this.f8748h, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
+                k.O(this.f8756h, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
             }
         }
     }
@@ -204,10 +204,10 @@ public class c extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f8751a;
+        public final boolean f8759a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f8752b;
+        public final long f8760b;
 
         public C0384c(@NonNull JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -224,9 +224,9 @@ public class c extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8751a = jSONObject.has("timeout");
+            this.f8759a = jSONObject.has("timeout");
             long optLong = jSONObject.optLong("timeout", 0L);
-            this.f8752b = optLong;
+            this.f8760b = optLong;
             if (optLong < 0) {
                 c.a.p0.a.e0.d.l("Api-Login", "timeout is a minus：" + toString());
             }
@@ -236,7 +236,7 @@ public class c extends c.a.p0.a.u.c.d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "LoginTimeoutConfig{enableTimeout=" + this.f8751a + ", timeoutMills=" + this.f8752b + ExtendedMessageFormat.END_FE;
+                return "LoginTimeoutConfig{enableTimeout=" + this.f8759a + ", timeoutMills=" + this.f8760b + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -255,7 +255,7 @@ public class c extends c.a.p0.a.u.c.d {
                 return;
             }
         }
-        f8738d = c.a.p0.a.k.f7077a;
+        f8746d = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -295,7 +295,7 @@ public class c extends c.a.p0.a.u.c.d {
                 jSONObject.put("errorCode", i3);
                 jSONObject.put("errorMessage", str);
             } catch (JSONException e2) {
-                if (f8738d) {
+                if (f8746d) {
                     e2.printStackTrace();
                 }
             }
@@ -333,13 +333,13 @@ public class c extends c.a.p0.a.u.c.d {
         if (interceptable == null || interceptable.invokeLLLLL(65544, null, eVar, callbackHandler, str, iVar, str2) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("code", iVar.f5582a.f5600a);
+                jSONObject.put("code", iVar.f5590a.f5608a);
                 c.a.p0.a.e0.d.h("Api-Login", "Success: call back msg = " + jSONObject.toString());
-                c.a.p0.a.x1.c.f9705c.e();
+                c.a.p0.a.x1.c.f9713c.e();
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, iVar.b()).toString());
                 k.N(str2, "success");
             } catch (JSONException e2) {
-                if (f8738d) {
+                if (f8746d) {
                     e2.printStackTrace();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage()).toString());
@@ -416,7 +416,7 @@ public class c extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (f8738d) {
+            if (f8746d) {
                 String str2 = "start getLoginCode action, params = " + str;
             }
             k.N("getLoginCode", "create");
@@ -463,7 +463,7 @@ public class c extends c.a.p0.a.u.c.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean z = f8738d;
+            boolean z = f8746d;
             e Q = e.Q();
             if (Q == null) {
                 c.a.p0.a.e0.d.b("Api-Login", "swan app is null");

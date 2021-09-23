@@ -12,10 +12,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6052a;
+    public static final boolean f6060a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicInteger f6053b;
+    public static AtomicInteger f6061b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,8 +31,8 @@ public class a {
                 return;
             }
         }
-        f6052a = k.f7077a;
-        f6053b = new AtomicInteger(0);
+        f6060a = k.f7085a;
+        f6061b = new AtomicInteger(0);
     }
 
     public static boolean a(String str) {
@@ -45,12 +45,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int andIncrement = f6053b.getAndIncrement();
+            int andIncrement = f6061b.getAndIncrement();
             String str = "localDebug";
             if (andIncrement >= 1) {
                 str = "localDebug" + andIncrement;
             }
-            if (f6052a) {
+            if (f6060a) {
                 String str2 = "next daemon id - " + str;
             }
             return str;

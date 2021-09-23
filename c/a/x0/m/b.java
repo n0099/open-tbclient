@@ -10,7 +10,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30999a;
+    public static boolean f31020a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,14 +30,14 @@ public class b {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && f30999a) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && f31020a) {
             String str3 = "-----------------" + str2;
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f30999a) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f31020a) {
             String str3 = str + "---" + str2;
         }
     }

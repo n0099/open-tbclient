@@ -14,34 +14,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f15795a;
+    public String f15805a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f15796b;
+    public int f15806b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f15797c;
+    public int f15807c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f15798d;
+    public long f15808d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f15799e;
+    public String f15809e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15800f;
+    public int f15810f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15801g;
+    public String f15811g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15802h;
+    public String f15812h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f15803i;
+    public long f15813i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f15804j;
+    public int f15814j;
     public int k;
     public long l;
     public int m;
@@ -65,17 +65,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             PaymentConfirmRequestData paymentConfirmRequestData = new PaymentConfirmRequestData();
-            paymentConfirmRequestData.setTdou_num(this.f15803i);
+            paymentConfirmRequestData.setTdou_num(this.f15813i);
             paymentConfirmRequestData.setOpen_id(this.l);
-            paymentConfirmRequestData.setOrder_id(this.f15801g);
-            paymentConfirmRequestData.setScene_id(this.f15796b);
-            paymentConfirmRequestData.setGoods_name(this.f15795a);
-            paymentConfirmRequestData.setGoods_pic(this.f15799e);
-            paymentConfirmRequestData.setTerminal("" + this.f15800f);
-            paymentConfirmRequestData.setGoods_num((long) this.f15804j);
-            paymentConfirmRequestData.setGoods_unit(this.f15802h);
-            paymentConfirmRequestData.setGoods_duration(this.f15798d);
-            paymentConfirmRequestData.setGoods_user_level(this.f15797c);
+            paymentConfirmRequestData.setOrder_id(this.f15811g);
+            paymentConfirmRequestData.setScene_id(this.f15806b);
+            paymentConfirmRequestData.setGoods_name(this.f15805a);
+            paymentConfirmRequestData.setGoods_pic(this.f15809e);
+            paymentConfirmRequestData.setTerminal("" + this.f15810f);
+            paymentConfirmRequestData.setGoods_num((long) this.f15814j);
+            paymentConfirmRequestData.setGoods_unit(this.f15812h);
+            paymentConfirmRequestData.setGoods_duration(this.f15808d);
+            paymentConfirmRequestData.setGoods_user_level(this.f15807c);
             paymentConfirmRequestData.setPay_type(this.k);
             paymentConfirmRequestData.setCurrency(this.m);
             return paymentConfirmRequestData;
@@ -86,7 +86,7 @@ public class a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15801g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15811g : (String) invokeV.objValue;
     }
 
     public void c(DataRes dataRes) {
@@ -95,17 +95,17 @@ public class a {
             return;
         }
         dataRes.timestamp.intValue();
-        this.f15795a = dataRes.goods_name;
-        this.f15796b = dataRes.scene_id.intValue();
-        this.f15797c = dataRes.goods_user_level.intValue();
-        this.f15798d = dataRes.goods_duration.intValue();
-        this.f15799e = dataRes.goods_pic;
-        this.f15800f = dataRes.terminal.intValue();
-        this.f15801g = dataRes.order_id;
-        this.f15802h = dataRes.goods_unit;
-        this.f15803i = dataRes.tdou_num.intValue();
+        this.f15805a = dataRes.goods_name;
+        this.f15806b = dataRes.scene_id.intValue();
+        this.f15807c = dataRes.goods_user_level.intValue();
+        this.f15808d = dataRes.goods_duration.intValue();
+        this.f15809e = dataRes.goods_pic;
+        this.f15810f = dataRes.terminal.intValue();
+        this.f15811g = dataRes.order_id;
+        this.f15812h = dataRes.goods_unit;
+        this.f15813i = dataRes.tdou_num.intValue();
         dataRes.goods_price.intValue();
-        this.f15804j = dataRes.goods_num.intValue();
+        this.f15814j = dataRes.goods_num.intValue();
         this.k = dataRes.pay_type.intValue();
         dataRes.user_id.longValue();
         dataRes.tb_timestamp.intValue();

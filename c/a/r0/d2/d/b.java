@@ -33,13 +33,13 @@ public class b extends c.a.e.l.e.a<c, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f17092a;
+        public int f17102a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f17093b;
+        public TextView f17103b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f17094c;
+        public View f17104c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(View view, TextView textView, View view2) {
@@ -59,9 +59,9 @@ public class b extends c.a.e.l.e.a<c, a> {
                     return;
                 }
             }
-            this.f17092a = 3;
-            this.f17093b = textView;
-            this.f17094c = view2;
+            this.f17102a = 3;
+            this.f17103b = textView;
+            this.f17104c = view2;
         }
 
         public void a(c cVar) {
@@ -69,24 +69,24 @@ public class b extends c.a.e.l.e.a<c, a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null) {
                 return;
             }
-            this.f17093b.setText(cVar.f17143e);
-            this.f17094c.setVisibility(cVar.f17144f ? 0 : 8);
+            this.f17103b.setText(cVar.f17153e);
+            this.f17104c.setVisibility(cVar.f17154f ? 0 : 8);
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f17092a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f17102a == i2) {
                 return;
             }
-            SkinManager.setViewTextColor(this.f17093b, R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f17094c, R.color.CAM_X0204);
-            this.f17092a = i2;
+            SkinManager.setViewTextColor(this.f17103b, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f17104c, R.color.CAM_X0204);
+            this.f17102a = i2;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.r0.d2.e.a.f17136b);
+        super(tbPageContext.getPageActivity(), c.a.r0.d2.e.a.f17146b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

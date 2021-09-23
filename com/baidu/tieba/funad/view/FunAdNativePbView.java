@@ -54,7 +54,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public View dividerView;
 
     /* renamed from: e  reason: collision with root package name */
-    public FunAdButton f51866e;
+    public FunAdButton f51980e;
     public ViewGroup funAdContainer;
     public ViewGroup mediaContainer;
     public FunAdNativePicView mediaImageView;
@@ -89,8 +89,8 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, funNativeAd, oVar) == null) {
             ChannelNativeAds_6 channelNativeAds_6 = funNativeAd.getChannelNativeAds_6();
-            this.f51866e.setTag(oVar);
-            a aVar = new a(this.f51866e, oVar);
+            this.f51980e.setTag(oVar);
+            a aVar = new a(this.f51980e, oVar);
             if (channelNativeAds_6 != null && (ksNativeAd = channelNativeAds_6.ksNative) != null) {
                 ksNativeAd.setDownloadListener(aVar);
             } else if (channelNativeAds_6 != null && (tTNativeAd = channelNativeAds_6.csjNative) != null) {
@@ -150,7 +150,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return c.a.r0.x0.a.b("pb", d.E() ? "1" : "0");
+            return c.a.r0.x0.a.b("pb", d.G() ? "1" : "0");
         }
         return (a.g) invokeV.objValue;
     }
@@ -174,7 +174,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public void hideShowByType(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            if (bdUniqueId != AdvertAppInfo.B4 && bdUniqueId != AdvertAppInfo.C4) {
+            if (bdUniqueId != AdvertAppInfo.C4 && bdUniqueId != AdvertAppInfo.D4) {
                 this.pbFeedBackView.setVisibility(0);
             } else {
                 this.pbFeedBackView.setVisibility(8);
@@ -278,7 +278,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.adButton.setVisibility(0);
-            this.f51866e = this.adButton;
+            this.f51980e = this.adButton;
         }
     }
 

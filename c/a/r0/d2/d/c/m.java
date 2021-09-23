@@ -42,7 +42,7 @@ public class m extends c.a.r0.d2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f17132e;
+        public final /* synthetic */ m f17142e;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public class m extends c.a.r0.d2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
                     return;
                 }
             }
-            this.f17132e = mVar;
+            this.f17142e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17132e.o.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f17132e.o.getPageActivity(), this.f17132e.r)));
+                this.f17142e.o.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f17142e.o.getPageActivity(), this.f17142e.r)));
             }
         }
     }
@@ -77,7 +77,7 @@ public class m extends c.a.r0.d2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ m f17133a;
+        public final /* synthetic */ m f17143a;
 
         public b(m mVar) {
             Interceptable interceptable = $ic;
@@ -94,14 +94,14 @@ public class m extends c.a.r0.d2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
                     return;
                 }
             }
-            this.f17133a = mVar;
+            this.f17143a = mVar;
         }
 
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17133a.o.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f17133a.o.getPageActivity(), this.f17133a.r)));
+                this.f17143a.o.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f17143a.o.getPageActivity(), this.f17143a.r)));
             }
         }
     }
@@ -112,7 +112,7 @@ public class m extends c.a.r0.d2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f17134e;
+        public final /* synthetic */ m f17144e;
 
         public c(m mVar) {
             Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class m extends c.a.r0.d2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
                     return;
                 }
             }
-            this.f17134e = mVar;
+            this.f17144e = mVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,12 +148,12 @@ public class m extends c.a.r0.d2.d.c.a<r1, ThreadCardViewHolder<r1>> implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, q1Var, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 if (q1Var == null) {
-                    this.f17134e.o.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f17134e.o.getPageActivity(), this.f17134e.r)));
+                    this.f17144e.o.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.f17144e.o.getPageActivity(), this.f17144e.r)));
                     return;
                 }
                 String p = q1Var.p();
                 if (c.a.e.e.p.k.isForumName(p)) {
-                    this.f17134e.o.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17134e.o.getPageActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+                    this.f17144e.o.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17144e.o.getPageActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
                     c.a.r0.d2.c.a("c13739", q1Var, i2 + 1);
                 }
             }

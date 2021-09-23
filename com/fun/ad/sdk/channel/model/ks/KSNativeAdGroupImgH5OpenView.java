@@ -28,28 +28,28 @@ public class KSNativeAdGroupImgH5OpenView extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f69984a;
+    public TextView f70303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f69985b;
+    public LinearLayout f70304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f69986c;
+    public ImageView f70305c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f69987d;
+    public ImageView f70306d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f69988e;
+    public ImageView f70307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f69989f;
+    public ImageView f70308f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f69990g;
+    public TextView f70309g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f69991h;
+    public Button f70310h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdGroupImgH5OpenView(Context context) {
@@ -127,7 +127,7 @@ public class KSNativeAdGroupImgH5OpenView extends c {
                 if (ksImage != null && ksImage.isValid()) {
                     Context context = getContext();
                     String imageUrl = ksImage.getImageUrl();
-                    ImageView imageView = this.f69986c;
+                    ImageView imageView = this.f70305c;
                     if (context == null) {
                         d.f("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
                     } else if (context instanceof Activity) {
@@ -145,7 +145,7 @@ public class KSNativeAdGroupImgH5OpenView extends c {
                 if (ksImage2 != null && ksImage2.isValid()) {
                     Context context2 = getContext();
                     String imageUrl2 = ksImage2.getImageUrl();
-                    ImageView imageView2 = this.f69987d;
+                    ImageView imageView2 = this.f70306d;
                     if (context2 == null) {
                         d.f("GlideHelper: context is null when load: " + imageUrl2, new Object[0]);
                     } else if (context2 instanceof Activity) {
@@ -163,7 +163,7 @@ public class KSNativeAdGroupImgH5OpenView extends c {
                 if (ksImage3 != null && ksImage3.isValid()) {
                     Context context3 = getContext();
                     String imageUrl3 = ksImage3.getImageUrl();
-                    ImageView imageView3 = this.f69988e;
+                    ImageView imageView3 = this.f70307e;
                     if (context3 == null) {
                         d.f("GlideHelper: context is null when load: " + imageUrl3, new Object[0]);
                     } else if (context3 instanceof Activity) {
@@ -178,10 +178,10 @@ public class KSNativeAdGroupImgH5OpenView extends c {
                     }
                 }
             }
-            this.f69989f.setImageBitmap(ksNativeAd.getSdkLogo());
-            this.f69984a.setText(ksNativeAd.getAdDescription());
-            this.f69990g.setText(ksNativeAd.getAdSource());
-            this.f69991h.setText(ksNativeAd.getActionDescription());
+            this.f70308f.setImageBitmap(ksNativeAd.getSdkLogo());
+            this.f70303a.setText(ksNativeAd.getAdDescription());
+            this.f70309g.setText(ksNativeAd.getAdSource());
+            this.f70310h.setText(ksNativeAd.getActionDescription());
         }
     }
 
@@ -190,14 +190,14 @@ public class KSNativeAdGroupImgH5OpenView extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f69984a = (TextView) findViewById(R.id.ad_description);
-            this.f69985b = (LinearLayout) findViewById(R.id.ad_img_container);
-            this.f69986c = (ImageView) findViewById(R.id.ad_img_1);
-            this.f69987d = (ImageView) findViewById(R.id.ad_img_2);
-            this.f69988e = (ImageView) findViewById(R.id.ad_img_3);
-            this.f69989f = (ImageView) findViewById(R.id.ad_logo);
-            this.f69990g = (TextView) findViewById(R.id.ad_h5_description);
-            this.f69991h = (Button) findViewById(R.id.ad_h5_open);
+            this.f70303a = (TextView) findViewById(R.id.ad_description);
+            this.f70304b = (LinearLayout) findViewById(R.id.ad_img_container);
+            this.f70305c = (ImageView) findViewById(R.id.ad_img_1);
+            this.f70306d = (ImageView) findViewById(R.id.ad_img_2);
+            this.f70307e = (ImageView) findViewById(R.id.ad_img_3);
+            this.f70308f = (ImageView) findViewById(R.id.ad_logo);
+            this.f70309g = (TextView) findViewById(R.id.ad_h5_description);
+            this.f70310h = (Button) findViewById(R.id.ad_h5_open);
         }
     }
 
@@ -206,14 +206,14 @@ public class KSNativeAdGroupImgH5OpenView extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f69985b.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f70304b.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f69986c.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f69987d.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f69988e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f70305c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f70306d.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f70307e.getLayoutParams();
             layoutParams.width = i6;
             layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.5f);
-            this.f69985b.setLayoutParams(layoutParams);
+            this.f70304b.setLayoutParams(layoutParams);
         }
     }
 }

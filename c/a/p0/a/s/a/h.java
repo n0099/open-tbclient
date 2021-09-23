@@ -16,10 +16,10 @@ public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8502a;
+    public static String f8510a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f8503b;
+    public static final h f8511b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public final class h {
                 return;
             }
         }
-        f8503b = new h();
+        f8511b = new h();
     }
 
     public h() {
@@ -56,11 +56,11 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = f8502a;
+            String str = f8510a;
             if (str == null || StringsKt__StringsJVMKt.isBlank(str)) {
-                f8502a = b();
+                f8510a = b();
             }
-            return f8502a;
+            return f8510a;
         }
         return (String) invokeV.objValue;
     }
@@ -92,7 +92,7 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             c.a.p0.a.k2.g.h.a().putString("alliance_login_uk", "");
-            f8502a = null;
+            f8510a = null;
         }
     }
 

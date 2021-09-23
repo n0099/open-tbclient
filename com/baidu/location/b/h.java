@@ -28,32 +28,32 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f41053c;
+    public static Object f41115c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static h f41054d;
+    public static h f41116d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f41055e;
+    public static final String f41117e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f41056a;
+    public a f41118a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f41057b;
+    public a f41119b;
 
     /* renamed from: f  reason: collision with root package name */
-    public SQLiteDatabase f41058f;
+    public SQLiteDatabase f41120f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f41059g;
+    public boolean f41121g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f41060h;
+    public String f41122h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41061i;
+    public int f41123i;
 
     /* loaded from: classes5.dex */
     public class a extends com.baidu.location.e.e {
@@ -61,19 +61,19 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ h f41062a;
+        public final /* synthetic */ h f41124a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f41063b;
+        public String f41125b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f41064c;
+        public String f41126c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f41065d;
+        public boolean f41127d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f41066e;
+        public boolean f41128e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class h {
                     return;
                 }
             }
-            this.f41062a = hVar;
-            this.f41063b = null;
-            this.f41064c = null;
-            this.f41065d = true;
-            this.f41066e = false;
+            this.f41124a = hVar;
+            this.f41125b = null;
+            this.f41126c = null;
+            this.f41127d = true;
+            this.f41128e = false;
             this.k = new HashMap();
         }
 
@@ -102,27 +102,27 @@ public class h {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f41280i = 1;
-                this.f41279h = com.baidu.location.e.k.e();
-                String encodeTp4 = Jni.encodeTp4(this.f41064c);
-                this.f41064c = null;
+                this.f41342i = 1;
+                this.f41341h = com.baidu.location.e.k.e();
+                String encodeTp4 = Jni.encodeTp4(this.f41126c);
+                this.f41126c = null;
                 this.k.put(BaseLocationBox.TYPE, encodeTp4);
             }
         }
 
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.f41062a.f41059g) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.f41124a.f41121g) {
                 return;
             }
-            this.f41062a.f41059g = true;
-            this.f41063b = str;
-            this.f41064c = str2;
+            this.f41124a.f41121g = true;
+            this.f41125b = str;
+            this.f41126c = str2;
             ExecutorService c2 = v.a().c();
             if (c2 != null) {
-                a(c2, com.baidu.location.e.k.f41297f);
+                a(c2, com.baidu.location.e.k.f41359f);
             } else {
-                b(com.baidu.location.e.k.f41297f);
+                b(com.baidu.location.e.k.f41359f);
             }
         }
 
@@ -131,43 +131,43 @@ public class h {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                if (z && (str = this.f41281j) != null) {
+                if (z && (str = this.f41343j) != null) {
                     try {
-                        if (this.f41065d) {
+                        if (this.f41127d) {
                             JSONObject jSONObject = new JSONObject(str);
                             JSONObject jSONObject2 = jSONObject.has("content") ? jSONObject.getJSONObject("content") : null;
                             if (jSONObject2 != null && jSONObject2.has("imo")) {
                                 Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
                                 int i2 = jSONObject2.getJSONObject("imo").getInt("mv");
-                                if (Jni.encode3(this.f41063b).longValue() == valueOf.longValue()) {
+                                if (Jni.encode3(this.f41125b).longValue() == valueOf.longValue()) {
                                     ContentValues contentValues = new ContentValues();
                                     contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                     contentValues.put("hst", Integer.valueOf(i2));
                                     try {
-                                        SQLiteDatabase sQLiteDatabase = this.f41062a.f41058f;
+                                        SQLiteDatabase sQLiteDatabase = this.f41124a.f41120f;
                                         if (sQLiteDatabase.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                                             contentValues.put("id", valueOf);
-                                            this.f41062a.f41058f.insert("hstdata", null, contentValues);
+                                            this.f41124a.f41120f.insert("hstdata", null, contentValues);
                                         }
                                     } catch (Exception unused) {
                                     }
                                     Bundle bundle = new Bundle();
-                                    bundle.putByteArray("mac", this.f41063b.getBytes());
+                                    bundle.putByteArray("mac", this.f41125b.getBytes());
                                     bundle.putInt("hotspot", i2);
-                                    this.f41062a.a(bundle);
+                                    this.f41124a.a(bundle);
                                 }
                             }
                         }
                     } catch (Exception unused2) {
                     }
-                } else if (this.f41065d) {
-                    this.f41062a.f();
+                } else if (this.f41127d) {
+                    this.f41124a.f();
                 }
                 Map<String, Object> map = this.k;
                 if (map != null) {
                     map.clear();
                 }
-                this.f41062a.f41059g = false;
+                this.f41124a.f41121g = false;
             }
         }
     }
@@ -185,8 +185,8 @@ public class h {
                 return;
             }
         }
-        f41053c = new Object();
-        f41055e = com.baidu.location.e.k.j() + "/hst.db";
+        f41115c = new Object();
+        f41117e = com.baidu.location.e.k.j() + "/hst.db";
     }
 
     public h() {
@@ -202,12 +202,12 @@ public class h {
                 return;
             }
         }
-        this.f41058f = null;
-        this.f41059g = false;
-        this.f41056a = null;
-        this.f41057b = null;
-        this.f41060h = null;
-        this.f41061i = -2;
+        this.f41120f = null;
+        this.f41121g = false;
+        this.f41118a = null;
+        this.f41119b = null;
+        this.f41122h = null;
+        this.f41123i = -2;
     }
 
     public static h a() {
@@ -215,11 +215,11 @@ public class h {
         h hVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (f41053c) {
-                if (f41054d == null) {
-                    f41054d = new h();
+            synchronized (f41115c) {
+                if (f41116d == null) {
+                    f41116d = new h();
                 }
-                hVar = f41054d;
+                hVar = f41116d;
             }
             return hVar;
         }
@@ -283,7 +283,7 @@ public class h {
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f41059g) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f41121g) {
             return;
         }
         try {
@@ -297,10 +297,10 @@ public class h {
             ContentValues contentValues = new ContentValues();
             contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
             contentValues.put("hst", Integer.valueOf(i2));
-            SQLiteDatabase sQLiteDatabase = this.f41058f;
+            SQLiteDatabase sQLiteDatabase = this.f41120f;
             if (sQLiteDatabase.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                 contentValues.put("id", valueOf);
-                this.f41058f.insert("hstdata", null, contentValues);
+                this.f41120f.insert("hstdata", null, contentValues);
             }
         } catch (Exception unused) {
         }
@@ -310,18 +310,18 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                File file = new File(f41055e);
+                File file = new File(f41117e);
                 if (!file.exists()) {
                     file.createNewFile();
                 }
                 if (file.exists()) {
                     SQLiteDatabase openOrCreateDatabase = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
-                    this.f41058f = openOrCreateDatabase;
+                    this.f41120f = openOrCreateDatabase;
                     openOrCreateDatabase.execSQL("CREATE TABLE IF NOT EXISTS hstdata(id Long PRIMARY KEY,hst INT,tt INT);");
-                    this.f41058f.setVersion(1);
+                    this.f41120f.setVersion(1);
                 }
             } catch (Exception unused) {
-                this.f41058f = null;
+                this.f41120f = null;
             }
         }
     }
@@ -329,17 +329,17 @@ public class h {
     public void c() {
         SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (sQLiteDatabase = this.f41058f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (sQLiteDatabase = this.f41120f) == null) {
             return;
         }
         try {
             sQLiteDatabase.close();
         } catch (Exception unused) {
         } catch (Throwable th) {
-            this.f41058f = null;
+            this.f41120f = null;
             throw th;
         }
-        this.f41058f = null;
+        this.f41120f = null;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:34:0x007a, code lost:
@@ -361,24 +361,24 @@ public class h {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
                 int i2 = -3;
-                if (this.f41059g) {
+                if (this.f41121g) {
                     return -3;
                 }
                 try {
-                    if (com.baidu.location.c.i.i() && this.f41058f != null && (k = com.baidu.location.c.i.a().k()) != null && k.getBSSID() != null) {
+                    if (com.baidu.location.c.i.i() && this.f41120f != null && (k = com.baidu.location.c.i.a().k()) != null && k.getBSSID() != null) {
                         String replace = k.getBSSID().replace(":", "");
                         Long encode3 = Jni.encode3(replace);
-                        if (this.f41060h == null || !replace.equals(this.f41060h) || this.f41061i <= -2) {
+                        if (this.f41122h == null || !replace.equals(this.f41122h) || this.f41123i <= -2) {
                             Cursor cursor = null;
                             try {
-                                SQLiteDatabase sQLiteDatabase = this.f41058f;
+                                SQLiteDatabase sQLiteDatabase = this.f41120f;
                                 cursor = sQLiteDatabase.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
                                 if (cursor == null || !cursor.moveToFirst()) {
                                     i2 = -2;
                                 } else {
                                     i2 = cursor.getInt(1);
-                                    this.f41060h = replace;
-                                    this.f41061i = i2;
+                                    this.f41122h = replace;
+                                    this.f41123i = i2;
                                 }
                             } catch (Exception unused) {
                             } catch (Throwable th) {
@@ -391,12 +391,12 @@ public class h {
                                 throw th;
                             }
                         } else {
-                            i2 = this.f41061i;
+                            i2 = this.f41123i;
                         }
                     }
                 } catch (Exception unused3) {
                 }
-                this.f41061i = i2;
+                this.f41123i = i2;
                 return i2;
             }
         }
@@ -413,11 +413,11 @@ public class h {
     public void e() {
         WifiInfo k;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f41059g) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f41121g) {
             return;
         }
         try {
-            if (!com.baidu.location.c.i.i() || this.f41058f == null || (k = com.baidu.location.c.i.a().k()) == null || k.getBSSID() == null) {
+            if (!com.baidu.location.c.i.i() || this.f41120f == null || (k = com.baidu.location.c.i.a().k()) == null || k.getBSSID() == null) {
                 f();
                 return;
             }
@@ -426,7 +426,7 @@ public class h {
             boolean z = false;
             Cursor cursor = null;
             try {
-                SQLiteDatabase sQLiteDatabase = this.f41058f;
+                SQLiteDatabase sQLiteDatabase = this.f41120f;
                 cursor = sQLiteDatabase.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
                 if (cursor != null && cursor.moveToFirst()) {
                     int i2 = cursor.getInt(1);
@@ -446,11 +446,11 @@ public class h {
                     }
                 }
                 if (z) {
-                    if (this.f41056a == null) {
-                        this.f41056a = new a(this);
+                    if (this.f41118a == null) {
+                        this.f41118a = new a(this);
                     }
-                    if (this.f41056a != null) {
-                        this.f41056a.a(replace, a(true));
+                    if (this.f41118a != null) {
+                        this.f41118a.a(replace, a(true));
                     }
                 }
             }

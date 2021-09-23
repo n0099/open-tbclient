@@ -31,6 +31,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -333,7 +334,7 @@ public class ChatUserDBManager extends DBBase {
                                                     }
                                                 }
                                                 AnonymousClass3 anonymousClass34 = this.this$1;
-                                                anonymousClass34.val$listener.onResult(0, "ok", anonymousClass34.val$resultUsers);
+                                                anonymousClass34.val$listener.onResult(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, anonymousClass34.val$resultUsers);
                                                 AnonymousClass3 anonymousClass35 = this.this$1;
                                                 anonymousClass35.this$0.updateAllShield(anonymousClass35.val$resultUsers);
                                             }
@@ -679,7 +680,7 @@ public class ChatUserDBManager extends DBBase {
                     LogUtils.d(TAG, "getShieldUserByUids whereClause :" + str3 + ", update :" + arrayList.size() + ", user :" + list.size());
                     updateAllShield(arrayList);
                     if (list.size() <= 0) {
-                        iGetUserShieldListener.onResult(0, "ok", arrayList);
+                        iGetUserShieldListener.onResult(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, arrayList);
                     } else {
                         getUserInfo(list, arrayList, iGetUserShieldListener);
                     }

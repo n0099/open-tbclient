@@ -22,7 +22,7 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f9360a;
+    public static volatile String f9368a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -31,13 +31,13 @@ public class m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f9361c;
+        public final /* synthetic */ int f9369c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ long f9362d;
+        public final /* synthetic */ long f9370d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f9363e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f9371e;
 
         /* renamed from: c.a.p0.a.v2.m$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -46,10 +46,10 @@ public class m {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f9364e;
+            public final /* synthetic */ int f9372e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f9365f;
+            public final /* synthetic */ a f9373f;
 
             public RunnableC0438a(a aVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -66,8 +66,8 @@ public class m {
                         return;
                     }
                 }
-                this.f9365f = aVar;
-                this.f9364e = i2;
+                this.f9373f = aVar;
+                this.f9372e = i2;
             }
 
             @Override // java.lang.Runnable
@@ -76,11 +76,11 @@ public class m {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        m.f(jSONObject, this.f9364e, this.f9365f.f9361c, this.f9365f.f9362d);
+                        m.f(jSONObject, this.f9372e, this.f9373f.f9369c, this.f9373f.f9370d);
                     } catch (Exception e2) {
                         w.f(jSONObject, "errorMsg", e2.getMessage());
                     }
-                    this.f9365f.f9363e.onCallback(jSONObject);
+                    this.f9373f.f9371e.onCallback(jSONObject);
                 }
             }
         }
@@ -100,9 +100,9 @@ public class m {
                     return;
                 }
             }
-            this.f9361c = i2;
-            this.f9362d = j2;
-            this.f9363e = bVar;
+            this.f9369c = i2;
+            this.f9370d = j2;
+            this.f9371e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -139,12 +139,12 @@ public class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(f9360a)) {
+            if (TextUtils.isEmpty(f9368a)) {
                 synchronized (m.class) {
-                    f9360a = e();
+                    f9368a = e();
                 }
             }
-            return f9360a;
+            return f9368a;
         }
         return (String) invokeV.objValue;
     }
@@ -179,7 +179,7 @@ public class m {
             w.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
             w.f(jSONObject, "netStatus", Integer.valueOf(i2));
             a.C0322a a2 = c.a.p0.a.n2.c.a.a(c.a.p0.a.c1.a.b());
-            w.f(jSONObject, "batteryLevel", Integer.valueOf(a2 == null ? -1 : a2.f7678a));
+            w.f(jSONObject, "batteryLevel", Integer.valueOf(a2 == null ? -1 : a2.f7686a));
             w.f(jSONObject, "appCurVersion", q0.D());
             w.f(jSONObject, "startupType", String.valueOf(i3));
             w.f(jSONObject, "coldLaunchTime", Long.valueOf(j2));

@@ -27,10 +27,10 @@ public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile DexClassLoader f43900a;
+    public static volatile DexClassLoader f43962a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f43901b;
+    public static volatile boolean f43963b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -39,10 +39,10 @@ public class x {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f43902a;
+        public Context f43964a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.mobstat.a f43903b;
+        public com.baidu.mobstat.a f43965b;
 
         public a(Context context, com.baidu.mobstat.a aVar) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public class x {
                     return;
                 }
             }
-            this.f43902a = context;
-            this.f43903b = aVar;
+            this.f43964a = context;
+            this.f43965b = aVar;
         }
 
         private void a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-                this.f43903b.a(context, System.currentTimeMillis());
+                this.f43965b.a(context, System.currentTimeMillis());
             }
         }
 
@@ -112,7 +112,7 @@ public class x {
                     } catch (Exception unused) {
                     }
                 }
-                return aa.f43162c + "?" + sb.toString();
+                return aa.f43224c + "?" + sb.toString();
             }
             return (String) invokeL.objValue;
         }
@@ -122,16 +122,16 @@ public class x {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    int i2 = aa.f43160a ? 3 : 10;
+                    int i2 = aa.f43222a ? 3 : 10;
                     bb c2 = bb.c();
                     c2.a("start version check in " + i2 + "s");
                     Thread.sleep((long) (i2 * 1000));
                     a();
-                    a(this.f43902a);
+                    a(this.f43964a);
                 } catch (Exception e2) {
                     bb.c().a(e2);
                 }
-                boolean unused = x.f43901b = false;
+                boolean unused = x.f43963b = false;
             }
         }
 
@@ -146,8 +146,8 @@ public class x {
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 synchronized (this) {
                     bb.c().a("start get config and download jar");
-                    Context context = this.f43902a;
-                    com.baidu.mobstat.a aVar = this.f43903b;
+                    Context context = this.f43964a;
+                    com.baidu.mobstat.a aVar = this.f43965b;
                     String b2 = b(context);
                     bb.c().c("update req url is:" + b2);
                     HttpURLConnection d2 = bo.d(context, b2);
@@ -173,7 +173,7 @@ public class x {
                                     e = e2;
                                     bb.c().b(e);
                                     bu.a(fileOutputStream);
-                                    DexClassLoader unused = x.f43900a = null;
+                                    DexClassLoader unused = x.f43962a = null;
                                     u.a();
                                     if (!TextUtils.isEmpty(headerField)) {
                                     }
@@ -198,7 +198,7 @@ public class x {
                         }
                         bu.a(fileOutputStream);
                     }
-                    DexClassLoader unused2 = x.f43900a = null;
+                    DexClassLoader unused2 = x.f43962a = null;
                     u.a();
                     if (!TextUtils.isEmpty(headerField)) {
                         aVar.a(context, headerField);
@@ -358,8 +358,8 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (x.class) {
-                if (f43900a != null) {
-                    return f43900a;
+                if (f43962a != null) {
+                    return f43962a;
                 }
                 File fileStreamPath = context.getFileStreamPath(".remote.jar");
                 if (fileStreamPath == null || fileStreamPath.isFile()) {
@@ -377,11 +377,11 @@ public class x {
                         return null;
                     } else {
                         try {
-                            f43900a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
+                            f43962a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
                         } catch (Exception e2) {
                             bb.c().a(e2);
                         }
-                        return f43900a;
+                        return f43962a;
                     }
                 }
                 return null;
@@ -394,7 +394,7 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, aVar) == null) {
             synchronized (x.class) {
-                if (f43901b) {
+                if (f43963b) {
                     return;
                 }
                 if (!bw.q(context)) {
@@ -404,7 +404,7 @@ public class x {
                 } else {
                     bb.c().a("can start update config");
                     new a(context, aVar).start();
-                    f43901b = true;
+                    f43963b = true;
                 }
             }
         }

@@ -68,6 +68,7 @@ import com.baidu.sapi2.utils.StatLoadLogin;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
+import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.SocialType;
@@ -81,6 +82,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.IWalletLoginListener;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.yy.hiidostatis.defs.controller.SensorController;
@@ -538,6 +540,11 @@ public class SapiWebView extends WebView {
         void onFileChooser(ValueCallback<Uri> valueCallback);
 
         void onFileChooserForOSVersion5(ValueCallback<Uri[]> valueCallback);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface HistoryLoginCallback {
+        void onSuccess();
     }
 
     /* loaded from: classes5.dex */
@@ -1366,7 +1373,17 @@ public class SapiWebView extends WebView {
                     InterceptResult invokeLLLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLLLL = interceptable2.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, jsResult)) == null) {
-                        AlertDialog.Builder positiveButton = new AlertDialog.Builder(this.this$0.getContext()).setTitle("JavaScript Message").setMessage(str2).setPositiveButton("ok", new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.sapi2.SapiWebView.3.1
+                        Context context = webView != null ? webView.getContext() : null;
+                        if (context == null) {
+                            return true;
+                        }
+                        if (context instanceof Activity) {
+                            Activity activity = (Activity) context;
+                            if (Build.VERSION.SDK_INT >= 17 && (activity.isDestroyed() || activity.isFinishing())) {
+                                return true;
+                            }
+                        }
+                        AlertDialog.Builder positiveButton = new AlertDialog.Builder(context).setTitle("JavaScript Message").setMessage(str2).setPositiveButton(NewBindCardEntry.BING_CARD_SUCCESS_MSG, new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.sapi2.SapiWebView.3.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass3 this$1;
@@ -2107,7 +2124,7 @@ public class SapiWebView extends WebView {
     public void dismissProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            post(new Runnable(this) { // from class: com.baidu.sapi2.SapiWebView.17
+            post(new Runnable(this) { // from class: com.baidu.sapi2.SapiWebView.18
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SapiWebView this$0;
@@ -2306,7 +2323,7 @@ public class SapiWebView extends WebView {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             String str = !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "";
             String str2 = TextUtils.isEmpty(Build.VERSION.RELEASE) ? "" : Build.VERSION.RELEASE;
-            String encode = URLEncoder.encode("Sapi_9.3.7.1_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + str + "_" + str2 + "_Sapi");
+            String encode = URLEncoder.encode("Sapi_9.4.1_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + str + "_" + str2 + "_Sapi");
             if (!isValidPackage() || TextUtils.isEmpty(this.configuration.userAgent)) {
                 return encode;
             }
@@ -2330,6 +2347,9 @@ public class SapiWebView extends WebView {
             return;
         }
         SapiAccount sapiAccountResponseToAccount = sapiAccountResponseToAccount(sapiAccountResponse);
+        if (SapiContext.getInstance().mLastLoginType != null) {
+            SapiContext.getInstance().setPreLoginType(SapiContext.getInstance().mLastLoginType.getName());
+        }
         if (this.jsCallBacks.authorizationListener != null) {
             post(new Runnable(this, sapiAccountResponseToAccount, sapiAccountResponse) { // from class: com.baidu.sapi2.SapiWebView.12
                 public static /* synthetic */ Interceptable $ic;
@@ -2376,18 +2396,72 @@ public class SapiWebView extends WebView {
         }
     }
 
+    public void handleLoginHistoryLogin(SapiAccount sapiAccount) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, sapiAccount) == null) {
+            if (SapiContext.getInstance().mLastLoginType != null) {
+                SapiContext.getInstance().setPreLoginType(SapiContext.getInstance().mLastLoginType.getName());
+            }
+            if (this.jsCallBacks.authorizationListener != null) {
+                post(new Runnable(this, sapiAccount) { // from class: com.baidu.sapi2.SapiWebView.13
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiWebView this$0;
+                    public final /* synthetic */ SapiAccount val$sapiAccount;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, sapiAccount};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$sapiAccount = sapiAccount;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            try {
+                                this.this$0.jsCallBacks.authorizationListener.beforeSuccess(this.val$sapiAccount);
+                            } catch (Throwable th) {
+                                Log.e(th);
+                            }
+                            SapiAccountManager.getInstance().validate(this.val$sapiAccount);
+                            this.this$0.authorizeSuccess(this.val$sapiAccount.getAccountType());
+                            SapiStatUtil.statShareV1Login(this.val$sapiAccount, this.this$0.extras);
+                        }
+                    }
+                });
+            }
+        }
+    }
+
     public void handleOpenApiAuthorizeResponse(SocialResponse socialResponse) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, socialResponse) == null) || socialResponse == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, socialResponse) == null) || socialResponse == null) {
             return;
         }
         SapiAccount sapiAccountResponseToAccount = sapiAccountResponseToAccount(socialResponse);
         if (SapiAccount.isValidAccount(sapiAccountResponseToAccount)) {
             socialResponse.errorCode = 0;
         }
+        if (SapiContext.getInstance().mLastLoginType != null) {
+            SapiContext.getInstance().setPreLoginType(SapiContext.getInstance().mLastLoginType.getName());
+        }
         if (socialResponse.accountCenterFlag && ((i2 = socialResponse.errorCode) == 0 || i2 == 110000)) {
-            post(new Runnable(this, socialResponse, sapiAccountResponseToAccount) { // from class: com.baidu.sapi2.SapiWebView.13
+            post(new Runnable(this, socialResponse, sapiAccountResponseToAccount) { // from class: com.baidu.sapi2.SapiWebView.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SapiWebView this$0;
@@ -2431,7 +2505,7 @@ public class SapiWebView extends WebView {
         } else if (this.jsCallBacks.authorizationListener != null) {
             int i3 = socialResponse.errorCode;
             if (i3 != 0 && i3 != 110000) {
-                post(new Runnable(this, socialResponse) { // from class: com.baidu.sapi2.SapiWebView.15
+                post(new Runnable(this, socialResponse) { // from class: com.baidu.sapi2.SapiWebView.16
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SapiWebView this$0;
@@ -2470,7 +2544,7 @@ public class SapiWebView extends WebView {
                     }
                 });
             } else {
-                post(new Runnable(this, sapiAccountResponseToAccount) { // from class: com.baidu.sapi2.SapiWebView.14
+                post(new Runnable(this, sapiAccountResponseToAccount) { // from class: com.baidu.sapi2.SapiWebView.15
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SapiWebView this$0;
@@ -2518,16 +2592,17 @@ public class SapiWebView extends WebView {
 
     public void loadAccountCenter(List<PassNameValuePair> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048604, this, list, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048605, this, list, str) == null) {
             loadAccountCenter(list, str, ACCOUNT_CENTER);
         }
     }
 
-    public void loadAccountRealName(String str, String str2, boolean z, String str3) {
+    public void loadAccountRealName(String str, String str2, boolean z, String str3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, str2, Boolean.valueOf(z), str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{str, str2, Boolean.valueOf(z), str3, Integer.valueOf(i2)}) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new PassNameValuePair("okU", SapiHost.getHost(SapiHost.ACTION_INTERCEPT_URL)));
+            arrayList.add(new PassNameValuePair("realname_level", String.valueOf(i2)));
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(new PassNameValuePair("scene", str2));
             }
@@ -2541,21 +2616,21 @@ public class SapiWebView extends WebView {
 
     public void loadAddressManage(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, list) == null) {
             loadUrl(addExtras(getAddressManageUrl(), list));
         }
     }
 
     public void loadAuthWidget(List<PassNameValuePair> list, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048608, this, list, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048609, this, list, z) == null) {
             loadUrl(addExtras(SapiAccountManager.getInstance().getAccountService().getAuthWidgetUrl(z), list));
         }
     }
 
     public void loadBindWidget(BindWidgetAction bindWidgetAction, String str, String str2, boolean z, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{bindWidgetAction, str, str2, Boolean.valueOf(z), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{bindWidgetAction, str, str2, Boolean.valueOf(z), list}) == null) {
             if (bindWidgetAction != null) {
                 if (!TextUtils.isEmpty(str)) {
                     webLogin(getContext(), str);
@@ -2589,7 +2664,7 @@ public class SapiWebView extends WebView {
     @Override // android.webkit.WebView
     public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048610, this, str, str2, str3, str4, str5) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(1048611, this, str, str2, str3, str4, str5) == null) {
             if (Build.VERSION.SDK_INT > 7) {
                 getSettings().setBlockNetworkLoads(true);
             }
@@ -2648,7 +2723,7 @@ public class SapiWebView extends WebView {
 
     public void loadExternalUrl(String str, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048611, this, str, list) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048612, this, str, list) == null) {
             if (!TextUtils.isEmpty(str)) {
                 if (!str.contains(BROWSE_MODE_AGREEMENT_HOST)) {
                     if (list == null) {
@@ -2680,28 +2755,35 @@ public class SapiWebView extends WebView {
 
     public void loadForgetPwd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             loadForgetPwd(null);
+        }
+    }
+
+    public void loadHistoryLogin(HistoryLoginCallback historyLoginCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, historyLoginCallback) == null) {
+            this.jsCallBacks.historyLoginCallback = historyLoginCallback;
         }
     }
 
     public void loadHuaWeiSSOLogin(String str, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048614, this, str, list) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048616, this, str, list) == null) {
             loadUrl(addExtras(ParamsUtil.getUrlBind(this.configuration, SocialType.HUAWEI, str, null, null), list));
         }
     }
 
     public void loadInvoiceBuild(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, list) == null) {
             loadUrl(addExtras(getInvoiceBuildUrl(), list));
         }
     }
 
     public void loadIqiyiBindServer(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048616, this, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048618, this, str) == null) || str == null) {
             return;
         }
         String buildIqiyiCookie = SapiUtils.buildIqiyiCookie(this.configuration.environment.getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", ""), "mkey", Uri.parse(str).getQueryParameter("mkey"));
@@ -2712,14 +2794,14 @@ public class SapiWebView extends WebView {
 
     public void loadLogin() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
             loadLogin(0, null);
         }
     }
 
     public void loadNormalizeGuestAccount(List<PassNameValuePair> list, String str, SocialType socialType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048620, this, list, str, socialType) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048622, this, list, str, socialType) == null) {
             webLogin(getContext(), str);
             loadUrl(addExtras(getNormalizeGuestAccountUrl(socialType), list));
         }
@@ -2727,7 +2809,7 @@ public class SapiWebView extends WebView {
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048621, this, qrLoginCallback, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048623, this, qrLoginCallback, str, z) == null) {
             SapiJsCallBacks.CallBacks callBacks = this.jsCallBacks;
             callBacks.qrLoginCallback = qrLoginCallback;
             callBacks.finishPage = z;
@@ -2737,7 +2819,7 @@ public class SapiWebView extends WebView {
 
     public void loadRealnameAuthenticate(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
             if (!TextUtils.isEmpty(str)) {
                 if (!TextUtils.isEmpty(this.configuration.realnameAuthenticateStoken)) {
                     ArrayList arrayList = new ArrayList();
@@ -2815,7 +2897,7 @@ public class SapiWebView extends WebView {
 
     public void loadRegist(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048625, this, list) == null) {
             String loginUrl = getLoginUrl();
             loadUrl(addExtras(loginUrl, list) + URL_HASH_REG);
         }
@@ -2823,21 +2905,21 @@ public class SapiWebView extends WebView {
 
     public void loadShareV2Login() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
             loadUrl((SapiAccountManager.getInstance().getAccountService().getWapShareLoginUrl() + "&adapter=3") + URL_HASH_SHARE_OAUTH);
         }
     }
 
     public void loadSwitchAccount(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             loadUrl(addExtras(getSwitchAccountUrl(), list));
         }
     }
 
     public void loadThirdPartySSOLogin(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{str, str2, str3, str4, str5, str6, str7}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{str, str2, str3, str4, str5, str6, str7}) == null) {
             this.isLoadThirdPartyUrl = true;
             this.userInfoXmlContent = str2;
             ArrayList arrayList = new ArrayList();
@@ -2853,7 +2935,7 @@ public class SapiWebView extends WebView {
 
     public void loadUniteVerify(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048627, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048629, this, str, str2, str3) == null) {
             if (!TextUtils.isEmpty(str)) {
                 ArrayList arrayList = new ArrayList();
                 try {
@@ -2878,7 +2960,7 @@ public class SapiWebView extends WebView {
     @Override // android.webkit.WebView
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048628, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048630, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         loadUrl(fixAdapterParamValue(str), Collections.emptyList());
@@ -2887,7 +2969,7 @@ public class SapiWebView extends WebView {
     @Override // android.webkit.WebView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048632, this, canvas) == null) {
             super.onDraw(canvas);
         }
     }
@@ -2895,7 +2977,7 @@ public class SapiWebView extends WebView {
     public boolean onKeyUp(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048631, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048633, this, i2)) == null) {
             if (i2 == 4 && this.leftBtnIsVisible == 1) {
                 OnBackCallback onBackCallback = this.onBackCallback;
                 if (onBackCallback != null && this.jsCallBacks.rrLoginResponse == null) {
@@ -2912,7 +2994,7 @@ public class SapiWebView extends WebView {
     @Override // android.webkit.WebView, android.view.View
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048632, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048634, this, i2, i3, i4, i5) == null) {
             ProgressBar progressBar = this.progressBar;
             if (progressBar != null) {
                 AbsoluteLayout.LayoutParams layoutParams = (AbsoluteLayout.LayoutParams) progressBar.getLayoutParams();
@@ -2928,7 +3010,7 @@ public class SapiWebView extends WebView {
     public boolean overScrollBy(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048635, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Boolean.valueOf(z)})) == null) {
             View view = this.noNetworkView;
             if (view == null || view.getVisibility() != 0) {
                 View view2 = this.timeoutView;
@@ -2946,7 +3028,7 @@ public class SapiWebView extends WebView {
         InterceptResult invokeLL;
         SapiAccountResponse sapiAccountResponse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048634, this, str, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048636, this, str, context)) == null) {
             String matcher = getMatcher("<client>([\\S\\s]*?)</client>", str);
             SapiAccountResponse sapiAccountResponse2 = null;
             if (TextUtils.isEmpty(matcher)) {
@@ -3059,12 +3141,23 @@ public class SapiWebView extends WebView {
                                 sapiAccountResponse2.livingUname = URLDecoder.decode(newPullParser.nextText());
                                 continue;
                             } else if (IWalletLoginListener.KEY_LOGIN_TYPE.equals(name)) {
-                                String nextText3 = newPullParser.nextText();
-                                if ("oneKeyLogin".equals(nextText3)) {
-                                    nextText3 = new OneKeyLoginSdkCall().getOperatorType();
+                                if ("oneKeyLogin".equals(newPullParser.nextText())) {
+                                    String operatorType = new OneKeyLoginSdkCall().getOperatorType();
+                                    if (OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC.equals(operatorType)) {
+                                        SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CM.getName());
+                                        continue;
+                                    } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC.equals(operatorType)) {
+                                        SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CU.getName());
+                                        continue;
+                                    } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC.equals(operatorType)) {
+                                        SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CT.getName());
+                                        continue;
+                                    } else {
+                                        continue;
+                                    }
+                                } else {
+                                    continue;
                                 }
-                                SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, nextText3);
-                                continue;
                             } else if (name.equals("mobilephone")) {
                                 SapiContext.getInstance().putEncryptStr(SapiContext.KEY_LAST_LOGIN_PHONE, newPullParser.nextText());
                                 continue;
@@ -3111,7 +3204,7 @@ public class SapiWebView extends WebView {
 
     public void preSetUserName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
             loadUrl("javascript:(function(){if(window.Pass&&Pass.client&&Pass.client.fillLoginNameFn){Pass.client.fillLoginNameFn('" + str + "')}}())");
         }
     }
@@ -3119,7 +3212,7 @@ public class SapiWebView extends WebView {
     @Override // android.webkit.WebView
     public void reload() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
             String str = this.reloadConfig.timeoutUrl;
             if (str != null) {
                 loadUrl(str);
@@ -3133,7 +3226,7 @@ public class SapiWebView extends WebView {
     public SapiAccount sapiAccountResponseToAccount(SapiAccountResponse sapiAccountResponse) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, sapiAccountResponse)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, sapiAccountResponse)) == null) {
             SapiAccount sapiAccount = new SapiAccount();
             sapiAccount.uid = sapiAccountResponse.uid;
             sapiAccount.bduss = sapiAccountResponse.bduss;
@@ -3146,9 +3239,10 @@ public class SapiWebView extends WebView {
             sapiAccount.extra = sapiAccountResponse.extra;
             sapiAccount.portrait = sapiAccountResponse.portraitSign;
             sapiAccount.fromType = sapiAccountResponse.fromType.getValue();
-            if (SocialType.UNKNOWN != sapiAccountResponse.socialType) {
-                SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, sapiAccountResponse.socialType.getName());
-                sapiAccount.addSocialInfo(sapiAccountResponse.socialType, sapiAccountResponse.socialPortraitUrl, sapiAccountResponse.socialNickname);
+            SocialType socialType = SocialType.UNKNOWN;
+            SocialType socialType2 = sapiAccountResponse.socialType;
+            if (socialType != socialType2) {
+                sapiAccount.addSocialInfo(socialType2, sapiAccountResponse.socialPortraitUrl, sapiAccountResponse.socialNickname);
                 sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
             }
             sapiAccount.putExtra("tpl", this.configuration.tpl);
@@ -3169,7 +3263,7 @@ public class SapiWebView extends WebView {
     public void scrollTo(int i2, int i3) {
         View view;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048638, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048640, this, i2, i3) == null) {
             View view2 = this.noNetworkView;
             if ((view2 != null && view2.getVisibility() == 0) || ((view = this.timeoutView) != null && view.getVisibility() == 0)) {
                 super.scrollTo(0, 0);
@@ -3180,231 +3274,231 @@ public class SapiWebView extends WebView {
 
     public void setAccountChangeCallback(AccountChangeCallback accountChangeCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, accountChangeCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048641, this, accountChangeCallback) == null) {
             this.accountChangeCallback = accountChangeCallback;
         }
     }
 
     public void setAccountDestoryCallback(AccountDestoryCallback accountDestoryCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, accountDestoryCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048642, this, accountDestoryCallback) == null) {
             this.jsCallBacks.accountDestoryCallback = accountDestoryCallback;
         }
     }
 
     public void setAccountFreezeCallback(AccountFreezeCallback accountFreezeCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, accountFreezeCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048643, this, accountFreezeCallback) == null) {
             this.jsCallBacks.accountFreezeCallback = accountFreezeCallback;
         }
     }
 
     public void setAuthorizationListener(AuthorizationListener authorizationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, authorizationListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048644, this, authorizationListener) == null) {
             this.jsCallBacks.authorizationListener = authorizationListener;
         }
     }
 
     public void setBdOauthLoginParams(SapiJsCallBacks.BdOauthLoginParams bdOauthLoginParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048643, this, bdOauthLoginParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048645, this, bdOauthLoginParams) == null) {
             this.jsCallBacks.bdOauthLoginParams = bdOauthLoginParams;
         }
     }
 
     public void setBdussChangeCallback(BdussChangeCallback bdussChangeCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048644, this, bdussChangeCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048646, this, bdussChangeCallback) == null) {
             this.jsCallBacks.bdussChangeCallback = bdussChangeCallback;
         }
     }
 
     public void setBindWidgetCallback(BindWidgetCallback bindWidgetCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, bindWidgetCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048647, this, bindWidgetCallback) == null) {
             this.jsCallBacks.bindWidgetCallback = bindWidgetCallback;
         }
     }
 
     public void setBioScanFaceCallback(BioScanFaceCallback bioScanFaceCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048646, this, bioScanFaceCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048648, this, bioScanFaceCallback) == null) {
             this.jsCallBacks.bioScanFaceCallback = bioScanFaceCallback;
         }
     }
 
     public void setBiometricsIdentificationLiveCallBack(SapiJsCallBacks.BiometricsIdentificationLiveCallBack biometricsIdentificationLiveCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048647, this, biometricsIdentificationLiveCallBack) == null) {
+        if (interceptable == null || interceptable.invokeL(1048649, this, biometricsIdentificationLiveCallBack) == null) {
             this.jsCallBacks.biometricsIdentificationLiveCallBack = biometricsIdentificationLiveCallBack;
         }
     }
 
     public void setBiometricsIdentifyCallback(BiometricsIdentifyCallback biometricsIdentifyCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048648, this, biometricsIdentifyCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048650, this, biometricsIdentifyCallback) == null) {
             this.jsCallBacks.biometricsIdentifyCallback = biometricsIdentifyCallback;
         }
     }
 
     public void setChangePwdCallback(ChangePwdCallback changePwdCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048649, this, changePwdCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048651, this, changePwdCallback) == null) {
             this.changePwdCallback = changePwdCallback;
         }
     }
 
     public void setCoverWebBdussCallback(CoverWebBdussCallback coverWebBdussCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048650, this, coverWebBdussCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048652, this, coverWebBdussCallback) == null) {
             this.jsCallBacks.coverWebBdussCallback = coverWebBdussCallback;
         }
     }
 
     public void setCurrentAccountBdussExpiredCallback(SapiJsCallBacks.CurrentAccountBdussExpiredCallback currentAccountBdussExpiredCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048651, this, currentAccountBdussExpiredCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048653, this, currentAccountBdussExpiredCallback) == null) {
             this.jsCallBacks.currentAccountBdussExpiredCallback = currentAccountBdussExpiredCallback;
         }
     }
 
     public void setDirectedLoginParams(SapiJsCallBacks.DirectedLoginParams directedLoginParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048652, this, directedLoginParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048654, this, directedLoginParams) == null) {
             this.jsCallBacks.directedLoginParams = directedLoginParams;
         }
     }
 
     public void setFileChooserCallback(FileChooserCallback fileChooserCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048653, this, fileChooserCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048655, this, fileChooserCallback) == null) {
             this.fileChooserCallback = fileChooserCallback;
         }
     }
 
     public void setFingerprintCallback(SapiJsCallBacks.FingerprintCallback fingerprintCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048654, this, fingerprintCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048656, this, fingerprintCallback) == null) {
             this.jsCallBacks.fingerprintCallback = fingerprintCallback;
         }
     }
 
     public void setFocusEdittextCoordinateYCallBack(SapiJsCallBacks.FocusEdittextCoordinateYCallBack focusEdittextCoordinateYCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048655, this, focusEdittextCoordinateYCallBack) == null) {
+        if (interceptable == null || interceptable.invokeL(1048657, this, focusEdittextCoordinateYCallBack) == null) {
             this.jsCallBacks.focusEdittextCoordinateYCallBack = focusEdittextCoordinateYCallBack;
         }
     }
 
     public void setGetCurrentPageNameCallback(SapiJsCallBacks.GetCurrentPageNameCallback getCurrentPageNameCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048656, this, getCurrentPageNameCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048658, this, getCurrentPageNameCallback) == null) {
             this.jsCallBacks.getCurrentPageNameCallback = getCurrentPageNameCallback;
         }
     }
 
     public void setGrantWebCallback(SapiJsCallBacks.GrantWebCallback grantWebCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048657, this, grantWebCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048659, this, grantWebCallback) == null) {
             this.jsCallBacks.grantWebCallback = grantWebCallback;
         }
     }
 
     public void setHadMakeBarHide(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048658, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048660, this, z) == null) {
             this.mHadMakeBarHide = z;
         }
     }
 
     public void setHideSuccessTip(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048659, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048661, this, z) == null) {
             this.jsCallBacks.hideSuccessTip = z;
         }
     }
 
     public void setIdcardOcrImageCallBack(SapiJsCallBacks.IdcardOcrImageCallBack idcardOcrImageCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048660, this, idcardOcrImageCallBack) == null) {
+        if (interceptable == null || interceptable.invokeL(1048662, this, idcardOcrImageCallBack) == null) {
             this.jsCallBacks.idcardOcrImageCallBack = idcardOcrImageCallBack;
         }
     }
 
     public void setInvoiceBuildCallback(SapiJsCallBacks.InvoiceBuildCallback invoiceBuildCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048661, this, invoiceBuildCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048663, this, invoiceBuildCallback) == null) {
             this.jsCallBacks.invoiceBuildCallback = invoiceBuildCallback;
         }
     }
 
     public void setInvokeScAppCallback(InvokeScAppCallback invokeScAppCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048662, this, invokeScAppCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048664, this, invokeScAppCallback) == null) {
             this.jsCallBacks.invokeScAppCallback = invokeScAppCallback;
         }
     }
 
     public void setJoinLoingParams(SapiJsCallBacks.JoinLoginParams joinLoginParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048663, this, joinLoginParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048665, this, joinLoginParams) == null) {
             this.jsCallBacks.joinLoginParams = joinLoginParams;
         }
     }
 
     public void setJumpToUriCallBack(SapiJsCallBacks.JumpToUriCallBack jumpToUriCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048664, this, jumpToUriCallBack) == null) {
+        if (interceptable == null || interceptable.invokeL(1048666, this, jumpToUriCallBack) == null) {
             this.jsCallBacks.jumpToUriCallBack = jumpToUriCallBack;
         }
     }
 
     public void setLeftBtnVisibleCallback(LeftBtnVisibleCallback leftBtnVisibleCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048665, this, leftBtnVisibleCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048667, this, leftBtnVisibleCallback) == null) {
             this.jsCallBacks.leftBtnVisibleCallback = leftBtnVisibleCallback;
         }
     }
 
     public void setLoadExternalWebViewCallback(LoadExternalWebViewCallback loadExternalWebViewCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048666, this, loadExternalWebViewCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048668, this, loadExternalWebViewCallback) == null) {
             this.jsCallBacks.loadExternalWebViewCallback = loadExternalWebViewCallback;
         }
     }
 
     public void setLoadSlideWebViewCallback(LoadSlideWebViewCallback loadSlideWebViewCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048667, this, loadSlideWebViewCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048669, this, loadSlideWebViewCallback) == null) {
             this.jsCallBacks.loadSlideWebViewCallback = loadSlideWebViewCallback;
         }
     }
 
     public void setLocalConfigCallback(LocalConfigCallback localConfigCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048668, this, localConfigCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048670, this, localConfigCallback) == null) {
             this.jsCallBacks.localConfigCallback = localConfigCallback;
         }
     }
 
     public void setLoginStatusChangeCallback(SapiJsCallBacks.LoginStatusChangeCallback loginStatusChangeCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048669, this, loginStatusChangeCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048671, this, loginStatusChangeCallback) == null) {
             this.jsCallBacks.loginStatusChangeCallback = loginStatusChangeCallback;
         }
     }
 
     public void setMakeVibrateCallBack(SapiJsCallBacks.MakeVibrateCallBack makeVibrateCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048670, this, makeVibrateCallBack) == null) {
+        if (interceptable == null || interceptable.invokeL(1048672, this, makeVibrateCallBack) == null) {
             this.jsCallBacks.makeVibrateCallBack = makeVibrateCallBack;
         }
     }
 
     public final void setNoNetworkView(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048671, this, view) == null) && this.noNetworkView == null) {
+        if ((interceptable == null || interceptable.invokeL(1048673, this, view) == null) && this.noNetworkView == null) {
             this.noNetworkView = view;
             view.setVisibility(4);
             addView(this.noNetworkView, new ViewGroup.LayoutParams(-1, -1));
@@ -3413,7 +3507,7 @@ public class SapiWebView extends WebView {
 
     public void setNormalizeGuestAccountCallback(SapiJsCallBacks.NormalizeGuestAccountCallback normalizeGuestAccountCallback, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048672, this, normalizeGuestAccountCallback, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048674, this, normalizeGuestAccountCallback, str) == null) {
             SapiJsCallBacks.CallBacks callBacks = this.jsCallBacks;
             callBacks.normalizeGuestAccountCallback = normalizeGuestAccountCallback;
             callBacks.normalizeGuestAccountDesc = str;
@@ -3422,56 +3516,56 @@ public class SapiWebView extends WebView {
 
     public void setOnBackCallback(OnBackCallback onBackCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048673, this, onBackCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048675, this, onBackCallback) == null) {
             this.onBackCallback = onBackCallback;
         }
     }
 
     public void setOnFinishCallback(OnFinishCallback onFinishCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048674, this, onFinishCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048676, this, onFinishCallback) == null) {
             this.onFinishCallback = onFinishCallback;
         }
     }
 
     public void setOnNewBackCallback(OnNewBackCallback onNewBackCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048675, this, onNewBackCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048677, this, onNewBackCallback) == null) {
             this.onNewBackCallback = onNewBackCallback;
         }
     }
 
     public void setOnSlidePageFinishCallback(OnSlidePageFinishCallback onSlidePageFinishCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048676, this, onSlidePageFinishCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048678, this, onSlidePageFinishCallback) == null) {
             this.jsCallBacks.onSlidePageFinishCallback = onSlidePageFinishCallback;
         }
     }
 
     public void setPageStateCallback(SapiJsCallBacks.PageStateCallback pageStateCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048677, this, pageStateCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048679, this, pageStateCallback) == null) {
             this.jsCallBacks.pageStateCallback = pageStateCallback;
         }
     }
 
     public void setPickPhotoCallback(PickPhotoCallback pickPhotoCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048678, this, pickPhotoCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048680, this, pickPhotoCallback) == null) {
             this.jsCallBacks.pickPhotoCallback = pickPhotoCallback;
         }
     }
 
     public void setPreFillUserNameCallback(PreFillUserNameCallback preFillUserNameCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048679, this, preFillUserNameCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048681, this, preFillUserNameCallback) == null) {
             this.jsCallBacks.prefillUserNameCallback = preFillUserNameCallback;
         }
     }
 
     public void setProgressBar(ProgressBar progressBar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048680, this, progressBar) == null) && this.progressBar == null) {
+        if ((interceptable == null || interceptable.invokeL(1048682, this, progressBar) == null) && this.progressBar == null) {
             this.progressBar = progressBar;
             if (progressBar != null) {
                 addView(progressBar);
@@ -3481,84 +3575,84 @@ public class SapiWebView extends WebView {
 
     public void setRealNameStateCallback(SapiJsCallBacks.RealNameStatusCallback realNameStatusCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048681, this, realNameStatusCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048683, this, realNameStatusCallback) == null) {
             this.jsCallBacks.realNameStatusCallback = realNameStatusCallback;
         }
     }
 
     public void setRealnameAuthenticateCallback(RealnameAuthenticateCallback realnameAuthenticateCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048682, this, realnameAuthenticateCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048684, this, realnameAuthenticateCallback) == null) {
             this.jsCallBacks.realnameAuthenticateCallback = realnameAuthenticateCallback;
         }
     }
 
     public void setShareAccountClickCallback(ShareAccountClickCallback shareAccountClickCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048683, this, shareAccountClickCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048685, this, shareAccountClickCallback) == null) {
             this.jsCallBacks.shareAccountClickCallback = shareAccountClickCallback;
         }
     }
 
     public void setShareV2LoginParams(SapiJsCallBacks.ShareV2LoginParams shareV2LoginParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048684, this, shareV2LoginParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048686, this, shareV2LoginParams) == null) {
             this.jsCallBacks.shareV2LoginParams = shareV2LoginParams;
         }
     }
 
     public void setSocialLoginHandler(Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048685, this, handler) == null) {
+        if (interceptable == null || interceptable.invokeL(1048687, this, handler) == null) {
             this.jsCallBacks.socialLoginHandler = handler;
         }
     }
 
     public void setSocialVerificationHandler(Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048686, this, handler) == null) {
+        if (interceptable == null || interceptable.invokeL(1048688, this, handler) == null) {
             this.jsCallBacks.socialVerificationHandler = handler;
         }
     }
 
     public void setSpeechRecognitionCallback(SapiJsCallBacks.SpeechRecognitionCallback speechRecognitionCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048687, this, speechRecognitionCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048689, this, speechRecognitionCallback) == null) {
             this.jsCallBacks.speechRecognitionCallback = speechRecognitionCallback;
         }
     }
 
     public void setStopSlideWebviewCallback(SapiJsCallBacks.StopSlideWebviewCallback stopSlideWebviewCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048688, this, stopSlideWebviewCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048690, this, stopSlideWebviewCallback) == null) {
             this.jsCallBacks.stopSlideWebviewCallback = stopSlideWebviewCallback;
         }
     }
 
     public void setSwitchAccountCallback(SwitchAccountCallback switchAccountCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048689, this, switchAccountCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048691, this, switchAccountCallback) == null) {
             this.jsCallBacks.switchAccountCallback = switchAccountCallback;
         }
     }
 
     public void setSwitchStyleForCloseBtnAndStatusBarCallBack(SapiJsCallBacks.SwitchStyleForCloseBtnAndStatusBarCallBack switchStyleForCloseBtnAndStatusBarCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048690, this, switchStyleForCloseBtnAndStatusBarCallBack) == null) {
+        if (interceptable == null || interceptable.invokeL(1048692, this, switchStyleForCloseBtnAndStatusBarCallBack) == null) {
             this.jsCallBacks.mSwitchStyleForCloseBtnAndStatusBarCallBack = switchStyleForCloseBtnAndStatusBarCallBack;
         }
     }
 
     public void setTimeoutMillis(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048691, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048693, this, j2) == null) {
             this.timeoutMillis = j2;
         }
     }
 
     public final void setTimeoutView(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048692, this, view) == null) && this.timeoutView == null) {
+        if ((interceptable == null || interceptable.invokeL(1048694, this, view) == null) && this.timeoutView == null) {
             this.timeoutView = view;
             view.setVisibility(4);
             addView(this.timeoutView, new ViewGroup.LayoutParams(-1, -1));
@@ -3567,35 +3661,35 @@ public class SapiWebView extends WebView {
 
     public void setUniteVerifyCallback(UniteVerifyCallback uniteVerifyCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048693, this, uniteVerifyCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048695, this, uniteVerifyCallback) == null) {
             this.jsCallBacks.uniteVerifyCallback = uniteVerifyCallback;
         }
     }
 
     public void setWebChromeClientCallback(WebChromeClientCallback webChromeClientCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048694, this, webChromeClientCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048696, this, webChromeClientCallback) == null) {
             this.webChromeClientCallback = webChromeClientCallback;
         }
     }
 
     public void setWebViewTitleCallback(WebViewTitleCallback webViewTitleCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048695, this, webViewTitleCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048697, this, webViewTitleCallback) == null) {
             this.jsCallBacks.webViewTitleCallback = webViewTitleCallback;
         }
     }
 
     public void setWebviewClientCallback(WebviewClientCallback webviewClientCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048696, this, webviewClientCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048698, this, webviewClientCallback) == null) {
             this.webviewClientCallback = webviewClientCallback;
         }
     }
 
     public void setWebviewLoadingView(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048697, this, view) == null) && this.webviewLoadingView == null) {
+        if ((interceptable == null || interceptable.invokeL(1048699, this, view) == null) && this.webviewLoadingView == null) {
             this.webviewLoadingView = view;
             view.setVisibility(4);
             addView(view, new ViewGroup.LayoutParams(-1, -1));
@@ -3604,15 +3698,15 @@ public class SapiWebView extends WebView {
 
     public void setWebviewPageFinishCallback(SapiJsCallBacks.WebviewPageFinishCallback webviewPageFinishCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048698, this, webviewPageFinishCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048700, this, webviewPageFinishCallback) == null) {
             this.jsCallBacks.webviewPageFinishCallback = webviewPageFinishCallback;
         }
     }
 
     public void showProgress() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048699, this) == null) {
-            post(new Runnable(this) { // from class: com.baidu.sapi2.SapiWebView.16
+        if (interceptable == null || interceptable.invokeV(1048701, this) == null) {
+            post(new Runnable(this) { // from class: com.baidu.sapi2.SapiWebView.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SapiWebView this$0;
@@ -3653,7 +3747,7 @@ public class SapiWebView extends WebView {
     @Override // android.webkit.WebView
     public void stopLoading() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048700, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048702, this) == null) {
             try {
                 super.stopLoading();
             } catch (NullPointerException unused) {
@@ -3663,7 +3757,7 @@ public class SapiWebView extends WebView {
 
     public void webLogin(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048701, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048703, this, context, str) == null) {
             SapiAccountManager.getInstance().getAccountService().webLogin(context, str);
         }
     }
@@ -3717,7 +3811,7 @@ public class SapiWebView extends WebView {
 
     public void loadAccountCenter(List<PassNameValuePair> list, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048605, this, list, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048606, this, list, str, str2) == null) {
             SapiAccountService.asyncStoken2Web(getContext(), str);
             String accountCenterUrl = getAccountCenterUrl(str2);
             if (list == null) {
@@ -3735,7 +3829,7 @@ public class SapiWebView extends WebView {
 
     public void loadForgetPwd(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
             ArrayList arrayList = new ArrayList();
             try {
                 arrayList.add(new PassNameValuePair("u", URLEncoder.encode(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + CALLBACK_PARAM_KEY + "=" + ACTION_FORGET_PWD, "UTF-8")));
@@ -3755,14 +3849,14 @@ public class SapiWebView extends WebView {
 
     public void loadLogin(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, list) == null) {
             loadLogin(0, list);
         }
     }
 
     public void loadLogin(int i2, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048618, this, i2, list) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048620, this, i2, list) == null) {
             if (this.configuration.supportFaceLogin && this.jsCallBacks.biometricsIdentifyCallback == null) {
                 throw new RuntimeException("face login is support, the biometricsIdentifyCallback can't be null");
             }
@@ -3798,7 +3892,7 @@ public class SapiWebView extends WebView {
     public void loadUrl(String str, List<PassNameValuePair> list) {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048629, this, str, list) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048631, this, str, list) == null) {
             statStartLogin(str);
             if (TextUtils.isEmpty(str) || str.contains("javascript:")) {
                 str2 = null;
@@ -3995,7 +4089,7 @@ public class SapiWebView extends WebView {
                                         SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(this, cookieBduss, cookiePtoken) { // from class: com.baidu.sapi2.SapiWebView.2.2.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ RunnableC16952 this$2;
+                                            public final /* synthetic */ RunnableC16972 this$2;
                                             public final /* synthetic */ String val$bduss;
                                             public final /* synthetic */ String val$ptoken;
 
@@ -4234,8 +4328,6 @@ public class SapiWebView extends WebView {
                         if (!((Activity) this.this$0.getContext()).isFinishing() && !this.this$0.dateInvalidDialog.isShowing()) {
                             this.this$0.dateInvalidDialog.show();
                         }
-                    } else {
-                        sslErrorHandler.proceed();
                     }
                 }
                 super.onReceivedSslError(webView, sslErrorHandler, sslError);

@@ -19,23 +19,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f18837c;
+    public static final String[] f18846c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f18838d;
+    public static final String[] f18847d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f18839e;
+    public static final String[] f18848e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f18840f;
+    public static final String[] f18849f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f18841a;
+    public volatile int f18850a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f18842b;
+    public volatile String f18851b;
 
     static {
         InterceptResult invokeClinit;
@@ -50,10 +50,10 @@ public class a {
                 return;
             }
         }
-        f18837c = new String[]{"119.75.222.62", "119.75.222.63"};
-        f18838d = new String[]{"111.13.100.247", "117.185.16.61"};
-        f18839e = new String[]{"111.206.37.190"};
-        f18840f = new String[]{"115.239.211.146", "180.97.33.196"};
+        f18846c = new String[]{"119.75.222.62", "119.75.222.63"};
+        f18847d = new String[]{"111.13.100.247", "117.185.16.61"};
+        f18848e = new String[]{"111.206.37.190"};
+        f18849f = new String[]{"115.239.211.146", "180.97.33.196"};
     }
 
     public a() {
@@ -76,17 +76,17 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             b();
             if (j.H()) {
-                return f18840f[new Random().nextInt(f18840f.length)];
+                return f18849f[new Random().nextInt(f18849f.length)];
             }
             if (j.x()) {
-                if (this.f18841a == 1) {
-                    return f18837c[new Random().nextInt(f18837c.length)];
+                if (this.f18850a == 1) {
+                    return f18846c[new Random().nextInt(f18846c.length)];
                 }
-                if (this.f18841a == 2) {
-                    return f18838d[new Random().nextInt(f18838d.length)];
+                if (this.f18850a == 2) {
+                    return f18847d[new Random().nextInt(f18847d.length)];
                 }
-                if (this.f18841a == 3) {
-                    return f18839e[new Random().nextInt(f18839e.length)];
+                if (this.f18850a == 3) {
+                    return f18848e[new Random().nextInt(f18848e.length)];
                 }
             }
             return "119.75.222.62";
@@ -98,24 +98,24 @@ public class a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             try {
-                this.f18842b = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
+                this.f18851b = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            this.f18841a = 0;
-            if (this.f18842b != null) {
-                if (!this.f18842b.startsWith("46000") && !this.f18842b.startsWith("46002") && !this.f18842b.startsWith("46007")) {
-                    if (!this.f18842b.startsWith("46001") && !this.f18842b.startsWith("46006")) {
-                        if (this.f18842b.startsWith("46003") || this.f18842b.startsWith("46005")) {
-                            this.f18841a = 3;
+            this.f18850a = 0;
+            if (this.f18851b != null) {
+                if (!this.f18851b.startsWith("46000") && !this.f18851b.startsWith("46002") && !this.f18851b.startsWith("46007")) {
+                    if (!this.f18851b.startsWith("46001") && !this.f18851b.startsWith("46006")) {
+                        if (this.f18851b.startsWith("46003") || this.f18851b.startsWith("46005")) {
+                            this.f18850a = 3;
                             return;
                         }
                         return;
                     }
-                    this.f18841a = 2;
+                    this.f18850a = 2;
                     return;
                 }
-                this.f18841a = 1;
+                this.f18850a = 1;
             }
         }
     }

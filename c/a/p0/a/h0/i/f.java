@@ -22,7 +22,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f6016a;
+        public final /* synthetic */ String f6024a;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class f {
                     return;
                 }
             }
-            this.f6016a = str;
+            this.f6024a = str;
         }
 
         @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
         public void onResult(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                f.b(this.f6016a, i2);
+                f.b(this.f6024a, i2);
             }
         }
     }
@@ -68,7 +68,7 @@ public class f {
     public static void c(String str, g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, gVar) == null) {
-            f(str, gVar.e(), gVar.g(), gVar.f6018b, gVar.f6019c.size(), gVar.f6020d.size(), gVar.a());
+            f(str, gVar.e(), gVar.g(), gVar.f6026b, gVar.f6027c.size(), gVar.f6028d.size(), gVar.a());
         }
     }
 
@@ -90,8 +90,8 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
             c.a.p0.a.j2.p.e eVar = new c.a.p0.a.j2.p.e();
-            eVar.f7063a = "swan";
-            eVar.f7064b = str;
+            eVar.f7071a = "swan";
+            eVar.f7072b = str;
             eVar.a("appid", c.a.p0.a.a2.d.g().getAppId());
             eVar.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
             if (!TextUtils.isEmpty(str3)) {

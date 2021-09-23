@@ -25,26 +25,26 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f9670g;
+    public static final boolean f9678g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f9671a;
+    public FrameLayout f9679a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f9672b;
+    public FrameLayout f9680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f9673c;
+    public T f9681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PullToRefreshBaseWebView f9674d;
+    public PullToRefreshBaseWebView f9682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f9675e;
+    public Context f9683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.p0.a.p.e.b f9676f;
+    public c.a.p0.a.p.e.b f9684f;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
                 return;
             }
         }
-        f9670g = k.f7077a;
+        f9678g = k.f7085a;
     }
 
     public a(Context context, @NonNull c.a.p0.a.p.e.b<T> bVar, @NonNull FrameLayout frameLayout) {
@@ -77,9 +77,9 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
                 return;
             }
         }
-        this.f9675e = context;
-        this.f9671a = frameLayout;
-        this.f9676f = bVar;
+        this.f9683e = context;
+        this.f9679a = frameLayout;
+        this.f9684f = bVar;
         e(bVar);
     }
 
@@ -88,20 +88,20 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, aVar)) == null) {
-            if (view == null || this.f9672b == null || aVar == null) {
+            if (view == null || this.f9680b == null || aVar == null) {
                 return false;
             }
-            if (f9670g) {
+            if (f9678g) {
                 String str = "updateView pos: " + aVar;
             }
-            if (d(view, this.f9672b)) {
+            if (d(view, this.f9680b)) {
                 Object tag = view.getTag(f.aiapps_na_root_view_tag);
                 if (tag instanceof b) {
                     b bVar = (b) tag;
                     c.a(bVar, aVar);
                     view.setTag(f.aiapps_na_root_view_tag, bVar);
                 }
-                this.f9672b.updateViewLayout(view, c.b(this.f9673c, aVar));
+                this.f9680b.updateViewLayout(view, c.b(this.f9681c, aVar));
             } else if (!g(view)) {
                 return false;
             } else {
@@ -111,7 +111,7 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
                     c.a(bVar2, aVar);
                     view.setTag(f.aiapps_na_root_view_tag, bVar2);
                 }
-                ((ViewGroup) view.getParent()).updateViewLayout(view, c.b(this.f9673c, aVar));
+                ((ViewGroup) view.getParent()).updateViewLayout(view, c.b(this.f9681c, aVar));
             }
             return true;
         }
@@ -122,7 +122,7 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
     public void b(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-            this.f9672b.scrollTo(i2, i3);
+            this.f9680b.scrollTo(i2, i3);
         }
     }
 
@@ -131,18 +131,18 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, aVar)) == null) {
-            if (this.f9675e != null && aVar != null) {
+            if (this.f9683e != null && aVar != null) {
                 b bVar = new b();
                 c.a(bVar, aVar);
                 view.setTag(f.aiapps_na_root_view_tag, bVar);
-                if (this.f9672b.indexOfChild(view) >= 0) {
+                if (this.f9680b.indexOfChild(view) >= 0) {
                     c.a.p0.a.c0.g.a.a("NAParentViewManager", "repeat insert view!");
-                    this.f9672b.removeView(view);
+                    this.f9680b.removeView(view);
                 }
-                this.f9672b.addView(view, c.b(this.f9673c, aVar));
+                this.f9680b.addView(view, c.b(this.f9681c, aVar));
                 return true;
             }
-            boolean z = f9670g;
+            boolean z = f9678g;
             return false;
         }
         return invokeLL.booleanValue;
@@ -158,20 +158,20 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-            boolean z = f9670g;
+            boolean z = f9678g;
             bVar.u(this);
             T t = bVar.t();
-            this.f9673c = t;
+            this.f9681c = t;
             if (t == null) {
                 return false;
             }
-            SwanAppNARootViewScrollView swanAppNARootViewScrollView = new SwanAppNARootViewScrollView(this.f9675e);
-            this.f9671a.addView(swanAppNARootViewScrollView, new FrameLayout.LayoutParams(-1, -1));
-            this.f9672b = new FrameLayout(this.f9675e);
-            swanAppNARootViewScrollView.addView(this.f9672b, new FrameLayout.LayoutParams(-1, -1));
+            SwanAppNARootViewScrollView swanAppNARootViewScrollView = new SwanAppNARootViewScrollView(this.f9683e);
+            this.f9679a.addView(swanAppNARootViewScrollView, new FrameLayout.LayoutParams(-1, -1));
+            this.f9680b = new FrameLayout(this.f9683e);
+            swanAppNARootViewScrollView.addView(this.f9680b, new FrameLayout.LayoutParams(-1, -1));
             swanAppNARootViewScrollView.setFillViewport(true);
             PullToRefreshBaseWebView g0 = bVar.g0();
-            this.f9674d = g0;
+            this.f9682d = g0;
             if (g0 != null) {
                 g0.setOnPullToRefreshScrollChangeListener(this);
             }
@@ -183,7 +183,7 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f9676f.U(this);
+            this.f9684f.U(this);
         }
     }
 
@@ -202,7 +202,7 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f9672b.setVisibility(i2);
+            this.f9680b.setVisibility(i2);
         }
     }
 
@@ -210,12 +210,12 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4, i5) == null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f9672b.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f9680b.getLayoutParams();
             marginLayoutParams.leftMargin = -i2;
             marginLayoutParams.topMargin = -i3;
-            this.f9672b.setLayoutParams(marginLayoutParams);
-            for (int i6 = 0; i6 < this.f9672b.getChildCount(); i6++) {
-                View childAt = this.f9672b.getChildAt(i6);
+            this.f9680b.setLayoutParams(marginLayoutParams);
+            for (int i6 = 0; i6 < this.f9680b.getChildCount(); i6++) {
+                View childAt = this.f9680b.getChildAt(i6);
                 if (childAt != null) {
                     Object tag = childAt.getTag(f.aiapps_na_root_view_tag);
                     b bVar = tag instanceof b ? (b) tag : null;
@@ -235,11 +235,11 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view)) == null) {
-            if (d(view, this.f9672b)) {
+            if (d(view, this.f9680b)) {
                 try {
-                    this.f9672b.removeView(view);
+                    this.f9680b.removeView(view);
                 } catch (Exception e2) {
-                    if (f9670g) {
+                    if (f9678g) {
                         e2.printStackTrace();
                     }
                 }
@@ -248,7 +248,7 @@ public class a<T extends c.a.p0.a.p.e.c> implements c.a.p0.a.h0.j.c, c.a.p0.a.w2
                 try {
                     ((ViewGroup) view.getParent()).removeView(view);
                 } catch (Exception e3) {
-                    if (f9670g) {
+                    if (f9678g) {
                         e3.printStackTrace();
                     }
                 }

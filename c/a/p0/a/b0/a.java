@@ -28,10 +28,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4613a;
+    public static final boolean f4621a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f4614b;
+    public static int f4622b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.b0.a$a  reason: collision with other inner class name */
@@ -41,7 +41,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.b0.c.a f4615a;
+        public final /* synthetic */ c.a.p0.a.b0.c.a f4623a;
 
         public C0120a(c.a.p0.a.b0.c.a aVar) {
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class a {
                     return;
                 }
             }
-            this.f4615a = aVar;
+            this.f4623a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +67,7 @@ public class a {
         public void onSuccess(CommonSyncServerData commonSyncServerData, int i2) {
             c.a.p0.a.b0.c.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i2) == null) || (aVar = this.f4615a) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i2) == null) || (aVar = this.f4623a) == null) {
                 return;
             }
             aVar.a(commonSyncServerData);
@@ -88,7 +88,7 @@ public class a {
                     JSONObject jSONObject = new JSONObject(string);
                     int optInt = jSONObject.optInt("errno");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (optInt == a.f4614b && optJSONObject != null) {
+                    if (optInt == a.f4622b && optJSONObject != null) {
                         return (CommonSyncServerData) new Gson().fromJson(optJSONObject.toString(), (Class<Object>) CommonSyncServerData.class);
                     }
                 }
@@ -101,7 +101,7 @@ public class a {
         public void onFail(Exception exc) {
             c.a.p0.a.b0.c.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (aVar = this.f4615a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (aVar = this.f4623a) == null) {
                 return;
             }
             aVar.onFail();
@@ -121,8 +121,8 @@ public class a {
                 return;
             }
         }
-        f4613a = k.f7077a;
-        f4614b = 0;
+        f4621a = k.f7085a;
+        f4622b = 0;
     }
 
     public static void b(c.a.p0.a.b0.c.a aVar) {
@@ -149,13 +149,13 @@ public class a {
                     try {
                         jSONObject.put(str, map.get(str));
                     } catch (JSONException e2) {
-                        if (f4613a) {
+                        if (f4621a) {
                             e2.printStackTrace();
                         }
                     }
                 }
             }
-            return RequestBody.create(f.f7580a, jSONObject.toString());
+            return RequestBody.create(f.f7588a, jSONObject.toString());
         }
         return (RequestBody) invokeL.objValue;
     }

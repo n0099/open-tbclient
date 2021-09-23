@@ -54,12 +54,12 @@ public class g extends c.a.r0.a0.b<c.a.r0.o2.e.i> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f15548e != i2) {
+            if (this.f15557e != i2) {
                 SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
                 SkinManager.setImageResource(this.n, R.drawable.new_pic_emotion_07);
                 SkinManager.setViewTextColor(this.o, R.color.CAM_X0108, 1);
             }
-            this.f15548e = i2;
+            this.f15557e = i2;
         }
     }
 
@@ -95,14 +95,14 @@ public class g extends c.a.r0.a0.b<c.a.r0.o2.e.i> {
             }
             if (StringUtils.isNull(this.p)) {
                 TextView textView = this.o;
-                String string2 = this.f15550g.getString(R.string.person_polymeric_null_data);
+                String string2 = this.f15559g.getString(R.string.person_polymeric_null_data);
                 Object[] objArr = new Object[1];
-                if (iVar.f23218e) {
-                    string = this.f15550g.getString(R.string.you);
-                } else if (iVar.f23219f == 2) {
-                    string = this.f15550g.getString(R.string.she);
+                if (iVar.f23234e) {
+                    string = this.f15559g.getString(R.string.you);
+                } else if (iVar.f23235f == 2) {
+                    string = this.f15559g.getString(R.string.she);
                 } else {
-                    string = this.f15550g.getString(R.string.he);
+                    string = this.f15559g.getString(R.string.he);
                 }
                 objArr[0] = string;
                 textView.setText(String.format(string2, objArr));

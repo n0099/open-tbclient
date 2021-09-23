@@ -15,20 +15,20 @@ public class h extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static BdUniqueId f15577h;
+    public static BdUniqueId f15586h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static BdUniqueId f15578i;
+    public static BdUniqueId f15587i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MetaData f15579e;
+    public MetaData f15588e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15580f;
+    public int f15589f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15581g;
+    public int f15590g;
 
     static {
         InterceptResult invokeClinit;
@@ -43,8 +43,8 @@ public class h extends BaseCardInfo {
                 return;
             }
         }
-        f15577h = BdUniqueId.gen();
-        f15578i = BdUniqueId.gen();
+        f15586h = BdUniqueId.gen();
+        f15587i = BdUniqueId.gen();
     }
 
     public h() {
@@ -60,8 +60,8 @@ public class h extends BaseCardInfo {
                 return;
             }
         }
-        this.f15580f = 0;
-        this.f15581g = 1;
+        this.f15589f = 0;
+        this.f15590g = 1;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
@@ -69,14 +69,14 @@ public class h extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f15580f;
+            int i2 = this.f15589f;
             if (i2 != 0) {
                 if (i2 != 1) {
-                    return f15577h;
+                    return f15586h;
                 }
-                return f15578i;
+                return f15587i;
             }
-            return f15577h;
+            return f15586h;
         }
         return (BdUniqueId) invokeV.objValue;
     }

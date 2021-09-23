@@ -24,7 +24,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<a> f20974a;
+    public ArrayList<a> f20986a;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -39,13 +39,13 @@ public class f {
                 return;
             }
         }
-        this.f20974a = new ArrayList<>();
+        this.f20986a = new ArrayList<>();
     }
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f20974a.add(aVar);
+            this.f20986a.add(aVar);
         }
     }
 
@@ -69,7 +69,7 @@ public class f {
                 cVar = new c();
             }
             if (ActionJsonData.TAG_NOTIFICATION.equals(eVar.c()) && "addObserver".equals(eVar.a())) {
-                Iterator<a> it = this.f20974a.iterator();
+                Iterator<a> it = this.f20986a.iterator();
                 while (it.hasNext()) {
                     cVar = it.next().addObserver(eVar.d(), cVar, true);
                     if (cVar.j()) {
@@ -86,7 +86,7 @@ public class f {
                     cVar.w(201);
                     return cVar;
                 }
-                Iterator<a> it2 = this.f20974a.iterator();
+                Iterator<a> it2 = this.f20986a.iterator();
                 while (it2.hasNext()) {
                     cVar = it2.next().dispatch(eVar, cVar);
                     if (cVar.i()) {
@@ -130,7 +130,7 @@ public class f {
             if (k.isEmpty(str)) {
                 return null;
             }
-            Iterator<a> it = this.f20974a.iterator();
+            Iterator<a> it = this.f20986a.iterator();
             while (it.hasNext()) {
                 list = it.next().processNotification(str, hashMap);
                 if (!ListUtils.isEmpty(list)) {

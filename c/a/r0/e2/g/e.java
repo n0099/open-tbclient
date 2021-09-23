@@ -51,20 +51,20 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile e f17305e;
+    public static volatile e f17315e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f17306a;
+    public Handler f17316a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BlockingQueue<c.a.q0.d0.f> f17307b;
+    public BlockingQueue<c.a.q0.d0.f> f17317b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f17308c;
+    public boolean f17318c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FaceGroupDraft f17309d;
+    public FaceGroupDraft f17319d;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -72,45 +72,45 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<FaceData> f17310e;
+        public List<FaceData> f17320e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<String> f17311f;
+        public List<String> f17321f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Map<String, Integer> f17312g;
+        public Map<String, Integer> f17322g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<FaceData> f17313h;
+        public List<FaceData> f17323h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ List f17314i;
+        public final /* synthetic */ List f17324i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ l f17315j;
+        public final /* synthetic */ l f17325j;
         public final /* synthetic */ String k;
         public final /* synthetic */ int l;
         public final /* synthetic */ e m;
 
         /* renamed from: c.a.r0.e2.g.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0842a implements m {
+        public class C0840a implements m {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.e2.g.a f17316a;
+            public final /* synthetic */ c.a.r0.e2.g.a f17326a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ FaceData f17317b;
+            public final /* synthetic */ FaceData f17327b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ AtomicInteger f17318c;
+            public final /* synthetic */ AtomicInteger f17328c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ a f17319d;
+            public final /* synthetic */ a f17329d;
 
-            public C0842a(a aVar, c.a.r0.e2.g.a aVar2, FaceData faceData, AtomicInteger atomicInteger) {
+            public C0840a(a aVar, c.a.r0.e2.g.a aVar2, FaceData faceData, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,30 +125,30 @@ public class e {
                         return;
                     }
                 }
-                this.f17319d = aVar;
-                this.f17316a = aVar2;
-                this.f17317b = faceData;
-                this.f17318c = atomicInteger;
+                this.f17329d = aVar;
+                this.f17326a = aVar2;
+                this.f17327b = faceData;
+                this.f17328c = atomicInteger;
             }
 
             @Override // c.a.r0.e2.g.e.m
             public void a(ImageUploadResult imageUploadResult) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) && this.f17316a.a()) {
+                if ((interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) && this.f17326a.a()) {
                     if (imageUploadResult != null && imageUploadResult.error_code == 0) {
-                        this.f17317b.pid = String.valueOf(imageUploadResult.picId);
-                        FaceData faceData = this.f17317b;
+                        this.f17327b.pid = String.valueOf(imageUploadResult.picId);
+                        FaceData faceData = this.f17327b;
                         ImageUploadResult.PicDetailedInfo picDetailedInfo = imageUploadResult.picInfo.bigPic;
                         faceData.width = picDetailedInfo.width;
                         faceData.height = picDetailedInfo.height;
-                        this.f17319d.f17310e.add(faceData);
-                        if (this.f17318c.decrementAndGet() == 0) {
-                            this.f17319d.b();
+                        this.f17329d.f17320e.add(faceData);
+                        if (this.f17328c.decrementAndGet() == 0) {
+                            this.f17329d.b();
                         }
-                    } else if (this.f17316a.a()) {
-                        this.f17316a.b(false);
-                        a aVar = this.f17319d;
-                        aVar.m.t(aVar.f17315j, "failed to upload image");
+                    } else if (this.f17326a.a()) {
+                        this.f17326a.b(false);
+                        a aVar = this.f17329d;
+                        aVar.m.t(aVar.f17325j, "failed to upload image");
                     }
                 }
             }
@@ -160,18 +160,18 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f17320e;
+            public final /* synthetic */ a f17330e;
 
             /* renamed from: c.a.r0.e2.g.e$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0843a implements GetEmotionInfosModel.b {
+            public class C0841a implements GetEmotionInfosModel.b {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f17321a;
+                public final /* synthetic */ b f17331a;
 
-                public C0843a(b bVar) {
+                public C0841a(b bVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -186,15 +186,15 @@ public class e {
                             return;
                         }
                     }
-                    this.f17321a = bVar;
+                    this.f17331a = bVar;
                 }
 
                 @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
                 public void onFail(int i2, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                        a aVar = this.f17321a.f17320e;
-                        aVar.m.t(aVar.f17315j, "get pid fail");
+                        a aVar = this.f17331a.f17330e;
+                        aVar.m.t(aVar.f17325j, "get pid fail");
                     }
                 }
 
@@ -206,23 +206,23 @@ public class e {
                             if (cVar != null) {
                                 FaceData faceData = new FaceData();
                                 faceData.type = 2;
-                                faceData.index = this.f17321a.f17320e.f17312g.get(cVar.f12848g).intValue();
-                                faceData.pid = cVar.f12842a;
-                                faceData.width = cVar.f12843b;
-                                faceData.height = cVar.f12844c;
+                                faceData.index = this.f17331a.f17330e.f17322g.get(cVar.f12862g).intValue();
+                                faceData.pid = cVar.f12856a;
+                                faceData.width = cVar.f12857b;
+                                faceData.height = cVar.f12858c;
                                 EmotionImageData emotionImageData = new EmotionImageData();
-                                emotionImageData.setPicId(cVar.f12842a);
-                                emotionImageData.setThumbUrl(cVar.f12846e);
-                                emotionImageData.setPicUrl(cVar.f12845d);
-                                emotionImageData.setWidth(cVar.f12843b);
-                                emotionImageData.setHeight(cVar.f12844c);
+                                emotionImageData.setPicId(cVar.f12856a);
+                                emotionImageData.setThumbUrl(cVar.f12860e);
+                                emotionImageData.setPicUrl(cVar.f12859d);
+                                emotionImageData.setWidth(cVar.f12857b);
+                                emotionImageData.setHeight(cVar.f12858c);
                                 faceData.emotionImageData = emotionImageData;
-                                this.f17321a.f17320e.f17310e.add(faceData);
+                                this.f17331a.f17330e.f17320e.add(faceData);
                             }
                         }
                         UploadFaceGroupModel uploadFaceGroupModel = new UploadFaceGroupModel();
-                        a aVar = this.f17321a.f17320e;
-                        uploadFaceGroupModel.y(aVar.k, aVar.f17310e, aVar.f17315j, aVar.l);
+                        a aVar = this.f17331a.f17330e;
+                        uploadFaceGroupModel.y(aVar.k, aVar.f17320e, aVar.f17325j, aVar.l);
                     }
                 }
             }
@@ -242,20 +242,20 @@ public class e {
                         return;
                     }
                 }
-                this.f17320e = aVar;
+                this.f17330e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f17320e.f17311f.size() > 0) {
-                        new GetEmotionInfosModel().y(this.f17320e.f17311f, new C0843a(this));
+                    if (this.f17330e.f17321f.size() > 0) {
+                        new GetEmotionInfosModel().y(this.f17330e.f17321f, new C0841a(this));
                         return;
                     }
                     UploadFaceGroupModel uploadFaceGroupModel = new UploadFaceGroupModel();
-                    a aVar = this.f17320e;
-                    uploadFaceGroupModel.y(aVar.k, aVar.f17310e, aVar.f17315j, aVar.l);
+                    a aVar = this.f17330e;
+                    uploadFaceGroupModel.y(aVar.k, aVar.f17320e, aVar.f17325j, aVar.l);
                 }
             }
         }
@@ -276,14 +276,14 @@ public class e {
                 }
             }
             this.m = eVar;
-            this.f17314i = list;
-            this.f17315j = lVar;
+            this.f17324i = list;
+            this.f17325j = lVar;
             this.k = str;
             this.l = i2;
-            this.f17310e = new CopyOnWriteArrayList();
-            this.f17311f = new ArrayList();
-            this.f17312g = new HashMap();
-            this.f17313h = new CopyOnWriteArrayList();
+            this.f17320e = new CopyOnWriteArrayList();
+            this.f17321f = new ArrayList();
+            this.f17322g = new HashMap();
+            this.f17323h = new CopyOnWriteArrayList();
         }
 
         public final void b() {
@@ -298,8 +298,8 @@ public class e {
             EmotionImageData emotionImageData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                for (int i2 = 0; i2 < this.f17314i.size(); i2++) {
-                    FaceData faceData = (FaceData) this.f17314i.get(i2);
+                for (int i2 = 0; i2 < this.f17324i.size(); i2++) {
+                    FaceData faceData = (FaceData) this.f17324i.get(i2);
                     faceData.index = i2;
                     int i3 = faceData.type;
                     if (i3 == 2) {
@@ -309,30 +309,30 @@ public class e {
                                 faceData.pid = emotionImageData2.getPicId();
                                 faceData.width = emotionImageData2.getWidth();
                                 faceData.height = emotionImageData2.getHeight();
-                                this.f17310e.add(faceData);
+                                this.f17320e.add(faceData);
                             } else {
-                                this.f17311f.add(faceData.emotionImageData.getPicUrl());
-                                this.f17312g.put(faceData.emotionImageData.getPicUrl(), Integer.valueOf(faceData.index));
+                                this.f17321f.add(faceData.emotionImageData.getPicUrl());
+                                this.f17322g.put(faceData.emotionImageData.getPicUrl(), Integer.valueOf(faceData.index));
                             }
                         }
                     } else if (i3 == 3) {
-                        this.f17313h.add(faceData);
+                        this.f17323h.add(faceData);
                     } else if (i3 == 1 && (emotionImageData = faceData.emotionImageData) != null) {
                         faceData.pid = emotionImageData.getPicId();
                         faceData.width = emotionImageData.getWidth();
                         faceData.height = emotionImageData.getHeight();
-                        this.f17310e.add(faceData);
+                        this.f17320e.add(faceData);
                     }
                 }
-                if (this.f17313h.size() > 0) {
-                    AtomicInteger atomicInteger = new AtomicInteger(this.f17313h.size());
+                if (this.f17323h.size() > 0) {
+                    AtomicInteger atomicInteger = new AtomicInteger(this.f17323h.size());
                     c.a.r0.e2.g.a aVar = new c.a.r0.e2.g.a(Boolean.TRUE);
-                    for (int i4 = 0; i4 < Math.min(this.f17313h.size(), 4); i4++) {
-                        this.m.f17307b.offer(new c.a.q0.d0.f("face group"));
+                    for (int i4 = 0; i4 < Math.min(this.f17323h.size(), 4); i4++) {
+                        this.m.f17317b.offer(new c.a.q0.d0.f("face group"));
                     }
-                    for (int i5 = 0; i5 < this.f17313h.size() && aVar.a(); i5++) {
-                        FaceData faceData2 = this.f17313h.get(i5);
-                        this.m.B(faceData2.imageFileInfo, new C0842a(this, aVar, faceData2, atomicInteger));
+                    for (int i5 = 0; i5 < this.f17323h.size() && aVar.a(); i5++) {
+                        FaceData faceData2 = this.f17323h.get(i5);
+                        this.m.B(faceData2.imageFileInfo, new C0840a(this, aVar, faceData2, atomicInteger));
                     }
                     return;
                 }
@@ -347,13 +347,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageFileInfo f17322e;
+        public final /* synthetic */ ImageFileInfo f17332e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f17323f;
+        public final /* synthetic */ m f17333f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f17324g;
+        public final /* synthetic */ e f17334g;
 
         public b(e eVar, ImageFileInfo imageFileInfo, m mVar) {
             Interceptable interceptable = $ic;
@@ -370,9 +370,9 @@ public class e {
                     return;
                 }
             }
-            this.f17324g = eVar;
-            this.f17322e = imageFileInfo;
-            this.f17323f = mVar;
+            this.f17334g = eVar;
+            this.f17332e = imageFileInfo;
+            this.f17333f = mVar;
         }
 
         public final void a(m mVar, ImageUploadResult imageUploadResult) {
@@ -388,37 +388,37 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    String filePath = this.f17322e.getFilePath();
-                    if (this.f17322e.isGif()) {
-                        c.a.q0.d0.f fVar = (c.a.q0.d0.f) this.f17324g.f17307b.poll(10L, TimeUnit.SECONDS);
+                    String filePath = this.f17332e.getFilePath();
+                    if (this.f17332e.isGif()) {
+                        c.a.q0.d0.f fVar = (c.a.q0.d0.f) this.f17334g.f17317b.poll(10L, TimeUnit.SECONDS);
                         if (fVar != null) {
-                            a(this.f17323f, fVar.m(filePath, true, false));
-                            this.f17324g.v(fVar);
+                            a(this.f17333f, fVar.m(filePath, true, false));
+                            this.f17334g.v(fVar);
                             return;
                         }
-                        a(this.f17323f, null);
+                        a(this.f17333f, null);
                         return;
                     }
-                    Bitmap b2 = c.a.r0.e2.g.b.b(this.f17322e);
+                    Bitmap b2 = c.a.r0.e2.g.b.b(this.f17332e);
                     if (b2 == null) {
-                        this.f17323f.a(null);
+                        this.f17333f.a(null);
                         return;
                     }
                     String y = e.y("face_" + Math.abs(filePath.hashCode()), b2, 60);
                     b2.recycle();
                     if (!TextUtils.isEmpty(y)) {
-                        c.a.q0.d0.f fVar2 = (c.a.q0.d0.f) this.f17324g.f17307b.poll(10L, TimeUnit.SECONDS);
+                        c.a.q0.d0.f fVar2 = (c.a.q0.d0.f) this.f17334g.f17317b.poll(10L, TimeUnit.SECONDS);
                         if (fVar2 != null) {
                             ImageUploadResult m = fVar2.m(y, false, false);
                             FileHelper.deleteFile(new File(y));
-                            a(this.f17323f, m);
-                            this.f17324g.v(fVar2);
+                            a(this.f17333f, m);
+                            this.f17334g.v(fVar2);
                             return;
                         }
-                        a(this.f17323f, null);
+                        a(this.f17333f, null);
                         return;
                     }
-                    a(this.f17323f, null);
+                    a(this.f17333f, null);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -432,25 +432,25 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.e2.g.a f17325a;
+        public final /* synthetic */ c.a.r0.e2.g.a f17335a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ List f17326b;
+        public final /* synthetic */ List f17336b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ List f17327c;
+        public final /* synthetic */ List f17337c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.e2.f.a f17328d;
+        public final /* synthetic */ c.a.r0.e2.f.a f17338d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17329e;
+        public final /* synthetic */ String f17339e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f17330f;
+        public final /* synthetic */ k f17340f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f17331g;
+        public final /* synthetic */ e f17341g;
 
         public c(e eVar, c.a.r0.e2.g.a aVar, List list, List list2, c.a.r0.e2.f.a aVar2, String str, k kVar) {
             Interceptable interceptable = $ic;
@@ -467,27 +467,27 @@ public class e {
                     return;
                 }
             }
-            this.f17331g = eVar;
-            this.f17325a = aVar;
-            this.f17326b = list;
-            this.f17327c = list2;
-            this.f17328d = aVar2;
-            this.f17329e = str;
-            this.f17330f = kVar;
+            this.f17341g = eVar;
+            this.f17335a = aVar;
+            this.f17336b = list;
+            this.f17337c = list2;
+            this.f17338d = aVar2;
+            this.f17339e = str;
+            this.f17340f = kVar;
         }
 
         @Override // c.a.r0.e2.g.e.j
         public void a(c.a.r0.e2.f.b bVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && this.f17325a.a()) {
-                this.f17326b.add(bVar);
-                if (this.f17326b.size() == this.f17327c.size()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && this.f17335a.a()) {
+                this.f17336b.add(bVar);
+                if (this.f17336b.size() == this.f17337c.size()) {
                     ArrayList arrayList = new ArrayList();
-                    arrayList.addAll(this.f17326b);
+                    arrayList.addAll(this.f17336b);
                     Collections.sort(arrayList);
-                    this.f17328d.f17281e = arrayList;
-                    if (this.f17331g.j(this.f17329e + ((c.a.r0.e2.f.b) arrayList.get(0)).f17285h, this.f17329e)) {
-                        this.f17331g.o(this.f17328d, this.f17330f);
+                    this.f17338d.f17291e = arrayList;
+                    if (this.f17341g.j(this.f17339e + ((c.a.r0.e2.f.b) arrayList.get(0)).f17295h, this.f17339e)) {
+                        this.f17341g.o(this.f17338d, this.f17340f);
                     } else {
                         onFail("face group:fail to create panel");
                     }
@@ -498,9 +498,9 @@ public class e {
         @Override // c.a.r0.e2.g.e.j
         public void onFail(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.f17325a.a()) {
-                this.f17325a.b(false);
-                this.f17331g.s(this.f17330f, false);
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.f17335a.a()) {
+                this.f17335a.b(false);
+                this.f17341g.s(this.f17340f, false);
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -515,13 +515,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceData f17332e;
+        public final /* synthetic */ FaceData f17342e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f17333f;
+        public final /* synthetic */ String f17343f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ j f17334g;
+        public final /* synthetic */ j f17344g;
 
         public d(e eVar, FaceData faceData, String str, j jVar) {
             Interceptable interceptable = $ic;
@@ -538,9 +538,9 @@ public class e {
                     return;
                 }
             }
-            this.f17332e = faceData;
-            this.f17333f = str;
-            this.f17334g = jVar;
+            this.f17342e = faceData;
+            this.f17343f = str;
+            this.f17344g = jVar;
         }
 
         @Override // java.lang.Runnable
@@ -548,67 +548,67 @@ public class e {
             Bitmap resizeBitmap;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ImageFileInfo imageFileInfo = this.f17332e.imageFileInfo;
+                ImageFileInfo imageFileInfo = this.f17342e.imageFileInfo;
                 String filePath = imageFileInfo.getFilePath();
                 String substring = filePath.substring(filePath.lastIndexOf("/") + 1);
                 if (TextUtils.isEmpty(substring)) {
                     substring = TbadkCoreApplication.getCurrentAccount() + System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
                 }
                 String str = "t_" + substring;
-                if (FileHelper.copyFile(filePath, this.f17333f + substring)) {
+                if (FileHelper.copyFile(filePath, this.f17343f + substring)) {
                     Bitmap b2 = c.a.r0.e2.g.b.b(imageFileInfo);
                     if (b2 == null) {
-                        this.f17334g.onFail("face group: fail to get origin bitmap when install album emotion");
+                        this.f17344g.onFail("face group: fail to get origin bitmap when install album emotion");
                         return;
                     }
                     if (!imageFileInfo.isGif() && (resizeBitmap = BitmapHelper.resizeBitmap(b2, 240, 240, false)) != null) {
-                        c.a.r0.e2.b.e(this.f17333f, substring, resizeBitmap, 100);
+                        c.a.r0.e2.b.e(this.f17343f, substring, resizeBitmap, 100);
                         if (resizeBitmap != b2) {
                             resizeBitmap.recycle();
                         }
                     }
                     Bitmap resizeBitmap2 = BitmapHelper.resizeBitmap(b2, 150, 150, false);
                     if (resizeBitmap2 == null) {
-                        this.f17334g.onFail("face group: fail to create small file when install album emotion");
+                        this.f17344g.onFail("face group: fail to create small file when install album emotion");
                         return;
                     }
-                    c.a.r0.e2.b.e(this.f17333f, str, resizeBitmap2, 100);
+                    c.a.r0.e2.b.e(this.f17343f, str, resizeBitmap2, 100);
                     if (resizeBitmap2 != b2) {
                         resizeBitmap2.recycle();
                     }
                     b2.recycle();
                     c.a.r0.e2.f.b bVar = new c.a.r0.e2.f.b();
-                    FaceData faceData = this.f17332e;
-                    bVar.f17282e = faceData.index;
-                    bVar.f17283f = faceData.pid;
-                    bVar.f17284g = substring;
-                    bVar.f17285h = str;
-                    bVar.f17287j = faceData.width;
-                    bVar.f17286i = faceData.height;
-                    this.f17334g.a(bVar);
+                    FaceData faceData = this.f17342e;
+                    bVar.f17292e = faceData.index;
+                    bVar.f17293f = faceData.pid;
+                    bVar.f17294g = substring;
+                    bVar.f17295h = str;
+                    bVar.f17297j = faceData.width;
+                    bVar.f17296i = faceData.height;
+                    this.f17344g.a(bVar);
                     return;
                 }
-                this.f17334g.onFail("face group: fail to copy file when install album emotion");
+                this.f17344g.onFail("face group: fail to copy file when install album emotion");
             }
         }
     }
 
     /* renamed from: c.a.r0.e2.g.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0844e implements Runnable {
+    public class RunnableC0842e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceData f17335e;
+        public final /* synthetic */ FaceData f17345e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f17336f;
+        public final /* synthetic */ String f17346f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ j f17337g;
+        public final /* synthetic */ j f17347g;
 
-        public RunnableC0844e(e eVar, FaceData faceData, String str, j jVar) {
+        public RunnableC0842e(e eVar, FaceData faceData, String str, j jVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -623,37 +623,37 @@ public class e {
                     return;
                 }
             }
-            this.f17335e = faceData;
-            this.f17336f = str;
-            this.f17337g = jVar;
+            this.f17345e = faceData;
+            this.f17346f = str;
+            this.f17347g = jVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                EmotionImageData emotionImageData = this.f17335e.emotionImageData;
+                EmotionImageData emotionImageData = this.f17345e.emotionImageData;
                 String str = TbadkCoreApplication.getCurrentAccount() + System.currentTimeMillis();
                 String str2 = "t_" + str;
-                String o = t.o(this.f17335e.pid, true);
-                String o2 = t.o(this.f17335e.pid, false);
-                if (!FileHelper.copyFile(o, this.f17336f + str)) {
-                    this.f17337g.onFail("face group: fail to copy big file when install collect emotion");
+                String o = t.o(this.f17345e.pid, true);
+                String o2 = t.o(this.f17345e.pid, false);
+                if (!FileHelper.copyFile(o, this.f17346f + str)) {
+                    this.f17347g.onFail("face group: fail to copy big file when install collect emotion");
                     return;
                 }
-                if (!FileHelper.copyFile(o2, this.f17336f + str2)) {
-                    this.f17337g.onFail("face group: fail to copy small file when install collect emotion");
+                if (!FileHelper.copyFile(o2, this.f17346f + str2)) {
+                    this.f17347g.onFail("face group: fail to copy small file when install collect emotion");
                     return;
                 }
                 c.a.r0.e2.f.b bVar = new c.a.r0.e2.f.b();
-                FaceData faceData = this.f17335e;
-                bVar.f17282e = faceData.index;
-                bVar.f17283f = faceData.pid;
-                bVar.f17284g = str;
-                bVar.f17285h = str2;
-                bVar.f17287j = faceData.width;
-                bVar.f17286i = faceData.height;
-                this.f17337g.a(bVar);
+                FaceData faceData = this.f17345e;
+                bVar.f17292e = faceData.index;
+                bVar.f17293f = faceData.pid;
+                bVar.f17294g = str;
+                bVar.f17295h = str2;
+                bVar.f17297j = faceData.width;
+                bVar.f17296i = faceData.height;
+                this.f17347g.a(bVar);
             }
         }
     }
@@ -664,16 +664,16 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FaceData f17338e;
+        public final /* synthetic */ FaceData f17348e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f17339f;
+        public final /* synthetic */ j f17349f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f17340g;
+        public final /* synthetic */ String f17350g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f17341h;
+        public final /* synthetic */ e f17351h;
 
         public f(e eVar, FaceData faceData, j jVar, String str) {
             Interceptable interceptable = $ic;
@@ -690,41 +690,41 @@ public class e {
                     return;
                 }
             }
-            this.f17341h = eVar;
-            this.f17338e = faceData;
-            this.f17339f = jVar;
-            this.f17340g = str;
+            this.f17351h = eVar;
+            this.f17348e = faceData;
+            this.f17349f = jVar;
+            this.f17350g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                EmotionImageData emotionImageData = this.f17338e.emotionImageData;
+                EmotionImageData emotionImageData = this.f17348e.emotionImageData;
                 String substring = emotionImageData.getPicUrl().substring(emotionImageData.getPicUrl().lastIndexOf(IStringUtil.WINDOWS_FOLDER_SEPARATOR) + 1);
                 String str = "t_" + substring;
                 WebClient webClient = new WebClient();
                 byte[] downloadImageBytes = webClient.downloadImageBytes(emotionImageData.getPicUrl(), false);
                 if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
-                    this.f17341h.x(this.f17340g, substring, downloadImageBytes);
+                    this.f17351h.x(this.f17350g, substring, downloadImageBytes);
                     byte[] downloadImageBytes2 = webClient.downloadImageBytes(emotionImageData.getThumbUrl(), false);
                     if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
-                        this.f17341h.x(this.f17340g, str, downloadImageBytes2);
+                        this.f17351h.x(this.f17350g, str, downloadImageBytes2);
                         c.a.r0.e2.f.b bVar = new c.a.r0.e2.f.b();
-                        FaceData faceData = this.f17338e;
-                        bVar.f17282e = faceData.index;
-                        bVar.f17283f = faceData.pid;
-                        bVar.f17284g = substring;
-                        bVar.f17285h = str;
-                        bVar.f17287j = faceData.width;
-                        bVar.f17286i = faceData.height;
-                        this.f17339f.a(bVar);
+                        FaceData faceData = this.f17348e;
+                        bVar.f17292e = faceData.index;
+                        bVar.f17293f = faceData.pid;
+                        bVar.f17294g = substring;
+                        bVar.f17295h = str;
+                        bVar.f17297j = faceData.width;
+                        bVar.f17296i = faceData.height;
+                        this.f17349f.a(bVar);
                         return;
                     }
-                    this.f17339f.onFail("face group: fail to download small file when install search emotion");
+                    this.f17349f.onFail("face group: fail to download small file when install search emotion");
                     return;
                 }
-                this.f17339f.onFail("face group: fail to download big file when install search emotion");
+                this.f17349f.onFail("face group: fail to download big file when install search emotion");
             }
         }
     }
@@ -735,10 +735,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f17342e;
+        public final /* synthetic */ k f17352e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f17343f;
+        public final /* synthetic */ boolean f17353f;
 
         public g(e eVar, k kVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -755,23 +755,23 @@ public class e {
                     return;
                 }
             }
-            this.f17342e = kVar;
-            this.f17343f = z;
+            this.f17352e = kVar;
+            this.f17353f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                k kVar = this.f17342e;
+                k kVar = this.f17352e;
                 if (kVar != null) {
-                    if (this.f17343f) {
+                    if (this.f17353f) {
                         kVar.onSuccess();
                     } else {
                         kVar.onFail();
                     }
                 }
-                if (this.f17343f) {
+                if (this.f17353f) {
                     c.a.r0.e2.d.m().w();
                     MessageManager.getInstance().runTask(2004603, (Class) null);
                 }
@@ -788,13 +788,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f17344e;
+        public final /* synthetic */ l f17354e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f17345f;
+        public final /* synthetic */ String f17355f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f17346g;
+        public final /* synthetic */ e f17356g;
 
         public h(e eVar, l lVar, String str) {
             Interceptable interceptable = $ic;
@@ -811,23 +811,23 @@ public class e {
                     return;
                 }
             }
-            this.f17346g = eVar;
-            this.f17344e = lVar;
-            this.f17345f = str;
+            this.f17356g = eVar;
+            this.f17354e = lVar;
+            this.f17355f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                l lVar = this.f17344e;
+                l lVar = this.f17354e;
                 if (lVar != null) {
-                    lVar.onFail(this.f17345f);
+                    lVar.onFail(this.f17355f);
                 }
-                if (this.f17345f != null) {
-                    BdLog.e("face group:" + this.f17345f);
+                if (this.f17355f != null) {
+                    BdLog.e("face group:" + this.f17355f);
                 }
-                this.f17346g.u(false, null);
+                this.f17356g.u(false, null);
             }
         }
     }
@@ -838,7 +838,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HashMap f17347e;
+        public final /* synthetic */ HashMap f17357e;
 
         public i(e eVar, HashMap hashMap) {
             Interceptable interceptable = $ic;
@@ -855,14 +855,14 @@ public class e {
                     return;
                 }
             }
-            this.f17347e = hashMap;
+            this.f17357e = hashMap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921040, this.f17347e));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921040, this.f17357e));
             }
         }
     }
@@ -906,22 +906,22 @@ public class e {
                 return;
             }
         }
-        this.f17306a = new Handler(Looper.getMainLooper());
-        this.f17307b = new LinkedBlockingQueue(4);
+        this.f17316a = new Handler(Looper.getMainLooper());
+        this.f17317b = new LinkedBlockingQueue(4);
     }
 
     public static e l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f17305e == null) {
+            if (f17315e == null) {
                 synchronized (e.class) {
-                    if (f17305e == null) {
-                        f17305e = new e();
+                    if (f17315e == null) {
+                        f17315e = new e();
                     }
                 }
             }
-            return f17305e;
+            return f17315e;
         }
         return (e) invokeV.objValue;
     }
@@ -962,7 +962,7 @@ public class e {
     public void A(String str, List<FaceData> list, l lVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048576, this, str, list, lVar, i2) == null) {
-            this.f17308c = true;
+            this.f17318c = true;
             w(str, list, i2);
             if (TextUtils.isEmpty(str)) {
                 t(lVar, "name empty");
@@ -985,7 +985,7 @@ public class e {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f17309d = null;
+            this.f17319d = null;
             c.a.r0.e2.g.c.a();
         }
     }
@@ -1015,10 +1015,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f17309d == null) {
-                this.f17309d = c.a.r0.e2.g.c.b();
+            if (this.f17319d == null) {
+                this.f17319d = c.a.r0.e2.g.c.b();
             }
-            return this.f17309d;
+            return this.f17319d;
         }
         return (FaceGroupDraft) invokeV.objValue;
     }
@@ -1033,7 +1033,7 @@ public class e {
     public final void n(FaceData faceData, String str, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, faceData, str, jVar) == null) {
-            c.a.r0.e2.a.b().a(new RunnableC0844e(this, faceData, str, jVar));
+            c.a.r0.e2.a.b().a(new RunnableC0842e(this, faceData, str, jVar));
         }
     }
 
@@ -1047,12 +1047,12 @@ public class e {
                 return;
             }
             EmotionGroupData emotionGroupData = new EmotionGroupData();
-            emotionGroupData.setGroupId(aVar.f17277a);
+            emotionGroupData.setGroupId(aVar.f17287a);
             emotionGroupData.setEmotionsCount(f2);
-            emotionGroupData.setHeight(aVar.f17281e.get(0).f17286i);
-            emotionGroupData.setWidth(aVar.f17281e.get(0).f17287j);
+            emotionGroupData.setHeight(aVar.f17291e.get(0).f17296i);
+            emotionGroupData.setWidth(aVar.f17291e.get(0).f17297j);
             emotionGroupData.setDownloadTime(System.currentTimeMillis());
-            emotionGroupData.setGroupName(aVar.f17278b);
+            emotionGroupData.setGroupName(aVar.f17288b);
             emotionGroupData.setStatus(1);
             c.a.r0.r0.g.k().e(emotionGroupData);
             c.a.r0.r0.g.k().f(TbadkCoreApplication.getCurrentAccount(), emotionGroupData);
@@ -1063,12 +1063,12 @@ public class e {
     public void p(String str, List<FaceData> list, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, list, kVar) == null) {
-            String str2 = c.a.r0.e2.c.f17248c + str + "/";
+            String str2 = c.a.r0.e2.c.f17258c + str + "/";
             new File(str2).mkdirs();
             c.a.r0.e2.f.a aVar = new c.a.r0.e2.f.a();
             TbadkCoreApplication.getCurrentAccount();
             TbadkCoreApplication.getCurrentAccountName();
-            aVar.f17277a = str;
+            aVar.f17287a = str;
             String.valueOf(System.currentTimeMillis());
             CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
             c.a.r0.e2.g.a aVar2 = new c.a.r0.e2.g.a(Boolean.TRUE);
@@ -1102,28 +1102,28 @@ public class e {
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f17308c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f17318c : invokeV.booleanValue;
     }
 
     public final void s(k kVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048587, this, kVar, z) == null) {
-            this.f17306a.post(new g(this, kVar, z));
+            this.f17316a.post(new g(this, kVar, z));
         }
     }
 
     public final void t(l lVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, lVar, str) == null) {
-            this.f17306a.post(new h(this, lVar, str));
+            this.f17316a.post(new h(this, lVar, str));
         }
     }
 
     public void u(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048589, this, z, str) == null) {
-            if (this.f17308c) {
-                this.f17308c = false;
+            if (this.f17318c) {
+                this.f17318c = false;
             }
             if (z) {
                 i();
@@ -1133,20 +1133,20 @@ public class e {
             hashMap.put("upload_result", new Boolean(false));
             if (!TextUtils.isEmpty(str)) {
                 hashMap.put("upload_msg", str);
-                FaceGroupDraft faceGroupDraft = this.f17309d;
+                FaceGroupDraft faceGroupDraft = this.f17319d;
                 if (faceGroupDraft != null) {
                     faceGroupDraft.setFailMsg(str);
                 }
             }
-            c.a.r0.e2.g.c.c(this.f17309d);
-            this.f17306a.postDelayed(new i(this, hashMap), 1000L);
+            c.a.r0.e2.g.c.c(this.f17319d);
+            this.f17316a.postDelayed(new i(this, hashMap), 1000L);
         }
     }
 
     public final void v(c.a.q0.d0.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, fVar) == null) {
-            this.f17307b.offer(fVar);
+            this.f17317b.offer(fVar);
         }
     }
 
@@ -1154,10 +1154,10 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048591, this, str, list, i2) == null) {
             FaceGroupDraft faceGroupDraft = new FaceGroupDraft();
-            this.f17309d = faceGroupDraft;
+            this.f17319d = faceGroupDraft;
             faceGroupDraft.setName(str);
-            this.f17309d.setList(list);
-            this.f17309d.setForumId(i2);
+            this.f17319d.setList(list);
+            this.f17319d.setForumId(i2);
         }
     }
 

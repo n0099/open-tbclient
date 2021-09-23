@@ -30,7 +30,7 @@ public class a extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f9072a;
+        public final /* synthetic */ a f9080a;
 
         public C0414a(a aVar) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f9072a = aVar;
+            this.f9080a = aVar;
         }
 
         @Override // c.a.p0.a.u.e.m.a.b
@@ -55,7 +55,7 @@ public class a extends d {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, eVar, str)) == null) {
-                JSONObject A = a.A(this.f9072a.v(eVar).getString(str, null));
+                JSONObject A = a.A(this.f9080a.v(eVar).getString(str, null));
                 if (A == null) {
                     return new c.a.p0.a.u.h.b(202, "JSONException");
                 }
@@ -103,7 +103,7 @@ public class a extends d {
                     }
                     return jSONObject;
                 } catch (JSONException unused) {
-                    boolean z = d.f8727c;
+                    boolean z = d.f8735c;
                 }
             }
             JSONObject jSONObject2 = new JSONObject();
@@ -150,7 +150,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             e i2 = e.i();
             if (y() && i2 == null) {
                 return new c.a.p0.a.u.h.b(1001, "swan app is null");
@@ -158,7 +158,7 @@ public class a extends d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-Storage", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-Storage", "parse fail");
                 }
                 return bVar;
@@ -178,7 +178,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             return D(str);
         }
         return (c.a.p0.a.u.h.b) invokeL.objValue;
@@ -188,7 +188,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             if (str != null && str.length() > 3145728) {
                 return new c.a.p0.a.u.h.b(1001, "exceed storage item max length");
             }
@@ -199,7 +199,7 @@ public class a extends d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-Storage", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-Storage", "parse fail");
                 }
                 return bVar;
@@ -220,7 +220,7 @@ public class a extends d {
                 return new c.a.p0.a.u.h.b(1001, "exceed storage item max length");
             }
             if (z(i2, C, B)) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-Storage", "exceed storage max length");
                 }
                 return new c.a.p0.a.u.h.b(1003, "exceed storage max length");
@@ -236,7 +236,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             return F(str);
         }
         return (c.a.p0.a.u.h.b) invokeL.objValue;
@@ -245,7 +245,7 @@ public class a extends d {
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.p0.a.q2.d.f8131h.b();
+            c.a.p0.a.q2.d.f8139h.b();
         }
     }
 
@@ -253,7 +253,7 @@ public class a extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             e i2 = e.i();
             if (y() && i2 == null) {
                 return new c.a.p0.a.u.h.b(1001, "swan app is null");
@@ -269,7 +269,7 @@ public class a extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             return r();
         }
         return (c.a.p0.a.u.h.b) invokeV.objValue;
@@ -279,7 +279,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             return u(str, new C0414a(this));
         }
         return (c.a.p0.a.u.h.b) invokeL.objValue;
@@ -296,7 +296,7 @@ public class a extends d {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-Storage", str);
             c.a.p0.a.u.h.b bVar2 = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar2.isSuccess()) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-Storage", "parse fail");
                 }
                 return bVar2;
@@ -332,7 +332,7 @@ public class a extends d {
                 jSONObject.put("limitSize", U.n() / 1024);
                 return new c.a.p0.a.u.h.b(0, jSONObject);
             } catch (JSONException e2) {
-                if (d.f8727c) {
+                if (d.f8735c) {
                     e2.printStackTrace();
                 }
                 return new c.a.p0.a.u.h.b(202, "JSONException");
@@ -345,7 +345,7 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            boolean z = d.f8727c;
+            boolean z = d.f8735c;
             return t(str);
         }
         return (c.a.p0.a.u.h.b) invokeL.objValue;

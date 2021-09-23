@@ -19,7 +19,7 @@ public class f extends c.a.p0.n.i.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f11921d;
+    public static final boolean f11929d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class f extends c.a.p0.n.i.a {
                 return;
             }
         }
-        f11921d = c.a.p0.n.c.f11856a;
+        f11929d = c.a.p0.n.c.f11864a;
     }
 
     public static void a(String str, Map<String, String> map, Map<String, String> map2, c.a.p0.n.i.e<String> eVar) {
@@ -61,7 +61,7 @@ public class f extends c.a.p0.n.i.a {
     public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, c.a.p0.n.i.e<String> eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, httpRequestBuilder, str, map, map2, eVar) == null) {
-            httpRequestBuilder.url(c.a.p0.n.i.f.i(str, map)).requestSubFrom(10).addHeader(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, "true").addHeaders(map2).userAgent(c.a.p0.n.i.a.f11891c).cookieManager(c.a.p0.n.i.a.f11890b).enableStat(true).build().executeStat(eVar);
+            httpRequestBuilder.url(c.a.p0.n.i.f.i(str, map)).requestSubFrom(10).addHeader(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, "true").addHeaders(map2).userAgent(c.a.p0.n.i.a.f11899c).cookieManager(c.a.p0.n.i.a.f11898b).enableStat(true).build().executeStat(eVar);
         }
     }
 
@@ -70,7 +70,7 @@ public class f extends c.a.p0.n.i.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, eVar)) == null) {
             if (TextUtils.isEmpty(str)) {
-                if (f11921d) {
+                if (f11929d) {
                     throw new InvalidParameterException("PMS request URL is empty");
                 }
                 return true;

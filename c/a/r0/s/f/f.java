@@ -21,7 +21,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f24551a;
+    public static f f24567a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -43,11 +43,11 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (f.class) {
-                if (f24551a == null) {
-                    f24551a = new f();
+                if (f24567a == null) {
+                    f24567a = new f();
                 }
             }
-            return f24551a;
+            return f24567a;
         }
         return (f) invokeV.objValue;
     }
@@ -162,7 +162,7 @@ public class f {
                     b2.beginTransaction();
                     char c2 = 0;
                     try {
-                        String[] strArr = c.a.q0.t.f.c.f14895a;
+                        String[] strArr = c.a.q0.t.f.c.f14897a;
                         int length = strArr.length;
                         int i2 = 0;
                         while (i2 < length) {
@@ -224,7 +224,7 @@ public class f {
                     b2.beginTransaction();
                     char c2 = 0;
                     try {
-                        String[] strArr = c.a.q0.t.f.c.f14895a;
+                        String[] strArr = c.a.q0.t.f.c.f14897a;
                         int length = strArr.length;
                         int i2 = 0;
                         while (i2 < length) {

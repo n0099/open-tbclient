@@ -21,31 +21,31 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeListView f19166a;
+    public BdTypeListView f19181a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f19167b;
+    public i f19182b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f19168c;
+    public g f19183c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelateCardForumAdapter f19169d;
+    public RelateCardForumAdapter f19184d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f19170e;
+    public e f19185e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f19171f;
+    public f f19186f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HomePageVideoThreadAdapter f19172g;
+    public HomePageVideoThreadAdapter f19187g;
 
     /* renamed from: h  reason: collision with root package name */
-    public h f19173h;
+    public h f19188h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<c.a.e.l.e.a> f19174i;
+    public List<c.a.e.l.e.a> f19189i;
 
     public d(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -62,44 +62,44 @@ public class d {
                 return;
             }
         }
-        this.f19174i = new ArrayList();
+        this.f19189i = new ArrayList();
         a(hotTopicActivity, bdTypeListView);
     }
 
     public final void a(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hotTopicActivity, bdTypeListView) == null) {
-            this.f19170e = new e(hotTopicActivity, c.a.r0.i1.c.g.f19285f);
-            this.f19167b = new i(hotTopicActivity, m.p);
-            this.f19168c = new g(hotTopicActivity, c.a.r0.i1.c.i.p);
-            this.f19169d = new RelateCardForumAdapter(hotTopicActivity, n.f19312g);
+            this.f19185e = new e(hotTopicActivity, c.a.r0.i1.c.g.f19300f);
+            this.f19182b = new i(hotTopicActivity, m.p);
+            this.f19183c = new g(hotTopicActivity, c.a.r0.i1.c.i.p);
+            this.f19184d = new RelateCardForumAdapter(hotTopicActivity, n.f19327g);
             TbPageContext<HotTopicActivity> pageContext = hotTopicActivity.getPageContext();
-            this.f19171f = new f(pageContext, c.a.r0.a0.d0.k.s0);
-            this.f19172g = new HomePageVideoThreadAdapter(pageContext, l.X);
-            this.f19173h = new h(pageContext, c.a.r0.a0.d0.k.v0);
-            this.f19174i.add(this.f19167b);
-            this.f19174i.add(this.f19168c);
-            this.f19174i.add(this.f19169d);
-            this.f19174i.add(this.f19170e);
-            this.f19174i.add(this.f19171f);
-            this.f19174i.add(this.f19172g);
-            this.f19174i.add(this.f19173h);
-            this.f19166a = bdTypeListView;
-            bdTypeListView.addAdapters(this.f19174i);
+            this.f19186f = new f(pageContext, c.a.r0.a0.d0.k.s0);
+            this.f19187g = new HomePageVideoThreadAdapter(pageContext, l.X);
+            this.f19188h = new h(pageContext, c.a.r0.a0.d0.k.v0);
+            this.f19189i.add(this.f19182b);
+            this.f19189i.add(this.f19183c);
+            this.f19189i.add(this.f19184d);
+            this.f19189i.add(this.f19185e);
+            this.f19189i.add(this.f19186f);
+            this.f19189i.add(this.f19187g);
+            this.f19189i.add(this.f19188h);
+            this.f19181a = bdTypeListView;
+            bdTypeListView.addAdapters(this.f19189i);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f19166a.getAdapter2() instanceof c.a.e.l.e.e)) {
-            this.f19166a.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f19181a.getAdapter2() instanceof c.a.e.l.e.e)) {
+            this.f19181a.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void c(boolean z) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (fVar = this.f19171f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (fVar = this.f19186f) == null) {
             return;
         }
         fVar.setFromCDN(z);
@@ -114,7 +114,7 @@ public class d {
             } else {
                 arrayList = new ArrayList<>();
             }
-            BdTypeListView bdTypeListView = this.f19166a;
+            BdTypeListView bdTypeListView = this.f19181a;
             if (bdTypeListView != null) {
                 bdTypeListView.setData(arrayList);
             }

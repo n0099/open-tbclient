@@ -10,34 +10,34 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12269a;
+    public String f12277a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12270b;
+    public String f12278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12271c;
+    public String f12279c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12272d;
+    public int f12280d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12273e;
+    public String f12281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12274f;
+    public String f12282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12275g;
+    public int f12283g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12276h;
+    public String f12284h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12277i;
+    public int f12285i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f12278j;
+    public int f12286j;
     public String k;
 
     public g(String str, String str2, String str3, int i2, String str4, String str5) {
@@ -55,11 +55,11 @@ public class g {
                 return;
             }
         }
-        this.f12269a = str;
-        this.f12270b = str2;
-        this.f12271c = str3;
-        this.f12272d = i2;
-        this.f12273e = str4;
-        this.f12274f = str5;
+        this.f12277a = str;
+        this.f12278b = str2;
+        this.f12279c = str3;
+        this.f12280d = i2;
+        this.f12281e = str4;
+        this.f12282f = str5;
     }
 }

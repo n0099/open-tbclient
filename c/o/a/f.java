@@ -26,13 +26,13 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<M> f34413a;
+    public final Class<M> f34436a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<B> f34414b;
+    public final Class<B> f34437b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Integer, a<M, B>> f34415c;
+    public final Map<Integer, a<M, B>> f34438c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Class<M> cls, Class<B> cls2, Map<Integer, a<M, B>> map) {
@@ -53,9 +53,9 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
                 return;
             }
         }
-        this.f34413a = cls;
-        this.f34414b = cls2;
-        this.f34415c = map;
+        this.f34436a = cls;
+        this.f34437b = cls2;
+        this.f34438c = map;
     }
 
     public static <M extends Message<M, B>, B extends Message.a<M, B>> f<M, B> a(Class<M> cls) {
@@ -104,7 +104,7 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
         while (true) {
             int f3 = cVar.f();
             if (f3 != -1) {
-                a<M, B> aVar = this.f34415c.get(Integer.valueOf(f3));
+                a<M, B> aVar = this.f34438c.get(Integer.valueOf(f3));
                 if (aVar != null) {
                     try {
                         if (aVar.f()) {
@@ -133,10 +133,10 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
     public void encode(d dVar, M m) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, m) == null) {
-            for (a<M, B> aVar : this.f34415c.values()) {
+            for (a<M, B> aVar : this.f34438c.values()) {
                 Object b2 = aVar.b(m);
                 if (b2 != null) {
-                    aVar.a().encodeWithTag(dVar, aVar.f34394c, b2);
+                    aVar.a().encodeWithTag(dVar, aVar.f34417c, b2);
                 }
             }
             dVar.k(m.unknownFields());
@@ -155,10 +155,10 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
                 return i2;
             }
             int i3 = 0;
-            for (a<M, B> aVar : this.f34415c.values()) {
+            for (a<M, B> aVar : this.f34438c.values()) {
                 Object b2 = aVar.b(m);
                 if (b2 != null) {
-                    i3 += aVar.a().encodedSizeWithTag(aVar.f34394c, b2);
+                    i3 += aVar.a().encodedSizeWithTag(aVar.f34417c, b2);
                 }
             }
             int size = i3 + m.unknownFields().size();
@@ -171,7 +171,7 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? (obj instanceof f) && ((f) obj).f34413a == this.f34413a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? (obj instanceof f) && ((f) obj).f34436a == this.f34436a : invokeL.booleanValue;
     }
 
     public B f() {
@@ -179,7 +179,7 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
-                return this.f34414b.newInstance();
+                return this.f34437b.newInstance();
             } catch (IllegalAccessException | InstantiationException e2) {
                 throw new AssertionError(e2);
             }
@@ -195,13 +195,13 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
             Message.a<M, B> newBuilder = m.newBuilder();
-            for (a<M, B> aVar : this.f34415c.values()) {
-                if (aVar.f34397f && aVar.f34392a == WireField.Label.REQUIRED) {
-                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", aVar.f34393b, this.javaType.getName()));
+            for (a<M, B> aVar : this.f34438c.values()) {
+                if (aVar.f34420f && aVar.f34415a == WireField.Label.REQUIRED) {
+                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", aVar.f34416b, this.javaType.getName()));
                 }
                 boolean isAssignableFrom = Message.class.isAssignableFrom(aVar.i().javaType);
-                if (!aVar.f34397f && (!isAssignableFrom || aVar.f34392a.isRepeated())) {
-                    if (isAssignableFrom && aVar.f34392a.isRepeated()) {
+                if (!aVar.f34420f && (!isAssignableFrom || aVar.f34415a.isRepeated())) {
+                    if (isAssignableFrom && aVar.f34415a.isRepeated()) {
                         c.o.a.h.a.k((List) aVar.e(newBuilder), aVar.i());
                     }
                 } else {
@@ -225,19 +225,19 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (a<M, B> aVar : this.f34415c.values()) {
+            for (a<M, B> aVar : this.f34438c.values()) {
                 Object b2 = aVar.b(m);
                 if (b2 != null) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(aVar.f34393b);
-                    sb.append(com.alipay.sdk.encrypt.a.f35988h);
-                    if (aVar.f34397f) {
+                    sb.append(aVar.f34416b);
+                    sb.append(com.alipay.sdk.encrypt.a.f36022h);
+                    if (aVar.f34420f) {
                         b2 = "██";
                     }
                     sb.append(b2);
                 }
             }
-            sb.replace(0, 2, this.f34413a.getSimpleName() + ExtendedMessageFormat.START_FE);
+            sb.replace(0, 2, this.f34436a.getSimpleName() + ExtendedMessageFormat.START_FE);
             sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
@@ -247,6 +247,6 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f34413a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f34436a.hashCode() : invokeV.intValue;
     }
 }

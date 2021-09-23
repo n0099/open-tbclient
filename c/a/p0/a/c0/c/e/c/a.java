@@ -20,10 +20,10 @@ public final class a extends c.a.p0.a.c0.a.c.b<TextView, b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwanAppComponentContainerView f4679i;
+    public SwanAppComponentContainerView f4687i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f4680j;
+    public TextView f4688j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(@NonNull Context context, @NonNull b bVar) {
@@ -45,8 +45,8 @@ public final class a extends c.a.p0.a.c0.a.c.b<TextView, b> {
             }
         }
         g(4);
-        this.f4679i = new SwanAppComponentContainerView(context);
-        this.f4680j = new TextView(context);
+        this.f4687i = new SwanAppComponentContainerView(context);
+        this.f4688j = new TextView(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public final class a extends c.a.p0.a.c0.a.c.b<TextView, b> {
     public TextView v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? this.f4680j : (TextView) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? this.f4688j : (TextView) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,7 +85,7 @@ public final class a extends c.a.p0.a.c0.a.c.b<TextView, b> {
     public void R(@NonNull View view, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, view, bVar) == null) {
-            boolean z = c.a.p0.a.c0.b.a.f4644h;
+            boolean z = c.a.p0.a.c0.b.a.f4652h;
             if (bVar.n == null) {
                 return;
             }
@@ -102,7 +102,7 @@ public final class a extends c.a.p0.a.c0.a.c.b<TextView, b> {
     public void S(@NonNull TextView textView, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, textView, bVar) == null) {
-            boolean z = c.a.p0.a.c0.b.a.f4644h;
+            boolean z = c.a.p0.a.c0.b.a.f4652h;
             if (bVar.n == null) {
                 return;
             }
@@ -126,6 +126,6 @@ public final class a extends c.a.p0.a.c0.a.c.b<TextView, b> {
     public SwanAppComponentContainerView u(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? this.f4679i : (SwanAppComponentContainerView) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? this.f4687i : (SwanAppComponentContainerView) invokeL.objValue;
     }
 }

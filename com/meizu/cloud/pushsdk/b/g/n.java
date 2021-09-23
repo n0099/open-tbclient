@@ -6,23 +6,23 @@ import java.io.InterruptedIOException;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final n f74687a = new n() { // from class: com.meizu.cloud.pushsdk.b.g.n.1
+    public static final n f75006a = new n() { // from class: com.meizu.cloud.pushsdk.b.g.n.1
         @Override // com.meizu.cloud.pushsdk.b.g.n
         public void a() throws IOException {
         }
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f74688b;
+    public boolean f75007b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f74689c;
+    public long f75008c;
 
     public void a() throws IOException {
         if (Thread.interrupted()) {
             throw new InterruptedIOException("thread interrupted");
         }
-        if (this.f74688b && this.f74689c - System.nanoTime() <= 0) {
+        if (this.f75007b && this.f75008c - System.nanoTime() <= 0) {
             throw new InterruptedIOException("deadline reached");
         }
     }

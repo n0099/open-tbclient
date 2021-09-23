@@ -12,10 +12,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4662a;
+    public int f4670a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4663b;
+    public String f4671b;
 
     public c(int i2, @NonNull String str) {
         Interceptable interceptable = $ic;
@@ -32,13 +32,13 @@ public class c {
                 return;
             }
         }
-        this.f4662a = i2;
-        this.f4663b = str;
+        this.f4670a = i2;
+        this.f4671b = str;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4662a == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4670a == 0 : invokeV.booleanValue;
     }
 }

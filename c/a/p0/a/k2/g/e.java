@@ -31,30 +31,30 @@ public class e extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
             Bundle bundle = new Bundle();
-            b b2 = h.b(cVar.f7148a);
+            b b2 = h.b(cVar.f7156a);
             if (b2 == null) {
-                if (d.f7152a) {
+                if (d.f7160a) {
                     throw new IllegalArgumentException("illegal sp.");
                 }
                 return bundle;
             }
-            int i2 = cVar.f7149b;
+            int i2 = cVar.f7157b;
             if (i2 == 1) {
-                bundle.putInt("result_value", b2.getInt(cVar.f7150c, Integer.parseInt(cVar.f7151d)));
+                bundle.putInt("result_value", b2.getInt(cVar.f7158c, Integer.parseInt(cVar.f7159d)));
             } else if (i2 == 2) {
-                bundle.putLong("result_value", b2.getLong(cVar.f7150c, Long.parseLong(cVar.f7151d)));
+                bundle.putLong("result_value", b2.getLong(cVar.f7158c, Long.parseLong(cVar.f7159d)));
             } else if (i2 == 3) {
-                bundle.putBoolean("result_value", b2.getBoolean(cVar.f7150c, Boolean.parseBoolean(cVar.f7151d)));
+                bundle.putBoolean("result_value", b2.getBoolean(cVar.f7158c, Boolean.parseBoolean(cVar.f7159d)));
             } else if (i2 == 4) {
-                bundle.putString("result_value", b2.getString(cVar.f7150c, cVar.f7151d));
+                bundle.putString("result_value", b2.getString(cVar.f7158c, cVar.f7159d));
             } else if (i2 != 5) {
-                if (d.f7152a) {
+                if (d.f7160a) {
                     throw new IllegalArgumentException("wrong info params.");
                 }
             } else {
-                bundle.putFloat("result_value", b2.getFloat(cVar.f7150c, Float.parseFloat(cVar.f7151d)));
+                bundle.putFloat("result_value", b2.getFloat(cVar.f7158c, Float.parseFloat(cVar.f7159d)));
             }
-            if (d.f7152a) {
+            if (d.f7160a) {
                 String str = "Get: " + cVar;
             }
             return bundle;

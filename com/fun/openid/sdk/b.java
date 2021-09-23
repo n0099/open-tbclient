@@ -11,10 +11,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f70018a;
+    public static boolean f70337a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f70019b;
+    public static boolean f70338b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static f a() {

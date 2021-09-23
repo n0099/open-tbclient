@@ -10,7 +10,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13465a;
+    public boolean f13461a;
 
     public a(boolean z) {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class a {
                 return;
             }
         }
-        this.f13465a = z;
+        this.f13461a = z;
     }
 
     public a(boolean z, int i2) {
@@ -45,6 +45,6 @@ public class a {
                 return;
             }
         }
-        this.f13465a = z;
+        this.f13461a = z;
     }
 }

@@ -33,34 +33,34 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f17040a;
+    public LinearLayout f17050a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f17041b;
+    public RelativeLayout f17051b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f17042c;
+    public LinearLayout f17052c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f17043d;
+    public RelativeLayout f17053d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f17044e;
+    public ImageView f17054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f17045f;
+    public ImageView f17055f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f17046g;
+    public EMTextView f17056g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f17047h;
+    public EMTextView f17057h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f17048i;
+    public EMTextView f17058i;
 
     /* renamed from: j  reason: collision with root package name */
-    public EMTextView f17049j;
+    public EMTextView f17059j;
     public EMTextView k;
     public TbCheckBox l;
     public NavigationBar m;
@@ -78,7 +78,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17050e;
+        public final /* synthetic */ c f17060e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -95,14 +95,14 @@ public final class c {
                     return;
                 }
             }
-            this.f17050e = cVar;
+            this.f17060e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17050e.t.finishPage();
+                this.f17060e.t.finishPage();
             }
         }
     }
@@ -113,7 +113,7 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f17051e;
+        public boolean f17061e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -128,35 +128,35 @@ public final class c {
                     return;
                 }
             }
-            this.f17051e = true;
+            this.f17061e = true;
         }
 
         @Override // com.baidu.tbadk.core.view.TbCheckBox.c
         public boolean isChecked() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17051e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17061e : invokeV.booleanValue;
         }
 
         @Override // com.baidu.tbadk.core.view.TbCheckBox.c
         public void setChecked(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.f17051e = z;
+                this.f17061e = z;
             }
         }
     }
 
     /* renamed from: c.a.r0.c4.u.p.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class View$OnClickListenerC0822c implements View.OnClickListener {
+    public static final class View$OnClickListenerC0820c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17052e;
+        public final /* synthetic */ c f17062e;
 
-        public View$OnClickListenerC0822c(c cVar) {
+        public View$OnClickListenerC0820c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,15 +171,15 @@ public final class c {
                     return;
                 }
             }
-            this.f17052e = cVar;
+            this.f17062e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17052e.t.openUpgrade(this.f17052e.e().isChecked());
-                if (this.f17052e.r == 2) {
+                this.f17062e.t.openUpgrade(this.f17062e.e().isChecked());
+                if (this.f17062e.r == 2) {
                     TiebaStatic.log(new StatisticItem("c14366"));
                 } else {
                     TiebaStatic.log(new StatisticItem("c14365"));
@@ -215,7 +215,7 @@ public final class c {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout linearLayout = this.f17042c;
+            LinearLayout linearLayout = this.f17052c;
             if (linearLayout == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mUpgradeItemConten");
             }
@@ -247,7 +247,7 @@ public final class c {
             bVar.d(i2);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds77);
-            LinearLayout linearLayout = this.f17042c;
+            LinearLayout linearLayout = this.f17052c;
             if (linearLayout == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mUpgradeItemConten");
             }
@@ -274,40 +274,40 @@ public final class c {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             View findViewById = this.q.findViewById(R.id.upgrade_main);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "mRootView.findViewById(R.id.upgrade_main)");
-            this.f17043d = (RelativeLayout) findViewById;
+            this.f17053d = (RelativeLayout) findViewById;
             View findViewById2 = this.q.findViewById(R.id.upgrade_top);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "mRootView.findViewById(R.id.upgrade_top)");
-            this.f17040a = (LinearLayout) findViewById2;
+            this.f17050a = (LinearLayout) findViewById2;
             View findViewById3 = this.q.findViewById(R.id.upgrade_icon);
             Intrinsics.checkExpressionValueIsNotNull(findViewById3, "mRootView.findViewById(R.id.upgrade_icon)");
-            this.f17044e = (ImageView) findViewById3;
+            this.f17054e = (ImageView) findViewById3;
             View findViewById4 = this.q.findViewById(R.id.upgrade_icon_title);
             Intrinsics.checkExpressionValueIsNotNull(findViewById4, "mRootView.findViewById(R.id.upgrade_icon_title)");
-            this.f17045f = (ImageView) findViewById4;
+            this.f17055f = (ImageView) findViewById4;
             View findViewById5 = this.q.findViewById(R.id.upgrade_tip);
             Intrinsics.checkExpressionValueIsNotNull(findViewById5, "mRootView.findViewById(R.id.upgrade_tip)");
-            this.f17046g = (EMTextView) findViewById5;
+            this.f17056g = (EMTextView) findViewById5;
             View findViewById6 = this.q.findViewById(R.id.upgrade_has_open);
             Intrinsics.checkExpressionValueIsNotNull(findViewById6, "mRootView.findViewById(R.id.upgrade_has_open)");
-            this.f17047h = (EMTextView) findViewById6;
+            this.f17057h = (EMTextView) findViewById6;
             View findViewById7 = this.q.findViewById(R.id.select_office_ckb);
             Intrinsics.checkExpressionValueIsNotNull(findViewById7, "mRootView.findViewById(R.id.select_office_ckb)");
             this.l = (TbCheckBox) findViewById7;
             View findViewById8 = this.q.findViewById(R.id.select_office_number);
             Intrinsics.checkExpressionValueIsNotNull(findViewById8, "mRootView.findViewById(R.id.select_office_number)");
-            this.f17049j = (EMTextView) findViewById8;
+            this.f17059j = (EMTextView) findViewById8;
             View findViewById9 = this.q.findViewById(R.id.upgrade_bottom_tip);
             Intrinsics.checkExpressionValueIsNotNull(findViewById9, "mRootView.findViewById(R.id.upgrade_bottom_tip)");
             this.k = (EMTextView) findViewById9;
             View findViewById10 = this.q.findViewById(R.id.btn_upgrade_open);
             Intrinsics.checkExpressionValueIsNotNull(findViewById10, "mRootView.findViewById(R.id.btn_upgrade_open)");
-            this.f17048i = (EMTextView) findViewById10;
+            this.f17058i = (EMTextView) findViewById10;
             View findViewById11 = this.q.findViewById(R.id.upgrade_content);
             Intrinsics.checkExpressionValueIsNotNull(findViewById11, "mRootView.findViewById(R.id.upgrade_content)");
-            this.f17041b = (RelativeLayout) findViewById11;
+            this.f17051b = (RelativeLayout) findViewById11;
             View findViewById12 = this.q.findViewById(R.id.upgrade_item);
             Intrinsics.checkExpressionValueIsNotNull(findViewById12, "mRootView.findViewById(R.id.upgrade_item)");
-            this.f17042c = (LinearLayout) findViewById12;
+            this.f17052c = (LinearLayout) findViewById12;
             View findViewById13 = this.q.findViewById(R.id.line_view);
             Intrinsics.checkExpressionValueIsNotNull(findViewById13, "mRootView.findViewById(R.id.line_view)");
             this.n = (ImageView) findViewById13;
@@ -331,14 +331,14 @@ public final class c {
             tbCheckBox.setTagData(new b());
             int i2 = l.i(this.p.getPageActivity());
             if (l.k(this.p.getPageActivity()) == 1080 && i2 == 1920) {
-                LinearLayout linearLayout = this.f17040a;
+                LinearLayout linearLayout = this.f17050a;
                 if (linearLayout == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mUpgradeTop");
                 }
                 ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
                 if (layoutParams != null) {
                     ((RelativeLayout.LayoutParams) layoutParams).topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds123);
-                    LinearLayout linearLayout2 = this.f17040a;
+                    LinearLayout linearLayout2 = this.f17050a;
                     if (linearLayout2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mUpgradeTop");
                     }
@@ -356,25 +356,25 @@ public final class c {
                 Intrinsics.throwUninitializedPropertyAccessException("selectOfficeCkb");
             }
             tbCheckBox2.setBackgroundDrawableId(R.drawable.icon_pure_strok_s, R.drawable.icon_pure_strok_n);
-            EMTextView eMTextView = this.f17048i;
+            EMTextView eMTextView = this.f17058i;
             if (eMTextView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("upgradeOpenBtn");
             }
-            eMTextView.setOnClickListener(new View$OnClickListenerC0822c(this));
+            eMTextView.setOnClickListener(new View$OnClickListenerC0820c(this));
             if (this.r != 2) {
-                EMTextView eMTextView2 = this.f17047h;
+                EMTextView eMTextView2 = this.f17057h;
                 if (eMTextView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("upgradeHasOpen");
                 }
                 eMTextView2.setVisibility(8);
             } else {
-                EMTextView eMTextView3 = this.f17048i;
+                EMTextView eMTextView3 = this.f17058i;
                 if (eMTextView3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("upgradeOpenBtn");
                 }
                 eMTextView3.setText(this.p.getString(R.string.guide_upgrde_go_on_open));
             }
-            if (this.s == c.a.q0.s.m.c.f14022d) {
+            if (this.s == c.a.q0.s.m.c.f14019d) {
                 EMTextView eMTextView4 = this.k;
                 if (eMTextView4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("upgradeBottomTip");
@@ -394,7 +394,7 @@ public final class c {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            EMTextView eMTextView = this.f17046g;
+            EMTextView eMTextView = this.f17056g;
             if (eMTextView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("upgradeTip");
             }
@@ -409,7 +409,7 @@ public final class c {
             c.a.q0.s.u.c d3 = c.a.q0.s.u.c.d(eMTextView2);
             d3.A(R.dimen.T_X09);
             d3.x(R.dimen.M_T_X002);
-            EMTextView eMTextView3 = this.f17048i;
+            EMTextView eMTextView3 = this.f17058i;
             if (eMTextView3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("upgradeOpenBtn");
             }
@@ -426,7 +426,7 @@ public final class c {
             while (it.hasNext()) {
                 it.next().a();
             }
-            ImageView imageView = this.f17044e;
+            ImageView imageView = this.f17054e;
             if (imageView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("upgradeIcon");
             }
@@ -436,7 +436,7 @@ public final class c {
                 Intrinsics.throwUninitializedPropertyAccessException("mLineView");
             }
             imageView2.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_pic_video_line, false));
-            RelativeLayout relativeLayout = this.f17043d;
+            RelativeLayout relativeLayout = this.f17053d;
             if (relativeLayout == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mUpgradeMain");
             }
@@ -448,7 +448,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             BdTopToast content = new BdTopToast(this.p.getPageActivity()).setIcon(false).setContent(str);
-            RelativeLayout relativeLayout = this.f17043d;
+            RelativeLayout relativeLayout = this.f17053d;
             if (relativeLayout == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mUpgradeMain");
             }

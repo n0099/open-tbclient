@@ -43,7 +43,7 @@ public class SwanAppInitHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f46801e;
+        public final /* synthetic */ boolean f46903e;
 
         public a(boolean z) {
             Interceptable interceptable = $ic;
@@ -60,13 +60,13 @@ public class SwanAppInitHelper {
                     return;
                 }
             }
-            this.f46801e = z;
+            this.f46903e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f46801e) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f46903e) {
                 c.a.p0.n.b.k(new h(0), new i(null), c.a.p0.a.c1.b.i().p(null));
             }
         }
@@ -246,7 +246,7 @@ public class SwanAppInitHelper {
             initWebView(application);
             if (ProcessUtils.isMainProcess()) {
                 asyncUpdateSwanAppCore();
-                if (k.f7077a) {
+                if (k.f7085a) {
                     c.a.p0.a.t2.a.d(0, 1);
                 }
             }

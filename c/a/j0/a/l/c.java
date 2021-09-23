@@ -14,14 +14,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f3665c;
+    public static volatile c f3666c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f3666a;
+    public ThreadPoolExecutor f3667a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ScheduledThreadPoolExecutor f3667b;
+    public ScheduledThreadPoolExecutor f3668b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f3665c == null) {
+            if (f3666c == null) {
                 synchronized (c.class) {
-                    if (f3665c == null) {
-                        f3665c = new c();
+                    if (f3666c == null) {
+                        f3666c = new c();
                     }
                 }
             }
-            return f3665c;
+            return f3666c;
         }
         return (c) invokeV.objValue;
     }
@@ -58,8 +58,8 @@ public class c {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f3666a = d.g(5, 15);
-            this.f3667b = d.f(3);
+            this.f3667a = d.g(5, 15);
+            this.f3668b = d.f(3);
         }
     }
 
@@ -69,7 +69,7 @@ public class c {
             return;
         }
         try {
-            this.f3666a.submit(runnable);
+            this.f3667a.submit(runnable);
         } catch (Throwable unused) {
         }
     }
@@ -77,12 +77,12 @@ public class c {
     public void d(b bVar, long j2, long j3, TimeUnit timeUnit) {
         ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bVar, Long.valueOf(j2), Long.valueOf(j3), timeUnit}) == null) || bVar == null || (scheduledThreadPoolExecutor = this.f3667b) == null || scheduledThreadPoolExecutor.isShutdown()) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bVar, Long.valueOf(j2), Long.valueOf(j3), timeUnit}) == null) || bVar == null || (scheduledThreadPoolExecutor = this.f3668b) == null || scheduledThreadPoolExecutor.isShutdown()) {
             return;
         }
         try {
             bVar.i(System.currentTimeMillis());
-            bVar.h(this.f3667b.scheduleAtFixedRate(bVar, j2, j3, timeUnit));
+            bVar.h(this.f3668b.scheduleAtFixedRate(bVar, j2, j3, timeUnit));
         } catch (Throwable unused) {
         }
     }

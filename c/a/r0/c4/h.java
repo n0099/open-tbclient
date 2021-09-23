@@ -20,22 +20,22 @@ public class h extends PopupWindow {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f16661a;
+    public int f16671a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f16662b;
+    public a f16672b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f16663c;
+    public int f16673c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f16664d;
+    public LinearLayout f16674d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f16665e;
+    public Context f16675e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16666f;
+    public int f16676f;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -48,10 +48,10 @@ public class h extends PopupWindow {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f16667e;
+        public int f16677e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a f16668f;
+        public a f16678f;
 
         public b(int i2, a aVar) {
             Interceptable interceptable = $ic;
@@ -68,18 +68,18 @@ public class h extends PopupWindow {
                     return;
                 }
             }
-            this.f16667e = i2;
-            this.f16668f = aVar;
+            this.f16677e = i2;
+            this.f16678f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f16668f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f16678f) == null) {
                 return;
             }
-            aVar.onPrefixItemClick(this.f16667e);
+            aVar.onPrefixItemClick(this.f16677e);
         }
     }
 
@@ -101,17 +101,17 @@ public class h extends PopupWindow {
                 return;
             }
         }
-        this.f16661a = -1;
-        this.f16665e = context;
+        this.f16671a = -1;
+        this.f16675e = context;
         b(context);
     }
 
     public void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            view.setOnClickListener(new b(this.f16663c, this.f16662b));
-            this.f16664d.addView(view);
-            this.f16663c++;
+            view.setOnClickListener(new b(this.f16673c, this.f16672b));
+            this.f16674d.addView(view);
+            this.f16673c++;
         }
     }
 
@@ -121,10 +121,10 @@ public class h extends PopupWindow {
             ScrollView scrollView = new ScrollView(context);
             scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
             LinearLayout linearLayout = new LinearLayout(context);
-            this.f16664d = linearLayout;
+            this.f16674d = linearLayout;
             linearLayout.setOrientation(1);
-            this.f16664d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            scrollView.addView(this.f16664d);
+            this.f16674d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            scrollView.addView(this.f16674d);
             scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             scrollView.setPadding(0, 0, l.e(context, 1.0f), l.e(context, 1.0f));
             scrollView.setFadingEdgeLength(0);
@@ -142,26 +142,26 @@ public class h extends PopupWindow {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            int i3 = this.f16661a;
+            int i3 = this.f16671a;
             if (i3 != -1) {
-                this.f16664d.getChildAt(i3).setSelected(false);
+                this.f16674d.getChildAt(i3).setSelected(false);
             }
-            this.f16661a = i2;
-            this.f16664d.getChildAt(i2).setSelected(true);
+            this.f16671a = i2;
+            this.f16674d.getChildAt(i2).setSelected(true);
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f16666f = i2;
+            this.f16676f = i2;
         }
     }
 
     public void e(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f16662b = aVar;
+            this.f16672b = aVar;
         }
     }
 
@@ -169,13 +169,13 @@ public class h extends PopupWindow {
     public void showAsDropDown(View view, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048581, this, view, i2, i3) == null) {
-            getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.f16665e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.f16665e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
+            getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.f16675e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.f16675e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
             int measuredWidth = getContentView().getMeasuredWidth();
             if (measuredWidth < view.getWidth()) {
                 measuredWidth = view.getWidth();
             }
             int measuredHeight = getContentView().getMeasuredHeight();
-            int i4 = this.f16666f;
+            int i4 = this.f16676f;
             if (measuredHeight > i4) {
                 measuredHeight = i4;
             }

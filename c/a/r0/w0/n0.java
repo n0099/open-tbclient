@@ -8,8 +8,4 @@ public interface n0 {
     void onPageStartIn();
 
     void refreshPage();
-
-    void setRecommendFrsNavigationAnimDispatcher(c.a.q0.d1.e0 e0Var);
-
-    void showFloatingView();
 }

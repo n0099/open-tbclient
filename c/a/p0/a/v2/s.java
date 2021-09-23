@@ -23,22 +23,22 @@ public final class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9407a;
+    public static final boolean f9415a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f9408b;
+    public static final Pattern f9416b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, Integer> f9409c;
+    public static HashMap<String, Integer> f9417c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, Integer> f9410d;
+    public static HashMap<String, Integer> f9418d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HashMap<String, String> f9411e;
+    public static HashMap<String, String> f9419e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static HashMap<String, String> f9412f;
+    public static HashMap<String, String> f9420f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,12 +54,12 @@ public final class s {
                 return;
             }
         }
-        f9407a = c.a.p0.a.k.f7077a;
-        f9408b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-        f9409c = new HashMap<>();
-        f9410d = new HashMap<>();
-        f9411e = new HashMap<>();
-        f9412f = new HashMap<>();
+        f9415a = c.a.p0.a.k.f7085a;
+        f9416b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+        f9417c = new HashMap<>();
+        f9418d = new HashMap<>();
+        f9419e = new HashMap<>();
+        f9420f = new HashMap<>();
         a("application/andrew-inset", "ez", 5);
         a("application/dsptype", "tsp", 5);
         a("application/futuresplash", "spl", 5);
@@ -384,13 +384,13 @@ public final class s {
     public static void a(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i2) == null) {
-            f9409c.put(str2, Integer.valueOf(i2));
-            f9410d.put(str, Integer.valueOf(i2));
-            f9411e.put(str2, str);
-            if (f9412f.containsKey(str)) {
+            f9417c.put(str2, Integer.valueOf(i2));
+            f9418d.put(str, Integer.valueOf(i2));
+            f9419e.put(str2, str);
+            if (f9420f.containsKey(str)) {
                 return;
             }
-            f9412f.put(str, str2);
+            f9420f.put(str, str2);
         }
     }
 
@@ -409,7 +409,7 @@ public final class s {
             if (str == null) {
                 return null;
             }
-            return f9412f.get(str);
+            return f9420f.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -421,7 +421,7 @@ public final class s {
             if (str == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f9411e.get(str);
+            return f9419e.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -431,13 +431,13 @@ public final class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
             try {
-                Matcher matcher = f9408b.matcher(str);
+                Matcher matcher = f9416b.matcher(str);
                 if (matcher.find()) {
                     return matcher.group(1);
                 }
                 return null;
             } catch (IllegalStateException e2) {
-                if (f9407a) {
+                if (f9415a) {
                     e2.printStackTrace();
                     return null;
                 }

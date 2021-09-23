@@ -164,7 +164,7 @@ public class Camera1Enumerator implements CameraEnumerator {
             if (cameraInfo == null) {
                 return null;
             }
-            String str = cameraInfo.facing == 1 ? "front" : d.l;
+            String str = cameraInfo.facing == 1 ? "front" : d.u;
             return "Camera " + i2 + ", Facing " + str + ", Orientation " + cameraInfo.orientation;
         }
         return (String) invokeI.objValue;

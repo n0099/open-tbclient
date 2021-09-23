@@ -18,7 +18,7 @@ public class D1 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f76778a;
+    public final /* synthetic */ Context f77097a;
 
     public D1(E1 e1, Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class D1 implements Runnable {
                 return;
             }
         }
-        this.f76778a = context;
+        this.f77097a = context;
     }
 
     @Override // java.lang.Runnable
@@ -44,7 +44,7 @@ public class D1 implements Runnable {
         String userAgentString;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context context = this.f76778a;
+            Context context = this.f77097a;
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
                     try {
@@ -67,16 +67,16 @@ public class D1 implements Runnable {
                     } catch (Exception unused2) {
                     }
                 }
-                Z1.f76944a = System.getProperty("http.agent");
+                Z1.f77263a = System.getProperty("http.agent");
                 if (Build.VERSION.SDK_INT >= 17) {
                     userAgentString = WebSettings.getDefaultUserAgent(context);
                 } else if (Looper.myLooper() != Looper.getMainLooper()) {
-                    X1.f76932a.post(new Y1(context));
+                    X1.f77251a.post(new Y1(context));
                     return;
                 } else {
                     userAgentString = new WebView(context).getSettings().getUserAgentString();
                 }
-                Z1.f76944a = userAgentString;
+                Z1.f77263a = userAgentString;
             } catch (Exception unused3) {
             }
         }

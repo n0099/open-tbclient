@@ -1,6 +1,7 @@
 package com.baidu.wallet.paysdk.fingerprint;
 
 import android.app.Activity;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,6 +76,8 @@ public interface IFingerprintPay extends Serializable {
     }
 
     void close(Activity activity, FingerprintCallback fingerprintCallback);
+
+    void closeFingerprint(Context context);
 
     void destory();
 

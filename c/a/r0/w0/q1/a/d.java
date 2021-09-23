@@ -41,10 +41,10 @@ public class d extends c.a.e.l.e.a<c.a.r0.w0.q1.c.b, ForumRuleDetailSelfVH> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.w0.q1.c.b f27586e;
+        public final /* synthetic */ c.a.r0.w0.q1.c.b f27606e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f27587f;
+        public final /* synthetic */ d f27607f;
 
         public a(d dVar, c.a.r0.w0.q1.c.b bVar) {
             Interceptable interceptable = $ic;
@@ -61,18 +61,18 @@ public class d extends c.a.e.l.e.a<c.a.r0.w0.q1.c.b, ForumRuleDetailSelfVH> {
                     return;
                 }
             }
-            this.f27587f = dVar;
-            this.f27586e = bVar;
+            this.f27607f = dVar;
+            this.f27606e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f27587f.o) {
-                    this.f27587f.o0();
+                if (this.f27607f.o) {
+                    this.f27607f.o0();
                 } else {
-                    this.f27587f.p0(this.f27586e);
+                    this.f27607f.p0(this.f27606e);
                 }
             }
         }

@@ -49,7 +49,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f57210a;
+        public final /* synthetic */ BuyTBeanActivity f57327a;
 
         public a(BuyTBeanActivity buyTBeanActivity) {
             Interceptable interceptable = $ic;
@@ -66,15 +66,15 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                     return;
                 }
             }
-            this.f57210a = buyTBeanActivity;
+            this.f57327a = buyTBeanActivity;
         }
 
         @Override // c.a.q0.p0.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.q0.p0.d.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(this.f57210a.mGiftBbean), c.a.q0.p0.c.f13644a) + "&refer_page=" + this.f57210a.mReferPage + "&click_zone=" + this.f57210a.mClickZone, this.f57210a.getPageContext());
-                this.f57210a.finish();
+                c.a.q0.p0.d.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(this.f57327a.mGiftBbean), c.a.q0.p0.c.f13640a) + "&refer_page=" + this.f57327a.mReferPage + "&click_zone=" + this.f57327a.mClickZone, this.f57327a.getPageContext());
+                this.f57327a.finish();
             }
         }
 
@@ -82,7 +82,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f57210a.mModel.J();
+                this.f57327a.mModel.J();
             }
         }
 
@@ -90,7 +90,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f57210a.mModel.J();
+                this.f57327a.mModel.J();
             }
         }
     }
@@ -101,7 +101,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f57211e;
+        public final /* synthetic */ BuyTBeanActivity f57328e;
 
         public b(BuyTBeanActivity buyTBeanActivity) {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                     return;
                 }
             }
-            this.f57211e = buyTBeanActivity;
+            this.f57328e = buyTBeanActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -136,7 +136,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f57212e;
+        public final /* synthetic */ BuyTBeanActivity f57329e;
 
         public c(BuyTBeanActivity buyTBeanActivity) {
             Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                     return;
                 }
             }
-            this.f57212e = buyTBeanActivity;
+            this.f57329e = buyTBeanActivity;
         }
 
         @Override // c.a.q0.s.s.a.e
@@ -161,7 +161,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f57212e.finish();
+                this.f57329e.finish();
             }
         }
     }
@@ -172,7 +172,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanActivity f57213a;
+        public final /* synthetic */ BuyTBeanActivity f57330a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(BuyTBeanActivity buyTBeanActivity, int i2) {
@@ -192,7 +192,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                     return;
                 }
             }
-            this.f57213a = buyTBeanActivity;
+            this.f57330a = buyTBeanActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -200,8 +200,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                if (this.f57213a.isFromDecreaseGiftStepStrategy == 1 || this.f57213a.isFromDecreaseGiftStepStrategy == 2 || this.f57213a.isFromDecreaseGiftStepStrategy == 3) {
-                    this.f57213a.closeActivity();
+                if (this.f57330a.isFromDecreaseGiftStepStrategy == 1 || this.f57330a.isFromDecreaseGiftStepStrategy == 2 || this.f57330a.isFromDecreaseGiftStepStrategy == 3) {
+                    this.f57330a.closeActivity();
                 }
             }
         }

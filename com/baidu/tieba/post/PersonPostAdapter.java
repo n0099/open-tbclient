@@ -18,13 +18,13 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f56185a;
+    public int[] f56302a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonThreadFragment f56186b;
+    public PersonThreadFragment f56303b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PersonReplyFragment f56187c;
+    public PersonReplyFragment f56304c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
@@ -49,15 +49,15 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
         bundle.putString(PersonPostActivity.KEY_EMPTYVIEW_TXT, personPostActivity.getEmptyViewText());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
-        this.f56187c = personReplyFragment;
+        this.f56304c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.f56187c.setNoNetRefreshListener(personPostActivity);
+        this.f56304c.setNoNetRefreshListener(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
-        this.f56186b = personThreadFragment;
+        this.f56303b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.f56186b.setNoNetRefreshListener(personPostActivity);
-        this.f56186b.setNavigationBarRedTipListener(personPostActivity);
-        this.f56185a = new int[]{0, 1};
+        this.f56303b.setNoNetRefreshListener(personPostActivity);
+        this.f56303b.setNavigationBarRedTipListener(personPostActivity);
+        this.f56302a = new int[]{0, 1};
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -79,9 +79,9 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
                 if (i2 != 1) {
                     return null;
                 }
-                return this.f56187c;
+                return this.f56304c;
             }
-            return this.f56186b;
+            return this.f56303b;
         }
         return (Fragment) invokeI.objValue;
     }
@@ -89,12 +89,12 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     public int getItemPageType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f56185a[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f56302a[i2] : invokeI.intValue;
     }
 
     public PersonThreadFragment getPersonThreadFragment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56186b : (PersonThreadFragment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56303b : (PersonThreadFragment) invokeV.objValue;
     }
 }

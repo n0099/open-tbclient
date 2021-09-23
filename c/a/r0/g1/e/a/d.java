@@ -68,7 +68,7 @@ public class d extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f17966e;
+        public final /* synthetic */ d f17976e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class d extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> {
                     return;
                 }
             }
-            this.f17966e = dVar;
+            this.f17976e = dVar;
         }
 
         @Override // c.a.e.l.e.w
@@ -95,8 +95,8 @@ public class d extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                 k kVar = (k) nVar;
                 kVar.k = 1;
-                if (this.f17966e.p != null) {
-                    this.f17966e.p.a(threadCardViewHolder.getView(), kVar);
+                if (this.f17976e.p != null) {
+                    this.f17976e.p.a(threadCardViewHolder.getView(), kVar);
                 }
                 c.a.r0.g1.e.e.a.b(kVar, view.getContext(), 18, false, c.a.l.e.a((s) viewGroup, view, i2));
                 threadCardViewHolder.getCardView().o(new a.C0095a(1));
@@ -156,7 +156,7 @@ public class d extends c.a.e.l.e.a<k, ThreadCardViewHolder<k>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, threadCardViewHolder})) == null) {
-            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15562e == null) {
+            if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.f15571e == null) {
                 return null;
             }
             kVar.K(kVar.position + 1);

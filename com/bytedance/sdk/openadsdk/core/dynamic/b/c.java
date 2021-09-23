@@ -23,23 +23,23 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Integer> f66323a;
+    public static final Map<String, Integer> f66634a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66324b;
+    public String f66635b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66325c;
+    public String f66636c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f66326d;
+    public d f66637d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f66327e;
+    public d f66638e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f66328f;
+    public String f66639f;
 
     static {
         InterceptResult invokeClinit;
@@ -55,41 +55,41 @@ public class c {
             }
         }
         HashMap hashMap = new HashMap();
-        f66323a = hashMap;
+        f66634a = hashMap;
         hashMap.put(PrefetchEvent.EVENT_DATA_ROOT_PATH, 8);
-        f66323a.put("title", 0);
-        f66323a.put(SubtitleLog.TAG, 0);
-        f66323a.put("source", 0);
-        f66323a.put("score-count", 0);
-        f66323a.put("text_star", 0);
-        f66323a.put("image", 1);
-        f66323a.put("image-wide", 1);
-        f66323a.put("image-square", 1);
-        f66323a.put("image-long", 1);
-        f66323a.put("image-splash", 1);
-        f66323a.put("image-cover", 1);
-        f66323a.put("app-icon", 1);
-        f66323a.put("icon-download", 1);
-        f66323a.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, 1);
-        f66323a.put("logoad", 4);
-        f66323a.put("logounion", 5);
-        f66323a.put("logo-union", 6);
-        f66323a.put("dislike", 3);
-        f66323a.put(IntentConfig.CLOSE, 3);
-        f66323a.put("close-fill", 3);
-        f66323a.put("text", 2);
-        f66323a.put("button", 2);
-        f66323a.put("downloadWithIcon", 2);
-        f66323a.put("downloadButton", 2);
-        f66323a.put("fillButton", 2);
-        f66323a.put("laceButton", 2);
-        f66323a.put("cardButton", 2);
-        f66323a.put("colourMixtureButton", 2);
-        f66323a.put("arrowButton", 2);
-        f66323a.put("vessel", 6);
-        f66323a.put("video-hd", 7);
-        f66323a.put("video", 7);
-        f66323a.put("video-vd", 7);
+        f66634a.put("title", 0);
+        f66634a.put(SubtitleLog.TAG, 0);
+        f66634a.put("source", 0);
+        f66634a.put("score-count", 0);
+        f66634a.put("text_star", 0);
+        f66634a.put("image", 1);
+        f66634a.put("image-wide", 1);
+        f66634a.put("image-square", 1);
+        f66634a.put("image-long", 1);
+        f66634a.put("image-splash", 1);
+        f66634a.put("image-cover", 1);
+        f66634a.put("app-icon", 1);
+        f66634a.put("icon-download", 1);
+        f66634a.put(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, 1);
+        f66634a.put("logoad", 4);
+        f66634a.put("logounion", 5);
+        f66634a.put("logo-union", 6);
+        f66634a.put("dislike", 3);
+        f66634a.put(IntentConfig.CLOSE, 3);
+        f66634a.put("close-fill", 3);
+        f66634a.put("text", 2);
+        f66634a.put("button", 2);
+        f66634a.put("downloadWithIcon", 2);
+        f66634a.put("downloadButton", 2);
+        f66634a.put("fillButton", 2);
+        f66634a.put("laceButton", 2);
+        f66634a.put("cardButton", 2);
+        f66634a.put("colourMixtureButton", 2);
+        f66634a.put("arrowButton", 2);
+        f66634a.put("vessel", 6);
+        f66634a.put("video-hd", 7);
+        f66634a.put("video", 7);
+        f66634a.put("video-vd", 7);
     }
 
     public c() {
@@ -110,14 +110,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f66324b)) {
+            if (TextUtils.isEmpty(this.f66635b)) {
                 return 0;
             }
-            if (this.f66324b.equals("logo")) {
-                this.f66324b += this.f66325c;
+            if (this.f66635b.equals("logo")) {
+                this.f66635b += this.f66636c;
             }
-            if (f66323a.get(this.f66324b) != null) {
-                return f66323a.get(this.f66324b).intValue();
+            if (f66634a.get(this.f66635b) != null) {
+                return f66634a.get(this.f66635b).intValue();
             }
             return 0;
         }
@@ -127,59 +127,59 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f66325c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f66636c : (String) invokeV.objValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f66328f = str;
+            this.f66639f = str;
         }
     }
 
     public d d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f66326d : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f66637d : (d) invokeV.objValue;
     }
 
     public d e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f66327e : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f66638e : (d) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f66325c = str;
+            this.f66636c = str;
         }
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66328f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f66639f : (String) invokeV.objValue;
     }
 
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f66327e = dVar;
+            this.f66638e = dVar;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f66324b = str;
+            this.f66635b = str;
         }
     }
 
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            this.f66326d = dVar;
+            this.f66637d = dVar;
         }
     }
 

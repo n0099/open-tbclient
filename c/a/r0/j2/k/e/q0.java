@@ -32,16 +32,16 @@ public class q0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f20198a;
+    public static final int f20213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f20199b;
+    public static final int f20214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f20200c;
+    public static final int[] f20215c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static TextView f20201d;
+    public static TextView f20216d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,9 +57,9 @@ public class q0 {
                 return;
             }
         }
-        f20198a = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        f20199b = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
-        f20200c = new int[]{R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
+        f20213a = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        f20214b = c.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
+        f20215c = new int[]{R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
     }
 
     public static void a(int i2, String str, TextView textView, TextView textView2, ImageView imageView, UserIconBox userIconBox, UserIconBox userIconBox2) {
@@ -68,11 +68,11 @@ public class q0 {
             return;
         }
         int measureText = (int) textView.getPaint().measureText(str);
-        int width = textView2.getVisibility() == 8 ? 0 : textView2.getWidth() + f20198a;
-        int width2 = imageView.getVisibility() == 8 ? 0 : imageView.getWidth() + f20198a;
-        int width3 = (i2 - (userIconBox2.getVisibility() == 8 ? 0 : (userIconBox2.getWidth() + f20199b) + f20198a)) - measureText;
+        int width = textView2.getVisibility() == 8 ? 0 : textView2.getWidth() + f20213a;
+        int width2 = imageView.getVisibility() == 8 ? 0 : imageView.getWidth() + f20213a;
+        int width3 = (i2 - (userIconBox2.getVisibility() == 8 ? 0 : (userIconBox2.getWidth() + f20214b) + f20213a)) - measureText;
         int i3 = width2 + width;
-        if (width3 > (userIconBox.getVisibility() != 8 ? userIconBox.getWidth() + f20198a : 0) + i3) {
+        if (width3 > (userIconBox.getVisibility() != 8 ? userIconBox.getWidth() + f20213a : 0) + i3) {
             return;
         }
         if (width3 > i3) {
@@ -90,7 +90,7 @@ public class q0 {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f20200c[new Random().nextInt(f20200c.length)] : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f20215c[new Random().nextInt(f20215c.length)] : invokeV.intValue;
     }
 
     public static SpannableString c(d2 d2Var) {
@@ -183,10 +183,10 @@ public class q0 {
             int k = c.a.e.e.p.l.k(context) - (c.a.e.e.p.l.g(context, R.dimen.tbds44) * 2);
             int contentSize = TbConfig.getContentSize();
             try {
-                if (f20201d == null) {
-                    f20201d = new TextView(TbadkCoreApplication.getInst().getContext());
+                if (f20216d == null) {
+                    f20216d = new TextView(TbadkCoreApplication.getInst().getContext());
                 }
-                TextView textView = f20201d;
+                TextView textView = f20216d;
                 if (textView.getLayoutParams() == null) {
                     textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 }

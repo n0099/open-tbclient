@@ -54,10 +54,10 @@ public class n1 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) || d2Var == null) {
             return;
         }
-        this.f14267a = d2Var.X0;
-        this.f14268b = d2Var.W0;
-        this.f14269c = d2Var.Y0;
-        this.f14270d = d2Var.Z0;
+        this.f14267a = d2Var.Y0;
+        this.f14268b = d2Var.X0;
+        this.f14269c = d2Var.Z0;
+        this.f14270d = d2Var.a1;
     }
 
     public void c(Intent intent) {
@@ -76,8 +76,8 @@ public class n1 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, oVar) == null) || oVar == null) {
             return;
         }
-        oVar.f23812g = this.f14267a;
-        oVar.f23811f = this.f14268b;
+        oVar.f23828g = this.f14267a;
+        oVar.f23827f = this.f14268b;
         oVar.l = this.f14269c;
         oVar.o = this.f14270d;
     }

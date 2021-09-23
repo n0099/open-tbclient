@@ -61,7 +61,7 @@ public class e extends c.a.r0.a0.b<c.a.r0.g1.k.a.c.d> {
         this.p = (TbImageView) j2.findViewById(R.id.topic_special_thread_img);
         this.q = (TextView) j2.findViewById(R.id.topic_special_thread_title);
         this.r = (TextView) j2.findViewById(R.id.topic_special_thread_discuss);
-        this.p.setRadius(l.g(this.f15550g, R.dimen.tbds10));
+        this.p.setRadius(l.g(this.f15559g, R.dimen.tbds10));
         this.p.setConrers(15);
         this.p.setPlaceHolder(2);
         this.n.setTopicOnClickListener(this);
@@ -91,17 +91,17 @@ public class e extends c.a.r0.a0.b<c.a.r0.g1.k.a.c.d> {
     public void onClick(View view) {
         c.a.r0.g1.k.a.c.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (dVar = this.s) == null || dVar.f18498i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (dVar = this.s) == null || dVar.f18507i == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c13354").param("tid", this.s.f18498i.D).param("topic_id", this.s.f18496g).param("obj_locate", this.s.f18495f));
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.f15549f.getPageActivity()).createFromThreadCfg(this.s.f18498i, null, "", 18005, true, false, false);
-        if (this.s.f18498i.Y() == null) {
-            createFromThreadCfg.setForumId(String.valueOf(this.s.f18498i.T()));
-            createFromThreadCfg.setForumName(this.s.f18498i.Z());
+        TiebaStatic.log(new StatisticItem("c13354").param("tid", this.s.f18507i.E).param("topic_id", this.s.f18505g).param("obj_locate", this.s.f18504f));
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.f15558f.getPageActivity()).createFromThreadCfg(this.s.f18507i, null, "", 18005, true, false, false);
+        if (this.s.f18507i.Y() == null) {
+            createFromThreadCfg.setForumId(String.valueOf(this.s.f18507i.T()));
+            createFromThreadCfg.setForumName(this.s.f18507i.Z());
         } else {
-            createFromThreadCfg.setForumId(this.s.f18498i.Y().getForumId());
-            createFromThreadCfg.setForumName(this.s.f18498i.Y().getForumName());
+            createFromThreadCfg.setForumId(this.s.f18507i.Y().getForumId());
+            createFromThreadCfg.setForumName(this.s.f18507i.Y().getForumName());
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
@@ -111,21 +111,21 @@ public class e extends c.a.r0.a0.b<c.a.r0.g1.k.a.c.d> {
     /* renamed from: p */
     public void k(c.a.r0.g1.k.a.c.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) || dVar == null || dVar.f18498i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) || dVar == null || dVar.f18507i == null) {
             return;
         }
         this.s = dVar;
-        if (dVar.f18494e) {
-            if (StringUtils.isNull(dVar.f18497h)) {
+        if (dVar.f18503e) {
+            if (StringUtils.isNull(dVar.f18506h)) {
                 this.o.setText(R.string.topic_special_title_default);
             } else {
-                this.o.setText(dVar.f18497h);
+                this.o.setText(dVar.f18506h);
             }
         }
-        this.o.setVisibility(dVar.f18494e ? 0 : 8);
+        this.o.setVisibility(dVar.f18503e ? 0 : 8);
         String str = null;
-        if (!ListUtils.isEmpty(dVar.f18498i.E0())) {
-            Iterator<MediaData> it = dVar.f18498i.E0().iterator();
+        if (!ListUtils.isEmpty(dVar.f18507i.E0())) {
+            Iterator<MediaData> it = dVar.f18507i.E0().iterator();
             while (it.hasNext()) {
                 MediaData next = it.next();
                 if (next != null && next.getType() == 3) {
@@ -149,12 +149,12 @@ public class e extends c.a.r0.a0.b<c.a.r0.g1.k.a.c.d> {
             this.p.reset();
         }
         this.p.startLoad(str, 10, false);
-        if (StringUtils.isNull(dVar.f18498i.getTitle())) {
+        if (StringUtils.isNull(dVar.f18507i.getTitle())) {
             this.q.setVisibility(8);
         } else {
             this.q.setVisibility(0);
-            this.q.setText(dVar.f18498i.getTitle());
+            this.q.setText(dVar.f18507i.getTitle());
         }
-        this.r.setText(String.format(this.f15550g.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.f18498i.U0())));
+        this.r.setText(String.format(this.f15559g.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.f18507i.U0())));
     }
 }

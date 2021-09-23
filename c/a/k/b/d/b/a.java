@@ -18,14 +18,14 @@ public class a implements WebKitFactory.WebkitInstallListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3738c = "a";
+    public static final String f3739c = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte f3739a;
+    public byte f3740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f3740b;
+    public long f3741b;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +67,7 @@ public class a implements WebKitFactory.WebkitInstallListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, loadErrorCode) == null) {
             WebKitFactory.setEngine(0);
-            BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.f3739a, loadErrorCode);
+            BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.f3740a, loadErrorCode);
         }
     }
 
@@ -76,14 +76,14 @@ public class a implements WebKitFactory.WebkitInstallListener {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
             return;
         }
-        this.f3739a = (byte) 0;
+        this.f3740a = (byte) 0;
         if (!str.startsWith("file://")) {
             str = "file://".concat(String.valueOf(str));
         }
         BdZeusUtil.printKernellog("install plugin from download");
         WebKitFactory.installAsync(str, this);
-        this.f3740b = System.currentTimeMillis();
-        Log.i(f3738c, "full update started!");
+        this.f3741b = System.currentTimeMillis();
+        Log.i(f3739c, "full update started!");
     }
 
     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
@@ -94,15 +94,15 @@ public class a implements WebKitFactory.WebkitInstallListener {
             Log.i("soar", "the return value of installing kernal is: ".concat(String.valueOf(i2)));
             BdZeusUtil.printKernellog("oninstalled: " + i2 + " targetpath: " + str);
             if (i2 == 0) {
-                Log.d(f3738c, "install success!");
-                BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.f3739a);
+                Log.d(f3739c, "install success!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.f3740a);
             } else {
-                Log.d(f3738c, "install failed!");
-                BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.f3739a, WebKitFactory.getLoadErrorCode());
+                Log.d(f3739c, "install failed!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.f3740a, WebKitFactory.getLoadErrorCode());
             }
             BdSailorPlatform.getWebkitManager().enableBdWebkit();
-            long currentTimeMillis = System.currentTimeMillis() - this.f3740b;
-            String str2 = f3738c;
+            long currentTimeMillis = System.currentTimeMillis() - this.f3741b;
+            String str2 = f3739c;
             Log.i(str2, "total timecost: " + String.valueOf(currentTimeMillis));
         }
     }

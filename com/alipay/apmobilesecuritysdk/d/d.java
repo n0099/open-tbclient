@@ -36,7 +36,7 @@ public final class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (d.class) {
                 com.alipay.security.mobile.module.b.d.a();
-                com.alipay.security.mobile.module.b.b.a();
+                com.alipay.security.mobile.module.b.b.b();
                 hashMap = new HashMap();
                 hashMap.put("AE1", com.alipay.security.mobile.module.b.d.b());
                 StringBuilder sb = new StringBuilder();

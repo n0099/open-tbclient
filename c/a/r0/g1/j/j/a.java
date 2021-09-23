@@ -17,7 +17,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<d2> f18463a;
+    public final List<d2> f18472a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a {
                 return;
             }
         }
-        this.f18463a = new ArrayList();
+        this.f18472a = new ArrayList();
     }
 
     public c a(boolean z, c.a.r0.g1.j.h.a aVar) {
@@ -40,25 +40,25 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, aVar)) == null) {
             c cVar = new c();
-            cVar.f18457c = aVar.i();
-            cVar.f18459e = aVar.a();
-            cVar.f18460f = aVar.c();
+            cVar.f18466c = aVar.i();
+            cVar.f18468e = aVar.a();
+            cVar.f18469f = aVar.c();
             ArrayList<d2> h2 = aVar.h();
             if (z) {
                 if (!ListUtils.isEmpty(h2)) {
-                    this.f18463a.clear();
-                    this.f18463a.addAll(h2);
+                    this.f18472a.clear();
+                    this.f18472a.addAll(h2);
                 }
             } else if (!ListUtils.isEmpty(h2)) {
-                this.f18463a.addAll(h2);
+                this.f18472a.addAll(h2);
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.f18463a);
+            arrayList.addAll(this.f18472a);
             c.a.r0.g1.j.a.c(true, arrayList, aVar.e());
             c.a.r0.g1.j.a.c(true, arrayList, aVar.f());
             c.a.r0.g1.j.a.c(true, arrayList, aVar.d());
             c.a.r0.g1.j.a.c(true, arrayList, aVar.g());
-            cVar.f18455a = c.a.r0.g1.j.a.a(arrayList);
+            cVar.f18464a = c.a.r0.g1.j.a.a(arrayList);
             return cVar;
         }
         return (c) invokeZL.objValue;
@@ -67,14 +67,14 @@ public class a {
     public List<d2> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18463a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18472a : (List) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<d2> list = this.f18463a;
+            List<d2> list = this.f18472a;
             if (list == null) {
                 return false;
             }

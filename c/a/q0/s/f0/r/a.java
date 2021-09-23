@@ -17,22 +17,22 @@ public class a extends ReplacementSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13886e;
+    public int f13882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13887f;
+    public int f13883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13888g;
+    public int f13884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13889h;
+    public int f13885h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13890i;
+    public int f13886i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f13891j;
+    public int f13887j;
     public int k;
     public int l;
     public int m;
@@ -53,11 +53,11 @@ public class a extends ReplacementSpan {
             }
         }
         this.m = 0;
-        this.f13887f = i2;
-        this.f13888g = i3;
-        this.f13889h = i4;
-        this.f13890i = i5;
-        this.f13891j = i6;
+        this.f13883f = i2;
+        this.f13884g = i3;
+        this.f13885h = i4;
+        this.f13886i = i5;
+        this.f13887j = i6;
         this.k = i7;
         this.l = i8;
     }
@@ -69,19 +69,19 @@ public class a extends ReplacementSpan {
             float textSize = paint.getTextSize();
             int color = paint.getColor();
             float f3 = f2 + this.l;
-            paint.setTextSize(this.f13889h);
-            paint.setColor(SkinManager.getColor(this.f13887f));
+            paint.setTextSize(this.f13885h);
+            paint.setColor(SkinManager.getColor(this.f13883f));
             paint.setAntiAlias(true);
             int i7 = i4 + i6;
-            int i8 = this.f13889h;
-            int i9 = this.f13888g;
+            int i8 = this.f13885h;
+            int i9 = this.f13884g;
             int i10 = this.k;
-            RectF rectF = new RectF(f3, (((i7 - i8) - i9) - i10) / 2, (this.f13886e + f3) - this.m, (((i7 + i8) + i9) + i10) / 2);
-            int i11 = this.f13888g;
+            RectF rectF = new RectF(f3, (((i7 - i8) - i9) - i10) / 2, (this.f13882e + f3) - this.m, (((i7 + i8) + i9) + i10) / 2);
+            int i11 = this.f13884g;
             canvas.drawRoundRect(rectF, i11, i11, paint);
-            paint.setColor(SkinManager.getColor(this.f13890i));
+            paint.setColor(SkinManager.getColor(this.f13886i));
             Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-            canvas.drawText(charSequence, i2, i3, f3 + this.f13888g + this.f13891j, (int) ((rectF.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), paint);
+            canvas.drawText(charSequence, i2, i3, f3 + this.f13884g + this.f13887j, (int) ((rectF.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), paint);
             paint.setTextSize(textSize);
             paint.setColor(color);
         }
@@ -93,10 +93,10 @@ public class a extends ReplacementSpan {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
             float textSize = paint.getTextSize();
-            paint.setTextSize(this.f13889h);
-            this.f13886e = (int) (paint.measureText(charSequence, i2, i3) + (this.f13888g * 2) + (this.f13891j * 2) + this.m);
+            paint.setTextSize(this.f13885h);
+            this.f13882e = (int) (paint.measureText(charSequence, i2, i3) + (this.f13884g * 2) + (this.f13887j * 2) + this.m);
             paint.setTextSize(textSize);
-            return this.f13886e;
+            return this.f13882e;
         }
         return invokeCommon.intValue;
     }

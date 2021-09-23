@@ -26,7 +26,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f10807a;
+    public static b f10815a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class b {
                 return;
             }
         }
-        f10807a = new b();
+        f10815a = new b();
     }
 
     public b() {
@@ -62,15 +62,15 @@ public class b {
     public static b n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f10807a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f10815a : (b) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             e eVar = new e();
-            eVar.f7064b = "beforeConfigRequest";
-            eVar.f7067e = str;
+            eVar.f7072b = "beforeConfigRequest";
+            eVar.f7075e = str;
             k.g(eVar);
         }
     }
@@ -83,9 +83,9 @@ public class b {
             String str6 = z != null ? z.targetAppPackageId : "";
             String str7 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7064b = str;
-            eVar.f7069g = "gbview";
-            eVar.f7067e = str2;
+            eVar.f7072b = str;
+            eVar.f7077g = "gbview";
+            eVar.f7075e = str2;
             eVar.a("gameAppkey", str3);
             eVar.a("gamePosition", str4);
             eVar.a("configName", str5);
@@ -103,12 +103,12 @@ public class b {
             String str3 = z != null ? z.targetAppPackageId : "";
             String str4 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7064b = str;
-            eVar.f7069g = "gbview";
+            eVar.f7072b = str;
+            eVar.f7077g = "gbview";
             eVar.a("configName", str2);
             eVar.a("targetPackageName", str3);
             eVar.a("targetDownloadUrl", str4);
-            if (str3.equals(c.a.p0.f.j.m.c.f10731a)) {
+            if (str3.equals(c.a.p0.f.j.m.c.f10739a)) {
                 if (q0.F(c.a.p0.a.c1.a.b(), str3)) {
                     eVar.a("isGamenowInstalled", "1");
                 } else {
@@ -123,8 +123,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), str2}) == null) {
             e eVar = new e();
-            eVar.f7064b = "request";
-            eVar.f7069g = "wdview";
+            eVar.f7072b = "request";
+            eVar.f7077g = "wdview";
             eVar.a("requestStatus", str);
             eVar.a("isFromNet", z ? "0" : "1");
             eVar.a("errMsg", str2);
@@ -142,13 +142,13 @@ public class b {
             String str7 = z != null ? z.configName : "";
             String str8 = z != null ? z.targetAppPackageId : "";
             String str9 = z != null ? z.targetAppDownloadUrl : "";
-            if (!TextUtils.equals(str8, c.a.p0.f.j.m.c.f10731a)) {
+            if (!TextUtils.equals(str8, c.a.p0.f.j.m.c.f10739a)) {
                 str6 = str9;
             }
             e eVar = new e();
-            eVar.f7064b = str;
-            eVar.f7069g = str2;
-            eVar.f7067e = str3;
+            eVar.f7072b = str;
+            eVar.f7077g = str2;
+            eVar.f7075e = str3;
             eVar.a("gameAppkey", str4);
             eVar.a("gamePosition", str5);
             eVar.a("configName", str7);
@@ -164,9 +164,9 @@ public class b {
             JSONObject d2 = w.d(str3);
             c cVar = new c();
             cVar.g(aVar);
-            cVar.f7064b = str;
-            cVar.f7069g = d2.optString("from_view");
-            cVar.f7067e = d2.optString("from_value");
+            cVar.f7072b = str;
+            cVar.f7077g = d2.optString("from_view");
+            cVar.f7075e = d2.optString("from_value");
             cVar.a("configName", d2.optString(GameGuideConfigInfo.KEY_CONFIG_NAME));
             cVar.a("targetPackageName", str2);
             cVar.a("targetDownloadUrl", str4);
@@ -182,9 +182,9 @@ public class b {
             long elapsedRealtime = optLong != 0 ? SystemClock.elapsedRealtime() - optLong : 0L;
             c cVar = new c();
             cVar.g(aVar);
-            cVar.f7067e = d2.optString("from_value");
-            cVar.f7064b = str;
-            cVar.f7069g = d2.optString("from_view");
+            cVar.f7075e = d2.optString("from_value");
+            cVar.f7072b = str;
+            cVar.f7077g = d2.optString("from_view");
             cVar.a("error_code", Integer.valueOf(i2));
             cVar.a("configName", d2.optString(GameGuideConfigInfo.KEY_CONFIG_NAME));
             if (elapsedRealtime != 0) {
@@ -220,8 +220,8 @@ public class b {
             String str2 = z != null ? z.targetAppPackageId : "";
             String str3 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7064b = "guideClick";
-            eVar.f7069g = "wdview";
+            eVar.f7072b = "guideClick";
+            eVar.f7077g = "wdview";
             eVar.a("guideViewNum", String.valueOf(i2));
             eVar.a("configName", str);
             eVar.a("targetPackageName", str2);
@@ -238,9 +238,9 @@ public class b {
             String str3 = z != null ? z.targetAppPackageId : "";
             String str4 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7064b = "wdDialogClick";
-            eVar.f7069g = "wdview";
-            eVar.f7067e = str;
+            eVar.f7072b = "wdDialogClick";
+            eVar.f7077g = "wdview";
+            eVar.f7075e = str;
             eVar.a("coinsThisTime", String.valueOf(i2));
             eVar.a("coinsTotal", String.valueOf(i3));
             eVar.a("configName", str2);
@@ -258,14 +258,14 @@ public class b {
             String str2 = z != null ? z.targetAppPackageId : "";
             String str3 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7064b = "wdDialogShow";
-            eVar.f7069g = "wdview";
+            eVar.f7072b = "wdDialogShow";
+            eVar.f7077g = "wdview";
             eVar.a("coinsThisTime", String.valueOf(i2));
             eVar.a("coinsTotal", String.valueOf(i3));
             eVar.a("configName", str);
             eVar.a("targetPackageName", str2);
             eVar.a("targetDownloadUrl", str3);
-            if (str2.equals(c.a.p0.f.j.m.c.f10731a)) {
+            if (str2.equals(c.a.p0.f.j.m.c.f10739a)) {
                 if (q0.F(c.a.p0.a.c1.a.b(), str2)) {
                     eVar.a("isGamenowInstalled", "1");
                 } else {
@@ -284,8 +284,8 @@ public class b {
             String str2 = z != null ? z.targetAppPackageId : "";
             String str3 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7064b = "guideShow";
-            eVar.f7069g = "wdview";
+            eVar.f7072b = "guideShow";
+            eVar.f7077g = "wdview";
             eVar.a("configName", str);
             eVar.a("targetPackageName", str2);
             eVar.a("targetDownloadUrl", str3);
@@ -301,8 +301,8 @@ public class b {
             String str4 = z != null ? z.targetAppPackageId : "";
             String str5 = z != null ? z.targetAppDownloadUrl : "";
             e eVar = new e();
-            eVar.f7069g = str;
-            eVar.f7067e = str2;
+            eVar.f7077g = str;
+            eVar.f7075e = str2;
             eVar.a("configName", str3);
             eVar.a("targetPackageName", str4);
             eVar.a("targetDownloadUrl", str5);
@@ -343,7 +343,7 @@ public class b {
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             String c2 = c.a.p0.h.t.a.b().c();
             JSONObject jSONObject = new JSONObject();
-            String str4 = TextUtils.equals(str, c.a.p0.f.j.m.c.f10731a) ? "2101000000" : "";
+            String str4 = TextUtils.equals(str, c.a.p0.f.j.m.c.f10739a) ? "2101000000" : "";
             c.a.p0.f.j.b bVar = c.a.p0.f.j.b.o;
             if (bVar != null && bVar.z() != null && !TextUtils.isEmpty(c.a.p0.f.j.b.o.z().gamenowChannel)) {
                 str4 = c.a.p0.f.j.b.o.z().gamenowChannel;

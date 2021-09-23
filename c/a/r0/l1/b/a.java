@@ -39,14 +39,14 @@ public class a extends c.a.q0.k0.f.a<FeedData, c.a.q0.k0.d.b> {
 
     /* renamed from: c.a.r0.l1.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC1028a implements View.OnClickListener {
+    public class View$OnClickListenerC1026a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21890e;
+        public final /* synthetic */ a f21904e;
 
-        public View$OnClickListenerC1028a(a aVar) {
+        public View$OnClickListenerC1026a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,14 +61,14 @@ public class a extends c.a.q0.k0.f.a<FeedData, c.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f21890e = aVar;
+            this.f21904e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21890e.d().dispatchMvcEvent(new c.a.q0.k0.c.b(ChatAggregationFragment.EVENT_TO_PERSON_CENTER, this.f21890e.c(), null, null));
+                this.f21904e.d().dispatchMvcEvent(new c.a.q0.k0.c.b(ChatAggregationFragment.EVENT_TO_PERSON_CENTER, this.f21904e.c(), null, null));
             }
         }
     }
@@ -79,7 +79,7 @@ public class a extends c.a.q0.k0.f.a<FeedData, c.a.q0.k0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21891e;
+        public final /* synthetic */ a f21905e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -96,15 +96,15 @@ public class a extends c.a.q0.k0.f.a<FeedData, c.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f21891e = aVar;
+            this.f21905e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                FeedData c2 = this.f21891e.c();
-                this.f21891e.d().dispatchMvcEvent(new c.a.q0.k0.c.b(ChatAggregationFragment.EVENT_TO_PB, c2, null, null));
+                FeedData c2 = this.f21905e.c();
+                this.f21905e.d().dispatchMvcEvent(new c.a.q0.k0.c.b(ChatAggregationFragment.EVENT_TO_PB, c2, null, null));
                 StatisticItem statisticItem = new StatisticItem("c13784");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("fname", c2.getFname());
@@ -121,7 +121,7 @@ public class a extends c.a.q0.k0.f.a<FeedData, c.a.q0.k0.d.b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21892e;
+        public final /* synthetic */ a f21906e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class a extends c.a.q0.k0.f.a<FeedData, c.a.q0.k0.d.b> {
                     return;
                 }
             }
-            this.f21892e = aVar;
+            this.f21906e = aVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -146,7 +146,7 @@ public class a extends c.a.q0.k0.f.a<FeedData, c.a.q0.k0.d.b> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                this.f21892e.d().dispatchMvcEvent(new c.a.q0.k0.c.b(ChatAggregationFragment.EVENT_TO_DELETE_AT_ME_ITEM, this.f21892e.c(), null, null));
+                this.f21906e.d().dispatchMvcEvent(new c.a.q0.k0.c.b(ChatAggregationFragment.EVENT_TO_DELETE_AT_ME_ITEM, this.f21906e.c(), null, null));
                 return true;
             }
             return invokeL.booleanValue;
@@ -183,12 +183,12 @@ public class a extends c.a.q0.k0.f.a<FeedData, c.a.q0.k0.d.b> {
         this.n = (TextView) view.findViewById(R.id.time);
         this.o = (TextView) view.findViewById(R.id.content);
         this.p = view.findViewById(R.id.line);
-        this.k.setOnClickListener(new View$OnClickListenerC1028a(this));
+        this.k.setOnClickListener(new View$OnClickListenerC1026a(this));
         view.setOnClickListener(new b(this));
         view.setOnLongClickListener(new c(this));
     }
 
-    @Override // c.a.r0.j3.t
+    @Override // c.a.r0.j3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

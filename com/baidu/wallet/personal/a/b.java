@@ -19,7 +19,7 @@ public class b extends a<CouponList.Coupon> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f63419c;
+    public Context f63730c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(ListView listView, Context context) {
@@ -39,14 +39,14 @@ public class b extends a<CouponList.Coupon> {
                 return;
             }
         }
-        this.f63419c = context;
+        this.f63730c = context;
     }
 
     @Override // com.baidu.wallet.personal.a.a
     public int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? ResUtils.layout(this.f63419c, "wallet_personal_coupon_group_item") : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? ResUtils.layout(this.f63730c, "wallet_personal_coupon_group_item") : invokeI.intValue;
     }
 
     @Override // com.baidu.wallet.personal.a.a
@@ -55,7 +55,7 @@ public class b extends a<CouponList.Coupon> {
         a.b<CouponList.Coupon> aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, view)) == null) {
-            CouponList.Coupon coupon = (CouponList.Coupon) this.f63415a.get(i2);
+            CouponList.Coupon coupon = (CouponList.Coupon) this.f63726a.get(i2);
             if (coupon != null) {
                 int i3 = coupon.coupon_list_show_formwork;
                 if (i3 != 5) {

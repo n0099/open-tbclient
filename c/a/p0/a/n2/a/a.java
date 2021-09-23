@@ -22,22 +22,22 @@ public class a implements SensorEventListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f7659e;
+    public Context f7667e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SensorManager f7660f;
+    public SensorManager f7668f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Sensor f7661g;
+    public Sensor f7669g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC0320a f7662h;
+    public InterfaceC0320a f7670h;
 
     /* renamed from: i  reason: collision with root package name */
-    public double[] f7663i;
+    public double[] f7671i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f7664j;
+    public boolean f7672j;
     public long k;
     public int l;
 
@@ -60,8 +60,8 @@ public class a implements SensorEventListener {
                 return;
             }
         }
-        this.f7663i = new double[3];
-        this.f7664j = false;
+        this.f7671i = new double[3];
+        this.f7672j = false;
         this.k = 0L;
     }
 
@@ -97,7 +97,7 @@ public class a implements SensorEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
             synchronized (this) {
-                this.f7659e = context;
+                this.f7667e = context;
                 this.l = i2;
             }
         }
@@ -108,10 +108,10 @@ public class a implements SensorEventListener {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 d.g("accelerometer", "release");
-                if (this.f7664j) {
+                if (this.f7672j) {
                     g();
                 }
-                this.f7659e = null;
+                this.f7667e = null;
                 m = null;
             }
         }
@@ -121,7 +121,7 @@ public class a implements SensorEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0320a) == null) {
             synchronized (this) {
-                this.f7662h = interfaceC0320a;
+                this.f7670h = interfaceC0320a;
             }
         }
     }
@@ -130,18 +130,18 @@ public class a implements SensorEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                if (this.f7659e == null) {
+                if (this.f7667e == null) {
                     d.b("accelerometer", "start error, none context");
-                } else if (this.f7664j) {
+                } else if (this.f7672j) {
                     d.l("accelerometer", "has already start");
                 } else {
-                    SensorManager sensorManager = (SensorManager) this.f7659e.getSystemService("sensor");
-                    this.f7660f = sensorManager;
+                    SensorManager sensorManager = (SensorManager) this.f7667e.getSystemService("sensor");
+                    this.f7668f = sensorManager;
                     if (sensorManager != null) {
                         Sensor defaultSensor = sensorManager.getDefaultSensor(1);
-                        this.f7661g = defaultSensor;
-                        this.f7660f.registerListener(this, defaultSensor, 1);
-                        this.f7664j = true;
+                        this.f7669g = defaultSensor;
+                        this.f7668f.registerListener(this, defaultSensor, 1);
+                        this.f7672j = true;
                         d.g("accelerometer", "start listen");
                     } else {
                         d.b("accelerometer", "none sensorManager");
@@ -155,16 +155,16 @@ public class a implements SensorEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                if (!this.f7664j) {
+                if (!this.f7672j) {
                     d.l("accelerometer", "has already stop");
                     return;
                 }
-                if (this.f7660f != null) {
-                    this.f7660f.unregisterListener(this);
+                if (this.f7668f != null) {
+                    this.f7668f.unregisterListener(this);
                 }
-                this.f7660f = null;
-                this.f7661g = null;
-                this.f7664j = false;
+                this.f7668f = null;
+                this.f7669g = null;
+                this.f7672j = false;
             }
         }
     }
@@ -186,15 +186,15 @@ public class a implements SensorEventListener {
         float[] fArr = sensorEvent.values;
         if (fArr != null && fArr.length == 3) {
             synchronized (this) {
-                if (this.f7664j && this.f7662h != null && System.currentTimeMillis() - this.k > this.l) {
-                    this.f7663i[0] = (-sensorEvent.values[0]) / 9.8d;
-                    this.f7663i[1] = (-sensorEvent.values[1]) / 9.8d;
-                    this.f7663i[2] = (-sensorEvent.values[2]) / 9.8d;
-                    this.f7662h.a(this.f7663i);
+                if (this.f7672j && this.f7670h != null && System.currentTimeMillis() - this.k > this.l) {
+                    this.f7671i[0] = (-sensorEvent.values[0]) / 9.8d;
+                    this.f7671i[1] = (-sensorEvent.values[1]) / 9.8d;
+                    this.f7671i[2] = (-sensorEvent.values[2]) / 9.8d;
+                    this.f7670h.a(this.f7671i);
                     this.k = System.currentTimeMillis();
                 }
                 if (e.y) {
-                    String str = "current Time : " + this.k + "current Acc x : " + this.f7663i[0] + "current Acc y : " + this.f7663i[1] + "current Acc z : " + this.f7663i[2];
+                    String str = "current Time : " + this.k + "current Acc x : " + this.f7671i[0] + "current Acc y : " + this.f7671i[1] + "current Acc z : " + this.f7671i[2];
                 }
             }
             return;

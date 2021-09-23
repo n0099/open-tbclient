@@ -12,10 +12,10 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f30461a;
+    public static int f30482a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<LiveBaseFragment> f30462b;
+    public static WeakReference<LiveBaseFragment> f30483b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,17 +36,17 @@ public class f {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f30461a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f30482a : invokeV.intValue;
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f30461a = 0;
-            WeakReference<LiveBaseFragment> weakReference = f30462b;
+            f30482a = 0;
+            WeakReference<LiveBaseFragment> weakReference = f30483b;
             if (weakReference != null) {
                 weakReference.clear();
-                f30462b = null;
+                f30483b = null;
             }
         }
     }
@@ -54,7 +54,7 @@ public class f {
     public static void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
-            f30461a = i2;
+            f30482a = i2;
         }
     }
 }

@@ -18,10 +18,10 @@ public class PromptImageDialog extends WalletDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageDialogModel f60711a;
+    public ImageDialogModel f60828a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f60712b;
+    public View.OnClickListener f60829b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PromptImageDialog(Context context) {
@@ -42,13 +42,13 @@ public class PromptImageDialog extends WalletDialog {
                 return;
             }
         }
-        this.f60711a = new ImageDialogModel();
-        this.f60712b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+        this.f60828a = new ImageDialogModel();
+        this.f60829b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PromptImageDialog f60713a;
+            public final /* synthetic */ PromptImageDialog f60830a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,14 +65,14 @@ public class PromptImageDialog extends WalletDialog {
                         return;
                     }
                 }
-                this.f60713a = this;
+                this.f60830a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f60713a.dismiss();
+                    this.f60830a.dismiss();
                 }
             }
         };
@@ -82,8 +82,8 @@ public class PromptImageDialog extends WalletDialog {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            ImageDialogModel imageDialogModel = this.f60711a;
-            imageDialogModel.defaultClickListener = this.f60712b;
+            ImageDialogModel imageDialogModel = this.f60828a;
+            imageDialogModel.defaultClickListener = this.f60829b;
             setAdapter(new ImageDialogAdapter(imageDialogModel));
         }
     }
@@ -91,70 +91,70 @@ public class PromptImageDialog extends WalletDialog {
     public void setButtonText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f60711a.buttonText = str;
+            this.f60828a.buttonText = str;
         }
     }
 
     public void setImage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f60711a.imageId = i2;
+            this.f60828a.imageId = i2;
         }
     }
 
     public void setMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f60711a.messageId = i2;
+            this.f60828a.messageId = i2;
         }
     }
 
     public void setMessageTemp(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f60711a.messageTemp = str;
+            this.f60828a.messageTemp = str;
         }
     }
 
     public void setTitleMessage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f60711a.titleTextId = i2;
+            this.f60828a.titleTextId = i2;
         }
     }
 
     public void setButtonText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f60711a.buttonTextId = i2;
+            this.f60828a.buttonTextId = i2;
         }
     }
 
     public void setImage(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
-            this.f60711a.imageDrawable = drawable;
+            this.f60828a.imageDrawable = drawable;
         }
     }
 
     public void setMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f60711a.message = str;
+            this.f60828a.message = str;
         }
     }
 
     public void setMessageTemp(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f60711a.messageTempId = i2;
+            this.f60828a.messageTempId = i2;
         }
     }
 
     public void setTitleMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f60711a.titleText = str;
+            this.f60828a.titleText = str;
         }
     }
 
@@ -177,13 +177,13 @@ public class PromptImageDialog extends WalletDialog {
                 return;
             }
         }
-        this.f60711a = new ImageDialogModel();
-        this.f60712b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+        this.f60828a = new ImageDialogModel();
+        this.f60829b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PromptImageDialog f60713a;
+            public final /* synthetic */ PromptImageDialog f60830a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -200,14 +200,14 @@ public class PromptImageDialog extends WalletDialog {
                         return;
                     }
                 }
-                this.f60713a = this;
+                this.f60830a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f60713a.dismiss();
+                    this.f60830a.dismiss();
                 }
             }
         };

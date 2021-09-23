@@ -79,6 +79,6 @@ public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMess
         this.page = dataRes.page;
         d dVar = new d();
         this.hotThreadItemListData = dVar;
-        dVar.S4(getTopicRelateThreadResIdl.data);
+        dVar.R4(getTopicRelateThreadResIdl.data);
     }
 }

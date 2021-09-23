@@ -23,10 +23,10 @@ public class d extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f20000f;
+    public LinearLayout f20015f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20001g;
+    public TextView f20016g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(TbPageContext tbPageContext, int i2) {
@@ -53,10 +53,10 @@ public class d extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.f19983a.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
-            this.f20000f = linearLayout;
-            this.f20001g = (TextView) linearLayout.findViewById(R.id.text);
-            return this.f20000f;
+            LinearLayout linearLayout = (LinearLayout) this.f19998a.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
+            this.f20015f = linearLayout;
+            this.f20016g = (TextView) linearLayout.findViewById(R.id.text);
+            return this.f20015f;
         }
         return (View) invokeV.objValue;
     }
@@ -64,20 +64,20 @@ public class d extends a {
     @Override // c.a.r0.j2.k.e.d1.a
     public void b(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f19987e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) || this.f20002e == i2) {
             return;
         }
-        this.f19987e = i2;
-        SkinManager.setBackgroundColor(this.f20000f, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.f20001g, R.color.CAM_X0105);
+        this.f20002e = i2;
+        SkinManager.setBackgroundColor(this.f20015f, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.f20016g, R.color.CAM_X0105);
     }
 
     @Override // c.a.r0.j2.k.e.d1.a
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.f20001g.setText(new SpannableString(originalThreadInfo.f47423g));
-            SkinManager.setViewTextColor(this.f20001g, R.color.CAM_X0105);
+            this.f20016g.setText(new SpannableString(originalThreadInfo.f47525g));
+            SkinManager.setViewTextColor(this.f20016g, R.color.CAM_X0105);
         }
     }
 

@@ -25,28 +25,28 @@ public class i implements c.a.r0.f.b.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Object> f29476a;
+    public List<Object> f29496a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.f.e.c f29477b;
+    public c.a.r0.f.e.c f29497b;
 
     /* renamed from: c  reason: collision with root package name */
-    public u f29478c;
+    public u f29498c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.e.l.e.a f29479d;
+    public c.a.e.l.e.a f29499d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.e.l.e.a f29480e;
+    public c.a.e.l.e.a f29500e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.l.e.a f29481f;
+    public c.a.e.l.e.a f29501f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.e.l.e.a f29482g;
+    public c.a.e.l.e.a f29502g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.e.l.e.a f29483h;
+    public c.a.e.l.e.a f29503h;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -82,11 +82,11 @@ public class i implements c.a.r0.f.b.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(Integer.valueOf(AdvertAppInfo.t4.getId()));
-            arrayList.add(Integer.valueOf(AdvertAppInfo.q4.getId()));
             arrayList.add(Integer.valueOf(AdvertAppInfo.u4.getId()));
+            arrayList.add(Integer.valueOf(AdvertAppInfo.r4.getId()));
             arrayList.add(Integer.valueOf(AdvertAppInfo.v4.getId()));
             arrayList.add(Integer.valueOf(AdvertAppInfo.w4.getId()));
+            arrayList.add(Integer.valueOf(AdvertAppInfo.x4.getId()));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -108,23 +108,23 @@ public class i implements c.a.r0.f.b.d {
                 Object a3 = cVar.a();
                 for (c.a.e.l.e.n nVar : a2) {
                     if (a3 != null && cVar.c() == 3 && (a3 instanceof AdvertAppInfo) && nVar != null && (nVar instanceof AdvertAppInfo) && a3.hashCode() == nVar.hashCode()) {
-                        ((AdvertAppInfo) a3).f4 = ((AdvertAppInfo) nVar).f4;
+                        ((AdvertAppInfo) a3).g4 = ((AdvertAppInfo) nVar).g4;
                     }
                 }
                 if (a3 != null && cVar.c() == 3 && (a3 instanceof AdvertAppInfo)) {
                     AdvertAppInfo advertAppInfo = (AdvertAppInfo) a3;
-                    if (advertAppInfo.f4 == null) {
+                    if (advertAppInfo.g4 == null) {
                         c.a.q0.s.q.e eVar = new c.a.q0.s.q.e();
-                        advertAppInfo.f4 = eVar;
+                        advertAppInfo.g4 = eVar;
                         eVar.f14143a = "FRS";
                         eVar.f14145c = String.valueOf(z);
-                        c.a.q0.s.q.e eVar2 = advertAppInfo.f4;
+                        c.a.q0.s.q.e eVar2 = advertAppInfo.g4;
                         eVar2.f14144b = i2;
                         eVar2.f14146d = str;
                         eVar2.f14147e = str2;
                         eVar2.f14148f = str3;
                         eVar2.f14149g = str4;
-                        eVar2.f14150h = advertAppInfo.d4;
+                        eVar2.f14150h = advertAppInfo.e4;
                         eVar2.f14151i = false;
                         hashSet.add(advertAppInfo);
                     }
@@ -143,16 +143,16 @@ public class i implements c.a.r0.f.b.d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, viewGroup, obj)) == null) {
             if (obj instanceof AdvertAppInfo) {
                 BdUniqueId type = ((AdvertAppInfo) obj).getType();
-                if (type == AdvertAppInfo.t4) {
-                    aVar = this.f29480e;
-                } else if (type == AdvertAppInfo.q4) {
-                    aVar = this.f29479d;
-                } else if (type == AdvertAppInfo.u4) {
-                    aVar = this.f29481f;
+                if (type == AdvertAppInfo.u4) {
+                    aVar = this.f29500e;
+                } else if (type == AdvertAppInfo.r4) {
+                    aVar = this.f29499d;
                 } else if (type == AdvertAppInfo.v4) {
-                    aVar = this.f29482g;
+                    aVar = this.f29501f;
+                } else if (type == AdvertAppInfo.w4) {
+                    aVar = this.f29502g;
                 } else {
-                    aVar = type == AdvertAppInfo.w4 ? this.f29483h : null;
+                    aVar = type == AdvertAppInfo.x4 ? this.f29503h : null;
                 }
                 if (aVar != null) {
                     return aVar.V(viewGroup, obj);
@@ -167,11 +167,11 @@ public class i implements c.a.r0.f.b.d {
     @Override // c.a.r0.f.b.d
     public void h(List<c.a.r0.f.b.c> list, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, list, i2) == null) || c.a.r0.p1.o.k.a.e(this.f29476a)) {
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, list, i2) == null) || c.a.r0.p1.o.k.a.e(this.f29496a)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (Object obj : this.f29476a) {
+        for (Object obj : this.f29496a) {
             if (obj instanceof AdvertAppInfo) {
                 c.a.r0.p1.o.k.a.a(arrayList, (AdvertAppInfo) obj);
             }
@@ -199,12 +199,12 @@ public class i implements c.a.r0.f.b.d {
         int i6 = 0;
         while (i6 < k2) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) c.a.r0.p1.o.k.a.d(arrayList, i6);
-            advertAppInfo.g4 = "FRS";
-            int T4 = advertAppInfo.T4();
-            if (T4 != 0) {
-                c.a.r0.y2.l0.d.h(advertAppInfo, i2, T4);
-                if (T4 != 28 && T4 != 31) {
-                    advertAppInfo.Y3 = -1001;
+            advertAppInfo.h4 = "FRS";
+            int S4 = advertAppInfo.S4();
+            if (S4 != 0) {
+                c.a.r0.y2.l0.d.h(advertAppInfo, i2, S4);
+                if (S4 != 28 && S4 != 31) {
+                    advertAppInfo.Z3 = -1001;
                 }
                 i6++;
                 i3 = 0;
@@ -212,7 +212,7 @@ public class i implements c.a.r0.f.b.d {
             if (advertAppInfo.getType() == null) {
                 c.a.r0.y2.l0.d.h(advertAppInfo, i2, 100);
             } else {
-                int e2 = (c.a.e.e.m.b.e(advertAppInfo.c4, i3) + i4) - 1;
+                int e2 = (c.a.e.e.m.b.e(advertAppInfo.d4, i3) + i4) - 1;
                 if (hashSet.contains(Integer.valueOf(e2))) {
                     c.a.r0.y2.l0.d.h(advertAppInfo, i2, 29);
                 } else if (e2 < 0) {
@@ -224,10 +224,10 @@ public class i implements c.a.r0.f.b.d {
                     cVar2.d(advertAppInfo);
                     cVar2.e(advertAppInfo.getType().getId());
                     cVar2.f(3);
-                    if (advertAppInfo.Q4()) {
-                        if (z.q(advertAppInfo.o4) && c.a.r0.a.h().D()) {
+                    if (advertAppInfo.P4()) {
+                        if (z.q(advertAppInfo.p4) && c.a.r0.a.h().D()) {
                             c.a.r0.y2.l0.d.h(advertAppInfo, i2, 3);
-                        } else if (!TextUtils.isEmpty(advertAppInfo.o4) && !TextUtils.isEmpty(advertAppInfo.j4)) {
+                        } else if (!TextUtils.isEmpty(advertAppInfo.p4) && !TextUtils.isEmpty(advertAppInfo.k4)) {
                             hashSet.add(Integer.valueOf(e2));
                             if (e2 < k) {
                                 c.a.r0.p1.o.k.a.b(list, cVar2, e2);
@@ -235,7 +235,7 @@ public class i implements c.a.r0.f.b.d {
                                 c.a.r0.p1.o.k.a.a(list, cVar2);
                             }
                         }
-                    } else if (advertAppInfo.S4()) {
+                    } else if (advertAppInfo.R4()) {
                         hashSet.add(Integer.valueOf(e2));
                         if (e2 < k) {
                             c.a.r0.p1.o.k.a.b(list, cVar2, e2);
@@ -256,7 +256,7 @@ public class i implements c.a.r0.f.b.d {
     public void j(List<Object> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f29476a = list;
+            this.f29496a = list;
         }
     }
 
@@ -269,16 +269,16 @@ public class i implements c.a.r0.f.b.d {
             if (obj instanceof AdvertAppInfo) {
                 AdvertAppInfo advertAppInfo = (AdvertAppInfo) obj;
                 BdUniqueId type = advertAppInfo.getType();
-                if (type == AdvertAppInfo.t4) {
-                    aVar = this.f29480e;
-                } else if (type == AdvertAppInfo.q4) {
-                    aVar = this.f29479d;
-                } else if (type == AdvertAppInfo.u4) {
-                    aVar = this.f29481f;
+                if (type == AdvertAppInfo.u4) {
+                    aVar = this.f29500e;
+                } else if (type == AdvertAppInfo.r4) {
+                    aVar = this.f29499d;
                 } else if (type == AdvertAppInfo.v4) {
-                    aVar = this.f29482g;
+                    aVar = this.f29501f;
+                } else if (type == AdvertAppInfo.w4) {
+                    aVar = this.f29502g;
                 } else {
-                    aVar = type == AdvertAppInfo.w4 ? this.f29483h : null;
+                    aVar = type == AdvertAppInfo.x4 ? this.f29503h : null;
                 }
                 if (aVar != null) {
                     return aVar.L(i2, view, viewGroup, advertAppInfo);
@@ -296,16 +296,16 @@ public class i implements c.a.r0.f.b.d {
         if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), viewGroup, viewHolder, obj}) == null) && (obj instanceof AdvertAppInfo)) {
             c.a.e.l.e.a aVar = null;
             BdUniqueId type = ((AdvertAppInfo) obj).getType();
-            if (type == AdvertAppInfo.t4) {
-                aVar = this.f29480e;
-            } else if (type == AdvertAppInfo.q4) {
-                aVar = this.f29479d;
-            } else if (type == AdvertAppInfo.u4) {
-                aVar = this.f29481f;
+            if (type == AdvertAppInfo.u4) {
+                aVar = this.f29500e;
+            } else if (type == AdvertAppInfo.r4) {
+                aVar = this.f29499d;
             } else if (type == AdvertAppInfo.v4) {
-                aVar = this.f29482g;
+                aVar = this.f29501f;
             } else if (type == AdvertAppInfo.w4) {
-                aVar = this.f29483h;
+                aVar = this.f29502g;
+            } else if (type == AdvertAppInfo.x4) {
+                aVar = this.f29503h;
             }
             if (aVar != null) {
                 aVar.b0(i2, viewGroup, viewHolder, obj);
@@ -320,11 +320,11 @@ public class i implements c.a.r0.f.b.d {
         int i4;
         int e2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{list, list2, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || c.a.r0.p1.o.k.a.e(this.f29476a)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{list, list2, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || c.a.r0.p1.o.k.a.e(this.f29496a)) {
             return;
         }
         ArrayList arrayList2 = new ArrayList();
-        for (Object obj : this.f29476a) {
+        for (Object obj : this.f29496a) {
             if (obj instanceof AdvertAppInfo) {
                 c.a.r0.p1.o.k.a.a(arrayList2, (AdvertAppInfo) obj);
             }
@@ -348,21 +348,21 @@ public class i implements c.a.r0.f.b.d {
             return;
         }
         int i7 = 9;
-        if (c.a.r0.p1.o.k.a.k(arrayList2) > 1 && (e2 = (c.a.e.e.m.b.e(((AdvertAppInfo) c.a.r0.p1.o.k.a.d(arrayList2, 1)).c4, 0) - c.a.e.e.m.b.e(((AdvertAppInfo) c.a.r0.p1.o.k.a.d(arrayList2, 0)).c4, 0)) - 1) > 0) {
+        if (c.a.r0.p1.o.k.a.k(arrayList2) > 1 && (e2 = (c.a.e.e.m.b.e(((AdvertAppInfo) c.a.r0.p1.o.k.a.d(arrayList2, 1)).d4, 0) - c.a.e.e.m.b.e(((AdvertAppInfo) c.a.r0.p1.o.k.a.d(arrayList2, 0)).d4, 0)) - 1) > 0) {
             i7 = e2;
         }
-        int e3 = c.a.e.e.m.b.e(((AdvertAppInfo) c.a.r0.p1.o.k.a.d(arrayList2, 0)).c4, 0) - 1;
+        int e3 = c.a.e.e.m.b.e(((AdvertAppInfo) c.a.r0.p1.o.k.a.d(arrayList2, 0)).d4, 0) - 1;
         int i8 = k - i6;
         HashSet hashSet = new HashSet();
         int i9 = 0;
         while (i9 < k2) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) c.a.r0.p1.o.k.a.d(arrayList2, i9);
-            advertAppInfo.g4 = "SMART_FRS";
-            int T4 = advertAppInfo.T4();
-            if (T4 != 0) {
-                c.a.r0.y2.l0.d.h(advertAppInfo, i2, T4);
-                if (T4 != 28 && T4 != 31) {
-                    advertAppInfo.Y3 = -1001;
+            advertAppInfo.h4 = "SMART_FRS";
+            int S4 = advertAppInfo.S4();
+            if (S4 != 0) {
+                c.a.r0.y2.l0.d.h(advertAppInfo, i2, S4);
+                if (S4 != 28 && S4 != 31) {
+                    advertAppInfo.Z3 = -1001;
                 }
                 arrayList = arrayList2;
                 i9++;
@@ -376,7 +376,7 @@ public class i implements c.a.r0.f.b.d {
                 arrayList2 = arrayList;
                 i5 = 0;
             } else {
-                int e4 = c.a.e.e.m.b.e(advertAppInfo.c4, i5);
+                int e4 = c.a.e.e.m.b.e(advertAppInfo.d4, i5);
                 int i10 = (e4 + i6) - 1;
                 if (i10 < 0 || hashSet.contains(Integer.valueOf(i10)) || i10 > k) {
                     arrayList = arrayList2;
@@ -426,10 +426,10 @@ public class i implements c.a.r0.f.b.d {
                     cVar2.d(advertAppInfo);
                     cVar2.e(advertAppInfo.getType().getId());
                     cVar2.f(3);
-                    if (advertAppInfo.Q4()) {
-                        if (z.q(advertAppInfo.o4) && c.a.r0.a.h().D()) {
+                    if (advertAppInfo.P4()) {
+                        if (z.q(advertAppInfo.p4) && c.a.r0.a.h().D()) {
                             c.a.r0.y2.l0.d.h(advertAppInfo, i2, 3);
-                        } else if (!TextUtils.isEmpty(advertAppInfo.o4) && !TextUtils.isEmpty(advertAppInfo.j4)) {
+                        } else if (!TextUtils.isEmpty(advertAppInfo.p4) && !TextUtils.isEmpty(advertAppInfo.k4)) {
                             hashSet.add(Integer.valueOf(i10));
                             if (i10 < k) {
                                 c.a.r0.p1.o.k.a.b(list, cVar2, i10);
@@ -437,7 +437,7 @@ public class i implements c.a.r0.f.b.d {
                                 c.a.r0.p1.o.k.a.a(list, cVar2);
                             }
                         }
-                    } else if (advertAppInfo.S4()) {
+                    } else if (advertAppInfo.R4()) {
                         hashSet.add(Integer.valueOf(i10));
                         if (i10 < k) {
                             c.a.r0.p1.o.k.a.b(list, cVar2, i10);
@@ -459,16 +459,16 @@ public class i implements c.a.r0.f.b.d {
     public void o(c.a.r0.f.e.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            this.f29477b = cVar;
+            this.f29497b = cVar;
             if (cVar == null || !(cVar.a() instanceof u)) {
                 return;
             }
-            this.f29478c = (u) this.f29477b.a();
-            this.f29479d = new c.a.r0.y2.c0.c(this.f29478c, AdvertAppInfo.q4);
-            this.f29480e = new c.a.r0.y2.c0.d(this.f29478c, AdvertAppInfo.t4);
-            this.f29481f = new c.a.r0.y2.c0.d(this.f29478c, AdvertAppInfo.u4);
-            this.f29482g = new c.a.r0.y2.c0.d(this.f29478c, AdvertAppInfo.v4);
-            this.f29483h = new c.a.r0.y2.c0.d(this.f29478c, AdvertAppInfo.w4);
+            this.f29498c = (u) this.f29497b.a();
+            this.f29499d = new c.a.r0.y2.c0.c(this.f29498c, AdvertAppInfo.r4);
+            this.f29500e = new c.a.r0.y2.c0.d(this.f29498c, AdvertAppInfo.u4);
+            this.f29501f = new c.a.r0.y2.c0.d(this.f29498c, AdvertAppInfo.v4);
+            this.f29502g = new c.a.r0.y2.c0.d(this.f29498c, AdvertAppInfo.w4);
+            this.f29503h = new c.a.r0.y2.c0.d(this.f29498c, AdvertAppInfo.x4);
         }
     }
 }

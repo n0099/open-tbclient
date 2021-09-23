@@ -87,20 +87,20 @@ public abstract class m extends com.kwad.sdk.core.network.a<n> {
             }
             try {
                 cVar = KsAdSDKImpl.get().getProxyForHttp().doPost(str, (Map<String, String>) null, b2.e());
-                if (cVar == null || cVar.f71982a != 200) {
+                if (cVar == null || cVar.f72301a != 200) {
                     str2 = "report fail result is null";
                 } else {
-                    str2 = "report success actionType:" + b2.f72211b;
+                    str2 = "report success actionType:" + b2.f72530b;
                 }
                 com.kwad.sdk.core.d.a.a("ReportNetwork", str2);
                 a(b2);
             } catch (Exception e3) {
                 e = e3;
                 com.kwad.sdk.core.d.a.a(e);
-                if (com.kwad.sdk.b.f71167b.booleanValue()) {
+                if (com.kwad.sdk.b.f71486b.booleanValue()) {
                 }
             }
-            if (com.kwad.sdk.b.f71167b.booleanValue()) {
+            if (com.kwad.sdk.b.f71486b.booleanValue()) {
                 return;
             }
             BaseResultData baseResultData = new BaseResultData(this) { // from class: com.kwad.sdk.core.report.ReportNetwork$1
@@ -136,7 +136,7 @@ public abstract class m extends com.kwad.sdk.core.network.a<n> {
             };
             if (cVar != null) {
                 try {
-                    baseResultData.parseJson(new JSONObject(cVar.f71983b));
+                    baseResultData.parseJson(new JSONObject(cVar.f72302b));
                 } catch (JSONException e4) {
                     e4.printStackTrace();
                 }

@@ -33,22 +33,22 @@ public class l implements c.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<SelectForumActivity> f21784e;
+    public TbPageContext<SelectForumActivity> f21798e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21785f;
+    public String f21799f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NavigationBar f21786g;
+    public NavigationBar f21800g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f21787h;
+    public ImageView f21801h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f21788i;
+    public LinearLayout f21802i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbTabLayout f21789j;
+    public TbTabLayout f21803j;
     public BdBaseViewPager k;
     public SelectForumPagerAdapter l;
     public Intent m;
@@ -60,7 +60,7 @@ public class l implements c.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f21790e;
+        public final /* synthetic */ l f21804e;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class l implements c.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
                     return;
                 }
             }
-            this.f21790e = lVar;
+            this.f21804e = lVar;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f21790e.n = i2 == 0;
+                this.f21804e.n = i2 == 0;
             }
         }
 
@@ -118,13 +118,13 @@ public class l implements c.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
                 return;
             }
         }
-        this.f21784e = tbPageContext;
-        this.f21788i = linearLayout;
-        this.f21786g = navigationBar;
-        this.f21785f = "key_select_forum_tab_index";
+        this.f21798e = tbPageContext;
+        this.f21802i = linearLayout;
+        this.f21800g = navigationBar;
+        this.f21799f = "key_select_forum_tab_index";
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(currentAccount)) {
-            this.f21785f += currentAccount;
+            this.f21799f += currentAccount;
         }
         f();
         d();
@@ -149,9 +149,9 @@ public class l implements c.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(this.f21784e.getPageActivity()).inflate(R.layout.activity_select_forum_layout, (ViewGroup) this.f21788i, true);
-            this.f21789j = (TbTabLayout) this.f21788i.findViewById(R.id.activity_select_forum_tab_layout);
-            this.k = (BdBaseViewPager) this.f21788i.findViewById(R.id.activity_select_forum_viewpager);
+            LayoutInflater.from(this.f21798e.getPageActivity()).inflate(R.layout.activity_select_forum_layout, (ViewGroup) this.f21802i, true);
+            this.f21803j = (TbTabLayout) this.f21802i.findViewById(R.id.activity_select_forum_tab_layout);
+            this.k = (BdBaseViewPager) this.f21802i.findViewById(R.id.activity_select_forum_viewpager);
         }
     }
 
@@ -160,35 +160,35 @@ public class l implements c.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
             TiebaStatic.log(new StatisticItem("c13994").param("obj_type", fVar.e() + 1));
-            c.a.q0.s.d0.b.j().v(this.f21785f, fVar.e());
+            c.a.q0.s.d0.b.j().v(this.f21799f, fVar.e());
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f21786g.setCenterTextTitle(this.f21784e.getResources().getString(R.string.activity_select_forum_title));
-            ImageView imageView = (ImageView) this.f21786g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-            this.f21787h = imageView;
+            this.f21800g.setCenterTextTitle(this.f21798e.getResources().getString(R.string.activity_select_forum_title));
+            ImageView imageView = (ImageView) this.f21800g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+            this.f21801h = imageView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams.setMargins(0, 0, c.a.e.e.p.l.g(this.f21784e.getPageActivity(), R.dimen.ds10), 0);
-            this.f21787h.setLayoutParams(layoutParams);
-            this.f21787h.setOnClickListener(this);
-            this.f21787h.setVisibility(8);
+            layoutParams.setMargins(0, 0, c.a.e.e.p.l.g(this.f21798e.getPageActivity(), R.dimen.ds10), 0);
+            this.f21801h.setLayoutParams(layoutParams);
+            this.f21801h.setOnClickListener(this);
+            this.f21801h.setVisibility(8);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f21789j.setSelectedTabTextBlod(true);
-            this.f21789j.setSelectedTabIndicatorColor(0);
-            TbTabLayout.f newTab = this.f21789j.newTab();
+            this.f21803j.setSelectedTabTextBlod(true);
+            this.f21803j.setSelectedTabIndicatorColor(0);
+            TbTabLayout.f newTab = this.f21803j.newTab();
             newTab.s(TbadkCoreApplication.getInst().getString(R.string.activity_select_forum_tab_recently));
-            TbTabLayout.f newTab2 = this.f21789j.newTab();
+            TbTabLayout.f newTab2 = this.f21803j.newTab();
             newTab2.s(TbadkCoreApplication.getInst().getString(R.string.activity_select_forum_tab_attention));
-            this.f21789j.addTab(newTab, false);
-            this.f21789j.addTab(newTab2, false);
+            this.f21803j.addTab(newTab, false);
+            this.f21803j.addTab(newTab2, false);
         }
     }
 
@@ -202,12 +202,12 @@ public class l implements c.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SelectForumPagerAdapter selectForumPagerAdapter = new SelectForumPagerAdapter(this.f21784e);
+            SelectForumPagerAdapter selectForumPagerAdapter = new SelectForumPagerAdapter(this.f21798e);
             this.l = selectForumPagerAdapter;
             this.k.setAdapter(selectForumPagerAdapter);
-            this.f21789j.setupWithViewPager(this.k);
-            j(c.a.q0.s.d0.b.j().k(this.f21785f, 0));
-            this.f21789j.setOnTabSelectedListener(this);
+            this.f21803j.setupWithViewPager(this.k);
+            j(c.a.q0.s.d0.b.j().k(this.f21799f, 0));
+            this.f21803j.setOnTabSelectedListener(this);
             this.k.addOnPageChangeListener(new a(this));
         }
     }
@@ -248,7 +248,7 @@ public class l implements c.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
             if (i2 < 0 || i2 > 1) {
                 return false;
             }
-            TbTabLayout.f tabAt = this.f21789j.getTabAt(i2);
+            TbTabLayout.f tabAt = this.f21803j.getTabAt(i2);
             if (tabAt != null && !tabAt.h()) {
                 tabAt.l();
             }
@@ -268,8 +268,8 @@ public class l implements c.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21787h, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            this.f21789j.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21801h, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f21803j.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
             this.l.onViewChangeSkinType();
         }
     }

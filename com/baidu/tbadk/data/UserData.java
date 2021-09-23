@@ -13,6 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -930,7 +931,7 @@ public class UserData extends MetaData {
                     return;
                 }
                 this.ip = jSONObject.optString("ip");
-                this.BDUSS = jSONObject.optString("BDUSS");
+                this.BDUSS = jSONObject.optString(HttpRequest.BDUSS);
                 int optInt = jSONObject.optInt("sex", 1);
                 this.sex = optInt;
                 if (optInt != 2 && optInt != 1) {

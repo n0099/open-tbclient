@@ -18,13 +18,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f19472a;
+    public String f19487a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f19473b;
+    public int f19488b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d> f19474c;
+    public List<d> f19489c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -39,26 +39,26 @@ public class c {
                 return;
             }
         }
-        this.f19473b = -1;
-        this.f19474c = new ArrayList();
+        this.f19488b = -1;
+        this.f19489c = new ArrayList();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19472a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19487a : (String) invokeV.objValue;
     }
 
     public List<d> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19474c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19489c : (List) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19473b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19488b : invokeV.intValue;
     }
 
     public void d(TopicListModule topicListModule) {
@@ -66,7 +66,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, topicListModule) == null) || topicListModule == null) {
             return;
         }
-        this.f19472a = topicListModule.module_title;
+        this.f19487a = topicListModule.module_title;
         List<TopicList> list = topicListModule.topic_list;
         if (list == null) {
             return;
@@ -78,7 +78,7 @@ public class c {
             if (topicList != null) {
                 dVar.c(topicList);
                 if (!k.isEmptyStringAfterTrim(dVar.b())) {
-                    this.f19474c.add(dVar);
+                    this.f19489c.add(dVar);
                 }
             }
         }
@@ -87,14 +87,14 @@ public class c {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f19472a = str;
+            this.f19487a = str;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f19473b = i2;
+            this.f19488b = i2;
         }
     }
 }

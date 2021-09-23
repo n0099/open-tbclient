@@ -68,8 +68,8 @@ public class g extends c.a.e.l.e.a<c.a.r0.f2.c.f, InterestedForumStyleATitleView
                 return;
             }
         }
-        this.f2957e = context;
-        this.f2960h = bdUniqueId;
+        this.f2958e = context;
+        this.f2961h = bdUniqueId;
         d0(new a(this));
     }
 
@@ -89,9 +89,9 @@ public class g extends c.a.e.l.e.a<c.a.r0.f2.c.f, InterestedForumStyleATitleView
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             if (c.a.q0.b.d.z()) {
-                inflate = LayoutInflater.from(this.f2957e).inflate(R.layout.item_interested_forum_style_a_title, viewGroup, false);
+                inflate = LayoutInflater.from(this.f2958e).inflate(R.layout.item_interested_forum_style_a_title, viewGroup, false);
             } else {
-                inflate = c.a.q0.b.d.B() ? LayoutInflater.from(this.f2957e).inflate(R.layout.item_interested_forum_style_b_title, viewGroup, false) : null;
+                inflate = c.a.q0.b.d.B() ? LayoutInflater.from(this.f2958e).inflate(R.layout.item_interested_forum_style_b_title, viewGroup, false) : null;
             }
             return new InterestedForumStyleATitleViewHolder(inflate);
         }

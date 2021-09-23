@@ -17,10 +17,10 @@ public class BasicListViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f54268a;
+    public b f54383a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f54269b;
+    public Object f54384b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasicListViewHolder(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -40,7 +40,7 @@ public class BasicListViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f54268a = new b(baseFragmentActivity, view, onClickListener);
+        this.f54383a = new b(baseFragmentActivity, view, onClickListener);
     }
 
     public void fillView(c cVar) {
@@ -48,20 +48,20 @@ public class BasicListViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null) {
             return;
         }
-        this.f54268a.g(cVar);
-        this.f54268a.i();
+        this.f54383a.g(cVar);
+        this.f54383a.i();
     }
 
     public Object getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54269b : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54384b : invokeV.objValue;
     }
 
     public void setTag(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this.f54269b = obj;
+            this.f54384b = obj;
         }
     }
 }

@@ -27,10 +27,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f12558a;
+    public a f12566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f12559b;
+    public g f12567b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,11 +49,11 @@ public class b {
     public void a() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f12559b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f12567b) == null) {
             return;
         }
         gVar.f();
-        this.f12559b = null;
+        this.f12567b = null;
     }
 
     public final void b(String str) {
@@ -84,56 +84,56 @@ public class b {
     public void d(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f12558a = aVar;
+            this.f12566a = aVar;
         }
     }
 
     public void e() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f12558a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f12566a) == null) {
             return;
         }
-        int i2 = aVar.f12550c;
+        int i2 = aVar.f12558c;
         if (i2 == a.y) {
-            g h2 = g.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.f12558a);
+            g h2 = g.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.f12566a);
             h2.j();
-            this.f12559b = h2;
+            this.f12567b = h2;
         } else if (i2 == a.z) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             c.a.q0.s.o.b bVar = new c.a.q0.s.o.b(currentActivity);
-            bVar.d(currentActivity, this.f12558a);
+            bVar.d(currentActivity, this.f12566a);
             bVar.i();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             c.a.q0.s.o.a b2 = c.a.q0.s.o.a.b();
             c.a.q0.s.o.a b3 = c.a.q0.s.o.a.b();
-            b3.i("business_count_hint" + currentAccount + this.f12558a.f12548a, b2.c("business_count_hint" + currentAccount + this.f12558a.f12548a) - 1);
+            b3.i("business_count_hint" + currentAccount + this.f12566a.f12556a, b2.c("business_count_hint" + currentAccount + this.f12566a.f12556a) - 1);
         } else if (i2 == a.A) {
-            int i3 = aVar.f12551d;
+            int i3 = aVar.f12559d;
             if (i3 == a.D) {
-                if (UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.f12558a.l) || k.isEmpty(this.f12558a.k)) {
+                if (UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.f12566a.l) || k.isEmpty(this.f12566a.k)) {
                     return;
                 }
-                b(this.f12558a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                b(this.f12566a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
             } else if (i3 != a.E || k.isEmpty(aVar.k)) {
             } else {
-                b(this.f12558a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                b(this.f12566a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
             }
-        } else if (i2 != a.B || TextUtils.isEmpty(aVar.f12552e)) {
+        } else if (i2 != a.B || TextUtils.isEmpty(aVar.f12560e)) {
         } else {
             CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
-            a aVar2 = this.f12558a;
-            completeTaskToastData.activityId = aVar2.f12548a;
-            completeTaskToastData.missionId = aVar2.f12549b;
-            completeTaskToastData.duration = aVar2.f12556i;
-            completeTaskToastData.message = aVar2.f12552e;
+            a aVar2 = this.f12566a;
+            completeTaskToastData.activityId = aVar2.f12556a;
+            completeTaskToastData.missionId = aVar2.f12557b;
+            completeTaskToastData.duration = aVar2.f12564i;
+            completeTaskToastData.message = aVar2.f12560e;
             completeTaskToastData.url = aVar2.k;
             completeTaskToastData.pageId = c.a.q0.a.d.y().x();
             CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
             competeTaskEvent.taskToastData = completeTaskToastData;
             h.i(competeTaskEvent);
-            a aVar3 = this.f12558a;
-            c.c(aVar3.f12548a, aVar3.f12549b);
+            a aVar3 = this.f12566a;
+            c.c(aVar3.f12556a, aVar3.f12557b);
         }
     }
 }

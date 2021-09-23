@@ -18,7 +18,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11306a;
+    public static final boolean f11314a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.h.l.a$a  reason: collision with other inner class name */
@@ -28,7 +28,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.y.b.a f11307e;
+        public final /* synthetic */ c.a.p0.a.y.b.a f11315e;
 
         public C0575a(c.a.p0.a.y.b.a aVar) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class a {
                     return;
                 }
             }
-            this.f11307e = aVar;
+            this.f11315e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,10 +54,10 @@ public class a {
         public void onCallback(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                if (fVar == null || fVar.f5541d || fVar.f5547j != 1) {
-                    a.c(this.f11307e, false, "system deny");
+                if (fVar == null || fVar.f5549d || fVar.f5555j != 1) {
+                    a.c(this.f11315e, false, "system deny");
                 } else {
-                    a.c(this.f11307e, true, "authorize:ok");
+                    a.c(this.f11315e, true, "authorize:ok");
                 }
             }
         }
@@ -76,7 +76,7 @@ public class a {
                 return;
             }
         }
-        f11306a = k.f7077a;
+        f11314a = k.f7085a;
     }
 
     public static void b(JsObject jsObject) {
@@ -96,7 +96,7 @@ public class a {
     public static void c(c.a.p0.a.y.b.a aVar, boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{aVar, Boolean.valueOf(z), str}) == null) {
-            if (f11306a) {
+            if (f11314a) {
                 String str2 = "callAsyncCallback: " + str;
             }
             c.a.p0.h.d.c.b bVar = new c.a.p0.h.d.c.b();

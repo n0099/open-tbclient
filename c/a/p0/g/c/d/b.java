@@ -15,14 +15,14 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f10861b = "wifi_resume_download_flag";
+    public static String f10869b = "wifi_resume_download_flag";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f10862c;
+    public static volatile b f10870c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f10863a;
+    public SharedPreferences f10871a;
 
     static {
         InterceptResult invokeClinit;
@@ -52,21 +52,21 @@ public class b {
                 return;
             }
         }
-        this.f10863a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
+        this.f10871a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f10862c == null) {
+            if (f10870c == null) {
                 synchronized (b.class) {
-                    if (f10862c == null) {
-                        f10862c = new b();
+                    if (f10870c == null) {
+                        f10870c = new b();
                     }
                 }
             }
-            return f10862c;
+            return f10870c;
         }
         return (b) invokeV.objValue;
     }
@@ -74,14 +74,14 @@ public class b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10863a.getBoolean(f10861b, true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10871a.getBoolean(f10869b, true) : invokeV.booleanValue;
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            SharedPreferences.Editor edit = this.f10863a.edit();
-            edit.putBoolean(f10861b, z);
+            SharedPreferences.Editor edit = this.f10871a.edit();
+            edit.putBoolean(f10869b, z);
             edit.apply();
         }
     }

@@ -17,10 +17,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29491a;
+    public String f29511a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f29492b;
+    public List<a> f29512b;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -28,13 +28,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f29493a;
+        public int f29513a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f29494b;
+        public long f29514b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f29495c;
+        public long f29515c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -54,13 +54,13 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                this.f29493a = jSONObject.optInt("style");
+                this.f29513a = jSONObject.optInt("style");
                 long optLong = jSONObject.optLong(DelayTB.DELAY);
-                this.f29494b = optLong;
+                this.f29514b = optLong;
                 if (optLong < 0) {
-                    this.f29494b = 0L;
+                    this.f29514b = 0L;
                 }
-                this.f29495c = jSONObject.optLong("duration");
+                this.f29515c = jSONObject.optLong("duration");
                 return this;
             }
             return (a) invokeL.objValue;
@@ -89,11 +89,11 @@ public class c {
                 return null;
             }
             c cVar = new c();
-            cVar.f29491a = jSONObject.optString("backgroundColor");
+            cVar.f29511a = jSONObject.optString("backgroundColor");
             JSONArray optJSONArray = jSONObject.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-            cVar.f29492b = new ArrayList();
+            cVar.f29512b = new ArrayList();
             for (int i2 = 0; optJSONArray != null && i2 < optJSONArray.length(); i2++) {
-                List<a> list = cVar.f29492b;
+                List<a> list = cVar.f29512b;
                 a aVar = new a();
                 aVar.a(optJSONArray.optJSONObject(i2));
                 list.add(aVar);

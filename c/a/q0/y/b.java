@@ -25,19 +25,19 @@ public class b implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f15187a;
+    public View f15196a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f15188b;
+    public ImageView f15197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f15189c;
+    public ImageView f15198c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15190d;
+    public TextView f15199d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15191e;
+    public LinearLayout f15200e;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -55,25 +55,25 @@ public class b implements c {
             }
         }
         View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_rule_copy, (ViewGroup) null);
-        this.f15187a = inflate;
-        this.f15188b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
-        this.f15190d = (TextView) this.f15187a.findViewById(R.id.floating_view_title);
-        this.f15189c = (ImageView) this.f15187a.findViewById(R.id.floating_view_arrow);
-        this.f15191e = (LinearLayout) this.f15187a.findViewById(R.id.floating_view_main);
-        this.f15190d.setText(R.string.frs_forum_rule_return_info);
+        this.f15196a = inflate;
+        this.f15197b = (ImageView) inflate.findViewById(R.id.floating_view_icon);
+        this.f15199d = (TextView) this.f15196a.findViewById(R.id.floating_view_title);
+        this.f15198c = (ImageView) this.f15196a.findViewById(R.id.floating_view_arrow);
+        this.f15200e = (LinearLayout) this.f15196a.findViewById(R.id.floating_view_main);
+        this.f15199d.setText(R.string.frs_forum_rule_return_info);
         changeSkin();
     }
 
     @Override // c.a.q0.y.c
     public void changeSkin() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f15187a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f15196a == null) {
             return;
         }
-        SkinManager.setViewTextColor(this.f15190d, R.color.CAM_X0101);
-        this.f15189c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(211).tlRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.f15191e);
-        this.f15188b.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_manage_postdelete_cancel32, WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f15199d, R.color.CAM_X0101);
+        this.f15198c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(211).tlRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.f15200e);
+        this.f15197b.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_manage_postdelete_cancel32, WebPManager.ResourceStateType.NORMAL));
     }
 
     @Override // c.a.q0.y.c
@@ -81,7 +81,7 @@ public class b implements c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view = this.f15187a;
+            View view = this.f15196a;
             return view != null ? view : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_bcast_copy_link, (ViewGroup) null);
         }
         return (View) invokeV.objValue;

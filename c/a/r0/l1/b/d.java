@@ -33,34 +33,34 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.q0.k0.f.d<FeedData, c.a.q0.k0.d.b, c.a.r0.l1.b.a> f21893a;
+    public c.a.q0.k0.f.d<FeedData, c.a.q0.k0.d.b, c.a.r0.l1.b.a> f21907a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdListView f21894b;
+    public BdListView f21908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f21895c;
+    public View f21909c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtMessageActivity f21896d;
+    public AtMessageActivity f21910d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.q0.s.f0.g f21897e;
+    public c.a.q0.s.f0.g f21911e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.q0.k0.g.a f21898f;
+    public c.a.q0.k0.g.a f21912f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f21899g;
+    public View f21913g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NavigationBar f21900h;
+    public NavigationBar f21914h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoNetworkView f21901i;
+    public NoNetworkView f21915i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<FeedData> f21902j;
+    public List<FeedData> f21916j;
 
     /* loaded from: classes3.dex */
     public class a implements NoNetworkView.b {
@@ -68,7 +68,7 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f21903e;
+        public final /* synthetic */ d f21917e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -85,14 +85,14 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
                     return;
                 }
             }
-            this.f21903e = dVar;
+            this.f21917e = dVar;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f21903e.j(z);
+                this.f21917e.j(z);
             }
         }
     }
@@ -103,7 +103,7 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f21904e;
+        public final /* synthetic */ d f21918e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -120,14 +120,14 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
                     return;
                 }
             }
-            this.f21904e = dVar;
+            this.f21918e = dVar;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.q
         public void onScrollToBottom(BdListView bdListView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdListView) == null) {
-                this.f21904e.f21896d.loadMoreData();
+                this.f21918e.f21910d.loadMoreData();
             }
         }
     }
@@ -138,10 +138,10 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FeedData f21905a;
+        public final /* synthetic */ FeedData f21919a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f21906b;
+        public final /* synthetic */ d f21920b;
 
         public c(d dVar, FeedData feedData) {
             Interceptable interceptable = $ic;
@@ -158,33 +158,33 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
                     return;
                 }
             }
-            this.f21906b = dVar;
-            this.f21905a = feedData;
+            this.f21920b = dVar;
+            this.f21919a = feedData;
         }
 
         @Override // c.a.r0.l1.b.f.b.c
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || ListUtils.isEmpty(this.f21906b.f21902j)) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || ListUtils.isEmpty(this.f21920b.f21916j)) {
                 return;
             }
-            this.f21906b.f21902j.remove(this.f21905a);
-            if (this.f21906b.f21893a != null) {
-                this.f21906b.f21893a.k(this.f21906b.f21902j);
+            this.f21920b.f21916j.remove(this.f21919a);
+            if (this.f21920b.f21907a != null) {
+                this.f21920b.f21907a.k(this.f21920b.f21916j);
             }
         }
     }
 
     /* renamed from: c.a.r0.l1.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC1029d implements Runnable {
+    public class RunnableC1027d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f21907e;
+        public final /* synthetic */ d f21921e;
 
-        public RunnableC1029d(d dVar) {
+        public RunnableC1027d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -199,14 +199,14 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
                     return;
                 }
             }
-            this.f21907e = dVar;
+            this.f21921e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21907e.f21894b.startPullRefresh();
+                this.f21921e.f21908b.startPullRefresh();
             }
         }
     }
@@ -229,7 +229,7 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
                 return;
             }
         }
-        this.f21896d = atMessageActivity;
+        this.f21910d = atMessageActivity;
     }
 
     public void f(FeedData feedData) {
@@ -238,10 +238,10 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
             return;
         }
         c.a.r0.l1.b.f.a aVar = new c.a.r0.l1.b.f.a();
-        aVar.f21931a = 2;
-        aVar.f21932b = c.a.e.e.m.b.g(feedData.getThread_id(), 0L);
-        aVar.f21933c = c.a.e.e.m.b.g(feedData.getPost_id(), 0L);
-        aVar.f21934d = feedData.getBaijiahaoData() != null ? feedData.getBaijiahaoData().oriUgcNid : "";
+        aVar.f21945a = 2;
+        aVar.f21946b = c.a.e.e.m.b.g(feedData.getThread_id(), 0L);
+        aVar.f21947c = c.a.e.e.m.b.g(feedData.getPost_id(), 0L);
+        aVar.f21948d = feedData.getBaijiahaoData() != null ? feedData.getBaijiahaoData().oriUgcNid : "";
         c.a.r0.l1.b.f.b bVar = new c.a.r0.l1.b.f.b(getPageContext());
         bVar.g(aVar);
         bVar.h(new c(this, feedData));
@@ -251,7 +251,7 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
     public void g() {
         BdListView bdListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bdListView = this.f21894b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bdListView = this.f21908b) == null) {
             return;
         }
         bdListView.completePullRefreshPostDelayed(0L);
@@ -260,20 +260,20 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
     public void h(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            c.a.q0.k0.f.d<FeedData, c.a.q0.k0.d.b, c.a.r0.l1.b.a> dVar = this.f21893a;
+            c.a.q0.k0.f.d<FeedData, c.a.q0.k0.d.b, c.a.r0.l1.b.a> dVar = this.f21907a;
             if (dVar != null) {
                 dVar.onChangeSkinType(tbPageContext, i2);
             }
-            c.a.q0.k0.g.a aVar = this.f21898f;
+            c.a.q0.k0.g.a aVar = this.f21912f;
             if (aVar != null) {
                 aVar.onChangeSkinType(tbPageContext, i2);
             }
-            c.a.q0.s.f0.g gVar = this.f21897e;
+            c.a.q0.s.f0.g gVar = this.f21911e;
             if (gVar != null) {
                 gVar.D(i2);
             }
-            this.f21900h.onChangeSkinType(tbPageContext, i2);
-            c.a.q0.s.u.c.d(this.f21894b).f(R.color.CAM_X0201);
+            this.f21914h.onChangeSkinType(tbPageContext, i2);
+            c.a.q0.s.u.c.d(this.f21908b).f(R.color.CAM_X0201);
         }
     }
 
@@ -281,39 +281,39 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View inflate = this.f21896d.getActivity().getLayoutInflater().inflate(R.layout.at_me_activity, (ViewGroup) null);
-            this.f21895c = inflate;
-            this.f21896d.setContentView(inflate);
-            this.f21894b = (BdListView) this.f21895c.findViewById(R.id.atme_lv);
-            NavigationBar navigationBar = (NavigationBar) this.f21895c.findViewById(R.id.view_navigation_bar);
-            this.f21900h = navigationBar;
+            View inflate = this.f21910d.getActivity().getLayoutInflater().inflate(R.layout.at_me_activity, (ViewGroup) null);
+            this.f21909c = inflate;
+            this.f21910d.setContentView(inflate);
+            this.f21908b = (BdListView) this.f21909c.findViewById(R.id.atme_lv);
+            NavigationBar navigationBar = (NavigationBar) this.f21909c.findViewById(R.id.view_navigation_bar);
+            this.f21914h = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f21900h.setCenterTextTitle(getPageContext().getString(R.string.at_me));
-            this.f21900h.showBottomLine();
-            c.a.q0.s.f0.g gVar = new c.a.q0.s.f0.g(this.f21896d.getPageContext());
-            this.f21897e = gVar;
-            gVar.V(this.f21896d.getUniqueId());
-            this.f21897e.a(this.f21896d);
-            c.a.q0.k0.g.a aVar = new c.a.q0.k0.g.a(this.f21896d);
-            this.f21898f = aVar;
+            this.f21914h.setCenterTextTitle(getPageContext().getString(R.string.at_me));
+            this.f21914h.showBottomLine();
+            c.a.q0.s.f0.g gVar = new c.a.q0.s.f0.g(this.f21910d.getPageContext());
+            this.f21911e = gVar;
+            gVar.V(this.f21910d.getUniqueId());
+            this.f21911e.a(this.f21910d);
+            c.a.q0.k0.g.a aVar = new c.a.q0.k0.g.a(this.f21910d);
+            this.f21912f = aVar;
             aVar.a();
-            this.f21899g = new TextView(this.f21896d.getPageContext().getPageActivity());
-            this.f21899g.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + c.a.e.e.p.l.g(this.f21896d.getPageContext().getPageActivity(), R.dimen.ds88)));
-            BdListViewHelper.c(this.f21899g, BdListViewHelper.HeadType.DEFAULT, c.a.e.e.p.j.z());
-            this.f21894b.setPullRefresh(this.f21897e);
-            this.f21894b.addHeaderView(this.f21899g, 0);
-            this.f21894b.setNextPage(this.f21898f);
-            this.f21894b.setDividerHeight(0);
-            NoNetworkView noNetworkView = (NoNetworkView) this.f21895c.findViewById(R.id.no_networkview);
-            this.f21901i = noNetworkView;
+            this.f21913g = new TextView(this.f21910d.getPageContext().getPageActivity());
+            this.f21913g.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + c.a.e.e.p.l.g(this.f21910d.getPageContext().getPageActivity(), R.dimen.ds88)));
+            BdListViewHelper.c(this.f21913g, BdListViewHelper.HeadType.DEFAULT, c.a.e.e.p.j.z());
+            this.f21908b.setPullRefresh(this.f21911e);
+            this.f21908b.addHeaderView(this.f21913g, 0);
+            this.f21908b.setNextPage(this.f21912f);
+            this.f21908b.setDividerHeight(0);
+            NoNetworkView noNetworkView = (NoNetworkView) this.f21909c.findViewById(R.id.no_networkview);
+            this.f21915i = noNetworkView;
             noNetworkView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            this.f21901i.addNetworkChangeListener(new a(this));
-            this.f21894b.setExOnSrollToBottomListener(new b(this));
-            c.a.q0.k0.f.d<FeedData, c.a.q0.k0.d.b, c.a.r0.l1.b.a> dVar = new c.a.q0.k0.f.d<>(this.f21896d.getPageContext(), c.a.r0.l1.b.a.class, R.layout.mention_atme_item, this.f21896d.getEventCenter());
-            this.f21893a = dVar;
-            dVar.j(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, EmotionImageUtil.getEmotionTopMargin(this.f21896d)), NoDataViewFactory.e.d(null, this.f21896d.getResources().getString(R.string.mention_atme_nodata)), null, null);
-            this.f21894b.setAdapter((ListAdapter) this.f21893a);
-            return this.f21895c;
+            this.f21915i.addNetworkChangeListener(new a(this));
+            this.f21908b.setExOnSrollToBottomListener(new b(this));
+            c.a.q0.k0.f.d<FeedData, c.a.q0.k0.d.b, c.a.r0.l1.b.a> dVar = new c.a.q0.k0.f.d<>(this.f21910d.getPageContext(), c.a.r0.l1.b.a.class, R.layout.mention_atme_item, this.f21910d.getEventCenter());
+            this.f21907a = dVar;
+            dVar.j(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, EmotionImageUtil.getEmotionTopMargin(this.f21910d)), NoDataViewFactory.e.d(null, this.f21910d.getResources().getString(R.string.mention_atme_nodata)), null, null);
+            this.f21908b.setAdapter((ListAdapter) this.f21907a);
+            return this.f21909c;
         }
         return (View) invokeV.objValue;
     }
@@ -322,9 +322,9 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
         BdListView bdListView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            BdListViewHelper.c(this.f21899g, BdListViewHelper.HeadType.DEFAULT, c.a.e.e.p.j.z());
-            if (z && (bdListView = this.f21894b) != null && bdListView.getWrappedAdapter() != null && this.f21894b.getWrappedAdapter().getCount() <= 0) {
-                c.a.e.e.m.e.a().post(new RunnableC1029d(this));
+            BdListViewHelper.c(this.f21913g, BdListViewHelper.HeadType.DEFAULT, c.a.e.e.p.j.z());
+            if (z && (bdListView = this.f21908b) != null && bdListView.getWrappedAdapter() != null && this.f21908b.getWrappedAdapter().getCount() <= 0) {
+                c.a.e.e.m.e.a().post(new RunnableC1027d(this));
             }
         }
     }
@@ -333,8 +333,8 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) && (aVar instanceof g)) {
             g gVar = (g) aVar;
-            this.f21902j = gVar.a();
-            c.a.q0.k0.f.d<FeedData, c.a.q0.k0.d.b, c.a.r0.l1.b.a> dVar = this.f21893a;
+            this.f21916j = gVar.a();
+            c.a.q0.k0.f.d<FeedData, c.a.q0.k0.d.b, c.a.r0.l1.b.a> dVar = this.f21907a;
             if (dVar != null) {
                 dVar.k(gVar.a());
             }
@@ -345,18 +345,18 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) && (bVar instanceof c.a.q0.k0.d.a)) {
             c.a.q0.k0.d.a aVar = (c.a.q0.k0.d.a) bVar;
-            if (this.f21898f != null) {
+            if (this.f21912f != null) {
                 if (aVar.d()) {
-                    this.f21898f.d();
+                    this.f21912f.d();
                     if (aVar.b()) {
-                        this.f21898f.f(R.string.loading);
+                        this.f21912f.f(R.string.loading);
                     } else if (aVar.a()) {
-                        this.f21898f.f(R.string.loading);
+                        this.f21912f.f(R.string.loading);
                     } else {
-                        this.f21898f.g(R.string.no_more_msg);
+                        this.f21912f.g(R.string.no_more_msg);
                     }
                 } else {
-                    this.f21898f.e();
+                    this.f21912f.e();
                 }
             }
             if (aVar.c()) {
@@ -370,17 +370,17 @@ public class d extends c.a.e.a.d<AtMessageActivity> {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            c.a.q0.s.f0.g gVar = this.f21897e;
+            c.a.q0.s.f0.g gVar = this.f21911e;
             if (gVar != null) {
                 gVar.a(null);
             }
-            BdListView bdListView = this.f21894b;
+            BdListView bdListView = this.f21908b;
             if (bdListView != null) {
                 bdListView.startPullRefresh();
             }
-            c.a.q0.s.f0.g gVar2 = this.f21897e;
+            c.a.q0.s.f0.g gVar2 = this.f21911e;
             if (gVar2 != null) {
-                gVar2.a(this.f21896d);
+                gVar2.a(this.f21910d);
             }
         }
     }

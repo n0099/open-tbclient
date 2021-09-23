@@ -15,7 +15,7 @@ public class m extends c.a.p0.a.y0.a<c.a.p0.a.y0.k.g.a> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9828b = "release";
+    public static String f9836b = "release";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,7 +52,7 @@ public class m extends c.a.p0.a.y0.a<c.a.p0.a.y0.k.g.a> {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f9828b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f9836b : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

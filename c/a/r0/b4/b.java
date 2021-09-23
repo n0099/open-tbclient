@@ -18,23 +18,23 @@ public class b extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f16172f;
+    public static b f16182f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.q0.f1.m.e f16173a;
+    public c.a.q0.f1.m.e f16183a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f16174b;
+    public int f16184b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f16175c;
+    public int f16185c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f16176d;
+    public long f16186d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16177e;
+    public int f16187e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,17 +49,17 @@ public class b extends LinkMovementMethod {
                 return;
             }
         }
-        this.f16177e = -1;
+        this.f16187e = -1;
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f16172f == null) {
-                f16172f = new b();
+            if (f16182f == null) {
+                f16182f = new b();
             }
-            return f16172f;
+            return f16182f;
         }
         return (b) invokeV.objValue;
     }
@@ -92,10 +92,10 @@ public class b extends LinkMovementMethod {
                     return eVarArr[0];
                 } catch (Exception e2) {
                     BdLog.e(e2);
-                    return this.f16173a;
+                    return this.f16183a;
                 }
             }
-            return this.f16173a;
+            return this.f16183a;
         }
         return (c.a.q0.f1.m.e) invokeLLL.objValue;
     }
@@ -103,7 +103,7 @@ public class b extends LinkMovementMethod {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f16177e = i2;
+            this.f16187e = i2;
         }
     }
 
@@ -122,36 +122,36 @@ public class b extends LinkMovementMethod {
                 }
             }
             if (b2 != null) {
-                this.f16173a = b2;
+                this.f16183a = b2;
             }
-            int i2 = this.f16177e;
+            int i2 = this.f16187e;
             if (i2 > -1) {
-                this.f16173a.g(i2);
+                this.f16183a.g(i2);
             }
             if (motionEvent.getAction() == 0) {
-                this.f16174b = (int) motionEvent.getX();
-                this.f16175c = (int) motionEvent.getY();
-                this.f16176d = System.currentTimeMillis();
-                c.a.q0.f1.m.e eVar = this.f16173a;
+                this.f16184b = (int) motionEvent.getX();
+                this.f16185c = (int) motionEvent.getY();
+                this.f16186d = System.currentTimeMillis();
+                c.a.q0.f1.m.e eVar = this.f16183a;
                 if (eVar != null) {
                     eVar.h(1);
-                    Selection.setSelection(spannable, spannable.getSpanStart(this.f16173a), spannable.getSpanEnd(this.f16173a));
+                    Selection.setSelection(spannable, spannable.getSpanStart(this.f16183a), spannable.getSpanEnd(this.f16183a));
                 }
                 textView.invalidate();
             } else if (motionEvent.getAction() == 2) {
-                if (this.f16173a != null && (Math.abs(this.f16174b - motionEvent.getX()) > 20.0f || Math.abs(this.f16175c - motionEvent.getY()) > 20.0f)) {
-                    this.f16173a.h(2);
+                if (this.f16183a != null && (Math.abs(this.f16184b - motionEvent.getX()) > 20.0f || Math.abs(this.f16185c - motionEvent.getY()) > 20.0f)) {
+                    this.f16183a.h(2);
                     textView.invalidate();
                     Selection.removeSelection(spannable);
                 }
             } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                c.a.q0.f1.m.e eVar2 = this.f16173a;
+                c.a.q0.f1.m.e eVar2 = this.f16183a;
                 if (eVar2 != null) {
                     eVar2.h(2);
                     textView.invalidate();
                     Selection.removeSelection(spannable);
                 }
-                if (c(this.f16174b, this.f16175c, motionEvent.getX(), motionEvent.getY(), this.f16176d, System.currentTimeMillis(), 500L)) {
+                if (c(this.f16184b, this.f16185c, motionEvent.getX(), motionEvent.getY(), this.f16186d, System.currentTimeMillis(), 500L)) {
                     return true;
                 }
             }

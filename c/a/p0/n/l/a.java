@@ -21,23 +21,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f12055d;
+    public static final boolean f12063d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Map<String, a> f12056e;
+    public static Map<String, a> f12064e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<String, Map<String, a>> f12057f;
+    public static Map<String, Map<String, a>> f12065f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f12058a;
+    public final String f12066a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f12059b;
+    public final String f12067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AbiType f12060c;
+    public final AbiType f12068c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,9 +52,9 @@ public class a {
                 return;
             }
         }
-        f12055d = c.f11856a;
-        f12056e = new HashMap();
-        f12057f = new HashMap();
+        f12063d = c.f11864a;
+        f12064e = new HashMap();
+        f12065f = new HashMap();
     }
 
     public a(@NonNull String str, @NonNull AbiType abiType) {
@@ -72,11 +72,11 @@ public class a {
                 return;
             }
         }
-        this.f12058a = TextUtils.isEmpty(str) ? "" : str;
-        this.f12060c = abiType;
-        this.f12059b = a(str, abiType);
-        if (f12055d) {
-            String str2 = "SoBundleId: " + this.f12059b + " libName=" + str + " abi=" + abiType;
+        this.f12066a = TextUtils.isEmpty(str) ? "" : str;
+        this.f12068c = abiType;
+        this.f12067b = a(str, abiType);
+        if (f12063d) {
+            String str2 = "SoBundleId: " + this.f12067b + " libName=" + str + " abi=" + abiType;
         }
     }
 
@@ -108,16 +108,16 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             synchronized (a.class) {
-                map = f12057f.get(str);
+                map = f12065f.get(str);
                 if (map == null) {
                     map = new HashMap<>();
                     if (!TextUtils.isEmpty(str)) {
                         for (AbiType abiType : AbiType.values()) {
                             a aVar = new a(str, abiType);
-                            map.put(aVar.f12059b, aVar);
+                            map.put(aVar.f12067b, aVar);
                         }
-                        f12056e.putAll(map);
-                        f12057f.put(str, map);
+                        f12064e.putAll(map);
+                        f12065f.put(str, map);
                     }
                 }
             }
@@ -146,18 +146,18 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
             synchronized (a.class) {
-                if (f12055d) {
+                if (f12063d) {
                     String str3 = "of: start libName=" + str + " bundleId=" + str2;
                 }
                 a aVar = null;
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                     c(str);
-                    a aVar2 = f12056e.get(str2);
-                    if (f12055d) {
+                    a aVar2 = f12064e.get(str2);
+                    if (f12063d) {
                         String str4 = "of: end libName=" + str + " soBundleId=" + aVar2;
                     }
                     if (aVar2 != null) {
-                        if (TextUtils.equals(str, aVar2.f12058a)) {
+                        if (TextUtils.equals(str, aVar2.f12066a)) {
                             aVar = aVar2;
                         }
                     }
@@ -173,6 +173,6 @@ public class a {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12059b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12067b : (String) invokeV.objValue;
     }
 }

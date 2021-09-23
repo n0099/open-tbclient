@@ -32,7 +32,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10305a;
+    public static final boolean f10313a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public class a {
                 return;
             }
         }
-        f10305a = k.f7077a;
+        f10313a = k.f7085a;
     }
 
     @Nullable
@@ -66,7 +66,7 @@ public class a {
                 try {
                     jSONObject.put("info", "encrypt request param fail with exception : " + e2.getMessage());
                 } catch (JSONException e3) {
-                    if (f10305a) {
+                    if (f10313a) {
                         e3.printStackTrace();
                     }
                 }
@@ -84,7 +84,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65538, null, aVar, bVar) == null) || aVar == null || bVar == null) {
             return;
         }
-        String str = TextUtils.isEmpty(bVar.f10302a) ? "unknown" : bVar.f10302a;
+        String str = TextUtils.isEmpty(bVar.f10310a) ? "unknown" : bVar.f10310a;
         switch (str.hashCode()) {
             case -1395470197:
                 if (str.equals("bd09ll")) {
@@ -119,10 +119,10 @@ public class a {
                 break;
         }
         int i2 = c2 != 0 ? c2 != 1 ? c2 != 2 ? c2 != 3 ? -1 : 3 : 2 : 1 : 0;
-        a.c cVar = aVar.f10285c;
-        cVar.f10299a = i2;
-        cVar.f10300b = bVar.f10303b;
-        cVar.f10301c = bVar.f10304c;
+        a.c cVar = aVar.f10293c;
+        cVar.f10307a = i2;
+        cVar.f10308b = bVar.f10311b;
+        cVar.f10309c = bVar.f10312c;
     }
 
     public static int c() {
@@ -175,7 +175,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (f10305a) {
+        if (f10313a) {
             String str2 = "reportInfoWhenResponseIsNull: " + str;
         }
         c.b bVar = new c.b(10003);

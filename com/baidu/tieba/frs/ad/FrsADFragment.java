@@ -55,22 +55,22 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
     public c.a.r0.w0.g1.e adView;
 
     /* renamed from: e  reason: collision with root package name */
-    public ADRequestModel.b f50967e;
+    public ADRequestModel.b f51080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ADRequestModel f50968f;
+    public ADRequestModel f51081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f50969g;
+    public TbPageContext f51082g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f50970h;
+    public String f51083h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f50971i;
+    public long f51084i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f50972j;
+    public int f51085j;
     public c.a.r0.w0.g1.a k;
     public boolean l;
     public List<c.a.r0.w0.g1.c> m;
@@ -91,7 +91,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsADFragment f50973a;
+        public final /* synthetic */ FrsADFragment f51086a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FrsADFragment frsADFragment, int i2, boolean z) {
@@ -112,7 +112,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
                     return;
                 }
             }
-            this.f50973a = frsADFragment;
+            this.f51086a = frsADFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -120,10 +120,10 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Integer num;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Integer) || (num = (Integer) customResponsedMessage.getData()) == null || this.f50973a.o == null || !this.f50973a.o.isViewAttached()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Integer) || (num = (Integer) customResponsedMessage.getData()) == null || this.f51086a.o == null || !this.f51086a.o.isViewAttached()) {
                 return;
             }
-            this.f50973a.o.a(num.intValue());
+            this.f51086a.o.a(num.intValue());
         }
     }
 
@@ -133,7 +133,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsADFragment f50974a;
+        public final /* synthetic */ FrsADFragment f51087a;
 
         public b(FrsADFragment frsADFragment) {
             Interceptable interceptable = $ic;
@@ -150,39 +150,39 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
                     return;
                 }
             }
-            this.f50974a = frsADFragment;
+            this.f51087a = frsADFragment;
         }
 
         @Override // com.baidu.tieba.frs.adModel.ADRequestModel.b
         public void a(ADSocketResponseMessage aDSocketResponseMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aDSocketResponseMessage) == null) || aDSocketResponseMessage == null || this.f50974a.adView == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aDSocketResponseMessage) == null) || aDSocketResponseMessage == null || this.f51087a.adView == null) {
                 return;
             }
             if (aDSocketResponseMessage.getError() == 0) {
-                this.f50974a.f50972j = (int) aDSocketResponseMessage.getOffset();
-                this.f50974a.m = aDSocketResponseMessage.getList();
-                this.f50974a.l = aDSocketResponseMessage.getHas_more() == 1;
-                this.f50974a.refreshPage();
+                this.f51087a.f51085j = (int) aDSocketResponseMessage.getOffset();
+                this.f51087a.m = aDSocketResponseMessage.getList();
+                this.f51087a.l = aDSocketResponseMessage.getHas_more() == 1;
+                this.f51087a.refreshPage();
                 return;
             }
-            this.f50974a.showNetRefreshView();
+            this.f51087a.showNetRefreshView();
         }
 
         @Override // com.baidu.tieba.frs.adModel.ADRequestModel.b
         public void b(ADHttpResponseMessage aDHttpResponseMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aDHttpResponseMessage) == null) || aDHttpResponseMessage == null || this.f50974a.adView == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aDHttpResponseMessage) == null) || aDHttpResponseMessage == null || this.f51087a.adView == null) {
                 return;
             }
             if (aDHttpResponseMessage.getError() == 0) {
-                this.f50974a.f50972j = (int) aDHttpResponseMessage.getOffset();
-                this.f50974a.m = aDHttpResponseMessage.getList();
-                this.f50974a.l = aDHttpResponseMessage.getHas_more() == 1;
-                this.f50974a.refreshPage();
+                this.f51087a.f51085j = (int) aDHttpResponseMessage.getOffset();
+                this.f51087a.m = aDHttpResponseMessage.getList();
+                this.f51087a.l = aDHttpResponseMessage.getHas_more() == 1;
+                this.f51087a.refreshPage();
                 return;
             }
-            this.f50974a.showNetRefreshView();
+            this.f51087a.showNetRefreshView();
         }
     }
 
@@ -192,7 +192,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsADFragment f50975a;
+        public final /* synthetic */ FrsADFragment f51088a;
 
         public c(FrsADFragment frsADFragment) {
             Interceptable interceptable = $ic;
@@ -209,15 +209,15 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
                     return;
                 }
             }
-            this.f50975a = frsADFragment;
+            this.f51088a = frsADFragment;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, recyclerView, i2, i3) == null) {
-                this.f50975a.q += i3;
-                if (this.f50975a.q < this.f50975a.p * 2 || i3 >= 0) {
+                this.f51088a.q += i3;
+                if (this.f51088a.q < this.f51088a.p * 2 || i3 >= 0) {
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921437, Boolean.TRUE));
@@ -231,7 +231,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsADFragment f50976a;
+        public final /* synthetic */ FrsADFragment f51089a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(FrsADFragment frsADFragment, int i2) {
@@ -251,7 +251,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
                     return;
                 }
             }
-            this.f50976a = frsADFragment;
+            this.f51089a = frsADFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -263,14 +263,14 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
             }
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer) && Integer.parseInt(data.toString()) == 90) {
-                if (this.f50976a.getListView() != null) {
-                    this.f50976a.getListView().setSelection(0);
+                if (this.f51089a.getListView() != null) {
+                    this.f51089a.getListView().setSelection(0);
                 }
-                if (this.f50976a.o != null && this.f50976a.o.isViewAttached()) {
-                    this.f50976a.o(0);
+                if (this.f51089a.o != null && this.f51089a.o.isViewAttached()) {
+                    this.f51089a.o(0);
                     return;
                 }
-                c.a.r0.w0.g1.e eVar = this.f50976a.adView;
+                c.a.r0.w0.g1.e eVar = this.f51089a.adView;
                 if (eVar != null) {
                     eVar.p();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
@@ -285,7 +285,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsADFragment f50977a;
+        public final /* synthetic */ FrsADFragment f51090a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(FrsADFragment frsADFragment, int i2) {
@@ -305,7 +305,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
                     return;
                 }
             }
-            this.f50977a = frsADFragment;
+            this.f51090a = frsADFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -317,15 +317,15 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
             }
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer) && Integer.parseInt(data.toString()) == 90) {
-                if (this.f50977a.getListView() != null) {
-                    this.f50977a.getListView().setSelection(0);
+                if (this.f51090a.getListView() != null) {
+                    this.f51090a.getListView().setSelection(0);
                 }
-                if (this.f50977a.o != null && this.f50977a.o.isViewAttached()) {
-                    this.f50977a.o(0);
-                    this.f50977a.showLoadingView();
+                if (this.f51090a.o != null && this.f51090a.o.isViewAttached()) {
+                    this.f51090a.o(0);
+                    this.f51090a.showLoadingView();
                     return;
                 }
-                c.a.r0.w0.g1.e eVar = this.f50977a.adView;
+                c.a.r0.w0.g1.e eVar = this.f51090a.adView;
                 if (eVar != null) {
                     eVar.p();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
@@ -340,7 +340,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsADFragment f50978e;
+        public final /* synthetic */ FrsADFragment f51091e;
 
         public f(FrsADFragment frsADFragment) {
             Interceptable interceptable = $ic;
@@ -357,7 +357,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
                     return;
                 }
             }
-            this.f50978e = frsADFragment;
+            this.f51091e = frsADFragment;
         }
 
         @Override // c.a.e.l.e.w
@@ -369,11 +369,11 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(new Pair(BaseWebViewActivity.KEY_SHOW_FRS_TAB_AD, "1"));
-            UrlManager.getInstance().dealOneLink(this.f50978e.f50969g, new String[]{c.a.q0.m.a.c(cVar.o(), arrayList)});
+            UrlManager.getInstance().dealOneLink(this.f51091e.f51082g, new String[]{c.a.q0.m.a.c(cVar.o(), arrayList)});
             if (k.isEmpty(cVar.i())) {
                 return;
             }
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FRS_AD_LIST_ITEM_CLICK).param("obj_type", cVar.i()).param("fid", this.f50978e.f50971i));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FRS_AD_LIST_ITEM_CLICK).param("obj_type", cVar.i()).param("fid", this.f51091e.f51084i));
         }
     }
 
@@ -391,7 +391,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
             }
         }
         this.adView = null;
-        this.f50972j = 0;
+        this.f51085j = 0;
         this.refreshType = 0;
         this.n = new ArrayList<>();
         this.p = 0;
@@ -423,7 +423,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50970h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51083h : (String) invokeV.objValue;
     }
 
     public BdTypeRecyclerView getListView() {
@@ -478,30 +478,30 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             if (bundle != null) {
                 bundle.getString("name");
-                this.f50970h = bundle.getString("from");
-                this.f50971i = c.a.e.e.m.b.g(bundle.getString("forum_id"), 0L);
+                this.f51083h = bundle.getString("from");
+                this.f51084i = c.a.e.e.m.b.g(bundle.getString("forum_id"), 0L);
                 return;
             }
             Bundle arguments = getArguments();
             if (arguments != null) {
                 arguments.getString("name");
-                this.f50970h = arguments.getString("from");
-                this.f50971i = c.a.e.e.m.b.g(arguments.getString("forum_id"), 0L);
+                this.f51083h = arguments.getString("from");
+                this.f51084i = c.a.e.e.m.b.g(arguments.getString("forum_id"), 0L);
             }
         }
     }
 
     public final void o(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f50968f == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f51081f == null) {
             return;
         }
         hideNetRefreshView();
         this.refreshType = i2;
         if (i2 == 0 || i2 == 2) {
-            this.f50968f.x(this.f50971i, 0, 20);
+            this.f51081f.x(this.f51084i, 0, 20);
         } else if (i2 == 1) {
-            this.f50968f.x(this.f50971i, this.f50972j, 20);
+            this.f51081f.x(this.f51084i, this.f51085j, 20);
         }
     }
 
@@ -527,13 +527,13 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f50969g = getPageContext();
+            this.f51082g = getPageContext();
             n(bundle);
             registerListener(this.t);
             registerListener(this.u);
             registerListener(this.r);
-            if (this.f50968f == null) {
-                this.f50968f = new ADRequestModel(this.f50969g);
+            if (this.f51081f == null) {
+                this.f51081f = new ADRequestModel(this.f51082g);
             }
             this.p = UtilHelper.getScreenHeight(getActivity());
         }
@@ -551,13 +551,13 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
             c.a.r0.w0.g1.a aVar = new c.a.r0.w0.g1.a(this, this.adView.a());
             this.k = aVar;
             aVar.f(this.v);
-            if (this.f50967e == null) {
-                this.f50967e = new b(this);
+            if (this.f51080e == null) {
+                this.f51080e = new b(this);
             }
-            if (this.f50968f == null) {
-                this.f50968f = new ADRequestModel(this.f50969g);
+            if (this.f51081f == null) {
+                this.f51081f = new ADRequestModel(this.f51082g);
             }
-            this.f50968f.y(this.f50967e);
+            this.f51081f.y(this.f51080e);
             if (!j.z()) {
                 showNetRefreshView();
             }
@@ -575,7 +575,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
             if (eVar != null) {
                 eVar.h();
             }
-            ADRequestModel aDRequestModel = this.f50968f;
+            ADRequestModel aDRequestModel = this.f51081f;
             if (aDRequestModel != null) {
                 aDRequestModel.onDestroy();
             }
@@ -601,7 +601,7 @@ public class FrsADFragment extends BaseFragment implements p0, BdListView.p, r0 
     public void onLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f50971i).param("obj_type", 9).param("obj_locate", 2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f51084i).param("obj_type", 9).param("obj_locate", 2).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 

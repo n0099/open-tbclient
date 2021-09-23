@@ -23,7 +23,7 @@ public class d extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.a.o.b f7751c;
+    public c.a.p0.a.o.b f7759c;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.o.a {
@@ -31,10 +31,10 @@ public class d extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final UnitedSchemeEntity f7752a;
+        public final UnitedSchemeEntity f7760a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final CallbackHandler f7753b;
+        public final CallbackHandler f7761b;
 
         public a(d dVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -51,15 +51,15 @@ public class d extends a0 {
                     return;
                 }
             }
-            this.f7752a = unitedSchemeEntity;
-            this.f7753b = callbackHandler;
+            this.f7760a = unitedSchemeEntity;
+            this.f7761b = callbackHandler;
         }
 
         @Override // c.a.p0.a.o.a
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                UnitedSchemeUtility.callCallback(this.f7753b, this.f7752a, i2);
+                UnitedSchemeUtility.callCallback(this.f7761b, this.f7760a, i2);
             }
         }
     }
@@ -70,10 +70,10 @@ public class d extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final CallbackHandler f7754a;
+        public final CallbackHandler f7762a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f7755b;
+        public final String f7763b;
 
         public b(d dVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -90,15 +90,15 @@ public class d extends a0 {
                     return;
                 }
             }
-            this.f7754a = callbackHandler;
-            this.f7755b = str;
+            this.f7762a = callbackHandler;
+            this.f7763b = str;
         }
 
         @Override // c.a.p0.a.o.c
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                if (TextUtils.isEmpty(this.f7755b)) {
+                if (TextUtils.isEmpty(this.f7763b)) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("data", jSONObject.toString());
                     c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.b("rewardedVideoAdClose", hashMap));
@@ -108,7 +108,7 @@ public class d extends a0 {
                 try {
                     jSONObject2.put("event", IntentConfig.CLOSE);
                     jSONObject2.put("result", jSONObject);
-                    this.f7754a.handleSchemeDispatchCallback(this.f7755b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
+                    this.f7762a.handleSchemeDispatchCallback(this.f7763b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -119,14 +119,14 @@ public class d extends a0 {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (TextUtils.isEmpty(this.f7755b)) {
+                if (TextUtils.isEmpty(this.f7763b)) {
                     c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.b("rewardedVideoAdLoad", new HashMap()));
                     return;
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("event", "load");
-                    this.f7754a.handleSchemeDispatchCallback(this.f7755b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                    this.f7762a.handleSchemeDispatchCallback(this.f7763b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -137,7 +137,7 @@ public class d extends a0 {
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                if (TextUtils.isEmpty(this.f7755b)) {
+                if (TextUtils.isEmpty(this.f7763b)) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("data", jSONObject.toString());
                     c.a.p0.a.g1.f.V().v(new c.a.p0.a.o0.d.b("rewardedVideoAdError", hashMap));
@@ -147,7 +147,7 @@ public class d extends a0 {
                 try {
                     jSONObject2.put("event", "error");
                     jSONObject2.put("result", jSONObject);
-                    this.f7754a.handleSchemeDispatchCallback(this.f7755b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
+                    this.f7762a.handleSchemeDispatchCallback(this.f7763b, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0).toString());
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -174,7 +174,7 @@ public class d extends a0 {
                 return;
             }
         }
-        this.f7751c = null;
+        this.f7759c = null;
     }
 
     @Override // c.a.p0.a.c2.f.a0
@@ -182,7 +182,7 @@ public class d extends a0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (a0.f4766b) {
+            if (a0.f4774b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             JSONObject a2 = a0.a(unitedSchemeEntity, "params");
@@ -194,14 +194,14 @@ public class d extends a0 {
             String optString2 = a2.optString("action");
             b bVar = new b(this, callbackHandler, optString);
             a aVar = new a(this, unitedSchemeEntity, callbackHandler);
-            if (this.f7751c == null) {
-                this.f7751c = new f(a2, bVar, aVar);
+            if (this.f7759c == null) {
+                this.f7759c = new f(a2, bVar, aVar);
             }
             if (TextUtils.equals(optString2, "show")) {
-                this.f7751c.a(a2, aVar);
+                this.f7759c.a(a2, aVar);
                 return true;
             } else if (TextUtils.equals(optString2, "load")) {
-                this.f7751c.b(a2, aVar, bVar);
+                this.f7759c.b(a2, aVar, bVar);
                 return true;
             } else {
                 return true;

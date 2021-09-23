@@ -330,14 +330,14 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
                 if (h2 == null || !this.isSelf) {
                     return;
                 }
-                List<f.a> list = this.ucCardData.f22073a;
+                List<f.a> list = this.ucCardData.f22087a;
                 if (ListUtils.getCount(list) > 4) {
-                    list.get(4).f22075b = 8L;
+                    list.get(4).f22089b = 8L;
                     for (f.a aVar : list) {
-                        if (aVar.f22075b > c.a.e.e.m.b.g(h2.get(aVar.f22074a), 0L)) {
-                            aVar.f22076c = true;
+                        if (aVar.f22089b > c.a.e.e.m.b.g(h2.get(aVar.f22088a), 0L)) {
+                            aVar.f22090c = true;
                         } else {
-                            aVar.f22076c = false;
+                            aVar.f22090c = false;
                         }
                     }
                 }

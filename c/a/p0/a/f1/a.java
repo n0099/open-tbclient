@@ -24,6 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,22 +40,22 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a f5658a;
+        public final /* synthetic */ c.a f5666a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f5659b;
+        public final /* synthetic */ String f5667b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5660c;
+        public final /* synthetic */ String f5668c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5661d;
+        public final /* synthetic */ CallbackHandler f5669d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5662e;
+        public final /* synthetic */ UnitedSchemeEntity f5670e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5663f;
+        public final /* synthetic */ String f5671f;
 
         public C0180a(a aVar, c.a aVar2, String str, String str2, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str3) {
             Interceptable interceptable = $ic;
@@ -71,12 +72,12 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f5658a = aVar2;
-            this.f5659b = str;
-            this.f5660c = str2;
-            this.f5661d = callbackHandler;
-            this.f5662e = unitedSchemeEntity;
-            this.f5663f = str3;
+            this.f5666a = aVar2;
+            this.f5667b = str;
+            this.f5668c = str2;
+            this.f5669d = callbackHandler;
+            this.f5670e = unitedSchemeEntity;
+            this.f5671f = str3;
         }
 
         @Override // c.a.p0.a.a1.e.c
@@ -88,12 +89,12 @@ public class a extends a0 {
                 aVar.h(9L);
                 aVar.e("debug download pkg fail");
                 c.a.p0.a.q2.e.a().f(aVar);
-                c.a.p0.a.f1.d.a.d(c.a.p0.a.c1.a.b(), aVar, 0, this.f5660c);
+                c.a.p0.a.f1.d.a.d(c.a.p0.a.c1.a.b(), aVar, 0, this.f5668c);
                 c.a.p0.a.j2.p.d dVar = new c.a.p0.a.j2.p.d();
                 dVar.p(aVar);
-                dVar.r(this.f5658a);
+                dVar.r(this.f5666a);
                 k.L(dVar);
-                this.f5662e.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                this.f5670e.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             }
         }
 
@@ -108,9 +109,9 @@ public class a extends a0 {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                ((c.a) this.f5658a.z0(true)).Y0("1.6.0");
-                SwanLauncher.j().n(this.f5658a, null);
-                a.l(this.f5659b, this.f5660c, this.f5661d, this.f5662e, this.f5663f);
+                ((c.a) this.f5666a.z0(true)).Y0("1.6.0");
+                SwanLauncher.j().n(this.f5666a, null);
+                a.l(this.f5667b, this.f5668c, this.f5669d, this.f5670e, this.f5671f);
             }
         }
     }
@@ -121,13 +122,13 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5664a;
+        public final /* synthetic */ CallbackHandler f5672a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5665b;
+        public final /* synthetic */ UnitedSchemeEntity f5673b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5666c;
+        public final /* synthetic */ String f5674c;
 
         public b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
@@ -144,16 +145,16 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f5664a = callbackHandler;
-            this.f5665b = unitedSchemeEntity;
-            this.f5666c = str;
+            this.f5672a = callbackHandler;
+            this.f5673b = unitedSchemeEntity;
+            this.f5674c = str;
         }
 
         @Override // c.a.p0.a.f1.a.d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.k(this.f5664a, this.f5665b, this.f5666c, 1001);
+                a.k(this.f5672a, this.f5673b, this.f5674c, 1001);
             }
         }
 
@@ -161,7 +162,7 @@ public class a extends a0 {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                a.k(this.f5664a, this.f5665b, this.f5666c, 0);
+                a.k(this.f5672a, this.f5673b, this.f5674c, 0);
             }
         }
     }
@@ -172,7 +173,7 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f5667c;
+        public final /* synthetic */ d f5675c;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -189,7 +190,7 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f5667c = dVar;
+            this.f5675c = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -197,15 +198,15 @@ public class a extends a0 {
         public void onEvent(@NonNull c.a.p0.a.v1.a.b.a.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                if (bVar.a() != null && bVar.a().getInt("ok") == 0) {
-                    d dVar = this.f5667c;
+                if (bVar.a() != null && bVar.a().getInt(NewBindCardEntry.BING_CARD_SUCCESS_MSG) == 0) {
+                    d dVar = this.f5675c;
                     if (dVar != null) {
                         dVar.b();
                         return;
                     }
                     return;
                 }
-                d dVar2 = this.f5667c;
+                d dVar2 = this.f5675c;
                 if (dVar2 != null) {
                     dVar2.a();
                 }
@@ -350,9 +351,9 @@ public class a extends a0 {
                     aVar3.q0("srcAppId", H);
                     aVar3.q0("srcAppPage", q0.n().h());
                 }
-                if (a0.f4766b && !TextUtils.isEmpty(optString5)) {
+                if (a0.f4774b && !TextUtils.isEmpty(optString5)) {
                     e.d dVar3 = new e.d();
-                    dVar3.f4497a = optString5;
+                    dVar3.f4505a = optString5;
                     e.I(dVar3, new C0180a(this, aVar3, optString4, optString, callbackHandler, unitedSchemeEntity, optString8));
                     return true;
                 } else if (TextUtils.isEmpty(optString5)) {

@@ -16,34 +16,34 @@ public class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f23806a;
+    public String f23822a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23807b;
+    public String f23823b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23808c;
+    public String f23824c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f23809d;
+    public String f23825d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f23810e;
+    public String f23826e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f23811f;
+    public String f23827f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f23812g;
+    public String f23828g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f23813h;
+    public String f23829h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f23814i;
+    public String f23830i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f23815j;
+    public int f23831j;
     public String k;
     public String l;
     public String m;
@@ -175,36 +175,36 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisticItem)) == null) {
             if (statisticItem != null) {
-                if (!StringUtils.isNull(this.f23806a)) {
-                    statisticItem.param("obj_locate", this.f23806a);
-                    statisticItem.param("page_type", a.a(this.f23806a));
+                if (!StringUtils.isNull(this.f23822a)) {
+                    statisticItem.param("obj_locate", this.f23822a);
+                    statisticItem.param("page_type", a.a(this.f23822a));
                 }
-                if (!StringUtils.isNull(this.f23808c)) {
-                    statisticItem.param("tid", this.f23808c);
+                if (!StringUtils.isNull(this.f23824c)) {
+                    statisticItem.param("tid", this.f23824c);
                 }
-                if (!StringUtils.isNull(this.f23809d)) {
-                    statisticItem.param("fid", this.f23809d);
+                if (!StringUtils.isNull(this.f23825d)) {
+                    statisticItem.param("fid", this.f23825d);
                 }
-                if (!StringUtils.isNull(this.f23810e)) {
-                    statisticItem.param("uid", this.f23810e);
+                if (!StringUtils.isNull(this.f23826e)) {
+                    statisticItem.param("uid", this.f23826e);
                 }
-                if (!StringUtils.isNull(this.f23811f)) {
-                    statisticItem.param("obj_source", this.f23811f);
+                if (!StringUtils.isNull(this.f23827f)) {
+                    statisticItem.param("obj_source", this.f23827f);
                 } else {
                     statisticItem.param("obj_source", 0);
                 }
-                if (!StringUtils.isNull(this.f23812g)) {
-                    statisticItem.param("obj_param1", this.f23812g);
+                if (!StringUtils.isNull(this.f23828g)) {
+                    statisticItem.param("obj_param1", this.f23828g);
                 } else {
                     statisticItem.param("obj_param1", 0);
                 }
-                if (!StringUtils.isNull(this.f23813h)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.f23813h);
+                if (!StringUtils.isNull(this.f23829h)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.f23829h);
                 }
-                if (!StringUtils.isNull(this.f23814i)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.f23814i);
+                if (!StringUtils.isNull(this.f23830i)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.f23830i);
                 }
-                int i2 = this.f23815j;
+                int i2 = this.f23831j;
                 if (i2 > 0) {
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, i2);
                 }
@@ -250,15 +250,15 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             o oVar = new o();
-            oVar.f23806a = this.f23806a;
-            oVar.f23807b = this.f23807b;
-            oVar.f23808c = this.f23808c;
-            oVar.f23809d = this.f23809d;
-            oVar.f23810e = this.f23810e;
-            oVar.f23811f = this.f23811f;
-            oVar.f23812g = this.f23812g;
-            oVar.f23813h = this.f23813h;
-            oVar.f23814i = this.f23814i;
+            oVar.f23822a = this.f23822a;
+            oVar.f23823b = this.f23823b;
+            oVar.f23824c = this.f23824c;
+            oVar.f23825d = this.f23825d;
+            oVar.f23826e = this.f23826e;
+            oVar.f23827f = this.f23827f;
+            oVar.f23828g = this.f23828g;
+            oVar.f23829h = this.f23829h;
+            oVar.f23830i = this.f23830i;
             oVar.k = this.k;
             oVar.l = this.l;
             oVar.m = this.m;

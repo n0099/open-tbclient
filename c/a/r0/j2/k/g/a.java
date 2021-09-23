@@ -21,7 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.m0;
+import c.a.q0.d1.n0;
 import c.a.q0.s.f0.f;
 import c.a.q0.s.q.x0;
 import c.a.q0.s.s.a;
@@ -32,7 +32,7 @@ import c.a.r0.i.j;
 import c.a.r0.j2.h.r;
 import c.a.r0.j2.i.c;
 import c.a.r0.j2.k.g.b;
-import c.a.r0.j3.y;
+import c.a.r0.j3.z;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
@@ -118,43 +118,43 @@ public class a implements KeyboardEventLayout.a {
     public ImageView Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public SubPbView f20397a;
+    public SubPbView f20412a;
     public LinearLayout a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f20398b;
+    public LinearLayout f20413b;
     public HeadImageView b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f20399c;
+    public View f20414c;
     public View c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdTypeListView f20400d;
+    public BdTypeListView f20415d;
     public PbMoreDialog d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.j2.p.k f20401e;
+    public c.a.r0.j2.p.j f20416e;
     public int e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewSubPbActivity f20402f;
+    public NewSubPbActivity f20417f;
     public int f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoNetworkView f20403g;
+    public NoNetworkView f20418g;
     public SubPbModel g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoDataView f20404h;
+    public NoDataView f20419h;
     public int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f20405i;
+    public View.OnClickListener f20420i;
     public boolean i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f20406j;
+    public RelativeLayout f20421j;
     public c.a.r0.i.g j0;
     public NavigationBar k;
     public c.a.r0.i.j k0;
@@ -183,17 +183,17 @@ public class a implements KeyboardEventLayout.a {
 
     /* renamed from: c.a.r0.j2.k.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class RunnableC0968a implements Runnable {
+    public class RunnableC0966a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f20407e;
+        public final /* synthetic */ boolean f20422e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f20408f;
+        public final /* synthetic */ a f20423f;
 
-        public RunnableC0968a(a aVar, boolean z) {
+        public RunnableC0966a(a aVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,26 +208,26 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20408f = aVar;
-            this.f20407e = z;
+            this.f20423f = aVar;
+            this.f20422e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20408f.f20400d.setEnabled(this.f20407e);
+                this.f20423f.f20415d.setEnabled(this.f20422e);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements y.e {
+    public class b implements z.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20409e;
+        public final /* synthetic */ a f20424e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -244,14 +244,14 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20409e = aVar;
+            this.f20424e = aVar;
         }
 
-        @Override // c.a.r0.j3.y.e
+        @Override // c.a.r0.j3.z.e
         public void onDraftLoaded(WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
-                this.f20409e.T();
+                this.f20424e.T();
             }
         }
     }
@@ -262,7 +262,7 @@ public class a implements KeyboardEventLayout.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20410e;
+        public final /* synthetic */ a f20425e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -279,7 +279,7 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20410e = aVar;
+            this.f20425e = aVar;
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -288,12 +288,12 @@ public class a implements KeyboardEventLayout.a {
             SparseArray<Object> sparseArray;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-                PostData postData = (PostData) ListUtils.getItem(this.f20410e.U, i2);
+                PostData postData = (PostData) ListUtils.getItem(this.f20425e.U, i2);
                 if (view != null && view.getTag() != null) {
-                    if (this.f20410e.d0 == null) {
-                        this.f20410e.d0 = new PbMoreDialog(this.f20410e.f20402f.getPageContext(), this.f20410e.M);
+                    if (this.f20425e.d0 == null) {
+                        this.f20425e.d0 = new PbMoreDialog(this.f20425e.f20417f.getPageContext(), this.f20425e.M);
                     }
-                    this.f20410e.d0.showDialog();
+                    this.f20425e.d0.showDialog();
                     try {
                         sparseArray = (SparseArray) view.getTag();
                     } catch (ClassCastException e2) {
@@ -304,15 +304,15 @@ public class a implements KeyboardEventLayout.a {
                         return true;
                     }
                     PostData postData2 = sparseArray.get(R.id.tag_clip_board) instanceof PostData ? (PostData) sparseArray.get(R.id.tag_clip_board) : null;
-                    boolean z = this.f20410e.Z(sparseArray.get(R.id.tag_del_post_is_self) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue() : false) && TbadkCoreApplication.isLogin();
-                    this.f20410e.d0.confirmItems(sparseArray, this.f20410e.g0.A0(), z, this.f20410e.m0 && postData2 != null && postData2.m0, this.f20410e.g0.i0());
+                    boolean z = this.f20425e.Z(sparseArray.get(R.id.tag_del_post_is_self) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue() : false) && TbadkCoreApplication.isLogin();
+                    this.f20425e.d0.confirmItems(sparseArray, this.f20425e.g0.B0(), z, this.f20425e.m0 && postData2 != null && postData2.m0, this.f20425e.g0.j0());
                     if (z) {
-                        this.f20410e.d0.getReportTextView().setVisibility(0);
-                        this.f20410e.d0.getReportTextView().setTag(postData.E());
+                        this.f20425e.d0.getReportTextView().setVisibility(0);
+                        this.f20425e.d0.getReportTextView().setTag(postData.E());
                     } else {
-                        this.f20410e.d0.getReportTextView().setVisibility(8);
+                        this.f20425e.d0.getReportTextView().setVisibility(8);
                     }
-                    this.f20410e.d0.getMarkTextView().setVisibility(8);
+                    this.f20425e.d0.getMarkTextView().setVisibility(8);
                 }
                 return false;
             }
@@ -326,7 +326,7 @@ public class a implements KeyboardEventLayout.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20411e;
+        public final /* synthetic */ a f20426e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -343,32 +343,33 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20411e = aVar;
+            this.f20426e = aVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && this.f20411e.f20402f != null && ViewHelper.checkUpIsLogin(this.f20411e.f20402f.getPageContext().getPageActivity())) {
-                if ((this.f20411e.f20402f.mReplyPrivacyController != null && this.f20411e.g0 != null && this.f20411e.g0.g0() != null && !this.f20411e.f20402f.mReplyPrivacyController.checkPrivacyBeforeInvokeEditor(this.f20411e.g0.g0().replyPrivateFlag)) || this.f20411e.g0 == null || this.f20411e.S == null) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && this.f20426e.f20417f != null && ViewHelper.checkUpIsLogin(this.f20426e.f20417f.getPageContext().getPageActivity())) {
+                if ((this.f20426e.f20417f.mReplyPrivacyController != null && this.f20426e.g0 != null && this.f20426e.g0.h0() != null && !this.f20426e.f20417f.mReplyPrivacyController.checkPrivacyBeforeInvokeEditor(this.f20426e.g0.h0().replyPrivateFlag)) || this.f20426e.g0 == null || this.f20426e.S == null) {
                     return;
                 }
-                this.f20411e.K0();
+                this.f20426e.K0();
                 if (view != null && (view.getTag() instanceof b.a)) {
-                    this.f20411e.s();
-                    this.f20411e.g0.b1();
+                    this.f20426e.s();
+                    this.f20426e.g0.c1();
                     return;
                 }
                 SparseArray sparseArray = (SparseArray) view.getTag();
                 if (sparseArray != null) {
                     String str = (String) sparseArray.get(R.id.tag_photo_username);
                     String str2 = (String) sparseArray.get(R.id.tag_photo_userid);
+                    String str3 = (String) sparseArray.get(R.id.tag_photo_portrait);
                     if (str != null) {
-                        this.f20411e.S.V(str2);
-                        this.f20411e.S.U(str);
+                        this.f20426e.S.X(str2);
+                        this.f20426e.S.W(str, str3);
                     }
                 }
-                this.f20411e.u();
+                this.f20426e.u();
             }
         }
     }
@@ -379,7 +380,7 @@ public class a implements KeyboardEventLayout.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20412e;
+        public final /* synthetic */ a f20427e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -396,16 +397,16 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20412e = aVar;
+            this.f20427e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20412e.I == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20427e.I == null) {
                 return;
             }
-            this.f20412e.f20397a.onFinish();
+            this.f20427e.f20412a.onFinish();
         }
     }
 
@@ -415,10 +416,10 @@ public class a implements KeyboardEventLayout.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f20413e;
+        public final /* synthetic */ int f20428e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f20414f;
+        public final /* synthetic */ a f20429f;
 
         public f(a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -435,19 +436,19 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20414f = aVar;
-            this.f20413e = i2;
+            this.f20429f = aVar;
+            this.f20428e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int headerViewsCount = this.f20413e + this.f20414f.f20400d.getHeaderViewsCount();
+                int headerViewsCount = this.f20428e + this.f20429f.f20415d.getHeaderViewsCount();
                 if (headerViewsCount >= 1) {
                     headerViewsCount--;
                 }
-                this.f20414f.f20400d.setSelection(headerViewsCount);
+                this.f20429f.f20415d.setSelection(headerViewsCount);
             }
         }
     }
@@ -458,7 +459,7 @@ public class a implements KeyboardEventLayout.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20415e;
+        public final /* synthetic */ a f20430e;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -475,23 +476,23 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20415e = aVar;
+            this.f20430e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f20415e.g0 == null || !this.f20415e.g0.H0()) {
-                    if (this.f20415e.I != null) {
-                        this.f20415e.f20397a.onFinish();
+                if (this.f20430e.g0 == null || !this.f20430e.g0.I0()) {
+                    if (this.f20430e.I != null) {
+                        this.f20430e.f20412a.onFinish();
                         return;
                     } else {
-                        this.f20415e.f20402f.finish();
+                        this.f20430e.f20417f.finish();
                         return;
                     }
                 }
-                this.f20415e.f20402f.finish();
+                this.f20430e.f20417f.finish();
             }
         }
     }
@@ -502,7 +503,7 @@ public class a implements KeyboardEventLayout.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f20416a;
+        public final /* synthetic */ a f20431a;
 
         public h(a aVar) {
             Interceptable interceptable = $ic;
@@ -519,7 +520,7 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20416a = aVar;
+            this.f20431a = aVar;
         }
 
         @Override // c.a.r0.j2.i.c.a
@@ -547,8 +548,8 @@ public class a implements KeyboardEventLayout.a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
-                this.f20416a.x(false);
-                this.f20416a.x(true);
+                this.f20431a.x(false);
+                this.f20431a.x(true);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -561,7 +562,7 @@ public class a implements KeyboardEventLayout.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20417e;
+        public final /* synthetic */ a f20432e;
 
         public i(a aVar) {
             Interceptable interceptable = $ic;
@@ -578,21 +579,21 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20417e = aVar;
+            this.f20432e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f20417e.K != null && (this.f20417e.K instanceof Dialog)) {
-                    c.a.e.e.m.g.b(this.f20417e.K, this.f20417e.f20402f.getPageContext());
+                if (this.f20432e.K != null && (this.f20432e.K instanceof Dialog)) {
+                    c.a.e.e.m.g.b(this.f20432e.K, this.f20432e.f20417f.getPageContext());
                 }
                 SparseArray sparseArray = (SparseArray) view.getTag();
                 if (sparseArray == null) {
                     return;
                 }
-                this.f20417e.g0(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue(), false);
+                this.f20432e.g0(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue(), false);
             }
         }
     }
@@ -603,7 +604,7 @@ public class a implements KeyboardEventLayout.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20418e;
+        public final /* synthetic */ a f20433e;
 
         public j(a aVar) {
             Interceptable interceptable = $ic;
@@ -620,21 +621,21 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20418e = aVar;
+            this.f20433e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f20418e.K != null && (this.f20418e.K instanceof Dialog)) {
-                    c.a.e.e.m.g.b(this.f20418e.K, this.f20418e.f20402f.getPageContext());
+                if (this.f20433e.K != null && (this.f20433e.K instanceof Dialog)) {
+                    c.a.e.e.m.g.b(this.f20433e.K, this.f20433e.f20417f.getPageContext());
                 }
                 SparseArray sparseArray = (SparseArray) view.getTag();
-                if (sparseArray == null || this.f20418e.Q == null) {
+                if (sparseArray == null || this.f20433e.Q == null) {
                     return;
                 }
-                this.f20418e.Q.a(new Object[]{sparseArray.get(R.id.tag_manage_user_identity), sparseArray.get(R.id.tag_forbid_user_name), sparseArray.get(R.id.tag_forbid_user_post_id), sparseArray.get(R.id.tag_forbid_user_name_show), sparseArray.get(R.id.tag_forbid_user_portrait)});
+                this.f20433e.Q.a(new Object[]{sparseArray.get(R.id.tag_manage_user_identity), sparseArray.get(R.id.tag_forbid_user_name), sparseArray.get(R.id.tag_forbid_user_post_id), sparseArray.get(R.id.tag_forbid_user_name_show), sparseArray.get(R.id.tag_forbid_user_portrait)});
             }
         }
     }
@@ -645,10 +646,10 @@ public class a implements KeyboardEventLayout.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f20419e;
+        public final /* synthetic */ boolean f20434e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f20420f;
+        public final /* synthetic */ a f20435f;
 
         public k(a aVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -665,22 +666,22 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20420f = aVar;
-            this.f20419e = z;
+            this.f20435f = aVar;
+            this.f20434e = z;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f20420f.K != null && (this.f20420f.K instanceof Dialog)) {
-                    c.a.e.e.m.g.b(this.f20420f.K, this.f20420f.f20402f.getPageContext());
+                if (this.f20435f.K != null && (this.f20435f.K instanceof Dialog)) {
+                    c.a.e.e.m.g.b(this.f20435f.K, this.f20435f.f20417f.getPageContext());
                 }
                 SparseArray<Object> sparseArray = (SparseArray) view.getTag();
                 if (sparseArray == null) {
                     return;
                 }
-                this.f20420f.f20402f.handleMuteClick(this.f20419e, (String) sparseArray.get(R.id.tag_user_mute_mute_userid), sparseArray);
+                this.f20435f.f20417f.handleMuteClick(this.f20434e, (String) sparseArray.get(R.id.tag_user_mute_mute_userid), sparseArray);
             }
         }
     }
@@ -691,10 +692,10 @@ public class a implements KeyboardEventLayout.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f20421e;
+        public final /* synthetic */ SparseArray f20436e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f20422f;
+        public final /* synthetic */ a f20437f;
 
         public l(a aVar, SparseArray sparseArray) {
             Interceptable interceptable = $ic;
@@ -711,16 +712,16 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20422f = aVar;
-            this.f20421e = sparseArray;
+            this.f20437f = aVar;
+            this.f20436e = sparseArray;
         }
 
         @Override // c.a.q0.s.s.a.e
         public void onClick(c.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (this.f20422f.R != null) {
-                    this.f20422f.R.a(new Object[]{this.f20421e.get(R.id.tag_del_post_id), this.f20421e.get(R.id.tag_manage_user_identity), this.f20421e.get(R.id.tag_del_post_is_self), this.f20421e.get(R.id.tag_del_post_type)});
+                if (this.f20437f.R != null) {
+                    this.f20437f.R.a(new Object[]{this.f20436e.get(R.id.tag_del_post_id), this.f20436e.get(R.id.tag_manage_user_identity), this.f20436e.get(R.id.tag_del_post_is_self), this.f20436e.get(R.id.tag_del_post_type)});
                 }
                 aVar.dismiss();
             }
@@ -758,15 +759,15 @@ public class a implements KeyboardEventLayout.a {
     }
 
     /* loaded from: classes3.dex */
-    public class n implements g.InterfaceC0925g {
+    public class n implements g.InterfaceC0923g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f20423a;
+        public final /* synthetic */ SparseArray f20438a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f20424b;
+        public final /* synthetic */ a f20439b;
 
         public n(a aVar, SparseArray sparseArray) {
             Interceptable interceptable = $ic;
@@ -783,17 +784,17 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20424b = aVar;
-            this.f20423a = sparseArray;
+            this.f20439b = aVar;
+            this.f20438a = sparseArray;
         }
 
-        @Override // c.a.r0.i.g.InterfaceC0925g
+        @Override // c.a.r0.i.g.InterfaceC0923g
         public void a(JSONArray jSONArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
                 String JsonArrayToString = StringHelper.JsonArrayToString(jSONArray);
-                if (this.f20424b.R != null) {
-                    this.f20424b.R.a(new Object[]{this.f20423a.get(R.id.tag_del_post_id), this.f20423a.get(R.id.tag_manage_user_identity), this.f20423a.get(R.id.tag_del_post_is_self), this.f20423a.get(R.id.tag_del_post_type), JsonArrayToString});
+                if (this.f20439b.R != null) {
+                    this.f20439b.R.a(new Object[]{this.f20438a.get(R.id.tag_del_post_id), this.f20438a.get(R.id.tag_manage_user_identity), this.f20438a.get(R.id.tag_del_post_is_self), this.f20438a.get(R.id.tag_del_post_type), JsonArrayToString});
                 }
             }
         }
@@ -805,10 +806,10 @@ public class a implements KeyboardEventLayout.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SparseArray f20425a;
+        public final /* synthetic */ SparseArray f20440a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f20426b;
+        public final /* synthetic */ a f20441b;
 
         public o(a aVar, SparseArray sparseArray) {
             Interceptable interceptable = $ic;
@@ -825,8 +826,8 @@ public class a implements KeyboardEventLayout.a {
                     return;
                 }
             }
-            this.f20426b = aVar;
-            this.f20425a = sparseArray;
+            this.f20441b = aVar;
+            this.f20440a = sparseArray;
         }
 
         @Override // c.a.r0.i.j.h
@@ -834,8 +835,8 @@ public class a implements KeyboardEventLayout.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
                 String JsonArrayToString = StringHelper.JsonArrayToString(jSONArray);
-                if (this.f20426b.R != null) {
-                    this.f20426b.R.a(new Object[]{this.f20425a.get(R.id.tag_del_post_id), this.f20425a.get(R.id.tag_manage_user_identity), this.f20425a.get(R.id.tag_del_post_is_self), this.f20425a.get(R.id.tag_del_post_type), JsonArrayToString});
+                if (this.f20441b.R != null) {
+                    this.f20441b.R.a(new Object[]{this.f20440a.get(R.id.tag_del_post_id), this.f20440a.get(R.id.tag_manage_user_identity), this.f20440a.get(R.id.tag_del_post_is_self), this.f20440a.get(R.id.tag_del_post_type), JsonArrayToString});
                 }
             }
         }
@@ -872,15 +873,15 @@ public class a implements KeyboardEventLayout.a {
                 return;
             }
         }
-        this.f20397a = null;
-        this.f20399c = null;
-        this.f20400d = null;
-        this.f20401e = null;
-        this.f20402f = null;
-        this.f20403g = null;
-        this.f20404h = null;
-        this.f20405i = null;
-        this.f20406j = null;
+        this.f20412a = null;
+        this.f20414c = null;
+        this.f20415d = null;
+        this.f20416e = null;
+        this.f20417f = null;
+        this.f20418g = null;
+        this.f20419h = null;
+        this.f20420i = null;
+        this.f20421j = null;
         this.k = null;
         this.m = null;
         this.n = null;
@@ -917,63 +918,63 @@ public class a implements KeyboardEventLayout.a {
         this.f0 = 0;
         this.h0 = 0;
         this.i0 = true;
-        this.m0 = c.a.q0.b.d.b0();
+        this.m0 = c.a.q0.b.d.i0();
         this.p0 = new c.a.r0.j2.i.c(new h(this));
         this.q0 = new c(this);
         this.r0 = new d(this);
-        this.f20402f = newSubPbActivity;
+        this.f20417f = newSubPbActivity;
         this.M = onClickListener;
-        this.f20397a = (SubPbView) LayoutInflater.from(newSubPbActivity.getPageContext().getPageActivity()).inflate(R.layout.new_sub_pb_layout, (ViewGroup) null);
-        this.f20399c = LayoutInflater.from(this.f20402f.getPageContext().getPageActivity()).inflate(R.layout.new_sub_pb_head, (ViewGroup) null);
-        this.f20398b = (LinearLayout) this.f20397a.findViewById(R.id.navigation_bar_group);
-        this.X = (RelativeLayout) this.f20397a.findViewById(R.id.subpb_editor_tool_comment);
-        TextView textView = (TextView) this.f20397a.findViewById(R.id.subpb_editor_tool_comment_reply_text);
+        this.f20412a = (SubPbView) LayoutInflater.from(newSubPbActivity.getPageContext().getPageActivity()).inflate(R.layout.new_sub_pb_layout, (ViewGroup) null);
+        this.f20414c = LayoutInflater.from(this.f20417f.getPageContext().getPageActivity()).inflate(R.layout.new_sub_pb_head, (ViewGroup) null);
+        this.f20413b = (LinearLayout) this.f20412a.findViewById(R.id.navigation_bar_group);
+        this.X = (RelativeLayout) this.f20412a.findViewById(R.id.subpb_editor_tool_comment);
+        TextView textView = (TextView) this.f20412a.findViewById(R.id.subpb_editor_tool_comment_reply_text);
         this.W = textView;
         textView.setOnClickListener(this.M);
-        this.Y = (ImageView) this.f20397a.findViewById(R.id.subpb_editor_tool_more_img);
-        ImageView imageView = (ImageView) this.f20397a.findViewById(R.id.subpb_editor_tool_emotion_img);
+        this.Y = (ImageView) this.f20412a.findViewById(R.id.subpb_editor_tool_more_img);
+        ImageView imageView = (ImageView) this.f20412a.findViewById(R.id.subpb_editor_tool_emotion_img);
         this.Z = imageView;
         imageView.setOnClickListener(this.M);
         this.Y.setOnClickListener(this.M);
-        this.f20403g = (NoNetworkView) this.f20397a.findViewById(R.id.view_no_network);
+        this.f20418g = (NoNetworkView) this.f20412a.findViewById(R.id.view_no_network);
         V();
         U();
-        this.f20406j = (RelativeLayout) this.f20397a.findViewById(R.id.sub_pb_body_layout);
-        this.f20400d = (BdTypeListView) this.f20397a.findViewById(R.id.new_sub_pb_list);
-        ThreadSkinView threadSkinView = (ThreadSkinView) LayoutInflater.from(this.f20402f.getPageContext().getPageActivity()).inflate(R.layout.thread_skin_layout, (ViewGroup) null);
+        this.f20421j = (RelativeLayout) this.f20412a.findViewById(R.id.sub_pb_body_layout);
+        this.f20415d = (BdTypeListView) this.f20412a.findViewById(R.id.new_sub_pb_list);
+        ThreadSkinView threadSkinView = (ThreadSkinView) LayoutInflater.from(this.f20417f.getPageContext().getPageActivity()).inflate(R.layout.thread_skin_layout, (ViewGroup) null);
         this.A = threadSkinView;
-        this.f20400d.addHeaderView(threadSkinView);
-        this.f20400d.addHeaderView(this.f20399c);
+        this.f20415d.addHeaderView(threadSkinView);
+        this.f20415d.addHeaderView(this.f20414c);
         this.J = new TextView(newSubPbActivity.getActivity());
         this.J.setLayoutParams(new AbsListView.LayoutParams(-1, 20));
-        this.f20400d.addHeaderView(this.J, 0);
-        this.f20397a.setTopView(this.J);
-        this.f20397a.setNavigationView(this.f20398b);
-        this.f20397a.setListView(this.f20400d);
-        this.f20397a.setContentView(this.f20406j);
-        c.a.r0.j2.k.g.d dVar = new c.a.r0.j2.k.g.d(this.f20402f.getPageContext());
+        this.f20415d.addHeaderView(this.J, 0);
+        this.f20412a.setTopView(this.J);
+        this.f20412a.setNavigationView(this.f20413b);
+        this.f20412a.setListView(this.f20415d);
+        this.f20412a.setContentView(this.f20421j);
+        c.a.r0.j2.k.g.d dVar = new c.a.r0.j2.k.g.d(this.f20417f.getPageContext());
         this.C = dVar;
         dVar.v();
         this.H = this.C.b();
-        this.f20400d.setNextPage(this.C);
+        this.f20415d.setNextPage(this.C);
         this.C.z(this.M);
-        this.f20400d.setOnItemClickListener(this.r0);
-        this.f20400d.setOnItemLongClickListener(this.q0);
-        this.f20400d.setOnTouchListener(this.p0);
-        c.a.r0.j2.p.k kVar = new c.a.r0.j2.p.k(newSubPbActivity.getPageContext());
-        this.f20401e = kVar;
-        kVar.i();
-        this.f20401e.a(this.n0);
-        this.f20401e.D(TbadkCoreApplication.getInst().getSkinType());
-        this.P = (ProgressBar) this.f20397a.findViewById(R.id.progress);
-        this.o0 = (MaskView) this.f20397a.findViewById(R.id.mask_view);
-        this.c0 = this.f20397a.findViewById(R.id.view_comment_top_line);
-        this.a0 = (LinearLayout) this.f20397a.findViewById(R.id.pb_editer_tool_comment_layout);
-        HeadImageView headImageView = (HeadImageView) this.f20397a.findViewById(R.id.pb_editor_tool_comment_user_image);
+        this.f20415d.setOnItemClickListener(this.r0);
+        this.f20415d.setOnItemLongClickListener(this.q0);
+        this.f20415d.setOnTouchListener(this.p0);
+        c.a.r0.j2.p.j jVar = new c.a.r0.j2.p.j(newSubPbActivity.getPageContext());
+        this.f20416e = jVar;
+        jVar.i();
+        this.f20416e.a(this.n0);
+        this.f20416e.D(TbadkCoreApplication.getInst().getSkinType());
+        this.P = (ProgressBar) this.f20412a.findViewById(R.id.progress);
+        this.o0 = (MaskView) this.f20412a.findViewById(R.id.mask_view);
+        this.c0 = this.f20412a.findViewById(R.id.view_comment_top_line);
+        this.a0 = (LinearLayout) this.f20412a.findViewById(R.id.pb_editer_tool_comment_layout);
+        HeadImageView headImageView = (HeadImageView) this.f20412a.findViewById(R.id.pb_editor_tool_comment_user_image);
         this.b0 = headImageView;
         headImageView.setVisibility(0);
         this.b0.setIsRound(true);
-        this.b0.setBorderWidth(c.a.e.e.p.l.g(this.f20402f, R.dimen.L_X01));
+        this.b0.setBorderWidth(c.a.e.e.p.l.g(this.f20417f, R.dimen.L_X01));
         this.b0.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.b0.setDefaultBgResource(0);
         this.b0.setDefaultResource(R.color.CAM_X0205);
@@ -981,17 +982,17 @@ public class a implements KeyboardEventLayout.a {
             this.b0.startLoad(TbadkCoreApplication.getCurrentAccountInfo().getAvatar(), 12, false);
         }
         e0(TbadkCoreApplication.getInst().getSkinType());
-        View view = this.f20399c;
+        View view = this.f20414c;
         if (view != null) {
             view.setVisibility(4);
         }
-        View a2 = c.a.q0.e.c.b().a(this.f20402f.getActivity(), 4);
+        View a2 = c.a.q0.e.c.b().a(this.f20417f.getActivity(), 4);
         this.r = a2;
         if (a2 != null) {
             a2.setVisibility(8);
             this.o.addView(this.r, 3);
         }
-        c.a.r0.j2.k.g.c cVar = new c.a.r0.j2.k.g.c(this.f20402f, this.f20400d);
+        c.a.r0.j2.k.g.c cVar = new c.a.r0.j2.k.g.c(this.f20417f, this.f20415d);
         this.l0 = cVar;
         cVar.f(this.O);
         this.l0.d(this.M);
@@ -1015,7 +1016,7 @@ public class a implements KeyboardEventLayout.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.B == null) {
-                this.B = new c.a.q0.s.f0.a(this.f20402f.getPageContext());
+                this.B = new c.a.q0.s.f0.a(this.f20417f.getPageContext());
             }
             this.B.h(true);
         }
@@ -1036,18 +1037,18 @@ public class a implements KeyboardEventLayout.a {
 
     public final void B0(SparseArray<Object> sparseArray, c.a.r0.i.i iVar, UserData userData) {
         NewSubPbActivity newSubPbActivity;
-        AntiData g0;
+        AntiData h0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, sparseArray, iVar, userData) == null) || (newSubPbActivity = this.f20402f) == null || sparseArray == null || this.f20399c == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, sparseArray, iVar, userData) == null) || (newSubPbActivity = this.f20417f) == null || sparseArray == null || this.f20414c == null) {
             return;
         }
         if (this.k0 == null) {
-            this.k0 = new c.a.r0.i.j(newSubPbActivity.getPageContext(), this.f20399c, iVar, userData);
+            this.k0 = new c.a.r0.i.j(newSubPbActivity.getPageContext(), this.f20414c, iVar, userData);
         }
         SparseArray<String> sparseArray2 = new SparseArray<>();
         SubPbModel subPbModel = this.g0;
-        if (subPbModel != null && (g0 = subPbModel.g0()) != null && g0.getDelThreadInfoList() != null) {
-            List<DeleteThreadInfo> delThreadInfoList = g0.getDelThreadInfoList();
+        if (subPbModel != null && (h0 = subPbModel.h0()) != null && h0.getDelThreadInfoList() != null) {
+            List<DeleteThreadInfo> delThreadInfoList = h0.getDelThreadInfoList();
             for (int i2 = 0; i2 < delThreadInfoList.size(); i2++) {
                 if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
                     sparseArray2.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
@@ -1056,7 +1057,7 @@ public class a implements KeyboardEventLayout.a {
         }
         x0 x0Var = new x0();
         x0Var.k(sparseArray2);
-        this.k0.E(new String[]{this.f20402f.getString(R.string.delete_thread_reason_1), this.f20402f.getString(R.string.delete_thread_reason_2), this.f20402f.getString(R.string.delete_thread_reason_3), this.f20402f.getString(R.string.delete_thread_reason_4), this.f20402f.getString(R.string.delete_thread_reason_5)});
+        this.k0.E(new String[]{this.f20417f.getString(R.string.delete_thread_reason_1), this.f20417f.getString(R.string.delete_thread_reason_2), this.f20417f.getString(R.string.delete_thread_reason_3), this.f20417f.getString(R.string.delete_thread_reason_4), this.f20417f.getString(R.string.delete_thread_reason_5)});
         this.k0.D(x0Var);
         this.k0.G("4");
         this.k0.F(new o(this, sparseArray));
@@ -1071,7 +1072,7 @@ public class a implements KeyboardEventLayout.a {
     public void C0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            W(NoDataViewFactory.e.d(null, this.f20402f.getResources().getString(R.string.refresh_view_title_text)));
+            W(NoDataViewFactory.e.d(null, this.f20417f.getResources().getString(R.string.refresh_view_title_text)));
             this.X.setVisibility(8);
         }
     }
@@ -1088,7 +1089,7 @@ public class a implements KeyboardEventLayout.a {
             if (z) {
                 W(NoDataViewFactory.e.d("", str));
             } else {
-                W(NoDataViewFactory.e.d(str, this.f20402f.getPageContext().getString(R.string.refresh_view_title_text)));
+                W(NoDataViewFactory.e.d(str, this.f20417f.getPageContext().getString(R.string.refresh_view_title_text)));
             }
             this.X.setVisibility(8);
         }
@@ -1097,7 +1098,7 @@ public class a implements KeyboardEventLayout.a {
     public View E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20399c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f20414c : (View) invokeV.objValue;
     }
 
     public void E0(b.c cVar, boolean z) {
@@ -1108,14 +1109,14 @@ public class a implements KeyboardEventLayout.a {
                 bVar.e();
                 this.N = null;
             }
-            c.a.q0.s.s.b bVar2 = new c.a.q0.s.s.b(this.f20402f.getPageContext().getPageActivity());
+            c.a.q0.s.s.b bVar2 = new c.a.q0.s.s.b(this.f20417f.getPageContext().getPageActivity());
             this.N = bVar2;
             if (z) {
-                bVar2.j(new String[]{this.f20402f.getPageContext().getString(R.string.save_to_emotion)}, cVar);
+                bVar2.j(new String[]{this.f20417f.getPageContext().getString(R.string.save_to_emotion)}, cVar);
             } else {
-                bVar2.j(new String[]{this.f20402f.getPageContext().getString(R.string.save_to_emotion), this.f20402f.getPageContext().getString(R.string.save_to_local)}, cVar);
+                bVar2.j(new String[]{this.f20417f.getPageContext().getString(R.string.save_to_emotion), this.f20417f.getPageContext().getString(R.string.save_to_local)}, cVar);
             }
-            this.N.c(this.f20402f.getPageContext());
+            this.N.c(this.f20417f.getPageContext());
             this.N.m();
         }
     }
@@ -1128,18 +1129,18 @@ public class a implements KeyboardEventLayout.a {
 
     public final void F0(SparseArray<Object> sparseArray) {
         NewSubPbActivity newSubPbActivity;
-        AntiData g0;
+        AntiData h0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, sparseArray) == null) || (newSubPbActivity = this.f20402f) == null || sparseArray == null || this.f20399c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, sparseArray) == null) || (newSubPbActivity = this.f20417f) == null || sparseArray == null || this.f20414c == null) {
             return;
         }
         if (this.j0 == null) {
-            this.j0 = new c.a.r0.i.g(newSubPbActivity.getPageContext(), this.f20399c);
+            this.j0 = new c.a.r0.i.g(newSubPbActivity.getPageContext(), this.f20414c);
         }
         SparseArray<String> sparseArray2 = new SparseArray<>();
         SubPbModel subPbModel = this.g0;
-        if (subPbModel != null && (g0 = subPbModel.g0()) != null && g0.getDelThreadInfoList() != null) {
-            List<DeleteThreadInfo> delThreadInfoList = g0.getDelThreadInfoList();
+        if (subPbModel != null && (h0 = subPbModel.h0()) != null && h0.getDelThreadInfoList() != null) {
+            List<DeleteThreadInfo> delThreadInfoList = h0.getDelThreadInfoList();
             for (int i2 = 0; i2 < delThreadInfoList.size(); i2++) {
                 if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
                     sparseArray2.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
@@ -1148,7 +1149,7 @@ public class a implements KeyboardEventLayout.a {
         }
         x0 x0Var = new x0();
         x0Var.k(sparseArray2);
-        this.j0.y(new String[]{this.f20402f.getString(R.string.delete_thread_reason_1), this.f20402f.getString(R.string.delete_thread_reason_2), this.f20402f.getString(R.string.delete_thread_reason_3), this.f20402f.getString(R.string.delete_thread_reason_4), this.f20402f.getString(R.string.delete_thread_reason_5)});
+        this.j0.y(new String[]{this.f20417f.getString(R.string.delete_thread_reason_1), this.f20417f.getString(R.string.delete_thread_reason_2), this.f20417f.getString(R.string.delete_thread_reason_3), this.f20417f.getString(R.string.delete_thread_reason_4), this.f20417f.getString(R.string.delete_thread_reason_5)});
         this.j0.x(x0Var);
         this.j0.A("4");
         this.j0.z(new n(this, sparseArray));
@@ -1157,13 +1158,13 @@ public class a implements KeyboardEventLayout.a {
     public ListView G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f20400d : (ListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f20415d : (ListView) invokeV.objValue;
     }
 
     public void G0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f20400d.setNextPage(this.C);
+            this.f20415d.setNextPage(this.C);
             this.C.O();
         }
     }
@@ -1183,16 +1184,16 @@ public class a implements KeyboardEventLayout.a {
         if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{rVar, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || rVar == null) {
             return;
         }
-        if (this.i0 && (view = this.f20399c) != null) {
+        if (this.i0 && (view = this.f20414c) != null) {
             view.setVisibility(8);
-            this.f20400d.removeHeaderView(this.f20399c);
+            this.f20415d.removeHeaderView(this.f20414c);
             this.e0 = 1;
         }
         this.V = rVar;
         if (rVar.i() != null) {
             this.V.i().m0 = true;
         }
-        View view2 = this.f20399c;
+        View view2 = this.f20414c;
         if (view2 != null) {
             view2.setVisibility(0);
         }
@@ -1205,17 +1206,17 @@ public class a implements KeyboardEventLayout.a {
             int A = rVar.i().A();
             this.T = A;
             if (A > 0) {
-                this.k.setCenterTextTitle(String.format(this.f20402f.getResources().getString(R.string.subpb_floor_reply), Integer.valueOf(this.T)));
-                NewSubPbActivity newSubPbActivity = this.f20402f;
+                this.k.setCenterTextTitle(String.format(this.f20417f.getResources().getString(R.string.subpb_floor_reply), Integer.valueOf(this.T)));
+                NewSubPbActivity newSubPbActivity = this.f20417f;
                 if (newSubPbActivity != null) {
                     this.W.setText(newSubPbActivity.getReplyHint());
                 }
             } else {
-                this.k.setCenterTextTitle(this.f20402f.getResources().getString(R.string.local_floor_reply));
+                this.k.setCenterTextTitle(this.f20417f.getResources().getString(R.string.local_floor_reply));
             }
-            String str = this.f20402f.isFromPb() ? "PB" : null;
+            String str = this.f20417f.isFromPb() ? "PB" : null;
             if (rVar.i().L() != null) {
-                this.A.setData(this.f20402f.getPageContext(), rVar.i().L(), c.a.r0.j3.k0.a.a("PB", "c0132", rVar.d().getId(), rVar.d().getName(), rVar.l().f0(), str));
+                this.A.setData(this.f20417f.getPageContext(), rVar.i().L(), c.a.r0.j3.k0.a.a("PB", "c0132", rVar.d().getId(), rVar.d().getName(), rVar.l().f0(), str));
             } else {
                 this.A.setData(null, null, null);
             }
@@ -1236,8 +1237,8 @@ public class a implements KeyboardEventLayout.a {
         } else {
             int size = this.U.size() - s0;
             j0(size);
-            int firstVisiblePosition = this.f20400d.getFirstVisiblePosition() - size;
-            View childAt = this.f20400d.getChildAt(0);
+            int firstVisiblePosition = this.f20415d.getFirstVisiblePosition() - size;
+            View childAt = this.f20415d.getChildAt(0);
             i3 = size;
             i4 = firstVisiblePosition;
             i5 = childAt == null ? 0 : childAt.getTop();
@@ -1245,12 +1246,12 @@ public class a implements KeyboardEventLayout.a {
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(this.U);
         if (ListUtils.isEmpty(this.U)) {
-            this.f20400d.setNextPage(null);
+            this.f20415d.setNextPage(null);
             if (this.i0) {
                 arrayList.add(0, new c.a.r0.j2.k.g.g.a());
             }
         } else {
-            this.f20400d.setNextPage(this.C);
+            this.f20415d.setNextPage(this.C);
         }
         c.a.r0.j2.k.g.g.b bVar = new c.a.r0.j2.k.g.g.b();
         bVar.c(rVar.m());
@@ -1258,21 +1259,21 @@ public class a implements KeyboardEventLayout.a {
         if (this.i0) {
             arrayList.add(0, rVar.i());
         }
-        NewSubPbActivity newSubPbActivity2 = this.f20402f;
+        NewSubPbActivity newSubPbActivity2 = this.f20417f;
         if (newSubPbActivity2 != null && newSubPbActivity2.getSubPbModel() != null) {
-            this.o0.setVisibility(this.f20402f.getSubPbModel().I0() ? 0 : 8);
+            this.o0.setVisibility(this.f20417f.getSubPbModel().J0() ? 0 : 8);
         }
         this.l0.e(this.V.l(), arrayList);
         y(rVar, rVar.i(), rVar.e(), rVar.f(), i2, z);
         if (i3 > 0) {
-            this.f20400d.setSelectionFromTop(i4, i5);
-        } else if (z2 && !c.a.e.e.p.k.isEmpty(this.f20402f.getSubPbModel().o0())) {
-            String o0 = this.f20402f.getSubPbModel().o0();
+            this.f20415d.setSelectionFromTop(i4, i5);
+        } else if (z2 && !c.a.e.e.p.k.isEmpty(this.f20417f.getSubPbModel().p0())) {
+            String p0 = this.f20417f.getSubPbModel().p0();
             int i6 = 0;
             while (true) {
                 if (i6 < arrayList.size()) {
-                    if ((arrayList.get(i6) instanceof PostData) && o0.equals(((PostData) arrayList.get(i6)).E())) {
-                        this.f20400d.post(new f(this, i6));
+                    if ((arrayList.get(i6) instanceof PostData) && p0.equals(((PostData) arrayList.get(i6)).E())) {
+                        this.f20415d.post(new f(this, i6));
                         break;
                     }
                     i6++;
@@ -1282,12 +1283,12 @@ public class a implements KeyboardEventLayout.a {
             }
         }
         if (this.V.j() > 1) {
-            this.f20400d.setPullRefresh(this.f20401e);
-            this.f20397a.setEnableDragExit(false);
+            this.f20415d.setPullRefresh(this.f20416e);
+            this.f20412a.setEnableDragExit(false);
             return;
         }
-        this.f20400d.setPullRefresh(null);
-        this.f20397a.setEnableDragExit(true);
+        this.f20415d.setPullRefresh(null);
+        this.f20412a.setEnableDragExit(true);
     }
 
     public int I() {
@@ -1321,8 +1322,8 @@ public class a implements KeyboardEventLayout.a {
             return;
         }
         String name_show = metaData.getName_show();
-        if (m0.b(name_show) + (!StringUtils.isNull(metaData.getSealPrefix()) ? c.a.e.e.p.k.byteLength(metaData.getSealPrefix()) + 2 : 0) > 14) {
-            String j2 = m0.j(name_show, 0, 14);
+        if (n0.b(name_show) + (!StringUtils.isNull(metaData.getSealPrefix()) ? c.a.e.e.p.k.byteLength(metaData.getSealPrefix()) + 2 : 0) > 14) {
+            String j2 = n0.j(name_show, 0, 14);
             if (j2.length() == name_show.length()) {
                 name_show = j2;
             } else {
@@ -1340,14 +1341,14 @@ public class a implements KeyboardEventLayout.a {
             } else {
                 this.r.setVisibility(0);
                 c.a.q0.e.b bVar = new c.a.q0.e.b();
-                bVar.f13027a = metaData.getAlaUserData();
-                bVar.f13028b = 4;
+                bVar.f13044a = metaData.getAlaUserData();
+                bVar.f13045b = 4;
                 this.r.setTag(bVar);
             }
         }
         if (metaData.isBigV()) {
             SkinManager.setViewTextColor(this.q, R.color.cp_cont_r);
-        } else if (c.a.q0.b.d.C()) {
+        } else if (c.a.q0.b.d.E()) {
             c.a.q0.s.u.c.d(this.q).w(R.color.CAM_X0108);
         } else {
             c.a.q0.s.u.c.d(this.q).w(R.color.CAM_X0106);
@@ -1372,7 +1373,7 @@ public class a implements KeyboardEventLayout.a {
     public void K0() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (bdTypeListView = this.f20400d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (bdTypeListView = this.f20415d) == null) {
             return;
         }
         this.f0 = bdTypeListView.getLastVisiblePosition();
@@ -1418,7 +1419,7 @@ public class a implements KeyboardEventLayout.a {
     public View P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f20397a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f20412a : (View) invokeV.objValue;
     }
 
     public final SpannableStringBuilder Q(String str, String str2) {
@@ -1431,7 +1432,7 @@ public class a implements KeyboardEventLayout.a {
                 return spannableStringBuilder;
             }
             arrayList.add(new m.a(str, R.drawable.pic_smalldot_title));
-            return c.a.r0.a0.m.h(this.f20402f.getActivity(), str2, arrayList, true);
+            return c.a.r0.a0.m.h(this.f20417f.getActivity(), str2, arrayList, true);
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
@@ -1448,13 +1449,13 @@ public class a implements KeyboardEventLayout.a {
     public void S() {
         NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || (noDataView = this.f20404h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || (noDataView = this.f20419h) == null) {
             return;
         }
         noDataView.setVisibility(8);
-        this.f20400d.setVisibility(0);
+        this.f20415d.setVisibility(0);
         this.X.setVisibility(0);
-        this.f20397a.setOnTouchListener(null);
+        this.f20412a.setOnTouchListener(null);
     }
 
     public void T() {
@@ -1463,55 +1464,55 @@ public class a implements KeyboardEventLayout.a {
         if (!(interceptable == null || interceptable.invokeV(1048607, this) == null) || this.W == null || (hVar = this.S) == null) {
             return;
         }
-        if (hVar.w()) {
+        if (hVar.x()) {
             this.W.setText(R.string.draft_to_send);
         } else {
-            this.W.setText(this.f20402f.getReplyHint());
+            this.W.setText(this.f20417f.getReplyHint());
         }
     }
 
     public void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.f20399c.findViewById(R.id.subpb_head_user_info_root);
+            LinearLayout linearLayout = (LinearLayout) this.f20414c.findViewById(R.id.subpb_head_user_info_root);
             this.o = linearLayout;
             linearLayout.setOnClickListener(this.M);
-            HeadImageView headImageView = (HeadImageView) this.f20399c.findViewById(R.id.photo);
+            HeadImageView headImageView = (HeadImageView) this.f20414c.findViewById(R.id.photo);
             this.p = headImageView;
-            headImageView.setRadius(c.a.e.e.p.l.g(this.f20402f.getActivity(), R.dimen.tbds45));
+            headImageView.setRadius(c.a.e.e.p.l.g(this.f20417f.getActivity(), R.dimen.tbds45));
             this.p.setClickable(false);
-            this.q = (TextView) this.f20399c.findViewById(R.id.user_name);
-            ImageView imageView = (ImageView) this.f20399c.findViewById(R.id.user_rank);
+            this.q = (TextView) this.f20414c.findViewById(R.id.user_name);
+            ImageView imageView = (ImageView) this.f20414c.findViewById(R.id.user_rank);
             this.s = imageView;
             imageView.setVisibility(8);
-            this.t = (TextView) this.f20399c.findViewById(R.id.floor_owner);
-            TextView textView = (TextView) this.f20399c.findViewById(R.id.see_subject);
+            this.t = (TextView) this.f20414c.findViewById(R.id.floor_owner);
+            TextView textView = (TextView) this.f20414c.findViewById(R.id.see_subject);
             this.n = textView;
             textView.setOnClickListener(this.M);
-            this.u = (TextView) this.f20399c.findViewById(R.id.floor);
-            this.v = (TextView) this.f20399c.findViewById(R.id.time);
-            EllipsizeRichTextView ellipsizeRichTextView = (EllipsizeRichTextView) this.f20399c.findViewById(R.id.content_text);
+            this.u = (TextView) this.f20414c.findViewById(R.id.floor);
+            this.v = (TextView) this.f20414c.findViewById(R.id.time);
+            EllipsizeRichTextView ellipsizeRichTextView = (EllipsizeRichTextView) this.f20414c.findViewById(R.id.content_text);
             this.w = ellipsizeRichTextView;
             ellipsizeRichTextView.setOnClickListener(this.M);
             SkinManager.setViewTextColor(this.w, R.color.CAM_X0105);
             this.w.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
             this.w.setLineSpacing(0.0f, 1.25f);
-            TbImageView tbImageView = (TbImageView) this.f20399c.findViewById(R.id.sub_pb_image);
+            TbImageView tbImageView = (TbImageView) this.f20414c.findViewById(R.id.sub_pb_image);
             this.x = tbImageView;
             tbImageView.setOnClickListener(this.M);
-            this.z = (TextView) this.f20399c.findViewById(R.id.advert);
-            this.y = (PlayVoiceBntNew) this.f20399c.findViewById(R.id.voice_btn);
-            this.f20399c.setOnTouchListener(this.p0);
-            this.f20399c.setOnClickListener(this.M);
+            this.z = (TextView) this.f20414c.findViewById(R.id.advert);
+            this.y = (PlayVoiceBntNew) this.f20414c.findViewById(R.id.voice_btn);
+            this.f20414c.setOnTouchListener(this.p0);
+            this.f20414c.setOnClickListener(this.M);
         }
     }
 
     public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            int g2 = c.a.e.e.p.l.g(this.f20402f.getPageContext().getPageActivity(), R.dimen.ds88);
-            int g3 = c.a.e.e.p.l.g(this.f20402f.getPageContext().getPageActivity(), R.dimen.ds2);
-            NavigationBar navigationBar = (NavigationBar) this.f20397a.findViewById(R.id.view_navigation_bar);
+            int g2 = c.a.e.e.p.l.g(this.f20417f.getPageContext().getPageActivity(), R.dimen.ds88);
+            int g3 = c.a.e.e.p.l.g(this.f20417f.getPageContext().getPageActivity(), R.dimen.ds2);
+            NavigationBar navigationBar = (NavigationBar) this.f20412a.findViewById(R.id.view_navigation_bar);
             this.k = navigationBar;
             this.m = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
             ImageView backImageView = this.k.getBackImageView();
@@ -1537,19 +1538,19 @@ public class a implements KeyboardEventLayout.a {
     public final void W(NoDataViewFactory.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, eVar) == null) {
-            NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f20402f.getPageContext().getString(R.string.refresh_view_button_text), this.f20405i));
-            if (this.f20404h == null) {
-                Activity pageActivity = this.f20402f.getPageContext().getPageActivity();
-                this.f20404h = NoDataViewFactory.a(pageActivity, this.f20406j, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, c.a.e.e.p.l.g(pageActivity, R.dimen.ds250)), eVar, a2);
+            NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.f20417f.getPageContext().getString(R.string.refresh_view_button_text), this.f20420i));
+            if (this.f20419h == null) {
+                Activity pageActivity = this.f20417f.getPageContext().getPageActivity();
+                this.f20419h = NoDataViewFactory.a(pageActivity, this.f20421j, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, c.a.e.e.p.l.g(pageActivity, R.dimen.ds250)), eVar, a2);
             }
-            this.f20400d.setVisibility(8);
+            this.f20415d.setVisibility(8);
             this.P.setVisibility(8);
-            this.S.y();
-            SkinManager.setBackgroundColor(this.f20404h, R.color.CAM_X0201);
-            this.f20404h.setClickable(true);
-            this.f20404h.setTextOption(eVar);
-            this.f20404h.onChangeSkinType(this.f20402f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            this.f20404h.setVisibility(0);
+            this.S.z();
+            SkinManager.setBackgroundColor(this.f20419h, R.color.CAM_X0201);
+            this.f20419h.setClickable(true);
+            this.f20419h.setTextOption(eVar);
+            this.f20419h.onChangeSkinType(this.f20417f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.f20419h.setVisibility(0);
         }
     }
 
@@ -1561,14 +1562,14 @@ public class a implements KeyboardEventLayout.a {
         this.S = hVar;
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.f20406j.addView(hVar.a(), layoutParams);
-        this.S.R(new b(this));
+        this.f20421j.addView(hVar.a(), layoutParams);
+        this.S.S(new b(this));
     }
 
     public boolean Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f20397a.isDrag() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f20412a.isDrag() : invokeV.booleanValue;
     }
 
     public final boolean Z(boolean z) {
@@ -1576,10 +1577,10 @@ public class a implements KeyboardEventLayout.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048613, this, z)) == null) {
             SubPbModel subPbModel = this.g0;
-            if (subPbModel == null || subPbModel.i0() == null) {
+            if (subPbModel == null || subPbModel.j0() == null) {
                 return false;
             }
-            if (this.g0.A0() != 0) {
+            if (this.g0.B0() != 0) {
                 return false;
             }
             r rVar = this.V;
@@ -1607,13 +1608,13 @@ public class a implements KeyboardEventLayout.a {
     public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            SubPbView subPbView = this.f20397a;
+            SubPbView subPbView = this.f20412a;
             if (subPbView != null) {
                 subPbView.onDestroy();
             }
             c.a.q0.x.w.h hVar = this.S;
             if (hVar != null) {
-                hVar.D();
+                hVar.E();
             }
         }
     }
@@ -1633,14 +1634,14 @@ public class a implements KeyboardEventLayout.a {
     public void e0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.f20402f.getLayoutMode().k(i2 == 1);
-            this.f20402f.getLayoutMode().j(this.f20397a);
-            this.f20402f.getLayoutMode().j(this.f20399c);
-            SkinManager.setBackgroundColor(this.f20397a, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f20406j, R.color.CAM_X0201);
-            this.k.onChangeSkinType(this.f20402f.getPageContext(), i2);
+            this.f20417f.getLayoutMode().k(i2 == 1);
+            this.f20417f.getLayoutMode().j(this.f20412a);
+            this.f20417f.getLayoutMode().j(this.f20414c);
+            SkinManager.setBackgroundColor(this.f20412a, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f20421j, R.color.CAM_X0201);
+            this.k.onChangeSkinType(this.f20417f.getPageContext(), i2);
             SubPbModel subPbModel = this.g0;
-            if (subPbModel != null && subPbModel.H0()) {
+            if (subPbModel != null && subPbModel.I0()) {
                 WebPManager.setPureDrawable(this.l, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
             } else {
                 WebPManager.setPureDrawable(this.l, R.drawable.icon_pure_topbar_close44, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
@@ -1649,8 +1650,8 @@ public class a implements KeyboardEventLayout.a {
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.goto_see_subject_color);
             }
-            this.f20403g.onChangeSkinType(this.f20402f.getPageContext(), i2);
-            this.f20402f.getLayoutMode().j(this.H);
+            this.f20418g.onChangeSkinType(this.f20417f.getPageContext(), i2);
+            this.f20417f.getLayoutMode().j(this.H);
             SkinManager.setViewTextColor(this.w, R.color.CAM_X0105);
             this.w.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
             c.a.q0.x.w.h hVar = this.S;
@@ -1661,7 +1662,7 @@ public class a implements KeyboardEventLayout.a {
             this.y.changeSkin();
             SkinManager.setViewTextColor(this.W, R.color.CAM_X0110);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0302);
-            if (c.a.q0.b.d.C()) {
+            if (c.a.q0.b.d.E()) {
                 c.a.q0.s.u.c.d(this.q).B(R.string.F_X02);
                 c.a.q0.s.u.c.d(this.q).w(R.color.CAM_X0108);
             } else {
@@ -1670,23 +1671,23 @@ public class a implements KeyboardEventLayout.a {
             }
             this.W.setAlpha(0.95f);
             if (this.D != null) {
-                c.a.q0.w0.a.a(this.f20402f.getPageContext(), this.D);
+                c.a.q0.w0.a.a(this.f20417f.getPageContext(), this.D);
             }
             c.a.r0.j2.k.g.c cVar = this.l0;
             if (cVar != null) {
                 cVar.c();
             }
-            this.f20402f.getLayoutMode().j(this.F);
+            this.f20417f.getLayoutMode().j(this.F);
             SkinManager.setBackgroundColor(this.c0, R.color.CAM_X0203);
             this.b0.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.a0.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(c.a.e.e.p.l.g(this.f20402f, R.dimen.tbds47), SkinManager.getColor(R.color.CAM_X0209)));
+            this.a0.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(c.a.e.e.p.l.g(this.f20417f, R.dimen.tbds47), SkinManager.getColor(R.color.CAM_X0209)));
             c.a.q0.s.u.c.d(this.X).f(R.color.CAM_X0208);
         }
     }
 
     public void f0() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048620, this) != null) || this.f20402f.isPaused()) {
+        if ((interceptable != null && interceptable.invokeV(1048620, this) != null) || this.f20417f.isPaused()) {
         }
     }
 
@@ -1709,25 +1710,25 @@ public class a implements KeyboardEventLayout.a {
                     i4 = R.string.del_thread_confirm;
                 }
             }
-            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f20402f.getPageContext().getPageActivity());
+            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f20417f.getPageContext().getPageActivity());
             this.L = aVar;
             aVar.setMessageId(i4);
             this.L.setYesButtonTag(sparseArray);
             this.L.setPositiveButton(R.string.dialog_ok, new l(this, sparseArray));
             this.L.setNegativeButton(R.string.dialog_cancel, new m(this));
             this.L.setCancelable(true);
-            this.L.create(this.f20402f.getPageContext());
+            this.L.create(this.f20417f.getPageContext());
             if (z2) {
                 this.L.show();
             } else if (z) {
                 this.L.show();
-            } else if (1 == this.g0.k0()) {
-                c.a.r0.i.i iVar = new c.a.r0.i.i(this.g0.k0(), this.g0.j0(), this.g0.n0());
+            } else if (1 == this.g0.l0()) {
+                c.a.r0.i.i iVar = new c.a.r0.i.i(this.g0.l0(), this.g0.k0(), this.g0.o0());
                 iVar.i(this.V.d().getId(), this.V.d().getName());
-                iVar.h(this.g0.l0());
-                iVar.j(this.g0.B0());
+                iVar.h(this.g0.m0());
+                iVar.j(this.g0.C0());
                 UserData userData = new UserData();
-                userData.setIsManager(this.g0.p0());
+                userData.setIsManager(this.g0.q0());
                 B0(sparseArray, iVar, userData);
             } else {
                 F0(sparseArray);
@@ -1740,15 +1741,15 @@ public class a implements KeyboardEventLayout.a {
         if (interceptable == null || interceptable.invokeLZ(1048622, this, sparseArray, z) == null) {
             boolean z2 = true;
             if (this.K == null) {
-                Dialog dialog = new Dialog(this.f20402f.getPageContext().getPageActivity(), R.style.common_alert_dialog);
+                Dialog dialog = new Dialog(this.f20417f.getPageContext().getPageActivity(), R.style.common_alert_dialog);
                 this.K = dialog;
                 dialog.setCanceledOnTouchOutside(true);
                 this.K.setCancelable(true);
-                this.F = LayoutInflater.from(this.f20402f.getPageContext().getPageActivity()).inflate(R.layout.forum_manage_dialog, (ViewGroup) null);
-                this.f20402f.getLayoutMode().j(this.F);
+                this.F = LayoutInflater.from(this.f20417f.getPageContext().getPageActivity()).inflate(R.layout.forum_manage_dialog, (ViewGroup) null);
+                this.f20417f.getLayoutMode().j(this.F);
                 this.K.setContentView(this.F);
                 WindowManager.LayoutParams attributes = this.K.getWindow().getAttributes();
-                attributes.width = (int) (c.a.e.e.p.l.k(this.f20402f.getPageContext().getPageActivity()) * 0.9d);
+                attributes.width = (int) (c.a.e.e.p.l.k(this.f20417f.getPageContext().getPageActivity()) * 0.9d);
                 this.K.getWindow().setAttributes(attributes);
             }
             TextView textView = (TextView) this.K.findViewById(R.id.del_post_btn);
@@ -1823,7 +1824,7 @@ public class a implements KeyboardEventLayout.a {
                 sparseArray4.put(i16, sparseArray.get(i16));
                 textView3.setOnClickListener(new k(this, z));
             }
-            c.a.e.e.m.g.j(this.K, this.f20402f.getPageContext());
+            c.a.e.e.m.g.j(this.K, this.f20417f.getPageContext());
         }
     }
 
@@ -1867,7 +1868,7 @@ public class a implements KeyboardEventLayout.a {
     public void l0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            this.f20400d.setVisibility(0);
+            this.f20415d.setVisibility(0);
             this.P.setVisibility(8);
             this.C.f();
         }
@@ -1891,9 +1892,9 @@ public class a implements KeyboardEventLayout.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048629, this, gVar) == null) {
             this.n0 = gVar;
-            c.a.r0.j2.p.k kVar = this.f20401e;
-            if (kVar != null) {
-                kVar.a(gVar);
+            c.a.r0.j2.p.j jVar = this.f20416e;
+            if (jVar != null) {
+                jVar.a(gVar);
             }
         }
     }
@@ -1901,7 +1902,7 @@ public class a implements KeyboardEventLayout.a {
     public void p0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
-            this.f20400d.setVisibility(0);
+            this.f20415d.setVisibility(0);
             this.P.setVisibility(8);
             this.C.P();
         }
@@ -1917,7 +1918,7 @@ public class a implements KeyboardEventLayout.a {
     public void r(boolean z) {
         SubPbModel subPbModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048632, this, z) == null) || (subPbModel = this.g0) == null || !subPbModel.G0() || z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048632, this, z) == null) || (subPbModel = this.g0) == null || !subPbModel.H0() || z) {
             return;
         }
         this.k.setIsClose(true);
@@ -1925,16 +1926,16 @@ public class a implements KeyboardEventLayout.a {
         this.k.isShowBottomLine(true);
         this.k.setBottomLineHeight(3);
         this.k.setStatusBarVisibility(8);
-        this.I = new BlankView(this.f20402f.getPageContext().getPageActivity());
-        if (this.g0.H0()) {
+        this.I = new BlankView(this.f20417f.getPageContext().getPageActivity());
+        if (this.g0.I0()) {
             this.h0 = c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds562) + UtilHelper.getStatusBarHeight();
         } else {
             this.h0 = c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.ds160);
         }
-        this.f20398b.addView(this.I, 0, new LinearLayout.LayoutParams(-1, this.h0));
+        this.f20413b.addView(this.I, 0, new LinearLayout.LayoutParams(-1, this.h0));
         this.I.setVisibility(0);
         this.I.setOnClickListener(new e(this));
-        this.f20397a.setBlankView(this.I);
+        this.f20412a.setBlankView(this.I);
     }
 
     public void r0(TbRichTextView.z zVar) {
@@ -1947,8 +1948,8 @@ public class a implements KeyboardEventLayout.a {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
-            v0(this.f20402f);
-            this.f20400d.setNextPage(this.C);
+            v0(this.f20417f);
+            this.f20415d.setNextPage(this.C);
         }
     }
 
@@ -1971,7 +1972,7 @@ public class a implements KeyboardEventLayout.a {
     public void t0(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, onClickListener) == null) {
-            this.f20405i = onClickListener;
+            this.f20420i = onClickListener;
         }
     }
 
@@ -1982,16 +1983,16 @@ public class a implements KeyboardEventLayout.a {
             return;
         }
         if ((!I0() && (view = this.H) != null && view.isShown()) || ListUtils.isEmpty(this.U)) {
-            this.g0.X0(false);
+            this.g0.Y0(false);
         } else {
-            this.g0.X0(true);
+            this.g0.Y0(true);
         }
     }
 
     public void u0(AbsListView.OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048639, this, onScrollListener) == null) {
-            this.f20400d.setOnScrollListener(onScrollListener);
+            this.f20415d.setOnScrollListener(onScrollListener);
         }
     }
 
@@ -2120,7 +2121,7 @@ public class a implements KeyboardEventLayout.a {
                         sparseArray.put(R.id.tag_del_post_is_self, Boolean.valueOf(z4));
                         sparseArray.put(R.id.tag_del_post_type, Integer.valueOf(i3));
                         sparseArray.put(R.id.tag_del_post_id, postData.E());
-                        sparseArray.put(R.id.tag_has_sub_post, Boolean.valueOf(postData.W()));
+                        sparseArray.put(R.id.tag_has_sub_post, Boolean.valueOf(postData.Y()));
                         return;
                     }
                     sparseArray.put(R.id.tag_should_delete_visible, Boolean.FALSE);
@@ -2174,7 +2175,7 @@ public class a implements KeyboardEventLayout.a {
     public void v0(BdListView.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048641, this, pVar) == null) {
-            this.f20400d.setOnSrollToBottomListener(pVar);
+            this.f20415d.setOnSrollToBottomListener(pVar);
         }
     }
 
@@ -2183,7 +2184,7 @@ public class a implements KeyboardEventLayout.a {
         if (interceptable == null || interceptable.invokeV(1048642, this) == null) {
             MorePopupWindow morePopupWindow = this.E;
             if (morePopupWindow != null) {
-                c.a.e.e.m.g.d(morePopupWindow, this.f20402f.getPageContext().getPageActivity());
+                c.a.e.e.m.g.d(morePopupWindow, this.f20417f.getPageContext().getPageActivity());
             }
             c.a.q0.s.s.b bVar = this.G;
             if (bVar != null) {
@@ -2195,7 +2196,7 @@ public class a implements KeyboardEventLayout.a {
             }
             Dialog dialog = this.K;
             if (dialog != null) {
-                c.a.e.e.m.g.b(dialog, this.f20402f.getPageContext());
+                c.a.e.e.m.g.b(dialog, this.f20417f.getPageContext());
             }
             ProgressBar progressBar = this.P;
             if (progressBar != null) {
@@ -2218,13 +2219,13 @@ public class a implements KeyboardEventLayout.a {
     public final void x(boolean z) {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048644, this, z) == null) || (bdTypeListView = this.f20400d) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048644, this, z) == null) || (bdTypeListView = this.f20415d) == null) {
             return;
         }
         if (!z) {
             bdTypeListView.setEnabled(z);
         } else {
-            bdTypeListView.postDelayed(new RunnableC0968a(this, z), 10L);
+            bdTypeListView.postDelayed(new RunnableC0966a(this, z), 10L);
         }
     }
 
@@ -2247,15 +2248,15 @@ public class a implements KeyboardEventLayout.a {
             this.x.setVisibility(8);
         }
         c.a.r0.j3.i0.i v = postData.v();
-        if (v != null && v.f20849a) {
+        if (v != null && v.f20861a) {
             this.z.setVisibility(0);
         } else {
             this.z.setVisibility(8);
         }
-        SparseArray<Object> sparseArray = (SparseArray) this.f20399c.getTag();
+        SparseArray<Object> sparseArray = (SparseArray) this.f20414c.getTag();
         if (sparseArray == null) {
             sparseArray = new SparseArray<>();
-            this.f20399c.setTag(sparseArray);
+            this.f20414c.setTag(sparseArray);
         }
         sparseArray.clear();
         sparseArray.put(R.id.tag_clip_board, postData);
@@ -2271,8 +2272,8 @@ public class a implements KeyboardEventLayout.a {
                 SkinManager.setViewTextColor(this.t, R.color.CAM_X0302);
             }
         }
-        this.v.setText(StringHelper.getFormatTime(postData.R()));
-        String format = String.format(this.f20402f.getPageContext().getString(R.string.is_floor), Integer.valueOf(postData.A()));
+        this.v.setText(StringHelper.getFormatTime(postData.S()));
+        String format = String.format(this.f20417f.getPageContext().getString(R.string.is_floor), Integer.valueOf(postData.A()));
         if (rVar.l() != null && rVar.l().D2()) {
             this.u.setText((CharSequence) null);
         } else {
@@ -2280,9 +2281,9 @@ public class a implements KeyboardEventLayout.a {
         }
         postData.t().getUserTbVipInfoData();
         boolean y0 = y0(this.w, postData.K());
-        if (StringUtils.isNull(postData.z()) && !y0 && postData.V() != null) {
+        if (StringUtils.isNull(postData.z()) && !y0 && postData.W() != null) {
             this.y.setVisibility(0);
-            this.y.setTag(postData.V());
+            this.y.setTag(postData.W());
             return;
         }
         this.y.setVisibility(8);
@@ -2343,11 +2344,11 @@ public class a implements KeyboardEventLayout.a {
                 progressBar.setVisibility(8);
             }
             if (z && z2) {
-                NewSubPbActivity newSubPbActivity = this.f20402f;
+                NewSubPbActivity newSubPbActivity = this.f20417f;
                 newSubPbActivity.showToast(newSubPbActivity.getResources().getString(R.string.delete_success));
             } else if (str == null || !z2) {
             } else {
-                this.f20402f.showToast(str);
+                this.f20417f.showToast(str);
             }
         }
     }
@@ -2359,9 +2360,9 @@ public class a implements KeyboardEventLayout.a {
         if (!(interceptable == null || interceptable.invokeL(1048649, this, postData) == null) || postData == null) {
             return;
         }
-        postData.n0(true);
+        postData.p0(true);
         PostData postData2 = new PostData();
-        postData2.r0(52);
+        postData2.t0(52);
         if (!I0() && (view = this.H) != null && view.isShown()) {
             i2 = (this.f0 - this.e0) - 1;
         } else {
@@ -2374,7 +2375,7 @@ public class a implements KeyboardEventLayout.a {
         ArrayList arrayList = new ArrayList(ListUtils.subList(this.U, 0, i2));
         ListUtils.add(arrayList, postData2);
         ListUtils.add(arrayList, postData);
-        this.f20400d.smoothScrollToPosition(this.f0 + 2);
-        this.f20400d.setNextPage(null);
+        this.f20415d.smoothScrollToPosition(this.f0 + 2);
+        this.f20415d.setNextPage(null);
     }
 }

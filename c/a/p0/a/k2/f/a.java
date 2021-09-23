@@ -19,14 +19,14 @@ public abstract class a implements e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ReadWriteLock f7114c;
+    public static final ReadWriteLock f7122c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f7115a;
+    public File f7123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f7116b;
+    public final long f7124b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public abstract class a implements e {
                 return;
             }
         }
-        f7114c = new ReentrantReadWriteLock();
+        f7122c = new ReentrantReadWriteLock();
     }
 
     public a() {
@@ -57,8 +57,8 @@ public abstract class a implements e {
                 return;
             }
         }
-        this.f7115a = d();
-        this.f7116b = getMaxSize();
+        this.f7123a = d();
+        this.f7124b = getMaxSize();
     }
 
     @Override // c.a.p0.a.k2.f.e
@@ -66,11 +66,11 @@ public abstract class a implements e {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            f7114c.readLock().lock();
+            f7122c.readLock().lock();
             try {
-                return e() + j2 > this.f7116b;
+                return e() + j2 > this.f7124b;
             } finally {
-                f7114c.readLock().unlock();
+                f7122c.readLock().unlock();
             }
         }
         return invokeJ.booleanValue;
@@ -80,24 +80,24 @@ public abstract class a implements e {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            f7114c.writeLock().lock();
+            f7122c.writeLock().lock();
             try {
                 try {
-                    if (this.f7115a == null) {
-                        this.f7115a = d();
+                    if (this.f7123a == null) {
+                        this.f7123a = d();
                     }
-                    File file = this.f7115a;
+                    File file = this.f7123a;
                     if (!file.exists()) {
                         file.createNewFile();
                     }
                     c.a.p0.t.d.N(String.valueOf(e() + j2).getBytes(), file);
                 } catch (Exception e2) {
-                    if (k.f7077a) {
+                    if (k.f7085a) {
                         e2.printStackTrace();
                     }
                 }
             } finally {
-                f7114c.writeLock().unlock();
+                f7122c.writeLock().unlock();
             }
         }
     }
@@ -118,10 +118,10 @@ public abstract class a implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f7115a == null) {
-                this.f7115a = d();
+            if (this.f7123a == null) {
+                this.f7123a = d();
             }
-            File file = this.f7115a;
+            File file = this.f7123a;
             if (file.exists() && file.isFile()) {
                 String D = c.a.p0.t.d.D(file);
                 try {
@@ -129,7 +129,7 @@ public abstract class a implements e {
                         return Long.valueOf(D.trim()).longValue();
                     }
                 } catch (Exception e2) {
-                    if (k.f7077a) {
+                    if (k.f7085a) {
                         e2.printStackTrace();
                     }
                 }

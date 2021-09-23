@@ -17,7 +17,7 @@ public class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9842b;
+    public String f9850b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(String str) {
@@ -45,8 +45,8 @@ public class b extends a {
         if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && e(str)) {
             boolean equals = TextUtils.equals(str2, DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
             boolean equals2 = TextUtils.equals(str2, RetrieveTaskManager.KEY);
-            this.f9841a.g("autoPlay", equals ? "1" : "0");
-            this.f9841a.g("playMethod", equals2 ? "1" : "0");
+            this.f9849a.g("autoPlay", equals ? "1" : "0");
+            this.f9849a.g("playMethod", equals2 ? "1" : "0");
         }
     }
 
@@ -60,23 +60,23 @@ public class b extends a {
             UbcFlowEvent f5 = hybridUbcFlow.f("video_fe_init");
             UbcFlowEvent f6 = hybridUbcFlow.f("video_fe_init_end");
             if (f2 != null) {
-                this.f9841a.i("fe_slave_dispatch_start", z ? f2.g() : 0L);
+                this.f9849a.i("fe_slave_dispatch_start", z ? f2.g() : 0L);
             }
             if (f3 != null) {
-                this.f9841a.i("fe_master_page_oninit_start", z ? f3.g() : 0L);
+                this.f9849a.i("fe_master_page_oninit_start", z ? f3.g() : 0L);
             }
             if (f4 != null) {
-                this.f9841a.i("master_page_onload_start", z ? f4.g() : 0L);
+                this.f9849a.i("master_page_onload_start", z ? f4.g() : 0L);
             }
             if (f5 != null) {
-                this.f9841a.i("video_fe_init", z ? f5.g() : 0L);
+                this.f9849a.i("video_fe_init", z ? f5.g() : 0L);
             }
             if (f6 != null) {
-                this.f9841a.i("video_fe_init_end", z ? f6.g() : 0L);
+                this.f9849a.i("video_fe_init_end", z ? f6.g() : 0L);
             }
-            this.f9841a.g("fmpArrived", z ? "1" : "0");
-            if (this.f9841a.f()) {
-                this.f9841a.k();
+            this.f9849a.g("fmpArrived", z ? "1" : "0");
+            if (this.f9849a.f()) {
+                this.f9849a.k();
                 c.a.p0.a.y0.k.f.b.f();
             }
         }
@@ -86,8 +86,8 @@ public class b extends a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f9841a.d("video_will_play")) {
-                this.f9841a.h("video_play_cancel");
+            if (this.f9849a.d("video_will_play")) {
+                this.f9849a.h("video_play_cancel");
             }
             d();
         }
@@ -96,7 +96,7 @@ public class b extends a {
     public final boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.f9842b, str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.f9850b, str) : invokeL.booleanValue;
     }
 
     public void f(String str) {

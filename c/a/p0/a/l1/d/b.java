@@ -12,7 +12,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7250a;
+    public static final boolean f7258a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class b {
                 return;
             }
         }
-        f7250a = k.f7077a;
+        f7258a = k.f7085a;
     }
 
     public static String a(PMSAppInfo pMSAppInfo) {
@@ -36,11 +36,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pMSAppInfo)) == null) {
             if (pMSAppInfo == null) {
-                boolean z = f7250a;
+                boolean z = f7258a;
                 return "";
             }
             String str = pMSAppInfo.serverExt;
-            if (f7250a) {
+            if (f7258a) {
                 String str2 = "appId - " + pMSAppInfo.appId + ",get app info' ext - " + str;
             }
             return str;

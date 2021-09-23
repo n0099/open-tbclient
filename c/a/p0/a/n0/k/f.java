@@ -45,16 +45,16 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7553g;
+    public String f7561g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i.j<? super i> f7554h;
+    public i.j<? super i> f7562h;
 
     /* renamed from: i  reason: collision with root package name */
-    public i.j<i> f7555i;
+    public i.j<i> f7563i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.p0.n.o.f f7556j;
+    public c.a.p0.n.o.f f7564j;
     public final c.a.p0.n.i.m.g k;
     public c.a.p0.n.f.c<i> l;
     public final Map<String, c.a.p0.a.n0.k.e> m;
@@ -68,7 +68,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f7557a;
+        public final /* synthetic */ f f7565a;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                     return;
                 }
             }
-            this.f7557a = fVar;
+            this.f7565a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -93,11 +93,11 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         /* renamed from: b */
         public void a(@NonNull JSONArray jSONArray) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray == null || this.f7557a.m.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray == null || this.f7565a.m.isEmpty()) {
                 return;
             }
-            for (c.a.p0.a.n0.k.e eVar : this.f7557a.m.values()) {
-                if (eVar != null && eVar.r(this.f7557a)) {
+            for (c.a.p0.a.n0.k.e eVar : this.f7565a.m.values()) {
+                if (eVar != null && eVar.r(this.f7565a)) {
                     eVar.a(jSONArray);
                 }
             }
@@ -110,7 +110,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f7558e;
+        public final /* synthetic */ f f7566e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                     return;
                 }
             }
-            this.f7558e = fVar;
+            this.f7566e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,13 +137,13 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
                 if (f.q) {
-                    String unused = this.f7558e.f7553g;
+                    String unused = this.f7566e.f7561g;
                     String str = "onCallback: SoUpdating=" + eVar;
                 }
                 if (eVar != null) {
-                    this.f7558e.o.c(eVar.k(), eVar.o());
+                    this.f7566e.o.c(eVar.k(), eVar.o());
                 }
-                this.f7558e.Y(null);
+                this.f7566e.Y(null);
             }
         }
     }
@@ -154,7 +154,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f7559e;
+        public final /* synthetic */ f f7567e;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -171,7 +171,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                     return;
                 }
             }
-            this.f7559e = fVar;
+            this.f7567e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -182,7 +182,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null) {
                 return;
             }
-            this.f7559e.o.d(eVar.k(), eVar.m());
+            this.f7567e.o.d(eVar.k(), eVar.m());
         }
     }
 
@@ -192,10 +192,10 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f7560a;
+        public final /* synthetic */ i f7568a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f7561b;
+        public final /* synthetic */ f f7569b;
 
         public d(f fVar, i iVar) {
             Interceptable interceptable = $ic;
@@ -212,18 +212,18 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                     return;
                 }
             }
-            this.f7561b = fVar;
-            this.f7560a = iVar;
+            this.f7569b = fVar;
+            this.f7568a = iVar;
         }
 
         @Override // c.a.p0.a.h0.m.c.InterfaceC0228c
         public void a(PMSDownloadType pMSDownloadType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                this.f7561b.f7556j.k(this.f7560a);
-                if (this.f7561b.f7554h != null) {
-                    this.f7561b.f7554h.onNext(this.f7560a);
-                    this.f7561b.f7554h.onCompleted();
+                this.f7569b.f7564j.k(this.f7568a);
+                if (this.f7569b.f7562h != null) {
+                    this.f7569b.f7562h.onNext(this.f7568a);
+                    this.f7569b.f7562h.onCompleted();
                 }
             }
         }
@@ -232,9 +232,9 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         public void b(PMSDownloadType pMSDownloadType, c.a.p0.a.q2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, aVar) == null) {
-                this.f7561b.f7556j.j(this.f7560a);
-                if (this.f7561b.f7554h != null) {
-                    this.f7561b.f7554h.onError(new PkgDownloadError(this.f7560a, aVar));
+                this.f7569b.f7564j.j(this.f7568a);
+                if (this.f7569b.f7562h != null) {
+                    this.f7569b.f7562h.onError(new PkgDownloadError(this.f7568a, aVar));
                 }
             }
         }
@@ -246,7 +246,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f7562e;
+        public final /* synthetic */ f f7570e;
 
         public e(f fVar) {
             Interceptable interceptable = $ic;
@@ -263,7 +263,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                     return;
                 }
             }
-            this.f7562e = fVar;
+            this.f7570e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -272,7 +272,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         public void call(i.j<? super i> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                this.f7562e.f7554h = jVar;
+                this.f7570e.f7562h = jVar;
             }
         }
     }
@@ -284,7 +284,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f7563e;
+        public final /* synthetic */ f f7571e;
 
         public C0314f(f fVar) {
             Interceptable interceptable = $ic;
@@ -301,7 +301,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                     return;
                 }
             }
-            this.f7563e = fVar;
+            this.f7571e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -310,7 +310,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         public void onNext(i iVar) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) && f.q) {
-                String unused = this.f7563e.f7553g;
+                String unused = this.f7571e.f7561g;
                 String str = "PkgDlSubscriber 单个包下载、业务层处理完成：" + iVar.toString();
             }
         }
@@ -320,9 +320,9 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 if (f.q) {
-                    String unused = this.f7563e.f7553g;
+                    String unused = this.f7571e.f7561g;
                 }
-                this.f7563e.d0(null);
+                this.f7571e.d0(null);
             }
         }
 
@@ -331,10 +331,10 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
                 if (f.q) {
-                    String unused = this.f7563e.f7553g;
+                    String unused = this.f7571e.f7561g;
                     String str = "PkgDlSubscriber 包下载、业务层处理 OnError：" + th.toString();
                 }
-                this.f7563e.d0(new Exception("failed by Download error = ", th));
+                this.f7571e.d0(new Exception("failed by Download error = ", th));
             }
         }
 
@@ -349,7 +349,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f7564e;
+        public final /* synthetic */ f f7572e;
 
         public g(f fVar) {
             Interceptable interceptable = $ic;
@@ -366,7 +366,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                     return;
                 }
             }
-            this.f7564e = fVar;
+            this.f7572e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -376,10 +376,10 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iVar)) == null) {
-                String g2 = c.a.p0.a.n0.k.c.f7530d.g(iVar);
+                String g2 = c.a.p0.a.n0.k.c.f7538d.g(iVar);
                 if (f.q) {
-                    String unused = this.f7564e.f7553g;
-                    String str = "SoDlCallback getDownloadPath: so=" + iVar.f11885g + " path=" + g2;
+                    String unused = this.f7572e.f7561g;
+                    String str = "SoDlCallback getDownloadPath: so=" + iVar.f11893g + " path=" + g2;
                 }
                 return g2;
             }
@@ -391,7 +391,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) ? this.f7564e.m(bundle, set) : (Bundle) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) ? this.f7572e.m(bundle, set) : (Bundle) invokeLL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -402,20 +402,20 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iVar, aVar) == null) {
                 super.e(iVar, aVar);
                 if (f.q) {
-                    String unused = this.f7564e.f7553g;
-                    String str = "SoDlCallback onDownloadError: so=" + iVar.f11885g + " err=" + aVar;
+                    String unused = this.f7572e.f7561g;
+                    String str = "SoDlCallback onDownloadError: so=" + iVar.f11893g + " err=" + aVar;
                 }
-                this.f7564e.f7556j.j(iVar);
+                this.f7572e.f7564j.j(iVar);
                 c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
                 aVar2.j(13L);
-                aVar2.h(aVar.f11875a);
+                aVar2.h(aVar.f11883a);
                 aVar2.c("so包下载失败");
                 aVar2.e(aVar.toString());
-                if (this.f7564e.f7554h != null) {
-                    this.f7564e.f7554h.onError(new PkgDownloadError(iVar, aVar2));
+                if (this.f7572e.f7562h != null) {
+                    this.f7572e.f7562h.onError(new PkgDownloadError(iVar, aVar2));
                 }
                 c.a.p0.a.h0.m.c.c().a(iVar, f.s, aVar2);
-                c.a.p0.t.d.j(iVar.f11879a);
+                c.a.p0.t.d.j(iVar.f11887a);
             }
         }
 
@@ -428,35 +428,35 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             if (interceptable == null || interceptable.invokeL(1048585, this, iVar) == null) {
                 super.i(iVar);
                 if (f.q) {
-                    String unused = this.f7564e.f7553g;
+                    String unused = this.f7572e.f7561g;
                     String str = "SoDlCallback onDownloadFinish: so=" + iVar;
                 }
                 String str2 = iVar.p;
-                if (TextUtils.isEmpty(str2) && (aVar = (c.a.p0.n.l.a) this.f7564e.n.get(iVar.f11885g)) != null) {
-                    str2 = aVar.f12058a;
+                if (TextUtils.isEmpty(str2) && (aVar = (c.a.p0.n.l.a) this.f7572e.n.get(iVar.f11893g)) != null) {
+                    str2 = aVar.f12066a;
                 }
-                c.a.p0.a.n0.k.e Z = this.f7564e.Z(str2);
+                c.a.p0.a.n0.k.e Z = this.f7572e.Z(str2);
                 if (Z != null) {
-                    boolean a2 = j0.a(new File(iVar.f11879a), iVar.m);
+                    boolean a2 = j0.a(new File(iVar.f11887a), iVar.m);
                     if (f.q) {
-                        String unused2 = this.f7564e.f7553g;
-                        String str3 = "SoDlCallback onDownloadFinish: bundle=" + iVar.f11885g + " checkSign=" + a2;
+                        String unused2 = this.f7572e.f7561g;
+                        String str3 = "SoDlCallback onDownloadFinish: bundle=" + iVar.f11893g + " checkSign=" + a2;
                     }
                     boolean z = true;
                     z = (f.q && !q0.G() && c.a.p0.a.u1.a.a.j() == 1) ? false : false;
                     if (a2 || z) {
                         c.a.p0.n.g.a.h().l(iVar);
                         if (f.q) {
-                            String unused3 = this.f7564e.f7553g;
+                            String unused3 = this.f7572e.f7561g;
                             String str4 = "SoDlCallback onDownloadFinish: updating=" + Z + " libName=" + str2;
                         }
                     }
                     Z.q();
                 }
-                this.f7564e.f7556j.k(iVar);
-                if (this.f7564e.f7554h != null) {
-                    this.f7564e.f7554h.onNext(iVar);
-                    this.f7564e.f7554h.onCompleted();
+                this.f7572e.f7564j.k(iVar);
+                if (this.f7572e.f7562h != null) {
+                    this.f7572e.f7562h.onNext(iVar);
+                    this.f7572e.f7562h.onCompleted();
                 }
                 c.a.p0.a.h0.m.c.c().b(iVar, f.s);
             }
@@ -469,10 +469,10 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, iVar) == null) {
                 super.a(iVar);
-                c.a.p0.n.l.a aVar = (c.a.p0.n.l.a) this.f7564e.n.get(iVar.f11885g);
-                c.a.p0.a.n0.k.e Z = this.f7564e.Z(aVar == null ? null : aVar.f12058a);
+                c.a.p0.n.l.a aVar = (c.a.p0.n.l.a) this.f7572e.n.get(iVar.f11893g);
+                c.a.p0.a.n0.k.e Z = this.f7572e.Z(aVar == null ? null : aVar.f12066a);
                 if (Z != null) {
-                    Z.x(new d.b(iVar.f11880b, iVar.k));
+                    Z.x(new d.b(iVar.f11888b, iVar.k));
                 }
             }
         }
@@ -485,8 +485,8 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             if (interceptable == null || interceptable.invokeL(1048587, this, iVar) == null) {
                 super.c(iVar);
                 if (f.q) {
-                    String unused = this.f7564e.f7553g;
-                    String str = "SoDlCallback onDownloadStart: so=" + iVar.f11885g;
+                    String unused = this.f7572e.f7561g;
+                    String str = "SoDlCallback onDownloadStart: so=" + iVar.f11893g;
                 }
             }
         }
@@ -499,10 +499,10 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             if (interceptable == null || interceptable.invokeL(1048588, this, iVar) == null) {
                 super.f(iVar);
                 if (f.q) {
-                    String unused = this.f7564e.f7553g;
-                    String str = "SoDlCallback onDownloading: so=" + iVar.f11885g;
+                    String unused = this.f7572e.f7561g;
+                    String str = "SoDlCallback onDownloading: so=" + iVar.f11893g;
                 }
-                this.f7564e.e0(iVar);
+                this.f7572e.e0(iVar);
             }
         }
 
@@ -524,7 +524,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                 return;
             }
         }
-        q = k.f7077a;
+        q = k.f7085a;
         r = 0;
         s = PMSDownloadType.SO_LIB;
     }
@@ -544,16 +544,16 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                 return;
             }
         }
-        this.f7553g = "SwanSoUpdater";
+        this.f7561g = "SwanSoUpdater";
         this.m = new HashMap();
         this.n = new HashMap();
         this.p = new a(this);
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f7553g);
+        sb.append(this.f7561g);
         int i4 = r;
         r = i4 + 1;
         sb.append(i4);
-        this.f7553g = sb.toString();
+        this.f7561g = sb.toString();
         if (q) {
             String str = "SwanSoUpdater: config=" + dVar + " trace=" + Log.getStackTraceString(new Exception());
         }
@@ -570,7 +570,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                     dVar.c(next, true);
                 } else {
                     String e2 = a2.e();
-                    c.a.p0.a.n0.k.e t = c.a.p0.a.n0.k.c.f7530d.t(this, e2);
+                    c.a.p0.a.n0.k.e t = c.a.p0.a.n0.k.c.f7538d.t(this, e2);
                     b bVar = new b(this);
                     c cVar = new c(this);
                     t.u(bVar);
@@ -633,7 +633,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             if (fVar == null) {
                 return;
             }
-            this.f7556j = fVar;
+            this.f7564j = fVar;
             if (fVar.i()) {
                 return;
             }
@@ -677,10 +677,10 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f7555i == null) {
-                this.f7555i = new C0314f(this, null);
+            if (this.f7563i == null) {
+                this.f7563i = new C0314f(this, null);
             }
-            return this.f7555i;
+            return this.f7563i;
         }
         return (i.j) invokeV.objValue;
     }
@@ -689,7 +689,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f7556j.e()) {
+            if (this.f7564j.e()) {
                 arrayList.add(i.d.b(new e(this)));
             }
             if (arrayList.isEmpty()) {
@@ -747,16 +747,16 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                 boolean z = q;
                 return;
             }
-            c.a.p0.n.l.a aVar = this.n.get(iVar.f11885g);
+            c.a.p0.n.l.a aVar = this.n.get(iVar.f11893g);
             if (aVar == null) {
                 if (q) {
-                    String str2 = "SoNodeHandler updateBestSo end by illegal bundleId=" + iVar.f11885g;
+                    String str2 = "SoNodeHandler updateBestSo end by illegal bundleId=" + iVar.f11893g;
                     return;
                 }
                 return;
             }
             if (TextUtils.isEmpty(iVar.p)) {
-                iVar.p = aVar.f12058a;
+                iVar.p = aVar.f12066a;
             }
             c.a.p0.a.n0.k.e Z = Z(iVar.p);
             if (Z == null) {
@@ -767,7 +767,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                 return;
             }
             if (iVar.q == null) {
-                iVar.q = aVar.f12060c;
+                iVar.q = aVar.f12068c;
             }
             if (!AbiType.currentAbi().compat(iVar.q)) {
                 boolean z2 = q;
@@ -775,15 +775,15 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
             }
             i l = Z.l();
             i j2 = Z.j();
-            long max = Math.max(j2 != null ? j2.f11887i : 0L, l == null ? 0L : l.f11887i);
-            long j3 = iVar.f11887i;
+            long max = Math.max(j2 != null ? j2.f11895i : 0L, l == null ? 0L : l.f11895i);
+            long j3 = iVar.f11895i;
             if (j3 < max) {
                 if (q) {
-                    String.format("SoNodeHandler updateBestSo end by not bestVer(%d) libVer(%d)", Long.valueOf(max), Long.valueOf(iVar.f11887i));
+                    String.format("SoNodeHandler updateBestSo end by not bestVer(%d) libVer(%d)", Long.valueOf(max), Long.valueOf(iVar.f11895i));
                 }
             } else if (j3 > max) {
                 if (q) {
-                    String str4 = "SoNodeHandler updateBestSo end by update bestVer=" + iVar.f11887i;
+                    String str4 = "SoNodeHandler updateBestSo end by update bestVer=" + iVar.f11895i;
                 }
                 Z.w(this, iVar);
             } else {
@@ -826,7 +826,7 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                 if (!TextUtils.isEmpty(i2)) {
                     try {
                         i iVar = (i) c.a.p0.n.o.e.i(new JSONObject(i2), new i());
-                        iVar.f11885g = "so_zeus_armeabi";
+                        iVar.f11893g = "so_zeus_armeabi";
                         f0(iVar);
                         c.a.p0.a.z1.b.f.e.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(h.swan_app_debug_so_info_success)).F();
                     } catch (JSONException e2) {
@@ -844,10 +844,10 @@ public final class f extends j implements c.a.p0.n.k.a.a, c.a.p0.n.j.k.c {
                             String str = "SoNodeHandler handle for bestSo=" + j2;
                         }
                         c.a.p0.n.j.k.b.b(j2, fVar);
-                        if (aVar.f12051d == null) {
-                            aVar.f12051d = new ArrayList();
+                        if (aVar.f12059d == null) {
+                            aVar.f12059d = new ArrayList();
                         }
-                        aVar.f12051d.add(j2);
+                        aVar.f12059d.add(j2);
                     } else {
                         boolean z3 = q;
                         eVar.q();

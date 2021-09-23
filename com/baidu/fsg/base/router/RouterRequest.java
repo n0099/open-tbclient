@@ -15,17 +15,17 @@ public class RouterRequest {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39457a = "RouterRequest";
+    public static final String f39514a = "RouterRequest";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39458b;
+    public String f39515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39459c;
+    public String f39516c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap f39460d;
+    public HashMap f39517d;
 
     public RouterRequest() {
         Interceptable interceptable = $ic;
@@ -40,16 +40,16 @@ public class RouterRequest {
                 return;
             }
         }
-        this.f39458b = "";
-        this.f39459c = "";
-        this.f39460d = new HashMap();
+        this.f39515b = "";
+        this.f39516c = "";
+        this.f39517d = new HashMap();
     }
 
     public RouterRequest action(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f39459c = str;
+            this.f39516c = str;
             return this;
         }
         return (RouterRequest) invokeL.objValue;
@@ -59,7 +59,7 @@ public class RouterRequest {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
-            this.f39460d.put(str, obj);
+            this.f39517d.put(str, obj);
             return this;
         }
         return (RouterRequest) invokeLL.objValue;
@@ -69,7 +69,7 @@ public class RouterRequest {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
-            this.f39460d = hashMap;
+            this.f39517d = hashMap;
             return this;
         }
         return (RouterRequest) invokeL.objValue;
@@ -78,26 +78,26 @@ public class RouterRequest {
     public String getAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39459c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39516c : (String) invokeV.objValue;
     }
 
     public HashMap getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39460d : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39517d : (HashMap) invokeV.objValue;
     }
 
     public String getProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f39458b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f39515b : (String) invokeV.objValue;
     }
 
     public RouterRequest provider(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f39458b = str;
+            this.f39515b = str;
             return this;
         }
         return (RouterRequest) invokeL.objValue;
@@ -109,12 +109,12 @@ public class RouterRequest {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("provider", this.f39458b);
-                jSONObject.put("action", this.f39459c);
+                jSONObject.put("provider", this.f39515b);
+                jSONObject.put("action", this.f39516c);
                 try {
                     JSONObject jSONObject2 = new JSONObject();
-                    for (Object obj : this.f39460d.keySet()) {
-                        jSONObject2.put(obj.toString(), this.f39460d.get(obj));
+                    for (Object obj : this.f39517d.keySet()) {
+                        jSONObject2.put(obj.toString(), this.f39517d.get(obj));
                     }
                     jSONObject.put("data", jSONObject2);
                 } catch (Exception e2) {

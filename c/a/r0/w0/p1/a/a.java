@@ -20,22 +20,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class a extends k<n, C1292a> {
+public class a extends k<n, C1290a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean x;
 
     /* renamed from: c.a.r0.w0.p1.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1292a extends TypeAdapter.ViewHolder {
+    public class C1290a extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public o f27494a;
+        public o f27514a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1292a(a aVar, o oVar) {
+        public C1290a(a aVar, o oVar) {
             super(oVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -52,7 +52,7 @@ public class a extends k<n, C1292a> {
                     return;
                 }
             }
-            this.f27494a = oVar;
+            this.f27514a = oVar;
         }
     }
 
@@ -81,33 +81,33 @@ public class a extends k<n, C1292a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.e.l.e.a
     /* renamed from: u0 */
-    public C1292a U(ViewGroup viewGroup) {
+    public C1290a U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             o oVar = new o(this.o);
             oVar.t(null, TbadkCoreStatisticKey.FRS_HOT_TOPIC_ITEM_CLICK);
-            return new C1292a(this, oVar);
+            return new C1290a(this, oVar);
         }
-        return (C1292a) invokeL.objValue;
+        return (C1290a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.r0.w0.k, c.a.e.l.e.a
     /* renamed from: v0 */
-    public View a0(int i2, View view, ViewGroup viewGroup, n nVar, C1292a c1292a) {
+    public View a0(int i2, View view, ViewGroup viewGroup, n nVar, C1290a c1290a) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, c1292a})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, c1290a})) == null) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW));
             if (nVar != null) {
-                nVar.f15594j = i2 + 1;
-                c1292a.f27494a.u(l.e(this.o.getPageActivity(), 7.0f));
-                c1292a.f27494a.w(this.x);
-                c1292a.f27494a.l(this.o, TbadkCoreApplication.getInst().getSkinType());
+                nVar.f15603j = i2 + 1;
+                c1290a.f27514a.u(l.e(this.o.getPageActivity(), 7.0f));
+                c1290a.f27514a.w(this.x);
+                c1290a.f27514a.l(this.o, TbadkCoreApplication.getInst().getSkinType());
             }
-            c1292a.f27494a.k(nVar);
-            return c1292a.getView();
+            c1290a.f27514a.k(nVar);
+            return c1290a.getView();
         }
         return (View) invokeCommon.objValue;
     }

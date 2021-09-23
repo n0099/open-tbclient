@@ -27,14 +27,14 @@ public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f11862f = null;
+    public static volatile a f11870f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f11863g = 10;
+    public static final int f11871g = 10;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConcurrentHashMap<Class<?>, c.a.p0.n.g.d.a> f11864e;
+    public ConcurrentHashMap<Class<?>, c.a.p0.n.g.d.a> f11872e;
 
     static {
         InterceptResult invokeClinit;
@@ -53,7 +53,7 @@ public class a extends SQLiteOpenHelper {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a() {
-        this("ai_apps_pms.db", f11863g);
+        this("ai_apps_pms.db", f11871g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,14 +75,14 @@ public class a extends SQLiteOpenHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f11862f == null) {
+            if (f11870f == null) {
                 synchronized (a.class) {
-                    if (f11862f == null) {
-                        f11862f = new a();
+                    if (f11870f == null) {
+                        f11870f = new a();
                     }
                 }
             }
-            return f11862f;
+            return f11870f;
         }
         return (a) invokeV.objValue;
     }
@@ -91,21 +91,21 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ConcurrentHashMap<Class<?>, c.a.p0.n.g.d.a> concurrentHashMap = new ConcurrentHashMap<>();
-            this.f11864e = concurrentHashMap;
+            this.f11872e = concurrentHashMap;
             concurrentHashMap.put(f.class, new e());
-            this.f11864e.put(g.class, new c.a.p0.n.g.d.f());
-            this.f11864e.put(PMSAppInfo.class, new c.a.p0.n.g.d.b());
-            this.f11864e.put(d.class, new c.a.p0.n.g.d.d());
-            this.f11864e.put(c.a.p0.n.h.b.class, new c());
-            this.f11864e.put(h.class, new c.a.p0.n.g.d.g());
-            this.f11864e.put(i.class, new c.a.p0.n.g.d.h());
+            this.f11872e.put(g.class, new c.a.p0.n.g.d.f());
+            this.f11872e.put(PMSAppInfo.class, new c.a.p0.n.g.d.b());
+            this.f11872e.put(d.class, new c.a.p0.n.g.d.d());
+            this.f11872e.put(c.a.p0.n.h.b.class, new c());
+            this.f11872e.put(h.class, new c.a.p0.n.g.d.g());
+            this.f11872e.put(i.class, new c.a.p0.n.g.d.h());
         }
     }
 
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f11862f = null;
+            f11870f = null;
         }
     }
 
@@ -113,7 +113,7 @@ public class a extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            for (c.a.p0.n.g.d.a aVar : this.f11864e.values()) {
+            for (c.a.p0.n.g.d.a aVar : this.f11872e.values()) {
                 aVar.a(sQLiteDatabase);
             }
         }
@@ -123,7 +123,7 @@ public class a extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i2, i3) == null) {
-            for (c.a.p0.n.g.d.a aVar : this.f11864e.values()) {
+            for (c.a.p0.n.g.d.a aVar : this.f11872e.values()) {
                 aVar.onUpgrade(sQLiteDatabase, i2, i3);
             }
         }

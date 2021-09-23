@@ -30,31 +30,31 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f28889a;
+    public View f28909a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f28890b;
+    public Context f28910b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f28891c;
+    public View f28911c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f28892d;
+    public TextView f28912d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f28893e;
+    public ImageView f28913e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28894f;
+    public boolean f28914f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PostWriteCallBackData f28895g;
+    public PostWriteCallBackData f28915g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f28896h;
+    public TextView f28916h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SendVideoSuccessShareModel f28897i;
+    public SendVideoSuccessShareModel f28917i;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -62,7 +62,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f28898e;
+        public final /* synthetic */ e f28918e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -79,18 +79,18 @@ public class e {
                     return;
                 }
             }
-            this.f28898e = eVar;
+            this.f28918e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f28898e.f28894f) {
-                this.f28898e.f();
-                if (this.f28898e.f28895g == null || StringUtils.isNull(this.f28898e.f28895g.buildVideoFakeOnWallUrl())) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f28918e.f28914f) {
+                this.f28918e.f();
+                if (this.f28918e.f28915g == null || StringUtils.isNull(this.f28918e.f28915g.buildVideoFakeOnWallUrl())) {
                     return;
                 }
-                c.a.q0.m.a.m(this.f28898e.f28890b, null, this.f28898e.f28895g.buildVideoFakeOnWallUrl());
+                c.a.q0.m.a.m(this.f28918e.f28910b, null, this.f28918e.f28915g.buildVideoFakeOnWallUrl());
             }
         }
     }
@@ -101,7 +101,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f28899e;
+        public final /* synthetic */ e f28919e;
 
         /* loaded from: classes4.dex */
         public class a extends c.a.e.a.e {
@@ -109,7 +109,7 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f28900a;
+            public final /* synthetic */ b f28920a;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class e {
                         return;
                     }
                 }
-                this.f28900a = bVar;
+                this.f28920a = bVar;
             }
 
             @Override // c.a.e.a.e
@@ -136,7 +136,7 @@ public class e {
                     ShareItem shareItem = new ShareItem();
                     shareItem.d0 = false;
                     shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo((OriginalThreadInfo) obj);
-                    c.a.r0.e0.f.b().k(new ShareDialogConfig(this.f28900a.f28899e.f28890b, shareItem, true, true));
+                    c.a.r0.e0.f.b().k(new ShareDialogConfig(this.f28920a.f28919e.f28910b, shareItem, true, true));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM2, 1).param(TiebaStatic.Params.OBJ_PARAM3, 1));
                 }
             }
@@ -157,19 +157,19 @@ public class e {
                     return;
                 }
             }
-            this.f28899e = eVar;
+            this.f28919e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f28899e.f();
-                if (this.f28899e.f28895g == null || StringUtils.isNull(this.f28899e.f28895g.getVideoid())) {
+                this.f28919e.f();
+                if (this.f28919e.f28915g == null || StringUtils.isNull(this.f28919e.f28915g.getVideoid())) {
                     return;
                 }
-                this.f28899e.f28897i.y(this.f28899e.f28895g.getVideoid());
-                this.f28899e.f28897i.setLoadDataCallBack(new a(this));
+                this.f28919e.f28917i.y(this.f28919e.f28915g.getVideoid());
+                this.f28919e.f28917i.setLoadDataCallBack(new a(this));
             }
         }
     }
@@ -180,7 +180,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f28901e;
+        public final /* synthetic */ e f28921e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -197,14 +197,14 @@ public class e {
                     return;
                 }
             }
-            this.f28901e = eVar;
+            this.f28921e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28901e.f();
+                this.f28921e.f();
             }
         }
     }
@@ -224,30 +224,30 @@ public class e {
                 return;
             }
         }
-        this.f28890b = context;
-        this.f28891c = viewGroup;
-        this.f28897i = new SendVideoSuccessShareModel();
-        if (this.f28890b == null || this.f28891c == null) {
+        this.f28910b = context;
+        this.f28911c = viewGroup;
+        this.f28917i = new SendVideoSuccessShareModel();
+        if (this.f28910b == null || this.f28911c == null) {
             return;
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.send_video_success_tip, (ViewGroup) null);
-        this.f28889a = inflate;
-        this.f28892d = (TextView) inflate.findViewById(R.id.success_tip);
-        this.f28893e = (ImageView) this.f28889a.findViewById(R.id.video_activity_btn);
-        this.f28896h = (TextView) this.f28889a.findViewById(R.id.video_share_btn);
+        this.f28909a = inflate;
+        this.f28912d = (TextView) inflate.findViewById(R.id.success_tip);
+        this.f28913e = (ImageView) this.f28909a.findViewById(R.id.video_activity_btn);
+        this.f28916h = (TextView) this.f28909a.findViewById(R.id.video_share_btn);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, l.g(context, R.dimen.ds128));
-        if (this.f28889a.getParent() == null) {
-            viewGroup.addView(this.f28889a, layoutParams);
+        if (this.f28909a.getParent() == null) {
+            viewGroup.addView(this.f28909a, layoutParams);
         }
-        this.f28889a.setVisibility(8);
-        this.f28889a.setOnClickListener(new a(this));
-        this.f28896h.setOnClickListener(new b(this));
+        this.f28909a.setVisibility(8);
+        this.f28909a.setOnClickListener(new a(this));
+        this.f28916h.setOnClickListener(new b(this));
     }
 
     public void e() {
         SendVideoSuccessShareModel sendVideoSuccessShareModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sendVideoSuccessShareModel = this.f28897i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sendVideoSuccessShareModel = this.f28917i) == null) {
             return;
         }
         sendVideoSuccessShareModel.cancelLoadData();
@@ -256,7 +256,7 @@ public class e {
     public void f() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view = this.f28889a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view = this.f28909a) == null) {
             return;
         }
         view.setVisibility(8);
@@ -267,24 +267,24 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postWriteCallBackData) == null) || postWriteCallBackData == null) {
             return;
         }
-        this.f28895g = postWriteCallBackData;
-        this.f28894f = postWriteCallBackData.mVideoTitleData != null;
-        View view = this.f28889a;
-        if (view == null || this.f28892d == null || this.f28893e == null || this.f28896h == null) {
+        this.f28915g = postWriteCallBackData;
+        this.f28914f = postWriteCallBackData.mVideoTitleData != null;
+        View view = this.f28909a;
+        if (view == null || this.f28912d == null || this.f28913e == null || this.f28916h == null) {
             return;
         }
         SkinManager.setBackgroundColor(view, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.f28892d, R.color.CAM_X0101);
-        SkinManager.setImageResource(this.f28893e, R.drawable.icon_arrow_more_white);
-        SkinManager.setBackgroundResource(this.f28896h, R.drawable.immediately_share_background);
-        this.f28889a.setVisibility(0);
-        this.f28889a.postDelayed(new c(this), 5000L);
-        if (this.f28894f) {
-            this.f28892d.setText(R.string.video_activity_tip);
+        SkinManager.setViewTextColor(this.f28912d, R.color.CAM_X0101);
+        SkinManager.setImageResource(this.f28913e, R.drawable.icon_arrow_more_white);
+        SkinManager.setBackgroundResource(this.f28916h, R.drawable.immediately_share_background);
+        this.f28909a.setVisibility(0);
+        this.f28909a.postDelayed(new c(this), 5000L);
+        if (this.f28914f) {
+            this.f28912d.setText(R.string.video_activity_tip);
         } else if (!StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-            this.f28892d.setText(postWriteCallBackData.getErrorString());
+            this.f28912d.setText(postWriteCallBackData.getErrorString());
         } else {
-            this.f28889a.setVisibility(8);
+            this.f28909a.setVisibility(8);
         }
     }
 }

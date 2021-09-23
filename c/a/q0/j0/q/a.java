@@ -23,16 +23,16 @@ public class a implements b<LocationEvent> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f13528e;
+    public c f13524e;
 
     /* renamed from: c.a.q0.j0.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0671a extends c {
+    public class C0669a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0671a(a aVar, int i2, boolean z) {
+        public C0669a(a aVar, int i2, boolean z) {
             super(i2, z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -90,7 +90,7 @@ public class a implements b<LocationEvent> {
                 return;
             }
         }
-        this.f13528e = new C0671a(this, 303017, true);
+        this.f13524e = new C0669a(this, 303017, true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -104,8 +104,8 @@ public class a implements b<LocationEvent> {
                 return false;
             }
             if (locationEvent.getType() == 3) {
-                MessageManager.getInstance().unRegisterListener(this.f13528e);
-                MessageManager.getInstance().registerListener(this.f13528e);
+                MessageManager.getInstance().unRegisterListener(this.f13524e);
+                MessageManager.getInstance().registerListener(this.f13524e);
                 LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
                 locationSocketRequestMessage.setLat(locationEvent.lat);
                 locationSocketRequestMessage.setLng(locationEvent.lng);

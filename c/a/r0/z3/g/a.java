@@ -35,34 +35,34 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext<BaseFragmentActivity> f29801a;
+    public final TbPageContext<BaseFragmentActivity> f29822a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<VideoItemModel> f29802b;
+    public final List<VideoItemModel> f29823b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f29803c;
+    public final c f29824c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Queue<AdvertAppInfo> f29804d;
+    public final Queue<AdvertAppInfo> f29825d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<VideoItemModel, AdvertAppInfo> f29805e;
+    public final Map<VideoItemModel, AdvertAppInfo> f29826e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29806f;
+    public int f29827f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29807g;
+    public boolean f29828g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29808h;
+    public int f29829h;
 
     /* renamed from: i  reason: collision with root package name */
-    public VideoPlayView f29809i;
+    public VideoPlayView f29830i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.r0.y2.d0.a f29810j;
+    public c.a.r0.y2.d0.a f29831j;
     public final boolean k;
     public c.a l;
     public int m;
@@ -84,15 +84,15 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
             }
         }
         boolean z = false;
-        this.f29806f = 0;
-        this.f29807g = true;
-        this.f29802b = list;
-        this.f29801a = tbPageContext;
+        this.f29827f = 0;
+        this.f29828g = true;
+        this.f29823b = list;
+        this.f29822a = tbPageContext;
         c cVar = (c) y.o().k(IAdBaseAsyncController.Type.VIDEO_FLOW, this);
-        this.f29803c = cVar;
-        cVar.a(this.f29801a);
-        this.f29804d = new LinkedList();
-        this.f29805e = new HashMap();
+        this.f29824c = cVar;
+        cVar.a(this.f29822a);
+        this.f29825d = new LinkedList();
+        this.f29826e = new HashMap();
         int s = c.a.r0.a.h().s();
         int t = c.a.r0.a.h().t();
         if (s > 0 && t > 0) {
@@ -101,9 +101,9 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
         this.k = z;
         if (z) {
             c.a.r0.y2.d0.a aVar = new c.a.r0.y2.d0.a();
-            this.f29810j = aVar;
+            this.f29831j = aVar;
             aVar.d(s - 1);
-            this.f29810j.e(t);
+            this.f29831j.e(t);
         }
     }
 
@@ -112,11 +112,11 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             if (i3 != 0) {
-                this.f29808h = i3;
+                this.f29829h = i3;
             }
-            if (this.f29808h - 2 <= i2 && this.f29804d.isEmpty() && this.f29807g) {
-                this.f29803c.loadAd();
-                this.f29807g = false;
+            if (this.f29829h - 2 <= i2 && this.f29825d.isEmpty() && this.f29828g) {
+                this.f29824c.loadAd();
+                this.f29828g = false;
             }
         }
     }
@@ -125,20 +125,20 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
     public void b(@Nullable List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f29807g = true;
-            this.f29804d.addAll(list);
+            this.f29828g = true;
+            this.f29825d.addAll(list);
             VideoItemModel videoItemModel = new VideoItemModel(new VideoItemData(), 5);
             this.n = videoItemModel;
-            b.b(this.f29802b, this.m, this.f29810j, this.f29806f, videoItemModel, this.f29804d.peek(), this);
+            b.b(this.f29823b, this.m, this.f29831j, this.f29827f, videoItemModel, this.f29825d.peek(), this);
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            VideoItemModel videoItemModel = this.f29802b.get(i2);
-            if (this.f29805e.containsKey(videoItemModel)) {
-                this.f29803c.n(this.f29805e.get(videoItemModel));
+            VideoItemModel videoItemModel = this.f29823b.get(i2);
+            if (this.f29826e.containsKey(videoItemModel)) {
+                this.f29824c.n(this.f29826e.get(videoItemModel));
             }
         }
     }
@@ -148,8 +148,8 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
         m k;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            AdvertAppInfo advertAppInfo = this.f29805e.get(this.f29802b.get(i2));
-            if (advertAppInfo == null || (k = this.f29803c.k(advertAppInfo)) == null) {
+            AdvertAppInfo advertAppInfo = this.f29826e.get(this.f29823b.get(i2));
+            if (advertAppInfo == null || (k = this.f29824c.k(advertAppInfo)) == null) {
                 return null;
             }
             k.setPageChangeHandler(this.l, i2);
@@ -165,8 +165,8 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry<VideoItemModel, AdvertAppInfo> entry : this.f29805e.entrySet()) {
-                if (TextUtils.equals(entry.getValue().W3, str)) {
+            for (Map.Entry<VideoItemModel, AdvertAppInfo> entry : this.f29826e.entrySet()) {
+                if (TextUtils.equals(entry.getValue().X3, str)) {
                     arrayList.add(entry.getKey());
                 }
             }
@@ -178,13 +178,13 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
     public void i() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.k) {
-            this.f29806f = 0;
-            this.f29808h = c.a.r0.a.h().s() - 1;
-            if (this.f29804d.size() >= 1 || !this.f29807g) {
+            this.f29827f = 0;
+            this.f29829h = c.a.r0.a.h().s() - 1;
+            if (this.f29825d.size() >= 1 || !this.f29828g) {
                 return;
             }
-            this.f29803c.loadAd();
-            this.f29807g = false;
+            this.f29824c.loadAd();
+            this.f29828g = false;
         }
     }
 
@@ -195,10 +195,10 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), cVar, videoItemModel}) == null) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) cVar;
-            this.f29804d.remove(advertAppInfo);
-            this.f29806f = i3;
-            this.f29805e.put(videoItemModel, advertAppInfo);
-            VideoPlayView videoPlayView = this.f29809i;
+            this.f29825d.remove(advertAppInfo);
+            this.f29827f = i3;
+            this.f29826e.put(videoItemModel, advertAppInfo);
+            VideoPlayView videoPlayView = this.f29830i;
             if (videoPlayView != null) {
                 videoPlayView.notifyDataSetChanged();
             }
@@ -212,9 +212,9 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), videoItemModel, cVar, videoItemModel2}) == null) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) cVar;
-            this.f29804d.remove(advertAppInfo);
-            this.f29806f = i3;
-            this.f29805e.put(videoItemModel, advertAppInfo);
+            this.f29825d.remove(advertAppInfo);
+            this.f29827f = i3;
+            this.f29826e.put(videoItemModel, advertAppInfo);
         }
     }
 
@@ -231,21 +231,21 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048588, this, i2) == null) && this.k) {
             this.m = i2;
-            VideoItemModel videoItemModel = (VideoItemModel) c.a.r0.p1.o.k.a.d(this.f29802b, i2);
-            if (this.f29805e.containsKey(videoItemModel)) {
-                AdvertAppInfo advertAppInfo = this.f29805e.get(videoItemModel);
+            VideoItemModel videoItemModel = (VideoItemModel) c.a.r0.p1.o.k.a.d(this.f29823b, i2);
+            if (this.f29826e.containsKey(videoItemModel)) {
+                AdvertAppInfo advertAppInfo = this.f29826e.get(videoItemModel);
                 c.a.r0.y2.l0.d.p(advertAppInfo);
                 c.a.r0.p1.o.h.c.g(c.a.r0.p1.o.h.c.e(advertAppInfo));
-                this.f29803c.b(advertAppInfo, true);
+                this.f29824c.b(advertAppInfo, true);
                 return;
             }
-            this.f29803c.b(null, false);
-            if (i2 <= this.f29806f) {
+            this.f29824c.b(null, false);
+            if (i2 <= this.f29827f) {
                 return;
             }
             VideoItemModel videoItemModel2 = new VideoItemModel(new VideoItemData(), 5);
             this.n = videoItemModel2;
-            b.b(this.f29802b, i2, this.f29810j, this.f29806f, videoItemModel2, this.f29804d.peek(), this);
+            b.b(this.f29823b, i2, this.f29831j, this.f29827f, videoItemModel2, this.f29825d.peek(), this);
         }
     }
 
@@ -259,7 +259,7 @@ public class a implements IAdBaseAsyncController.a, d<VideoItemModel> {
     public void o(VideoPlayView videoPlayView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, videoPlayView) == null) {
-            this.f29809i = videoPlayView;
+            this.f29830i = videoPlayView;
         }
     }
 }

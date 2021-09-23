@@ -16,10 +16,10 @@ public abstract class j extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public byte[] f33174i;
+    public byte[] f33197i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f33175j;
+    public int f33198j;
     public volatile boolean k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,7 +41,7 @@ public abstract class j extends c {
                 return;
             }
         }
-        this.f33174i = bArr;
+        this.f33197i = bArr;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
@@ -49,21 +49,21 @@ public abstract class j extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.f33150h.a(this.f33143a);
+                this.f33173h.a(this.f33166a);
                 int i2 = 0;
-                this.f33175j = 0;
+                this.f33198j = 0;
                 while (i2 != -1 && !this.k) {
                     g();
-                    i2 = this.f33150h.read(this.f33174i, this.f33175j, 16384);
+                    i2 = this.f33173h.read(this.f33197i, this.f33198j, 16384);
                     if (i2 != -1) {
-                        this.f33175j += i2;
+                        this.f33198j += i2;
                     }
                 }
                 if (!this.k) {
-                    e(this.f33174i, this.f33175j);
+                    e(this.f33197i, this.f33198j);
                 }
             } finally {
-                v.h(this.f33150h);
+                v.h(this.f33173h);
             }
         }
     }
@@ -79,7 +79,7 @@ public abstract class j extends c {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33175j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33198j : invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
@@ -95,17 +95,17 @@ public abstract class j extends c {
     public byte[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33174i : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33197i : (byte[]) invokeV.objValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            byte[] bArr = this.f33174i;
+            byte[] bArr = this.f33197i;
             if (bArr == null) {
-                this.f33174i = new byte[16384];
-            } else if (bArr.length < this.f33175j + 16384) {
-                this.f33174i = Arrays.copyOf(bArr, bArr.length + 16384);
+                this.f33197i = new byte[16384];
+            } else if (bArr.length < this.f33198j + 16384) {
+                this.f33197i = Arrays.copyOf(bArr, bArr.length + 16384);
             }
         }
     }

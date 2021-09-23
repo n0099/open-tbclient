@@ -38,10 +38,10 @@ public class a extends m {
         }
         this.r = true;
         this.s = true;
-        this.f15088d = R.drawable.icon_pure_post_link24;
-        this.f15091g = false;
-        this.f15092h = true;
-        this.f15093i = false;
+        this.f15095d = R.drawable.icon_pure_post_link24;
+        this.f15098g = false;
+        this.f15099h = true;
+        this.f15100i = false;
         this.n = new int[]{21};
     }
 

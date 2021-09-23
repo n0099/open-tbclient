@@ -15,19 +15,19 @@ public class j0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<c.a.q0.h0.b> f26888a;
+    public final List<c.a.q0.h0.b> f26908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f26889b;
+    public Context f26909b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26890c;
+    public String f26910c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26891d;
+    public String f26911d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26892e;
+    public String f26912e;
 
     public j0(Context context) {
         Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class j0 {
                 return;
             }
         }
-        this.f26888a = new LinkedList();
-        this.f26889b = context;
+        this.f26908a = new LinkedList();
+        this.f26909b = context;
     }
 
     public void a(c.a.q0.h0.b bVar) {
@@ -53,56 +53,56 @@ public class j0 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || bVar.getFragmentTabStructure() == null) {
             return;
         }
-        for (c.a.q0.h0.b bVar2 : this.f26888a) {
-            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f13471e == bVar.getFragmentTabStructure().f13471e) {
+        for (c.a.q0.h0.b bVar2 : this.f26908a) {
+            if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().f13467e == bVar.getFragmentTabStructure().f13467e) {
                 return;
             }
         }
-        this.f26888a.add(bVar);
+        this.f26908a.add(bVar);
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26892e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26912e : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26890c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26910c : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26891d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26911d : (String) invokeV.objValue;
     }
 
     public List<c.a.q0.h0.b> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26888a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26908a : (List) invokeV.objValue;
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f26892e = str;
+            this.f26912e = str;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f26890c = str;
+            this.f26910c = str;
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f26891d = str;
+            this.f26911d = str;
         }
     }
 }

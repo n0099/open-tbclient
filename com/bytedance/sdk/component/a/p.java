@@ -17,7 +17,7 @@ public final class p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Object> f64141a;
+    public final Map<String, Object> f64452a;
 
     public p() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class p {
                 return;
             }
         }
-        this.f64141a = new ConcurrentHashMap();
+        this.f64452a = new ConcurrentHashMap();
     }
 
     public static p a() {
@@ -47,7 +47,7 @@ public final class p {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                for (Map.Entry<String, Object> entry : this.f64141a.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.f64452a.entrySet()) {
                     jSONObject.put(entry.getKey(), entry.getValue());
                 }
                 return jSONObject.toString();
@@ -63,7 +63,7 @@ public final class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
             if (!TextUtils.isEmpty(str) && obj != null) {
-                this.f64141a.put(str, obj);
+                this.f64452a.put(str, obj);
             }
             return this;
         }

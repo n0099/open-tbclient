@@ -33,27 +33,27 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f26327a;
+    public View f26350a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SearchMajorActivity f26328b;
+    public SearchMajorActivity f26351b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.v1.a f26329c;
+    public c.a.r0.v1.a f26352c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26330d;
+    public String f26353d;
 
     /* renamed from: c.a.r0.v1.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnFocusChangeListenerC1235a implements View.OnFocusChangeListener {
+    public class View$OnFocusChangeListenerC1233a implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f26331e;
+        public final /* synthetic */ a f26354e;
 
-        public View$OnFocusChangeListenerC1235a(a aVar) {
+        public View$OnFocusChangeListenerC1233a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,7 +68,7 @@ public class a {
                     return;
                 }
             }
-            this.f26331e = aVar;
+            this.f26354e = aVar;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -76,9 +76,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (!z) {
-                    l.x(this.f26331e.f26328b.getPageContext().getPageActivity(), view);
+                    l.x(this.f26354e.f26351b.getPageContext().getPageActivity(), view);
                 } else {
-                    this.f26331e.k();
+                    this.f26354e.k();
                 }
             }
         }
@@ -90,7 +90,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26332a;
+        public final /* synthetic */ a f26355a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class a {
                     return;
                 }
             }
-            this.f26332a = aVar;
+            this.f26355a = aVar;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -116,7 +116,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 3) {
-                    this.f26332a.k();
+                    this.f26355a.k();
                     return true;
                 }
                 return false;
@@ -131,7 +131,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f26333e;
+        public final /* synthetic */ a f26356e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public class a {
                     return;
                 }
             }
-            this.f26333e = aVar;
+            this.f26356e = aVar;
         }
 
         @Override // android.text.TextWatcher
@@ -157,9 +157,9 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable == null) {
                 return;
             }
-            this.f26333e.f26330d = editable.toString();
-            this.f26333e.k();
-            this.f26333e.f26329c.k(!StringUtils.isNull(editable.toString()));
+            this.f26356e.f26353d = editable.toString();
+            this.f26356e.k();
+            this.f26356e.f26352c.k(!StringUtils.isNull(editable.toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -183,7 +183,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26334a;
+        public final /* synthetic */ a f26357a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -200,7 +200,7 @@ public class a {
                     return;
                 }
             }
-            this.f26334a = aVar;
+            this.f26357a = aVar;
         }
 
         @Override // com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter.b
@@ -209,7 +209,7 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(IntentConfig.SEARCH_MAJOR_NAME, str);
-                this.f26334a.f26328b.finish(intent);
+                this.f26357a.f26351b.finish(intent);
             }
         }
     }
@@ -220,7 +220,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f26335a;
+        public final /* synthetic */ a f26358a;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -237,7 +237,7 @@ public class a {
                     return;
                 }
             }
-            this.f26335a = aVar;
+            this.f26358a = aVar;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -245,7 +245,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) {
                 if (i2 == 1 || i2 == 2) {
-                    l.x(this.f26335a.f26328b.getPageContext().getPageActivity(), recyclerView);
+                    l.x(this.f26358a.f26351b.getPageContext().getPageActivity(), recyclerView);
                 }
             }
         }
@@ -273,19 +273,19 @@ public class a {
                 return;
             }
         }
-        this.f26328b = searchMajorActivity;
+        this.f26351b = searchMajorActivity;
         h();
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View$OnFocusChangeListenerC1235a view$OnFocusChangeListenerC1235a = new View$OnFocusChangeListenerC1235a(this);
+            View$OnFocusChangeListenerC1233a view$OnFocusChangeListenerC1233a = new View$OnFocusChangeListenerC1233a(this);
             b bVar = new b(this);
             c cVar = new c(this);
-            this.f26329c.q(view$OnFocusChangeListenerC1235a);
-            this.f26329c.p(bVar);
-            this.f26329c.r(cVar);
+            this.f26352c.q(view$OnFocusChangeListenerC1233a);
+            this.f26352c.p(bVar);
+            this.f26352c.r(cVar);
         }
     }
 
@@ -294,27 +294,27 @@ public class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             d dVar = new d(this);
             e eVar = new e(this);
-            this.f26329c.n(dVar);
-            this.f26329c.o(eVar);
+            this.f26352c.n(dVar);
+            this.f26352c.o(eVar);
         }
     }
 
     public c.a.r0.v1.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26329c : (c.a.r0.v1.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26352c : (c.a.r0.v1.a) invokeV.objValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(this.f26328b).inflate(R.layout.search_major_main, (ViewGroup) null);
-            this.f26327a = inflate;
-            this.f26328b.setContentView(inflate);
-            this.f26329c = new c.a.r0.v1.a(this.f26327a, this.f26328b);
+            View inflate = LayoutInflater.from(this.f26351b).inflate(R.layout.search_major_main, (ViewGroup) null);
+            this.f26350a = inflate;
+            this.f26351b.setContentView(inflate);
+            this.f26352c = new c.a.r0.v1.a(this.f26350a, this.f26351b);
             e();
             f();
-            this.f26330d = "";
+            this.f26353d = "";
             k();
         }
     }
@@ -322,14 +322,14 @@ public class a {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f26329c.i(i2);
+            this.f26352c.i(i2);
         }
     }
 
     public void j() {
         c.a.r0.v1.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f26329c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f26352c) == null) {
             return;
         }
         aVar.j();
@@ -337,36 +337,36 @@ public class a {
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f26328b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f26351b == null) {
             return;
         }
         if (j.z()) {
-            if (this.f26330d != null) {
+            if (this.f26353d != null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_MAJOR);
-                httpMessage.addParam("keyword", this.f26330d.trim());
-                this.f26328b.sendMessage(httpMessage);
+                httpMessage.addParam("keyword", this.f26353d.trim());
+                this.f26351b.sendMessage(httpMessage);
             }
-        } else if (this.f26329c != null) {
+        } else if (this.f26352c != null) {
             m(new ErrorData());
-            this.f26328b.getRefreshView().h(R.drawable.new_pic_emotion_05);
-            this.f26328b.showNetRefreshViewNoClick(this.f26329c.d(), null);
-            this.f26328b.getRefreshView().n(this.f26328b.getString(R.string.im_error_default));
+            this.f26351b.getRefreshView().h(R.drawable.new_pic_emotion_05);
+            this.f26351b.showNetRefreshViewNoClick(this.f26352c.d(), null);
+            this.f26351b.getRefreshView().n(this.f26351b.getString(R.string.im_error_default));
         }
     }
 
     public void l(List<String> list) {
         c.a.r0.v1.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || (aVar = this.f26329c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || (aVar = this.f26352c) == null) {
             return;
         }
-        aVar.l(list, this.f26330d);
+        aVar.l(list, this.f26353d);
     }
 
     public void m(ErrorData errorData) {
         c.a.r0.v1.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, errorData) == null) || (aVar = this.f26329c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, errorData) == null) || (aVar = this.f26352c) == null) {
             return;
         }
         aVar.m(errorData);

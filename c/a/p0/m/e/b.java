@@ -24,7 +24,7 @@ public class b {
         HttpCommonRequestBuilder n;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
-            String str = aVar.f11841b;
+            String str = aVar.f11849b;
             switch (str.hashCode()) {
                 case -531492226:
                     if (str.equals(HttpOptions.METHOD_NAME)) {
@@ -112,7 +112,7 @@ public class b {
                 default:
                     return a.g().getRequest();
             }
-            RequestBody requestBody = aVar.f11843d;
+            RequestBody requestBody = aVar.f11851d;
             if (requestBody != null) {
                 n.requestBody(requestBody);
             }

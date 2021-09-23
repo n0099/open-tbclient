@@ -21,16 +21,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC0102a f4121e;
+        public final /* synthetic */ a.InterfaceC0102a f4128e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4122f;
+        public final /* synthetic */ String f4129f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f4123g;
+        public final /* synthetic */ int f4130g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f4124h;
+        public final /* synthetic */ ArrayList f4131h;
 
         /* renamed from: c.a.n0.e.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -39,10 +39,10 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a.InterfaceC0102a f4125f;
+            public final /* synthetic */ a.InterfaceC0102a f4132f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ RunnableC0104a f4126g;
+            public final /* synthetic */ RunnableC0104a f4133g;
 
             public C0105a(RunnableC0104a runnableC0104a, a.InterfaceC0102a interfaceC0102a) {
                 Interceptable interceptable = $ic;
@@ -59,15 +59,15 @@ public class a {
                         return;
                     }
                 }
-                this.f4126g = runnableC0104a;
-                this.f4125f = interfaceC0102a;
+                this.f4133g = runnableC0104a;
+                this.f4132f = interfaceC0102a;
             }
 
             @Override // c.a.n0.k.c
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f4125f.onFinish(this.f4126g.f4122f);
+                    this.f4132f.onFinish(this.f4133g.f4129f);
                 }
             }
         }
@@ -87,22 +87,22 @@ public class a {
                     return;
                 }
             }
-            this.f4121e = interfaceC0102a;
-            this.f4122f = str;
-            this.f4123g = i2;
-            this.f4124h = arrayList;
+            this.f4128e = interfaceC0102a;
+            this.f4129f = str;
+            this.f4130g = i2;
+            this.f4131h = arrayList;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4121e.onFinish(this.f4122f);
-                if (this.f4123g != 1 || this.f4124h == null) {
+                this.f4128e.onFinish(this.f4129f);
+                if (this.f4130g != 1 || this.f4131h == null) {
                     return;
                 }
-                for (int i2 = 0; i2 < this.f4124h.size(); i2++) {
-                    a.InterfaceC0102a interfaceC0102a = (a.InterfaceC0102a) this.f4124h.get(i2);
+                for (int i2 = 0; i2 < this.f4131h.size(); i2++) {
+                    a.InterfaceC0102a interfaceC0102a = (a.InterfaceC0102a) this.f4131h.get(i2);
                     if (interfaceC0102a != null) {
                         c.a.n0.k.e.c().b(new C0105a(this, interfaceC0102a));
                     }
@@ -145,10 +145,10 @@ public class a {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("0", hVar.f4202a);
-            jSONObject.put("1", hVar.f4203b);
-            jSONObject.put("2", String.valueOf(hVar.f4204c));
-            jSONObject.put("3", hVar.f4205d);
+            jSONObject.put("0", hVar.f4209a);
+            jSONObject.put("1", hVar.f4210b);
+            jSONObject.put("2", String.valueOf(hVar.f4211c));
+            jSONObject.put("3", hVar.f4212d);
             String jSONObject2 = jSONObject.toString();
             if (interfaceC0102a != null) {
                 if (i2 == 1) {

@@ -49,28 +49,28 @@ public class a extends Draft {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f78467c;
+    public b f78786c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<b> f78468d;
+    public List<b> f78787d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h.b.j.a f78469e;
+    public h.b.j.a f78788e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<h.b.j.a> f78470f;
+    public List<h.b.j.a> f78789f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Framedata f78471g;
+    public Framedata f78790g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<ByteBuffer> f78472h;
+    public List<ByteBuffer> f78791h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ByteBuffer f78473i;
+    public ByteBuffer f78792i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Random f78474j;
+    public final Random f78793j;
 
     static {
         InterceptResult invokeClinit;
@@ -115,19 +115,19 @@ public class a extends Draft {
     public b A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f78467c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f78786c : (b) invokeV.objValue;
     }
 
     public List<b> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78468d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78787d : (List) invokeV.objValue;
     }
 
     public List<h.b.j.a> C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f78470f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f78789f : (List) invokeV.objValue;
     }
 
     public final ByteBuffer D() throws LimitExedeedException {
@@ -135,12 +135,12 @@ public class a extends Draft {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             long j2 = 0;
-            for (ByteBuffer byteBuffer : this.f78472h) {
+            for (ByteBuffer byteBuffer : this.f78791h) {
                 j2 += byteBuffer.limit();
             }
             if (j2 <= 2147483647L) {
                 ByteBuffer allocate = ByteBuffer.allocate((int) j2);
-                for (ByteBuffer byteBuffer2 : this.f78472h) {
+                for (ByteBuffer byteBuffer2 : this.f78791h) {
                     allocate.put(byteBuffer2);
                 }
                 allocate.flip();
@@ -154,7 +154,7 @@ public class a extends Draft {
     public h.b.j.a E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f78469e : (h.b.j.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f78788e : (h.b.j.a) invokeV.objValue;
     }
 
     public final String F() {
@@ -316,31 +316,31 @@ public class a extends Draft {
                 }
                 Draft.HandshakeState handshakeState = Draft.HandshakeState.NOT_MATCHED;
                 String d2 = hVar.d("Sec-WebSocket-Extensions");
-                Iterator<b> it = this.f78468d.iterator();
+                Iterator<b> it = this.f78787d.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b next = it.next();
                     if (next.b(d2)) {
-                        this.f78467c = next;
+                        this.f78786c = next;
                         handshakeState = Draft.HandshakeState.MATCHED;
-                        G("acceptHandshakeAsClient - Matching extension found: " + this.f78467c.toString());
+                        G("acceptHandshakeAsClient - Matching extension found: " + this.f78786c.toString());
                         break;
                     }
                 }
                 Draft.HandshakeState handshakeState2 = Draft.HandshakeState.NOT_MATCHED;
                 String d3 = hVar.d("Sec-WebSocket-Protocol");
-                Iterator<h.b.j.a> it2 = this.f78470f.iterator();
+                Iterator<h.b.j.a> it2 = this.f78789f.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
                     }
                     h.b.j.a next2 = it2.next();
                     if (next2.b(d3)) {
-                        this.f78469e = next2;
+                        this.f78788e = next2;
                         handshakeState2 = Draft.HandshakeState.MATCHED;
-                        G("acceptHandshakeAsClient - Matching protocol found: " + this.f78469e.toString());
+                        G("acceptHandshakeAsClient - Matching protocol found: " + this.f78788e.toString());
                         break;
                     }
                 }
@@ -369,31 +369,31 @@ public class a extends Draft {
             }
             Draft.HandshakeState handshakeState = Draft.HandshakeState.NOT_MATCHED;
             String d2 = aVar.d("Sec-WebSocket-Extensions");
-            Iterator<b> it = this.f78468d.iterator();
+            Iterator<b> it = this.f78787d.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 b next = it.next();
                 if (next.e(d2)) {
-                    this.f78467c = next;
+                    this.f78786c = next;
                     handshakeState = Draft.HandshakeState.MATCHED;
-                    G("acceptHandshakeAsServer - Matching extension found: " + this.f78467c.toString());
+                    G("acceptHandshakeAsServer - Matching extension found: " + this.f78786c.toString());
                     break;
                 }
             }
             Draft.HandshakeState handshakeState2 = Draft.HandshakeState.NOT_MATCHED;
             String d3 = aVar.d("Sec-WebSocket-Protocol");
-            Iterator<h.b.j.a> it2 = this.f78470f.iterator();
+            Iterator<h.b.j.a> it2 = this.f78789f.iterator();
             while (true) {
                 if (!it2.hasNext()) {
                     break;
                 }
                 h.b.j.a next2 = it2.next();
                 if (next2.b(d3)) {
-                    this.f78469e = next2;
+                    this.f78788e = next2;
                     handshakeState2 = Draft.HandshakeState.MATCHED;
-                    G("acceptHandshakeAsServer - Matching protocol found: " + this.f78469e.toString());
+                    G("acceptHandshakeAsServer - Matching protocol found: " + this.f78788e.toString());
                     break;
                 }
             }
@@ -418,10 +418,10 @@ public class a extends Draft {
                 return false;
             }
             a aVar = (a) obj;
-            b bVar = this.f78467c;
-            if (bVar == null ? aVar.f78467c == null : bVar.equals(aVar.f78467c)) {
-                h.b.j.a aVar2 = this.f78469e;
-                h.b.j.a aVar3 = aVar.f78469e;
+            b bVar = this.f78786c;
+            if (bVar == null ? aVar.f78786c == null : bVar.equals(aVar.f78786c)) {
+                h.b.j.a aVar2 = this.f78788e;
+                h.b.j.a aVar3 = aVar.f78788e;
                 return aVar2 != null ? aVar2.equals(aVar3) : aVar3 == null;
             }
             return false;
@@ -490,9 +490,9 @@ public class a extends Draft {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            b bVar = this.f78467c;
+            b bVar = this.f78786c;
             int hashCode = (bVar != null ? bVar.hashCode() : 0) * 31;
-            h.b.j.a aVar = this.f78469e;
+            h.b.j.a aVar = this.f78788e;
             return hashCode + (aVar != null ? aVar.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -531,11 +531,11 @@ public class a extends Draft {
             bVar.put("Upgrade", "websocket");
             bVar.put(HTTP.CONN_DIRECTIVE, "Upgrade");
             byte[] bArr = new byte[16];
-            this.f78474j.nextBytes(bArr);
+            this.f78793j.nextBytes(bArr);
             bVar.put("Sec-WebSocket-Key", h.b.k.a.g(bArr));
             bVar.put("Sec-WebSocket-Version", "13");
             StringBuilder sb = new StringBuilder();
-            for (b bVar2 : this.f78468d) {
+            for (b bVar2 : this.f78787d) {
                 if (bVar2.g() != null && bVar2.g().length() != 0) {
                     if (sb.length() > 0) {
                         sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
@@ -547,7 +547,7 @@ public class a extends Draft {
                 bVar.put("Sec-WebSocket-Extensions", sb.toString());
             }
             StringBuilder sb2 = new StringBuilder();
-            for (h.b.j.a aVar : this.f78470f) {
+            for (h.b.j.a aVar : this.f78789f) {
                 if (aVar.c().length() != 0) {
                     if (sb2.length() > 0) {
                         sb2.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
@@ -617,7 +617,7 @@ public class a extends Draft {
                 cVar.N();
                 cVar.v().onWebsocketPong(cVar, framedata);
             } else if (framedata.f() && d2 != Framedata.Opcode.CONTINUOUS) {
-                if (this.f78471g == null) {
+                if (this.f78790g == null) {
                     if (d2 == Framedata.Opcode.TEXT) {
                         try {
                             cVar.v().onWebsocketMessage(cVar, h.b.k.c.e(framedata.a()));
@@ -641,47 +641,47 @@ public class a extends Draft {
                 throw new InvalidDataException(1002, "Continuous frame sequence not completed.");
             } else {
                 if (d2 != Framedata.Opcode.CONTINUOUS) {
-                    if (this.f78471g == null) {
-                        this.f78471g = framedata;
-                        this.f78472h.add(framedata.a());
+                    if (this.f78790g == null) {
+                        this.f78790g = framedata;
+                        this.f78791h.add(framedata.a());
                     } else {
                         throw new InvalidDataException(1002, "Previous continuous frame sequence not completed.");
                     }
                 } else if (framedata.f()) {
-                    if (this.f78471g != null) {
-                        this.f78472h.add(framedata.a());
-                        if (this.f78471g.d() == Framedata.Opcode.TEXT) {
-                            ((f) this.f78471g).j(D());
-                            ((f) this.f78471g).h();
+                    if (this.f78790g != null) {
+                        this.f78791h.add(framedata.a());
+                        if (this.f78790g.d() == Framedata.Opcode.TEXT) {
+                            ((f) this.f78790g).j(D());
+                            ((f) this.f78790g).h();
                             try {
-                                cVar.v().onWebsocketMessage(cVar, h.b.k.c.e(this.f78471g.a()));
+                                cVar.v().onWebsocketMessage(cVar, h.b.k.c.e(this.f78790g.a()));
                             } catch (RuntimeException e4) {
                                 cVar.v().onWebsocketError(cVar, e4);
                             }
-                        } else if (this.f78471g.d() == Framedata.Opcode.BINARY) {
-                            ((f) this.f78471g).j(D());
-                            ((f) this.f78471g).h();
+                        } else if (this.f78790g.d() == Framedata.Opcode.BINARY) {
+                            ((f) this.f78790g).j(D());
+                            ((f) this.f78790g).h();
                             try {
-                                cVar.v().onWebsocketMessage(cVar, this.f78471g.a());
+                                cVar.v().onWebsocketMessage(cVar, this.f78790g.a());
                             } catch (RuntimeException e5) {
                                 cVar.v().onWebsocketError(cVar, e5);
                             }
                         }
-                        this.f78471g = null;
-                        this.f78472h.clear();
+                        this.f78790g = null;
+                        this.f78791h.clear();
                     } else {
                         throw new InvalidDataException(1002, "Continuous frame sequence was not started.");
                     }
-                } else if (this.f78471g == null) {
+                } else if (this.f78790g == null) {
                     throw new InvalidDataException(1002, "Continuous frame sequence was not started.");
                 }
                 if (d2 == Framedata.Opcode.TEXT && !h.b.k.c.b(framedata.a())) {
                     throw new InvalidDataException(1007);
                 }
-                if (d2 != Framedata.Opcode.CONTINUOUS || this.f78471g == null) {
+                if (d2 != Framedata.Opcode.CONTINUOUS || this.f78790g == null) {
                     return;
                 }
-                this.f78472h.add(framedata.a());
+                this.f78791h.add(framedata.a());
             }
         }
     }
@@ -690,13 +690,13 @@ public class a extends Draft {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f78473i = null;
-            b bVar = this.f78467c;
+            this.f78792i = null;
+            b bVar = this.f78786c;
             if (bVar != null) {
                 bVar.reset();
             }
-            this.f78467c = new h.b.g.a();
-            this.f78469e = null;
+            this.f78786c = new h.b.g.a();
+            this.f78788e = null;
         }
     }
 
@@ -725,29 +725,29 @@ public class a extends Draft {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, byteBuffer)) == null) {
             while (true) {
                 linkedList = new LinkedList();
-                if (this.f78473i == null) {
+                if (this.f78792i == null) {
                     break;
                 }
                 try {
                     byteBuffer.mark();
                     int remaining = byteBuffer.remaining();
-                    int remaining2 = this.f78473i.remaining();
+                    int remaining2 = this.f78792i.remaining();
                     if (remaining2 > remaining) {
-                        this.f78473i.put(byteBuffer.array(), byteBuffer.position(), remaining);
+                        this.f78792i.put(byteBuffer.array(), byteBuffer.position(), remaining);
                         byteBuffer.position(byteBuffer.position() + remaining);
                         return Collections.emptyList();
                     }
-                    this.f78473i.put(byteBuffer.array(), byteBuffer.position(), remaining2);
+                    this.f78792i.put(byteBuffer.array(), byteBuffer.position(), remaining2);
                     byteBuffer.position(byteBuffer.position() + remaining2);
-                    linkedList.add(J((ByteBuffer) this.f78473i.duplicate().position(0)));
-                    this.f78473i = null;
+                    linkedList.add(J((ByteBuffer) this.f78792i.duplicate().position(0)));
+                    this.f78792i = null;
                 } catch (IncompleteException e2) {
                     int preferredSize = e2.getPreferredSize();
                     d(preferredSize);
                     ByteBuffer allocate = ByteBuffer.allocate(preferredSize);
-                    this.f78473i.rewind();
-                    allocate.put(this.f78473i);
-                    this.f78473i = allocate;
+                    this.f78792i.rewind();
+                    allocate.put(this.f78792i);
+                    this.f78792i = allocate;
                 }
             }
             while (byteBuffer.hasRemaining()) {
@@ -759,7 +759,7 @@ public class a extends Draft {
                     int preferredSize2 = e3.getPreferredSize();
                     d(preferredSize2);
                     ByteBuffer allocate2 = ByteBuffer.allocate(preferredSize2);
-                    this.f78473i = allocate2;
+                    this.f78792i = allocate2;
                     allocate2.put(byteBuffer);
                 }
             }
@@ -774,13 +774,13 @@ public class a extends Draft {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, framedata)) == null) {
             ByteBuffer a2 = framedata.a();
             int i2 = 0;
-            boolean z = this.f79350a == WebSocket.Role.CLIENT;
+            boolean z = this.f79669a == WebSocket.Role.CLIENT;
             int i3 = a2.remaining() <= 125 ? 1 : a2.remaining() <= 65535 ? 2 : 8;
             ByteBuffer allocate = ByteBuffer.allocate((i3 > 1 ? i3 + 1 : i3) + 1 + (z ? 4 : 0) + a2.remaining());
             byte y = y(framedata.d());
             boolean f2 = framedata.f();
             byte b2 = ByteCompanionObject.MIN_VALUE;
-            allocate.put((byte) (((byte) (f2 ? com.alipay.sdk.encrypt.a.f35987g : 0)) | y));
+            allocate.put((byte) (((byte) (f2 ? com.alipay.sdk.encrypt.a.f36021g : 0)) | y));
             byte[] H = H(a2.remaining(), i3);
             if (i3 == 1) {
                 byte b3 = H[0];
@@ -805,7 +805,7 @@ public class a extends Draft {
             }
             if (z) {
                 ByteBuffer allocate2 = ByteBuffer.allocate(4);
-                allocate2.putInt(this.f78474j.nextInt());
+                allocate2.putInt(this.f78793j.nextInt());
                 allocate.put(allocate2.array());
                 while (a2.hasRemaining()) {
                     allocate.put((byte) (a2.get() ^ allocate2.get(i2 % 4)));
@@ -898,24 +898,24 @@ public class a extends Draft {
                 return;
             }
         }
-        this.f78467c = new h.b.g.a();
-        this.f78474j = new Random();
+        this.f78786c = new h.b.g.a();
+        this.f78793j = new Random();
         if (list != null && list2 != null) {
-            this.f78468d = new ArrayList(list.size());
-            this.f78470f = new ArrayList(list2.size());
+            this.f78787d = new ArrayList(list.size());
+            this.f78789f = new ArrayList(list2.size());
             boolean z = false;
-            this.f78472h = new ArrayList();
+            this.f78791h = new ArrayList();
             for (b bVar : list) {
                 if (bVar.getClass().equals(h.b.g.a.class)) {
                     z = true;
                 }
             }
-            this.f78468d.addAll(list);
+            this.f78787d.addAll(list);
             if (!z) {
-                List<b> list3 = this.f78468d;
-                list3.add(list3.size(), this.f78467c);
+                List<b> list3 = this.f78787d;
+                list3.add(list3.size(), this.f78786c);
             }
-            this.f78470f.addAll(list2);
+            this.f78789f.addAll(list2);
             return;
         }
         throw new IllegalArgumentException();

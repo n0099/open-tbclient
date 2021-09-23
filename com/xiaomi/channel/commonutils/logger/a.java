@@ -10,10 +10,10 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f77235a = "Job";
+    public static String f77554a = "Job";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f77236b = "Net";
+    public static String f77555b = "Net";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

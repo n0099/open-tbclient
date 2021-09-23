@@ -31,11 +31,11 @@ public class l {
 
     public static void a(c.a.r0.w0.k2.b bVar, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, bVar, str) == null) || TextUtils.isEmpty(str) || bVar == null || TextUtils.isEmpty(bVar.f26941c)) {
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, bVar, str) == null) || TextUtils.isEmpty(str) || bVar == null || TextUtils.isEmpty(bVar.f26961c)) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c11942");
-        statisticItem.param("fid", bVar.f26941c);
+        statisticItem.param("fid", bVar.f26961c);
         statisticItem.param("obj_name", str);
         TiebaStatic.log(statisticItem);
     }
@@ -60,8 +60,8 @@ public class l {
                 for (c.a.e.l.e.n nVar2 : singletonList) {
                     if (nVar == nVar2 && (nVar2 instanceof d2)) {
                         a.c cVar = new a.c();
-                        cVar.f20918a = ((d2) nVar2).s1();
-                        cVar.f20920c = i2;
+                        cVar.f20930a = ((d2) nVar2).s1();
+                        cVar.f20932c = i2;
                         arrayList.add(cVar);
                     }
                 }
@@ -71,11 +71,11 @@ public class l {
                 if (nVar3 instanceof d2) {
                     d2 d2Var2 = (d2) nVar3;
                     i2++;
-                    if (d2Var2.B0 == 1 && !TextUtils.isEmpty(d2Var2.s1())) {
-                        d2Var2.B0 = 2;
+                    if (d2Var2.C0 == 1 && !TextUtils.isEmpty(d2Var2.s1())) {
+                        d2Var2.C0 = 2;
                         a.c cVar2 = new a.c();
-                        cVar2.f20918a = d2Var2.s1();
-                        cVar2.f20920c = i2;
+                        cVar2.f20930a = d2Var2.s1();
+                        cVar2.f20932c = i2;
                         arrayList.add(cVar2);
                     }
                 }
@@ -117,13 +117,13 @@ public class l {
         }
         if (frsViewData != null && frsViewData.getForum() != null) {
             c.a.r0.w0.k2.b bVar = new c.a.r0.w0.k2.b();
-            bVar.f26939a = frsViewData.needLog == 1;
-            bVar.f26941c = frsViewData.getForum().getId();
-            bVar.f26940b = modelController.R();
+            bVar.f26959a = frsViewData.needLog == 1;
+            bVar.f26961c = frsViewData.getForum().getId();
+            bVar.f26960b = modelController.R();
             c.a.r0.w0.k2.b bVar2 = c.a.r0.w0.k2.d.h0;
             if (bVar2 != null) {
-                bVar.f26942d = bVar2.f26942d;
-                bVar.f26943e = bVar2.f26943e;
+                bVar.f26962d = bVar2.f26962d;
+                bVar.f26963e = bVar2.f26963e;
             }
             c.a.r0.w0.k2.c.j().g(bVar, d2Var, 1);
             c.a.r0.w0.k2.a.e(d2Var, 1, frsFragment.getUniqueId(), bVar, frsFragment.getTbPageTag());

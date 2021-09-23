@@ -22,19 +22,19 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7277a;
+    public static final boolean f7285a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f7278b;
+    public static final int f7286b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f7279c;
+    public static final int f7287c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f7280d;
+    public static final Set<String> f7288d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f7281e;
+    public static final String[] f7289e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,12 +50,12 @@ public class c {
                 return;
             }
         }
-        f7277a = k.f7077a;
-        f7278b = 6;
-        f7279c = 8;
-        f7280d = Sets.newHashSet("https", "http", "wss");
+        f7285a = k.f7085a;
+        f7286b = 6;
+        f7287c = 8;
+        f7288d = Sets.newHashSet("https", "http", "wss");
         String[] strArr = {"ac", "co", "com", "ed", "edu", "go", "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
-        f7281e = strArr;
+        f7289e = strArr;
         Arrays.sort(strArr);
     }
 
@@ -66,7 +66,7 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            for (String str2 : f7280d) {
+            for (String str2 : f7288d) {
                 if (str.startsWith(str2)) {
                     return true;
                 }
@@ -98,10 +98,10 @@ public class c {
                         sb.append(';');
                         sb.append(' ');
                     }
-                    sb.append(aVar.f7261c);
-                    if (aVar.f7262d != null) {
-                        sb.append(com.alipay.sdk.encrypt.a.f35988h);
-                        sb.append(aVar.f7262d);
+                    sb.append(aVar.f7269c);
+                    if (aVar.f7270d != null) {
+                        sb.append(com.alipay.sdk.encrypt.a.f36022h);
+                        sb.append(aVar.f7270d);
                     }
                 }
             }
@@ -182,20 +182,20 @@ public class c {
                     return i2 + 1;
                 } else {
                     int i4 = i3 - i2;
-                    int i5 = f7278b;
+                    int i5 = f7286b;
                     if (i4 >= i5 && str.substring(i2, i5 + i2).equalsIgnoreCase(ClientCookie.SECURE_ATTR)) {
-                        int i6 = f7278b + i2;
+                        int i6 = f7286b + i2;
                         if (i6 == i3) {
-                            aVar.f7264f = true;
+                            aVar.f7272f = true;
                             return i6;
                         } else if (str.charAt(i6) == ';' || str.charAt(i6) == '=' || str.charAt(i6) == ',') {
-                            aVar.f7264f = true;
+                            aVar.f7272f = true;
                             i2 = c(str, i6, i3);
                         }
                     }
-                    int i7 = f7279c;
+                    int i7 = f7287c;
                     if (i4 >= i7 && str.substring(i2, i7 + i2).equalsIgnoreCase("httponly")) {
-                        int i8 = f7279c + i2;
+                        int i8 = f7287c + i2;
                         if (i8 == i3) {
                             return i8;
                         }
@@ -227,7 +227,7 @@ public class c {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, str3)) == null) {
-            if (f7277a) {
+            if (f7285a) {
                 String str4 = "parseCookie: host=" + str + "; path=" + str2 + "; cookieString=" + str3;
             }
             ArrayList<a> arrayList = new ArrayList<>();
@@ -240,9 +240,9 @@ public class c {
                     } else {
                         a aVar = new a(str, str2);
                         i2 = f(aVar, str3, h(aVar, str3, i2, length), length, str);
-                        if (!TextUtils.isEmpty(aVar.f7259a) && !TextUtils.isEmpty(aVar.f7261c) && aVar.f7262d != null) {
+                        if (!TextUtils.isEmpty(aVar.f7267a) && !TextUtils.isEmpty(aVar.f7269c) && aVar.f7270d != null) {
                             arrayList.add(aVar);
-                            if (f7277a) {
+                            if (f7285a) {
                                 String str5 = "parseCookies result: " + aVar.toString();
                             }
                         }
@@ -262,10 +262,10 @@ public class c {
                 int indexOf = str.indexOf(59, i2);
                 int indexOf2 = str.indexOf(61, i2);
                 if (indexOf > indexOf2 && indexOf2 != -1) {
-                    aVar.f7261c = str.substring(i2, indexOf2);
+                    aVar.f7269c = str.substring(i2, indexOf2);
                     int i4 = indexOf2 + 1;
                     if (str.charAt(i4) == '\"' && (i2 = str.indexOf(34, indexOf2 + 2)) == -1) {
-                        aVar.f7259a = null;
+                        aVar.f7267a = null;
                         return i3;
                     }
                     int indexOf3 = str.indexOf(59, i2);
@@ -273,17 +273,17 @@ public class c {
                         i3 = indexOf3;
                     }
                     if (i4 != i3 && i3 >= indexOf2) {
-                        aVar.f7262d = str.substring(i4, i3);
+                        aVar.f7270d = str.substring(i4, i3);
                     } else {
-                        aVar.f7262d = "";
+                        aVar.f7270d = "";
                     }
                     return i3;
                 }
                 if (indexOf != -1) {
                     i3 = indexOf;
                 }
-                aVar.f7261c = str.substring(i2, i3);
-                aVar.f7262d = null;
+                aVar.f7269c = str.substring(i2, i3);
+                aVar.f7270d = null;
             }
             return i3;
         }
@@ -341,11 +341,11 @@ public class c {
         }
         int lastIndexOf = str.lastIndexOf(46);
         if (lastIndexOf <= 0) {
-            aVar.f7259a = null;
+            aVar.f7267a = null;
             return;
         }
         if (c.a.p0.a.l2.f.b.b(str.startsWith(".") ? str.substring(1) : str)) {
-            aVar.f7259a = null;
+            aVar.f7267a = null;
             return;
         }
         String lowerCase = str.toLowerCase();
@@ -354,39 +354,39 @@ public class c {
             lastIndexOf++;
         }
         if (!str2.endsWith(lowerCase.substring(1))) {
-            aVar.f7259a = null;
+            aVar.f7267a = null;
             return;
         }
         int length = lowerCase.length();
         int length2 = str2.length();
         if (length2 > length - 1 && str2.charAt(length2 - length) != '.') {
-            aVar.f7259a = null;
+            aVar.f7267a = null;
             return;
         }
         if (length == lastIndexOf + 3 && length >= 6 && length <= 8) {
-            if (Arrays.binarySearch(f7281e, lowerCase.substring(1, lastIndexOf)) >= 0) {
-                aVar.f7259a = null;
+            if (Arrays.binarySearch(f7289e, lowerCase.substring(1, lastIndexOf)) >= 0) {
+                aVar.f7267a = null;
                 return;
             }
         }
-        aVar.f7259a = lowerCase;
+        aVar.f7267a = lowerCase;
     }
 
     public static void k(@NonNull a aVar, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, aVar, str) == null) {
-            if (f7277a) {
+            if (f7285a) {
                 String str2 = "setExpires value: " + str;
             }
-            if (aVar.f7263e != -1) {
+            if (aVar.f7271e != -1) {
                 return;
             }
             long e2 = c.a.p0.a.l2.f.a.e(str);
-            if (f7277a) {
+            if (f7285a) {
                 String str3 = "setExpires result: " + e2;
             }
             if (e2 != -1) {
-                aVar.f7263e = e2;
+                aVar.f7271e = e2;
             }
         }
     }
@@ -398,9 +398,9 @@ public class c {
                 long currentTimeMillis = System.currentTimeMillis();
                 long parseLong = Long.parseLong(str);
                 Long.signum(parseLong);
-                aVar.f7263e = currentTimeMillis + (parseLong * 1000);
+                aVar.f7271e = currentTimeMillis + (parseLong * 1000);
             } catch (NumberFormatException unused) {
-                if (f7277a) {
+                if (f7285a) {
                     String str2 = "illegal max-age: " + str;
                 }
             }
@@ -410,7 +410,7 @@ public class c {
     public static void m(@NonNull a aVar, @NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65549, null, aVar, str) == null) && !TextUtils.isEmpty(str) && str.charAt(0) == '/') {
-            aVar.f7260b = str;
+            aVar.f7268b = str;
         }
     }
 

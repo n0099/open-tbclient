@@ -16,7 +16,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7113a;
+    public static final boolean f7121a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class d {
                 return;
             }
         }
-        f7113a = k.f7077a;
+        f7121a = k.f7085a;
     }
 
     public static boolean a() {
@@ -47,7 +47,7 @@ public class d {
             }
             try {
             } catch (JSONException e2) {
-                if (f7113a) {
+                if (f7121a) {
                     e2.printStackTrace();
                 }
             }

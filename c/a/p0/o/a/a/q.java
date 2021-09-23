@@ -22,26 +22,26 @@ public class q extends p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f12146g;
+    public static boolean f12154g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c.a.p0.o.a.c.g<a> f12147a;
+    public final c.a.p0.o.a.c.g<a> f12155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.p0.o.a.c.g<a> f12148b;
+    public final c.a.p0.o.a.c.g<a> f12156b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f12149c;
+    public final String f12157c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f12150d;
+    public boolean f12158d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12151e;
+    public boolean f12159e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f12152f;
+    public k f12160f;
 
     /* loaded from: classes3.dex */
     public final class a implements d.b<Object>, d.a<Object> {
@@ -49,34 +49,34 @@ public class q extends p {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f12153a;
+        public final int f12161a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Bundle f12154b;
+        public final Bundle f12162b;
 
         /* renamed from: c  reason: collision with root package name */
-        public p.a<Object> f12155c;
+        public p.a<Object> f12163c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.a.p0.o.a.b.d<Object> f12156d;
+        public c.a.p0.o.a.b.d<Object> f12164d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f12157e;
+        public boolean f12165e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f12158f;
+        public boolean f12166f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f12159g;
+        public Object f12167g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f12160h;
+        public boolean f12168h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f12161i;
+        public boolean f12169i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f12162j;
+        public boolean f12170j;
         public boolean k;
         public boolean l;
         public boolean m;
@@ -85,23 +85,23 @@ public class q extends p {
 
         public void a(c.a.p0.o.a.b.d<Object> dVar, Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, dVar, obj) == null) || this.f12155c == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, dVar, obj) == null) || this.f12163c == null) {
                 return;
             }
             String str = null;
-            if (this.o.f12152f != null) {
-                str = this.o.f12152f.f12104d.s;
-                this.o.f12152f.f12104d.s = "onLoadFinished";
+            if (this.o.f12160f != null) {
+                str = this.o.f12160f.f12112d.s;
+                this.o.f12160f.f12112d.s = "onLoadFinished";
             }
             try {
-                if (q.f12146g) {
+                if (q.f12154g) {
                     String str2 = "  onLoadFinished in " + dVar + ": " + dVar.a(obj);
                 }
-                this.f12155c.b(dVar, obj);
-                this.f12158f = true;
+                this.f12163c.b(dVar, obj);
+                this.f12166f = true;
             } finally {
-                if (this.o.f12152f != null) {
-                    this.o.f12152f.f12104d.s = str;
+                if (this.o.f12160f != null) {
+                    this.o.f12160f.f12112d.s = str;
                 }
             }
         }
@@ -110,41 +110,41 @@ public class q extends p {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (q.f12146g) {
+                if (q.f12154g) {
                     String str2 = "  Destroying: " + this;
                 }
                 this.l = true;
-                boolean z = this.f12158f;
-                this.f12158f = false;
-                if (this.f12155c != null && this.f12156d != null && this.f12157e && z) {
-                    if (q.f12146g) {
+                boolean z = this.f12166f;
+                this.f12166f = false;
+                if (this.f12163c != null && this.f12164d != null && this.f12165e && z) {
+                    if (q.f12154g) {
                         String str3 = "  Reseting: " + this;
                     }
-                    if (this.o.f12152f != null) {
-                        str = this.o.f12152f.f12104d.s;
-                        this.o.f12152f.f12104d.s = "onLoaderReset";
+                    if (this.o.f12160f != null) {
+                        str = this.o.f12160f.f12112d.s;
+                        this.o.f12160f.f12112d.s = "onLoaderReset";
                     } else {
                         str = null;
                     }
                     try {
-                        this.f12155c.a(this.f12156d);
+                        this.f12163c.a(this.f12164d);
                     } finally {
-                        if (this.o.f12152f != null) {
-                            this.o.f12152f.f12104d.s = str;
+                        if (this.o.f12160f != null) {
+                            this.o.f12160f.f12112d.s = str;
                         }
                     }
                 }
-                this.f12155c = null;
-                this.f12159g = null;
-                this.f12157e = false;
-                c.a.p0.o.a.b.d<Object> dVar = this.f12156d;
+                this.f12163c = null;
+                this.f12167g = null;
+                this.f12165e = false;
+                c.a.p0.o.a.b.d<Object> dVar = this.f12164d;
                 if (dVar != null) {
                     if (this.m) {
                         this.m = false;
                         dVar.h(this);
-                        this.f12156d.i(this);
+                        this.f12164d.i(this);
                     }
-                    this.f12156d.e();
+                    this.f12164d.e();
                 }
                 a aVar = this.n;
                 if (aVar != null) {
@@ -158,41 +158,41 @@ public class q extends p {
             if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, fileDescriptor, printWriter, strArr) == null) {
                 printWriter.print(str);
                 printWriter.print("mId=");
-                printWriter.print(this.f12153a);
+                printWriter.print(this.f12161a);
                 printWriter.print(" mArgs=");
-                printWriter.println(this.f12154b);
+                printWriter.println(this.f12162b);
                 printWriter.print(str);
                 printWriter.print("mCallbacks=");
-                printWriter.println(this.f12155c);
+                printWriter.println(this.f12163c);
                 printWriter.print(str);
                 printWriter.print("mLoader=");
-                printWriter.println(this.f12156d);
-                c.a.p0.o.a.b.d<Object> dVar = this.f12156d;
+                printWriter.println(this.f12164d);
+                c.a.p0.o.a.b.d<Object> dVar = this.f12164d;
                 if (dVar != null) {
                     dVar.b(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
                 }
-                if (this.f12157e || this.f12158f) {
+                if (this.f12165e || this.f12166f) {
                     printWriter.print(str);
                     printWriter.print("mHaveData=");
-                    printWriter.print(this.f12157e);
+                    printWriter.print(this.f12165e);
                     printWriter.print("  mDeliveredData=");
-                    printWriter.println(this.f12158f);
+                    printWriter.println(this.f12166f);
                     printWriter.print(str);
                     printWriter.print("mData=");
-                    printWriter.println(this.f12159g);
+                    printWriter.println(this.f12167g);
                 }
                 printWriter.print(str);
                 printWriter.print("mStarted=");
-                printWriter.print(this.f12160h);
+                printWriter.print(this.f12168h);
                 printWriter.print(" mReportNextStart=");
                 printWriter.print(this.k);
                 printWriter.print(" mDestroyed=");
                 printWriter.println(this.l);
                 printWriter.print(str);
                 printWriter.print("mRetaining=");
-                printWriter.print(this.f12161i);
+                printWriter.print(this.f12169i);
                 printWriter.print(" mRetainingStarted=");
-                printWriter.print(this.f12162j);
+                printWriter.print(this.f12170j);
                 printWriter.print(" mListenerRegistered=");
                 printWriter.println(this.m);
                 if (this.n != null) {
@@ -209,28 +209,28 @@ public class q extends p {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                if (this.f12161i) {
-                    if (q.f12146g) {
+                if (this.f12169i) {
+                    if (q.f12154g) {
                         String str = "  Finished Retaining: " + this;
                     }
-                    this.f12161i = false;
-                    boolean z = this.f12160h;
-                    if (z != this.f12162j && !z) {
+                    this.f12169i = false;
+                    boolean z = this.f12168h;
+                    if (z != this.f12170j && !z) {
                         h();
                     }
                 }
-                if (this.f12160h && this.f12157e && !this.k) {
-                    a(this.f12156d, this.f12159g);
+                if (this.f12168h && this.f12165e && !this.k) {
+                    a(this.f12164d, this.f12167g);
                 }
             }
         }
 
         public void e() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f12160h && this.k) {
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f12168h && this.k) {
                 this.k = false;
-                if (this.f12157e) {
-                    a(this.f12156d, this.f12159g);
+                if (this.f12165e) {
+                    a(this.f12164d, this.f12167g);
                 }
             }
         }
@@ -238,13 +238,13 @@ public class q extends p {
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                if (q.f12146g) {
+                if (q.f12154g) {
                     String str = "  Retaining: " + this;
                 }
-                this.f12161i = true;
-                this.f12162j = this.f12160h;
-                this.f12160h = false;
-                this.f12155c = null;
+                this.f12169i = true;
+                this.f12170j = this.f12168h;
+                this.f12168h = false;
+                this.f12163c = null;
             }
         }
 
@@ -252,28 +252,28 @@ public class q extends p {
             p.a<Object> aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                if (this.f12161i && this.f12162j) {
-                    this.f12160h = true;
-                } else if (this.f12160h) {
+                if (this.f12169i && this.f12170j) {
+                    this.f12168h = true;
+                } else if (this.f12168h) {
                 } else {
-                    this.f12160h = true;
-                    if (q.f12146g) {
+                    this.f12168h = true;
+                    if (q.f12154g) {
                         String str = "  Starting: " + this;
                     }
-                    if (this.f12156d == null && (aVar = this.f12155c) != null) {
-                        this.f12156d = aVar.onCreateLoader(this.f12153a, this.f12154b);
+                    if (this.f12164d == null && (aVar = this.f12163c) != null) {
+                        this.f12164d = aVar.onCreateLoader(this.f12161a, this.f12162b);
                     }
-                    c.a.p0.o.a.b.d<Object> dVar = this.f12156d;
+                    c.a.p0.o.a.b.d<Object> dVar = this.f12164d;
                     if (dVar != null) {
-                        if (dVar.getClass().isMemberClass() && !Modifier.isStatic(this.f12156d.getClass().getModifiers())) {
-                            throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + this.f12156d);
+                        if (dVar.getClass().isMemberClass() && !Modifier.isStatic(this.f12164d.getClass().getModifiers())) {
+                            throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + this.f12164d);
                         }
                         if (!this.m) {
-                            this.f12156d.c(this.f12153a, this);
-                            this.f12156d.d(this);
+                            this.f12164d.c(this.f12161a, this);
+                            this.f12164d.d(this);
                             this.m = true;
                         }
-                        this.f12156d.f();
+                        this.f12164d.f();
                         throw null;
                     }
                 }
@@ -284,17 +284,17 @@ public class q extends p {
             c.a.p0.o.a.b.d<Object> dVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                if (q.f12146g) {
+                if (q.f12154g) {
                     String str = "  Stopping: " + this;
                 }
-                this.f12160h = false;
-                if (this.f12161i || (dVar = this.f12156d) == null || !this.m) {
+                this.f12168h = false;
+                if (this.f12169i || (dVar = this.f12164d) == null || !this.m) {
                     return;
                 }
                 this.m = false;
                 dVar.h(this);
-                this.f12156d.i(this);
-                this.f12156d.g();
+                this.f12164d.i(this);
+                this.f12164d.g();
             }
         }
 
@@ -306,9 +306,9 @@ public class q extends p {
                 sb.append("LoaderInfo{");
                 sb.append(Integer.toHexString(System.identityHashCode(this)));
                 sb.append(" #");
-                sb.append(this.f12153a);
+                sb.append(this.f12161a);
                 sb.append(ZeusCrashHandler.NAME_SEPERATOR);
-                c.a.p0.o.a.c.c.a(this.f12156d, sb);
+                c.a.p0.o.a.c.c.a(this.f12164d, sb);
                 sb.append("}}");
                 return sb.toString();
             }
@@ -346,40 +346,40 @@ public class q extends p {
                 return;
             }
         }
-        this.f12147a = new c.a.p0.o.a.c.g<>();
-        this.f12148b = new c.a.p0.o.a.c.g<>();
-        this.f12149c = str;
-        this.f12152f = kVar;
-        this.f12150d = z;
+        this.f12155a = new c.a.p0.o.a.c.g<>();
+        this.f12156b = new c.a.p0.o.a.c.g<>();
+        this.f12157c = str;
+        this.f12160f = kVar;
+        this.f12158d = z;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!this.f12151e) {
-                if (f12146g) {
+            if (!this.f12159e) {
+                if (f12154g) {
                     String str = "Destroying Active in " + this;
                 }
-                for (int h2 = this.f12147a.h() - 1; h2 >= 0; h2--) {
-                    this.f12147a.i(h2).b();
+                for (int h2 = this.f12155a.h() - 1; h2 >= 0; h2--) {
+                    this.f12155a.i(h2).b();
                 }
-                this.f12147a.d();
+                this.f12155a.d();
             }
-            if (f12146g) {
+            if (f12154g) {
                 String str2 = "Destroying Inactive in " + this;
             }
-            for (int h3 = this.f12148b.h() - 1; h3 >= 0; h3--) {
-                this.f12148b.i(h3).b();
+            for (int h3 = this.f12156b.h() - 1; h3 >= 0; h3--) {
+                this.f12156b.i(h3).b();
             }
-            this.f12148b.d();
+            this.f12156b.d();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int h2 = this.f12147a.h() - 1; h2 >= 0; h2--) {
-                this.f12147a.i(h2).k = true;
+            for (int h2 = this.f12155a.h() - 1; h2 >= 0; h2--) {
+                this.f12155a.i(h2).k = true;
             }
         }
     }
@@ -387,8 +387,8 @@ public class q extends p {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (int h2 = this.f12147a.h() - 1; h2 >= 0; h2--) {
-                this.f12147a.i(h2).e();
+            for (int h2 = this.f12155a.h() - 1; h2 >= 0; h2--) {
+                this.f12155a.i(h2).e();
             }
         }
     }
@@ -396,18 +396,18 @@ public class q extends p {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (f12146g) {
+            if (f12154g) {
                 String str = "Retaining in " + this;
             }
-            if (!this.f12150d) {
+            if (!this.f12158d) {
                 new RuntimeException("here").fillInStackTrace();
                 String str2 = "Called doRetain when not started: " + this;
                 return;
             }
-            this.f12151e = true;
-            this.f12150d = false;
-            for (int h2 = this.f12147a.h() - 1; h2 >= 0; h2--) {
-                this.f12147a.i(h2).f();
+            this.f12159e = true;
+            this.f12158d = false;
+            for (int h2 = this.f12155a.h() - 1; h2 >= 0; h2--) {
+                this.f12155a.i(h2).f();
             }
         }
     }
@@ -415,17 +415,17 @@ public class q extends p {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (f12146g) {
+            if (f12154g) {
                 String str = "Starting in " + this;
             }
-            if (this.f12150d) {
+            if (this.f12158d) {
                 new RuntimeException("here").fillInStackTrace();
                 String str2 = "Called doStart when already started: " + this;
                 return;
             }
-            this.f12150d = true;
-            for (int h2 = this.f12147a.h() - 1; h2 >= 0; h2--) {
-                this.f12147a.i(h2).g();
+            this.f12158d = true;
+            for (int h2 = this.f12155a.h() - 1; h2 >= 0; h2--) {
+                this.f12155a.i(h2).g();
             }
         }
     }
@@ -433,47 +433,47 @@ public class q extends p {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (f12146g) {
+            if (f12154g) {
                 String str = "Stopping in " + this;
             }
-            if (!this.f12150d) {
+            if (!this.f12158d) {
                 new RuntimeException("here").fillInStackTrace();
                 String str2 = "Called doStop when not started: " + this;
                 return;
             }
-            for (int h2 = this.f12147a.h() - 1; h2 >= 0; h2--) {
-                this.f12147a.i(h2).h();
+            for (int h2 = this.f12155a.h() - 1; h2 >= 0; h2--) {
+                this.f12155a.i(h2).h();
             }
-            this.f12150d = false;
+            this.f12158d = false;
         }
     }
 
     public void h(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, fileDescriptor, printWriter, strArr) == null) {
-            if (this.f12147a.h() > 0) {
+            if (this.f12155a.h() > 0) {
                 printWriter.print(str);
                 printWriter.println("Active Loaders:");
                 String str2 = str + "    ";
-                for (int i2 = 0; i2 < this.f12147a.h(); i2++) {
-                    a i3 = this.f12147a.i(i2);
+                for (int i2 = 0; i2 < this.f12155a.h(); i2++) {
+                    a i3 = this.f12155a.i(i2);
                     printWriter.print(str);
                     printWriter.print("  #");
-                    printWriter.print(this.f12147a.g(i2));
+                    printWriter.print(this.f12155a.g(i2));
                     printWriter.print(": ");
                     printWriter.println(i3.toString());
                     i3.c(str2, fileDescriptor, printWriter, strArr);
                 }
             }
-            if (this.f12148b.h() > 0) {
+            if (this.f12156b.h() > 0) {
                 printWriter.print(str);
                 printWriter.println("Inactive Loaders:");
                 String str3 = str + "    ";
-                for (int i4 = 0; i4 < this.f12148b.h(); i4++) {
-                    a i5 = this.f12148b.i(i4);
+                for (int i4 = 0; i4 < this.f12156b.h(); i4++) {
+                    a i5 = this.f12156b.i(i4);
                     printWriter.print(str);
                     printWriter.print("  #");
-                    printWriter.print(this.f12148b.g(i4));
+                    printWriter.print(this.f12156b.g(i4));
                     printWriter.print(": ");
                     printWriter.println(i5.toString());
                     i5.c(str3, fileDescriptor, printWriter, strArr);
@@ -484,13 +484,13 @@ public class q extends p {
 
     public void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f12151e) {
-            if (f12146g) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f12159e) {
+            if (f12154g) {
                 String str = "Finished Retaining in " + this;
             }
-            this.f12151e = false;
-            for (int h2 = this.f12147a.h() - 1; h2 >= 0; h2--) {
-                this.f12147a.i(h2).d();
+            this.f12159e = false;
+            for (int h2 = this.f12155a.h() - 1; h2 >= 0; h2--) {
+                this.f12155a.i(h2).d();
             }
         }
     }
@@ -499,11 +499,11 @@ public class q extends p {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int h2 = this.f12147a.h();
+            int h2 = this.f12155a.h();
             boolean z = false;
             for (int i2 = 0; i2 < h2; i2++) {
-                a i3 = this.f12147a.i(i2);
-                z |= i3.f12160h && !i3.f12158f;
+                a i3 = this.f12155a.i(i2);
+                z |= i3.f12168h && !i3.f12166f;
             }
             return z;
         }
@@ -513,7 +513,7 @@ public class q extends p {
     public void k(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, kVar) == null) {
-            this.f12152f = kVar;
+            this.f12160f = kVar;
         }
     }
 
@@ -525,7 +525,7 @@ public class q extends p {
             sb.append("LoaderManager{");
             sb.append(Integer.toHexString(System.identityHashCode(this)));
             sb.append(" in ");
-            c.a.p0.o.a.c.c.a(this.f12152f, sb);
+            c.a.p0.o.a.c.c.a(this.f12160f, sb);
             sb.append("}}");
             return sb.toString();
         }

@@ -27,54 +27,54 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f16482a;
+    public b f16492a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f16483b;
+    public c f16493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C0793a f16484c;
+    public C0791a f16494c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<MarkData> f16485d;
+    public ArrayList<MarkData> f16495d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16486e;
+    public int f16496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16487f;
+    public int f16497f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16488g;
+    public boolean f16498g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f16489h;
+    public d f16499h;
 
     /* renamed from: c.a.r0.c2.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0793a extends BdAsyncTask<Boolean, Integer, Boolean> {
+    public class C0791a extends BdAsyncTask<Boolean, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f16490a;
+        public NetWork f16500a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f16491b;
+        public String f16501b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f16492c;
+        public String f16502c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f16493d;
+        public int f16503d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.r0.c2.g.c f16494e;
+        public c.a.r0.c2.g.c f16504e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f16495f;
+        public final /* synthetic */ a f16505f;
 
-        public C0793a(a aVar, String str, int i2, String str2) {
+        public C0791a(a aVar, String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,16 +89,16 @@ public class a {
                     return;
                 }
             }
-            this.f16495f = aVar;
-            this.f16490a = null;
-            this.f16491b = null;
-            this.f16492c = null;
-            this.f16493d = 0;
-            this.f16494e = null;
-            this.f16491b = str;
-            this.f16493d = i2;
-            this.f16492c = str2;
-            this.f16494e = new c.a.r0.c2.g.c();
+            this.f16505f = aVar;
+            this.f16500a = null;
+            this.f16501b = null;
+            this.f16502c = null;
+            this.f16503d = 0;
+            this.f16504e = null;
+            this.f16501b = str;
+            this.f16503d = i2;
+            this.f16502c = str2;
+            this.f16504e = new c.a.r0.c2.g.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,12 +109,12 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
-                this.f16490a = netWork;
+                this.f16500a = netWork;
                 netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.f16490a.addPostData("tid", this.f16491b);
-                this.f16490a.addPostData("fid", this.f16492c);
-                this.f16494e.c(this.f16490a.postNetData());
-                if (this.f16490a.getNetContext().getResponse().isRequestSuccess() && this.f16494e.a() == 0) {
+                this.f16500a.addPostData("tid", this.f16501b);
+                this.f16500a.addPostData("fid", this.f16502c);
+                this.f16504e.c(this.f16500a.postNetData());
+                if (this.f16500a.getNetContext().getResponse().isRequestSuccess() && this.f16504e.a() == 0) {
                     return Boolean.TRUE;
                 }
                 return Boolean.FALSE;
@@ -127,12 +127,12 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f16490a;
+                NetWork netWork = this.f16500a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f16495f.f16484c = null;
-                d dVar = this.f16495f.f16489h;
+                this.f16505f.f16494c = null;
+                d dVar = this.f16505f.f16499h;
                 if (dVar != null) {
                     dVar.a(2, Boolean.FALSE, null);
                 }
@@ -145,18 +145,18 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 String str = null;
-                this.f16495f.f16484c = null;
+                this.f16505f.f16494c = null;
                 if (bool.booleanValue()) {
-                    if (this.f16493d < this.f16495f.f16485d.size()) {
-                        this.f16495f.f16485d.remove(this.f16493d);
-                        a.i(this.f16495f);
+                    if (this.f16503d < this.f16505f.f16495d.size()) {
+                        this.f16505f.f16495d.remove(this.f16503d);
+                        a.i(this.f16505f);
                     }
-                } else if (this.f16490a.getNetContext().getResponse().isRequestSuccess()) {
-                    str = this.f16494e.b();
+                } else if (this.f16500a.getNetContext().getResponse().isRequestSuccess()) {
+                    str = this.f16504e.b();
                 } else {
-                    str = this.f16490a.getErrorString();
+                    str = this.f16500a.getErrorString();
                 }
-                d dVar = this.f16495f.f16489h;
+                d dVar = this.f16505f.f16499h;
                 if (dVar != null) {
                     dVar.a(2, bool, str);
                 }
@@ -170,22 +170,22 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f16496a;
+        public NetWork f16506a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f16497b;
+        public String f16507b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f16498c;
+        public int f16508c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.a.r0.c2.g.c f16499d;
+        public c.a.r0.c2.g.c f16509d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Boolean f16500e;
+        public Boolean f16510e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f16501f;
+        public final /* synthetic */ a f16511f;
 
         public b(a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -202,14 +202,14 @@ public class a {
                     return;
                 }
             }
-            this.f16501f = aVar;
-            this.f16496a = null;
-            this.f16497b = null;
-            this.f16498c = 0;
-            this.f16499d = null;
-            this.f16500e = Boolean.FALSE;
-            this.f16498c = i2;
-            this.f16499d = new c.a.r0.c2.g.c();
+            this.f16511f = aVar;
+            this.f16506a = null;
+            this.f16507b = null;
+            this.f16508c = 0;
+            this.f16509d = null;
+            this.f16510e = Boolean.FALSE;
+            this.f16508c = i2;
+            this.f16509d = new c.a.r0.c2.g.c();
         }
 
         public final void b(String str) {
@@ -232,45 +232,45 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, boolArr)) == null) {
-                this.f16500e = boolArr[0];
+                this.f16510e = boolArr[0];
                 boolean booleanValue = (boolArr.length < 2 || boolArr[1] == null) ? true : boolArr[1].booleanValue();
                 a aVar = new a();
-                if (this.f16500e.booleanValue() && booleanValue) {
+                if (this.f16510e.booleanValue() && booleanValue) {
                     c.a.q0.s.r.a.f();
                     l<String> g2 = c.a.q0.s.r.a.g("tb.my_bookmarks");
                     if (g2 != null) {
                         publishProgress(g2.get(TbadkCoreApplication.getCurrentAccount()));
                     }
-                    if (this.f16501f.f16485d == null) {
-                        this.f16501f.f16485d = new ArrayList();
+                    if (this.f16511f.f16495d == null) {
+                        this.f16511f.f16495d = new ArrayList();
                     } else {
-                        this.f16501f.f16485d.clear();
+                        this.f16511f.f16495d.clear();
                     }
-                    this.f16501f.f16486e = 0;
+                    this.f16511f.f16496e = 0;
                 }
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_GETSTORE);
-                this.f16496a = netWork;
+                this.f16506a = netWork;
                 netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                if (this.f16501f.f16488g) {
-                    this.f16496a.addPostData("offset", String.valueOf(0));
+                if (this.f16511f.f16498g) {
+                    this.f16506a.addPostData("offset", String.valueOf(0));
                 } else {
-                    this.f16496a.addPostData("offset", String.valueOf(this.f16498c));
+                    this.f16506a.addPostData("offset", String.valueOf(this.f16508c));
                 }
-                this.f16496a.addPostData("rn", String.valueOf(20));
-                String postNetData = this.f16496a.postNetData();
-                this.f16497b = postNetData;
-                this.f16499d.c(postNetData);
-                if (this.f16496a.getNetContext().getResponse().isRequestSuccess()) {
-                    aVar.u(this.f16497b);
-                    if (this.f16498c == 0) {
-                        if (this.f16501f.f16485d == null) {
-                            this.f16501f.f16485d = new ArrayList();
+                this.f16506a.addPostData("rn", String.valueOf(20));
+                String postNetData = this.f16506a.postNetData();
+                this.f16507b = postNetData;
+                this.f16509d.c(postNetData);
+                if (this.f16506a.getNetContext().getResponse().isRequestSuccess()) {
+                    aVar.u(this.f16507b);
+                    if (this.f16508c == 0) {
+                        if (this.f16511f.f16495d == null) {
+                            this.f16511f.f16495d = new ArrayList();
                         } else {
-                            this.f16501f.f16485d.clear();
+                            this.f16511f.f16495d.clear();
                         }
-                        this.f16501f.f16486e = 0;
-                        if (this.f16500e.booleanValue()) {
-                            b(this.f16497b);
+                        this.f16511f.f16496e = 0;
+                        if (this.f16510e.booleanValue()) {
+                            b(this.f16507b);
                         }
                     }
                 }
@@ -284,11 +284,11 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f16496a;
+                NetWork netWork = this.f16506a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f16501f.f16482a = null;
+                this.f16511f.f16492a = null;
             }
         }
 
@@ -301,35 +301,35 @@ public class a {
                 if (aVar == null) {
                     aVar = new a();
                 }
-                c.a.r0.c2.g.c cVar = this.f16499d;
+                c.a.r0.c2.g.c cVar = this.f16509d;
                 if (cVar != null) {
-                    c.a.q0.s.z.a.a("collection", 0L, 0, "collection_thread_list_result", cVar.a(), this.f16499d.b(), new Object[0]);
+                    c.a.q0.s.z.a.a("collection", 0L, 0, "collection_thread_list_result", cVar.a(), this.f16509d.b(), new Object[0]);
                 }
-                this.f16501f.f16486e = aVar.m();
+                this.f16511f.f16496e = aVar.m();
                 ArrayList<MarkData> n = aVar.n();
-                if (this.f16500e.booleanValue()) {
+                if (this.f16510e.booleanValue()) {
                     if (n != null && n.size() != 0) {
-                        this.f16501f.B(n);
+                        this.f16511f.B(n);
                     }
                 } else {
-                    this.f16501f.k(n);
+                    this.f16511f.k(n);
                 }
                 Iterator<MarkData> it = n.iterator();
                 int i2 = 0;
                 while (it.hasNext()) {
                     if (it.next().getNewCounts() > 0) {
                         i2++;
-                        this.f16501f.C(i2);
+                        this.f16511f.C(i2);
                     }
                 }
-                if (this.f16501f.f16489h != null) {
-                    if (this.f16496a.getNetContext().getResponse().isRequestSuccess()) {
-                        this.f16501f.f16489h.a(0, this.f16499d.a() != 0 ? this.f16499d.b() : null, Boolean.FALSE);
+                if (this.f16511f.f16499h != null) {
+                    if (this.f16506a.getNetContext().getResponse().isRequestSuccess()) {
+                        this.f16511f.f16499h.a(0, this.f16509d.a() != 0 ? this.f16509d.b() : null, Boolean.FALSE);
                     } else {
-                        this.f16501f.f16489h.a(3, this.f16496a.getErrorString());
+                        this.f16511f.f16499h.a(3, this.f16506a.getErrorString());
                     }
                 }
-                this.f16501f.f16488g = false;
+                this.f16511f.f16498g = false;
             }
         }
 
@@ -349,19 +349,19 @@ public class a {
                 String str = strArr[0];
                 ArrayList<MarkData> arrayList = new ArrayList<>();
                 if (str != null) {
-                    arrayList = this.f16501f.t(str);
-                    if (this.f16500e.booleanValue()) {
-                        this.f16501f.B(arrayList);
+                    arrayList = this.f16511f.t(str);
+                    if (this.f16510e.booleanValue()) {
+                        this.f16511f.B(arrayList);
                     } else {
-                        this.f16501f.k(arrayList);
+                        this.f16511f.k(arrayList);
                     }
                 } else {
-                    this.f16501f.B(arrayList);
+                    this.f16511f.B(arrayList);
                 }
                 if (ListUtils.isEmpty(arrayList)) {
                     return;
                 }
-                this.f16501f.f16489h.a(0, null, Boolean.TRUE);
+                this.f16511f.f16499h.a(0, null, Boolean.TRUE);
             }
         }
     }
@@ -385,41 +385,41 @@ public class a {
                 return;
             }
         }
-        this.f16482a = null;
-        this.f16483b = null;
-        this.f16484c = null;
-        this.f16486e = 0;
-        this.f16487f = 0;
-        this.f16488g = false;
-        this.f16489h = null;
-        this.f16485d = new ArrayList<>();
-        this.f16488g = true;
+        this.f16492a = null;
+        this.f16493b = null;
+        this.f16494c = null;
+        this.f16496e = 0;
+        this.f16497f = 0;
+        this.f16498g = false;
+        this.f16499h = null;
+        this.f16495d = new ArrayList<>();
+        this.f16498g = true;
     }
 
     public static /* synthetic */ int i(a aVar) {
-        int i2 = aVar.f16487f;
-        aVar.f16487f = i2 - 1;
+        int i2 = aVar.f16497f;
+        aVar.f16497f = i2 - 1;
         return i2;
     }
 
     public void A(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f16489h = dVar;
+            this.f16499h = dVar;
         }
     }
 
     public void B(ArrayList<MarkData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.f16485d = arrayList;
+            this.f16495d = arrayList;
         }
     }
 
     public void C(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f16487f = i2;
+            this.f16497f = i2;
         }
     }
 
@@ -427,17 +427,17 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            C0793a c0793a = this.f16484c;
-            if (c0793a != null) {
-                c0793a.cancel();
+            C0791a c0791a = this.f16494c;
+            if (c0791a != null) {
+                c0791a.cancel();
             }
-            if (i2 >= this.f16485d.size() || this.f16485d.get(i2) == null || this.f16485d.get(i2).getId() == null) {
+            if (i2 >= this.f16495d.size() || this.f16495d.get(i2) == null || this.f16495d.get(i2).getId() == null) {
                 return false;
             }
-            C0793a c0793a2 = new C0793a(this, this.f16485d.get(i2).getId(), i2, this.f16485d.get(i2).getForumId());
-            this.f16484c = c0793a2;
-            c0793a2.setPriority(2);
-            this.f16484c.execute(new Boolean[0]);
+            C0791a c0791a2 = new C0791a(this, this.f16495d.get(i2).getId(), i2, this.f16495d.get(i2).getForumId());
+            this.f16494c = c0791a2;
+            c0791a2.setPriority(2);
+            this.f16494c.execute(new Boolean[0]);
             return true;
         }
         return invokeI.booleanValue;
@@ -447,19 +447,19 @@ public class a {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) {
-            ArrayList<MarkData> arrayList = this.f16485d;
+            ArrayList<MarkData> arrayList = this.f16495d;
             if (arrayList == null) {
                 return null;
             }
             if (i2 >= arrayList.size()) {
-                i3 -= (i2 - this.f16485d.size()) - 1;
-                i2 = this.f16485d.size() - 1;
+                i3 -= (i2 - this.f16495d.size()) - 1;
+                i2 = this.f16495d.size() - 1;
             }
             JSONArray jSONArray = new JSONArray();
             int i4 = 0;
             for (int i5 = i2; i5 >= 0 && i5 > i2 - i3; i5--) {
                 try {
-                    JSONObject json = this.f16485d.get(i5).toJson();
+                    JSONObject json = this.f16495d.get(i5).toJson();
                     if (json != null && i4 >= 0) {
                         int i6 = i4 + 1;
                         jSONArray.put(i4, json);
@@ -481,14 +481,14 @@ public class a {
     public void j(MarkData markData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, markData) == null) {
-            this.f16485d.add(markData);
+            this.f16495d.add(markData);
         }
     }
 
     public void k(ArrayList<MarkData> arrayList) {
         ArrayList<MarkData> arrayList2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) || (arrayList2 = this.f16485d) == null || arrayList == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) || (arrayList2 = this.f16495d) == null || arrayList == null) {
             return;
         }
         arrayList2.addAll(arrayList);
@@ -498,10 +498,10 @@ public class a {
     public final void l(String str, int i2) {
         ArrayList<MarkData> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) || (arrayList = this.f16485d) == null || ListUtils.getCount(arrayList) <= 0) {
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) || (arrayList = this.f16495d) == null || ListUtils.getCount(arrayList) <= 0) {
             return;
         }
-        Iterator<MarkData> it = this.f16485d.iterator();
+        Iterator<MarkData> it = this.f16495d.iterator();
         while (it.hasNext()) {
             MarkData next = it.next();
             if (next != null && next.getId().equals(str)) {
@@ -514,7 +514,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ArrayList<MarkData> arrayList = this.f16485d;
+            ArrayList<MarkData> arrayList = this.f16495d;
             if (arrayList == null) {
                 return 0;
             }
@@ -526,26 +526,26 @@ public class a {
     public ArrayList<MarkData> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f16485d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f16495d : (ArrayList) invokeV.objValue;
     }
 
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f16487f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f16497f : invokeV.intValue;
     }
 
     public int p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f16486e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f16496e : invokeV.intValue;
     }
 
     public int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ArrayList<MarkData> arrayList = this.f16485d;
+            ArrayList<MarkData> arrayList = this.f16495d;
             if (arrayList == null) {
                 return 0;
             }
@@ -557,23 +557,23 @@ public class a {
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f16486e > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f16496e > 0 : invokeV.booleanValue;
     }
 
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            b bVar = this.f16482a;
+            b bVar = this.f16492a;
             if (bVar != null) {
                 bVar.cancel();
             }
-            c cVar = this.f16483b;
+            c cVar = this.f16493b;
             if (cVar != null) {
                 cVar.cancel();
             }
-            C0793a c0793a = this.f16484c;
-            if (c0793a != null) {
-                c0793a.cancel();
+            C0791a c0791a = this.f16494c;
+            if (c0791a != null) {
+                c0791a.cancel();
             }
         }
     }
@@ -623,7 +623,7 @@ public class a {
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         MarkData markData = new MarkData();
                         markData.paserJson(optJSONArray.getJSONObject(i2));
-                        this.f16485d.add(markData);
+                        this.f16495d.add(markData);
                     }
                 }
             } catch (Exception e2) {
@@ -642,24 +642,24 @@ public class a {
     public void x(Boolean bool, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048595, this, bool, z) == null) {
-            b bVar = this.f16482a;
+            b bVar = this.f16492a;
             if (bVar != null) {
                 bVar.cancel();
             }
             b bVar2 = new b(this, q());
-            this.f16482a = bVar2;
+            this.f16492a = bVar2;
             bVar2.setPriority(3);
-            this.f16482a.execute(bool, Boolean.valueOf(z));
+            this.f16492a.execute(bool, Boolean.valueOf(z));
         }
     }
 
     public final void y() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f16485d == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f16495d == null) {
             return;
         }
         HashSet hashSet = new HashSet();
-        Iterator<MarkData> it = this.f16485d.iterator();
+        Iterator<MarkData> it = this.f16495d.iterator();
         while (it.hasNext()) {
             MarkData next = it.next();
             String id = next.getId();
@@ -674,9 +674,9 @@ public class a {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f16487f = 0;
-            this.f16486e = 0;
-            this.f16488g = true;
+            this.f16497f = 0;
+            this.f16496e = 0;
+            this.f16498g = true;
         }
     }
 }

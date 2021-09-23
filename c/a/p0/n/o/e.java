@@ -125,17 +125,17 @@ public class e {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     a.C0623a c0623a = new a.C0623a();
-                    c0623a.f11956a = optJSONObject.optInt("errno");
-                    c0623a.f11957b = optJSONObject.optString("bundle_id");
-                    c0623a.f11958c = optJSONObject.optInt("category");
-                    c0623a.f11959d = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
-                    c0623a.f11960e = k(optJSONObject.optJSONArray("sub"));
-                    c0623a.f11961f = a(optJSONObject.optJSONObject("app_info"));
-                    c.a.p0.n.c.b().p(c0623a.f11957b, optJSONObject, c0623a.f11959d, c0623a.f11960e);
+                    c0623a.f11964a = optJSONObject.optInt("errno");
+                    c0623a.f11965b = optJSONObject.optString("bundle_id");
+                    c0623a.f11966c = optJSONObject.optInt("category");
+                    c0623a.f11967d = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
+                    c0623a.f11968e = k(optJSONObject.optJSONArray("sub"));
+                    c0623a.f11969f = a(optJSONObject.optJSONObject("app_info"));
+                    c.a.p0.n.c.b().p(c0623a.f11965b, optJSONObject, c0623a.f11967d, c0623a.f11968e);
                     arrayList.add(c0623a);
                 }
             }
-            aVar.f11955a = arrayList;
+            aVar.f11963a = arrayList;
             return aVar;
         }
         return (c.a.p0.n.i.l.a) invokeL.objValue;
@@ -151,13 +151,13 @@ public class e {
             c.a.p0.n.i.l.b bVar = new c.a.p0.n.i.l.b();
             JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
             if (optJSONObject != null) {
-                bVar.f11963a = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
-                bVar.f11964b = k(optJSONObject.optJSONArray("sub"));
-                c.a.p0.n.c.b().p(str, optJSONObject, bVar.f11963a, bVar.f11964b);
+                bVar.f11971a = j(optJSONObject.optJSONObject(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT));
+                bVar.f11972b = k(optJSONObject.optJSONArray("sub"));
+                c.a.p0.n.c.b().p(str, optJSONObject, bVar.f11971a, bVar.f11972b);
             }
-            bVar.f11965c = d(jSONObject.optJSONObject("framework"));
-            bVar.f11967e = c(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
-            bVar.f11966d = a(jSONObject.optJSONObject("app_info"));
+            bVar.f11973c = d(jSONObject.optJSONObject("framework"));
+            bVar.f11975e = c(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+            bVar.f11974d = a(jSONObject.optJSONObject("app_info"));
             return bVar;
         }
         return (c.a.p0.n.i.l.b) invokeLL.objValue;
@@ -171,7 +171,7 @@ public class e {
                 return null;
             }
             c.a.p0.n.i.l.c cVar = new c.a.p0.n.i.l.c();
-            cVar.f11968a = l(jSONObject);
+            cVar.f11976a = l(jSONObject);
             return cVar;
         }
         return (c.a.p0.n.i.l.c) invokeL.objValue;
@@ -187,8 +187,8 @@ public class e {
             c.a.p0.n.i.l.d dVar = new c.a.p0.n.i.l.d();
             JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
             if (optJSONObject != null) {
-                dVar.f11969a = k(optJSONObject.optJSONArray("sub"));
-                c.a.p0.n.c.b().p(str, optJSONObject, null, dVar.f11969a);
+                dVar.f11977a = k(optJSONObject.optJSONArray("sub"));
+                c.a.p0.n.c.b().p(str, optJSONObject, null, dVar.f11977a);
             }
             return dVar;
         }
@@ -202,10 +202,10 @@ public class e {
             if (jSONObject == null || t == null) {
                 return null;
             }
-            t.f11885g = jSONObject.optString("bundle_id");
-            t.f11886h = jSONObject.optInt("category");
-            t.f11888j = jSONObject.optString("version_name");
-            t.f11887i = jSONObject.optInt("version_code");
+            t.f11893g = jSONObject.optString("bundle_id");
+            t.f11894h = jSONObject.optInt("category");
+            t.f11896j = jSONObject.optString("version_name");
+            t.f11895i = jSONObject.optInt("version_code");
             t.k = jSONObject.optLong("size");
             t.l = jSONObject.optString(PackageTable.MD5);
             t.m = jSONObject.optString("sign");
@@ -296,12 +296,12 @@ public class e {
                 return null;
             }
             c.a.p0.n.i.l.e eVar = new c.a.p0.n.i.l.e();
-            eVar.f11970a = jSONObject.optLong("max_age");
+            eVar.f11978a = jSONObject.optLong("max_age");
             long optLong = jSONObject.optLong("lastsynctime");
             if (optLong > 0) {
-                l.f12031c = optLong;
+                l.f12039c = optLong;
             }
-            eVar.f11971b = jSONObject;
+            eVar.f11979b = jSONObject;
             return eVar;
         }
         return (c.a.p0.n.i.l.e) invokeL.objValue;

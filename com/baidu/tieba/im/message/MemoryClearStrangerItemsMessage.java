@@ -20,7 +20,7 @@ public class MemoryClearStrangerItemsMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<MemoryModifyVisibilityMessage.a> f53192a;
+        public List<MemoryModifyVisibilityMessage.a> f53305a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

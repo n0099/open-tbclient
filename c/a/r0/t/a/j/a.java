@@ -21,19 +21,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f24908a = 0;
+    public static long f24929a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f24909b = "1";
+    public static String f24930b = "1";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f24910c = "5";
+    public static String f24931c = "5";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f24911d = "6";
+    public static String f24932d = "6";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f24912e = "7";
+    public static String f24933e = "7";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,7 +54,7 @@ public class a {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(c.a.r0.t.a.i.a.f24901b);
+            File file = new File(c.a.r0.t.a.i.a.f24922b);
             if (file.exists()) {
                 FileHelper.deleteFileOrDir(file);
             }
@@ -65,7 +65,7 @@ public class a {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            File file2 = new File(c.a.r0.t.a.i.a.f24901b);
+            File file2 = new File(c.a.r0.t.a.i.a.f24922b);
             if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
                 return;
             }
@@ -107,9 +107,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = currentTimeMillis - f24908a;
+            long j2 = currentTimeMillis - f24929a;
             if (0 >= j2 || j2 >= 500) {
-                f24908a = currentTimeMillis;
+                f24929a = currentTimeMillis;
                 return false;
             }
             return true;

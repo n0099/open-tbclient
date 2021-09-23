@@ -26,34 +26,34 @@ public class a extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f66234a;
+    public final Context f66545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NativeExpressView f66235b;
+    public NativeExpressView f66546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NativeExpressView f66236c;
+    public NativeExpressView f66547c;
 
     /* renamed from: d  reason: collision with root package name */
-    public m f66237d;
+    public m f66548d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdSlot f66238e;
+    public AdSlot f66549e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TTNativeExpressAd.ExpressAdInteractionListener f66239f;
+    public TTNativeExpressAd.ExpressAdInteractionListener f66550f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTNativeExpressAd.ExpressVideoAdListener f66240g;
+    public TTNativeExpressAd.ExpressVideoAdListener f66551g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f66241h;
+    public int f66552h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f66242i;
+    public boolean f66553i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f66243j;
+    public String f66554j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(@NonNull Context context, m mVar, AdSlot adSlot) {
@@ -73,10 +73,10 @@ public class a extends FrameLayout {
                 return;
             }
         }
-        this.f66243j = "banner_ad";
-        this.f66234a = context;
-        this.f66237d = mVar;
-        this.f66238e = adSlot;
+        this.f66554j = "banner_ad";
+        this.f66545a = context;
+        this.f66548d = mVar;
+        this.f66549e = adSlot;
         a();
     }
 
@@ -90,7 +90,7 @@ public class a extends FrameLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f66246a;
+                public final /* synthetic */ a f66557a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -107,7 +107,7 @@ public class a extends FrameLayout {
                             return;
                         }
                     }
-                    this.f66246a = this;
+                    this.f66557a = this;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -121,8 +121,8 @@ public class a extends FrameLayout {
                 public void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                        a aVar = this.f66246a;
-                        aVar.f66242i = false;
+                        a aVar = this.f66557a;
+                        aVar.f66553i = false;
                         aVar.g();
                     }
                 }
@@ -150,13 +150,13 @@ public class a extends FrameLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            NativeExpressView nativeExpressView = this.f66235b;
-            this.f66235b = this.f66236c;
-            this.f66236c = nativeExpressView;
+            NativeExpressView nativeExpressView = this.f66546b;
+            this.f66546b = this.f66547c;
+            this.f66547c = nativeExpressView;
             if (nativeExpressView != null) {
                 removeView(nativeExpressView);
-                this.f66236c.l();
-                this.f66236c = null;
+                this.f66547c.l();
+                this.f66547c = null;
             }
         }
     }
@@ -164,7 +164,7 @@ public class a extends FrameLayout {
     public void c() {
         NativeExpressView nativeExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (nativeExpressView = this.f66236c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (nativeExpressView = this.f66547c) == null) {
             return;
         }
         nativeExpressView.j();
@@ -173,17 +173,17 @@ public class a extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            NativeExpressView nativeExpressView = this.f66235b;
+            NativeExpressView nativeExpressView = this.f66546b;
             if (nativeExpressView != null) {
                 removeView(nativeExpressView);
-                this.f66235b.l();
-                this.f66235b = null;
+                this.f66546b.l();
+                this.f66546b = null;
             }
-            NativeExpressView nativeExpressView2 = this.f66236c;
+            NativeExpressView nativeExpressView2 = this.f66547c;
             if (nativeExpressView2 != null) {
                 removeView(nativeExpressView2);
-                this.f66236c.l();
-                this.f66236c = null;
+                this.f66547c.l();
+                this.f66547c = null;
             }
         }
     }
@@ -191,7 +191,7 @@ public class a extends FrameLayout {
     public void e() {
         NativeExpressView nativeExpressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (nativeExpressView = this.f66235b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (nativeExpressView = this.f66546b) == null) {
             return;
         }
         nativeExpressView.j();
@@ -199,47 +199,47 @@ public class a extends FrameLayout {
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f66242i || this.f66236c == null || this.f66235b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f66553i || this.f66547c == null || this.f66546b == null) {
             return;
         }
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.play(a(this.f66235b)).with(b(this.f66236c));
-        animatorSet.setDuration(this.f66241h).start();
-        s.a((View) this.f66236c, 0);
-        this.f66242i = true;
+        animatorSet.play(a(this.f66546b)).with(b(this.f66547c));
+        animatorSet.setDuration(this.f66552h).start();
+        s.a((View) this.f66547c, 0);
+        this.f66553i = true;
     }
 
     public NativeExpressView getCurView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f66235b : (NativeExpressView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f66546b : (NativeExpressView) invokeV.objValue;
     }
 
     public NativeExpressView getNextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f66236c : (NativeExpressView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f66547c : (NativeExpressView) invokeV.objValue;
     }
 
     public void setDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f66241h = i2;
+            this.f66552h = i2;
         }
     }
 
     public void setExpressInteractionListener(TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, expressAdInteractionListener) == null) {
-            this.f66239f = expressAdInteractionListener;
-            NativeExpressView nativeExpressView = this.f66235b;
+            this.f66550f = expressAdInteractionListener;
+            NativeExpressView nativeExpressView = this.f66546b;
             if (nativeExpressView != null) {
                 nativeExpressView.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener(this) { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f66245a;
+                    public final /* synthetic */ a f66556a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -256,7 +256,7 @@ public class a extends FrameLayout {
                                 return;
                             }
                         }
-                        this.f66245a = this;
+                        this.f66556a = this;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -264,7 +264,7 @@ public class a extends FrameLayout {
                         a aVar;
                         TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || (expressAdInteractionListener2 = (aVar = this.f66245a).f66239f) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || (expressAdInteractionListener2 = (aVar = this.f66556a).f66550f) == null) {
                             return;
                         }
                         expressAdInteractionListener2.onAdClicked(aVar, i2);
@@ -282,7 +282,7 @@ public class a extends FrameLayout {
                         a aVar;
                         TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str, i2) == null) || (expressAdInteractionListener2 = (aVar = this.f66245a).f66239f) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str, i2) == null) || (expressAdInteractionListener2 = (aVar = this.f66556a).f66550f) == null) {
                             return;
                         }
                         expressAdInteractionListener2.onRenderFail(aVar, str, i2);
@@ -293,10 +293,10 @@ public class a extends FrameLayout {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
                             if (!(view instanceof NativeExpressView) || !((NativeExpressView) view).n()) {
-                                this.f66245a.a(f2, f3);
+                                this.f66556a.a(f2, f3);
                             }
-                            a aVar = this.f66245a;
-                            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = aVar.f66239f;
+                            a aVar = this.f66556a;
+                            TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = aVar.f66550f;
                             if (expressAdInteractionListener2 != null) {
                                 expressAdInteractionListener2.onRenderSuccess(aVar, f2, f3);
                             }
@@ -310,15 +310,15 @@ public class a extends FrameLayout {
     public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, expressVideoAdListener) == null) {
-            this.f66240g = expressVideoAdListener;
+            this.f66551g = expressVideoAdListener;
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NativeExpressView nativeExpressView = new NativeExpressView(this.f66234a, this.f66237d, this.f66238e, this.f66243j);
-            this.f66235b = nativeExpressView;
+            NativeExpressView nativeExpressView = new NativeExpressView(this.f66545a, this.f66548d, this.f66549e, this.f66554j);
+            this.f66546b = nativeExpressView;
             addView(nativeExpressView, new ViewGroup.LayoutParams(-1, -1));
         }
     }
@@ -326,14 +326,14 @@ public class a extends FrameLayout {
     public void a(m mVar, AdSlot adSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, mVar, adSlot) == null) {
-            NativeExpressView nativeExpressView = new NativeExpressView(this.f66234a, mVar, adSlot, this.f66243j);
-            this.f66236c = nativeExpressView;
+            NativeExpressView nativeExpressView = new NativeExpressView(this.f66545a, mVar, adSlot, this.f66554j);
+            this.f66547c = nativeExpressView;
             nativeExpressView.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener(this) { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f66244a;
+                public final /* synthetic */ a f66555a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -350,7 +350,7 @@ public class a extends FrameLayout {
                             return;
                         }
                     }
-                    this.f66244a = this;
+                    this.f66555a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -358,7 +358,7 @@ public class a extends FrameLayout {
                     a aVar;
                     TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || (expressAdInteractionListener = (aVar = this.f66244a).f66239f) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || (expressAdInteractionListener = (aVar = this.f66555a).f66550f) == null) {
                         return;
                     }
                     expressAdInteractionListener.onAdClicked(aVar, i2);
@@ -382,27 +382,27 @@ public class a extends FrameLayout {
                 public void onRenderSuccess(View view, float f2, float f3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                        this.f66244a.a(f2, f3);
-                        this.f66244a.f();
+                        this.f66555a.a(f2, f3);
+                        this.f66555a.f();
                     }
                 }
             });
-            s.a((View) this.f66236c, 8);
-            addView(this.f66236c, new ViewGroup.LayoutParams(-1, -1));
+            s.a((View) this.f66547c, 8);
+            addView(this.f66547c, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f66236c != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f66547c != null : invokeV.booleanValue;
     }
 
     public void a(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            int b2 = (int) s.b(this.f66234a, f2);
-            int b3 = (int) s.b(this.f66234a, f3);
+            int b2 = (int) s.b(this.f66545a, f2);
+            int b3 = (int) s.b(this.f66545a, f3);
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new ViewGroup.LayoutParams(b2, b3);

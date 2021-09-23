@@ -19,13 +19,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f17430a;
+    public View f17440a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f17431b;
+    public View f17441b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f17432c;
+    public TextView f17442c;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -33,10 +33,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Integer f17433e;
+        public final /* synthetic */ Integer f17443e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f17434f;
+        public final /* synthetic */ e f17444f;
 
         public a(e eVar, Integer num) {
             Interceptable interceptable = $ic;
@@ -53,18 +53,18 @@ public class e {
                     return;
                 }
             }
-            this.f17434f = eVar;
-            this.f17433e = num;
+            this.f17444f = eVar;
+            this.f17443e = num;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Integer num;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (num = this.f17433e) == null || num.intValue() == 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (num = this.f17443e) == null || num.intValue() == 0) {
                 return;
             }
-            this.f17434f.f17430a.setVisibility(0);
+            this.f17444f.f17440a.setVisibility(0);
         }
     }
 
@@ -84,31 +84,31 @@ public class e {
             }
         }
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.emotion_simple_header, (ViewGroup) null);
-        this.f17431b = inflate;
+        this.f17441b = inflate;
         View findViewById = inflate.findViewById(R.id.emotion_manage_item_header);
-        this.f17430a = findViewById;
+        this.f17440a = findViewById;
         findViewById.setVisibility(8);
-        this.f17432c = (TextView) this.f17431b.findViewById(R.id.emotion_manage_total_title);
+        this.f17442c = (TextView) this.f17441b.findViewById(R.id.emotion_manage_total_title);
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17431b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17441b : (View) invokeV.objValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            View view = this.f17431b;
+            View view = this.f17441b;
             if (view != null) {
                 SkinManager.setBackgroundColor(view, R.color.cp_bg_line_d_alpha90, i2);
             }
-            View view2 = this.f17430a;
+            View view2 = this.f17440a;
             if (view2 != null) {
                 SkinManager.setBackgroundColor(view2, R.color.CAM_X0204, i2);
             }
-            TextView textView = this.f17432c;
+            TextView textView = this.f17442c;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i2);
             }

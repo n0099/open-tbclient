@@ -15,10 +15,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4731a;
+    public Context f4739a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f4732b;
+    public c f4740b;
 
     public a(@NonNull Context context, @NonNull c.a.p0.a.w2.g.a aVar) {
         Interceptable interceptable = $ic;
@@ -35,35 +35,35 @@ public class a {
                 return;
             }
         }
-        this.f4731a = context;
-        this.f4732b = new c(aVar);
+        this.f4739a = context;
+        this.f4740b = new c(aVar);
     }
 
     @NonNull
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4732b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4740b : (c) invokeV.objValue;
     }
 
     @NonNull
     public Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4731a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4739a : (Context) invokeV.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f4732b.c();
+            this.f4740b.c();
         }
     }
 
     public void d(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f4731a = context;
+            this.f4739a = context;
         }
     }
 }

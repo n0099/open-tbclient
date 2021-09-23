@@ -57,7 +57,7 @@ public final class c extends c.a.p0.a.c0.a.d.b {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f4658g) || TextUtils.isEmpty(this.f4657f)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f4666g) || TextUtils.isEmpty(this.f4665f)) ? false : true : invokeV.booleanValue;
     }
 
     public boolean l() {

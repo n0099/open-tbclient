@@ -28,7 +28,7 @@ public class d extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f26504a;
+        public View f26527a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, View view) {
@@ -51,7 +51,7 @@ public class d extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;
                 if (viewGroup.getChildCount() > 0) {
-                    this.f26504a = viewGroup.getChildAt(0);
+                    this.f26527a = viewGroup.getChildAt(0);
                 }
             }
         }
@@ -59,7 +59,7 @@ public class d extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SkinManager.setBackgroundColor(this.f26504a, R.color.CAM_X0209);
+                SkinManager.setBackgroundColor(this.f26527a, R.color.CAM_X0209);
                 SkinManager.setBackgroundColor(this.itemView, R.color.CAM_X0205);
             }
         }
@@ -84,7 +84,7 @@ public class d extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
                 return;
             }
         }
-        this.f2961i = bdUniqueId2;
+        this.f2962i = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -94,11 +94,11 @@ public class d extends c.a.e.l.e.a<c.a.r0.w0.b2.g.a, a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f2957e);
-            View view = new View(this.f2957e);
+            FrameLayout frameLayout = new FrameLayout(this.f2958e);
+            View view = new View(this.f2958e);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            layoutParams.leftMargin = l.g(this.f2957e, R.dimen.M_W_X005);
-            layoutParams.rightMargin = l.g(this.f2957e, R.dimen.M_W_X005);
+            layoutParams.leftMargin = l.g(this.f2958e, R.dimen.M_W_X005);
+            layoutParams.rightMargin = l.g(this.f2958e, R.dimen.M_W_X005);
             frameLayout.addView(view, layoutParams);
             return new a(this, frameLayout);
         }

@@ -13,7 +13,7 @@ public class c extends c.a.r0.g3.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f18741c;
+    public d f18750c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,13 +44,13 @@ public class c extends c.a.r0.g3.f.a {
     public d h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18741c : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18750c : (d) invokeV.objValue;
     }
 
     public void i(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f18741c = dVar;
+            this.f18750c = dVar;
             g(null);
         }
     }

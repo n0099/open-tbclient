@@ -28,22 +28,22 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f57316e;
+    public Context f57433e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f57317f;
+    public TextView f57434f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f57318g;
+    public TextView f57435g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f57319h;
+    public View f57436h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f57320i;
+    public LinearLayout f57437i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f57321j;
+    public View.OnClickListener f57438j;
     public View k;
     public LinearLayout l;
 
@@ -65,7 +65,7 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
                 return;
             }
         }
-        this.f57316e = context;
+        this.f57433e = context;
         b();
     }
 
@@ -73,7 +73,7 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
     public void ForumLike(int i2) {
         View findViewWithTag;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && (findViewWithTag = this.f57320i.findViewWithTag(Integer.valueOf(i2))) != null && (findViewWithTag instanceof LinearLayout)) {
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && (findViewWithTag = this.f57437i.findViewWithTag(Integer.valueOf(i2))) != null && (findViewWithTag instanceof LinearLayout)) {
             new a(this, findViewWithTag).d(true);
         }
     }
@@ -82,7 +82,7 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
     public void ForumUnLike(int i2) {
         View findViewWithTag;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (findViewWithTag = this.f57320i.findViewWithTag(Integer.valueOf(i2))) != null && (findViewWithTag instanceof LinearLayout)) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (findViewWithTag = this.f57437i.findViewWithTag(Integer.valueOf(i2))) != null && (findViewWithTag instanceof LinearLayout)) {
             new a(this, findViewWithTag).d(false);
         }
     }
@@ -90,16 +90,16 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = View.inflate(this.f57316e, R.layout.new_user_box, null);
+            View inflate = View.inflate(this.f57433e, R.layout.new_user_box, null);
             this.k = inflate;
             setContentView(inflate);
             setCanceledOnTouchOutside(true);
             this.l = (LinearLayout) this.k.findViewById(R.id.box_close_layout);
-            this.f57317f = (TextView) this.k.findViewById(R.id.prompt_title);
-            this.f57318g = (TextView) this.k.findViewById(R.id.prompt_sub_title);
-            this.f57319h = this.k.findViewById(R.id.view_layout);
-            this.f57320i = (LinearLayout) findViewById(R.id.layout_content);
-            this.f57319h.setBackgroundDrawable(this.f57316e.getResources().getDrawable(R.drawable.bg_startpage2_card_purple_up));
+            this.f57434f = (TextView) this.k.findViewById(R.id.prompt_title);
+            this.f57435g = (TextView) this.k.findViewById(R.id.prompt_sub_title);
+            this.f57436h = this.k.findViewById(R.id.view_layout);
+            this.f57437i = (LinearLayout) findViewById(R.id.layout_content);
+            this.f57436h.setBackgroundDrawable(this.f57433e.getResources().getDrawable(R.drawable.bg_startpage2_card_purple_up));
         }
     }
 
@@ -114,7 +114,7 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Context context = this.f57316e;
+            Context context = this.f57433e;
             if (context instanceof Activity) {
                 g.a(this, (Activity) context);
             } else {
@@ -127,22 +127,22 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
     public void setData(InterestFrsData.Tag tag) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tag) == null) {
-            this.f57317f.setText(tag.getBname());
-            this.f57318g.setText(tag.getBdesc());
+            this.f57434f.setText(tag.getBname());
+            this.f57435g.setText(tag.getBdesc());
             ArrayList<InterestFrsData.Card> card_list = tag.getCard_list();
             int i2 = 0;
             while (i2 < card_list.size()) {
                 InterestFrsData.Card card = card_list.get(i2);
-                View a2 = new a(this, card, this.f57321j).a();
-                this.f57320i.addView(a2);
+                View a2 = new a(this, card, this.f57438j).a();
+                this.f57437i.addView(a2);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) a2.getLayoutParams();
-                int dimensionPixelSize = this.f57316e.getResources().getDimensionPixelSize(R.dimen.ds20);
-                layoutParams.setMargins(0, i2 == 0 ? this.f57316e.getResources().getDimensionPixelSize(R.dimen.ds44) : dimensionPixelSize, 0, dimensionPixelSize);
+                int dimensionPixelSize = this.f57433e.getResources().getDimensionPixelSize(R.dimen.ds20);
+                layoutParams.setMargins(0, i2 == 0 ? this.f57433e.getResources().getDimensionPixelSize(R.dimen.ds44) : dimensionPixelSize, 0, dimensionPixelSize);
                 a2.setLayoutParams(layoutParams);
                 if (i2 != card_list.size() - 1) {
-                    this.f57320i.addView(LayoutInflater.from(this.f57316e).inflate(R.layout.new_user_line_item, (ViewGroup) null));
+                    this.f57437i.addView(LayoutInflater.from(this.f57433e).inflate(R.layout.new_user_line_item, (ViewGroup) null));
                 }
-                ((TbImageView) this.f57320i.findViewWithTag(card.getAvatar())).startLoad(card.getAvatar(), 10, false);
+                ((TbImageView) this.f57437i.findViewWithTag(card.getAvatar())).startLoad(card.getAvatar(), 10, false);
                 i2++;
             }
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
@@ -158,7 +158,7 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            this.f57321j = onClickListener;
+            this.f57438j = onClickListener;
             this.l.setOnClickListener(onClickListener);
         }
     }
@@ -166,14 +166,14 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
     public void setSubTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f57318g.setText(str);
+            this.f57435g.setText(str);
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f57317f.setText(str);
+            this.f57434f.setText(str);
         }
     }
 
@@ -183,28 +183,28 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f57322a;
+        public View f57439a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f57323b;
+        public TextView f57440b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f57324c;
+        public TextView f57441c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f57325d;
+        public TextView f57442d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ImageView f57326e;
+        public ImageView f57443e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbImageView f57327f;
+        public TbImageView f57444f;
 
         /* renamed from: g  reason: collision with root package name */
-        public LinearLayout f57328g;
+        public LinearLayout f57445g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideCommonShowBox f57329h;
+        public final /* synthetic */ NewUserGuideCommonShowBox f57446h;
 
         public a(NewUserGuideCommonShowBox newUserGuideCommonShowBox, InterestFrsData.Card card, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -221,9 +221,9 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
                     return;
                 }
             }
-            this.f57329h = newUserGuideCommonShowBox;
-            View inflate = LayoutInflater.from(newUserGuideCommonShowBox.f57316e).inflate(R.layout.new_user_rich_item, (ViewGroup) null);
-            this.f57322a = inflate;
+            this.f57446h = newUserGuideCommonShowBox;
+            View inflate = LayoutInflater.from(newUserGuideCommonShowBox.f57433e).inflate(R.layout.new_user_rich_item, (ViewGroup) null);
+            this.f57439a = inflate;
             inflate.setTag(Integer.valueOf(card.getFid()));
             b(card, onClickListener);
         }
@@ -231,19 +231,19 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
         public View a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57322a : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57439a : (View) invokeV.objValue;
         }
 
         public final void b(InterestFrsData.Card card, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, card, onClickListener) == null) {
                 c();
-                this.f57328g.setOnClickListener(onClickListener);
-                this.f57328g.setTag(card);
-                this.f57323b.setText(card.getFname());
-                this.f57324c.setText(card.getCdesc());
-                this.f57325d.setText(card.getSlogan());
-                this.f57327f.setTag(card.getAvatar());
+                this.f57445g.setOnClickListener(onClickListener);
+                this.f57445g.setTag(card);
+                this.f57440b.setText(card.getFname());
+                this.f57441c.setText(card.getCdesc());
+                this.f57442d.setText(card.getSlogan());
+                this.f57444f.setTag(card.getAvatar());
                 d(card.getIs_like() != 0);
             }
         }
@@ -251,12 +251,12 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f57323b = (TextView) this.f57322a.findViewById(R.id.tv_fname);
-                this.f57324c = (TextView) this.f57322a.findViewById(R.id.tv_cdesc);
-                this.f57326e = (ImageView) this.f57322a.findViewById(R.id.iv_like);
-                this.f57325d = (TextView) this.f57322a.findViewById(R.id.tv_slogan);
-                this.f57327f = (TbImageView) this.f57322a.findViewById(R.id.img);
-                this.f57328g = (LinearLayout) this.f57322a.findViewById(R.id.ll_like);
+                this.f57440b = (TextView) this.f57439a.findViewById(R.id.tv_fname);
+                this.f57441c = (TextView) this.f57439a.findViewById(R.id.tv_cdesc);
+                this.f57443e = (ImageView) this.f57439a.findViewById(R.id.iv_like);
+                this.f57442d = (TextView) this.f57439a.findViewById(R.id.tv_slogan);
+                this.f57444f = (TbImageView) this.f57439a.findViewById(R.id.img);
+                this.f57445g = (LinearLayout) this.f57439a.findViewById(R.id.ll_like);
             }
         }
 
@@ -264,9 +264,9 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
                 if (!z) {
-                    this.f57326e.setBackgroundDrawable(this.f57329h.f57316e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_n));
+                    this.f57443e.setBackgroundDrawable(this.f57446h.f57433e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_n));
                 } else {
-                    this.f57326e.setBackgroundDrawable(this.f57329h.f57316e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
+                    this.f57443e.setBackgroundDrawable(this.f57446h.f57433e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
                 }
             }
         }
@@ -286,8 +286,8 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
                     return;
                 }
             }
-            this.f57329h = newUserGuideCommonShowBox;
-            this.f57322a = view;
+            this.f57446h = newUserGuideCommonShowBox;
+            this.f57439a = view;
             c();
         }
     }
@@ -311,7 +311,7 @@ public class NewUserGuideCommonShowBox extends Dialog implements c.a.r0.n3.a {
                 return;
             }
         }
-        this.f57316e = context;
+        this.f57433e = context;
         b();
     }
 }

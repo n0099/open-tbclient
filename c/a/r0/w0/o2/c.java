@@ -20,10 +20,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final FrsFragment f27381a;
+    public final FrsFragment f27401a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f27382b;
+    public b f27402b;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -37,7 +37,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f27383a;
+        public final /* synthetic */ c f27403a;
 
         /* loaded from: classes4.dex */
         public class a implements a.e {
@@ -72,17 +72,17 @@ public class c {
 
         /* renamed from: c.a.r0.w0.o2.c$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1289b implements a.e {
+        public class C1287b implements a.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PopInfo f27384e;
+            public final /* synthetic */ PopInfo f27404e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f27385f;
+            public final /* synthetic */ b f27405f;
 
-            public C1289b(b bVar, PopInfo popInfo) {
+            public C1287b(b bVar, PopInfo popInfo) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,15 +97,15 @@ public class c {
                         return;
                     }
                 }
-                this.f27385f = bVar;
-                this.f27384e = popInfo;
+                this.f27405f = bVar;
+                this.f27404e = popInfo;
             }
 
             @Override // c.a.q0.s.s.a.e
             public void onClick(c.a.q0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                    UrlManager.getInstance().dealOneLink(this.f27385f.f27383a.f27381a.getPageContext(), new String[]{this.f27384e.ahead_url});
+                    UrlManager.getInstance().dealOneLink(this.f27405f.f27403a.f27401a.getPageContext(), new String[]{this.f27404e.ahead_url});
                     if (aVar == null) {
                         return;
                     }
@@ -129,7 +129,7 @@ public class c {
                     return;
                 }
             }
-            this.f27383a = cVar;
+            this.f27403a = cVar;
         }
 
         public /* synthetic */ b(c cVar, a aVar) {
@@ -144,7 +144,7 @@ public class c {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 c.a.q0.s.r.a.f();
                 c.a.e.e.d.l<String> g2 = c.a.q0.s.r.a.g("tb.enter_frs_dialog_list");
-                String encode = URLEncoder.encode(this.f27383a.f27381a.getFrsViewData().getForum().getName());
+                String encode = URLEncoder.encode(this.f27403a.f27401a.getFrsViewData().getForum().getName());
                 if (g2.get(encode) == null) {
                     g2.g(encode, "1");
                     return Boolean.TRUE;
@@ -158,15 +158,15 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && bool.booleanValue() && this.f27383a.c() && this.f27383a.f27381a.isAdded()) {
-                PopInfo popInfo = this.f27383a.f27381a.getFrsViewData().enterFrsDialogInfo;
-                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f27383a.f27381a.getActivity());
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && bool.booleanValue() && this.f27403a.c() && this.f27403a.f27401a.isAdded()) {
+                PopInfo popInfo = this.f27403a.f27401a.getFrsViewData().enterFrsDialogInfo;
+                c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(this.f27403a.f27401a.getActivity());
                 aVar.setTitle(popInfo.title);
                 aVar.setMessage(popInfo.v_title);
                 aVar.isShowTitleAndMessage();
                 aVar.setNegativeButton(popInfo.ok_info, new a(this));
-                aVar.setPositiveButton(popInfo.ahead_info, new C1289b(this, popInfo));
-                aVar.create(this.f27383a.f27381a.getPageContext()).show();
+                aVar.setPositiveButton(popInfo.ahead_info, new C1287b(this, popInfo));
+                aVar.create(this.f27403a.f27401a.getPageContext()).show();
             }
         }
     }
@@ -186,15 +186,15 @@ public class c {
                 return;
             }
         }
-        this.f27381a = frsFragment;
+        this.f27401a = frsFragment;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PopInfo popInfo = this.f27381a.getFrsViewData().enterFrsDialogInfo;
-            return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.f27381a.getFrsViewData().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
+            PopInfo popInfo = this.f27401a.getFrsViewData().enterFrsDialogInfo;
+            return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.f27401a.getFrsViewData().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -202,11 +202,11 @@ public class c {
     public void d() {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || !TbadkCoreApplication.isLogin() || (frsFragment = this.f27381a) == null || frsFragment.getFrsViewData() == null || this.f27381a.getFrsViewData().getForum() == null || StringUtils.isNull(this.f27381a.getFrsViewData().getForum().getName()) || this.f27381a.getFrsViewData().enterFrsDialogInfo == null || !c() || this.f27382b != null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || !TbadkCoreApplication.isLogin() || (frsFragment = this.f27401a) == null || frsFragment.getFrsViewData() == null || this.f27401a.getFrsViewData().getForum() == null || StringUtils.isNull(this.f27401a.getFrsViewData().getForum().getName()) || this.f27401a.getFrsViewData().enterFrsDialogInfo == null || !c() || this.f27402b != null) {
             return;
         }
         b bVar = new b(this, null);
-        this.f27382b = bVar;
+        this.f27402b = bVar;
         bVar.execute(new Void[0]);
     }
 }

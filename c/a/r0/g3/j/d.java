@@ -15,19 +15,19 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f18742a;
+    public String f18751a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18743b;
+    public String f18752b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18744c;
+    public String f18753c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18745d;
+    public String f18754d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<d> f18746e;
+    public ArrayList<d> f18755e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -46,12 +46,12 @@ public class d {
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.f18742a = jSONObject.optString("menu_type");
-            this.f18743b = jSONObject.optString(ForumListActivity.KEY_MENU_NAME);
-            this.f18744c = jSONObject.optString(ForumListActivity.KEY_MENU_ID);
+            this.f18751a = jSONObject.optString("menu_type");
+            this.f18752b = jSONObject.optString(ForumListActivity.KEY_MENU_NAME);
+            this.f18753c = jSONObject.optString(ForumListActivity.KEY_MENU_ID);
             String optString = jSONObject.optString("default_logo_url", null);
-            this.f18745d = optString;
-            this.f18745d = optString != null ? this.f18745d + "?v=2" : null;
+            this.f18754d = optString;
+            this.f18754d = optString != null ? this.f18754d + "?v=2" : null;
             if (jSONObject.has("child_menu_list")) {
                 ArrayList<d> arrayList = new ArrayList<>();
                 JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
@@ -60,7 +60,7 @@ public class d {
                     dVar.a(optJSONArray.getJSONObject(i2));
                     arrayList.add(dVar);
                 }
-                this.f18746e = arrayList;
+                this.f18755e = arrayList;
             }
         }
     }

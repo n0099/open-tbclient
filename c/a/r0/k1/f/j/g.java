@@ -30,22 +30,22 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f21298a;
+    public TbPageContext f21312a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f21299b;
+    public d f21313b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21300c;
+    public String f21314c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f21301d;
+    public CustomMessageListener f21315d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f21302e;
+    public Runnable f21316e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.e.c.g.a f21303f;
+    public c.a.e.c.g.a f21317f;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -53,7 +53,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f21304a;
+        public final /* synthetic */ g f21318a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(g gVar, int i2) {
@@ -73,7 +73,7 @@ public class g {
                     return;
                 }
             }
-            this.f21304a = gVar;
+            this.f21318a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,10 +84,10 @@ public class g {
                 return;
             }
             if (customResponsedMessage.getCmd() == 2001147) {
-                this.f21304a.g(customResponsedMessage);
+                this.f21318a.g(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2012123) {
-                c.a.e.e.m.e.a().removeCallbacks(this.f21304a.f21302e);
-                c.a.e.e.m.e.a().postDelayed(this.f21304a.f21302e, 1000L);
+                c.a.e.e.m.e.a().removeCallbacks(this.f21318a.f21316e);
+                c.a.e.e.m.e.a().postDelayed(this.f21318a.f21316e, 1000L);
             }
         }
     }
@@ -98,7 +98,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f21305e;
+        public final /* synthetic */ g f21319e;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -115,15 +115,15 @@ public class g {
                     return;
                 }
             }
-            this.f21305e = gVar;
+            this.f21319e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g gVar = this.f21305e;
-                gVar.f(gVar.f21300c);
+                g gVar = this.f21319e;
+                gVar.f(gVar.f21314c);
             }
         }
     }
@@ -134,7 +134,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f21306a;
+        public final /* synthetic */ g f21320a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(g gVar, int i2, int i3) {
@@ -155,7 +155,7 @@ public class g {
                     return;
                 }
             }
-            this.f21306a = gVar;
+            this.f21320a = gVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -182,10 +182,10 @@ public class g {
                     longSparseArray.put(bVar.b(), bVar);
                 }
             }
-            if (this.f21306a.f21299b == null || longSparseArray == null) {
+            if (this.f21320a.f21313b == null || longSparseArray == null) {
                 return;
             }
-            this.f21306a.f21299b.onReadCountLoad(longSparseArray);
+            this.f21320a.f21313b.onReadCountLoad(longSparseArray);
         }
     }
 
@@ -211,30 +211,30 @@ public class g {
                 return;
             }
         }
-        this.f21301d = new a(this, 0);
-        this.f21302e = new b(this);
-        this.f21303f = new c(this, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
-        this.f21298a = tbPageContext;
-        tbPageContext.registerListener(2001147, this.f21301d);
-        tbPageContext.registerListener(2012123, this.f21301d);
-        tbPageContext.registerListener(this.f21303f);
+        this.f21315d = new a(this, 0);
+        this.f21316e = new b(this);
+        this.f21317f = new c(this, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669);
+        this.f21312a = tbPageContext;
+        tbPageContext.registerListener(2001147, this.f21315d);
+        tbPageContext.registerListener(2012123, this.f21315d);
+        tbPageContext.registerListener(this.f21317f);
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.e.e.m.e.a().removeCallbacks(this.f21302e);
+            c.a.e.e.m.e.a().removeCallbacks(this.f21316e);
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f21300c = str;
+            this.f21314c = str;
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f53187c = 150;
-            aVar.f53188d = str;
-            this.f21298a.sendMessage(new LoadOfficialHistoryMessage(aVar));
+            aVar.f53300c = 150;
+            aVar.f53301d = str;
+            this.f21312a.sendMessage(new LoadOfficialHistoryMessage(aVar));
         }
     }
 
@@ -245,17 +245,17 @@ public class g {
             if (loadHistoryResponsedMessage.getData() == null) {
                 return;
             }
-            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f53190b;
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f53303b;
             ArrayList arrayList = new ArrayList();
             for (ChatMessage chatMessage : list) {
-                List<a.C1003a> b2 = c.a.r0.k1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                List<a.C1001a> b2 = c.a.r0.k1.l.c.a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
                 if (b2 != null && b2.size() > 0 && (chatMessage instanceof OfficialChatMessage)) {
                     int i2 = 0;
                     while (i2 < b2.size()) {
-                        a.C1003a c1003a = b2.get(i2);
-                        c.a.r0.k1.l.c.b a2 = c.a.r0.k1.l.c.b.a(chatMessage, c1003a);
-                        if (a2 != null && a2.e() != null && !StringUtils.isNull(a2.e().f21478a)) {
-                            a2.j(i2 == 0 && !StringUtils.isNull(c1003a.f21480c));
+                        a.C1001a c1001a = b2.get(i2);
+                        c.a.r0.k1.l.c.b a2 = c.a.r0.k1.l.c.b.a(chatMessage, c1001a);
+                        if (a2 != null && a2.e() != null && !StringUtils.isNull(a2.e().f21492a)) {
+                            a2.j(i2 == 0 && !StringUtils.isNull(c1001a.f21494c));
                             arrayList.add(a2);
                         }
                         i2++;
@@ -263,7 +263,7 @@ public class g {
                 }
             }
             h(arrayList);
-            d dVar = this.f21299b;
+            d dVar = this.f21313b;
             if (dVar != null) {
                 dVar.a(arrayList);
             }
@@ -278,19 +278,19 @@ public class g {
         ArrayList arrayList = new ArrayList(list.size());
         for (c.a.r0.k1.l.c.b bVar : list) {
             if (bVar.g()) {
-                arrayList.add(Long.valueOf(bVar.e().f21485h));
+                arrayList.add(Long.valueOf(bVar.e().f21499h));
             }
         }
         BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();
         broadcastMajorHistoryRequestMessage.queryType = 2;
         broadcastMajorHistoryRequestMessage.bcastIds = arrayList;
-        this.f21298a.sendMessage(broadcastMajorHistoryRequestMessage);
+        this.f21312a.sendMessage(broadcastMajorHistoryRequestMessage);
     }
 
     public void i(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f21299b = dVar;
+            this.f21313b = dVar;
         }
     }
 }

@@ -2,9 +2,9 @@ package c.a.r0.p1.s;
 
 import android.text.TextUtils;
 import c.a.e.e.d.l;
-import c.a.q0.d1.i0;
-import c.a.q0.d1.l0;
-import c.a.q0.d1.o;
+import c.a.q0.d1.j0;
+import c.a.q0.d1.m0;
+import c.a.q0.d1.r;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -23,13 +23,13 @@ public class c implements c.a.r0.p1.s.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LegoPageModel f23694a;
+    public LegoPageModel f23710a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.p1.s.b f23695b;
+    public c.a.r0.p1.s.b f23711b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LegoPageModel.b f23696c;
+    public LegoPageModel.b f23712c;
 
     /* loaded from: classes3.dex */
     public class a implements LegoPageModel.b {
@@ -37,7 +37,7 @@ public class c implements c.a.r0.p1.s.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f23697a;
+        public final /* synthetic */ c f23713a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -54,50 +54,50 @@ public class c implements c.a.r0.p1.s.a {
                     return;
                 }
             }
-            this.f23697a = cVar;
+            this.f23713a = cVar;
         }
 
         @Override // com.baidu.tieba.lego.model.LegoPageModel.b
         public void a(long j2, String str, DataRes dataRes, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), str, dataRes, Boolean.valueOf(z)}) == null) || this.f23697a.f23695b == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), str, dataRes, Boolean.valueOf(z)}) == null) || this.f23713a.f23711b == null) {
                 return;
             }
-            this.f23697a.f23695b.c(j2, str, dataRes, z);
+            this.f23713a.f23711b.c(j2, str, dataRes, z);
         }
 
         @Override // com.baidu.tieba.lego.model.LegoPageModel.b
         public void b(long j2, String str, int i2, String str2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), str, Integer.valueOf(i2), str2}) == null) || this.f23697a.f23695b == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), str, Integer.valueOf(i2), str2}) == null) || this.f23713a.f23711b == null) {
                 return;
             }
-            this.f23697a.f23695b.b(j2, str, str2, i2);
+            this.f23713a.f23711b.b(j2, str, str2, i2);
         }
 
         @Override // com.baidu.tieba.lego.model.LegoPageModel.b
         public void c(long j2, String str, DataRes dataRes, boolean z, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), str, dataRes, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || this.f23697a.f23695b == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), str, dataRes, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || this.f23713a.f23711b == null) {
                 return;
             }
-            this.f23697a.f23695b.a(true, dataRes, !z, j2, str, i2);
+            this.f23713a.f23711b.a(true, dataRes, !z, j2, str, i2);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends i0<DataRes> {
+    public class b extends j0<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f23698a;
+        public final /* synthetic */ l f23714a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f23699b;
+        public final /* synthetic */ long f23715b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f23700c;
+        public final /* synthetic */ String f23716c;
 
         public b(c cVar, l lVar, long j2, String str) {
             Interceptable interceptable = $ic;
@@ -114,23 +114,23 @@ public class c implements c.a.r0.p1.s.a {
                     return;
                 }
             }
-            this.f23698a = lVar;
-            this.f23699b = j2;
-            this.f23700c = str;
+            this.f23714a = lVar;
+            this.f23715b = j2;
+            this.f23716c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.i0
+        @Override // c.a.q0.d1.j0
         /* renamed from: a */
         public DataRes doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                l lVar = this.f23698a;
+                l lVar = this.f23714a;
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f23699b);
+                sb.append(this.f23715b);
                 sb.append("_");
-                sb.append(TextUtils.isEmpty(this.f23700c) ? "" : this.f23700c);
+                sb.append(TextUtils.isEmpty(this.f23716c) ? "" : this.f23716c);
                 byte[] bArr = (byte[]) lVar.get(sb.toString());
                 if (bArr != null && bArr.length != 0) {
                     try {
@@ -146,20 +146,20 @@ public class c implements c.a.r0.p1.s.a {
 
     /* renamed from: c.a.r0.p1.s.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1105c implements o<DataRes> {
+    public class C1103c implements r<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f23701a;
+        public final /* synthetic */ long f23717a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f23702b;
+        public final /* synthetic */ String f23718b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f23703c;
+        public final /* synthetic */ c f23719c;
 
-        public C1105c(c cVar, long j2, String str) {
+        public C1103c(c cVar, long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,18 +174,18 @@ public class c implements c.a.r0.p1.s.a {
                     return;
                 }
             }
-            this.f23703c = cVar;
-            this.f23701a = j2;
-            this.f23702b = str;
+            this.f23719c = cVar;
+            this.f23717a = j2;
+            this.f23718b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.d1.o
+        @Override // c.a.q0.d1.r
         /* renamed from: a */
         public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
-                this.f23703c.f(this.f23701a, this.f23702b, dataRes);
+                this.f23719c.f(this.f23717a, this.f23718b, dataRes);
             }
         }
     }
@@ -205,10 +205,10 @@ public class c implements c.a.r0.p1.s.a {
                 return;
             }
         }
-        this.f23696c = new a(this);
+        this.f23712c = new a(this);
         LegoPageModel legoPageModel = new LegoPageModel(tbPageContext, bdUniqueId);
-        this.f23694a = legoPageModel;
-        legoPageModel.z(this.f23696c);
+        this.f23710a = legoPageModel;
+        legoPageModel.z(this.f23712c);
     }
 
     @Override // c.a.r0.p1.s.a
@@ -216,7 +216,7 @@ public class c implements c.a.r0.p1.s.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048576, this, j2, str) == null) {
             c.a.q0.s.r.a.f();
-            l0.b(new b(this, c.a.q0.s.r.a.d("tb.lego_update"), j2, str), new C1105c(this, j2, str));
+            m0.b(new b(this, c.a.q0.s.r.a.d("tb.lego_update"), j2, str), new C1103c(this, j2, str));
         }
     }
 
@@ -224,7 +224,7 @@ public class c implements c.a.r0.p1.s.a {
     public void b(c.a.r0.p1.s.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f23695b = bVar;
+            this.f23711b = bVar;
         }
     }
 
@@ -232,7 +232,7 @@ public class c implements c.a.r0.p1.s.a {
     public void c(int i2, long j2, String str, int i3, String str2) {
         LegoPageModel legoPageModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, Integer.valueOf(i3), str2}) == null) || (legoPageModel = this.f23694a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, Integer.valueOf(i3), str2}) == null) || (legoPageModel = this.f23710a) == null) {
             return;
         }
         legoPageModel.x(i2, j2, str, i3, str2);
@@ -243,10 +243,10 @@ public class c implements c.a.r0.p1.s.a {
         if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), str, dataRes}) == null) || j2 < 0) {
             return;
         }
-        c.a.r0.p1.s.b bVar = this.f23695b;
+        c.a.r0.p1.s.b bVar = this.f23711b;
         if (bVar != null) {
             bVar.a(false, dataRes, false, j2, str, 1);
         }
-        this.f23694a.x(2, j2, str, 1, "");
+        this.f23710a.x(2, j2, str, 1, "");
     }
 }

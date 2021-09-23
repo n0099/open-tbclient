@@ -44,7 +44,7 @@ public class DecoderJNI implements INoProGuard {
                 }
             }
             this.context = r0;
-            this.lastStatus = a.f63797c;
+            this.lastStatus = a.f64108c;
             this.fresh = true;
             long[] jArr = {0, i2};
             this.inputBuffer = WebSettingsGlobalBlink.kernelBrotliCreate(jArr);
@@ -57,7 +57,7 @@ public class DecoderJNI implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 long j2 = this.context[1];
-                this.lastStatus = j2 == 1 ? a.f63796b : j2 == 2 ? a.f63797c : j2 == 3 ? a.f63798d : j2 == 4 ? a.f63799e : a.f63795a;
+                this.lastStatus = j2 == 1 ? a.f64107b : j2 == 2 ? a.f64108c : j2 == 3 ? a.f64109d : j2 == 4 ? a.f64110e : a.f64106a;
             }
         }
 
@@ -106,7 +106,7 @@ public class DecoderJNI implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 if (this.context[0] != 0) {
-                    if (this.lastStatus == a.f63798d || hasOutput()) {
+                    if (this.lastStatus == a.f64109d || hasOutput()) {
                         this.fresh = false;
                         ByteBuffer kernelBrotliPull = WebSettingsGlobalBlink.kernelBrotliPull(this.context);
                         parseStatus();
@@ -129,9 +129,9 @@ public class DecoderJNI implements INoProGuard {
                     throw new IOException("brotli decoder is already destroyed");
                 }
                 a aVar = this.lastStatus;
-                if (aVar != a.f63797c && aVar != a.f63799e) {
+                if (aVar != a.f64108c && aVar != a.f64110e) {
                     throw new IOException("pushing input to decoder in " + this.lastStatus + " state");
-                } else if (this.lastStatus == a.f63799e && i2 != 0) {
+                } else if (this.lastStatus == a.f64110e && i2 != 0) {
                     throw new IOException("pushing input to decoder in OK state");
                 } else {
                     this.fresh = false;
@@ -148,22 +148,22 @@ public class DecoderJNI implements INoProGuard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f63795a;
+        public static final a f64106a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f63796b;
+        public static final a f64107b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f63797c;
+        public static final a f64108c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f63798d;
+        public static final a f64109d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f63799e;
+        public static final a f64110e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f63800f;
+        public static final /* synthetic */ a[] f64111f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -179,13 +179,13 @@ public class DecoderJNI implements INoProGuard {
                     return;
                 }
             }
-            f63795a = new a("ERROR", 0);
-            f63796b = new a(AdDownloadApkUtils.DL_STATUS_DONE, 1);
-            f63797c = new a("NEEDS_MORE_INPUT", 2);
-            f63798d = new a("NEEDS_MORE_OUTPUT", 3);
+            f64106a = new a("ERROR", 0);
+            f64107b = new a(AdDownloadApkUtils.DL_STATUS_DONE, 1);
+            f64108c = new a("NEEDS_MORE_INPUT", 2);
+            f64109d = new a("NEEDS_MORE_OUTPUT", 3);
             a aVar = new a(StatHelper.SENSOR_OK, 4);
-            f63799e = aVar;
-            f63800f = new a[]{f63795a, f63796b, f63797c, f63798d, aVar};
+            f64110e = aVar;
+            f64111f = new a[]{f64106a, f64107b, f64108c, f64109d, aVar};
         }
 
         public a(String str, int i2) {
@@ -216,7 +216,7 @@ public class DecoderJNI implements INoProGuard {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f63800f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f64111f.clone() : (a[]) invokeV.objValue;
         }
     }
 

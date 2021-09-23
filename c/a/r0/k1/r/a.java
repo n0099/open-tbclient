@@ -24,42 +24,42 @@ public class a extends d<AddGroupActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f21560a;
+    public View f21574a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f21561b;
+    public NavigationBar f21575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f21562c;
+    public View f21576c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EditText f21563d;
+    public EditText f21577d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageButton f21564e;
+    public ImageButton f21578e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f21565f;
+    public ProgressBar f21579f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f21566g;
+    public View f21580g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f21567h;
+    public View f21581h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AddGroupActivity f21568i;
+    public AddGroupActivity f21582i;
 
     /* renamed from: c.a.r0.k1.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1009a implements TextWatcher {
+    public class C1007a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21569e;
+        public final /* synthetic */ a f21583e;
 
-        public C1009a(a aVar) {
+        public C1007a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,14 +74,14 @@ public class a extends d<AddGroupActivity> {
                     return;
                 }
             }
-            this.f21569e = aVar;
+            this.f21583e = aVar;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f21569e.f21566g.setTag(editable.toString().trim());
+                this.f21583e.f21580g.setTag(editable.toString().trim());
             }
         }
 
@@ -96,10 +96,10 @@ public class a extends d<AddGroupActivity> {
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-                if (this.f21569e.f21563d.length() > 0) {
-                    this.f21569e.f21564e.setVisibility(0);
+                if (this.f21583e.f21577d.length() > 0) {
+                    this.f21583e.f21578e.setVisibility(0);
                 } else {
-                    this.f21569e.f21564e.setVisibility(8);
+                    this.f21583e.f21578e.setVisibility(8);
                 }
             }
         }
@@ -123,31 +123,31 @@ public class a extends d<AddGroupActivity> {
                 return;
             }
         }
-        this.f21560a = null;
-        this.f21561b = null;
-        this.f21562c = null;
-        this.f21563d = null;
-        this.f21564e = null;
-        this.f21565f = null;
-        this.f21566g = null;
-        this.f21568i = null;
-        this.f21568i = addGroupActivity;
+        this.f21574a = null;
+        this.f21575b = null;
+        this.f21576c = null;
+        this.f21577d = null;
+        this.f21578e = null;
+        this.f21579f = null;
+        this.f21580g = null;
+        this.f21582i = null;
+        this.f21582i = addGroupActivity;
         initUI();
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f21568i.getLayoutMode().k(i2 == 1);
-            this.f21568i.getLayoutMode().j(this.f21560a);
-            this.f21561b.onChangeSkinType(this.f21568i.getPageContext(), i2);
+            this.f21582i.getLayoutMode().k(i2 == 1);
+            this.f21582i.getLayoutMode().j(this.f21574a);
+            this.f21575b.onChangeSkinType(this.f21582i.getPageContext(), i2);
         }
     }
 
     public void g() {
         EditText editText;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (editText = this.f21563d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (editText = this.f21577d) == null) {
             return;
         }
         editText.setText("");
@@ -156,60 +156,60 @@ public class a extends d<AddGroupActivity> {
     public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21562c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21576c : (View) invokeV.objValue;
     }
 
     public View i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21564e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21578e : (View) invokeV.objValue;
     }
 
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f21568i.setContentView(R.layout.im_add_group_activity);
-            this.f21560a = this.f21568i.findViewById(R.id.addgroup_rootlayout);
-            NavigationBar navigationBar = (NavigationBar) this.f21568i.findViewById(R.id.addgroup_navigationbar);
-            this.f21561b = navigationBar;
-            this.f21562c = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f21561b.setTitleText(this.f21568i.getResources().getString(R.string.add_group_title_main));
-            EditText editText = (EditText) this.f21568i.findViewById(R.id.addgroup_input);
-            this.f21563d = editText;
+            this.f21582i.setContentView(R.layout.im_add_group_activity);
+            this.f21574a = this.f21582i.findViewById(R.id.addgroup_rootlayout);
+            NavigationBar navigationBar = (NavigationBar) this.f21582i.findViewById(R.id.addgroup_navigationbar);
+            this.f21575b = navigationBar;
+            this.f21576c = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f21575b.setTitleText(this.f21582i.getResources().getString(R.string.add_group_title_main));
+            EditText editText = (EditText) this.f21582i.findViewById(R.id.addgroup_input);
+            this.f21577d = editText;
             editText.setInputType(2);
-            this.f21564e = (ImageButton) this.f21568i.findViewById(R.id.addgroup_delbtn);
-            this.f21566g = this.f21568i.findViewById(R.id.addgroup_searchbutton);
-            this.f21567h = this.f21568i.findViewById(R.id.addgroup_vcode);
-            this.f21563d.addTextChangedListener(new C1009a(this));
-            this.f21566g = this.f21568i.findViewById(R.id.addgroup_searchbutton);
-            this.f21565f = (ProgressBar) this.f21568i.findViewById(R.id.addgroup_progress);
-            this.f21562c.setOnClickListener(this.f21568i);
-            this.f21564e.setOnClickListener(this.f21568i);
-            this.f21566g.setOnClickListener(this.f21568i);
-            this.f21567h.setOnClickListener(this.f21568i);
+            this.f21578e = (ImageButton) this.f21582i.findViewById(R.id.addgroup_delbtn);
+            this.f21580g = this.f21582i.findViewById(R.id.addgroup_searchbutton);
+            this.f21581h = this.f21582i.findViewById(R.id.addgroup_vcode);
+            this.f21577d.addTextChangedListener(new C1007a(this));
+            this.f21580g = this.f21582i.findViewById(R.id.addgroup_searchbutton);
+            this.f21579f = (ProgressBar) this.f21582i.findViewById(R.id.addgroup_progress);
+            this.f21576c.setOnClickListener(this.f21582i);
+            this.f21578e.setOnClickListener(this.f21582i);
+            this.f21580g.setOnClickListener(this.f21582i);
+            this.f21581h.setOnClickListener(this.f21582i);
             if (TbadkCoreApplication.getInst().appResponseToCmd(2902030)) {
                 return;
             }
-            this.f21567h.setVisibility(8);
+            this.f21581h.setVisibility(8);
         }
     }
 
     public View j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21566g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21580g : (View) invokeV.objValue;
     }
 
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21567h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21581h : (View) invokeV.objValue;
     }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f21565f.setVisibility(z ? 0 : 8);
+            this.f21579f.setVisibility(z ? 0 : 8);
         }
     }
 }

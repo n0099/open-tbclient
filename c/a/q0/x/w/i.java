@@ -14,6 +14,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AtListActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
@@ -31,13 +33,13 @@ public class i extends c.a.q0.x.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f15165a;
+    public boolean f15172a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15166b;
+    public String f15173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f15167c;
+    public boolean f15174c;
 
     /* loaded from: classes3.dex */
     public class a implements c.a.q0.x.b {
@@ -45,13 +47,13 @@ public class i extends c.a.q0.x.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f15168e;
+        public final /* synthetic */ h f15175e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f15169f;
+        public final /* synthetic */ EditorTools f15176f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f15170g;
+        public final /* synthetic */ i f15177g;
 
         public a(i iVar, h hVar, EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -68,9 +70,9 @@ public class i extends c.a.q0.x.c {
                     return;
                 }
             }
-            this.f15170g = iVar;
-            this.f15168e = hVar;
-            this.f15169f = editorTools;
+            this.f15177g = iVar;
+            this.f15175e = hVar;
+            this.f15176f = editorTools;
         }
 
         @Override // c.a.q0.x.b
@@ -81,45 +83,62 @@ public class i extends c.a.q0.x.c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                 return;
             }
-            int i2 = aVar.f15079a;
+            int i2 = aVar.f15086a;
             if (i2 == 4) {
-                Object obj = aVar.f15081c;
+                Object obj = aVar.f15088c;
                 if (obj instanceof j) {
-                    this.f15168e.Y((j) obj);
-                    this.f15168e.X(((j) aVar.f15081c).f15173c);
+                    this.f15175e.a0((j) obj);
+                    this.f15175e.Z(((j) aVar.f15088c).f15180c);
                 } else if (obj instanceof String) {
-                    this.f15168e.S((String) obj);
+                    this.f15175e.T((String) obj);
                 } else if (obj instanceof SpanGroupManager) {
-                    this.f15168e.S(obj.toString());
-                    this.f15168e.X((SpanGroupManager) aVar.f15081c);
+                    this.f15175e.T(obj.toString());
+                    this.f15175e.Z((SpanGroupManager) aVar.f15088c);
                 }
-                this.f15170g.f15165a = false;
+                this.f15177g.f15172a = false;
             } else if (i2 == 16) {
-                if (this.f15170g.f15165a) {
-                    this.f15168e.t().showToast(R.string.over_limit_tip);
+                if (this.f15177g.f15172a) {
+                    this.f15175e.t().showToast(R.string.over_limit_tip);
                 }
-                if (this.f15170g.h(this.f15168e.t(), 11025)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.f15168e.t().getPageActivity(), CyberPlayerManager.MEDIA_INFO_WEAK_NETWORK_BEST_RANK, true)));
+                if (this.f15177g.h(this.f15175e.t(), 11025)) {
+                    AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.f15175e.t().getPageActivity(), CyberPlayerManager.MEDIA_INFO_WEAK_NETWORK_BEST_RANK, true);
+                    if (this.f15175e.v() != null) {
+                        atListActivityConfig.setSelectedAtList(this.f15175e.v().t());
+                    }
+                    EditorTools editorTools = this.f15176f;
+                    if (editorTools != null) {
+                        atListActivityConfig.setFromTid(editorTools.getTid());
+                        atListActivityConfig.setFromFid(String.valueOf(this.f15176f.getFid()));
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
+                    StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+                    statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                    EditorTools editorTools2 = this.f15176f;
+                    if (editorTools2 != null) {
+                        statisticItem.addParam("tid", editorTools2.getTid());
+                        statisticItem.addParam("fid", this.f15176f.getFid());
+                    }
+                    TiebaStatic.log(statisticItem);
                 }
             } else if (i2 == 7) {
-                this.f15168e.t().showToast(R.string.over_limit_tip);
-                this.f15170g.f15165a = true;
+                this.f15175e.t().showToast(R.string.over_limit_tip);
+                this.f15177g.f15172a = true;
             } else if (i2 == 8) {
-                if (this.f15170g.h(this.f15168e.t(), CyberPlayerManager.MEDIA_INFO_DISABLE_FILECACHE)) {
-                    this.f15168e.F();
+                if (this.f15177g.h(this.f15175e.t(), CyberPlayerManager.MEDIA_INFO_DISABLE_FILECACHE)) {
+                    this.f15175e.G();
                     TiebaStatic.log(TbadkCoreStatisticKey.SUBPB_CLICK_SEND);
                 }
             } else if (i2 == 10) {
-                Object obj2 = aVar.f15081c;
+                Object obj2 = aVar.f15088c;
                 if (obj2 instanceof VoiceData$VoiceModel) {
-                    this.f15168e.b0((VoiceData$VoiceModel) obj2);
-                    this.f15168e.v(null);
+                    this.f15175e.d0((VoiceData$VoiceModel) obj2);
+                    this.f15175e.w(null);
                 }
             } else if (i2 != 11) {
             } else {
-                this.f15168e.b0(null);
-                EditorTools editorTools = this.f15169f;
-                if (editorTools == null || (findToolById = editorTools.findToolById(6)) == null || (nVar = findToolById.k) == null) {
+                this.f15175e.d0(null);
+                EditorTools editorTools3 = this.f15176f;
+                if (editorTools3 == null || (findToolById = editorTools3.findToolById(6)) == null || (nVar = findToolById.k) == null) {
                     return;
                 }
                 nVar.onAction(new c.a.q0.x.a(52, 0, null));
@@ -142,9 +161,9 @@ public class i extends c.a.q0.x.c {
                 return;
             }
         }
-        this.f15165a = false;
-        this.f15167c = false;
-        this.f15167c = z;
+        this.f15172a = false;
+        this.f15174c = false;
+        this.f15174c = z;
     }
 
     @Override // c.a.q0.x.c
@@ -156,11 +175,11 @@ public class i extends c.a.q0.x.c {
             editorTools.setIsFromPb(true);
             editorTools.setBarMaxLauCount(5);
             editorTools.setBackgroundColorId(0);
-            editorTools.setBarLauncherType(this.f15167c ? 5 : 2);
+            editorTools.setBarLauncherType(this.f15174c ? 5 : 2);
             editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
             editorTools.showLinePositionTop(false);
             h hVar = new h(editorTools);
-            hVar.v = this.f15167c;
+            hVar.v = this.f15174c;
             return hVar;
         }
         return (c.a.q0.x.e) invokeL.objValue;
@@ -195,18 +214,18 @@ public class i extends c.a.q0.x.c {
             m findToolById = a2.findToolById(5);
             if (findToolById != null) {
                 findToolById.f(false);
-                findToolById.f15094j = 1;
+                findToolById.f15101j = 1;
             }
-            if (!this.f15167c) {
+            if (!this.f15174c) {
                 if (c.a.r0.j3.q0.c.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
-                    mVar.f15094j = 2;
+                    mVar.f15101j = 2;
                     a2.addTool(mVar);
                 }
                 a2.addTool(new c.a.q0.x.o.a(a2.getContext(), 4));
             }
-            f fVar = new f(a2.getContext(), this.f15167c, false);
-            if (!k.isEmpty(this.f15166b)) {
-                fVar.l(this.f15166b);
+            f fVar = new f(a2.getContext(), this.f15174c, false, CyberPlayerManager.MEDIA_INFO_WEAK_NETWORK_BEST_RANK);
+            if (!k.isEmpty(this.f15173b)) {
+                fVar.l(this.f15173b);
             }
             a2.addTool(fVar);
             a2.build();
@@ -232,7 +251,7 @@ public class i extends c.a.q0.x.c {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f15166b = str;
+            this.f15173b = str;
         }
     }
 }

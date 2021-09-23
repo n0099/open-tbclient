@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.q0.d1.c0;
+import c.a.q0.d1.f0;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -27,20 +27,20 @@ public class c {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public View f19790a;
+    public View f19805a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f19791b;
+    public ViewGroup f19806b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EMTextView f19792c;
+    public EMTextView f19807c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public c0<String> f19793d;
+    public f0<String> f19808d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f19794e;
+    public boolean f19809e;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -62,28 +62,28 @@ public class c {
                 return;
             }
         }
-        this.f19793d = c0.b();
-        this.f19794e = false;
-        this.f19790a = LayoutInflater.from(context).inflate(R.layout.new_pb_notice_bar, (ViewGroup) null);
+        this.f19808d = f0.b();
+        this.f19809e = false;
+        this.f19805a = LayoutInflater.from(context).inflate(R.layout.new_pb_notice_bar, (ViewGroup) null);
         b();
     }
 
     public void a(@NonNull BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdTypeListView) == null) || this.f19794e) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdTypeListView) == null) || this.f19809e) {
             return;
         }
-        this.f19794e = true;
-        this.f19790a.setVisibility(0);
-        bdTypeListView.addHeaderView(this.f19790a, 1);
+        this.f19809e = true;
+        this.f19805a.setVisibility(0);
+        bdTypeListView.addHeaderView(this.f19805a, 1);
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f19791b = (ViewGroup) this.f19790a.findViewById(R.id.container);
-            EMTextView eMTextView = (EMTextView) this.f19790a.findViewById(R.id.tv_pb_notice_bar);
-            this.f19792c = eMTextView;
+            this.f19806b = (ViewGroup) this.f19805a.findViewById(R.id.container);
+            EMTextView eMTextView = (EMTextView) this.f19805a.findViewById(R.id.tv_pb_notice_bar);
+            this.f19807c = eMTextView;
             c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(eMTextView);
             d2.x(R.dimen.M_H_X003);
             d2.w(R.color.CAM_X0109);
@@ -94,19 +94,19 @@ public class c {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f19791b);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f19806b);
             d2.o(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
-            SkinManager.setViewTextColor(this.f19792c, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f19807c, R.color.CAM_X0109);
         }
     }
 
     public void d(@NonNull BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && this.f19794e) {
-            this.f19794e = false;
-            this.f19790a.setVisibility(8);
-            bdTypeListView.removeHeaderView(this.f19790a);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && this.f19809e) {
+            this.f19809e = false;
+            this.f19805a.setVisibility(8);
+            bdTypeListView.removeHeaderView(this.f19805a);
         }
     }
 
@@ -116,11 +116,11 @@ public class c {
             boolean z = i2 == 4;
             boolean m0 = eVar.m0(z);
             if (m0) {
-                this.f19792c.setText(eVar.x());
-                this.f19790a.setVisibility(0);
+                this.f19807c.setText(eVar.x());
+                this.f19805a.setVisibility(0);
                 f(eVar.Q(), eVar.n(), eVar.o(), z);
             } else {
-                this.f19790a.setVisibility(8);
+                this.f19805a.setVisibility(8);
             }
             if (aVar != null) {
                 aVar.a(m0);
@@ -130,7 +130,7 @@ public class c {
 
     public final void f(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) && this.f19793d.a(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) && this.f19808d.a(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR)) {
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR).param("tid", str).param("fid", str2).param("fname", str3).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_source", z ? 1 : 2));
         }
     }
@@ -150,9 +150,9 @@ public class c {
                 return;
             }
         }
-        this.f19793d = c0.b();
-        this.f19794e = false;
-        this.f19790a = view;
+        this.f19808d = f0.b();
+        this.f19809e = false;
+        this.f19805a = view;
         b();
     }
 }

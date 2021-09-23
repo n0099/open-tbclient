@@ -19,23 +19,23 @@ public abstract class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f7290f;
+    public static final boolean f7298f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.l2.d.b f7291a;
+    public c.a.p0.a.l2.d.b f7299a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.l2.b f7292b;
+    public c.a.p0.a.l2.b f7300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f7293c;
+    public volatile boolean f7301c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HandlerThread f7294d;
+    public HandlerThread f7302d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f7295e;
+    public Handler f7303e;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -43,7 +43,7 @@ public abstract class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f7296a;
+        public final /* synthetic */ b f7304a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, Looper looper) {
@@ -63,18 +63,18 @@ public abstract class b {
                     return;
                 }
             }
-            this.f7296a = bVar;
+            this.f7304a = bVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(@NonNull Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
-                this.f7296a.f();
-                if (!this.f7296a.f7293c) {
-                    this.f7296a.f7295e.removeMessages(101);
+                this.f7304a.f();
+                if (!this.f7304a.f7301c) {
+                    this.f7304a.f7303e.removeMessages(101);
                 } else {
-                    this.f7296a.f7291a.c();
+                    this.f7304a.f7299a.c();
                 }
             }
         }
@@ -93,7 +93,7 @@ public abstract class b {
                 return;
             }
         }
-        f7290f = k.f7077a;
+        f7298f = k.f7085a;
     }
 
     public b(c.a.p0.a.l2.b bVar) {
@@ -111,30 +111,30 @@ public abstract class b {
                 return;
             }
         }
-        this.f7291a = new c.a.p0.a.l2.d.b();
-        this.f7292b = bVar;
+        this.f7299a = new c.a.p0.a.l2.d.b();
+        this.f7300b = bVar;
     }
 
     public synchronized void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (this.f7293c) {
+                if (this.f7301c) {
                     return;
                 }
                 d();
-                this.f7295e.sendMessage(this.f7295e.obtainMessage(101));
+                this.f7303e.sendMessage(this.f7303e.obtainMessage(101));
             }
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f7295e == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f7303e == null) {
             HandlerThread handlerThread = new HandlerThread("cookieSync");
-            this.f7294d = handlerThread;
+            this.f7302d = handlerThread;
             handlerThread.start();
-            this.f7295e = new a(this, this.f7294d.getLooper());
+            this.f7303e = new a(this, this.f7302d.getLooper());
         }
     }
 
@@ -142,12 +142,12 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f7293c = true;
-                if (this.f7294d != null) {
-                    this.f7294d.quitSafely();
+                this.f7301c = true;
+                if (this.f7302d != null) {
+                    this.f7302d.quitSafely();
                 }
-                this.f7295e = null;
-                this.f7294d = null;
+                this.f7303e = null;
+                this.f7302d = null;
             }
         }
     }
@@ -158,11 +158,11 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                if (this.f7293c) {
+                if (this.f7301c) {
                     return;
                 }
                 d();
-                this.f7295e.sendMessageDelayed(this.f7295e.obtainMessage(101), 5000L);
+                this.f7303e.sendMessageDelayed(this.f7303e.obtainMessage(101), 5000L);
             }
         }
     }

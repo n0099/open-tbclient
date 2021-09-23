@@ -12,13 +12,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadState f10601a;
+    public DownloadState f10609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10602b;
+    public String f10610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10603c;
+    public int f10611c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class a {
                 return;
             }
         }
-        this.f10601a = DownloadState.NOT_START;
-        this.f10603c = Integer.parseInt("0");
+        this.f10609a = DownloadState.NOT_START;
+        this.f10611c = Integer.parseInt("0");
     }
 
     public static a a(String str, String str2) {
@@ -42,7 +42,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
             a aVar = new a();
-            aVar.f10602b = str2;
+            aVar.f10610b = str2;
             return aVar;
         }
         return (a) invokeLL.objValue;

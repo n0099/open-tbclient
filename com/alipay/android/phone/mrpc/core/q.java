@@ -63,35 +63,35 @@ public final class q implements Callable<u> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final HttpRequestRetryHandler f35756e;
+    public static final HttpRequestRetryHandler f35779e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l f35757a;
+    public l f35780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f35758b;
+    public Context f35781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o f35759c;
+    public o f35782c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35760d;
+    public String f35783d;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpUriRequest f35761f;
+    public HttpUriRequest f35784f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpContext f35762g;
+    public HttpContext f35785g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CookieStore f35763h;
+    public CookieStore f35786h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CookieManager f35764i;
+    public CookieManager f35787i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AbstractHttpEntity f35765j;
+    public AbstractHttpEntity f35788j;
     public HttpHost k;
     public URL l;
     public int m;
@@ -113,7 +113,7 @@ public final class q implements Callable<u> {
                 return;
             }
         }
-        f35756e = new ad();
+        f35779e = new ad();
     }
 
     public q(l lVar, o oVar) {
@@ -131,15 +131,15 @@ public final class q implements Callable<u> {
                 return;
             }
         }
-        this.f35762g = new BasicHttpContext();
-        this.f35763h = new BasicCookieStore();
+        this.f35785g = new BasicHttpContext();
+        this.f35786h = new BasicCookieStore();
         this.m = 0;
         this.n = false;
         this.o = false;
         this.p = null;
-        this.f35757a = lVar;
-        this.f35758b = lVar.f35734a;
-        this.f35759c = oVar;
+        this.f35780a = lVar;
+        this.f35781b = lVar.f35757a;
+        this.f35782c = oVar;
     }
 
     public static long a(String[] strArr) {
@@ -181,68 +181,69 @@ public final class q implements Callable<u> {
 
     private u a(HttpResponse httpResponse, int i2, String str) {
         InterceptResult invokeLIL;
+        ByteArrayOutputStream byteArrayOutputStream;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, this, httpResponse, i2, str)) != null) {
-            return (u) invokeLIL.objValue;
-        }
-        new StringBuilder("开始handle，handleResponse-1,").append(Thread.currentThread().getId());
-        HttpEntity entity = httpResponse.getEntity();
-        ByteArrayOutputStream byteArrayOutputStream = null;
-        String str3 = null;
-        if (entity == null || httpResponse.getStatusLine().getStatusCode() != 200) {
-            if (entity == null) {
-                httpResponse.getStatusLine().getStatusCode();
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, this, httpResponse, i2, str)) == null) {
+            new StringBuilder("开始handle，handleResponse-1,").append(Thread.currentThread().getId());
+            HttpEntity entity = httpResponse.getEntity();
+            ByteArrayOutputStream byteArrayOutputStream2 = null;
+            String str3 = null;
+            if (entity == null || httpResponse.getStatusLine().getStatusCode() != 200) {
+                if (entity == null) {
+                    httpResponse.getStatusLine().getStatusCode();
+                    return null;
+                }
                 return null;
             }
-            return null;
-        }
-        new StringBuilder("200，开始处理，handleResponse-2,threadid = ").append(Thread.currentThread().getId());
-        try {
-            ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+            new StringBuilder("200，开始处理，handleResponse-2,threadid = ").append(Thread.currentThread().getId());
+            try {
+                byteArrayOutputStream = new ByteArrayOutputStream();
+            } catch (Throwable th) {
+                th = th;
+            }
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                a(entity, byteArrayOutputStream2);
-                byte[] byteArray = byteArrayOutputStream2.toByteArray();
+                a(entity, byteArrayOutputStream);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
                 this.o = false;
-                this.f35757a.c(System.currentTimeMillis() - currentTimeMillis);
-                this.f35757a.a(byteArray.length);
+                this.f35780a.c(System.currentTimeMillis() - currentTimeMillis);
+                this.f35780a.a(byteArray.length);
                 new StringBuilder("res:").append(byteArray.length);
                 p pVar = new p(a(httpResponse), i2, str, byteArray);
                 long b2 = b(httpResponse);
                 Header contentType = httpResponse.getEntity().getContentType();
                 if (contentType != null) {
                     HashMap<String, String> a2 = a(contentType.getValue());
-                    str3 = a2.get("Content-Type");
-                    str2 = a2.get("charset");
+                    str3 = a2.get("charset");
+                    str2 = a2.get("Content-Type");
                 } else {
                     str2 = null;
                 }
-                pVar.b(str3);
-                pVar.a(str2);
+                pVar.b(str2);
+                pVar.a(str3);
                 pVar.a(System.currentTimeMillis());
                 pVar.b(b2);
                 try {
-                    byteArrayOutputStream2.close();
+                    byteArrayOutputStream.close();
                     return pVar;
                 } catch (IOException e2) {
                     throw new RuntimeException("ArrayOutputStream close error!", e2.getCause());
                 }
-            } catch (Throwable th) {
-                th = th;
-                byteArrayOutputStream = byteArrayOutputStream2;
-                if (byteArrayOutputStream != null) {
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
                     try {
-                        byteArrayOutputStream.close();
+                        byteArrayOutputStream2.close();
                     } catch (IOException e3) {
                         throw new RuntimeException("ArrayOutputStream close error!", e3.getCause());
                     }
                 }
                 throw th;
             }
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return (u) invokeLIL.objValue;
     }
 
     public static HashMap<String, String> a(String str) {
@@ -264,19 +265,17 @@ public final class q implements Callable<u> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, httpEntity, outputStream) == null) {
             InputStream a2 = b.a(httpEntity);
-            long contentLength = httpEntity.getContentLength();
+            httpEntity.getContentLength();
             try {
                 try {
                     byte[] bArr = new byte[2048];
                     while (true) {
                         int read = a2.read(bArr);
-                        if (read == -1 || this.f35759c.h()) {
+                        if (read == -1 || this.f35782c.h()) {
                             break;
                         }
                         outputStream.write(bArr, 0, read);
-                        if (this.f35759c.f() != null) {
-                            int i2 = (contentLength > 0L ? 1 : (contentLength == 0L ? 0 : -1));
-                        }
+                        this.f35782c.f();
                     }
                     outputStream.flush();
                 } catch (Exception e2) {
@@ -316,8 +315,8 @@ public final class q implements Callable<u> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            String a2 = this.f35759c.a();
-            String str = this.f35760d;
+            String a2 = this.f35782c.a();
+            String str = this.f35783d;
             if (str != null) {
                 a2 = str;
             }
@@ -333,43 +332,43 @@ public final class q implements Callable<u> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            HttpUriRequest httpUriRequest = this.f35761f;
+            HttpUriRequest httpUriRequest = this.f35784f;
             if (httpUriRequest != null) {
                 return httpUriRequest;
             }
-            if (this.f35765j == null) {
-                byte[] b2 = this.f35759c.b();
-                String b3 = this.f35759c.b(AsyncHttpClient.ENCODING_GZIP);
+            if (this.f35788j == null) {
+                byte[] b2 = this.f35782c.b();
+                String b3 = this.f35782c.b(AsyncHttpClient.ENCODING_GZIP);
                 if (b2 != null) {
                     if (TextUtils.equals(b3, "true")) {
-                        this.f35765j = b.a(b2);
+                        this.f35788j = b.a(b2);
                     } else {
-                        this.f35765j = new ByteArrayEntity(b2);
+                        this.f35788j = new ByteArrayEntity(b2);
                     }
-                    this.f35765j.setContentType(this.f35759c.c());
+                    this.f35788j.setContentType(this.f35782c.c());
                 }
             }
-            AbstractHttpEntity abstractHttpEntity = this.f35765j;
+            AbstractHttpEntity abstractHttpEntity = this.f35788j;
             if (abstractHttpEntity != null) {
                 HttpPost httpPost = new HttpPost(b());
                 httpPost.setEntity(abstractHttpEntity);
-                this.f35761f = httpPost;
+                this.f35784f = httpPost;
             } else {
-                this.f35761f = new HttpGet(b());
+                this.f35784f = new HttpGet(b());
             }
-            return this.f35761f;
+            return this.f35784f;
         }
         return (HttpUriRequest) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x010a A[Catch: Exception -> 0x0266, NullPointerException -> 0x0288, IOException -> 0x02ac, UnknownHostException -> 0x02d6, HttpHostConnectException -> 0x0302, NoHttpResponseException -> 0x0326, SocketTimeoutException -> 0x0351, ConnectTimeoutException -> 0x037c, ConnectionPoolTimeoutException -> 0x03a6, SSLException -> 0x03d0, SSLPeerUnverifiedException -> 0x03fa, SSLHandshakeException -> 0x0424, URISyntaxException -> 0x044e, HttpException -> 0x045b, TryCatch #3 {HttpException -> 0x045b, NullPointerException -> 0x0288, SocketTimeoutException -> 0x0351, URISyntaxException -> 0x044e, UnknownHostException -> 0x02d6, SSLHandshakeException -> 0x0424, SSLPeerUnverifiedException -> 0x03fa, SSLException -> 0x03d0, NoHttpResponseException -> 0x0326, ConnectionPoolTimeoutException -> 0x03a6, ConnectTimeoutException -> 0x037c, HttpHostConnectException -> 0x0302, IOException -> 0x02ac, Exception -> 0x0266, blocks: (B:6:0x000a, B:20:0x0036, B:22:0x003e, B:24:0x0044, B:25:0x0048, B:27:0x004e, B:28:0x005c, B:30:0x00d4, B:32:0x00da, B:34:0x00e4, B:37:0x00ed, B:39:0x00f9, B:43:0x0103, B:45:0x010a, B:47:0x0125, B:49:0x012d, B:50:0x013a, B:52:0x0160, B:53:0x0167, B:55:0x016d, B:56:0x0171, B:58:0x0177, B:60:0x0183, B:64:0x01b2, B:65:0x01ce, B:73:0x01eb, B:74:0x0204, B:75:0x0205, B:77:0x020d, B:79:0x0213, B:83:0x021f, B:85:0x0223, B:87:0x0233, B:89:0x023b, B:91:0x0245, B:46:0x010d, B:93:0x025a, B:94:0x0265, B:9:0x001b, B:11:0x001f, B:13:0x0023, B:15:0x0029, B:18:0x0031), top: B:183:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x010d A[Catch: Exception -> 0x0266, NullPointerException -> 0x0288, IOException -> 0x02ac, UnknownHostException -> 0x02d6, HttpHostConnectException -> 0x0302, NoHttpResponseException -> 0x0326, SocketTimeoutException -> 0x0351, ConnectTimeoutException -> 0x037c, ConnectionPoolTimeoutException -> 0x03a6, SSLException -> 0x03d0, SSLPeerUnverifiedException -> 0x03fa, SSLHandshakeException -> 0x0424, URISyntaxException -> 0x044e, HttpException -> 0x045b, TryCatch #3 {HttpException -> 0x045b, NullPointerException -> 0x0288, SocketTimeoutException -> 0x0351, URISyntaxException -> 0x044e, UnknownHostException -> 0x02d6, SSLHandshakeException -> 0x0424, SSLPeerUnverifiedException -> 0x03fa, SSLException -> 0x03d0, NoHttpResponseException -> 0x0326, ConnectionPoolTimeoutException -> 0x03a6, ConnectTimeoutException -> 0x037c, HttpHostConnectException -> 0x0302, IOException -> 0x02ac, Exception -> 0x0266, blocks: (B:6:0x000a, B:20:0x0036, B:22:0x003e, B:24:0x0044, B:25:0x0048, B:27:0x004e, B:28:0x005c, B:30:0x00d4, B:32:0x00da, B:34:0x00e4, B:37:0x00ed, B:39:0x00f9, B:43:0x0103, B:45:0x010a, B:47:0x0125, B:49:0x012d, B:50:0x013a, B:52:0x0160, B:53:0x0167, B:55:0x016d, B:56:0x0171, B:58:0x0177, B:60:0x0183, B:64:0x01b2, B:65:0x01ce, B:73:0x01eb, B:74:0x0204, B:75:0x0205, B:77:0x020d, B:79:0x0213, B:83:0x021f, B:85:0x0223, B:87:0x0233, B:89:0x023b, B:91:0x0245, B:46:0x010d, B:93:0x025a, B:94:0x0265, B:9:0x001b, B:11:0x001f, B:13:0x0023, B:15:0x0029, B:18:0x0031), top: B:183:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x012d A[Catch: Exception -> 0x0266, NullPointerException -> 0x0288, IOException -> 0x02ac, UnknownHostException -> 0x02d6, HttpHostConnectException -> 0x0302, NoHttpResponseException -> 0x0326, SocketTimeoutException -> 0x0351, ConnectTimeoutException -> 0x037c, ConnectionPoolTimeoutException -> 0x03a6, SSLException -> 0x03d0, SSLPeerUnverifiedException -> 0x03fa, SSLHandshakeException -> 0x0424, URISyntaxException -> 0x044e, HttpException -> 0x045b, TryCatch #3 {HttpException -> 0x045b, NullPointerException -> 0x0288, SocketTimeoutException -> 0x0351, URISyntaxException -> 0x044e, UnknownHostException -> 0x02d6, SSLHandshakeException -> 0x0424, SSLPeerUnverifiedException -> 0x03fa, SSLException -> 0x03d0, NoHttpResponseException -> 0x0326, ConnectionPoolTimeoutException -> 0x03a6, ConnectTimeoutException -> 0x037c, HttpHostConnectException -> 0x0302, IOException -> 0x02ac, Exception -> 0x0266, blocks: (B:6:0x000a, B:20:0x0036, B:22:0x003e, B:24:0x0044, B:25:0x0048, B:27:0x004e, B:28:0x005c, B:30:0x00d4, B:32:0x00da, B:34:0x00e4, B:37:0x00ed, B:39:0x00f9, B:43:0x0103, B:45:0x010a, B:47:0x0125, B:49:0x012d, B:50:0x013a, B:52:0x0160, B:53:0x0167, B:55:0x016d, B:56:0x0171, B:58:0x0177, B:60:0x0183, B:64:0x01b2, B:65:0x01ce, B:73:0x01eb, B:74:0x0204, B:75:0x0205, B:77:0x020d, B:79:0x0213, B:83:0x021f, B:85:0x0223, B:87:0x0233, B:89:0x023b, B:91:0x0245, B:46:0x010d, B:93:0x025a, B:94:0x0265, B:9:0x001b, B:11:0x001f, B:13:0x0023, B:15:0x0029, B:18:0x0031), top: B:183:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0160 A[Catch: Exception -> 0x0266, NullPointerException -> 0x0288, IOException -> 0x02ac, UnknownHostException -> 0x02d6, HttpHostConnectException -> 0x0302, NoHttpResponseException -> 0x0326, SocketTimeoutException -> 0x0351, ConnectTimeoutException -> 0x037c, ConnectionPoolTimeoutException -> 0x03a6, SSLException -> 0x03d0, SSLPeerUnverifiedException -> 0x03fa, SSLHandshakeException -> 0x0424, URISyntaxException -> 0x044e, HttpException -> 0x045b, TryCatch #3 {HttpException -> 0x045b, NullPointerException -> 0x0288, SocketTimeoutException -> 0x0351, URISyntaxException -> 0x044e, UnknownHostException -> 0x02d6, SSLHandshakeException -> 0x0424, SSLPeerUnverifiedException -> 0x03fa, SSLException -> 0x03d0, NoHttpResponseException -> 0x0326, ConnectionPoolTimeoutException -> 0x03a6, ConnectTimeoutException -> 0x037c, HttpHostConnectException -> 0x0302, IOException -> 0x02ac, Exception -> 0x0266, blocks: (B:6:0x000a, B:20:0x0036, B:22:0x003e, B:24:0x0044, B:25:0x0048, B:27:0x004e, B:28:0x005c, B:30:0x00d4, B:32:0x00da, B:34:0x00e4, B:37:0x00ed, B:39:0x00f9, B:43:0x0103, B:45:0x010a, B:47:0x0125, B:49:0x012d, B:50:0x013a, B:52:0x0160, B:53:0x0167, B:55:0x016d, B:56:0x0171, B:58:0x0177, B:60:0x0183, B:64:0x01b2, B:65:0x01ce, B:73:0x01eb, B:74:0x0204, B:75:0x0205, B:77:0x020d, B:79:0x0213, B:83:0x021f, B:85:0x0223, B:87:0x0233, B:89:0x023b, B:91:0x0245, B:46:0x010d, B:93:0x025a, B:94:0x0265, B:9:0x001b, B:11:0x001f, B:13:0x0023, B:15:0x0029, B:18:0x0031), top: B:183:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x016d A[Catch: Exception -> 0x0266, NullPointerException -> 0x0288, IOException -> 0x02ac, UnknownHostException -> 0x02d6, HttpHostConnectException -> 0x0302, NoHttpResponseException -> 0x0326, SocketTimeoutException -> 0x0351, ConnectTimeoutException -> 0x037c, ConnectionPoolTimeoutException -> 0x03a6, SSLException -> 0x03d0, SSLPeerUnverifiedException -> 0x03fa, SSLHandshakeException -> 0x0424, URISyntaxException -> 0x044e, HttpException -> 0x045b, TryCatch #3 {HttpException -> 0x045b, NullPointerException -> 0x0288, SocketTimeoutException -> 0x0351, URISyntaxException -> 0x044e, UnknownHostException -> 0x02d6, SSLHandshakeException -> 0x0424, SSLPeerUnverifiedException -> 0x03fa, SSLException -> 0x03d0, NoHttpResponseException -> 0x0326, ConnectionPoolTimeoutException -> 0x03a6, ConnectTimeoutException -> 0x037c, HttpHostConnectException -> 0x0302, IOException -> 0x02ac, Exception -> 0x0266, blocks: (B:6:0x000a, B:20:0x0036, B:22:0x003e, B:24:0x0044, B:25:0x0048, B:27:0x004e, B:28:0x005c, B:30:0x00d4, B:32:0x00da, B:34:0x00e4, B:37:0x00ed, B:39:0x00f9, B:43:0x0103, B:45:0x010a, B:47:0x0125, B:49:0x012d, B:50:0x013a, B:52:0x0160, B:53:0x0167, B:55:0x016d, B:56:0x0171, B:58:0x0177, B:60:0x0183, B:64:0x01b2, B:65:0x01ce, B:73:0x01eb, B:74:0x0204, B:75:0x0205, B:77:0x020d, B:79:0x0213, B:83:0x021f, B:85:0x0223, B:87:0x0233, B:89:0x023b, B:91:0x0245, B:46:0x010d, B:93:0x025a, B:94:0x0265, B:9:0x001b, B:11:0x001f, B:13:0x0023, B:15:0x0029, B:18:0x0031), top: B:183:0x000a }] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x01e2  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x010a A[Catch: Exception -> 0x0266, NullPointerException -> 0x0288, IOException -> 0x02ac, UnknownHostException -> 0x02d6, HttpHostConnectException -> 0x0302, NoHttpResponseException -> 0x0326, SocketTimeoutException -> 0x0351, ConnectTimeoutException -> 0x037c, ConnectionPoolTimeoutException -> 0x03a6, SSLException -> 0x03d0, SSLPeerUnverifiedException -> 0x03fa, SSLHandshakeException -> 0x0424, URISyntaxException -> 0x044e, HttpException -> 0x045b, TryCatch #3 {HttpException -> 0x045b, NullPointerException -> 0x0288, SocketTimeoutException -> 0x0351, URISyntaxException -> 0x044e, UnknownHostException -> 0x02d6, SSLHandshakeException -> 0x0424, SSLPeerUnverifiedException -> 0x03fa, SSLException -> 0x03d0, NoHttpResponseException -> 0x0326, ConnectionPoolTimeoutException -> 0x03a6, ConnectTimeoutException -> 0x037c, HttpHostConnectException -> 0x0302, IOException -> 0x02ac, Exception -> 0x0266, blocks: (B:6:0x000a, B:20:0x0036, B:22:0x003e, B:24:0x0044, B:25:0x0048, B:27:0x004e, B:28:0x005c, B:30:0x0070, B:32:0x0085, B:34:0x00c5, B:36:0x00d4, B:38:0x00da, B:40:0x00e4, B:43:0x00ed, B:45:0x00f9, B:49:0x0103, B:51:0x010a, B:53:0x0125, B:55:0x012d, B:56:0x013a, B:58:0x0160, B:59:0x0167, B:61:0x016d, B:62:0x0171, B:64:0x0177, B:66:0x0183, B:70:0x01b2, B:71:0x01ce, B:79:0x01eb, B:80:0x0204, B:81:0x0205, B:83:0x020d, B:85:0x0213, B:89:0x021f, B:91:0x0223, B:93:0x0233, B:95:0x023b, B:97:0x0245, B:52:0x010d, B:99:0x025a, B:100:0x0265, B:9:0x001b, B:11:0x001f, B:13:0x0023, B:15:0x0029, B:18:0x0031), top: B:189:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x010d A[Catch: Exception -> 0x0266, NullPointerException -> 0x0288, IOException -> 0x02ac, UnknownHostException -> 0x02d6, HttpHostConnectException -> 0x0302, NoHttpResponseException -> 0x0326, SocketTimeoutException -> 0x0351, ConnectTimeoutException -> 0x037c, ConnectionPoolTimeoutException -> 0x03a6, SSLException -> 0x03d0, SSLPeerUnverifiedException -> 0x03fa, SSLHandshakeException -> 0x0424, URISyntaxException -> 0x044e, HttpException -> 0x045b, TryCatch #3 {HttpException -> 0x045b, NullPointerException -> 0x0288, SocketTimeoutException -> 0x0351, URISyntaxException -> 0x044e, UnknownHostException -> 0x02d6, SSLHandshakeException -> 0x0424, SSLPeerUnverifiedException -> 0x03fa, SSLException -> 0x03d0, NoHttpResponseException -> 0x0326, ConnectionPoolTimeoutException -> 0x03a6, ConnectTimeoutException -> 0x037c, HttpHostConnectException -> 0x0302, IOException -> 0x02ac, Exception -> 0x0266, blocks: (B:6:0x000a, B:20:0x0036, B:22:0x003e, B:24:0x0044, B:25:0x0048, B:27:0x004e, B:28:0x005c, B:30:0x0070, B:32:0x0085, B:34:0x00c5, B:36:0x00d4, B:38:0x00da, B:40:0x00e4, B:43:0x00ed, B:45:0x00f9, B:49:0x0103, B:51:0x010a, B:53:0x0125, B:55:0x012d, B:56:0x013a, B:58:0x0160, B:59:0x0167, B:61:0x016d, B:62:0x0171, B:64:0x0177, B:66:0x0183, B:70:0x01b2, B:71:0x01ce, B:79:0x01eb, B:80:0x0204, B:81:0x0205, B:83:0x020d, B:85:0x0213, B:89:0x021f, B:91:0x0223, B:93:0x0233, B:95:0x023b, B:97:0x0245, B:52:0x010d, B:99:0x025a, B:100:0x0265, B:9:0x001b, B:11:0x001f, B:13:0x0023, B:15:0x0029, B:18:0x0031), top: B:189:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x012d A[Catch: Exception -> 0x0266, NullPointerException -> 0x0288, IOException -> 0x02ac, UnknownHostException -> 0x02d6, HttpHostConnectException -> 0x0302, NoHttpResponseException -> 0x0326, SocketTimeoutException -> 0x0351, ConnectTimeoutException -> 0x037c, ConnectionPoolTimeoutException -> 0x03a6, SSLException -> 0x03d0, SSLPeerUnverifiedException -> 0x03fa, SSLHandshakeException -> 0x0424, URISyntaxException -> 0x044e, HttpException -> 0x045b, TryCatch #3 {HttpException -> 0x045b, NullPointerException -> 0x0288, SocketTimeoutException -> 0x0351, URISyntaxException -> 0x044e, UnknownHostException -> 0x02d6, SSLHandshakeException -> 0x0424, SSLPeerUnverifiedException -> 0x03fa, SSLException -> 0x03d0, NoHttpResponseException -> 0x0326, ConnectionPoolTimeoutException -> 0x03a6, ConnectTimeoutException -> 0x037c, HttpHostConnectException -> 0x0302, IOException -> 0x02ac, Exception -> 0x0266, blocks: (B:6:0x000a, B:20:0x0036, B:22:0x003e, B:24:0x0044, B:25:0x0048, B:27:0x004e, B:28:0x005c, B:30:0x0070, B:32:0x0085, B:34:0x00c5, B:36:0x00d4, B:38:0x00da, B:40:0x00e4, B:43:0x00ed, B:45:0x00f9, B:49:0x0103, B:51:0x010a, B:53:0x0125, B:55:0x012d, B:56:0x013a, B:58:0x0160, B:59:0x0167, B:61:0x016d, B:62:0x0171, B:64:0x0177, B:66:0x0183, B:70:0x01b2, B:71:0x01ce, B:79:0x01eb, B:80:0x0204, B:81:0x0205, B:83:0x020d, B:85:0x0213, B:89:0x021f, B:91:0x0223, B:93:0x0233, B:95:0x023b, B:97:0x0245, B:52:0x010d, B:99:0x025a, B:100:0x0265, B:9:0x001b, B:11:0x001f, B:13:0x0023, B:15:0x0029, B:18:0x0031), top: B:189:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0160 A[Catch: Exception -> 0x0266, NullPointerException -> 0x0288, IOException -> 0x02ac, UnknownHostException -> 0x02d6, HttpHostConnectException -> 0x0302, NoHttpResponseException -> 0x0326, SocketTimeoutException -> 0x0351, ConnectTimeoutException -> 0x037c, ConnectionPoolTimeoutException -> 0x03a6, SSLException -> 0x03d0, SSLPeerUnverifiedException -> 0x03fa, SSLHandshakeException -> 0x0424, URISyntaxException -> 0x044e, HttpException -> 0x045b, TryCatch #3 {HttpException -> 0x045b, NullPointerException -> 0x0288, SocketTimeoutException -> 0x0351, URISyntaxException -> 0x044e, UnknownHostException -> 0x02d6, SSLHandshakeException -> 0x0424, SSLPeerUnverifiedException -> 0x03fa, SSLException -> 0x03d0, NoHttpResponseException -> 0x0326, ConnectionPoolTimeoutException -> 0x03a6, ConnectTimeoutException -> 0x037c, HttpHostConnectException -> 0x0302, IOException -> 0x02ac, Exception -> 0x0266, blocks: (B:6:0x000a, B:20:0x0036, B:22:0x003e, B:24:0x0044, B:25:0x0048, B:27:0x004e, B:28:0x005c, B:30:0x0070, B:32:0x0085, B:34:0x00c5, B:36:0x00d4, B:38:0x00da, B:40:0x00e4, B:43:0x00ed, B:45:0x00f9, B:49:0x0103, B:51:0x010a, B:53:0x0125, B:55:0x012d, B:56:0x013a, B:58:0x0160, B:59:0x0167, B:61:0x016d, B:62:0x0171, B:64:0x0177, B:66:0x0183, B:70:0x01b2, B:71:0x01ce, B:79:0x01eb, B:80:0x0204, B:81:0x0205, B:83:0x020d, B:85:0x0213, B:89:0x021f, B:91:0x0223, B:93:0x0233, B:95:0x023b, B:97:0x0245, B:52:0x010d, B:99:0x025a, B:100:0x0265, B:9:0x001b, B:11:0x001f, B:13:0x0023, B:15:0x0029, B:18:0x0031), top: B:189:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x016d A[Catch: Exception -> 0x0266, NullPointerException -> 0x0288, IOException -> 0x02ac, UnknownHostException -> 0x02d6, HttpHostConnectException -> 0x0302, NoHttpResponseException -> 0x0326, SocketTimeoutException -> 0x0351, ConnectTimeoutException -> 0x037c, ConnectionPoolTimeoutException -> 0x03a6, SSLException -> 0x03d0, SSLPeerUnverifiedException -> 0x03fa, SSLHandshakeException -> 0x0424, URISyntaxException -> 0x044e, HttpException -> 0x045b, TryCatch #3 {HttpException -> 0x045b, NullPointerException -> 0x0288, SocketTimeoutException -> 0x0351, URISyntaxException -> 0x044e, UnknownHostException -> 0x02d6, SSLHandshakeException -> 0x0424, SSLPeerUnverifiedException -> 0x03fa, SSLException -> 0x03d0, NoHttpResponseException -> 0x0326, ConnectionPoolTimeoutException -> 0x03a6, ConnectTimeoutException -> 0x037c, HttpHostConnectException -> 0x0302, IOException -> 0x02ac, Exception -> 0x0266, blocks: (B:6:0x000a, B:20:0x0036, B:22:0x003e, B:24:0x0044, B:25:0x0048, B:27:0x004e, B:28:0x005c, B:30:0x0070, B:32:0x0085, B:34:0x00c5, B:36:0x00d4, B:38:0x00da, B:40:0x00e4, B:43:0x00ed, B:45:0x00f9, B:49:0x0103, B:51:0x010a, B:53:0x0125, B:55:0x012d, B:56:0x013a, B:58:0x0160, B:59:0x0167, B:61:0x016d, B:62:0x0171, B:64:0x0177, B:66:0x0183, B:70:0x01b2, B:71:0x01ce, B:79:0x01eb, B:80:0x0204, B:81:0x0205, B:83:0x020d, B:85:0x0213, B:89:0x021f, B:91:0x0223, B:93:0x0233, B:95:0x023b, B:97:0x0245, B:52:0x010d, B:99:0x025a, B:100:0x0265, B:9:0x001b, B:11:0x001f, B:13:0x0023, B:15:0x0029, B:18:0x0031), top: B:189:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x01e2  */
     @Override // java.util.concurrent.Callable
     /* renamed from: d */
     /*
@@ -390,7 +389,7 @@ public final class q implements Callable<u> {
         }
         while (true) {
             try {
-                NetworkInfo[] allNetworkInfo = ((ConnectivityManager) this.f35758b.getSystemService("connectivity")).getAllNetworkInfo();
+                NetworkInfo[] allNetworkInfo = ((ConnectivityManager) this.f35781b.getSystemService("connectivity")).getAllNetworkInfo();
                 boolean z2 = true;
                 if (allNetworkInfo != null) {
                     for (NetworkInfo networkInfo : allNetworkInfo) {
@@ -402,7 +401,7 @@ public final class q implements Callable<u> {
                 }
                 z = false;
                 if (z) {
-                    ArrayList<Header> d2 = this.f35759c.d();
+                    ArrayList<Header> d2 = this.f35782c.d();
                     if (d2 != null && !d2.isEmpty()) {
                         Iterator<Header> it = d2.iterator();
                         while (it.hasNext()) {
@@ -411,16 +410,16 @@ public final class q implements Callable<u> {
                     }
                     b.a((HttpRequest) c());
                     b.b((HttpRequest) c());
-                    c().addHeader("cookie", i().getCookie(this.f35759c.a()));
-                    this.f35762g.setAttribute(ClientContext.COOKIE_STORE, this.f35763h);
-                    this.f35757a.a().a(f35756e);
+                    c().addHeader("cookie", i().getCookie(this.f35782c.a()));
+                    this.f35785g.setAttribute(ClientContext.COOKIE_STORE, this.f35786h);
+                    this.f35780a.a().a(f35779e);
                     long currentTimeMillis = System.currentTimeMillis();
                     StringBuilder sb = new StringBuilder("By Http/Https to request. operationType=");
                     sb.append(f());
                     sb.append(" url=");
-                    sb.append(this.f35761f.getURI().toString());
-                    HttpParams params = this.f35757a.a().getParams();
-                    NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f35758b.getSystemService("connectivity")).getActiveNetworkInfo();
+                    sb.append(this.f35784f.getURI().toString());
+                    HttpParams params = this.f35780a.a().getParams();
+                    NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f35781b.getSystemService("connectivity")).getActiveNetworkInfo();
                     HttpHost httpHost3 = null;
                     if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                         String defaultHost = Proxy.getDefaultHost();
@@ -442,10 +441,10 @@ public final class q implements Callable<u> {
                             if (g() == 80) {
                                 httpHost2 = new HttpHost(h().getHost());
                             }
-                            HttpResponse execute = this.f35757a.a().execute(httpHost2, this.f35761f, this.f35762g);
-                            this.f35757a.b(System.currentTimeMillis() - currentTimeMillis);
-                            cookies = this.f35763h.getCookies();
-                            if (this.f35759c.e()) {
+                            HttpResponse execute = this.f35780a.a().execute(httpHost2, this.f35784f, this.f35785g);
+                            this.f35780a.b(System.currentTimeMillis() - currentTimeMillis);
+                            cookies = this.f35786h.getCookies();
+                            if (this.f35782c.e()) {
                                 i().removeAllCookie();
                             }
                             if (!cookies.isEmpty()) {
@@ -458,7 +457,7 @@ public final class q implements Callable<u> {
                                         sb2.append("; domain=");
                                         sb2.append(cookie.getDomain());
                                         sb2.append(cookie.isSecure() ? "; Secure" : "");
-                                        i().setCookie(this.f35759c.a(), sb2.toString());
+                                        i().setCookie(this.f35782c.a(), sb2.toString());
                                         CookieSyncManager.getInstance().sync();
                                     }
                                 }
@@ -480,7 +479,7 @@ public final class q implements Callable<u> {
                                 } catch (Exception unused) {
                                 }
                             }
-                            a3 = this.f35759c.a();
+                            a3 = this.f35782c.a();
                             if (a3 != null && !TextUtils.isEmpty(f())) {
                                 StringBuilder sb3 = new StringBuilder();
                                 sb3.append(a3);
@@ -499,10 +498,10 @@ public final class q implements Callable<u> {
                     }
                     if (g() == 80) {
                     }
-                    HttpResponse execute2 = this.f35757a.a().execute(httpHost2, this.f35761f, this.f35762g);
-                    this.f35757a.b(System.currentTimeMillis() - currentTimeMillis);
-                    cookies = this.f35763h.getCookies();
-                    if (this.f35759c.e()) {
+                    HttpResponse execute2 = this.f35780a.a().execute(httpHost2, this.f35784f, this.f35785g);
+                    this.f35780a.b(System.currentTimeMillis() - currentTimeMillis);
+                    cookies = this.f35786h.getCookies();
+                    if (this.f35782c.e()) {
                     }
                     if (!cookies.isEmpty()) {
                     }
@@ -514,7 +513,7 @@ public final class q implements Callable<u> {
                     if (((a2 != null || a2.b() == null) ? -1L : a2.b().length) == -1) {
                         Long.parseLong(((p) a2).a().getHead("Content-Length"));
                     }
-                    a3 = this.f35759c.a();
+                    a3 = this.f35782c.a();
                     if (a3 != null) {
                         StringBuilder sb32 = new StringBuilder();
                         sb32.append(a3);
@@ -526,7 +525,7 @@ public final class q implements Callable<u> {
                 throw new HttpException(1, "The network is not available");
             } catch (HttpException e2) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     e2.getCode();
                     e2.getMsg();
                 }
@@ -542,7 +541,7 @@ public final class q implements Callable<u> {
                 this.m = i2 + 1;
             } catch (SocketTimeoutException e4) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     new StringBuilder().append(e4);
                 }
                 new StringBuilder().append(e4);
@@ -551,69 +550,69 @@ public final class q implements Callable<u> {
                 throw new RuntimeException("Url parser error!", e5.getCause());
             } catch (UnknownHostException e6) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     new StringBuilder().append(e6);
                 }
                 new StringBuilder().append(e6);
                 throw new HttpException(9, String.valueOf(e6));
             } catch (SSLHandshakeException e7) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     new StringBuilder().append(e7);
                 }
                 new StringBuilder().append(e7);
                 throw new HttpException(2, String.valueOf(e7));
             } catch (SSLPeerUnverifiedException e8) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     new StringBuilder().append(e8);
                 }
                 new StringBuilder().append(e8);
                 throw new HttpException(2, String.valueOf(e8));
             } catch (SSLException e9) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     new StringBuilder().append(e9);
                 }
                 new StringBuilder().append(e9);
                 throw new HttpException(6, String.valueOf(e9));
             } catch (NoHttpResponseException e10) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     new StringBuilder().append(e10);
                 }
                 new StringBuilder().append(e10);
                 throw new HttpException(5, String.valueOf(e10));
             } catch (ConnectionPoolTimeoutException e11) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     new StringBuilder().append(e11);
                 }
                 new StringBuilder().append(e11);
                 throw new HttpException(3, String.valueOf(e11));
             } catch (ConnectTimeoutException e12) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     new StringBuilder().append(e12);
                 }
                 new StringBuilder().append(e12);
                 throw new HttpException(3, String.valueOf(e12));
             } catch (HttpHostConnectException e13) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     new StringBuilder().append(e13);
                 }
                 throw new HttpException(8, String.valueOf(e13));
             } catch (IOException e14) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     new StringBuilder().append(e14);
                 }
                 new StringBuilder().append(e14);
                 throw new HttpException(6, String.valueOf(e14));
             } catch (Exception e15) {
                 e();
-                if (this.f35759c.f() != null) {
+                if (this.f35782c.f() != null) {
                     new StringBuilder().append(e15);
                 }
                 throw new HttpException(0, String.valueOf(e15));
@@ -624,7 +623,7 @@ public final class q implements Callable<u> {
     private void e() {
         HttpUriRequest httpUriRequest;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (httpUriRequest = this.f35761f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (httpUriRequest = this.f35784f) == null) {
             return;
         }
         httpUriRequest.abort();
@@ -635,7 +634,7 @@ public final class q implements Callable<u> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
             if (TextUtils.isEmpty(this.q)) {
-                String b2 = this.f35759c.b("operationType");
+                String b2 = this.f35782c.b("operationType");
                 this.q = b2;
                 return b2;
             }
@@ -662,7 +661,7 @@ public final class q implements Callable<u> {
             if (url != null) {
                 return url;
             }
-            URL url2 = new URL(this.f35759c.a());
+            URL url2 = new URL(this.f35782c.a());
             this.l = url2;
             return url2;
         }
@@ -673,12 +672,12 @@ public final class q implements Callable<u> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
-            CookieManager cookieManager = this.f35764i;
+            CookieManager cookieManager = this.f35787i;
             if (cookieManager != null) {
                 return cookieManager;
             }
             CookieManager cookieManager2 = CookieManager.getInstance();
-            this.f35764i = cookieManager2;
+            this.f35787i = cookieManager2;
             return cookieManager2;
         }
         return (CookieManager) invokeV.objValue;
@@ -687,6 +686,6 @@ public final class q implements Callable<u> {
     public final o a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35759c : (o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35782c : (o) invokeV.objValue;
     }
 }

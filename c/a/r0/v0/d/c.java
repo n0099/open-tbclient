@@ -39,10 +39,10 @@ public class c extends c.a.r0.a0.b<c.a.r0.v0.c.a> {
             }
         }
         this.n = 3;
-        NoDataView a2 = NoDataViewFactory.a(this.f15549f.getPageActivity(), j(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f15549f.getPageActivity(), R.dimen.ds160)), NoDataViewFactory.e.a(R.string.search_forum_no_result), null);
+        NoDataView a2 = NoDataViewFactory.a(this.f15558f.getPageActivity(), j(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f15558f.getPageActivity(), R.dimen.ds160)), NoDataViewFactory.e.a(R.string.search_forum_no_result), null);
         this.m = a2;
         a2.setVisibility(0);
-        l(this.f15549f, TbadkCoreApplication.getInst().getSkinType());
+        l(this.f15558f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // c.a.r0.a0.b
@@ -60,7 +60,7 @@ public class c extends c.a.r0.a0.b<c.a.r0.v0.c.a> {
         }
         NoDataView noDataView = this.m;
         if (noDataView != null) {
-            noDataView.onChangeSkinType(this.f15549f, i2);
+            noDataView.onChangeSkinType(this.f15558f, i2);
         }
         this.n = i2;
     }
@@ -78,7 +78,7 @@ public class c extends c.a.r0.a0.b<c.a.r0.v0.c.a> {
     public void k(c.a.r0.v0.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            l(this.f15549f, TbadkCoreApplication.getInst().getSkinType());
+            l(this.f15558f, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

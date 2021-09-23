@@ -160,7 +160,7 @@ public class HomePageVideoThreadAdapter extends c.a.e.l.e.a<l, HomePageVideoThre
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageVideoThreadAdapter f52661b;
+        public final /* synthetic */ HomePageVideoThreadAdapter f52774b;
 
         public a(HomePageVideoThreadAdapter homePageVideoThreadAdapter) {
             Interceptable interceptable = $ic;
@@ -177,7 +177,7 @@ public class HomePageVideoThreadAdapter extends c.a.e.l.e.a<l, HomePageVideoThre
                     return;
                 }
             }
-            this.f52661b = homePageVideoThreadAdapter;
+            this.f52774b = homePageVideoThreadAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -185,10 +185,10 @@ public class HomePageVideoThreadAdapter extends c.a.e.l.e.a<l, HomePageVideoThre
         /* renamed from: d */
         public void a(View view, l lVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, lVar) == null) || lVar == null || lVar.getThreadData() == null || StringUtils.isNull(lVar.getThreadData().s1()) || StringUtils.isNull(lVar.C()) || this.f52661b.n == null || !(this.f52661b.n.getOrignalPage() instanceof c.a.r0.i1.b.a)) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, lVar) == null) || lVar == null || lVar.getThreadData() == null || StringUtils.isNull(lVar.getThreadData().s1()) || StringUtils.isNull(lVar.C()) || this.f52774b.n == null || !(this.f52774b.n.getOrignalPage() instanceof c.a.r0.i1.b.a)) {
                 return;
             }
-            ((HotTopicActivity) this.f52661b.n.getOrignalPage()).businessStatisticForTopicClick(lVar);
+            ((HotTopicActivity) this.f52774b.n.getOrignalPage()).businessStatisticForTopicClick(lVar);
         }
     }
 

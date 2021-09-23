@@ -23,7 +23,7 @@ public class d extends e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f4764b;
+    public static final boolean f4772b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class d extends e {
                 return;
             }
         }
-        f4764b = k.f7077a;
+        f4772b = k.f7085a;
     }
 
     public d() {
@@ -62,7 +62,7 @@ public class d extends e {
         List<a0> a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f4765a.clear();
+            this.f4773a.clear();
             b(new c.a.p0.a.f1.a(this));
             b(new c.a.p0.a.e0.f.e.a(this));
             b(new c.a.p0.a.e0.f.f.a(this));
@@ -85,7 +85,7 @@ public class d extends e {
                     b(a0Var);
                 }
             }
-            if (f4764b) {
+            if (f4772b) {
                 b(new j(this));
                 b(new c.a.p0.a.c2.f.a(this));
                 if (d2 == null || (b2 = d2.b(this)) == null || b2.isEmpty()) {

@@ -81,7 +81,7 @@ public class a extends b {
                     try {
                         new JSONObject(r);
                     } catch (Throwable th) {
-                        if (a0.f4766b) {
+                        if (a0.f4774b) {
                             th.printStackTrace();
                         }
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parse insert params, anim data is not json");
@@ -94,8 +94,8 @@ public class a extends b {
                 if (a2) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 } else {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f4663b);
-                    d.b("AbsSwanAppWidget", "insert anim view, but failure: " + w.f4663b);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.f4671b);
+                    d.b("AbsSwanAppWidget", "insert anim view, but failure: " + w.f4671b);
                 }
                 return a2;
             }
@@ -130,8 +130,8 @@ public class a extends b {
                 if (a2) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 } else {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f4663b);
-                    d.b("AbsSwanAppWidget", "remove anim view, but failure: " + C.f4663b);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.f4671b);
+                    d.b("AbsSwanAppWidget", "remove anim view, but failure: " + C.f4671b);
                 }
                 return a2;
             }
@@ -166,8 +166,8 @@ public class a extends b {
                 if (a2) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 } else {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f4663b);
-                    d.b("AbsSwanAppWidget", "update anim view, but failure: " + G.f4663b);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.f4671b);
+                    d.b("AbsSwanAppWidget", "update anim view, but failure: " + G.f4671b);
                 }
                 return a2;
             }
@@ -209,7 +209,7 @@ public class a extends b {
             if (!TextUtils.isEmpty(str) && eVar != null) {
                 try {
                     if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
-                        L = c.a.p0.a.k2.b.M(str, eVar.f4558f);
+                        L = c.a.p0.a.k2.b.M(str, eVar.f4566f);
                     } else {
                         L = c.a.p0.a.k2.b.L(str, eVar, eVar.Z());
                     }
@@ -222,7 +222,7 @@ public class a extends b {
                     }
                     return null;
                 } catch (Exception e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                 }

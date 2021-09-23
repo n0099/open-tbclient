@@ -18,7 +18,7 @@ public class b extends c.a.l.a<c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public RecommendBarLayout f17925j;
+    public RecommendBarLayout f17934j;
     public int k;
     public int l;
 
@@ -41,14 +41,14 @@ public class b extends c.a.l.a<c> {
             }
         }
         this.k = 3;
-        this.f17925j = new RecommendBarLayout(tbPageContext, tbPageContext.getPageActivity(), bdUniqueId, b2);
+        this.f17934j = new RecommendBarLayout(tbPageContext, tbPageContext.getPageActivity(), bdUniqueId, b2);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17925j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17934j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,7 +60,7 @@ public class b extends c.a.l.a<c> {
             return;
         }
         this.l = cVar.hashCode();
-        this.f17925j.setData(cVar);
+        this.f17934j.setData(cVar);
     }
 
     @Override // c.a.l.q
@@ -68,8 +68,8 @@ public class b extends c.a.l.a<c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
             if (this.k != i2) {
-                this.f17925j.onChangeSkinType(tbPageContext, i2);
-                l(this.f17925j, 3);
+                this.f17934j.onChangeSkinType(tbPageContext, i2);
+                l(this.f17934j, 3);
             }
             this.k = i2;
         }

@@ -24,7 +24,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f17652a;
+    public static int f17662a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,19 +59,19 @@ public class a {
     public void a(int i2, c cVar, int i3, List<n> list, BdTypeRecyclerView bdTypeRecyclerView) {
         List<c.a.r0.f2.c.a> list2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), cVar, Integer.valueOf(i3), list, bdTypeRecyclerView}) == null) || cVar == null || (list2 = cVar.f17636a) == null || ListUtils.isEmpty(list2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), cVar, Integer.valueOf(i3), list, bdTypeRecyclerView}) == null) || cVar == null || (list2 = cVar.f17646a) == null || ListUtils.isEmpty(list2)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         c(i2, arrayList, list);
-        List<c.a.r0.f2.c.a> list3 = cVar.f17636a;
+        List<c.a.r0.f2.c.a> list3 = cVar.f17646a;
         if (list3 == null || list3.size() <= 0) {
             return;
         }
         int i4 = 0;
         for (c.a.r0.f2.c.a aVar : list3) {
-            if (aVar != null && i2 == aVar.f17625b.intValue()) {
-                List<g> list4 = aVar.f17624a;
+            if (aVar != null && i2 == aVar.f17635b.intValue()) {
+                List<g> list4 = aVar.f17634a;
                 if (list4 == null || list4.size() <= 0) {
                     return;
                 }
@@ -88,10 +88,10 @@ public class a {
                             if (i5 == list4.size() - 1) {
                                 d(list.get(i3));
                             }
-                            RecommendForumInfo recommendForumInfo = list4.get(i5).f17650a;
+                            RecommendForumInfo recommendForumInfo = list4.get(i5).f17660a;
                             if (!arrayList.contains(recommendForumInfo.forum_id)) {
                                 d dVar = new d();
-                                dVar.o(aVar.f17625b.intValue());
+                                dVar.o(aVar.f17635b.intValue());
                                 dVar.n(recommendForumInfo.avatar);
                                 dVar.q(recommendForumInfo.forum_id.longValue());
                                 dVar.s(recommendForumInfo.forum_name);
@@ -123,22 +123,22 @@ public class a {
             for (c.a.r0.f2.c.a aVar : list) {
                 if (aVar != null) {
                     f fVar = new f();
-                    fVar.g(aVar.f17625b.intValue());
-                    fVar.d(aVar.f17627d);
-                    fVar.h(aVar.f17626c);
+                    fVar.g(aVar.f17635b.intValue());
+                    fVar.d(aVar.f17637d);
+                    fVar.h(aVar.f17636c);
                     arrayList.add(fVar);
-                    List<g> list2 = aVar.f17624a;
+                    List<g> list2 = aVar.f17634a;
                     if (list2 != null && list2.size() > 0) {
-                        f17652a = 0;
+                        f17662a = 0;
                         for (g gVar : list2) {
                             if (gVar != null) {
-                                if (f17652a >= 4) {
+                                if (f17662a >= 4) {
                                     break;
                                 }
                                 d dVar = new d();
-                                RecommendForumInfo recommendForumInfo = gVar.f17650a;
-                                dVar.o(aVar.f17625b.intValue());
-                                dVar.p(aVar.f17626c);
+                                RecommendForumInfo recommendForumInfo = gVar.f17660a;
+                                dVar.o(aVar.f17635b.intValue());
+                                dVar.p(aVar.f17636c);
                                 dVar.n(recommendForumInfo.avatar);
                                 dVar.q(recommendForumInfo.forum_id.longValue());
                                 dVar.s(recommendForumInfo.forum_name);
@@ -146,12 +146,12 @@ public class a {
                                 dVar.w(recommendForumInfo.thread_count.intValue());
                                 dVar.v(recommendForumInfo.slogan);
                                 arrayList.add(dVar);
-                                f17652a++;
+                                f17662a++;
                             }
                         }
                         e eVar = new e();
-                        eVar.g(aVar.f17625b.intValue());
-                        eVar.h(aVar.f17626c);
+                        eVar.g(aVar.f17635b.intValue());
+                        eVar.h(aVar.f17636c);
                         arrayList.add(eVar);
                     }
                 }

@@ -18,10 +18,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f71712a;
+    public static boolean f72031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f71713b;
+    public static boolean f72032b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,10 +41,10 @@ public class a {
 
     public static void a(Context context, b.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, aVar) == null) || context == null || f71713b || f71712a) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, aVar) == null) || context == null || f72032b || f72031a) {
             return;
         }
-        f71712a = true;
+        f72031a = true;
         try {
             long currentTimeMillis = System.currentTimeMillis();
             int InitSdk = MdidSdkHelper.InitSdk(context.getApplicationContext(), true, new IIdentifierListener(currentTimeMillis, aVar) { // from class: com.kwad.sdk.core.f.a.1
@@ -52,10 +52,10 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ long f71714a;
+                public final /* synthetic */ long f72033a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b.a f71715b;
+                public final /* synthetic */ b.a f72034b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -72,31 +72,31 @@ public class a {
                             return;
                         }
                     }
-                    this.f71714a = currentTimeMillis;
-                    this.f71715b = aVar;
+                    this.f72033a = currentTimeMillis;
+                    this.f72034b = aVar;
                 }
 
                 public void OnSupport(boolean z, IdSupplier idSupplier) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z, idSupplier) == null) {
-                        long currentTimeMillis2 = System.currentTimeMillis() - this.f71714a;
+                        long currentTimeMillis2 = System.currentTimeMillis() - this.f72033a;
                         if (idSupplier != null) {
                             String oaid = idSupplier.getOAID();
                             if (TextUtils.isEmpty(oaid)) {
-                                boolean unused = a.f71713b = false;
+                                boolean unused = a.f72032b = false;
                             } else {
                                 com.kwad.sdk.core.d.a.a("OADIDSDKHelper", "oaid time=" + currentTimeMillis2 + "--OAID:" + oaid);
-                                this.f71715b.a(oaid);
+                                this.f72034b.a(oaid);
                             }
                         }
-                        boolean unused2 = a.f71712a = false;
+                        boolean unused2 = a.f72031a = false;
                     }
                 }
             });
             com.kwad.sdk.core.d.a.a("OADIDSDKHelper", "MdidSdkHelper time=" + (System.currentTimeMillis() - currentTimeMillis) + "--result=" + InitSdk);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a("OADIDSDKHelper", "oaid sdk not found " + th.getMessage());
-            f71712a = false;
+            f72031a = false;
         }
     }
 }

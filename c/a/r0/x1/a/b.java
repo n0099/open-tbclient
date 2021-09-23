@@ -25,25 +25,25 @@ public class b extends d<BubbleChooseActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NavigationBar f28326a;
+    public NavigationBar f28346a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f28327b;
+    public ViewGroup f28347b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GridView f28328c;
+    public GridView f28348c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f28329d;
+    public View f28349d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f28330e;
+    public a f28350e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BubbleChooseActivity f28331f;
+    public BubbleChooseActivity f28351f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ProgressBar f28332g;
+    public ProgressBar f28352g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext<BubbleChooseActivity> tbPageContext) {
@@ -64,44 +64,44 @@ public class b extends d<BubbleChooseActivity> {
             }
         }
         BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
-        this.f28331f = orignalPage;
+        this.f28351f = orignalPage;
         orignalPage.setContentView(R.layout.bubble_activity_view);
-        NavigationBar navigationBar = (NavigationBar) this.f28331f.findViewById(R.id.lay_title_bar);
-        this.f28326a = navigationBar;
+        NavigationBar navigationBar = (NavigationBar) this.f28351f.findViewById(R.id.lay_title_bar);
+        this.f28346a = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f28326a.setTitleText(R.string.editor_privilege);
-        this.f28329d = this.f28326a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.bubble_explain, this.f28331f);
-        this.f28327b = (ViewGroup) this.f28331f.findViewById(R.id.container);
-        this.f28328c = (GridView) this.f28331f.findViewById(R.id.gv_bubble_list);
+        this.f28346a.setTitleText(R.string.editor_privilege);
+        this.f28349d = this.f28346a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.bubble_explain, this.f28351f);
+        this.f28347b = (ViewGroup) this.f28351f.findViewById(R.id.container);
+        this.f28348c = (GridView) this.f28351f.findViewById(R.id.gv_bubble_list);
         a aVar = new a(tbPageContext);
-        this.f28330e = aVar;
-        this.f28328c.setAdapter((ListAdapter) aVar);
-        this.f28332g = (ProgressBar) this.f28331f.findViewById(R.id.bubble_progress);
+        this.f28350e = aVar;
+        this.f28348c.setAdapter((ListAdapter) aVar);
+        this.f28352g = (ProgressBar) this.f28351f.findViewById(R.id.bubble_progress);
     }
 
     public a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28330e : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28350e : (a) invokeV.objValue;
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28329d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28349d : (View) invokeV.objValue;
     }
 
     public GridView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28328c : (GridView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28348c : (GridView) invokeV.objValue;
     }
 
     public BubbleListData.BubbleData f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            a aVar = this.f28330e;
+            a aVar = this.f28350e;
             if (aVar == null) {
                 return null;
             }
@@ -113,33 +113,33 @@ public class b extends d<BubbleChooseActivity> {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f28332g.setVisibility(8);
+            this.f28352g.setVisibility(8);
         }
     }
 
     public void h(List<BubbleListData.BubbleData> list, boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, list, z) == null) || (aVar = this.f28330e) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, list, z) == null) || (aVar = this.f28350e) == null) {
             return;
         }
         aVar.d(z);
-        this.f28330e.c(list);
+        this.f28350e.c(list);
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f28332g.setVisibility(0);
+            this.f28352g.setVisibility(0);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f28326a.onChangeSkinType((TbPageContext) getPageContext(), i2);
-            this.f28331f.getLayoutMode().k(i2 == 1);
-            this.f28331f.getLayoutMode().j(this.f28327b);
+            this.f28346a.onChangeSkinType((TbPageContext) getPageContext(), i2);
+            this.f28351f.getLayoutMode().k(i2 == 1);
+            this.f28351f.getLayoutMode().j(this.f28347b);
         }
     }
 }

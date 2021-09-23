@@ -22,6 +22,7 @@ public final class PayBeanFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_BALANCE_PAY = 14;
     public static final int BEAN_ID_BIND_CARD = 513;
+    public static final int BEAN_ID_BIND_CARD_PROTOCOL = 605;
     public static final int BEAN_ID_CALC_PAYMENT = 16;
     public static final int BEAN_ID_CARD_ADD = 597;
     public static final int BEAN_ID_CHECK_CARD_INFO = 5;
@@ -40,6 +41,7 @@ public final class PayBeanFactory implements IBeanFactory {
     public static final int BEAN_ID_GET_PAY_ORDER = 1;
     public static final int BEAN_ID_GET_WALLET_INTERFACE = 525;
     public static final int BEAN_ID_MODIFY_MOBILE_PWD = 259;
+    public static final int BEAN_ID_NEW_CHECK_PASSWORD = 606;
     public static final int BEAN_ID_OPEN_FINGERPRINT_REFACTOR = 596;
     public static final int BEAN_ID_PAY = 13;
     public static final int BEAN_ID_QUERY_BANK_INFO = 7;
@@ -64,7 +66,7 @@ public final class PayBeanFactory implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayBeanFactory f62388a;
+        public static PayBeanFactory f62651a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -80,14 +82,14 @@ public final class PayBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f62388a = new PayBeanFactory();
+            f62651a = new PayBeanFactory();
         }
     }
 
     public static PayBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62388a : (PayBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62651a : (PayBeanFactory) invokeV.objValue;
     }
 
     public PayBeanFactory() {
@@ -113,80 +115,84 @@ public final class PayBeanFactory implements IBeanFactory {
             Context applicationContext = context.getApplicationContext();
             BaseBean<?> baseBean = null;
             if (i2 == 1) {
-                baseBean = new r(applicationContext);
+                baseBean = new s(applicationContext);
             } else if (i2 == 9) {
-                baseBean = new aa(applicationContext);
+                baseBean = new ac(applicationContext);
             } else if (i2 == 529) {
-                baseBean = new g(applicationContext);
+                baseBean = new h(applicationContext);
             } else if (i2 == 600) {
                 baseBean = new VerifyPayPasswordBean(applicationContext);
             } else if (i2 == 4) {
-                baseBean = new q(applicationContext);
+                baseBean = new r(applicationContext);
             } else if (i2 == 5) {
-                baseBean = new f(applicationContext);
+                baseBean = new g(applicationContext);
             } else if (i2 == 6) {
                 baseBean = new UserInfoBean(applicationContext);
             } else if (i2 == 7) {
-                baseBean = new w(applicationContext);
+                baseBean = new y(applicationContext);
             } else if (i2 == 263) {
-                baseBean = new h(applicationContext);
+                baseBean = new i(applicationContext);
             } else if (i2 == 264) {
-                baseBean = new z(applicationContext);
+                baseBean = new ab(applicationContext);
             } else if (i2 == 513) {
                 baseBean = new b(applicationContext);
             } else if (i2 == 514) {
-                baseBean = new o(applicationContext);
+                baseBean = new p(applicationContext);
             } else if (i2 == 516) {
                 baseBean = new UnbindCardBean(applicationContext);
-            } else if (i2 != 517) {
+            } else if (i2 == 517) {
+                baseBean = new aa(applicationContext);
+            } else if (i2 == 605) {
+                baseBean = new c(applicationContext);
+            } else if (i2 != 606) {
                 switch (i2) {
                     case 11:
-                        baseBean = new ab(applicationContext);
+                        baseBean = new ad(applicationContext);
                         break;
                     case 12:
-                        baseBean = new v(applicationContext);
+                        baseBean = new x(applicationContext);
                         break;
                     case 13:
-                        baseBean = new u(applicationContext);
+                        baseBean = new w(applicationContext);
                         break;
                     case 14:
                         baseBean = new com.baidu.wallet.paysdk.beans.a(applicationContext);
                         break;
                     case 15:
-                        baseBean = new p(applicationContext);
+                        baseBean = new q(applicationContext);
                         break;
                     case 16:
-                        baseBean = new c(applicationContext);
+                        baseBean = new d(applicationContext);
                         break;
                     case 17:
-                        baseBean = new e(applicationContext);
+                        baseBean = new f(applicationContext);
                         break;
                     default:
                         switch (i2) {
                             case 257:
                             case 258:
                             case 259:
-                                baseBean = new t(applicationContext);
+                                baseBean = new u(applicationContext);
                                 break;
                             case 260:
-                                baseBean = new m(applicationContext);
+                                baseBean = new n(applicationContext);
                                 break;
                             default:
                                 switch (i2) {
                                     case BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_SENDSMS /* 522 */:
-                                        baseBean = new l(applicationContext);
+                                        baseBean = new m(applicationContext);
                                         break;
                                     case BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_CHECKSMS /* 523 */:
-                                        baseBean = new i(applicationContext);
+                                        baseBean = new j(applicationContext);
                                         break;
                                     case BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_RESETPWD /* 524 */:
-                                        baseBean = new k(applicationContext);
+                                        baseBean = new l(applicationContext);
                                         break;
                                     case BEAN_ID_GET_WALLET_INTERFACE /* 525 */:
-                                        baseBean = new s(applicationContext);
+                                        baseBean = new t(applicationContext);
                                         break;
                                     case BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_GET_CARD_LIST /* 526 */:
-                                        baseBean = new j(applicationContext);
+                                        baseBean = new k(applicationContext);
                                         break;
                                     default:
                                         switch (i2) {
@@ -197,10 +203,10 @@ public final class PayBeanFactory implements IBeanFactory {
                                                     public transient /* synthetic */ FieldHolder $fh;
 
                                                     /* renamed from: a  reason: collision with root package name */
-                                                    public final /* synthetic */ BaseBean[] f62384a;
+                                                    public final /* synthetic */ BaseBean[] f62647a;
 
                                                     /* renamed from: b  reason: collision with root package name */
-                                                    public final /* synthetic */ PayBeanFactory f62385b;
+                                                    public final /* synthetic */ PayBeanFactory f62648b;
 
                                                     {
                                                         Interceptable interceptable2 = $ic;
@@ -217,8 +223,8 @@ public final class PayBeanFactory implements IBeanFactory {
                                                                 return;
                                                             }
                                                         }
-                                                        this.f62385b = this;
-                                                        this.f62384a = baseBeanArr;
+                                                        this.f62648b = this;
+                                                        this.f62647a = baseBeanArr;
                                                     }
 
                                                     @Override // com.baidu.wallet.router.RouterCallback
@@ -230,7 +236,7 @@ public final class PayBeanFactory implements IBeanFactory {
                                                                 if (obj == null || !(obj instanceof BaseBean)) {
                                                                     return;
                                                                 }
-                                                                this.f62384a[0] = (BaseBean) obj;
+                                                                this.f62647a[0] = (BaseBean) obj;
                                                             } else if (i3 == 5) {
                                                                 HashMap hashMap2 = new HashMap();
                                                                 hashMap2.put("provider", "scancode");
@@ -249,10 +255,10 @@ public final class PayBeanFactory implements IBeanFactory {
                                                     public transient /* synthetic */ FieldHolder $fh;
 
                                                     /* renamed from: a  reason: collision with root package name */
-                                                    public final /* synthetic */ BaseBean[] f62386a;
+                                                    public final /* synthetic */ BaseBean[] f62649a;
 
                                                     /* renamed from: b  reason: collision with root package name */
-                                                    public final /* synthetic */ PayBeanFactory f62387b;
+                                                    public final /* synthetic */ PayBeanFactory f62650b;
 
                                                     {
                                                         Interceptable interceptable2 = $ic;
@@ -269,8 +275,8 @@ public final class PayBeanFactory implements IBeanFactory {
                                                                 return;
                                                             }
                                                         }
-                                                        this.f62387b = this;
-                                                        this.f62386a = baseBeanArr2;
+                                                        this.f62650b = this;
+                                                        this.f62649a = baseBeanArr2;
                                                     }
 
                                                     @Override // com.baidu.wallet.router.RouterCallback
@@ -282,7 +288,7 @@ public final class PayBeanFactory implements IBeanFactory {
                                                                 if (obj == null || !(obj instanceof BaseBean)) {
                                                                     return;
                                                                 }
-                                                                this.f62386a[0] = (BaseBean) obj;
+                                                                this.f62649a[0] = (BaseBean) obj;
                                                             } else if (i3 == 5) {
                                                                 HashMap hashMap2 = new HashMap();
                                                                 hashMap2.put("provider", "scancode");
@@ -298,17 +304,17 @@ public final class PayBeanFactory implements IBeanFactory {
                                                 baseBean = new com.baidu.wallet.paysdk.fingerprint.bean.b(applicationContext);
                                                 break;
                                             case BEAN_ID_CARD_ADD /* 597 */:
-                                                baseBean = new d(applicationContext);
+                                                baseBean = new e(applicationContext);
                                                 break;
                                             case BEAN_ID_SAVE_FEEDBACK /* 598 */:
-                                                baseBean = new x(applicationContext);
+                                                baseBean = new z(applicationContext);
                                                 break;
                                         }
                                 }
                         }
                 }
             } else {
-                baseBean = new y(applicationContext);
+                baseBean = new v(applicationContext);
             }
             if (baseBean != null) {
                 BeanManager.getInstance().addBean(str, baseBean);

@@ -26,22 +26,22 @@ public class YoungsterFrsDialogView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f47926e;
+    public RelativeLayout f48033e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f47927f;
+    public LinearLayout f48034f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f47928g;
+    public ImageView f48035g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f47929h;
+    public TextView f48036h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47930i;
+    public TextView f48037i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TBSpecificationBtn f47931j;
+    public TBSpecificationBtn f48038j;
     public TBSpecificationBtn k;
     public NoTipAgainView l;
 
@@ -70,15 +70,15 @@ public class YoungsterFrsDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.youngster_frs_dialog_view, this);
-            this.f47926e = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
-            this.f47928g = (ImageView) findViewById(R.id.img_youngster_top);
-            this.f47929h = (TextView) findViewById(R.id.txt_youngster_dialog_title);
-            this.f47930i = (TextView) findViewById(R.id.txt_youngster_dialog_content);
-            this.f47927f = (LinearLayout) findViewById(R.id.youngster_dialog_group);
-            this.f47931j = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_left);
+            this.f48033e = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
+            this.f48035g = (ImageView) findViewById(R.id.img_youngster_top);
+            this.f48036h = (TextView) findViewById(R.id.txt_youngster_dialog_title);
+            this.f48037i = (TextView) findViewById(R.id.txt_youngster_dialog_content);
+            this.f48034f = (LinearLayout) findViewById(R.id.youngster_dialog_group);
+            this.f48038j = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_left);
             c cVar = new c();
             cVar.q(R.color.CAM_X0105);
-            this.f47931j.setConfig(cVar);
+            this.f48038j.setConfig(cVar);
             this.k = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_right);
             c cVar2 = new c();
             cVar2.o(R.color.CAM_X0304);
@@ -105,14 +105,14 @@ public class YoungsterFrsDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.transparent_bg);
-            this.f47928g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setViewTextColor(this.f47929h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f47930i, R.color.CAM_X0107);
+            this.f48035g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian_time, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setViewTextColor(this.f48036h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f48037i, R.color.CAM_X0107);
             this.l.onChangeSkinType();
-            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f47926e);
+            c.a.q0.s.u.c d2 = c.a.q0.s.u.c.d(this.f48033e);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
-            this.f47931j.changeSkinType();
+            this.f48038j.changeSkinType();
             this.k.changeSkinType();
         }
     }
@@ -120,11 +120,11 @@ public class YoungsterFrsDialogView extends LinearLayout {
     public void setLeftOnClickListener(int i2, View.OnClickListener onClickListener) {
         TBSpecificationBtn tBSpecificationBtn;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, onClickListener) == null) || (tBSpecificationBtn = this.f47931j) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, onClickListener) == null) || (tBSpecificationBtn = this.f48038j) == null) {
             return;
         }
         tBSpecificationBtn.setText(getContext().getString(i2));
-        this.f47931j.setOnClickListener(onClickListener);
+        this.f48038j.setOnClickListener(onClickListener);
     }
 
     public void setNoTipAgainViewVisible(boolean z) {
@@ -147,23 +147,23 @@ public class YoungsterFrsDialogView extends LinearLayout {
     public void setTxtYoungsterDialogContentText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f47930i.setText(getContext().getString(i2));
+            this.f48037i.setText(getContext().getString(i2));
         }
     }
 
     public void setTxtYoungsterDialogTitleText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f47929h.setText(getContext().getString(i2));
+            this.f48036h.setText(getContext().getString(i2));
         }
     }
 
     public void setYoungsterDialogGroupMarginTop(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f47927f.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f48034f.getLayoutParams();
             layoutParams.topMargin = i2;
-            this.f47927f.setLayoutParams(layoutParams);
+            this.f48034f.setLayoutParams(layoutParams);
         }
     }
 

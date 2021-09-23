@@ -14,7 +14,7 @@ public class f extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f12885a;
+    public float f12899a;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -45,11 +45,11 @@ public class f extends b {
             if (bitmap == null) {
                 return null;
             }
-            if (this.f12885a <= 0.0f) {
+            if (this.f12899a <= 0.0f) {
                 return bitmap;
             }
             c.a.q0.c0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.f12885a, z);
+            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.f12899a, z);
         }
         return (Bitmap) invokeLZ.objValue;
     }
@@ -60,6 +60,6 @@ public class f extends b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null) {
             return;
         }
-        this.f12885a = c.a.e.e.m.b.d(str, 0.0f);
+        this.f12899a = c.a.e.e.m.b.d(str, 0.0f);
     }
 }

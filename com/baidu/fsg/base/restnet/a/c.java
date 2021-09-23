@@ -23,7 +23,7 @@ public class c extends a<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f39372a;
+    public static final Charset f39431a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class c extends a<Object> {
                 return;
             }
         }
-        f39372a = Charset.forName("UTF-8");
+        f39431a = Charset.forName("UTF-8");
     }
 
     public c() {
@@ -59,7 +59,7 @@ public class c extends a<Object> {
     private Charset a(com.baidu.fsg.base.restnet.http.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(aVar.j())) ? f39372a : Charset.forName(aVar.j()) : (Charset) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(aVar.g())) ? f39431a : Charset.forName(aVar.g()) : (Charset) invokeL.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.a.a
@@ -67,7 +67,7 @@ public class c extends a<Object> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, eVar)) == null) {
-            InputStreamReader inputStreamReader = new InputStreamReader(eVar.c(), a(eVar.d()));
+            InputStreamReader inputStreamReader = new InputStreamReader(eVar.d(), a(eVar.a()));
             String copyToString = FileCopyUtils.copyToString(inputStreamReader);
             if (ApollonConstants.DEBUG) {
                 int length = copyToString.length();

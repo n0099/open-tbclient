@@ -14,16 +14,16 @@ public final class cx implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f59800a;
+    public final /* synthetic */ String f59931a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ JSONArray f59801b;
+    public final /* synthetic */ JSONArray f59932b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f59802c;
+    public final /* synthetic */ int f59933c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ cg f59803d;
+    public final /* synthetic */ cg f59934d;
 
     public cx(cg cgVar, String str, JSONArray jSONArray, int i2) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public final class cx implements View.OnClickListener {
                 return;
             }
         }
-        this.f59803d = cgVar;
-        this.f59800a = str;
-        this.f59801b = jSONArray;
-        this.f59802c = i2;
+        this.f59934d = cgVar;
+        this.f59931a = str;
+        this.f59932b = jSONArray;
+        this.f59933c = i2;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0069: INVOKE  (r1v6 java.lang.Object A[REMOVE]) = 
@@ -64,22 +64,22 @@ public final class cx implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             com.baidu.ufosdk.f.c.a("点击查看不满意原因");
-            if (!TextUtils.isEmpty(this.f59800a) || ((jSONArray2 = this.f59801b) != null && jSONArray2.length() != 0)) {
-                ((Map) this.f59803d.f59777a.f59678h.get(this.f59802c)).put("isClicked", 1);
+            if (!TextUtils.isEmpty(this.f59931a) || ((jSONArray2 = this.f59932b) != null && jSONArray2.length() != 0)) {
+                ((Map) this.f59934d.f59908a.f59809h.get(this.f59933c)).put("isClicked", 1);
             }
-            this.f59803d.f59777a.aF = this.f59802c;
-            if (((Map) this.f59803d.f59777a.f59678h.get(this.f59802c)).containsKey("chatId")) {
-                FeedbackInputActivity feedbackInputActivity = this.f59803d.f59777a;
+            this.f59934d.f59908a.aF = this.f59933c;
+            if (((Map) this.f59934d.f59908a.f59809h.get(this.f59933c)).containsKey("chatId")) {
+                FeedbackInputActivity feedbackInputActivity = this.f59934d.f59908a;
                 StringBuilder sb = new StringBuilder();
-                sb.append(((Map) this.f59803d.f59777a.f59678h.get(this.f59802c)).get("chatId"));
-                feedbackInputActivity.f59676f = sb.toString();
+                sb.append(((Map) this.f59934d.f59908a.f59809h.get(this.f59933c)).get("chatId"));
+                feedbackInputActivity.f59807f = sb.toString();
             }
-            if (TextUtils.isEmpty(this.f59800a) && ((jSONArray = this.f59801b) == null || jSONArray.length() == 0)) {
-                FeedbackInputActivity.a(this.f59803d.f59777a, false, false);
+            if (TextUtils.isEmpty(this.f59931a) && ((jSONArray = this.f59932b) == null || jSONArray.length() == 0)) {
+                FeedbackInputActivity.a(this.f59934d.f59908a, false, false);
             } else {
-                FeedbackInputActivity.a(this.f59803d.f59777a, true, false);
+                FeedbackInputActivity.a(this.f59934d.f59908a, true, false);
             }
-            this.f59803d.f59777a.f59680j.notifyDataSetChanged();
+            this.f59934d.f59908a.f59811j.notifyDataSetChanged();
         }
     }
 }

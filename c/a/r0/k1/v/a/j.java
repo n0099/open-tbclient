@@ -21,10 +21,10 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21652e;
+    public int f21666e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.k1.h.l f21653f;
+    public c.a.r0.k1.h.l f21667f;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
                 return;
             }
         }
-        this.f21652e = 2001154;
-        this.f21653f = c.a.r0.k1.h.l.t();
+        this.f21666e = 2001154;
+        this.f21667f = c.a.r0.k1.h.l.t();
     }
 
     public final LoadHistoryResponsedMessage a(int i2) {
@@ -59,8 +59,8 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            if (this.f21653f == null) {
-                return a(this.f21652e);
+            if (this.f21667f == null) {
+                return a(this.f21666e);
             }
             List<c.a.r0.k1.h.o.a> u = c.a.r0.k1.h.l.u();
             if (u != null && u.size() > 0) {
@@ -68,14 +68,14 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
                 for (c.a.r0.k1.h.o.a aVar : u) {
                     hashMap.put(aVar.b(), aVar);
                 }
-                LinkedList<ChatMessage> k = this.f21653f.k(hashMap, 80);
+                LinkedList<ChatMessage> k = this.f21667f.k(hashMap, 80);
                 if (k == null) {
-                    return a(this.f21652e);
+                    return a(this.f21666e);
                 }
                 OfficialFeedHeadResponsedMessage.a aVar2 = new OfficialFeedHeadResponsedMessage.a();
-                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.f21652e);
-                aVar2.f53207b = k;
-                aVar2.f53206a = u;
+                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.f21666e);
+                aVar2.f53320b = k;
+                aVar2.f53319a = u;
                 try {
                     officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar2);
                 } catch (Exception e2) {
@@ -83,7 +83,7 @@ public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRespo
                 }
                 return officialFeedHeadResponsedMessage;
             }
-            return a(this.f21652e);
+            return a(this.f21666e);
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

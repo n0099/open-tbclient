@@ -49,13 +49,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5678a;
+    public static final boolean f5686a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f5679b;
+    public static boolean f5687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f5680c;
+    public static final long f5688c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.f1.d.a$a  reason: collision with other inner class name */
@@ -65,16 +65,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f5681a;
+        public final /* synthetic */ int f5689a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Set f5682b;
+        public final /* synthetic */ Set f5690b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5683c;
+        public final /* synthetic */ String f5691c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f5684d;
+        public final /* synthetic */ String f5692d;
 
         public C0183a(int i2, Set set, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -91,18 +91,18 @@ public class a {
                     return;
                 }
             }
-            this.f5681a = i2;
-            this.f5682b = set;
-            this.f5683c = str;
-            this.f5684d = str2;
+            this.f5689a = i2;
+            this.f5690b = set;
+            this.f5691c = str;
+            this.f5692d = str2;
         }
 
         @Override // c.a.p0.a.v1.c.f.a
         public void a(String str, c.a.p0.a.v1.c.f.c cVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) && cVar.f9264f.index == this.f5681a && this.f5682b.contains(str)) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) && cVar.f9272f.index == this.f5689a && this.f5690b.contains(str)) {
                 e.k().h(this);
-                a.h(this.f5683c, this.f5684d);
+                a.h(this.f5691c, this.f5692d);
             }
         }
 
@@ -110,7 +110,7 @@ public class a {
         public void timeout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                a.h(this.f5683c, this.f5684d);
+                a.h(this.f5691c, this.f5692d);
             }
         }
     }
@@ -138,7 +138,7 @@ public class a {
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                boolean unused = a.f5679b = false;
+                boolean unused = a.f5687b = false;
             }
         }
     }
@@ -155,7 +155,7 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bundle f5685e;
+            public final /* synthetic */ Bundle f5693e;
 
             public RunnableC0184a(c cVar, Bundle bundle) {
                 Interceptable interceptable = $ic;
@@ -172,14 +172,14 @@ public class a {
                         return;
                     }
                 }
-                this.f5685e = bundle;
+                this.f5693e = bundle;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a.i(this.f5685e.getString("arg_title"), this.f5685e.getString("arg_message"), this.f5685e.getInt("arg_match_target_down", SwanAppProcessInfo.UNKNOWN.index));
+                    a.i(this.f5693e.getString("arg_title"), this.f5693e.getString("arg_message"), this.f5693e.getInt("arg_match_target_down", SwanAppProcessInfo.UNKNOWN.index));
                 }
             }
         }
@@ -226,9 +226,9 @@ public class a {
                 return;
             }
         }
-        f5678a = k.f7077a;
-        f5679b = false;
-        f5680c = TimeUnit.SECONDS.toMillis(1L);
+        f5686a = k.f7085a;
+        f5687b = false;
+        f5688c = TimeUnit.SECONDS.toMillis(1L);
     }
 
     public static void d(Context context, @NonNull c.a.p0.a.q2.a aVar, int i2, String str) {
@@ -286,7 +286,7 @@ public class a {
         sb.append(format);
         sb.append(Part.CRLF);
         r.c(sb.toString(), false);
-        if (k.f7077a) {
+        if (k.f7085a) {
             String y = q0.y();
             if (TextUtils.isEmpty(y) || (a2 = l.a()) == null) {
                 return;
@@ -312,7 +312,7 @@ public class a {
 
     public static void h(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || f5679b) {
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || f5687b) {
             return;
         }
         BaseActivityDialog.e newBuilder = SwanAppErrorDialog.newBuilder();
@@ -321,7 +321,7 @@ public class a {
         newBuilder.v(str2);
         newBuilder.z(c.a.p0.a.h.aiapps_confirm_text, null);
         newBuilder.D();
-        f5679b = true;
+        f5687b = true;
     }
 
     public static void i(String str, String str2, int i2) {
@@ -338,14 +338,14 @@ public class a {
                 c.a.p0.a.v1.b.d.b(c.class, bundle);
                 return;
             }
-            if (f5678a) {
-                String str3 = "show normal err dialog, isShowing=" + f5679b;
+            if (f5686a) {
+                String str3 = "show normal err dialog, isShowing=" + f5687b;
             }
             if (!SwanAppProcessInfo.checkProcessId(i2)) {
                 h(str, str2);
                 return;
             }
-            e.k().c(new C0183a(i2, Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline"), str, str2), f5680c);
+            e.k().c(new C0183a(i2, Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline"), str, str2), f5688c);
         }
     }
 
@@ -353,7 +353,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
             String format = String.format(context.getResources().getString(c.a.p0.a.h.swanapp_launch_err_toast_format), str, str2);
-            if (f5678a) {
+            if (f5686a) {
                 String str3 = "show normal err toast: " + format;
             }
             c.a.p0.a.z1.b.f.e g2 = c.a.p0.a.z1.b.f.e.g(AppRuntime.getAppContext(), format);
@@ -391,12 +391,12 @@ public class a {
                     c.a.p0.a.z1.b.f.e.f(AppRuntime.getAppContext(), c.a.p0.a.h.aiapps_net_error).F();
                     return;
                 }
-                boolean z = f5678a;
+                boolean z = f5686a;
                 i(str2, str4, i2);
             } else if (z.a(context)) {
                 j(context, str3, str4);
             } else {
-                boolean z2 = f5678a;
+                boolean z2 = f5686a;
                 i(str2, str4, i2);
             }
         }

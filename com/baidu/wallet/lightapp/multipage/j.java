@@ -23,7 +23,7 @@ public class j implements Application.ActivityLifecycleCallbacks, NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Stack<String> f62214a;
+    public Stack<String> f62347a;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.j$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -37,7 +37,7 @@ public class j implements Application.ActivityLifecycleCallbacks, NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static j f62215a;
+        public static j f62348a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public class j implements Application.ActivityLifecycleCallbacks, NoProguard {
                     return;
                 }
             }
-            f62215a = new j(null);
+            f62348a = new j(null);
         }
     }
 
@@ -64,14 +64,14 @@ public class j implements Application.ActivityLifecycleCallbacks, NoProguard {
     public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62215a : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62348a : (j) invokeV.objValue;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) && activity != null && (activity instanceof d)) {
-            this.f62214a.add(((d) activity).getLangbridgeStamp());
+            this.f62347a.add(((d) activity).getLangbridgeStamp());
         }
     }
 
@@ -79,7 +79,7 @@ public class j implements Application.ActivityLifecycleCallbacks, NoProguard {
     public void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && activity != null && (activity instanceof d)) {
-            this.f62214a.remove(((d) activity).getLangbridgeStamp());
+            this.f62347a.remove(((d) activity).getLangbridgeStamp());
         }
     }
 
@@ -131,7 +131,7 @@ public class j implements Application.ActivityLifecycleCallbacks, NoProguard {
                 return;
             }
         }
-        this.f62214a = new Stack<>();
+        this.f62347a = new Stack<>();
     }
 
     public String[] a(Context context) {
@@ -140,7 +140,7 @@ public class j implements Application.ActivityLifecycleCallbacks, NoProguard {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            int size = this.f62214a.size();
+            int size = this.f62347a.size();
             HashSet<String> langbridgeCellHashStampByGroup = LangbridgePreloadCellCenter.getInstance(DxmApplicationContextImpl.getApplicationContext(context)).getLangbridgeCellHashStampByGroup("PRELOAD");
             if (langbridgeCellHashStampByGroup == null || langbridgeCellHashStampByGroup.size() <= 0) {
                 it = null;
@@ -149,7 +149,7 @@ public class j implements Application.ActivityLifecycleCallbacks, NoProguard {
                 i2 = langbridgeCellHashStampByGroup.size();
                 it = langbridgeCellHashStampByGroup.iterator();
             }
-            Iterator<String> it2 = this.f62214a.iterator();
+            Iterator<String> it2 = this.f62347a.iterator();
             String[] strArr = new String[size + i2 + 1];
             strArr[0] = "";
             int i3 = 1;

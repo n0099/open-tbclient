@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DateTimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd";

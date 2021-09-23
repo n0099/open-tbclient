@@ -77,7 +77,7 @@ public class k extends c.a.p0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ k f5950c;
+        public final /* synthetic */ k f5958c;
 
         public b(k kVar) {
             Interceptable interceptable = $ic;
@@ -94,19 +94,19 @@ public class k extends c.a.p0.a.h0.g.d {
                     return;
                 }
             }
-            this.f5950c = kVar;
+            this.f5958c = kVar;
         }
 
         @Override // c.a.p0.a.h0.j.a, c.a.p0.a.h0.j.d
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (this.f5950c.I2(str) && this.f5950c.G0 != null) {
-                    k kVar = this.f5950c;
+                if (this.f5958c.I2(str) && this.f5958c.G0 != null) {
+                    k kVar = this.f5958c;
                     kVar.n0.setTitle(kVar.G0);
                     return;
                 }
-                this.f5950c.n0.setTitle(str);
+                this.f5958c.n0.setTitle(str);
             }
         }
     }
@@ -117,7 +117,7 @@ public class k extends c.a.p0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f5951e;
+        public final /* synthetic */ k f5959e;
 
         public c(k kVar) {
             Interceptable interceptable = $ic;
@@ -134,17 +134,17 @@ public class k extends c.a.p0.a.h0.g.d {
                     return;
                 }
             }
-            this.f5951e = kVar;
+            this.f5959e = kVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f5951e.D0.canGoBack()) {
-                    this.f5951e.D0.goBack();
+                if (this.f5959e.D0.canGoBack()) {
+                    this.f5959e.D0.goBack();
                 } else {
-                    this.f5951e.a2();
+                    this.f5959e.a2();
                 }
             }
         }
@@ -156,10 +156,10 @@ public class k extends c.a.p0.a.h0.g.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public c.a.p0.a.l1.b f5952a;
+        public c.a.p0.a.l1.b f5960a;
 
         /* renamed from: b  reason: collision with root package name */
-        public JSONObject f5953b;
+        public JSONObject f5961b;
 
         public d(String str) {
             Interceptable interceptable = $ic;
@@ -176,8 +176,8 @@ public class k extends c.a.p0.a.h0.g.d {
                     return;
                 }
             }
-            this.f5953b = new JSONObject();
-            this.f5952a = c.a.p0.a.l1.b.g(str, str);
+            this.f5961b = new JSONObject();
+            this.f5960a = c.a.p0.a.l1.b.g(str, str);
         }
 
         public d a(boolean z) {
@@ -185,7 +185,7 @@ public class k extends c.a.p0.a.h0.g.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
                 try {
-                    this.f5953b.put("should_check_domain", z);
+                    this.f5961b.put("should_check_domain", z);
                 } catch (JSONException e2) {
                     if (k.I0) {
                         e2.printStackTrace();
@@ -199,8 +199,8 @@ public class k extends c.a.p0.a.h0.g.d {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f5952a.f7237f = this.f5953b.toString();
-                k.O2("default_webview", this.f5952a);
+                this.f5960a.f7245f = this.f5961b.toString();
+                k.O2("default_webview", this.f5960a);
             }
         }
     }
@@ -218,7 +218,7 @@ public class k extends c.a.p0.a.h0.g.d {
                 return;
             }
         }
-        I0 = c.a.p0.a.k.f7077a;
+        I0 = c.a.p0.a.k.f7085a;
     }
 
     public k() {
@@ -248,7 +248,7 @@ public class k extends c.a.p0.a.h0.g.d {
             }
             c.a.p0.a.e0.d.g("SwanAppWebViewFragment", "page closed! ");
             g.b h2 = W.h();
-            h2.n(g.f5930i, g.f5929h);
+            h2.n(g.f5938i, g.f5937h);
             h2.g();
             h2.a();
             return true;
@@ -349,9 +349,9 @@ public class k extends c.a.p0.a.h0.g.d {
                 c.a.p0.a.e0.d.g("SwanAppWebViewFragment", "open page failed");
                 return false;
             }
-            c.a.p0.a.e0.d.g("SwanAppWebViewFragment", "open page url=" + bVar.f7238g);
+            c.a.p0.a.e0.d.g("SwanAppWebViewFragment", "open page url=" + bVar.f7246g);
             g.b h2 = W.h();
-            h2.n(g.f5928g, g.f5930i);
+            h2.n(g.f5936g, g.f5938i);
             h2.k(str, bVar).b();
             return true;
         }
@@ -445,8 +445,8 @@ public class k extends c.a.p0.a.h0.g.d {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putString("url", bVar.f7238g);
-        bundle.putString("params", bVar.f7237f);
+        bundle.putString("url", bVar.f7246g);
+        bundle.putString("params", bVar.f7245f);
         h1(bundle);
     }
 

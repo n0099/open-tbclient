@@ -18,16 +18,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile Executor f3230a;
+    public static volatile Executor f3231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3231b;
+    public static final int f3232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3232c;
+    public static final int f3233c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ThreadFactory f3233d;
+    public static final ThreadFactory f3234d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.e0.m.a$a  reason: collision with other inner class name */
@@ -37,7 +37,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f3234e;
+        public final AtomicInteger f3235e;
 
         public ThreadFactoryC0064a() {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class a {
                     return;
                 }
             }
-            this.f3234e = new AtomicInteger(1);
+            this.f3235e = new AtomicInteger(1);
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -60,7 +60,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                return new Thread(runnable, "cashier #" + this.f3234e.getAndIncrement());
+                return new Thread(runnable, "cashier #" + this.f3235e.getAndIncrement());
             }
             return (Thread) invokeL.objValue;
         }
@@ -80,9 +80,9 @@ public class a {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f3231b = availableProcessors;
-        f3232c = (availableProcessors * 2) + 1;
-        f3233d = new ThreadFactoryC0064a();
+        f3232b = availableProcessors;
+        f3233c = (availableProcessors * 2) + 1;
+        f3234d = new ThreadFactoryC0064a();
     }
 
     public a() {
@@ -112,16 +112,16 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (a.class) {
-                if (f3230a == null) {
+                if (f3231a == null) {
                     synchronized (a.class) {
-                        if (f3230a == null) {
-                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, f3232c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f3233d);
+                        if (f3231a == null) {
+                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, f3233c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f3234d);
                             threadPoolExecutor.allowCoreThreadTimeOut(true);
-                            f3230a = threadPoolExecutor;
+                            f3231a = threadPoolExecutor;
                         }
                     }
                 }
-                executor = f3230a;
+                executor = f3231a;
             }
             return executor;
         }

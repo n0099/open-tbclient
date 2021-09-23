@@ -13,10 +13,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f6965a;
+    public final Object f6973a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Flow f6966b;
+    public final Flow f6974b;
 
     public a(Object obj, Flow flow) {
         Interceptable interceptable = $ic;
@@ -33,19 +33,19 @@ public class a {
                 return;
             }
         }
-        this.f6965a = obj;
-        this.f6966b = flow;
+        this.f6973a = obj;
+        this.f6974b = flow;
     }
 
     public Flow a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6966b : (Flow) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6974b : (Flow) invokeV.objValue;
     }
 
     public Object b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6965a : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6973a : invokeV.objValue;
     }
 }

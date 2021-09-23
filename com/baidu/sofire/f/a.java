@@ -3,7 +3,7 @@ package com.baidu.sofire.f;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sofire.utility.c;
-import com.baidu.sofire.utility.f;
+import com.baidu.sofire.utility.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f45329a;
+    public Context f45418a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class a {
                 return;
             }
         }
-        this.f45329a = context;
+        this.f45418a = context;
     }
 
     public final boolean a(String str) {
@@ -45,7 +45,7 @@ public final class a {
                 return true;
             }
             try {
-                a2 = f.a(this.f45329a, c.b() + "p/1/r", str, false, false);
+                a2 = g.a(this.f45418a, c.b() + "p/1/r", str, false, false);
             } catch (Throwable unused) {
                 c.a();
             }

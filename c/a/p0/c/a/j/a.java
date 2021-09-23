@@ -62,7 +62,7 @@ public class a {
                         int a2 = e.a(RSA.decrypt(byteArray));
                         gVar.l(DH.getDHSecretKey(a2, gVar.d().intValue(), gVar.f().intValue()));
                         gVar.p(Integer.valueOf(a2));
-                        if (c.a.p0.c.a.a.f10311a) {
+                        if (c.a.p0.c.a.a.f10319a) {
                             String str = "GroupId=" + gVar.d();
                             String str2 = "client dh pubkey secret=" + gVar.f();
                             String str3 = "client dh pubkey=" + gVar.e();
@@ -82,7 +82,7 @@ public class a {
                     return null;
                 }
                 long currentTimeMillis = (System.currentTimeMillis() / 1000) + parseFrom.getLifeTime();
-                if (c.a.p0.c.a.a.f10311a) {
+                if (c.a.p0.c.a.a.f10319a) {
                     String str7 = "liftTime=" + parseFrom.getLifeTime();
                     String str8 = "expireTime=" + currentTimeMillis;
                 }
@@ -95,7 +95,7 @@ public class a {
             } catch (Exception e2) {
                 e = e2;
                 dVar = dVar2;
-                if (c.a.p0.c.a.a.f10311a) {
+                if (c.a.p0.c.a.a.f10319a) {
                     e.printStackTrace();
                     String str9 = "exception=" + e.getMessage();
                 }
@@ -149,7 +149,7 @@ public class a {
             newBuilder5.w(3);
             newBuilder5.v(ByteString.copyFrom(bytes));
             linkedList.offer(newBuilder5.build());
-            if (c.a.p0.c.a.a.f10311a) {
+            if (c.a.p0.c.a.a.f10319a) {
                 String str = "groupId encode=" + dHGroupId;
                 String str2 = "secretC encode=" + dHSecret;
                 String str3 = "pubKey encode=" + dHPublicKey;
@@ -161,7 +161,7 @@ public class a {
                 newBuilder6.n((Bdtls$Extension) it.next());
             }
             newBuilder6.C(build);
-            newBuilder6.m(ByteString.copyFrom(c.a.p0.c.a.b.f10314c));
+            newBuilder6.m(ByteString.copyFrom(c.a.p0.c.a.b.f10322c));
             byte[] byteArray = newBuilder6.build().toByteArray();
             ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
             allocate.put((byte) 1);

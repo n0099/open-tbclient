@@ -37,26 +37,26 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f21541c;
+    public static volatile a f21555c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<ImMessageCenterPojo> f21542a;
+    public List<ImMessageCenterPojo> f21556a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CustomMessageListener f21543b;
+    public final CustomMessageListener f21557b;
 
     /* renamed from: c.a.r0.k1.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1007a extends CustomMessageListener {
+    public class C1005a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f21544a;
+        public final /* synthetic */ a f21558a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1007a(a aVar, int i2) {
+        public C1005a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -73,7 +73,7 @@ public class a {
                     return;
                 }
             }
-            this.f21544a = aVar;
+            this.f21558a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,22 +84,22 @@ public class a {
                 return;
             }
             if (customResponsedMessage.getCmd() == 2016002) {
-                this.f21544a.t(customResponsedMessage);
+                this.f21558a.t(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016004) {
-                this.f21544a.s(customResponsedMessage);
+                this.f21558a.s(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016007) {
-                this.f21544a.u(customResponsedMessage);
+                this.f21558a.u(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016001) {
-                if (this.f21544a.f21542a != null) {
-                    this.f21544a.f21542a.clear();
+                if (this.f21558a.f21556a != null) {
+                    this.f21558a.f21556a.clear();
                 }
                 c.a.q0.t.d.b.g0().f0(new f());
                 c.a.q0.t.d.b.g0().b0(0);
                 c.a.q0.t.d.b.g0().a();
                 c.a.q0.t.d.b.g0().l();
-            } else if (customResponsedMessage.getCmd() != 2016010 || this.f21544a.f21542a == null) {
+            } else if (customResponsedMessage.getCmd() != 2016010 || this.f21558a.f21556a == null) {
             } else {
-                this.f21544a.v(false);
+                this.f21558a.v(false);
             }
         }
     }
@@ -117,8 +117,8 @@ public class a {
                 return;
             }
         }
-        this.f21542a = new LinkedList();
-        this.f21543b = new C1007a(this, 0);
+        this.f21556a = new LinkedList();
+        this.f21557b = new C1005a(this, 0);
         w();
     }
 
@@ -126,14 +126,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f21541c == null) {
+            if (f21555c == null) {
                 synchronized (a.class) {
-                    if (f21541c == null) {
-                        f21541c = new a();
+                    if (f21555c == null) {
+                        f21555c = new a();
                     }
                 }
             }
-            return f21541c;
+            return f21555c;
         }
         return (a) invokeV.objValue;
     }
@@ -174,8 +174,8 @@ public class a {
             return;
         }
         f.a aVar = new f.a();
-        aVar.f14867a = imMessageCenterPojo.getGid();
-        aVar.f14871e = imMessageCenterPojo.getGroup_name();
+        aVar.f14869a = imMessageCenterPojo.getGid();
+        aVar.f14873e = imMessageCenterPojo.getGroup_name();
         if (userType == 4) {
             String str4 = null;
             try {
@@ -205,12 +205,12 @@ public class a {
                     }
                     if (str4 == null) {
                     }
-                    aVar.f14868b = str4;
-                    aVar.f14869c = str2;
-                    aVar.f14875i = str3;
-                    aVar.f14870d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
-                    aVar.f14872f = userType;
-                    aVar.f14873g = imMessageCenterPojo.getUnread_count();
+                    aVar.f14870b = str4;
+                    aVar.f14871c = str2;
+                    aVar.f14877i = str3;
+                    aVar.f14872d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+                    aVar.f14874f = userType;
+                    aVar.f14875g = imMessageCenterPojo.getUnread_count();
                     fVar.g().add(aVar);
                     if (userType == 4) {
                     }
@@ -224,10 +224,10 @@ public class a {
                 if (str4 == null) {
                     str4 = imMessageCenterPojo.getGroup_name();
                 }
-                aVar.f14868b = str4;
-                aVar.f14869c = str2;
-                aVar.f14875i = str3;
-                aVar.f14870d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+                aVar.f14870b = str4;
+                aVar.f14871c = str2;
+                aVar.f14877i = str3;
+                aVar.f14872d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
             } else {
                 str3 = null;
                 str2 = null;
@@ -235,18 +235,18 @@ public class a {
                 }
                 if (str4 == null) {
                 }
-                aVar.f14868b = str4;
-                aVar.f14869c = str2;
-                aVar.f14875i = str3;
-                aVar.f14870d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+                aVar.f14870b = str4;
+                aVar.f14871c = str2;
+                aVar.f14877i = str3;
+                aVar.f14872d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
             }
         } else {
             String str5 = TbadkCoreApplication.getInst().getContext().getString(R.string.chosen_pb_original_bar, imMessageCenterPojo.getGroup_name()) + ZeusCrashHandler.NAME_SEPERATOR + imMessageCenterPojo.getLast_content();
-            aVar.f14869c = str5;
-            aVar.f14870d = str5;
+            aVar.f14871c = str5;
+            aVar.f14872d = str5;
         }
-        aVar.f14872f = userType;
-        aVar.f14873g = imMessageCenterPojo.getUnread_count();
+        aVar.f14874f = userType;
+        aVar.f14875g = imMessageCenterPojo.getUnread_count();
         fVar.g().add(aVar);
         if (userType == 4) {
             fVar.S(fVar.s() + imMessageCenterPojo.getUnread_count());
@@ -320,8 +320,8 @@ public class a {
         for (f.a aVar : list) {
             if (aVar != null) {
                 for (f.a aVar2 : list2) {
-                    if (aVar2 != null && StringHelper.equals(aVar.f14867a, aVar2.f14867a)) {
-                        aVar.f14874h = aVar2.f14873g;
+                    if (aVar2 != null && StringHelper.equals(aVar.f14869a, aVar2.f14869a)) {
+                        aVar.f14876h = aVar2.f14875g;
                     }
                 }
             }
@@ -393,9 +393,9 @@ public class a {
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             boolean r = r(data);
             if (memoryChangedMessage.getType() == 1) {
-                p(data, this.f21542a);
+                p(data, this.f21556a);
             } else if (memoryChangedMessage.getType() == 2) {
-                x(data, this.f21542a);
+                x(data, this.f21556a);
             }
             v(r);
         }
@@ -414,10 +414,10 @@ public class a {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
             if (responsedMemoryListMessage.getType() == 1) {
-                this.f21542a.clear();
+                this.f21556a.clear();
                 for (ImMessageCenterPojo imMessageCenterPojo : data) {
                     if (q(imMessageCenterPojo)) {
-                        this.f21542a.add(imMessageCenterPojo);
+                        this.f21556a.add(imMessageCenterPojo);
                     }
                 }
             }
@@ -468,11 +468,11 @@ public class a {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            MessageManager.getInstance().registerListener(2016004, this.f21543b);
-            MessageManager.getInstance().registerListener(2016007, this.f21543b);
-            MessageManager.getInstance().registerListener(2016001, this.f21543b);
-            MessageManager.getInstance().registerListener(2016010, this.f21543b);
-            MessageManager.getInstance().registerListener(2016002, this.f21543b);
+            MessageManager.getInstance().registerListener(2016004, this.f21557b);
+            MessageManager.getInstance().registerListener(2016007, this.f21557b);
+            MessageManager.getInstance().registerListener(2016001, this.f21557b);
+            MessageManager.getInstance().registerListener(2016010, this.f21557b);
+            MessageManager.getInstance().registerListener(2016002, this.f21557b);
         }
     }
 
@@ -496,7 +496,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048594, this, fVar) == null) || fVar == null) {
             return;
         }
-        for (ImMessageCenterPojo imMessageCenterPojo : this.f21542a) {
+        for (ImMessageCenterPojo imMessageCenterPojo : this.f21556a) {
             if (imMessageCenterPojo != null && imMessageCenterPojo.getIs_hidden() != 1 && q(imMessageCenterPojo)) {
                 m(imMessageCenterPojo, fVar);
                 h(imMessageCenterPojo, fVar);

@@ -25,13 +25,13 @@ public class ad {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Integer> f73876a;
+    public static Map<String, Integer> f74195a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Set<String> f73877b;
+    public static Set<String> f74196b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f73878c;
+    public static Method f74197c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,10 +48,10 @@ public class ad {
             }
         }
         HashSet hashSet = new HashSet();
-        f73877b = hashSet;
+        f74196b = hashSet;
         hashSet.add("android.permission.REQUEST_INSTALL_PACKAGES");
-        f73877b.add("android.permission.WRITE_SETTINGS");
-        f73877b.add("android.permission.SYSTEM_ALERT_WINDOW");
+        f74196b.add("android.permission.WRITE_SETTINGS");
+        f74196b.add("android.permission.SYSTEM_ALERT_WINDOW");
     }
 
     public static int a(Context context, String str) {
@@ -59,13 +59,13 @@ public class ad {
         int b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (f73876a == null) {
+            if (f74195a == null) {
                 try {
                     a(context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions);
                 } catch (PackageManager.NameNotFoundException unused) {
                 }
             }
-            if (!f73877b.contains(str) || (b2 = b(context, str)) == -2) {
+            if (!f74196b.contains(str) || (b2 = b(context, str)) == -2) {
                 int c2 = c(context, str);
                 return c2 != -2 ? c2 : context.checkPermission(str, Process.myPid(), Process.myUid());
             }
@@ -99,14 +99,14 @@ public class ad {
         if (!(interceptable == null || interceptable.invokeL(65539, null, strArr) == null) || Build.VERSION.SDK_INT < 19 || strArr == null) {
             return;
         }
-        f73876a = new HashMap();
+        f74195a = new HashMap();
         for (String str : strArr) {
             try {
                 Field declaredField = AppOpsManager.class.getDeclaredField("OP_" + a(str));
                 declaredField.setAccessible(true);
                 int intValue = ((Integer) declaredField.get(null)).intValue();
                 if (intValue >= 0) {
-                    f73876a.put(str, Integer.valueOf(intValue));
+                    f74195a.put(str, Integer.valueOf(intValue));
                 }
             } catch (Throwable unused) {
             }
@@ -188,15 +188,15 @@ public class ad {
             if (Build.VERSION.SDK_INT < 19) {
                 return 0;
             }
-            if (f73876a.containsKey(str)) {
-                int intValue = f73876a.get(str).intValue();
+            if (f74195a.containsKey(str)) {
+                int intValue = f74195a.get(str).intValue();
                 try {
-                    if (f73878c == null) {
+                    if (f74197c == null) {
                         Method declaredMethod = AppOpsManager.class.getDeclaredMethod("checkOp", Integer.TYPE, Integer.TYPE, String.class);
-                        f73878c = declaredMethod;
+                        f74197c = declaredMethod;
                         declaredMethod.setAccessible(true);
                     }
-                    return ((Integer) f73878c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
+                    return ((Integer) f74197c.invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(intValue), Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() == 0 ? 0 : -1;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                     return 0;

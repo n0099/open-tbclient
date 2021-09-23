@@ -11,7 +11,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28579a;
+    public String f28599a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class b {
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.f28579a = jSONObject.optString("error_code");
+            this.f28599a = jSONObject.optString("error_code");
             jSONObject.optString("error_msg");
         }
     }

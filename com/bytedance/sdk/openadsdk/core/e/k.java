@@ -14,34 +14,34 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f66446a;
+    public final int f66757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f66447b;
+    public final int f66758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f66448c;
+    public final int f66759c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f66449d;
+    public final int f66760d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f66450e;
+    public final long f66761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f66451f;
+    public final long f66762f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f66452g;
+    public final int f66763g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f66453h;
+    public final int f66764h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f66454i;
+    public final int f66765i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f66455j;
+    public final int f66766j;
     public final String k;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.e.k$1  reason: invalid class name */
@@ -57,34 +57,34 @@ public class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f66456a;
+        public long f66767a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f66457b;
+        public long f66768b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f66458c;
+        public int f66769c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f66459d;
+        public int f66770d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f66460e;
+        public int f66771e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f66461f;
+        public int f66772f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f66462g;
+        public int f66773g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f66463h;
+        public int f66774h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f66464i;
+        public int f66775i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f66465j;
+        public int f66776j;
         public String k;
 
         public a() {
@@ -105,7 +105,7 @@ public class k {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                this.f66456a = j2;
+                this.f66767a = j2;
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -115,7 +115,7 @@ public class k {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-                this.f66457b = j2;
+                this.f66768b = j2;
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -125,7 +125,7 @@ public class k {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.f66460e = i2;
+                this.f66771e = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -135,7 +135,7 @@ public class k {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                this.f66461f = i2;
+                this.f66772f = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -145,7 +145,7 @@ public class k {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-                this.f66462g = i2;
+                this.f66773g = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -155,7 +155,7 @@ public class k {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-                this.f66463h = i2;
+                this.f66774h = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -165,7 +165,7 @@ public class k {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-                this.f66464i = i2;
+                this.f66775i = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -175,7 +175,7 @@ public class k {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                this.f66465j = i2;
+                this.f66776j = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -185,7 +185,7 @@ public class k {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f66458c = i2;
+                this.f66769c = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -195,7 +195,7 @@ public class k {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.f66459d = i2;
+                this.f66770d = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -237,16 +237,16 @@ public class k {
                 return;
             }
         }
-        this.f66446a = aVar.f66461f;
-        this.f66447b = aVar.f66460e;
-        this.f66448c = aVar.f66459d;
-        this.f66449d = aVar.f66458c;
-        this.f66450e = aVar.f66457b;
-        this.f66451f = aVar.f66456a;
-        this.f66452g = aVar.f66462g;
-        this.f66453h = aVar.f66463h;
-        this.f66454i = aVar.f66464i;
-        this.f66455j = aVar.f66465j;
+        this.f66757a = aVar.f66772f;
+        this.f66758b = aVar.f66771e;
+        this.f66759c = aVar.f66770d;
+        this.f66760d = aVar.f66769c;
+        this.f66761e = aVar.f66768b;
+        this.f66762f = aVar.f66767a;
+        this.f66763g = aVar.f66773g;
+        this.f66764h = aVar.f66774h;
+        this.f66765i = aVar.f66775i;
+        this.f66766j = aVar.f66776j;
         this.k = aVar.k;
     }
 }

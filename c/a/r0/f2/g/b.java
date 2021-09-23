@@ -41,31 +41,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17656a;
+    public int f17666a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BdUniqueId f17657b;
+    public final BdUniqueId f17667b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Gson f17658c;
+    public Gson f17668c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f17659d;
+    public d f17669d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f17660e;
+    public c f17670e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<c.a.r0.f2.c.b> f17661f;
+    public List<c.a.r0.f2.c.b> f17671f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f17662g;
+    public boolean f17672g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.e.c.g.a f17663h;
+    public c.a.e.c.g.a f17673h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HttpMessageListener f17664i;
+    public HttpMessageListener f17674i;
 
     /* loaded from: classes3.dex */
     public class a extends c.a.e.c.g.a {
@@ -73,7 +73,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f17665a;
+        public final /* synthetic */ b f17675a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2, int i3) {
@@ -94,18 +94,18 @@ public class b {
                     return;
                 }
             }
-            this.f17665a = bVar;
+            this.f17675a = bVar;
         }
 
         @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f17665a.f17662g = false;
+                this.f17675a.f17672g = false;
                 if (responsedMessage == null) {
                     return;
                 }
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.f17665a.f17657b) {
+                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.f17675a.f17667b) {
                     c.a.r0.f2.c.c cVar = null;
                     if (responsedMessage instanceof InterestedForumHttpResMsg) {
                         cVar = ((InterestedForumHttpResMsg) responsedMessage).getPageData();
@@ -113,17 +113,17 @@ public class b {
                         cVar = ((InterestedForumSocketResMsg) responsedMessage).getPageData();
                     }
                     if (responsedMessage.getError() != 0) {
-                        if (this.f17665a.f17659d != null) {
-                            this.f17665a.f17659d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                        if (this.f17675a.f17669d != null) {
+                            this.f17675a.f17669d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                         }
-                    } else if (cVar == null || ListUtils.isEmpty(cVar.f17636a)) {
-                        if (this.f17665a.f17659d != null) {
-                            this.f17665a.f17659d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    } else if (cVar == null || ListUtils.isEmpty(cVar.f17646a)) {
+                        if (this.f17675a.f17669d != null) {
+                            this.f17675a.f17669d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                         }
-                    } else if (cVar == null || this.f17665a.f17659d == null) {
+                    } else if (cVar == null || this.f17675a.f17669d == null) {
                     } else {
-                        b.c(this.f17665a);
-                        this.f17665a.f17659d.c(cVar);
+                        b.c(this.f17675a);
+                        this.f17675a.f17669d.c(cVar);
                     }
                 }
             }
@@ -132,15 +132,15 @@ public class b {
 
     /* renamed from: c.a.r0.f2.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0866b extends HttpMessageListener {
+    public class C0864b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f17666a;
+        public final /* synthetic */ b f17676a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0866b(b bVar, int i2) {
+        public C0864b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -157,7 +157,7 @@ public class b {
                     return;
                 }
             }
-            this.f17666a = bVar;
+            this.f17676a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -167,17 +167,17 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
             }
-            if ((httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.f17666a.f17657b) && (httpResponsedMessage instanceof InterestCommitHttpResMsg)) {
+            if ((httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.f17676a.f17667b) && (httpResponsedMessage instanceof InterestCommitHttpResMsg)) {
                 InterestCommitHttpResMsg interestCommitHttpResMsg = (InterestCommitHttpResMsg) httpResponsedMessage;
                 if (interestCommitHttpResMsg.hasError() || interestCommitHttpResMsg.getErrno() != 0) {
-                    if (this.f17666a.f17659d != null) {
-                        this.f17666a.f17659d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (this.f17676a.f17669d != null) {
+                        this.f17676a.f17669d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                if (this.f17666a.f17660e != null) {
-                    this.f17666a.f17660e.b();
+                if (this.f17676a.f17670e != null) {
+                    this.f17676a.f17670e.b();
                 }
                 c.a.q0.s.d0.b.j().w("key_select_interest_flag", System.currentTimeMillis());
             }
@@ -211,22 +211,22 @@ public class b {
                 return;
             }
         }
-        this.f17658c = new Gson();
-        this.f17662g = false;
-        this.f17663h = new a(this, CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654);
-        this.f17664i = new C0866b(this, CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
-        this.f17657b = bdUniqueId;
-        this.f17663h.setTag(bdUniqueId);
-        this.f17664i.setTag(this.f17657b);
-        MessageManager.getInstance().registerListener(this.f17663h);
-        MessageManager.getInstance().registerListener(this.f17664i);
+        this.f17668c = new Gson();
+        this.f17672g = false;
+        this.f17673h = new a(this, CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, 309654);
+        this.f17674i = new C0864b(this, CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
+        this.f17667b = bdUniqueId;
+        this.f17673h.setTag(bdUniqueId);
+        this.f17674i.setTag(this.f17667b);
+        MessageManager.getInstance().registerListener(this.f17673h);
+        MessageManager.getInstance().registerListener(this.f17674i);
         o();
         n();
     }
 
     public static /* synthetic */ int c(b bVar) {
-        int i2 = bVar.f17656a;
-        bVar.f17656a = i2 + 1;
+        int i2 = bVar.f17666a;
+        bVar.f17666a = i2 + 1;
         return i2;
     }
 
@@ -234,7 +234,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT, TbConfig.SERVER_ADDRESS + TbConfig.GUIDE_INTEREST_COMMIT_URL);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(InterestCommitHttpResMsg.class);
             tbHttpMessageTask.setPriority(4);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -254,7 +254,7 @@ public class b {
             }
             httpMessage.addParam("interestList", str);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.setTag(this.f17657b);
+            httpMessage.setTag(this.f17667b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -269,7 +269,7 @@ public class b {
             }
             httpMessage.addParam("interestList", encode);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.setTag(this.f17657b);
+            httpMessage.setTag(this.f17667b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -284,7 +284,7 @@ public class b {
             }
             httpMessage.addParam("interestList", encode);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.setTag(this.f17657b);
+            httpMessage.setTag(this.f17667b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -294,14 +294,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HashMap hashMap = new HashMap();
-            if (!ListUtils.isEmpty(this.f17661f)) {
-                for (c.a.r0.f2.c.b bVar : this.f17661f) {
+            if (!ListUtils.isEmpty(this.f17671f)) {
+                for (c.a.r0.f2.c.b bVar : this.f17671f) {
                     if (bVar != null) {
                         hashMap.put(bVar.f(), new HashMap());
                     }
                 }
             }
-            return this.f17658c.toJson(hashMap);
+            return this.f17668c.toJson(hashMap);
         }
         return (String) invokeV.objValue;
     }
@@ -328,22 +328,22 @@ public class b {
             HashMap hashMap = new HashMap();
             for (c.a.r0.f2.c.a aVar : list) {
                 HashMap hashMap2 = new HashMap();
-                for (g gVar : aVar.f17624a) {
-                    if (gVar.f17651b) {
-                        RecommendForumInfo recommendForumInfo = gVar.f17650a;
+                for (g gVar : aVar.f17634a) {
+                    if (gVar.f17661b) {
+                        RecommendForumInfo recommendForumInfo = gVar.f17660a;
                         hashMap2.put(recommendForumInfo.forum_id, recommendForumInfo.forum_name);
                     }
                 }
-                hashMap.put(aVar.f17626c, hashMap2);
+                hashMap.put(aVar.f17636c, hashMap2);
             }
-            if (!ListUtils.isEmpty(this.f17661f)) {
-                for (c.a.r0.f2.c.b bVar : this.f17661f) {
+            if (!ListUtils.isEmpty(this.f17671f)) {
+                for (c.a.r0.f2.c.b bVar : this.f17671f) {
                     if (bVar != null && !hashMap.containsKey(bVar.f())) {
                         hashMap.put(bVar.f(), new HashMap());
                     }
                 }
             }
-            return this.f17658c.toJson(hashMap);
+            return this.f17668c.toJson(hashMap);
         }
         return (String) invokeL.objValue;
     }
@@ -372,14 +372,14 @@ public class b {
             if (!StringUtils.isNull(str)) {
                 hashMap.put(str, hashMap2);
             }
-            if (!ListUtils.isEmpty(this.f17661f)) {
-                for (c.a.r0.f2.c.b bVar : this.f17661f) {
+            if (!ListUtils.isEmpty(this.f17671f)) {
+                for (c.a.r0.f2.c.b bVar : this.f17671f) {
                     if (bVar != null && !hashMap.containsKey(bVar.f())) {
                         hashMap.put(bVar.f(), new HashMap());
                     }
                 }
             }
-            return this.f17658c.toJson(hashMap);
+            return this.f17668c.toJson(hashMap);
         }
         return (String) invokeL.objValue;
     }
@@ -388,14 +388,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             InterestedForumReqMsg interestedForumReqMsg = new InterestedForumReqMsg();
-            List<c.a.r0.f2.c.b> list = this.f17661f;
+            List<c.a.r0.f2.c.b> list = this.f17671f;
             if (list == null) {
                 interestedForumReqMsg.classidList = i(null);
             } else {
-                interestedForumReqMsg.classidList = i(list.subList((this.f17656a - 1) * 3, Math.min(list.size(), this.f17656a * 3)));
+                interestedForumReqMsg.classidList = i(list.subList((this.f17666a - 1) * 3, Math.min(list.size(), this.f17666a * 3)));
             }
-            interestedForumReqMsg.setTag(this.f17657b);
-            this.f17662g = true;
+            interestedForumReqMsg.setTag(this.f17667b);
+            this.f17672g = true;
             MessageManager.getInstance().sendMessage(interestedForumReqMsg);
         }
     }
@@ -403,13 +403,13 @@ public class b {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.f17656a - 1) * 3 < this.f17661f.size() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.f17666a - 1) * 3 < this.f17671f.size() : invokeV.booleanValue;
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, c.a.r0.j3.d0.a.a(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, c.a.r0.j3.e0.a.a(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setResponsedClass(InterestedForumHttpResMsg.class);
             tbHttpMessageTask.setPriority(4);
@@ -431,22 +431,22 @@ public class b {
     public void q(List<c.a.r0.f2.c.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.f17661f = list;
-            this.f17656a = 1;
+            this.f17671f = list;
+            this.f17666a = 1;
         }
     }
 
     public void r(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.f17660e = cVar;
+            this.f17670e = cVar;
         }
     }
 
     public void s(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
-            this.f17659d = dVar;
+            this.f17669d = dVar;
         }
     }
 }

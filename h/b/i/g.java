@@ -15,10 +15,10 @@ public class g implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f78487a;
+    public byte[] f78806a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TreeMap<String, String> f78488b;
+    public TreeMap<String, String> f78807b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class g implements c {
                 return;
             }
         }
-        this.f78488b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        this.f78807b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
     @Override // h.b.i.f
@@ -41,7 +41,7 @@ public class g implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.f78488b.get(str);
+            String str2 = this.f78807b.get(str);
             return str2 == null ? "" : str2;
         }
         return (String) invokeL.objValue;
@@ -51,28 +51,28 @@ public class g implements c {
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f78488b.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f78807b.containsKey(str) : invokeL.booleanValue;
     }
 
     @Override // h.b.i.f
     public Iterator<String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.f78488b.keySet()).iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.f78807b.keySet()).iterator() : (Iterator) invokeV.objValue;
     }
 
     @Override // h.b.i.f
     public byte[] getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f78487a : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f78806a : (byte[]) invokeV.objValue;
     }
 
     @Override // h.b.i.c
     public void put(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.f78488b.put(str, str2);
+            this.f78807b.put(str, str2);
         }
     }
 }

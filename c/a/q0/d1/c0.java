@@ -1,68 +1,188 @@
 package c.a.q0.d1;
 
-import android.os.SystemClock;
-import androidx.annotation.NonNull;
-import androidx.collection.ArrayMap;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.data.NewGodData;
+import com.baidu.tieba.flutter.base.util.OpenFlutter;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class c0<KEY> {
+public class c0 {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static c0 f12910g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayMap<KEY, Long> f12904a;
+    public int f12911a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12905b;
+    public String f12912b;
 
-    public c0(int i2, @NonNull TimeUnit timeUnit) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), timeUnit};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* renamed from: c  reason: collision with root package name */
+    public String f12913c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f12914d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f12915e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Runnable f12916f;
+
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ c0 f12917e;
+
+        public a(c0 c0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.f12917e = c0Var;
         }
-        this.f12904a = new ArrayMap<>();
-        this.f12905b = timeUnit.toMillis(i2);
-    }
 
-    public static <T> c0<T> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new c0<>(1000, TimeUnit.MILLISECONDS) : (c0) invokeV.objValue;
-    }
-
-    public synchronized boolean a(@NonNull KEY key) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
-            synchronized (this) {
-                Long l = this.f12904a.get(key);
-                long uptimeMillis = SystemClock.uptimeMillis();
-                if (l == null) {
-                    this.f12904a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else if (uptimeMillis - l.longValue() > this.f12905b) {
-                    this.f12904a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else {
-                    return false;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("from", String.valueOf(this.f12917e.f12911a));
+                hashMap.put("field_id", this.f12917e.f12912b);
+                hashMap.put("type", Integer.valueOf(this.f12917e.f12914d));
+                hashMap.put("type_name", this.f12917e.f12915e);
+                if (this.f12917e.f12911a == 2) {
+                    hashMap.put("fid", this.f12917e.f12913c);
+                }
+                hashMap.put("animated", Boolean.FALSE);
+                hashMap.put(OpenFlutter.EXTRA_TRANSPARANT, Boolean.TRUE);
+                hashMap.put("swipeback", Boolean.FALSE);
+                if (PluginPackageManager.O().y("com.baidu.tieba.pluginFlutter")) {
+                    if (MessageManager.getInstance().findTask(2002015) == null) {
+                        c.a.e.e.m.e.a().postDelayed(this.f12917e.f12916f, 0L);
+                        return;
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.r0.j3.i0.n(TbadkApplication.getInst().getApplicationContext(), "GodDialog", hashMap)));
+                    c.a.q0.s.d0.b.j().w("key_new_god_dialog_showed_time", System.currentTimeMillis());
                 }
             }
         }
-        return invokeL.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1214544502, "Lc/a/q0/d1/c0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1214544502, "Lc/a/q0/d1/c0;");
+        }
+    }
+
+    public c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f12916f = new a(this);
+    }
+
+    public static synchronized c0 g() {
+        InterceptResult invokeV;
+        c0 c0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            synchronized (c0.class) {
+                if (f12910g == null) {
+                    f12910g = new c0();
+                }
+                c0Var = f12910g;
+            }
+            return c0Var;
+        }
+        return (c0) invokeV.objValue;
+    }
+
+    public final boolean h(int i2, NewGodData newGodData) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, newGodData)) == null) {
+            if (i2 != 5) {
+                return (((((System.currentTimeMillis() - c.a.q0.s.d0.b.j().l("key_new_god_dialog_showed_time", 0L)) + 3000) > 259200000L ? 1 : (((System.currentTimeMillis() - c.a.q0.s.d0.b.j().l("key_new_god_dialog_showed_time", 0L)) + 3000) == 259200000L ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+            }
+            return true;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c.a.e.e.m.e.a().removeCallbacks(this.f12916f);
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f12913c = str;
+        }
+    }
+
+    public void k(int i2, NewGodData newGodData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, newGodData) == null) {
+            l(i2, newGodData, true);
+        }
+    }
+
+    public void l(int i2, NewGodData newGodData, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), newGodData, Boolean.valueOf(z)}) == null) && h(i2, newGodData)) {
+            i();
+            this.f12911a = i2;
+            this.f12912b = newGodData.getFieldId();
+            this.f12914d = newGodData.getType();
+            this.f12915e = newGodData.getTypeName();
+            c.a.e.e.m.e.a().postDelayed(this.f12916f, z ? 3000L : 0L);
+        }
     }
 }

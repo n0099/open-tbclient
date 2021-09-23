@@ -24,7 +24,7 @@ public final class Rotation {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f42715a;
+        public static final /* synthetic */ int[] f42777a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,21 +41,21 @@ public final class Rotation {
                 }
             }
             int[] iArr = new int[Rotation.values().length];
-            f42715a = iArr;
+            f42777a = iArr;
             try {
                 iArr[Rotation.NORMAL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f42715a[Rotation.ROTATION_90.ordinal()] = 2;
+                f42777a[Rotation.ROTATION_90.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f42715a[Rotation.ROTATION_180.ordinal()] = 3;
+                f42777a[Rotation.ROTATION_180.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f42715a[Rotation.ROTATION_270.ordinal()] = 4;
+                f42777a[Rotation.ROTATION_270.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -141,7 +141,7 @@ public final class Rotation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = a.f42715a[ordinal()];
+            int i2 = a.f42777a[ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

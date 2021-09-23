@@ -21,28 +21,28 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Context> f67454a;
+    public WeakReference<Context> f67765a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f67455b;
+    public boolean f67766b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f67456c;
+    public boolean f67767c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f67457d;
+    public boolean f67768d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f67458e;
+    public boolean f67769e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f67459f;
+    public boolean f67770f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f67460g;
+    public boolean f67771g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f67461h;
+    public boolean f67772h;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public class c {
                 return;
             }
         }
-        this.f67455b = true;
-        this.f67456c = true;
-        this.f67457d = true;
-        this.f67458e = true;
-        this.f67459f = true;
-        this.f67460g = true;
-        this.f67461h = true;
-        this.f67454a = new WeakReference<>(context);
+        this.f67766b = true;
+        this.f67767c = true;
+        this.f67768d = true;
+        this.f67769e = true;
+        this.f67770f = true;
+        this.f67771g = true;
+        this.f67772h = true;
+        this.f67765a = new WeakReference<>(context);
     }
 
     public static c a(Context context) {
@@ -79,7 +79,7 @@ public class c {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.f67456c = z;
+            this.f67767c = z;
             return this;
         }
         return (c) invokeZ.objValue;
@@ -102,7 +102,7 @@ public class c {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.f67461h = z;
+            this.f67772h = z;
             return this;
         }
         return (c) invokeZ.objValue;
@@ -112,7 +112,7 @@ public class c {
     @SuppressLint({"SetJavaScriptEnabled"})
     public void a(WebView webView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView) == null) || webView == null || this.f67454a.get() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView) == null) || webView == null || this.f67765a.get() == null) {
             return;
         }
         b(webView);
@@ -127,7 +127,7 @@ public class c {
             e2.printStackTrace();
         }
         try {
-            if (this.f67456c) {
+            if (this.f67767c) {
                 settings.setSupportZoom(true);
                 settings.setBuiltInZoomControls(true);
             } else {
@@ -137,18 +137,18 @@ public class c {
             th.printStackTrace();
         }
         settings.setLoadWithOverviewMode(true);
-        settings.setUseWideViewPort(this.f67457d);
-        settings.setDomStorageEnabled(this.f67458e);
+        settings.setUseWideViewPort(this.f67768d);
+        settings.setDomStorageEnabled(this.f67769e);
         settings.setAllowFileAccess(false);
-        settings.setBlockNetworkImage(true ^ this.f67460g);
+        settings.setBlockNetworkImage(true ^ this.f67771g);
         settings.setDisplayZoomControls(false);
         if (Build.VERSION.SDK_INT < 28) {
-            this.f67461h = false;
+            this.f67772h = false;
         }
         try {
-            if (Build.VERSION.SDK_INT >= 11 && !this.f67461h) {
+            if (Build.VERSION.SDK_INT >= 11 && !this.f67772h) {
                 webView.setLayerType(0, null);
-            } else if (Build.VERSION.SDK_INT >= 16 && this.f67461h) {
+            } else if (Build.VERSION.SDK_INT >= 16 && this.f67772h) {
                 webView.setLayerType(2, null);
             }
         } catch (Throwable th2) {

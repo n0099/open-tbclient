@@ -14,22 +14,22 @@ public class l0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f14693a;
+    public String f14695a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f14694b;
+    public long f14696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f14695c;
+    public long f14697c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f14696d;
+    public long f14698d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14697e;
+    public String f14699e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14698f;
+    public String f14700f;
 
     public l0() {
         Interceptable interceptable = $ic;
@@ -48,37 +48,37 @@ public class l0 {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14695c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14697c : invokeV.longValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14698f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14700f : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14697e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14699e : (String) invokeV.objValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14696d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14698d : invokeV.longValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14694b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14696b : invokeV.longValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14693a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14695a : (String) invokeV.objValue;
     }
 
     public void g(String str) {
@@ -88,12 +88,12 @@ public class l0 {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f14693a = jSONObject.optString("splash_video_url");
-            this.f14694b = jSONObject.optLong("splash_video_start_time") * 1000;
-            this.f14695c = jSONObject.optLong("splash_video_end_time") * 1000;
-            this.f14696d = jSONObject.optLong("splash_video_interval_time") * 1000;
-            this.f14697e = jSONObject.optString("splash_video_h5_url");
-            this.f14698f = jSONObject.optString("splash_video_h5_text");
+            this.f14695a = jSONObject.optString("splash_video_url");
+            this.f14696b = jSONObject.optLong("splash_video_start_time") * 1000;
+            this.f14697c = jSONObject.optLong("splash_video_end_time") * 1000;
+            this.f14698d = jSONObject.optLong("splash_video_interval_time") * 1000;
+            this.f14699e = jSONObject.optString("splash_video_h5_url");
+            this.f14700f = jSONObject.optString("splash_video_h5_text");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

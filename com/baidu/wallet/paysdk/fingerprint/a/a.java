@@ -1,342 +1,242 @@
 package com.baidu.wallet.paysdk.fingerprint.a;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.hardware.fingerprint.FingerprintManager;
-import android.os.CancellationSignal;
+import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.fingerprint.FpConstancts;
+import com.baidu.wallet.api.ILoginBackListener;
+import com.baidu.wallet.paysdk.entrance.EnterWalletDxmPayServiceAction;
 import com.baidu.wallet.paysdk.fingerprint.WalletFingerprint;
-import com.baidu.wallet.paysdk.fingerprint.b;
-import com.dxmpay.apollon.utils.ResUtils;
-import com.dxmpay.apollon.utils.SharedPreferencesUtils;
-import com.dxmpay.wallet.paysdk.storage.PayPreferenceManager;
+import com.baidu.wallet.paysdk.fingerprint.ui.DxmCheckFingerprintActivity;
+import com.baidu.wallet.router.RouterCallback;
+import com.dxmpay.apollon.utils.Base64Utils;
+import com.dxmpay.wallet.api.WalletLoginHelper;
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
+import com.dxmpay.wallet.core.lollipop.json.JSONException;
+import com.dxmpay.wallet.core.lollipop.json.JSONObject;
+import com.dxmpay.wallet.passport.LoginBackListenerProxy;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
-import java.security.InvalidKeyException;
-import java.security.KeyStoreException;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-@TargetApi(23)
+import com.dxmpay.wallet.utils.StatHelper;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class a extends FingerprintManager.AuthenticationCallback {
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public FingerprintManager f62543a;
+    public RouterCallback f62826a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.fingerprint.a f62544b;
+    public Context f62827b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public b f62545c;
+    /* renamed from: com.baidu.wallet.paysdk.fingerprint.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes8.dex */
+    public static class C1854a {
+        public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: d  reason: collision with root package name */
-    public CancellationSignal f62546d;
+        /* renamed from: a  reason: collision with root package name */
+        public static a f62830a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f62547e;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-497420629, "Lcom/baidu/wallet/paysdk/fingerprint/a/a$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-497420629, "Lcom/baidu/wallet/paysdk/fingerprint/a/a$a;");
+                    return;
+                }
+            }
+            f62830a = new a();
+        }
+    }
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f62548f;
+    private int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+            if (WalletFingerprint.getInstance(this.f62827b).isDevicesSupport()) {
+                if (WalletFingerprint.getInstance(this.f62827b).hasEnrollFingerprint()) {
+                    return !WalletFingerprint.getInstance(this.f62827b).hasOTPToken() ? 3003 : 0;
+                }
+                return 2111;
+            }
+            return 2112;
+        }
+        return invokeV.intValue;
+    }
 
-    /* renamed from: g  reason: collision with root package name */
-    public Context f62549g;
+    private void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            this.f62826a = null;
+            this.f62827b = null;
+        }
+    }
 
-    /* renamed from: h  reason: collision with root package name */
-    public int f62550h;
-
-    public a(Context context) throws KeyStoreException {
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f62547e = 1;
-        this.f62550h = 0;
-        this.f62549g = context;
-        this.f62543a = (FingerprintManager) context.getSystemService(FingerprintManager.class);
-        this.f62544b = com.baidu.wallet.paysdk.fingerprint.a.a(context);
-    }
-
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f62547e = 1;
-            if (this.f62545c == null || TextUtils.isEmpty(this.f62548f)) {
-                return;
-            }
-            try {
-                FingerprintManager.CryptoObject a2 = this.f62544b.a(1, null);
-                if (a2 == null) {
-                    if (this.f62545c != null) {
-                        this.f62545c.a(-1, "");
-                        return;
-                    }
-                    return;
-                }
-                CancellationSignal cancellationSignal = new CancellationSignal();
-                this.f62546d = cancellationSignal;
-                this.f62543a.authenticate(a2, cancellationSignal, 0, this, null);
-            } catch (SecurityException e2) {
-                e2.printStackTrace();
-                StatisticManager.onEvent("fprd_security_exception_occued_on_encrypt");
-                b bVar = this.f62545c;
-                if (bVar != null) {
-                    bVar.a(-1, "");
-                }
-            } catch (InvalidKeyException unused) {
-                b bVar2 = this.f62545c;
-                if (bVar2 != null) {
-                    bVar2.a(-3, ResUtils.getString(this.f62549g, "wallet_fp_fingerprint_changed"));
-                }
             }
         }
     }
 
-    private void f() {
-        String str;
+    public static a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            String[] split = new String(Base64.decode((String) SharedPreferencesUtils.getParam(this.f62549g, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f62549g), ""), 0)).split("\\|");
-            if (split.length == 3) {
-                this.f62548f = split[0];
-                str = split[1];
-            } else {
-                str = null;
-            }
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.f62548f)) {
-                this.f62547e = 2;
-                try {
-                    FingerprintManager.CryptoObject a2 = this.f62544b.a(2, Base64.decode(str, 0));
-                    if (a2 == null) {
-                        StatisticManager.onEventWithValue("fprd_start_fp_failed", "case: decrypttoken & reason : cryptObject is null");
-                        if (this.f62545c != null) {
-                            this.f62545c.a(-1, "");
-                            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1854a.f62830a : (a) invokeV.objValue;
+    }
+
+    public void a(Context context, String str, RouterCallback routerCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, routerCallback) == null) {
+            if (context != null && routerCallback != null) {
+                this.f62826a = routerCallback;
+                this.f62827b = context;
+                WalletLoginHelper.getInstance().setOpenBdussErrorCodeShowFlag(false);
+                WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(context, new ILoginBackListener(this, str) { // from class: com.baidu.wallet.paysdk.fingerprint.a.a.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ String f62828a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ a f62829b;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
                         }
-                        return;
+                        this.f62829b = this;
+                        this.f62828a = str;
                     }
-                    CancellationSignal cancellationSignal = new CancellationSignal();
-                    this.f62546d = cancellationSignal;
-                    this.f62543a.authenticate(a2, cancellationSignal, 0, this, null);
-                    return;
-                } catch (SecurityException e2) {
-                    e2.printStackTrace();
-                    StatisticManager.onEventWithValue("fprd_start_fp_failed", "case: decrypttoken & reason : SecurityException happends");
-                    b bVar = this.f62545c;
-                    if (bVar != null) {
-                        bVar.a(-1, "");
-                        return;
+
+                    @Override // com.baidu.wallet.api.ILoginBackListener
+                    public void onFail(int i2, String str2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
+                            this.f62829b.a(5003, str2);
+                        }
                     }
-                    return;
-                } catch (InvalidKeyException e3) {
-                    e3.printStackTrace();
-                    WalletFingerprint.getInstance(this.f62549g).clearOTPToken();
-                    b bVar2 = this.f62545c;
-                    if (bVar2 != null) {
-                        bVar2.a(-3, ResUtils.getString(this.f62549g, "wallet_fp_changed_usepwd"));
-                        return;
+
+                    @Override // com.baidu.wallet.api.ILoginBackListener
+                    public void onSuccess(int i2, String str2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
+                            this.f62829b.a(this.f62828a);
+                        }
                     }
-                    return;
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                    StatisticManager.onEventWithValue("fprd_start_fp_failed", "case: decrypttoken & reason : exception is" + e4.getLocalizedMessage());
-                    b bVar3 = this.f62545c;
-                    if (bVar3 != null) {
-                        bVar3.a(-1, "");
-                        return;
-                    }
-                    return;
-                }
+                }));
+                return;
             }
-            StatisticManager.onEventWithValue("fprd_start_fp_failed", "impossible case: decrypttoken & reason : encrypt_base64_IV or operateData is null");
-            b bVar4 = this.f62545c;
-            if (bVar4 != null) {
-                bVar4.a(-1, "");
-            }
+            throw new IllegalArgumentException(a.class.getSimpleName() + " please check params");
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
+        JSONObject jSONObject;
+        int optInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f62548f = str;
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            e();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            f();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f62543a = null;
-            this.f62544b = null;
-            this.f62545c = null;
-            this.f62546d = null;
-            this.f62549g = null;
-        }
-    }
-
-    @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
-    public void onAuthenticationError(int i2, CharSequence charSequence) {
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, charSequence) == null) {
-            super.onAuthenticationError(i2, charSequence);
-            String str = "onAuthenticationError code=" + i2 + " # " + ((Object) charSequence);
-            if (i2 == 7) {
-                if (this.f62547e == 1) {
-                    string = ResUtils.getString(this.f62549g, "wallet_fp_try_too_many_times_try_later");
-                } else {
-                    string = ResUtils.getString(this.f62549g, "wallet_fp_error_fp_many_times_usepwd");
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) {
+            int b2 = b();
+            String str2 = "";
+            if (b2 != 0) {
+                if (b2 == 2112) {
+                    str2 = "设备不支持指纹";
+                } else if (b2 == 2111) {
+                    str2 = "设备系统设置中没有录入指纹";
+                } else if (b2 == 3003) {
+                    str2 = "设备支付设置中没有开启指纹";
                 }
-                b bVar = this.f62545c;
-                if (bVar != null) {
-                    bVar.a(-6, string);
-                }
-            }
-        }
-    }
-
-    @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
-    public void onAuthenticationFailed() {
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onAuthenticationFailed();
-            this.f62550h++;
-            String str = "onAuthenticationFailed  reTryCount=" + this.f62550h;
-            if (this.f62550h >= 3) {
-                if (this.f62547e == 1) {
-                    string = ResUtils.getString(this.f62549g, "wallet_fp_try_too_many_times_try_later");
-                } else {
-                    string = ResUtils.getString(this.f62549g, "wallet_fp_error_fp_many_times_usepwd");
-                }
-                b bVar = this.f62545c;
-                if (bVar != null) {
-                    bVar.a(-4, string);
-                }
-                this.f62550h = 0;
+                a(b2, str2);
                 return;
             }
-            b bVar2 = this.f62545c;
-            if (bVar2 != null) {
-                bVar2.a(-5, ResUtils.getString(this.f62549g, "wallet_fp_error_fp"));
-            }
-        }
-    }
-
-    @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
-    public void onAuthenticationHelp(int i2, CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, charSequence) == null) {
-            String str = "onAuthenticationHelp!  helpCode=" + i2 + " & helpString=" + ((Object) charSequence);
-            super.onAuthenticationHelp(i2, charSequence);
-        }
-    }
-
-    @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
-    public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult authenticationResult) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, authenticationResult) == null) || this.f62545c == null) {
-            return;
-        }
-        Cipher cipher = authenticationResult.getCryptoObject().getCipher();
-        if (this.f62547e == 2) {
-            if (!TextUtils.isEmpty(this.f62548f)) {
+            int i2 = 3;
+            int i3 = 0;
+            if (!TextUtils.isEmpty(str)) {
                 try {
-                    this.f62545c.a(0, new String(cipher.doFinal(Base64.decode(this.f62548f, 0))));
-                    return;
-                } catch (BadPaddingException | IllegalBlockSizeException e2) {
+                    jSONObject = new JSONObject(str);
+                    optInt = jSONObject.optInt("showSwitchPwd", 0);
+                } catch (JSONException e2) {
+                    e = e2;
+                }
+                try {
+                    i2 = jSONObject.optInt("checkTimes", 0);
+                    str2 = jSONObject.optString("session_id", "");
+                    i3 = optInt;
+                } catch (JSONException e3) {
+                    e = e3;
+                    i3 = optInt;
+                    e.printStackTrace();
+                    a(i3, i2, str2);
+                }
+            }
+            a(i3, i2, str2);
+        }
+    }
+
+    private void a(int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65539, this, i2, i3, str) == null) {
+            Intent intent = new Intent(this.f62827b, DxmCheckFingerprintActivity.class);
+            intent.putExtra("showSwitchPwd", i2);
+            intent.putExtra("checkTimes", i3);
+            intent.putExtra("session_id", str);
+            this.f62827b.startActivity(intent);
+        }
+    }
+
+    public void a(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+            StatisticManager.onEventWithValues(StatServiceEvent.PAY_SERVICE_RESULT, StatHelper.collectData(EnterWalletDxmPayServiceAction.CHECK_BIOMETRICS, i2 + "", str));
+            if (this.f62826a != null) {
+                HashMap hashMap = new HashMap();
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, i2);
+                    jSONObject.put("des", str);
+                } catch (JSONException e2) {
                     e2.printStackTrace();
-                    WalletFingerprint.getInstance(this.f62549g).clearOTPToken();
-                    this.f62545c.a(-3, ResUtils.getString(this.f62549g, "wallet_fp_changed_usepwd"));
-                    StatisticManager.onEvent("fprd_BadPaddingException_IllegalBlockSizeException");
-                    return;
                 }
-            }
-            throw new IllegalArgumentException(" #the data to encrypt/decrypt is null! ");
-        }
-        String str = null;
-        try {
-            String[] split = this.f62548f.split("\\|");
-            if (split.length == 2) {
-                str = split[0];
-                this.f62548f = split[1];
-            }
-            byte[] doFinal = cipher.doFinal(this.f62548f.getBytes());
-            byte[] iv = cipher.getIV();
-            if (doFinal != null && iv != null) {
-                String encodeToString = Base64.encodeToString(doFinal, 0);
-                String encodeToString2 = Base64.encodeToString(iv, 0);
-                String encodeToString3 = Base64.encodeToString((encodeToString + "|" + encodeToString2 + "|" + str).getBytes(), 0);
-                String newPpKey = PayPreferenceManager.getNewPpKey(this.f62549g);
-                if (!TextUtils.isEmpty(newPpKey)) {
-                    SharedPreferencesUtils.setParam(this.f62549g, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, newPpKey, encodeToString3);
-                }
-                this.f62545c.a(0, encodeToString);
-                return;
-            }
-            this.f62545c.a(-2, "");
-        } catch (BadPaddingException | IllegalBlockSizeException e3) {
-            e3.printStackTrace();
-            this.f62545c.a(-2, "");
-        }
-    }
-
-    public void a(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f62545c = bVar;
-        }
-    }
-
-    public void a() {
-        CancellationSignal cancellationSignal;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cancellationSignal = this.f62546d) == null) {
-            return;
-        }
-        cancellationSignal.cancel();
-        this.f62546d = null;
-    }
-
-    public void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 == 1) {
-                b();
-            } else if (i2 == 2) {
+                hashMap.put("data", Base64Utils.encodeToString(jSONObject.toString().getBytes()));
+                String assembleResult = EnterDxmPayServiceAction.assembleResult(hashMap, true);
+                HashMap hashMap2 = new HashMap();
+                hashMap2.put("result", assembleResult);
+                this.f62826a.onResult(0, hashMap2);
                 c();
             }
         }

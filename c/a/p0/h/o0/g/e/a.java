@@ -12,10 +12,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RecommendItemModel f11477a;
+    public RecommendItemModel f11485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendItemModel> f11478b;
+    public List<RecommendItemModel> f11486b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class a {
                 return;
             }
         }
-        this.f11477a = recommendItemModel;
-        this.f11478b = list;
+        this.f11485a = recommendItemModel;
+        this.f11486b = list;
     }
 }

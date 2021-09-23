@@ -1,45 +1,24 @@
 package com.baidu.sofire.utility;
 
-import android.accounts.NetworkErrorException;
-import android.content.Context;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Interceptor;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.apache.http.conn.ssl.SSLSocketFactory;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
-public class q {
+public final class q {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f45457b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static OkHttpClient f45458c;
-    public transient /* synthetic */ FieldHolder $fh;
-
     /* renamed from: a  reason: collision with root package name */
-    public Context f45459a;
+    public static final String[] f45558a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
@@ -54,183 +33,128 @@ public class q {
                 return;
             }
         }
-        f45457b = new byte[1024];
+        f45558a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
-    public q(Context context) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
+            return (String) invokeL.objValue;
         }
-        this.f45459a = context;
-    }
-
-    private OkHttpClient a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (f45458c == null) {
-                synchronized (q.class) {
-                    if (f45458c == null) {
-                        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-                        builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                        builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
-                        builder.addInterceptor(new Interceptor(this) { // from class: com.baidu.sofire.utility.q.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ q f45460a;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.f45460a = this;
-                            }
-
-                            @Override // okhttp3.Interceptor
-                            public final Response intercept(Interceptor.Chain chain) throws IOException {
-                                InterceptResult invokeL;
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, chain)) == null) {
-                                    System.currentTimeMillis();
-                                    Response proceed = chain.proceed(chain.request());
-                                    System.currentTimeMillis();
-                                    return proceed;
-                                }
-                                return (Response) invokeL.objValue;
-                            }
-                        });
-                        f45458c = builder.build();
-                    }
-                }
-            }
-            return f45458c;
+        String str2 = null;
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    private Request b(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, bArr)) == null) {
+        try {
+            String str3 = new String(str);
             try {
-                MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-                String str2 = c.g(this.f45459a)[0];
-                Request.Builder url = new Request.Builder().url(str);
-                if (bArr != null) {
-                    url.post(RequestBody.create(parse, bArr));
+                return b(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
+            } catch (Throwable unused) {
+                str2 = str3;
+                c.a();
+                return str2;
+            }
+        } catch (Throwable unused2) {
+        }
+    }
+
+    public static String b(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i2 : bArr) {
+                if (i2 < 0) {
+                    i2 += 256;
                 }
-                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + z.a(this.f45459a) + "/3.5.8.7").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
-                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", o.a(e.b(this.f45459a))).build();
+                stringBuffer.append(f45558a[i2 / 16] + f45558a[i2 % 16]);
+            }
+            return stringBuffer.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+            char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+            char[] cArr2 = new char[bArr.length * 2];
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                byte b2 = bArr[i2];
+                int i3 = i2 * 2;
+                cArr2[i3] = cArr[(b2 >>> 4) & 15];
+                cArr2[i3 + 1] = cArr[b2 & 15];
+            }
+            return new String(cArr2);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            if (bArr == null || bArr.length <= 0) {
+                return null;
+            }
+            try {
+                return b(MessageDigest.getInstance("MD5").digest(bArr));
             } catch (Throwable unused) {
                 c.a();
                 return null;
             }
         }
-        return (Request) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final String a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
-            try {
-                if (s.m(this.f45459a)) {
-                    Response execute = a().newCall(b(str, bArr)).execute();
-                    int code = execute.code();
-                    if (code == 200) {
-                        return execute.body().string();
-                    }
-                    throw new NetworkErrorException(String.valueOf(code));
-                }
-                throw new NetworkErrorException("Not allow background connect.");
-            } catch (Throwable unused) {
-                c.a();
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final boolean a(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            try {
-                if (s.m(this.f45459a)) {
-                    Response execute = a().newCall(new Request.Builder().url(str).build()).execute();
-                    int code = execute.code();
-                    if (code == 200) {
-                        InputStream byteStream = execute.body().byteStream();
-                        boolean a2 = a(byteStream, file);
-                        byteStream.close();
-                        return a2;
-                    }
-                    throw new NetworkErrorException(String.valueOf(code));
-                }
-                throw new NetworkErrorException("Not allow background connect.");
-            } catch (Throwable unused) {
-                c.a();
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean a(InputStream inputStream, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream, file)) != null) {
-            return invokeLL.booleanValue;
-        }
-        if (inputStream == null) {
-            return false;
-        }
-        try {
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
-            while (true) {
-                int read = inputStream.read(f45457b);
-                if (read != -1) {
-                    bufferedOutputStream.write(f45457b, 0, read);
-                    bufferedOutputStream.flush();
-                } else {
-                    bufferedOutputStream.flush();
-                    bufferedOutputStream.close();
-                    return true;
-                }
-            }
-        } catch (Throwable unused) {
-            c.a();
-            return false;
-        }
-    }
-
-    public static boolean a(Context context) {
+    public static String a(File file) {
         InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        MessageDigest messageDigest;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getPackageName().contains("com.baidu.searchbox") : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file == null || !file.exists()) {
+                return null;
+            }
+            try {
+                messageDigest = MessageDigest.getInstance("MD5");
+                fileInputStream = new FileInputStream(file);
+            } catch (Throwable unused) {
+                fileInputStream = null;
+            }
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    messageDigest.update(bArr, 0, read);
+                }
+                String c2 = c(messageDigest.digest());
+                try {
+                    fileInputStream.close();
+                } catch (IOException unused2) {
+                    c.a();
+                }
+                return c2;
+            } catch (Throwable unused3) {
+                try {
+                    c.a();
+                    return null;
+                } finally {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused4) {
+                            c.a();
+                        }
+                    }
+                }
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

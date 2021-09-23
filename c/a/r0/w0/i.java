@@ -12,7 +12,7 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Drawable> f26862a;
+    public HashMap<String, Drawable> f26882a;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -27,14 +27,14 @@ public class i {
                 return;
             }
         }
-        this.f26862a = new HashMap<>();
+        this.f26882a = new HashMap<>();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26862a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26882a.isEmpty()) {
             return;
         }
-        this.f26862a.clear();
+        this.f26882a.clear();
     }
 }

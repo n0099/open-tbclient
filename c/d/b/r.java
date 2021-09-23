@@ -19,7 +19,7 @@ public final class r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f32131a;
+    public final String[] f32152a;
 
     /* loaded from: classes4.dex */
     public static final class a {
@@ -27,7 +27,7 @@ public final class r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<String> f32132a;
+        public final List<String> f32153a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public final class r {
                     return;
                 }
             }
-            this.f32132a = new ArrayList(20);
+            this.f32153a = new ArrayList(20);
         }
 
         public a a(String str, String str2) {
@@ -80,8 +80,8 @@ public final class r {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-                this.f32132a.add(str);
-                this.f32132a.add(str2.trim());
+                this.f32153a.add(str);
+                this.f32153a.add(str2.trim());
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -97,9 +97,9 @@ public final class r {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                for (int size = this.f32132a.size() - 2; size >= 0; size -= 2) {
-                    if (str.equalsIgnoreCase(this.f32132a.get(size))) {
-                        return this.f32132a.get(size + 1);
+                for (int size = this.f32153a.size() - 2; size >= 0; size -= 2) {
+                    if (str.equalsIgnoreCase(this.f32153a.get(size))) {
+                        return this.f32153a.get(size + 1);
                     }
                 }
                 return null;
@@ -112,10 +112,10 @@ public final class r {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
                 int i2 = 0;
-                while (i2 < this.f32132a.size()) {
-                    if (str.equalsIgnoreCase(this.f32132a.get(i2))) {
-                        this.f32132a.remove(i2);
-                        this.f32132a.remove(i2);
+                while (i2 < this.f32153a.size()) {
+                    if (str.equalsIgnoreCase(this.f32153a.get(i2))) {
+                        this.f32153a.remove(i2);
+                        this.f32153a.remove(i2);
                         i2 -= 2;
                     }
                     i2 += 2;
@@ -154,8 +154,8 @@ public final class r {
                 return;
             }
         }
-        List<String> list = aVar.f32132a;
-        this.f32131a = (String[]) list.toArray(new String[list.size()]);
+        List<String> list = aVar.f32153a;
+        this.f32152a = (String[]) list.toArray(new String[list.size()]);
     }
 
     public static void a(String str) {
@@ -213,19 +213,19 @@ public final class r {
     public String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? d(this.f32131a, str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? d(this.f32152a, str) : (String) invokeL.objValue;
     }
 
     public String e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f32131a[i2 * 2] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f32152a[i2 * 2] : (String) invokeI.objValue;
     }
 
     public boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof r) && Arrays.equals(((r) obj).f32131a, this.f32131a) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? (obj instanceof r) && Arrays.equals(((r) obj).f32152a, this.f32152a) : invokeL.booleanValue;
     }
 
     public a f() {
@@ -233,7 +233,7 @@ public final class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             a aVar = new a();
-            Collections.addAll(aVar.f32132a, this.f32131a);
+            Collections.addAll(aVar.f32153a, this.f32152a);
             return aVar;
         }
         return (a) invokeV.objValue;
@@ -242,19 +242,19 @@ public final class r {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32131a.length / 2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32152a.length / 2 : invokeV.intValue;
     }
 
     public String h(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f32131a[(i2 * 2) + 1] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.f32152a[(i2 * 2) + 1] : (String) invokeI.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Arrays.hashCode(this.f32131a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Arrays.hashCode(this.f32152a) : invokeV.intValue;
     }
 
     public List<String> i(String str) {

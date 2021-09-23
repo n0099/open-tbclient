@@ -2,9 +2,7 @@ package com.baidu.fsg.face.liveness;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
-import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
-import com.baidu.idl.facesdk.FaceTracker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,34 +15,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f40120a;
+    public long f40168a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40121b;
+    public int f40169b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40122c;
+    public int f40170c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40123d;
+    public String f40171d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40124e;
+    public String f40172e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f40125f;
+    public long f40173f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f40126g;
+    public long f40174g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f40127h;
+    public long f40175h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f40128i;
+    public long f40176i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f40129j;
+    public long f40177j;
     public long k;
     public long l;
     public long m;
@@ -52,9 +50,8 @@ public class b {
     public long o;
     public ArrayList<String> p;
     public StringBuilder q;
-    public FaceTracker.ErrCode r;
-    public int s;
-    public LivenessRecogDTO t;
+    public int r;
+    public LivenessRecogDTO s;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -69,13 +66,13 @@ public class b {
                 return;
             }
         }
-        this.f40125f = 0L;
-        this.f40126g = 0L;
-        this.f40127h = 0L;
+        this.f40173f = 0L;
+        this.f40174g = 0L;
+        this.f40175h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f40123d = "";
-        this.f40124e = "";
+        this.f40171d = "";
+        this.f40172e = "";
     }
 
     private ArrayList<String> c() {
@@ -83,12 +80,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(String.valueOf(this.f40128i));
-            arrayList.add(String.valueOf(this.f40129j));
+            arrayList.add(String.valueOf(this.f40176i));
+            arrayList.add(String.valueOf(this.f40177j));
             arrayList.add(String.valueOf(this.k));
             arrayList.add(String.valueOf(this.l));
             arrayList.add(String.valueOf(this.m));
-            LivenessRecogDTO livenessRecogDTO = this.t;
+            LivenessRecogDTO livenessRecogDTO = this.s;
             arrayList.add(livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "");
             return arrayList;
         }
@@ -98,14 +95,14 @@ public class b {
     public void a(String str) {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            LivenessRecogDTO livenessRecogDTO = this.t;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            LivenessRecogDTO livenessRecogDTO = this.s;
             String spno = livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "";
             ArrayList arrayList = new ArrayList();
             if (d.t.equals(str)) {
                 ArrayList arrayList2 = new ArrayList();
-                arrayList2.add(this.f40121b + "");
-                arrayList2.add(this.f40122c + "");
+                arrayList2.add(this.f40169b + "");
+                arrayList2.add(this.f40170c + "");
                 arrayList2.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.t, arrayList2);
             } else if (d.r.equals(str)) {
@@ -114,10 +111,10 @@ public class b {
                 arrayList.add(b() + "");
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.s, arrayList);
-            } else if (d.f40239f.equals(str)) {
-                arrayList.add(((System.currentTimeMillis() - this.f40120a) / 1000) + "");
+            } else if (d.f40299f.equals(str)) {
+                arrayList.add(((System.currentTimeMillis() - this.f40168a) / 1000) + "");
                 arrayList.add(spno);
-                RimStatisticsUtil.onEventWithValues(d.f40239f, arrayList);
+                RimStatisticsUtil.onEventWithValues(d.f40299f, arrayList);
             } else if (d.u.equals(str)) {
                 if (this.o > 0) {
                     str2 = (this.n / this.o) + "";
@@ -137,17 +134,17 @@ public class b {
                     } else {
                         this.p.add("");
                     }
-                    this.p.add(this.f40121b + "*" + this.f40122c);
+                    this.p.add(this.f40169b + "*" + this.f40170c);
                     this.p.add(spno);
                     RimStatisticsUtil.onEventWithValues(str, this.p);
                 }
             } else if (d.l.equals(str)) {
-                arrayList.add(this.f40124e);
-                arrayList.add(this.f40123d);
+                arrayList.add(this.f40172e);
+                arrayList.add(this.f40171d);
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, arrayList);
             } else if (d.o.equals(str)) {
-                arrayList.add((System.currentTimeMillis() - this.f40120a) + "");
+                arrayList.add((System.currentTimeMillis() - this.f40168a) + "");
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, arrayList);
             }
@@ -156,7 +153,7 @@ public class b {
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             if (this.q == null) {
                 this.q = new StringBuilder();
             }
@@ -170,9 +167,9 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            long j2 = this.f40127h;
+            long j2 = this.f40175h;
             if (j2 >= 2) {
-                return (this.f40126g - this.f40125f) / j2;
+                return (this.f40174g - this.f40173f) / j2;
             }
             return 0L;
         }
@@ -181,52 +178,8 @@ public class b {
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f40123d += str;
-        }
-    }
-
-    public void b(FaceTracker.ErrCode errCode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, errCode) == null) {
-            if (errCode == FaceTracker.ErrCode.PITCH_OUT_OF_RANGE) {
-                this.f40124e += "0";
-            } else if (errCode == FaceTracker.ErrCode.YAW_OUT_OF_RANGE) {
-                this.f40124e += "1";
-            } else if (errCode == FaceTracker.ErrCode.LIVENESS_NOT_SUCCEED) {
-                this.f40124e += "2";
-            } else if (errCode == FaceTracker.ErrCode.POOR_ILLUMINATION) {
-                this.f40124e += "3";
-            } else {
-                FaceTracker.ErrCode errCode2 = FaceTracker.ErrCode.NO_FACE_DETECTED;
-                if (errCode == errCode2) {
-                    FaceTracker.ErrCode errCode3 = this.r;
-                    if (errCode3 == null) {
-                        this.f40124e += "4";
-                        this.s = 0;
-                    } else if (errCode3 == errCode2) {
-                        int i2 = this.s;
-                        if (i2 == 3) {
-                            this.f40124e += "4";
-                            this.s = 0;
-                        } else {
-                            this.s = i2 + 1;
-                        }
-                    } else {
-                        this.f40124e += "4";
-                        this.s = 0;
-                    }
-                } else if (errCode == FaceTracker.ErrCode.DATA_NOT_READY) {
-                    this.f40124e += "5";
-                } else if (errCode == FaceTracker.ErrCode.DATA_HIT_ONE) {
-                    this.f40124e += "6";
-                } else if (errCode == FaceTracker.ErrCode.DATA_HIT_LAST) {
-                    this.f40124e += "7";
-                } else if (errCode == FaceTracker.ErrCode.UNKNOW_TYPE) {
-                    this.f40124e += "8";
-                }
-            }
-            this.r = errCode;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f40171d += str;
         }
     }
 
@@ -245,24 +198,24 @@ public class b {
                 return;
             }
         }
-        this.f40125f = 0L;
-        this.f40126g = 0L;
-        this.f40127h = 0L;
+        this.f40173f = 0L;
+        this.f40174g = 0L;
+        this.f40175h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f40123d = "";
-        this.f40124e = "";
-        this.t = livenessRecogDTO;
+        this.f40171d = "";
+        this.f40172e = "";
+        this.s = livenessRecogDTO;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f40125f == 0) {
-                this.f40125f = System.currentTimeMillis();
+            if (this.f40173f == 0) {
+                this.f40173f = System.currentTimeMillis();
             }
-            this.f40126g = System.currentTimeMillis();
-            this.f40127h++;
+            this.f40174g = System.currentTimeMillis();
+            this.f40175h++;
         }
     }
 
@@ -271,24 +224,6 @@ public class b {
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
             this.n += j2;
             this.o++;
-        }
-    }
-
-    public void a(FaceTracker.ErrCode errCode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, errCode) == null) {
-            if (errCode == FaceTracker.ErrCode.PITCH_OUT_OF_RANGE) {
-                this.f40128i++;
-            } else if (errCode == FaceTracker.ErrCode.YAW_OUT_OF_RANGE) {
-                this.f40129j++;
-            } else if (errCode == FaceTracker.ErrCode.LIVENESS_NOT_SUCCEED) {
-                this.k++;
-            } else if (errCode == FaceTracker.ErrCode.POOR_ILLUMINATION) {
-                this.l++;
-            } else if (errCode == FaceTracker.ErrCode.DATA_NOT_READY) {
-                this.m++;
-                LogUtil.d("hello", "ErrCode.DATA_NOT_READY");
-            }
         }
     }
 }

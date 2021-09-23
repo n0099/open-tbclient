@@ -37,7 +37,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SupplementSignActivity f57029a;
+        public final /* synthetic */ SupplementSignActivity f57146a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SupplementSignActivity supplementSignActivity, int i2) {
@@ -57,7 +57,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                     return;
                 }
             }
-            this.f57029a = supplementSignActivity;
+            this.f57146a = supplementSignActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                this.f57029a.mWebView.loadUrl("javascript:TbJsBridge.refreshRemainDay()");
+                this.f57146a.mWebView.loadUrl("javascript:TbJsBridge.refreshRemainDay()");
             }
         }
     }

@@ -15,7 +15,7 @@ public class PassBioDataEncryptor {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f44017a = "PassBioDataEncryptor";
+    public static final String f44079a = "PassBioDataEncryptor";
     public transient /* synthetic */ FieldHolder $fh;
 
     public PassBioDataEncryptor() {
@@ -56,7 +56,7 @@ public class PassBioDataEncryptor {
             try {
                 return new String(SecurityUtil.base64Decode(new AES().decrypt(SecurityUtil.base64Decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
             } catch (Throwable th) {
-                Log.e(f44017a, f44017a, th);
+                Log.e(f44079a, f44079a, th);
                 return "";
             }
         }
@@ -73,7 +73,7 @@ public class PassBioDataEncryptor {
             try {
                 return SecurityUtil.base64Encode(new AES().encrypt(SecurityUtil.base64Encode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2));
             } catch (Throwable th) {
-                Log.e(f44017a, f44017a, th);
+                Log.e(f44079a, f44079a, th);
                 return "";
             }
         }
@@ -97,7 +97,7 @@ public class PassBioDataEncryptor {
                 str3 = SecurityUtil.base64Encode(RSA.encrypt(a2));
             } catch (Exception e3) {
                 e = e3;
-                Log.e(f44017a, f44017a, e);
+                Log.e(f44079a, f44079a, e);
                 return TextUtils.join("_", new String[]{str3, str2});
             }
             return TextUtils.join("_", new String[]{str3, str2});

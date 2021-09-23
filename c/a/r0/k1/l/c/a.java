@@ -21,50 +21,50 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Pattern f21477a;
+    public static Pattern f21491a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.k1.l.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1003a {
+    public static class C1001a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f21478a;
+        public String f21492a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f21479b;
+        public String f21493b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f21480c;
+        public String f21494c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f21481d;
+        public String f21495d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f21482e;
+        public String f21496e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f21483f;
+        public String f21497f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f21484g;
+        public int f21498g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f21485h;
+        public long f21499h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f21486i;
+        public String f21500i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f21487j;
+        public int f21501j;
         public long k;
         public long l;
         public long m;
         public String n;
 
-        public C1003a() {
+        public C1001a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,16 +92,16 @@ public class a {
                 return;
             }
         }
-        f21477a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+        f21491a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
     }
 
-    public static List<C1003a> a(String str, String str2, long j2, long j3) {
+    public static List<C1001a> a(String str, String str2, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3)})) == null) ? b(str, str2, null, 0L, j2, j3) : (List) invokeCommon.objValue;
     }
 
-    public static List<C1003a> b(String str, String str2, UserData userData, long j2, long j3, long j4) {
+    public static List<C1001a> b(String str, String str2, UserData userData, long j2, long j3, long j4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, userData, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
@@ -123,31 +123,31 @@ public class a {
                     String optString4 = optJSONObject.optString("text");
                     optJSONObject.optLong("picId");
                     String optString5 = optJSONObject.optString("msg_src");
-                    C1003a c1003a = new C1003a();
+                    C1001a c1001a = new C1001a();
                     if (!TextUtils.isEmpty(optString2)) {
                         optString2 = optString2.trim();
-                        Matcher matcher = f21477a.matcher(optString2);
+                        Matcher matcher = f21491a.matcher(optString2);
                         if (matcher.find()) {
-                            c1003a.n = matcher.group(1);
+                            c1001a.n = matcher.group(1);
                         }
                     }
-                    c1003a.f21481d = optString2;
-                    c1003a.f21478a = optString;
-                    c1003a.f21479b = optString4;
-                    c1003a.f21480c = optString3;
-                    c1003a.f21482e = str2;
-                    c1003a.k = j3;
-                    c1003a.l = j4;
-                    c1003a.f21483f = optString5;
+                    c1001a.f21495d = optString2;
+                    c1001a.f21492a = optString;
+                    c1001a.f21493b = optString4;
+                    c1001a.f21494c = optString3;
+                    c1001a.f21496e = str2;
+                    c1001a.k = j3;
+                    c1001a.l = j4;
+                    c1001a.f21497f = optString5;
                     if (userType > i2) {
-                        c1003a.f21484g = userType;
+                        c1001a.f21498g = userType;
                     }
                     if (userData != null) {
-                        c1003a.f21485h = j2;
-                        c1003a.f21486i = userData.getUserId();
-                        c1003a.f21487j = userData.getUserType();
+                        c1001a.f21499h = j2;
+                        c1001a.f21500i = userData.getUserId();
+                        c1001a.f21501j = userData.getUserType();
                     }
-                    linkedList.add(c1003a);
+                    linkedList.add(c1001a);
                     i3++;
                     i2 = -1;
                 }

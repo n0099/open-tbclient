@@ -31,7 +31,7 @@ public class c {
                 statisticItem.param("obj_type", 2);
                 statisticItem.param("obj_locate", i2);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("topic_id", ((c.a.r0.g1.f.a.e.c) obj).f18097a);
+                statisticItem.param("topic_id", ((c.a.r0.g1.f.a.e.c) obj).f18107a);
                 statisticItem.param("obj_source", str2);
                 statisticItem.eventStat();
             }

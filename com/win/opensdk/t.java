@@ -11,7 +11,7 @@ public class t implements PBNativeListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBNative f77174a;
+    public final /* synthetic */ PBNative f77493a;
 
     public t(PBNative pBNative) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class t implements PBNativeListener {
                 return;
             }
         }
-        this.f77174a = pBNative;
+        this.f77493a = pBNative;
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBNativeListener = this.f77174a.f76852b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBNativeListener = this.f77493a.f77171b) == null) {
             return;
         }
         pBNativeListener.onClicked();
@@ -45,7 +45,7 @@ public class t implements PBNativeListener {
     public void onDisplayed() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBNativeListener = this.f77174a.f76852b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBNativeListener = this.f77493a.f77171b) == null) {
             return;
         }
         pBNativeListener.onDisplayed();
@@ -55,7 +55,7 @@ public class t implements PBNativeListener {
     public void onFail(PBError pBError) {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.f77174a.f76852b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.f77493a.f77171b) == null) {
             return;
         }
         pBNativeListener.onFail(pBError);
@@ -65,7 +65,7 @@ public class t implements PBNativeListener {
     public void onLoaded() {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBNativeListener = this.f77174a.f76852b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBNativeListener = this.f77493a.f77171b) == null) {
             return;
         }
         pBNativeListener.onLoaded();

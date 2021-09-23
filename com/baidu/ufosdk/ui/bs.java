@@ -13,7 +13,7 @@ public final class bs implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f59759a;
+    public final /* synthetic */ FeedbackInputActivity f59890a;
 
     public bs(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class bs implements Runnable {
                 return;
             }
         }
-        this.f59759a = feedbackInputActivity;
+        this.f59890a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
@@ -40,20 +40,20 @@ public final class bs implements Runnable {
         Handler handler2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.ufosdk.e.a.a(this.f59759a.getApplicationContext());
+            com.baidu.ufosdk.e.a.a(this.f59890a.getApplicationContext());
             if (UfoSDK.clientid.length() != 0) {
-                handler = this.f59759a.aK;
+                handler = this.f59890a.aK;
                 i2 = 1;
             } else {
-                handler = this.f59759a.aK;
+                handler = this.f59890a.aK;
                 i2 = 4;
             }
             handler.obtainMessage(i2, null).sendToTarget();
-            Context applicationContext = this.f59759a.getApplicationContext();
+            Context applicationContext = this.f59890a.getApplicationContext();
             String str = UfoSDK.clientid;
             String c2 = com.baidu.ufosdk.e.a.c(applicationContext);
             if (c2 != null) {
-                handler2 = this.f59759a.aK;
+                handler2 = this.f59890a.aK;
                 handler2.obtainMessage(0, c2).sendToTarget();
             }
         }

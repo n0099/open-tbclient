@@ -26,7 +26,7 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final k<?> f12100a;
+    public final k<?> f12108a;
 
     public j(k<?> kVar) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class j {
                 return;
             }
         }
-        this.f12100a = kVar;
+        this.f12108a = kVar;
     }
 
     public static final j b(k<?> kVar) {
@@ -55,209 +55,209 @@ public class j {
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12100a.f12104d.V();
+            this.f12108a.f12112d.V();
         }
     }
 
     public View B(View view, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, str, context, attributeSet)) == null) ? this.f12100a.f12104d.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, str, context, attributeSet)) == null) ? this.f12108a.f12112d.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f12100a.v();
+            this.f12108a.v();
         }
     }
 
     public void D(Parcelable parcelable, List<Fragment> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, parcelable, list) == null) {
-            this.f12100a.f12104d.b0(parcelable, list);
+            this.f12108a.f12112d.b0(parcelable, list);
         }
     }
 
     public void E(c.a.p0.o.a.c.f<String, p> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            this.f12100a.w(fVar);
+            this.f12108a.w(fVar);
         }
     }
 
     public c.a.p0.o.a.c.f<String, p> F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12100a.x() : (c.a.p0.o.a.c.f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12108a.x() : (c.a.p0.o.a.c.f) invokeV.objValue;
     }
 
     public List<Fragment> G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12100a.f12104d.c0() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12108a.f12112d.c0() : (List) invokeV.objValue;
     }
 
     public Parcelable H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12100a.f12104d.e0() : (Parcelable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12108a.f12112d.e0() : (Parcelable) invokeV.objValue;
     }
 
     public void a(Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fragment) == null) {
-            k<?> kVar = this.f12100a;
-            kVar.f12104d.j(kVar, kVar, fragment);
+            k<?> kVar = this.f12108a;
+            kVar.f12112d.j(kVar, kVar, fragment);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f12100a.f12104d.n();
+            this.f12108a.f12112d.n();
         }
     }
 
     public void d(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, configuration) == null) {
-            this.f12100a.f12104d.o(configuration);
+            this.f12108a.f12112d.o(configuration);
         }
     }
 
     public boolean e(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, menuItem)) == null) ? this.f12100a.f12104d.p(menuItem) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, menuItem)) == null) ? this.f12108a.f12112d.p(menuItem) : invokeL.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f12100a.f12104d.q();
+            this.f12108a.f12112d.q();
         }
     }
 
     public boolean g(Menu menu, MenuInflater menuInflater) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, menu, menuInflater)) == null) ? this.f12100a.f12104d.r(menu, menuInflater) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, menu, menuInflater)) == null) ? this.f12108a.f12112d.r(menu, menuInflater) : invokeLL.booleanValue;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f12100a.f12104d.s();
+            this.f12108a.f12112d.s();
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f12100a.f12104d.u();
+            this.f12108a.f12112d.u();
         }
     }
 
     public boolean j(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, menuItem)) == null) ? this.f12100a.f12104d.v(menuItem) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, menuItem)) == null) ? this.f12108a.f12112d.v(menuItem) : invokeL.booleanValue;
     }
 
     public void k(Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, menu) == null) {
-            this.f12100a.f12104d.w(menu);
+            this.f12108a.f12112d.w(menu);
         }
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f12100a.f12104d.x();
+            this.f12108a.f12112d.x();
         }
     }
 
     public boolean m(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, menu)) == null) ? this.f12100a.f12104d.y(menu) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, menu)) == null) ? this.f12108a.f12112d.y(menu) : invokeL.booleanValue;
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.f12100a.f12104d.z();
+            this.f12108a.f12112d.z();
         }
     }
 
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f12100a.f12104d.A();
+            this.f12108a.f12112d.A();
         }
     }
 
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.f12100a.f12104d.B();
+            this.f12108a.f12112d.B();
         }
     }
 
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f12100a.f12104d.C();
+            this.f12108a.f12112d.C();
         }
     }
 
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.f12100a.c();
+            this.f12108a.c();
         }
     }
 
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.f12100a.d();
+            this.f12108a.d();
         }
     }
 
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            this.f12100a.e(z);
+            this.f12108a.e(z);
         }
     }
 
     public void u(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048603, this, str, fileDescriptor, printWriter, strArr) == null) {
-            this.f12100a.f(str, fileDescriptor, printWriter, strArr);
+            this.f12108a.f(str, fileDescriptor, printWriter, strArr);
         }
     }
 
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f12100a.f12104d.E() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f12108a.f12112d.E() : invokeV.booleanValue;
     }
 
     public List<Fragment> w(List<Fragment> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, list)) == null) {
-            if (this.f12100a.f12104d.f12112d == null) {
+            if (this.f12108a.f12112d.f12120d == null) {
                 return null;
             }
             if (list == null) {
                 list = new ArrayList<>(x());
             }
-            list.addAll(this.f12100a.f12104d.f12112d);
+            list.addAll(this.f12108a.f12112d.f12120d);
             return list;
         }
         return (List) invokeL.objValue;
@@ -267,7 +267,7 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            ArrayList<Fragment> arrayList = this.f12100a.f12104d.f12112d;
+            ArrayList<Fragment> arrayList = this.f12108a.f12112d.f12120d;
             if (arrayList == null) {
                 return 0;
             }
@@ -279,12 +279,12 @@ public class j {
     public l y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f12100a.i() : (l) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f12108a.i() : (l) invokeV.objValue;
     }
 
     public p z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f12100a.l() : (p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f12108a.l() : (p) invokeV.objValue;
     }
 }

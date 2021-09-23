@@ -10,13 +10,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4524a;
+    public int f4532a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4525b;
+    public int f4533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f4526c;
+    public byte[] f4534c;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -24,13 +24,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f4527a;
+        public int f4535a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4528b;
+        public int f4536b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f4529c;
+        public String f4537c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -60,6 +60,6 @@ public class b {
                 return;
             }
         }
-        this.f4526c = new byte[48];
+        this.f4534c = new byte[48];
     }
 }

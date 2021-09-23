@@ -40,7 +40,7 @@ public class c extends k<d2, CardViewHolder<w>> implements y {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f19328b;
+        public final /* synthetic */ c f19343b;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class c extends k<d2, CardViewHolder<w>> implements y {
                     return;
                 }
             }
-            this.f19328b = cVar;
+            this.f19343b = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,7 +68,7 @@ public class c extends k<d2, CardViewHolder<w>> implements y {
             if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, d2Var, obj) == null) || view == null || d2Var == null || d2Var.J() == null) {
                 return;
             }
-            if ("c13010".equals(this.f19328b.y)) {
+            if ("c13010".equals(this.f19343b.y)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 4).param("fid", d2Var.T()).param("tid", d2Var.s1()));
             }
             if (view.getId() == R.id.card_root_layout) {
@@ -83,7 +83,7 @@ public class c extends k<d2, CardViewHolder<w>> implements y {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f19329a;
+        public final /* synthetic */ c f19344a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -100,7 +100,7 @@ public class c extends k<d2, CardViewHolder<w>> implements y {
                     return;
                 }
             }
-            this.f19329a = cVar;
+            this.f19344a = cVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -143,7 +143,7 @@ public class c extends k<d2, CardViewHolder<w>> implements y {
         public ConstrainImageLayout d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f19329a.x.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f19344a.x.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
         }
 
         public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
@@ -155,14 +155,14 @@ public class c extends k<d2, CardViewHolder<w>> implements y {
 
     /* renamed from: c.a.r0.i1.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0930c implements c.a.e.e.k.c<TbImageView> {
+    public class C0928c implements c.a.e.e.k.c<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f19330a;
+        public final /* synthetic */ c f19345a;
 
-        public C0930c(c cVar) {
+        public C0928c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public class c extends k<d2, CardViewHolder<w>> implements y {
                     return;
                 }
             }
-            this.f19330a = cVar;
+            this.f19345a = cVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -222,7 +222,7 @@ public class c extends k<d2, CardViewHolder<w>> implements y {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.f19330a.x.getPageActivity());
+                TbImageView tbImageView = new TbImageView(this.f19345a.x.getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
@@ -264,7 +264,7 @@ public class c extends k<d2, CardViewHolder<w>> implements y {
         }
         this.z = new a(this);
         this.A = new c.a.e.e.k.b<>(new b(this), 6, 0);
-        this.B = new c.a.e.e.k.b<>(new C0930c(this), 12, 0);
+        this.B = new c.a.e.e.k.b<>(new C0928c(this), 12, 0);
         this.x = tbPageContext;
     }
 
@@ -281,9 +281,9 @@ public class c extends k<d2, CardViewHolder<w>> implements y {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
             return;
         }
-        this.f2957e = tbPageContext.getPageActivity();
+        this.f2958e = tbPageContext.getPageActivity();
         this.x = tbPageContext;
-        this.f2961i = bdUniqueId;
+        this.f2962i = bdUniqueId;
     }
 
     @Override // c.a.r0.w0.k, c.a.r0.a0.y

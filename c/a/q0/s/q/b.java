@@ -18,34 +18,34 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14067a;
+    public int f14064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14068b;
+    public int f14065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14069c;
+    public int f14066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14070d;
+    public int f14067d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14071e;
+    public String f14068e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14072f;
+    public int f14069f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14073g;
+    public boolean f14070g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14074h;
+    public int f14071h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14075i;
+    public int f14072i;
 
     /* renamed from: j  reason: collision with root package name */
-    public y1 f14076j;
+    public y1 f14073j;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -60,50 +60,50 @@ public class b {
                 return;
             }
         }
-        this.f14074h = 1;
-        this.f14075i = 1;
+        this.f14071h = 1;
+        this.f14072i = 1;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14067a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14064a : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14069c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14066c : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14070d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14067d : invokeV.intValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14073g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14070g : invokeV.booleanValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14068b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14065b : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14072f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14069f : invokeV.intValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14071e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14068e : (String) invokeV.objValue;
     }
 
     public void h(JSONObject jSONObject) {
@@ -112,29 +112,29 @@ public class b {
             return;
         }
         try {
-            this.f14067a = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
-            this.f14068b = jSONObject.optInt("status");
-            this.f14069c = jSONObject.optInt(ExternalTransferSpeedStats.UBC_APPLICATION_CREATE_KEY);
-            this.f14070d = jSONObject.optInt("end_time");
-            this.f14071e = jSONObject.optString("url");
-            this.f14072f = jSONObject.optInt("total_num");
+            this.f14064a = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+            this.f14065b = jSONObject.optInt("status");
+            this.f14066c = jSONObject.optInt(ExternalTransferSpeedStats.UBC_APPLICATION_CREATE_KEY);
+            this.f14067d = jSONObject.optInt("end_time");
+            this.f14068e = jSONObject.optString("url");
+            this.f14069f = jSONObject.optInt("total_num");
             jSONObject.optInt("activity_id");
             jSONObject.optInt("award_act_id");
             jSONObject.optInt("component_id");
-            this.f14073g = jSONObject.optBoolean("is_senior");
+            this.f14070g = jSONObject.optBoolean("is_senior");
             jSONObject.optString("banner_img");
             jSONObject.optInt("show_total_num");
             String optString = jSONObject.optString("banner_img_size");
             if (!c.a.e.e.p.k.isEmpty(optString)) {
                 String[] split = optString.split(",");
-                this.f14074h = c.a.e.e.m.b.e(split[0], 1);
-                this.f14075i = c.a.e.e.m.b.e(split[1], 1);
+                this.f14071h = c.a.e.e.m.b.e(split[0], 1);
+                this.f14072i = c.a.e.e.m.b.e(split[1], 1);
             }
-            if (this.f14074h <= 0) {
-                this.f14074h = 1;
+            if (this.f14071h <= 0) {
+                this.f14071h = 1;
             }
-            if (this.f14075i <= 0) {
-                this.f14075i = 1;
+            if (this.f14072i <= 0) {
+                this.f14072i = 1;
             }
         } catch (Exception e2) {
             BdLog.e(e2.toString());
@@ -147,40 +147,40 @@ public class b {
             return;
         }
         Integer num = actInfo.activity_type;
-        this.f14067a = num != null ? num.intValue() : -1;
+        this.f14064a = num != null ? num.intValue() : -1;
         Integer num2 = actInfo.status;
-        this.f14068b = num2 != null ? num2.intValue() : -1;
+        this.f14065b = num2 != null ? num2.intValue() : -1;
         Integer num3 = actInfo.begin_time;
-        this.f14069c = num3 != null ? num3.intValue() : -1;
+        this.f14066c = num3 != null ? num3.intValue() : -1;
         Integer num4 = actInfo.end_time;
-        this.f14070d = num4 != null ? num4.intValue() : -1;
-        this.f14071e = actInfo.url;
+        this.f14067d = num4 != null ? num4.intValue() : -1;
+        this.f14068e = actInfo.url;
         Integer num5 = actInfo.total_num;
-        this.f14072f = num5 != null ? num5.intValue() : -1;
+        this.f14069f = num5 != null ? num5.intValue() : -1;
         actInfo.activity_id.intValue();
         actInfo.award_act_id.intValue();
         actInfo.component_id.intValue();
-        this.f14073g = actInfo.is_senior.booleanValue();
+        this.f14070g = actInfo.is_senior.booleanValue();
         String str = actInfo.banner_img;
         actInfo.show_total_num.intValue();
         String str2 = actInfo.banner_img_size;
         if (!c.a.e.e.p.k.isEmpty(str2)) {
             try {
                 String[] split = str2.split(",");
-                this.f14074h = c.a.e.e.m.b.e(split[0], 1);
-                this.f14075i = c.a.e.e.m.b.e(split[1], 1);
+                this.f14071h = c.a.e.e.m.b.e(split[0], 1);
+                this.f14072i = c.a.e.e.m.b.e(split[1], 1);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f14074h <= 0) {
-            this.f14074h = 1;
+        if (this.f14071h <= 0) {
+            this.f14071h = 1;
         }
-        if (this.f14075i <= 0) {
-            this.f14075i = 1;
+        if (this.f14072i <= 0) {
+            this.f14072i = 1;
         }
         y1 y1Var = new y1();
-        this.f14076j = y1Var;
+        this.f14073j = y1Var;
         y1Var.a(actInfo.lottery_senior);
     }
 }

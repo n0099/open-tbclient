@@ -2,67 +2,60 @@ package c.a.q0.d1;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class t {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f13002a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f13003b = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f13004c = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f13005d = "floor";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(39179391, "Lc/a/q0/d1/t;")) == null) {
-            return;
+    /* loaded from: classes3.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(39179391, "Lc/a/q0/d1/t;");
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                t.b();
+            }
         }
     }
 
-    public static void a(String str, String str2, String str3, int i2, c.a.e.a.f fVar, BaijiahaoData baijiahaoData) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i2), fVar, baijiahaoData}) == null) {
-            f13003b = str;
-            f13004c = str2;
-            f13002a = str3;
-            if (StringUtils.isNull(str3) || fVar == null || fVar.getPageActivity() == null) {
-                return;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            if (!c.a.e.e.p.l.C()) {
+                c.a.e.e.m.e.a().post(new a());
+            } else {
+                b();
             }
-            if (f13005d.equals(f13002a)) {
-                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(fVar.getPageActivity()).createSubPbActivityConfig(f13003b, f13004c, "search_post", true);
-                createSubPbActivityConfig.setKeyPageStartFrom(8);
-                createSubPbActivityConfig.setBjhData(baijiahaoData);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-                return;
-            }
-            PbActivityConfig createNormalCfg = new PbActivityConfig(fVar.getPageActivity()).createNormalCfg(f13003b, f13004c, "search_post");
-            createNormalCfg.setStartFrom(8);
-            createNormalCfg.setBjhData(baijiahaoData);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InitUserNameDialogActivityConfig(TbadkCoreApplication.getInst().getContext())));
         }
     }
 }

@@ -61,7 +61,7 @@ public class c extends c.a.r0.a0.b<c.a.r0.l1.b.p.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f22020a;
+        public final /* synthetic */ c f22034a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -78,25 +78,25 @@ public class c extends c.a.r0.a0.b<c.a.r0.l1.b.p.a> {
                     return;
                 }
             }
-            this.f22020a = cVar;
+            this.f22034a = cVar;
         }
 
         @Override // com.baidu.tieba.card.OriginalThreadCardView.b
         public void a(OriginalThreadInfo originalThreadInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) {
-                if (this.f22020a.A != null && this.f22020a.A.x() != null) {
-                    StatisticItem param = new StatisticItem(this.f22020a.A.x()).param("obj_locate", 2);
-                    if (this.f22020a.A.getType() != c.a.r0.l1.b.p.a.B && this.f22020a.A.getType() != c.a.r0.l1.b.p.a.x) {
+                if (this.f22034a.A != null && this.f22034a.A.x() != null) {
+                    StatisticItem param = new StatisticItem(this.f22034a.A.x()).param("obj_locate", 2);
+                    if (this.f22034a.A.getType() != c.a.r0.l1.b.p.a.B && this.f22034a.A.getType() != c.a.r0.l1.b.p.a.x) {
                         param.param("obj_type", 2);
                     } else {
                         param.param("obj_type", 1);
                     }
                     TiebaStatic.log(param);
                 }
-                if (this.f22020a.g() != null) {
-                    b0<c.a.r0.l1.b.p.a> g2 = this.f22020a.g();
-                    c cVar = this.f22020a;
+                if (this.f22034a.g() != null) {
+                    b0<c.a.r0.l1.b.p.a> g2 = this.f22034a.g();
+                    c cVar = this.f22034a;
                     g2.a(cVar.v, cVar.A);
                 }
             }

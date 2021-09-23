@@ -60,8 +60,8 @@ public class b {
                     if (cursor.moveToFirst()) {
                         cVar = new c();
                         try {
-                            cVar.f21001a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                            cVar.f21002b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            cVar.f21014a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            cVar.f21015b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
                             cVar2 = cVar;
                         } catch (Exception e3) {
                             e2 = e3;

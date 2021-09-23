@@ -1,6 +1,6 @@
 package com.baidu.tieba.forumMember.member;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -45,7 +45,7 @@ public class ForumMemberRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.forum_id = Long.valueOf(this.forumId);
             if (z) {
-                x.a(builder, true);
+                a0.a(builder, true);
             }
             GetMemberInfoReqIdl.Builder builder2 = new GetMemberInfoReqIdl.Builder();
             builder2.data = builder.build(false);

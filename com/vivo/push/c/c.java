@@ -34,7 +34,7 @@ public final class c extends com.vivo.push.v {
     public final void a(com.vivo.push.y yVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
-            com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f76727a).isDebug());
+            com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f77046a).isDebug());
         }
     }
 }

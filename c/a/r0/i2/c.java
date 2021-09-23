@@ -35,34 +35,34 @@ public class c extends c.a.e.a.d<PaymentConfirmActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PaymentConfirmActivity f19428a;
+    public PaymentConfirmActivity f19443a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f19429b;
+    public ViewGroup f19444b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f19430c;
+    public NavigationBar f19445c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f19431d;
+    public ViewGroup f19446d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f19432e;
+    public ViewGroup f19447e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f19433f;
+    public TbImageView f19448f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19434g;
+    public TextView f19449g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19435h;
+    public TextView f19450h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f19436i;
+    public TextView f19451i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f19437j;
+    public TextView f19452j;
     public TextView k;
     public TextView l;
     public CheckBox m;
@@ -97,7 +97,7 @@ public class c extends c.a.e.a.d<PaymentConfirmActivity> {
             }
         }
         this.w = false;
-        this.f19428a = paymentConfirmActivity;
+        this.f19443a = paymentConfirmActivity;
         this.w = z;
         this.x = i2;
         paymentConfirmActivity.setContentView(R.layout.payment_confirm_activity);
@@ -131,27 +131,27 @@ public class c extends c.a.e.a.d<PaymentConfirmActivity> {
         if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, paymentConfirmInfoData, z) == null) || paymentConfirmInfoData == null) {
             return;
         }
-        this.f19432e.setVisibility(0);
+        this.f19447e.setVisibility(0);
         PaymentConfirmInfoData.GoodsInfo goods_info = paymentConfirmInfoData.getGoods_info();
         if (goods_info != null) {
-            this.f19433f.startLoad(goods_info.getGoods_pic(), 10, false);
-            this.f19434g.setText(goods_info.getGoods_name());
+            this.f19448f.startLoad(goods_info.getGoods_pic(), 10, false);
+            this.f19449g.setText(goods_info.getGoods_name());
             String numFormatOver10000 = StringHelper.numFormatOver10000(goods_info.getGoods_num());
-            this.f19435h.setText(t(this.f19428a.getResources().getString(R.string.payment_confirm_goods_num, numFormatOver10000) + goods_info.getGoods_unit(), numFormatOver10000, SkinManager.getColor(R.color.CAM_X0305)));
+            this.f19450h.setText(t(this.f19443a.getResources().getString(R.string.payment_confirm_goods_num, numFormatOver10000) + goods_info.getGoods_unit(), numFormatOver10000, SkinManager.getColor(R.color.CAM_X0305)));
             int goods_duration = goods_info.getGoods_duration();
             if (goods_duration > 0) {
                 String numFormatOver100002 = StringHelper.numFormatOver10000(goods_duration);
-                this.f19436i.setText(t(this.f19428a.getResources().getString(R.string.payment_confirm_goods_timelength, numFormatOver100002), numFormatOver100002, SkinManager.getColor(R.color.CAM_X0305)));
+                this.f19451i.setText(t(this.f19443a.getResources().getString(R.string.payment_confirm_goods_timelength, numFormatOver100002), numFormatOver100002, SkinManager.getColor(R.color.CAM_X0305)));
             } else {
-                this.f19436i.setText(c(this.f19428a.getResources().getString(R.string.payment_confirm_goods_timelength_default), 3, 5, SkinManager.getColor(R.color.CAM_X0305)));
+                this.f19451i.setText(c(this.f19443a.getResources().getString(R.string.payment_confirm_goods_timelength_default), 3, 5, SkinManager.getColor(R.color.CAM_X0305)));
             }
-            this.f19437j.setCompoundDrawablesWithIntrinsicBounds(CurrencySwitchUtil.getMoneyIcon(goods_info.getCurrency()), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.f19452j.setCompoundDrawablesWithIntrinsicBounds(CurrencySwitchUtil.getMoneyIcon(goods_info.getCurrency()), (Drawable) null, (Drawable) null, (Drawable) null);
             if (CurrencySwitchUtil.isYyIsConvert(goods_info.getCurrency())) {
-                this.f19437j.setText(CurrencyHelper.getFormatOverBaiwanNum(goods_info.getCurrency(), goods_info.getTdou_num()));
+                this.f19452j.setText(CurrencyHelper.getFormatOverBaiwanNum(goods_info.getCurrency(), goods_info.getTdou_num()));
             } else {
-                this.f19437j.setText(StringHelper.numFormatOver10000wan(goods_info.getTdou_num()));
+                this.f19452j.setText(StringHelper.numFormatOver10000wan(goods_info.getTdou_num()));
             }
-            this.k.setText(this.f19428a.getResources().getString(R.string.payment_confirm_goods_name_tip, goods_info.getGoods_name()));
+            this.k.setText(this.f19443a.getResources().getString(R.string.payment_confirm_goods_name_tip, goods_info.getGoods_name()));
             if (z) {
                 SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
                 this.l.setText(h(goods_info.getTdou_num(), goods_info.getCurrency()));
@@ -181,7 +181,7 @@ public class c extends c.a.e.a.d<PaymentConfirmActivity> {
             if (cpath.getTip_exist() == 1) {
                 this.m.setButtonDrawable(SkinManager.getDrawable(R.drawable.payment_confirm_price_tip_check_button));
                 this.m.setVisibility(0);
-                this.m.setText(this.f19428a.getResources().getString(R.string.payment_confirm_notshow_page, Integer.valueOf(cpath.getTip_days())));
+                this.m.setText(this.f19443a.getResources().getString(R.string.payment_confirm_notshow_page, Integer.valueOf(cpath.getTip_days())));
             } else {
                 this.m.setVisibility(8);
             }
@@ -242,7 +242,7 @@ public class c extends c.a.e.a.d<PaymentConfirmActivity> {
     public ViewGroup i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19431d : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19446d : (ViewGroup) invokeV.objValue;
     }
 
     public String j() {
@@ -278,8 +278,8 @@ public class c extends c.a.e.a.d<PaymentConfirmActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (this.r == null) {
-                this.r = (ViewGroup) LayoutInflater.from(this.f19428a.getPageContext().getPageActivity()).inflate(R.layout.input_password_dialog, (ViewGroup) null, false);
-                c.a.q0.w0.a.a(this.f19428a.getPageContext(), this.r);
+                this.r = (ViewGroup) LayoutInflater.from(this.f19443a.getPageContext().getPageActivity()).inflate(R.layout.input_password_dialog, (ViewGroup) null, false);
+                c.a.q0.w0.a.a(this.f19443a.getPageContext(), this.r);
                 this.s = (EditText) this.r.findViewById(R.id.dialog_input);
                 this.t = (ViewGroup) this.r.findViewById(R.id.password_tip_layout);
                 this.u = (TextView) this.r.findViewById(R.id.password_input_tip);
@@ -299,27 +299,27 @@ public class c extends c.a.e.a.d<PaymentConfirmActivity> {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            c.a.q0.w0.a.a(this.f19428a.getPageContext(), this.f19429b);
-            this.f19430c.onChangeSkinType(this.f19428a.getPageContext(), i2);
+            c.a.q0.w0.a.a(this.f19443a.getPageContext(), this.f19444b);
+            this.f19445c.onChangeSkinType(this.f19443a.getPageContext(), i2);
         }
     }
 
     public final String p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.w ? this.f19428a.getResources().getString(R.string.payment_confirm_goods_price_buy_tip, str) : this.f19428a.getResources().getString(R.string.payment_confirm_goods_price_tip, str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.w ? this.f19443a.getResources().getString(R.string.payment_confirm_goods_price_buy_tip, str) : this.f19443a.getResources().getString(R.string.payment_confirm_goods_price_tip, str) : (String) invokeL.objValue;
     }
 
     public final void q(PaymentConfirmActivity paymentConfirmActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, paymentConfirmActivity) == null) {
-            this.f19431d = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_view_content);
-            this.f19432e = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_view_operate);
-            this.f19433f = (TbImageView) paymentConfirmActivity.findViewById(R.id.payment_goods_pic);
-            this.f19434g = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_name);
-            this.f19435h = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_num);
-            this.f19436i = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_timelength);
-            this.f19437j = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_price);
+            this.f19446d = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_view_content);
+            this.f19447e = (ViewGroup) paymentConfirmActivity.findViewById(R.id.payment_view_operate);
+            this.f19448f = (TbImageView) paymentConfirmActivity.findViewById(R.id.payment_goods_pic);
+            this.f19449g = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_name);
+            this.f19450h = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_num);
+            this.f19451i = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_timelength);
+            this.f19452j = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_price);
             this.k = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_name_tip);
             this.l = (TextView) paymentConfirmActivity.findViewById(R.id.payment_goods_price_tip);
             this.m = (CheckBox) paymentConfirmActivity.findViewById(R.id.payment_page_show);
@@ -333,20 +333,20 @@ public class c extends c.a.e.a.d<PaymentConfirmActivity> {
     public final void r(PaymentConfirmActivity paymentConfirmActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, paymentConfirmActivity) == null) {
-            this.f19429b = (ViewGroup) this.f19428a.findViewById(R.id.payment_root);
-            NavigationBar navigationBar = (NavigationBar) this.f19428a.findViewById(R.id.payment_navigation_bar);
-            this.f19430c = navigationBar;
+            this.f19444b = (ViewGroup) this.f19443a.findViewById(R.id.payment_root);
+            NavigationBar navigationBar = (NavigationBar) this.f19443a.findViewById(R.id.payment_navigation_bar);
+            this.f19445c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             if (CurrencySwitchUtil.isYyIsConvert(this.x)) {
                 if (this.w) {
-                    this.f19430c.setTitleText(this.f19428a.getPageContext().getString(R.string.payment_ybean_confirm_buy_title));
+                    this.f19445c.setTitleText(this.f19443a.getPageContext().getString(R.string.payment_ybean_confirm_buy_title));
                 } else {
-                    this.f19430c.setTitleText(this.f19428a.getPageContext().getString(R.string.payment_ybean_confirm_title));
+                    this.f19445c.setTitleText(this.f19443a.getPageContext().getString(R.string.payment_ybean_confirm_title));
                 }
             } else if (this.w) {
-                this.f19430c.setTitleText(this.f19428a.getPageContext().getString(R.string.payment_confirm_buy_title));
+                this.f19445c.setTitleText(this.f19443a.getPageContext().getString(R.string.payment_confirm_buy_title));
             } else {
-                this.f19430c.setTitleText(this.f19428a.getPageContext().getString(R.string.payment_confirm_title));
+                this.f19445c.setTitleText(this.f19443a.getPageContext().getString(R.string.payment_confirm_title));
             }
         }
     }
@@ -385,11 +385,11 @@ public class c extends c.a.e.a.d<PaymentConfirmActivity> {
             this.v.setText(R.string.payment_input_password_forget);
         } else if (i2 > 0) {
             viewGroup.setVisibility(0);
-            this.u.setText(this.f19428a.getResources().getString(R.string.payment_input_password_remainder_time, Integer.valueOf(i2)));
+            this.u.setText(this.f19443a.getResources().getString(R.string.payment_input_password_remainder_time, Integer.valueOf(i2)));
             this.v.setText(R.string.payment_input_password_forget);
         } else {
             viewGroup.setVisibility(0);
-            this.u.setText(this.f19428a.getResources().getString(R.string.payment_input_password_remainder_no_time));
+            this.u.setText(this.f19443a.getResources().getString(R.string.payment_input_password_remainder_no_time));
             this.v.setText(R.string.sapi_forget_password_title);
         }
     }

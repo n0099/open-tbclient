@@ -713,7 +713,7 @@ public class NoMotionRequest extends BaseRequest {
             }
 
             @Override // java.lang.Runnable
-            public void run() {
+            public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     NoMotionRequest.httpUrlConnectionPost(this.val$image, this.val$uiHandler);

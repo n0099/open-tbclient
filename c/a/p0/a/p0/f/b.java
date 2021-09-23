@@ -34,10 +34,10 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f7917a;
+    public static final File f7925a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f7918b;
+    public static final byte[] f7926b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -46,13 +46,13 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7919a;
+        public final /* synthetic */ CallbackHandler f7927a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f7920b;
+        public final /* synthetic */ String f7928b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f7921c;
+        public final /* synthetic */ String f7929c;
 
         public a(CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -69,20 +69,20 @@ public final class b {
                     return;
                 }
             }
-            this.f7919a = callbackHandler;
-            this.f7920b = str;
-            this.f7921c = str2;
+            this.f7927a = callbackHandler;
+            this.f7928b = str;
+            this.f7929c = str2;
         }
 
         @Override // c.a.p0.a.a1.e.c
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d.h("DebugDynamicLibControl", "debug动态库下载失败 url=" + this.f7921c);
-                if (this.f7919a == null || TextUtils.isEmpty(this.f7920b)) {
+                d.h("DebugDynamicLibControl", "debug动态库下载失败 url=" + this.f7929c);
+                if (this.f7927a == null || TextUtils.isEmpty(this.f7928b)) {
                     return;
                 }
-                this.f7919a.handleSchemeDispatchCallback(this.f7920b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                this.f7927a.handleSchemeDispatchCallback(this.f7928b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
             }
         }
 
@@ -97,25 +97,25 @@ public final class b {
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f7919a != null && !TextUtils.isEmpty(this.f7920b)) {
+                if (this.f7927a != null && !TextUtils.isEmpty(this.f7928b)) {
                     File j2 = b.j();
                     d.h("DebugDynamicLibControl", "debug动态库下载成功 file=" + j2.getAbsolutePath());
                     Pair g2 = b.g(j2);
                     if (!((Boolean) g2.first).booleanValue()) {
                         d.h("DebugDynamicLibControl", "debug动态库解密失败 file=" + j2.getAbsolutePath());
-                        this.f7919a.handleSchemeDispatchCallback(this.f7920b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解密失败").toString());
+                        this.f7927a.handleSchemeDispatchCallback(this.f7928b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解密失败").toString());
                         return;
                     } else if (((Boolean) b.s((File) g2.second).first).booleanValue()) {
                         b.r(true);
-                        this.f7919a.handleSchemeDispatchCallback(this.f7920b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                        this.f7927a.handleSchemeDispatchCallback(this.f7928b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                         return;
                     } else {
                         d.h("DebugDynamicLibControl", "debug动态库解压失败 file=" + j2.getAbsolutePath());
-                        this.f7919a.handleSchemeDispatchCallback(this.f7920b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解压失败").toString());
+                        this.f7927a.handleSchemeDispatchCallback(this.f7928b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解压失败").toString());
                         return;
                     }
                 }
-                d.h("DebugDynamicLibControl", "debug动态库下载成功，但是 handler=" + this.f7919a + " cb=" + this.f7920b);
+                d.h("DebugDynamicLibControl", "debug动态库下载成功，但是 handler=" + this.f7927a + " cb=" + this.f7928b);
             }
         }
     }
@@ -133,15 +133,15 @@ public final class b {
                 return;
             }
         }
-        f7917a = e.q();
-        f7918b = "rMzurs3ur83vsM7vss/vtNHwt9LwuNPx".getBytes(StandardCharsets.UTF_8);
+        f7925a = e.q();
+        f7926b = "rMzurs3ur83vsM7vss/vtNHwt9LwuNPx".getBytes(StandardCharsets.UTF_8);
     }
 
     public static File d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return new File(f7917a.getAbsolutePath() + File.separator + str + File.separator + "debug");
+            return new File(f7925a.getAbsolutePath() + File.separator + str + File.separator + "debug");
         }
         return (File) invokeL.objValue;
     }
@@ -191,7 +191,7 @@ public final class b {
                     file2.deleteOnExit();
                     file2.createNewFile();
                     IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr);
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(f7918b, "AES");
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(f7926b, "AES");
                     Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                     cipher.init(2, secretKeySpec, ivParameterSpec);
                     fileOutputStream.write(cipher.doFinal(bArr2));
@@ -240,13 +240,13 @@ public final class b {
     public static File j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9358a, "debugDynamicLib.zip") : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9366a, "debugDynamicLib.zip") : (File) invokeV.objValue;
     }
 
     public static File k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9358a, "aiapps_debug_dynamic_lib") : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new File(c.a.p0.a.f1.c.a.d().get(0).f9366a, "aiapps_debug_dynamic_lib") : (File) invokeV.objValue;
     }
 
     public static boolean l() {
@@ -267,7 +267,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (File file : c.a.p0.t.d.B(f7917a)) {
+            for (File file : c.a.p0.t.d.B(f7925a)) {
                 if (file.isDirectory()) {
                     File[] B2 = c.a.p0.t.d.B(file);
                     int length = B2.length;
@@ -296,7 +296,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (File file : c.a.p0.t.d.B(f7917a)) {
+            for (File file : c.a.p0.t.d.B(f7925a)) {
                 if (file.isDirectory()) {
                     File[] B2 = c.a.p0.t.d.B(file);
                     int length = B2.length;

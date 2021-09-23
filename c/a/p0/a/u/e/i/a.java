@@ -34,10 +34,10 @@ public class a extends d implements b.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f8940e;
+        public final /* synthetic */ c f8948e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f8941f;
+        public final /* synthetic */ a f8949f;
 
         public C0403a(a aVar, c cVar) {
             Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class a extends d implements b.c {
                     return;
                 }
             }
-            this.f8941f = aVar;
-            this.f8940e = cVar;
+            this.f8949f = aVar;
+            this.f8948e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,7 +64,7 @@ public class a extends d implements b.c {
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f8941f.t(iVar, this.f8940e, false);
+                this.f8949f.t(iVar, this.f8948e, false);
             }
         }
     }
@@ -75,10 +75,10 @@ public class a extends d implements b.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8942e;
+        public final /* synthetic */ String f8950e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f8943f;
+        public final /* synthetic */ a f8951f;
 
         /* renamed from: c.a.p0.a.u.e.i.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -135,8 +135,8 @@ public class a extends d implements b.c {
                     return;
                 }
             }
-            this.f8943f = aVar;
-            this.f8942e = str;
+            this.f8951f = aVar;
+            this.f8950e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -147,11 +147,11 @@ public class a extends d implements b.c {
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
                     int b2 = iVar.b();
-                    this.f8943f.d(this.f8942e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
+                    this.f8951f.d(this.f8950e, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
                 } else if (!q0.L()) {
-                    this.f8943f.d(this.f8942e, new c.a.p0.a.u.h.b(10005, c.a.p0.a.e2.c.d.f(10005)));
+                    this.f8951f.d(this.f8950e, new c.a.p0.a.u.h.b(10005, c.a.p0.a.e2.c.d.f(10005)));
                 } else {
-                    this.f8943f.d(this.f8942e, new c.a.p0.a.u.h.b(0));
+                    this.f8951f.d(this.f8950e, new c.a.p0.a.u.h.b(0));
                     c.a.p0.a.c1.a.E().e(new C0404a(this));
                 }
             }
@@ -164,13 +164,13 @@ public class a extends d implements b.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8944a;
+        public String f8952a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f8945b;
+        public boolean f8953b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8946c;
+        public String f8954c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -197,19 +197,19 @@ public class a extends d implements b.c {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     String optString = jSONObject.optString("type");
-                    cVar.f8944a = optString;
+                    cVar.f8952a = optString;
                     if (TextUtils.isEmpty(optString)) {
-                        cVar.f8944a = CoordinateType.WGS84;
+                        cVar.f8952a = CoordinateType.WGS84;
                     }
-                    cVar.f8945b = jSONObject.optBoolean("altitude");
+                    cVar.f8953b = jSONObject.optBoolean("altitude");
                     String optString2 = jSONObject.optString("cb");
-                    cVar.f8946c = optString2;
+                    cVar.f8954c = optString2;
                     if (TextUtils.isEmpty(optString2)) {
                         return null;
                     }
                     return cVar;
                 } catch (JSONException e2) {
-                    if (c.a.p0.a.u.c.d.f8727c) {
+                    if (c.a.p0.a.u.c.d.f8735c) {
                         String str2 = "parse failed: " + Log.getStackTraceString(e2);
                     }
                     c.a.p0.a.e0.d.b("Api-GetLocationAction", "parse failed: " + Log.getStackTraceString(e2));
@@ -222,7 +222,7 @@ public class a extends d implements b.c {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.equals(this.f8944a, CoordinateType.WGS84) || TextUtils.equals(this.f8944a, "gcj02") || TextUtils.equals(this.f8944a, "bd09ll")) && !TextUtils.isEmpty(this.f8946c) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.equals(this.f8952a, CoordinateType.WGS84) || TextUtils.equals(this.f8952a, "gcj02") || TextUtils.equals(this.f8952a, "bd09ll")) && !TextUtils.isEmpty(this.f8954c) : invokeV.booleanValue;
         }
     }
 
@@ -251,7 +251,7 @@ public class a extends d implements b.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, cVar, i2) == null) {
             c.a.p0.a.e0.d.b("Api-GetLocationAction", "request location error code : " + i2);
-            d(cVar.f8946c, new c.a.p0.a.u.h.b(1001, String.valueOf(i2)));
+            d(cVar.f8954c, new c.a.p0.a.u.h.b(1001, String.valueOf(i2)));
         }
     }
 
@@ -259,7 +259,7 @@ public class a extends d implements b.c {
     public void f(c cVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, str) == null) {
-            d(cVar.f8946c, new c.a.p0.a.u.h.b(10005, "system deny"));
+            d(cVar.f8954c, new c.a.p0.a.u.h.b(10005, "system deny"));
         }
     }
 
@@ -267,10 +267,10 @@ public class a extends d implements b.c {
     public void g(c cVar, c.a.p0.a.c2.f.k0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, bVar) == null) {
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str = "convert info : " + bVar.a();
             }
-            d(cVar.f8946c, new c.a.p0.a.u.h.b(0, "success", bVar.a()));
+            d(cVar.f8954c, new c.a.p0.a.u.h.b(0, "success", bVar.a()));
         }
     }
 
@@ -278,7 +278,7 @@ public class a extends d implements b.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str2 = "handle: " + str;
             }
             e Q = e.Q();
@@ -288,14 +288,14 @@ public class a extends d implements b.c {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-GetLocationAction", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-GetLocationAction", "parse fail");
                 }
                 return bVar;
             }
             c b3 = c.b(((JSONObject) b2.second).toString());
             if (b3 != null && b3.a()) {
-                if (TextUtils.isEmpty(b3.f8946c)) {
+                if (TextUtils.isEmpty(b3.f8954c)) {
                     c.a.p0.a.e0.d.b("Api-GetLocationAction", "empty cb");
                     return new c.a.p0.a.u.h.b(201, "empty cb");
                 }
@@ -317,7 +317,7 @@ public class a extends d implements b.c {
                 return;
             }
             int b2 = iVar.b();
-            d(cVar.f8946c, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
+            d(cVar.f8954c, new c.a.p0.a.u.h.b(b2, c.a.p0.a.e2.c.d.f(b2)));
         }
     }
 
@@ -325,7 +325,7 @@ public class a extends d implements b.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (c.a.p0.a.u.c.d.f8727c) {
+            if (c.a.p0.a.u.c.d.f8735c) {
                 String str2 = "handle: " + str;
             }
             e Q = e.Q();
@@ -335,7 +335,7 @@ public class a extends d implements b.c {
             Pair<c.a.p0.a.u.h.b, JSONObject> b2 = c.a.p0.a.u.i.b.b("Api-GetLocationAction", str);
             c.a.p0.a.u.h.b bVar = (c.a.p0.a.u.h.b) b2.first;
             if (!bVar.isSuccess()) {
-                if (c.a.p0.a.u.c.d.f8727c) {
+                if (c.a.p0.a.u.c.d.f8735c) {
                     c.a.p0.a.e0.d.b("Api-GetLocationAction", "parse fail");
                 }
                 return bVar;

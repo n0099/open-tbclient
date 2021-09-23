@@ -21,25 +21,25 @@ public final class x0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31442a;
+    public final String f31463a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31443b;
+    public final String f31464b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Boolean f31444c;
+    public final Boolean f31465c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Long f31445d;
+    public final Long f31466d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Long f31446e;
+    public final Long f31467e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Integer f31447f;
+    public final Integer f31468f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Long f31448g;
+    public final Long f31469g;
 
     public x0(String str, String str2, Boolean bool, Long l, Long l2, Integer num, Long l3) {
         Interceptable interceptable = $ic;
@@ -56,13 +56,13 @@ public final class x0 {
                 return;
             }
         }
-        this.f31442a = str;
-        this.f31443b = str2;
-        this.f31444c = bool;
-        this.f31445d = l;
-        this.f31446e = l2;
-        this.f31447f = num;
-        this.f31448g = l3;
+        this.f31463a = str;
+        this.f31464b = str2;
+        this.f31465c = bool;
+        this.f31466d = l;
+        this.f31467e = l2;
+        this.f31468f = num;
+        this.f31469g = l3;
     }
 
     @Nullable
@@ -91,13 +91,13 @@ public final class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
-            u0.h(hashMap, "id", this.f31442a);
-            u0.h(hashMap, IAdRequestParam.REQ_ID, this.f31443b);
-            u0.h(hashMap, "is_track_limited", String.valueOf(this.f31444c));
-            u0.h(hashMap, "take_ms", String.valueOf(this.f31445d));
-            u0.h(hashMap, "time", String.valueOf(this.f31446e));
-            u0.h(hashMap, "query_times", String.valueOf(this.f31447f));
-            u0.h(hashMap, "hw_id_version_code", String.valueOf(this.f31448g));
+            u0.h(hashMap, "id", this.f31463a);
+            u0.h(hashMap, IAdRequestParam.REQ_ID, this.f31464b);
+            u0.h(hashMap, "is_track_limited", String.valueOf(this.f31465c));
+            u0.h(hashMap, "take_ms", String.valueOf(this.f31466d));
+            u0.h(hashMap, "time", String.valueOf(this.f31467e));
+            u0.h(hashMap, "query_times", String.valueOf(this.f31468f));
+            u0.h(hashMap, "hw_id_version_code", String.valueOf(this.f31469g));
             return hashMap;
         }
         return (Map) invokeV.objValue;
@@ -109,13 +109,13 @@ public final class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            u0.i(jSONObject, "id", this.f31442a);
-            u0.i(jSONObject, IAdRequestParam.REQ_ID, this.f31443b);
-            u0.i(jSONObject, "is_track_limited", this.f31444c);
-            u0.i(jSONObject, "take_ms", this.f31445d);
-            u0.i(jSONObject, "time", this.f31446e);
-            u0.i(jSONObject, "query_times", this.f31447f);
-            u0.i(jSONObject, "hw_id_version_code", this.f31448g);
+            u0.i(jSONObject, "id", this.f31463a);
+            u0.i(jSONObject, IAdRequestParam.REQ_ID, this.f31464b);
+            u0.i(jSONObject, "is_track_limited", this.f31465c);
+            u0.i(jSONObject, "take_ms", this.f31466d);
+            u0.i(jSONObject, "time", this.f31467e);
+            u0.i(jSONObject, "query_times", this.f31468f);
+            u0.i(jSONObject, "hw_id_version_code", this.f31469g);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

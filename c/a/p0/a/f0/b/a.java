@@ -37,22 +37,22 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f5647e;
+        public final /* synthetic */ e f5655e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f5648f;
+        public final /* synthetic */ Context f5656f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f5649g;
+        public final /* synthetic */ boolean f5657g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f5650h;
+        public final /* synthetic */ String f5658h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5651i;
+        public final /* synthetic */ CallbackHandler f5659i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f5652j;
+        public final /* synthetic */ String f5660j;
         public final /* synthetic */ Activity k;
         public final /* synthetic */ a l;
 
@@ -72,12 +72,12 @@ public class a extends a0 {
                 }
             }
             this.l = aVar;
-            this.f5647e = eVar;
-            this.f5648f = context;
-            this.f5649g = z;
-            this.f5650h = str;
-            this.f5651i = callbackHandler;
-            this.f5652j = str2;
+            this.f5655e = eVar;
+            this.f5656f = context;
+            this.f5657g = z;
+            this.f5658h = str;
+            this.f5659i = callbackHandler;
+            this.f5660j = str2;
             this.k = activity;
         }
 
@@ -87,19 +87,19 @@ public class a extends a0 {
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                boolean e2 = this.f5647e.j().e(this.f5648f);
+                boolean e2 = this.f5655e.j().e(this.f5656f);
                 if (!d.h(iVar)) {
-                    if (!e2 && !this.f5649g) {
-                        k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 7, this.f5650h);
+                    if (!e2 && !this.f5657g) {
+                        k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 7, this.f5658h);
                     }
-                    d.p(iVar, this.f5651i, this.f5652j);
+                    d.p(iVar, this.f5659i, this.f5660j);
                     return;
                 }
-                if (e2 && !this.f5649g) {
-                    k.M("success", 7, this.f5650h);
+                if (e2 && !this.f5657g) {
+                    k.M("success", 7, this.f5658h);
                 }
                 c.a.p0.a.e0.d.g("ReadContacts", "request authorize success");
-                this.l.p(this.k, this.f5651i, this.f5652j);
+                this.l.p(this.k, this.f5659i, this.f5660j);
             }
         }
     }
@@ -110,16 +110,16 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f5653a;
+        public final /* synthetic */ Activity f5661a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5654b;
+        public final /* synthetic */ CallbackHandler f5662b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5655c;
+        public final /* synthetic */ String f5663c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f5656d;
+        public final /* synthetic */ a f5664d;
 
         public b(a aVar, Activity activity, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -136,17 +136,17 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f5656d = aVar;
-            this.f5653a = activity;
-            this.f5654b = callbackHandler;
-            this.f5655c = str;
+            this.f5664d = aVar;
+            this.f5661a = activity;
+            this.f5662b = callbackHandler;
+            this.f5663c = str;
         }
 
         @Override // c.a.p0.a.s1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f5656d.m(this.f5653a, this.f5654b, this.f5655c);
+                this.f5664d.m(this.f5661a, this.f5662b, this.f5663c);
                 c.a.p0.a.e0.d.b("ReadContacts", str + "");
             }
         }
@@ -155,7 +155,7 @@ public class a extends a0 {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                d.n(10005, this.f5654b, this.f5655c);
+                d.n(10005, this.f5662b, this.f5663c);
                 c.a.p0.a.e0.d.b("ReadContacts", str + "");
             }
         }
@@ -329,13 +329,13 @@ public class a extends a0 {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, callbackHandler, str) == null) {
             try {
                 JSONObject l = l(activity);
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     String str2 = "read contacts:" + l.toString();
                 }
                 c.a.p0.a.e0.d.b("ReadContacts", "read contacts:" + l.toString());
                 o(callbackHandler, str, 0, l);
             } catch (JSONException e2) {
-                if (a0.f4766b) {
+                if (a0.f4774b) {
                     e2.printStackTrace();
                 }
                 c.a.p0.a.e0.d.b("ReadContacts", "read contacts error caused by JsonException");

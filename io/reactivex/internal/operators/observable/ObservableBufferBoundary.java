@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class ObservableBufferBoundary<T, U extends Collection<? super T>, Open, Close> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
     public final ObservableSource<? extends Open> bufferOpen;
     public final Callable<U> bufferSupplier;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class BufferBoundaryObserver<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8466418554264089604L;
@@ -51,7 +51,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         public final SpscLinkedArrayQueue<C> queue;
         public final AtomicReference<Disposable> upstream;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes10.dex */
         public static final class BufferOpenObserver<Open> extends AtomicReference<Disposable> implements Observer<Open>, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -8498650778633225126L;
@@ -342,7 +342,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes10.dex */
     public static final class BufferCloseObserver<T, C extends Collection<? super T>> extends AtomicReference<Disposable> implements Observer<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8498650778633225126L;

@@ -34,13 +34,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f19071a;
+        public final /* synthetic */ TbPageContext f19080a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f19072b;
+        public final /* synthetic */ h f19081b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f19073c;
+        public final /* synthetic */ boolean f19082c;
 
         public a(TbPageContext tbPageContext, h hVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public class e {
                     return;
                 }
             }
-            this.f19071a = tbPageContext;
-            this.f19072b = hVar;
-            this.f19073c = z;
+            this.f19080a = tbPageContext;
+            this.f19081b = hVar;
+            this.f19082c = z;
         }
 
         @Override // c.a.r0.i.j.h
@@ -67,27 +67,27 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
                 if (c.a.e.e.p.j.A()) {
-                    e.e(jSONArray, this.f19072b.b(), this.f19072b.c(), this.f19073c);
+                    e.e(jSONArray, this.f19081b.b(), this.f19081b.c(), this.f19082c);
                 } else {
-                    l.L(this.f19071a.getContext(), R.string.neterror);
+                    l.L(this.f19080a.getContext(), R.string.neterror);
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements g.InterfaceC0925g {
+    public static class b implements g.InterfaceC0923g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f19074a;
+        public final /* synthetic */ TbPageContext f19083a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f19075b;
+        public final /* synthetic */ h f19084b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f19076c;
+        public final /* synthetic */ boolean f19085c;
 
         public b(TbPageContext tbPageContext, h hVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -104,19 +104,19 @@ public class e {
                     return;
                 }
             }
-            this.f19074a = tbPageContext;
-            this.f19075b = hVar;
-            this.f19076c = z;
+            this.f19083a = tbPageContext;
+            this.f19084b = hVar;
+            this.f19085c = z;
         }
 
-        @Override // c.a.r0.i.g.InterfaceC0925g
+        @Override // c.a.r0.i.g.InterfaceC0923g
         public void a(JSONArray jSONArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
                 if (c.a.e.e.p.j.A()) {
-                    e.e(jSONArray, this.f19075b.b(), this.f19075b.c(), this.f19076c);
+                    e.e(jSONArray, this.f19084b.b(), this.f19084b.c(), this.f19085c);
                 } else {
-                    l.L(this.f19074a.getContext(), R.string.neterror);
+                    l.L(this.f19083a.getContext(), R.string.neterror);
                 }
             }
         }

@@ -41,7 +41,7 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public k f63163a;
+    public k f63462a;
 
     public WelcomeActivity() {
         Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     public void onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
         k kVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, obj}) == null) || (kVar = this.f63163a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, obj}) == null) || (kVar = this.f63462a) == null) {
             return;
         }
         kVar.a(i2, i3, str, obj);
@@ -122,27 +122,27 @@ public class WelcomeActivity extends PayBaseBeanActivity {
                 BindCardEntry.innerRun();
             } else {
                 k a2 = g.a(intExtra, this);
-                this.f63163a = a2;
+                this.f63462a = a2;
                 if (a2 != null) {
-                    a2.a();
-                    if (!this.f63163a.a(bundle)) {
+                    a2.d();
+                    if (!this.f63462a.a(bundle)) {
                         return;
                     }
                 }
             }
             a();
             PassUtil.onCreate();
-            if (this.f63163a != null) {
+            if (this.f63462a != null) {
                 if (intExtra == 3) {
-                    this.f63163a.a(intent.getStringExtra("orderExtraInfo"));
+                    this.f63462a.a(intent.getStringExtra("orderExtraInfo"));
                 }
                 PrecashierCreateOrderResponse precashierCreateOrderResponse = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
                 if (precashierCreateOrderResponse != null) {
-                    this.f63163a.a(precashierCreateOrderResponse);
+                    this.f63462a.a(precashierCreateOrderResponse);
                 } else {
-                    this.f63163a.b();
+                    this.f63462a.a();
                 }
-                this.f63163a.g();
+                this.f63462a.g();
             }
             if (PayDataCache.getInstance().isRemotePay()) {
                 StatisticManager.onEvent("remoteEnterWelcomeActivity", "onCreate");
@@ -160,15 +160,16 @@ public class WelcomeActivity extends PayBaseBeanActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            k kVar = this.f63163a;
+            k kVar = this.f63462a;
             if (kVar != null) {
-                kVar.d();
-                this.f63163a = null;
+                kVar.e();
+                this.f63462a = null;
             }
         }
     }
 
     public void onModuleEvent(EventBus.Event event) {
+        k kVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, event) == null) || event == null) {
             return;
@@ -184,6 +185,8 @@ public class WelcomeActivity extends PayBaseBeanActivity {
         }
         if (event.mEventKey.equals(BeanConstants.EVENT_H5_RN_AUTH_RESULT)) {
             BaiduPay.getInstance().payRnAuthOnModuleEvent(event);
+        } else if (BeanConstants.EVENT_H5_AUTH_ADMIT_SUBMIT.equals(event.mEventKey) && (kVar = this.f63462a) != null && (kVar instanceof com.baidu.wallet.newbindcard.b.b)) {
+            ((com.baidu.wallet.newbindcard.b.b) kVar).a(event);
         }
     }
 
@@ -192,9 +195,9 @@ public class WelcomeActivity extends PayBaseBeanActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             super.onNewIntent(intent);
-            k kVar = this.f63163a;
+            k kVar = this.f63462a;
             if (kVar != null) {
-                kVar.b();
+                kVar.a();
             }
             if (PayDataCache.getInstance().isRemotePay()) {
                 StatisticManager.onEvent("remoteEnterWelcomeActivity", "onNewIntent");
@@ -217,7 +220,7 @@ public class WelcomeActivity extends PayBaseBeanActivity {
     public void onPrepareDialog(int i2, Dialog dialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i2, dialog) == null) {
-            k kVar = this.f63163a;
+            k kVar = this.f63462a;
             if (kVar != null) {
                 kVar.a(i2, dialog);
             } else {

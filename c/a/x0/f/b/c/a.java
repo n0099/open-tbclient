@@ -13,25 +13,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30723a;
+    public String f30744a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30724b;
+    public String f30745b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30725c;
+    public String f30746c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f30726d;
+    public float f30747d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30727e;
+    public String f30748e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30728f;
+    public String f30749f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30729g;
+    public String f30750g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -50,13 +50,13 @@ public class a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30723a = "";
-            this.f30724b = "";
-            this.f30725c = "";
-            this.f30726d = 0.0f;
-            this.f30727e = "";
-            this.f30728f = "";
-            this.f30729g = "";
+            this.f30744a = "";
+            this.f30745b = "";
+            this.f30746c = "";
+            this.f30747d = 0.0f;
+            this.f30748e = "";
+            this.f30749f = "";
+            this.f30750g = "";
         }
     }
 
@@ -65,7 +65,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "sft : " + this.f30723a + ", bft : " + this.f30724b + ", fc : " + this.f30725c + ", time : " + this.f30726d + ", cpu : " + this.f30727e + ", mem : " + this.f30728f + ", gpu : " + this.f30729g;
+            return "sft : " + this.f30744a + ", bft : " + this.f30745b + ", fc : " + this.f30746c + ", time : " + this.f30747d + ", cpu : " + this.f30748e + ", mem : " + this.f30749f + ", gpu : " + this.f30750g;
         }
         return (String) invokeV.objValue;
     }

@@ -30,19 +30,19 @@ public class c implements NetModel.k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsItemTabFragment f26491e;
+    public FrsItemTabFragment f26514e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f26492f;
+    public d f26515f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrsItemTabNetModel f26493g;
+    public FrsItemTabNetModel f26516g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26494h;
+    public int f26517h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f26495i;
+    public String f26518i;
 
     public c(FrsItemTabFragment frsItemTabFragment, int i2) {
         Interceptable interceptable = $ic;
@@ -62,21 +62,21 @@ public class c implements NetModel.k {
         if (frsItemTabFragment == null) {
             return;
         }
-        this.f26491e = frsItemTabFragment;
+        this.f26514e = frsItemTabFragment;
         FrsItemTabRequestData frsItemTabRequestData = new FrsItemTabRequestData();
         frsItemTabRequestData.itemId = i2;
         FrsItemTabNetModel frsItemTabNetModel = new FrsItemTabNetModel(frsItemTabFragment.getPageContext(), frsItemTabRequestData);
-        this.f26493g = frsItemTabNetModel;
+        this.f26516g = frsItemTabNetModel;
         frsItemTabNetModel.Z(this);
-        this.f26493g.setUniqueId(frsItemTabFragment.getUniqueId());
+        this.f26516g.setUniqueId(frsItemTabFragment.getUniqueId());
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d dVar = this.f26492f;
-            return (dVar == null || dVar.f26496e == null) ? false : true;
+            d dVar = this.f26515f;
+            return (dVar == null || dVar.f26519e == null) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -85,10 +85,10 @@ public class c implements NetModel.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ErrorData errorData = new ErrorData();
-            errorData.setError_code(this.f26494h);
-            errorData.setError_msg(this.f26495i);
-            if (this.f26494h != 0) {
-                this.f26491e.onServerError(errorData);
+            errorData.setError_code(this.f26517h);
+            errorData.setError_msg(this.f26518i);
+            if (this.f26517h != 0) {
+                this.f26514e.onServerError(errorData);
             }
         }
     }
@@ -100,9 +100,9 @@ public class c implements NetModel.k {
             if (dVar == null) {
                 return false;
             }
-            this.f26492f = dVar;
-            dVar.f26498g = e(dVar.f26498g);
-            this.f26491e.onViewDataChange(this.f26492f);
+            this.f26515f = dVar;
+            dVar.f26521g = e(dVar.f26521g);
+            this.f26514e.onViewDataChange(this.f26515f);
             return true;
         }
         return invokeL.booleanValue;
@@ -110,10 +110,10 @@ public class c implements NetModel.k {
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f26493g.Q()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f26516g.Q()) {
             return;
         }
-        this.f26493g.R();
+        this.f26516g.R();
     }
 
     public final ArrayList<n> e(ArrayList<n> arrayList) {
@@ -129,24 +129,24 @@ public class c implements NetModel.k {
                     d2 d2Var = (d2) next;
                     c.a.q0.b.f.a.e(d2Var);
                     int[] g0 = d2Var.g0();
-                    if (d2Var.getType() == d2.Z2 && !d2Var.A2()) {
+                    if (d2Var.getType() == d2.a3 && !d2Var.A2()) {
                         c2 c2Var = new c2();
                         c2Var.w = d2Var;
                         c2Var.position = i2;
-                        c2Var.f14122e = true;
+                        c2Var.f14119e = true;
                         c2Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
                         arrayList2.add(c2Var);
                         c2 c2Var2 = new c2();
                         c2Var2.w = d2Var;
                         c2Var2.position = i2;
                         if (d2Var.d3() == 1) {
-                            c2Var2.f14125h = true;
+                            c2Var2.f14122h = true;
                             c2Var2.x = g0[0];
                             c2Var2.y = g0[1];
                         } else if (d2Var.d3() >= 2) {
-                            c2Var2.f14126i = true;
+                            c2Var2.f14123i = true;
                         } else {
-                            c2Var2.f14123f = true;
+                            c2Var2.f14120f = true;
                         }
                         c2Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                         arrayList2.add(c2Var2);
@@ -184,8 +184,8 @@ public class c implements NetModel.k {
             dVar = ((FrsItemTabSocketResponseMessage) mvcSocketResponsedMessage).getData();
         }
         if (dVar == null || !c(dVar)) {
-            this.f26494h = mvcSocketResponsedMessage.getError();
-            this.f26495i = mvcSocketResponsedMessage.getErrorString();
+            this.f26517h = mvcSocketResponsedMessage.getError();
+            this.f26518i = mvcSocketResponsedMessage.getErrorString();
             b();
         }
     }
@@ -201,8 +201,8 @@ public class c implements NetModel.k {
             dVar = (d) ((FrsItemTabHttpResponseMessage) mvcHttpResponsedMessage).getData();
         }
         if (dVar == null || !c(dVar)) {
-            this.f26494h = mvcHttpResponsedMessage.getError();
-            this.f26495i = mvcHttpResponsedMessage.getErrorString();
+            this.f26517h = mvcHttpResponsedMessage.getError();
+            this.f26518i = mvcHttpResponsedMessage.getErrorString();
             b();
         }
     }

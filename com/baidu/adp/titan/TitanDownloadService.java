@@ -29,10 +29,10 @@ public class TitanDownloadService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f36370e;
+        public final /* synthetic */ f f36413e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f36371f;
+        public final /* synthetic */ TitanDownloadService f36414f;
 
         public a(TitanDownloadService titanDownloadService, f fVar) {
             Interceptable interceptable = $ic;
@@ -49,15 +49,15 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f36371f = titanDownloadService;
-            this.f36370e = fVar;
+            this.f36414f = titanDownloadService;
+            this.f36413e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i.f(this.f36371f.mContext, "com.baidu.titan.patch", this.f36370e);
+                i.f(this.f36414f.mContext, "com.baidu.titan.patch", this.f36413e);
             }
         }
     }
@@ -68,10 +68,10 @@ public class TitanDownloadService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f36372a;
+        public int f36415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f36373b;
+        public final /* synthetic */ TitanDownloadService f36416b;
 
         public b(TitanDownloadService titanDownloadService, int i2) {
             Interceptable interceptable = $ic;
@@ -88,15 +88,15 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f36373b = titanDownloadService;
-            this.f36372a = i2;
+            this.f36416b = titanDownloadService;
+            this.f36415a = i2;
         }
 
         @Override // c.a.e.k.f
         public void a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
-                this.f36373b.stopSelf(this.f36372a);
+                this.f36416b.stopSelf(this.f36415a);
             }
         }
     }

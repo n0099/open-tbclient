@@ -12,10 +12,10 @@ public class f {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            boolean z = a.f10311a;
+            boolean z = a.f10319a;
             c.a.p0.c.a.i.g m = g.l().m();
             if (m == null) {
-                boolean z2 = a.f10311a;
+                boolean z2 = a.f10319a;
                 return;
             }
             try {
@@ -23,17 +23,17 @@ public class f {
                 int intValue2 = m.f() != null ? m.f().intValue() : -1;
                 int intValue3 = m.e() != null ? m.e().intValue() : -1;
                 int intValue4 = m.g() != null ? m.g().intValue() : -1;
-                boolean z3 = a.f10311a;
+                boolean z3 = a.f10319a;
                 c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-                fVar.f7064b = str;
+                fVar.f7072b = str;
                 fVar.a("dh_group_id", Integer.valueOf(intValue));
                 fVar.a("dh_secret", Integer.valueOf(intValue2));
                 fVar.a("dh_pub_c", Integer.valueOf(intValue3));
                 fVar.a("dh_pub_s", Integer.valueOf(intValue4));
-                boolean z4 = a.f10311a;
+                boolean z4 = a.f10319a;
                 k.d(fVar);
             } catch (Exception e2) {
-                if (a.f10311a) {
+                if (a.f10319a) {
                     String str2 = "bdtls ubc exception=" + e2.getMessage();
                     e2.printStackTrace();
                 }
@@ -44,7 +44,7 @@ public class f {
     public static void b(c.a.p0.c.a.i.g gVar, Bdtls$Alert bdtls$Alert) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, gVar, bdtls$Alert) == null) {
-            boolean z = a.f10311a;
+            boolean z = a.f10319a;
             if (gVar != null && bdtls$Alert != null) {
                 try {
                     String str = bdtls$Alert.getLevel() == 1 ? "warning" : "fatal_error";
@@ -53,20 +53,20 @@ public class f {
                     int intValue3 = gVar.e() != null ? gVar.e().intValue() : -1;
                     int intValue4 = gVar.g() != null ? gVar.g().intValue() : -1;
                     String str2 = bdtls$Alert.getDescription() != null ? new String(bdtls$Alert.getDescription().toByteArray()) : "";
-                    boolean z2 = a.f10311a;
+                    boolean z2 = a.f10319a;
                     c.a.p0.a.j2.p.f fVar = new c.a.p0.a.j2.p.f();
-                    fVar.f7064b = "alert";
-                    fVar.f7067e = str;
+                    fVar.f7072b = "alert";
+                    fVar.f7075e = str;
                     fVar.a("dh_group_id", Integer.valueOf(intValue));
                     fVar.a("dh_secret", Integer.valueOf(intValue2));
                     fVar.a("dh_pub_c", Integer.valueOf(intValue3));
                     fVar.a("dh_pub_s", Integer.valueOf(intValue4));
                     fVar.a("alert_msg", str2);
-                    boolean z3 = a.f10311a;
+                    boolean z3 = a.f10319a;
                     k.d(fVar);
                     return;
                 } catch (Exception e2) {
-                    if (a.f10311a) {
+                    if (a.f10319a) {
                         String str3 = "bdtls ubc exception=" + e2.getMessage();
                         e2.printStackTrace();
                         return;
@@ -74,7 +74,7 @@ public class f {
                     return;
                 }
             }
-            boolean z4 = a.f10311a;
+            boolean z4 = a.f10319a;
         }
     }
 }

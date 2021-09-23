@@ -61,7 +61,7 @@ public class AlaPersonCenterActivityStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof i0) {
                 i0 i0Var = (i0) data;
-                c.a.r0.v.j.a aVar = new c.a.r0.v.j.a();
+                c.a.r0.v.l.a aVar = new c.a.r0.v.l.a();
                 aVar.c(i0Var.d());
                 aVar.d(i0Var.e());
                 aVar.b(i0Var.c());

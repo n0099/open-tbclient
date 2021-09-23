@@ -30,8 +30,8 @@ import c.a.e.e.p.l;
 import c.a.e.l.e.q;
 import c.a.q0.a.p;
 import c.a.q0.a.s;
-import c.a.q0.d1.g0;
-import c.a.q0.d1.j0;
+import c.a.q0.d1.h0;
+import c.a.q0.d1.k0;
 import c.a.q0.g0.g;
 import c.a.q0.g0.h;
 import c.a.q0.j0.i;
@@ -132,7 +132,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public ContinuousAnimationView mProgressBar;
     public h mRefreshView;
     public final Handler mSafeHandler;
-    public g0 mScreenShotListenManager;
+    public h0 mScreenShotListenManager;
     public int mSkinType;
     public SwipeBackLayout mSwipeBackLayout;
     public c.a.q0.m0.c mTbPageExtra;
@@ -382,7 +382,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.isFinishing()) {
                     return;
                 }
-                j0.a(this.this$0);
+                k0.a(this.this$0);
             }
         };
         this.nightResourcesChangeListener = new CustomMessageListener(this, 2005017) { // from class: com.baidu.tbadk.BaseActivity.5
@@ -515,12 +515,12 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     private void startScreenShotListen() {
-        g0 g0Var;
+        h0 h0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65556, this) == null) || !PermissionUtil.isAgreePrivacyPolicy() || this.mIsHasScreenShotListener || (g0Var = this.mScreenShotListenManager) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65556, this) == null) || !PermissionUtil.isAgreePrivacyPolicy() || this.mIsHasScreenShotListener || (h0Var = this.mScreenShotListenManager) == null) {
             return;
         }
-        g0Var.i(new g0.b(this) { // from class: com.baidu.tbadk.BaseActivity.9
+        h0Var.i(new h0.b(this) { // from class: com.baidu.tbadk.BaseActivity.9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BaseActivity this$0;
@@ -543,7 +543,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                 this.this$0 = this;
             }
 
-            @Override // c.a.q0.d1.g0.b
+            @Override // c.a.q0.d1.h0.b
             public void onShot(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -559,10 +559,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     private void stopScreenShotListen() {
-        g0 g0Var;
+        h0 h0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && this.mIsHasScreenShotListener && (g0Var = this.mScreenShotListenManager) != null) {
-            g0Var.k();
+        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && this.mIsHasScreenShotListener && (h0Var = this.mScreenShotListenManager) != null) {
+            h0Var.k();
             this.mIsHasScreenShotListener = false;
         }
     }
@@ -1494,7 +1494,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             registerListener(this.skinTypeChangeListener);
             enterExitAnimation();
             this.mIsLogin = TbadkCoreApplication.isLogin();
-            this.mScreenShotListenManager = new g0(this);
+            this.mScreenShotListenManager = new h0(this);
             SpeedStats.getInstance().onBaseActivityCreate(this);
         }
     }
@@ -1728,7 +1728,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             }
             if (this.isAddSwipeBackLayout) {
                 c.a.e.e.m.e.a().removeCallbacks(this.setNoTranslucentRunnable);
-                j0.b(this);
+                k0.b(this);
             }
         }
     }

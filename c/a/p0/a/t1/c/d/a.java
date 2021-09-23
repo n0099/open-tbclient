@@ -20,13 +20,13 @@ public abstract class a extends c.a.p0.a.t1.c.d.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.t1.c.b.b f8681e;
+        public final /* synthetic */ c.a.p0.a.t1.c.b.b f8689e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.j.b f8682f;
+        public final /* synthetic */ c.a.p0.a.h0.j.b f8690f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f8683g;
+        public final /* synthetic */ a f8691g;
 
         public C0379a(a aVar, c.a.p0.a.t1.c.b.b bVar, c.a.p0.a.h0.j.b bVar2) {
             Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public abstract class a extends c.a.p0.a.t1.c.d.b {
                     return;
                 }
             }
-            this.f8683g = aVar;
-            this.f8681e = bVar;
-            this.f8682f = bVar2;
+            this.f8691g = aVar;
+            this.f8689e = bVar;
+            this.f8690f = bVar2;
         }
 
         @Override // c.a.p0.a.m.a
@@ -53,12 +53,12 @@ public abstract class a extends c.a.p0.a.t1.c.d.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 != 0) {
-                    c.a.p0.a.t1.c.c.a aVar = new c.a.p0.a.t1.c.c.a(this.f8681e.f8671f);
-                    aVar.f8675a = this.f8681e.f8670e;
-                    this.f8682f.a(aVar);
+                    c.a.p0.a.t1.c.c.a aVar = new c.a.p0.a.t1.c.c.a(this.f8689e.f8679f);
+                    aVar.f8683a = this.f8689e.f8678e;
+                    this.f8690f.a(aVar);
                     return;
                 }
-                this.f8683g.o(this.f8681e, this.f8682f);
+                this.f8691g.o(this.f8689e, this.f8690f);
             }
         }
     }
@@ -69,19 +69,19 @@ public abstract class a extends c.a.p0.a.t1.c.d.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f8684e;
+        public final /* synthetic */ c.a.p0.a.a2.e f8692e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f8685f;
+        public final /* synthetic */ SwanAppActivity f8693f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.t1.c.b.b f8686g;
+        public final /* synthetic */ c.a.p0.a.t1.c.b.b f8694g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.j.b f8687h;
+        public final /* synthetic */ c.a.p0.a.h0.j.b f8695h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f8688i;
+        public final /* synthetic */ a f8696i;
 
         public b(a aVar, c.a.p0.a.a2.e eVar, SwanAppActivity swanAppActivity, c.a.p0.a.t1.c.b.b bVar, c.a.p0.a.h0.j.b bVar2) {
             Interceptable interceptable = $ic;
@@ -98,11 +98,11 @@ public abstract class a extends c.a.p0.a.t1.c.d.b {
                     return;
                 }
             }
-            this.f8688i = aVar;
-            this.f8684e = eVar;
-            this.f8685f = swanAppActivity;
-            this.f8686g = bVar;
-            this.f8687h = bVar2;
+            this.f8696i = aVar;
+            this.f8692e = eVar;
+            this.f8693f = swanAppActivity;
+            this.f8694g = bVar;
+            this.f8695h = bVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +111,7 @@ public abstract class a extends c.a.p0.a.t1.c.d.b {
         public void onCallback(c.a.p0.a.e2.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f8688i.p(this.f8685f, this.f8684e.D(), this.f8686g, aVar, this.f8687h);
+                this.f8696i.p(this.f8693f, this.f8692e.D(), this.f8694g, aVar, this.f8695h);
             }
         }
     }
@@ -162,7 +162,7 @@ public abstract class a extends c.a.p0.a.t1.c.d.b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bVar, bVar2)) == null) {
-            if (bVar == null || TextUtils.isEmpty(bVar.f8666a)) {
+            if (bVar == null || TextUtils.isEmpty(bVar.f8674a)) {
                 return new c.a.p0.a.u.h.b(1001, "get fun page info, provider appKey is empty");
             }
             if (bVar2 == null) {
@@ -189,7 +189,7 @@ public abstract class a extends c.a.p0.a.t1.c.d.b {
             c.a.p0.a.t1.d.a.a("start get open data");
             c.a.p0.a.a2.e r = c.a.p0.a.a2.d.g().r();
             SwanAppActivity x = r.x();
-            c.a.p0.a.e2.d.a.C(x, g(), bVar.f8666a, true, h(), new b(this, r, x, bVar, bVar2));
+            c.a.p0.a.e2.d.a.C(x, g(), bVar.f8674a, true, h(), new b(this, r, x, bVar, bVar2));
         }
     }
 

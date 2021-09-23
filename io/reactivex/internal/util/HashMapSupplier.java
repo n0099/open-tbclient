@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class HashMapSupplier implements Callable<Map<Object, Object>> {
     public static final /* synthetic */ HashMapSupplier[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

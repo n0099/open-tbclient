@@ -27,7 +27,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9683a;
+    public static final boolean f9691a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.a.x0.a.a$a  reason: collision with other inner class name */
@@ -37,10 +37,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ File f9684a;
+        public final /* synthetic */ File f9692a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f9685b;
+        public final /* synthetic */ a f9693b;
 
         public C0455a(a aVar, File file) {
             Interceptable interceptable = $ic;
@@ -57,18 +57,18 @@ public class a {
                     return;
                 }
             }
-            this.f9685b = aVar;
-            this.f9684a = file;
+            this.f9693b = aVar;
+            this.f9692a = file;
         }
 
         @Override // c.a.p0.a.p.d.e0.a
         public void onResult(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (!k.f7077a) {
-                    d.K(this.f9684a);
+                if (!k.f7085a) {
+                    d.K(this.f9692a);
                 }
-                a aVar = this.f9685b;
+                a aVar = this.f9693b;
                 aVar.p("upload file: done. feedback data = " + str);
             }
         }
@@ -79,7 +79,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f9686a;
+        public static final a f9694a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -95,7 +95,7 @@ public class a {
                     return;
                 }
             }
-            f9686a = new a(null);
+            f9694a = new a(null);
         }
     }
 
@@ -112,7 +112,7 @@ public class a {
                 return;
             }
         }
-        f9683a = k.f7077a;
+        f9691a = k.f7085a;
     }
 
     public /* synthetic */ a(C0455a c0455a) {
@@ -122,7 +122,7 @@ public class a {
     public static a n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f9686a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f9694a : (a) invokeV.objValue;
     }
 
     public boolean a(String str) {
@@ -138,11 +138,11 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            File q = q(str, file, c.a.p0.a.x0.a.d.a.f9697h);
+            File q = q(str, file, c.a.p0.a.x0.a.d.a.f9705h);
             if (q == null) {
                 return false;
             }
-            File file2 = new File(c.a.p0.a.x0.a.d.a.f9690a, str);
+            File file2 = new File(c.a.p0.a.x0.a.d.a.f9698a, str);
             if (file2.exists()) {
                 File file3 = new File(q, str);
                 d.k(file3);
@@ -173,7 +173,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
-            File q = q(str, new File(file, c.a.p0.a.x0.a.d.a.f9698i), "swan_plugin_workspace");
+            File q = q(str, new File(file, c.a.p0.a.x0.a.d.a.f9706i), "swan_plugin_workspace");
             if (q == null) {
                 return false;
             }
@@ -191,7 +191,7 @@ public class a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, file)) == null) {
-            File q = q(str, file, c.a.p0.a.x0.a.d.a.f9699j);
+            File q = q(str, file, c.a.p0.a.x0.a.d.a.f9707j);
             if (context == null || q == null) {
                 return false;
             }
@@ -213,8 +213,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, context, str, file) == null) {
             boolean i2 = i(str, file);
-            boolean b2 = b(c.a.p0.a.x0.a.d.a.f9691b, file);
-            boolean b3 = b(c.a.p0.a.x0.a.d.a.f9692c, file);
+            boolean b2 = b(c.a.p0.a.x0.a.d.a.f9699b, file);
+            boolean b3 = b(c.a.p0.a.x0.a.d.a.f9700c, file);
             boolean e2 = e(context, str, file);
             boolean c2 = c(str, file);
             boolean a2 = a(str);
@@ -232,7 +232,7 @@ public class a {
                 return null;
             }
             p("cloneFilesAndMakeZip start, appKey = " + str);
-            File file = new File(c.a.p0.a.x0.a.d.a.f9695f + str);
+            File file = new File(c.a.p0.a.x0.a.d.a.f9703f + str);
             if (!l(file)) {
                 p("delete old tmp dir failed");
                 return null;
@@ -259,11 +259,11 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, file)) == null) {
-            File q = q(str, file, c.a.p0.a.x0.a.d.a.f9696g);
+            File q = q(str, file, c.a.p0.a.x0.a.d.a.f9704g);
             if (q == null) {
                 return false;
             }
-            File file2 = new File(c.a.p0.a.x0.a.d.a.f9690a, str);
+            File file2 = new File(c.a.p0.a.x0.a.d.a.f9698a, str);
             if (file2.exists()) {
                 File file3 = new File(q, str);
                 d.k(file3);
@@ -343,7 +343,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        boolean z = f9683a;
+        boolean z = f9691a;
     }
 
     public File q(String str, File file, String str2) {
@@ -368,7 +368,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, file, str)) == null) {
             if (file != null && file.exists()) {
-                File file2 = new File(c.a.p0.a.x0.a.d.a.f9690a, str);
+                File file2 = new File(c.a.p0.a.x0.a.d.a.f9698a, str);
                 String str2 = (!file2.exists() || (list = file2.list()) == null || list.length <= 0) ? "-1" : list[0];
                 p("upload file: ready");
                 e0 t = c.a.p0.a.c1.a.t();

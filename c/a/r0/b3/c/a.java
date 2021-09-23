@@ -32,34 +32,34 @@ public class a extends c.a.e.a.d<AboutActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AboutActivity f16010a;
+    public AboutActivity f16020a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long[] f16011b;
+    public long[] f16021b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f16012c;
+    public NavigationBar f16022c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f16013d;
+    public RelativeLayout f16023d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16014e;
+    public TextView f16024e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SettingTextTestNewView f16015f;
+    public SettingTextTestNewView f16025f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f16016g;
+    public ImageView f16026g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbSettingTextTipView f16017h;
+    public TbSettingTextTipView f16027h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbSettingTextTipView f16018i;
+    public TbSettingTextTipView f16028i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbSettingTextTipView f16019j;
+    public TbSettingTextTipView f16029j;
     public TbSettingTextTipView k;
     public TbSettingTextTipView l;
     public TextView m;
@@ -67,17 +67,17 @@ public class a extends c.a.e.a.d<AboutActivity> {
 
     /* renamed from: c.a.r0.b3.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0765a implements View.OnClickListener {
+    public class View$OnClickListenerC0763a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16020e;
+        public final /* synthetic */ d f16030e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f16021f;
+        public final /* synthetic */ a f16031f;
 
-        public View$OnClickListenerC0765a(a aVar, d dVar) {
+        public View$OnClickListenerC0763a(a aVar, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,48 +92,48 @@ public class a extends c.a.e.a.d<AboutActivity> {
                     return;
                 }
             }
-            this.f16021f = aVar;
-            this.f16020e = dVar;
+            this.f16031f = aVar;
+            this.f16030e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f16021f.f16018i) {
-                    UrlManager.getInstance().dealOneLink(this.f16021f.f16010a.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
-                } else if (view == this.f16021f.f16019j) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f16021f.f16010a.getPageContext(), new String[]{"http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html"}, true);
+                if (view == this.f16031f.f16028i) {
+                    UrlManager.getInstance().dealOneLink(this.f16031f.f16020a.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
+                } else if (view == this.f16031f.f16029j) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.f16031f.f16020a.getPageContext(), new String[]{"http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html"}, true);
                     TbSingleton.getInstance().needRefreshForumSquare = true;
-                } else if (view != this.f16021f.k) {
-                    if (view != this.f16021f.f16015f) {
-                        if (view != this.f16021f.f16017h) {
-                            if (view != this.f16021f.f16016g) {
-                                if (view == this.f16021f.l) {
-                                    UrlManager.getInstance().dealOneLink(this.f16021f.f16010a.getPageContext(), new String[]{"http://tieba.baidu.com/tb/mobile/wisemainstatic/thirdparty-sdk.html"});
+                } else if (view != this.f16031f.k) {
+                    if (view != this.f16031f.f16025f) {
+                        if (view != this.f16031f.f16027h) {
+                            if (view != this.f16031f.f16026g) {
+                                if (view == this.f16031f.l) {
+                                    UrlManager.getInstance().dealOneLink(this.f16031f.f16020a.getPageContext(), new String[]{"http://tieba.baidu.com/tb/mobile/wisemainstatic/thirdparty-sdk.html"});
                                     return;
                                 }
                                 return;
                             }
-                            this.f16020e.a(4);
-                            System.arraycopy(this.f16021f.f16011b, 1, this.f16021f.f16011b, 0, this.f16021f.f16011b.length - 1);
-                            this.f16021f.f16011b[this.f16021f.f16011b.length - 1] = SystemClock.uptimeMillis();
-                            if (this.f16021f.f16011b[0] >= this.f16021f.f16011b[this.f16021f.f16011b.length - 1] - 2000) {
-                                this.f16021f.f16011b = new long[5];
-                                this.f16020e.a(6);
-                                this.f16021f.r();
+                            this.f16030e.a(4);
+                            System.arraycopy(this.f16031f.f16021b, 1, this.f16031f.f16021b, 0, this.f16031f.f16021b.length - 1);
+                            this.f16031f.f16021b[this.f16031f.f16021b.length - 1] = SystemClock.uptimeMillis();
+                            if (this.f16031f.f16021b[0] >= this.f16031f.f16021b[this.f16031f.f16021b.length - 1] - 2000) {
+                                this.f16031f.f16021b = new long[5];
+                                this.f16030e.a(6);
+                                this.f16031f.r();
                                 return;
                             }
                             return;
                         }
-                        this.f16020e.a(2);
+                        this.f16030e.a(2);
                         return;
                     }
-                    this.f16020e.a(1);
+                    this.f16030e.a(1);
                 } else if (CurrencySwitchUtil.isYyIsConvert()) {
-                    UrlManager.getInstance().dealOneLink(this.f16021f.f16010a.getPageContext(), new String[]{"https://tieba.baidu.com/tb/yy/agreement.html"});
+                    UrlManager.getInstance().dealOneLink(this.f16031f.f16020a.getPageContext(), new String[]{"https://tieba.baidu.com/tb/yy/agreement.html"});
                 } else {
-                    UrlManager.getInstance().dealOneLink(this.f16021f.f16010a.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
+                    UrlManager.getInstance().dealOneLink(this.f16031f.f16020a.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
                 }
             }
         }
@@ -145,10 +145,10 @@ public class a extends c.a.e.a.d<AboutActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f16022e;
+        public final /* synthetic */ d f16032e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f16023f;
+        public final /* synthetic */ a f16033f;
 
         public b(a aVar, d dVar) {
             Interceptable interceptable = $ic;
@@ -165,8 +165,8 @@ public class a extends c.a.e.a.d<AboutActivity> {
                     return;
                 }
             }
-            this.f16023f = aVar;
-            this.f16022e = dVar;
+            this.f16033f = aVar;
+            this.f16032e = dVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -174,8 +174,8 @@ public class a extends c.a.e.a.d<AboutActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (view == this.f16023f.f16016g && TbConfig.ENABLE_VISIT_PREVIEW_SERVER_DIALOG) {
-                    this.f16022e.a(5);
+                if (view == this.f16033f.f16026g && TbConfig.ENABLE_VISIT_PREVIEW_SERVER_DIALOG) {
+                    this.f16032e.a(5);
                     return true;
                 }
                 return false;
@@ -202,8 +202,8 @@ public class a extends c.a.e.a.d<AboutActivity> {
                 return;
             }
         }
-        this.f16011b = new long[5];
-        this.f16010a = aboutActivity;
+        this.f16021b = new long[5];
+        this.f16020a = aboutActivity;
         q();
         p(dVar);
     }
@@ -229,60 +229,60 @@ public class a extends c.a.e.a.d<AboutActivity> {
     public final void p(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            View$OnClickListenerC0765a view$OnClickListenerC0765a = new View$OnClickListenerC0765a(this, dVar);
+            View$OnClickListenerC0763a view$OnClickListenerC0763a = new View$OnClickListenerC0763a(this, dVar);
             b bVar = new b(this, dVar);
-            this.f16015f.setOnClickListener(view$OnClickListenerC0765a);
-            this.f16017h.setOnClickListener(view$OnClickListenerC0765a);
-            this.f16018i.setOnClickListener(view$OnClickListenerC0765a);
-            this.f16019j.setOnClickListener(view$OnClickListenerC0765a);
-            this.k.setOnClickListener(view$OnClickListenerC0765a);
-            this.l.setOnClickListener(view$OnClickListenerC0765a);
-            this.f16016g.setOnClickListener(view$OnClickListenerC0765a);
-            this.f16016g.setOnLongClickListener(bVar);
+            this.f16025f.setOnClickListener(view$OnClickListenerC0763a);
+            this.f16027h.setOnClickListener(view$OnClickListenerC0763a);
+            this.f16028i.setOnClickListener(view$OnClickListenerC0763a);
+            this.f16029j.setOnClickListener(view$OnClickListenerC0763a);
+            this.k.setOnClickListener(view$OnClickListenerC0763a);
+            this.l.setOnClickListener(view$OnClickListenerC0763a);
+            this.f16026g.setOnClickListener(view$OnClickListenerC0763a);
+            this.f16026g.setOnLongClickListener(bVar);
         }
     }
 
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f16010a.setContentView(R.layout.about_activity);
-            this.f16013d = (RelativeLayout) this.f16010a.findViewById(R.id.parent);
-            this.f16016g = (ImageView) this.f16010a.findViewById(R.id.image_logo);
-            NavigationBar navigationBar = (NavigationBar) this.f16010a.findViewById(R.id.view_navigation_bar);
-            this.f16012c = navigationBar;
+            this.f16020a.setContentView(R.layout.about_activity);
+            this.f16023d = (RelativeLayout) this.f16020a.findViewById(R.id.parent);
+            this.f16026g = (ImageView) this.f16020a.findViewById(R.id.image_logo);
+            NavigationBar navigationBar = (NavigationBar) this.f16020a.findViewById(R.id.view_navigation_bar);
+            this.f16022c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f16012c.setTitleText(this.f16010a.getPageContext().getString(R.string.version_info));
-            this.f16014e = (TextView) this.f16010a.findViewById(R.id.text_versioninfo);
-            this.f16015f = (SettingTextTestNewView) this.f16010a.findViewById(R.id.about_version_update);
-            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.f16010a.findViewById(R.id.about_guide);
-            this.f16017h = tbSettingTextTipView;
+            this.f16022c.setTitleText(this.f16020a.getPageContext().getString(R.string.version_info));
+            this.f16024e = (TextView) this.f16020a.findViewById(R.id.text_versioninfo);
+            this.f16025f = (SettingTextTestNewView) this.f16020a.findViewById(R.id.about_version_update);
+            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.f16020a.findViewById(R.id.about_guide);
+            this.f16027h = tbSettingTextTipView;
             tbSettingTextTipView.hideArrow();
-            TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.f16010a.findViewById(R.id.tieba_protocol_text);
-            this.f16018i = tbSettingTextTipView2;
+            TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.f16020a.findViewById(R.id.tieba_protocol_text);
+            this.f16028i = tbSettingTextTipView2;
             tbSettingTextTipView2.hideArrow();
-            TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.f16010a.findViewById(R.id.tieba_privacy_text);
-            this.f16019j = tbSettingTextTipView3;
+            TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.f16020a.findViewById(R.id.tieba_privacy_text);
+            this.f16029j = tbSettingTextTipView3;
             tbSettingTextTipView3.hideArrow();
-            this.k = (TbSettingTextTipView) this.f16010a.findViewById(R.id.tieba_tdou_use_introduce);
+            this.k = (TbSettingTextTipView) this.f16020a.findViewById(R.id.tieba_tdou_use_introduce);
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 this.k.setText(R.string.ybean_use_introduce);
             } else {
                 this.k.setText(R.string.tdou_use_introduce);
             }
             this.k.hideArrow();
-            TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.f16010a.findViewById(R.id.thirdparty_data_share);
+            TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.f16020a.findViewById(R.id.thirdparty_data_share);
             this.l = tbSettingTextTipView4;
             tbSettingTextTipView4.hideArrow();
-            this.n = (ProgressBar) this.f16010a.findViewById(R.id.about_progress);
+            this.n = (ProgressBar) this.f16020a.findViewById(R.id.about_progress);
             String version = TbConfig.getVersion();
             if (TbConfig.getVersionType() == 1 && !k.isEmpty(TbConfig.getSubVersion())) {
                 version = version + "." + TbConfig.getSubVersion();
             }
-            this.f16014e.setText(this.f16010a.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.f16010a.getPageContext().getString(R.string.setting_version_text) + " " + version);
-            this.m = (TextView) this.f16010a.findViewById(R.id.text_version_protoco);
+            this.f16024e.setText(this.f16020a.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.f16020a.getPageContext().getString(R.string.setting_version_text) + " " + version);
+            this.m = (TextView) this.f16020a.findViewById(R.id.text_version_protoco);
             u(TbadkCoreApplication.getInst().getSkinType());
             if (MessageManager.getInstance().findTask(2015001) == null) {
-                this.f16017h.setVisibility(8);
+                this.f16027h.setVisibility(8);
             }
             if (c.a.q0.s.d0.b.j().g("debug_plugin_switcher", false)) {
                 t(0);
@@ -299,7 +299,7 @@ public class a extends c.a.e.a.d<AboutActivity> {
     public void s() {
         SettingTextTestNewView settingTextTestNewView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (settingTextTestNewView = this.f16015f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (settingTextTestNewView = this.f16025f) == null) {
             return;
         }
         settingTextTestNewView.refresh();
@@ -308,17 +308,17 @@ public class a extends c.a.e.a.d<AboutActivity> {
     public final void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f16010a.findViewById(R.id.line0).setVisibility(i2);
+            this.f16020a.findViewById(R.id.line0).setVisibility(i2);
         }
     }
 
     public void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f16013d, R.color.CAM_X0201);
-            this.f16012c.onChangeSkinType(getPageContext(), i2);
-            this.f16010a.getLayoutMode().k(i2 == 1);
-            this.f16010a.getLayoutMode().j(this.f16013d);
+            SkinManager.setBackgroundColor(this.f16023d, R.color.CAM_X0201);
+            this.f16022c.onChangeSkinType(getPageContext(), i2);
+            this.f16020a.getLayoutMode().k(i2 == 1);
+            this.f16020a.getLayoutMode().j(this.f16023d);
             s();
         }
     }

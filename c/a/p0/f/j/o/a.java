@@ -29,7 +29,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10794a;
+    public static final boolean f10802a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public class a {
                 return;
             }
         }
-        f10794a = k.f7077a;
+        f10802a = k.f7085a;
     }
 
     public static long a() {
@@ -109,7 +109,7 @@ public class a {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, file, z)) == null) {
             if (context != null && file != null && file.isFile() && file.exists()) {
                 Intent intent = new Intent("android.intent.action.VIEW");
-                boolean z2 = f10794a;
+                boolean z2 = f10802a;
                 try {
                     intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
                     intent.setFlags(1342177280);
@@ -132,18 +132,18 @@ public class a {
                     } else {
                         context.startActivity(intent);
                     }
-                    boolean z3 = f10794a;
+                    boolean z3 = f10802a;
                 } catch (Exception e2) {
-                    if (f10794a) {
+                    if (f10802a) {
                         e2.printStackTrace();
                     }
                     intent.setComponent(null);
                     m(context, file, intent);
                     try {
                         context.startActivity(intent);
-                        boolean z4 = f10794a;
+                        boolean z4 = f10802a;
                     } catch (Exception e3) {
-                        if (f10794a) {
+                        if (f10802a) {
                             e3.printStackTrace();
                         }
                     }
@@ -159,7 +159,7 @@ public class a {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, context, str, z)) == null) {
-            if (f10794a) {
+            if (f10802a) {
                 String str2 = "call installApk filePath = " + str;
             }
             if (TextUtils.isEmpty(str)) {
@@ -168,7 +168,7 @@ public class a {
             try {
                 return h(context, new File(str), z);
             } catch (Exception e2) {
-                if (f10794a) {
+                if (f10802a) {
                     e2.printStackTrace();
                     return false;
                 }
@@ -201,7 +201,7 @@ public class a {
                     intent2.setFlags(270532608);
                     try {
                         context.startActivity(intent2);
-                        if (f10794a) {
+                        if (f10802a) {
                             String str3 = "openApp:packageName = " + str;
                             return true;
                         }
@@ -247,7 +247,7 @@ public class a {
                         }
                     }
                 } catch (IllegalArgumentException e2) {
-                    if (f10794a) {
+                    if (f10802a) {
                         throw e2;
                     }
                     return false;

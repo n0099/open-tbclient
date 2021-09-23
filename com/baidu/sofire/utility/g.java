@@ -1,148 +1,122 @@
 package com.baidu.sofire.utility;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.sofire.jni.Asc;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.accounts.NetworkErrorException;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.sofire.ac.F;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.net.URLEncoder;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Asc f45433a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1443542394, "Lcom/baidu/sofire/utility/g;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1443542394, "Lcom/baidu/sofire/utility/g;");
-                return;
-            }
-        }
-        f45433a = new Asc();
+    public static String a(Context context, String str, String str2, boolean z, boolean z2) throws Throwable {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? b(context, str, str2, z, z2) : (String) invokeCommon.objValue;
     }
 
-    public static byte[] a(byte[] bArr, byte[] bArr2, boolean z) {
-        InterceptResult invokeLLZ;
-        byte[] acn;
+    public static String b(Context context, String str, String str2, boolean z, boolean z2) throws Throwable {
+        InterceptResult invokeCommon;
+        byte[] bytes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bArr, bArr2, z)) == null) {
-            if (bArr != null) {
-                try {
-                } catch (Throwable unused) {
-                    c.a();
-                }
-                if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
-                    if (f45433a != null) {
-                        if (z) {
-                            acn = f45433a.ac(bArr2, bArr);
-                        } else {
-                            acn = f45433a.acn(bArr2, bArr);
-                        }
-                        if (acn != null && acn.length > 0) {
-                            return acn;
-                        }
-                    }
-                    return new byte[0];
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            String[] g2 = c.g(context);
+            String str3 = g2[0];
+            String str4 = g2[1];
+            if ("com.baidu.input_huawei".equals(context.getPackageName()) && !com.baidu.sofire.h.a.a(context).w()) {
+                throw new NetworkErrorException("conn is blocked");
             }
-            return new byte[0];
-        }
-        return (byte[]) invokeLLZ.objValue;
-    }
-
-    public static byte[] b(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        byte[] ar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) {
-            if (bArr2 != null) {
-                try {
-                } catch (Throwable unused) {
-                    c.a();
-                }
-                if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    if (f45433a != null && (ar = f45433a.ar(bArr, bArr2)) != null && ar.length > 0) {
-                        return ar;
-                    }
-                    return new byte[0];
-                }
+            String valueOf = String.valueOf(new Date().getTime() / 1000);
+            String a2 = q.a(str3 + valueOf + str4);
+            byte[] a3 = com.baidu.sofire.core.h.a();
+            String str5 = "";
+            if (!TextUtils.isEmpty(str2)) {
+                bytes = F.getInstance().ae(k.a(str2.getBytes()), a3);
+            } else {
+                bytes = "".getBytes();
             }
-            return new byte[0];
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] c(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        byte[] dr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, bArr2)) == null) {
-            if (bArr2 != null) {
-                try {
-                } catch (Throwable unused) {
-                    c.a();
-                }
-                if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    if (f45433a != null && (dr = f45433a.dr(bArr, bArr2)) != null && dr.length > 0) {
-                        return dr;
-                    }
-                    return new byte[0];
-                }
+            byte[] bytes2 = q.a(e.b(context)).getBytes();
+            String encodeToString = Base64.encodeToString(F.getInstance().re(a3, bytes2), 0);
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            sb.append("/100/");
+            sb.append(str3);
+            sb.append("/");
+            sb.append(valueOf);
+            sb.append("/");
+            sb.append(a2);
+            if (!TextUtils.isEmpty(encodeToString)) {
+                sb.append("?skey=");
+                sb.append(URLEncoder.encode(encodeToString, "utf-8"));
             }
-            return new byte[0];
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] a(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        byte[] dc;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
-            if (bArr != null) {
-                try {
-                } catch (Throwable unused) {
-                    c.a();
+            try {
+                if (s.a(context)) {
+                    str5 = new s(context).a(sb.toString(), bytes);
+                } else {
+                    str5 = new o(context).a(sb.toString(), bytes);
                 }
-                if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
-                    if (f45433a != null && (dc = f45433a.dc(bArr2, bArr)) != null && dc.length > 0) {
-                        return dc;
-                    }
-                    return new byte[0];
-                }
+            } catch (Throwable unused) {
+                c.a();
             }
-            return new byte[0];
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static int a(File file, File file2, byte[] bArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, file, file2, bArr)) == null) {
-            if (bArr != null) {
-                try {
-                    if (bArr.length > 0 && file != null && file2 != null && f45433a != null) {
-                        return f45433a.df(file.getAbsolutePath(), file2.getAbsolutePath(), bArr);
+            if (!z || !TextUtils.isEmpty(str5)) {
+                if (z2) {
+                    JSONObject jSONObject = new JSONObject(str5);
+                    byte[] rd = F.getInstance().rd(Base64.decode(jSONObject.optString("skey"), 0), bytes2);
+                    String optString = jSONObject.optString("response");
+                    jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+                    byte[] decode = Base64.decode(optString, 0);
+                    byte[] ad = F.getInstance().ad(decode, rd);
+                    if (decode != null && decode.length > 0 && (ad == null || ad.length == 0)) {
+                        c.h(context);
+                        throw new NetworkErrorException("aes is fail");
                     }
-                } catch (Throwable unused) {
-                    c.a();
+                    return new String(ad);
                 }
+                return str5;
             }
-            return -1;
+            try {
+                com.baidu.sofire.h.a a4 = com.baidu.sofire.h.a.a(context);
+                long currentTimeMillis = System.currentTimeMillis();
+                long j2 = a4.f45428a.getLong("pu_cl_fd", 0L);
+                if (j2 == 0) {
+                    j2 = System.currentTimeMillis();
+                    a4.f();
+                }
+                if (currentTimeMillis - j2 > 86400000) {
+                    HashMap hashMap = new HashMap();
+                    if (c.e(context)) {
+                        hashMap.put("0", Integer.valueOf(a4.h() + 1));
+                        hashMap.put("1", Integer.valueOf(a4.i()));
+                    } else {
+                        hashMap.put("0", Integer.valueOf(a4.h()));
+                        hashMap.put("1", Integer.valueOf(a4.i() + 1));
+                    }
+                    a4.f45429b.putInt("mo_fa_pu_cl", 0);
+                    a4.f45429b.commit();
+                    a4.f45429b.putInt("wi_fa_pu_cl", 0);
+                    a4.f45429b.commit();
+                    a4.f();
+                    c.a(context, "1003112", (Map<String, Object>) hashMap, false);
+                } else if (c.e(context)) {
+                    a4.a(a4.h() + 1);
+                } else {
+                    a4.b(a4.i() + 1);
+                }
+            } catch (Throwable unused2) {
+                c.a();
+            }
+            throw new NetworkErrorException("response is empty");
         }
-        return invokeLLL.intValue;
+        return (String) invokeCommon.objValue;
     }
 }

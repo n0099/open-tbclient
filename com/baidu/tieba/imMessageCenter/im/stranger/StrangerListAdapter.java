@@ -62,8 +62,8 @@ public class StrangerListAdapter extends c {
     public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.f21240b.setDrawBorder(true);
-            aVar.f21240b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            aVar.f21254b.setDrawBorder(true);
+            aVar.f21254b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String friendBjhAvatar = imMessageCenterShowItemData.getFriendBjhAvatar();
             if (TextUtils.isEmpty(friendBjhAvatar)) {
                 friendBjhAvatar = imMessageCenterShowItemData.getFriendPortrait();
@@ -71,7 +71,7 @@ public class StrangerListAdapter extends c {
             if (TextUtils.isEmpty(friendBjhAvatar)) {
                 return;
             }
-            aVar.f21240b.startLoad(friendBjhAvatar, 12, false);
+            aVar.f21254b.startLoad(friendBjhAvatar, 12, false);
         }
     }
 

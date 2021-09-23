@@ -38,7 +38,7 @@ public class a {
                 return;
             }
         }
-        DEBUG = k.f7077a;
+        DEBUG = k.f7085a;
     }
 
     public a(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, c.a.p0.a.h0.f.a aVar) {

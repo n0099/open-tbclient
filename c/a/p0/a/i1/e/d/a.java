@@ -12,7 +12,7 @@ public class a<T> implements b<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Class<? extends T> f6773a;
+    public Class<? extends T> f6781a;
 
     public a(@NonNull Class<? extends T> cls) {
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public class a<T> implements b<T> {
                 return;
             }
         }
-        this.f6773a = cls;
+        this.f6781a = cls;
     }
 
     @Override // c.a.p0.a.i1.e.d.b
     public T make() throws IllegalAccessException, InstantiationException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6773a.newInstance() : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6781a.newInstance() : (T) invokeV.objValue;
     }
 }

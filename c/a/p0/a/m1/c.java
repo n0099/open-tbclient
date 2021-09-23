@@ -44,10 +44,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7334a;
+    public static final boolean f7342a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f7335b;
+    public static final boolean f7343b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -56,10 +56,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f7336a;
+        public final /* synthetic */ String f7344a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f7337b;
+        public final /* synthetic */ String f7345b;
 
         public a(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -76,21 +76,21 @@ public class c {
                     return;
                 }
             }
-            this.f7336a = str;
-            this.f7337b = str2;
+            this.f7344a = str;
+            this.f7345b = str2;
         }
 
         @Override // c.a.p0.a.h0.i.g.a
         public void a(@NonNull c.a.p0.a.h0.i.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
-                c.a.p0.a.h0.i.f.c(this.f7336a, gVar);
+                c.a.p0.a.h0.i.f.c(this.f7344a, gVar);
                 boolean c0 = c.a.p0.a.h0.u.g.N().c0();
                 long o = c.a.p0.a.c1.a.Z().o();
                 if (o >= 6000 || c0) {
                     i.r(gVar);
                 }
-                i.i(c.a.p0.a.h0.i.c.c(this.f7337b, gVar, o, c0));
+                i.i(c.a.p0.a.h0.i.c.c(this.f7345b, gVar, o, c0));
                 i.k();
             }
         }
@@ -107,7 +107,7 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ File[] f7338a;
+            public final /* synthetic */ File[] f7346a;
 
             public a(b bVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
@@ -124,14 +124,14 @@ public class c {
                         return;
                     }
                 }
-                this.f7338a = fileArr;
+                this.f7346a = fileArr;
             }
 
             @Override // c.a.p0.a.p.d.e0.a
             public void onResult(String str) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && str.contains("success")) {
-                    for (File file : this.f7338a) {
+                    for (File file : this.f7346a) {
                         c.a.p0.t.d.K(file);
                     }
                 }
@@ -189,9 +189,9 @@ public class c {
                 return;
             }
         }
-        f7334a = k.f7077a;
+        f7342a = k.f7085a;
         c.a.p0.a.c1.a.Z().getSwitch("swan_white_screent_webview_progress_bar_switch", false);
-        f7335b = false;
+        f7343b = false;
     }
 
     public static void a() {
@@ -221,21 +221,21 @@ public class c {
             int[] iArr2 = new int[2];
             F1.getLocationOnScreen(iArr2);
             iArr[1] = Math.max(iArr[1], iArr2[1] + F1.getHeight() + 1);
-            if (f7335b) {
-                boolean z = f7334a;
+            if (f7343b) {
+                boolean z = f7342a;
                 c.a.p0.a.p.e.b Z2 = fVar.Z2();
                 if (Z2 != null) {
                     c.a.p0.a.p.e.e l = Z2.l();
                     if (l instanceof SwanAppWebViewWidget) {
-                        boolean z2 = f7334a;
+                        boolean z2 = f7342a;
                         int I1 = ((SwanAppWebViewWidget) l).I1();
-                        if (f7334a) {
+                        if (f7342a) {
                             String str = "getCheckRect: webview widget originY=" + iArr[1] + " , progressBarHeight=" + I1;
                         }
                         if (I1 > 0) {
                             iArr[1] = iArr[1] + I1 + 1;
                         }
-                        if (f7334a) {
+                        if (f7342a) {
                             String str2 = "getCheckRect: webview widget newY=" + iArr[1];
                         }
                     }
@@ -267,7 +267,7 @@ public class c {
             if (fVar != null) {
                 c.a.p0.a.a2.n.g B1 = fVar.B1();
                 if (B1 != null) {
-                    return B1.f4607e;
+                    return B1.f4615e;
                 }
                 FrameLayout i3 = fVar.i3();
                 if (i3 != null) {

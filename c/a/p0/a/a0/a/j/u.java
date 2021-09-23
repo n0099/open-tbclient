@@ -13,7 +13,7 @@ public class u extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f4482a;
+    public float f4490a;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class u extends a {
             if (bVar.d() == 0) {
                 bVar.e(canvas.save());
             }
-            canvas.rotate(this.f4482a);
+            canvas.rotate(this.f4490a);
         }
     }
 
@@ -47,7 +47,7 @@ public class u extends a {
             return;
         }
         float optDouble = (float) jSONArray.optDouble(0);
-        this.f4482a = optDouble;
-        this.f4482a = (float) Math.toDegrees(optDouble);
+        this.f4490a = optDouble;
+        this.f4490a = (float) Math.toDegrees(optDouble);
     }
 }

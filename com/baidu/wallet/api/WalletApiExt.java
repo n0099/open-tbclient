@@ -14,11 +14,11 @@ public class WalletApiExt {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static WalletApiExt f60167a;
+    public static WalletApiExt f60292a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public WalletApiExtListener.SensorsAdapter f60168b;
+    public WalletApiExtListener.SensorsAdapter f60293b;
 
     /* renamed from: com.baidu.wallet.api.WalletApiExt$1  reason: invalid class name */
     /* loaded from: classes8.dex */
@@ -32,7 +32,7 @@ public class WalletApiExt {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final WalletApiExt f60169a;
+        public static final WalletApiExt f60294a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +48,7 @@ public class WalletApiExt {
                     return;
                 }
             }
-            f60169a = new WalletApiExt(null);
+            f60294a = new WalletApiExt(null);
         }
 
         public a() {
@@ -73,13 +73,13 @@ public class WalletApiExt {
     public static final WalletApiExt getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60169a : (WalletApiExt) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60294a : (WalletApiExt) invokeV.objValue;
     }
 
     public WalletApiExtListener.SensorsAdapter getSensorsAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60168b : (WalletApiExtListener.SensorsAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60293b : (WalletApiExtListener.SensorsAdapter) invokeV.objValue;
     }
 
     public void setLoginSyncListener(WalletApiExtListener.LoginstatuSyncListener loginstatuSyncListener) {
@@ -93,7 +93,7 @@ public class WalletApiExt {
     public void setSensorsAdapterImpl(WalletApiExtListener.SensorsAdapter sensorsAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, sensorsAdapter) == null) {
-            this.f60168b = sensorsAdapter;
+            this.f60293b = sensorsAdapter;
         }
     }
 

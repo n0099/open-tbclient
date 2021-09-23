@@ -29,6 +29,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public String di;
     public String exUid;
     public Map<String, String> extraParamsMap;
+    public int faceDebug;
     public String idCardNum;
     public String imageFlag;
     public PassFaceRecogType livenessType;

@@ -5,6 +5,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int tnconfig = 2131820629;
+    public static final int tnconfig = 2131820630;
     public transient /* synthetic */ FieldHolder $fh;
 }

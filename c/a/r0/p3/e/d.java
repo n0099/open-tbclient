@@ -24,16 +24,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f23917a;
+    public TbPageContext<?> f23933a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23918b;
+    public int f23934b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f23919c;
+    public BdUniqueId f23935c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23920d;
+    public int f23936d;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class d {
                 return;
             }
         }
-        this.f23919c = null;
-        this.f23920d = -1;
-        this.f23917a = tbPageContext;
-        this.f23919c = bdUniqueId;
+        this.f23935c = null;
+        this.f23936d = -1;
+        this.f23933a = tbPageContext;
+        this.f23935c = bdUniqueId;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23918b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23934b : invokeV.intValue;
     }
 
     public void b(DressItemData dressItemData) {
@@ -67,15 +67,15 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData) == null) || dressItemData == null || dressItemData.getPropsId() == 0) {
             return;
         }
-        PersonalBackgroundPreviewActivityConfig personalBackgroundPreviewActivityConfig = new PersonalBackgroundPreviewActivityConfig(this.f23917a.getPageActivity(), dressItemData.getPropsId(), dressItemData.getInUse() ? 1 : 0);
-        personalBackgroundPreviewActivityConfig.setFrom(this.f23920d);
+        PersonalBackgroundPreviewActivityConfig personalBackgroundPreviewActivityConfig = new PersonalBackgroundPreviewActivityConfig(this.f23933a.getPageActivity(), dressItemData.getPropsId(), dressItemData.getInUse() ? 1 : 0);
+        personalBackgroundPreviewActivityConfig.setFrom(this.f23936d);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalBackgroundPreviewActivityConfig));
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f23920d = i2;
+            this.f23936d = i2;
         }
     }
 
@@ -86,11 +86,11 @@ public class d {
             if (StringUtils.isNull(str)) {
                 return;
             }
-            if (i2 == c.a.r0.p3.c.f23869a) {
-                int i4 = this.f23920d;
-                c.a.r0.p3.b.d(this.f23917a, z ? 4 : 2, str, i3, i4 == 1 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY : i4 == 0 ? MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY : "", MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-            } else if (i2 == c.a.r0.p3.c.f23870b) {
-                c.a.r0.p3.b.c(this.f23917a, z ? 4 : 2, str, i3);
+            if (i2 == c.a.r0.p3.c.f23885a) {
+                int i4 = this.f23936d;
+                c.a.r0.p3.b.d(this.f23933a, z ? 4 : 2, str, i3, i4 == 1 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY : i4 == 0 ? MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY : "", MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
+            } else if (i2 == c.a.r0.p3.c.f23886b) {
+                c.a.r0.p3.b.c(this.f23933a, z ? 4 : 2, str, i3);
             }
         }
     }
@@ -101,14 +101,14 @@ public class d {
             return;
         }
         if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(this.f23917a.getPageActivity());
+            ViewHelper.skipToLoginActivity(this.f23933a.getPageActivity());
             return;
         }
-        this.f23918b = dressItemData.getPropsId();
+        this.f23934b = dressItemData.getPropsId();
         BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
         backgroundSetRequestMessage.setFromDetail(z);
-        backgroundSetRequestMessage.setRequestUniqueId(this.f23919c);
-        backgroundSetRequestMessage.setPropId(this.f23918b);
+        backgroundSetRequestMessage.setRequestUniqueId(this.f23935c);
+        backgroundSetRequestMessage.setPropId(this.f23934b);
         MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921004));
     }

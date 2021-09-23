@@ -16,14 +16,14 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d f4148c;
+    public static volatile d f4155c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f4149a;
+    public HandlerThread f4156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f4150b;
+    public Handler f4157b;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -55,7 +55,7 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 b bVar = new b();
-                bVar.f4127a = message.arg2;
+                bVar.f4134a = message.arg2;
                 int i2 = message.arg1;
                 if (i2 == -1) {
                     i2 = c.j().a();
@@ -79,24 +79,24 @@ public class d {
             }
         }
         HandlerThread handlerThread = new HandlerThread("callback-handler");
-        this.f4149a = handlerThread;
-        this.f4150b = null;
+        this.f4156a = handlerThread;
+        this.f4157b = null;
         handlerThread.start();
-        this.f4150b = new a(this, this.f4149a.getLooper());
+        this.f4157b = new a(this, this.f4156a.getLooper());
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f4148c == null) {
+            if (f4155c == null) {
                 synchronized (d.class) {
-                    if (f4148c == null) {
-                        f4148c = new d();
+                    if (f4155c == null) {
+                        f4155c = new d();
                     }
                 }
             }
-            return f4148c;
+            return f4155c;
         }
         return (d) invokeV.objValue;
     }
@@ -104,14 +104,14 @@ public class d {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f4150b.removeMessages(i2);
+            this.f4157b.removeMessages(i2);
         }
     }
 
     public void c(Message message, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j2) == null) {
-            this.f4150b.sendMessageDelayed(message, j2);
+            this.f4157b.sendMessageDelayed(message, j2);
         }
     }
 }

@@ -22,7 +22,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f65951a;
+    public a f66262a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TopProxyLayout(Context context) {
@@ -63,7 +63,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void b() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.b();
@@ -73,7 +73,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void c() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.c();
@@ -83,7 +83,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void d() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.d();
@@ -110,7 +110,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             TopLayoutImpl e2 = new TopLayoutImpl(getContext()).e();
             if (e2 != null) {
-                this.f65951a = e2;
+                this.f66262a = e2;
                 ViewParent parent = getParent();
                 if (parent != null && (parent instanceof ViewGroup)) {
                     a(e2, (ViewGroup) parent);
@@ -128,7 +128,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            a aVar = this.f65951a;
+            a aVar = this.f66262a;
             if (aVar != null) {
                 return aVar.getCloseButton();
             }
@@ -149,7 +149,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void setCloseButtonAlpha(float f2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048586, this, f2) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048586, this, f2) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.setCloseButtonAlpha(f2);
@@ -159,7 +159,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void setListener(b bVar) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.setListener(bVar);
@@ -169,7 +169,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void setShowClose(boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.setShowClose(z);
@@ -179,7 +179,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void setShowDislike(boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.setShowDislike(z);
@@ -189,7 +189,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void setShowSkip(boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.setShowSkip(z);
@@ -199,7 +199,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void setShowSound(boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.setShowSound(z);
@@ -209,7 +209,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void setSkipEnable(boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.setSkipEnable(z);
@@ -219,7 +219,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void setSoundMute(boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.setSoundMute(z);
@@ -273,7 +273,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void a(CharSequence charSequence, CharSequence charSequence2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, charSequence2) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, charSequence2) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.a(charSequence, charSequence2);
@@ -283,7 +283,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public void a() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f65951a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f66262a) == null) {
             return;
         }
         aVar.a();

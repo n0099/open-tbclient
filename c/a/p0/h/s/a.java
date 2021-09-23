@@ -32,10 +32,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f11536a;
+    public static final boolean f11544a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f11537b;
+    public static ExecutorService f11545b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p0.h.s.a$a  reason: collision with other inner class name */
@@ -45,10 +45,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f11538e;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f11546e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a1.b f11539f;
+        public final /* synthetic */ c.a.p0.a.a1.b f11547f;
 
         public RunnableC0595a(c.a.p0.a.f1.e.b bVar, c.a.p0.a.a1.b bVar2) {
             Interceptable interceptable = $ic;
@@ -65,8 +65,8 @@ public class a {
                     return;
                 }
             }
-            this.f11538e = bVar;
-            this.f11539f = bVar2;
+            this.f11546e = bVar;
+            this.f11547f = bVar2;
         }
 
         @Override // java.lang.Runnable
@@ -75,12 +75,12 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.p0.a.v2.a1.b bVar = new c.a.p0.a.v2.a1.b();
-                if (this.f11538e.m0() && (c.a.p0.a.u1.a.a.w() || a.f11536a)) {
-                    j2 = b.a(this.f11538e, bVar);
+                if (this.f11546e.m0() && (c.a.p0.a.u1.a.a.w() || a.f11544a)) {
+                    j2 = b.a(this.f11546e, bVar);
                 } else {
-                    j2 = d.j(this.f11538e, bVar);
+                    j2 = d.j(this.f11546e, bVar);
                 }
-                this.f11539f.a(0, j2);
+                this.f11547f.a(0, j2);
             }
         }
     }
@@ -110,8 +110,8 @@ public class a {
                         aVar.h(7L);
                         aVar.e("小游戏bundle解压失败! for debug");
                         c.a.p0.a.q2.e.a().f(aVar);
-                        if (bVar2 != null && bVar2.f9289a == null) {
-                            bVar2.f9289a = aVar;
+                        if (bVar2 != null && bVar2.f9297a == null) {
+                            bVar2.f9297a = aVar;
                         }
                         return null;
                     }
@@ -123,8 +123,8 @@ public class a {
                         aVar2.h(7L);
                         aVar2.e("小游戏bundle解压失败! for debug");
                         c.a.p0.a.q2.e.a().f(aVar2);
-                        if (bVar2 != null && bVar2.f9289a == null) {
-                            bVar2.f9289a = aVar2;
+                        if (bVar2 != null && bVar2.f9297a == null) {
+                            bVar2.f9297a = aVar2;
                         }
                         return null;
                     }
@@ -135,21 +135,21 @@ public class a {
                 if (a2 == null) {
                     return null;
                 }
-                cVar.f11540a = d2.getPath() + File.separator;
-                cVar.f11542c = a2;
-                if (!TextUtils.isEmpty(a2.f11121e)) {
-                    cVar.f11541b = cVar.f11540a + a2.f11121e + File.separator;
+                cVar.f11548a = d2.getPath() + File.separator;
+                cVar.f11550c = a2;
+                if (!TextUtils.isEmpty(a2.f11129e)) {
+                    cVar.f11549b = cVar.f11548a + a2.f11129e + File.separator;
                     c.a.p0.h.z.f.a().d(true);
-                    c.a.p0.h.z.f.a().e(cVar.f11541b);
-                    c.a.p0.h.z.f.a().f(a2.f11121e);
+                    c.a.p0.h.z.f.a().e(cVar.f11549b);
+                    c.a.p0.h.z.f.a().f(a2.f11129e);
                 } else {
                     c.a.p0.h.z.f.a().d(false);
                 }
-                if (a.f11536a) {
+                if (a.f11544a) {
                     String str = "configFile path: " + file.getPath();
                     String str2 = "configFile exist: " + file.exists();
-                    String str3 = "info.appBundlePath path: " + cVar.f11540a;
-                    String str4 = "info.mAppOpenDataBundle path: " + cVar.f11541b;
+                    String str3 = "info.appBundlePath path: " + cVar.f11548a;
+                    String str4 = "info.mAppOpenDataBundle path: " + cVar.f11549b;
                 }
                 return cVar;
             }
@@ -173,7 +173,7 @@ public class a {
                 aVar.e("没有小游戏包! for debug, bundle files are empty");
                 c.a.p0.a.q2.e.a().f(aVar);
                 if (bVar != null) {
-                    bVar.f9289a = aVar;
+                    bVar.f9297a = aVar;
                     return null;
                 }
                 return null;
@@ -227,13 +227,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f11540a;
+        public String f11548a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11541b;
+        public String f11549b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a.p0.h.c0.a.a f11542c;
+        public c.a.p0.h.c0.a.a f11550c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -322,7 +322,7 @@ public class a {
             }
             for (File file : listFiles) {
                 if (i(str2, file.getName())) {
-                    if (a.f11536a) {
+                    if (a.f11544a) {
                         String str3 = "删除低版本文件夹：" + file.getAbsolutePath();
                     }
                     c.a.p0.n.g.a.h().d(str, file.getName());
@@ -366,7 +366,7 @@ public class a {
                 }
                 File[] listFiles = g().listFiles();
                 if (listFiles == null || listFiles.length == 0) {
-                    if (a.f11536a && z) {
+                    if (a.f11544a && z) {
                         c.a.p0.a.z1.b.f.e.g(AppRuntime.getAppContext(), g2.getPath() + " 没有小游戏包!").F();
                     }
                     c.a.p0.a.q2.a aVar = new c.a.p0.a.q2.a();
@@ -375,7 +375,7 @@ public class a {
                     aVar.e("没有小游戏包! for release, bundle files are empty");
                     c.a.p0.a.q2.e.a().f(aVar);
                     if (bVar != null) {
-                        bVar.f9289a = aVar;
+                        bVar.f9297a = aVar;
                     }
                     return null;
                 }
@@ -384,7 +384,7 @@ public class a {
                         return file;
                     }
                 }
-                if (a.f11536a && z) {
+                if (a.f11544a && z) {
                     c.a.p0.a.z1.b.f.e.g(AppRuntime.getAppContext(), g2.getPath() + " 没有小游戏包!").F();
                 }
                 c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
@@ -393,7 +393,7 @@ public class a {
                 aVar2.e("没有小游戏包! for release, no such bundle file");
                 c.a.p0.a.q2.e.a().f(aVar2);
                 if (bVar != null) {
-                    bVar.f9289a = aVar2;
+                    bVar.f9297a = aVar2;
                 }
                 return null;
             }
@@ -426,13 +426,13 @@ public class a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-                if (a.f11536a) {
+                if (a.f11544a) {
                     String str3 = "curVersion:" + str + ",targetVersion:" + str2;
                 }
                 try {
                     return a(str, str2) > 0;
                 } catch (IllegalArgumentException e2) {
-                    if (a.f11536a) {
+                    if (a.f11544a) {
                         String str4 = "比较版本号Exception：" + e2.getMessage();
                     }
                     return false;
@@ -464,8 +464,8 @@ public class a {
                         aVar.h(7L);
                         aVar.e("小游戏bundle解压失败! for release");
                         c.a.p0.a.q2.e.a().f(aVar);
-                        if (bVar2 != null && bVar2.f9289a == null) {
-                            bVar2.f9289a = aVar;
+                        if (bVar2 != null && bVar2.f9297a == null) {
+                            bVar2.f9297a = aVar;
                         }
                         return null;
                     }
@@ -476,21 +476,21 @@ public class a {
                 if (a2 == null) {
                     return null;
                 }
-                cVar.f11540a = h2.getPath() + File.separator;
-                cVar.f11542c = a2;
-                if (!TextUtils.isEmpty(a2.f11121e)) {
-                    cVar.f11541b = cVar.f11540a + File.separator + a2.f11121e + File.separator;
+                cVar.f11548a = h2.getPath() + File.separator;
+                cVar.f11550c = a2;
+                if (!TextUtils.isEmpty(a2.f11129e)) {
+                    cVar.f11549b = cVar.f11548a + File.separator + a2.f11129e + File.separator;
                     c.a.p0.h.z.f.a().d(true);
-                    c.a.p0.h.z.f.a().e(cVar.f11541b);
-                    c.a.p0.h.z.f.a().f(a2.f11121e);
+                    c.a.p0.h.z.f.a().e(cVar.f11549b);
+                    c.a.p0.h.z.f.a().f(a2.f11129e);
                 } else {
                     c.a.p0.h.z.f.a().d(false);
                 }
-                if (a.f11536a) {
+                if (a.f11544a) {
                     String str = "configFile path: " + file.getPath();
                     String str2 = "configFile exist: " + file.exists();
-                    r0 = "info.appBundlePath path: " + cVar.f11540a;
-                    String str3 = "info.mAppOpenDataBundle path: " + cVar.f11541b;
+                    r0 = "info.appBundlePath path: " + cVar.f11548a;
+                    String str3 = "info.mAppOpenDataBundle path: " + cVar.f11549b;
                 }
                 return cVar;
             }
@@ -511,14 +511,14 @@ public class a {
                 return;
             }
         }
-        f11536a = k.f7077a;
-        f11537b = Executors.newSingleThreadExecutor();
+        f11544a = k.f7085a;
+        f11545b = Executors.newSingleThreadExecutor();
     }
 
     public static void c(c.a.p0.a.f1.e.b bVar, c.a.p0.a.a1.b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, bVar, bVar2) == null) {
-            f11537b.execute(new RunnableC0595a(bVar, bVar2));
+            f11545b.execute(new RunnableC0595a(bVar, bVar2));
         }
     }
 
@@ -545,7 +545,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, cVar) == null) {
             e.d dVar = new e.d();
-            dVar.f4497a = str;
+            dVar.f4505a = str;
             c.a.p0.h.m.b.b.a();
             new c.a.p0.a.k0.a().e(dVar, c.a.p0.h.m.b.b.c().getPath(), cVar);
         }
@@ -555,7 +555,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, cVar) == null) {
             e.d dVar = new e.d();
-            dVar.f4497a = str;
+            dVar.f4505a = str;
             c.a.p0.h.p.a.b.a();
             new c.a.p0.a.k0.a().e(dVar, c.a.p0.h.p.a.b.c().getPath(), cVar);
         }
@@ -580,15 +580,15 @@ public class a {
                     h.o().C(new UbcFlowEvent("package_start_unzip"));
                     long currentTimeMillis = System.currentTimeMillis();
                     a.b i3 = c.a.p0.a.a1.h.a.i(file);
-                    int i4 = i3.f4523b;
+                    int i4 = i3.f4531b;
                     if (i4 != -1) {
-                        T = c.a.p0.a.a1.h.a.c(i3.f4522a, file2, i4).f4520a;
-                        i2 = i3.f4523b;
+                        T = c.a.p0.a.a1.h.a.c(i3.f4530a, file2, i4).f4528a;
+                        i2 = i3.f4531b;
                     } else {
                         T = c.a.p0.t.d.T(file.getPath(), file2.getPath());
                     }
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    if (f11536a) {
+                    if (f11544a) {
                         c.a.p0.a.a1.h.a.g((int) (currentTimeMillis2 - currentTimeMillis));
                     }
                     if (!T) {
@@ -597,7 +597,7 @@ public class a {
                         aVar.h(7L);
                         aVar.e("小游戏bundle解压失败! PkgType=" + i2);
                         if (bVar2 != null) {
-                            bVar2.f9289a = aVar;
+                            bVar2.f9297a = aVar;
                         }
                     }
                     HybridUbcFlow o = h.o();
@@ -610,7 +610,7 @@ public class a {
                 aVar2.h(4L);
                 aVar2.e("小游戏bundle文件不存在或者空文件! ");
                 if (bVar2 != null) {
-                    bVar2.f9289a = aVar2;
+                    bVar2.f9297a = aVar2;
                 }
             }
             return false;

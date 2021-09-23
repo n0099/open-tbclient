@@ -141,7 +141,7 @@ public class FrsGameStrategyItemView extends b<c.a.r0.w0.s1.a.a.b> {
         String numberUniformFormat = StringHelper.numberUniformFormat(threadData.C1());
         String formatTimeShort = StringHelper.getFormatTimeShort(threadData.I());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.r.setText(String.format(this.f15550g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+            this.r.setText(String.format(this.f15559g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
         }
         String str = null;
         if (threadData.o1() == 40) {

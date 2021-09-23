@@ -17,7 +17,7 @@ public class h extends com.baidu.platform.base.a implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetShareUrlResultListener f44339b;
+    public OnGetShareUrlResultListener f44401b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -32,16 +32,16 @@ public class h extends com.baidu.platform.base.a implements a {
                 return;
             }
         }
-        this.f44339b = null;
+        this.f44401b = null;
     }
 
     @Override // com.baidu.platform.core.e.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f44291a.lock();
-            this.f44339b = null;
-            this.f44291a.unlock();
+            this.f44353a.lock();
+            this.f44401b = null;
+            this.f44353a.unlock();
         }
     }
 
@@ -49,9 +49,9 @@ public class h extends com.baidu.platform.base.a implements a {
     public void a(OnGetShareUrlResultListener onGetShareUrlResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetShareUrlResultListener) == null) {
-            this.f44291a.lock();
-            this.f44339b = onGetShareUrlResultListener;
-            this.f44291a.unlock();
+            this.f44353a.lock();
+            this.f44401b = onGetShareUrlResultListener;
+            this.f44353a.unlock();
         }
     }
 
@@ -62,7 +62,7 @@ public class h extends com.baidu.platform.base.a implements a {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationShareURLOption)) == null) {
             f fVar = new f();
             fVar.a(SearchType.r);
-            return a(new b(locationShareURLOption), this.f44339b, fVar);
+            return a(new b(locationShareURLOption), this.f44401b, fVar);
         }
         return invokeL.booleanValue;
     }
@@ -74,7 +74,7 @@ public class h extends com.baidu.platform.base.a implements a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, poiDetailShareURLOption)) == null) {
             f fVar = new f();
             fVar.a(SearchType.q);
-            return a(new c(poiDetailShareURLOption), this.f44339b, fVar);
+            return a(new c(poiDetailShareURLOption), this.f44401b, fVar);
         }
         return invokeL.booleanValue;
     }
@@ -86,7 +86,7 @@ public class h extends com.baidu.platform.base.a implements a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, routeShareURLOption)) == null) {
             d dVar = new d();
             dVar.a(SearchType.s);
-            return a(new e(routeShareURLOption), this.f44339b, dVar);
+            return a(new e(routeShareURLOption), this.f44401b, dVar);
         }
         return invokeL.booleanValue;
     }

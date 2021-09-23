@@ -289,6 +289,7 @@ public class CmdConfigHttp {
     public static final int CMD_UEG_CANCEL = 1003414;
     public static final int CMD_UEG_REPORT = 1003402;
     public static final int CMD_UPLOAD_COLLECT_EMOTION_INFO = 1003339;
+    public static final int CMD_UPLOAD_DOWNLOAD_INFO = 1003513;
     public static final int CMD_UPLOAD_FACE_GROUP = 1003345;
     public static final int CMD_URL_PARSER_MESSAGE = 1003476;
     public static final int CMD_USER_BLOCK_SET = 1003489;

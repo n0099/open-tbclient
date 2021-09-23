@@ -17,7 +17,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35992a = "DESede/CBC/PKCS5Padding";
+    public static String f36026a = "DESede/CBC/PKCS5Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,8 +55,8 @@ public class e {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, bArr, str2)) == null) {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
-                Cipher cipher = Cipher.getInstance(f35992a);
-                cipher.init(1, secretKeySpec, new IvParameterSpec(c.a(cipher, str2)));
+                Cipher cipher = Cipher.getInstance(f36026a);
+                cipher.init(2, secretKeySpec, new IvParameterSpec(c.a(cipher, str2)));
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {
                 return null;
@@ -71,8 +71,8 @@ public class e {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, bArr, str2)) == null) {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
-                Cipher cipher = Cipher.getInstance(f35992a);
-                cipher.init(2, secretKeySpec, new IvParameterSpec(c.a(cipher, str2)));
+                Cipher cipher = Cipher.getInstance(f36026a);
+                cipher.init(1, secretKeySpec, new IvParameterSpec(c.a(cipher, str2)));
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {
                 return null;
@@ -86,7 +86,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
             try {
-                return a.a(a(str, str2.getBytes(), str3));
+                return new String(a(str, a.a(str2), str3));
             } catch (Exception unused) {
                 return null;
             }
@@ -99,7 +99,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
             try {
-                return new String(b(str, a.a(str2), str3));
+                return a.a(b(str, str2.getBytes(), str3));
             } catch (Exception unused) {
                 return null;
             }

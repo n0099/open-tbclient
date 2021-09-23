@@ -14,7 +14,7 @@ public class x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<y> f14763a;
+    public List<y> f14765a;
 
     public x() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class x {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-            this.f14763a = new ArrayList();
+            this.f14765a = new ArrayList();
             try {
                 if (jSONArray == null) {
                     c.a.q0.s.d0.b.j().x("key_index_tab_info_list", "[]");
@@ -47,17 +47,17 @@ public class x {
                     yVar.b(jSONArray.getJSONObject(i2));
                     for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
                         yVar2.b(jSONArray2.getJSONObject(i3));
-                        if (yVar.f14766c != null && yVar.f14766c.equals(yVar2.f14766c)) {
-                            if (!TextUtils.isEmpty(yVar2.f14768e) && yVar2.f14768e.equals(yVar.f14768e)) {
+                        if (yVar.f14768c != null && yVar.f14768c.equals(yVar2.f14768c)) {
+                            if (!TextUtils.isEmpty(yVar2.f14770e) && yVar2.f14770e.equals(yVar.f14770e)) {
                                 z = false;
-                                yVar.f14769f = z;
+                                yVar.f14771f = z;
                             }
                             z = true;
-                            yVar.f14769f = z;
+                            yVar.f14771f = z;
                         }
                     }
                     if (!yVar.a()) {
-                        this.f14763a.add(yVar);
+                        this.f14765a.add(yVar);
                     }
                 }
                 c.a.q0.s.d0.b.j().x("key_index_tab_info_list", jSONArray.toString());

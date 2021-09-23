@@ -26,10 +26,10 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f4348e;
+        public final /* synthetic */ a f4355e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Callable f4349f;
+        public final /* synthetic */ Callable f4356f;
 
         public RunnableC0111a(a aVar, Callable callable) {
             Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
                     return;
                 }
             }
-            this.f4348e = aVar;
-            this.f4349f = callable;
+            this.f4355e = aVar;
+            this.f4356f = callable;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: c.a.o0.a.a */
@@ -57,10 +57,10 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
             SharedPreferences sharedPreferences;
             Map<String, ?> all;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sharedPreferences = (SharedPreferences) this.f4349f.call()) == null || (all = sharedPreferences.getAll()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sharedPreferences = (SharedPreferences) this.f4356f.call()) == null || (all = sharedPreferences.getAll()) == null) {
                 return;
             }
-            this.f4348e.m(all, false);
+            this.f4355e.m(all, false);
         }
     }
 

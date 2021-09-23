@@ -21,13 +21,13 @@ public class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.w.b.a f30487a;
+    public c.a.w.b.a f30508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30488b;
+    public final int f30509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30489c;
+    public boolean f30510c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class a implements c {
                 return;
             }
         }
-        this.f30488b = b.a().b();
+        this.f30509b = b.a().b();
     }
 
     @Override // c.a.w.d.b.c
     public void a(String str) {
         c.a.w.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (aVar = this.f30487a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (aVar = this.f30508a) == null) {
             return;
         }
         aVar.F(str);
@@ -59,7 +59,7 @@ public class a implements c {
     public void b() {
         c.a.w.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f30487a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f30508a) == null) {
             return;
         }
         aVar.G();
@@ -83,7 +83,7 @@ public class a implements c {
     public void e() {
         c.a.w.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f30487a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f30508a) == null) {
             return;
         }
         aVar.K();
@@ -93,7 +93,7 @@ public class a implements c {
     public void f() {
         c.a.w.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f30487a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f30508a) == null) {
             return;
         }
         aVar.E();
@@ -103,7 +103,7 @@ public class a implements c {
     public void g() {
         c.a.w.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f30487a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f30508a) == null) {
             return;
         }
         aVar.L();
@@ -113,7 +113,7 @@ public class a implements c {
     public void h() {
         c.a.w.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f30487a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f30508a) == null) {
             return;
         }
         aVar.H();
@@ -126,17 +126,17 @@ public class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fragmentActivity, fragment, str)) == null) {
             j("onCreateView hostType:   page: " + str);
-            if (this.f30487a == null) {
-                int i2 = this.f30488b;
+            if (this.f30508a == null) {
+                int i2 = this.f30509b;
                 if (fragment != null) {
                     supportFragmentManager = fragment.getChildFragmentManager();
                 } else {
                     supportFragmentManager = fragmentActivity.getSupportFragmentManager();
                 }
-                this.f30487a = new c.a.w.b.a(fragmentActivity, i2, supportFragmentManager, str, "", this.f30489c);
+                this.f30508a = new c.a.w.b.a(fragmentActivity, i2, supportFragmentManager, str, "", this.f30510c);
                 c.a.w.b.c.a.r(fragmentActivity, "", "zhibopindao");
             }
-            return this.f30487a.v();
+            return this.f30508a.v();
         }
         return (View) invokeLLL.objValue;
     }
@@ -144,7 +144,7 @@ public class a implements c {
     public final void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            LiveFeedPageSdk.l("LiveFeedPageViewImpl " + str + GlideException.IndentedAppendable.INDENT + this.f30487a);
+            LiveFeedPageSdk.l("LiveFeedPageViewImpl " + str + GlideException.IndentedAppendable.INDENT + this.f30508a);
         }
     }
 
@@ -152,7 +152,7 @@ public class a implements c {
     public void onUserVisibleHint(boolean z) {
         c.a.w.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (aVar = this.f30487a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (aVar = this.f30508a) == null) {
             return;
         }
         aVar.M(z);

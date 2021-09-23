@@ -17,7 +17,7 @@ public class f extends c.a.p0.g.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f10854c;
+    public static final boolean f10862c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class f extends c.a.p0.g.f.a {
                 return;
             }
         }
-        f10854c = k.f7077a;
+        f10862c = k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,7 +59,7 @@ public class f extends c.a.p0.g.f.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
-            if (f10854c) {
+            if (f10862c) {
                 String str = "handle: " + jSONObject;
             }
             String optString = jSONObject.optString("packageName");

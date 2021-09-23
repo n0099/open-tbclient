@@ -66,7 +66,7 @@ public class CandidateSearchActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49791e;
+        public final /* synthetic */ CandidateSearchActivity f49902e;
 
         public a(CandidateSearchActivity candidateSearchActivity) {
             Interceptable interceptable = $ic;
@@ -83,24 +83,24 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49791e = candidateSearchActivity;
+            this.f49902e = candidateSearchActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f49791e.mButtonCancelSearch.getId()) {
-                    if (view.getId() == this.f49791e.mButtonDel.getId()) {
-                        this.f49791e.mSearchbox.setText("");
-                        this.f49791e.mRecyclerView.setVisibility(0);
-                        this.f49791e.mNoDataView.setVisibility(8);
-                        this.f49791e.mAdapter.setData(new ArrayList());
+                if (view.getId() != this.f49902e.mButtonCancelSearch.getId()) {
+                    if (view.getId() == this.f49902e.mButtonDel.getId()) {
+                        this.f49902e.mSearchbox.setText("");
+                        this.f49902e.mRecyclerView.setVisibility(0);
+                        this.f49902e.mNoDataView.setVisibility(8);
+                        this.f49902e.mAdapter.setData(new ArrayList());
                         return;
                     }
                     return;
                 }
-                this.f49791e.finish();
+                this.f49902e.finish();
             }
         }
     }
@@ -111,7 +111,7 @@ public class CandidateSearchActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49792a;
+        public final /* synthetic */ CandidateSearchActivity f49903a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(CandidateSearchActivity candidateSearchActivity, int i2, int i3) {
@@ -132,7 +132,7 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49792a = candidateSearchActivity;
+            this.f49903a = candidateSearchActivity;
         }
 
         @Override // c.a.e.c.g.a
@@ -148,22 +148,22 @@ public class CandidateSearchActivity extends BaseActivity {
                 aVar = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
             }
             if (responsedMessage.getError() != 0 || aVar == null) {
-                this.f49792a.mRecyclerView.setVisibility(8);
-                this.f49792a.mNoDataView.setVisibility(0);
+                this.f49903a.mRecyclerView.setVisibility(8);
+                this.f49903a.mNoDataView.setVisibility(0);
                 return;
             }
-            this.f49792a.mRecyclerView.setVisibility(0);
-            this.f49792a.mNoDataView.setVisibility(8);
-            if (this.f49792a.mSearchbox.getText() != null) {
-                aVar.f28238j = this.f49792a.mSearchbox.getText().toString();
+            this.f49903a.mRecyclerView.setVisibility(0);
+            this.f49903a.mNoDataView.setVisibility(8);
+            if (this.f49903a.mSearchbox.getText() != null) {
+                aVar.f28258j = this.f49903a.mSearchbox.getText().toString();
             }
-            if (this.f49792a.dataList != null) {
-                this.f49792a.dataList.clear();
+            if (this.f49903a.dataList != null) {
+                this.f49903a.dataList.clear();
             } else {
-                this.f49792a.dataList = new ArrayList();
+                this.f49903a.dataList = new ArrayList();
             }
-            this.f49792a.dataList.add(aVar);
-            this.f49792a.mAdapter.setData(this.f49792a.dataList);
+            this.f49903a.dataList.add(aVar);
+            this.f49903a.mAdapter.setData(this.f49903a.dataList);
         }
     }
 
@@ -173,7 +173,7 @@ public class CandidateSearchActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49793a;
+        public final /* synthetic */ CandidateSearchActivity f49904a;
 
         public c(CandidateSearchActivity candidateSearchActivity) {
             Interceptable interceptable = $ic;
@@ -190,7 +190,7 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49793a = candidateSearchActivity;
+            this.f49904a = candidateSearchActivity;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -199,8 +199,8 @@ public class CandidateSearchActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 3) {
-                    if (this.f49793a.mSearchbox.getText() != null && !TextUtils.isEmpty(this.f49793a.mSearchbox.getText().toString()) && !TextUtils.isEmpty(this.f49793a.mForumId)) {
-                        this.f49793a.mModel.a(c.a.e.e.m.b.e(this.f49793a.mSearchbox.getText().toString(), 0), c.a.e.e.m.b.g(this.f49793a.mForumId, 0L));
+                    if (this.f49904a.mSearchbox.getText() != null && !TextUtils.isEmpty(this.f49904a.mSearchbox.getText().toString()) && !TextUtils.isEmpty(this.f49904a.mForumId)) {
+                        this.f49904a.mModel.a(c.a.e.e.m.b.e(this.f49904a.mSearchbox.getText().toString(), 0), c.a.e.e.m.b.g(this.f49904a.mForumId, 0L));
                     }
                     return true;
                 }
@@ -216,7 +216,7 @@ public class CandidateSearchActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49794a;
+        public final /* synthetic */ CandidateSearchActivity f49905a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(CandidateSearchActivity candidateSearchActivity, int i2) {
@@ -236,7 +236,7 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49794a = candidateSearchActivity;
+            this.f49905a = candidateSearchActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -249,8 +249,8 @@ public class CandidateSearchActivity extends BaseActivity {
             int error = httpResponsedMessage.getError();
             if (error == 0) {
                 l.L(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
-                if (this.f49794a.dataList != null) {
-                    for (c.a.r0.x.b.a aVar : this.f49794a.dataList) {
+                if (this.f49905a.dataList != null) {
+                    for (c.a.r0.x.b.a aVar : this.f49905a.dataList) {
                         aVar.k = true;
                     }
                 }
@@ -268,7 +268,7 @@ public class CandidateSearchActivity extends BaseActivity {
                 blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.block_user_feed);
                 blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.know);
                 blockPopInfoData.ahead_url = "http://tieba.baidu.com/mo/q/userappeal";
-                AntiHelper.s(this.f49794a, blockPopInfoData);
+                AntiHelper.s(this.f49905a, blockPopInfoData);
             }
         }
     }
@@ -279,7 +279,7 @@ public class CandidateSearchActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49795e;
+        public final /* synthetic */ CandidateSearchActivity f49906e;
 
         public e(CandidateSearchActivity candidateSearchActivity) {
             Interceptable interceptable = $ic;
@@ -296,14 +296,14 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49795e = candidateSearchActivity;
+            this.f49906e = candidateSearchActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f49795e.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
+                this.f49906e.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
             }
         }
 
@@ -328,7 +328,7 @@ public class CandidateSearchActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CandidateSearchActivity f49796e;
+        public final /* synthetic */ CandidateSearchActivity f49907e;
 
         public f(CandidateSearchActivity candidateSearchActivity) {
             Interceptable interceptable = $ic;
@@ -345,17 +345,17 @@ public class CandidateSearchActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49796e = candidateSearchActivity;
+            this.f49907e = candidateSearchActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49796e.mSearchbox == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f49907e.mSearchbox == null) {
                 return;
             }
-            this.f49796e.mSearchbox.requestFocus();
-            CandidateSearchActivity candidateSearchActivity = this.f49796e;
+            this.f49907e.mSearchbox.requestFocus();
+            CandidateSearchActivity candidateSearchActivity = this.f49907e;
             l.K(candidateSearchActivity, candidateSearchActivity.mSearchbox);
         }
     }

@@ -35,11 +35,11 @@ public final class b extends c.a.p0.a.y0.b<c.a.p0.a.y0.k.g.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f9823i;
+    public static final boolean f9831i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final a.InterfaceC0472a f9824h;
+    public final a.InterfaceC0472a f9832h;
 
     /* loaded from: classes.dex */
     public class a implements a.InterfaceC0472a {
@@ -47,7 +47,7 @@ public final class b extends c.a.p0.a.y0.b<c.a.p0.a.y0.k.g.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f9825a;
+        public final /* synthetic */ b f9833a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -64,33 +64,33 @@ public final class b extends c.a.p0.a.y0.b<c.a.p0.a.y0.k.g.a> {
                     return;
                 }
             }
-            this.f9825a = bVar;
+            this.f9833a = bVar;
         }
 
         @Override // c.a.p0.a.y0.k.g.a.InterfaceC0472a
         public void a(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f9825a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f9833a.f9725b == null) {
                 return;
             }
-            this.f9825a.f9717b.onCallback(this.f9825a, "onStateChange", Integer.valueOf(i2));
+            this.f9833a.f9725b.onCallback(this.f9833a, "onStateChange", Integer.valueOf(i2));
         }
 
         @Override // c.a.p0.a.y0.k.g.a.InterfaceC0472a
         public void b(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f9825a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f9833a.f9725b == null) {
                 return;
             }
-            this.f9825a.f9717b.onCallback(this.f9825a, "onInfo", Integer.valueOf(i2));
+            this.f9833a.f9725b.onCallback(this.f9833a, "onInfo", Integer.valueOf(i2));
         }
 
         @Override // c.a.p0.a.y0.k.g.a.InterfaceC0472a
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                if (this.f9825a.f9717b != null) {
-                    this.f9825a.f9717b.onCallback(this.f9825a, "onPaused", null);
+                if (this.f9833a.f9725b != null) {
+                    this.f9833a.f9725b.onCallback(this.f9833a, "onPaused", null);
                 }
                 if (TextUtils.isEmpty(str)) {
                     return;
@@ -102,18 +102,18 @@ public final class b extends c.a.p0.a.y0.b<c.a.p0.a.y0.k.g.a> {
         @Override // c.a.p0.a.y0.k.g.a.InterfaceC0472a
         public void d(@NonNull String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f9825a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f9833a.f9725b == null) {
                 return;
             }
-            this.f9825a.f9717b.onCallback(this.f9825a, "onNetStatus", str);
+            this.f9833a.f9725b.onCallback(this.f9833a, "onNetStatus", str);
         }
 
         @Override // c.a.p0.a.y0.k.g.a.InterfaceC0472a
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                if (this.f9825a.f9717b != null) {
-                    this.f9825a.f9717b.onCallback(this.f9825a, "onPlayed", null);
+                if (this.f9833a.f9725b != null) {
+                    this.f9833a.f9725b.onCallback(this.f9833a, "onPlayed", null);
                 }
                 k.e().k(str, true);
                 k.e().j(str);
@@ -123,44 +123,44 @@ public final class b extends c.a.p0.a.y0.b<c.a.p0.a.y0.k.g.a> {
         @Override // c.a.p0.a.y0.k.g.a.InterfaceC0472a
         public void f() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f9825a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f9833a.f9725b == null) {
                 return;
             }
-            this.f9825a.f9717b.onCallback(this.f9825a, "onVideoSizeChanged", null);
+            this.f9833a.f9725b.onCallback(this.f9833a, "onVideoSizeChanged", null);
         }
 
         @Override // c.a.p0.a.y0.k.g.a.InterfaceC0472a
         public void onEnded() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f9825a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f9833a.f9725b == null) {
                 return;
             }
-            this.f9825a.f9717b.onCallback(this.f9825a, "onEnded", null);
+            this.f9833a.f9725b.onCallback(this.f9833a, "onEnded", null);
         }
 
         @Override // c.a.p0.a.y0.k.g.a.InterfaceC0472a
         public void onError(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.f9825a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.f9833a.f9725b == null) {
                 return;
             }
-            this.f9825a.f9717b.onCallback(this.f9825a, "onError", Integer.valueOf(i2));
+            this.f9833a.f9725b.onCallback(this.f9833a, "onError", Integer.valueOf(i2));
         }
 
         @Override // c.a.p0.a.y0.k.g.a.InterfaceC0472a
         public void onPrepared() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f9825a.f9717b == null) {
+            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f9833a.f9725b == null) {
                 return;
             }
-            this.f9825a.f9717b.onCallback(this.f9825a, "onPrepared", null);
+            this.f9833a.f9725b.onCallback(this.f9833a, "onPrepared", null);
         }
 
         @Override // c.a.p0.a.y0.k.g.a.InterfaceC0472a
         public void onRelease(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-                if (b.f9823i) {
+                if (b.f9831i) {
                     String str2 = "onRelease: " + str;
                 }
                 k.e().p(str);
@@ -181,7 +181,7 @@ public final class b extends c.a.p0.a.y0.b<c.a.p0.a.y0.k.g.a> {
                 return;
             }
         }
-        f9823i = c.a.p0.a.k.f7077a;
+        f9831i = c.a.p0.a.k.f7085a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -203,29 +203,29 @@ public final class b extends c.a.p0.a.y0.b<c.a.p0.a.y0.k.g.a> {
             }
         }
         a aVar2 = new a(this);
-        this.f9824h = aVar2;
+        this.f9832h = aVar2;
         aVar.h0(aVar2);
-        this.f9716a.a(new c.a.p0.a.y0.k.e.a());
-        this.f9716a.a(new c.a.p0.a.y0.k.e.b());
-        this.f9716a.a(new c.a.p0.a.y0.k.e.c());
-        this.f9716a.a(new f());
-        this.f9716a.a(new e());
-        this.f9716a.a(new c.a.p0.a.y0.k.e.d());
-        this.f9716a.a(new g());
-        this.f9716a.a(new h());
-        this.f9716a.a(new i());
-        this.f9716a.a(new j());
-        this.f9716a.a(new l());
-        this.f9716a.a(new m());
-        this.f9716a.a(new n());
-        this.f9716a.a(new o());
-        this.f9716a.a(new q());
-        this.f9716a.a(new r());
-        this.f9716a.a(new s());
-        this.f9716a.a(new u());
-        this.f9716a.a(new v());
-        this.f9716a.a(new p());
-        this.f9716a.a(new c.a.p0.a.y0.k.e.k());
-        this.f9716a.a(new t());
+        this.f9724a.a(new c.a.p0.a.y0.k.e.a());
+        this.f9724a.a(new c.a.p0.a.y0.k.e.b());
+        this.f9724a.a(new c.a.p0.a.y0.k.e.c());
+        this.f9724a.a(new f());
+        this.f9724a.a(new e());
+        this.f9724a.a(new c.a.p0.a.y0.k.e.d());
+        this.f9724a.a(new g());
+        this.f9724a.a(new h());
+        this.f9724a.a(new i());
+        this.f9724a.a(new j());
+        this.f9724a.a(new l());
+        this.f9724a.a(new m());
+        this.f9724a.a(new n());
+        this.f9724a.a(new o());
+        this.f9724a.a(new q());
+        this.f9724a.a(new r());
+        this.f9724a.a(new s());
+        this.f9724a.a(new u());
+        this.f9724a.a(new v());
+        this.f9724a.a(new p());
+        this.f9724a.a(new c.a.p0.a.y0.k.e.k());
+        this.f9724a.a(new t());
     }
 }

@@ -15,31 +15,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f27678a;
+    public View f27698a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BarImageView f27679b;
+    public BarImageView f27699b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f27680c;
+    public TextView f27700c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f27681d;
+    public TextView f27701d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f27682e;
+    public TextView f27702e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EntelechyUserLikeButton f27683f;
+    public EntelechyUserLikeButton f27703f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f27684g;
+    public View f27704g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27685h;
+    public int f27705h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27686i;
+    public int f27706i;
 
     public b(View view) {
         Interceptable interceptable = $ic;
@@ -56,13 +56,13 @@ public class b {
                 return;
             }
         }
-        this.f27686i = 3;
-        this.f27678a = view;
-        this.f27679b = (BarImageView) view.findViewById(R.id.frs_feed_forum_image);
-        this.f27680c = (TextView) view.findViewById(R.id.frs_feed_forum_title);
-        this.f27681d = (TextView) view.findViewById(R.id.frs_feed_forum_other_info);
-        this.f27682e = (TextView) view.findViewById(R.id.frs_feed_forum_related);
-        this.f27683f = (EntelechyUserLikeButton) view.findViewById(R.id.frs_feed_forum_attention);
-        this.f27684g = view.findViewById(R.id.frs_feed_forum_divider);
+        this.f27706i = 3;
+        this.f27698a = view;
+        this.f27699b = (BarImageView) view.findViewById(R.id.frs_feed_forum_image);
+        this.f27700c = (TextView) view.findViewById(R.id.frs_feed_forum_title);
+        this.f27701d = (TextView) view.findViewById(R.id.frs_feed_forum_other_info);
+        this.f27702e = (TextView) view.findViewById(R.id.frs_feed_forum_related);
+        this.f27703f = (EntelechyUserLikeButton) view.findViewById(R.id.frs_feed_forum_attention);
+        this.f27704g = view.findViewById(R.id.frs_feed_forum_divider);
     }
 }

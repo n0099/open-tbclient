@@ -25,19 +25,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<f> f22653a;
+    public List<f> f22669a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Integer> f22654b;
+    public HashMap<String, Integer> f22670b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedHashMap<String, List<b>> f22655c;
+    public LinkedHashMap<String, List<b>> f22671c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<Long, Integer> f22656d;
+    public HashMap<Long, Integer> f22672d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, List<b>> f22657e;
+    public HashMap<String, List<b>> f22673e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class a {
                 }
             }
             e eVar = new e();
-            eVar.f22676e = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+            eVar.f22692e = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
             arrayList.add(eVar);
             return arrayList;
         }
@@ -86,11 +86,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             ArrayList arrayList = new ArrayList();
-            HashMap<String, Integer> hashMap = this.f22654b;
+            HashMap<String, Integer> hashMap = this.f22670b;
             if (hashMap != null && hashMap.size() > 0) {
-                for (String str : this.f22654b.keySet()) {
+                for (String str : this.f22670b.keySet()) {
                     if (!StringUtils.isNull(str)) {
-                        int intValue = this.f22654b.get(str).intValue();
+                        int intValue = this.f22670b.get(str).intValue();
                         d dVar = new d();
                         dVar.y(str);
                         dVar.needTopMargin = !z;
@@ -114,9 +114,9 @@ public class a {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            HashMap<String, List<b>> hashMap = this.f22657e;
+            HashMap<String, List<b>> hashMap = this.f22673e;
             if (hashMap != null && hashMap.size() > 0) {
-                Iterator<String> it = this.f22657e.keySet().iterator();
+                Iterator<String> it = this.f22673e.keySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -126,7 +126,7 @@ public class a {
                         String[] split = next.split("[|]");
                         if (String.valueOf(j2).equals(split[0]) && split.length == 2 && !StringUtils.isNull(split[1])) {
                             String str = split[1];
-                            int intValue = this.f22656d.get(Long.valueOf(j2)).intValue();
+                            int intValue = this.f22672d.get(Long.valueOf(j2)).intValue();
                             d dVar = new d();
                             dVar.y(str);
                             dVar.needTopMargin = !z;
@@ -147,7 +147,7 @@ public class a {
     public List<f> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22653a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22669a : (List) invokeV.objValue;
     }
 
     public final List<b> e(String str) {
@@ -155,9 +155,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             ArrayList arrayList = new ArrayList();
-            LinkedHashMap<String, List<b>> linkedHashMap = this.f22655c;
+            LinkedHashMap<String, List<b>> linkedHashMap = this.f22671c;
             if (linkedHashMap != null && linkedHashMap.size() > 0) {
-                arrayList.addAll(this.f22655c.get(str));
+                arrayList.addAll(this.f22671c.get(str));
             }
             return arrayList;
         }
@@ -168,17 +168,17 @@ public class a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            if (ListUtils.isEmpty(this.f22653a)) {
+            if (ListUtils.isEmpty(this.f22669a)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            int size = this.f22653a.size();
+            int size = this.f22669a.size();
             int i2 = 0;
             while (true) {
                 if (i2 >= size) {
                     i2 = 0;
                     break;
-                } else if (this.f22653a.get(i2).f22677a == j2) {
+                } else if (this.f22669a.get(i2).f22693a == j2) {
                     break;
                 } else {
                     i2++;
@@ -186,12 +186,12 @@ public class a {
             }
             if (i2 == 0) {
                 int i3 = size - 1;
-                arrayList.add(this.f22653a.get(i3));
-                arrayList.addAll(this.f22653a.subList(0, i3));
+                arrayList.add(this.f22669a.get(i3));
+                arrayList.addAll(this.f22669a.subList(0, i3));
             } else {
                 int i4 = i2 - 1;
-                arrayList.addAll(this.f22653a.subList(i4, size));
-                arrayList.addAll(this.f22653a.subList(0, i4));
+                arrayList.addAll(this.f22669a.subList(i4, size));
+                arrayList.addAll(this.f22669a.subList(0, i4));
             }
             return arrayList;
         }
@@ -203,9 +203,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             ArrayList arrayList = new ArrayList();
-            HashMap<String, List<b>> hashMap = this.f22657e;
+            HashMap<String, List<b>> hashMap = this.f22673e;
             if (hashMap != null && hashMap.size() > 0) {
-                arrayList.addAll(this.f22657e.get(str));
+                arrayList.addAll(this.f22673e.get(str));
             }
             return arrayList;
         }
@@ -218,14 +218,14 @@ public class a {
             return;
         }
         if (!ListUtils.isEmpty(dataRes.test_info)) {
-            this.f22653a = new ArrayList();
-            this.f22656d = new HashMap<>();
-            this.f22657e = new HashMap<>();
+            this.f22669a = new ArrayList();
+            this.f22672d = new HashMap<>();
+            this.f22673e = new HashMap<>();
             for (TestInfo testInfo : dataRes.test_info) {
                 if (testInfo != null) {
                     f fVar = new f();
                     fVar.a(testInfo);
-                    this.f22653a.add(fVar);
+                    this.f22669a.add(fVar);
                     RecommForum recommForum = testInfo.recomm_forum;
                     if (recommForum != null && !ListUtils.isEmpty(recommForum.forums)) {
                         ArrayList arrayList = new ArrayList();
@@ -233,13 +233,13 @@ public class a {
                             if (recommendForumInfo != null) {
                                 b bVar = new b();
                                 bVar.a(recommendForumInfo);
-                                bVar.f22665h = 1;
+                                bVar.f22681h = 1;
                                 arrayList.add(bVar);
                             }
                         }
-                        this.f22656d.put(Long.valueOf(fVar.f22677a), testInfo.recomm_forum.page_size);
-                        HashMap<String, List<b>> hashMap = this.f22657e;
-                        hashMap.put(String.valueOf(fVar.f22677a) + "|" + testInfo.recomm_forum.title, arrayList);
+                        this.f22672d.put(Long.valueOf(fVar.f22693a), testInfo.recomm_forum.page_size);
+                        HashMap<String, List<b>> hashMap = this.f22673e;
+                        hashMap.put(String.valueOf(fVar.f22693a) + "|" + testInfo.recomm_forum.title, arrayList);
                     }
                 }
             }
@@ -247,8 +247,8 @@ public class a {
         if (ListUtils.isEmpty(dataRes.recomm_forum)) {
             return;
         }
-        this.f22654b = new HashMap<>();
-        this.f22655c = new LinkedHashMap<>();
+        this.f22670b = new HashMap<>();
+        this.f22671c = new LinkedHashMap<>();
         for (RecommForum recommForum2 : dataRes.recomm_forum) {
             if (recommForum2 != null && !ListUtils.isEmpty(recommForum2.forums)) {
                 ArrayList arrayList2 = new ArrayList();
@@ -256,12 +256,12 @@ public class a {
                     if (recommendForumInfo2 != null) {
                         b bVar2 = new b();
                         bVar2.a(recommendForumInfo2);
-                        bVar2.f22665h = 2;
+                        bVar2.f22681h = 2;
                         arrayList2.add(bVar2);
                     }
                 }
-                this.f22654b.put(recommForum2.title, recommForum2.page_size);
-                this.f22655c.put(recommForum2.title, arrayList2);
+                this.f22670b.put(recommForum2.title, recommForum2.page_size);
+                this.f22671c.put(recommForum2.title, arrayList2);
             }
         }
     }

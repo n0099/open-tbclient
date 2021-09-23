@@ -34,48 +34,48 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CreateBarGuideActivity f17228a;
+    public CreateBarGuideActivity f17238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f17229b;
+    public View f17239b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f17230c;
+    public View f17240c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f17231d;
+    public NoNetworkView f17241d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoDataView f17232e;
+    public NoDataView f17242e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f17233f;
+    public NavigationBar f17243f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17234g;
+    public TextView f17244g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17235h;
+    public TextView f17245h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17236i;
+    public TextView f17246i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f17237j;
+    public LinearLayout f17247j;
     public TbImageView k;
     public UserBfbInfo l;
     public String m;
 
     /* renamed from: c.a.r0.e1.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnClickListenerC0834a implements View.OnClickListener {
+    public class View$OnClickListenerC0832a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f17238e;
+        public final /* synthetic */ a f17248e;
 
-        public View$OnClickListenerC0834a(a aVar) {
+        public View$OnClickListenerC0832a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,24 +90,24 @@ public class a {
                     return;
                 }
             }
-            this.f17238e = aVar;
+            this.f17248e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f17238e.l != null) {
-                    if (this.f17238e.l.res_no.intValue() == 9528) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(this.f17238e.f17228a.getActivity(), this.f17238e.m, true)));
+                if (this.f17248e.l != null) {
+                    if (this.f17248e.l.res_no.intValue() == 9528) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(this.f17248e.f17238a.getActivity(), this.f17248e.m, true)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.f17238e.f17228a.getActivity(), this.f17238e.m, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.f17248e.f17238a.getActivity(), this.f17248e.m, true)));
                     }
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.f17238e.f17228a.getActivity(), this.f17238e.m, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.f17248e.f17238a.getActivity(), this.f17248e.m, true)));
                 }
                 TiebaStatic.log("c11223");
-                this.f17238e.f17228a.finish();
+                this.f17248e.f17238a.finish();
             }
         }
     }
@@ -118,7 +118,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f17239a;
+        public final /* synthetic */ a f17249a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2) {
@@ -138,20 +138,20 @@ public class a {
                     return;
                 }
             }
-            this.f17239a = aVar;
+            this.f17249a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f17239a.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f17249a.l == null) {
                 return;
             }
-            if (this.f17239a.l.res_no.intValue() == 9528) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(this.f17239a.f17228a.getActivity(), this.f17239a.m, true)));
+            if (this.f17249a.l.res_no.intValue() == 9528) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(this.f17249a.f17238a.getActivity(), this.f17249a.m, true)));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.f17239a.f17228a.getActivity(), this.f17239a.m, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.f17249a.f17238a.getActivity(), this.f17249a.m, true)));
             }
         }
     }
@@ -171,53 +171,53 @@ public class a {
                 return;
             }
         }
-        this.f17228a = createBarGuideActivity;
+        this.f17238a = createBarGuideActivity;
         View inflate = LayoutInflater.from(createBarGuideActivity.getPageContext().getPageActivity()).inflate(R.layout.create_bar_guide_activity, (ViewGroup) null);
-        this.f17229b = inflate;
-        this.f17228a.setContentView(inflate);
-        this.f17230c = this.f17229b.findViewById(R.id.body_view);
-        NavigationBar navigationBar = (NavigationBar) this.f17229b.findViewById(R.id.view_navigation_bar);
-        this.f17233f = navigationBar;
+        this.f17239b = inflate;
+        this.f17238a.setContentView(inflate);
+        this.f17240c = this.f17239b.findViewById(R.id.body_view);
+        NavigationBar navigationBar = (NavigationBar) this.f17239b.findViewById(R.id.view_navigation_bar);
+        this.f17243f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f17233f.setTitleText(R.string.create_bar);
-        this.f17231d = (NoNetworkView) this.f17229b.findViewById(R.id.view_no_network);
-        this.f17235h = (TextView) this.f17229b.findViewById(R.id.text_forum_name);
-        this.f17234g = (TextView) this.f17229b.findViewById(R.id.text_forum_create);
-        this.k = (TbImageView) this.f17229b.findViewById(R.id.status_icon);
-        this.f17234g.setOnClickListener(new View$OnClickListenerC0834a(this));
-        this.f17236i = (TextView) this.f17229b.findViewById(R.id.text_create_need);
-        this.f17237j = (LinearLayout) this.f17229b.findViewById(R.id.need_desc_layout);
+        this.f17243f.setTitleText(R.string.create_bar);
+        this.f17241d = (NoNetworkView) this.f17239b.findViewById(R.id.view_no_network);
+        this.f17245h = (TextView) this.f17239b.findViewById(R.id.text_forum_name);
+        this.f17244g = (TextView) this.f17239b.findViewById(R.id.text_forum_create);
+        this.k = (TbImageView) this.f17239b.findViewById(R.id.status_icon);
+        this.f17244g.setOnClickListener(new View$OnClickListenerC0832a(this));
+        this.f17246i = (TextView) this.f17239b.findViewById(R.id.text_create_need);
+        this.f17247j = (LinearLayout) this.f17239b.findViewById(R.id.need_desc_layout);
         MessageManager.getInstance().registerListener(new b(this, 2016458));
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17229b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17239b : (View) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f17230c.setVisibility(8);
+            this.f17240c.setVisibility(8);
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.q0.w0.a.a(this.f17228a.getPageContext(), this.f17229b);
-            NavigationBar navigationBar = this.f17233f;
+            c.a.q0.w0.a.a(this.f17238a.getPageContext(), this.f17239b);
+            NavigationBar navigationBar = this.f17243f;
             if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.f17228a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+                navigationBar.onChangeSkinType(this.f17238a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
-            NoNetworkView noNetworkView = this.f17231d;
+            NoNetworkView noNetworkView = this.f17241d;
             if (noNetworkView != null) {
-                noNetworkView.onChangeSkinType(this.f17228a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+                noNetworkView.onChangeSkinType(this.f17238a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
-            NoDataView noDataView = this.f17232e;
+            NoDataView noDataView = this.f17242e;
             if (noDataView != null) {
-                noDataView.onChangeSkinType(this.f17228a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+                noDataView.onChangeSkinType(this.f17238a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
@@ -225,7 +225,7 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f17230c.setVisibility(0);
+            this.f17240c.setVisibility(0);
         }
     }
 
@@ -234,14 +234,14 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, userBfbInfo) == null) {
             this.m = str;
             this.l = userBfbInfo;
-            if (this.f17232e == null) {
-                int g2 = l.g(this.f17228a.getActivity(), R.dimen.ds100);
-                NoDataView a2 = NoDataViewFactory.a(this.f17228a.getPageContext().getPageActivity(), (LinearLayout) this.f17229b.findViewById(R.id.emotion_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, g2), null, null);
-                this.f17232e = a2;
+            if (this.f17242e == null) {
+                int g2 = l.g(this.f17238a.getActivity(), R.dimen.ds100);
+                NoDataView a2 = NoDataViewFactory.a(this.f17238a.getPageContext().getPageActivity(), (LinearLayout) this.f17239b.findViewById(R.id.emotion_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, g2), null, null);
+                this.f17242e = a2;
                 a2.setVisibility(0);
                 f();
             }
-            TextView textView = this.f17235h;
+            TextView textView = this.f17245h;
             textView.setText(this.m + "吧");
             UserBfbInfo userBfbInfo2 = this.l;
             if (userBfbInfo2 != null && userBfbInfo2.res_no.intValue() == 9528) {
@@ -251,11 +251,11 @@ public class a {
                     this.k.setImageResource(R.drawable.icon_create_complete_n);
                 }
             } else {
-                this.f17236i.setVisibility(4);
-                this.f17237j.setVisibility(4);
+                this.f17246i.setVisibility(4);
+                this.f17247j.setVisibility(4);
             }
-            this.f17236i.setVisibility(8);
-            this.f17237j.setVisibility(8);
+            this.f17246i.setVisibility(8);
+            this.f17247j.setVisibility(8);
         }
     }
 }

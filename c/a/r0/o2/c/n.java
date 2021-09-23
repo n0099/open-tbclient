@@ -17,34 +17,34 @@ public class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public m f23058a;
+    public m f23074a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f23059b;
+    public b f23075b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f23060c;
+    public i f23076c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f23061d;
+    public a f23077d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f23062e;
+    public c f23078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f23063f;
+    public h f23079f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f23064g;
+    public e f23080g;
 
     /* renamed from: h  reason: collision with root package name */
-    public k f23065h;
+    public k f23081h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f23066i;
+    public d f23082i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.r0.l2.g.d f23067j;
+    public c.a.r0.l2.g.d f23083j;
     public c.a.r0.l2.g.a k;
     public p l;
     public c.a.r0.o2.c.q.g m;
@@ -83,17 +83,17 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, bdTypeRecyclerView) == null) {
             this.w = bdTypeRecyclerView;
-            this.f23058a = new m(tbPageContext);
-            this.f23059b = new b(tbPageContext);
-            this.f23060c = new i(tbPageContext);
-            this.f23061d = new a(tbPageContext);
-            this.f23062e = new c(tbPageContext);
-            this.f23063f = new h(tbPageContext, tbPageContext.getUniqueId());
-            this.f23064g = new e(tbPageContext, c.a.r0.o2.e.g.l);
-            this.f23065h = new k(tbPageContext);
-            this.f23066i = new d(tbPageContext);
-            this.f23067j = new c.a.r0.l2.g.d(tbPageContext, c.a.r0.l2.g.f.f22083f);
-            this.k = new c.a.r0.l2.g.a(tbPageContext.getPageActivity(), c.a.r0.l2.d.f22060h);
+            this.f23074a = new m(tbPageContext);
+            this.f23075b = new b(tbPageContext);
+            this.f23076c = new i(tbPageContext);
+            this.f23077d = new a(tbPageContext);
+            this.f23078e = new c(tbPageContext);
+            this.f23079f = new h(tbPageContext, tbPageContext.getUniqueId());
+            this.f23080g = new e(tbPageContext, c.a.r0.o2.e.g.l);
+            this.f23081h = new k(tbPageContext);
+            this.f23082i = new d(tbPageContext);
+            this.f23083j = new c.a.r0.l2.g.d(tbPageContext, c.a.r0.l2.g.f.f22097f);
+            this.k = new c.a.r0.l2.g.a(tbPageContext.getPageActivity(), c.a.r0.l2.d.f22074h);
             this.l = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
             this.m = new c.a.r0.o2.c.q.g(tbPageContext, c.a.r0.a0.d0.k.s0);
             this.n = new c.a.r0.o2.c.q.d(tbPageContext, c.a.r0.a0.d0.k.u0);
@@ -104,16 +104,16 @@ public class n {
             this.u = new c.a.r0.o2.c.q.f(tbPageContext, c.a.r0.a0.d0.k.y0);
             this.q = new c.a.r0.o2.c.q.a(tbPageContext, c.a.r0.a0.d0.e.P0);
             this.r = new c.a.r0.o2.c.q.c(tbPageContext, c.a.r0.a0.d0.f.P0);
-            this.v.add(this.f23058a);
-            this.v.add(this.f23059b);
-            this.v.add(this.f23060c);
-            this.v.add(this.f23061d);
-            this.v.add(this.f23062e);
-            this.v.add(this.f23063f);
-            this.v.add(this.f23064g);
-            this.v.add(this.f23065h);
-            this.v.add(this.f23066i);
-            this.v.add(this.f23067j);
+            this.v.add(this.f23074a);
+            this.v.add(this.f23075b);
+            this.v.add(this.f23076c);
+            this.v.add(this.f23077d);
+            this.v.add(this.f23078e);
+            this.v.add(this.f23079f);
+            this.v.add(this.f23080g);
+            this.v.add(this.f23081h);
+            this.v.add(this.f23082i);
+            this.v.add(this.f23083j);
             this.v.add(this.k);
             this.v.add(this.l);
             this.v.add(this.m);
@@ -155,7 +155,7 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.l.j0(z);
-            this.f23060c.l0(z);
+            this.f23076c.l0(z);
             this.m.m0(z);
             this.n.k0(z);
             this.o.l0(z);

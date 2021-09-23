@@ -60,7 +60,7 @@ public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SafeKeyBoardPopUpWindowNew f69668e;
+        public final /* synthetic */ SafeKeyBoardPopUpWindowNew f69985e;
 
         public b(SafeKeyBoardPopUpWindowNew safeKeyBoardPopUpWindowNew) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
                     return;
                 }
             }
-            this.f69668e = safeKeyBoardPopUpWindowNew;
+            this.f69985e = safeKeyBoardPopUpWindowNew;
         }
 
         @Override // android.text.TextWatcher
@@ -85,15 +85,15 @@ public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (TextUtils.isEmpty(editable)) {
-                    this.f69668e.btConfirm.setEnabled(false);
+                    this.f69985e.btConfirm.setEnabled(false);
                     return;
                 }
                 String obj = editable.toString();
-                SafeKeyBoardEditText safeKeyBoardEditText = this.f69668e.mySafeEditText;
+                SafeKeyBoardEditText safeKeyBoardEditText = this.f69985e.mySafeEditText;
                 if (safeKeyBoardEditText == null || safeKeyBoardEditText.getCheckFunc() == null) {
                     return;
                 }
-                this.f69668e.btConfirm.setEnabled(this.f69668e.mySafeEditText.getCheckFunc().check(obj));
+                this.f69985e.btConfirm.setEnabled(this.f69985e.mySafeEditText.getCheckFunc().check(obj));
             }
         }
 
@@ -111,11 +111,11 @@ public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
                 return;
             }
             String charSequence2 = charSequence.toString();
-            SafeKeyBoardEditText safeKeyBoardEditText = this.f69668e.mySafeEditText;
+            SafeKeyBoardEditText safeKeyBoardEditText = this.f69985e.mySafeEditText;
             if (safeKeyBoardEditText == null || safeKeyBoardEditText.getCheckFunc() == null) {
                 return;
             }
-            this.f69668e.btConfirm.setEnabled(this.f69668e.mySafeEditText.getCheckFunc().check(charSequence2));
+            this.f69985e.btConfirm.setEnabled(this.f69985e.mySafeEditText.getCheckFunc().check(charSequence2));
         }
     }
 

@@ -12,7 +12,7 @@ public abstract class a implements Animator.AnimatorListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f16384e;
+    public boolean f16394e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -27,14 +27,14 @@ public abstract class a implements Animator.AnimatorListener {
                 return;
             }
         }
-        this.f16384e = false;
+        this.f16394e = false;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.f16384e = true;
+            this.f16394e = true;
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class a implements Animator.AnimatorListener {
     public void onAnimationStart(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            this.f16384e = false;
+            this.f16394e = false;
         }
     }
 }

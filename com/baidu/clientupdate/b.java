@@ -14,7 +14,7 @@ public class b extends BroadcastReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ClientUpdater f38865a;
+    public final /* synthetic */ ClientUpdater f38924a;
 
     public b(ClientUpdater clientUpdater) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b extends BroadcastReceiver {
                 return;
             }
         }
-        this.f38865a = clientUpdater;
+        this.f38924a = clientUpdater;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -39,7 +39,7 @@ public class b extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             LogUtil.logE("ClientUpdater", "receive:android.net.conn.CONNECTIVITY_CHANGE");
-            this.f38865a.a();
+            this.f38924a.a();
         }
     }
 }

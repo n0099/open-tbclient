@@ -16,7 +16,7 @@ public class c extends b {
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public ContentValues f7803d;
+    public ContentValues f7811d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(@Nullable Map<String, String> map) {
@@ -47,13 +47,13 @@ public class c extends b {
             StringBuilder sb = new StringBuilder();
             sb.append(c.a.p0.a.o0.a.c(str, "cuid", c.a.p0.a.c1.a.a0().i(c.a.p0.a.c1.a.b())));
             sb.append(c.a.p0.a.o0.a.c(str, "mtjCuid", c.a.p0.a.c1.a.a0().i(c.a.p0.a.c1.a.b())));
-            ContentValues contentValues = this.f7803d;
+            ContentValues contentValues = this.f7811d;
             if (contentValues != null) {
                 for (String str2 : contentValues.keySet()) {
-                    sb.append(c.a.p0.a.o0.a.b(str, str2, this.f7803d.get(str2)));
+                    sb.append(c.a.p0.a.o0.a.b(str, str2, this.f7811d.get(str2)));
                 }
             } else {
-                for (Map.Entry<String, String> entry : this.f7802c.entrySet()) {
+                for (Map.Entry<String, String> entry : this.f7810c.entrySet()) {
                     sb.append(c.a.p0.a.o0.a.c(str, entry.getKey(), entry.getValue()));
                 }
             }
@@ -81,6 +81,6 @@ public class c extends b {
                 return;
             }
         }
-        this.f7803d = contentValues;
+        this.f7811d = contentValues;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.write.work.classdialog.model;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ public class GetSelectClassReqMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                x.a(builder, true);
+                a0.a(builder, true);
             }
             GetWorksTagsReqIdl.Builder builder2 = new GetWorksTagsReqIdl.Builder();
             builder2.data = builder.build(false);

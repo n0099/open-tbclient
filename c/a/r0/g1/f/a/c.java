@@ -38,7 +38,7 @@ public class c {
             int i2 = 0;
             for (d2 d2Var : list) {
                 int[] g0 = d2Var.g0();
-                if (d2Var.getType() == d2.Z2) {
+                if (d2Var.getType() == d2.a3) {
                     d2Var.position = i2;
                     c2 c2Var = new c2();
                     c2Var.w = d2Var;
@@ -50,15 +50,15 @@ public class c {
                     c2Var2.w = d2Var;
                     c2Var2.position = i2;
                     if (d2Var.N1()) {
-                        c2Var2.f14127j = true;
+                        c2Var2.f14124j = true;
                     } else if (d2Var.d3() == 1) {
-                        c2Var2.f14125h = true;
+                        c2Var2.f14122h = true;
                         c2Var2.x = g0[0];
                         c2Var2.y = g0[1];
                     } else if (d2Var.d3() >= 2) {
-                        c2Var2.f14126i = true;
+                        c2Var2.f14123i = true;
                     } else {
-                        c2Var2.f14123f = true;
+                        c2Var2.f14120f = true;
                     }
                     c2Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
                     arrayList.add(c2Var2);
@@ -68,7 +68,7 @@ public class c {
                     c2Var3.position = i2;
                     c2Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                     arrayList.add(c2Var3);
-                } else if (d2Var.getType() == d2.w3) {
+                } else if (d2Var.getType() == d2.x3) {
                     d2Var.position = i2;
                     c2 c2Var4 = new c2();
                     c2Var4.w = d2Var;
@@ -109,7 +109,7 @@ public class c {
             ArrayList arrayList = new ArrayList(list.size());
             for (ThreadInfo threadInfo : list) {
                 d2 d2Var = new d2();
-                d2Var.f2 = true;
+                d2Var.g2 = true;
                 d2Var.Y2(threadInfo);
                 e(d2Var);
                 arrayList.add(d2Var);
@@ -168,7 +168,7 @@ public class c {
             if (!TextUtils.isEmpty(z0) && !TextUtils.isEmpty(formatTimeForHomeC)) {
                 z0 = z0 + "   " + formatTimeForHomeC;
             }
-            d2Var.y4(z0);
+            d2Var.x4(z0);
         }
     }
 }

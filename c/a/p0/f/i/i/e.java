@@ -10,34 +10,34 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f10537a = 3.0f;
+    public static float f10545a = 3.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f10538b = 1.5f;
+    public static float f10546b = 1.5f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f10539c = 0.12f;
+    public static float f10547c = 0.12f;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f10540d = 0.06f;
+    public static float f10548d = 0.06f;
 
     /* renamed from: e  reason: collision with root package name */
-    public static float f10541e = 0.13f;
+    public static float f10549e = 0.13f;
 
     /* renamed from: f  reason: collision with root package name */
-    public static float f10542f = 0.12f;
+    public static float f10550f = 0.12f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static float f10543g = 0.19f;
+    public static float f10551g = 0.19f;
 
     /* renamed from: h  reason: collision with root package name */
-    public static float f10544h = 0.05f;
+    public static float f10552h = 0.05f;
 
     /* renamed from: i  reason: collision with root package name */
-    public static float f10545i = 0.48f;
+    public static float f10553i = 0.48f;
 
     /* renamed from: j  reason: collision with root package name */
-    public static float f10546j = 0.33f;
+    public static float f10554j = 0.33f;
     public static float k = 0.19f;
     public static float l = 0.45f;
     public static float m = 0.15f;

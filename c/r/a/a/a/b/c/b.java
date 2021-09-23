@@ -17,7 +17,7 @@ public final class b implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public /* synthetic */ a f35484e;
+    public /* synthetic */ a f35507e;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class b implements ServiceConnection {
                 return;
             }
         }
-        this.f35484e = aVar;
+        this.f35507e = aVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -45,17 +45,17 @@ public final class b implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
-                this.f35484e.f35481c = e.a(iBinder);
+                this.f35507e.f35504c = e.a(iBinder);
             } catch (Throwable th) {
                 try {
                     c.c(th);
-                    countDownLatch3 = this.f35484e.f35482d;
+                    countDownLatch3 = this.f35507e.f35505d;
                     if (countDownLatch3 == null) {
                     }
                 } finally {
-                    countDownLatch = this.f35484e.f35482d;
+                    countDownLatch = this.f35507e.f35505d;
                     if (countDownLatch != null) {
-                        countDownLatch2 = this.f35484e.f35482d;
+                        countDownLatch2 = this.f35507e.f35505d;
                         countDownLatch2.countDown();
                     }
                 }
@@ -67,7 +67,7 @@ public final class b implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f35484e.f35481c = null;
+            this.f35507e.f35504c = null;
         }
     }
 }

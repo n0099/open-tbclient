@@ -22,6 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.File;
 import java.util.HashSet;
@@ -34,23 +35,23 @@ public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f8345a;
+    public static final boolean f8353a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f8346b;
+    public static final boolean f8354b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8347c;
+    public static final boolean f8355c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Timer f8348d;
+    public static Timer f8356d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f8349e;
+    public static String f8357e;
     @Deprecated
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile c.a.p0.a.r1.b f8350f;
+    public static volatile c.a.p0.a.r1.b f8358f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -59,10 +60,10 @@ public final class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f8351e;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f8359e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f8352f;
+        public final /* synthetic */ boolean f8360f;
 
         public a(c.a.p0.a.f1.e.b bVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -79,15 +80,15 @@ public final class h {
                     return;
                 }
             }
-            this.f8351e = bVar;
-            this.f8352f = z;
+            this.f8359e = bVar;
+            this.f8360f = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h.i(this.f8351e, this.f8352f);
+                h.i(this.f8359e, this.f8360f);
             }
         }
     }
@@ -98,13 +99,13 @@ public final class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.f1.e.b f8353e;
+        public final /* synthetic */ c.a.p0.a.f1.e.b f8361e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8354f;
+        public final /* synthetic */ String f8362f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f8355g;
+        public final /* synthetic */ boolean f8363g;
 
         public b(c.a.p0.a.f1.e.b bVar, String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -121,9 +122,9 @@ public final class h {
                     return;
                 }
             }
-            this.f8353e = bVar;
-            this.f8354f = str;
-            this.f8355g = z;
+            this.f8361e = bVar;
+            this.f8362f = str;
+            this.f8363g = z;
         }
 
         @Override // java.lang.Runnable
@@ -131,16 +132,16 @@ public final class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HybridUbcFlow p = h.p("startup");
-                String T = TextUtils.isEmpty(this.f8353e.T()) ? AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA : this.f8353e.T();
-                if (this.f8353e.G() == 1) {
+                String T = TextUtils.isEmpty(this.f8361e.T()) ? AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA : this.f8361e.T();
+                if (this.f8361e.G() == 1) {
                     p.F(HybridUbcFlow.SubmitStrategy.NA_ONLY);
                 }
                 p.B("from", "swan");
                 p.B("source", T);
-                p.A("appid", this.f8353e.H());
-                p.A("swan", c.a.p0.a.m2.b.i(this.f8353e.i0(), this.f8353e.G()));
+                p.A("appid", this.f8361e.H());
+                p.A("swan", c.a.p0.a.m2.b.i(this.f8361e.i0(), this.f8361e.G()));
                 p.A("mobile", m.c());
-                long l = this.f8353e.l("box_cold_launch", -1L);
+                long l = this.f8361e.l("box_cold_launch", -1L);
                 if (l < 0) {
                     l = c.a.p0.a.r1.c.a();
                 }
@@ -148,19 +149,19 @@ public final class h {
                     p.A("box_cold_launch", String.valueOf(l));
                 }
                 p.A("net", SwanAppNetworkUtils.f().type);
-                p.A("appversion", this.f8353e.u1());
-                p.A("thirdversion", this.f8353e.v1());
-                p.B("from", this.f8353e.G() == 1 ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan");
-                p.A("scheme", this.f8353e.W());
+                p.A("appversion", this.f8361e.u1());
+                p.A("thirdversion", this.f8361e.v1());
+                p.B("from", this.f8361e.G() == 1 ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan");
+                p.A("scheme", this.f8361e.W());
                 HashSet hashSet = new HashSet();
                 hashSet.add("callback");
                 hashSet.add("upgrade");
-                String i2 = o0.i(this.f8354f, hashSet);
+                String i2 = o0.i(this.f8362f, hashSet);
                 if (!TextUtils.isEmpty(i2) && i2.startsWith(File.separator)) {
                     i2 = i2.substring(1);
                 }
                 p.A("path", TextUtils.isEmpty(i2) ? "" : i2);
-                if (h.f8345a) {
+                if (h.f8353a) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("PerformanceUbc path: ");
                     if (TextUtils.isEmpty(i2)) {
@@ -169,18 +170,18 @@ public final class h {
                     sb.append(i2);
                     sb.toString();
                 }
-                if (this.f8355g) {
+                if (this.f8363g) {
                     p.B("value", "arrive_success");
                 }
-                p.A("launchid", this.f8353e.V());
-                p.A("isPreDownloading", this.f8353e.r0().getString("aiapp_extra_pkg_downloading", "0"));
-                p.A("isReloadApp", this.f8353e.d("launch_by_reload") ? "1" : "0");
-                p.A("preAppReadyState", String.valueOf(c.a.p0.a.h0.u.b.a(this.f8353e)));
-                if (this.f8353e.G() == 0) {
-                    p.A("is_opti", c.a.p0.a.l1.d.d.f().g(this.f8353e.f0()) ? "1" : "0");
+                p.A("launchid", this.f8361e.V());
+                p.A("isPreDownloading", this.f8361e.r0().getString("aiapp_extra_pkg_downloading", "0"));
+                p.A("isReloadApp", this.f8361e.d("launch_by_reload") ? "1" : "0");
+                p.A("preAppReadyState", String.valueOf(c.a.p0.a.h0.u.b.a(this.f8361e)));
+                if (this.f8361e.G() == 0) {
+                    p.A("is_opti", c.a.p0.a.l1.d.d.f().g(this.f8361e.f0()) ? "1" : "0");
                     p.x();
                 }
-                c.a.p0.a.e0.d.h("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup" + this.f8353e);
+                c.a.p0.a.e0.d.h("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup" + this.f8361e);
             }
         }
     }
@@ -261,9 +262,9 @@ public final class h {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f7065c = TextUtils.isEmpty(this.f7065c) ? AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA : this.f7065c;
-                if (this.f7070h == null) {
-                    this.f7070h = new JSONObject();
+                this.f7073c = TextUtils.isEmpty(this.f7073c) ? AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA : this.f7073c;
+                if (this.f7078h == null) {
+                    this.f7078h = new JSONObject();
                 }
                 try {
                     if (this.l != null) {
@@ -273,10 +274,10 @@ public final class h {
                                 this.l.put("stacktrace", z);
                             }
                         }
-                        this.f7070h.put("info", this.l);
+                        this.f7078h.put("info", this.l);
                     }
                 } catch (JSONException e2) {
-                    if (c.a.p0.a.j2.p.e.f7062j) {
+                    if (c.a.p0.a.j2.p.e.f7070j) {
                         e2.printStackTrace();
                     }
                 }
@@ -289,7 +290,7 @@ public final class h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f7063a = str;
+                this.f7071a = str;
                 return this;
             }
             return (d) invokeL.objValue;
@@ -299,7 +300,7 @@ public final class h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f7065c = str;
+                this.f7073c = str;
                 return this;
             }
             return (d) invokeL.objValue;
@@ -309,7 +310,7 @@ public final class h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f7064b = str;
+                this.f7072b = str;
                 return this;
             }
             return (d) invokeL.objValue;
@@ -329,11 +330,11 @@ public final class h {
                 return;
             }
         }
-        f8345a = k.f7077a;
+        f8353a = k.f7085a;
         c.a.p0.a.c1.a.Z().getSwitch("swan_performance_aligned_search_switch", false);
-        f8346b = false;
+        f8354b = false;
         c.a.p0.a.c1.a.Z().getSwitch("swan_app_use_performance_end_v2", false);
-        f8347c = false;
+        f8355c = false;
     }
 
     public static String c(c.a.p0.a.f1.e.b bVar) {
@@ -342,21 +343,21 @@ public final class h {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bVar)) == null) {
             String e0 = bVar.e0();
             if (TextUtils.isEmpty(e0)) {
-                if (TextUtils.isEmpty(f8349e)) {
-                    f8349e = c.a.p0.a.c2.f.p0.c.b();
-                    if (f8345a) {
-                        String str = "chechPath- 冷启场景 path 为空，取首页 path: " + f8349e;
+                if (TextUtils.isEmpty(f8357e)) {
+                    f8357e = c.a.p0.a.c2.f.p0.c.b();
+                    if (f8353a) {
+                        String str = "chechPath- 冷启场景 path 为空，取首页 path: " + f8357e;
                     }
-                } else if (f8345a) {
-                    String str2 = "chechPath- 热启场景 path 为空，使用上次调起 path: " + f8349e;
+                } else if (f8353a) {
+                    String str2 = "chechPath- 热启场景 path 为空，使用上次调起 path: " + f8357e;
                 }
             } else {
-                f8349e = e0;
-                if (f8345a) {
-                    String str3 = "chechPath- 冷/热启场景 path 不为空，直接使用调起 path: " + f8349e;
+                f8357e = e0;
+                if (f8353a) {
+                    String str3 = "chechPath- 冷/热启场景 path 不为空，直接使用调起 path: " + f8357e;
                 }
             }
-            return f8349e;
+            return f8357e;
         }
         return (String) invokeL.objValue;
     }
@@ -391,15 +392,15 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f8350f == null) {
+            if (f8358f == null) {
                 synchronized (c.a.p0.a.r1.b.class) {
-                    if (f8350f == null) {
-                        f8350f = new c.a.p0.a.r1.b();
-                        g(f8350f);
+                    if (f8358f == null) {
+                        f8358f = new c.a.p0.a.r1.b();
+                        g(f8358f);
                     }
                 }
             }
-            return f8350f;
+            return f8358f;
         }
         return (c.a.p0.a.r1.b) invokeV.objValue;
     }
@@ -453,7 +454,7 @@ public final class h {
                 if (m != null) {
                     m.B("value", SmsLoginView.f.l);
                     if (aVar != null) {
-                        m.A("statusCode", String.valueOf(aVar.a()));
+                        m.A(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, String.valueOf(aVar.a()));
                         m.A("launchid", c.a.p0.a.a2.d.g().r().L().V());
                     }
                     m.l();
@@ -542,7 +543,7 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
             Timer timer = new Timer();
-            f8348d = timer;
+            f8356d = timer;
             timer.schedule(new c(), 15000L);
         }
     }
@@ -564,7 +565,7 @@ public final class h {
     public static void onEvent(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, dVar) == null) {
-            if (f8345a) {
+            if (f8353a) {
                 String str = "onEvent " + dVar;
             }
             c.a.p0.a.j2.b.k(dVar.k, dVar.f());
@@ -618,10 +619,10 @@ public final class h {
     public static void t() {
         Timer timer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65557, null) == null) || (timer = f8348d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65557, null) == null) || (timer = f8356d) == null) {
             return;
         }
         timer.cancel();
-        f8348d = null;
+        f8356d = null;
     }
 }

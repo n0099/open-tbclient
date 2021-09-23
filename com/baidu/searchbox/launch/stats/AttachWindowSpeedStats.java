@@ -32,6 +32,7 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     public static final String HOME_TAB_BAR_VIEW_INIT = "HomeTabBarViewInit";
     public static final String HOT_TOPIC_TAB_DURATION = "HotTopicTabFragment";
     public static final String NESTED_SCROLL_HEADER_INIT = "NestedScrollHeaderInit";
+    public static final String PERSONALIZE_TAB_DURATION = "PersonalizeTabFragment";
     public static final String SCROLL_FRAGMENT_TAB_HOST_INIT = "homeFragmentTabHostInit";
     public static final String SECOND_FRAGMENT_ATTACH_DURATION = "sFragmentFragmentAttach";
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,6 +71,8 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     public long mHotTopicTabFragmentStartTimeStamp;
     public long mNestedScrollHeaderEndStamp;
     public long mNestedScrollHeaderStartStamp;
+    public long mPersonalizeTabFragmentEndTimeStamp;
+    public long mPersonalizeTabFragmentStartTimeStamp;
     public long mScrollFragmentTabHostInitEndStamp;
     public long mScrollFragmentTabHostInitStartStamp;
     public long mSecondFlutterFragmentAttachEndTimeStamp;
@@ -129,6 +132,8 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
         this.mConcernTabFragmentEndTimeStamp = -1L;
         this.mHotTopicTabFragmentStartTimeStamp = -1L;
         this.mHotTopicTabFragmentEndTimeStamp = -1L;
+        this.mPersonalizeTabFragmentStartTimeStamp = -1L;
+        this.mPersonalizeTabFragmentEndTimeStamp = -1L;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -182,7 +187,8 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
             long j19 = j2 - this.mHomeFragmentOnResumeStartStamp;
             long j20 = this.mConcernTabFragmentEndTimeStamp - this.mConcernTabFragmentStartTimeStamp;
             long j21 = this.mHotTopicTabFragmentEndTimeStamp - this.mHotTopicTabFragmentStartTimeStamp;
-            if (j4 < 0 || j4 > 60000 || j5 < 0 || j5 > 60000 || j6 < 0 || j6 > 60000 || j21 < 0 || j21 > 60000 || j20 < 0 || j20 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000 || j19 < 0 || j19 > 60000) {
+            long j22 = this.mPersonalizeTabFragmentEndTimeStamp - this.mPersonalizeTabFragmentStartTimeStamp;
+            if (j4 < 0 || j4 > 60000 || j5 < 0 || j5 > 60000 || j6 < 0 || j6 > 60000 || j21 < 0 || j21 > 60000 || j20 < 0 || j20 > 60000 || j22 < 0 || j22 > 60000 || j7 < 0 || j7 > 60000 || j8 < 0 || j8 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || j12 < 0 || j12 > 60000 || j13 < 0 || j13 > 60000 || j14 < 0 || j14 > 60000 || j15 < 0 || j15 > 60000 || j16 < 0 || j16 > 60000 || j17 < 0 || j17 > 60000 || j18 < 0 || j18 > 60000 || j19 < 0 || j19 > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
@@ -204,6 +210,7 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
             hashMap.put(HOME_FRAGMENT_ON_RESUME, String.valueOf(j19));
             hashMap.put(CONCERN_TAB_DURATION, String.valueOf(j20));
             hashMap.put(HOT_TOPIC_TAB_DURATION, String.valueOf(j21));
+            hashMap.put(PERSONALIZE_TAB_DURATION, String.valueOf(j22));
             JSONObject jsonData = SpeedStatsUtils.getJsonData(j4, hashMap);
             if (jsonData != null) {
                 try {
@@ -261,6 +268,8 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
             this.mConcernTabFragmentEndTimeStamp = -1L;
             this.mHotTopicTabFragmentStartTimeStamp = -1L;
             this.mHotTopicTabFragmentEndTimeStamp = -1L;
+            this.mPersonalizeTabFragmentStartTimeStamp = -1L;
+            this.mPersonalizeTabFragmentEndTimeStamp = -1L;
         }
     }
 
@@ -275,7 +284,11 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
                 this.mConcernTabFragmentEndTimeStamp = j2;
             } else if (i2 == 5026) {
                 this.mHotTopicTabFragmentStartTimeStamp = j2;
-            } else if (i2 != 5027) {
+            } else if (i2 == 5027) {
+                this.mHotTopicTabFragmentEndTimeStamp = j2;
+            } else if (i2 == 5046) {
+                this.mPersonalizeTabFragmentStartTimeStamp = j2;
+            } else if (i2 != 5047) {
                 switch (i2) {
                     case 4000:
                         this.mHomeTabOnAttachStartStamp = j2;
@@ -371,7 +384,7 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
                         return;
                 }
             } else {
-                this.mHotTopicTabFragmentEndTimeStamp = j2;
+                this.mPersonalizeTabFragmentEndTimeStamp = j2;
             }
         }
     }

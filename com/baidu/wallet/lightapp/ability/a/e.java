@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.ILightappInvokerCallback;
 import com.baidu.wallet.core.utils.SecurityUtils;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
+import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.baidu.wallet.utils.NetUtils;
-import com.dxmpay.wallet.core.beans.BeanConstants;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -80,7 +80,7 @@ public class e extends com.baidu.wallet.lightapp.ability.b {
             try {
                 jSONObject.put("data", Base64Utils.encodeToString(new JSONObject().toString().getBytes()));
                 jSONObject.put("errCode", 1);
-                jSONObject.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, "exception." + e2.getMessage());
+                jSONObject.put("des", "exception." + e2.getMessage());
                 str3 = a(1, jSONObject);
                 i2 = 1;
             } catch (Exception unused) {
@@ -174,7 +174,7 @@ public class e extends com.baidu.wallet.lightapp.ability.b {
             jSONObject3.put("aesdata", a2.getString("aesContent"));
             jSONObject3.put("aeskey", a2.getString("aesKey"));
             jSONObject3.put("errCode", 0);
-            jSONObject3.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, "ok");
+            jSONObject3.put("des", NewBindCardEntry.BING_CARD_SUCCESS_MSG);
             return a(0, jSONObject3);
         }
         return (String) invokeLL.objValue;

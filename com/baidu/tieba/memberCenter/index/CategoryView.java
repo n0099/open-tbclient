@@ -25,22 +25,22 @@ public class CategoryView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f54213e;
+    public Context f54328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f54214f;
+    public View f54329f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f54215g;
+    public TextView f54330g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f54216h;
+    public TextView f54331h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f54217i;
+    public ImageView f54332i;
 
     /* renamed from: j  reason: collision with root package name */
-    public d f54218j;
+    public d f54333j;
     public View.OnClickListener k;
 
     /* loaded from: classes7.dex */
@@ -49,7 +49,7 @@ public class CategoryView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CategoryView f54219e;
+        public final /* synthetic */ CategoryView f54334e;
 
         public a(CategoryView categoryView) {
             Interceptable interceptable = $ic;
@@ -66,16 +66,16 @@ public class CategoryView extends LinearLayout {
                     return;
                 }
             }
-            this.f54219e = categoryView;
+            this.f54334e = categoryView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f54219e.f54218j == null || StringUtils.isNull(this.f54219e.f54218j.d()) || StringUtils.isNull(this.f54219e.f54218j.c())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f54334e.f54333j == null || StringUtils.isNull(this.f54334e.f54333j.d()) || StringUtils.isNull(this.f54334e.f54333j.c())) {
                 return;
             }
-            int b2 = this.f54219e.f54218j.b();
+            int b2 = this.f54334e.f54333j.b();
             if (b2 == 1) {
                 TiebaStatic.log("c10441");
             } else if (b2 == 2) {
@@ -83,7 +83,7 @@ public class CategoryView extends LinearLayout {
             } else if (b2 == 3) {
                 TiebaStatic.log("c10449");
             }
-            MemberCenterStatic.a((TbPageContext) j.a(this.f54219e.f54213e), new String[]{this.f54219e.f54218j.d()});
+            MemberCenterStatic.a((TbPageContext) j.a(this.f54334e.f54328e), new String[]{this.f54334e.f54333j.d()});
         }
     }
 
@@ -106,20 +106,20 @@ public class CategoryView extends LinearLayout {
             }
         }
         this.k = new a(this);
-        this.f54213e = context;
+        this.f54328e = context;
         c();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f54213e).inflate(R.layout.index_category, this);
-            this.f54214f = inflate;
-            this.f54215g = (TextView) inflate.findViewById(R.id.class_name);
-            this.f54216h = (TextView) this.f54214f.findViewById(R.id.sprend_name);
-            this.f54217i = (ImageView) this.f54214f.findViewById(R.id.spread_icon);
-            this.f54214f.setOnClickListener(this.k);
-            this.f54217i.setOnClickListener(this.k);
+            View inflate = LayoutInflater.from(this.f54328e).inflate(R.layout.index_category, this);
+            this.f54329f = inflate;
+            this.f54330g = (TextView) inflate.findViewById(R.id.class_name);
+            this.f54331h = (TextView) this.f54329f.findViewById(R.id.sprend_name);
+            this.f54332i = (ImageView) this.f54329f.findViewById(R.id.spread_icon);
+            this.f54329f.setOnClickListener(this.k);
+            this.f54332i.setOnClickListener(this.k);
         }
     }
 
@@ -128,26 +128,26 @@ public class CategoryView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f54218j = dVar;
-        this.f54215g.setText(dVar.a());
+        this.f54333j = dVar;
+        this.f54330g.setText(dVar.a());
         if (StringUtils.isNull(dVar.d())) {
-            this.f54217i.setVisibility(8);
-            this.f54216h.setVisibility(8);
+            this.f54332i.setVisibility(8);
+            this.f54331h.setVisibility(8);
             return;
         }
         if (StringUtils.isNull(dVar.c())) {
-            this.f54216h.setVisibility(8);
+            this.f54331h.setVisibility(8);
         } else {
-            this.f54216h.setVisibility(0);
-            this.f54216h.setText(dVar.c());
+            this.f54331h.setVisibility(0);
+            this.f54331h.setText(dVar.c());
         }
-        this.f54217i.setVisibility(0);
+        this.f54332i.setVisibility(0);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.q0.w0.a.a((TbPageContext) j.a(this.f54213e), this.f54214f);
+            c.a.q0.w0.a.a((TbPageContext) j.a(this.f54328e), this.f54329f);
         }
     }
 
@@ -171,7 +171,7 @@ public class CategoryView extends LinearLayout {
             }
         }
         this.k = new a(this);
-        this.f54213e = context;
+        this.f54328e = context;
         c();
     }
 
@@ -195,7 +195,7 @@ public class CategoryView extends LinearLayout {
             }
         }
         this.k = new a(this);
-        this.f54213e = context;
+        this.f54328e = context;
         c();
     }
 }

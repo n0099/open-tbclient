@@ -9,6 +9,7 @@ import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.rnauth.RNAuthCallBack;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class EnterWalletSetRnAuthResultAction implements RouterAction {
@@ -44,7 +45,7 @@ public class EnterWalletSetRnAuthResultAction implements RouterAction {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, hashMap, routerCallback) == null) {
             HashMap hashMap2 = new HashMap();
-            if (hashMap == null || !hashMap.containsKey("statusCode") || !(hashMap.get("statusCode") instanceof Integer) || !hashMap.containsKey("desc")) {
+            if (hashMap == null || !hashMap.containsKey(EnterDxmPayServiceAction.SERVICE_STATUS_CODE) || !(hashMap.get(EnterDxmPayServiceAction.SERVICE_STATUS_CODE) instanceof Integer) || !hashMap.containsKey("desc")) {
                 if (routerCallback != null) {
                     hashMap2.put("errorMsg", "params-error");
                     routerCallback.onResult(3, hashMap2);
@@ -52,7 +53,7 @@ public class EnterWalletSetRnAuthResultAction implements RouterAction {
                 }
                 return;
             }
-            a(((Integer) hashMap.get("statusCode")).intValue(), (String) hashMap.get("desc"));
+            a(((Integer) hashMap.get(EnterDxmPayServiceAction.SERVICE_STATUS_CODE)).intValue(), (String) hashMap.get("desc"));
             if (routerCallback != null) {
                 hashMap2.put("desc", "success");
                 routerCallback.onResult(0, hashMap2);

@@ -33,22 +33,22 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
     public String adUnitId;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.p0.f.i.p.b f10970e;
+    public c.a.p0.f.i.p.b f10978e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10971f;
+    public String f10979f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10972g;
+    public boolean f10980g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f10973h;
+    public c f10981h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f10974i;
+    public d f10982i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Map<String, String> f10975j;
+    public Map<String, String> f10983j;
     public c.a.p0.f.i.l.f k;
     public b l;
     public boolean m;
@@ -62,7 +62,7 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f10976a;
+        public final /* synthetic */ e f10984a;
 
         /* renamed from: c.a.p0.h.a.f.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -71,7 +71,7 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f10977e;
+            public final /* synthetic */ a f10985e;
 
             public C0553a(a aVar) {
                 Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
                         return;
                     }
                 }
-                this.f10977e = aVar;
+                this.f10985e = aVar;
             }
 
             @Override // c.a.p0.a.w2.c
@@ -102,9 +102,9 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
             public void m() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f10977e.f10976a.m = true;
-                    if (this.f10977e.f10976a.n) {
-                        this.f10977e.f10976a.f10970e.P();
+                    this.f10985e.f10984a.m = true;
+                    if (this.f10985e.f10984a.n) {
+                        this.f10985e.f10984a.f10978e.P();
                     }
                 }
             }
@@ -113,8 +113,8 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
             public void onViewBackground() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f10977e.f10976a.m = false;
-                    this.f10977e.f10976a.f10970e.i0();
+                    this.f10985e.f10984a.m = false;
+                    this.f10985e.f10984a.f10978e.i0();
                 }
             }
         }
@@ -134,7 +134,7 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
                     return;
                 }
             }
-            this.f10976a = eVar;
+            this.f10984a = eVar;
         }
 
         @Override // c.a.p0.f.i.p.a
@@ -142,19 +142,19 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
                 if (z) {
-                    this.f10976a.dispatchEvent(new JSEvent("load"));
-                    if (this.f10976a.f10973h != null) {
-                        this.f10976a.f10973h.c();
+                    this.f10984a.dispatchEvent(new JSEvent("load"));
+                    if (this.f10984a.f10981h != null) {
+                        this.f10984a.f10981h.c();
                     }
                     c.a.p0.h.a.f.a.b().c(16, "");
-                    c.a.p0.h.a.c.b(this.f10976a.L(), "success");
+                    c.a.p0.h.a.c.b(this.f10984a.L(), "success");
                     return;
                 }
-                if (this.f10976a.f10973h != null) {
-                    this.f10976a.f10973h.b(str);
+                if (this.f10984a.f10981h != null) {
+                    this.f10984a.f10981h.b(str);
                 }
                 c.a.p0.h.a.f.a.b().c(17, str);
-                c.a.p0.h.a.c.c(this.f10976a.L(), com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
+                c.a.p0.h.a.c.c(this.f10984a.L(), com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
             }
         }
 
@@ -163,22 +163,22 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
                 if (z) {
-                    if (this.f10976a.f10974i != null) {
-                        this.f10976a.f10974i.c();
+                    if (this.f10984a.f10982i != null) {
+                        this.f10984a.f10982i.c();
                     }
-                    if (this.f10976a.l == null) {
-                        this.f10976a.l = new b(this.f10976a, null);
+                    if (this.f10984a.l == null) {
+                        this.f10984a.l = new b(this.f10984a, null);
                         IntentFilter intentFilter = new IntentFilter();
                         intentFilter.addAction("android.intent.action.SCREEN_ON");
                         intentFilter.addAction("android.intent.action.SCREEN_OFF");
-                        AppRuntime.getAppContext().registerReceiver(this.f10976a.l, intentFilter);
+                        AppRuntime.getAppContext().registerReceiver(this.f10984a.l, intentFilter);
                     }
-                    if (this.f10976a.o == null) {
-                        this.f10976a.o = new C0553a(this);
-                        e.M(this.f10976a.o);
+                    if (this.f10984a.o == null) {
+                        this.f10984a.o = new C0553a(this);
+                        e.M(this.f10984a.o);
                     }
-                } else if (this.f10976a.f10974i != null) {
-                    this.f10976a.f10974i.b(str);
+                } else if (this.f10984a.f10982i != null) {
+                    this.f10984a.f10982i.b(str);
                 }
             }
         }
@@ -189,9 +189,9 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
                 JSEvent jSEvent = new JSEvent(IntentConfig.CLOSE);
                 jSEvent.data = f.a(z);
-                this.f10976a.dispatchEvent(jSEvent);
-                c.a.p0.h.a.c.a(this.f10976a.L(), "pageclose", i2);
-                this.f10976a.destroy();
+                this.f10984a.dispatchEvent(jSEvent);
+                c.a.p0.h.a.c.a(this.f10984a.L(), "pageclose", i2);
+                this.f10984a.destroy();
             }
         }
 
@@ -199,7 +199,7 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
         public void onClick(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                c.a.p0.h.a.c.a(this.f10976a.L(), PrefetchEvent.STATE_CLICK, i2);
+                c.a.p0.h.a.c.a(this.f10984a.L(), PrefetchEvent.STATE_CLICK, i2);
             }
         }
 
@@ -209,9 +209,9 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 JSEvent jSEvent = new JSEvent("error");
                 jSEvent.data = f.b(str);
-                this.f10976a.dispatchEvent(jSEvent);
-                c.a.p0.f.i.q.b.k(this.f10976a.f10975j, str);
-                this.f10976a.destroy();
+                this.f10984a.dispatchEvent(jSEvent);
+                c.a.p0.f.i.q.b.k(this.f10984a.f10983j, str);
+                this.f10984a.destroy();
             }
         }
     }
@@ -247,7 +247,7 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
                 if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_ON")) {
                     this.this$0.n = true;
                     if (this.this$0.m) {
-                        this.this$0.f10970e.P();
+                        this.this$0.f10978e.P();
                     }
                 } else if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_OFF")) {
                     this.this$0.n = false;
@@ -279,26 +279,26 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
             }
         }
         this.adUnitId = "";
-        this.f10975j = new TreeMap();
+        this.f10983j = new TreeMap();
         this.n = true;
         this.p = new a(this);
         c.a.p0.a.y.b.a G = c.a.p0.a.y.b.a.G(jsObject);
         if (G != null) {
             this.adUnitId = G.C("adUnitId");
-            this.f10971f = G.C("appSid");
+            this.f10979f = G.C("appSid");
         }
-        if (G != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f10971f)) {
+        if (G != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f10979f)) {
             boolean g2 = i.g();
-            this.f10972g = g2;
+            this.f10980g = g2;
             if (g2) {
-                this.f10971f = i.c();
+                this.f10979f = i.c();
                 this.adUnitId = i.d();
             }
-            this.f10975j = c.a.p0.f.i.q.b.a("video", "game", this.f10971f, this.adUnitId, this.f10972g);
+            this.f10983j = c.a.p0.f.i.q.b.a("video", "game", this.f10979f, this.adUnitId, this.f10980g);
             this.k = new c.a.p0.h.a.a();
-            c.a.p0.f.i.p.b bVar = new c.a.p0.f.i.p.b(c.a.p0.a.g1.f.V().getActivity(), this.f10971f, this.adUnitId, this.f10972g, this.p, this.k);
-            this.f10970e = bVar;
-            bVar.k0(this.f10975j);
+            c.a.p0.f.i.p.b bVar = new c.a.p0.f.i.p.b(c.a.p0.a.g1.f.V().getActivity(), this.f10979f, this.adUnitId, this.f10980g, this.p, this.k);
+            this.f10978e = bVar;
+            bVar.k0(this.f10983j);
             loadAd(null);
             return;
         }
@@ -326,7 +326,7 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
     public String L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10972g ? "gdtvideo" : "video" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10980g ? "gdtvideo" : "video" : (String) invokeV.objValue;
     }
 
     public final void destroy() {
@@ -349,10 +349,10 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
             synchronized (this) {
-                this.f10973h = c.d(c.a.p0.a.y.b.a.G(jsObject));
-                c.a.p0.h.a.f.a.b().a(this.f10973h);
-                if (this.f10970e != null) {
-                    this.f10970e.e0();
+                this.f10981h = c.d(c.a.p0.a.y.b.a.G(jsObject));
+                c.a.p0.h.a.f.a.b().a(this.f10981h);
+                if (this.f10978e != null) {
+                    this.f10978e.e0();
                 }
             }
         }
@@ -364,9 +364,9 @@ public class e extends EventTargetImpl implements c.a.p0.h.a.f.b {
         if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
             synchronized (this) {
                 c.a.p0.h.a.c.d(L());
-                this.f10974i = d.d(c.a.p0.a.y.b.a.G(jsObject));
-                if (this.f10970e != null) {
-                    this.f10970e.l0();
+                this.f10982i = d.d(c.a.p0.a.y.b.a.G(jsObject));
+                if (this.f10978e != null) {
+                    this.f10978e.l0();
                 }
             }
         }

@@ -16,27 +16,27 @@ public class b implements c.a.r0.y.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.r0.b4.l.a f29196a;
+    public c.a.r0.b4.l.a f29216a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f29197b;
+    public TextView f29217b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.c f29198c;
+    public a.c f29218c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.b f29199d;
+    public a.b f29219d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a.InterfaceC1365a f29200e;
+    public a.InterfaceC1363a f29220e;
 
     /* loaded from: classes4.dex */
-    public class a implements a.InterfaceC0782a {
+    public class a implements a.InterfaceC0780a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29201a;
+        public final /* synthetic */ b f29221a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -53,59 +53,59 @@ public class b implements c.a.r0.y.a.a {
                     return;
                 }
             }
-            this.f29201a = bVar;
+            this.f29221a = bVar;
         }
 
-        @Override // c.a.r0.b4.l.a.InterfaceC0782a
+        @Override // c.a.r0.b4.l.a.InterfaceC0780a
         public float a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f29201a.f29199d != null) {
-                    return this.f29201a.f29199d.a();
+                if (this.f29221a.f29219d != null) {
+                    return this.f29221a.f29219d.a();
                 }
                 return 1.0f;
             }
             return invokeV.floatValue;
         }
 
-        @Override // c.a.r0.b4.l.a.InterfaceC0782a
+        @Override // c.a.r0.b4.l.a.InterfaceC0780a
         public void b(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-                if (this.f29201a.f29200e != null) {
-                    this.f29201a.f29200e.a(f2);
+                if (this.f29221a.f29220e != null) {
+                    this.f29221a.f29220e.a(f2);
                 }
-                TextView textView = this.f29201a.f29197b;
-                b bVar = this.f29201a;
+                TextView textView = this.f29221a.f29217b;
+                b bVar = this.f29221a;
                 textView.setText(bVar.f(bVar.getProgress()));
             }
         }
 
-        @Override // c.a.r0.b4.l.a.InterfaceC0782a
+        @Override // c.a.r0.b4.l.a.InterfaceC0780a
         public void onFinish() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f29201a.f29198c == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f29221a.f29218c == null) {
                 return;
             }
-            this.f29201a.f29198c.a();
+            this.f29221a.f29218c.a();
         }
 
-        @Override // c.a.r0.b4.l.a.InterfaceC0782a
+        @Override // c.a.r0.b4.l.a.InterfaceC0780a
         public void onProgress(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-                this.f29201a.f29197b.setText(this.f29201a.f(f2));
+                this.f29221a.f29217b.setText(this.f29221a.f(f2));
             }
         }
     }
 
-    public b(c.a.r0.b4.l.a aVar, TextView textView, a.c cVar, a.b bVar, a.InterfaceC1365a interfaceC1365a) {
+    public b(c.a.r0.b4.l.a aVar, TextView textView, a.c cVar, a.b bVar, a.InterfaceC1363a interfaceC1363a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, textView, cVar, bVar, interfaceC1365a};
+            Object[] objArr = {aVar, textView, cVar, bVar, interfaceC1363a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -115,11 +115,11 @@ public class b implements c.a.r0.y.a.a {
                 return;
             }
         }
-        this.f29196a = aVar;
-        this.f29197b = textView;
-        this.f29198c = cVar;
-        this.f29199d = bVar;
-        this.f29200e = interfaceC1365a;
+        this.f29216a = aVar;
+        this.f29217b = textView;
+        this.f29218c = cVar;
+        this.f29219d = bVar;
+        this.f29220e = interfaceC1363a;
         g();
     }
 
@@ -128,7 +128,7 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 aVar.deleteLast();
                 return true;
@@ -157,7 +157,7 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar == null) {
                 return false;
             }
@@ -172,7 +172,7 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 return aVar.getMaxDuration();
             }
@@ -186,7 +186,7 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 return aVar.getProgress();
             }
@@ -200,7 +200,7 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 return aVar.getSlideNum();
             }
@@ -214,7 +214,7 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 return aVar.isShowingDeleteLastTip();
             }
@@ -228,7 +228,7 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 aVar.stop();
                 return true;
@@ -243,7 +243,7 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 aVar.reset();
                 return true;
@@ -258,10 +258,10 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 aVar.setMaxDuration(i2);
-                this.f29196a.invalidate();
+                this.f29216a.invalidate();
                 return true;
             }
             return false;
@@ -274,10 +274,10 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 aVar.setMinDuration(i2);
-                this.f29196a.invalidate();
+                this.f29216a.invalidate();
                 return true;
             }
             return false;
@@ -290,7 +290,7 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 aVar.setProgress(j2);
                 return true;
@@ -305,7 +305,7 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 aVar.setShowDeleteLastTip(z);
                 return true;
@@ -320,7 +320,7 @@ public class b implements c.a.r0.y.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            c.a.r0.b4.l.a aVar = this.f29196a;
+            c.a.r0.b4.l.a aVar = this.f29216a;
             if (aVar != null) {
                 aVar.start();
                 return true;

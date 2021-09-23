@@ -11,34 +11,34 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f11189a;
+    public long f11197a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11190b;
+    public long f11198b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11191c;
+    public String f11199c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11192d;
+    public String f11200d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11193e;
+    public String f11201e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11194f;
+    public String f11202f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11195g;
+    public String f11203g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f11196h;
+    public String f11204h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11197i;
+    public int f11205i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f11198j;
+    public String f11206j;
     public String k;
     public String l;
     public int m;
@@ -61,7 +61,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{ clipMaxDuration=" + this.f11189a + " , clipMinDuration=" + this.f11190b + " , topicSource=" + this.f11191c + " , publishURL=" + this.f11193e + " , publishType=" + this.k + " , publishTitle=" + this.f11192d + " , atURL=" + this.f11195g + " , topicURL=" + this.f11196h + " , musicURL=" + this.f11194f + " , sourceFrom=" + this.f11198j + " , sourceType=" + this.f11197i + ",target=" + this.l + ",showToast=" + this.m + " }";
+            return "{ clipMaxDuration=" + this.f11197a + " , clipMinDuration=" + this.f11198b + " , topicSource=" + this.f11199c + " , publishURL=" + this.f11201e + " , publishType=" + this.k + " , publishTitle=" + this.f11200d + " , atURL=" + this.f11203g + " , topicURL=" + this.f11204h + " , musicURL=" + this.f11202f + " , sourceFrom=" + this.f11206j + " , sourceType=" + this.f11205i + ",target=" + this.l + ",showToast=" + this.m + " }";
         }
         return (String) invokeV.objValue;
     }

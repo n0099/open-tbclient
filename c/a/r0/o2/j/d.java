@@ -57,14 +57,14 @@ public class d extends c.a.r0.a0.b<c.a.r0.o2.e.e> {
     @Override // c.a.r0.a0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f15548e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.f15557e == i2) {
             return;
         }
-        this.f15548e = i2;
+        this.f15557e = i2;
         SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1);
-        if (this.q.f23199e == null) {
+        if (this.q.f23215e == null) {
             SkinManager.setImageResource(this.n, R.drawable.icon_shen_mine);
         }
     }
@@ -85,11 +85,11 @@ public class d extends c.a.r0.a0.b<c.a.r0.o2.e.e> {
             return;
         }
         this.q = eVar;
-        String str = eVar.f23199e;
+        String str = eVar.f23215e;
         if (str != null) {
             this.n.startLoad(str, 10, false);
         }
-        this.o.setText(eVar.f23200f);
-        this.p.setText(eVar.f23201g);
+        this.o.setText(eVar.f23216f);
+        this.p.setText(eVar.f23217g);
     }
 }

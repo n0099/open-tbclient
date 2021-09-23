@@ -20,7 +20,7 @@ public class j implements c.a.p0.a.p.b.a.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.j f11545a;
+        public final /* synthetic */ b.j f11553a;
 
         public a(j jVar, b.j jVar2) {
             Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public class j implements c.a.p0.a.p.b.a.c {
                     return;
                 }
             }
-            this.f11545a = jVar2;
+            this.f11553a = jVar2;
         }
 
         @Override // c.a.p0.h.b.a.d
         public void onFail(String str) {
             b.j jVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (jVar = this.f11545a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (jVar = this.f11553a) == null) {
                 return;
             }
             jVar.onFail(str);
@@ -54,7 +54,7 @@ public class j implements c.a.p0.a.p.b.a.c {
         public void onSuccess() {
             b.j jVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jVar = this.f11545a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jVar = this.f11553a) == null) {
                 return;
             }
             jVar.onSuccess();

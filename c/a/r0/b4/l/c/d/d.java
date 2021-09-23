@@ -27,7 +27,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f16328e;
+        public final /* synthetic */ f f16338e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class d {
                     return;
                 }
             }
-            this.f16328e = fVar;
+            this.f16338e = fVar;
         }
 
         @Override // c.a.r0.b4.l.c.d.f
         public void onFrameResult(int i2, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bitmap) == null) {
-                f fVar = this.f16328e;
+                f fVar = this.f16338e;
                 if (fVar != null) {
                     fVar.onFrameResult(i2, bitmap);
                 }
@@ -66,7 +66,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f16329e;
+        public final /* synthetic */ f f16339e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -83,14 +83,14 @@ public class d {
                     return;
                 }
             }
-            this.f16329e = fVar;
+            this.f16339e = fVar;
         }
 
         @Override // c.a.r0.b4.l.c.d.f
         public void onFrameResult(int i2, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bitmap) == null) {
-                f fVar = this.f16329e;
+                f fVar = this.f16339e;
                 if (fVar != null) {
                     fVar.onFrameResult(i2, bitmap);
                 }
@@ -140,22 +140,22 @@ public class d {
             return;
         }
         o oVar = new o();
-        oVar.f16373a = vlogEditManager.getDuration();
-        oVar.f16374b = i2;
-        oVar.f16378f = vlogEditManager.getInputMultiMediaData();
+        oVar.f16383a = vlogEditManager.getDuration();
+        oVar.f16384b = i2;
+        oVar.f16388f = vlogEditManager.getInputMultiMediaData();
         MediaTrack mediaTrack = (MediaTrack) c.a.x0.t.h.c(vlogEditManager.getUpdateMediaTracks(), 0);
         if (mediaTrack == null) {
             return;
         }
-        oVar.f16377e = mediaTrack.mediaSegments;
+        oVar.f16387e = mediaTrack.mediaSegments;
         if (i3 == 0) {
             i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
         }
-        oVar.f16375c = i3;
+        oVar.f16385c = i3;
         if (i4 == 0) {
             i4 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
         }
-        oVar.f16376d = i4;
+        oVar.f16386d = i4;
         i.f().i(oVar, new b(fVar));
     }
 
@@ -165,17 +165,17 @@ public class d {
             return;
         }
         p pVar = new p();
-        pVar.f16380b = i2;
-        pVar.f16379a = multiMediaData.originalDuration;
-        pVar.f16383e = multiMediaData;
+        pVar.f16390b = i2;
+        pVar.f16389a = multiMediaData.originalDuration;
+        pVar.f16393e = multiMediaData;
         if (i3 == 0) {
             i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
         }
-        pVar.f16381c = i3;
+        pVar.f16391c = i3;
         if (i4 == 0) {
             i4 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
         }
-        pVar.f16382d = i4;
+        pVar.f16392d = i4;
         i.f().j(pVar, new a(fVar));
     }
 }

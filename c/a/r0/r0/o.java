@@ -18,11 +18,11 @@ public class o extends c.a.q0.x.p.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static o f24318f;
+    public static o f24334f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<c.a.q0.x.p.c> f24319e;
+    public LinkedList<c.a.q0.x.p.c> f24335e;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -37,39 +37,39 @@ public class o extends c.a.q0.x.p.a {
                 return;
             }
         }
-        this.f24319e = new LinkedList<>();
+        this.f24335e = new LinkedList<>();
     }
 
     public static o e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f24318f == null) {
+            if (f24334f == null) {
                 synchronized (o.class) {
-                    if (f24318f == null) {
-                        f24318f = new o();
+                    if (f24334f == null) {
+                        f24334f = new o();
                     }
                 }
             }
-            return f24318f;
+            return f24334f;
         }
         return (o) invokeV.objValue;
     }
 
     @Override // c.a.q0.x.p.a
-    public void b(a.InterfaceC0717a interfaceC0717a) {
+    public void b(a.InterfaceC0715a interfaceC0715a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, interfaceC0717a) == null) && FileHelper.checkSD()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, interfaceC0715a) == null) && FileHelper.checkSD()) {
             List<MyEmotionGroupData> h2 = a.c().h(TbadkCoreApplication.getCurrentAccount());
-            this.f24319e.clear();
+            this.f24335e.clear();
             for (MyEmotionGroupData myEmotionGroupData : h2) {
                 EmotionGroupData j2 = g.k().j(myEmotionGroupData.getGroupId());
                 if (j2 != null) {
                     c cVar = new c(j2);
                     if (cVar.d() != null) {
-                        this.f24319e.add(cVar);
-                        if (interfaceC0717a != null) {
-                            interfaceC0717a.a(cVar);
+                        this.f24335e.add(cVar);
+                        if (interfaceC0715a != null) {
+                            interfaceC0715a.a(cVar);
                         }
                     }
                 }

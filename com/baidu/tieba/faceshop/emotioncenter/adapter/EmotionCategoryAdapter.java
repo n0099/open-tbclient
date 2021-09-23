@@ -30,19 +30,19 @@ public class EmotionCategoryAdapter extends a<c.a.r0.r0.x.c.a, EmotionCategoryVi
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f50608a;
+        public View f50721a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f50609b;
+        public TextView f50722b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f50610c;
+        public ImageView f50723c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f50611d;
+        public TextView f50724d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f50612e;
+        public View f50725e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EmotionCategoryViewHolder(View view) {
@@ -62,30 +62,30 @@ public class EmotionCategoryAdapter extends a<c.a.r0.r0.x.c.a, EmotionCategoryVi
                     return;
                 }
             }
-            this.f50608a = view;
+            this.f50721a = view;
             a();
         }
 
         public final void a() {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f50608a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f50721a) == null) {
                 return;
             }
-            this.f50609b = (TextView) view.findViewById(R.id.emotion_title);
-            this.f50610c = (ImageView) this.f50608a.findViewById(R.id.emotion_change_iv);
-            this.f50611d = (TextView) this.f50608a.findViewById(R.id.emotion_function);
-            this.f50609b.setText(this.f50608a.getResources().getText(R.string.emotion_center_quality_recommend));
-            this.f50610c.setVisibility(8);
-            this.f50611d.setVisibility(8);
-            this.f50612e = this.f50608a.findViewById(R.id.category_line_top);
+            this.f50722b = (TextView) view.findViewById(R.id.emotion_title);
+            this.f50723c = (ImageView) this.f50721a.findViewById(R.id.emotion_change_iv);
+            this.f50724d = (TextView) this.f50721a.findViewById(R.id.emotion_function);
+            this.f50722b.setText(this.f50721a.getResources().getText(R.string.emotion_center_quality_recommend));
+            this.f50723c.setVisibility(8);
+            this.f50724d.setVisibility(8);
+            this.f50725e = this.f50721a.findViewById(R.id.category_line_top);
         }
 
         public void onChangeSkin(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                SkinManager.setBackgroundColor(this.f50612e, R.color.common_color_10312);
-                SkinManager.setViewTextColor(this.f50609b, R.color.CAM_X0107);
+                SkinManager.setBackgroundColor(this.f50725e, R.color.common_color_10312);
+                SkinManager.setViewTextColor(this.f50722b, R.color.CAM_X0107);
             }
         }
     }
@@ -118,7 +118,7 @@ public class EmotionCategoryAdapter extends a<c.a.r0.r0.x.c.a, EmotionCategoryVi
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.emotion_category_layout, viewGroup, false));
+            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.emotion_category_layout, viewGroup, false));
             emotionCategoryViewHolder.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
             return emotionCategoryViewHolder;
         }

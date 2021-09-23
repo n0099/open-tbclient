@@ -25,28 +25,28 @@ public class a implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BaseActivity f23380e;
+    public final BaseActivity f23396e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f23381f;
+    public b f23397f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AccountSafeModel f23382g;
+    public AccountSafeModel f23398g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.e.c.g.a f23383h;
+    public c.a.e.c.g.a f23399h;
 
     /* renamed from: c.a.r0.p.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1090a extends c.a.e.c.g.a {
+    public class C1088a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f23384a;
+        public final /* synthetic */ a f23400a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1090a(a aVar, int i2, int i3) {
+        public C1088a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -64,7 +64,7 @@ public class a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f23384a = aVar;
+            this.f23400a = aVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -72,10 +72,10 @@ public class a implements View.OnClickListener {
             String errorString;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (this.f23384a.f23382g != null) {
-                    this.f23384a.f23382g.E(false);
+                if (this.f23400a.f23398g != null) {
+                    this.f23400a.f23398g.E(false);
                 }
-                this.f23384a.f23380e.closeLoadingDialog();
+                this.f23400a.f23396e.closeLoadingDialog();
                 if (responsedMessage == null) {
                     return;
                 }
@@ -84,21 +84,21 @@ public class a implements View.OnClickListener {
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                         privacyData = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                     }
-                    if (this.f23384a.f23382g != null) {
-                        this.f23384a.f23382g.D(privacyData);
+                    if (this.f23400a.f23398g != null) {
+                        this.f23400a.f23398g.D(privacyData);
                     }
-                    if (this.f23384a.f23381f == null || this.f23384a.f23382g == null || this.f23384a.f23382g.x() == null) {
+                    if (this.f23400a.f23397f == null || this.f23400a.f23398g == null || this.f23400a.f23398g.x() == null) {
                         return;
                     }
-                    this.f23384a.f23381f.d(this.f23384a.f23382g.x().f());
+                    this.f23400a.f23397f.d(this.f23400a.f23398g.x().f());
                     return;
                 }
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.f23384a.f23380e.getString(R.string.neterror);
+                    errorString = this.f23400a.f23396e.getString(R.string.neterror);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
-                this.f23384a.f23380e.showToast(errorString);
+                this.f23400a.f23396e.showToast(errorString);
             }
         }
     }
@@ -118,29 +118,29 @@ public class a implements View.OnClickListener {
                 return;
             }
         }
-        C1090a c1090a = new C1090a(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
-        this.f23383h = c1090a;
-        this.f23380e = baseActivity;
-        baseActivity.registerListener(c1090a);
-        this.f23381f = new b(this.f23380e, this);
-        this.f23382g = new AccountSafeModel(this.f23380e);
+        C1088a c1088a = new C1088a(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
+        this.f23399h = c1088a;
+        this.f23396e = baseActivity;
+        baseActivity.registerListener(c1088a);
+        this.f23397f = new b(this.f23396e, this);
+        this.f23398g = new AccountSafeModel(this.f23396e);
         if (j.z()) {
             g();
         } else {
-            this.f23380e.showToast(R.string.neterror);
+            this.f23396e.showToast(R.string.neterror);
         }
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23381f.a() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23397f.a() : (View) invokeV.objValue;
     }
 
     public void e(int i2) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (bVar = this.f23381f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (bVar = this.f23397f) == null) {
             return;
         }
         bVar.e(i2);
@@ -149,12 +149,12 @@ public class a implements View.OnClickListener {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f23380e.closeLoadingDialog();
-            AccountSafeModel accountSafeModel = this.f23382g;
+            this.f23396e.closeLoadingDialog();
+            AccountSafeModel accountSafeModel = this.f23398g;
             if (accountSafeModel != null) {
                 accountSafeModel.cancelLoadData();
             }
-            b bVar = this.f23381f;
+            b bVar = this.f23397f;
             if (bVar != null) {
                 bVar.c();
             }
@@ -164,10 +164,10 @@ public class a implements View.OnClickListener {
     public final void g() {
         AccountSafeModel accountSafeModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (accountSafeModel = this.f23382g) == null || accountSafeModel.A()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (accountSafeModel = this.f23398g) == null || accountSafeModel.A()) {
             return;
         }
-        this.f23382g.C();
+        this.f23398g.C();
     }
 
     @Override // android.view.View.OnClickListener
@@ -177,13 +177,13 @@ public class a implements View.OnClickListener {
             if (view.getId() == R.id.bar_record) {
                 TiebaStatic.log("c10013");
                 if (!j.z()) {
-                    this.f23380e.showToast(R.string.neterror);
+                    this.f23396e.showToast(R.string.neterror);
                 } else {
-                    UrlManager.getInstance().dealOneLink(this.f23380e.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                    UrlManager.getInstance().dealOneLink(this.f23396e.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
                 }
             } else if (view.getId() == R.id.account_status) {
-                AccountSafeModel accountSafeModel = this.f23382g;
-                AntiHelper.p(this.f23380e, accountSafeModel != null ? accountSafeModel.y() : "");
+                AccountSafeModel accountSafeModel = this.f23398g;
+                AntiHelper.p(this.f23396e, accountSafeModel != null ? accountSafeModel.y() : "");
             }
         }
     }

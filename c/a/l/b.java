@@ -21,7 +21,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public BjhArticleLayout f3786j;
+    public BjhArticleLayout f3787j;
     public c.a.q0.s.q.a k;
     public View.OnClickListener l;
 
@@ -31,7 +31,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f3787e;
+        public final /* synthetic */ b f3788e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -48,15 +48,15 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3787e = bVar;
+            this.f3788e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b bVar = this.f3787e;
-                bVar.q(bVar.f3781e.j(), this.f3787e.k);
+                b bVar = this.f3788e;
+                bVar.q(bVar.f3782e.j(), this.f3788e.k);
             }
         }
     }
@@ -68,7 +68,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f3788a;
+        public final /* synthetic */ b f3789a;
 
         public C0094b(b bVar) {
             Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3788a = bVar;
+            this.f3789a = bVar;
         }
 
         @Override // c.a.l.v0.a.b
@@ -93,9 +93,9 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0095a)) == null) {
-                if (this.f3788a.k != null && this.f3788a.k.getThreadData() != null) {
-                    c.a.r0.a0.m.a(this.f3788a.k.getThreadData().f0());
-                    c.a.r0.a0.m.l(this.f3788a.f3786j.getTitle(), this.f3788a.k.getThreadData().f0(), R.color.CAM_X0101, R.color.CAM_X0109);
+                if (this.f3789a.k != null && this.f3789a.k.getThreadData() != null) {
+                    c.a.r0.a0.m.a(this.f3789a.k.getThreadData().f0());
+                    c.a.r0.a0.m.l(this.f3789a.f3787j.getTitle(), this.f3789a.k.getThreadData().f0(), R.color.CAM_X0101, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -123,7 +123,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
         }
         this.l = new a(this);
         BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(context);
-        this.f3786j = bjhArticleLayout;
+        this.f3787j = bjhArticleLayout;
         bjhArticleLayout.setJumpToPbListener(this.l);
     }
 
@@ -131,7 +131,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3786j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3787j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -148,7 +148,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
             super.k(b0Var);
-            this.f3786j.setSubClickListener(b0Var);
+            this.f3787j.setSubClickListener(b0Var);
         }
     }
 
@@ -156,7 +156,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            this.f3786j.onChangeSkinType(tbPageContext, i2);
+            this.f3787j.onChangeSkinType(tbPageContext, i2);
         }
     }
 
@@ -169,7 +169,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
                 if (nVar instanceof c.a.r0.a0.d0.e) {
                     c.a.r0.a0.d0.e eVar = (c.a.r0.a0.d0.e) this.k;
                     eVar.k = 1;
-                    ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) eVar, view.getContext(), eVar.f15562e.Z1 ? 2 : 1, false);
+                    ThreadCardUtils.jumpToPB((c.a.q0.s.q.a) eVar, view.getContext(), eVar.f15571e.a2 ? 2 : 1, false);
                     threadCardViewHolder.getCardView().o(new a.C0095a(1));
                 } else if (nVar instanceof d2) {
                     d2 d2Var = (d2) this.k;
@@ -188,7 +188,7 @@ public class b extends c.a.l.a<c.a.q0.s.q.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.k = aVar;
-            this.f3786j.onBindDataToView(aVar);
+            this.f3787j.onBindDataToView(aVar);
         }
     }
 }

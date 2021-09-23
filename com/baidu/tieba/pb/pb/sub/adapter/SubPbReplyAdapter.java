@@ -28,13 +28,13 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f55439a;
+        public TextView f55554a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f55440b;
+        public View f55555b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f55441c;
+        public int f55556c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SubPbReplyViewHolder(View view) {
@@ -54,20 +54,20 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
                     return;
                 }
             }
-            this.f55441c = 3;
-            this.f55439a = (TextView) view.findViewById(R.id.floor_reply_text);
-            this.f55440b = view.findViewById(R.id.floor_reply_top_line);
+            this.f55556c = 3;
+            this.f55554a = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.f55555b = view.findViewById(R.id.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f55441c != TbadkApplication.getInst().getSkinType()) {
-                    SkinManager.setViewTextColor(this.f55439a, R.color.CAM_X0105);
-                    SkinManager.setBackgroundColor(this.f55440b, R.color.CAM_X0204);
-                    SkinManager.setBackgroundColor(this.f55439a, R.color.CAM_X0201);
+                if (this.f55556c != TbadkApplication.getInst().getSkinType()) {
+                    SkinManager.setViewTextColor(this.f55554a, R.color.CAM_X0105);
+                    SkinManager.setBackgroundColor(this.f55555b, R.color.CAM_X0204);
+                    SkinManager.setBackgroundColor(this.f55554a, R.color.CAM_X0201);
                 }
-                this.f55441c = TbadkApplication.getInst().getSkinType();
+                this.f55556c = TbadkApplication.getInst().getSkinType();
             }
         }
     }
@@ -99,7 +99,7 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
     public SubPbReplyViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.f2957e).inflate(R.layout.sub_pb_reply_num_layout, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.f2958e).inflate(R.layout.sub_pb_reply_num_layout, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -109,7 +109,7 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, subPbReplyViewHolder})) == null) {
-            ((SubPbReplyViewHolder) this.k).f55439a.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.b())));
+            ((SubPbReplyViewHolder) this.k).f55554a.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.b())));
             ((SubPbReplyViewHolder) this.k).onChangeSkinType();
             return subPbReplyViewHolder.getView();
         }

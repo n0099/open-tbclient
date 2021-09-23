@@ -13,10 +13,10 @@ public class k extends c.a.p0.n.i.i.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f11947a;
+    public f f11955a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11948b;
+    public boolean f11956b;
 
     public k(f fVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public class k extends c.a.p0.n.i.i.b {
                 return;
             }
         }
-        this.f11947a = fVar;
-        this.f11948b = z;
+        this.f11955a = fVar;
+        this.f11956b = z;
     }
 
     @Override // c.a.p0.n.i.i.b
     public f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11947a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11955a : (f) invokeV.objValue;
     }
 
     @Override // c.a.p0.n.i.i.b
@@ -49,7 +49,7 @@ public class k extends c.a.p0.n.i.i.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar)) == null) {
-            f fVar2 = this.f11947a;
+            f fVar2 = this.f11955a;
             if (fVar2 == fVar) {
                 return true;
             }
@@ -61,15 +61,15 @@ public class k extends c.a.p0.n.i.i.b {
     @Override // c.a.p0.n.i.i.b
     public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f11948b) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f11956b) {
             return;
         }
         if (z) {
-            f fVar = this.f11947a;
-            fVar.f11928e.f11927b.f11880b = 0L;
+            f fVar = this.f11955a;
+            fVar.f11936e.f11935b.f11888b = 0L;
             fVar.b(0);
         }
-        d.b().f(this.f11947a);
+        d.b().f(this.f11955a);
     }
 
     @Override // c.a.p0.n.i.i.b
@@ -78,7 +78,7 @@ public class k extends c.a.p0.n.i.i.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "isAttached=" + this.f11948b + " " + super.toString();
+            return "isAttached=" + this.f11956b + " " + super.toString();
         }
         return (String) invokeV.objValue;
     }

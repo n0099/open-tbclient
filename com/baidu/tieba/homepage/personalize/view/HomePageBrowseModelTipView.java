@@ -26,19 +26,19 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TextView f52377e;
+    public final TextView f52494e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final TBSpecificationBtn f52378f;
+    public final TBSpecificationBtn f52495f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final View f52379g;
+    public final View f52496g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final LinearLayout f52380h;
+    public final LinearLayout f52497h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f52381i;
+    public View.OnClickListener f52498i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HomePageBrowseModelTipView(Context context) {
@@ -64,26 +64,26 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
     public final View.OnClickListener getListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52381i : (View.OnClickListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52498i : (View.OnClickListener) invokeV.objValue;
     }
 
     public final void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c d2 = c.d(this.f52380h);
+            c d2 = c.d(this.f52497h);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f52377e, R.color.CAM_X0105);
-            this.f52378f.changeSkinType();
+            SkinManager.setViewTextColor(this.f52494e, R.color.CAM_X0105);
+            this.f52495f.changeSkinType();
         }
     }
 
     public final void setListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f52381i = onClickListener;
+            this.f52498i = onClickListener;
             if (onClickListener != null) {
-                this.f52378f.setOnClickListener(onClickListener);
+                this.f52495f.setOnClickListener(onClickListener);
             }
         }
     }
@@ -107,27 +107,27 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
                 return;
             }
         }
-        this.f52377e = new TextView(getContext());
-        this.f52378f = new TBSpecificationBtn(getContext());
-        this.f52379g = new View(getContext());
-        this.f52380h = new LinearLayout(getContext());
+        this.f52494e = new TextView(getContext());
+        this.f52495f = new TBSpecificationBtn(getContext());
+        this.f52496g = new View(getContext());
+        this.f52497h = new LinearLayout(getContext());
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
         Context context2 = getContext();
         Intrinsics.checkExpressionValueIsNotNull(context2, "context");
-        this.f52379g.setLayoutParams(new LinearLayout.LayoutParams(-1, context2.getResources().getDimensionPixelSize(R.dimen.M_H_X003)));
-        addView(this.f52379g);
-        addView(this.f52380h);
-        ViewGroup.LayoutParams layoutParams = this.f52380h.getLayoutParams();
+        this.f52496g.setLayoutParams(new LinearLayout.LayoutParams(-1, context2.getResources().getDimensionPixelSize(R.dimen.M_H_X003)));
+        addView(this.f52496g);
+        addView(this.f52497h);
+        ViewGroup.LayoutParams layoutParams = this.f52497h.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
-        this.f52380h.setLayoutParams(layoutParams);
-        this.f52380h.setOrientation(0);
-        c d2 = c.d(this.f52380h);
+        this.f52497h.setLayoutParams(layoutParams);
+        this.f52497h.setOrientation(0);
+        c d2 = c.d(this.f52497h);
         d2.o(R.string.J_X06);
         d2.f(R.color.CAM_X0201);
-        this.f52380h.addView(this.f52377e);
-        this.f52380h.addView(this.f52378f);
+        this.f52497h.addView(this.f52494e);
+        this.f52497h.addView(this.f52495f);
         Context context3 = getContext();
         Intrinsics.checkExpressionValueIsNotNull(context3, "context");
         int dimensionPixelSize = context3.getResources().getDimensionPixelSize(R.dimen.tbds174);
@@ -144,12 +144,12 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         Intrinsics.checkExpressionValueIsNotNull(context7, "context");
         layoutParams2.rightMargin = context7.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
         layoutParams2.gravity = 16;
-        this.f52378f.setLayoutParams(layoutParams2);
+        this.f52495f.setLayoutParams(layoutParams2);
         c.a.q0.s.f0.n.c cVar = new c.a.q0.s.f0.n.c();
         cVar.o(R.color.CAM_X0304);
-        this.f52378f.setConfig(cVar);
-        this.f52378f.setText(getContext().getString(R.string.browse_mode_tip_view_btn_text));
-        this.f52378f.setTextSize(R.dimen.T_X08);
+        this.f52495f.setConfig(cVar);
+        this.f52495f.setText(getContext().getString(R.string.browse_mode_tip_view_btn_text));
+        this.f52495f.setTextSize(R.dimen.T_X08);
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
         Context context8 = getContext();
         Intrinsics.checkExpressionValueIsNotNull(context8, "context");
@@ -159,12 +159,12 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams3.rightMargin = context9.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
         layoutParams3.gravity = 16;
         layoutParams3.weight = 1.0f;
-        this.f52377e.setLayoutParams(layoutParams3);
-        c d3 = c.d(this.f52377e);
+        this.f52494e.setLayoutParams(layoutParams3);
+        c d3 = c.d(this.f52494e);
         d3.A(R.dimen.T_X06);
         d3.w(R.color.CAM_X0105);
-        this.f52377e.setText(getContext().getString(R.string.browse_mode_tip_view_tip_text));
-        this.f52377e.setSingleLine();
-        this.f52377e.setEllipsize(TextUtils.TruncateAt.END);
+        this.f52494e.setText(getContext().getString(R.string.browse_mode_tip_view_tip_text));
+        this.f52494e.setSingleLine();
+        this.f52494e.setEllipsize(TextUtils.TruncateAt.END);
     }
 }

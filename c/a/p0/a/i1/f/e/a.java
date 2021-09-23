@@ -36,34 +36,34 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioRecord f6811a;
+    public AudioRecord f6819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6812b;
+    public String f6820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6813c;
+    public int f6821c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6814d;
+    public int f6822d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f6815e;
+    public Context f6823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6816f;
+    public String f6824f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Timer f6817g;
+    public Timer f6825g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.p0.a.i1.f.d.b f6818h;
+    public c.a.p0.a.i1.f.d.b f6826h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f6819i;
+    public long f6827i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f6820j;
+    public long f6828j;
     public c.a.p0.a.i1.f.a k;
     public c.a.p0.a.i1.f.b l;
     public boolean m;
@@ -78,7 +78,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f6821a;
+        public final /* synthetic */ a f6829a;
 
         public C0267a(a aVar) {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class a {
                     return;
                 }
             }
-            this.f6821a = aVar;
+            this.f6829a = aVar;
         }
 
         @Override // c.a.p0.a.i1.f.d.b
@@ -104,8 +104,8 @@ public class a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean unused = a.q;
                 c.a.p0.a.e0.d.g("recorder", "time out");
-                this.f6821a.F();
-                this.f6821a.z();
+                this.f6829a.F();
+                this.f6829a.z();
             }
         }
     }
@@ -116,7 +116,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f6822e;
+        public final /* synthetic */ a f6830e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class a {
                     return;
                 }
             }
-            this.f6822e = aVar;
+            this.f6830e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -144,9 +144,9 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bool) == null) || bool.booleanValue()) {
                 return;
             }
-            this.f6822e.f();
+            this.f6830e.f();
             c.a.p0.a.e0.d.b("recorder", "record error");
-            this.f6822e.z();
+            this.f6830e.z();
         }
     }
 
@@ -156,7 +156,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f6823e;
+        public final /* synthetic */ a f6831e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -173,7 +173,7 @@ public class a {
                     return;
                 }
             }
-            this.f6823e = aVar;
+            this.f6831e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -182,7 +182,7 @@ public class a {
         public Boolean call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? Boolean.valueOf(this.f6823e.C()) : (Boolean) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? Boolean.valueOf(this.f6831e.C()) : (Boolean) invokeL.objValue;
         }
     }
 
@@ -192,10 +192,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.i1.f.d.b f6824e;
+        public final /* synthetic */ c.a.p0.a.i1.f.d.b f6832e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f6825f;
+        public final /* synthetic */ a f6833f;
 
         public d(a aVar, c.a.p0.a.i1.f.d.b bVar) {
             Interceptable interceptable = $ic;
@@ -212,19 +212,19 @@ public class a {
                     return;
                 }
             }
-            this.f6825f = aVar;
-            this.f6824e = bVar;
+            this.f6833f = aVar;
+            this.f6832e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.p0.a.i1.f.d.b bVar = this.f6824e;
+                c.a.p0.a.i1.f.d.b bVar = this.f6832e;
                 if (bVar != null) {
                     bVar.a();
                 }
-                this.f6825f.G();
+                this.f6833f.G();
             }
         }
     }
@@ -235,7 +235,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f6826e;
+        public final /* synthetic */ a f6834e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -252,17 +252,17 @@ public class a {
                     return;
                 }
             }
-            this.f6826e = aVar;
+            this.f6834e = aVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f6826e.f6818h != null) {
-                    this.f6826e.f6818h.a();
+                if (this.f6834e.f6826h != null) {
+                    this.f6834e.f6826h.a();
                 }
-                this.f6826e.G();
+                this.f6834e.G();
             }
         }
     }
@@ -280,7 +280,7 @@ public class a {
                 return;
             }
         }
-        q = k.f7077a;
+        q = k.f7085a;
     }
 
     public a() {
@@ -296,7 +296,7 @@ public class a {
                 return;
             }
         }
-        this.f6814d = -1;
+        this.f6822d = -1;
         this.k = new c.a.p0.a.i1.f.a();
         this.p = false;
     }
@@ -357,16 +357,16 @@ public class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             boolean z = q;
             c.a.p0.a.e0.d.g("recorder", "resume timer");
-            c.a.p0.a.i1.f.d.b bVar = this.f6818h;
+            c.a.p0.a.i1.f.d.b bVar = this.f6826h;
             if (bVar != null) {
-                if (this.f6820j <= 0) {
+                if (this.f6828j <= 0) {
                     bVar.a();
                     return;
                 }
                 Timer timer = new Timer();
-                this.f6817g = timer;
-                timer.schedule(new e(this), this.f6820j);
-                this.f6819i = System.currentTimeMillis();
+                this.f6825g = timer;
+                timer.schedule(new e(this), this.f6828j);
+                this.f6827i = System.currentTimeMillis();
             }
         }
     }
@@ -375,10 +375,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            byte[] bArr = new byte[this.f6813c];
+            byte[] bArr = new byte[this.f6821c];
             c.a.p0.a.i1.f.a aVar = this.k;
-            c.a.p0.a.i1.f.f.a aVar2 = new c.a.p0.a.i1.f.f.a(aVar.f6779b, aVar.f6780c, aVar.f6781d, aVar.f6782e);
-            if (this.f6811a == null) {
+            c.a.p0.a.i1.f.f.a aVar2 = new c.a.p0.a.i1.f.f.a(aVar.f6787b, aVar.f6788c, aVar.f6789d, aVar.f6790e);
+            if (this.f6819a == null) {
                 return false;
             }
             return v(bArr, aVar2);
@@ -389,14 +389,14 @@ public class a {
     public void D(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            if (this.f6815e == null) {
+            if (this.f6823e == null) {
                 f();
                 c.a.p0.a.e0.d.b("recorder", "start error, context is null");
                 z();
-            } else if (this.f6814d != -1 && !TextUtils.isEmpty(this.f6812b)) {
+            } else if (this.f6822d != -1 && !TextUtils.isEmpty(this.f6820b)) {
                 if (z) {
                     String str = null;
-                    int i2 = this.f6814d;
+                    int i2 = this.f6822d;
                     if (i2 == 1) {
                         str = "start fail: recorder is recording";
                     } else if (i2 != 0 && i2 != 3) {
@@ -410,8 +410,8 @@ public class a {
                 }
                 boolean z2 = q;
                 try {
-                    this.f6811a.startRecording();
-                    if (this.f6811a.getRecordingState() != 3) {
+                    this.f6819a.startRecording();
+                    if (this.f6819a.getRecordingState() != 3) {
                         f();
                         c.a.p0.a.e0.d.b("recorder", "start error, no real permission");
                         z();
@@ -419,9 +419,9 @@ public class a {
                     }
                     if (z) {
                         E(new C0267a(this));
-                        e(c.a.p0.a.i1.f.b.f6786d, "recorderStart");
+                        e(c.a.p0.a.i1.f.b.f6794d, "recorderStart");
                     } else {
-                        e(c.a.p0.a.i1.f.b.f6788f, "recorderResume");
+                        e(c.a.p0.a.i1.f.b.f6796f, "recorderResume");
                     }
                     i.d.i("").D(Schedulers.io()).k(new c(this)).o(i.l.b.a.b()).B(new b(this));
                 } catch (IllegalStateException e2) {
@@ -441,14 +441,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             if (q) {
-                String str = "start timer:" + this.k.f6778a;
+                String str = "start timer:" + this.k.f6786a;
             }
-            c.a.p0.a.e0.d.g("recorder", "start timer, totalTime:" + this.k.f6778a);
-            this.f6818h = bVar;
+            c.a.p0.a.e0.d.g("recorder", "start timer, totalTime:" + this.k.f6786a);
+            this.f6826h = bVar;
             Timer timer = new Timer();
-            this.f6817g = timer;
-            timer.schedule(new d(this, bVar), this.k.f6778a);
-            this.f6819i = System.currentTimeMillis();
+            this.f6825g = timer;
+            timer.schedule(new d(this, bVar), this.k.f6786a);
+            this.f6827i = System.currentTimeMillis();
         }
     }
 
@@ -456,7 +456,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             boolean z = q;
-            AudioRecord audioRecord = this.f6811a;
+            AudioRecord audioRecord = this.f6819a;
             if (audioRecord == null) {
                 f();
                 c.a.p0.a.e0.d.b("recorder", "none audioRecord");
@@ -466,7 +466,7 @@ public class a {
             try {
                 audioRecord.stop();
                 G();
-                this.f6814d = 3;
+                this.f6822d = 3;
                 h();
                 H();
             } catch (IllegalStateException e2) {
@@ -482,11 +482,11 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             boolean z = q;
             c.a.p0.a.e0.d.g("recorder", "stop timer");
-            this.f6818h = null;
-            Timer timer = this.f6817g;
+            this.f6826h = null;
+            Timer timer = this.f6825g;
             if (timer != null) {
                 timer.cancel();
-                this.f6817g = null;
+                this.f6825g = null;
             }
         }
     }
@@ -527,7 +527,7 @@ public class a {
     public final void g(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i2, str) == null) {
-            if (this.l != null && !TextUtils.isEmpty(c.a.p0.a.i1.f.b.f6790h)) {
+            if (this.l != null && !TextUtils.isEmpty(c.a.p0.a.i1.f.b.f6798h)) {
                 this.l.d(i2, str);
                 return;
             }
@@ -549,13 +549,13 @@ public class a {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            String J = c.a.p0.a.k2.b.J(this.f6812b, this.f6816f);
+            String J = c.a.p0.a.k2.b.J(this.f6820b, this.f6824f);
             long j3 = -1;
-            if (TextUtils.isEmpty(this.f6812b)) {
+            if (TextUtils.isEmpty(this.f6820b)) {
                 j2 = -1;
             } else {
-                j3 = c.a.p0.t.d.t(this.f6812b);
-                j2 = new File(this.f6812b).length();
+                j3 = c.a.p0.t.d.t(this.f6820b);
+                j2 = new File(this.f6820b).length();
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -568,8 +568,8 @@ public class a {
                 if (j2 >= 0) {
                     jSONObject.put("fileSize", j2);
                 }
-                if (this.l != null && !TextUtils.isEmpty(c.a.p0.a.i1.f.b.f6789g)) {
-                    this.l.c(c.a.p0.a.i1.f.b.f6789g, jSONObject);
+                if (this.l != null && !TextUtils.isEmpty(c.a.p0.a.i1.f.b.f6797g)) {
+                    this.l.c(c.a.p0.a.i1.f.b.f6797g, jSONObject);
                     return;
                 }
                 HashMap hashMap = new HashMap();
@@ -598,7 +598,7 @@ public class a {
     public void l(String str, c.a.p0.a.i1.f.a aVar, Context context, c.a.p0.a.i1.f.b bVar, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048590, this, str, aVar, context, bVar, str2) == null) {
-            int i2 = this.f6814d;
+            int i2 = this.f6822d;
             if (i2 != -1 && i2 != 3) {
                 c.a.p0.a.e0.d.b("recorder", "wrong state, can't init");
                 return;
@@ -606,18 +606,18 @@ public class a {
             this.k = aVar;
             m(str);
             this.l = bVar;
-            int minBufferSize = AudioRecord.getMinBufferSize(aVar.f6781d, aVar.f6780c, 2);
-            this.f6813c = minBufferSize;
+            int minBufferSize = AudioRecord.getMinBufferSize(aVar.f6789d, aVar.f6788c, 2);
+            this.f6821c = minBufferSize;
             if (minBufferSize <= 0) {
                 f();
                 c.a.p0.a.e0.d.b("recorder", "wrong buffer size");
                 z();
                 return;
             }
-            this.f6811a = new AudioRecord(aVar.f6783f, aVar.f6781d, aVar.f6780c == 1 ? 16 : 12, 2, this.f6813c);
-            this.f6814d = 0;
-            this.f6815e = context;
-            this.f6816f = str2;
+            this.f6819a = new AudioRecord(aVar.f6791f, aVar.f6789d, aVar.f6788c == 1 ? 16 : 12, 2, this.f6821c);
+            this.f6822d = 0;
+            this.f6823e = context;
+            this.f6824f = str2;
             w();
         }
     }
@@ -626,23 +626,23 @@ public class a {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            if (TextUtils.equals(this.k.f6779b, "mp3")) {
+            if (TextUtils.equals(this.k.f6787b, "mp3")) {
                 str2 = EmotionResourceProvider.EMOTION_SOUND_SUFFIX;
             } else {
-                str2 = TextUtils.equals(this.k.f6779b, "pcm") ? ".pcm" : ".aac";
+                str2 = TextUtils.equals(this.k.f6787b, "pcm") ? ".pcm" : ".aac";
             }
-            this.f6812b = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
+            this.f6820b = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
         }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            int i2 = this.f6814d;
+            int i2 = this.f6822d;
             if (i2 == 0 || i2 == 1) {
                 if (!this.p) {
                     this.p = true;
-                    e(c.a.p0.a.i1.f.b.f6791i, "recorderInterruptionBegin");
+                    e(c.a.p0.a.i1.f.b.f6799i, "recorderInterruptionBegin");
                 }
                 t();
             }
@@ -653,7 +653,7 @@ public class a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.p) {
             this.p = false;
-            e(c.a.p0.a.i1.f.b.f6792j, "recorderInterruptionEnd");
+            e(c.a.p0.a.i1.f.b.f6800j, "recorderInterruptionEnd");
         }
     }
 
@@ -664,17 +664,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
             if (TextUtils.equals(str, "/swanAPI/recorder/pause")) {
-                if (this.f6814d != 1) {
+                if (this.f6822d != 1) {
                     str2 = "pause fail: recorder is not recording";
                 }
                 str2 = null;
             } else if (TextUtils.equals(str, "/swanAPI/recorder/resume")) {
-                if (this.f6814d != 2) {
+                if (this.f6822d != 2) {
                     str2 = "resume fail: recorder is not paused";
                 }
                 str2 = null;
             } else {
-                if (TextUtils.equals(str, "/swanAPI/recorder/stop") && (i2 = this.f6814d) != 2 && i2 != 1) {
+                if (TextUtils.equals(str, "/swanAPI/recorder/stop") && (i2 = this.f6822d) != 2 && i2 != 1) {
                     str2 = "stop fail: recorder is not started";
                 }
                 str2 = null;
@@ -704,7 +704,7 @@ public class a {
     public void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            if (z && this.f6814d == 1) {
+            if (z && this.f6822d == 1) {
                 t();
             }
             this.m = z;
@@ -715,7 +715,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             boolean z = q;
-            AudioRecord audioRecord = this.f6811a;
+            AudioRecord audioRecord = this.f6819a;
             if (audioRecord == null) {
                 f();
                 c.a.p0.a.e0.d.b("recorder", "none audio record");
@@ -724,9 +724,9 @@ public class a {
             }
             try {
                 audioRecord.stop();
-                this.f6814d = 2;
+                this.f6822d = 2;
                 u();
-                e(c.a.p0.a.i1.f.b.f6787e, "recorderPause");
+                e(c.a.p0.a.i1.f.b.f6795e, "recorderPause");
             } catch (IllegalStateException e2) {
                 f();
                 c.a.p0.a.e0.d.c("recorder", "pause error", e2);
@@ -739,15 +739,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             if (q) {
-                r0 = "pause timer, lastTime:" + this.f6820j;
+                r0 = "pause timer, lastTime:" + this.f6828j;
             }
-            c.a.p0.a.e0.d.g("recorder", "pause timer, lastTime:" + this.f6820j);
-            Timer timer = this.f6817g;
+            c.a.p0.a.e0.d.g("recorder", "pause timer, lastTime:" + this.f6828j);
+            Timer timer = this.f6825g;
             if (timer != null) {
                 timer.cancel();
-                this.f6817g = null;
+                this.f6825g = null;
             }
-            this.f6820j = this.k.f6778a - (System.currentTimeMillis() - this.f6819i);
+            this.f6828j = this.k.f6786a - (System.currentTimeMillis() - this.f6827i);
         }
     }
 
@@ -759,8 +759,8 @@ public class a {
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {
-                    File file = new File(this.f6812b);
-                    if (this.f6814d == 0) {
+                    File file = new File(this.f6820b);
+                    if (this.f6822d == 0) {
                         if (file.exists()) {
                             file.delete();
                         }
@@ -774,10 +774,10 @@ public class a {
                 th = th;
             }
             try {
-                this.f6814d = 1;
-                while (this.f6814d == 1) {
-                    if (this.f6811a.read(bArr, 0, this.f6813c) >= 0) {
-                        byte[] f2 = TextUtils.equals(this.k.f6779b, "pcm") ? bArr : aVar.f(bArr);
+                this.f6822d = 1;
+                while (this.f6822d == 1) {
+                    if (this.f6819a.read(bArr, 0, this.f6821c) >= 0) {
+                        byte[] f2 = TextUtils.equals(this.k.f6787b, "pcm") ? bArr : aVar.f(bArr);
                         if (f2 != null && f2.length > 0) {
                             fileOutputStream.write(f2);
                         }
@@ -789,8 +789,8 @@ public class a {
                 e = e3;
                 fileOutputStream2 = fileOutputStream;
                 c.a.p0.a.e0.d.c("recorder", "save record error", e);
-                if (this.f6814d == 1) {
-                    this.f6814d = 3;
+                if (this.f6822d == 1) {
+                    this.f6822d = 3;
                 }
                 c.a.p0.t.d.d(fileOutputStream2);
                 return false;
@@ -807,7 +807,7 @@ public class a {
     public final void w() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (context = this.f6815e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (context = this.f6823e) == null) {
             return;
         }
         this.n = (TelephonyManager) context.getSystemService("phone");
@@ -820,12 +820,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             G();
-            this.f6815e = null;
-            this.f6814d = -1;
-            AudioRecord audioRecord = this.f6811a;
+            this.f6823e = null;
+            this.f6822d = -1;
+            AudioRecord audioRecord = this.f6819a;
             if (audioRecord != null) {
                 audioRecord.release();
-                this.f6811a = null;
+                this.f6819a = null;
             }
         }
     }

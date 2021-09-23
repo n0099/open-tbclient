@@ -4,10 +4,12 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class AtListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -41,17 +43,38 @@ public class AtListActivityConfig extends IntentConfig {
         }
     }
 
+    public void setFromFid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            getIntent().putExtra("forum_id", str);
+        }
+    }
+
+    public void setFromTid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            getIntent().putExtra("thread_id", str);
+        }
+    }
+
     public void setIsForBjh(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             getIntent().putExtra(IS_FOR_BJH, z);
         }
     }
 
     public void setIsForChat(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             getIntent().putExtra(IS_FOR_CHAT, z);
+        }
+    }
+
+    public void setSelectedAtList(ArrayList<AtSelectData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            getIntent().putParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA, arrayList);
         }
     }
 }

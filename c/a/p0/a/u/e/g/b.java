@@ -26,7 +26,7 @@ public class b extends c.a.p0.a.u.c.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f8836a;
+        public final /* synthetic */ b f8844a;
 
         /* renamed from: c.a.p0.a.u.e.g.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -35,19 +35,19 @@ public class b extends c.a.p0.a.u.c.d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.p0.a.a2.e f8837e;
+            public final /* synthetic */ c.a.p0.a.a2.e f8845e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f8838f;
+            public final /* synthetic */ JSONObject f8846f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ String f8839g;
+            public final /* synthetic */ String f8847g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ String f8840h;
+            public final /* synthetic */ String f8848h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ a f8841i;
+            public final /* synthetic */ a f8849i;
 
             /* renamed from: c.a.p0.a.u.e.g.b$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
@@ -56,7 +56,7 @@ public class b extends c.a.p0.a.u.c.d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ RunnableC0393a f8842e;
+                public final /* synthetic */ RunnableC0393a f8850e;
 
                 public DialogInterface$OnClickListenerC0394a(RunnableC0393a runnableC0393a) {
                     Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class b extends c.a.p0.a.u.c.d {
                             return;
                         }
                     }
-                    this.f8842e = runnableC0393a;
+                    this.f8850e = runnableC0393a;
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
@@ -83,14 +83,14 @@ public class b extends c.a.p0.a.u.c.d {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", QueryResponse.Options.CANCEL);
-                            RunnableC0393a runnableC0393a = this.f8842e;
-                            runnableC0393a.f8841i.f8836a.d(runnableC0393a.f8839g, new c.a.p0.a.u.h.b(0, jSONObject));
+                            RunnableC0393a runnableC0393a = this.f8850e;
+                            runnableC0393a.f8849i.f8844a.d(runnableC0393a.f8847g, new c.a.p0.a.u.h.b(0, jSONObject));
                         } catch (JSONException e2) {
-                            if (c.a.p0.a.u.c.d.f8727c) {
+                            if (c.a.p0.a.u.c.d.f8735c) {
                                 e2.printStackTrace();
                             }
-                            RunnableC0393a runnableC0393a2 = this.f8842e;
-                            runnableC0393a2.f8841i.f8836a.d(runnableC0393a2.f8839g, new c.a.p0.a.u.h.b(201));
+                            RunnableC0393a runnableC0393a2 = this.f8850e;
+                            runnableC0393a2.f8849i.f8844a.d(runnableC0393a2.f8847g, new c.a.p0.a.u.h.b(201));
                         }
                     }
                 }
@@ -103,7 +103,7 @@ public class b extends c.a.p0.a.u.c.d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ RunnableC0393a f8843e;
+                public final /* synthetic */ RunnableC0393a f8851e;
 
                 public DialogInterface$OnClickListenerC0395b(RunnableC0393a runnableC0393a) {
                     Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class b extends c.a.p0.a.u.c.d {
                             return;
                         }
                     }
-                    this.f8843e = runnableC0393a;
+                    this.f8851e = runnableC0393a;
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
@@ -130,14 +130,14 @@ public class b extends c.a.p0.a.u.c.d {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", "confirm");
-                            RunnableC0393a runnableC0393a = this.f8843e;
-                            runnableC0393a.f8841i.f8836a.d(runnableC0393a.f8839g, new c.a.p0.a.u.h.b(0, jSONObject));
+                            RunnableC0393a runnableC0393a = this.f8851e;
+                            runnableC0393a.f8849i.f8844a.d(runnableC0393a.f8847g, new c.a.p0.a.u.h.b(0, jSONObject));
                         } catch (JSONException e2) {
-                            if (c.a.p0.a.u.c.d.f8727c) {
+                            if (c.a.p0.a.u.c.d.f8735c) {
                                 e2.printStackTrace();
                             }
-                            RunnableC0393a runnableC0393a2 = this.f8843e;
-                            runnableC0393a2.f8841i.f8836a.d(runnableC0393a2.f8839g, new c.a.p0.a.u.h.b(201));
+                            RunnableC0393a runnableC0393a2 = this.f8851e;
+                            runnableC0393a2.f8849i.f8844a.d(runnableC0393a2.f8847g, new c.a.p0.a.u.h.b(201));
                         }
                     }
                 }
@@ -158,34 +158,34 @@ public class b extends c.a.p0.a.u.c.d {
                         return;
                     }
                 }
-                this.f8841i = aVar;
-                this.f8837e = eVar;
-                this.f8838f = jSONObject;
-                this.f8839g = str;
-                this.f8840h = str2;
+                this.f8849i = aVar;
+                this.f8845e = eVar;
+                this.f8846f = jSONObject;
+                this.f8847g = str;
+                this.f8848h = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8837e.x() == null || this.f8837e.x().isFinishing() || this.f8837e.x().isDestroyed()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8845e.x() == null || this.f8845e.x().isFinishing() || this.f8845e.x().isDestroyed()) {
                     return;
                 }
-                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f8841i.f8836a.i());
-                aVar.V(this.f8838f.optString("title"));
-                aVar.x(this.f8838f.optString("content"));
+                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f8849i.f8844a.i());
+                aVar.V(this.f8846f.optString("title"));
+                aVar.x(this.f8846f.optString("content"));
                 aVar.n(new c.a.p0.a.w2.h.a());
                 aVar.m(false);
-                if (this.f8838f.optBoolean("showCancel", true)) {
-                    aVar.E(this.f8838f.optString("cancelColor"), c.a.p0.a.c.aiapps_modal_cancel_color);
-                    String optString = this.f8838f.optString("cancelText");
+                if (this.f8846f.optBoolean("showCancel", true)) {
+                    aVar.E(this.f8846f.optString("cancelColor"), c.a.p0.a.c.aiapps_modal_cancel_color);
+                    String optString = this.f8846f.optString("cancelText");
                     if (TextUtils.isEmpty(optString)) {
-                        optString = this.f8841i.f8836a.i().getString(c.a.p0.a.h.aiapps_cancel);
+                        optString = this.f8849i.f8844a.i().getString(c.a.p0.a.h.aiapps_cancel);
                     }
                     aVar.C(optString, new DialogInterface$OnClickListenerC0394a(this));
                 }
-                aVar.R(this.f8838f.optString("confirmColor"), c.a.p0.a.c.aiapps_modal_confirm_color);
-                aVar.P(this.f8840h, new DialogInterface$OnClickListenerC0395b(this));
+                aVar.R(this.f8846f.optString("confirmColor"), c.a.p0.a.c.aiapps_modal_confirm_color);
+                aVar.P(this.f8848h, new DialogInterface$OnClickListenerC0395b(this));
                 aVar.X();
             }
         }
@@ -205,7 +205,7 @@ public class b extends c.a.p0.a.u.c.d {
                     return;
                 }
             }
-            this.f8836a = bVar;
+            this.f8844a = bVar;
         }
 
         @Override // c.a.p0.a.u.c.d.b
@@ -215,7 +215,7 @@ public class b extends c.a.p0.a.u.c.d {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, eVar, jSONObject, str)) == null) {
                 String optString = jSONObject.optString("confirmText");
                 if (TextUtils.isEmpty(optString)) {
-                    optString = this.f8836a.i().getString(c.a.p0.a.h.aiapps_confirm);
+                    optString = this.f8844a.i().getString(c.a.p0.a.h.aiapps_confirm);
                 }
                 q0.b0(new RunnableC0393a(this, eVar, jSONObject, str, optString));
                 return new c.a.p0.a.u.h.b(0);
@@ -248,7 +248,7 @@ public class b extends c.a.p0.a.u.c.d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            boolean z = c.a.p0.a.u.c.d.f8727c;
+            boolean z = c.a.p0.a.u.c.d.f8735c;
             return j(str, true, new a(this));
         }
         return (c.a.p0.a.u.h.b) invokeL.objValue;

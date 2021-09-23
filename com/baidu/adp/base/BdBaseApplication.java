@@ -27,6 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
 public class BdBaseApplication extends Application {
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,6 +43,7 @@ public class BdBaseApplication extends Application {
     public boolean mIsNewUser;
     public boolean mIsPluginResourceOpen;
     public boolean mIsSmallFlow;
+    public ConcurrentHashMap<String, String> mResHashMap;
     public long mSmallFlowInterval;
     public long mStartSmallFlowTime;
 
@@ -51,7 +53,7 @@ public class BdBaseApplication extends Application {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdBaseApplication f36229a;
+        public final /* synthetic */ BdBaseApplication f36272a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdBaseApplication bdBaseApplication, Looper looper) {
@@ -71,14 +73,14 @@ public class BdBaseApplication extends Application {
                     return;
                 }
             }
-            this.f36229a = bdBaseApplication;
+            this.f36272a = bdBaseApplication;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f36229a.handleInitMessage(message);
+                this.f36272a.handleInitMessage(message);
             }
         }
     }
@@ -114,6 +116,7 @@ public class BdBaseApplication extends Application {
         this.mIsDebugMode = false;
         this.mContext = null;
         this.mIsPluginResourceOpen = true;
+        this.mResHashMap = new ConcurrentHashMap<>();
         this.lastGcTime = 0L;
         sApp = this;
     }
@@ -252,11 +255,17 @@ public class BdBaseApplication extends Application {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mIsPluginResourceOpen : invokeV.booleanValue;
     }
 
+    public ConcurrentHashMap<String, String> getResHashMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mResHashMap : (ConcurrentHashMap) invokeV.objValue;
+    }
+
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             Resources b2 = h.a().b();
             return (b2 == null || !this.mIsPluginResourceOpen) ? super.getResources() : b2;
         }
@@ -266,31 +275,31 @@ public class BdBaseApplication extends Application {
     public long getSmallFlowInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mSmallFlowInterval : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mSmallFlowInterval : invokeV.longValue;
     }
 
     public long getStartSmallFlowTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mStartSmallFlowTime : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mStartSmallFlowTime : invokeV.longValue;
     }
 
     public void handleInitMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, message) == null) {
         }
     }
 
     public boolean isDebugMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mIsDebugMode : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mIsDebugMode : invokeV.booleanValue;
     }
 
     public boolean isSmallFlow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (!this.mIsSmallFlow || (System.currentTimeMillis() - this.mStartSmallFlowTime) / 1000 <= this.mSmallFlowInterval) {
                 return this.mIsSmallFlow;
             }
@@ -301,8 +310,8 @@ public class BdBaseApplication extends Application {
 
     public void onAppMemoryLow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            b.f().q();
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            b.f().p();
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGcTime > 30000) {
                 this.lastGcTime = currentTimeMillis;
@@ -313,7 +322,7 @@ public class BdBaseApplication extends Application {
 
     public void onCreate(Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, application) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, application) == null) {
             this.mAppInitHandler = new a(this, Looper.getMainLooper());
             h.a().d(super.getResources());
             initBdBaseApp(application);
@@ -323,42 +332,42 @@ public class BdBaseApplication extends Application {
 
     public void setActivityStackMaxSize(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            b.f().r(i2);
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            b.f().q(i2);
         }
     }
 
     public void setDebugMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             this.mIsDebugMode = z;
         }
     }
 
     public void setIsPluginResourceOpen(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             this.mIsPluginResourceOpen = true;
         }
     }
 
     public void setIsSmallFlow(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             this.mIsSmallFlow = z;
         }
     }
 
     public void setSmallFlowInterval(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
             this.mSmallFlowInterval = j2;
         }
     }
 
     public void setStartSmallFlowTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
             this.mStartSmallFlowTime = j2;
         }
     }

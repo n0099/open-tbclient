@@ -32,7 +32,7 @@ public class p {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final p f12343a;
+        public static final p f12351a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +48,7 @@ public class p {
                     return;
                 }
             }
-            f12343a = new p(null);
+            f12351a = new p(null);
         }
     }
 
@@ -59,7 +59,7 @@ public class p {
     public static p b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f12343a : (p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f12351a : (p) invokeV.objValue;
     }
 
     public Flow a(String str, String str2, int i2) {

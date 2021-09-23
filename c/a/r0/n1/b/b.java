@@ -18,13 +18,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f22921a;
+    public List<a> f22937a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f22922b;
+    public List<a> f22938b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<Integer> f22923c;
+    public List<Integer> f22939c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -43,19 +43,19 @@ public class b {
     public List<Integer> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22923c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22939c : (List) invokeV.objValue;
     }
 
     public List<a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22922b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22938b : (List) invokeV.objValue;
     }
 
     public List<a> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22921a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22937a : (List) invokeV.objValue;
     }
 
     public void d(DataRes dataRes) {
@@ -65,15 +65,15 @@ public class b {
         }
         if (!ListUtils.isEmpty(dataRes.sex_taglist)) {
             ArrayList arrayList = new ArrayList();
-            this.f22921a = arrayList;
+            this.f22937a = arrayList;
             e(arrayList, dataRes.sex_taglist);
         }
         if (ListUtils.isEmpty(dataRes.taglist)) {
             return;
         }
-        this.f22922b = new ArrayList();
-        this.f22923c = new ArrayList();
-        e(this.f22922b, dataRes.taglist);
+        this.f22938b = new ArrayList();
+        this.f22939c = new ArrayList();
+        e(this.f22938b, dataRes.taglist);
     }
 
     public final void e(List<a> list, List<ResponseTagInfo> list2) {
@@ -86,9 +86,9 @@ public class b {
                 a aVar = new a();
                 aVar.a(responseTagInfo);
                 list.add(aVar);
-                List<Integer> list3 = this.f22923c;
-                if (list3 != null && aVar.f22920c) {
-                    list3.add(Integer.valueOf(aVar.f22918a));
+                List<Integer> list3 = this.f22939c;
+                if (list3 != null && aVar.f22936c) {
+                    list3.add(Integer.valueOf(aVar.f22934a));
                 }
             }
         }

@@ -27,30 +27,30 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<c.a.e.l.e.a<?, ?>> f27657a;
+    public final List<c.a.e.l.e.a<?, ?>> f27677a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f27658b;
+    public final b f27678b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TbPageContext<?> f27659c;
+    public final TbPageContext<?> f27679c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BdTypeRecyclerView f27660d;
+    public final BdTypeRecyclerView f27680d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final VideoMiddlePageViewModel f27661e;
+    public final VideoMiddlePageViewModel f27681e;
 
     /* renamed from: c.a.r0.w0.q2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1301a<T> implements Observer<Integer> {
+    public static final class C1299a<T> implements Observer<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27662e;
+        public final /* synthetic */ a f27682e;
 
-        public C1301a(a aVar) {
+        public C1299a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,7 +65,7 @@ public final class a {
                     return;
                 }
             }
-            this.f27662e = aVar;
+            this.f27682e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,15 +74,15 @@ public final class a {
         public final void onChanged(Integer pos) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pos) == null) {
-                List<BaseCardInfo> value = this.f27662e.b().getVideoDataList().getValue();
+                List<BaseCardInfo> value = this.f27682e.b().getVideoDataList().getValue();
                 if (value == null) {
                     value = new ArrayList<>();
                 }
                 Intrinsics.checkExpressionValueIsNotNull(value, "viewModel.videoDataList.value ?: mutableListOf()");
-                a aVar = this.f27662e;
+                a aVar = this.f27682e;
                 Intrinsics.checkExpressionValueIsNotNull(pos, "pos");
                 aVar.e(pos.intValue(), value);
-                this.f27662e.a().getListAdapter().notifyDataSetChanged();
+                this.f27682e.a().getListAdapter().notifyDataSetChanged();
             }
         }
     }
@@ -102,53 +102,53 @@ public final class a {
                 return;
             }
         }
-        this.f27659c = tbPageContext;
-        this.f27660d = bdTypeRecyclerView;
-        this.f27661e = videoMiddlePageViewModel;
-        this.f27657a = new ArrayList();
-        TbPageContext<?> tbPageContext2 = this.f27659c;
+        this.f27679c = tbPageContext;
+        this.f27680d = bdTypeRecyclerView;
+        this.f27681e = videoMiddlePageViewModel;
+        this.f27677a = new ArrayList();
+        TbPageContext<?> tbPageContext2 = this.f27679c;
         BdUniqueId bdUniqueId = g.K;
         Intrinsics.checkExpressionValueIsNotNull(bdUniqueId, "VideoAggregationData.TYPE_VIDEO_AGGREGATION");
-        b bVar = new b(tbPageContext2, bdUniqueId, this.f27661e);
-        this.f27658b = bVar;
-        this.f27657a.add(bVar);
-        this.f27660d.addAdapters(this.f27657a);
-        MutableLiveData<Integer> curPlayingVideoPos = this.f27661e.getCurPlayingVideoPos();
-        Activity pageActivity = this.f27659c.getPageActivity();
+        b bVar = new b(tbPageContext2, bdUniqueId, this.f27681e);
+        this.f27678b = bVar;
+        this.f27677a.add(bVar);
+        this.f27680d.addAdapters(this.f27677a);
+        MutableLiveData<Integer> curPlayingVideoPos = this.f27681e.getCurPlayingVideoPos();
+        Activity pageActivity = this.f27679c.getPageActivity();
         if (pageActivity == null) {
             throw new TypeCastException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
-        curPlayingVideoPos.observe((LifecycleOwner) pageActivity, new C1301a(this));
+        curPlayingVideoPos.observe((LifecycleOwner) pageActivity, new C1299a(this));
     }
 
     public final BdTypeRecyclerView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27660d : (BdTypeRecyclerView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27680d : (BdTypeRecyclerView) invokeV.objValue;
     }
 
     public final VideoMiddlePageViewModel b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27661e : (VideoMiddlePageViewModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27681e : (VideoMiddlePageViewModel) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f27658b.onDestroy();
+            this.f27678b.onDestroy();
         }
     }
 
     public final void d(List<? extends BaseCardInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            Integer value = this.f27661e.getCurPlayingVideoPos().getValue();
+            Integer value = this.f27681e.getCurPlayingVideoPos().getValue();
             if (value == null) {
                 value = 0;
             }
             e(value.intValue(), list);
-            this.f27660d.setData(list);
+            this.f27680d.setData(list);
         }
     }
 
@@ -175,7 +175,7 @@ public final class a {
     public final void f() {
         List<BaseCardInfo> value;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (value = this.f27661e.getVideoDataList().getValue()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (value = this.f27681e.getVideoDataList().getValue()) == null) {
             return;
         }
         Intrinsics.checkExpressionValueIsNotNull(value, "viewModel.videoDataList.value ?: return");
@@ -184,6 +184,6 @@ public final class a {
                 ((i) baseCardInfo).setAutoPlay(false);
             }
         }
-        this.f27660d.setData(value);
+        this.f27680d.setData(value);
     }
 }

@@ -27,7 +27,7 @@ public class c {
             for (ThreadInfo threadInfo : list) {
                 d2 d2Var = new d2();
                 d2Var.Y2(threadInfo);
-                d2Var.g2 = true;
+                d2Var.h2 = true;
                 arrayList.add(d2Var);
             }
             return c.a.r0.g1.f.a.c.a(arrayList);

@@ -50,7 +50,7 @@ public class j extends k {
                 return;
             }
         }
-        this.f15562e = d2Var;
+        this.f15571e = d2Var;
     }
 
     public static boolean Y(d2 d2Var) {
@@ -85,7 +85,7 @@ public class j extends k {
     public d2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15562e : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15571e : (d2) invokeV.objValue;
     }
 
     @Override // c.a.r0.a0.d0.k, com.baidu.tieba.card.data.BaseCardInfo, c.a.e.l.e.n
@@ -93,7 +93,7 @@ public class j extends k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            d2 d2Var = this.f15562e;
+            d2 d2Var = this.f15571e;
             if (d2Var != null && d2Var.o1() == 67) {
                 return Q0;
             }

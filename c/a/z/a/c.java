@@ -32,22 +32,22 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f31251a;
+    public static volatile int f31272a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31252b;
+    public static String f31273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f31253c;
+    public static String f31274c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f31254d;
+    public static boolean f31275d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static CyberPlayerManager.InstallListener2 f31255e;
+    public static CyberPlayerManager.InstallListener2 f31276e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Object f31256f;
+    public static Object f31277f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -91,7 +91,7 @@ public class c {
                 return;
             }
         }
-        f31256f = new Object();
+        f31277f = new Object();
     }
 
     public static void a(int i2, Map<String, String> map) {
@@ -99,11 +99,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65537, null, i2, map) == null) {
             int j2 = e.b().j(i2);
-            if ((f31251a & j2) == j2) {
+            if ((f31272a & j2) == j2) {
                 return;
             }
             do {
-                i3 = (f31251a ^ j2) & j2;
+                i3 = (f31272a ^ j2) & j2;
                 if (i3 <= 0) {
                     break;
                 }
@@ -115,8 +115,8 @@ public class c {
     public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            f31253c = str;
-            f31254d = Utils.t(context);
+            f31274c = str;
+            f31275d = Utils.t(context);
             e.b().f(context, str);
         }
     }
@@ -132,11 +132,11 @@ public class c {
             String str3 = map != null ? map.get("cache-path") : null;
             CyberTaskExcutor.getInstance().execute(new a());
             if (str3 == null) {
-                str = Utils.b(context) + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + Utils.f42617c + File.separator + context.getPackageName() + File.separator;
+                str = Utils.b(context) + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + Utils.f42679c + File.separator + context.getPackageName() + File.separator;
             } else {
-                str = str3 + File.separator + Utils.f42617c + File.separator;
+                str = str3 + File.separator + Utils.f42679c + File.separator;
             }
-            if (f31254d) {
+            if (f31275d) {
                 str = str + "remote" + File.separator;
             }
             Utils.f(str);
@@ -157,8 +157,8 @@ public class c {
     public static void d(CyberPlayerManager.InstallListener2 installListener2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, installListener2) == null) {
-            synchronized (f31256f) {
-                f31255e = installListener2;
+            synchronized (f31277f) {
+                f31276e = installListener2;
             }
         }
     }
@@ -168,7 +168,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
             int j2 = e.b().j(i2);
-            return (f31251a & j2) == j2;
+            return (f31272a & j2) == j2;
         }
         return invokeI.booleanValue;
     }
@@ -177,11 +177,11 @@ public class c {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, null, i2, str)) == null) {
-            if (f31254d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SR, true)) {
+            if (f31275d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SR, true)) {
                 if (i2 != 2048) {
                     System.load(str);
                 } else {
-                    String str2 = f31253c + File.separator + "model_video-sr_1.2";
+                    String str2 = f31274c + File.separator + "model_video-sr_1.2";
                     String str3 = str2 + File.separator + "params.mlm";
                     if (!new File(str2 + File.separator + "model.mlm").exists() || !new File(str3).exists()) {
                         throw new FileNotFoundException("model_video-sr_1.2.zip");
@@ -200,7 +200,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (f31254d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_BSO, false)) {
+            if (f31275d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_BSO, false)) {
                 Utils.m(str);
                 return true;
             }
@@ -218,7 +218,7 @@ public class c {
     public static String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f31252b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f31273b : (String) invokeV.objValue;
     }
 
     public static void j(int i2, String str) {
@@ -226,9 +226,9 @@ public class c {
         if (interceptable == null || interceptable.invokeIL(65546, null, i2, str) == null) {
             int i3 = i2 == 16 ? 100 : i2 == 8 ? 101 : i2 == 4 ? 102 : -1;
             if (i3 > 0) {
-                synchronized (f31256f) {
-                    if (f31255e != null) {
-                        f31255e.onInstallInfo(i3, i2, str);
+                synchronized (f31277f) {
+                    if (f31276e != null) {
+                        f31276e.onInstallInfo(i3, i2, str);
                     }
                 }
             }
@@ -273,7 +273,7 @@ public class c {
                     str = null;
                     i3 = 3;
                 }
-                if (f31254d) {
+                if (f31275d) {
                     if ((i3 & 2) != 2) {
                         return false;
                     }
@@ -294,7 +294,7 @@ public class c {
                                 str3 = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
                             } catch (Exception unused2) {
                             }
-                            if (f31254d) {
+                            if (f31275d) {
                                 str4 = "4";
                             }
                             if (!file2.canExecute()) {
@@ -334,7 +334,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (f31254d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_DMO, false)) {
+            if (f31275d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_DMO, false)) {
                 Utils.o(str);
                 return true;
             }
@@ -346,7 +346,7 @@ public class c {
     public static String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f31253c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f31274c : (String) invokeV.objValue;
     }
 
     public static boolean n(int i2, Map<String, String> map) {
@@ -363,7 +363,7 @@ public class c {
             String d2 = a2.d();
             String j2 = a2.j();
             File file = new File(j2);
-            if (a2.l() == d.a.f42632a) {
+            if (a2.l() == d.a.f42694a) {
                 if (!"apk_internal_jar".equals(j2)) {
                     if (file.exists()) {
                         if (e.b().C(i2)) {
@@ -377,7 +377,7 @@ public class c {
                 }
                 z = true;
             } else {
-                if (a2.l() == d.a.f42633b) {
+                if (a2.l() == d.a.f42695b) {
                     if (!file.exists() && !a2.p()) {
                         if (i2 == 32) {
                             i2 = 64;
@@ -392,7 +392,7 @@ public class c {
                     } else if (e.b().w(i2)) {
                         IjkMediaPlayer.nativeSetEnableFFmpegExtend(j2);
                     } else if (e.b().y(i2)) {
-                        f31252b = j2;
+                        f31273b = j2;
                     } else if (e.b().E(i2)) {
                         z = k(i2, map);
                     } else if (e.b().A(i2)) {
@@ -406,9 +406,9 @@ public class c {
                 }
                 z = true;
             }
-            f31251a = i2 | f31251a;
+            f31272a = i2 | f31272a;
             if (z) {
-                CyberLog.d("CyberLibsLoader", "isMediaProcess:" + f31254d + " abi:" + e.b().p() + " lib:" + a3 + " ver:" + d2 + " path:" + j2 + " load success");
+                CyberLog.d("CyberLibsLoader", "isMediaProcess:" + f31275d + " abi:" + e.b().p() + " lib:" + a3 + " ver:" + d2 + " path:" + j2 + " load success");
             }
             return true;
         }
@@ -430,20 +430,20 @@ public class c {
             return;
         }
         try {
-            String str = f31253c + File.separator + "config";
+            String str = f31274c + File.separator + "config";
             String str2 = str + File.separator + LibsInfoDef.CYBER_CODEC_MONITOR_NAME + "_" + CyberCfgManager.getInstance().getCfgValue("monitor_version", LibsInfoDef.CYBER_CODEC_MONITOR_VERSION) + ".json";
             File file = new File(str);
             if (file.exists()) {
-                if (!new File(str2).exists() && !f31254d) {
+                if (!new File(str2).exists() && !f31275d) {
                     z = false;
                 }
                 if (z) {
                 }
             } else {
-                if (f31254d) {
+                if (f31275d) {
                     file.mkdirs();
                     if (z) {
-                        Utils.h(str2, f31254d);
+                        Utils.h(str2, f31275d);
                         return;
                     }
                     return;
@@ -471,20 +471,20 @@ public class c {
             return;
         }
         try {
-            String str = f31253c + File.separator + "config";
+            String str = f31274c + File.separator + "config";
             String str2 = str + File.separator + LibsInfoDef.CYBER_PLAY_SCORE_STORAGE_NAME + "_" + LibsInfoDef.CYBER_PLAY_SCORE_STORAGE_VERSION + ".json";
             File file = new File(str);
             if (file.exists()) {
-                if (!new File(str2).exists() && !f31254d) {
+                if (!new File(str2).exists() && !f31275d) {
                     z = false;
                 }
                 if (z) {
                 }
             } else {
-                if (f31254d) {
+                if (f31275d) {
                     file.mkdirs();
                     if (z) {
-                        DuplayerQualityMonitorManager.getInstance().init(str2, f31254d);
+                        DuplayerQualityMonitorManager.getInstance().init(str2, f31275d);
                         return;
                     }
                     return;

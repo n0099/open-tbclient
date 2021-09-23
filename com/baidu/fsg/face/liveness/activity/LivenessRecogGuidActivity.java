@@ -39,25 +39,25 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Button f40026a;
+    public Button f40081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f40027b;
+    public ImageView f40082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f40028c;
+    public TextView f40083c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f40029d;
+    public ImageView f40084d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LivenessRecogCallback f40030e;
+    public LivenessRecogCallback f40085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40031f;
+    public String f40086f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f40032g;
+    public boolean f40087g;
 
     public LivenessRecogGuidActivity() {
         Interceptable interceptable = $ic;
@@ -72,19 +72,19 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
                 return;
             }
         }
-        this.f40031f = null;
-        this.f40032g = false;
+        this.f40086f = null;
+        this.f40087g = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            if (this.f40030e != null) {
+            if (this.f40085e != null) {
                 LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                 livenessRecogResult.setResultMsg(a.ERROR_MSG_USER_CANCEL);
                 livenessRecogResult.setResultCode(-204);
-                this.f40030e.b(livenessRecogResult);
+                this.f40085e.b(livenessRecogResult);
             }
             LivenessRecogDTO livenessRecogDTO = this.livenessRecogDTO;
             RimStatisticsUtil.onEventWithValue(d.n, livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "");
@@ -108,8 +108,10 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            if (i2 == 1001 && i3 == -1) {
-                finish();
+            if (i2 == 1001) {
+                if (i3 == -1 || i3 == 0) {
+                    finish();
+                }
             }
         }
     }
@@ -131,7 +133,7 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
                 return;
             }
             b();
-            if (!this.f40032g) {
+            if (!this.f40087g) {
                 setContentView(R.layout.layout_sapi_liveness_guide_page);
             } else {
                 setContentView(R.layout.layout_sapi_liveness_record_video_guide_page);
@@ -158,13 +160,13 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             Button button = (Button) findViewById(R.id.btn_start_photo);
-            this.f40026a = button;
+            this.f40081a = button;
             button.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessRecogGuidActivity f40033a;
+                public final /* synthetic */ LivenessRecogGuidActivity f40088a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -181,28 +183,28 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
                             return;
                         }
                     }
-                    this.f40033a = this;
+                    this.f40088a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        LivenessRecogDTO livenessRecogDTO = this.f40033a.livenessRecogDTO;
-                        RimStatisticsUtil.onEventWithValue(d.f40236c, livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "");
+                        LivenessRecogDTO livenessRecogDTO = this.f40088a.livenessRecogDTO;
+                        RimStatisticsUtil.onEventWithValue(d.f40296c, livenessRecogDTO != null ? livenessRecogDTO.getSpno() : "");
                         LogUtil.d("hello", "onEvent(StatServiceEvent.ENTERLIVENESS):  用户点击立即验证");
-                        this.f40033a.d();
+                        this.f40088a.d();
                     }
                 }
             });
             ImageView imageView = (ImageView) findViewById(R.id.sapi_bio_title_btn_left);
-            this.f40027b = imageView;
+            this.f40082b = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LivenessRecogGuidActivity f40034a;
+                public final /* synthetic */ LivenessRecogGuidActivity f40089a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -219,35 +221,35 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
                             return;
                         }
                     }
-                    this.f40034a = this;
+                    this.f40089a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f40034a.c();
-                        this.f40034a.finish();
+                        this.f40089a.c();
+                        this.f40089a.finish();
                     }
                 }
             });
-            this.f40028c = (TextView) findViewById(R.id.tv_name);
-            this.f40031f = this.livenessRecogDTO.realName;
-            this.f40029d = (ImageView) findViewById(R.id.guide_imageview);
-            if (!TextUtils.isEmpty(this.f40031f)) {
-                String format = String.format(getString(R.string.sapi_liveness_guide_photo_tip), this.f40031f);
+            this.f40083c = (TextView) findViewById(R.id.tv_name);
+            this.f40086f = this.livenessRecogDTO.realName;
+            this.f40084d = (ImageView) findViewById(R.id.guide_imageview);
+            if (!TextUtils.isEmpty(this.f40086f)) {
+                String format = String.format(getString(R.string.sapi_liveness_guide_photo_tip), this.f40086f);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(format);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(getResources().getColor(R.color.sapi_liveness_recog_guide_tip_color));
                 if (format.indexOf("*") > 0) {
-                    spannableStringBuilder.setSpan(foregroundColorSpan, format.indexOf("*"), format.indexOf("*") + this.f40031f.length(), 33);
+                    spannableStringBuilder.setSpan(foregroundColorSpan, format.indexOf("*"), format.indexOf("*") + this.f40086f.length(), 33);
                 } else {
-                    spannableStringBuilder.setSpan(foregroundColorSpan, format.indexOf(this.f40031f), format.indexOf(this.f40031f) + this.f40031f.length(), 33);
+                    spannableStringBuilder.setSpan(foregroundColorSpan, format.indexOf(this.f40086f), format.indexOf(this.f40086f) + this.f40086f.length(), 33);
                 }
-                this.f40028c.setText(spannableStringBuilder);
+                this.f40083c.setText(spannableStringBuilder);
             } else {
-                this.f40028c.setText(String.format(getString(R.string.sapi_liveness_guide_photo_tip), ""));
+                this.f40083c.setText(String.format(getString(R.string.sapi_liveness_guide_photo_tip), ""));
             }
-            this.f40029d.setImageBitmap(a(R.drawable.sapi_liveness_recognized_time_out_guide));
+            this.f40084d.setImageBitmap(a(R.drawable.sapi_liveness_recognized_time_out_guide));
             f.a(this, getResources().getColor(R.color.sapi_liveness_guide_bg_color));
         }
     }
@@ -255,8 +257,8 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f40030e = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
-            this.f40032g = c.a().a(getActivity()).getSwitchRecordVideo() && this.livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS;
+            this.f40085e = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
+            this.f40087g = c.a().a(getActivity()).getSwitchRecordVideo() && this.livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS;
         }
     }
 

@@ -20,7 +20,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CyberMediaExtProvider f31267a;
+    public static CyberMediaExtProvider f31288a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            CaptureManagerProvider createCaptureManagerProvider = d() ? f31267a.createCaptureManagerProvider(context, i2, i3, i4, i5, i6) : null;
+            CaptureManagerProvider createCaptureManagerProvider = d() ? f31288a.createCaptureManagerProvider(context, i2, i3, i4, i5, i6) : null;
             CyberLog.i("CyberExtRTCInvoker", "createCaptureManager provider = " + createCaptureManagerProvider + " isExtJarLoader = " + d());
             return createCaptureManagerProvider;
         }
@@ -53,7 +53,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, attributeSet)) == null) {
-            RTCVideoViewProvider createRTCVideoView = d() ? f31267a.createRTCVideoView(context, attributeSet) : null;
+            RTCVideoViewProvider createRTCVideoView = d() ? f31288a.createRTCVideoView(context, attributeSet) : null;
             CyberLog.i("CyberExtRTCInvoker", "createRTCVideoView provider = " + createRTCVideoView + " isExtJarLoader = " + d());
             return createRTCVideoView;
         }
@@ -63,14 +63,14 @@ public class a {
     public static void c(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(65539, null, z) == null) && d()) {
-            f31267a.setRTCVerbose(z);
+            f31288a.setRTCVerbose(z);
         }
     }
 
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f31267a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f31288a != null : invokeV.booleanValue;
     }
 
     public static boolean e(ClassLoader classLoader) {
@@ -79,9 +79,9 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, classLoader)) == null) {
             if (classLoader != null && !d() && h()) {
                 try {
-                    f31267a = (CyberMediaExtProvider) Class.forName("com.baidu.cybermedia.ext.rtc.CyberMediaExtProviderImpl", true, classLoader).newInstance();
+                    f31288a = (CyberMediaExtProvider) Class.forName("com.baidu.cybermedia.ext.rtc.CyberMediaExtProviderImpl", true, classLoader).newInstance();
                 } catch (Exception unused) {
-                    f31267a = null;
+                    f31288a = null;
                     CyberLog.e("CyberExtRTCInvoker", "CyberMediaExtProviderImpl not found");
                 }
             }
@@ -94,7 +94,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            RTCRoomProvider createRtcRoom = d() ? f31267a.createRtcRoom() : null;
+            RTCRoomProvider createRtcRoom = d() ? f31288a.createRtcRoom() : null;
             CyberLog.i("CyberExtRTCInvoker", "createRtcRoom provider = " + createRtcRoom + " isExtJarLoader = " + d());
             return createRtcRoom;
         }
@@ -104,7 +104,7 @@ public class a {
     public static void g(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(65543, null, z) == null) && d()) {
-            f31267a.enableRTCCaptureDebug(z);
+            f31288a.enableRTCCaptureDebug(z);
         }
     }
 

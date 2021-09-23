@@ -38,7 +38,7 @@ public class c extends c.a.r0.p2.q.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f18396a;
+        public final /* synthetic */ c f18405a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -55,14 +55,14 @@ public class c extends c.a.r0.p2.q.b {
                     return;
                 }
             }
-            this.f18396a = cVar;
+            this.f18405a = cVar;
         }
 
         @Override // c.a.f.m.d.InterfaceC0068d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18396a.startPlay();
+                this.f18405a.startPlay();
             }
         }
 
@@ -97,7 +97,7 @@ public class c extends c.a.r0.p2.q.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f18397a;
+        public final /* synthetic */ c f18406a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -114,20 +114,20 @@ public class c extends c.a.r0.p2.q.b {
                     return;
                 }
             }
-            this.f18397a = cVar;
+            this.f18406a = cVar;
         }
 
         @Override // c.a.r0.p2.q.d.k
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || this.f18397a.k0()) {
+            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || this.f18406a.k0()) {
                 return;
             }
             if (i3 >= i2) {
-                this.f18397a.N0.I(false, false, "NEWINDEX");
-            } else if (i2 == 0 || this.f18397a.U || (i3 * 100) / i2 < 80 || i2 <= 15000) {
+                this.f18406a.N0.I(false, false, "NEWINDEX");
+            } else if (i2 == 0 || this.f18406a.U || (i3 * 100) / i2 < 80 || i2 <= 15000) {
             } else {
-                c cVar = this.f18397a;
+                c cVar = this.f18406a;
                 cVar.L0(cVar.O0);
             }
         }
@@ -135,15 +135,15 @@ public class c extends c.a.r0.p2.q.b {
 
     /* renamed from: c.a.r0.g1.h.n.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0891c extends CustomMessageListener {
+    public class C0889c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f18398a;
+        public final /* synthetic */ c f18407a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0891c(c cVar, int i2) {
+        public C0889c(c cVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -160,7 +160,7 @@ public class c extends c.a.r0.p2.q.b {
                     return;
                 }
             }
-            this.f18398a = cVar;
+            this.f18407a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -172,11 +172,11 @@ public class c extends c.a.r0.p2.q.b {
                 return;
             }
             String d2 = bVar.d();
-            if (StringUtils.isNull(d2) || this.f18398a.O0 == null || !d2.equals(this.f18398a.O0.f0())) {
+            if (StringUtils.isNull(d2) || this.f18407a.O0 == null || !d2.equals(this.f18407a.O0.f0())) {
                 return;
             }
-            c.a.f.m.d dVar = this.f18398a.N0;
-            c cVar = this.f18398a;
+            c.a.f.m.d dVar = this.f18407a.N0;
+            c cVar = this.f18407a;
             dVar.K(cVar.H0(cVar.O0, bVar));
         }
     }
@@ -187,7 +187,7 @@ public class c extends c.a.r0.p2.q.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f18399e;
+        public final /* synthetic */ c f18408e;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -204,19 +204,19 @@ public class c extends c.a.r0.p2.q.b {
                     return;
                 }
             }
-            this.f18399e = cVar;
+            this.f18408e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18399e.N0 == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18408e.N0 == null) {
                 return;
             }
-            c cVar = this.f18399e;
+            c cVar = this.f18408e;
             cVar.Q0 = false;
             cVar.N0.L();
-            this.f18399e.N0.w();
+            this.f18408e.N0.w();
         }
     }
 
@@ -240,7 +240,7 @@ public class c extends c.a.r0.p2.q.b {
             }
         }
         this.P0 = false;
-        this.R0 = new C0891c(this, 2921395);
+        this.R0 = new C0889c(this, 2921395);
         this.S0 = new d(this);
         p0(true);
         I0();

@@ -76,6 +76,7 @@ public class SapiJsCallBacks {
         public GetCurrentPageNameCallback getCurrentPageNameCallback;
         public GrantWebCallback grantWebCallback;
         public boolean hideSuccessTip;
+        public SapiWebView.HistoryLoginCallback historyLoginCallback;
         public IdcardOcrImageCallBack idcardOcrImageCallBack;
         public InvoiceBuildCallback invoiceBuildCallback;
         public SapiWebView.InvokeScAppCallback invokeScAppCallback;

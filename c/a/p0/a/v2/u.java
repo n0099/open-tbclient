@@ -37,7 +37,7 @@ public final class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9417a;
+    public static final boolean f9425a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,7 +53,7 @@ public final class u {
                 return;
             }
         }
-        f9417a = c.a.p0.a.k.f7077a;
+        f9425a = c.a.p0.a.k.f7085a;
     }
 
     public static Bitmap a(Bitmap bitmap, long j2, boolean z) {
@@ -110,14 +110,14 @@ public final class u {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, file, file2, i2)) == null) {
-            boolean z = f9417a;
+            boolean z = f9425a;
             if (file2 == null) {
-                boolean z2 = f9417a;
+                boolean z2 = f9425a;
                 return false;
             } else if (i2 >= 0 && i2 <= 100) {
                 Bitmap decodeFile = BitmapFactory.decodeFile(file.getAbsolutePath());
                 if (decodeFile == null) {
-                    boolean z3 = f9417a;
+                    boolean z3 = f9425a;
                     return false;
                 }
                 FileOutputStream fileOutputStream2 = null;
@@ -135,7 +135,7 @@ public final class u {
                     return true;
                 } catch (FileNotFoundException unused2) {
                     fileOutputStream2 = fileOutputStream;
-                    boolean z4 = f9417a;
+                    boolean z4 = f9425a;
                     c.a.p0.t.d.d(fileOutputStream2);
                     return false;
                 } catch (Throwable th2) {
@@ -145,7 +145,7 @@ public final class u {
                     throw th;
                 }
             } else {
-                boolean z5 = f9417a;
+                boolean z5 = f9425a;
                 return false;
             }
         }
@@ -157,7 +157,7 @@ public final class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i2)) == null) {
             try {
-                if (f9417a) {
+                if (f9425a) {
                     String str3 = "copyJpegExif oldFilePath:" + str + "，newFilePath：" + str2 + ",quality:" + i2;
                 }
                 ExifInterface i3 = i(str);
@@ -169,7 +169,7 @@ public final class u {
                         if (!TextUtils.isEmpty(name) && name.startsWith("TAG")) {
                             String obj = fields[i5].get(ExifInterface.class).toString();
                             String attribute = i3.getAttribute(obj);
-                            if (f9417a) {
+                            if (f9425a) {
                                 String str4 = "fields name:" + obj + "，value：" + attribute;
                             }
                             if (!TextUtils.isEmpty(obj) && !TextUtils.equals("Orientation", obj)) {
@@ -250,7 +250,7 @@ public final class u {
             try {
                 return MediaStore.Images.Media.getBitmap(c.a.p0.a.a2.d.g().getContentResolver(), uri);
             } catch (Exception e2) {
-                if (f9417a) {
+                if (f9425a) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -368,7 +368,7 @@ public final class u {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
-            boolean z = f9417a;
+            boolean z = f9425a;
             String str3 = "swan_tmp_" + System.currentTimeMillis() + "_" + str2;
             File file = null;
             if (!TextUtils.isEmpty(str)) {
@@ -382,13 +382,13 @@ public final class u {
                     try {
                         file.createNewFile();
                     } catch (IOException e2) {
-                        if (f9417a) {
+                        if (f9425a) {
                             e2.printStackTrace();
                         }
                     }
                 }
             }
-            if (f9417a && file != null) {
+            if (f9425a && file != null) {
                 String str4 = "temp路径:" + file.getAbsolutePath();
             }
             return file;
@@ -420,9 +420,9 @@ public final class u {
         if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65550, null, file, file2, i2)) != null) {
             return invokeLLI.booleanValue;
         }
-        boolean z = f9417a;
+        boolean z = f9425a;
         if (file2 == null || file == null || !file.exists() || !file2.exists()) {
-            boolean z2 = f9417a;
+            boolean z2 = f9425a;
             return false;
         } else if (i2 >= 0 && i2 <= 100) {
             FileOutputStream fileOutputStream = null;
@@ -444,12 +444,12 @@ public final class u {
                             return true;
                         } catch (Exception unused) {
                             fileOutputStream = fileOutputStream2;
-                            boolean z3 = f9417a;
+                            boolean z3 = f9425a;
                             c.a.p0.t.d.d(fileOutputStream);
                             return false;
                         } catch (OutOfMemoryError unused2) {
                             fileOutputStream = fileOutputStream2;
-                            boolean z4 = f9417a;
+                            boolean z4 = f9425a;
                             c.a.p0.t.d.d(fileOutputStream);
                             return false;
                         } catch (Throwable th) {
@@ -459,7 +459,7 @@ public final class u {
                             throw th;
                         }
                     }
-                    boolean z5 = f9417a;
+                    boolean z5 = f9425a;
                     c.a.p0.t.d.d(null);
                     return false;
                 } catch (Throwable th2) {
@@ -469,7 +469,7 @@ public final class u {
             } catch (OutOfMemoryError unused4) {
             }
         } else {
-            boolean z6 = f9417a;
+            boolean z6 = f9425a;
             return false;
         }
     }
@@ -503,7 +503,7 @@ public final class u {
                                 z = bitmap.compress(compressFormat, i2, fileOutputStream2);
                             } catch (FileNotFoundException unused) {
                                 fileOutputStream = fileOutputStream2;
-                                boolean z2 = f9417a;
+                                boolean z2 = f9425a;
                                 c.a.p0.t.d.d(fileOutputStream);
                                 return false;
                             } catch (Throwable th) {

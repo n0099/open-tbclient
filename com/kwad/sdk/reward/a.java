@@ -26,41 +26,41 @@ public class a extends com.kwad.sdk.core.e.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<com.kwad.sdk.reward.a.a> f73248a;
+    public List<com.kwad.sdk.reward.a.a> f73567a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f73249b;
+    public com.kwad.sdk.reward.a.b f73568b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsVideoPlayConfig f73250c;
+    public KsVideoPlayConfig f73569c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f73251d;
+    public JSONObject f73570d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f73252e;
+    public int f73571e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f73253f;
+    public AdTemplate f73572f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Activity f73254g;
+    public Activity f73573g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public AdBaseFrameLayout f73255h;
+    public AdBaseFrameLayout f73574h;
     @NonNull
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f73256i;
+    public com.kwad.sdk.reward.c.a f73575i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f73257j;
+    public com.kwad.sdk.core.download.b.b f73576j;
     @NonNull
     public com.kwad.sdk.reward.b.b.a.a k;
     @Nullable
@@ -92,7 +92,7 @@ public class a extends com.kwad.sdk.core.e.b {
                 return;
             }
         }
-        this.f73248a = new ArrayList();
+        this.f73567a = new ArrayList();
         this.v = new HashSet();
         this.o = new HashSet();
         this.p = new HashSet();
@@ -121,10 +121,10 @@ public class a extends com.kwad.sdk.core.e.b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f73248a.clear();
+            this.f73567a.clear();
             this.v.clear();
-            this.f73256i.i();
-            com.kwad.sdk.core.download.b.b bVar = this.f73257j;
+            this.f73575i.i();
+            com.kwad.sdk.core.download.b.b bVar = this.f73576j;
             if (bVar != null) {
                 bVar.f();
             }
@@ -167,14 +167,14 @@ public class a extends com.kwad.sdk.core.e.b {
                 d();
                 return;
             }
-            Activity activity = this.f73254g;
+            Activity activity = this.f73573g;
             if (activity != null) {
                 activity.runOnUiThread(new Runnable(this) { // from class: com.kwad.sdk.reward.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f73258a;
+                    public final /* synthetic */ a f73577a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -191,14 +191,14 @@ public class a extends com.kwad.sdk.core.e.b {
                                 return;
                             }
                         }
-                        this.f73258a = this;
+                        this.f73577a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f73258a.b();
+                            this.f73577a.b();
                         }
                     }
                 });
@@ -208,7 +208,7 @@ public class a extends com.kwad.sdk.core.e.b {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f73259a;
+                    public final /* synthetic */ a f73578a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -225,14 +225,14 @@ public class a extends com.kwad.sdk.core.e.b {
                                 return;
                             }
                         }
-                        this.f73259a = this;
+                        this.f73578a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f73259a.b();
+                            this.f73578a.b();
                         }
                     }
                 });

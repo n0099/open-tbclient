@@ -46,7 +46,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankActivity f50199e;
+        public final /* synthetic */ HotUserRankActivity f50312e;
 
         public a(HotUserRankActivity hotUserRankActivity) {
             Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f50199e = hotUserRankActivity;
+            this.f50312e = hotUserRankActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50199e.mHotUserRankView.l(this.f50199e.mTabDataList, this.f50199e.mForumId, this.f50199e.mJumpPosition, this.f50199e.mRuleUrl);
+                this.f50312e.mHotUserRankView.l(this.f50312e.mTabDataList, this.f50312e.mForumId, this.f50312e.mJumpPosition, this.f50312e.mRuleUrl);
             }
         }
     }
@@ -81,7 +81,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankActivity f50200e;
+        public final /* synthetic */ HotUserRankActivity f50313e;
 
         public b(HotUserRankActivity hotUserRankActivity) {
             Interceptable interceptable = $ic;
@@ -98,14 +98,14 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f50200e = hotUserRankActivity;
+            this.f50313e = hotUserRankActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50200e.mHotUserRankView.o(8);
+                this.f50313e.mHotUserRankView.o(8);
             }
         }
     }
@@ -116,7 +116,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankActivity f50201a;
+        public final /* synthetic */ HotUserRankActivity f50314a;
 
         public c(HotUserRankActivity hotUserRankActivity) {
             Interceptable interceptable = $ic;
@@ -133,42 +133,42 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f50201a = hotUserRankActivity;
+            this.f50314a = hotUserRankActivity;
         }
 
         @Override // c.a.r0.n0.i.d.a.b
         public void a(c.a.r0.n0.i.c.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                HotUserRankActivity hotUserRankActivity = this.f50201a;
+                HotUserRankActivity hotUserRankActivity = this.f50314a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
-                if (cVar == null || cVar.f22628a == null) {
+                if (cVar == null || cVar.f22644a == null) {
                     return;
                 }
-                this.f50201a.mRuleUrl = cVar.f22631d;
-                if (this.f50201a.mForumId > 0) {
-                    e.a().post(this.f50201a.mLoadDataRunnable);
+                this.f50314a.mRuleUrl = cVar.f22647d;
+                if (this.f50314a.mForumId > 0) {
+                    e.a().post(this.f50314a.mLoadDataRunnable);
                     return;
                 }
-                TiebaFieldsInfo tiebaFieldsInfo = cVar.f22628a.f22619f;
+                TiebaFieldsInfo tiebaFieldsInfo = cVar.f22644a.f22635f;
                 if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
-                    List<String> list = cVar.f22628a.f22619f.tieba_fields;
-                    this.f50201a.mTabDataList.clear();
+                    List<String> list = cVar.f22644a.f22635f.tieba_fields;
+                    this.f50314a.mTabDataList.clear();
                     for (int i2 = 0; i2 < list.size(); i2++) {
                         String str = list.get(i2);
-                        if (str != null && str.equals(this.f50201a.mInputCategory)) {
-                            this.f50201a.mJumpPosition = i2;
+                        if (str != null && str.equals(this.f50314a.mInputCategory)) {
+                            this.f50314a.mJumpPosition = i2;
                         }
                         d dVar = new d();
-                        dVar.f22636b = str;
-                        dVar.f22635a = str;
-                        this.f50201a.mTabDataList.add(dVar);
+                        dVar.f22652b = str;
+                        dVar.f22651a = str;
+                        this.f50314a.mTabDataList.add(dVar);
                     }
-                    e.a().post(this.f50201a.mLoadDataRunnable);
+                    e.a().post(this.f50314a.mLoadDataRunnable);
                     return;
                 }
-                HotUserRankActivity hotUserRankActivity2 = this.f50201a;
-                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), this.f50201a.getString(R.string.neterror), true);
+                HotUserRankActivity hotUserRankActivity2 = this.f50314a;
+                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), this.f50314a.getString(R.string.neterror), true);
             }
         }
 
@@ -176,9 +176,9 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                HotUserRankActivity hotUserRankActivity = this.f50201a;
+                HotUserRankActivity hotUserRankActivity = this.f50314a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
-                HotUserRankActivity hotUserRankActivity2 = this.f50201a;
+                HotUserRankActivity hotUserRankActivity2 = this.f50314a;
                 hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), str, true);
             }
         }

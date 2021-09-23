@@ -23,7 +23,7 @@ public class b extends e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<e> f23533c;
+    public final List<e> f23549c;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -33,11 +33,11 @@ public class b extends e {
 
     /* renamed from: c.a.r0.p1.o.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1100b {
+    public static class C1098b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f23534a;
+        public static final b f23550a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public class b extends e {
                     return;
                 }
             }
-            f23534a = new b(null);
+            f23550a = new b(null);
         }
     }
 
@@ -64,7 +64,7 @@ public class b extends e {
     public static b h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1100b.f23534a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1098b.f23550a : (b) invokeV.objValue;
     }
 
     public static ICardInfo i(String str) {
@@ -136,7 +136,7 @@ public class b extends e {
         c.a.r0.p1.o.l.e a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i2)) == null) {
-            for (e eVar : this.f23533c) {
+            for (e eVar : this.f23549c) {
                 try {
                     a2 = eVar.a(tbPageContext, iCardInfo, i2);
                 } catch (Throwable th) {
@@ -159,7 +159,7 @@ public class b extends e {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, jSONObject, i2)) == null) {
-            for (e eVar : this.f23533c) {
+            for (e eVar : this.f23549c) {
                 try {
                     ICardInfo b2 = eVar.b(jSONObject, i2);
                     if (b2 != null) {
@@ -179,7 +179,7 @@ public class b extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
             synchronized (this) {
-                this.f23533c.add(eVar);
+                this.f23549c.add(eVar);
             }
         }
     }
@@ -197,6 +197,6 @@ public class b extends e {
                 return;
             }
         }
-        this.f23533c = new ArrayList(4);
+        this.f23549c = new ArrayList(4);
     }
 }

@@ -20,46 +20,46 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f16831a;
+    public BdUniqueId f16841a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SimpleForum> f16832b;
+    public List<SimpleForum> f16842b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f16833c;
+    public String f16843c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f16834d;
+    public b f16844d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f16835e;
+    public String f16845e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16836f;
+    public String f16846f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16837g;
+    public int f16847g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16838h;
+    public String f16848h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f16839i;
+    public BdUniqueId f16849i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.e.c.g.a f16840j;
+    public c.a.e.c.g.a f16850j;
 
     /* renamed from: c.a.r0.c4.q.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0811a extends c.a.e.c.g.a {
+    public class C0809a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f16841a;
+        public final /* synthetic */ a f16851a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0811a(a aVar, int i2, int i3) {
+        public C0809a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -77,7 +77,7 @@ public class a {
                     return;
                 }
             }
-            this.f16841a = aVar;
+            this.f16851a = aVar;
         }
 
         @Override // c.a.e.c.g.a
@@ -88,28 +88,28 @@ public class a {
             }
             boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
             if (z || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
-                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || this.f16841a.f16839i == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
+                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || this.f16851a.f16849i == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                     if (responsedMessage.hasError()) {
-                        if (this.f16841a.f16834d != null) {
-                            this.f16841a.f16834d.onError();
+                        if (this.f16851a.f16844d != null) {
+                            this.f16851a.f16844d.onError();
                             return;
                         }
                         return;
                     }
                     if (z) {
                         GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
-                        this.f16841a.f16832b = getRepostForumHttpResMessage.getForumList();
-                        this.f16841a.f16833c = getRepostForumHttpResMessage.getRecommendExtension();
-                        this.f16841a.f16837g = getRepostForumHttpResMessage.getPrivateThread();
+                        this.f16851a.f16842b = getRepostForumHttpResMessage.getForumList();
+                        this.f16851a.f16843c = getRepostForumHttpResMessage.getRecommendExtension();
+                        this.f16851a.f16847g = getRepostForumHttpResMessage.getPrivateThread();
                     }
                     if (responsedMessage instanceof GetRepostForumSocketResMessage) {
                         GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
-                        this.f16841a.f16832b = getRepostForumSocketResMessage.getForumList();
-                        this.f16841a.f16833c = getRepostForumSocketResMessage.getRecommendExtension();
-                        this.f16841a.f16837g = getRepostForumSocketResMessage.getPrivateThread();
+                        this.f16851a.f16842b = getRepostForumSocketResMessage.getForumList();
+                        this.f16851a.f16843c = getRepostForumSocketResMessage.getRecommendExtension();
+                        this.f16851a.f16847g = getRepostForumSocketResMessage.getPrivateThread();
                     }
-                    if (this.f16841a.f16834d != null) {
-                        this.f16841a.f16834d.a(this.f16841a.f16832b, this.f16841a.f16837g);
+                    if (this.f16851a.f16844d != null) {
+                        this.f16851a.f16844d.a(this.f16851a.f16842b, this.f16851a.f16847g);
                     }
                 }
             }
@@ -138,24 +138,24 @@ public class a {
                 return;
             }
         }
-        C0811a c0811a = new C0811a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
-        this.f16840j = c0811a;
-        this.f16831a = bdUniqueId;
-        c0811a.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f16840j);
-        this.f16840j.getHttpMessageListener().setSelfListener(true);
-        this.f16840j.getSocketMessageListener().setSelfListener(true);
+        C0809a c0809a = new C0809a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+        this.f16850j = c0809a;
+        this.f16841a = bdUniqueId;
+        c0809a.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f16850j);
+        this.f16850j.getHttpMessageListener().setSelfListener(true);
+        this.f16850j.getSocketMessageListener().setSelfListener(true);
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
-            getRepostForumReqMessage.setThreadTitle(this.f16835e);
-            getRepostForumReqMessage.setThreadContent(this.f16836f);
-            getRepostForumReqMessage.setForumId(this.f16838h);
-            getRepostForumReqMessage.setTag(this.f16831a);
-            getRepostForumReqMessage.setRequestId(this.f16839i);
+            getRepostForumReqMessage.setThreadTitle(this.f16845e);
+            getRepostForumReqMessage.setThreadContent(this.f16846f);
+            getRepostForumReqMessage.setForumId(this.f16848h);
+            getRepostForumReqMessage.setTag(this.f16841a);
+            getRepostForumReqMessage.setRequestId(this.f16849i);
             MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
         }
     }
@@ -163,28 +163,28 @@ public class a {
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f16834d = bVar;
+            this.f16844d = bVar;
         }
     }
 
     public void j(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.f16839i = bdUniqueId;
+            this.f16849i = bdUniqueId;
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f16836f = str;
+            this.f16846f = str;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f16835e = str;
+            this.f16845e = str;
         }
     }
 }

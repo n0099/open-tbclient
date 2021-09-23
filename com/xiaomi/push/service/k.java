@@ -22,7 +22,7 @@ public class k extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ j f78214a;
+    public final /* synthetic */ j f78533a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f964a;
@@ -31,7 +31,7 @@ public class k extends XMPushService.i {
     public final /* synthetic */ List f965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f78215b;
+    public final /* synthetic */ String f78534b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(j jVar, int i2, String str, List list, String str2) {
@@ -51,10 +51,10 @@ public class k extends XMPushService.i {
                 return;
             }
         }
-        this.f78214a = jVar;
+        this.f78533a = jVar;
         this.f964a = str;
         this.f965a = list;
-        this.f78215b = str2;
+        this.f78534b = str2;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -70,7 +70,7 @@ public class k extends XMPushService.i {
         XMPushService xMPushService;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a2 = this.f78214a.a(this.f964a);
+            a2 = this.f78533a.a(this.f964a);
             ArrayList<ie> a3 = bm.a(this.f965a, this.f964a, a2, 32768);
             if (a3 == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
@@ -80,17 +80,17 @@ public class k extends XMPushService.i {
             while (it.hasNext()) {
                 ie next = it.next();
                 next.a("uploadWay", "longXMPushService");
-                ib a4 = y.a(this.f964a, a2, next, hf.f77770i);
-                if (!TextUtils.isEmpty(this.f78215b) && !TextUtils.equals(this.f964a, this.f78215b)) {
+                ib a4 = y.a(this.f964a, a2, next, hf.f78089i);
+                if (!TextUtils.isEmpty(this.f78534b) && !TextUtils.equals(this.f964a, this.f78534b)) {
                     if (a4.m453a() == null) {
                         hs hsVar = new hs();
                         hsVar.a("-1");
                         a4.a(hsVar);
                     }
-                    a4.m453a().b("ext_traffic_source_pkg", this.f78215b);
+                    a4.m453a().b("ext_traffic_source_pkg", this.f78534b);
                 }
                 byte[] a5 = ip.a(a4);
-                xMPushService = this.f78214a.f78213a;
+                xMPushService = this.f78533a.f78532a;
                 xMPushService.a(this.f964a, a5, true);
             }
         }

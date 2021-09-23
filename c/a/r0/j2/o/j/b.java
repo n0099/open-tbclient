@@ -41,13 +41,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbModel f20698e;
+        public final /* synthetic */ PbModel f20713e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AbsPbActivity f20699f;
+        public final /* synthetic */ AbsPbActivity f20714f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f20700g;
+        public final /* synthetic */ View f20715g;
 
         public a(PbModel pbModel, AbsPbActivity absPbActivity, View view) {
             Interceptable interceptable = $ic;
@@ -64,9 +64,9 @@ public class b {
                     return;
                 }
             }
-            this.f20698e = pbModel;
-            this.f20699f = absPbActivity;
-            this.f20700g = view;
+            this.f20713e = pbModel;
+            this.f20714f = absPbActivity;
+            this.f20715g = view;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
@@ -74,7 +74,7 @@ public class b {
             PbModel pbModel;
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (pbModel = this.f20698e) == null || pbModel.O0() == null || !this.f20698e.O0().p0() || TbSingleton.getInstance().isNotchScreen(this.f20699f) || TbSingleton.getInstance().isCutoutScreen(this.f20699f) || (view = this.f20700g) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (pbModel = this.f20713e) == null || pbModel.P0() == null || !this.f20713e.P0().p0() || TbSingleton.getInstance().isNotchScreen(this.f20714f) || TbSingleton.getInstance().isCutoutScreen(this.f20714f) || (view = this.f20715g) == null) {
                 return;
             }
             view.setSystemUiVisibility(4);
@@ -103,10 +103,10 @@ public class b {
             if (d2Var.N1()) {
                 return 7;
             }
-            if (d2Var.y1) {
+            if (d2Var.z1) {
                 return 6;
             }
-            int i2 = d2Var.c0;
+            int i2 = d2Var.i0;
             if (i2 == 0) {
                 return 1;
             }
@@ -153,7 +153,7 @@ public class b {
     }
 
     public static void c(AbsPbActivity absPbActivity, int i2, int i3) {
-        String e1;
+        String f1;
         String str;
         char c2;
         Interceptable interceptable = $ic;
@@ -164,24 +164,24 @@ public class b {
         View rootView = absPbActivity.getRootView();
         if (pbModel.d()) {
             TiebaStatic.eventStat(absPbActivity, CheckRealNameModel.TYPE_PB_SHARE, "pbclick", 1, new Object[0]);
-            e O0 = pbModel.O0();
-            String title = O0.O().getTitle();
-            boolean s0 = pbModel.s0();
-            if (O0.m() != null) {
-                if (O0.m().isLike() == 1) {
-                    AddExperiencedModel.B(O0.n());
+            e P0 = pbModel.P0();
+            String title = P0.O().getTitle();
+            boolean t0 = pbModel.t0();
+            if (P0.m() != null) {
+                if (P0.m().isLike() == 1) {
+                    AddExperiencedModel.B(P0.n());
                 }
             }
-            d2 O = pbModel.O0().O();
+            d2 O = pbModel.P0().O();
             if (O.D2()) {
-                e1 = O.L().oriUgcTid;
-                str = "?share=9105&fr=dshare&see_lz=" + (s0 ? 1 : 0) + "&dtype=" + O.L().oriUgcType + "&dvid=" + O.L().oriUgcVid + "&nid=" + O.L().oriUgcNid;
+                f1 = O.L().oriUgcTid;
+                str = "?share=9105&fr=dshare&see_lz=" + (t0 ? 1 : 0) + "&dtype=" + O.L().oriUgcType + "&dvid=" + O.L().oriUgcVid + "&nid=" + O.L().oriUgcNid;
             } else {
-                e1 = pbModel.e1();
-                str = "?share=9105&fr=sharewise&see_lz=" + (s0 ? 1 : 0);
+                f1 = pbModel.f1();
+                str = "?share=9105&fr=sharewise&see_lz=" + (t0 ? 1 : 0);
             }
-            String str2 = "http://tieba.baidu.com/p/" + e1 + (str + "&share_from=post");
-            String[] M = O0.M(absPbActivity);
+            String str2 = "http://tieba.baidu.com/p/" + f1 + (str + "&share_from=post");
+            String[] M = P0.M(absPbActivity);
             String str3 = M[0];
             if (!StringUtils.isNull(str3) && str3.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                 str3 = str3.substring(37);
@@ -190,10 +190,10 @@ public class b {
             String str4 = M[1];
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (i2 == 1) {
-                TiebaStatic.log(new StatisticItem("c10399").param("fid", O0.n()).param("tid", O0.Q()).param("uid", currentAccount));
+                TiebaStatic.log(new StatisticItem("c10399").param("fid", P0.n()).param("tid", P0.Q()).param("uid", currentAccount));
             }
             String string = TbadkCoreApplication.getInst().getResources().getString(R.string.default_share_content_tpl);
-            if (O0.f0() && O.J() != null) {
+            if (P0.f0() && O.J() != null) {
                 if (TextUtils.isEmpty(title) || TextUtils.isEmpty(str4) || O.O1() || O.P1()) {
                     if (TextUtils.isEmpty(title)) {
                         c2 = 1;
@@ -214,33 +214,33 @@ public class b {
             ShareItem shareItem = new ShareItem();
             shareItem.r = cutString;
             shareItem.s = cutString2;
-            if (O0.f0()) {
+            if (P0.f0()) {
                 shareItem.D = cutString2;
                 shareItem.R = -1L;
-            } else if (O0.O() != null && O0.O().q1() != null && !O0.O().D2()) {
-                shareItem.R = O0.O().q1().play_count.intValue();
+            } else if (P0.O() != null && P0.O().q1() != null && !P0.O().D2()) {
+                shareItem.R = P0.O().q1().play_count.intValue();
             }
             shareItem.t = str2;
-            shareItem.f48107c = true;
-            shareItem.q = pbModel.e1();
+            shareItem.f48215c = true;
+            shareItem.q = pbModel.f1();
             shareItem.F = 3;
             shareItem.E = i3;
             shareItem.J = pbModel.getForumId();
-            shareItem.K = pbModel.e1();
-            shareItem.M = b(O0);
+            shareItem.K = pbModel.f1();
+            shareItem.M = b(P0);
             shareItem.N = TbadkCoreApplication.getCurrentAccount();
             if (parse != null) {
                 shareItem.v = parse;
             }
             if (i3 == 2) {
-                shareItem.F = pbModel.t0();
+                shareItem.F = pbModel.u0();
             }
-            if (O0.f0()) {
+            if (P0.f0()) {
                 shareItem.j0 = false;
             }
             shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(O);
-            if (O0 != null && O0.F() != null && O0.F().size() > 0) {
-                shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(O, 1, O0.F().get(0));
+            if (P0 != null && P0.F() != null && P0.F().size() > 0) {
+                shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(O, 1, P0.F().get(0));
             } else {
                 shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(O, 1, null);
             }

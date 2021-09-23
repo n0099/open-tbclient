@@ -11,7 +11,7 @@ public class a implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ClientUpdater f38842a;
+    public final /* synthetic */ ClientUpdater f38901a;
 
     public a(ClientUpdater clientUpdater) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f38842a = clientUpdater;
+        this.f38901a = clientUpdater;
     }
 
     @Override // java.lang.Runnable
@@ -36,7 +36,7 @@ public class a implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogUtil.logD("ClientUpdater", "background Check ClientUpdate!");
-            this.f38842a.b();
+            this.f38901a.b();
         }
     }
 }

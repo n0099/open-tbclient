@@ -21,22 +21,22 @@ public class b implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f17137e;
+    public String f17147e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17138f;
+    public int f17148f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17139g;
+    public int f17149g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17140h;
+    public String f17150h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f17141i;
+    public int f17151i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f17142j;
+    public boolean f17152j;
     public d2 k;
 
     public b(ThreadInfo threadInfo, boolean z) {
@@ -55,7 +55,7 @@ public class b implements n {
             }
         }
         b(threadInfo);
-        this.f17142j = z;
+        this.f17152j = z;
     }
 
     public final void b(ThreadInfo threadInfo) {
@@ -66,26 +66,26 @@ public class b implements n {
         d2 d2Var = new d2();
         this.k = d2Var;
         d2Var.Y2(threadInfo);
-        this.f17137e = threadInfo.title;
-        this.f17138f = threadInfo.reply_num.intValue();
-        this.f17139g = threadInfo.agree_num.intValue();
+        this.f17147e = threadInfo.title;
+        this.f17148f = threadInfo.reply_num.intValue();
+        this.f17149g = threadInfo.agree_num.intValue();
         if (!ListUtils.isEmpty(this.k.E0())) {
             Iterator<MediaData> it = this.k.E0().iterator();
             while (it.hasNext()) {
                 MediaData next = it.next();
                 if (next != null && next.getType() == 3) {
                     String picUrl = next.getPicUrl();
-                    this.f17140h = picUrl;
+                    this.f17150h = picUrl;
                     if (StringUtils.isNull(picUrl)) {
-                        this.f17140h = next.getSmallUrl();
+                        this.f17150h = next.getSmallUrl();
                     }
-                    if (StringUtils.isNull(this.f17140h)) {
-                        this.f17140h = next.getThumbnails_url();
+                    if (StringUtils.isNull(this.f17150h)) {
+                        this.f17150h = next.getThumbnails_url();
                     }
-                    if (StringUtils.isNull(this.f17140h)) {
-                        this.f17140h = next.getSrc_pic();
+                    if (StringUtils.isNull(this.f17150h)) {
+                        this.f17150h = next.getSrc_pic();
                     }
-                    if (!StringUtils.isNull(this.f17140h)) {
+                    if (!StringUtils.isNull(this.f17150h)) {
                         break;
                     }
                 }
@@ -93,7 +93,7 @@ public class b implements n {
         }
         VideoInfo videoInfo = threadInfo.video_info;
         if (videoInfo != null) {
-            this.f17141i = videoInfo.video_duration.intValue();
+            this.f17151i = videoInfo.video_duration.intValue();
         }
     }
 
@@ -101,6 +101,6 @@ public class b implements n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a.f17135a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a.f17145a : (BdUniqueId) invokeV.objValue;
     }
 }

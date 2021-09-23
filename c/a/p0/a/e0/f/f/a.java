@@ -42,13 +42,13 @@ public class a extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f5290c;
+    public c f5298c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f5291d;
+    public ExecutorService f5299d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f5292e;
+    public int f5300e;
 
     /* renamed from: c.a.p0.a.e0.f.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -57,19 +57,19 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f5293e;
+        public final /* synthetic */ Context f5301e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f5294f;
+        public final /* synthetic */ File f5302f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5295g;
+        public final /* synthetic */ UnitedSchemeEntity f5303g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5296h;
+        public final /* synthetic */ CallbackHandler f5304h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f5297i;
+        public final /* synthetic */ a f5305i;
 
         public RunnableC0154a(a aVar, Context context, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -86,19 +86,19 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f5297i = aVar;
-            this.f5293e = context;
-            this.f5294f = file;
-            this.f5295g = unitedSchemeEntity;
-            this.f5296h = callbackHandler;
+            this.f5305i = aVar;
+            this.f5301e = context;
+            this.f5302f = file;
+            this.f5303g = unitedSchemeEntity;
+            this.f5304h = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f5297i;
-                aVar.q(this.f5293e, aVar.f5290c.f5306b, this.f5297i.f5290c.f5307c, this.f5294f, this.f5295g, this.f5296h);
+                a aVar = this.f5305i;
+                aVar.q(this.f5301e, aVar.f5298c.f5314b, this.f5305i.f5298c.f5315c, this.f5302f, this.f5303g, this.f5304h);
             }
         }
     }
@@ -109,22 +109,22 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f5298e;
+        public final /* synthetic */ Context f5306e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5299f;
+        public final /* synthetic */ String f5307f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5300g;
+        public final /* synthetic */ String f5308g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f5301h;
+        public final /* synthetic */ File f5309h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5302i;
+        public final /* synthetic */ UnitedSchemeEntity f5310i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5303j;
+        public final /* synthetic */ CallbackHandler f5311j;
         public final /* synthetic */ a k;
 
         public b(a aVar, Context context, String str, String str2, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -143,19 +143,19 @@ public class a extends a0 {
                 }
             }
             this.k = aVar;
-            this.f5298e = context;
-            this.f5299f = str;
-            this.f5300g = str2;
-            this.f5301h = file;
-            this.f5302i = unitedSchemeEntity;
-            this.f5303j = callbackHandler;
+            this.f5306e = context;
+            this.f5307f = str;
+            this.f5308g = str2;
+            this.f5309h = file;
+            this.f5310i = unitedSchemeEntity;
+            this.f5311j = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.k.q(this.f5298e, this.f5299f, this.f5300g, this.f5301h, this.f5302i, this.f5303j);
+                this.k.q(this.f5306e, this.f5307f, this.f5308g, this.f5309h, this.f5310i, this.f5311j);
             }
         }
     }
@@ -189,12 +189,12 @@ public class a extends a0 {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
                 c e2 = c.e(optParamsAsJo);
-                this.f5290c = e2;
+                this.f5298c = e2;
                 if (e2 != null && !e2.d()) {
                     l(context, unitedSchemeEntity, callbackHandler);
                     return true;
                 }
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
@@ -212,22 +212,22 @@ public class a extends a0 {
             if (b2.exists()) {
                 b2.delete();
             }
-            this.f5291d = Executors.newFixedThreadPool(4);
-            this.f5292e = 0;
-            JSONArray jSONArray = this.f5290c.f5311g;
+            this.f5299d = Executors.newFixedThreadPool(4);
+            this.f5300e = 0;
+            JSONArray jSONArray = this.f5298c.f5319g;
             if (jSONArray != null && jSONArray.length() > 0) {
-                int length = this.f5290c.f5311g.length();
+                int length = this.f5298c.f5319g.length();
                 for (int i2 = 0; i2 < length; i2++) {
-                    String a2 = this.f5290c.a(i2);
+                    String a2 = this.f5298c.a(i2);
                     if (TextUtils.isEmpty(a2)) {
-                        int i3 = this.f5292e + 1;
-                        this.f5292e = i3;
+                        int i3 = this.f5300e + 1;
+                        this.f5300e = i3;
                         if (i3 >= length) {
                             c.a.p0.a.e0.d.b("WirelessDebugAction", "Hosts are invalid");
                             p(context, XAdRemoteSDKCountly.COUNTLY_TYPE_4_CRASH);
                         }
                     } else {
-                        this.f5291d.execute(new b(this, context, a2, this.f5290c.c(i2), b2, unitedSchemeEntity, callbackHandler));
+                        this.f5299d.execute(new b(this, context, a2, this.f5298c.c(i2), b2, unitedSchemeEntity, callbackHandler));
                     }
                 }
                 return;
@@ -243,7 +243,7 @@ public class a extends a0 {
             try {
                 return URLEncoder.encode(str, "UTF-8");
             } catch (UnsupportedEncodingException unused) {
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 return str;
             }
         }
@@ -256,10 +256,10 @@ public class a extends a0 {
             b.a L = c.a.p0.a.a2.d.g().r().L();
             f fVar = new f();
             fVar.j(L);
-            fVar.f7063a = k.m(L.G());
-            fVar.f7064b = "launch";
-            fVar.f7065c = "adb-debug";
-            fVar.f7067e = "download_fail";
+            fVar.f7071a = k.m(L.G());
+            fVar.f7072b = "launch";
+            fVar.f7073c = "adb-debug";
+            fVar.f7075e = "download_fail";
             k.onEvent(fVar);
         }
     }
@@ -267,7 +267,7 @@ public class a extends a0 {
     public final c.a o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (c.a) ((c.a) ((c.a) new c.a().u0(this.f5290c.f5305a)).z0(false)).O0(this.f5290c.f5308d) : (c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (c.a) ((c.a) ((c.a) new c.a().u0(this.f5298c.f5313a)).z0(false)).O0(this.f5298c.f5316d) : (c.a) invokeV.objValue;
     }
 
     public final void p(Context context, String str) {
@@ -287,7 +287,7 @@ public class a extends a0 {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:34:0x00b0, code lost:
-        if (r6 >= r4.f5290c.f5311g.length()) goto L35;
+        if (r6 >= r4.f5298c.f5319g.length()) goto L35;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -300,17 +300,17 @@ public class a extends a0 {
                 if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                     g.a(executeSync.body().byteStream(), file);
                     Intent d1 = c.a.p0.a.f1.e.c.d1(context, o());
-                    d1.putExtra(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, this.f5290c.f5309e);
-                    d1.putExtra("slavePreload", this.f5290c.f5310f);
+                    d1.putExtra(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, this.f5298c.f5317e);
+                    d1.putExtra("slavePreload", this.f5298c.f5318f);
                     d1.putExtra("extraWSUrl", str2);
                     context.startActivity(d1);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (this.f5291d != null) {
-                        this.f5291d.shutdownNow();
-                        this.f5291d = null;
+                    if (this.f5299d != null) {
+                        this.f5299d.shutdownNow();
+                        this.f5299d = null;
                     }
                     if (!ProcessUtils.isMainProcess()) {
-                        boolean z = a0.f4766b;
+                        boolean z = a0.f4774b;
                         d.d();
                     }
                 }
@@ -320,9 +320,9 @@ public class a extends a0 {
             } catch (IOException unused) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 synchronized (this) {
-                    if (this.f5290c.f5311g != null) {
-                        int i2 = this.f5292e + 1;
-                        this.f5292e = i2;
+                    if (this.f5298c.f5319g != null) {
+                        int i2 = this.f5300e + 1;
+                        this.f5300e = i2;
                     }
                     c.a.p0.a.e0.d.b("WirelessDebugAction", "Host IPs are invalid");
                     p(context, XAdRemoteSDKCountly.COUNTLY_TYPE_4_CRASH);

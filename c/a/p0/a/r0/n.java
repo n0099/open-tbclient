@@ -35,13 +35,13 @@ public class n {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8315a = "/aigames/sandbox/";
+    public static String f8323a = "/aigames/sandbox/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8316b;
+    public static String f8324b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8317c;
+    public static String f8325c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -49,7 +49,7 @@ public class n {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f8318a;
+        public static final /* synthetic */ int[] f8326a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -66,13 +66,13 @@ public class n {
                 }
             }
             int[] iArr = new int[PathType.values().length];
-            f8318a = iArr;
+            f8326a = iArr;
             try {
                 iArr[PathType.BD_FILE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f8318a[PathType.RELATIVE.ordinal()] = 2;
+                f8326a[PathType.RELATIVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -283,7 +283,7 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
             String w = w(AppRuntime.getAppContext());
-            return w + File.separator + str + f8315a + str2;
+            return w + File.separator + str + f8323a + str2;
         }
         return (String) invokeLL.objValue;
     }
@@ -489,7 +489,7 @@ public class n {
         String y;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            int i2 = a.f8318a[c.a.p0.a.k2.b.s(str).ordinal()];
+            int i2 = a.f8326a[c.a.p0.a.k2.b.s(str).ordinal()];
             if (i2 == 1) {
                 y = y(str);
             } else if (i2 != 2) {
@@ -560,10 +560,10 @@ public class n {
             aVar.throwJSException(jSExceptionType, str2 + str);
             return;
         }
-        int i2 = cVar.f8165a;
+        int i2 = cVar.f8173a;
         if (i2 != 0) {
             JSExceptionType z = z(i2);
-            aVar.throwJSException(z, str2 + cVar.f8166b);
+            aVar.throwJSException(z, str2 + cVar.f8174b);
         }
     }
 
@@ -582,26 +582,26 @@ public class n {
                 }
             }
             str = null;
-            if (bVar2 == null || bVar == null || (map2 = bVar.f8164c) == null) {
+            if (bVar2 == null || bVar == null || (map2 = bVar.f8172c) == null) {
                 return false;
             }
-            c cVar = bVar.f8162a;
+            c cVar = bVar.f8170a;
             JsFunction A = A(com.baidu.pass.biometrics.face.liveness.b.a.g0, map2);
             JsFunction A2 = A(XAdRemoteEvent.COMPLETE, map2);
             JsFunction A3 = A("success", map2);
             if (!TextUtils.isEmpty(str)) {
-                String str2 = bVar.f8163b + str;
+                String str2 = bVar.f8171b + str;
                 bVar2.errMsg = str2;
                 d(aVar, str2);
                 k(A, A2, bVar2, A3);
                 return false;
             } else if (cVar == null) {
-                bVar2.errMsg = bVar.f8163b + "unknown error";
+                bVar2.errMsg = bVar.f8171b + "unknown error";
                 k(A, A2, bVar2, A3);
                 return false;
             } else {
-                bVar2.errMsg = bVar.f8163b + cVar.f8166b;
-                if (cVar.f8165a != 0) {
+                bVar2.errMsg = bVar.f8171b + cVar.f8174b;
+                if (cVar.f8173a != 0) {
                     k(A, A2, bVar2, A3);
                     return false;
                 }
@@ -629,7 +629,7 @@ public class n {
         if (!TextUtils.isEmpty(str)) {
             c.a.p0.t.d.L(str);
         }
-        String str2 = w + File.separator + f8317c + f8315a;
+        String str2 = w + File.separator + f8325c + f8323a;
         if (TextUtils.isEmpty(str2)) {
             return;
         }
@@ -848,7 +848,7 @@ public class n {
             } catch (Exception e3) {
                 e = e3;
                 fileInputStream2 = fileInputStream;
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e.printStackTrace();
                 }
                 c.a.p0.t.d.d(fileInputStream2);
@@ -1070,9 +1070,9 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65582, null, cVar, str, map)) == null) {
             b bVar = new b();
-            bVar.f8162a = cVar;
-            bVar.f8163b = str;
-            bVar.f8164c = map;
+            bVar.f8170a = cVar;
+            bVar.f8171b = str;
+            bVar.f8172c = map;
             return bVar;
         }
         return (b) invokeLLL.objValue;
@@ -1107,12 +1107,12 @@ public class n {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65584, null, str, str2, str3)) == null) {
             c cVar = new c();
             if (str == null) {
-                cVar.f8166b = str3;
-                cVar.f8165a = -2;
+                cVar.f8174b = str3;
+                cVar.f8173a = -2;
                 return cVar;
             } else if ("".equals(str)) {
-                cVar.f8166b = str2;
-                cVar.f8165a = -1;
+                cVar.f8174b = str2;
+                cVar.f8173a = -1;
                 return cVar;
             } else {
                 return null;
@@ -1129,10 +1129,10 @@ public class n {
             if (context == null) {
                 return "";
             }
-            if (TextUtils.isEmpty(f8316b) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
-                f8316b = externalFilesDir.getAbsolutePath();
+            if (TextUtils.isEmpty(f8324b) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
+                f8324b = externalFilesDir.getAbsolutePath();
             }
-            return f8316b;
+            return f8324b;
         }
         return (String) invokeL.objValue;
     }

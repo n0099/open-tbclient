@@ -19,22 +19,22 @@ public abstract class a implements c.a.q0.x.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f15174e;
+    public b f15183e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterfaceC0720a f15175f;
+    public InterfaceC0718a f15184f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15176g;
+    public int f15185g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15177h;
+    public int f15186h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15178i;
+    public int f15187i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f15179j;
+    public int f15188j;
     public int k;
     public int l;
     public CommonTabHost.b m;
@@ -44,7 +44,7 @@ public abstract class a implements c.a.q0.x.b {
 
     /* renamed from: c.a.q0.x.z.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0720a {
+    public interface InterfaceC0718a {
         View getView(int i2, View view, ViewGroup viewGroup);
     }
 
@@ -54,10 +54,10 @@ public abstract class a implements c.a.q0.x.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f15180a;
+        public int f15189a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f15181b;
+        public int f15190b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -87,10 +87,10 @@ public abstract class a implements c.a.q0.x.b {
                 return;
             }
         }
-        this.f15176g = 0;
-        this.f15177h = 0;
-        this.f15178i = 0;
-        this.f15179j = 0;
+        this.f15185g = 0;
+        this.f15186h = 0;
+        this.f15187i = 0;
+        this.f15188j = 0;
         this.k = 0;
         this.l = 0;
         this.o = 0;
@@ -101,7 +101,7 @@ public abstract class a implements c.a.q0.x.b {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15176g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15185g : invokeV.intValue;
     }
 
     public abstract int c();
@@ -115,13 +115,13 @@ public abstract class a implements c.a.q0.x.b {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15179j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15188j : invokeV.intValue;
     }
 
     public b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15174e : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15183e : (b) invokeV.objValue;
     }
 
     public CommonTabContentView.c g() {
@@ -151,19 +151,19 @@ public abstract class a implements c.a.q0.x.b {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f15177h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f15186h : invokeV.intValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f15178i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f15187i : invokeV.intValue;
     }
 
-    public InterfaceC0720a m() {
+    public InterfaceC0718a m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f15175f : (InterfaceC0720a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f15184f : (InterfaceC0718a) invokeV.objValue;
     }
 
     public abstract void n(Context context);
@@ -171,7 +171,7 @@ public abstract class a implements c.a.q0.x.b {
     public void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f15176g = i2;
+            this.f15185g = i2;
         }
     }
 
@@ -185,14 +185,14 @@ public abstract class a implements c.a.q0.x.b {
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f15179j = i2;
+            this.f15188j = i2;
         }
     }
 
     public void r(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bVar) == null) {
-            this.f15174e = bVar;
+            this.f15183e = bVar;
         }
     }
 
@@ -236,21 +236,21 @@ public abstract class a implements c.a.q0.x.b {
     public void v(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f15177h = i2;
+            this.f15186h = i2;
         }
     }
 
     public void w(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.f15178i = i2;
+            this.f15187i = i2;
         }
     }
 
-    public void x(InterfaceC0720a interfaceC0720a) {
+    public void x(InterfaceC0718a interfaceC0718a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, interfaceC0720a) == null) {
-            this.f15175f = interfaceC0720a;
+        if (interceptable == null || interceptable.invokeL(1048601, this, interfaceC0718a) == null) {
+            this.f15184f = interfaceC0718a;
         }
     }
 }

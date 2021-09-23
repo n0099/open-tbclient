@@ -23,22 +23,22 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f33164e;
+    public final int f33187e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f33165f;
+    public final int[] f33188f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean[] f33166g;
+    public final boolean[] f33189g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final T f33167h;
+    public final T f33190h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final p.a<f<T>> f33168i;
+    public final p.a<f<T>> f33191i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final b.a f33169j;
+    public final b.a f33192j;
     public final int k;
     public final Loader l;
     public final e m;
@@ -57,16 +57,16 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final f<T> f33170e;
+        public final f<T> f33193e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final n f33171f;
+        public final n f33194f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f33172g;
+        public final int f33195g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ f f33173h;
+        public final /* synthetic */ f f33196h;
 
         public a(f fVar, f<T> fVar2, n nVar, int i2) {
             Interceptable interceptable = $ic;
@@ -83,10 +83,10 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
                     return;
                 }
             }
-            this.f33173h = fVar;
-            this.f33170e = fVar2;
-            this.f33171f = nVar;
-            this.f33172g = i2;
+            this.f33196h = fVar;
+            this.f33193e = fVar2;
+            this.f33194f = nVar;
+            this.f33195g = i2;
         }
 
         @Override // c.i.b.a.d0.o
@@ -99,8 +99,8 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c.i.b.a.i0.a.f(this.f33173h.f33166g[this.f33172g]);
-                this.f33173h.f33166g[this.f33172g] = false;
+                c.i.b.a.i0.a.f(this.f33196h.f33189g[this.f33195g]);
+                this.f33196h.f33189g[this.f33195g] = false;
             }
         }
 
@@ -109,11 +109,11 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
             InterceptResult invokeLLZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, lVar, eVar, z)) == null) {
-                if (this.f33173h.x()) {
+                if (this.f33196h.x()) {
                     return -3;
                 }
-                n nVar = this.f33171f;
-                f fVar = this.f33173h;
+                n nVar = this.f33194f;
+                f fVar = this.f33196h;
                 return nVar.w(lVar, eVar, z, fVar.u, fVar.t);
             }
             return invokeLLZ.intValue;
@@ -124,8 +124,8 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                f fVar = this.f33173h;
-                return fVar.u || (!fVar.x() && this.f33171f.s());
+                f fVar = this.f33196h;
+                return fVar.u || (!fVar.x() && this.f33194f.s());
             }
             return invokeV.booleanValue;
         }
@@ -135,10 +135,10 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                if (this.f33173h.u && j2 > this.f33171f.o()) {
-                    return this.f33171f.g();
+                if (this.f33196h.u && j2 > this.f33194f.o()) {
+                    return this.f33194f.g();
                 }
-                int f2 = this.f33171f.f(j2, true, true);
+                int f2 = this.f33194f.f(j2, true, true);
                 if (f2 == -1) {
                     return 0;
                 }
@@ -163,11 +163,11 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
                 return;
             }
         }
-        this.f33164e = i2;
-        this.f33165f = iArr;
-        this.f33167h = t;
-        this.f33168i = aVar;
-        this.f33169j = aVar2;
+        this.f33187e = i2;
+        this.f33188f = iArr;
+        this.f33190h = t;
+        this.f33191i = aVar;
+        this.f33192j = aVar2;
         this.k = i3;
         this.l = new Loader("Loader:ChunkSampleStream");
         this.m = new e();
@@ -177,7 +177,7 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
         int i6 = 0;
         int length = iArr == null ? 0 : iArr.length;
         this.p = new n[length];
-        this.f33166g = new boolean[length];
+        this.f33189g = new boolean[length];
         int i7 = length + 1;
         int[] iArr2 = new int[i7];
         n[] nVarArr = new n[i7];
@@ -209,7 +209,7 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
             long c2 = cVar.c();
             boolean w = w(cVar);
             boolean z2 = (c2 != 0 && w && v()) ? false : true;
-            if (this.f33167h.d(cVar, z2, iOException) && z2) {
+            if (this.f33190h.d(cVar, z2, iOException) && z2) {
                 if (w) {
                     c.i.b.a.d0.u.a removeLast = this.n.removeLast();
                     c.i.b.a.i0.a.f(removeLast == cVar);
@@ -232,9 +232,9 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
             } else {
                 z = false;
             }
-            this.f33169j.j(cVar.f33143a, cVar.f33144b, this.f33164e, cVar.f33145c, cVar.f33146d, cVar.f33147e, cVar.f33148f, cVar.f33149g, j2, j3, c2, iOException, z);
+            this.f33192j.j(cVar.f33166a, cVar.f33167b, this.f33187e, cVar.f33168c, cVar.f33169d, cVar.f33170e, cVar.f33171f, cVar.f33172g, j2, j3, c2, iOException, z);
             if (z) {
-                this.f33168i.j(this);
+                this.f33191i.j(this);
                 return 2;
             }
             return 0;
@@ -302,9 +302,9 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             for (int i3 = 0; i3 < this.p.length; i3++) {
-                if (this.f33165f[i3] == i2) {
-                    c.i.b.a.i0.a.f(!this.f33166g[i3]);
-                    this.f33166g[i3] = true;
+                if (this.f33188f[i3] == i2) {
+                    c.i.b.a.i0.a.f(!this.f33189g[i3]);
+                    this.f33189g[i3] = true;
                     this.p[i3].C();
                     this.p[i3].f(j2, true, true);
                     return new a(this, this, this.p[i3], i3);
@@ -323,7 +323,7 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
             if (this.l.g()) {
                 return;
             }
-            this.f33167h.a();
+            this.f33190h.a();
         }
     }
 
@@ -342,12 +342,12 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
                 j3 = this.s;
             } else {
                 last = this.n.getLast();
-                j3 = last.f33149g;
+                j3 = last.f33172g;
             }
-            this.f33167h.f(last, j2, j3, this.m);
+            this.f33190h.f(last, j2, j3, this.m);
             e eVar = this.m;
-            boolean z = eVar.f33163b;
-            c cVar = eVar.f33162a;
+            boolean z = eVar.f33186b;
+            c cVar = eVar.f33185a;
             eVar.a();
             if (z) {
                 this.s = -9223372036854775807L;
@@ -362,7 +362,7 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
                     aVar.i(this.q);
                     this.n.add(aVar);
                 }
-                this.f33169j.l(cVar.f33143a, cVar.f33144b, this.f33164e, cVar.f33145c, cVar.f33146d, cVar.f33147e, cVar.f33148f, cVar.f33149g, this.l.k(cVar, this, this.k));
+                this.f33192j.l(cVar.f33166a, cVar.f33167b, this.f33187e, cVar.f33168c, cVar.f33169d, cVar.f33170e, cVar.f33171f, cVar.f33172g, this.l.k(cVar, this, this.k));
                 return true;
             }
         }
@@ -391,7 +391,7 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
                 }
             }
             if (last != null) {
-                j2 = Math.max(j2, last.f33149g);
+                j2 = Math.max(j2, last.f33172g);
             }
             return Math.max(j2, this.o.o());
         }
@@ -409,7 +409,7 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
             if (this.u) {
                 return Long.MIN_VALUE;
             }
-            return this.n.getLast().f33149g;
+            return this.n.getLast().f33172g;
         }
         return invokeV.longValue;
     }
@@ -484,9 +484,9 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
             this.n.removeFirst();
         }
         c.i.b.a.d0.u.a first = this.n.getFirst();
-        Format format = first.f33145c;
+        Format format = first.f33168c;
         if (!format.equals(this.r)) {
-            this.f33169j.e(this.f33164e, format, first.f33146d, first.f33147e, first.f33148f);
+            this.f33192j.e(this.f33187e, format, first.f33169d, first.f33170e, first.f33171f);
         }
         this.r = format;
     }
@@ -502,7 +502,7 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
             if (i2 >= nVarArr.length) {
                 return;
             }
-            nVarArr[i2].j(j2, true, this.f33166g[i2]);
+            nVarArr[i2].j(j2, true, this.f33189g[i2]);
             i2++;
         }
     }
@@ -510,7 +510,7 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
     public T u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f33167h : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f33190h : (T) invokeV.objValue;
     }
 
     public final boolean v() {
@@ -554,7 +554,7 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
     public void l(c cVar, long j2, long j3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{cVar, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-            this.f33169j.f(cVar.f33143a, cVar.f33144b, this.f33164e, cVar.f33145c, cVar.f33146d, cVar.f33147e, cVar.f33148f, cVar.f33149g, j2, j3, cVar.c());
+            this.f33192j.f(cVar.f33166a, cVar.f33167b, this.f33187e, cVar.f33168c, cVar.f33169d, cVar.f33170e, cVar.f33171f, cVar.f33172g, j2, j3, cVar.c());
             if (z) {
                 return;
             }
@@ -562,7 +562,7 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
             for (n nVar : this.p) {
                 nVar.A();
             }
-            this.f33168i.j(this);
+            this.f33191i.j(this);
         }
     }
 
@@ -572,9 +572,9 @@ public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
     public void m(c cVar, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{cVar, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f33167h.c(cVar);
-            this.f33169j.h(cVar.f33143a, cVar.f33144b, this.f33164e, cVar.f33145c, cVar.f33146d, cVar.f33147e, cVar.f33148f, cVar.f33149g, j2, j3, cVar.c());
-            this.f33168i.j(this);
+            this.f33190h.c(cVar);
+            this.f33192j.h(cVar.f33166a, cVar.f33167b, this.f33187e, cVar.f33168c, cVar.f33169d, cVar.f33170e, cVar.f33171f, cVar.f33172g, j2, j3, cVar.c());
+            this.f33191i.j(this);
         }
     }
 }

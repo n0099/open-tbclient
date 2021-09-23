@@ -1,6 +1,6 @@
 package com.baidu.tieba.gift.giftTab;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -44,7 +44,7 @@ public class CategoryGiftListRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.category_id = Integer.valueOf(this.categoryId);
             if (z) {
-                x.a(builder, true);
+                a0.a(builder, true);
             }
             GetGiftListByCategoryIdReqIdl.Builder builder2 = new GetGiftListByCategoryIdReqIdl.Builder();
             builder2.data = builder.build(false);

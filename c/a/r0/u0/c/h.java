@@ -1,6 +1,6 @@
 package c.a.r0.u0.c;
 
-import c.a.r0.j3.w;
+import c.a.r0.j3.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,17 +15,17 @@ public class h implements c.a.e.l.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f25247h;
+    public static final BdUniqueId f25268h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public w f25248e;
+    public x f25269e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f25249f;
+    public String f25270f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f25250g;
+    public String f25271g;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class h implements c.a.e.l.e.n {
                 return;
             }
         }
-        f25247h = BdUniqueId.gen();
+        f25268h = BdUniqueId.gen();
     }
 
     public h() {
@@ -60,25 +60,25 @@ public class h implements c.a.e.l.e.n {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25249f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25270f : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25250g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25271g : (String) invokeV.objValue;
     }
 
-    public w d() {
+    public x d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25248e : (w) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25269e : (x) invokeV.objValue;
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f25249f = str;
+            this.f25270f = str;
         }
     }
 
@@ -86,20 +86,20 @@ public class h implements c.a.e.l.e.n {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f25247h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? f25268h : (BdUniqueId) invokeV.objValue;
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f25250g = str;
+            this.f25271g = str;
         }
     }
 
-    public void i(w wVar) {
+    public void i(x xVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, wVar) == null) {
-            this.f25248e = wVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, xVar) == null) {
+            this.f25269e = xVar;
         }
     }
 }

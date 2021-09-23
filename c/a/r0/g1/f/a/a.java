@@ -19,7 +19,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLLIL(65536, null, view, obj, i2, str) == null) {
             if (obj instanceof c.a.r0.g1.f.a.e.c) {
                 c.a.r0.g1.f.a.e.c cVar = (c.a.r0.g1.f.a.e.c) obj;
-                if (cVar.f18101e) {
+                if (cVar.f18111e) {
                     StatisticItem statisticItem = new StatisticItem("c13736");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                     statisticItem.eventStat();
@@ -27,11 +27,11 @@ public class a {
                 }
                 StatisticItem statisticItem2 = new StatisticItem("c13735");
                 statisticItem2.param("obj_locate", i2);
-                statisticItem2.param("topic_id", cVar.f18097a);
+                statisticItem2.param("topic_id", cVar.f18107a);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem2.eventStat();
             } else if (obj instanceof e) {
-                d2 d2Var = ((e) obj).f18108j;
+                d2 d2Var = ((e) obj).f18118j;
                 StatisticItem statisticItem3 = new StatisticItem("c13738");
                 statisticItem3.param("obj_type", str);
                 statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -58,7 +58,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, view, obj, str) == null) {
             if (obj instanceof e) {
-                d2 d2Var = ((e) obj).f18108j;
+                d2 d2Var = ((e) obj).f18118j;
                 StatisticItem statisticItem = new StatisticItem("c13825");
                 statisticItem.param("obj_type", str);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());

@@ -11,7 +11,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6105a;
+    public static final boolean f6113a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class f {
                 return;
             }
         }
-        f6105a = c.a.p0.a.k.f7077a;
+        f6113a = c.a.p0.a.k.f7085a;
     }
 
     public static boolean a(c.a.p0.a.h0.f.a aVar, String str) {
@@ -51,8 +51,8 @@ public class f {
                 if (!e.a(containerId) || (Q = c.a.p0.a.a2.e.Q()) == null || !b(aVar) || (a2 = h.b().a()) == null) {
                     return false;
                 }
-                z = (TextUtils.equals(a2.i().c(), aVar.getContainerId()) && TextUtils.equals(a2.h(), Q.f4558f)) ? true : true;
-                if (f6105a && z) {
+                z = (TextUtils.equals(a2.i().c(), aVar.getContainerId()) && TextUtils.equals(a2.h(), Q.f4566f)) ? true : true;
+                if (f6113a && z) {
                     String str2 = "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch";
                 }
             }

@@ -64,19 +64,19 @@ public class OfficialBarTipListAdapter extends c {
     public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.f21240b.setVisibility(8);
-            aVar.f21242d.setVisibility(0);
-            aVar.f21242d.setShowOval(true);
-            aVar.f21242d.setAutoChangeStyle(true);
-            aVar.f21242d.setStrokeWith(l.g(this.f21236e, R.dimen.tbds1));
-            aVar.f21242d.setStrokeColorResId(R.color.CAM_X0401);
-            aVar.f21242d.setTag(null);
-            aVar.f21242d.setPlaceHolder(1);
+            aVar.f21254b.setVisibility(8);
+            aVar.f21256d.setVisibility(0);
+            aVar.f21256d.setShowOval(true);
+            aVar.f21256d.setAutoChangeStyle(true);
+            aVar.f21256d.setStrokeWith(l.g(this.f21250e, R.dimen.tbds1));
+            aVar.f21256d.setStrokeColorResId(R.color.CAM_X0401);
+            aVar.f21256d.setTag(null);
+            aVar.f21256d.setPlaceHolder(1);
             if (TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
                 return;
             }
-            aVar.f21242d.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.f21242d.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.f21256d.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.f21256d.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -84,7 +84,7 @@ public class OfficialBarTipListAdapter extends c {
     public void i(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.f21243e.setText(this.f21236e.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+            aVar.f21257e.setText(this.f21250e.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
         }
     }
 
@@ -92,10 +92,10 @@ public class OfficialBarTipListAdapter extends c {
     public void m(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.f21246h.setVisibility(8);
-            SkinManager.setViewTextColor(aVar.f21243e, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(aVar.f21244f, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(aVar.f21245g, R.color.CAM_X0109, 1);
+            aVar.f21260h.setVisibility(8);
+            SkinManager.setViewTextColor(aVar.f21257e, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(aVar.f21258f, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(aVar.f21259g, R.color.CAM_X0109, 1);
         }
     }
 

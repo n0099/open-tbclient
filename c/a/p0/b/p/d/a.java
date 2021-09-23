@@ -28,11 +28,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10232b;
+    public static final boolean f10240b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f10233a;
+    public Bundle f10241a;
 
     /* renamed from: c.a.p0.b.p.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -41,13 +41,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f10234a;
+        public final /* synthetic */ ViewGroup f10242a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.m.a f10235b;
+        public final /* synthetic */ c.a.p0.a.m.a f10243b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f10236c;
+        public final /* synthetic */ a f10244c;
 
         /* renamed from: c.a.p0.b.p.d.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -56,7 +56,7 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0501a f10237e;
+            public final /* synthetic */ C0501a f10245e;
 
             public RunnableC0502a(C0501a c0501a) {
                 Interceptable interceptable = $ic;
@@ -73,14 +73,14 @@ public class a {
                         return;
                     }
                 }
-                this.f10237e = c0501a;
+                this.f10245e = c0501a;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.p0.a.z1.b.d.a.c(this.f10237e.f10234a);
+                    c.a.p0.a.z1.b.d.a.c(this.f10245e.f10242a);
                 }
             }
         }
@@ -100,32 +100,32 @@ public class a {
                     return;
                 }
             }
-            this.f10236c = aVar;
-            this.f10234a = viewGroup;
-            this.f10235b = aVar2;
+            this.f10244c = aVar;
+            this.f10242a = viewGroup;
+            this.f10243b = aVar2;
         }
 
         @Override // c.a.p0.b.p.g.c
         public void a(QuickLoginInfo quickLoginInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
-                ViewGroup viewGroup = this.f10234a;
+                ViewGroup viewGroup = this.f10242a;
                 if (viewGroup != null) {
                     viewGroup.post(new RunnableC0502a(this));
                 }
-                if (this.f10236c.i(quickLoginInfo)) {
-                    this.f10236c.f10233a.putParcelable("quick_login_info", quickLoginInfo);
+                if (this.f10244c.i(quickLoginInfo)) {
+                    this.f10244c.f10241a.putParcelable("quick_login_info", quickLoginInfo);
                 }
                 String T = c.a.p0.a.a2.d.g().r().L().T();
                 String appId = c.a.p0.a.a2.d.g().getAppId();
-                this.f10236c.f10233a.putString("app_name", c.a.p0.a.a2.d.g().r().O());
-                this.f10236c.f10233a.putString("appid", appId);
-                this.f10236c.f10233a.putString("launch_from", T);
-                if (a.f10232b) {
-                    String str = "onQueryResult: mParams: " + this.f10236c.f10233a.toString();
+                this.f10244c.f10241a.putString("app_name", c.a.p0.a.a2.d.g().r().O());
+                this.f10244c.f10241a.putString("appid", appId);
+                this.f10244c.f10241a.putString("launch_from", T);
+                if (a.f10240b) {
+                    String str = "onQueryResult: mParams: " + this.f10244c.f10241a.toString();
                 }
                 d.a("show", "login", null, T, appId);
-                this.f10236c.f(this.f10235b);
+                this.f10244c.f(this.f10243b);
             }
         }
     }
@@ -136,7 +136,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.m.a f10238a;
+        public final /* synthetic */ c.a.p0.a.m.a f10246a;
 
         public b(a aVar, c.a.p0.a.m.a aVar2) {
             Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class a {
                     return;
                 }
             }
-            this.f10238a = aVar2;
+            this.f10246a = aVar2;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
@@ -161,10 +161,10 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
                 if (delegateResult.isOk()) {
-                    this.f10238a.onResult(delegateResult.mResult.getInt("loginStatusCode"));
+                    this.f10246a.onResult(delegateResult.mResult.getInt("loginStatusCode"));
                     return;
                 }
-                this.f10238a.onResult(-2);
+                this.f10246a.onResult(-2);
             }
         }
     }
@@ -182,7 +182,7 @@ public class a {
                 return;
             }
         }
-        f10232b = k.f7077a;
+        f10240b = k.f7085a;
     }
 
     public a() {
@@ -198,7 +198,7 @@ public class a {
                 return;
             }
         }
-        this.f10233a = new Bundle();
+        this.f10241a = new Bundle();
     }
 
     public final void e(c.a.p0.a.m.a aVar) {
@@ -208,7 +208,7 @@ public class a {
             return;
         }
         Intent intent = new Intent(activity, LoginAndGetMobileActivity.class);
-        intent.putExtras(this.f10233a);
+        intent.putExtras(this.f10241a);
         activity.startActivity(intent);
         activity.overridePendingTransition(c.a.p0.b.b.login_get_mobile_act_enter, 0);
         c.c(aVar);
@@ -228,7 +228,7 @@ public class a {
     public final void g(c.a.p0.a.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            DelegateUtils.callOnMainWithActivity(f.V().getActivity(), PluginDelegateActivity.class, c.a.p0.b.p.d.b.class, this.f10233a, new b(this, aVar));
+            DelegateUtils.callOnMainWithActivity(f.V().getActivity(), PluginDelegateActivity.class, c.a.p0.b.p.d.b.class, this.f10241a, new b(this, aVar));
         }
     }
 

@@ -18,21 +18,21 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f28997a;
+    public b f29017a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f28998b;
+    public b f29018b;
 
     /* renamed from: c.a.r0.x3.i.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C1354a {
+    public static /* synthetic */ class C1352a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f28999a;
+        public static final /* synthetic */ int[] f29019a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f29000b;
+        public static final /* synthetic */ int[] f29020b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,147 +49,147 @@ public class a {
                 }
             }
             int[] iArr = new int[PivotPoint.values().length];
-            f29000b = iArr;
+            f29020b = iArr;
             try {
                 iArr[PivotPoint.LEFT_TOP.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f29000b[PivotPoint.LEFT_CENTER.ordinal()] = 2;
+                f29020b[PivotPoint.LEFT_CENTER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f29000b[PivotPoint.LEFT_BOTTOM.ordinal()] = 3;
+                f29020b[PivotPoint.LEFT_BOTTOM.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f29000b[PivotPoint.CENTER_TOP.ordinal()] = 4;
+                f29020b[PivotPoint.CENTER_TOP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f29000b[PivotPoint.CENTER.ordinal()] = 5;
+                f29020b[PivotPoint.CENTER.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f29000b[PivotPoint.CENTER_BOTTOM.ordinal()] = 6;
+                f29020b[PivotPoint.CENTER_BOTTOM.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f29000b[PivotPoint.RIGHT_TOP.ordinal()] = 7;
+                f29020b[PivotPoint.RIGHT_TOP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f29000b[PivotPoint.RIGHT_CENTER.ordinal()] = 8;
+                f29020b[PivotPoint.RIGHT_CENTER.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f29000b[PivotPoint.RIGHT_BOTTOM.ordinal()] = 9;
+                f29020b[PivotPoint.RIGHT_BOTTOM.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             int[] iArr2 = new int[ScalableType.values().length];
-            f28999a = iArr2;
+            f29019a = iArr2;
             try {
                 iArr2[ScalableType.NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f28999a[ScalableType.FIT_XY.ordinal()] = 2;
+                f29019a[ScalableType.FIT_XY.ordinal()] = 2;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                f28999a[ScalableType.FIT_CENTER.ordinal()] = 3;
+                f29019a[ScalableType.FIT_CENTER.ordinal()] = 3;
             } catch (NoSuchFieldError unused12) {
             }
             try {
-                f28999a[ScalableType.FIT_START.ordinal()] = 4;
+                f29019a[ScalableType.FIT_START.ordinal()] = 4;
             } catch (NoSuchFieldError unused13) {
             }
             try {
-                f28999a[ScalableType.FIT_END.ordinal()] = 5;
+                f29019a[ScalableType.FIT_END.ordinal()] = 5;
             } catch (NoSuchFieldError unused14) {
             }
             try {
-                f28999a[ScalableType.LEFT_TOP.ordinal()] = 6;
+                f29019a[ScalableType.LEFT_TOP.ordinal()] = 6;
             } catch (NoSuchFieldError unused15) {
             }
             try {
-                f28999a[ScalableType.LEFT_CENTER.ordinal()] = 7;
+                f29019a[ScalableType.LEFT_CENTER.ordinal()] = 7;
             } catch (NoSuchFieldError unused16) {
             }
             try {
-                f28999a[ScalableType.LEFT_BOTTOM.ordinal()] = 8;
+                f29019a[ScalableType.LEFT_BOTTOM.ordinal()] = 8;
             } catch (NoSuchFieldError unused17) {
             }
             try {
-                f28999a[ScalableType.CENTER_TOP.ordinal()] = 9;
+                f29019a[ScalableType.CENTER_TOP.ordinal()] = 9;
             } catch (NoSuchFieldError unused18) {
             }
             try {
-                f28999a[ScalableType.CENTER.ordinal()] = 10;
+                f29019a[ScalableType.CENTER.ordinal()] = 10;
             } catch (NoSuchFieldError unused19) {
             }
             try {
-                f28999a[ScalableType.CENTER_BOTTOM.ordinal()] = 11;
+                f29019a[ScalableType.CENTER_BOTTOM.ordinal()] = 11;
             } catch (NoSuchFieldError unused20) {
             }
             try {
-                f28999a[ScalableType.RIGHT_TOP.ordinal()] = 12;
+                f29019a[ScalableType.RIGHT_TOP.ordinal()] = 12;
             } catch (NoSuchFieldError unused21) {
             }
             try {
-                f28999a[ScalableType.RIGHT_CENTER.ordinal()] = 13;
+                f29019a[ScalableType.RIGHT_CENTER.ordinal()] = 13;
             } catch (NoSuchFieldError unused22) {
             }
             try {
-                f28999a[ScalableType.RIGHT_BOTTOM.ordinal()] = 14;
+                f29019a[ScalableType.RIGHT_BOTTOM.ordinal()] = 14;
             } catch (NoSuchFieldError unused23) {
             }
             try {
-                f28999a[ScalableType.LEFT_TOP_CROP.ordinal()] = 15;
+                f29019a[ScalableType.LEFT_TOP_CROP.ordinal()] = 15;
             } catch (NoSuchFieldError unused24) {
             }
             try {
-                f28999a[ScalableType.LEFT_CENTER_CROP.ordinal()] = 16;
+                f29019a[ScalableType.LEFT_CENTER_CROP.ordinal()] = 16;
             } catch (NoSuchFieldError unused25) {
             }
             try {
-                f28999a[ScalableType.LEFT_BOTTOM_CROP.ordinal()] = 17;
+                f29019a[ScalableType.LEFT_BOTTOM_CROP.ordinal()] = 17;
             } catch (NoSuchFieldError unused26) {
             }
             try {
-                f28999a[ScalableType.CENTER_TOP_CROP.ordinal()] = 18;
+                f29019a[ScalableType.CENTER_TOP_CROP.ordinal()] = 18;
             } catch (NoSuchFieldError unused27) {
             }
             try {
-                f28999a[ScalableType.CENTER_CROP.ordinal()] = 19;
+                f29019a[ScalableType.CENTER_CROP.ordinal()] = 19;
             } catch (NoSuchFieldError unused28) {
             }
             try {
-                f28999a[ScalableType.CENTER_BOTTOM_CROP.ordinal()] = 20;
+                f29019a[ScalableType.CENTER_BOTTOM_CROP.ordinal()] = 20;
             } catch (NoSuchFieldError unused29) {
             }
             try {
-                f28999a[ScalableType.RIGHT_TOP_CROP.ordinal()] = 21;
+                f29019a[ScalableType.RIGHT_TOP_CROP.ordinal()] = 21;
             } catch (NoSuchFieldError unused30) {
             }
             try {
-                f28999a[ScalableType.RIGHT_CENTER_CROP.ordinal()] = 22;
+                f29019a[ScalableType.RIGHT_CENTER_CROP.ordinal()] = 22;
             } catch (NoSuchFieldError unused31) {
             }
             try {
-                f28999a[ScalableType.RIGHT_BOTTOM_CROP.ordinal()] = 23;
+                f29019a[ScalableType.RIGHT_BOTTOM_CROP.ordinal()] = 23;
             } catch (NoSuchFieldError unused32) {
             }
             try {
-                f28999a[ScalableType.START_INSIDE.ordinal()] = 24;
+                f29019a[ScalableType.START_INSIDE.ordinal()] = 24;
             } catch (NoSuchFieldError unused33) {
             }
             try {
-                f28999a[ScalableType.CENTER_INSIDE.ordinal()] = 25;
+                f29019a[ScalableType.CENTER_INSIDE.ordinal()] = 25;
             } catch (NoSuchFieldError unused34) {
             }
             try {
-                f28999a[ScalableType.END_INSIDE.ordinal()] = 26;
+                f29019a[ScalableType.END_INSIDE.ordinal()] = 26;
             } catch (NoSuchFieldError unused35) {
             }
         }
@@ -210,15 +210,15 @@ public class a {
                 return;
             }
         }
-        this.f28997a = bVar;
-        this.f28998b = bVar2;
+        this.f29017a = bVar;
+        this.f29018b = bVar2;
     }
 
     public final Matrix a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f28998b.a() <= this.f28997a.b() && this.f28998b.a() <= this.f28997a.a()) {
+            if (this.f29018b.a() <= this.f29017a.b() && this.f29018b.a() <= this.f29017a.a()) {
                 return l(PivotPoint.CENTER);
             }
             return c();
@@ -230,7 +230,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f28998b.a() <= this.f28997a.b() && this.f28998b.a() <= this.f28997a.a()) {
+            if (this.f29018b.a() <= this.f29017a.b() && this.f29018b.a() <= this.f29017a.a()) {
                 return l(PivotPoint.RIGHT_BOTTOM);
             }
             return d();
@@ -266,8 +266,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pivotPoint)) == null) {
-            float b2 = this.f28997a.b() / this.f28998b.b();
-            float a2 = this.f28997a.a() / this.f28998b.a();
+            float b2 = this.f29017a.b() / this.f29018b.b();
+            float a2 = this.f29017a.a() / this.f29018b.a();
             float max = Math.max(b2, a2);
             return j(max / b2, max / a2, pivotPoint);
         }
@@ -278,8 +278,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, pivotPoint)) == null) {
-            float b2 = this.f28997a.b() / this.f28998b.b();
-            float a2 = this.f28997a.a() / this.f28998b.a();
+            float b2 = this.f29017a.b() / this.f29018b.b();
+            float a2 = this.f29017a.a() / this.f29018b.a();
             float min = Math.min(b2, a2);
             return j(min / b2, min / a2, pivotPoint);
         }
@@ -301,25 +301,25 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), pivotPoint})) == null) {
-            switch (C1354a.f29000b[pivotPoint.ordinal()]) {
+            switch (C1352a.f29020b[pivotPoint.ordinal()]) {
                 case 1:
                     return i(f2, f3, 0.0f, 0.0f);
                 case 2:
-                    return i(f2, f3, 0.0f, this.f28997a.a() / 2.0f);
+                    return i(f2, f3, 0.0f, this.f29017a.a() / 2.0f);
                 case 3:
-                    return i(f2, f3, 0.0f, this.f28997a.a());
+                    return i(f2, f3, 0.0f, this.f29017a.a());
                 case 4:
-                    return i(f2, f3, this.f28997a.b() / 2.0f, 0.0f);
+                    return i(f2, f3, this.f29017a.b() / 2.0f, 0.0f);
                 case 5:
-                    return i(f2, f3, this.f28997a.b() / 2.0f, this.f28997a.a() / 2.0f);
+                    return i(f2, f3, this.f29017a.b() / 2.0f, this.f29017a.a() / 2.0f);
                 case 6:
-                    return i(f2, f3, this.f28997a.b() / 2.0f, this.f28997a.a());
+                    return i(f2, f3, this.f29017a.b() / 2.0f, this.f29017a.a());
                 case 7:
-                    return i(f2, f3, this.f28997a.b(), 0.0f);
+                    return i(f2, f3, this.f29017a.b(), 0.0f);
                 case 8:
-                    return i(f2, f3, this.f28997a.b(), this.f28997a.a() / 2.0f);
+                    return i(f2, f3, this.f29017a.b(), this.f29017a.a() / 2.0f);
                 case 9:
-                    return i(f2, f3, this.f28997a.b(), this.f28997a.a());
+                    return i(f2, f3, this.f29017a.b(), this.f29017a.a());
                 default:
                     return null;
             }
@@ -330,20 +330,20 @@ public class a {
     public final Matrix k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? j(this.f28998b.b() / this.f28997a.b(), this.f28998b.a() / this.f28997a.a(), PivotPoint.LEFT_TOP) : (Matrix) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? j(this.f29018b.b() / this.f29017a.b(), this.f29018b.a() / this.f29017a.a(), PivotPoint.LEFT_TOP) : (Matrix) invokeV.objValue;
     }
 
     public final Matrix l(PivotPoint pivotPoint) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, pivotPoint)) == null) ? j(this.f28998b.b() / this.f28997a.b(), this.f28998b.a() / this.f28997a.a(), pivotPoint) : (Matrix) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, pivotPoint)) == null) ? j(this.f29018b.b() / this.f29017a.b(), this.f29018b.a() / this.f29017a.a(), pivotPoint) : (Matrix) invokeL.objValue;
     }
 
     public Matrix m(ScalableType scalableType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, scalableType)) == null) {
-            switch (C1354a.f28999a[scalableType.ordinal()]) {
+            switch (C1352a.f29019a[scalableType.ordinal()]) {
                 case 1:
                     return k();
                 case 2:
@@ -407,7 +407,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.f28998b.a() <= this.f28997a.b() && this.f28998b.a() <= this.f28997a.a()) {
+            if (this.f29018b.a() <= this.f29017a.b() && this.f29018b.a() <= this.f29017a.a()) {
                 return l(PivotPoint.LEFT_TOP);
             }
             return e();

@@ -13,10 +13,10 @@ public class c implements c.a.r.g.b.e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BigInteger f15412a;
+    public BigInteger f15421a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BigInteger f15413b;
+    public BigInteger f15422b;
 
     public c(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
@@ -33,21 +33,21 @@ public class c implements c.a.r.g.b.e.a {
                 return;
             }
         }
-        this.f15412a = new BigInteger(bArr);
-        this.f15413b = new BigInteger(bArr2);
+        this.f15421a = new BigInteger(bArr);
+        this.f15422b = new BigInteger(bArr2);
     }
 
     @Override // c.a.r.g.b.e.a
     public BigInteger a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15413b : (BigInteger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15422b : (BigInteger) invokeV.objValue;
     }
 
     @Override // c.a.r.g.b.e.a
     public BigInteger b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15412a : (BigInteger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15421a : (BigInteger) invokeV.objValue;
     }
 }

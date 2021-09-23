@@ -54,16 +54,16 @@ public class q {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f68874a = "";
+    public static volatile String f69185a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f68875b;
+    public static volatile String f69186b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile String f68876c;
+    public static volatile String f69187c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile String f68877d;
+    public static volatile String f69188d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -505,10 +505,10 @@ public class q {
         String defaultUserAgent;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            if (TextUtils.isEmpty(f68874a)) {
+            if (TextUtils.isEmpty(f69185a)) {
                 try {
-                    f68874a = com.bytedance.sdk.openadsdk.core.h.a("sdk_local_web_ua", 86400000L);
-                    if (TextUtils.isEmpty(f68874a)) {
+                    f69185a = com.bytedance.sdk.openadsdk.core.h.a("sdk_local_web_ua", 86400000L);
+                    if (TextUtils.isEmpty(f69185a)) {
                         if (Build.VERSION.SDK_INT >= 17) {
                             defaultUserAgent = WebSettings.getDefaultUserAgent(com.bytedance.sdk.openadsdk.core.o.a());
                         } else if (Looper.myLooper() == Looper.getMainLooper()) {
@@ -537,22 +537,22 @@ public class q {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                         try {
-                                            String unused = q.f68874a = new SSWebView(com.bytedance.sdk.openadsdk.core.o.a()).getSettings().getUserAgentString();
+                                            String unused = q.f69185a = new SSWebView(com.bytedance.sdk.openadsdk.core.o.a()).getSettings().getUserAgentString();
                                         } catch (Exception unused2) {
                                         }
                                     }
                                 }
                             });
-                            com.bytedance.sdk.openadsdk.core.h.a("sdk_local_web_ua", f68874a);
+                            com.bytedance.sdk.openadsdk.core.h.a("sdk_local_web_ua", f69185a);
                         }
-                        f68874a = defaultUserAgent;
-                        com.bytedance.sdk.openadsdk.core.h.a("sdk_local_web_ua", f68874a);
+                        f69185a = defaultUserAgent;
+                        com.bytedance.sdk.openadsdk.core.h.a("sdk_local_web_ua", f69185a);
                     }
                 } catch (Exception unused) {
                 }
-                return o(f68874a);
+                return o(f69185a);
             }
-            return f68874a;
+            return f69185a;
         }
         return (String) invokeV.objValue;
     }
@@ -857,17 +857,17 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
-            if (TextUtils.isEmpty(f68877d)) {
+            if (TextUtils.isEmpty(f69188d)) {
                 if (com.bytedance.sdk.openadsdk.core.o.a() != null) {
                     try {
-                        f68877d = com.bytedance.sdk.openadsdk.core.o.a().getPackageName();
+                        f69188d = com.bytedance.sdk.openadsdk.core.o.a().getPackageName();
                     } catch (Throwable th) {
                         com.bytedance.sdk.component.utils.k.c("ToolUtils", "ToolUtils getPackageName throws exception :", th);
                     }
                 }
-                return f68877d;
+                return f69188d;
             }
-            return f68877d;
+            return f69188d;
         }
         return (String) invokeV.objValue;
     }
@@ -927,16 +927,16 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
-            if (TextUtils.isEmpty(f68875b) && com.bytedance.sdk.openadsdk.core.o.a() != null) {
+            if (TextUtils.isEmpty(f69186b) && com.bytedance.sdk.openadsdk.core.o.a() != null) {
                 try {
                     PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.o.a().getPackageManager().getPackageInfo(d(), 0);
-                    f68875b = String.valueOf(packageInfo.versionCode);
-                    f68876c = packageInfo.versionName;
+                    f69186b = String.valueOf(packageInfo.versionCode);
+                    f69187c = packageInfo.versionName;
                 } catch (Throwable th) {
                     com.bytedance.sdk.component.utils.k.c("ToolUtils", "ToolUtils getVersionCode throws exception :", th);
                 }
             }
-            return f68875b;
+            return f69186b;
         }
         return (String) invokeV.objValue;
     }
@@ -1050,16 +1050,16 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) {
-            if (TextUtils.isEmpty(f68876c) && com.bytedance.sdk.openadsdk.core.o.a() != null) {
+            if (TextUtils.isEmpty(f69187c) && com.bytedance.sdk.openadsdk.core.o.a() != null) {
                 try {
                     PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.o.a().getPackageManager().getPackageInfo(d(), 0);
-                    f68875b = String.valueOf(packageInfo.versionCode);
-                    f68876c = packageInfo.versionName;
+                    f69186b = String.valueOf(packageInfo.versionCode);
+                    f69187c = packageInfo.versionName;
                 } catch (Throwable th) {
                     com.bytedance.sdk.component.utils.k.c("ToolUtils", "ToolUtils getVersionName throws exception :", th);
                 }
             }
-            return f68876c;
+            return f69187c;
         }
         return (String) invokeV.objValue;
     }
@@ -1098,7 +1098,7 @@ public class q {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public Pattern f68878a;
+                    public Pattern f69189a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1113,14 +1113,14 @@ public class q {
                                 return;
                             }
                         }
-                        this.f68878a = Pattern.compile("^cpu[0-9]+$");
+                        this.f69189a = Pattern.compile("^cpu[0-9]+$");
                     }
 
                     @Override // java.io.FilenameFilter
                     public boolean accept(File file2, String str) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str)) == null) ? this.f68878a.matcher(str).matches() : invokeLL.booleanValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str)) == null) ? this.f69189a.matcher(str).matches() : invokeLL.booleanValue;
                     }
                 })) == null) {
                     return 0;

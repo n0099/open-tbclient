@@ -27,10 +27,10 @@ public class b implements c.a.r0.q.e.i.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, DownloadCacheKey> f29346b;
+    public final Map<String, DownloadCacheKey> f29366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.r0.q.e.h.c f29347c;
+    public final c.a.r0.q.e.h.c f29367c;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -40,14 +40,14 @@ public class b implements c.a.r0.q.e.i.a {
 
     /* renamed from: c.a.r0.y2.f0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1375b implements c.a.r0.q.e.h.c {
+    public class C1373b implements c.a.r0.q.e.h.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29348a;
+        public final /* synthetic */ b f29368a;
 
-        public C1375b(b bVar) {
+        public C1373b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,14 +62,14 @@ public class b implements c.a.r0.q.e.i.a {
                     return;
                 }
             }
-            this.f29348a = bVar;
+            this.f29368a = bVar;
         }
 
         @Override // c.a.r0.q.e.h.c
         public void a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                c.a.r0.q.e.h.a a2 = c.a.r0.q.e.e.c().a((DownloadCacheKey) this.f29348a.f29346b.get(str));
+                c.a.r0.q.e.h.a a2 = c.a.r0.q.e.e.c().a((DownloadCacheKey) this.f29368a.f29366b.get(str));
                 if (a2 == null) {
                     return;
                 }
@@ -81,7 +81,7 @@ public class b implements c.a.r0.q.e.i.a {
         public void b(String str, StopStatus stopStatus) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, stopStatus) == null) {
-                c.a.r0.q.e.h.a a2 = c.a.r0.q.e.e.c().a((DownloadCacheKey) this.f29348a.f29346b.get(str));
+                c.a.r0.q.e.h.a a2 = c.a.r0.q.e.e.c().a((DownloadCacheKey) this.f29368a.f29366b.get(str));
                 if (a2 == null) {
                     return;
                 }
@@ -93,7 +93,7 @@ public class b implements c.a.r0.q.e.i.a {
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                c.a.r0.q.e.h.a a2 = c.a.r0.q.e.e.c().a((DownloadCacheKey) this.f29348a.f29346b.get(str));
+                c.a.r0.q.e.h.a a2 = c.a.r0.q.e.e.c().a((DownloadCacheKey) this.f29368a.f29366b.get(str));
                 if (a2 == null) {
                     return;
                 }
@@ -106,7 +106,7 @@ public class b implements c.a.r0.q.e.i.a {
         public void d(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
-                c.a.r0.q.e.h.a a2 = c.a.r0.q.e.e.c().a((DownloadCacheKey) this.f29348a.f29346b.get(str));
+                c.a.r0.q.e.h.a a2 = c.a.r0.q.e.e.c().a((DownloadCacheKey) this.f29368a.f29366b.get(str));
                 if (a2 == null) {
                     return;
                 }
@@ -118,11 +118,11 @@ public class b implements c.a.r0.q.e.i.a {
         public void onSuccess(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-                DownloadCacheKey downloadCacheKey = (DownloadCacheKey) this.f29348a.f29346b.get(str);
+                DownloadCacheKey downloadCacheKey = (DownloadCacheKey) this.f29368a.f29366b.get(str);
                 String a2 = c.a.r0.q.e.a.a(TbadkCoreApplication.getInst(), str2);
                 if (downloadCacheKey == null) {
                     downloadCacheKey = DownloadCacheKey.create(str, "");
-                    this.f29348a.f29346b.put(str, downloadCacheKey);
+                    this.f29368a.f29366b.put(str, downloadCacheKey);
                 }
                 if (!TextUtils.isEmpty(a2)) {
                     downloadCacheKey.mPackageName = a2;
@@ -143,7 +143,7 @@ public class b implements c.a.r0.q.e.i.a {
             }
         }
 
-        public /* synthetic */ C1375b(b bVar, a aVar) {
+        public /* synthetic */ C1373b(b bVar, a aVar) {
             this(bVar);
         }
     }
@@ -176,15 +176,15 @@ public class b implements c.a.r0.q.e.i.a {
                 return;
             }
         }
-        this.f29346b = new HashMap();
-        this.f29347c = new C1375b(this, null);
+        this.f29366b = new HashMap();
+        this.f29367c = new C1373b(this, null);
     }
 
     @Override // c.a.r0.q.e.i.a
     public void a(String str) {
         DownloadCacheKey downloadCacheKey;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (downloadCacheKey = this.f29346b.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (downloadCacheKey = this.f29366b.get(str)) == null) {
             return;
         }
         k.l().g(downloadCacheKey.mDownloadUrl, str, true);
@@ -194,7 +194,7 @@ public class b implements c.a.r0.q.e.i.a {
     public void b(@NonNull DownloadCacheKey downloadCacheKey, @Nullable AdDownloadData adDownloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadCacheKey, adDownloadData) == null) {
-            this.f29346b.put(downloadCacheKey.mAdId, downloadCacheKey);
+            this.f29366b.put(downloadCacheKey.mAdId, downloadCacheKey);
             DownloadData downloadData = new DownloadData();
             downloadData.setId(downloadCacheKey.mAdId);
             downloadData.setUrl(downloadCacheKey.mDownloadUrl);
@@ -212,17 +212,17 @@ public class b implements c.a.r0.q.e.i.a {
     public c.a.r0.q.e.h.c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29347c : (c.a.r0.q.e.h.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29367c : (c.a.r0.q.e.h.c) invokeV.objValue;
     }
 
     @Override // c.a.r0.q.e.i.a
     public void d(String str) {
         DownloadCacheKey downloadCacheKey;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (downloadCacheKey = this.f29346b.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (downloadCacheKey = this.f29366b.get(str)) == null) {
             return;
         }
-        this.f29346b.put(downloadCacheKey.mAdId, downloadCacheKey);
+        this.f29366b.put(downloadCacheKey.mAdId, downloadCacheKey);
         DownloadData downloadData = new DownloadData();
         downloadData.setId(downloadCacheKey.mAdId);
         downloadData.setUrl(downloadCacheKey.mDownloadUrl);

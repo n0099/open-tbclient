@@ -9,22 +9,22 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f37747a = false;
+    public static final boolean f37795a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37748b = "com.baidu.apollon";
+    public static final String f37796b = "com.baidu.apollon";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37749c = "release";
+    public static final String f37797c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f37750d = "common";
+    public static final String f37798d = "common";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f37751e = 152;
+    public static final int f37799e = 155;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f37752f = "1.5.2";
+    public static final String f37800f = "1.5.5";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

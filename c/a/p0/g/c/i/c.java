@@ -22,7 +22,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10926a;
+    public static final boolean f10934a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class c {
                 return;
             }
         }
-        f10926a = k.f7077a;
+        f10934a = k.f7085a;
     }
 
     public static void a(String str, String str2, String str3, String str4, a aVar) {
@@ -48,7 +48,7 @@ public class c {
             if (TextUtils.isEmpty(l)) {
                 return;
             }
-            if (f10926a) {
+            if (f10934a) {
                 String str5 = "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4;
             }
             if (TextUtils.isEmpty(str)) {
@@ -56,15 +56,15 @@ public class c {
             }
             b bVar = new b();
             bVar.m(aVar);
-            bVar.f7064b = l;
-            bVar.f7067e = str3;
+            bVar.f7072b = l;
+            bVar.f7075e = str3;
             bVar.v = str;
             bVar.l = q0.D();
             if (e.Q() != null) {
                 b.a L = e.Q().L();
-                bVar.f7063a = c.a.p0.a.j2.k.m(L.G());
-                bVar.f7068f = L.H();
-                bVar.f7065c = L.T();
+                bVar.f7071a = c.a.p0.a.j2.k.m(L.G());
+                bVar.f7076f = L.H();
+                bVar.f7073c = L.T();
             }
             bVar.t = str4;
             c.a.p0.a.j2.k.u("1245", bVar);
@@ -86,7 +86,7 @@ public class c {
                 return;
             }
             b bVar = new b();
-            bVar.f7064b = l;
+            bVar.f7072b = l;
             bVar.a(InstallNotifyReceiver.OPPORTUNITY, str2);
             if (str3 == null) {
                 str3 = "";

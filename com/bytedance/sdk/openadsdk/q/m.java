@@ -13,19 +13,19 @@ public class m {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f68866a = false;
+    public static boolean f69177a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f68867b = null;
+    public static String f69178b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f68868c = null;
+    public static String f69179c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f68869d = null;
+    public static String f69180d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f68870e = true;
+    public static boolean f69181e = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,18 +48,18 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                if (!f68866a) {
+                if (!f69177a) {
                     c();
                 }
                 Configuration configuration = com.bytedance.sdk.openadsdk.core.o.a().getResources().getConfiguration();
-                String valueOf = configuration.mcc != 0 ? String.valueOf(configuration.mcc) : f68868c;
-                com.bytedance.sdk.component.utils.k.f("MCC", "config=" + configuration.mcc + ",sMCC=" + f68868c);
-                if (f68870e) {
+                String valueOf = configuration.mcc != 0 ? String.valueOf(configuration.mcc) : f69179c;
+                com.bytedance.sdk.component.utils.k.f("MCC", "config=" + configuration.mcc + ",sMCC=" + f69179c);
+                if (f69181e) {
                     return valueOf;
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append("getMCC");
-                sb.append(f68870e ? "有SIM卡" : "无SIM卡,MCC返回null");
+                sb.append(f69181e ? "有SIM卡" : "无SIM卡,MCC返回null");
                 com.bytedance.sdk.component.utils.k.f("MCC", sb.toString());
                 return null;
             } catch (Throwable th) {
@@ -74,10 +74,10 @@ public class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!f68866a) {
+            if (!f69177a) {
                 c();
             }
-            return f68869d;
+            return f69180d;
         }
         return (String) invokeV.objValue;
     }
@@ -87,18 +87,18 @@ public class m {
         String str2;
         String str3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || com.bytedance.sdk.openadsdk.core.o.a() == null || f68866a) {
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || com.bytedance.sdk.openadsdk.core.o.a() == null || f69177a) {
             return;
         }
         try {
             TelephonyManager telephonyManager = (TelephonyManager) com.bytedance.sdk.openadsdk.core.o.a().getSystemService("phone");
             int simState = telephonyManager.getSimState();
             if (simState == 0) {
-                f68870e = false;
+                f69181e = false;
             } else if (simState == 1) {
-                f68870e = false;
+                f69181e = false;
             }
-            com.bytedance.sdk.component.utils.k.f("MCC", f68870e ? "有SIM卡" : "无SIM卡");
+            com.bytedance.sdk.component.utils.k.f("MCC", f69181e ? "有SIM卡" : "无SIM卡");
             String str4 = null;
             try {
                 str = telephonyManager.getSimOperatorName();
@@ -123,16 +123,16 @@ public class m {
                 str3 = str2.substring(3);
             }
             if (!TextUtils.isEmpty(str)) {
-                f68867b = str;
+                f69178b = str;
             }
             if (!TextUtils.isEmpty(str4)) {
-                f68868c = str4;
+                f69179c = str4;
             }
             if (!TextUtils.isEmpty(str3)) {
-                f68869d = str3;
+                f69180d = str3;
             }
         } catch (Throwable unused4) {
         }
-        f68866a = true;
+        f69177a = true;
     }
 }

@@ -27,10 +27,10 @@ public abstract class b extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4807c;
+    public String f4815c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4808d;
+    public boolean f4816d;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.v2.e1.b<i<b.e>> {
@@ -38,19 +38,19 @@ public abstract class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4809e;
+        public final /* synthetic */ CallbackHandler f4817e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4810f;
+        public final /* synthetic */ String f4818f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.a2.e f4811g;
+        public final /* synthetic */ c.a.p0.a.a2.e f4819g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f4812h;
+        public final /* synthetic */ UnitedSchemeEntity f4820h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f4813i;
+        public final /* synthetic */ b f4821i;
 
         public a(b bVar, CallbackHandler callbackHandler, String str, c.a.p0.a.a2.e eVar, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -67,11 +67,11 @@ public abstract class b extends a0 {
                     return;
                 }
             }
-            this.f4813i = bVar;
-            this.f4809e = callbackHandler;
-            this.f4810f = str;
-            this.f4811g = eVar;
-            this.f4812h = unitedSchemeEntity;
+            this.f4821i = bVar;
+            this.f4817e = callbackHandler;
+            this.f4818f = str;
+            this.f4819g = eVar;
+            this.f4820h = unitedSchemeEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,11 +81,11 @@ public abstract class b extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.p0.a.e2.c.d.h(iVar)) {
-                    c.a.p0.a.e2.c.d.p(iVar, this.f4809e, this.f4810f);
-                    this.f4813i.l(this.f4811g, this.f4812h, this.f4809e, this.f4810f);
+                    c.a.p0.a.e2.c.d.p(iVar, this.f4817e, this.f4818f);
+                    this.f4821i.l(this.f4819g, this.f4820h, this.f4817e, this.f4818f);
                     return;
                 }
-                this.f4813i.k(this.f4811g, this.f4812h, this.f4809e, this.f4810f);
+                this.f4821i.k(this.f4819g, this.f4820h, this.f4817e, this.f4818f);
             }
         }
     }
@@ -109,8 +109,8 @@ public abstract class b extends a0 {
                 return;
             }
         }
-        this.f4807c = null;
-        this.f4808d = false;
+        this.f4815c = null;
+        this.f4816d = false;
     }
 
     public static void m(String str, String str2, String str3) {
@@ -121,10 +121,10 @@ public abstract class b extends a0 {
         }
         c.a.p0.a.j2.p.e eVar = new c.a.p0.a.j2.p.e();
         b.a L = Q.L();
-        eVar.f7063a = k.m(L.G());
-        eVar.f7067e = str3;
-        eVar.f7064b = DI.BD.FAVOR;
-        eVar.f7068f = Q.D();
+        eVar.f7071a = k.m(L.G());
+        eVar.f7075e = str3;
+        eVar.f7072b = DI.BD.FAVOR;
+        eVar.f7076f = Q.D();
         SwanCoreVersion i0 = L.i0();
         String O = Q.O();
         String str4 = i0 != null ? i0.swanCoreVersionName : "";
@@ -143,18 +143,18 @@ public abstract class b extends a0 {
             if (eVar == null) {
                 c.a.p0.a.e0.d.b("favorite", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = a0.f4766b;
+                boolean z = a0.f4774b;
                 return false;
             }
             JSONObject d2 = w.d(unitedSchemeEntity.getParam("params"));
             String optString = d2.optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 c.a.p0.a.e0.d.b("favorite", "none cb");
-                boolean z2 = a0.f4766b;
+                boolean z2 = a0.f4774b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            this.f4808d = d2.optBoolean("isFavorButton", false);
+            this.f4816d = d2.optBoolean("isFavorButton", false);
             if (!j(eVar, unitedSchemeEntity)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params error");
                 return false;
@@ -164,7 +164,7 @@ public abstract class b extends a0 {
             if (TextUtils.equals(optString2, c.a.p0.a.g1.f.V().D()) && (TextUtils.equals(U, "pages/swan-news-showcase/index") || TextUtils.equals(U, "pages/swan-operate-news/index"))) {
                 k(eVar, unitedSchemeEntity, callbackHandler, optString);
             } else if (!o(unitedSchemeEntity)) {
-                eVar.T().g(context, this.f4808d ? "scope_favorite_button" : "mapp_favorite", new a(this, callbackHandler, optString, eVar, unitedSchemeEntity));
+                eVar.T().g(context, this.f4816d ? "scope_favorite_button" : "mapp_favorite", new a(this, callbackHandler, optString, eVar, unitedSchemeEntity));
             } else {
                 k(eVar, unitedSchemeEntity, callbackHandler, optString);
             }
@@ -191,7 +191,7 @@ public abstract class b extends a0 {
             try {
                 jSONObject.put("success", "0");
             } catch (JSONException e2) {
-                if (c.a.p0.a.k.f7077a) {
+                if (c.a.p0.a.k.f7085a) {
                     e2.printStackTrace();
                 }
             }

@@ -12,7 +12,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f31622a;
+    public final int f31643a;
 
     public e(int i2) {
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public class e {
                 return;
             }
         }
-        this.f31622a = i2;
+        this.f31643a = i2;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31622a == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31643a == 0 : invokeV.booleanValue;
     }
 
     public e(int i2, Throwable th) {
@@ -53,7 +53,7 @@ public class e {
                 return;
             }
         }
-        this.f31622a = i2;
+        this.f31643a = i2;
         if (th != null) {
             th.getMessage();
         }
@@ -74,7 +74,7 @@ public class e {
                 return;
             }
         }
-        this.f31622a = i2;
+        this.f31643a = i2;
     }
 
     public e(int i2, JSONObject jSONObject) {
@@ -92,6 +92,6 @@ public class e {
                 return;
             }
         }
-        this.f31622a = i2;
+        this.f31643a = i2;
     }
 }

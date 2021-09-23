@@ -27,13 +27,13 @@ public class e extends c.a.p0.a.t1.c.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.h0.j.b f8700e;
+        public final /* synthetic */ c.a.p0.a.h0.j.b f8708e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.t1.c.c.a f8701f;
+        public final /* synthetic */ c.a.p0.a.t1.c.c.a f8709f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.e2.d.a f8702g;
+        public final /* synthetic */ c.a.p0.a.e2.d.a f8710g;
 
         public a(e eVar, c.a.p0.a.h0.j.b bVar, c.a.p0.a.t1.c.c.a aVar, c.a.p0.a.e2.d.a aVar2) {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class e extends c.a.p0.a.t1.c.d.a {
                     return;
                 }
             }
-            this.f8700e = bVar;
-            this.f8701f = aVar;
-            this.f8702g = aVar2;
+            this.f8708e = bVar;
+            this.f8709f = aVar;
+            this.f8710g = aVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,24 +61,24 @@ public class e extends c.a.p0.a.t1.c.d.a {
         public void onCallback(i<f.d> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                if (iVar != null && iVar.c() && !TextUtils.isEmpty(iVar.f5582a.f5600a)) {
-                    JSONObject jSONObject = this.f8702g.f5618g;
+                if (iVar != null && iVar.c() && !TextUtils.isEmpty(iVar.f5590a.f5608a)) {
+                    JSONObject jSONObject = this.f8710g.f5626g;
                     if (jSONObject != null) {
                         try {
-                            jSONObject.put("code", iVar.f5582a.f5600a);
-                            this.f8701f.f8678d = true;
+                            jSONObject.put("code", iVar.f5590a.f5608a);
+                            this.f8709f.f8686d = true;
                         } catch (JSONException e2) {
-                            if (k.f7077a) {
+                            if (k.f7085a) {
                                 c.a.p0.a.t1.d.a.a(Log.getStackTraceString(e2));
                             }
                         }
-                        this.f8701f.f8679e = jSONObject.toString();
+                        this.f8709f.f8687e = jSONObject.toString();
                     }
-                    this.f8700e.a(this.f8701f);
+                    this.f8708e.a(this.f8709f);
                     return;
                 }
                 c.a.p0.a.t1.d.a.a("login failure, can't get login code");
-                this.f8700e.a(this.f8701f);
+                this.f8708e.a(this.f8709f);
             }
         }
     }
@@ -125,13 +125,13 @@ public class e extends c.a.p0.a.t1.c.d.a {
     public void p(SwanAppActivity swanAppActivity, String str, c.a.p0.a.t1.c.b.b bVar, c.a.p0.a.e2.d.a aVar, c.a.p0.a.h0.j.b<c.a.p0.a.t1.c.c.a> bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, bVar, aVar, bVar2) == null) {
-            c.a.p0.a.t1.c.c.a aVar2 = new c.a.p0.a.t1.c.c.a(bVar.f8671f);
-            aVar2.f8675a = bVar.f8670e;
-            if (aVar != null && aVar.f5621j.a() == 0) {
+            c.a.p0.a.t1.c.c.a aVar2 = new c.a.p0.a.t1.c.c.a(bVar.f8679f);
+            aVar2.f8683a = bVar.f8678e;
+            if (aVar != null && aVar.f5629j.a() == 0) {
                 c.a.p0.a.t1.d.a.a("obtain user info detail, get login code");
-                c.C0384c c0384c = new c.C0384c(bVar.f8672g);
+                c.C0384c c0384c = new c.C0384c(bVar.f8680g);
                 Bundle bundle = new Bundle();
-                bundle.putString("__plugin__", bVar.f8666a);
+                bundle.putString("__plugin__", bVar.f8674a);
                 c.a.p0.a.a2.d.g().r().T().r(swanAppActivity, c0384c, bundle, new a(this, bVar2, aVar2, aVar), "SwanPluginUserInfoFunPage");
                 return;
             }

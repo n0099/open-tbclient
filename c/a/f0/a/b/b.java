@@ -12,6 +12,6 @@ public class b {
     public static Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a.f3337a.get().p() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a.f3338a.get().p() : (Context) invokeV.objValue;
     }
 }

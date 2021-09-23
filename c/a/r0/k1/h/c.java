@@ -30,7 +30,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f21338a;
+    public static c f21352a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -53,10 +53,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (c.class) {
-                if (f21338a == null) {
-                    f21338a = new c();
+                if (f21352a == null) {
+                    f21352a = new c();
                 }
-                cVar = f21338a;
+                cVar = f21352a;
             }
             return cVar;
         }

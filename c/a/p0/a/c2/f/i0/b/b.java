@@ -35,16 +35,16 @@ public class b extends a0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public FloatButton f4886c;
+    public FloatButton f4894c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.a.c2.f.i0.a f4887d;
+    public c.a.p0.a.c2.f.i0.a f4895d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f4888e;
+    public f f4896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f4889f;
+    public String f4897f;
 
     /* loaded from: classes.dex */
     public class a implements c.a.p0.a.v2.e1.b<f> {
@@ -52,22 +52,22 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4890e;
+        public final /* synthetic */ CallbackHandler f4898e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4891f;
+        public final /* synthetic */ String f4899f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f4892g;
+        public final /* synthetic */ JSONObject f4900g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f4893h;
+        public final /* synthetic */ Context f4901h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ e f4894i;
+        public final /* synthetic */ e f4902i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ String f4895j;
+        public final /* synthetic */ String f4903j;
         public final /* synthetic */ b k;
 
         public a(b bVar, CallbackHandler callbackHandler, String str, JSONObject jSONObject, Context context, e eVar, String str2) {
@@ -86,12 +86,12 @@ public class b extends a0 {
                 }
             }
             this.k = bVar;
-            this.f4890e = callbackHandler;
-            this.f4891f = str;
-            this.f4892g = jSONObject;
-            this.f4893h = context;
-            this.f4894i = eVar;
-            this.f4895j = str2;
+            this.f4898e = callbackHandler;
+            this.f4899f = str;
+            this.f4900g = jSONObject;
+            this.f4901h = context;
+            this.f4902i = eVar;
+            this.f4903j = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,25 +100,25 @@ public class b extends a0 {
         public void onCallback(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                if (fVar == null || fVar.f5541d) {
-                    FloatButton c2 = this.k.f4887d.c();
+                if (fVar == null || fVar.f5549d) {
+                    FloatButton c2 = this.k.f4895d.c();
                     if (c2 != null) {
                         c2.setVisibility(8);
                     }
-                    c.a.p0.a.e2.c.d.n(10005, this.f4890e, this.f4891f);
+                    c.a.p0.a.e2.c.d.n(10005, this.f4898e, this.f4899f);
                     k.p(10005, fVar);
-                } else if (this.k.w(fVar, this.f4892g.optString("scheme"))) {
-                    this.k.f4888e = fVar;
-                    SwanAppActivity swanAppActivity = (SwanAppActivity) this.f4893h;
-                    this.k.f4887d = c.a.p0.a.c2.f.i0.a.d();
-                    if (this.k.f4887d.c() == null) {
+                } else if (this.k.w(fVar, this.f4900g.optString("scheme"))) {
+                    this.k.f4896e = fVar;
+                    SwanAppActivity swanAppActivity = (SwanAppActivity) this.f4901h;
+                    this.k.f4895d = c.a.p0.a.c2.f.i0.a.d();
+                    if (this.k.f4895d.c() == null) {
                         b bVar = this.k;
-                        bVar.f4886c = bVar.y(this.f4893h, this.f4892g);
-                        this.k.x(this.f4891f, this.f4892g, this.f4890e, swanAppActivity);
+                        bVar.f4894c = bVar.y(this.f4901h, this.f4900g);
+                        this.k.x(this.f4899f, this.f4900g, this.f4898e, swanAppActivity);
                     }
-                    this.f4894i.J().h(this.f4895j, Boolean.TRUE);
+                    this.f4902i.J().h(this.f4903j, Boolean.TRUE);
                 } else {
-                    this.f4890e.handleSchemeDispatchCallback(this.f4891f, UnitedSchemeUtility.wrapCallbackParams(1001, "open app scheme is not allowed").toString());
+                    this.f4898e.handleSchemeDispatchCallback(this.f4899f, UnitedSchemeUtility.wrapCallbackParams(1001, "open app scheme is not allowed").toString());
                 }
             }
         }
@@ -131,19 +131,19 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f4896a;
+        public final /* synthetic */ Activity f4904a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f4897b;
+        public final /* synthetic */ JSONObject f4905b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4898c;
+        public final /* synthetic */ CallbackHandler f4906c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f4899d;
+        public final /* synthetic */ String f4907d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f4900e;
+        public final /* synthetic */ b f4908e;
 
         public C0136b(b bVar, Activity activity, JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -160,11 +160,11 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f4900e = bVar;
-            this.f4896a = activity;
-            this.f4897b = jSONObject;
-            this.f4898c = callbackHandler;
-            this.f4899d = str;
+            this.f4908e = bVar;
+            this.f4904a = activity;
+            this.f4905b = jSONObject;
+            this.f4906c = callbackHandler;
+            this.f4907d = str;
         }
 
         @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
@@ -179,24 +179,24 @@ public class b extends a0 {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (q0.F(this.f4896a, this.f4900e.f4889f)) {
-                    String optString = this.f4897b.optString("scheme");
-                    b bVar = this.f4900e;
-                    this.f4900e.z(this.f4896a, optString, bVar.v(bVar.f4888e.f5546i.get(0), optString), this.f4898c, this.f4899d);
+                if (q0.F(this.f4904a, this.f4908e.f4897f)) {
+                    String optString = this.f4905b.optString("scheme");
+                    b bVar = this.f4908e;
+                    this.f4908e.z(this.f4904a, optString, bVar.v(bVar.f4896e.f5554i.get(0), optString), this.f4906c, this.f4907d);
                     return;
                 }
                 try {
-                    String optString2 = this.f4897b.optString(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL);
+                    String optString2 = this.f4905b.optString(BaiduAppJsBridgeHandler.INPUT_PARAM_DOWNLOAD_URL);
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("url", optString2);
-                    z = q0.e(this.f4896a, jSONObject.toString());
+                    z = q0.e(this.f4904a, jSONObject.toString());
                 } catch (JSONException e2) {
-                    if (a0.f4766b) {
+                    if (a0.f4774b) {
                         e2.printStackTrace();
                     }
                     z = false;
                 }
-                this.f4898c.handleSchemeDispatchCallback(this.f4899d, UnitedSchemeUtility.wrapCallbackParams(z ? 0 : 1001, z ? "download app success" : "download app fail").toString());
+                this.f4906c.handleSchemeDispatchCallback(this.f4907d, UnitedSchemeUtility.wrapCallbackParams(z ? 0 : 1001, z ? "download app success" : "download app fail").toString());
             }
         }
     }
@@ -207,16 +207,16 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f4901e;
+        public final /* synthetic */ Activity f4909e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4902f;
+        public final /* synthetic */ String f4910f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4903g;
+        public final /* synthetic */ CallbackHandler f4911g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f4904h;
+        public final /* synthetic */ String f4912h;
 
         public c(b bVar, Activity activity, String str, CallbackHandler callbackHandler, String str2) {
             Interceptable interceptable = $ic;
@@ -233,18 +233,18 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f4901e = activity;
-            this.f4902f = str;
-            this.f4903g = callbackHandler;
-            this.f4904h = str2;
+            this.f4909e = activity;
+            this.f4910f = str;
+            this.f4911g = callbackHandler;
+            this.f4912h = str2;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                boolean T = q0.T(this.f4901e, this.f4902f);
-                this.f4903g.handleSchemeDispatchCallback(this.f4904h, UnitedSchemeUtility.wrapCallbackParams(T ? 0 : 1001, T ? "open app success" : "open app fail").toString());
+                boolean T = q0.T(this.f4909e, this.f4910f);
+                this.f4911g.handleSchemeDispatchCallback(this.f4912h, UnitedSchemeUtility.wrapCallbackParams(T ? 0 : 1001, T ? "open app success" : "open app fail").toString());
             }
         }
     }
@@ -255,10 +255,10 @@ public class b extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f4905e;
+        public final /* synthetic */ CallbackHandler f4913e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f4906f;
+        public final /* synthetic */ String f4914f;
 
         public d(b bVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -275,15 +275,15 @@ public class b extends a0 {
                     return;
                 }
             }
-            this.f4905e = callbackHandler;
-            this.f4906f = str;
+            this.f4913e = callbackHandler;
+            this.f4914f = str;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                this.f4905e.handleSchemeDispatchCallback(this.f4906f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                this.f4913e.handleSchemeDispatchCallback(this.f4914f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
             }
         }
     }
@@ -331,16 +331,16 @@ public class b extends a0 {
                     return false;
                 }
                 String optString2 = a2.optString("name");
-                this.f4889f = optString2;
+                this.f4897f = optString2;
                 if (TextUtils.isEmpty(optString2)) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "packageName is empty");
                     return false;
                 }
                 c.a.p0.a.c2.f.i0.a d2 = c.a.p0.a.c2.f.i0.a.d();
-                this.f4887d = d2;
-                d2.i(this.f4889f);
-                if (this.f4887d.c() != null) {
-                    this.f4886c = y(context, a2);
+                this.f4895d = d2;
+                d2.i(this.f4897f);
+                if (this.f4895d.c() != null) {
+                    this.f4894c = y(context, a2);
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                     return true;
                 }
@@ -379,7 +379,7 @@ public class b extends a0 {
                             }
                         } catch (JSONException e2) {
                             e = e2;
-                            if (a0.f4766b) {
+                            if (a0.f4774b) {
                                 e.printStackTrace();
                             }
                             if (!TextUtils.isEmpty(str4)) {
@@ -406,7 +406,7 @@ public class b extends a0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, str)) == null) {
             if (fVar != null && !TextUtils.isEmpty(str)) {
-                for (String str2 : fVar.f5545h) {
+                for (String str2 : fVar.f5553h) {
                     if (str.contains(str2)) {
                         return true;
                     }
@@ -422,15 +422,15 @@ public class b extends a0 {
         if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, str, jSONObject, callbackHandler, activity) == null) || callbackHandler == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f4886c.setDragImageListener(new C0136b(this, activity, jSONObject, callbackHandler, str));
+        this.f4894c.setDragImageListener(new C0136b(this, activity, jSONObject, callbackHandler, str));
     }
 
     public final FloatButton y(Context context, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, jSONObject)) == null) {
-            this.f4887d.g((SwanAppActivity) context, jSONObject);
-            return this.f4887d.f();
+            this.f4895d.g((SwanAppActivity) context, jSONObject);
+            return this.f4895d.f();
         }
         return (FloatButton) invokeLL.objValue;
     }

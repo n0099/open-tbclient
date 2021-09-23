@@ -17,7 +17,7 @@ public class k {
         try {
             closeable.close();
         } catch (IOException e2) {
-            g gVar = g.f3351a;
+            g gVar = g.f3352a;
             gVar.e("SafeUtil", "error closing " + closeable.getClass().getName(), e2);
         }
     }

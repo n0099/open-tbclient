@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.d1.y;
+import c.a.q0.d1.b0;
 import c.a.q0.s.k;
 import c.a.q0.s.q.z0;
 import c.a.q0.t.j.c;
@@ -109,7 +109,7 @@ public class InitAllTask extends LaunchTask {
                 c.a.e.e.i.a.l().h(false);
             }
             try {
-                y.b().e();
+                b0.b().e();
                 if (isMainProcess(false)) {
                     c.a.q0.g.a.d().f();
                 }

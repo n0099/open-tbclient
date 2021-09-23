@@ -50,7 +50,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AvatarPendantActivity f57393a;
+        public final /* synthetic */ AvatarPendantActivity f57510a;
 
         public a(AvatarPendantActivity avatarPendantActivity) {
             Interceptable interceptable = $ic;
@@ -67,22 +67,22 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
                     return;
                 }
             }
-            this.f57393a = avatarPendantActivity;
+            this.f57510a = avatarPendantActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
         public void a(int i2, String str, e eVar, List<c.a.r0.p3.d.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                AvatarPendantActivity avatarPendantActivity = this.f57393a;
+                AvatarPendantActivity avatarPendantActivity = this.f57510a;
                 avatarPendantActivity.hideLoadingView(avatarPendantActivity.mView.f());
                 if (i2 == 0) {
-                    this.f57393a.mView.m(eVar, list);
+                    this.f57510a.mView.m(eVar, list);
                 } else {
-                    this.f57393a.showToast(str);
-                    this.f57393a.mView.l();
+                    this.f57510a.showToast(str);
+                    this.f57510a.mView.l();
                 }
-                this.f57393a.mHasListData = !ListUtils.isEmpty(list);
+                this.f57510a.mHasListData = !ListUtils.isEmpty(list);
             }
         }
     }
@@ -93,7 +93,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AvatarPendantActivity f57394e;
+        public final /* synthetic */ AvatarPendantActivity f57511e;
 
         public b(AvatarPendantActivity avatarPendantActivity) {
             Interceptable interceptable = $ic;
@@ -110,14 +110,14 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
                     return;
                 }
             }
-            this.f57394e = avatarPendantActivity;
+            this.f57511e = avatarPendantActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                BdListViewHelper.c(this.f57394e.mView.g(), BdListViewHelper.HeadType.DEFAULT, z);
+                BdListViewHelper.c(this.f57511e.mView.g(), BdListViewHelper.HeadType.DEFAULT, z);
             }
         }
     }
@@ -331,9 +331,9 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
             if (StringUtils.isNull(str)) {
                 return;
             }
-            if (i2 == c.a.r0.p3.c.f23869a) {
+            if (i2 == c.a.r0.p3.c.f23885a) {
                 c.a.r0.p3.b.d(getPageContext(), 7, str, i4, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-            } else if (i2 == c.a.r0.p3.c.f23870b) {
+            } else if (i2 == c.a.r0.p3.c.f23886b) {
                 c.a.r0.p3.b.c(getPageContext(), 7, str, i4);
             }
         }

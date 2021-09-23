@@ -25,10 +25,10 @@ public class v {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public t f24375a;
+    public t f24391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f24376b;
+    public Handler f24392b;
 
     /* loaded from: classes3.dex */
     public class a implements t.l {
@@ -36,13 +36,13 @@ public class v {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f24377e;
+        public final /* synthetic */ List f24393e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Map f24378f;
+        public final /* synthetic */ Map f24394f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ v f24379g;
+        public final /* synthetic */ v f24395g;
 
         public a(v vVar, List list, Map map) {
             Interceptable interceptable = $ic;
@@ -59,16 +59,16 @@ public class v {
                     return;
                 }
             }
-            this.f24379g = vVar;
-            this.f24377e = list;
-            this.f24378f = map;
+            this.f24395g = vVar;
+            this.f24393e = list;
+            this.f24394f = map;
         }
 
         @Override // c.a.r0.r0.t.l
         public void onResult(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIII(1048576, this, i2, i3, i4) == null) {
-                this.f24379g.d(this.f24377e, this.f24378f);
+                this.f24395g.d(this.f24393e, this.f24394f);
             }
         }
     }
@@ -79,13 +79,13 @@ public class v {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f24380e;
+        public final /* synthetic */ List f24396e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f24381f;
+        public final /* synthetic */ List f24397f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ v f24382g;
+        public final /* synthetic */ v f24398g;
 
         /* loaded from: classes3.dex */
         public class a implements t.l {
@@ -93,7 +93,7 @@ public class v {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f24383e;
+            public final /* synthetic */ b f24399e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -110,15 +110,15 @@ public class v {
                         return;
                     }
                 }
-                this.f24383e = bVar;
+                this.f24399e = bVar;
             }
 
             @Override // c.a.r0.r0.t.l
             public void onResult(int i2, int i3, int i4) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIII(1048576, this, i2, i3, i4) == null) {
-                    b bVar = this.f24383e;
-                    bVar.f24382g.g(bVar.f24381f);
+                    b bVar = this.f24399e;
+                    bVar.f24398g.g(bVar.f24397f);
                 }
             }
         }
@@ -138,16 +138,16 @@ public class v {
                     return;
                 }
             }
-            this.f24382g = vVar;
-            this.f24380e = list;
-            this.f24381f = list2;
+            this.f24398g = vVar;
+            this.f24396e = list;
+            this.f24397f = list2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f24382g.f24375a.h(this.f24380e, false, new a(this));
+                this.f24398g.f24391a.h(this.f24396e, false, new a(this));
             }
         }
     }
@@ -199,8 +199,8 @@ public class v {
                 return;
             }
         }
-        this.f24375a = t.s();
-        this.f24376b = new Handler(Looper.getMainLooper());
+        this.f24391a = t.s();
+        this.f24392b = new Handler(Looper.getMainLooper());
     }
 
     public final void d(List<CollectEmotionData> list, Map<String, CollectEmotionData> map) {
@@ -216,15 +216,15 @@ public class v {
                 ArrayList arrayList2 = new ArrayList();
                 for (CollectEmotionData collectEmotionData2 : arrayList) {
                     c.a.q0.d0.c cVar = new c.a.q0.d0.c();
-                    cVar.f12847f = collectEmotionData2.pkgId;
-                    cVar.f12842a = collectEmotionData2.pid;
-                    cVar.f12845d = collectEmotionData2.picUrl;
-                    cVar.f12843b = collectEmotionData2.width;
-                    cVar.f12844c = collectEmotionData2.height;
-                    cVar.f12846e = collectEmotionData2.thumbnail;
+                    cVar.f12861f = collectEmotionData2.pkgId;
+                    cVar.f12856a = collectEmotionData2.pid;
+                    cVar.f12859d = collectEmotionData2.picUrl;
+                    cVar.f12857b = collectEmotionData2.width;
+                    cVar.f12858c = collectEmotionData2.height;
+                    cVar.f12860e = collectEmotionData2.thumbnail;
                     arrayList2.add(cVar);
                 }
-                this.f24376b.post(new b(this, arrayList2, list));
+                this.f24392b.post(new b(this, arrayList2, list));
                 return;
             }
             g(list);
@@ -243,7 +243,7 @@ public class v {
                 }
             }
             if (!arrayList.isEmpty()) {
-                this.f24375a.l(arrayList, false, new a(this, list, h2));
+                this.f24391a.l(arrayList, false, new a(this, list, h2));
             } else {
                 d(list, h2);
             }
@@ -278,7 +278,7 @@ public class v {
     public final void g(List<CollectEmotionData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f24375a.t(list, false, new c(this));
+            this.f24391a.t(list, false, new c(this));
         }
     }
 

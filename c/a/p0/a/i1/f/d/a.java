@@ -14,7 +14,7 @@ public class a extends PhoneStateListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6810a;
+    public static final boolean f6818a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class a extends PhoneStateListener {
                 return;
             }
         }
-        f6810a = k.f7077a;
+        f6818a = k.f7085a;
     }
 
     public a() {
@@ -54,17 +54,17 @@ public class a extends PhoneStateListener {
             super.onCallStateChanged(i2, str);
             if (i2 == 0) {
                 c.a.p0.a.i1.f.e.a.k().o();
-                boolean z = f6810a;
+                boolean z = f6818a;
             } else if (i2 != 1) {
                 if (i2 != 2) {
-                    boolean z2 = f6810a;
+                    boolean z2 = f6818a;
                     return;
                 }
                 c.a.p0.a.i1.f.e.a.k().n();
-                boolean z3 = f6810a;
+                boolean z3 = f6818a;
             } else {
                 c.a.p0.a.i1.f.e.a.k().n();
-                if (f6810a) {
+                if (f6818a) {
                     String str2 = "响铃:" + str;
                 }
             }

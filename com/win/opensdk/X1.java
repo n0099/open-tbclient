@@ -12,7 +12,7 @@ public class X1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f76932a;
+    public static Handler f77251a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,6 +28,6 @@ public class X1 {
                 return;
             }
         }
-        f76932a = new Handler(Looper.getMainLooper());
+        f77251a = new Handler(Looper.getMainLooper());
     }
 }

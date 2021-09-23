@@ -28,10 +28,10 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4625a;
+    public static final boolean f4633a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f4626b;
+    public static final Set<String> f4634b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,15 +47,15 @@ public final class b {
                 return;
             }
         }
-        f4625a = k.f7077a;
-        f4626b = Sets.newHashSet("https", "wss");
+        f4633a = k.f7085a;
+        f4634b = Sets.newHashSet("https", "wss");
     }
 
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!f4625a || c.a.p0.a.u1.a.a.z()) {
+            if (!f4633a || c.a.p0.a.u1.a.a.z()) {
                 if (TextUtils.isEmpty(str)) {
                     d.g("WebSafeCheckers", "action is not in white list: action=" + str);
                     return false;
@@ -67,7 +67,7 @@ public final class b {
                 }
                 List<String> b2 = i2.a0().b();
                 if (b2 != null && b2.contains(str)) {
-                    if (f4625a) {
+                    if (f4633a) {
                         String str2 = "Action in white list: " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2;
                     }
                     return true;
@@ -114,28 +114,28 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (f4625a) {
+                if (f4633a) {
                     String str4 = "requestName : " + str;
                     String str5 = "requestUrl : " + str2;
                 }
                 boolean z2 = !c.a.p0.a.u1.a.a.v();
                 boolean z3 = false;
                 if (z2) {
-                    if (f4625a) {
+                    if (f4633a) {
                         String str6 = "debug包serverDomains鉴权关闭： " + z2;
                     }
                     return 0;
                 }
                 boolean i2 = i();
                 if (!i2) {
-                    if (f4625a) {
+                    if (f4633a) {
                         String str7 = "开发包serverDomains鉴权关闭： " + i2;
                     }
                     return 0;
                 } else if (d(str2)) {
                     boolean t = c.a.p0.a.c1.a.Z().t();
                     if (!t) {
-                        if (f4625a) {
+                        if (f4633a) {
                             String str8 = "AB实验serverDomains鉴权关闭： " + t;
                         }
                         return 0;
@@ -144,19 +144,19 @@ public final class b {
                     if (i3 == null) {
                         return 1;
                     }
-                    String str9 = i3.f4558f;
+                    String str9 = i3.f4566f;
                     if (TextUtils.isEmpty(str9)) {
                         return 1;
                     }
                     if (TextUtils.isEmpty(str3)) {
                         if (!new File(c.i(str9)).exists()) {
-                            boolean z4 = f4625a;
+                            boolean z4 = f4633a;
                             return 0;
                         }
                         long currentTimeMillis = System.currentTimeMillis();
                         try {
                             host = new URI(str2).getHost();
-                            list = i3.a0().c(e.V(), str, false).f4636b;
+                            list = i3.a0().c(e.V(), str, false).f4644b;
                             z = b(host, list);
                         } catch (URISyntaxException e2) {
                             e = e2;
@@ -170,14 +170,14 @@ public final class b {
                         } catch (URISyntaxException e3) {
                             e = e3;
                             z3 = z;
-                            if (f4625a) {
+                            if (f4633a) {
                                 Log.getStackTraceString(e);
                             }
                             z = z3;
                             if (!z) {
                             }
                             long currentTimeMillis2 = System.currentTimeMillis();
-                            if (f4625a) {
+                            if (f4633a) {
                             }
                             return !z;
                         }
@@ -185,7 +185,7 @@ public final class b {
                             d.g("WebSafeCheckers", "domain is not in white list");
                         }
                         long currentTimeMillis22 = System.currentTimeMillis();
-                        if (f4625a) {
+                        if (f4633a) {
                             String str10 = "serverDomain: cost time = " + (currentTimeMillis22 - currentTimeMillis) + "ms";
                         }
                         return !z;
@@ -195,7 +195,7 @@ public final class b {
                     return 2;
                 }
             }
-            boolean z5 = f4625a;
+            boolean z5 = f4633a;
             return 1;
         }
         return invokeLLL.intValue;
@@ -205,7 +205,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            for (String str2 : f4626b) {
+            for (String str2 : f4634b) {
                 if (str.startsWith(str2)) {
                     return true;
                 }
@@ -214,7 +214,7 @@ public final class b {
                 return true;
             }
             boolean r = c.a.p0.a.c1.a.Z().r();
-            if (f4625a) {
+            if (f4633a) {
                 String str3 = "abTestHttpsProtocolSwitch=" + r;
             }
             return !r && str.startsWith("http");
@@ -238,7 +238,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (!f4625a || c.a.p0.a.u1.a.a.z()) {
+            if (!f4633a || c.a.p0.a.u1.a.a.z()) {
                 if (TextUtils.isEmpty(str)) {
                     d.l("WebSafeCheckers", "action is not in white list: action=" + str);
                     return false;
@@ -250,7 +250,7 @@ public final class b {
                 }
                 List<String> d2 = i2.a0().d(false);
                 if (d2 != null && d2.contains(str)) {
-                    if (f4625a) {
+                    if (f4633a) {
                         String str2 = "Action in white list: " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + d2;
                     }
                     return true;
@@ -284,17 +284,17 @@ public final class b {
             }
             String lowerCase = str.toLowerCase();
             if (!c.a.p0.a.u1.a.a.z()) {
-                boolean z3 = f4625a;
+                boolean z3 = f4633a;
                 return true;
             }
             boolean B = c.a.p0.a.c1.a.Z().B();
             if (!B) {
-                if (f4625a) {
+                if (f4633a) {
                     r0 = "ABTest : webDomains switch " + B;
                 }
                 return true;
             } else if (!i()) {
-                boolean z4 = f4625a;
+                boolean z4 = f4633a;
                 return true;
             } else {
                 String V = e.V();
@@ -313,7 +313,7 @@ public final class b {
                     } else {
                         long currentTimeMillis = System.currentTimeMillis();
                         if (TextUtils.isEmpty(str)) {
-                            boolean z5 = f4625a;
+                            boolean z5 = f4633a;
                             return false;
                         }
                         try {
@@ -343,27 +343,27 @@ public final class b {
                             } catch (MalformedURLException e3) {
                                 e = e3;
                                 z2 = z;
-                                if (f4625a) {
+                                if (f4633a) {
                                     Log.getStackTraceString(e);
                                 }
                                 z = z2;
-                                boolean z6 = f4625a;
+                                boolean z6 = f4633a;
                                 if (!z) {
                                 }
                                 long currentTimeMillis2 = System.currentTimeMillis();
-                                if (f4625a) {
+                                if (f4633a) {
                                 }
                                 return z;
                             }
                         } catch (MalformedURLException e4) {
                             e = e4;
                         }
-                        boolean z62 = f4625a;
+                        boolean z62 = f4633a;
                         if (!z) {
                             d.g("WebSafeCheckers", "domain is not in white list：" + e2);
                         }
                         long currentTimeMillis22 = System.currentTimeMillis();
-                        if (f4625a) {
+                        if (f4633a) {
                             String str3 = "checkWebDomain: cost time = " + (currentTimeMillis22 - currentTimeMillis) + "ms";
                         }
                         return z;
@@ -380,7 +380,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             if (c.a.p0.a.a2.d.g().l() == 0 && SwanAppConfigData.h.d()) {
-                boolean z = f4625a;
+                boolean z = f4633a;
                 return false;
             }
             return true;

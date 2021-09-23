@@ -42,16 +42,16 @@ public abstract class f extends c.a.p0.a.h0.m.j {
     public i.j<c.a.p0.n.h.e> D;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f6185g;
+    public String f6193g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i.j<? super c.a.p0.n.h.f> f6186h;
+    public i.j<? super c.a.p0.n.h.f> f6194h;
 
     /* renamed from: i  reason: collision with root package name */
-    public i.j<? super c.a.p0.n.h.g> f6187i;
+    public i.j<? super c.a.p0.n.h.g> f6195i;
 
     /* renamed from: j  reason: collision with root package name */
-    public i.j<? super c.a.p0.n.h.d> f6188j;
+    public i.j<? super c.a.p0.n.h.d> f6196j;
     public i.j<? super c.a.p0.n.h.b> k;
     public c.a.p0.n.o.f l;
     public c.a.p0.n.h.f m;
@@ -75,7 +75,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6189e;
+        public final /* synthetic */ f f6197e;
 
         /* renamed from: c.a.p0.a.h0.m.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -84,7 +84,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f6190e;
+            public final /* synthetic */ a f6198e;
 
             public C0230a(a aVar) {
                 Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                         return;
                     }
                 }
-                this.f6190e = aVar;
+                this.f6198e = aVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -109,11 +109,11 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             /* renamed from: a */
             public void onCallback(i.a aVar) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && "installer_on_pump_finish".equals(aVar.f4565f)) {
+                if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && "installer_on_pump_finish".equals(aVar.f4573f)) {
                     Bundle bundle = new Bundle();
                     bundle.putString("performance_ubc_event_id", "670");
                     bundle.putString("performance_ubc_extra_key_for_event", "na_stream_bump_end");
-                    c.a.p0.n.f.h.a(this.f6190e.f6189e, bundle, "event_performance_ubc");
+                    c.a.p0.n.f.h.a(this.f6198e.f6197e, bundle, "event_performance_ubc");
                 }
             }
         }
@@ -133,14 +133,14 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6189e = fVar;
+            this.f6197e = fVar;
         }
 
         @Override // c.a.p0.n.f.b
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6189e.g0() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6197e.g0() : invokeV.intValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -150,7 +150,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, fVar)) == null) {
-                int i2 = fVar.f11886h;
+                int i2 = fVar.f11894h;
                 if (i2 == 0) {
                     return c.a.p0.a.h0.m.r.a.g();
                 }
@@ -167,7 +167,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, set)) == null) ? this.f6189e.m(bundle, set) : (Bundle) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, set)) == null) ? this.f6197e.m(bundle, set) : (Bundle) invokeLL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,17 +178,17 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             if (interceptable == null || interceptable.invokeLL(1048585, this, fVar, aVar) == null) {
                 super.e(fVar, aVar);
                 c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "onDownloadError：" + aVar.toString());
-                this.f6189e.l.j(fVar);
+                this.f6197e.l.j(fVar);
                 c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
                 aVar2.j(11L);
-                aVar2.h(aVar.f11875a);
+                aVar2.h(aVar.f11883a);
                 aVar2.c("主包下载失败");
                 aVar2.e(aVar.toString());
-                if (this.f6189e.f6186h != null) {
-                    this.f6189e.f6186h.onError(new PkgDownloadError(fVar, aVar2));
+                if (this.f6197e.f6194h != null) {
+                    this.f6197e.f6194h.onError(new PkgDownloadError(fVar, aVar2));
                 }
-                c.a.p0.a.h0.m.c.c().a(fVar, this.f6189e.h0(), aVar2);
-                c.a.p0.t.d.j(fVar.f11879a);
+                c.a.p0.a.h0.m.c.c().a(fVar, this.f6197e.h0(), aVar2);
+                c.a.p0.t.d.j(fVar.f11887a);
             }
         }
 
@@ -198,33 +198,33 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void i(c.a.p0.n.h.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
-                String i0 = this.f6189e.i0();
+                String i0 = this.f6197e.i0();
                 if (f.E) {
                     c.a.p0.a.f1.g.a.d(i0).e().d(1);
                 }
                 super.i(fVar);
-                this.f6189e.s.add(new UbcFlowEvent("na_pms_end_download"));
-                c.a.p0.a.q2.a w0 = this.f6189e.w0(fVar);
-                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "main onFileDownloaded: pmsPkgMain=" + fVar.f11887i);
+                this.f6197e.s.add(new UbcFlowEvent("na_pms_end_download"));
+                c.a.p0.a.q2.a w0 = this.f6197e.w0(fVar);
+                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "main onFileDownloaded: pmsPkgMain=" + fVar.f11895i);
                 if (w0 == null) {
-                    f fVar2 = this.f6189e;
+                    f fVar2 = this.f6197e;
                     fVar2.m = fVar;
                     fVar2.l.k(fVar);
-                    if (this.f6189e.f6186h != null) {
-                        this.f6189e.f6186h.onNext(fVar);
+                    if (this.f6197e.f6194h != null) {
+                        this.f6197e.f6194h.onNext(fVar);
                         if (f.E) {
-                            String str = this.f6189e.f0() + ": main onFileDownloaded: onCompleted";
+                            String str = this.f6197e.f0() + ": main onFileDownloaded: onCompleted";
                         }
-                        this.f6189e.f6186h.onCompleted();
+                        this.f6197e.f6194h.onCompleted();
                     }
-                    c.a.p0.a.h0.m.c.c().b(fVar, this.f6189e.h0());
+                    c.a.p0.a.h0.m.c.c().b(fVar, this.f6197e.h0());
                     return;
                 }
-                this.f6189e.l.j(fVar);
-                if (this.f6189e.f6186h != null) {
-                    this.f6189e.f6186h.onError(new PkgDownloadError(fVar, w0));
+                this.f6197e.l.j(fVar);
+                if (this.f6197e.f6194h != null) {
+                    this.f6197e.f6194h.onError(new PkgDownloadError(fVar, w0));
                 }
-                c.a.p0.a.h0.m.c.c().a(fVar, this.f6189e.h0(), w0);
+                c.a.p0.a.h0.m.c.c().a(fVar, this.f6197e.h0(), w0);
             }
         }
 
@@ -234,7 +234,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void c(c.a.p0.n.h.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, fVar) == null) {
-                String i0 = this.f6189e.i0();
+                String i0 = this.f6197e.i0();
                 if (f.E) {
                     c.a.p0.a.f1.g.a.d(i0).e().d(1);
                 }
@@ -249,15 +249,15 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void f(c.a.p0.n.h.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, fVar) == null) {
-                String i0 = this.f6189e.i0();
+                String i0 = this.f6197e.i0();
                 if (f.E) {
                     c.a.p0.a.f1.g.a.d(i0).e().d(1);
                 }
                 super.f(fVar);
                 if (f.E) {
-                    String str = this.f6189e.f0() + ": main onDownloading";
+                    String str = this.f6197e.f0() + ": main onDownloading";
                 }
-                this.f6189e.A0(fVar);
+                this.f6197e.A0(fVar);
             }
         }
 
@@ -268,7 +268,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{fVar, file, Long.valueOf(j2), readableByteChannel})) == null) {
-                String i0 = this.f6189e.i0();
+                String i0 = this.f6197e.i0();
                 if (f.E) {
                     c.a.p0.a.f1.g.a.d(i0).f(fVar.toString()).d(1);
                 }
@@ -279,13 +279,13 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                 c.a.p0.a.a1.g gVar = new c.a.p0.a.a1.g();
                 gVar.v(c0230a);
                 gVar.g(bundle);
-                gVar.f(new c.a.p0.a.a1.f(fVar, this.f6189e));
-                gVar.f(new c.a.p0.a.a1.d(fVar.m, this.f6189e));
+                gVar.f(new c.a.p0.a.a1.f(fVar, this.f6197e));
+                gVar.f(new c.a.p0.a.a1.d(fVar.m, this.f6197e));
                 gVar.i(readableByteChannel);
                 boolean j3 = gVar.j();
                 gVar.p(c0230a);
                 if (f.E) {
-                    String str = this.f6189e.f0() + ": onProcessStream: installOk=" + j3;
+                    String str = this.f6197e.f0() + ": onProcessStream: installOk=" + j3;
                 }
                 if (j3) {
                     c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "#onProcessStream del: " + file.getAbsolutePath());
@@ -303,10 +303,10 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f6191e;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f6199e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f6192f;
+        public final /* synthetic */ f f6200f;
 
         public b(f fVar, c.a.p0.a.v2.e1.b bVar) {
             Interceptable interceptable = $ic;
@@ -323,8 +323,8 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6192f = fVar;
-            this.f6191e = bVar;
+            this.f6200f = fVar;
+            this.f6199e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -333,8 +333,8 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void onCallback(c.a.p0.a.h0.m.m.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f6191e.onCallback(aVar);
-                f fVar = this.f6192f;
+                this.f6199e.onCallback(aVar);
+                f fVar = this.f6200f;
                 fVar.e0(fVar.v, aVar);
             }
         }
@@ -346,10 +346,10 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.q2.a f6193e;
+        public final /* synthetic */ c.a.p0.a.q2.a f6201e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f6194f;
+        public final /* synthetic */ boolean f6202f;
 
         public c(f fVar, c.a.p0.a.q2.a aVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -366,8 +366,8 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6193e = aVar;
-            this.f6194f = z;
+            this.f6201e = aVar;
+            this.f6202f = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -376,7 +376,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void onCallback(c.a.p0.a.h0.m.m.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.a(this.f6193e, this.f6194f);
+                aVar.a(this.f6201e, this.f6202f);
             }
         }
     }
@@ -387,7 +387,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PMSAppInfo f6195e;
+        public final /* synthetic */ PMSAppInfo f6203e;
 
         public d(f fVar, PMSAppInfo pMSAppInfo) {
             Interceptable interceptable = $ic;
@@ -404,7 +404,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6195e = pMSAppInfo;
+            this.f6203e = pMSAppInfo;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -413,7 +413,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void onCallback(c.a.p0.a.h0.m.m.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                aVar.b(this.f6195e);
+                aVar.b(this.f6203e);
             }
         }
     }
@@ -424,10 +424,10 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.n.h.f f6196a;
+        public final /* synthetic */ c.a.p0.n.h.f f6204a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f6197b;
+        public final /* synthetic */ f f6205b;
 
         public e(f fVar, c.a.p0.n.h.f fVar2) {
             Interceptable interceptable = $ic;
@@ -444,21 +444,21 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6197b = fVar;
-            this.f6196a = fVar2;
+            this.f6205b = fVar;
+            this.f6204a = fVar2;
         }
 
         @Override // c.a.p0.a.h0.m.c.InterfaceC0228c
         public void a(PMSDownloadType pMSDownloadType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                f fVar = this.f6197b;
-                c.a.p0.n.h.f fVar2 = this.f6196a;
+                f fVar = this.f6205b;
+                c.a.p0.n.h.f fVar2 = this.f6204a;
                 fVar.m = fVar2;
                 fVar.l.k(fVar2);
-                if (this.f6197b.f6186h != null) {
-                    this.f6197b.f6186h.onNext(this.f6196a);
-                    this.f6197b.f6186h.onCompleted();
+                if (this.f6205b.f6194h != null) {
+                    this.f6205b.f6194h.onNext(this.f6204a);
+                    this.f6205b.f6194h.onCompleted();
                 }
             }
         }
@@ -467,9 +467,9 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void b(PMSDownloadType pMSDownloadType, c.a.p0.a.q2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, aVar) == null) {
-                this.f6197b.l.j(this.f6196a);
-                if (this.f6197b.f6186h != null) {
-                    this.f6197b.f6186h.onError(new PkgDownloadError(this.f6196a, aVar));
+                this.f6205b.l.j(this.f6204a);
+                if (this.f6205b.f6194h != null) {
+                    this.f6205b.f6194h.onError(new PkgDownloadError(this.f6204a, aVar));
                 }
             }
         }
@@ -482,10 +482,10 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.n.h.g f6198a;
+        public final /* synthetic */ c.a.p0.n.h.g f6206a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f6199b;
+        public final /* synthetic */ f f6207b;
 
         public C0231f(f fVar, c.a.p0.n.h.g gVar) {
             Interceptable interceptable = $ic;
@@ -502,29 +502,29 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6199b = fVar;
-            this.f6198a = gVar;
+            this.f6207b = fVar;
+            this.f6206a = gVar;
         }
 
         @Override // c.a.p0.a.h0.m.c.InterfaceC0228c
         public void a(PMSDownloadType pMSDownloadType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                f fVar = this.f6199b;
+                f fVar = this.f6207b;
                 if (fVar.n == null) {
                     fVar.n = new ArrayList();
                 }
-                c.a.p0.n.h.g gVar = this.f6198a;
-                f fVar2 = this.f6199b;
+                c.a.p0.n.h.g gVar = this.f6206a;
+                f fVar2 = this.f6207b;
                 gVar.o = fVar2.r;
                 fVar2.n.add(gVar);
-                this.f6199b.l.k(this.f6198a);
-                if (this.f6199b.f6187i != null) {
-                    this.f6199b.f6187i.onNext(this.f6198a);
-                    if (this.f6199b.l.g()) {
+                this.f6207b.l.k(this.f6206a);
+                if (this.f6207b.f6195i != null) {
+                    this.f6207b.f6195i.onNext(this.f6206a);
+                    if (this.f6207b.l.g()) {
                         return;
                     }
-                    this.f6199b.f6187i.onCompleted();
+                    this.f6207b.f6195i.onCompleted();
                 }
             }
         }
@@ -533,9 +533,9 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void b(PMSDownloadType pMSDownloadType, c.a.p0.a.q2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, aVar) == null) {
-                this.f6199b.l.j(this.f6198a);
-                if (this.f6199b.f6187i != null) {
-                    this.f6199b.f6187i.onError(new PkgDownloadError(this.f6198a, aVar));
+                this.f6207b.l.j(this.f6206a);
+                if (this.f6207b.f6195i != null) {
+                    this.f6207b.f6195i.onError(new PkgDownloadError(this.f6206a, aVar));
                 }
             }
         }
@@ -547,10 +547,10 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.n.h.d f6200a;
+        public final /* synthetic */ c.a.p0.n.h.d f6208a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f6201b;
+        public final /* synthetic */ f f6209b;
 
         public g(f fVar, c.a.p0.n.h.d dVar) {
             Interceptable interceptable = $ic;
@@ -567,21 +567,21 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6201b = fVar;
-            this.f6200a = dVar;
+            this.f6209b = fVar;
+            this.f6208a = dVar;
         }
 
         @Override // c.a.p0.a.h0.m.c.InterfaceC0228c
         public void a(PMSDownloadType pMSDownloadType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                f fVar = this.f6201b;
-                c.a.p0.n.h.d dVar = this.f6200a;
+                f fVar = this.f6209b;
+                c.a.p0.n.h.d dVar = this.f6208a;
                 fVar.o = dVar;
                 fVar.l.k(dVar);
-                if (this.f6201b.f6188j != null) {
-                    this.f6201b.f6188j.onNext(this.f6200a);
-                    this.f6201b.f6188j.onCompleted();
+                if (this.f6209b.f6196j != null) {
+                    this.f6209b.f6196j.onNext(this.f6208a);
+                    this.f6209b.f6196j.onCompleted();
                 }
             }
         }
@@ -590,9 +590,9 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void b(PMSDownloadType pMSDownloadType, c.a.p0.a.q2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, aVar) == null) {
-                this.f6201b.l.j(this.f6200a);
-                if (this.f6201b.f6188j != null) {
-                    this.f6201b.f6188j.onError(new PkgDownloadError(this.f6200a, aVar));
+                this.f6209b.l.j(this.f6208a);
+                if (this.f6209b.f6196j != null) {
+                    this.f6209b.f6196j.onError(new PkgDownloadError(this.f6208a, aVar));
                 }
             }
         }
@@ -604,10 +604,10 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.n.h.b f6202a;
+        public final /* synthetic */ c.a.p0.n.h.b f6210a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f6203b;
+        public final /* synthetic */ f f6211b;
 
         public h(f fVar, c.a.p0.n.h.b bVar) {
             Interceptable interceptable = $ic;
@@ -624,8 +624,8 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6203b = fVar;
-            this.f6202a = bVar;
+            this.f6211b = fVar;
+            this.f6210a = bVar;
         }
 
         @Override // c.a.p0.a.h0.m.c.InterfaceC0228c
@@ -633,11 +633,11 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
                 c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "Extension Repeat: onSuccess ：" + pMSDownloadType);
-                f fVar = this.f6203b;
-                c.a.p0.n.h.b bVar = this.f6202a;
+                f fVar = this.f6211b;
+                c.a.p0.n.h.b bVar = this.f6210a;
                 fVar.p = bVar;
                 fVar.l.k(bVar);
-                this.f6203b.n0(this.f6202a);
+                this.f6211b.n0(this.f6210a);
             }
         }
 
@@ -646,8 +646,8 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, aVar) == null) {
                 c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "Extension Repeat: onError ：" + pMSDownloadType + ":" + aVar.toString());
-                this.f6203b.l.j(this.f6202a);
-                this.f6203b.n0(this.f6202a);
+                this.f6211b.l.j(this.f6210a);
+                this.f6211b.n0(this.f6210a);
             }
         }
     }
@@ -658,7 +658,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6204e;
+        public final /* synthetic */ f f6212e;
 
         public i(f fVar) {
             Interceptable interceptable = $ic;
@@ -675,7 +675,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6204e = fVar;
+            this.f6212e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -684,7 +684,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void onNext(c.a.p0.n.h.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", this.f6204e.h0() + " : 单个包下载、业务层处理完成：" + eVar.f11887i);
+                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", this.f6212e.h0() + " : 单个包下载、业务层处理完成：" + eVar.f11895i);
             }
         }
 
@@ -692,8 +692,8 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", this.f6204e.h0() + " : 包下载onCompleted");
-                this.f6204e.s0();
+                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", this.f6212e.h0() + " : 包下载onCompleted");
+                this.f6212e.s0();
             }
         }
 
@@ -701,8 +701,8 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                c.a.p0.a.e0.d.i("SwanAppPkgDownloadCallback", this.f6204e.h0() + " : 包下载OnError", th);
-                this.f6204e.t0(th);
+                c.a.p0.a.e0.d.i("SwanAppPkgDownloadCallback", this.f6212e.h0() + " : 包下载OnError", th);
+                this.f6212e.t0(th);
             }
         }
     }
@@ -713,7 +713,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6205e;
+        public final /* synthetic */ f f6213e;
 
         public j(f fVar) {
             Interceptable interceptable = $ic;
@@ -730,7 +730,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6205e = fVar;
+            this.f6213e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -739,7 +739,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void call(i.j<? super c.a.p0.n.h.f> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                this.f6205e.f6186h = jVar;
+                this.f6213e.f6194h = jVar;
             }
         }
     }
@@ -750,7 +750,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6206e;
+        public final /* synthetic */ f f6214e;
 
         public k(f fVar) {
             Interceptable interceptable = $ic;
@@ -767,7 +767,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6206e = fVar;
+            this.f6214e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -776,7 +776,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void call(i.j<? super c.a.p0.n.h.g> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                this.f6206e.f6187i = jVar;
+                this.f6214e.f6195i = jVar;
             }
         }
     }
@@ -787,7 +787,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6207e;
+        public final /* synthetic */ f f6215e;
 
         public l(f fVar) {
             Interceptable interceptable = $ic;
@@ -804,7 +804,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6207e = fVar;
+            this.f6215e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -813,7 +813,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void call(i.j<? super c.a.p0.n.h.d> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                this.f6207e.f6188j = jVar;
+                this.f6215e.f6196j = jVar;
             }
         }
     }
@@ -824,7 +824,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6208e;
+        public final /* synthetic */ f f6216e;
 
         public m(f fVar) {
             Interceptable interceptable = $ic;
@@ -841,7 +841,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6208e = fVar;
+            this.f6216e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -850,7 +850,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void call(i.j<? super c.a.p0.n.h.b> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                this.f6208e.k = jVar;
+                this.f6216e.k = jVar;
             }
         }
     }
@@ -861,7 +861,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f6209g;
+        public final /* synthetic */ f f6217g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public n(f fVar, f fVar2) {
@@ -881,21 +881,21 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6209g = fVar;
+            this.f6217g = fVar;
         }
 
         @Override // c.a.p0.a.h0.m.k, c.a.p0.n.f.b
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6209g.g0() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6217g.g0() : invokeV.intValue;
         }
 
         @Override // c.a.p0.a.h0.m.k
         public String l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6209g.r : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6217g.r : (String) invokeV.objValue;
         }
 
         @Override // c.a.p0.a.h0.m.k
@@ -903,27 +903,27 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, gVar, aVar) == null) {
                 super.p(gVar, aVar);
-                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "sub onFileDownloaded: " + gVar.f11887i);
-                f fVar = this.f6209g;
+                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "sub onFileDownloaded: " + gVar.f11895i);
+                f fVar = this.f6217g;
                 if (fVar.n == null) {
                     fVar.n = new ArrayList();
                 }
-                f fVar2 = this.f6209g;
+                f fVar2 = this.f6217g;
                 gVar.o = fVar2.r;
                 if (aVar == null) {
                     fVar2.n.add(gVar);
-                    this.f6209g.l.k(gVar);
-                    c.a.p0.a.h0.m.c.c().b(gVar, this.f6209g.h0());
+                    this.f6217g.l.k(gVar);
+                    c.a.p0.a.h0.m.c.c().b(gVar, this.f6217g.h0());
                 } else {
                     fVar2.l.j(gVar);
-                    c.a.p0.a.h0.m.c.c().a(gVar, this.f6209g.h0(), aVar);
+                    c.a.p0.a.h0.m.c.c().a(gVar, this.f6217g.h0(), aVar);
                 }
-                if (this.f6209g.f6187i != null) {
-                    this.f6209g.f6187i.onNext(gVar);
-                    if (this.f6209g.l.g()) {
+                if (this.f6217g.f6195i != null) {
+                    this.f6217g.f6195i.onNext(gVar);
+                    if (this.f6217g.l.g()) {
                         return;
                     }
-                    this.f6209g.f6187i.onCompleted();
+                    this.f6217g.f6195i.onCompleted();
                 }
             }
         }
@@ -936,16 +936,16 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             if (interceptable == null || interceptable.invokeLL(1048582, this, gVar, aVar) == null) {
                 super.q(gVar, aVar);
                 c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "sub onDownloadError：" + aVar.toString());
-                this.f6209g.l.j(gVar);
+                this.f6217g.l.j(gVar);
                 c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
                 aVar2.j(12L);
-                aVar2.h(aVar.f11875a);
+                aVar2.h(aVar.f11883a);
                 aVar2.c("分包下载失败");
                 aVar2.e(aVar.toString());
-                if (this.f6209g.f6187i != null) {
-                    this.f6209g.f6187i.onError(new PkgDownloadError(gVar, aVar2));
+                if (this.f6217g.f6195i != null) {
+                    this.f6217g.f6195i.onError(new PkgDownloadError(gVar, aVar2));
                 }
-                c.a.p0.a.h0.m.c.c().a(gVar, this.f6209g.h0(), aVar2);
+                c.a.p0.a.h0.m.c.c().a(gVar, this.f6217g.h0(), aVar2);
             }
         }
 
@@ -967,7 +967,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gVar) == null) {
                 super.f(gVar);
-                this.f6209g.B0(gVar);
+                this.f6217g.B0(gVar);
             }
         }
     }
@@ -978,7 +978,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6210e;
+        public final /* synthetic */ f f6218e;
 
         public o(f fVar) {
             Interceptable interceptable = $ic;
@@ -995,14 +995,14 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6210e = fVar;
+            this.f6218e = fVar;
         }
 
         @Override // c.a.p0.n.f.b
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6210e.g0() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6218e.g0() : invokeV.intValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1012,7 +1012,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, dVar)) == null) {
-                int i2 = dVar.f11886h;
+                int i2 = dVar.f11894h;
                 if (i2 == 0) {
                     return c.a.p0.a.h0.m.r.a.h();
                 }
@@ -1029,7 +1029,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) ? this.f6210e.m(bundle, set) : (Bundle) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) ? this.f6218e.m(bundle, set) : (Bundle) invokeLL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1040,17 +1040,17 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar, aVar) == null) {
                 super.e(dVar, aVar);
                 c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "framework onDownloadError：" + aVar.toString());
-                this.f6210e.l.j(dVar);
+                this.f6218e.l.j(dVar);
                 c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
                 aVar2.j(13L);
-                aVar2.h(aVar.f11875a);
+                aVar2.h(aVar.f11883a);
                 aVar2.c("Framework包下载失败");
                 aVar2.e(aVar.toString());
-                if (this.f6210e.f6188j != null) {
-                    this.f6210e.f6188j.onError(new PkgDownloadError(dVar, aVar2));
+                if (this.f6218e.f6196j != null) {
+                    this.f6218e.f6196j.onError(new PkgDownloadError(dVar, aVar2));
                 }
-                c.a.p0.a.h0.m.c.c().a(dVar, this.f6210e.h0(), aVar2);
-                c.a.p0.t.d.j(dVar.f11879a);
+                c.a.p0.a.h0.m.c.c().a(dVar, this.f6218e.h0(), aVar2);
+                c.a.p0.t.d.j(dVar.f11887a);
             }
         }
 
@@ -1061,24 +1061,24 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, dVar) == null) {
                 super.i(dVar);
-                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "framework onFileDownloaded: " + dVar.f11887i);
-                c.a.p0.a.q2.a v0 = this.f6210e.v0(dVar);
+                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "framework onFileDownloaded: " + dVar.f11895i);
+                c.a.p0.a.q2.a v0 = this.f6218e.v0(dVar);
                 if (v0 == null) {
-                    f fVar = this.f6210e;
+                    f fVar = this.f6218e;
                     fVar.o = dVar;
                     fVar.l.k(dVar);
-                    if (this.f6210e.f6188j != null) {
-                        this.f6210e.f6188j.onNext(dVar);
-                        this.f6210e.f6188j.onCompleted();
+                    if (this.f6218e.f6196j != null) {
+                        this.f6218e.f6196j.onNext(dVar);
+                        this.f6218e.f6196j.onCompleted();
                     }
-                    c.a.p0.a.h0.m.c.c().b(dVar, this.f6210e.h0());
+                    c.a.p0.a.h0.m.c.c().b(dVar, this.f6218e.h0());
                     return;
                 }
-                this.f6210e.l.j(dVar);
-                if (this.f6210e.f6188j != null) {
-                    this.f6210e.f6188j.onError(new PkgDownloadError(dVar, v0));
+                this.f6218e.l.j(dVar);
+                if (this.f6218e.f6196j != null) {
+                    this.f6218e.f6196j.onError(new PkgDownloadError(dVar, v0));
                 }
-                c.a.p0.a.h0.m.c.c().a(dVar, this.f6210e.h0(), v0);
+                c.a.p0.a.h0.m.c.c().a(dVar, this.f6218e.h0(), v0);
             }
         }
 
@@ -1101,9 +1101,9 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
                 super.f(dVar);
                 if (f.E) {
-                    String str = this.f6210e.f0() + ": framework onDownloading";
+                    String str = this.f6218e.f0() + ": framework onDownloading";
                 }
-                this.f6210e.z0(dVar);
+                this.f6218e.z0(dVar);
             }
         }
     }
@@ -1114,7 +1114,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6211e;
+        public final /* synthetic */ f f6219e;
 
         public p(f fVar) {
             Interceptable interceptable = $ic;
@@ -1131,14 +1131,14 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6211e = fVar;
+            this.f6219e = fVar;
         }
 
         @Override // c.a.p0.n.f.b
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6211e.g0() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6219e.g0() : invokeV.intValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1148,7 +1148,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {
-                int i2 = bVar.f11886h;
+                int i2 = bVar.f11894h;
                 if (i2 == 0) {
                     return c.a.p0.a.h0.m.r.a.d();
                 }
@@ -1165,7 +1165,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) ? this.f6211e.m(bundle, set) : (Bundle) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bundle, set)) == null) ? this.f6219e.m(bundle, set) : (Bundle) invokeLL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1176,18 +1176,18 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar, aVar) == null) {
                 super.e(bVar, aVar);
                 c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "extension onDownloadError：" + aVar.toString());
-                this.f6211e.l.j(bVar);
+                this.f6219e.l.j(bVar);
                 c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
                 aVar2.j(14L);
-                aVar2.h(aVar.f11875a);
+                aVar2.h(aVar.f11883a);
                 aVar2.c("Extension下载失败");
                 aVar2.e(aVar.toString());
                 if (f.E) {
                     aVar2.toString();
                 }
-                this.f6211e.n0(bVar);
-                c.a.p0.a.h0.m.c.c().a(bVar, this.f6211e.h0(), aVar2);
-                c.a.p0.t.d.j(bVar.f11879a);
+                this.f6219e.n0(bVar);
+                c.a.p0.a.h0.m.c.c().a(bVar, this.f6219e.h0(), aVar2);
+                c.a.p0.t.d.j(bVar.f11887a);
             }
         }
 
@@ -1198,22 +1198,22 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
                 super.i(bVar);
-                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "extension onFileDownloaded: " + bVar.f11887i);
-                c.a.p0.a.q2.a u0 = this.f6211e.u0(bVar);
+                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "extension onFileDownloaded: " + bVar.f11895i);
+                c.a.p0.a.q2.a u0 = this.f6219e.u0(bVar);
                 if (u0 != null) {
                     if (f.E) {
                         String str = "Extension 业务处理失败：" + bVar.toString();
                     }
-                    this.f6211e.l.j(bVar);
-                    this.f6211e.n0(bVar);
-                    c.a.p0.a.h0.m.c.c().a(bVar, this.f6211e.h0(), u0);
+                    this.f6219e.l.j(bVar);
+                    this.f6219e.n0(bVar);
+                    c.a.p0.a.h0.m.c.c().a(bVar, this.f6219e.h0(), u0);
                     return;
                 }
-                f fVar = this.f6211e;
+                f fVar = this.f6219e;
                 fVar.p = bVar;
                 fVar.l.k(bVar);
-                this.f6211e.n0(bVar);
-                c.a.p0.a.h0.m.c.c().b(bVar, this.f6211e.h0());
+                this.f6219e.n0(bVar);
+                c.a.p0.a.h0.m.c.c().b(bVar, this.f6219e.h0());
             }
         }
 
@@ -1236,9 +1236,9 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
                 super.f(bVar);
                 if (f.E) {
-                    String str = this.f6211e.f0() + ": extension onDownloading";
+                    String str = this.f6219e.f0() + ": extension onDownloading";
                 }
-                this.f6211e.y0(bVar);
+                this.f6219e.y0(bVar);
             }
         }
     }
@@ -1249,7 +1249,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f6212a;
+        public final /* synthetic */ f f6220a;
 
         public q(f fVar) {
             Interceptable interceptable = $ic;
@@ -1266,7 +1266,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6212a = fVar;
+            this.f6220a = fVar;
         }
 
         @Override // c.a.p0.n.f.f
@@ -1274,13 +1274,13 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSAppInfo) == null) {
                 if (f.E) {
-                    String str = this.f6212a.f0() + ": onSwanAppReceive: " + pMSAppInfo.toString();
+                    String str = this.f6220a.f0() + ": onSwanAppReceive: " + pMSAppInfo.toString();
                 }
-                f fVar = this.f6212a;
+                f fVar = this.f6220a;
                 fVar.q = pMSAppInfo;
                 if (pMSAppInfo != null) {
                     fVar.l0(pMSAppInfo);
-                    c.a.p0.a.t1.g.b.k(this.f6212a.q.pluginInfo, true);
+                    c.a.p0.a.t1.g.b.k(this.f6220a.q.pluginInfo, true);
                 }
             }
         }
@@ -1292,7 +1292,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PMSAppInfo f6213e;
+        public final /* synthetic */ PMSAppInfo f6221e;
 
         public r(f fVar, PMSAppInfo pMSAppInfo) {
             Interceptable interceptable = $ic;
@@ -1309,7 +1309,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6213e = pMSAppInfo;
+            this.f6221e = pMSAppInfo;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1318,7 +1318,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public void onCallback(c.a.p0.a.v2.e1.b<PMSAppInfo> bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                bVar.onCallback(this.f6213e);
+                bVar.onCallback(this.f6221e);
             }
         }
     }
@@ -1329,10 +1329,10 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Collection f6214e;
+        public final /* synthetic */ Collection f6222e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f6215f;
+        public final /* synthetic */ Object f6223f;
 
         public s(f fVar, Collection collection, Object obj) {
             Interceptable interceptable = $ic;
@@ -1349,15 +1349,15 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6214e = collection;
-            this.f6215f = obj;
+            this.f6222e = collection;
+            this.f6223f = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6214e.add(this.f6215f);
+                this.f6222e.add(this.f6223f);
             }
         }
     }
@@ -1368,10 +1368,10 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Collection f6216e;
+        public final /* synthetic */ Collection f6224e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f6217f;
+        public final /* synthetic */ Object f6225f;
 
         public t(f fVar, Collection collection, Object obj) {
             Interceptable interceptable = $ic;
@@ -1388,15 +1388,15 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6216e = collection;
-            this.f6217f = obj;
+            this.f6224e = collection;
+            this.f6225f = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6216e.remove(this.f6217f);
+                this.f6224e.remove(this.f6225f);
             }
         }
     }
@@ -1407,10 +1407,10 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Collection f6218e;
+        public final /* synthetic */ Collection f6226e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.p0.a.v2.e1.b f6219f;
+        public final /* synthetic */ c.a.p0.a.v2.e1.b f6227f;
 
         public u(f fVar, Collection collection, c.a.p0.a.v2.e1.b bVar) {
             Interceptable interceptable = $ic;
@@ -1427,16 +1427,16 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                     return;
                 }
             }
-            this.f6218e = collection;
-            this.f6219f = bVar;
+            this.f6226e = collection;
+            this.f6227f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (Object obj : this.f6218e) {
-                    this.f6219f.onCallback(obj);
+                for (Object obj : this.f6226e) {
+                    this.f6227f.onCallback(obj);
                 }
             }
         }
@@ -1455,7 +1455,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                 return;
             }
         }
-        E = c.a.p0.a.k.f7077a;
+        E = c.a.p0.a.k.f7085a;
     }
 
     public f(String str) {
@@ -1473,7 +1473,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                 return;
             }
         }
-        this.f6185g = "";
+        this.f6193g = "";
         this.u = -1L;
         this.v = new HashSet();
         this.w = new HashSet();
@@ -1500,7 +1500,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "onFetchError: error=" + aVar);
-            if (aVar != null && aVar.f11875a == 1010) {
+            if (aVar != null && aVar.f11883a == 1010) {
                 D0();
             }
             this.s.add(new UbcFlowEvent("na_pms_end_req"));
@@ -1610,7 +1610,7 @@ public abstract class f extends c.a.p0.a.h0.m.j {
                 s2.updateInstallSrc(I());
                 c.a.p0.n.h.f fVar = this.m;
                 if (fVar != null) {
-                    fVar.f11881c = s2.createTime;
+                    fVar.f11889c = s2.createTime;
                 }
                 PMSAppInfo pMSAppInfo = this.q;
                 if (pMSAppInfo != null) {
@@ -1700,10 +1700,10 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (TextUtils.isEmpty(this.f6185g)) {
-                this.f6185g = getClass().toString();
+            if (TextUtils.isEmpty(this.f6193g)) {
+                this.f6193g = getClass().toString();
             }
-            return this.f6185g;
+            return this.f6193g;
         }
         return (String) invokeV.objValue;
     }
@@ -1877,11 +1877,11 @@ public abstract class f extends c.a.p0.a.h0.m.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, bVar)) == null) {
             c.a.p0.a.p0.g.a aVar = new c.a.p0.a.p0.g.a();
-            aVar.f7981b = bVar.f11887i;
-            aVar.f7980a = bVar.f11888j;
-            aVar.f7982c = bVar.f11879a;
-            aVar.f7983d = bVar.m;
-            if (c.a.p0.a.p0.b.b(bVar.f11886h, aVar) == null) {
+            aVar.f7989b = bVar.f11895i;
+            aVar.f7988a = bVar.f11896j;
+            aVar.f7990c = bVar.f11887a;
+            aVar.f7991d = bVar.m;
+            if (c.a.p0.a.p0.b.b(bVar.f11894h, aVar) == null) {
                 return null;
             }
             c.a.p0.a.q2.a aVar2 = new c.a.p0.a.q2.a();
@@ -1900,10 +1900,10 @@ public abstract class f extends c.a.p0.a.h0.m.j {
             if (E) {
                 String str = "onFrameworkPkgDownload framework = " + dVar;
             }
-            a.b c2 = c.a.p0.a.m2.f.a.c(dVar, dVar.f11886h);
-            if (!TextUtils.isEmpty(dVar.f11879a)) {
-                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "#onFrameworkPkgDownload del: " + dVar.f11879a);
-                c.a.p0.t.d.j(dVar.f11879a);
+            a.b c2 = c.a.p0.a.m2.f.a.c(dVar, dVar.f11894h);
+            if (!TextUtils.isEmpty(dVar.f11887a)) {
+                c.a.p0.a.e0.d.h("SwanAppPkgDownloadCallback", "#onFrameworkPkgDownload del: " + dVar.f11887a);
+                c.a.p0.t.d.j(dVar.f11887a);
             }
             if (c2.c()) {
                 return null;

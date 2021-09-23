@@ -17,7 +17,7 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f8487a;
+    public static final d f8495a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class d {
             }
         }
         d dVar = new d();
-        f8487a = dVar;
+        f8495a = dVar;
         Intrinsics.checkNotNullExpressionValue(dVar.getClass().getSimpleName(), "SwanAppAllianceLoginBdus…ager.javaClass.simpleName");
     }
 

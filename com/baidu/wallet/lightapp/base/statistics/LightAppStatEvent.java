@@ -49,6 +49,7 @@ public final class LightAppStatEvent {
     public static final String LIGHT_INVOKE_METHOD_NOT_SUPPORT = "#LightAppMethodNotSupported";
     public static final String METHOD_INVOKE_BD_WALLET_NATIVE_FAIL = "#invokeBdWalletNativeFail";
     public static final String METHOD_INVOKE_BD_WALLET_NATIVE_SUCCESS = "#invokeBdWalletNativeSuccess";
+    public static final String MTD_CALL_NATIVE_PHOTO_MULTI_RESULT = "#call_native_photo_multi_result";
     public static final String OFFLINECACHE_DOWNLOAD_JSHOOK_FILE_FAILED = "offlinecache_download_jshook_file_failed";
     public static final String PAGE_URL = "pageUrl";
     public static final String WEB_VIEW_CONSOLE = "WebViewConsole";

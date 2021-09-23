@@ -19,10 +19,10 @@ public abstract class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static WeakReference<TbPageContext<?>> f13499a;
+    public static WeakReference<TbPageContext<?>> f13495a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f13500b;
+    public static boolean f13496b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -76,7 +76,7 @@ public abstract class b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f13500b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f13496b : invokeV.booleanValue;
     }
 
     public abstract void c();
@@ -92,12 +92,12 @@ public abstract class b {
     public void h() {
         WeakReference<TbPageContext<?>> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (weakReference = f13499a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (weakReference = f13495a) == null) {
             return;
         }
         weakReference.get();
-        f13499a.clear();
-        f13499a = null;
+        f13495a.clear();
+        f13495a = null;
     }
 
     public abstract void i();
@@ -105,14 +105,14 @@ public abstract class b {
     public void j(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) {
-            WeakReference<TbPageContext<?>> weakReference = f13499a;
+            WeakReference<TbPageContext<?>> weakReference = f13495a;
             if (weakReference == null) {
-                f13499a = new WeakReference<>(tbPageContext);
+                f13495a = new WeakReference<>(tbPageContext);
                 return;
             }
             weakReference.clear();
-            f13499a = null;
-            f13499a = new WeakReference<>(tbPageContext);
+            f13495a = null;
+            f13495a = new WeakReference<>(tbPageContext);
         }
     }
 

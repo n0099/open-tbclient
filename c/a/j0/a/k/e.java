@@ -10,10 +10,10 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f3655a = 1.01f;
+    public static float f3656a = 1.01f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f3656b;
+    public static boolean f3657b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

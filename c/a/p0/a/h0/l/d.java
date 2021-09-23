@@ -20,17 +20,17 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f6063d;
+    public static final boolean f6071d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.l0.a f6064a;
+    public c.a.p0.a.l0.a f6072a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.a.y.a f6065b;
+    public c.a.p0.a.y.a f6073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f6066c;
+    public j f6074c;
 
     /* loaded from: classes.dex */
     public class a extends c.a.p0.a.l0.n.a {
@@ -38,13 +38,13 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f6067a;
+        public String f6075a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6068b;
+        public String f6076b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f6069c;
+        public final /* synthetic */ d f6077c;
 
         public a(@NonNull d dVar, @NonNull String str, String str2) {
             Interceptable interceptable = $ic;
@@ -61,10 +61,10 @@ public class d {
                     return;
                 }
             }
-            this.f6069c = dVar;
-            this.f6067a = str;
-            this.f6068b = str2;
-            if (d.f6063d) {
+            this.f6077c = dVar;
+            this.f6075a = str;
+            this.f6076b = str2;
+            if (d.f6071d) {
                 String str3 = "basePath: " + str + ", jsFile: " + str2;
             }
         }
@@ -73,7 +73,7 @@ public class d {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6068b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6076b : (String) invokeV.objValue;
         }
 
         @Override // c.a.p0.a.l0.n.a, c.a.p0.a.l0.n.b
@@ -82,10 +82,10 @@ public class d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (d.f6063d) {
-                    String str = "pathList item: " + this.f6067a;
+                if (d.f6071d) {
+                    String str = "pathList item: " + this.f6075a;
                 }
-                return c.a.p0.a.h0.d.a.a("appframe", this.f6067a);
+                return c.a.p0.a.h0.d.a.a("appframe", this.f6075a);
             }
             return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
         }
@@ -94,8 +94,8 @@ public class d {
         public void c(c.a.p0.a.l0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                if (this.f6069c.f6066c != null) {
-                    this.f6069c.f6066c.a(aVar);
+                if (this.f6077c.f6074c != null) {
+                    this.f6077c.f6074c.a(aVar);
                 }
                 aVar.y0();
             }
@@ -105,7 +105,7 @@ public class d {
         public void d(c.a.p0.a.l0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-                this.f6069c.f6065b.b(aVar, c.a.p0.a.c1.a.b());
+                this.f6077c.f6073b.b(aVar, c.a.p0.a.c1.a.b());
             }
         }
 
@@ -113,7 +113,7 @@ public class d {
         public String getInitBasePath() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6067a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6075a : (String) invokeV.objValue;
         }
     }
 
@@ -130,7 +130,7 @@ public class d {
                 return;
             }
         }
-        f6063d = k.f7077a;
+        f6071d = k.f7085a;
     }
 
     public d(@NonNull String str, @NonNull String str2) {
@@ -148,14 +148,14 @@ public class d {
                 return;
             }
         }
-        this.f6065b = new c.a.p0.a.y.a();
-        this.f6064a = c.a.p0.a.l0.f.c(e(), new a(this, str, str2), c.a.p0.a.r1.l.e.m() ? new f() : null);
+        this.f6073b = new c.a.p0.a.y.a();
+        this.f6072a = c.a.p0.a.l0.f.c(e(), new a(this, str, str2), c.a.p0.a.r1.l.e.m() ? new f() : null);
     }
 
     public void d(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.f6065b.a(activity);
+            this.f6073b.a(activity);
         }
     }
 
@@ -174,40 +174,40 @@ public class d {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f6064a.k0();
+            this.f6072a.k0();
         }
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6064a.f7173g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6072a.f7181g : (String) invokeV.objValue;
     }
 
     public c.a.p0.a.l0.a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6064a : (c.a.p0.a.l0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6072a : (c.a.p0.a.l0.a) invokeV.objValue;
     }
 
     public void i(V8EngineConfiguration.JSCacheCallback jSCacheCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jSCacheCallback) == null) {
-            this.f6064a.B0(jSCacheCallback);
+            this.f6072a.B0(jSCacheCallback);
         }
     }
 
     public void j(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, codeCacheSetting) == null) {
-            this.f6064a.C0(codeCacheSetting);
+            this.f6072a.C0(codeCacheSetting);
         }
     }
 
     public void k(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, jVar) == null) {
-            this.f6066c = jVar;
+            this.f6074c = jVar;
         }
     }
 }

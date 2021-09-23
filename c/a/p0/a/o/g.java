@@ -25,14 +25,14 @@ public class g implements c.a.p0.f.i.l.f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ViewGroup.LayoutParams f7767c;
+    public static final ViewGroup.LayoutParams f7775c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.a.p0.a.h0.g.f f7768a;
+    public c.a.p0.a.h0.g.f f7776a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f7769b;
+    public FrameLayout f7777b;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class g implements c.a.p0.f.i.l.f {
                 return;
             }
         }
-        f7767c = new FrameLayout.LayoutParams(-1, -1);
+        f7775c = new FrameLayout.LayoutParams(-1, -1);
     }
 
     public g() {
@@ -80,7 +80,7 @@ public class g implements c.a.p0.f.i.l.f {
             c.a.p0.a.l1.b g2 = c.a.p0.a.l1.b.g(str, str);
             g2.k(jSONObject.toString());
             g.b i2 = W.i("adLanding");
-            i2.n(c.a.p0.a.h0.g.g.f5928g, c.a.p0.a.h0.g.g.f5930i);
+            i2.n(c.a.p0.a.h0.g.g.f5936g, c.a.p0.a.h0.g.g.f5938i);
             i2.k("adLanding", g2).b();
         }
     }
@@ -117,7 +117,7 @@ public class g implements c.a.p0.f.i.l.f {
                 return false;
             }
             c.a.p0.a.h0.g.f o = W.o();
-            this.f7768a = o;
+            this.f7776a = o;
             if (o.r3()) {
                 int u = n0.u();
                 if (view instanceof ViewGroup) {
@@ -133,15 +133,15 @@ public class g implements c.a.p0.f.i.l.f {
                 }
             }
             SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
-            this.f7769b = swanAppInlineFullScreenContainer;
-            swanAppInlineFullScreenContainer.addView(view, f7767c);
+            this.f7777b = swanAppInlineFullScreenContainer;
+            swanAppInlineFullScreenContainer.addView(view, f7775c);
             c.a.p0.a.z1.b.c.a floatLayer = o.getFloatLayer();
             if (floatLayer == null) {
                 return false;
             }
             floatLayer.j(true);
             n0.b(activity);
-            floatLayer.k(this.f7769b);
+            floatLayer.k(this.f7777b);
             return true;
         }
         return invokeLL.booleanValue;
@@ -170,8 +170,8 @@ public class g implements c.a.p0.f.i.l.f {
         c.a.p0.a.z1.b.c.a floatLayer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view)) == null) {
-            this.f7769b.removeAllViews();
-            c.a.p0.a.h0.g.f fVar = this.f7768a;
+            this.f7777b.removeAllViews();
+            c.a.p0.a.h0.g.f fVar = this.f7776a;
             if (fVar == null || (floatLayer = fVar.getFloatLayer()) == null) {
                 return false;
             }

@@ -16,7 +16,7 @@ public abstract class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7984a;
+    public static final String f7992a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public abstract class b implements a {
                 return;
             }
         }
-        f7984a = e.g() + File.separator + "extension_core";
+        f7992a = e.g() + File.separator + "extension_core";
     }
 
     public b() {
@@ -80,6 +80,6 @@ public abstract class b implements a {
     public File f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new File(f7984a) : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new File(f7992a) : (File) invokeV.objValue;
     }
 }

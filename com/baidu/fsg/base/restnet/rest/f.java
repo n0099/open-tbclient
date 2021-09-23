@@ -14,14 +14,14 @@ public class f<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39439a = "f";
+    public static final String f39496a = "f";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f39440b;
+    public final Class<T> f39497b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.baidu.fsg.base.restnet.a.a<?> f39441c;
+    public final com.baidu.fsg.base.restnet.a.a<?> f39498c;
 
     static {
         InterceptResult invokeClinit;
@@ -59,16 +59,16 @@ public class f<T> {
         if (aVar == null) {
             throw new IllegalArgumentException("'messageConverters' must not be empty");
         }
-        this.f39440b = cls;
-        this.f39441c = aVar;
+        this.f39497b = cls;
+        this.f39498c = aVar;
     }
 
     private boolean b(e eVar) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, eVar)) == null) {
-            HttpStatus e2 = eVar.e();
-            return (e2 == HttpStatus.NO_CONTENT || e2 == HttpStatus.NOT_MODIFIED || eVar.d().h() == 0) ? false : true;
+            HttpStatus statusCode = eVar.getStatusCode();
+            return (statusCode == HttpStatus.NO_CONTENT || statusCode == HttpStatus.NOT_MODIFIED || eVar.a().i() == 0) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -78,10 +78,10 @@ public class f<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             if (b(eVar)) {
-                if (eVar.d().i() == null) {
-                    Log.isLoggable(f39439a, 3);
+                if (eVar.a().j() == null) {
+                    Log.isLoggable(f39496a, 3);
                 }
-                return (T) this.f39441c.a(this.f39440b, eVar);
+                return (T) this.f39498c.a(this.f39497b, eVar);
             }
             return null;
         }

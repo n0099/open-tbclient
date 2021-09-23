@@ -15,10 +15,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageTag f13619a;
+    public TbPageTag f13615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageTag f13620b;
+    public TbPageTag f13616b;
 
     public b(BdUniqueId bdUniqueId, TbPageTag tbPageTag, Intent intent) {
         Interceptable interceptable = $ic;
@@ -35,20 +35,20 @@ public class b {
                 return;
             }
         }
-        this.f13620b = tbPageTag;
+        this.f13616b = tbPageTag;
         c(intent);
     }
 
     public TbPageTag a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13620b : (TbPageTag) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13616b : (TbPageTag) invokeV.objValue;
     }
 
     public TbPageTag b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13619a : (TbPageTag) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13615a : (TbPageTag) invokeV.objValue;
     }
 
     public final void c(Intent intent) {
@@ -56,6 +56,6 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) || intent == null) {
             return;
         }
-        this.f13619a = (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
+        this.f13615a = (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
     }
 }

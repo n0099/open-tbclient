@@ -12,7 +12,7 @@ public class gf {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f77711a;
+    public String f78030a;
 
     public gf(String str) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class gf {
                 return;
             }
         }
-        this.f77711a = str;
+        this.f78030a = str;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "stream:error (" + this.f77711a + SmallTailInfo.EMOTION_SUFFIX;
+            return "stream:error (" + this.f78030a + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

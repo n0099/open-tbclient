@@ -21,7 +21,7 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f54613e;
+    public final HttpMessageListener f54728e;
 
     /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
@@ -78,12 +78,12 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f54613e = new a(this, CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
+        this.f54728e = new a(this, CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f54613e.setTag(getUniqueId());
-        this.f54613e.setSelfListener(true);
-        registerListener(this.f54613e);
+        this.f54728e.setTag(getUniqueId());
+        this.f54728e.setSelfListener(true);
+        registerListener(this.f54728e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

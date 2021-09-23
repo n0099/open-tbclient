@@ -33,7 +33,7 @@ public class ClearTempService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ClearTempService f56603a;
+        public final /* synthetic */ ClearTempService f56720a;
 
         public a(ClearTempService clearTempService) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class ClearTempService extends BdBaseService {
                     return;
                 }
             }
-            this.f56603a = clearTempService;
+            this.f56720a = clearTempService;
         }
 
         @Override // android.os.Handler
@@ -58,8 +58,8 @@ public class ClearTempService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                this.f56603a.stopSelf();
-                this.f56603a.thread = null;
+                this.f56720a.stopSelf();
+                this.f56720a.thread = null;
             }
         }
     }
@@ -70,7 +70,7 @@ public class ClearTempService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClearTempService f56604e;
+        public final /* synthetic */ ClearTempService f56721e;
 
         public b(ClearTempService clearTempService) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class ClearTempService extends BdBaseService {
                     return;
                 }
             }
-            this.f56604e = clearTempService;
+            this.f56721e = clearTempService;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -100,14 +100,14 @@ public class ClearTempService extends BdBaseService {
                     File file2 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share");
                     File file3 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/voice");
                     File file4 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
-                    this.f56604e.deleteCache(file, false);
-                    this.f56604e.deleteDir(file2);
-                    this.f56604e.deleteDir(file3);
-                    this.f56604e.deleteDir(file4);
+                    this.f56721e.deleteCache(file, false);
+                    this.f56721e.deleteDir(file2);
+                    this.f56721e.deleteDir(file3);
+                    this.f56721e.deleteDir(file4);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
-                this.f56604e.handler.sendMessage(this.f56604e.handler.obtainMessage());
+                this.f56721e.handler.sendMessage(this.f56721e.handler.obtainMessage());
             }
         }
     }

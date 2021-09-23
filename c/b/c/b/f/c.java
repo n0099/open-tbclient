@@ -15,7 +15,7 @@ public class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f31533a;
+    public Context f31554a;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -32,16 +32,16 @@ public class c implements b {
                 return;
             }
         }
-        this.f31533a = context;
+        this.f31554a = context;
     }
 
     @Override // c.b.c.b.f.b
     public void a(long j2, Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), thread, th}) == null) {
-            c.b.c.b.e.a c2 = c.b.c.b.e.a.c(j2, this.f31533a, thread, th);
-            l.e.d(this.f31533a, com.bytedance.tea.crash.c.f68908b.a(), Thread.currentThread().getName());
-            c.b.c.b.n.a.a().b(e.c().a(com.bytedance.tea.crash.c.f68908b, c2).j());
+            c.b.c.b.e.a c2 = c.b.c.b.e.a.c(j2, this.f31554a, thread, th);
+            l.e.d(this.f31554a, com.bytedance.tea.crash.c.f69219b.a(), Thread.currentThread().getName());
+            c.b.c.b.n.a.a().b(e.c().a(com.bytedance.tea.crash.c.f69219b, c2).j());
         }
     }
 

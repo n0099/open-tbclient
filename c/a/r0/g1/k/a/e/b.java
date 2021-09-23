@@ -29,7 +29,7 @@ public class b extends c.a.q0.x.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f18522a;
+    public boolean f18531a;
 
     /* loaded from: classes3.dex */
     public class a implements c.a.q0.x.b {
@@ -37,10 +37,10 @@ public class b extends c.a.q0.x.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.g1.k.a.e.a f18523e;
+        public final /* synthetic */ c.a.r0.g1.k.a.e.a f18532e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f18524f;
+        public final /* synthetic */ b f18533f;
 
         public a(b bVar, c.a.r0.g1.k.a.e.a aVar) {
             Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class b extends c.a.q0.x.c {
                     return;
                 }
             }
-            this.f18524f = bVar;
-            this.f18523e = aVar;
+            this.f18533f = bVar;
+            this.f18532e = aVar;
         }
 
         @Override // c.a.q0.x.b
@@ -68,38 +68,38 @@ public class b extends c.a.q0.x.c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                 return;
             }
-            int i2 = aVar.f15079a;
+            int i2 = aVar.f15086a;
             if (i2 == 4 || i2 == 6) {
-                this.f18523e.H((String) aVar.f15081c);
-                this.f18524f.f18522a = false;
+                this.f18532e.H((String) aVar.f15088c);
+                this.f18533f.f18531a = false;
             } else if (i2 == 7) {
-                this.f18523e.m().showToast(R.string.over_limit_tip);
-                this.f18524f.f18522a = true;
+                this.f18532e.m().showToast(R.string.over_limit_tip);
+                this.f18533f.f18531a = true;
             } else if (i2 == 8) {
-                if (this.f18524f.g(this.f18523e.m(), CyberPlayerManager.MEDIA_INFO_DISABLE_FILECACHE)) {
-                    this.f18523e.y();
-                    TiebaStatic.log(new StatisticItem("c13363").param("topic_id", String.valueOf(this.f18523e.s())));
+                if (this.f18533f.g(this.f18532e.m(), CyberPlayerManager.MEDIA_INFO_DISABLE_FILECACHE)) {
+                    this.f18532e.y();
+                    TiebaStatic.log(new StatisticItem("c13363").param("topic_id", String.valueOf(this.f18532e.s())));
                 }
             } else if (i2 != 14) {
                 if (i2 != 15) {
                     return;
                 }
-                int intValue = ((Integer) aVar.f15081c).intValue();
-                if (this.f18523e.r() != null && this.f18523e.r().getChosedFiles() != null && (size = this.f18523e.r().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f18523e.m().getPageActivity(), 12012, this.f18523e.r(), intValue)));
+                int intValue = ((Integer) aVar.f15088c).intValue();
+                if (this.f18532e.r() != null && this.f18532e.r().getChosedFiles() != null && (size = this.f18532e.r().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f18532e.m().getPageActivity(), 12012, this.f18532e.r(), intValue)));
                 }
             } else {
-                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f18523e.m().getPageActivity(), this.f18523e.r().toJsonString(), true, true);
+                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.f18532e.m().getPageActivity(), this.f18532e.r().toJsonString(), true, true);
                 albumActivityConfig.setRequestCode(12002);
                 if (c.a.q0.x.w.a.a().b() == 1) {
                     albumActivityConfig.setRequestFrom(4);
-                    if (this.f18523e.r() != null) {
-                        this.f18523e.r().setMaxImagesAllowed(1);
+                    if (this.f18532e.r() != null) {
+                        this.f18532e.r().setMaxImagesAllowed(1);
                     }
-                } else if (this.f18523e.r() != null) {
-                    this.f18523e.r().setMaxImagesAllowed(10);
+                } else if (this.f18532e.r() != null) {
+                    this.f18532e.r().setMaxImagesAllowed(10);
                 }
-                l.x(this.f18523e.m().getPageActivity(), this.f18523e.m().getPageActivity().getCurrentFocus());
+                l.x(this.f18532e.m().getPageActivity(), this.f18532e.m().getPageActivity().getCurrentFocus());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
             }
         }
@@ -167,7 +167,7 @@ public class b extends c.a.q0.x.c {
             m findToolById = a2.findToolById(5);
             if (findToolById != null) {
                 findToolById.f(false);
-                findToolById.f15094j = 1;
+                findToolById.f15101j = 1;
             }
             a2.addTool(new c.a.q0.x.r.d(a2.getContext(), 3));
             c cVar = new c(a2.getContext());

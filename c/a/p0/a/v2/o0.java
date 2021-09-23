@@ -30,7 +30,7 @@ public final class o0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9372a;
+    public static final boolean f9380a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public final class o0 {
                 return;
             }
         }
-        f9372a = c.a.p0.a.k.f7077a;
+        f9380a = c.a.p0.a.k.f7085a;
     }
 
     public static String a(String str, String str2, String str3) {
@@ -159,7 +159,7 @@ public final class o0 {
                     arrayList.add(str2);
                 }
             } catch (Exception unused) {
-                boolean z = f9372a;
+                boolean z = f9380a;
             }
             return arrayList;
         }
@@ -436,7 +436,7 @@ public final class o0 {
                     try {
                         encode = URLEncoder.encode(str, "UTF-8");
                     } catch (UnsupportedEncodingException e2) {
-                        if (f9372a) {
+                        if (f9380a) {
                             throw new RuntimeException("This method requires UTF-8 encoding support", e2);
                         }
                     }

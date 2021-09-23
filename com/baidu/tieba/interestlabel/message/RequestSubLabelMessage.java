@@ -1,6 +1,6 @@
 package com.baidu.tieba.interestlabel.message;
 
-import c.a.q0.d1.x;
+import c.a.q0.d1.a0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -21,7 +21,7 @@ public class RequestSubLabelMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f53691common;
+    public CommonReq f53806common;
     public List<Integer> labelList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,10 +49,10 @@ public class RequestSubLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f79889common = this.f53691common;
+            builder.f80206common = this.f53806common;
             builder.arr_tag_id = this.labelList;
             if (z) {
-                x.a(builder, true);
+                a0.a(builder, true);
             }
             SubTagListReqIdl.Builder builder2 = new SubTagListReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -64,7 +64,7 @@ public class RequestSubLabelMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f53691common = commonReq;
+            this.f53806common = commonReq;
         }
     }
 

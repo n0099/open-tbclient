@@ -21,7 +21,7 @@ public class l extends c.a.e.l.e.a<c.a.r0.o2.e.l, CardViewHolder<c.a.r0.o2.j.o>>
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.r0.o2.e.l.f23227i);
+        super(tbPageContext.getPageActivity(), c.a.r0.o2.e.l.f23243i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

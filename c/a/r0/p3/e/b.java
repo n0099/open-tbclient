@@ -17,10 +17,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f23904a;
+    public String f23920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<DressItemData> f23905b;
+    public List<DressItemData> f23921b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,13 +39,13 @@ public class b {
     public List<DressItemData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23905b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23921b : (List) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23904a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23920a : (String) invokeV.objValue;
     }
 
     public void c(ThemeBgInMain themeBgInMain) {
@@ -53,10 +53,10 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBgInMain) == null) || themeBgInMain == null) {
             return;
         }
-        this.f23904a = themeBgInMain.bg_category;
-        this.f23905b = new ArrayList();
+        this.f23920a = themeBgInMain.bg_category;
+        this.f23921b = new ArrayList();
         for (ThemeBgProp themeBgProp : themeBgInMain.props) {
-            this.f23905b.add(new DressItemData(themeBgProp));
+            this.f23921b.add(new DressItemData(themeBgProp));
         }
     }
 }
